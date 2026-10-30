@@ -333,6 +333,11 @@ function applyMetaAndChar() {
   stats.range = WEAPONS.coffeeSplash.range; stats.magnetRadius = PICKUPS.wisdomGem.magnetRadius;
   stats.dadJoke = false; stats.jokeEveryMs = WEAPONS.dadJoke.fireEveryMs; stats.jokeRadius = WEAPONS.dadJoke.radius; stats.jokeDamage = WEAPONS.dadJoke.damage;
   stats.wordNo = false; stats.noEveryMs = WEAPONS.wordNo.fireEveryMs; stats.noRadius = WEAPONS.wordNo.radius; stats.noDamage = WEAPONS.wordNo.damage; stats.noPush = WEAPONS.wordNo.pushPx;
+  stats.coffeeUp = false; stats.jokeUp = false; stats.noUp = false;
+  stats.hasShoes = false; stats.hasSleep = false; stats.hasGlasses = false;
+  stats.coldBrew = false; stats.punStorm = false; stats.healthyBoundaries = false;
+  stats.coffeeRank = 0; stats.jokeRank = 0; stats.noRank = 0;
+  stats.perkRanks = {};
 
   const rMatch = meta.ranks.compoundInterest || 0;
   const rEsp   = meta.ranks.espressoMachine || 0;
@@ -370,13 +375,13 @@ function beginFreshRunAtDecade(scene) {
   if (cp && cp.bonusLevels > 0) {
     for (let i = 0; i < cp.bonusLevels; i++) {
       level++;
-      xpNeeded = Math.round(xpNeeded * LEVELING.growth);
       const pool = UPGRADES.filter(u => !u.when || u.when(stats));
       if (pool.length) {
         const up = Phaser.Utils.Array.GetRandom(pool);
         up.apply(stats);
       }
     }
+    xpNeeded = Math.round(LEVELING.firstLevelXp + cp.bonusLevels * 6);
     hp = stats.maxHp;
   }
 
@@ -513,7 +518,7 @@ function collectGem(p, gem) {
   while (xp >= xpNeeded) {
     xp -= xpNeeded;
     level++;
-    xpNeeded = Math.round(xpNeeded * LEVELING.growth);
+    xpNeeded = Math.round(xpNeeded * LEVELING.growth + (LEVELING.stepXp || 4));
     pendingLevels++;
     hp = Math.min(stats.maxHp, hp + 2); // leveling up restores +2 HP!
   }
@@ -731,19 +736,19 @@ function damagePlant(prop, amount) {
     prop.setVisible(false);
     if (prop.body) prop.body.enable = false;
 
-    // Roll plant loot reward: 38% Leftover Pizza (+3 HP), 40% 401(k) Coin + Gem, 22% Bonus Gem Jackpot!
+    // Roll plant loot reward: 45% Leftover Pizza (+3 HP), 40% 401(k) Coin, 15% 2x 401(k) Coin + 1 Gem Jackpot!
     const roll = Math.random();
     let popupTxt = "🪙 +401(k)!";
-    if (roll < 0.38) {
+    if (roll < 0.45) {
       window.pizzas.create(prop.x, prop.y, "pizza").setDepth(3);
       popupTxt = "🍕 PIZZA!";
-    } else if (roll < 0.78) {
-      coins.create(prop.x - 6, prop.y, "coin401k").setDepth(3);
-      gems.create(prop.x + 6, prop.y, "gem").setDepth(3);
+    } else if (roll < 0.85) {
+      coins.create(prop.x, prop.y, "coin401k").setDepth(3);
     } else {
-      for (let i = -1; i <= 1; i++) gems.create(prop.x + i * 10, prop.y - 4, "gem").setDepth(3);
-      coins.create(prop.x, prop.y + 8, "coin401k").setDepth(3);
-      popupTxt = "💎 BONUS STASH!";
+      coins.create(prop.x - 8, prop.y, "coin401k").setDepth(3);
+      coins.create(prop.x + 8, prop.y, "coin401k").setDepth(3);
+      gems.create(prop.x, prop.y - 6, "gem").setDepth(3);
+      popupTxt = "🪙 BONUS 401(k)!";
     }
     const pt = project3DToPhaserWorld(sc, prop.x, 32, prop.y);
     const msg = sc.add.text(pt.x, pt.y - 12, popupTxt, {

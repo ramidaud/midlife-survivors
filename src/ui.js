@@ -14,6 +14,8 @@ const UPGRADE_META = {
   "Good Night's Sleep":            { icon: "😴", tag: "RARE MIRACLE",    rarity: "passive" },
   "Annual Checkup":                { icon: "🩺", tag: "COPAY HEAL",      rarity: "passive" },
   "Reading Glasses":               { icon: "👓", tag: "2.0x MAGNIFIER",  rarity: "passive" },
+  "Executive Delegation":          { icon: "📊", tag: "SENIOR TIER",     rarity: "unlock" },
+  "Titanium Knees":                { icon: "🦿", tag: "BIONIC PERK",     rarity: "passive" },
   "EVOLVE: Cold Brew Concentrate": { icon: "⚡☕", tag: "✨ EVOLUTION",   rarity: "evo" },
   "EVOLVE: Unhinged Pun Storm":    { icon: "🌩️😂", tag: "✨ EVOLUTION",   rarity: "evo" },
   "EVOLVE: Healthy Boundaries":    { icon: "🛡️🛑", tag: "✨ EVOLUTION",   rarity: "evo" }
@@ -588,10 +590,14 @@ function renderLevelUpModal(choices, customTitle, onPick) {
 
   const cardEls = choices.map((up, i) => {
     const info = UPGRADE_META[up.name] || { icon: "⭐", tag: "PERK VOUCHER", rarity: "common" };
+    const curRank = (stats && stats.perkRanks && up.id) ? (stats.perkRanks[up.id] || 0) : 0;
+    const rankLabel = (up.maxRank && up.maxRank > 1 && up.maxRank < 50)
+      ? `${info.tag} // RANK ${curRank + 1}/${up.maxRank}`
+      : info.tag;
     const card = document.createElement("div");
     card.className = `perk-card rarity-${info.rarity}`;
     card.innerHTML = `
-      <div class="perk-ribbon">${info.tag}</div>
+      <div class="perk-ribbon">${rankLabel}</div>
       <div class="perk-icon">${info.icon}</div>
       <div class="perk-name">${up.name}</div>
       <div class="perk-desc">${up.text}</div>

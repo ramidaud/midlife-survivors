@@ -680,6 +680,31 @@ When you click an HTML `<button>` inside `#ui-layer`, browser focus moves from t
 
 ---
 
+## Chapter 26: Pacing Level-Ups & 3-Tier Perk Scaling Across the Playthrough
+
+### 1. Why Pure Multiplication Clustered Early Level-Ups (`3 -> 4 -> 5 -> 6`)
+When `firstLevelXp` was `3` and `growth` was `1.25`, `Math.round(xpNeeded * 1.25)` produced:
+- **Old Curve:** `3 -> 4 -> 5 -> 6 -> 8 -> 10` gems (6 level-up screens in your first 36 kills, interrupting gameplay every 5 seconds!).
+- **New Compound + Step Curve (`Math.round(xpNeeded * 1.35 + 4)` starting at `8`):**
+
+| Level Transition | Old Gems Needed | New Gems Needed | Approx. Gameplay Between Menus |
+|---|---|---|---|
+| **Lv 1 -> Lv 2** | `3` | **`8`** | ~15 seconds of initial combat |
+| **Lv 2 -> Lv 3** | `4` | **`15`** | ~20 seconds |
+| **Lv 3 -> Lv 4** | `5` | **`24`** | ~25 seconds |
+| **Lv 4 -> Lv 5** | `6` | **`36`** | ~32 seconds |
+| **Lv 5 -> Lv 6** | `8` | **`53`** | ~40 seconds |
+| **Lv 6 -> Lv 7** | `10` | **`76`** | ~48 seconds |
+| **Lv 7 -> Lv 8** | `13` | **`107`** | ~55 seconds |
+
+### 2. 3-Tier Perk Progression (`src/data/upgrades.js`)
+Perks now display their **Rank (`RANK 1/4 -> 4/4`)** on the card ribbon and unlock in 3 distinct career stages:
+1. **Tier 1 (40s - Foundation):** Unlock `Dad Joke` and `"No."`, pick up passives (`Comfortable Shoes`, `Good Night's Sleep`, `Reading Glasses`), and level up weapon ranks (`Rank 1 -> 2+`).
+2. **Tier 2 (50s & 60s - Evolutions):** Once a weapon reaches **Rank 2+** AND you own its matching Passive, its **✨ Evolution** (`Cold Brew Concentrate`, `Unhinged Pun Storm`, `Healthy Boundaries`) unlocks!
+3. **Tier 3 (Late Career & 80-100 Senior Rounds):** Unlocks **Executive Delegation (`📊`)** (`+1` damage and `10%` faster fire rate to ALL weapons, 4 ranks) and **Titanium Knees (`🦿`)** (`+4 Max HP`, `+4` heal, `+10%` speed, 3 ranks)!
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

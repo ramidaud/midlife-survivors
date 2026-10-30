@@ -242,3 +242,14 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - Replaced Phaser-only `scene.input.gamepad` polling in `readPad()` with direct `navigator.getGamepads()` polling so Xbox, PlayStation, Switch Pro, and Bluetooth controllers stay responsive even after clicking HTML overlay buttons, with auto-repeat stepping (`getPadMenuStep`) and a live **`🎮 PAD`** indicator in the HUD.
 - **Mobile Touch Controls (`#mobile-dock` + `#touch-joystick`):**
   - Added a thumb-friendly floating **Mobile Quick-Action Dock** (`⏸ PAUSE`, `🎥 VIEW`, `🔊`) at the bottom-right, an on-screen **Virtual Touch Joystick** ring and knob (`#touch-joystick`) when dragging on touchscreens, and responsive mobile HUD/modal layouts.
+
+## 2026-10-30: Scaled XP Curve & Tiered Perk Ranks Across the Playthrough! (Antigravity)
+- **Fixed Rapid Level-Up Interruptions (`src/data/pickups.js` & `src/main.js`):**
+  - Previously, `firstLevelXp: 3` with `Math.round(xpNeeded * 1.25)` produced tiny gem requirements (`3, 4, 5, 6, 8, 10`), and smashed potted plants dropped up to 3 XP gems, interrupting gameplay every 4-6 seconds with a Level-Up modal.
+  - Updated `LEVELING` to `firstLevelXp: 8`, `growth: 1.35`, and `stepXp: 4` (`xpNeeded = Math.round(xpNeeded * 1.35 + 4)` -> `8, 15, 24, 36, 53, 76, 107...`), giving 20-60 seconds of uninterrupted action between level-ups!
+  - Changed potted plant loot (`damagePlant`) to focus on **Leftover Pizza (`+3 HP`, 45%)** and **401(k) Gold Coins (`1-2k`, 55%)** so smashing plants rewards you without triggering unexpected Level-Up screens.
+- **3-Tier Perk Rank Scaling (`src/data/upgrades.js` & `src/ui.js`):**
+  - Added `maxRank` caps (`RANK 1/4 -> 4/4` displayed on each Perk Card ribbon) and weapon rank tracking (`coffeeRank`, `jokeRank`, `noRank`).
+  - **Tier 1 (Early 40s):** Unlock core weapons (`Dad Joke`, `"No."`), passives (`Comfortable Shoes`, `Good Night's Sleep`, `Reading Glasses`), and build weapon ranks (`Rank 1 -> 2+`).
+  - **Tier 2 (Mid-Career 50s/60s):** **Weapon Evolutions** (`Cold Brew Concentrate`, `Unhinged Pun Storm`, `Healthy Boundaries`) now require **Weapon Rank 2+ AND its matching Passive**, arriving in mid-career instead of the first 30 seconds.
+  - **Tier 3 (Late-Career & Senior Rounds):** Added **Executive Delegation** (`+1` damage & `10%` fire rate to ALL weapons, 4 ranks) and **Titanium Knees** (`+4 Max HP`, `+4` heal, `+10%` speed, 3 ranks) that unlock once your core build is underway!

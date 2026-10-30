@@ -5,7 +5,7 @@ window.PICKUPS = {
     xp: 1,            // experience points per gem
     size: 10,
     color: 0x5fb3f0,  // light blue
-    magnetRadius: 120, // gems this close to you fly into your pocket
+    magnetRadius: 110, // gems this close to you fly into your pocket
     magnetSpeed: 380
   },
   bossChest: {
@@ -16,7 +16,7 @@ window.PICKUPS = {
   coin401k: {
     name: "401(k) Coin",
     value: 1,
-    dropChance: 0.40, // 40% of paid-off Bills also drop a 401(k) Coin! (Elites drop 2, Bosses drop 5)
+    dropChance: 0.38, // 38% of paid-off Bills also drop a 401(k) Coin! (Elites drop 2, Bosses drop 5)
     size: 16,
     color: 0xf5c542
   },
@@ -28,8 +28,11 @@ window.PICKUPS = {
   }
 };
 
-// Leveling: how much XP each level needs. Each level asks for a bit more than the last.
+// Leveling: how much XP each level needs.
+// Scales smoothly across the 40->80 playthrough (`xpNeeded = Math.round(xpNeeded * growth + stepXp)`)
+// so you get 20-60 seconds of uninterrupted gameplay between level-up screens!
 window.LEVELING = {
-  firstLevelXp: 3,    // only 3 gems needed for your first level-up!
-  growth: 1.25        // smooth 25% curve so your upgrades keep pace with the waves
+  firstLevelXp: 8,    // 8 gems for Level 2 (lets you play ~15s before the first menu)
+  growth: 1.35,       // 35% compound scaling per level
+  stepXp: 4           // +4 flat gem step per level (8 -> 15 -> 24 -> 36 -> 53 -> 76 -> 107...)
 };
