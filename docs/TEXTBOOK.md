@@ -705,6 +705,27 @@ Perks now display their **Rank (`RANK 1/4 -> 4/4`)** on the card ribbon and unlo
 
 ---
 
+## Chapter 27: Character-Following Speech Bubbles & Browser Voice Synthesis (`window.speechSynthesis`)
+
+### 1. Why the Old Dad Jokes Were Hard to Read (Fade-Immediately vs. Hold-Then-Fade)
+Previously, `fireDadJoke` spawned a `12px` text label at the spot where you were standing and immediately started fading `alpha -> 0` over `0.75s`. As soon as you walked away, the text was already half-transparent and left behind!
+- **New `showPlayerSpeechBubble` (`src/main.js`):**
+  1. Renders a bold `14px` gold-on-navy speech pill (`💬 "Who touched the thermostat?!"`).
+  2. **Follows your character every frame** in `update()` right above your head (`project3DToPhaserWorld(this, player.x, (player.elev || 0) + 68, player.y)`).
+  3. **Holds at 100% opacity for `2.30 seconds`**, then smoothly fades out over `0.55s` (**`2.85 seconds` total**)!
+
+### 2. Zero-File Character Voice Acting with the Web Speech API (`speakDadJoke` in `src/sfx.js`)
+Modern browsers include a built-in text-to-speech synthesizer (`window.speechSynthesis`) alongside Web Audio:
+```js
+const utter = new SpeechSynthesisUtterance(text);
+utter.pitch = currentAge >= 80 ? 0.84 : 0.94; // deeper senior voice at Age 80+!
+utter.rate  = 1.05;
+window.speechSynthesis.speak(utter);
+```
+You can also toggle **`🗣️ DAD JOKE VOICE: ◀ SPOKEN 🗣️ / TEXT ONLY 💬 ▶`** anytime inside the **Spacebar Pause & Options Screen**!
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

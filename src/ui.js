@@ -475,6 +475,7 @@ function renderPauseModal(scene, keepRowIdx) {
   if (!modal) return;
   const vIdx = window.viewModeIdx || 0;
   const muted = isMuted();
+  const voiced = typeof isVoiceEnabled === "function" ? isVoiceEnabled() : true;
 
   modal.innerHTML = `
     <div class="modal-card pause-box">
@@ -490,6 +491,10 @@ function renderPauseModal(scene, keepRowIdx) {
         <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1">
           <span>🔊 SOUND & MUSIC</span>
           <span class="opt-val">◀ ${muted ? "MUTED 🔇" : "ON 🔊"} ▶</span>
+        </button>
+        <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1">
+          <span>🗣️ DAD JOKE VOICE</span>
+          <span class="opt-val">◀ ${voiced ? "SPOKEN 🗣️" : "TEXT ONLY 💬"} ▶</span>
         </button>
         <button class="opt-btn" id="pause-savequit-btn">
           <span>💾 SAVE & EXIT TO DOSSIER</span>
@@ -529,22 +534,28 @@ function renderPauseModal(scene, keepRowIdx) {
     renderPauseModal(scene, 2);
   }, keepRowIdx === 2);
 
-  bindNavItem(document.getElementById("pause-savequit-btn"), 3, () => {
+  bindNavItem(document.getElementById("pause-voice-btn"), 3, () => {
+    if (typeof toggleVoice === "function") toggleVoice();
+    sfx("pick");
+    renderPauseModal(scene, 3);
+  }, keepRowIdx === 3);
+
+  bindNavItem(document.getElementById("pause-savequit-btn"), 4, () => {
     sfx("pick");
     if (window.persistActiveRun) window.persistActiveRun();
     setPauseModalVisible(false);
     paused = false;
     titleSeen = false;
     scene.scene.restart();
-  }, keepRowIdx === 3);
+  }, keepRowIdx === 4);
 
-  bindNavItem(document.getElementById("pause-restart-btn"), 4, () => {
+  bindNavItem(document.getElementById("pause-restart-btn"), 5, () => {
     sfx("pick");
     clearRunState();
     setPauseModalVisible(false);
     paused = false;
     scene.scene.restart();
-  }, keepRowIdx === 4);
+  }, keepRowIdx === 5);
 
   window.menuNav.refresh();
 }

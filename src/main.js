@@ -764,7 +764,27 @@ function hitProp(splash, prop) {
   damagePlant(prop, stats.damage);
 }
 
-// Weapon 2: Dad Joke. A yellow ring ripples out and damages every Bill (and Potted Plant!) inside it.
+// Weapon 2: Dad Joke. A yellow ring ripples out, your character speaks a Dad Joke out loud,
+// and a comic speech bubble follows above your head for ~2.8 seconds so you can read it easily!
+let playerSpeech = null;
+function showPlayerSpeechBubble(scene, text, color = "#ffe042", holdMs = 2300) {
+  if (playerSpeech && playerSpeech.active) playerSpeech.destroy();
+  const pt = project3DToPhaserWorld(scene, player.x, (player.elev || 0) + 68, player.y);
+  playerSpeech = scene.add.text(pt.x, pt.y - 34, `💬 "${text}"`, {
+    fontFamily: "monospace",
+    fontSize: "14px",
+    fontStyle: "bold",
+    color,
+    backgroundColor: "#12152aee",
+    padding: { x: 10, y: 6 },
+    stroke: "#090b14",
+    strokeThickness: 3
+  }).setOrigin(0.5, 1).setDepth(22);
+  playerSpeech.holdUntil = runElapsedMs + holdMs;
+  playerSpeech.fadeEnd = runElapsedMs + holdMs + 550;
+  scene.tweens.add({ targets: playerSpeech, scaleX: { from: 0.85, to: 1 }, scaleY: { from: 0.85, to: 1 }, duration: 140, ease: "Back.easeOut" });
+}
+
 function fireDadJoke(scene) {
   if (!stats.dadJoke) return;
   sfx("dadJoke");
@@ -775,12 +795,10 @@ function fireDadJoke(scene) {
     const ring = scene.add.circle(player.x, player.y, 12, J.color, 0.25).setStrokeStyle(3, J.color);
     scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 380, onComplete: () => ring.destroy() });
   }
-  const line = Phaser.Utils.Array.GetRandom(J.lines);
-  const pt = project3DToPhaserWorld(scene, player.x, 54, player.y);
-  const quip = scene.add.text(pt.x, pt.y - 28, line, {
-    fontFamily: "monospace", fontSize: "12px", color: "#e6c84f"
-  }).setOrigin(0.5).setDepth(16);
-  scene.tweens.add({ targets: quip, y: quip.y - 24, alpha: 0, duration: 750, onComplete: () => quip.destroy() });
+  const pool = (currentAge >= 80 && J.seniorLines) ? J.seniorLines.concat(J.lines) : J.lines;
+  const line = Phaser.Utils.Array.GetRandom(pool);
+  showPlayerSpeechBubble(scene, line, "#ffe042", 2300);
+  if (typeof speakDadJoke === "function") speakDadJoke(line, currentAge >= 80 ? 0.84 : 0.94, 1.05);
 
   bills.getChildren().slice().forEach(bill => {
     if (Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y) <= r) {
@@ -1041,6 +1059,23 @@ function update(time, delta) {
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   player.setAngle((x !== 0 || y !== 0) ? Math.sin(this.time.now / 55) * 7 : 0); // jaunty walk wobble
   label.setPosition(player.x, player.y - PLAYER.size / 2 - 4);
+
+  // Keep the Dad Joke speech bubble anchored right above the character's head as you move!
+  if (playerSpeech && playerSpeech.active) {
+    if (runElapsedMs >= playerSpeech.fadeEnd) {
+      playerSpeech.destroy();
+      playerSpeech = null;
+    } else {
+      const sPt = project3DToPhaserWorld(this, player.x, (player.elev || 0) + 68, player.y);
+      playerSpeech.setPosition(sPt.x, sPt.y - 34).setVisible(sPt.visible);
+      if (runElapsedMs > playerSpeech.holdUntil) {
+        const rem = (playerSpeech.fadeEnd - runElapsedMs) / (playerSpeech.fadeEnd - playerSpeech.holdUntil);
+        playerSpeech.setAlpha(Math.max(0, rem));
+      } else {
+        playerSpeech.setAlpha(1);
+      }
+    }
+  }
 
   // Slide the carpet pattern and recycle office furniture around the camera so the stage feels alive.
   floor.tilePositionX = this.cameras.main.scrollX;

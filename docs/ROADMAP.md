@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Phase 6 (Share it)
-**Last updated:** 2026-10-30 (Scaled XP Curve & Tiered Perk Ranks across the 40-to-100 Playthrough so upgrades don't interrupt early combat)
+**Last updated:** 2026-10-30 (Added Spoken Dad Jokes via Web Speech API + 2.85s Character-Following Comic Speech Bubble)
 
 ---
 

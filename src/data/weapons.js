@@ -11,11 +11,32 @@ window.WEAPONS = {
   },
   dadJoke: {
     name: "Dad Joke",
-    fireEveryMs: 2200, // how often a cringe aura ripples out around you
-    radius: 105,       // size of the groan circle, in pixels
+    fireEveryMs: 2600, // how often a cringe aura ripples out around you (gives time to read & hear the joke!)
+    radius: 110,       // size of the groan circle, in pixels
     damage: 1,         // hits EVERY Bill inside the circle
     color: 0xe6c84f,   // cheesy yellow
-    lines: ["Hi Hungry, I'm Dad!", "Working hard or hardly working?", "It's a dry heat.", "Must be free!"]
+    lines: [
+      "Hi Hungry, I'm Dad!",
+      "Working hard or hardly working?",
+      "It's not the heat, it's the humidity!",
+      "Didn't scan? Must be free!",
+      "Who touched the thermostat?!",
+      "I'm not sleeping, I'm resting my eyes!",
+      "We're making great time on this drive!",
+      "Looks like rain... we really needed this.",
+      "Are we paying to air-condition the whole neighborhood?",
+      "Let's rock and roll... right after my ibuprofen.",
+      "I used to be with 'it', then they changed what 'it' was!",
+      "Careful, that's load-bearing drywall!"
+    ],
+    seniorLines: [
+      "In my day, coffee cost a nickel!",
+      "Turn that racket down, it's 4:15 PM!",
+      "My left knee says a storm's rolling in!",
+      "Is this covered by Medicare Part B?",
+      "If we leave now, we'll beat the 3 PM dinner rush!",
+      "Get off my meticulously edged Bermuda grass!"
+    ]
   },
   wordNo: {
     name: 'The Word "No."',

@@ -253,3 +253,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - **Tier 1 (Early 40s):** Unlock core weapons (`Dad Joke`, `"No."`), passives (`Comfortable Shoes`, `Good Night's Sleep`, `Reading Glasses`), and build weapon ranks (`Rank 1 -> 2+`).
   - **Tier 2 (Mid-Career 50s/60s):** **Weapon Evolutions** (`Cold Brew Concentrate`, `Unhinged Pun Storm`, `Healthy Boundaries`) now require **Weapon Rank 2+ AND its matching Passive**, arriving in mid-career instead of the first 30 seconds.
   - **Tier 3 (Late-Career & Senior Rounds):** Added **Executive Delegation** (`+1` damage & `10%` fire rate to ALL weapons, 4 ranks) and **Titanium Knees** (`+4 Max HP`, `+4` heal, `+10%` speed, 3 ranks) that unlock once your core build is underway!
+
+## 2026-10-30: Spoken Dad Jokes (Web Speech API) & Character-Following Speech Bubble! (Antigravity)
+- **Readable Character-Following Speech Bubble (`showPlayerSpeechBubble` in `src/main.js`):**
+  - Replaced the old `0.75s` fading text (which got left behind as you walked) with a bold `14px` dark-and-gold comic speech pill (`💬 "..."`) that **tracks right above your character's head every frame** as you move across all 3 camera views (`2D 16-Bit`, `Diablo 3/4`, and `AAA 3D`).
+  - Stays at **100% full brightness for 2.3 seconds** before fading out over `0.55s` (**2.85 seconds total**, nearly 4x longer!).
+- **Spoken Dad Jokes Out Loud (`speakDadJoke` in `src/sfx.js`):**
+  - Uses the browser's built-in **Web Speech API (`window.speechSynthesis`)** so your character literally speaks the Dad Joke out loud when `fireDadJoke` triggers (with a slightly deeper senior voice pitch once you enter the Age 80-100 Senior Bonus Rounds!).
+  - Expanded `WEAPONS.dadJoke.lines` to 12 midlife jokes plus 6 `seniorLines` in `src/data/weapons.js`, and added a **`🗣️ DAD JOKE VOICE: ◀ SPOKEN 🗣️ / TEXT ONLY 💬 ▶`** toggle in the **Pause & Options Screen** (`src/ui.js`).

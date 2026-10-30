@@ -121,3 +121,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## Compound + step XP curves and tiered perk gating (Oct 30)
 - **Why pure multiplication (`Math.round(3 * 1.25)`) clusters early level-ups:** Multiplying a small starting number like `3` by `1.25` rounds to `4`, then `5`, then `6`, causing 5 level-up menus to pop up in the first 25 seconds and breaking combat flow. Using `Math.round(xpNeeded * 1.35 + 4)` starting at `8` spaces levels out (`8, 15, 24, 36, 53, 76, 107`) so you get real stretches of gameplay between upgrades.
 - **3-Tier Perk Gating (`perkRanks`):** Requiring `coffeeRank >= 2` plus `hasSleep` before `Cold Brew Concentrate` can appear paces weapon evolutions into mid-career (Ages 50-65), while unlocking Senior Tier perks (`Executive Delegation`, `Titanium Knees`) for late-game scaling.
+
+## Hold-then-fade speech bubbles and the Web Speech API (Oct 30)
+- **Hold-then-fade + player tracking:** Starting an alpha-0 tween at `t = 0` makes text dim immediately and get left behind when the player walks. Keeping `alpha = 1` until `holdUntil` (`2.3s`) and updating `playerSpeech.setPosition(...)` above the player every frame makes quips effortless to read in motion.
+- **Zero-asset voice acting (`window.speechSynthesis`):** `window.speechSynthesis.speak(new SpeechSynthesisUtterance(line))` lets the browser speak any string from `src/data/weapons.js` out loud with customizable `pitch` and `rate`, and zero audio files to download.
