@@ -928,6 +928,42 @@ By storing all worldbuilding in `window.GAME_LORE` (`src/data/lore.js`), the gam
 
 ---
 
+## Chapter 34: 401(k) Compound Interest Curves & Survival Dividends (`window.getCoinYieldInfo`)
+
+### 1. Why Flat Coin Values Feel Too Slow as Shop Ranks Scale
+In our 401(k) Retirement Shop (`src/data/meta.js`), upgrade costs grow with each rank (`5k -> 10k -> 15k -> 20k -> 25k -> 30k`). When every coin on the floor was always worth flat `+1k`, a long 5-minute run barely paid more per minute than a 30-second run!
+
+To reward staying alive longer without making the first 30 seconds crazy, we built a **Compound Interest Yield Curve** (`PICKUPS.coin401k.compoundTiers` in `src/data/pickups.js` + `window.getCoinYieldInfo()` in `src/main.js`):
+
+```
+===========================================================================================
+              401(k) COMPOUND INTEREST YIELD CURVE & 5-YEAR DIVIDENDS
+===========================================================================================
+  Coin Value
+  (+k / 🪙)
+    +6k 🪙 │                                                        ╭───────── 6x GOLDEN
+    +5k 🪙 │                                             ╭──────────╯          (Age 80+)
+    +4k 🪙 │                                  ╭──────────╯ 5x COMPOUND (Age 70)
+    +3k 🪙 │                       ╭──────────╯ 4x EXECUTIVE (Age 60)
+    +2k 🪙 │            ╭──────────╯ 3x SENIORITY (Age 50 / 100s)
+    +1k 🪙 │ ───────────╯ 2x VESTED (Age 44 / 42s)
+           └────────────┴──────────┴──────────┴──────────┴──────────┴─────────► Run Progress
+          Age 40       Age 44     Age 50     Age 60     Age 70     Age 80+
+          (0:00)       (0:42)     (1:40)     (2:55)     (4:10)     (5:20+)
+                         ▲          ▲          ▲          ▲          ▲
+                    📈 Automatic 5-Year Dividends (+6k, +9k, +12k, +16k, +20k...)
+===========================================================================================
+```
+
+### 2. How the Three Layers of Coin Scaling Work Together
+| Layer | How It Works | Early Run (Age 40-43) | Mid Run (Age 50-59) | Late Run (Age 70-80+) |
+|---|---|---|---|---|
+| **1. Floor Coin Yield (`getCoinYieldInfo`)** | Every coin picked up multiplies by your current Yield Tier | **`+1k` per coin** (`55%` drop chance) | **`+3k` per coin** (`60%` drop chance) | **`+5k to +6k` per coin** (`70%+` drop chance) |
+| **2. Elite, Plant & Boss Multipliers (`bonusMult`)** | Elites, Plant Jackpots, and Bosses drop `2x` double-value coins + Boss Chest dividends | Plant: `+1k to +4k`<br>Boss Chest: `+4k` | Plant: `+3k to +12k`<br>Boss Chest: `+12k` | Plant: `+6k to +24k`<br>Boss Chest: `+24k` |
+| **3. 5-Year Survival Dividends (`lastDividendAge`)** | Automatic bonus banked every 5 years of Age (`45, 50, 55, 60, 65, 70, 75, 80...`) | **Age 45:** `+6k` bonus | **Age 50:** `+9k`<br>**Age 55:** `+12k` | **Age 70:** `+19k`<br>**Age 80:** `+24k` (+`15k` Retire) |
+
+---
+
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

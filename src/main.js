@@ -138,11 +138,47 @@ let meta, runCoins = 0;
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
-let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office";
+let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office", lastDividendAge = 40;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
 let mouseState = { leftDown: false, rightDown: false, x: 0, y: 0, activeCursor: false, overUI: false };
 window._heldKeys = window._heldKeys || new Set();
 let lastWheelMs = 0;
+
+// Calculate current 401(k) Coin value & drop chance based on how long you have survived and your Age!
+window.getCoinYieldInfo = function() {
+  const C = (typeof PICKUPS !== "undefined" && PICKUPS.coin401k) ? PICKUPS.coin401k : { value: 1, dropChance: 0.55 };
+  const secs = (runElapsedMs || 0) / 1000;
+  const age = currentAge || 40;
+  let val = C.value || 1;
+  let label = "1x MATCH";
+  const tiers = C.compoundTiers || [];
+  for (let i = 0; i < tiers.length; i++) {
+    const t = tiers[i];
+    if (secs >= t.minSeconds || age >= t.minAge) {
+      val = t.value;
+      label = t.label;
+    }
+  }
+  // Extra endurance bonus if you survive more than 3.5 minutes in a single continuous run
+  const streakBonus = Math.floor(secs / 210);
+  val += streakBonus;
+  const dropChance = Math.min(0.78, (C.dropChance || 0.55) + Math.max(0, age - 40) * 0.005);
+  return { value: val, label: streakBonus > 0 ? `${val}x COMPOUND` : label, dropChance };
+};
+
+function spawnCoin(x, y, bonusMult = 1) {
+  if (!coins) return null;
+  const c = coins.create(x, y, "coin401k").setDepth(3);
+  c.bonusMult = bonusMult;
+  const yld = window.getCoinYieldInfo().value * bonusMult;
+  if (bonusMult >= 2 || yld >= 4) {
+    c.setScale(1.22);
+    c.setTint(0xffdf4f);
+  } else if (yld >= 2) {
+    c.setScale(1.1);
+  }
+  return c;
+}
 
 // create() runs ONCE when the game starts: build the world.
 function create() {
@@ -151,7 +187,8 @@ function create() {
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   meta = loadMeta();
   runStartAge = meta.startDecade || PLAYER.startingAge;
-  currentAge = runStartAge; bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
+  currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
+  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
@@ -570,6 +607,7 @@ function beginFreshRunAtDecade(scene) {
   applyMetaAndChar();
   runStartAge = meta.startDecade || PLAYER.startingAge;
   currentAge = runStartAge;
+  lastDividendAge = Math.floor(runStartAge / 5) * 5;
   runElapsedMs = 0;
   lastAutoSave = 0;
   retire80Prompted = runStartAge >= 80;
@@ -600,15 +638,28 @@ function beginFreshRunAtDecade(scene) {
   updateHUD();
 }
 
-// You picked up a gold 401(k) Coin: goes straight into your permanent retirement balance!
+// You picked up a gold 401(k) Coin: scales with your Compound Yield Tier the longer you survive!
 function collectCoin(p, coin) {
   if (!coin.active) return;
+  const mult = coin.bonusMult || 1;
   coin.destroy();
   sfx("coin");
-  runCoins += PICKUPS.coin401k.value;
-  meta.coins += PICKUPS.coin401k.value;
+  const yld = window.getCoinYieldInfo();
+  const gain = yld.value * mult;
+  runCoins += gain;
+  meta.coins += gain;
   saveMeta(meta);
   updateHUD();
+  const pt = project3DToPhaserWorld(p.scene, p.x, 38, p.y);
+  const txt = p.scene.add.text(pt.x + Phaser.Math.Between(-6, 6), pt.y - 16, `+${gain}k 🪙`, {
+    fontFamily: "monospace",
+    fontSize: gain >= 3 ? "13px" : "11px",
+    fontStyle: "bold",
+    color: gain >= 3 ? "#ffe042" : "#f5c542",
+    stroke: "#12152a",
+    strokeThickness: 3
+  }).setOrigin(0.5).setDepth(16);
+  p.scene.tweens.add({ targets: txt, y: txt.y - 22, alpha: 0, duration: 520, onComplete: () => txt.destroy() });
 }
 
 // You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +3 HP!
@@ -646,6 +697,7 @@ function showTitleScreen(scene) {
 
     currentAge = saved.currentAge || 40;
     runStartAge = saved.runStartAge || 40;
+    lastDividendAge = Math.floor(currentAge / 5) * 5;
     runElapsedMs = saved.runElapsedMs || 0;
     lastAutoSave = runElapsedMs;
     level = saved.level || 1;
@@ -711,13 +763,18 @@ function togglePause(scene) {
   }
 }
 
-// You walked over a gold Boss Chest: free weapon or upgrade choice!
+// You walked over a gold Boss Chest: free weapon or upgrade choice + Executive Bonus 401(k) Dividend!
 function collectChest(p, chest) {
   if (!chest.active) return;
   if (chest.tag) chest.tag.destroy();
   chest.destroy();
+  const execBonus = window.getCoinYieldInfo().value * 4;
+  runCoins += execBonus;
+  meta.coins += execBonus;
+  saveMeta(meta);
+  updateHUD();
   pendingLevels++;
-  if (!levelUpOpen) showLevelUp(p.scene, "EXECUTIVE BONUS CHEST!", true);
+  if (!levelUpOpen) showLevelUp(p.scene, `EXECUTIVE BONUS CHEST! (+${execBonus}k 401k)`, true);
 }
 
 function drawXpBar() { updateHUD(); }
@@ -900,27 +957,28 @@ function damageBill(bill, amount) {
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
       }).setOrigin(0.5).setDepth(4);
-      for (let i = -2; i <= 2; i++) coins.create(bill.x + i * 10, bill.y + 14, "coin401k").setDepth(3);
+      for (let i = -2; i <= 2; i++) spawnCoin(bill.x + i * 10, bill.y + 14, 2);
       if (window.pushContextEvent) {
         window.pushContextEvent(
           "🏆 BOSS DEFEATED!",
-          `"You survived ${E.name}! A gold Executive Bonus Chest and 5x 401(k) Coins just dropped!"`,
-          "💡 HELP: Walk over the gold BONUS Chest on the floor to claim your free promotion reward!",
+          `"You survived ${E.name}! A gold Executive Bonus Chest and 5x Double-Value 401(k) Coins just dropped!"`,
+          "💡 HELP: Walk over the gold BONUS Chest on the floor to claim your free promotion + Executive Dividend!",
           "loot",
           5000
         );
       }
     } else if (bill.kind === "officeGossip") {
-      // Elite Reply-All Chain drops 3 Wisdom gems, 2 401(k) Coins, AND splits into 2 fast Late Fees!
+      // Elite Reply-All Chain drops 3 Wisdom gems, 2 401(k) Coins (one 2x value!), AND splits into 2 fast Late Fees!
       for (let i = -1; i <= 1; i++) gems.create(bill.x + i * 10, bill.y, "gem").setDepth(3);
-      coins.create(bill.x - 8, bill.y + 10, "coin401k").setDepth(3);
-      coins.create(bill.x + 8, bill.y + 10, "coin401k").setDepth(3);
+      spawnCoin(bill.x - 8, bill.y + 10, 1);
+      spawnCoin(bill.x + 8, bill.y + 10, 2);
       createEnemy(sc, "lateFee", bill.x - 16, bill.y - 10);
       createEnemy(sc, "lateFee", bill.x + 16, bill.y + 10);
     } else {
       gems.create(bill.x, bill.y, "gem").setDepth(3); // leave a Wisdom gem behind
-      if (Math.random() < PICKUPS.coin401k.dropChance) {
-        coins.create(bill.x + 10, bill.y, "coin401k").setDepth(3);
+      const yld = window.getCoinYieldInfo();
+      if (Math.random() < yld.dropChance) {
+        spawnCoin(bill.x + 10, bill.y, 1);
       }
     }
     bill.tag.destroy();
@@ -959,41 +1017,45 @@ function damagePlant(prop, amount) {
     prop.setVisible(false);
     if (prop.body) prop.body.enable = false;
 
-    // Roll plant loot reward: 45% Leftover Pizza (+3 HP), 40% 401(k) Coin, 15% 2x 401(k) Coin + 1 Gem Jackpot!
+    // Roll plant loot reward: 45% Leftover Pizza (+3 HP) + 1 Coin, 35% 2x 401(k) Coins, 20% 3x Coins + 1 Gem Jackpot!
     const roll = Math.random();
     let popupTxt = "🪙 +401(k)!";
     if (roll < 0.45) {
-      window.pizzas.create(prop.x, prop.y, "pizza").setDepth(3);
-      popupTxt = "🍕 PIZZA!";
+      window.pizzas.create(prop.x - 6, prop.y, "pizza").setDepth(3);
+      spawnCoin(prop.x + 10, prop.y, 1);
+      popupTxt = "🍕 PIZZA + 🪙!";
       if (window.pushContextEvent) {
         window.pushContextEvent(
           "🍕 BREAKROOM STASH!",
-          '"You cracked open a potted fern and found a warm slice of Leftover Breakroom Pizza!"',
-          "💡 HELP: Walk over the Pizza slice to restore +3 HP immediately!",
+          '"You cracked open a potted fern and found a warm slice of Leftover Pizza plus a 401(k) Coin!"',
+          "💡 HELP: Walk over the Pizza slice (+3 HP) and gold Coin to bank both!",
           "loot",
           3600
         );
       }
-    } else if (roll < 0.85) {
-      coins.create(prop.x, prop.y, "coin401k").setDepth(3);
+    } else if (roll < 0.80) {
+      spawnCoin(prop.x - 6, prop.y, 1);
+      spawnCoin(prop.x + 6, prop.y, 1);
+      popupTxt = "🪙 2x 401(k)!";
       if (window.pushContextEvent) {
         window.pushContextEvent(
           "🪴 PETTY CASH FOUND!",
-          '"Someone hid a gold 401(k) Coin inside the potted plant soil!"',
-          "💡 HELP: Gold 401(k) Coins are saved permanently for the Title Screen Retirement Shop.",
+          '"Someone hid two gold 401(k) Coins inside the potted plant soil!"',
+          "💡 HELP: The longer you survive, the more each 401(k) Coin is worth (up to 6x Compound Yield!).",
           "loot",
           3200
         );
       }
     } else {
-      coins.create(prop.x - 8, prop.y, "coin401k").setDepth(3);
-      coins.create(prop.x + 8, prop.y, "coin401k").setDepth(3);
-      gems.create(prop.x, prop.y - 6, "gem").setDepth(3);
-      popupTxt = "🪙 BONUS 401(k)!";
+      spawnCoin(prop.x - 10, prop.y, 1);
+      spawnCoin(prop.x, prop.y + 4, 2);
+      spawnCoin(prop.x + 10, prop.y, 1);
+      gems.create(prop.x, prop.y - 8, "gem").setDepth(3);
+      popupTxt = "🎰 401(k) JACKPOT!";
       if (window.pushContextEvent) {
         window.pushContextEvent(
           "🎰 EXECUTIVE STASH!",
-          '"Jackpot! That potted fern was hiding 2x 401(k) Coins and a bonus Wisdom Gem!"',
+          '"Jackpot! That potted fern was hiding a 4x 401(k) Coin stash and a bonus Wisdom Gem!"',
           "💡 HELP: Keep cracking open green Potted Plants whenever you pass a new desk cluster.",
           "loot",
           3600
@@ -1259,7 +1321,7 @@ function update(time, delta) {
     if (padJust("start") || padJust("b")) togglePause(this);
   }
 
-  if (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen) {
+  if (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen || window.changelogModalOpen || window.loreModalOpen) {
     renderThreeView(this);
     restore2DSprites();
     return; // freeze while dead, paused, on title, or choosing an upgrade
@@ -1268,6 +1330,35 @@ function update(time, delta) {
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
   runElapsedMs += (delta || 16.6);
   currentAge = runStartAge + (runElapsedMs / 1000) / PLAYER.secondsPerYear;
+
+  // 5-Year 401(k) Compound Interest Dividend! The longer you survive, the larger your automatic dividend payout!
+  const nextDivAge = lastDividendAge + 5;
+  if (currentAge >= nextDivAge) {
+    lastDividendAge = Math.floor(currentAge / 5) * 5;
+    const stepNum = Math.max(1, Math.round((lastDividendAge - 40) / 5));
+    const yld = window.getCoinYieldInfo();
+    const divBonus = 2 + stepNum * 2 + yld.value; // e.g., +6k at Age 45, +9k at 50, +12k at 55, +16k at 60...
+    runCoins += divBonus;
+    meta.coins += divBonus;
+    saveMeta(meta);
+    sfx("coin");
+    const pt = project3DToPhaserWorld(this, player.x, 56, player.y);
+    const dMsg = this.add.text(pt.x, pt.y - 26, `📈 AGE ${lastDividendAge} DIVIDEND: +${divBonus}k 401(k)!`, {
+      fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#ffe042", backgroundColor: "#12152aee",
+      padding: { x: 8, y: 4 }, stroke: "#090b14", strokeThickness: 3
+    }).setOrigin(0.5).setDepth(20);
+    this.tweens.add({ targets: dMsg, y: dMsg.y - 28, alpha: 0, duration: 1500, onComplete: () => dMsg.destroy() });
+    if (window.pushContextEvent) {
+      window.pushContextEvent(
+        `📈 ${yld.label} // +${divBonus}k`,
+        `"Age ${lastDividendAge} Compound Interest Vested! +${divBonus}k 401(k) Coins deposited automatically!"`,
+        `💡 COMPOUNDING: Every Coin you pick up is now worth +${yld.value}k (${yld.label})! Stay alive to earn even more.`,
+        "loot",
+        4200
+      );
+    }
+  }
+
   updateHUD();
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
 

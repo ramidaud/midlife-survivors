@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.8.20",
-  displayVersion: "V. 1.8.20",
+  version: "1.8.21",
+  displayVersion: "V. 1.8.21",
   lastUpdated: "Oct 30, 2026",
-  codename: "Mythos & Lore Edition",
-  build: 20,
+  codename: "Compound Yield Edition",
+  build: 21,
   changelog: [
+    {
+      ver: "V. 1.8.21",
+      date: "Oct 30, 2026",
+      title: "401(k) Compound Interest Scaling & 5-Year Survival Dividends",
+      highlights: [
+        "Added 6 Compound Interest Yield Tiers (1x Match -> 2x Vested -> 3x Seniority -> 4x Executive -> 5x Compound -> 6x Golden): the longer you survive in a run, the more each gold 401(k) Coin is worth (+1k up to +6k+ per coin!).",
+        "Added automatic 5-Year Compound Dividends at Ages 45, 50, 55, 60, 65, 70, 75, 80+ that deposit scaling bonus payouts directly into your 401(k).",
+        "Increased base coin drop rate (55% scaling up to 78%) and added guaranteed bonus coins to Potted Plants and Boss Chests."
+      ]
+    },
     {
       ver: "V. 1.8.20",
       date: "Oct 30, 2026",

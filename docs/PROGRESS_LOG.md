@@ -329,3 +329,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - Added a **`📖 MYTHOS & LORE`** button on the Title Dossier and Pause Screen that opens `#lore-modal` with 4 navigable tabs (`🌐 World Mythos`, `🪪 Subject Dossiers`, `🗺️ Life Scenarios`, `👹 Boss Registry`).
   - Added `#title-subject-bio` right under the 3 Character Cards on the Title Screen so selecting a character displays their codename, real name, origin story, and signature quote live.
   - Bumped version to **`V. 1.8.20`** (`src/data/version.js` & `?v=18` in `index.html`).
+
+## 2026-10-30: 401(k) Compound Interest Scaling & 5-Year Survival Dividends (`V. 1.8.21`)! (Antigravity)
+- **Built the 6-Tier Compound Interest Coin System (`src/data/pickups.js` & `window.getCoinYieldInfo` in `src/main.js`):**
+  - Coins now grow in value the longer you stay alive in a run: **`+1k` (`1x MATCH` at Age 40)** -> **`+2k` (`2x VESTED` at 42s / Age 44)** -> **`+3k` (`3x SENIORITY` at 100s / Age 50)** -> **`+4k` (`4x EXECUTIVE` at 175s / Age 60)** -> **`+5k` (`5x COMPOUND` at 250s / Age 70)** -> **`+6k+` (`6x GOLDEN` at 320s / Age 80+)**.
+  - Raised base coin drop rate from `38%` to `55%` (scaling up to `78%` with Age), added `2x` double-value coins (`bonusMult = 2`) to Elites, Bosses, and Plant Jackpots, and made Potted Plants always drop at least 1 Coin even when dropping Pizza!
+- **Added 5-Year Automatic Survival Dividends & Live HUD Yield Badge (`#hud-yield-pill` in `src/ui.js`):**
+  - Every 5 years of Age survived (`45, 50, 55, 60, 65, 70, 75, 80...`) automatically deposits a scaling **401(k) Compound Dividend** (`+6k`, `+9k`, `+12k`, `+16k`...) with a golden floating banner and Lower-Third Contextual Ticker alert.
+  - Added `#hud-yield-pill` (`📈 1x MATCH (+1k/🪙)` -> `📈 6x GOLDEN (+6k/🪙)`) in the Bottom-Right HUD pod and bumped the build to **`V. 1.8.21`** (`?v=19`).

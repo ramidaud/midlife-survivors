@@ -309,6 +309,7 @@ function initGameUI(scene) {
             <span class="coin-icon">🪙</span>
             <span class="coin-label">401(k):</span>
             <span class="coin-val" id="hud-coins">0k</span>
+            <span class="perk-badge" id="hud-yield-pill" title="Compound Interest Tier: the longer you survive, the more each 401(k) Coin is worth!" style="margin-left:3px;color:#8ff094;border-color:rgba(111,191,115,0.5);">📈 1x MATCH</span>
           </div>
           <div class="style-pill" id="hud-style-pill" title="Press V or tap to switch visual engine!">
             <span class="style-key" id="hud-view-key">[V]</span>
@@ -823,6 +824,11 @@ function updateHUD() {
   }
 
   document.getElementById("hud-coins").textContent = `${meta.coins}k`;
+  const yieldEl = document.getElementById("hud-yield-pill");
+  if (yieldEl && typeof window.getCoinYieldInfo === "function") {
+    const yld = window.getCoinYieldInfo();
+    yieldEl.textContent = `📈 ${yld.label} (+${yld.value}k/🪙)`;
+  }
   syncMuteButtons();
 
   const badges = [];

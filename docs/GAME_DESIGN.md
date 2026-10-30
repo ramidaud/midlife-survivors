@@ -173,3 +173,18 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - **In-Game Lore Surfaces:**
   - **Live Subject Bio Strip (`#title-subject-bio`):** Updates dynamically right under the Character Select cards on the Title Screen with the selected Subject's codename, real name, backstory, and quote.
   - **4-Tab Mythos & Lore Archive Modal (`#lore-modal`):** Accessible from the Title Screen (`📖 MYTHOS & LORE`) and Pause Menu (`📖 MYTHOS, SUBJECTS & SCENARIOS`) with tabs for **1. World Mythos**, **2. Subject Dossiers**, **3. Life Scenarios**, and **4. Boss Registry**.
+
+## 11. 401(k) Compound Interest Scaling & 5-Year Survival Dividends (`src/data/pickups.js` & `src/main.js`)
+- **6 Compound Interest Yield Tiers (`PICKUPS.coin401k.compoundTiers`):**
+  - Instead of a flat `+1k` per coin all run, coin value scales up the longer you survive (`runElapsedMs` or `currentAge`):
+    1. **Tier 1 (`0s+ / Age 40+`):** `1x MATCH` (`+1k` per coin, `55%` drop chance)
+    2. **Tier 2 (`42s+ / Age 44+`):** `2x VESTED` (`+2k` per coin)
+    3. **Tier 3 (`100s+ / Age 50+`):** `3x SENIORITY` (`+3k` per coin)
+    4. **Tier 4 (`175s+ / Age 60+`):** `4x EXECUTIVE` (`+4k` per coin)
+    5. **Tier 5 (`250s+ / Age 70+`):** `5x COMPOUND` (`+5k` per coin)
+    6. **Tier 6 (`320s+ / Age 80+`):** `6x GOLDEN` (`+6k+` per coin)
+- **Automatic 5-Year Survival Dividends (`Ages 45, 50, 55, 60, 65, 70, 75, 80...`):**
+  - Crossing every 5-year Age mark during active play deposits an automatic scaling dividend (`+6k` at Age 45, `+9k` at Age 50, `+12k` at Age 55, `+16k` at Age 60...) directly into your 401(k) with a floating banner and Lower-Third Ticker notification.
+- **High-Value Drops (`bonusMult`):**
+  - Potted Plants always drop at least 1 Coin alongside Pizza (`45%`), 2 Coins (`35%`), or a 4-Coin Jackpot (`20%`).
+  - Elites drop a `1x` Coin + a `2x` Coin (`bonusMult = 2`), and Bosses drop 5 `2x` Coins plus an immediate `4x` Executive Bonus Dividend when you open their gold Chest!
