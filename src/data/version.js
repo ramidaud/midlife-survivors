@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.19.0",
-  displayVersion: "V. 1.19.0",
+  version: "1.19.1",
+  displayVersion: "V. 1.19.1",
   lastUpdated: "Oct 30, 2026",
-  codename: "High Scores",
-  build: 35,
+  codename: "Online Board",
+  build: 36,
   changelog: [
+    {
+      ver: "V. 1.19.1",
+      date: "Oct 30, 2026",
+      title: "Online Leaderboard Is Live",
+      highlights: [
+        "Scores now post to one shared online leaderboard for everyone who plays.",
+        "If the internet drops, your score is still saved on your device."
+      ]
+    },
     {
       ver: "V. 1.19.0",
       date: "Oct 30, 2026",

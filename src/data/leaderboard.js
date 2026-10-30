@@ -2,8 +2,8 @@
 // The anon key is meant to be public: the database rules (set up once in Supabase) only allow
 // reading scores and adding new ones. Nobody can edit or delete scores with it.
 window.LEADERBOARD = {
-  supabaseUrl: "",      // e.g. "https://abcdxyz.supabase.co"
-  supabaseAnonKey: "",  // Supabase > Project Settings > API Keys: the "Publishable" key (sb_publishable_...) or the legacy "anon public" key
+  supabaseUrl: "https://pgxmvhabcgxvdnjtiect.supabase.co",
+  supabaseAnonKey: "sb_publishable_zkBwMyrwywrriq0lJWTXTg_pIos5d5s",  // Supabase > Project Settings > API Keys: the "Publishable" key (sb_publishable_...) or the legacy "anon public" key
   table: "scores",
   topCount: 10,
 

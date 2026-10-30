@@ -450,3 +450,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Online storage is Supabase; setup SQL in `docs/LEADERBOARD_SETUP.sql`. Until Rami pastes in his project URL and key, scores save on the device.
 - Tested with a stand-in database at laptop and phone sizes: posting works, your row is highlighted, typing a name doesn't trigger game keys. No errors.
 - Waiting on: Rami's Supabase URL + publishable key.
+
+## 2026-10-30: Online leaderboard connected (V. 1.19.1) (Claude)
+- Rami created the Supabase project and sent the Project URL and publishable key; both added to `src/data/leaderboard.js`.
+- The secret/service key was never needed or shared.
+- Checked from a real browser against the live database (read only, no test rows added).
