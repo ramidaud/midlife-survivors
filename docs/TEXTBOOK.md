@@ -1122,3 +1122,26 @@ age           40    45    52    60    70    80    90    100
                    review mortgage crisis HOA retire pickle DEATH (the win)
 ```
 One number controls all of it: `secondsPerYear: 60`.
+
+---
+
+## Chapter: Packs, curves and swarms (V. 1.16.0)
+
+```
+enemies per minute
+1100 |                                         ●  (85)
+     |
+ 500 |                        ●  (65)
+ 170 |           ●  (50)
+  50 |  ● (40)
+     +-------------------------------------------- age
+```
+
+Swarm patterns:
+```
+   RING              WALL               PACK
+ $ $ $ $ $         ☎ ☎ ☎ ☎ ☎ ☎               🍩🍩
+$    🧍    $                                 🍩🍩🍩
+ $ $ $ $ $             🧍                 🧍
+ (closes in)        (sweeps across)     (one clump)
+```

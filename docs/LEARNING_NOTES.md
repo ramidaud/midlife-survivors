@@ -203,3 +203,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - The whole game's pace hangs on one number: `secondsPerYear` in `src/data/player.js`. Changing 15 to 60 made every age-based event (bosses, chapters, dividends) four times further apart, with no other edits.
 - To test an hour-long run in seconds, the test **fast-forwards the clock** straight to age 80 or 100. Game developers do this constantly; nobody plays the whole hour to check the ending.
 - Each frame only counts a capped amount of time, so a laggy moment can't skip you ahead a whole year.
+
+## Difficulty curves and set pieces (Oct 30, Swarms)
+- A **difficulty curve** is a graph of "how hard" over time. Ours is a table like `[[40, 1], [60, 3], [90, 6]]`, and the game blends smoothly between the rows, so it never jumps.
+- **Set pieces** are designed moments that break the rhythm: a ring of Bills closing in feels different from a steady drip, even with the same enemies.
+- Good pacing alternates pressure and relief. The drip builds tension; a swarm spikes it; clearing it feels great.

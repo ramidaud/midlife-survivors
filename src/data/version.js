@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.15.0",
-  displayVersion: "V. 1.15.0",
+  version: "1.16.0",
+  displayVersion: "V. 1.16.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "A Full Life",
-  build: 30,
+  codename: "Swarms",
+  build: 31,
   changelog: [
+    {
+      ver: "V. 1.16.0",
+      date: "Oct 30, 2026",
+      title: "Intensity Curve & Swarm Events",
+      highlights: [
+        "Enemies now arrive in packs that grow each decade (1 at 40, up to 6 in your 90s), and the spawn rate ramps smoothly every year.",
+        "The crowd limit grows with age: 60 on screen at 40, up to 200 at 100.",
+        "New swarm events announced in the lower third: Tax Season, Robocalls, Donut Drop, Past Due, Reply All, Threw Out Back, and Everything (80+)."
+      ]
+    },
     {
       ver: "V. 1.15.0",
       date: "Oct 30, 2026",

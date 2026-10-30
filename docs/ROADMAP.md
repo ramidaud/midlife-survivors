@@ -17,9 +17,11 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 5. [x] **Menu fixes:** sub-menus open on top, Game Over shop button goes to the shop, lower third waits during menus, pause opens on Resume and is shorter, HUD hidden behind title and Game Over (V. 1.13.0)
 6. [x] **Credits, not cameo:** the photographer is now The Soccer Dad, Grad Student lore made generic, Credits screen in Extras (V. 1.14.0)
 7. [x] **Run length:** 1 minute per year, retirement bonus at 80 with no stop screen, Death at 100 is the only win (V. 1.15.0)
-8. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
-9. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
-10. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI (including the lower third's look) to match
+8. [x] **Intensity curve + swarms:** packs that grow each decade, smooth ramp, bigger crowds with age, 7 announced swarm events (V. 1.16.0)
+9. [ ] **Enemy variety:** new enemies from the Top 10 that aren't in yet (Worksheets, 3 AM Thoughts, Bad Knee, Group Chat and more), each with its own movement
+10. [ ] **More weapons:** new auto-weapons and evolutions beyond Coffee, Dad Joke and "No."
+11. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
+12. [ ] **Art direction + bigger world:** Rami's mood board, then a larger, detailed pixel-art office full of funny details, and restyled sprites and UI (including the lower third)
 
 ---
 

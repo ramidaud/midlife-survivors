@@ -138,6 +138,7 @@ let meta, runCoins = 0;
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let ltDecadeShown = null, ltLowHpWarned = false; // lower third trackers
+let nextSwarmAt = null; // when the next swarm event fires (game time)
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
 let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office", lastDividendAge = 40;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
@@ -222,7 +223,7 @@ function create() {
   // 3b. Clean screen HUD: a small HP bar that rides under the player (Vampire Survivors style),
   //     redrawn after every frame. The top HUD (age, XP) also refreshes here about 10x a second.
   const hpBar = this.add.graphics().setDepth(7);
-  ltDecadeShown = null; ltLowHpWarned = false;
+  ltDecadeShown = null; ltLowHpWarned = false; nextSwarmAt = null;
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {
     hpBar.clear();
@@ -1244,8 +1245,33 @@ function createEnemy(scene, kind, x, y) {
 }
 
 // Put one enemy just outside the visible screen, on a random edge, based on the current Age wave.
+// Read a value off an age table like [[40, 1], [60, 3]], blending smoothly between rows.
+function ageCurve(table, age) {
+  if (!table || !table.length) return 0;
+  if (age <= table[0][0]) return table[0][1];
+  for (let i = 1; i < table.length; i++) {
+    const [a1, v1] = table[i], [a0, v0] = table[i - 1];
+    if (age <= a1) return v0 + (v1 - v0) * ((age - a0) / (a1 - a0));
+  }
+  return table[table.length - 1][1];
+}
+
+// Pick an enemy type from the current wave's raffle tickets.
+function rollWaveKind() {
+  const wave = currentWave();
+  const totalWeight = wave.mix.reduce((sum, [, w]) => sum + w, 0);
+  let roll = Math.random() * totalWeight, kind = wave.mix[0][0];
+  for (const [k, w] of wave.mix) {
+    if ((roll -= w) <= 0) { kind = k; break; }
+  }
+  return kind;
+}
+
+// The everyday drip: a small PACK of enemies just outside the screen. Packs get bigger each decade.
 function spawnBill(scene) {
-  if (bills.countActive() >= SPAWNING.maxOnScreen) return;
+  const I = window.INTENSITY || {};
+  const cap = Math.round(ageCurve(I.maxOnScreenByAge, currentAge) || SPAWNING.maxOnScreen);
+  if (bills.countActive() >= cap) return;
   const view = scene.cameras.main.worldView; // the rectangle of the world you can currently see
   const m = window.viewModeIdx === 1 ? 220 : SPAWNING.offscreenMargin;
   let x, y;
@@ -1255,13 +1281,55 @@ function spawnBill(scene) {
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
-  const wave = currentWave();
-  const totalWeight = wave.mix.reduce((sum, [, w]) => sum + w, 0);
-  let roll = Math.random() * totalWeight, kind = wave.mix[0][0];
-  for (const [k, w] of wave.mix) {
-    if ((roll -= w) <= 0) { kind = k; break; }
+  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1));
+  for (let i = 0; i < pack && bills.countActive() < cap; i++) {
+    createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
   }
-  createEnemy(scene, kind, x, y);
+}
+
+// Swarm events: set-piece formations (ring, wall, pack), announced in the lower third.
+function spawnSwarm(scene, ev) {
+  const view = scene.cameras.main.worldView;
+  const m = SPAWNING.offscreenMargin + 20;
+  const kindFor = () => ev.kind === "mixed" ? rollWaveKind() : ev.kind;
+  const spots = [];
+  if (ev.pattern === "ring") {
+    const r = Math.hypot(view.width, view.height) / 2 + m;
+    for (let i = 0; i < ev.count; i++) {
+      const a = (i / ev.count) * Math.PI * 2;
+      spots.push([player.x + Math.cos(a) * r, player.y + Math.sin(a) * r]);
+    }
+  } else if (ev.pattern === "wall") {
+    const side = Phaser.Math.Between(0, 3);
+    for (let i = 0; i < ev.count; i++) {
+      const t = (i + 0.5) / ev.count;
+      if (side === 0) spots.push([view.left + t * view.width, view.top - m]);
+      else if (side === 1) spots.push([view.left + t * view.width, view.bottom + m]);
+      else if (side === 2) spots.push([view.left - m, view.top + t * view.height]);
+      else spots.push([view.right + m, view.top + t * view.height]);
+    }
+  } else { // pack
+    const a = Math.random() * Math.PI * 2, r = Math.hypot(view.width, view.height) / 2 + m;
+    const cx = player.x + Math.cos(a) * r, cy = player.y + Math.sin(a) * r;
+    for (let i = 0; i < ev.count; i++) spots.push([cx + Phaser.Math.Between(-80, 80), cy + Phaser.Math.Between(-80, 80)]);
+  }
+  spots.forEach(([sx, sy]) => createEnemy(scene, kindFor(), sx, sy));
+  if (window.showLowerThird) window.showLowerThird("alert", ev.badge, ev.text, 4500);
+  sfx("bossSpawn");
+}
+
+function maybeRunSwarmEvent(scene) {
+  const I = window.INTENSITY || {};
+  const gap = ageCurve(I.eventEveryMsByAge, currentAge) || 60000;
+  if (nextSwarmAt === null) nextSwarmAt = runElapsedMs + gap;
+  if (runElapsedMs < nextSwarmAt) return;
+  nextSwarmAt = runElapsedMs + gap;
+  const pool = (window.SWARM_EVENTS || []).filter(ev => currentAge >= ev.minAge && ENEMIES[ev.kind] || (ev.kind === "mixed" && currentAge >= ev.minAge));
+  if (!pool.length) return;
+  const total = pool.reduce((s, ev) => s + ev.weight, 0);
+  let roll = Math.random() * total, pick = pool[0];
+  for (const ev of pool) { if ((roll -= ev.weight) <= 0) { pick = ev; break; } }
+  spawnSwarm(scene, pick);
 }
 
 // Spawn a milestone Boss (Ages 45, 52, 60, 70, 80, 90, 100).
@@ -1407,10 +1475,16 @@ function update(time, delta) {
 
   // Wave schedule: as you pass milestone ages, speed up the spawn timer!
   const wIdx = SPAWNING.waves.reduce((acc, w, i) => currentAge >= w.minAge ? i : acc, 0);
-  if (wIdx !== currentWaveIdx) {
+  // Smooth ramp: blend toward the NEXT wave's speed as you age, instead of jumping in big steps.
+  const nextW = SPAWNING.waves[Math.min(wIdx + 1, SPAWNING.waves.length - 1)], curW = SPAWNING.waves[wIdx];
+  const span = Math.max(1, nextW.minAge - curW.minAge);
+  const blend = nextW === curW ? 0 : Phaser.Math.Clamp((currentAge - curW.minAge) / span, 0, 1);
+  const wantDelay = Math.round(curW.everyMs + (nextW.everyMs - curW.everyMs) * blend);
+  if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;
-    spawnTimer.reset({ delay: SPAWNING.waves[wIdx].everyMs, loop: true, callback: spawnTimer.callback });
+    spawnTimer.reset({ delay: wantDelay, loop: true, callback: spawnTimer.callback });
   }
+  maybeRunSwarmEvent(this);
 
   // =========================================================================
   // UNIFIED 4-DEVICE MOVEMENT (Keyboard + Controller + Touch + Mouse)

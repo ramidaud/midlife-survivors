@@ -416,3 +416,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Age 80 no longer stops the game: +15k and full health pay out automatically with a lower third card.
 - Death at 100 is the only win; dying earlier is a regular Game Over. Death gets his own arrival message.
 - Tested by fast-forwarding to 80, 85 and 100: no stop screen at 80, normal Game Over at 85, victory on meeting Death. Next objective: Intensity curve.
+
+## 2026-10-30: Objective 8 done, Swarms (V. 1.16.0) (Claude)
+- Rami: the hour-long run feels decent. Wants more weapons, better spawning, more enemy variety, and a bigger, funnier, more detailed pixel-art background. Added as objectives 9-12 (spawning done now).
+- Enemies now come in packs (1 at 40 up to 6 in your 90s); spawn speed ramps every year; crowd limit grows from 60 to 200.
+- 7 swarm events with lower third announcements (Tax Season ring, Robocall wall, Donut Drop pack, and more). Settings in `src/data/swarms.js`.
+- Measured: about 50 enemies per minute at 40, 170 at 50, 500 at 65, 1,100 at 85. No errors.
+- Next objective: Enemy variety (Rami can reorder).
