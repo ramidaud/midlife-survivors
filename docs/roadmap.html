@@ -1,0 +1,164 @@
+<title>Midlife Survivors Roadmap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: single reading column; an "age clock" bar maps phases onto ages 40 to 50, then stacked phase checklists */
+:root{
+  --bg:#f3f4f8; --surface:#ffffff; --fg:#1b2033; --muted:#5b6180; --line:#d9dcea;
+  --accent:#b8661c; /* coffee */ --accent-soft:#f6e6d4;
+  --ping:#d6334a; /* notification red */ --done:#2f7d5b; --done-soft:#dcefe5;
+  --display:"Silkscreen", "Courier New", monospace;
+  --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#12152a; --surface:#1b1f38; --fg:#e8e9f3; --muted:#a3a8c7; --line:#2e3356;
+  --accent:#f0a24f; --accent-soft:#3a2b1c; --ping:#ff6b7f; --done:#5fd39c; --done-soft:#1d3a30; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#12152a; --surface:#1b1f38; --fg:#e8e9f3; --muted:#a3a8c7; --line:#2e3356;
+  --accent:#f0a24f; --accent-soft:#3a2b1c; --ping:#ff6b7f; --done:#5fd39c; --done-soft:#1d3a30; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:36px}
+h1,h2,.eyebrow,.age{font-family:var(--display);letter-spacing:.02em}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.05;margin:4px 0 12px;text-wrap:balance}
+h2{font-size:18px;margin:0 0 12px;text-wrap:balance}
+.eyebrow{font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.12em}
+p{margin:0}
+.summary{color:var(--muted);max-width:62ch}
+.summary strong{color:var(--fg)}
+.clock{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.seg{height:14px;background:var(--line)}
+.seg.now{background:var(--accent)}
+.ages{display:flex;justify-content:space-between;font-family:var(--display);font-size:11px;color:var(--muted)}
+.now-line{font-size:15px}
+.now-line b{color:var(--accent)}
+.next{background:var(--accent-soft);padding:18px 20px;display:grid;gap:10px;border-left:4px solid var(--accent)}
+.next ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.phases{display:grid;gap:14px}
+details{background:var(--surface);border:1px solid var(--line)}
+summary{cursor:pointer;padding:14px 16px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ph-name{font-weight:700;flex:1;min-width:0}
+.ph-weeks{font-size:13px;color:var(--muted)}
+.pill{font-family:var(--display);font-size:11px;padding:2px 8px;background:var(--line);color:var(--muted);font-variant-numeric:tabular-nums}
+.pill.go{background:var(--accent);color:var(--surface)}
+.pill.ok{background:var(--done-soft);color:var(--done)}
+ul.tasks{list-style:none;margin:0;padding:0 16px 14px;display:grid;gap:4px}
+ul.tasks label{display:flex;gap:10px;align-items:flex-start;padding:4px 0;cursor:pointer}
+ul.tasks input{margin-top:5px;accent-color:var(--done);width:16px;height:16px;flex:none}
+ul.tasks input:checked + span{color:var(--muted);text-decoration:line-through}
+.learn{font-style:italic;color:var(--muted)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.two > div{min-width:0}
+.two ul,.two ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.need li strong{color:var(--ping)}
+.meta{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+code{font-size:.9em;background:var(--line);padding:1px 5px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Game dev roadmap · Age 40 to 50</div>
+    <h1>Midlife Survivors</h1>
+    <p class="summary">A Vampire Survivors-style game where you dodge emails, bills and back twinges with coffee, dad jokes and the word "No." <strong>Built in the browser with Phaser 3, one 45-90 minute step at a time</strong>, with a playable link at the end of every session.</p>
+  </header>
+
+  <section class="clock" aria-label="Progress through the phases">
+    <div class="bar" id="bar"></div>
+    <div class="ages"><span>Phase 0</span><span>Phase 3</span><span>Phase 6</span></div>
+    <p class="now-line">You are here: <b>Phase 0 · Setup and first pixels</b> <span id="count"></span></p>
+  </section>
+
+  <section class="next">
+    <h2>This week</h2>
+    <ol>
+      <li><strong>Done:</strong> your Top 10 is now the enemy roster. Bills, Spam Likely calls, Snack Attacks and Death at 50.</li>
+      <li><strong>Done:</strong> Hello Game is built and published as the Midlife Survivors Playtest.</li>
+      <li>Play it on your laptop and your phone, then try changing <code>speed</code> in <code>src/data/player.js</code>.</li>
+    </ol>
+  </section>
+
+  <section class="phases" id="phases" aria-label="Phases"></section>
+
+  <section class="two">
+    <div>
+      <h2>How a session goes</h2>
+      <ol>
+        <li>Claude recaps where you left off.</li>
+        <li>You agree on one small step.</li>
+        <li>Claude builds it; you play the link.</li>
+        <li>You react like a player: too slow, too easy, funny?</li>
+        <li>One new concept goes into your learning notes.</li>
+      </ol>
+    </div>
+    <div class="need">
+      <h2>What Claude needs from you</h2>
+      <ul>
+        <li><strong>Your jokes.</strong> The annoyances and moments that make midlife funny to you.</li>
+        <li><strong>Your reactions.</strong> Play each build for five minutes and say how it feels.</li>
+        <li><strong>Your eye.</strong> Art direction is yours to call in Phase 4.</li>
+        <li><strong>Permission to delete files</strong> in the project folder when asked, so save points (git) can work.</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each session. Your own checkmarks here are saved in this browser only. Last updated Oct 30, 2026 (Hello Game built).</p>
+</div>
+
+<script>
+const PHASES = [
+  {n:"Phase 0: Setup and first pixels", w:"Week 1", learn:"What a game loop is", t:[
+    ["Create project folder, instructions, design doc, roadmap",1],["Schedule weekly check-ins",1],
+    ["Answer the open questions (at least the Top 10 annoyances)",1],["\"Hello game\": a square that moves with arrow keys / WASD",1],
+    ["Publish the first playtest link",1],["Play it on laptop and phone",0]]},
+  {n:"Phase 1: Core loop", w:"Weeks 2-3", learn:"Collisions, delta time, spawning", t:[
+    ["Smooth movement; camera follows across an endless floor",0],["Unread Emails spawn offscreen and chase you",0],
+    ["Coffee Splash fires automatically",0],["Enemies take damage; you take contact damage",0],["Game Over screen with a funny cause of death",0]]},
+  {n:"Phase 2: Growing stronger", w:"Weeks 4-5", learn:"Data-driven design: editing the numbers yourself", t:[
+    ["Wisdom gems drop and get collected",0],["Level-up screen with 3 choices",0],["3 weapons and 2 passives",0],["Age clock (40 to 50) replaces the timer",0]]},
+  {n:"Phase 3: The midlife run", w:"Weeks 6-8", learn:"Difficulty curves and balancing", t:[
+    ["Wave schedule tied to age",0],["6+ enemy types, including an elite",0],["Bosses: Performance Review, Mortgage Refinance, Midlife Crisis",0],
+    ["At least 2 evolutions",0],["Win screen at 50",0]]},
+  {n:"Phase 4: Feel and look", w:"Weeks 9-10", learn:"\"Game juice\" and why it matters", t:[
+    ["Decide art direction",0],["Hit flashes, damage numbers, screen shake",0],["Sound effects and music",0],["Title screen",0]]},
+  {n:"Phase 5: Coming back for more", w:"Weeks 11-12", learn:"Saving data, meta-progression", t:[
+    ["401(k) Coins and the permanent upgrade shop",0],["Save data between sessions",0],["2-3 unlockable characters",0]]},
+  {n:"Phase 6: Share it", w:"Week 13+", learn:"Playtesting with real people", t:[
+    ["Playtest with friends or colleagues",0],["Decide: web, itch.io, or desktop app",0],["Optional: an EMAT write-up about the process",0]]}
+];
+const CURRENT = 0;
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem("ms-checks") || "{}"); } catch(e) {}
+function save(){ try { localStorage.setItem("ms-checks", JSON.stringify(saved)); } catch(e) {} }
+const root = document.getElementById("phases");
+const bar = document.getElementById("bar");
+function render(){
+  root.innerHTML = ""; bar.innerHTML = "";
+  let total=0, done=0;
+  PHASES.forEach((p,i)=>{
+    const seg=document.createElement("div"); seg.className="seg"+(i<=CURRENT?" now":""); bar.appendChild(seg);
+    const d=document.createElement("details"); if(i===CURRENT) d.open=true;
+    let pd=0;
+    const items=p.t.map((t,j)=>{const id=`p${i}t${j}`; const c = id in saved ? saved[id] : !!t[1]; if(c) pd++; return {id,label:t[0],c};});
+    total+=items.length; done+=pd;
+    const status = pd===items.length ? `<span class="pill ok">Done</span>` : i===CURRENT ? `<span class="pill go">Now ${pd}/${items.length}</span>` : `<span class="pill">${pd}/${items.length}</span>`;
+    d.innerHTML = `<summary><span class="ph-name">${p.n}</span><span class="ph-weeks">${p.w}</span>${status}</summary>
+      <ul class="tasks">${items.map(it=>`<li><label><input type="checkbox" id="${it.id}" ${it.c?"checked":""}><span>${it.label}</span></label></li>`).join("")}
+      <li class="learn">Learn: ${p.learn}</li></ul>`;
+    root.appendChild(d);
+  });
+  document.getElementById("count").textContent = `· ${done} of ${total} steps done`;
+}
+root.addEventListener("change", e=>{
+  if(e.target.matches("input[type=checkbox]")){
+    saved[e.target.id]=e.target.checked; save();
+    const open=[...root.querySelectorAll("details")].map(d=>d.open);
+    render(); root.querySelectorAll("details").forEach((d,i)=>d.open=open[i]);
+    const el=document.getElementById(e.target.id); if(el) el.focus();
+  }
+});
+render();
+</script>
