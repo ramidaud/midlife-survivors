@@ -112,3 +112,16 @@ Pick zero, one or two later. Don't build these before the core loop is fun.
   1. **Retro Pixel (`2D 16-Bit`)**: SNES / Genesis top-down 16-bit pixel art.
   2. **Stylistic Indie (`Diablo 3/4`)**: Moody isometric 3/4 dungeon crawler (*Hades* / *Diablo* / *Cult of the Lamb* vibe) with dramatic lighting and long shadows.
   3. **AAA 3D (`3D Third-Person`)**: High-fidelity *Fortnite*-style third-person 3D action view (scales up with glTF rigged 3D models, PBR materials, post-processing bloom/SSAO, and dynamic skyboxes).
+
+---
+
+## 6. Unlockable Life Environments & Chapter Challenges (`src/data/stages.js`)
+Instead of staying on a single endless office checkerboard, progressing through the decades unlocks **5 distinct Life Environments**, each with its own multi-zone floor architecture, 3D sky palette, enemy themes, and planned interactive challenges:
+
+| Stage & Unlock Age | Environment & Visual Zones | Enemy Swarm Theme | Planned Interactive Challenge (Phase 7) |
+|---|---|---|---|
+| **1. 🏢 The Open-Plan Office** (Age 40) | Herringbone carpet bays, hardwood hallways, teal breakroom rugs, coffee stains & sticky notes | `BILL`, `LATE!`, `SPAM`, `DONUT`, `OUCH!`, `RE:RE:` | **Q4 Crunch & Breakroom Stashes:** Smash potted ferns for leftover pizza and survive the Performance Review |
+| **2. 🏥 St. Deductible Hospital** (Age 44) | Mint/slate terrazzo corridors, red/cyan triage floor stripes, delivery room rugs & medical cross emblems | `CO-PAY`, `DEDUCT!`, `PAGER!`, `JELL-O`, `CRAMP!`, `3AM CRY` | **Birth & 3 AM Sleepless Nights:** Dimmed vision waves during 3 AM feedings; rock the bassinet / reach coffee stations to restore alertness |
+| **3. 🏡 Suburban Home & Yard** (Age 50) | Warm oak living room planks, backyard grass, crimson family rug & scattered colorful LEGO bricks | `TUITION`, `LEGO!`, `SCHOOL`, `JUICEBX`, `CARPOOL`, `NEWMATH` | **Parenting & Common Core Homework:** Dodge LEGO-brick floor hazards, complete Carpool Errand zones, and defeat **New Math** |
+| **4. 🍻 The Social Courtyard** (Age 60) | Cobblestone patio, cedar bistro deck, warm string-light floor pools & lounge rugs | `SPLIT$`, `FLAKE!`, `TXT-47`, `TAPAS`, `9PM BED`, `DRAMA` | **Navigating Adult Friendships:** Stand inside RSVP Table rings to lock in dinner plans before all 4 friends flake at 6:45 PM; dodge *"Let's Split the Check Evenly"* traps |
+| **5. 🌴 Sunset Palms Resort** (Age 80) | Terracotta lanai tiles, white-lined Pickleball Courts & tropical resort borders | `COPAY`, `HOA$`, `SCAM!`, `PRUNE`, `HIP!`, `BINGO` | **Senior Bonus Rounds (80-100):** Survive the 3 PM Early-Bird Buffet rush and defeat the **6 AM Pickleball Champion** |

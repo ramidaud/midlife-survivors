@@ -58,7 +58,8 @@ function loadMeta() {
         selectedChar: parsed.selectedChar || "officeWorker",
         bestAge: parsed.bestAge || 40.0,
         unlockedDecades: parsed.unlockedDecades || [40],
-        startDecade: parsed.startDecade || 40
+        startDecade: parsed.startDecade || 40,
+        selectedStage: parsed.selectedStage || "auto"
       };
     }
   } catch (e) {}
@@ -69,7 +70,8 @@ function loadMeta() {
     selectedChar: "officeWorker",
     bestAge: 40.0,
     unlockedDecades: [40],
-    startDecade: 40
+    startDecade: 40,
+    selectedStage: "auto"
   };
 }
 

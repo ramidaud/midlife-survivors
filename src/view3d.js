@@ -11,43 +11,120 @@ window.viewModeIdx = 0;
 
 let threeState = null;
 
-function makeFloorTexture(style) {
+function makeFloorTexture(style, stageObj) {
+  const st = stageObj || (window.STAGES && window.STAGES[0]) || {
+    id: "office", floorPrimary: "#242c4c", floorSecondary: "#1c223b", floorAccent: "#8a5a36", rugColor: "#1f5c6e"
+  };
   const can = document.createElement("canvas");
-  can.width = 256; can.height = 256;
+  can.width = 512; can.height = 512;
   const ctx = can.getContext("2d");
 
   if (style === "diablo") {
-    // Dark obsidian dungeon flagstones with warm ember mortar lines & subtle arcane rune bevels
-    for (let y = 0; y < 256; y += 64) {
-      for (let x = 0; x < 256; x += 64) {
+    // Dark Sanctuary stone flagstones tinted by the active Life Stage, with warm ember mortar & arcane courtyard zones
+    for (let y = 0; y < 512; y += 64) {
+      for (let x = 0; x < 512; x += 64) {
         const alt = ((x + y) / 64) % 2 === 0;
-        ctx.fillStyle = alt ? "#14111d" : "#0e0c15";
+        ctx.fillStyle = alt ? st.floorPrimary : st.floorSecondary;
+        ctx.fillRect(x, y, 64, 64);
+        ctx.fillStyle = "rgba(6, 5, 12, 0.58)";
         ctx.fillRect(x, y, 64, 64);
         ctx.strokeStyle = "#2b1d14"; ctx.lineWidth = 3;
         ctx.strokeRect(x + 1, y + 1, 62, 62);
-        ctx.strokeStyle = "rgba(245, 185, 90, 0.10)"; ctx.lineWidth = 1;
-        ctx.strokeRect(x + 5, y + 5, 54, 54);
+        ctx.strokeStyle = "rgba(245, 185, 90, 0.12)"; ctx.lineWidth = 1;
+        ctx.strokeRect(x + 6, y + 6, 52, 52);
       }
     }
+    // Torchlit Stone Walkway Band (y = 196..292)
+    ctx.fillStyle = "rgba(42, 28, 18, 0.75)";
+    ctx.fillRect(0, 196, 512, 96);
+    ctx.fillStyle = "#c99b49";
+    ctx.fillRect(0, 196, 512, 4);
+    ctx.fillRect(0, 288, 512, 4);
+    // Sanctuary Rune Rug Zone
+    ctx.fillStyle = st.rugColor;
+    ctx.globalAlpha = 0.45;
+    ctx.fillRect(272, 28, 210, 142);
+    ctx.globalAlpha = 1.0;
+    ctx.strokeStyle = "#c99b49"; ctx.lineWidth = 3;
+    ctx.strokeRect(276, 32, 202, 134);
   } else {
-    // AAA 3D Stylized Corporate Plaza Grid (clean high-contrast architectural tiles with cyan accent lines)
-    for (let y = 0; y < 256; y += 64) {
-      for (let x = 0; x < 256; x += 64) {
+    // Multi-Zone Architectural Floor for 3D Mode (tailored to Office, Hospital, Suburban Home, Social Courtyard, or Senior Resort!)
+    for (let y = 0; y < 512; y += 64) {
+      for (let x = 0; x < 512; x += 64) {
         const alt = ((x + y) / 64) % 2 === 0;
-        ctx.fillStyle = alt ? "#263359" : "#1e294a";
+        ctx.fillStyle = alt ? st.floorPrimary : st.floorSecondary;
         ctx.fillRect(x, y, 64, 64);
-        ctx.strokeStyle = "#141c36"; ctx.lineWidth = 2;
+        ctx.strokeStyle = "rgba(10, 14, 28, 0.65)"; ctx.lineWidth = 2;
         ctx.strokeRect(x, y, 64, 64);
-        ctx.fillStyle = "rgba(0, 229, 255, 0.10)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
         ctx.fillRect(x + 6, y + 6, 52, 2);
       }
+    }
+
+    // Zone B: Architectural Corridor / Walkway Band (y = 196..292)
+    ctx.fillStyle = st.floorAccent;
+    ctx.fillRect(0, 196, 512, 96);
+    for (let py = 200; py < 290; py += 18) {
+      ctx.fillStyle = "rgba(0,0,0,0.18)";
+      ctx.fillRect(0, py, 512, 2);
+    }
+    ctx.fillStyle = "#f5c542";
+    ctx.fillRect(0, 196, 512, 4);
+    ctx.fillRect(0, 288, 512, 4);
+
+    // Zone C: Stage Feature Zone (x = 272..484, y = 24..168)
+    ctx.fillStyle = st.rugColor;
+    ctx.fillRect(272, 24, 212, 144);
+    ctx.strokeStyle = "#f5c542"; ctx.lineWidth = 4;
+    ctx.strokeRect(276, 28, 204, 136);
+
+    // Stage-Specific Environmental Details!
+    if (st.id === "hospital") {
+      // Red & Cyan Hospital Triage Line Stripes + Medical Cross Emblem
+      ctx.fillStyle = "#ff3b4e"; ctx.fillRect(0, 234, 512, 6);
+      ctx.fillStyle = "#00e5ff"; ctx.fillRect(0, 246, 512, 6);
+      ctx.fillStyle = "rgba(255,255,255,0.85)";
+      ctx.fillRect(368, 72, 20, 48);
+      ctx.fillRect(354, 86, 48, 20);
+    } else if (st.id === "home") {
+      // Scattered Colorful LEGO Bricks on the Living Room Rug & Toy Blocks!
+      const legoCols = ["#ff2e44", "#ffe042", "#2bc4ff", "#52bf6a"];
+      [[310, 62], [355, 118], [420, 78], [120, 95], [185, 380], [410, 395]].forEach(([lx, ly], i) => {
+        ctx.fillStyle = legoCols[i % legoCols.length];
+        ctx.fillRect(lx, ly, 16, 10);
+        ctx.strokeStyle = "#12152a"; ctx.lineWidth = 1.5;
+        ctx.strokeRect(lx, ly, 16, 10);
+      });
+    } else if (st.id === "social") {
+      // Warm Golden String-Light Glow Pools on the Patio
+      [[110, 110], [378, 96], [240, 390]].forEach(([gx, gy]) => {
+        const g = ctx.createRadialGradient(gx, gy, 4, gx, gy, 54);
+        g.addColorStop(0, "rgba(255, 215, 110, 0.35)");
+        g.addColorStop(1, "rgba(255, 215, 110, 0)");
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(gx, gy, 54, 0, Math.PI * 2); ctx.fill();
+      });
+    } else if (st.id === "senior") {
+      // Pickleball Court Kitchen Lines & Center Net Line!
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3;
+      ctx.strokeRect(284, 34, 188, 124);
+      ctx.beginPath();
+      ctx.moveTo(378, 34); ctx.lineTo(378, 158);
+      ctx.moveTo(344, 34); ctx.lineTo(344, 158);
+      ctx.moveTo(412, 34); ctx.lineTo(412, 158);
+      ctx.stroke();
+    } else {
+      // Office Sticky Notes & Coffee Ring
+      ctx.fillStyle = "#ffe066";
+      ctx.fillRect(118, 92, 14, 14);
+      ctx.fillRect(412, 360, 14, 14);
     }
   }
 
   const tex = new THREE.CanvasTexture(can);
   tex.wrapS = THREE.RepeatWrapping;
   tex.wrapT = THREE.RepeatWrapping;
-  tex.repeat.set(60, 60);
+  tex.repeat.set(30, 30);
   return tex;
 }
 
@@ -155,10 +232,13 @@ function initThreeOverlay() {
   torchLight.position.set(0, 65, 0);
   scene3d.add(torchLight);
 
-  const floorTexDiablo = makeFloorTexture("diablo");
-  const floorTex3D = makeFloorTexture("3d");
+  const st0 = (window.STAGES && window.STAGES[0]) || null;
+  const floorTexCache = {
+    "1_office": makeFloorTexture("diablo", st0),
+    "2_office": makeFloorTexture("3d", st0)
+  };
 
-  const floorMat = new THREE.MeshStandardMaterial({ map: floorTex3D, roughness: 0.8, metalness: 0.12 });
+  const floorMat = new THREE.MeshStandardMaterial({ map: floorTexCache["2_office"], roughness: 0.8, metalness: 0.12 });
   const floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(15360, 15360), floorMat);
   floorMesh.rotation.x = -Math.PI / 2;
   floorMesh.receiveShadow = true;
@@ -180,8 +260,8 @@ function initThreeOverlay() {
 
   threeState = {
     canvas, renderer, scene3d, camera3d, hemi, dirLight, torchLight,
-    floorMesh, floorMat, floorTexDiablo, floorTex3D, skyEnvGroup, playerGroup,
-    lastFloorMode: -1,
+    floorMesh, floorMat, floorTexCache, activeTex: floorTexCache["2_office"], skyEnvGroup, playerGroup,
+    lastFloorKey: "",
     enemyMeshes: new Map(),
     splashMeshes: new Map(),
     gemMeshes: new Map(),
@@ -523,22 +603,28 @@ function renderThreeView(scene) {
 
   const {
     renderer, scene3d, camera3d, hemi, dirLight, torchLight,
-    floorMesh, floorMat, floorTexDiablo, floorTex3D, skyEnvGroup, playerGroup
+    floorMesh, floorMat, floorTexCache, skyEnvGroup, playerGroup
   } = threeState;
   const mode = window.viewModeIdx; // 1 = Diablo 3/4 Isometric Overview, 2 = 3D Immersive Third-Person
   const px = player.x, pz = player.y, pe = player.elev || 0;
+  const st = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : (window.STAGES && window.STAGES[0]);
+  const stId = (st && st.id) || "office";
+  const floorKey = `${mode}_${stId}`;
 
-  // Swap floor material texture when switching between Mode 1 (Obsidian Dungeon) and Mode 2 (3D Corporate Plaza)
-  if (threeState.lastFloorMode !== mode) {
-    threeState.lastFloorMode = mode;
-    floorMat.map = mode === 1 ? floorTexDiablo : floorTex3D;
+  // Swap multi-zone floor material texture when switching mode OR unlocking a new Life Stage!
+  if (threeState.lastFloorKey !== floorKey) {
+    threeState.lastFloorKey = floorKey;
+    if (!floorTexCache[floorKey]) {
+      floorTexCache[floorKey] = makeFloorTexture(mode === 1 ? "diablo" : "3d", st);
+    }
+    threeState.activeTex = floorTexCache[floorKey];
+    floorMat.map = threeState.activeTex;
     floorMat.needsUpdate = true;
   }
 
-  // Keep infinite floor & 3D skyline centered on player
-  const activeTex = mode === 1 ? floorTexDiablo : floorTex3D;
+  // Keep infinite multi-zone floor & 3D skyline centered on player
   floorMesh.position.set(px, 0, pz);
-  activeTex.offset.set(px / 256, -pz / 256);
+  threeState.activeTex.offset.set(px / 512, -pz / 512);
   skyEnvGroup.position.set(px, 0, pz);
 
   // Sync Player 3D model position, leg stride animation, and scale
@@ -564,12 +650,11 @@ function renderThreeView(scene) {
     // =========================================================================
     // MODE 1: DIABLO 3/4 ISOMETRIC TACTICAL OVERVIEW
     // True 16-deg Telephoto Isometric projection from high diagonal altitude!
-    // Shows a wide strategic overview of the dungeon floor, multiple mezzanines,
-    // and whole enemy swarms with dramatic flickering torchlight and dark fog.
     // =========================================================================
     skyEnvGroup.visible = false;
-    scene3d.background = new THREE.Color(0x07060d);
-    scene3d.fog = new THREE.FogExp2(0x07060d, 0.00048);
+    const bgHex = (st && st.diabloBg) || 0x07060d;
+    scene3d.background = new THREE.Color(bgHex);
+    scene3d.fog = new THREE.FogExp2(bgHex, 0.00048);
     hemi.intensity = 0.22;
     dirLight.intensity = 0.48;
     const flicker = 1 + Math.sin(scene.time.now / 70) * 0.08 + Math.cos(scene.time.now / 43) * 0.05;
@@ -583,12 +668,12 @@ function renderThreeView(scene) {
     // =========================================================================
     // MODE 2: 3D IMMERSIVE THIRD-PERSON WORLD ("Fortnite meets Vampire Survivors")
     // Low 68-deg wide-angle chase camera right behind the hero (y = 66, z = +142)
-    // looking out across the 3D arena into the 3D Skyscraper Horizon, Glowing Sun,
-    // and Floating Clouds!
     // =========================================================================
     skyEnvGroup.visible = true;
-    scene3d.background = new THREE.Color(0x1e2f66);
-    scene3d.fog = new THREE.FogExp2(0x283c7a, 0.00075);
+    const skyHex = (st && st.sky3d) || 0x1e2f66;
+    const fogHex = (st && st.fog3d) || 0x283c7a;
+    scene3d.background = new THREE.Color(skyHex);
+    scene3d.fog = new THREE.FogExp2(fogHex, 0.00075);
     hemi.intensity = 0.95;
     dirLight.intensity = 1.25;
     torchLight.intensity = 0.85;

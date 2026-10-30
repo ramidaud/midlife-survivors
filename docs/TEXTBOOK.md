@@ -754,6 +754,26 @@ In 3D photography and game cameras, two things define how a view feels: **Focal 
 
 ---
 
+## Chapter 29: Unlockable Life Stages (`src/data/stages.js`) & Multi-Zone World Biomes
+
+### 1. Replacing the Endless Checkerboard with 5 Unlockable Life Chapters
+To make the world reflect the real journey of adulthood (Career -> Birth/Hospital -> Parenting/Home -> Navigating Friendships -> Retirement), we created `src/data/stages.js`. Each stage defines its own multi-zone 512x512 procedural floor, 3D sky/fog palette, enemy swarm labels, and Phase 7 interactive challenges:
+
+```
+  AGE 40: 🏢 OFFICE ──► AGE 44: 🏥 HOSPITAL ──► AGE 50: 🏡 HOME & YARD ──► AGE 60: 🍻 SOCIAL PATIO ──► AGE 80: 🌴 RESORT
+  Career & Cubicles     Birth & 3AM Feedings    Parenting & LEGO Bricks    Navigating Friendships      Pickleball & HOA
+  [BILL / RE:RE:]       [CO-PAY / 3AM CRY]      [TUITION / LEGO! / MATH]   [SPLIT$ / FLAKE! / DRAMA]   [COPAY / BINGO]
+```
+
+### 2. How `makeFloorTexture` Paints Distinct Architectural Zones (`src/view3d.js`)
+Instead of a 2-color grid, `makeFloorTexture(style, stageObj)` paints a `512x512` architectural canvas cached per stage (`floorTexCache[`${mode}_${stId}`]`):
+- **🏥 Hospital (`hospital`):** Mint/slate terrazzo tiles + red & cyan emergency triage stripes + white medical cross emblem.
+- **🏡 Suburban Home (`home`):** Warm oak living room planks + green backyard lawn + crimson family rug + **scattered colorful LEGO bricks**.
+- **🍻 Social Courtyard (`social`):** Cobblestone patio + cedar bistro deck + radial golden string-light glow pools.
+- **🌴 Sunset Palms Resort (`senior`):** Terracotta resort lanai + white-lined **Pickleball Court** with kitchen zones.
+
+---
+
 ## Coming next
 
-- **Phase 6: Sharing with friends & collecting playtest notes!**
+- **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

@@ -105,7 +105,7 @@ let meta, runCoins = 0;
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
-let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false;
+let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office";
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
 
 // create() runs ONCE when the game starts: build the world.
@@ -895,7 +895,7 @@ function currentWave() {
   return w;
 }
 
-// Create one enemy of the given kind at (x, y), scaling HP, speed, and Senior Life labels with your Age!
+// Create one enemy of the given kind at (x, y), scaling HP, speed, and Life Stage labels with your Age!
 function createEnemy(scene, kind, x, y) {
   const E = ENEMIES[kind];
   const e = bills.create(x, y, E.tex || kind).setDepth(4);
@@ -907,7 +907,10 @@ function createEnemy(scene, kind, x, y) {
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
   e.damage = E.damage + (currentAge >= 80 ? 2 : (currentAge >= 60 ? 1 : 0));
   e.bornAt = runElapsedMs;
-  const lbl = (currentAge >= 80 && E.seniorLabel) ? E.seniorLabel : E.label;
+  const st = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
+  const lbl = (currentAge >= 80 && E.seniorLabel)
+    ? E.seniorLabel
+    : ((st && st.labels && st.labels[kind]) ? st.labels[kind] : E.label);
   e.tag = scene.add.text(x, y - E.size / 2 - 6, lbl, {
     fontFamily: "monospace", fontSize: "10px", color: currentAge >= 80 ? "#f5c542" : "#e8e9f3"
   }).setOrigin(0.5).setDepth(5);
@@ -992,6 +995,20 @@ function update(time, delta) {
   currentAge = runStartAge + (runElapsedMs / 1000) / PLAYER.secondsPerYear;
   updateHUD();
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
+
+  // Check if we progressed into a new Life Stage / Environment (Office -> Hospital -> Home -> Social -> Resort)!
+  if (typeof getActiveStage === "function") {
+    const activeStage = getActiveStage(currentAge, meta);
+    if (activeStage && activeStage.id !== currentStageId) {
+      const prevId = currentStageId;
+      currentStageId = activeStage.id;
+      const stageTints = { office: 0xffffff, hospital: 0xd4f7ff, home: 0xffe8c8, social: 0xf5d4ff, senior: 0xfff0b8 };
+      if (floor) floor.setTint(stageTints[currentStageId] || 0xffffff);
+      if (runElapsedMs > 500 && prevId) {
+        showBossToastUI(`${activeStage.name}`, `NEW LIFE CHAPTER UNLOCKED // ${activeStage.chapter}`);
+      }
+    }
+  }
 
   // Auto-save active run + unlock Decade Checkpoints every 3 seconds of active play!
   if (runElapsedMs - lastAutoSave > 3000) {

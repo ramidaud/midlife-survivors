@@ -3,8 +3,8 @@
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 
-**Current phase:** Phase 6 (Share it)
-**Last updated:** 2026-10-30 (Differentiated Mode 1 into a 16-deg Telephoto Isometric Tactical Overview and Mode 2 into a 68-deg Low Over-the-Shoulder 3D Immersive World with 3D Skyline, Sun, Clouds & Cubicle Walls)
+**Current phase:** Phase 6 (Share it) & Phase 7 (Life Chapters & Unlockable Worlds)
+**Last updated:** 2026-10-30 (Added 5 Unlockable Life Stage Environments in `src/data/stages.js` + Phase 7 Roadmap for Birth, Parenting, and Friendship Challenges)
 
 ---
 
@@ -57,3 +57,10 @@ Weekly check-in: Sundays, evening (automatic).
 - [ ] Playtest with friends or colleagues and collect notes
 - [ ] Decide: stay on the web, itch.io, or desktop app
 - [ ] Optional: tie a write-up into EMAT coursework or Framing the Cosmos-style storytelling
+
+## Phase 7: Life Chapters, Diverse Environments & Interactive Challenges (Planned Expansion)
+- [x] **Multi-Stage Biome Architecture (`src/data/stages.js`):** 5 unlockable environments (`🏢 The Open-Plan Office`, `🏥 St. Deductible Hospital`, `🏡 Suburban Home & Yard`, `🍻 The Social Courtyard`, `🌴 Sunset Palms Resort`) with multi-zone procedural floors, 3D sky palettes, and Title Screen Stage Selector
+- [ ] **Stage 2 Mechanics (🏥 Hospital & Birth):** Custom hospital props (rolling IV stands, triage curtains, heart monitors) + **3 AM Sleep-Deprivation / Newborn Feeding Challenge**
+- [ ] **Stage 3 Mechanics (🏡 Home & Parenting):** Custom suburban home props (minivans, backyard grills, toy chests), **LEGO-Brick Floor Hazards**, and **Boss: Common Core New Math**
+- [ ] **Stage 4 Mechanics (🍻 Social Courtyard & Navigating Friendships):** Custom bistro/patio props + **Friendship Battery / Group-Chat Scheduling Challenge** (reach RSVP zones before flaky friends cancel at 6:45 PM)
+- [ ] **Stage 5 Mechanics (🌴 Senior Resort 80-100):** Golf-cart obstacles, pickleball nets, and Early-Bird Buffet rush events

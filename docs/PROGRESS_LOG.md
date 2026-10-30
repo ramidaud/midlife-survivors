@@ -271,3 +271,16 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - **Locked in Mode 2 (`AAA 3D` — Low Over-the-Shoulder Immersive 3D Environment in `src/view3d.js`):**
   - **68-Degree Low Chase Camera (`FOV 68°` at `(0, 68, +142)` looking out toward `(0, 34, -280)`):** Drops the camera right behind the hero's shoulder (`1.22x` hero scale with animated 3D walking legs `legL`/`legR`) so the upper third of the screen opens up into a deep 3D horizon!
   - **360-Degree 3D City Skyline, Sunset Sun & Floating Clouds (`build3DHorizonEnvironment`):** Surrounds the 3D arena with 32 distant 3D corporate skyscrapers with neon rooftop trims, a glowing golden-hour horizon sun disk, 14 drifting 3D clouds, and tall 3D cubicle privacy walls.
+
+## 2026-10-30: Unlockable Life Environments (`src/data/stages.js`) & Phase 7 Expansion Plan! (Antigravity)
+- **Created `src/data/stages.js` with 5 Unlockable Life Environments:**
+  1. **🏢 The Open-Plan Office (Age 40):** Career & Cubicles (`BILL`, `LATE!`, `SPAM`, `RE:RE:`).
+  2. **🏥 St. Deductible Hospital (Age 44):** Birth, Medical Bills & Sleepless Nights (`CO-PAY`, `DEDUCT!`, `PAGER!`, `3AM CRY`).
+  3. **🏡 Suburban Home & Yard (Age 50):** Parenting, LEGO Minefields, Carpools & Homework (`TUITION`, `LEGO!`, `CARPOOL`, `NEWMATH`).
+  4. **🍻 The Social Courtyard (Age 60):** Navigating Adult Friendships & Flaky Group Chats (`SPLIT$`, `FLAKE!`, `TXT-47`, `DRAMA`).
+  5. **🌴 Sunset Palms Resort (Age 80):** Senior Bonus Rounds (`COPAY`, `HOA$`, `SCAM!`, `BINGO`).
+- **Replaced the Simple 3D/Diablo Checkerboard with 512x512 Multi-Zone Procedural Floors (`makeFloorTexture` in `src/view3d.js`):**
+  - Each stage now renders a 3-zone architectural floor (main tiles + walkway corridor with brass strips + feature zone with stage-specific details like hospital triage stripes & medical crosses, scattered LEGO bricks on the living room rug, warm patio string-light pools, or white-lined pickleball courts!).
+- **Dynamic Mid-Run Biome Transitions & Title Screen Environment Selector:**
+  - In `Auto-Progress` mode, reaching Ages 44, 50, 60, and 80 seamlessly transitions the floor architecture, 3D sky/fog palette, HUD timeline header, and enemy tags with a celebratory **New Life Chapter Toast**; or players can lock in any unlocked environment right on the Title Dossier!
+  - Added **Phase 7** to `docs/ROADMAP.md` and Section 6 to `docs/GAME_DESIGN.md` detailing the interactive mechanics planned for each stage.

@@ -420,12 +420,14 @@ function updateHUD() {
 
   document.getElementById("hud-age").textContent = `AGE ${currentAge.toFixed(1)}`;
   const tlTitle = document.getElementById("hud-timeline-title");
+  const curStage = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
+  const stagePrefix = curStage ? `${curStage.name.toUpperCase()} // ` : "";
   if (currentAge < 80) {
-    tlTitle.textContent = "CAREER TIMELINE (GOAL: AGE 80)";
+    tlTitle.textContent = `${stagePrefix}${curStage ? curStage.chapter : "GOAL: AGE 80"}`;
     const agePct = Math.max(0, Math.min(100, ((currentAge - 40) / 40) * 100));
     document.getElementById("hud-age-fill").style.width = `${agePct}%`;
   } else {
-    tlTitle.textContent = "🔥 SENIOR BONUS ROUNDS (AGE 80 -> 100!)";
+    tlTitle.textContent = `🌴 SUNSET PALMS // 🔥 SENIOR BONUS (80 -> 100!)`;
     const senPct = Math.max(0, Math.min(100, ((currentAge - 80) / 20) * 100));
     document.getElementById("hud-age-fill").style.width = `${senPct}%`;
   }
@@ -669,6 +671,19 @@ function renderTitleModal(scene, preserveFocusSelector) {
     `;
   }).join("");
 
+  const bestAge = meta.bestAge || 40;
+  const selStage = meta.selectedStage || "auto";
+  const stageBtnsHtml = `<button class="t-style-btn ${selStage === "auto" ? "active" : ""}" data-stage="auto" title="Automatically transitions through Office -> Hospital -> Home -> Social Courtyard -> Senior Resort as you age!">🔄 Auto-Progress</button>` +
+    (window.STAGES || []).map(st => {
+      const isUnlocked = bestAge >= st.unlockAge || unlockedDecs.includes(st.unlockAge);
+      const isSel = selStage === st.id;
+      return `
+        <button class="t-style-btn ${isSel ? "active" : ""}" data-stage="${st.id}" ${isUnlocked ? "" : "disabled style='opacity:0.4;cursor:not-allowed'"} title="${st.tagline}">
+          ${isUnlocked ? st.name : `🔒 ${st.name} (Age ${st.unlockAge}+)`}
+        </button>
+      `;
+    }).join("");
+
   const shopRowsHtml = META_SHOP.map(item => {
     const rank = meta.ranks[item.id] || 0;
     const maxed = rank >= item.maxRank;
@@ -701,11 +716,15 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
       <p class="game-tagline">Survive to Age 80 Retirement, Unlock Decade Checkpoints, and Conquer the 80-100 Senior Bonus Rounds!</p>
 
-      <div class="section-label">1. SELECT ARCHETYPE & STARTING DECADE CHECKPOINT</div>
+      <div class="section-label">1. SELECT ARCHETYPE, STARTING DECADE & LIFE ENVIRONMENT</div>
       <div class="dossier-chars-grid">${charCardsHtml}</div>
       <div class="title-style-switcher" style="margin-top:6px;">
         <span>START DECADE:</span>
         ${decadeBtnsHtml}
+      </div>
+      <div class="title-style-switcher" style="margin-top:5px;">
+        <span>ENVIRONMENT:</span>
+        ${stageBtnsHtml}
       </div>
 
       <div class="section-label">2. 401(k) PERMANENT RETIREMENT UPGRADES (AUTO-SAVED)</div>
@@ -762,10 +781,23 @@ function renderTitleModal(scene, preserveFocusSelector) {
     });
   });
 
-  // Rows 2..5: 401(k) Shop Upgrades
+  // Row 2: Life Stage / Environment Selector
+  modal.querySelectorAll("[data-stage]").forEach(btn => {
+    if (btn.disabled) return;
+    const stId = btn.dataset.stage;
+    bindNavItem(btn, 2, () => {
+      meta.selectedStage = stId;
+      saveMeta(meta);
+      sfx("pick");
+      renderTitleModal(scene, `[data-stage="${stId}"]`);
+      updateHUD();
+    });
+  });
+
+  // Rows 3..6: 401(k) Shop Upgrades
   modal.querySelectorAll(".shop-row").forEach((el, idx) => {
     const shopId = el.dataset.shop;
-    bindNavItem(el, 2 + idx, () => {
+    bindNavItem(el, 3 + idx, () => {
       const item = META_SHOP.find(it => it.id === shopId);
       if (!item) return;
       const rank = meta.ranks[item.id] || 0;
@@ -780,10 +812,10 @@ function renderTitleModal(scene, preserveFocusSelector) {
     });
   });
 
-  // Row 6: Visual Style Switcher
+  // Row 7: Visual Style Switcher
   modal.querySelectorAll("[data-v]").forEach(btn => {
     const v = Number(btn.dataset.v);
-    bindNavItem(btn, 6, () => {
+    bindNavItem(btn, 7, () => {
       window.viewModeIdx = v;
       applyViewMode(scene);
       sfx("pick");
@@ -791,17 +823,17 @@ function renderTitleModal(scene, preserveFocusSelector) {
     });
   });
 
-  // Row 7: Resume Saved Run (if present)
+  // Row 8: Resume Saved Run (if present)
   const resumeBtn = document.getElementById("title-resume-btn");
   if (resumeBtn) {
-    bindNavItem(resumeBtn, 7, () => {
+    bindNavItem(resumeBtn, 8, () => {
       if (window.resumeSavedRunFromTitle) window.resumeSavedRunFromTitle();
     }, true);
   }
 
-  // Row 8: Clock In / Start New Run (Default focus if no saved run)
+  // Row 9: Clock In / Start New Run (Default focus if no saved run)
   const clockBtn = document.getElementById("title-clockin-btn");
-  bindNavItem(clockBtn, 8, () => {
+  bindNavItem(clockBtn, 9, () => {
     if (startFromTitle) startFromTitle();
   }, !resumeBtn);
 
