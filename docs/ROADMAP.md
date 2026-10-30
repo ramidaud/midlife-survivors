@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Phase 6 (Share it)
-**Last updated:** 2026-10-30 (Phase 5 complete: 401(k) Coins, Permanent Shop, Save Data, 3 Characters)
+**Last updated:** 2026-10-30 (Live 3-Way Camera Style Switcher added: 2D 16-Bit, Diablo 3/4, and 3D Third-Person)
 
 ---
 

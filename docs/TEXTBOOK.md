@@ -556,6 +556,29 @@ flowchart LR
 
 ---
 
+## Chapter 21: One Simulation, Three Cameras (`src/view3d.js`)
+
+How can a game switch mid-run between a **2D 16-Bit** top-down view, a **Diablo 3/4** isometric dungeon crawler, and a **3D Third-Person** action view without rewriting a single rule of gameplay? By separating the **Simulation (Model)** from the **Camera (View)**:
+
+```
+   PHASER 2D SIMULATION (The "Truth")             THREE.JS 3D RENDERER (src/view3d.js)
+  ┌──────────────────────────────────┐           ┌────────────────────────────────────────┐
+  │  Player & Bills move on (x, y)   │ ──sync──► │ Maps 2D (x, y) -> 3D Floor (x, 0, z)   │
+  │  Arcade Physics checks overlaps  │           │ Style 1 (Diablo 3/4): high angle,      │
+  │  Timers fire weapons & waves     │           │   38° FOV, dark fog + warm torchlight  │
+  │  HUD, XP bar & menus draw on top │ ◄─project─│ Style 2 (3D Third-Person): low behind  │
+  └──────────────────────────────────┘           │   shoulder, 60° FOV, bright sky & fog  │
+                                                 └────────────────────────────────────────┘
+```
+
+| Camera Style (`V` Key) | Camera Offset `(dx, dy, dz)` | Field of View (`FOV`) | Lighting & Atmosphere |
+|---|---|---|---|
+| **1. `2D 16-Bit`** | Directly overhead (2D tileSprite) | Orthographic / Flat | Crisp 16-bit pixel art sprites & multi-zone office floor |
+| **2. `Diablo 3/4`** | `(-260, +420, +320)` angled 45° | Narrow (`38°`) | Dark `#090b14` fog + golden player torchlight (`PointLight`) + long shadows |
+| **3. `3D Third-Person`** | `(0, +165, +250)` over-the-shoulder | Wide (`60°`) | Stylized `#283866` sky + horizon fog + 3D hero, enemy, and boss meshes |
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

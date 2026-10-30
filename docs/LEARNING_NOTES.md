@@ -97,3 +97,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## Meta-progression and localStorage (Oct 30)
 - **Run stats vs. Meta data:** Run `stats` reset every time you press Try Again, while `meta` is saved as a JSON string in `localStorage.setItem("midlife_survivors_save_v1", JSON.stringify(meta))`, surviving browser reloads and tab closes.
 - **Compounding fun:** Even a short run where you die at Age 43 still earns 401(k) Coins toward unlocking a new character or permanent rank, so no run ever feels wasted.
+
+## Separating game simulation from camera projection (Oct 30)
+- **Model-View separation:** All physics, collisions, timers, and AI still run in 2D (`(x, y)` coordinates in Phaser). The Three.js renderer (`src/view3d.js`) simply reads each entity's `(x, y)` every frame and maps it to 3D space `(x, height, z)`.
+- **Camera feel is just math:** The difference between a **Diablo 3/4** dungeon crawler and a **3D Third-Person** shooter is purely camera placement, field-of-view (`38°` narrow isometric vs. `60°` wide chase camera), and lighting (warm close-range point light in dark fog vs. bright sky hemisphere light).

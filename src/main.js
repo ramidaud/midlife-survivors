@@ -6,7 +6,7 @@ const WORLD_SIZE = 4000; // no longer a wall: the floor is endless now (kept for
 const config = {
   type: Phaser.AUTO,
   parent: "game",
-  backgroundColor: "#1b1f38",
+  transparent: true, // allows the underlying Three.js 3D / Diablo canvas to show through in 3D modes!
   scale: { mode: Phaser.Scale.RESIZE, width: window.innerWidth, height: window.innerHeight },
   physics: { default: "arcade" },
   input: { gamepad: true }, // listen for game controllers (Xbox, PlayStation, Switch Pro, etc.)
@@ -26,13 +26,13 @@ function readPad(scene) {
     x: Math.abs(sx) > 0.2 ? sx : 0, y: Math.abs(sy) > 0.2 ? sy : 0, // ignore tiny stick drift
     left: pad.left, right: pad.right,
     up: pad.up || sy < -0.6, down: pad.down || sy > 0.6,
-    a: pad.A, start: pad.buttons[9] && pad.buttons[9].pressed
+    a: pad.A, yBtn: pad.Y, start: pad.buttons[9] && pad.buttons[9].pressed
   };
-  if (pad.A) unlockAudio();
+  if (pad.A || pad.Y) unlockAudio();
 }
 const padJust = name => padNow[name] && !padPrev[name];
 
-let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, coins, chests, hudText;
+let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, coins, chests, hudText, viewBtn;
 let xp = 0, level = 1, xpNeeded = 0, xpBar, levelText, currentAge = 40, bossesSpawned = {}, slowUntil = 0;
 let meta, runCoins = 0;
 // "stats" is this run's copy of the numbers. Upgrades change the copy, never the data files,
@@ -79,15 +79,29 @@ function create() {
   this.cameras.main.startFollow(player, true, 0.12, 0.12);
 
   // 5. A heads-up display (HUD) pinned to the screen, not the world.
-  hudText = this.add.text(16, 16, "AGE 40.0 | P/Esc: pause | M: mute", {
+  hudText = this.add.text(16, 16, "AGE 40.0 | P/Esc: pause | M: mute | V: style", {
     fontFamily: "monospace", fontSize: "14px", color: "#f0a24f",
     backgroundColor: "#12152acc", padding: { x: 8, y: 6 }
   }).setScrollFactor(0).setDepth(20);
+
+  // Live 3-way Camera Style button in top-right (2D 16-Bit -> Diablo 3/4 -> 3D Third-Person)
+  viewBtn = this.add.text(this.scale.width - 16, 16, `[V] Style: ${VIEW_MODES[window.viewModeIdx]}`, {
+    fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#ffe042",
+    backgroundColor: "#171c36ee", padding: { x: 10, y: 6 }
+  }).setOrigin(1, 0).setScrollFactor(0).setDepth(25).setInteractive({ useHandCursor: true });
+  this.scale.on("resize", size => viewBtn.setX(size.width - 16));
+  const toggleView = () => {
+    const modeName = cycleViewMode(this);
+    viewBtn.setText(`[V] Style: ${modeName}`);
+    sfx("pick");
+  };
+  viewBtn.on("pointerdown", (p, lx, ly, ev) => { ev.stopPropagation(); unlockAudio(); toggleView(); });
 
   // 6. Controls: keyboard plus a "drag anywhere" joystick for phones.
   cursors = this.input.keyboard.createCursorKeys();
   keys = this.input.keyboard.addKeys("W,A,S,D");
   this.input.keyboard.on("keydown-M", () => toggleMute());
+  this.input.keyboard.on("keydown-V", () => toggleView());
   this.input.keyboard.on("keydown-P", () => togglePause(this));
   this.input.keyboard.on("keydown-ESC", () => togglePause(this));
   this.input.on("pointerdown", p => { touch = { active: true, startX: p.x, startY: p.y, dx: 0, dy: 0 }; });
@@ -134,6 +148,9 @@ function create() {
   this.physics.add.overlap(player, gems, collectGem);
   this.physics.add.overlap(player, coins, collectCoin);
   this.physics.add.overlap(player, chests, collectChest);
+
+  // Apply the active camera/graphics style (2D 16-Bit, Diablo 3/4, or 3D Third-Person)
+  applyViewMode(this);
 
   // 12. Title screen on first load ("Clock In"), or start the music right away on "Try again".
   if (!titleSeen) {
@@ -271,8 +288,21 @@ function showTitleScreen(scene) {
     });
   });
 
-  // ---- 3. Clock In Button ----
-  const btn = keep(scene.add.text(cx, cy + 166, "  CLOCK IN (Click, Space, or Start)  ", {
+  // ---- 3. Camera Style Selector + Clock In Button ----
+  const styleBtn = keep(scene.add.text(cx, cy + 124, `  CAMERA STYLE [Press V]: ${VIEW_MODES[window.viewModeIdx]} (Click to switch)  `, {
+    fontFamily: "monospace", fontSize: "12px", fontStyle: "bold",
+    backgroundColor: "#2b3663", color: "#ffe042", padding: { x: 10, y: 6 }
+  }).setOrigin(0.5).setInteractive({ useHandCursor: true }));
+  styleBtn.on("pointerdown", (p, lx, ly, ev) => {
+    ev.stopPropagation();
+    unlockAudio();
+    const modeName = cycleViewMode(scene);
+    if (viewBtn) viewBtn.setText(`[V] Style: ${modeName}`);
+    sfx("pick");
+    rebuild();
+  });
+
+  const btn = keep(scene.add.text(cx, cy + 168, "  CLOCK IN (Click, Space, or Start)  ", {
     fontFamily: "monospace", fontSize: "18px", fontStyle: "bold",
     backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 14, y: 10 }
   }).setOrigin(0.5).setInteractive({ useHandCursor: true }));
@@ -519,7 +549,8 @@ function showGameOver(scene, killer, isWin) {
 // Pop a floating damage number above an enemy that drifts up and fades out.
 function popDamageNumber(sc, x, y, amount) {
   const big = amount >= 2;
-  const txt = sc.add.text(x + Phaser.Math.Between(-8, 8), y - 14, `-${amount}`, {
+  const pt = project3DToPhaserWorld(sc, x, 34, y);
+  const txt = sc.add.text(pt.x + Phaser.Math.Between(-8, 8), pt.y - 14, `-${amount}`, {
     fontFamily: "monospace", fontSize: big ? "16px" : "13px", fontStyle: "bold",
     color: big ? "#ffe042" : "#ffffff", stroke: "#12152a", strokeThickness: 3
   }).setOrigin(0.5).setDepth(15);
@@ -609,12 +640,17 @@ function fireDadJoke(scene) {
   if (!stats.dadJoke) return;
   sfx("dadJoke");
   const J = WEAPONS.dadJoke, r = stats.jokeRadius;
-  const ring = scene.add.circle(player.x, player.y, 12, J.color, 0.25).setStrokeStyle(3, J.color);
-  scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 380, onComplete: () => ring.destroy() });
+  if (window.viewModeIdx > 0) {
+    spawn3DRing(player.x, player.y, r, J.color);
+  } else {
+    const ring = scene.add.circle(player.x, player.y, 12, J.color, 0.25).setStrokeStyle(3, J.color);
+    scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 380, onComplete: () => ring.destroy() });
+  }
   const line = Phaser.Utils.Array.GetRandom(J.lines);
-  const quip = scene.add.text(player.x, player.y - 28, line, {
+  const pt = project3DToPhaserWorld(scene, player.x, 54, player.y);
+  const quip = scene.add.text(pt.x, pt.y - 28, line, {
     fontFamily: "monospace", fontSize: "12px", color: "#e6c84f"
-  }).setOrigin(0.5);
+  }).setOrigin(0.5).setDepth(16);
   scene.tweens.add({ targets: quip, y: quip.y - 24, alpha: 0, duration: 750, onComplete: () => quip.destroy() });
 
   bills.getChildren().slice().forEach(bill => {
@@ -629,11 +665,16 @@ function fireWordNo(scene) {
   if (!stats.wordNo) return;
   sfx("wordNo");
   const N = WEAPONS.wordNo, r = stats.noRadius;
-  const wave = scene.add.circle(player.x, player.y, 16, N.color, 0.18).setStrokeStyle(4, N.color);
-  scene.tweens.add({ targets: wave, radius: r, alpha: 0, duration: 320, onComplete: () => wave.destroy() });
-  const shout = scene.add.text(player.x, player.y - 28, stats.healthyBoundaries ? "NO! (+1 HP)" : "NO.", {
+  if (window.viewModeIdx > 0) {
+    spawn3DRing(player.x, player.y, r, N.color);
+  } else {
+    const wave = scene.add.circle(player.x, player.y, 16, N.color, 0.18).setStrokeStyle(4, N.color);
+    scene.tweens.add({ targets: wave, radius: r, alpha: 0, duration: 320, onComplete: () => wave.destroy() });
+  }
+  const pt = project3DToPhaserWorld(scene, player.x, 54, player.y);
+  const shout = scene.add.text(pt.x, pt.y - 28, stats.healthyBoundaries ? "NO! (+1 HP)" : "NO.", {
     fontFamily: "monospace", fontSize: "16px", color: "#6fd9c4"
-  }).setOrigin(0.5);
+  }).setOrigin(0.5).setDepth(16);
   scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
   if (stats.healthyBoundaries && hp < stats.maxHp) { hp = Math.min(stats.maxHp, hp + 1); drawHpBar(); }
 
@@ -745,6 +786,11 @@ function spawnBoss(scene, bossKind) {
 // update() runs about 60 TIMES PER SECOND: this is the game loop.
 function update() {
   readPad(this);
+  if (padJust("yBtn")) {
+    const modeName = cycleViewMode(this);
+    if (viewBtn) viewBtn.setText(`[V] Style: ${modeName}`);
+    sfx("pick");
+  }
 
   // Controller in menus: up/down to choose an upgrade, A to pick. A or Start to try again.
   if (levelMenu) {
@@ -759,12 +805,16 @@ function update() {
   if (gameOver && restartGame && (padJust("a") || padJust("start"))) restartGame();
   if (!gameOver && !levelUpOpen && !titleOpen && padJust("start")) togglePause(this);
 
-  if (gameOver || levelUpOpen || paused || titleOpen) return; // freeze while dead, paused, on title, or choosing an upgrade
+  if (gameOver || levelUpOpen || paused || titleOpen) {
+    renderThreeView(this);
+    restore2DSprites();
+    return; // freeze while dead, paused, on title, or choosing an upgrade
+  }
 
   // Age clock: every PLAYER.secondsPerYear seconds adds 1 year to your age.
   const elapsedSec = (this.time.now - startTime) / 1000;
   currentAge = PLAYER.startingAge + elapsedSec / PLAYER.secondsPerYear;
-  hudText.setText(`AGE ${currentAge.toFixed(1)} | 401(k): ${meta.coins} | P: pause | M: mute`);
+  hudText.setText(`AGE ${currentAge.toFixed(1)} | 401(k): ${meta.coins} | P: pause | M: mute | V: style`);
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
   ["performanceReview", "mortgageRefinance", "midlifeCrisis", "theReaper"].forEach(bk => {
     if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
@@ -886,6 +936,10 @@ function update() {
   splashes.getChildren().slice().forEach(s => {
     if (Phaser.Math.Distance.Between(s.startX, s.startY, s.x, s.y) > stats.range) s.destroy();
   });
+
+  // Render the active 3D / Diablo 3/4 view (or restore 2D sprites when in 2D 16-Bit mode)
+  renderThreeView(this);
+  restore2DSprites();
 }
 
 new Phaser.Game(config);
