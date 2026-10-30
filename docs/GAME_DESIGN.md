@@ -108,4 +108,7 @@ Pick zero, one or two later. Don't build these before the core loop is fun.
 - [ ] Who is the main character? A version of you, or an everyperson?
 - [ ] Tone: gentle and relatable, or more chaotic and absurd?
 - [ ] What does "winning" at 50 look like? Credits? A party? A nap?
-- [ ] Art direction (decide in Phase 4): pixel art, photo collage, or cartoon?
+- [x] Art direction (decided Oct 30): Live 3-tier switchable style (`[V]` key):
+  1. **Retro Pixel (`2D 16-Bit`)**: SNES / Genesis top-down 16-bit pixel art.
+  2. **Stylistic Indie (`Diablo 3/4`)**: Moody isometric 3/4 dungeon crawler (*Hades* / *Diablo* / *Cult of the Lamb* vibe) with dramatic lighting and long shadows.
+  3. **AAA 3D (`3D Third-Person`)**: High-fidelity *Fortnite*-style third-person 3D action view (scales up with glTF rigged 3D models, PBR materials, post-processing bloom/SSAO, and dynamic skyboxes).
