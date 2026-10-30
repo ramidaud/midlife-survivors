@@ -1081,3 +1081,16 @@ flowchart TD
 ```
 
 **Rule:** a menu opened *from* another menu needs a higher layer number than its parent.
+
+---
+
+## Chapter: Game time vs. real time (V. 1.13.0)
+
+```
+Real clock:  ████████████████████████  keeps going no matter what
+Game clock:  ██████░░░░ PAUSED ░░░░████  stops when a menu is open
+
+Lower third message (4 s):
+  before fix  [show]---(you pause)---(expired while hidden)
+  after fix   [show]---(you pause: held)---[show again]--done
+```

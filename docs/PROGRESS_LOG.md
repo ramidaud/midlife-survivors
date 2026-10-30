@@ -388,3 +388,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Ran a scripted playthrough of every menu at laptop and phone sizes: title, shop, extras, options, pause, level-up, game over, retry, save and quit, resume, age 80.
 - No crashes. Found 7 menu problems, biggest: Options, Lore and Patch Notes open behind the title screen. Listed as objective 5, "Menu fixes."
 - Next objective: Menu fixes.
+
+## 2026-10-30: Objective 5 done, Menu Fixes (V. 1.13.0) (Claude)
+- Fixed 6 of the 7 test-run issues. The 7th (death joke mismatch) was a false alarm: "surprise HOA fee" is a Bill joke.
+- Options, Lore and Patch Notes now sit on a higher layer than the title screen. Mouse hover only moves the highlight when the mouse actually moves.
+- Game Over's shop button lands on the shop; lower third holds its message while menus are open; pause menu opens on Resume and dropped to 7 rows.
+- Reran the full playthrough plus a level-up check at laptop and phone sizes: all fixed, no errors.
+- Next objective: Credits, not cameo.

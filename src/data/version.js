@@ -2,12 +2,24 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.12.0",
-  displayVersion: "V. 1.12.0",
+  version: "1.13.0",
+  displayVersion: "V. 1.13.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Tips Switch",
-  build: 26,
+  codename: "Menu Fixes",
+  build: 27,
   changelog: [
+    {
+      ver: "V. 1.13.0",
+      date: "Oct 30, 2026",
+      title: "Menu Fixes",
+      highlights: [
+        "Options, Lore and Patch Notes now open on top of the title screen instead of behind it.",
+        "Game Over's 401(k) Shop button takes you straight to the shop.",
+        "Lower third messages wait while a menu is open instead of expiring unseen.",
+        "Pause menu opens on Resume and is shorter (Lore and Patch Notes live in Title > Extras).",
+        "Top HUD no longer peeks out behind the title and Game Over screens."
+      ]
+    },
     {
       ver: "V. 1.12.0",
       date: "Oct 30, 2026",

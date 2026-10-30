@@ -90,7 +90,7 @@ window.menuNav = {
   focus(el, playSound = false) {
     const modal = this.getActiveModal();
     if (!modal || !el) return;
-    modal.querySelectorAll(".nav-focused").forEach(n => n.classList.remove("nav-focused"));
+    document.querySelectorAll(".nav-focused").forEach(n => n.classList.remove("nav-focused")); // clear stale highlights in closed menus too
     this.focusedEl = el;
     el.classList.add("nav-focused");
     if (el.classList.contains("perk-card")) {
@@ -191,7 +191,9 @@ function bindNavItem(el, row, onActivate, isDefault = false) {
   el.classList.add("nav-item");
   el.dataset.navRow = String(row);
   if (isDefault) el.classList.add("nav-default");
-  el.addEventListener("pointerenter", () => window.menuNav.focus(el, false));
+  el.addEventListener("pointermove", e => {
+    if (e.pointerType === "mouse" && window.menuNav.focusedEl !== el) window.menuNav.focus(el, false);
+  });
   el.addEventListener("pointerdown", e => {
     e.stopPropagation();
     unlockAudio();
@@ -571,30 +573,46 @@ let activeContextOverride = null; // { badge, story, help, mood, untilMs }
 // Higher priority interrupts lower. Low-priority messages are dropped if busy.
 // ============================================================================
 const LT_PRIORITY = { alert: 5, win: 4, errand: 4, tip: 3, chapter: 2, reward: 1, lore: 1, joke: 0 };
-const ltState = { current: null, queue: [], timer: null };
+const ltState = { current: null, queue: [], remaining: 0, gap: 0 };
+
+function ltMenuOpen() {
+  return (typeof titleOpen !== "undefined" && titleOpen) || (typeof paused !== "undefined" && paused) ||
+    (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof gameOver !== "undefined" && gameOver) ||
+    (typeof retire80Open !== "undefined" && retire80Open) || window.controlsModalOpen || window.loreModalOpen || window.changelogModalOpen;
+}
 
 function ltShowNow(msg) {
   const el = document.getElementById("lt-strip");
   if (!el) return;
   ltState.current = msg;
+  ltState.remaining = msg.ms;
   el.dataset.kind = msg.kind;
   document.getElementById("lt-badge").textContent = msg.badge;
   document.getElementById("lt-text").textContent = msg.text;
-  el.classList.add("show");
-  clearTimeout(ltState.timer);
-  ltState.timer = setTimeout(ltHide, msg.ms);
+  if (!ltMenuOpen()) el.classList.add("show");
 }
 
 function ltHide() {
   const el = document.getElementById("lt-strip");
   if (el) el.classList.remove("show");
   ltState.current = null;
-  clearTimeout(ltState.timer);
-  if (ltState.queue.length) {
-    const next = ltState.queue.shift();
-    ltState.timer = setTimeout(() => ltShowNow(next), 450); // short gap so messages don't blur together
-  }
+  if (ltState.queue.length) ltState.gap = 450; // short gap so messages don't blur together
 }
+
+// One clock for the strip: counts down only while you're actually playing.
+setInterval(() => {
+  const el = document.getElementById("lt-strip");
+  if (!el) return;
+  if (ltMenuOpen()) { el.classList.remove("show"); return; }   // hold the message while a menu is up
+  if (ltState.current) {
+    el.classList.add("show");
+    ltState.remaining -= 100;
+    if (ltState.remaining <= 0) ltHide();
+  } else if (ltState.queue.length) {
+    ltState.gap -= 100;
+    if (ltState.gap <= 0) ltShowNow(ltState.queue.shift());
+  }
+}, 100);
 
 window.showLowerThird = function(kind, badge, text, ms = 4500) {
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
@@ -945,7 +963,7 @@ function updateHUD() {
 function updateCleanHUD() {
   const hudEl = document.getElementById("vs-hud");
   if (!hudEl || !stats || !meta) return;
-  hudEl.classList.toggle("hidden", !!titleOpen);
+  hudEl.classList.toggle("hidden", !!(titleOpen || gameOver));
   const xpPct = Math.max(0, Math.min(100, (xp / xpNeeded) * 100));
   document.getElementById("vs-xp-fill").style.width = `${xpPct}%`;
   document.getElementById("vs-lv").textContent = `LV ${level}`;
@@ -1018,17 +1036,9 @@ function renderPauseModal(scene, keepRowIdx) {
           <span>🗣️ DAD JOKE VOICE</span>
           <span class="opt-val">◀ ${voiced ? "SPOKEN 🗣️" : "TEXT ONLY 💬"} ▶</span>
         </button>
-        <button class="opt-btn" id="pause-lore-btn">
-          <span>📖 MYTHOS, SUBJECTS & SCENARIOS</span>
-          <span class="opt-val">FORM W-40 ARCHIVE ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-changelog-btn">
-          <span>📜 VERSION & PATCH NOTES</span>
-          <span class="opt-val">${verInfo.displayVersion} (${verInfo.lastUpdated}) ▶</span>
-        </button>
         <button class="opt-btn" id="pause-savequit-btn">
-          <span>💾 SAVE & EXIT TO DOSSIER</span>
-          <span class="opt-val">401(k) SHOP</span>
+          <span>💾 SAVE & EXIT TO TITLE</span>
+          <span class="opt-val">RESUME LATER</span>
         </button>
         <button class="opt-btn" id="pause-restart-btn">
           <span>🔄 START FRESH RUN</span>
@@ -1770,6 +1780,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   ` : "";
 
   // Title screen views (Oct 30): "main" = pick a character + start; "shop" and "extras" sit behind buttons.
+  if (window.titleViewNext) { window.titleView = window.titleViewNext; window.titleViewNext = null; }
   const view = window.titleView || "main";
   const startAge = meta.startDecade || 40;
   const backBtn = `<button class="t-style-btn title-back-btn" id="title-back-btn">◀ BACK</button>`;
@@ -1965,7 +1976,7 @@ function renderGameOverModal(scene, cause, isWin) {
       </div>
       <div class="gameover-actions">
         <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
-        <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP & DECADE SELECT</button>
+        <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>
       </div>
       <div class="nav-hint-bar">
         <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Option</span>
@@ -1984,6 +1995,7 @@ function renderGameOverModal(scene, cause, isWin) {
     sfx("pick");
     modal.classList.add("hidden");
     titleSeen = false;
+    window.titleViewNext = "shop"; // land on the Shop view, not the main title
     scene.scene.restart();
   }, false);
 

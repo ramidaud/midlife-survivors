@@ -226,6 +226,8 @@ function create() {
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {
     hpBar.clear();
+    const vsHud = document.getElementById("vs-hud");
+    if (vsHud) vsHud.classList.toggle("hidden", !!(titleOpen || gameOver)); // no HUD peeking behind title or Game Over
     if (!player || !stats || titleOpen) return;
     const w = 44, h = 6;
     const x = player.x - w / 2, y = player.y + player.displayHeight / 2 + 4;

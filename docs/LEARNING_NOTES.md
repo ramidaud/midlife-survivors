@@ -183,3 +183,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - When two sheets have the **same number**, the one written later in the code wins. That's why Options opened behind the title screen.
 - Fix: give "sub-menus" a higher number than the screen that opens them, so they always land on top.
 - Saving settings needs both halves: **write** the value and **read it back** on load. The Tips switch almost forgot itself because the loader didn't know the new setting existed.
+
+## Game time vs. real time (Oct 30, Menu Fixes)
+- A timer that uses the **real clock** keeps ticking while you're in a menu. That's why lower third messages vanished before you could read them.
+- The fix is a **game-time clock**: count down only while you're actually playing, and hold still when a menu is open.
+- Same reason the age clock stops when you pause. Anything the player should see needs to run on game time.

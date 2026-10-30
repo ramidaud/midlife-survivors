@@ -14,14 +14,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 2. [x] **Lower third:** on-demand strip for alerts, first-time tips, chapter cards and rewards, one at a time (V. 1.10.0)
 3. [x] **Title screen:** pick a character, then Start. Shop, Options and Extras sit behind buttons (V. 1.11.0)
 4. [x] **Hints toggle:** GAME TIPS on/off in the Pause menu (V. 1.12.0)
-5. [ ] **Menu fixes (from the Oct 30 UI test run):**
-   - Options, Lore and Patch Notes open *behind* the title screen (they share a layer and the title wins)
-   - Keyboard focus gets stuck on buttons in menus that already closed, so Enter can do nothing
-   - Game Over's "401(k) Shop" button lands on the main title screen, not the shop
-   - Lower third keeps counting down behind the pause and level-up menus, so messages expire unseen
-   - Pause menu opens with the Lore row highlighted instead of Resume; menu is long (8 rows)
-   - Top HUD shows faintly behind the title and Game Over screens
-   - Death joke can mismatch the killer (died to a Bill, joke about an HOA fee)
+5. [x] **Menu fixes:** sub-menus open on top, Game Over shop button goes to the shop, lower third waits during menus, pause opens on Resume and is shorter, HUD hidden behind title and Game Over (V. 1.13.0)
 6. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
 7. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
 8. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
