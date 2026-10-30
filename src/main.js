@@ -116,6 +116,12 @@ function create() {
   bills = this.physics.add.group();
   // Bills bump into each other instead of stacking into one blob. That makes a swarm.
   this.physics.add.collider(bills, bills);
+  // Office furniture props (desks, plants, watercoolers) are solid physical barriers!
+  if (window.propGroup) {
+    this.physics.add.collider(player, window.propGroup);
+    this.physics.add.collider(bills, window.propGroup);
+  }
+  updateStageProps(this, stageProps);
   // A timer that calls spawnBill over and over, speeding up as you age through SPAWNING.waves.
   spawnTimer = this.time.addEvent({ delay: SPAWNING.everyMs, loop: true, callback: () => spawnBill(this) });
 
@@ -391,6 +397,8 @@ function collectGem(p, gem) {
     level++;
     xpNeeded = Math.round(xpNeeded * LEVELING.growth);
     pendingLevels++;
+    hp = Math.min(stats.maxHp, hp + 2); // leveling up restores +2 HP!
+    drawHpBar();
   }
   drawXpBar();
   if (pendingLevels > 0 && !levelUpOpen) showLevelUp(p.scene);

@@ -193,3 +193,14 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   2. **`Diablo 3/4`**: Moody 45-degree isometric dungeon-crawler view (`FOV 38`) with dark atmospheric fog, warm golden player torchlight, and long real-time directional shadows.
   3. **`3D Third-Person`**: Over-the-shoulder 3D action camera (`FOV 60`, "Fortnite meets Vampire Survivors") looking across the 3D arena with sky lighting, horizon fog, 3D hero/enemy/boss models, and 3D expanding shockwave rings.
 - Kept all game logic, physics, collisions, and UI menus in Phaser while projecting 3D coordinates (`project3DToPhaserWorld`) so floating damage numbers and enemy tags track above their 3D models.
+
+## 2026-10-30: Pacing Rebalance, Solid Furniture Barriers & Climbable Mezzanine Platforms! (Antigravity)
+- **Fixed Early-Game Difficulty & Progression Pacing:**
+  - Lowered basic `bill` HP from `2` to `1` (`overdueAfterMs` extended from `9s` to `14s`) and boosted starting `coffeeSplash` fire rate (`650ms` vs. `1000ms`) so 1 splash of coffee pays off a Bill right at Level 1.
+  - Smoothed the XP curve (`firstLevelXp: 3`, `growth: 1.25`), increased `magnetRadius` (`120px`), raised starting `maxHp` to `14` (`hurtCooldownMs: 900`), and added a **`+2 HP` heal on every level-up**.
+  - Tuned wave intervals (`1250ms` down to `620ms`) and Boss HP (`18 / 34 / 50`) so upgrades stay ahead of the crowd.
+- **Solid Office Furniture Barriers:**
+  - Converted `stageProps` (`prop_desk`, `prop_plant`, `prop_cooler`) into immovable Arcade Physics bodies (`window.propGroup`) with colliders on both `player` and `bills`, plus distinct 3D meshes in `view3d.js`.
+- **Climbable Mezzanine Platforms & Stairs (`prop_platform`):**
+  - Added raised **Mezzanine Platforms (`height = 42`)** with **6-step staircases** on their left side and **brass guardrails** on their top, right, and bottom ledges.
+  - In **2D 16-Bit Mode**, platforms render as detailed pixel-art mezzanines with stairs and handrails; in **Diablo 3/4** and **3D Third-Person Modes**, they render as 3D multi-step staircases, columns, and raised decks that physically lift the player, enemies, pickups, and camera as you climb!

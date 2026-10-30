@@ -579,6 +579,35 @@ How can a game switch mid-run between a **2D 16-Bit** top-down view, a **Diablo 
 
 ---
 
+## Chapter 22: Pacing Math, Physical Barriers & Climbable Mezzanine Platforms
+
+### 1. Why the First 40 Seconds Felt Too Hard (DPS vs. Spawn Rate)
+In a survival game, early-game fun comes from **Kills Per Second (KPS)** outpacing **Spawns Per Second (SPS)** just enough that you can scoop up gems and hit Level 3-4 before the first Boss arrives:
+
+| Metric | Old Value (Too Hard) | New Value (Balanced Progression) |
+|---|---|---|
+| **Starter Coffee Fire Rate** | `1000ms` (1.0 shot/sec) | **`650ms` (1.54 shots/sec)** |
+| **Regular Bill HP & Overdue Split** | `2 HP` (took 2.0s to kill!), splits in `9s` | **`1 HP` (1 splash pays it off!), splits in `14s`** |
+| **XP Curve & Gem Magnet** | `5 XP` for Lv 2 (`1.4x` growth), `90px` magnet | **`3 XP` for Lv 2 (`1.25x` growth), `120px` magnet** |
+| **Player Survivability** | `10 HP`, no level-up heal | **`14 HP` + heals `+2 HP` on every Level-Up!** |
+
+### 2. Solid Scenery Barriers & 2.5D Mezzanine Platforms (`ent.elev`)
+Every office prop (`prop_desk`, `prop_plant`, `prop_cooler`) now has a solid Arcade Physics hitbox, and we added **Raised Mezzanine Platforms (`prop_platform`)** with a **6-step staircase**:
+
+```
+             TOP GUARDRAIL (Solid Ledge Barrier)
+            ╔═══════════════════════════════════╗
+  STAIRCASE ║                                   ║
+  ┌─┬─┬─┬─┬─╢     RAISED MEZZANINE DECK         ║ RIGHT
+  │1│2│3│4│5│        (Elevation = +42)          ║ GUARDRAIL
+  └─┴─┴─┴─┴─╢   Walk up the stairs on the left  ║ (Solid)
+  Open Ramp ║   to take the High Ground!        ║
+            ╚═══════════════════════════════════╝
+            BOTTOM GUARDRAIL (Solid Ledge Barrier)
+```
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

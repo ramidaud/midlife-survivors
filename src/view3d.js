@@ -96,9 +96,102 @@ function initThreeOverlay() {
     coinMeshes: new Map(),
     chestMeshes: new Map(),
     propMeshes: [],
+    platformMeshes: [],
     rings: [],
     projVec: new THREE.Vector3()
   };
+}
+
+// Build a 3D Mezzanine Platform + 6-Step Staircase + Columns + Brass Guardrails!
+function build3DPlatformMesh() {
+  const g = new THREE.Group();
+  const matDeck = new THREE.MeshStandardMaterial({ color: 0x2f3c66, roughness: 0.65, metalness: 0.15 });
+  const matStep = new THREE.MeshStandardMaterial({ color: 0x3d4c7a, roughness: 0.6 });
+  const matGold = new THREE.MeshStandardMaterial({ color: 0xf5c542, roughness: 0.3, metalness: 0.7, emissive: 0x3b2800 });
+  const matPillar = new THREE.MeshStandardMaterial({ color: 0x1e2540, roughness: 0.7 });
+
+  // Raised Mezzanine Deck (x = -46 .. +104 -> width 150, center x = +29; z = -66 .. +66 -> depth 132)
+  const deck = new THREE.Mesh(new THREE.BoxGeometry(150, 10, 132), matDeck);
+  deck.position.set(29, 37, 0);
+  deck.castShadow = true; deck.receiveShadow = true;
+  g.add(deck);
+
+  // 4 Support Columns under the Mezzanine corners
+  [[-38, -56], [96, -56], [-38, 56], [96, 56]].forEach(([cx, cz]) => {
+    const col = new THREE.Mesh(new THREE.BoxGeometry(12, 36, 12), matPillar);
+    col.position.set(cx, 18, cz);
+    col.castShadow = true; col.receiveShadow = true;
+    g.add(col);
+  });
+
+  // 6-Step Staircase on the Left (x = -108 .. -46, z = -42 .. +42) climbing from y = 0 to y = 42!
+  const stepCount = 6, stepW = 62 / stepCount;
+  for (let i = 0; i < stepCount; i++) {
+    const sh = ((i + 1) / stepCount) * 42;
+    const sx = -108 + (i + 0.5) * stepW;
+    const step = new THREE.Mesh(new THREE.BoxGeometry(stepW + 0.5, sh, 84), matStep);
+    step.position.set(sx, sh / 2, 0);
+    step.castShadow = true; step.receiveShadow = true;
+    // Gold stair nosing strip on top edge of each step
+    const strip = new THREE.Mesh(new THREE.BoxGeometry(2, 1.2, 82), matGold);
+    strip.position.set(sx - stepW / 2 + 1, sh + 0.4, 0);
+    g.add(step, strip);
+  }
+
+  // Brass Guardrails along Top (z = -64), Bottom (z = +64), and Right (x = +102) of the deck
+  const railTop = new THREE.Mesh(new THREE.BoxGeometry(150, 14, 4), matGold);
+  railTop.position.set(29, 49, -64); railTop.castShadow = true;
+  const railBot = new THREE.Mesh(new THREE.BoxGeometry(150, 14, 4), matGold);
+  railBot.position.set(29, 49, 64); railBot.castShadow = true;
+  const railRight = new THREE.Mesh(new THREE.BoxGeometry(4, 14, 132), matGold);
+  railRight.position.set(102, 49, 0); railRight.castShadow = true;
+  g.add(railTop, railBot, railRight);
+
+  return g;
+}
+
+// Build a 3D Office Barrier Prop (Cubicle Desk, Potted Fern, or Watercooler)
+function build3DPropMesh(kind) {
+  const g = new THREE.Group();
+  g.propKind = kind;
+  if (kind === "prop_plant") {
+    const pot = new THREE.Mesh(
+      new THREE.CylinderGeometry(11, 8, 16, 12),
+      new THREE.MeshStandardMaterial({ color: 0xc95f38, roughness: 0.7 })
+    );
+    pot.position.y = 8; pot.castShadow = true;
+    const foliage = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(15, 1),
+      new THREE.MeshStandardMaterial({ color: 0x42ad58, roughness: 0.6 })
+    );
+    foliage.position.y = 24; foliage.castShadow = true;
+    g.add(pot, foliage);
+  } else if (kind === "prop_cooler") {
+    const base = new THREE.Mesh(
+      new THREE.BoxGeometry(22, 26, 22),
+      new THREE.MeshStandardMaterial({ color: 0xdce3f2, roughness: 0.4 })
+    );
+    base.position.y = 13; base.castShadow = true;
+    const jug = new THREE.Mesh(
+      new THREE.CylinderGeometry(8.5, 8.5, 18, 14),
+      new THREE.MeshStandardMaterial({ color: 0x4cb8f5, emissive: 0x104070, roughness: 0.15 })
+    );
+    jug.position.y = 35; jug.castShadow = true;
+    g.add(base, jug);
+  } else {
+    const desk = new THREE.Mesh(
+      new THREE.BoxGeometry(74, 24, 38),
+      new THREE.MeshStandardMaterial({ color: 0x8c5e35, roughness: 0.6 })
+    );
+    desk.position.y = 12; desk.castShadow = true; desk.receiveShadow = true;
+    const mon = new THREE.Mesh(
+      new THREE.BoxGeometry(42, 16, 4),
+      new THREE.MeshStandardMaterial({ color: 0x5ce0ff, emissive: 0x1b5c80 })
+    );
+    mon.position.set(0, 30, -10);
+    g.add(desk, mon);
+  }
+  return g;
 }
 
 // Convert a 3D world point (wx, wy, wz) into Phaser 2D world coordinates so 2D labels & damage numbers
@@ -112,14 +205,14 @@ function project3DToPhaserWorld(scene, wx, wy, wz) {
   return { x: scene.cameras.main.scrollX + sx, y: scene.cameras.main.scrollY + sy, visible: true };
 }
 
-// Spawn a 3D expanding shockwave ring on the floor (for Dad Joke and The Word "No.").
+// Spawn a 3D expanding shockwave ring on the floor or raised mezzanine (for Dad Joke and The Word "No.").
 function spawn3DRing(wx, wz, maxRadius, colorHex) {
   if (!threeState) return;
   const geo = new THREE.RingGeometry(0.84, 1.0, 32);
   const mat = new THREE.MeshBasicMaterial({ color: colorHex, side: THREE.DoubleSide, transparent: true, opacity: 0.8 });
   const mesh = new THREE.Mesh(geo, mat);
   mesh.rotation.x = -Math.PI / 2;
-  mesh.position.set(wx, 2.5, wz);
+  mesh.position.set(wx, ((player && player.elev) || 0) + 2.5, wz);
   mesh.scale.set(12, 12, 1);
   threeState.scene3d.add(mesh);
   threeState.rings.push({ mesh, mat, geo, r: 12, maxR: maxRadius });
@@ -311,6 +404,7 @@ function applyViewMode(scene) {
   scene.cameras.main.setBackgroundColor(is3D ? "rgba(0,0,0,0)" : "#1b1f38");
   if (floor) floor.setVisible(!is3D);
   if (stageProps) stageProps.forEach(p => p.setAlpha(is3D ? 0 : 1));
+  if (window.stagePlatforms) window.stagePlatforms.forEach(pl => pl.setAlpha(is3D ? 0 : 1));
   if (player) player.setAlpha(is3D ? 0 : 1);
 }
 
@@ -322,22 +416,23 @@ function renderThreeView(scene) {
 
   const { renderer, scene3d, camera3d, hemi, dirLight, torchLight, floorMesh, floorTex, playerGroup } = threeState;
   const mode = window.viewModeIdx; // 1 = Diablo 3/4, 2 = 3D Third-Person (Fortnite/Over-the-shoulder)
-  const px = player.x, pz = player.y;
+  const px = player.x, pz = player.y, pe = player.elev || 0;
 
   // Keep infinite floor centered under player and scroll its UV coordinates seamlessly
   floorMesh.position.set(px, 0, pz);
   floorTex.offset.set(px / 256, -pz / 256);
 
-  // Sync Player 3D model position, facing, and walking bounce
-  playerGroup.position.set(px, Math.abs(Math.sin(scene.time.now / 55)) * (player.body && player.body.velocity.length() > 5 ? 3.5 : 0), pz);
+  // Sync Player 3D model position, elevation on stairs/platforms, facing, and walking bounce
+  const walkBounce = Math.abs(Math.sin(scene.time.now / 55)) * (player.body && player.body.velocity.length() > 5 ? 3.5 : 0);
+  playerGroup.position.set(px, pe + walkBounce, pz);
   if (player.body && player.body.velocity.length() > 5) {
     playerGroup.rotation.y = Math.atan2(player.body.velocity.x, player.body.velocity.y);
   }
 
-  // Lighting & Camera setup per style
-  torchLight.position.set(px, 65, pz);
+  // Lighting & Camera setup per style (camera follows player's vertical elevation smoothly!)
+  torchLight.position.set(px, pe + 65, pz);
   dirLight.position.set(px + 180, 340, pz + 220);
-  dirLight.target.position.set(px, 0, pz);
+  dirLight.target.position.set(px, pe, pz);
 
   if (mode === 1) {
     // STYLE 1: DIABLO 3/4 ISOMETRIC DUNGEON VIEW
@@ -350,8 +445,8 @@ function renderThreeView(scene) {
     torchLight.distance = 460;
     camera3d.fov = 38;
     camera3d.updateProjectionMatrix();
-    camera3d.position.set(px - 260, 420, pz + 320);
-    camera3d.lookAt(px, 12, pz);
+    camera3d.position.set(px - 260, 420 + pe * 0.6, pz + 320);
+    camera3d.lookAt(px, 12 + pe * 0.8, pz);
   } else {
     // STYLE 2: 3D THIRD-PERSON SHOOTER / ACTION VIEW ("Fortnite meets Vampire Survivors")
     // Bright stylized sky, horizon fog, lower chase camera looking across the 3D arena!
@@ -363,37 +458,46 @@ function renderThreeView(scene) {
     torchLight.distance = 320;
     camera3d.fov = 60;
     camera3d.updateProjectionMatrix();
-    camera3d.position.set(px, 165, pz + 250);
-    camera3d.lookAt(px, 22, pz - 90);
+    camera3d.position.set(px, 165 + pe * 0.85, pz + 250);
+    camera3d.lookAt(px, 22 + pe * 0.9, pz - 90);
   }
 
-  // Sync 3D Office Furniture Props (desks, plants, watercoolers)
+  // Sync 3D Raised Mezzanine Platforms & Staircases
+  const plats = window.stagePlatforms || [];
+  while (threeState.platformMeshes.length < plats.length) {
+    const pm = build3DPlatformMesh();
+    scene3d.add(pm);
+    threeState.platformMeshes.push(pm);
+  }
+  plats.forEach((pl, i) => {
+    const pm = threeState.platformMeshes[i];
+    if (!pm) return;
+    pm.position.set(pl.worldX || pl.x, 0, pl.worldY || pl.y);
+  });
+
+  // Sync 3D Office Barrier Props (desks, potted ferns, watercoolers)
   while (threeState.propMeshes.length < (stageProps ? stageProps.length : 0)) {
-    const box = new THREE.Group();
-    const desk = new THREE.Mesh(
-      new THREE.BoxGeometry(64, 24, 38),
-      new THREE.MeshStandardMaterial({ color: 0x8c5e35, roughness: 0.6 })
-    );
-    desk.position.y = 12; desk.castShadow = true; desk.receiveShadow = true;
-    const mon = new THREE.Mesh(
-      new THREE.BoxGeometry(36, 16, 4),
-      new THREE.MeshStandardMaterial({ color: 0x5ce0ff, emissive: 0x1b5c80 })
-    );
-    mon.position.set(0, 30, -10);
-    box.add(desk, mon);
+    const box = build3DPropMesh("prop_desk");
     scene3d.add(box);
     threeState.propMeshes.push(box);
   }
   if (stageProps) {
     stageProps.forEach((sp, i) => {
-      const m = threeState.propMeshes[i];
+      let m = threeState.propMeshes[i];
       if (!m) return;
+      const wantKind = sp.propKind || "prop_desk";
+      if (m.propKind !== wantKind) {
+        scene3d.remove(m);
+        m = build3DPropMesh(wantKind);
+        scene3d.add(m);
+        threeState.propMeshes[i] = m;
+      }
       m.visible = sp.visible;
       m.position.set(sp.x, 0, sp.y);
     });
   }
 
-  // Sync Enemies & Bosses
+  // Sync Enemies & Bosses (including their elevation on stairs and mezzanine platforms!)
   const activeBills = new Set();
   if (bills) {
     bills.getChildren().forEach(b => {
@@ -406,10 +510,11 @@ function renderThreeView(scene) {
         scene3d.add(m);
         threeState.enemyMeshes.set(b, m);
       }
-      m.position.set(b.x, 0, b.y);
+      const be = b.elev || 0;
+      m.position.set(b.x, be, b.y);
       m.rotation.y = Math.atan2(px - b.x, pz - b.y);
       if (b.tag) {
-        const pt = project3DToPhaserWorld(scene, b.x, b.isBoss ? 64 : 28, b.y);
+        const pt = project3DToPhaserWorld(scene, b.x, be + (b.isBoss ? 64 : 28), b.y);
         b.tag.setPosition(pt.x, pt.y).setVisible(pt.visible);
       }
     });
@@ -423,7 +528,7 @@ function renderThreeView(scene) {
 
   // Project Player label right above the 3D Hero's head
   if (label) {
-    const pt = project3DToPhaserWorld(scene, px, 50, pz);
+    const pt = project3DToPhaserWorld(scene, px, pe + 50, pz);
     label.setPosition(pt.x, pt.y).setVisible(pt.visible);
   }
 
@@ -493,7 +598,7 @@ function syncSimplePool(phaserGroup, map, scene3d, createFn, yHeight, spin, now)
         scene3d.add(m);
         map.set(item, m);
       }
-      m.position.set(item.x, yHeight, item.y);
+      m.position.set(item.x, (item.elev || 0) + yHeight, item.y);
       if (spin) m.rotation.y = (now || 0) / 280;
     });
   }
@@ -509,6 +614,7 @@ function syncSimplePool(phaserGroup, map, scene3d, createFn, yHeight, spin, now)
 function restore2DSprites() {
   if (window.viewModeIdx !== 0) return;
   if (label) label.setVisible(true);
+  if (window.stagePlatforms) window.stagePlatforms.forEach(pl => pl.setAlpha(1));
   [bills, splashes, gems, coins, chests].forEach(grp => {
     if (grp) grp.getChildren().forEach(item => {
       item.setAlpha(1);

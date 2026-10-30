@@ -644,45 +644,247 @@ function buildSprites(scene) {
     ctx.fillStyle = "#593804"; ctx.font = "bold 8px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.fillText("k", 9, 9.5);
   });
+
+  // 17. RAISED MEZZANINE PLATFORM + STAIRS ("prop_platform", 220x150):
+  //     Left side (x = 2..64): 6-step pixel-art staircase with brass stair nosings & handrails.
+  //     Right side (x = 64..214): Raised VIP executive deck with cliff wall below & brass guardrails!
+  makeCanvasTex(scene, "prop_platform", 220, 150, (ctx) => {
+    // Deep drop shadow under raised platform & stairs
+    ctx.fillStyle = "rgba(0,0,0,0.48)";
+    rrect(ctx, 64, 14, 152, 132, 6); ctx.fill();
+    rrect(ctx, 4, 34, 64, 90, 4); ctx.fill();
+
+    // Front cliff wall of the raised deck (shows elevation thickness in 16-bit top-down view!)
+    const wallG = ctx.createLinearGradient(64, 120, 64, 142);
+    wallG.addColorStop(0, "#2c3559"); wallG.addColorStop(1, "#14192e");
+    ctx.fillStyle = wallG;
+    rrect(ctx, 62, 118, 150, 24, 4); ctx.fill();
+    // Vertical architectural pillar ribs along the cliff face
+    [72, 112, 152, 196].forEach(px => {
+      ctx.fillStyle = "#3f4c7a"; ctx.fillRect(px, 120, 8, 21);
+      ctx.fillStyle = "#f5c542"; ctx.fillRect(px - 1, 138, 10, 3);
+    });
+
+    // Raised Mezzanine Deck floor (x = 62..212, y = 10..124)
+    ctx.fillStyle = "#181d33";
+    rrect(ctx, 62, 10, 150, 114, 5); ctx.fill();
+    const deckG = ctx.createLinearGradient(64, 12, 210, 122);
+    deckG.addColorStop(0, "#384673"); deckG.addColorStop(0.5, "#2c375c"); deckG.addColorStop(1, "#222b4a");
+    ctx.fillStyle = deckG;
+    rrect(ctx, 64, 12, 146, 110, 4); ctx.fill();
+
+    // Parquet tile grid & subtle VIP inlay on the raised deck
+    ctx.strokeStyle = "rgba(255,255,255,0.08)"; ctx.lineWidth = 1;
+    for (let tx = 68; tx < 206; tx += 22) {
+      for (let ty = 16; ty < 118; ty += 22) {
+        ctx.strokeRect(tx + 0.5, ty + 0.5, 21, 21);
+      }
+    }
+    ctx.strokeStyle = "rgba(245, 197, 66, 0.35)"; ctx.lineWidth = 2;
+    ctx.strokeRect(76, 24, 122, 86);
+    ctx.fillStyle = "rgba(245, 197, 66, 0.55)";
+    ctx.font = "bold 10px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("MEZZANINE LV.2", 137, 67);
+
+    // 6-Step Staircase on the Left (x = 4..64, y = 33..117) leading up to the deck!
+    const stepW = 10, stairY = 33, stairH = 84;
+    for (let i = 0; i < 6; i++) {
+      const sx = 4 + i * stepW;
+      const shade = 42 + i * 9;
+      ctx.fillStyle = `rgb(${shade}, ${shade + 10}, ${shade + 34})`;
+      ctx.fillRect(sx, stairY, stepW, stairH);
+      // Brass non-slip stair nosing strip on each step edge
+      ctx.fillStyle = "#d9a74a";
+      ctx.fillRect(sx + stepW - 2, stairY + 2, 2, stairH - 4);
+      // Step riser shadow
+      ctx.fillStyle = "rgba(10, 13, 26, 0.65)";
+      ctx.fillRect(sx, stairY, 1.5, stairH);
+    }
+    // "UP ▶" arrow on stairs
+    ctx.fillStyle = "#ffe042";
+    ctx.font = "bold 9px monospace";
+    ctx.fillText("STAIRS ▶", 34, 75);
+
+    // Stair handrails (top and bottom of the staircase)
+    ctx.fillStyle = "#996b0a";
+    ctx.fillRect(2, stairY - 4, 64, 5);
+    ctx.fillRect(2, stairY + stairH - 1, 64, 5);
+    ctx.fillStyle = "#ffe066";
+    ctx.fillRect(3, stairY - 3, 62, 2);
+    ctx.fillRect(3, stairY + stairH, 62, 2);
+
+    // Brass Guardrails around the Top, Right, and Bottom edges of the raised deck
+    // (Leaves the Left staircase opening at y = 33..117 open to walk through!)
+    ctx.fillStyle = "#8c620a";
+    ctx.fillRect(62, 8, 150, 6);    // Top rail
+    ctx.fillRect(206, 8, 6, 118);   // Right rail
+    ctx.fillRect(62, 120, 150, 6);  // Bottom rail
+    ctx.fillRect(62, 8, 6, 26);     // Left-top corner post above stairs
+    ctx.fillRect(62, 116, 6, 10);   // Left-bottom corner post below stairs
+    ctx.fillStyle = "#ffe066";
+    ctx.fillRect(64, 9, 146, 2.5);
+    ctx.fillRect(207, 10, 2.5, 114);
+    ctx.fillRect(64, 121, 146, 2.5);
+  });
 }
 
 // Spawn infinite-scrolling office scenery (cubicle desks, potted plants, watercoolers)
-// that recycle cleanly around the camera as you walk so the stage feels like a real office!
+// as SOLID PHYSICAL BARRIERS that you and the Bills must navigate around, plus
+// Raised Mezzanine Platforms with Stairs that change your elevation!
 const STAGE_GRID = 420;
+const PLAT_GRID = 760;
+window.stagePlatforms = [];
+
+function applyPropBodySize(p, k) {
+  if (!p.body) return;
+  if (k === "prop_desk") {
+    p.body.setSize(76, 36).setOffset(10, 16);
+  } else if (k === "prop_plant") {
+    p.body.setSize(28, 24).setOffset(10, 22);
+  } else {
+    p.body.setSize(26, 28).setOffset(7, 24);
+  }
+}
+
 function spawnStageProps(scene) {
   const props = [];
+  window. propGroup = scene.physics.add.group({ immovable: true, allowGravity: false });
   const kinds = ["prop_desk", "prop_plant", "prop_cooler", "prop_plant", "prop_desk"];
   for (let gx = -2; gx <= 2; gx++) {
     for (let gy = -2; gy <= 2; gy++) {
       const k = kinds[Math.abs(gx * 7 + gy * 13) % kinds.length];
-      const s = scene.add.image(gx * STAGE_GRID + 140, gy * STAGE_GRID + 140, k).setDepth(1);
+      const s = window.propGroup.create(gx * STAGE_GRID + 140, gy * STAGE_GRID + 140, k).setDepth(2);
+      s.setImmovable(true);
+      applyPropBodySize(s, k);
       s.gx = gx; s.gy = gy;
       props.push(s);
+    }
+  }
+
+  // Spawn 9 Raised Mezzanine Platforms with Stairs (3x3 grid around camera)
+  window.stagePlatforms = [];
+  for (let px = -1; px <= 1; px++) {
+    for (let py = -1; py <= 1; py++) {
+      const plat = scene.add.image(px * PLAT_GRID + 260, py * PLAT_GRID - 180, "prop_platform").setDepth(1);
+      window.stagePlatforms.push(plat);
     }
   }
   return props;
 }
 
-// Reposition scenery props onto whichever grid cells are currently around the camera.
+// Reposition scenery props & platforms onto whichever grid cells are currently around the camera.
 function updateStageProps(scene, props) {
   if (!props) return;
   const cx = Math.round(player.x / STAGE_GRID), cy = Math.round(player.y / STAGE_GRID);
   const kinds = ["prop_desk", "prop_plant", "prop_cooler", "prop_plant", "prop_desk"];
+
+  // First update Mezzanine Platforms on PLAT_GRID
+  const pcx = Math.round(player.x / PLAT_GRID), pcy = Math.round(player.y / PLAT_GRID);
+  let pIdx = 0;
+  for (let px = pcx - 1; px <= pcx + 1; px++) {
+    for (let py = pcy - 1; py <= pcy + 1; py++) {
+      const plat = window.stagePlatforms[pIdx++];
+      if (!plat) continue;
+      const ph = Math.abs(px * 2654435761 + py * 805459861) % 100;
+      const wx = px * PLAT_GRID + 260 + ((ph % 50) - 25);
+      const wy = py * PLAT_GRID - 160 + (((ph * 7) % 50) - 25);
+      plat.setPosition(wx, wy).setAlpha(window.viewModeIdx === 0 ? 1 : 0);
+      plat.worldX = wx; plat.worldY = wy;
+    }
+  }
+
+  // Next update Office Barrier Props (and keep them clear of Mezzanine Platforms!)
   let idx = 0;
   for (let gx = cx - 2; gx <= cx + 2; gx++) {
     for (let gy = cy - 2; gy <= cy + 2; gy++) {
       const p = props[idx++];
       if (!p) continue;
-      // Deterministic hash so each cell in the world always has the same office layout
       const h = Math.abs(gx * 374761393 + gy * 668265263) % 100;
-      if ((gx === 0 && gy === 0) || h < 28) {
-        p.setVisible(false); // keep open walkways
+      const ox = ((h * 17) % 140) - 70, oy = ((h * 31) % 140) - 70;
+      const wx = gx * STAGE_GRID + 180 + ox, wy = gy * STAGE_GRID + 180 + oy;
+      const nearPlat = window.stagePlatforms.some(pl => Math.abs(wx - pl.worldX) < 175 && Math.abs(wy - pl.worldY) < 130);
+      if ((gx === 0 && gy === 0) || h < 34 || nearPlat) {
+        p.setVisible(false);
+        if (p.body) p.body.enable = false;
       } else {
         const k = kinds[h % kinds.length];
+        p.propKind = k;
         if (p.texture.key !== k) p.setTexture(k);
-        const ox = ((h * 17) % 140) - 70, oy = ((h * 31) % 140) - 70;
-        p.setPosition(gx * STAGE_GRID + 180 + ox, gy * STAGE_GRID + 180 + oy).setVisible(true);
+        p.setPosition(wx, wy).setVisible(true).setAlpha(window.viewModeIdx === 0 ? 1 : 0);
+        if (p.body) {
+          p.body.enable = true;
+          applyPropBodySize(p, k);
+          p.body.updateFromGameObject();
+        }
       }
     }
   }
+
+  // Update elevation & stair/guardrail physics for Player, Bills, Gems, Coins, and Splashes!
+  updateElevationAndPlatforms(scene);
+}
+
+// Compute elevation (0 on floor, 0..42 on stairs, 42 on mezzanine deck) and enforce guardrail ledges!
+function resolveEntityPlatform(ent, enforceWalls) {
+  if (!ent || !ent.active) return;
+  const prevElev = ent.elev || 0;
+  let newElev = 0;
+
+  for (let i = 0; i < window.stagePlatforms.length; i++) {
+    const pl = window.stagePlatforms[i];
+    if (!pl) continue;
+    const rx = ent.x - pl.worldX; // -110 .. +110
+    const ry = ent.y - pl.worldY; // -75  .. +75
+
+    // Check if entity is within the platform + staircase bounding box
+    if (rx >= -108 && rx <= 104 && ry >= -66 && ry <= 66) {
+      if (rx < -46) {
+        // Left side: 6-Step Staircase corridor (ry in -42 .. +42)
+        if (ry >= -42 && ry <= 42) {
+          const t = Phaser.Math.Clamp((rx + 108) / 62, 0, 1);
+          newElev = Math.max(newElev, Math.round(t * 42));
+        } else if (enforceWalls) {
+          // Guardrail alongside the stairs
+          ent.y = pl.worldY + (ry < 0 ? -43 : 43);
+        }
+      } else {
+        // Right side: Raised Mezzanine Deck (rx in -46 .. +104, ry in -66 .. +66)
+        if (!enforceWalls || prevElev >= 18) {
+          // Already climbed the stairs (or is a projectile/pickup): on the high ground!
+          newElev = 42;
+          if (enforceWalls) {
+            // Keep inside the top, bottom, and right brass guardrails!
+            if (ry < -56) ent.y = pl.worldY - 56;
+            if (ry >  56) ent.y = pl.worldY + 56;
+            if (rx >  94) ent.x = pl.worldX + 94;
+          }
+        } else {
+          // Ground-level entity walked into the outer cliff wall of the platform: block them!
+          const dTop = Math.abs(ry - (-66));
+          const dBot = Math.abs(ry - 66);
+          const dRight = Math.abs(rx - 104);
+          const dLeft = Math.abs(rx - (-46));
+          const m = Math.min(dTop, dBot, dRight, dLeft);
+          if (m === dTop) ent.y = pl.worldY - 67;
+          else if (m === dBot) ent.y = pl.worldY + 67;
+          else if (m === dRight) ent.x = pl.worldX + 105;
+          else ent.x = pl.worldX - 47;
+        }
+      }
+    }
+  }
+  ent.elev = newElev;
+  // In 2D Retro Mode, give a subtle perspective scale lift when standing on the Mezzanine!
+  if (window.viewModeIdx === 0 && enforceWalls) {
+    ent.setScale(1 + newElev / 260);
+  }
+}
+
+function updateElevationAndPlatforms(scene) {
+  resolveEntityPlatform(player, true);
+  if (bills) bills.getChildren().forEach(b => resolveEntityPlatform(b, true));
+  if (gems) gems.getChildren().forEach(g => resolveEntityPlatform(g, false));
+  if (coins) coins.getChildren().forEach(c => resolveEntityPlatform(c, false));
+  if (chests) chests.getChildren().forEach(ch => resolveEntityPlatform(ch, false));
+  if (splashes) splashes.getChildren().forEach(s => resolveEntityPlatform(s, false));
 }
