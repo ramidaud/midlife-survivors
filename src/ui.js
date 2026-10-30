@@ -44,15 +44,17 @@ let uiScene = null;
 window.rebindState = null;
 window.controlsModalOpen = false;
 window.changelogModalOpen = false;
+window.loreModalOpen = false;
+let currentLoreTab = "mythos";
 let gamepadConnectedFlag = false;
 
 function getVersionInfo() {
   return window.GAME_VERSION || {
-    version: "1.8.19",
-    displayVersion: "V. 1.8.19",
+    version: "1.8.20",
+    displayVersion: "V. 1.8.20",
     lastUpdated: "Oct 30, 2026",
-    codename: "Broadcast Edition",
-    build: 19,
+    codename: "Mythos & Lore Edition",
+    build: 20,
     changelog: []
   };
 }
@@ -65,7 +67,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["lore-modal", "changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -341,6 +343,9 @@ function initGameUI(scene) {
 
     <!-- MODAL 2C: VERSION HISTORY & RELEASE NOTES OVERLAY -->
     <div class="ui-modal hidden" id="changelog-modal"></div>
+
+    <!-- MODAL 2D: MYTHOS, SUBJECTS & SCENARIOS LORE ARCHIVE OVERLAY -->
+    <div class="ui-modal hidden" id="lore-modal"></div>
 
     <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
     <div class="ui-modal hidden" id="retire80-modal">
@@ -890,6 +895,10 @@ function renderPauseModal(scene, keepRowIdx) {
           <span>🗣️ DAD JOKE VOICE</span>
           <span class="opt-val">◀ ${voiced ? "SPOKEN 🗣️" : "TEXT ONLY 💬"} ▶</span>
         </button>
+        <button class="opt-btn" id="pause-lore-btn">
+          <span>📖 MYTHOS, SUBJECTS & SCENARIOS</span>
+          <span class="opt-val">FORM W-40 ARCHIVE ▶</span>
+        </button>
         <button class="opt-btn" id="pause-changelog-btn">
           <span>📜 VERSION & PATCH NOTES</span>
           <span class="opt-val">${verInfo.displayVersion} (${verInfo.lastUpdated}) ▶</span>
@@ -943,27 +952,32 @@ function renderPauseModal(scene, keepRowIdx) {
     renderPauseModal(scene, 4);
   }, keepRowIdx === 4);
 
-  bindNavItem(document.getElementById("pause-changelog-btn"), 5, () => {
+  bindNavItem(document.getElementById("pause-lore-btn"), 5, () => {
     sfx("pick");
-    openChangelogModal(scene);
+    openLoreModal(scene);
   }, keepRowIdx === 5);
 
-  bindNavItem(document.getElementById("pause-savequit-btn"), 6, () => {
+  bindNavItem(document.getElementById("pause-changelog-btn"), 6, () => {
+    sfx("pick");
+    openChangelogModal(scene);
+  }, keepRowIdx === 6);
+
+  bindNavItem(document.getElementById("pause-savequit-btn"), 7, () => {
     sfx("pick");
     if (window.persistActiveRun) window.persistActiveRun();
     setPauseModalVisible(false);
     paused = false;
     titleSeen = false;
     scene.scene.restart();
-  }, keepRowIdx === 6);
+  }, keepRowIdx === 7);
 
-  bindNavItem(document.getElementById("pause-restart-btn"), 7, () => {
+  bindNavItem(document.getElementById("pause-restart-btn"), 8, () => {
     sfx("pick");
     clearRunState();
     setPauseModalVisible(false);
     paused = false;
     scene.scene.restart();
-  }, keepRowIdx === 7);
+  }, keepRowIdx === 8);
 
   window.menuNav.refresh();
 }
@@ -987,10 +1001,139 @@ function closeChangelogModal(scene) {
   if (titleOpen) {
     renderTitleModal(sc, "#title-changelog-btn");
   } else if (paused) {
+    renderPauseModal(sc, 6);
+  } else {
+    window.menuNav.refresh();
+  }
+}
+
+// ============================================================================
+// MYTHOS, SUBJECT DOSSIERS & SCENARIO LORE ARCHIVE MODAL (`#lore-modal`)
+// ============================================================================
+function openLoreModal(scene, tab) {
+  window.loreModalOpen = true;
+  if (tab) currentLoreTab = tab;
+  const modal = document.getElementById("lore-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  renderLoreModal(scene || uiScene, currentLoreTab);
+}
+
+function closeLoreModal(scene) {
+  window.loreModalOpen = false;
+  const modal = document.getElementById("lore-modal");
+  if (modal) modal.classList.add("hidden");
+  const sc = scene || uiScene;
+  if (titleOpen) {
+    renderTitleModal(sc, "#title-lore-btn");
+  } else if (paused) {
     renderPauseModal(sc, 5);
   } else {
     window.menuNav.refresh();
   }
+}
+
+function renderLoreModal(scene, tab, keepSelector) {
+  const modal = document.getElementById("lore-modal");
+  if (!modal) return;
+  currentLoreTab = tab || currentLoreTab || "mythos";
+  const lore = window.GAME_LORE || {};
+  let contentHtml = "";
+
+  if (currentLoreTab === "mythos") {
+    const wm = lore.worldMythos || { title: "THE GREAT COMPOUNDING", subtitle: "", chapters: [] };
+    contentHtml = (wm.chapters || []).map(ch => `
+      <div class="lore-card">
+        <div class="lore-card-head">
+          <span class="lore-card-code">FORM W-40 // WORLD MYTHOS</span>
+        </div>
+        <div class="lore-card-title">${ch.heading}</div>
+        <div class="lore-card-body">${ch.body}</div>
+      </div>
+    `).join("");
+  } else if (currentLoreTab === "subjects") {
+    const subjMap = lore.subjects || {};
+    contentHtml = Object.keys(subjMap).map(k => {
+      const s = subjMap[k];
+      return `
+        <div class="lore-card">
+          <div class="lore-card-head">
+            <span class="lore-card-code">${s.code}</span>
+            <span class="changelog-date">${s.realName}</span>
+          </div>
+          <div class="lore-card-title">${s.icon} ${s.name} (${s.archetype})</div>
+          <div class="lore-card-body">${s.backstory}</div>
+          <div class="lore-card-meta">⚔️ SIGNATURE RELIC: ${s.relic}</div>
+          <div class="lore-card-meta" style="color:#5fb3f0;">🎯 TACTICAL EDGE: ${s.edge}</div>
+          <div class="lore-card-quote">${s.quote}</div>
+        </div>
+      `;
+    }).join("");
+  } else if (currentLoreTab === "scenarios") {
+    const scList = lore.scenarios || [];
+    contentHtml = scList.map(sc => {
+      const mList = (sc.manifestations || []).map(m => `<li>${m}</li>`).join("");
+      return `
+        <div class="lore-card">
+          <div class="lore-card-head">
+            <span class="lore-card-code">${sc.code}</span>
+            <span class="changelog-date">${sc.subtitle}</span>
+          </div>
+          <div class="lore-card-title">${sc.name}</div>
+          <div class="lore-card-body">${sc.lore}</div>
+          <ul class="changelog-notes">${mList}</ul>
+          <div class="lore-card-meta">💡 SURVIVAL NOTE: ${sc.survivalTip}</div>
+        </div>
+      `;
+    }).join("");
+  } else if (currentLoreTab === "bosses") {
+    const bList = lore.bosses || [];
+    contentHtml = bList.map(b => `
+      <div class="lore-card">
+        <div class="lore-card-head">
+          <span class="lore-card-code">MILESTONE NEMESIS // ${b.age}</span>
+          <span class="changelog-date">${b.stage}</span>
+        </div>
+        <div class="lore-card-title">${b.name}</div>
+        <div class="lore-card-body">${b.lore}</div>
+      </div>
+    `).join("");
+  }
+
+  modal.innerHTML = `
+    <div class="modal-card lore-box">
+      <div class="modal-kicker">BUREAU OF ACTUARIAL SURVIVAL // FORM W-40 ARCHIVE</div>
+      <h2 class="modal-title">📖 MYTHOS, SUBJECTS & SCENARIOS</h2>
+      <p class="modal-sub">Explore the origin of <b>The Great Compounding</b>, the 3 Playable Subjects, and the 5 Life Scenarios.</p>
+      <div class="lore-tabs">
+        <button class="lore-tab-btn ${currentLoreTab === "mythos" ? "active" : ""}" data-ltab="mythos">🌐 1. WORLD MYTHOS</button>
+        <button class="lore-tab-btn ${currentLoreTab === "subjects" ? "active" : ""}" data-ltab="subjects">🪪 2. SUBJECT DOSSIERS</button>
+        <button class="lore-tab-btn ${currentLoreTab === "scenarios" ? "active" : ""}" data-ltab="scenarios">🗺️ 3. LIFE SCENARIOS</button>
+        <button class="lore-tab-btn ${currentLoreTab === "bosses" ? "active" : ""}" data-ltab="bosses">👹 4. BOSS REGISTRY</button>
+      </div>
+      <div class="lore-content">${contentHtml}</div>
+      <button class="cta-btn" id="lore-close-btn">✓ BACK TO MENU (Space / Enter / Esc / A)</button>
+      <div class="nav-hint-bar">
+        <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Lore Tab</span>
+        <span><b>Space / Enter / Esc / A / B</b>: Select or Close</span>
+      </div>
+    </div>
+  `;
+
+  modal.querySelectorAll("[data-ltab]").forEach(btn => {
+    const t = btn.dataset.ltab;
+    bindNavItem(btn, 0, () => {
+      sfx("pick");
+      renderLoreModal(scene, t, `[data-ltab="${t}"]`);
+    });
+  });
+
+  bindNavItem(document.getElementById("lore-close-btn"), 1, () => {
+    sfx("pick");
+    closeLoreModal(scene);
+  }, !keepSelector);
+
+  window.menuNav.refresh(keepSelector || "#lore-close-btn");
 }
 
 function renderChangelogModal(scene) {
@@ -1491,6 +1634,19 @@ function renderTitleModal(scene, preserveFocusSelector) {
   ` : "";
 
   const verInfo = getVersionInfo();
+  const activeSubj = (window.GAME_LORE && window.GAME_LORE.subjects && window.GAME_LORE.subjects[meta.selectedChar])
+    || (window.GAME_LORE && window.GAME_LORE.subjects && window.GAME_LORE.subjects.officeWorker)
+    || null;
+  const subjectBioHtml = activeSubj ? `
+    <div class="subject-bio-strip" id="title-subject-bio">
+      <div class="subject-bio-head">
+        <span class="subject-bio-code">${activeSubj.code} // ${activeSubj.archetype.toUpperCase()}</span>
+        <span class="subject-bio-real">${activeSubj.icon} ${activeSubj.realName}</span>
+      </div>
+      <div>${activeSubj.backstory}</div>
+      <div class="subject-bio-quote">${activeSubj.quote}</div>
+    </div>
+  ` : "";
 
   modal.innerHTML = `
     <div class="modal-card title-box">
@@ -1504,13 +1660,17 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <span class="version-pill" id="title-version-pill">
           🏷️ <b>${verInfo.displayVersion}</b> &bull; Last updated on: <b>${verInfo.lastUpdated}</b>
         </span>
+        <button class="t-style-btn version-notes-btn" id="title-lore-btn" title="Read the World Mythos, Subject Backstories & Scenario Lore">
+          📖 MYTHOS & LORE
+        </button>
         <button class="t-style-btn version-notes-btn" id="title-changelog-btn" title="View Version History & Patch Notes">
           📜 PATCH NOTES
         </button>
       </div>
 
-      <div class="section-label">1. SELECT ARCHETYPE, STARTING DECADE & LIFE ENVIRONMENT</div>
+      <div class="section-label">1. SELECT SUBJECT ARCHETYPE, STARTING DECADE & LIFE SCENARIO</div>
       <div class="dossier-chars-grid">${charCardsHtml}</div>
+      ${subjectBioHtml}
       <div class="title-style-switcher" style="margin-top:6px;">
         <span>START DECADE:</span>
         ${decadeBtnsHtml}
@@ -1625,6 +1785,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
     });
   }
 
+  const titleLoreBtn = document.getElementById("title-lore-btn");
+  if (titleLoreBtn) {
+    bindNavItem(titleLoreBtn, 7, () => {
+      sfx("pick");
+      openLoreModal(scene, "mythos");
+    });
+  }
+
   const titleChangelogBtn = document.getElementById("title-changelog-btn");
   if (titleChangelogBtn) {
     bindNavItem(titleChangelogBtn, 7, () => {
@@ -1706,7 +1874,8 @@ function hideAllModals() {
   window.rebindState = null;
   window.controlsModalOpen = false;
   window.changelogModalOpen = false;
-  ["changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
+  window.loreModalOpen = false;
+  ["lore-modal", "changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add("hidden");
   });

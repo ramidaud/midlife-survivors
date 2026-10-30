@@ -316,3 +316,16 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - **Pause & Options Screen (`#pause-modal`):** Shows the version and last updated date in the top kicker and adds a **`📜 VERSION & PATCH NOTES`** option row (`#pause-changelog-btn`).
   - **Lower-Third HUD (`#hud-dept`):** Appends `// V. 1.8.19` to the department readout so screenshots always show the exact build.
   - **Release Notes & Version History Modal (`#changelog-modal`):** Displays all recent versions, dates, titles, and bulleted highlights, navigable with Keyboard, Mouse, Touch, and Game Controller.
+
+## 2026-10-30: World Mythos, Subject Backstories & Scenario Lore Archive (`V. 1.8.20`)! (Antigravity)
+- **Created `src/data/lore.js` (`window.GAME_LORE`):**
+  - Wrote the foundational **World Mythos (*Form W-40: "The Great Compounding"*)** explaining how postponed responsibilities achieve sentient form at midnight on your 40th birthday and pull you into **The Five Bureaus of Adulthood**.
+  - Authored full **Subject Dossiers** for all 3 playable characters:
+    1. **☕ Subject #01 (The 9-to-5er / *Arthur "Artie" Pendelton*):** Senior Spreadsheet Wrangler bonded to a sentient 4th-floor espresso machine.
+    2. **📸 Subject #02 (The Senior Photographer / *Rami "The Shutter" D.*):** University Visual Storyteller whose 15 years of campus shoots unlocked a weaponized Dad Joke Aura.
+    3. **🎓 Subject #03 (The Grad Student at 45 / *The Dual-Career Night-Owl*):** Full-time professional & EMAT seminar scholar who mastered the boundary-shattering power of saying `"No."`
+  - Authored full **Scenario Lore & Manifestation Guides** for all 5 Life Chapters (`🏢 Office`, `🏥 Hospital`, `🏡 Suburban Home`, `🍻 Social Courtyard`, `🌴 Sunset Palms Resort`) plus the **7-Boss Milestone Registry** (Ages 45 to 100).
+- **Built the Interactive 4-Tab Mythos & Lore Archive Modal (`#lore-modal`) & Title Subject Bio Strip (`src/ui.js`, `index.html`):**
+  - Added a **`📖 MYTHOS & LORE`** button on the Title Dossier and Pause Screen that opens `#lore-modal` with 4 navigable tabs (`🌐 World Mythos`, `🪪 Subject Dossiers`, `🗺️ Life Scenarios`, `👹 Boss Registry`).
+  - Added `#title-subject-bio` right under the 3 Character Cards on the Title Screen so selecting a character displays their codename, real name, origin story, and signature quote live.
+  - Bumped version to **`V. 1.8.20`** (`src/data/version.js` & `?v=18` in `index.html`).

@@ -886,6 +886,48 @@ Instead of typing the version string separately into the Title Screen, the Pause
 
 ---
 
+## Chapter 33: The Midlife Survivors Mythos, Subjects & Scenarios (`src/data/lore.js`)
+
+### 1. The Core Mythos: *Form W-40 & The Great Compounding*
+Every great roguelike connects its gameplay loop to its world mythos. In *Midlife Survivors*, that link is **Form W-40 ("The Great Compounding")**:
+
+```
+===========================================================================================
+                 THE MIDLIFE SURVIVORS MYTHOS: "THE GREAT COMPOUNDING"
+===========================================================================================
+   🕛 MIDNIGHT ON YOUR 40TH BIRTHDAY
+   You are automatically enrolled in Form W-40 by the Bureau of Actuarial Survival.
+   Every postponed task from your 20s & 30s achieves physical sentient form!
+                                       │
+                                       ▼
+   ┌───────────────────────────────────────────────────────────────────────────────────┐
+   │                        THE THREE PLAYABLE SUBJECTS                                │
+   ├───────────────────────────┬───────────────────────────┬───────────────────────────┤
+   │ ☕ SUBJECT #01            │ 📸 SUBJECT #02            │ 🎓 SUBJECT #03            │
+   │ The 9-to-5er              │ The Senior Photographer   │ The Grad Student at 45    │
+   │ "Artie" Pendelton (40)    │ Rami "The Shutter" D (42) │ EMAT Night-Owl (45)       │
+   │ Relic: Hot Coffee Splash  │ Relic: Dad Joke Aura      │ Relic: The Word "No."     │
+   └───────────────────────────┴─────────────┬─────────────┴───────────────────────────┘
+                                             │
+                                             ▼
+   ┌───────────────────────────────────────────────────────────────────────────────────┐
+   │                   THE FIVE BUREAUS OF ADULTHOOD (SCENARIOS)                       │
+   │  I.   🏢 Age 40: The Open-Plan Office      ──► Boss: 📋 Performance Review (45)   │
+   │  II.  🏥 Age 44: St. Deductible Hospital   ──► 3:00 AM Maternity & Triage Wing    │
+   │  III. 🏡 Age 50: Suburban Home & Yard      ──► Boss: 🏦 30-Year Mortgage (52)     │
+   │  IV.  🍻 Age 60: The Social Courtyard      ──► Bosses: 🏎️ V8 (60) & 🏡 HOA (70)  │
+   │  V.   🌴 Age 80: Sunset Palms Resort       ──► Bosses: 🏖️ 80, 🏓 90, 👑 100       │
+   └───────────────────────────────────────────────────────────────────────────────────┘
+===========================================================================================
+```
+
+### 2. How `src/data/lore.js` Powers Both the Title Dossier & the 4-Tab Lore Archive (`#lore-modal`)
+By storing all worldbuilding in `window.GAME_LORE` (`src/data/lore.js`), the game renders it across two interactive UI surfaces:
+1. **Live Subject Bio Strip (`#title-subject-bio` on the Title Dossier):** Whenever you select a character card on the Title Screen, the strip below the cards updates with that Subject's codename, real name, origin story, and quote.
+2. **Interactive 4-Tab Lore Archive (`#lore-modal`):** Clicking **`📖 MYTHOS & LORE`** on the Title Screen or Pause Menu opens a tabbed dossier covering **1. World Mythos**, **2. Subject Dossiers**, **3. Life Scenarios**, and **4. Boss Registry**.
+
+---
+
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

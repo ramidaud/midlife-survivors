@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.8.19",
-  displayVersion: "V. 1.8.19",
+  version: "1.8.20",
+  displayVersion: "V. 1.8.20",
   lastUpdated: "Oct 30, 2026",
-  codename: "Broadcast Edition",
-  build: 19,
+  codename: "Mythos & Lore Edition",
+  build: 20,
   changelog: [
+    {
+      ver: "V. 1.8.20",
+      date: "Oct 30, 2026",
+      title: "World Mythos, Subject Backstories & Scenario Lore Archive",
+      highlights: [
+        "Created the official Midlife Survivors Mythos ('Form W-40: The Great Compounding'), Subject Dossiers (The 9-to-5er, The Senior Photographer, The Grad Student at 45), and 5 Life Scenario Backstories in src/data/lore.js.",
+        "Added an interactive 4-tab Mythos & Lore Archive modal (#lore-modal) accessible from the Title Screen and Pause Menu.",
+        "Added a live Subject Bio & Quote preview bar right under the Character Select cards on the Title Dossier."
+      ]
+    },
     {
       ver: "V. 1.8.19",
       date: "Oct 30, 2026",

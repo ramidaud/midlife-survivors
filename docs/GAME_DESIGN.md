@@ -152,3 +152,24 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
   2. **Pause & Options Screen (`#pause-modal`):** Displays `V. 1.8.19 • LAST UPDATED ON: OCT 30, 2026` in the header kicker and includes a **`📜 VERSION & PATCH NOTES`** menu row.
   3. **Lower-Third HUD (`#hud-dept`):** Appends `// V. 1.8.19` to the department header so any gameplay screenshot carries its build number.
   4. **Interactive Patch Notes Modal (`#changelog-modal`):** Lists each build's version badge, date, title, and bulleted highlights with full Keyboard, Mouse, Touch, and Controller navigation.
+
+## 10. World Mythos, Subject Backstories & Scenario Lore (`src/data/lore.js` & `#lore-modal`)
+- **The Core Mythos (*Form W-40: "The Great Compounding"*):**
+  - At 12:00 AM on your 40th birthday, every human is quietly enrolled in **Form W-40 ("The Great Compounding")** by the Bureau of Actuarial Survival. Every minor responsibility postponed in your 20s and 30s (unopened utility bills, sleeping on a bad mattress, "we should totally grab dinner soon!" texts, and adjustable-rate paperwork) achieves sentient physical form and begins walking toward you.
+  - Ordinary geography dissolves into **The Five Bureaus of Adulthood** (Office -> Hospital -> Home -> Social Courtyard -> Sunset Palms Resort), where only the sacred relics of midlife (scalding dark-roast Coffee, weaponized Dad Jokes, and the power of saying "No.") can clear a path to Age 80 Retirement and the Age 80-100 Senior Bonus Era.
+- **The Three Playable Subjects (HR Dossiers):**
+  1. **Subject #01 (`officeWorker`): ☕ The 9-to-5er (*Arthur "Artie" Pendelton, Age 40*)**
+     - *Archetype:* Senior Spreadsheet Wrangler & Breakroom Veteran (`DEPT: CUBICLE OPS`).
+     - *Backstory:* Survived twelve corporate restructurings by carrying a manila folder and looking mildly stressed in hallways. On his 40th birthday, the 4th-floor espresso machine achieved singularity and bonded to his right hand.
+     - *Signature Relic:* `☕ Hot Coffee Splash` (evolves with `😴 Good Night's Sleep` -> `⚡☕ Cold Brew Concentrate`).
+  2. **Subject #02 (`photographer`): 📸 The Senior Photographer (*Rami "The Shutter" D., Age 42*)**
+     - *Archetype:* University Visual Storyteller & High-ISO Field Specialist (`DEPT: VISUAL CHRONICLES`).
+     - *Backstory:* Spent fifteen years hauling heavy pelican cases across campus quads, lighting portrait setups in three minutes flat, and spotting clean composition lines inside total chaos. Years of coaxing genuine smiles out of nervous deans and freshmen unlocked a weaponized **Dad Joke Aura** that physically blasts back oncoming paperwork.
+     - *Signature Relic:* `😂 Dad Joke Aura + ☕ Coffee` (evolves with `👓 Reading Glasses` -> `🌩️😂 Unhinged Pun Storm`).
+  3. **Subject #03 (`gradStudent`): 🎓 The Grad Student at 45 (*The Dual-Career Night-Owl, Age 45*)**
+     - *Archetype:* Full-Time Professional, Seminar Scholar & Boundary Architect (`DEPT: EMAT NIGHT LAB`).
+     - *Backstory:* Decided that working a full-time career wasn't quite intense enough, so they enrolled in graduate school at 45. Powered by late-night creative coding, peer-reviewed PDFs, and zero remaining patience for pointless committee meetings, they mastered the rarest superpower in adult life: looking a calendar invite dead in the eye and saying **"No."**
+     - *Signature Relic:* `🛑 The Word "No." + ☕ Coffee` (evolves with `👟 Comfortable Shoes` -> `🛡️🛑 Healthy Boundaries`).
+- **In-Game Lore Surfaces:**
+  - **Live Subject Bio Strip (`#title-subject-bio`):** Updates dynamically right under the Character Select cards on the Title Screen with the selected Subject's codename, real name, backstory, and quote.
+  - **4-Tab Mythos & Lore Archive Modal (`#lore-modal`):** Accessible from the Title Screen (`📖 MYTHOS & LORE`) and Pause Menu (`📖 MYTHOS, SUBJECTS & SCENARIOS`) with tabs for **1. World Mythos**, **2. Subject Dossiers**, **3. Life Scenarios**, and **4. Boss Registry**.
