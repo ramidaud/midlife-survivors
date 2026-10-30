@@ -726,6 +726,27 @@ function buildSprites(scene) {
     ctx.fillRect(207, 10, 2.5, 114);
     ctx.fillRect(64, 121, 146, 2.5);
   });
+
+  // 18. LEFTOVER BREAKROOM PIZZA ("pizza", 24x24): Melty cheese slice with pepperoni & golden crust!
+  makeCanvasTex(scene, "pizza", 24, 24, (ctx) => {
+    ctx.fillStyle = "rgba(0,0,0,0.35)";
+    ctx.beginPath(); ctx.moveTo(4, 7); ctx.lineTo(20, 4); ctx.lineTo(13, 22); ctx.closePath(); ctx.fill();
+    // Golden baked crust rim
+    ctx.fillStyle = "#3d1e05";
+    ctx.beginPath(); ctx.moveTo(2, 6); ctx.lineTo(20, 2); ctx.lineTo(12, 21); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = "#d98b38";
+    ctx.beginPath(); ctx.moveTo(3, 6.5); ctx.lineTo(19, 3); ctx.lineTo(18, 6.5); ctx.lineTo(4, 9.5); ctx.closePath(); ctx.fill();
+    // Melted mozzarella triangle
+    const chG = ctx.createLinearGradient(5, 7, 14, 19);
+    chG.addColorStop(0, "#fff085"); chG.addColorStop(1, "#f2b829");
+    ctx.fillStyle = chG;
+    ctx.beginPath(); ctx.moveTo(4.5, 8.5); ctx.lineTo(17.5, 5.5); ctx.lineTo(12, 19.5); ctx.closePath(); ctx.fill();
+    // Crispy pepperoni slices
+    [[9, 9.5], [14, 8.5], [11.5, 14]].forEach(([px, py]) => {
+      ctx.fillStyle = "#80111a"; ctx.beginPath(); ctx.arc(px, py, 2.4, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "#e63544"; ctx.beginPath(); ctx.arc(px - 0.3, py - 0.3, 1.9, 0, Math.PI * 2); ctx.fill();
+    });
+  });
 }
 
 // Spawn infinite-scrolling office scenery (cubicle desks, potted plants, watercoolers)
@@ -734,6 +755,7 @@ function buildSprites(scene) {
 const STAGE_GRID = 420;
 const PLAT_GRID = 760;
 window.stagePlatforms = [];
+window.smashedPlants = new Set();
 
 function applyPropBodySize(p, k) {
   if (!p.body) return;
@@ -748,7 +770,8 @@ function applyPropBodySize(p, k) {
 
 function spawnStageProps(scene) {
   const props = [];
-  window. propGroup = scene.physics.add.group({ immovable: true, allowGravity: false });
+  window.smashedPlants = new Set();
+  window.propGroup = scene.physics.add.group({ immovable: true, allowGravity: false });
   const kinds = ["prop_desk", "prop_plant", "prop_cooler", "prop_plant", "prop_desk"];
   for (let gx = -2; gx <= 2; gx++) {
     for (let gy = -2; gy <= 2; gy++) {
@@ -803,12 +826,17 @@ function updateStageProps(scene, props) {
       const ox = ((h * 17) % 140) - 70, oy = ((h * 31) % 140) - 70;
       const wx = gx * STAGE_GRID + 180 + ox, wy = gy * STAGE_GRID + 180 + oy;
       const nearPlat = window.stagePlatforms.some(pl => Math.abs(wx - pl.worldX) < 175 && Math.abs(wy - pl.worldY) < 130);
-      if ((gx === 0 && gy === 0) || h < 34 || nearPlat) {
+      const cellKey = `${gx},${gy}`;
+      if ((gx === 0 && gy === 0) || h < 34 || nearPlat || window.smashedPlants.has(cellKey)) {
         p.setVisible(false);
         if (p.body) p.body.enable = false;
       } else {
         const k = kinds[h % kinds.length];
         p.propKind = k;
+        if (p.cellKey !== cellKey) {
+          p.cellKey = cellKey;
+          p.hp = k === "prop_plant" ? 2 : 9999; // Potted plants can be smashed in 2 hits for loot!
+        }
         if (p.texture.key !== k) p.setTexture(k);
         p.setPosition(wx, wy).setVisible(true).setAlpha(window.viewModeIdx === 0 ? 1 : 0);
         if (p.body) {
@@ -885,6 +913,7 @@ function updateElevationAndPlatforms(scene) {
   if (bills) bills.getChildren().forEach(b => resolveEntityPlatform(b, true));
   if (gems) gems.getChildren().forEach(g => resolveEntityPlatform(g, false));
   if (coins) coins.getChildren().forEach(c => resolveEntityPlatform(c, false));
+  if (window.pizzas) window.pizzas.getChildren().forEach(pz => resolveEntityPlatform(pz, false));
   if (chests) chests.getChildren().forEach(ch => resolveEntityPlatform(ch, false));
   if (splashes) splashes.getChildren().forEach(s => resolveEntityPlatform(s, false));
 }

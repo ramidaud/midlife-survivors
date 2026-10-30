@@ -10,6 +10,7 @@ function unlockAudio() {
 ["keydown", "pointerdown", "touchstart"].forEach(ev => window.addEventListener(ev, unlockAudio));
 
 function toggleMute() { muted = !muted; return muted; }
+function isMuted() { return muted; }
 
 function setMusicPlaying(on) { musicPlaying = on; }
 

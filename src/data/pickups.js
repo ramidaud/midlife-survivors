@@ -19,6 +19,12 @@ window.PICKUPS = {
     dropChance: 0.40, // 40% of paid-off Bills also drop a 401(k) Coin! (Elites drop 2, Bosses drop 5)
     size: 16,
     color: 0xf5c542
+  },
+  pizza: {
+    name: "Leftover Breakroom Pizza",
+    heal: 3,          // restores +3 HP when you smash a potted office plant!
+    size: 20,
+    color: 0xff6b4a
   }
 };
 

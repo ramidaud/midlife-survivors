@@ -78,29 +78,24 @@ function create() {
   // 4. The camera follows the player, like a photographer tracking a subject.
   this.cameras.main.startFollow(player, true, 0.12, 0.12);
 
-  // 5. A heads-up display (HUD) pinned to the screen, not the world.
-  hudText = this.add.text(16, 16, "AGE 40.0 | P/Esc: pause | M: mute | V: style", {
-    fontFamily: "monospace", fontSize: "14px", color: "#f0a24f",
-    backgroundColor: "#12152acc", padding: { x: 8, y: 6 }
-  }).setScrollFactor(0).setDepth(20);
+  // 5. Initialize the Chameleon + Corporate Satire HTML/CSS UI overlay (in src/ui.js).
+  initGameUI(this);
+  hideAllModals();
 
-  // Live 3-way Camera Style button in top-right (2D 16-Bit -> Diablo 3/4 -> 3D Third-Person)
-  viewBtn = this.add.text(this.scale.width - 16, 16, `[V] Style: ${VIEW_MODES[window.viewModeIdx]}`, {
-    fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#ffe042",
-    backgroundColor: "#171c36ee", padding: { x: 10, y: 6 }
-  }).setOrigin(1, 0).setScrollFactor(0).setDepth(25).setInteractive({ useHandCursor: true });
-  this.scale.on("resize", size => viewBtn.setX(size.width - 16));
   const toggleView = () => {
-    const modeName = cycleViewMode(this);
-    viewBtn.setText(`[V] Style: ${modeName}`);
+    cycleViewMode(this);
     sfx("pick");
+    if (titleOpen) renderTitleModal(this);
   };
-  viewBtn.on("pointerdown", (p, lx, ly, ev) => { ev.stopPropagation(); unlockAudio(); toggleView(); });
 
   // 6. Controls: keyboard plus a "drag anywhere" joystick for phones.
   cursors = this.input.keyboard.createCursorKeys();
   keys = this.input.keyboard.addKeys("W,A,S,D");
-  this.input.keyboard.on("keydown-M", () => toggleMute());
+  this.input.keyboard.on("keydown-M", () => {
+    toggleMute();
+    const mb = document.getElementById("hud-mute-btn");
+    if (mb) mb.textContent = isMuted() ? "🔇 [M]" : "🔊 [M]";
+  });
   this.input.keyboard.on("keydown-V", () => toggleView());
   this.input.keyboard.on("keydown-P", () => togglePause(this));
   this.input.keyboard.on("keydown-ESC", () => togglePause(this));
@@ -132,28 +127,27 @@ function create() {
   noTimer   = this.time.addEvent({ delay: stats.noEveryMs,   loop: true, callback: () => fireWordNo(this) });
 
   // 9. Collisions. "overlap" asks the physics engine: are these two things touching?
-  // If a splash touches a Bill, run hitBill.
+  // If a splash touches a Bill, run hitBill. If a splash touches a Potted Plant, crack it open for loot!
   this.physics.add.overlap(splashes, bills, hitBill);
+  if (window.propGroup) {
+    this.physics.add.overlap(splashes, window.propGroup, hitProp);
+  }
 
   // 10. Your health. Touching a Bill costs health, with a short safe window after each hit.
   hp = stats.maxHp;
-  hpBar = this.add.graphics().setScrollFactor(0).setDepth(20);
-  drawHpBar();
   this.physics.add.overlap(player, bills, hurtPlayer);
 
-  // 11. Wisdom gems, 401(k) Coins, boss chests, and experience (XP).
+  // 11. Wisdom gems, 401(k) Coins, Leftover Pizza heals, boss chests, and experience (XP).
   xp = 0; level = 1; xpNeeded = LEVELING.firstLevelXp;
   gems = this.physics.add.group();
   coins = this.physics.add.group();
+  window.pizzas = this.physics.add.group();
   chests = this.physics.add.group();
-  xpBar = this.add.graphics().setScrollFactor(0).setDepth(20);
-  levelText = this.add.text(184, 64, "", {
-    fontFamily: "monospace", fontSize: "13px", color: "#5fb3f0"
-  }).setOrigin(0, 0.5).setScrollFactor(0).setDepth(20);
-  drawXpBar();
   this.physics.add.overlap(player, gems, collectGem);
   this.physics.add.overlap(player, coins, collectCoin);
+  this.physics.add.overlap(player, window.pizzas, collectPizza);
   this.physics.add.overlap(player, chests, collectChest);
+  updateHUD();
 
   // Apply the active camera/graphics style (2D 16-Bit, Diablo 3/4, or 3D Third-Person)
   applyViewMode(this);
@@ -195,123 +189,31 @@ function collectCoin(p, coin) {
   runCoins += PICKUPS.coin401k.value;
   meta.coins += PICKUPS.coin401k.value;
   saveMeta(meta);
+  updateHUD();
 }
 
-// The Title Screen: shows the logo, Character Select, 401(k) Permanent Shop, and "Clock In" button!
+// You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +3 HP!
+function collectPizza(p, pz) {
+  if (!pz.active) return;
+  pz.destroy();
+  sfx("levelUp");
+  hp = Math.min(stats.maxHp, hp + PICKUPS.pizza.heal);
+  updateHUD();
+  const pt = project3DToPhaserWorld(p.scene, p.x, 42, p.y);
+  const txt = p.scene.add.text(pt.x, pt.y - 18, `+${PICKUPS.pizza.heal} HP (PIZZA!)`, {
+    fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#6fbf73", stroke: "#12152a", strokeThickness: 3
+  }).setOrigin(0.5).setDepth(16);
+  p.scene.tweens.add({ targets: txt, y: txt.y - 24, alpha: 0, duration: 600, onComplete: () => txt.destroy() });
+}
+
+// The Title Screen: renders the HTML/CSS Executive Dossier, Character Select, and 401(k) Shop!
 function showTitleScreen(scene) {
   titleOpen = true;
   setMusicPlaying(false);
   scene.physics.pause();
   scene.time.paused = true;
 
-  const W = scene.scale.width, H = scene.scale.height, cx = W / 2, cy = H / 2;
-  const parts = [];
-  const keep = o => (parts.push(o), o.setScrollFactor(0).setDepth(40));
-  const rebuild = () => { parts.forEach(o => o.destroy()); showTitleScreen(scene); };
-
-  keep(scene.add.rectangle(0, 0, W, H, 0x0d1021, 0.88).setOrigin(0));
-  const panelW = Math.min(600, W - 24), panelH = 440;
-  keep(scene.add.rectangle(cx, cy, panelW, panelH, 0x171c36).setStrokeStyle(3, 0xf0a24f));
-
-  keep(scene.add.text(cx, cy - 192, "MIDLIFE SURVIVORS", {
-    fontFamily: "monospace", fontSize: "30px", fontStyle: "bold", color: "#f0a24f",
-    stroke: "#0d1021", strokeThickness: 4
-  }).setOrigin(0.5));
-  keep(scene.add.text(cx, cy - 162, `401(k) Balance: ${meta.coins} Coins  |  Survive from Age 40 to 50`, {
-    fontFamily: "monospace", fontSize: "13px", color: "#ffe042"
-  }).setOrigin(0.5));
-
-  // ---- 1. Character Selection Row ----
-  keep(scene.add.text(cx, cy - 134, "CHOOSE YOUR MIDLIFE ARCHETYPE:", {
-    fontFamily: "monospace", fontSize: "12px", color: "#8ccff0"
-  }).setOrigin(0.5));
-
-  const charW = Math.floor((panelW - 44) / 3);
-  CHARACTERS.forEach((ch, i) => {
-    const bx = cx + (i - 1) * (charW + 10), by = cy - 86;
-    const owned = !!meta.unlockedChars[ch.id];
-    const selected = meta.selectedChar === ch.id;
-    const card = keep(scene.add.rectangle(bx, by, charW, 68, selected ? 0x2b3663 : 0x12152a)
-      .setStrokeStyle(selected ? 3 : 1.5, selected ? 0xffe042 : (owned ? 0x5fb3f0 : 0x555b7a))
-      .setInteractive({ useHandCursor: true }));
-    keep(scene.add.text(bx, by - 18, ch.name, {
-      fontFamily: "monospace", fontSize: "11px", fontStyle: "bold",
-      color: selected ? "#ffe042" : "#e8e9f3"
-    }).setOrigin(0.5));
-    const statusTxt = selected ? "[SELECTED]" : (owned ? "Click to select" : `Unlock: ${ch.cost} Coins`);
-    keep(scene.add.text(bx, by + 2, statusTxt, {
-      fontFamily: "monospace", fontSize: "10px", color: owned ? "#6fbf73" : "#f0a24f"
-    }).setOrigin(0.5));
-    keep(scene.add.text(bx, by + 20, ch.tagline, {
-      fontFamily: "monospace", fontSize: "9px", color: "#b8c2de",
-      wordWrap: { width: charW - 10 }, align: "center"
-    }).setOrigin(0.5));
-
-    card.on("pointerdown", (p, lx, ly, ev) => {
-      ev.stopPropagation();
-      unlockAudio();
-      if (owned) {
-        meta.selectedChar = ch.id; saveMeta(meta); sfx("pick"); rebuild();
-      } else if (meta.coins >= ch.cost) {
-        meta.coins -= ch.cost; meta.unlockedChars[ch.id] = true; meta.selectedChar = ch.id;
-        saveMeta(meta); sfx("levelUp"); rebuild();
-      } else {
-        sfx("hurt");
-      }
-    });
-  });
-
-  // ---- 2. Permanent 401(k) Upgrade Shop ----
-  keep(scene.add.text(cx, cy - 34, "401(k) PERMANENT UPGRADES (Saved Between Runs):", {
-    fontFamily: "monospace", fontSize: "12px", color: "#8ccff0"
-  }).setOrigin(0.5));
-
-  META_SHOP.forEach((item, i) => {
-    const sy = cy - 4 + i * 38;
-    const rank = meta.ranks[item.id] || 0;
-    const maxed = rank >= item.maxRank;
-    const cost = item.baseCost * (rank + 1);
-    const row = keep(scene.add.rectangle(cx, sy, panelW - 36, 32, 0x12152a)
-      .setStrokeStyle(1.5, maxed ? 0x6fbf73 : 0xf0a24f)
-      .setInteractive({ useHandCursor: true }));
-    keep(scene.add.text(cx - panelW / 2 + 28, sy, `${item.name} [Rank ${rank}/${item.maxRank}] — ${item.desc}`, {
-      fontFamily: "monospace", fontSize: "11px", color: "#e8e9f3"
-    }).setOrigin(0, 0.5));
-    keep(scene.add.text(cx + panelW / 2 - 28, sy, maxed ? "MAXED" : `Buy (${cost}k)`, {
-      fontFamily: "monospace", fontSize: "11px", fontStyle: "bold",
-      color: maxed ? "#6fbf73" : (meta.coins >= cost ? "#ffe042" : "#888ea8")
-    }).setOrigin(1, 0.5));
-
-    row.on("pointerdown", (p, lx, ly, ev) => {
-      ev.stopPropagation();
-      unlockAudio();
-      if (!maxed && meta.coins >= cost) {
-        meta.coins -= cost; meta.ranks[item.id] = rank + 1;
-        saveMeta(meta); sfx("billPaid"); rebuild();
-      } else {
-        sfx("hurt");
-      }
-    });
-  });
-
-  // ---- 3. Camera Style Selector + Clock In Button ----
-  const styleBtn = keep(scene.add.text(cx, cy + 124, `  CAMERA STYLE [Press V]: ${VIEW_MODES[window.viewModeIdx]} (Click to switch)  `, {
-    fontFamily: "monospace", fontSize: "12px", fontStyle: "bold",
-    backgroundColor: "#2b3663", color: "#ffe042", padding: { x: 10, y: 6 }
-  }).setOrigin(0.5).setInteractive({ useHandCursor: true }));
-  styleBtn.on("pointerdown", (p, lx, ly, ev) => {
-    ev.stopPropagation();
-    unlockAudio();
-    const modeName = cycleViewMode(scene);
-    if (viewBtn) viewBtn.setText(`[V] Style: ${modeName}`);
-    sfx("pick");
-    rebuild();
-  });
-
-  const btn = keep(scene.add.text(cx, cy + 168, "  CLOCK IN (Click, Space, or Start)  ", {
-    fontFamily: "monospace", fontSize: "18px", fontStyle: "bold",
-    backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 14, y: 10 }
-  }).setOrigin(0.5).setInteractive({ useHandCursor: true }));
+  renderTitleModal(scene);
 
   startFromTitle = () => {
     if (!titleOpen) return;
@@ -320,13 +222,13 @@ function showTitleScreen(scene) {
     titleOpen = false;
     titleSeen = true;
     startFromTitle = null;
+    hideTitleModal();
     applyMetaAndChar();
-    drawHpBar();
+    updateHUD();
     const cd = stats.cooldownMult;
     fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
     jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
     noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
-    parts.forEach(o => o.destroy());
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     startTime = scene.time.now;
     scene.physics.resume();
@@ -334,7 +236,6 @@ function showTitleScreen(scene) {
     setMusicPlaying(true);
   };
 
-  btn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); startFromTitle(); });
   scene.input.keyboard.once("keydown-SPACE", () => startFromTitle && startFromTitle());
   scene.input.keyboard.once("keydown-ENTER", () => startFromTitle && startFromTitle());
 }
@@ -344,23 +245,12 @@ function togglePause(scene) {
   if (gameOver || levelUpOpen || titleOpen) return;
   paused = !paused;
   setMusicPlaying(!paused);
+  setPauseModalVisible(paused);
   if (paused) {
     scene.physics.pause();
     scene.time.paused = true;
     player.setVelocity(0, 0);
-    const W = scene.scale.width, H = scene.scale.height;
-    pauseParts = [
-      scene.add.rectangle(0, 0, W, H, 0x000000, 0.55).setOrigin(0).setScrollFactor(0).setDepth(30),
-      scene.add.text(W / 2, H / 2 - 15, "PAUSED", {
-        fontFamily: "monospace", fontSize: "36px", color: "#f0a24f"
-      }).setOrigin(0.5).setScrollFactor(0).setDepth(30),
-      scene.add.text(W / 2, H / 2 + 25, "Press P, Esc, or Start to resume", {
-        fontFamily: "monospace", fontSize: "14px", color: "#e8e9f3"
-      }).setOrigin(0.5).setScrollFactor(0).setDepth(30)
-    ];
   } else {
-    pauseParts.forEach(o => o.destroy());
-    pauseParts = [];
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     scene.physics.resume();
     scene.time.paused = false;
@@ -373,18 +263,11 @@ function collectChest(p, chest) {
   if (chest.tag) chest.tag.destroy();
   chest.destroy();
   pendingLevels++;
-  if (!levelUpOpen) showLevelUp(p.scene, "BOSS BONUS!", true);
+  if (!levelUpOpen) showLevelUp(p.scene, "EXECUTIVE BONUS CHEST!", true);
 }
 
-// Blue XP bar under the red health bar, with "LV 1" next to it.
-function drawXpBar() {
-  const w = 160, h = 8, x = 16, y = 66;
-  xpBar.clear();
-  xpBar.fillStyle(0x12152a).fillRect(x, y, w, h);
-  xpBar.fillStyle(PICKUPS.wisdomGem.color).fillRect(x, y, w * xp / xpNeeded, h);
-  xpBar.lineStyle(1, 0xe8e9f3).strokeRect(x, y, w, h);
-  levelText.setText(`LV ${level}`).setY(y + h / 2);
-}
+function drawXpBar() { updateHUD(); }
+function drawHpBar() { updateHUD(); }
 
 // You touched a gem: bank the XP, and level up if the bar is full.
 function collectGem(p, gem) {
@@ -398,42 +281,28 @@ function collectGem(p, gem) {
     xpNeeded = Math.round(xpNeeded * LEVELING.growth);
     pendingLevels++;
     hp = Math.min(stats.maxHp, hp + 2); // leveling up restores +2 HP!
-    drawHpBar();
   }
-  drawXpBar();
+  updateHUD();
   if (pendingLevels > 0 && !levelUpOpen) showLevelUp(p.scene);
 }
 
-// The level-up screen: pause the world and offer 3 random upgrades.
+// The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
 function showLevelUp(scene, customTitle, preferWeapons) {
   levelUpOpen = true;
   scene.physics.pause();
-  scene.time.paused = true; // stops the spawn and fire timers too
+  scene.time.paused = true;
   player.setVelocity(0, 0);
 
-  const W = scene.scale.width, H = scene.scale.height, cx = W / 2;
-  const parts = []; // everything we draw, so we can remove it all afterwards
-  const keep = o => (parts.push(o), o.setScrollFactor(0).setDepth(30));
-  keep(scene.add.rectangle(0, 0, W, H, 0x000000, 0.65).setOrigin(0));
-  keep(scene.add.text(cx, H / 2 - 150, customTitle || `LEVEL ${level - pendingLevels + 1}!`, {
-    fontFamily: "monospace", fontSize: "32px", color: customTitle ? "#f5c542" : "#5fb3f0"
-  }).setOrigin(0.5));
-  keep(scene.add.text(cx, H / 2 - 115, "Pick one: click, tap, 1 / 2 / 3, or controller + A", {
-    fontFamily: "monospace", fontSize: "13px", color: "#e8e9f3"
-  }).setOrigin(0.5));
-
-  // Filter to upgrades that make sense right now (e.g. don't offer "Louder Groan" before unlocking Dad Joke).
   const pool = UPGRADES.filter(u => !u.when || u.when(stats));
-  // Evolutions and Boss chests put big unlocks right at the top of the 3 choices!
   const evos = pool.filter(u => u.isEvolution);
   const unlocked = preferWeapons ? pool.filter(u => u.name.startsWith("Unlock:")) : [];
   const priority = evos.concat(unlocked);
   const rest = Phaser.Utils.Array.Shuffle(pool.filter(u => !priority.includes(u)).slice());
   const choices = priority.concat(rest).slice(0, 3);
-  const cardW = Math.min(420, W - 40), cardH = 64, cards = [];
 
   const pick = up => {
     sfx("pick");
+    if (levelMenu && levelMenu.close) levelMenu.close();
     levelMenu = null;
     up.apply(stats);
     if (stats.heal) { hp = Math.min(stats.maxHp, hp + stats.heal); stats.heal = 0; }
@@ -441,52 +310,29 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
     jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
     noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
-    drawHpBar();
-    parts.forEach(o => o.destroy());
+    updateHUD();
     scene.input.keyboard.off("keydown", onKey);
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     pendingLevels--;
     levelUpOpen = false;
     scene.physics.resume();
     scene.time.paused = false;
-    if (pendingLevels > 0) showLevelUp(scene); // leveled more than once? choose again
+    if (pendingLevels > 0) showLevelUp(scene);
   };
 
-  choices.forEach((up, i) => {
-    const y = H / 2 - 50 + i * (cardH + 12);
-    const card = keep(scene.add.rectangle(cx, y, cardW, cardH, 0x12152a)
-      .setStrokeStyle(2, 0xf0a24f).setInteractive({ useHandCursor: true }));
-    keep(scene.add.text(cx - cardW / 2 + 14, y - 12, `${i + 1}. ${up.name}`, {
-      fontFamily: "monospace", fontSize: "17px", color: "#f0a24f"
-    }).setOrigin(0, 0.5));
-    keep(scene.add.text(cx - cardW / 2 + 14, y + 13, up.text, {
-      fontFamily: "monospace", fontSize: "13px", color: "#e8e9f3"
-    }).setOrigin(0, 0.5));
-    cards.push(card);
-    card.on("pointerover", () => highlight(i));
-    card.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); pick(up); });
-  });
-
-  // One card is always "selected" (lighter) so a controller can move up/down and press A.
-  function highlight(i) {
-    levelMenu.sel = i;
-    cards.forEach((c, j) => c.setFillStyle(j === i ? 0x2e3356 : 0x12152a).setStrokeStyle(j === i ? 4 : 2, 0xf0a24f));
-  }
-  levelMenu = { sel: 0, count: choices.length, highlight, pickSelected: () => pick(choices[levelMenu.sel]) };
-  highlight(0);
+  const uiCtrl = renderLevelUpModal(choices, customTitle, pick);
+  levelMenu = {
+    sel: 0,
+    count: choices.length,
+    highlight: idx => uiCtrl && uiCtrl.highlight(idx),
+    close: () => uiCtrl && uiCtrl.close(),
+    pickSelected: () => pick(choices[levelMenu.sel])
+  };
+  levelMenu.highlight(0);
   sfx("levelUp");
 
   const onKey = e => { const n = Number(e.key); if (n >= 1 && n <= choices.length) pick(choices[n - 1]); };
   scene.input.keyboard.on("keydown", onKey);
-}
-
-// Draw the health bar in the top-left, under the AGE text.
-function drawHpBar() {
-  const w = 160, h = 12, x = 16, y = 50;
-  hpBar.clear();
-  hpBar.fillStyle(0x12152a).fillRect(x, y, w, h);                        // empty bar
-  hpBar.fillStyle(0xe0564f).fillRect(x, y, w * Math.max(hp, 0) / stats.maxHp, h); // red health
-  hpBar.lineStyle(1, 0xe8e9f3).strokeRect(x, y, w, h);
 }
 
 // An enemy (Bill, Snack, Twinge, Elite, or Boss) touched you.
@@ -512,11 +358,11 @@ function hurtPlayer(p, bill) {
   if (hp <= 0) showGameOver(scene, bill.kind || "bill", currentAge >= 50);
 }
 
-// The Game Over / Victory screen: freeze the world, show a funny cause of death (or Age 50 win!) and a restart button.
+// The Game Over / Victory screen: freeze the world and render the HTML/CSS Exit Interview or AARP Certificate!
 function showGameOver(scene, killer, isWin) {
   gameOver = true;
   setMusicPlaying(false);
-  restartGame = () => scene.scene.restart();
+  restartGame = () => { hideAllModals(); scene.scene.restart(); };
   scene.physics.pause();
   const winLines = [
     "HAPPY 50th! You survived the entire decade, earned AARP eligibility, and unlocked the 4:30 PM Early Bird Special!",
@@ -526,32 +372,9 @@ function showGameOver(scene, killer, isWin) {
   const cause = isWin
     ? Phaser.Utils.Array.GetRandom(winLines)
     : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
-  const cx = scene.scale.width / 2, cy = scene.scale.height / 2;
 
-  // A dark sheet over the whole screen so the text stands out.
-  scene.add.rectangle(0, 0, scene.scale.width, scene.scale.height, 0x000000, 0.72)
-    .setOrigin(0).setScrollFactor(0).setDepth(30);
-  const style = { fontFamily: "monospace", align: "center", color: "#e8e9f3" };
-  scene.add.text(cx, cy - 95, isWin ? "YOU SURVIVED YOUR 40s!" : "GAME OVER", {
-    ...style, fontSize: isWin ? "34px" : "40px", color: isWin ? "#f5c542" : "#e0564f"
-  }).setOrigin(0.5).setScrollFactor(0).setDepth(30);
-  scene.add.text(cx, cy - 28, cause, { ...style, fontSize: "17px", wordWrap: { width: Math.min(520, scene.scale.width - 40) } })
-    .setOrigin(0.5).setScrollFactor(0).setDepth(30);
-  scene.add.text(cx, cy + 25, `Reached Age ${currentAge.toFixed(1)}  |  Level ${level}  |  401(k): +${runCoins} (Total: ${meta.coins})`, { ...style, fontSize: "14px", color: "#ffe042" })
-    .setOrigin(0.5).setScrollFactor(0).setDepth(30);
-
-  // Two options: jump straight into another run, or visit the 401(k) Shop & Character Select on the Title Screen.
-  const btn = scene.add.text(cx - 95, cy + 78, "  Try again  ", {
-    ...style, fontSize: "18px", backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 10, y: 8 }
-  }).setOrigin(0.5).setScrollFactor(0).setDepth(30).setInteractive({ useHandCursor: true });
-  btn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); scene.scene.restart(); });
-
-  const shopBtn = scene.add.text(cx + 105, cy + 78, "  401(k) Shop  ", {
-    ...style, fontSize: "18px", backgroundColor: "#5fb3f0", color: "#12152a", padding: { x: 10, y: 8 }
-  }).setOrigin(0.5).setScrollFactor(0).setDepth(30).setInteractive({ useHandCursor: true });
-  shopBtn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); titleSeen = false; scene.scene.restart(); });
-
-  scene.input.keyboard.once("keydown-SPACE", () => scene.scene.restart());
+  renderGameOverModal(scene, cause, isWin);
+  scene.input.keyboard.once("keydown-SPACE", () => { hideAllModals(); scene.scene.restart(); });
 }
 
 // Pop a floating damage number above an enemy that drifts up and fades out.
@@ -643,7 +466,52 @@ function hitBill(splash, bill) {
   damageBill(bill, stats.damage);
 }
 
-// Weapon 2: Dad Joke. A yellow ring ripples out and damages every Bill inside it.
+// Smashable Potted Office Plants ("prop_plant")! Crack them open for Leftover Pizza (+3 HP), 401(k) Coins, or Bonus Gems!
+function damagePlant(prop, amount) {
+  if (!prop || !prop.visible || prop.propKind !== "prop_plant") return;
+  const sc = prop.scene;
+  prop.hp = (prop.hp || 2) - amount;
+  if (prop.hp > 0) {
+    sfx("hit");
+    prop.setTintFill(0xffffff);
+    sc.tweens.add({ targets: prop, scaleX: 1.18, scaleY: 0.85, duration: 55, yoyo: true });
+    sc.time.delayedCall(60, () => { if (prop.active) prop.clearTint(); });
+  } else {
+    sfx("billPaid");
+    burstConfetti(sc, prop.x, prop.y, 0x52bf6a, 10);
+    if (prop.cellKey) window.smashedPlants.add(prop.cellKey);
+    prop.setVisible(false);
+    if (prop.body) prop.body.enable = false;
+
+    // Roll plant loot reward: 38% Leftover Pizza (+3 HP), 40% 401(k) Coin + Gem, 22% Bonus Gem Jackpot!
+    const roll = Math.random();
+    let popupTxt = "🪙 +401(k)!";
+    if (roll < 0.38) {
+      window.pizzas.create(prop.x, prop.y, "pizza").setDepth(3);
+      popupTxt = "🍕 PIZZA!";
+    } else if (roll < 0.78) {
+      coins.create(prop.x - 6, prop.y, "coin401k").setDepth(3);
+      gems.create(prop.x + 6, prop.y, "gem").setDepth(3);
+    } else {
+      for (let i = -1; i <= 1; i++) gems.create(prop.x + i * 10, prop.y - 4, "gem").setDepth(3);
+      coins.create(prop.x, prop.y + 8, "coin401k").setDepth(3);
+      popupTxt = "💎 BONUS STASH!";
+    }
+    const pt = project3DToPhaserWorld(sc, prop.x, 32, prop.y);
+    const msg = sc.add.text(pt.x, pt.y - 12, popupTxt, {
+      fontFamily: "monospace", fontSize: "12px", fontStyle: "bold", color: "#ffe042", stroke: "#12152a", strokeThickness: 3
+    }).setOrigin(0.5).setDepth(16);
+    sc.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 650, onComplete: () => msg.destroy() });
+  }
+}
+
+function hitProp(splash, prop) {
+  if (!splash.active || !prop.visible || prop.propKind !== "prop_plant") return;
+  splash.destroy();
+  damagePlant(prop, stats.damage);
+}
+
+// Weapon 2: Dad Joke. A yellow ring ripples out and damages every Bill (and Potted Plant!) inside it.
 function fireDadJoke(scene) {
   if (!stats.dadJoke) return;
   sfx("dadJoke");
@@ -666,9 +534,16 @@ function fireDadJoke(scene) {
       damageBill(bill, stats.jokeDamage);
     }
   });
+  if (stageProps) {
+    stageProps.forEach(p => {
+      if (p.visible && p.propKind === "prop_plant" && Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y) <= r) {
+        damagePlant(p, stats.jokeDamage);
+      }
+    });
+  }
 }
 
-// Weapon 3: The Word "No." A teal shockwave shoves nearby Bills away and damages them.
+// Weapon 3: The Word "No." A teal shockwave shoves nearby Bills away and damages them (and smashes plants!).
 function fireWordNo(scene) {
   if (!stats.wordNo) return;
   sfx("wordNo");
@@ -696,15 +571,33 @@ function fireWordNo(scene) {
       damageBill(bill, stats.noDamage);
     }
   });
+  if (stageProps) {
+    stageProps.forEach(p => {
+      if (p.visible && p.propKind === "prop_plant" && Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y) <= r) {
+        damagePlant(p, stats.noDamage);
+      }
+    });
+  }
 }
 
-// Find the Bill closest to the player. Returns null if there are none.
+// Find the Bill closest to the player (or a nearby Potted Plant if no Bill is close!).
 function nearestBill() {
   let best = null, bestDist = Infinity;
   bills.getChildren().forEach(bill => {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
     if (d < bestDist) { best = bill; bestDist = d; }
   });
+  if (best && bestDist <= 250) return best;
+  if (stageProps) {
+    let bestPlant = null, plantDist = 210;
+    stageProps.forEach(p => {
+      if (p.visible && p.propKind === "prop_plant") {
+        const d = Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y);
+        if (d < plantDist) { bestPlant = p; plantDist = d; }
+      }
+    });
+    if (bestPlant) return bestPlant;
+  }
   return best;
 }
 
@@ -784,26 +677,22 @@ function spawnBoss(scene, bossKind) {
     fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
   }).setOrigin(0.5).setDepth(5);
 
-  const banner = scene.add.text(scene.scale.width / 2, 105, `BOSS: ${P.name}!`, {
-    fontFamily: "monospace", fontSize: "20px", color: "#f5c542",
-    backgroundColor: "#12152acc", padding: { x: 12, y: 6 }
-  }).setOrigin(0.5).setScrollFactor(0);
-  scene.tweens.add({ targets: banner, alpha: 0, delay: 2400, duration: 600, onComplete: () => banner.destroy() });
+  showBossToastUI(P.name);
 }
 
 // update() runs about 60 TIMES PER SECOND: this is the game loop.
 function update() {
   readPad(this);
   if (padJust("yBtn")) {
-    const modeName = cycleViewMode(this);
-    if (viewBtn) viewBtn.setText(`[V] Style: ${modeName}`);
+    cycleViewMode(this);
     sfx("pick");
+    if (titleOpen) renderTitleModal(this);
   }
 
-  // Controller in menus: up/down to choose an upgrade, A to pick. A or Start to try again.
+  // Controller in menus: up/down/left/right to choose a Perk Card, A to pick. A or Start to try again.
   if (levelMenu) {
-    if (padJust("up") || padJust("down")) {
-      const step = padJust("up") ? -1 : 1;
+    if (padJust("up") || padJust("down") || padJust("left") || padJust("right")) {
+      const step = (padJust("up") || padJust("left")) ? -1 : 1;
       levelMenu.highlight((levelMenu.sel + step + levelMenu.count) % levelMenu.count);
       sfx("move");
     }
@@ -822,7 +711,7 @@ function update() {
   // Age clock: every PLAYER.secondsPerYear seconds adds 1 year to your age.
   const elapsedSec = (this.time.now - startTime) / 1000;
   currentAge = PLAYER.startingAge + elapsedSec / PLAYER.secondsPerYear;
-  hudText.setText(`AGE ${currentAge.toFixed(1)} | 401(k): ${meta.coins} | P: pause | M: mute | V: style`);
+  updateHUD();
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
   ["performanceReview", "mortgageRefinance", "midlifeCrisis", "theReaper"].forEach(bk => {
     if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
@@ -877,6 +766,13 @@ function update() {
       this.physics.moveToObject(c, player, W.magnetSpeed);
     }
   });
+  if (window.pizzas) {
+    window.pizzas.getChildren().forEach(pz => {
+      if (Phaser.Math.Distance.Between(player.x, player.y, pz.x, pz.y) < stats.magnetRadius) {
+        this.physics.moveToObject(pz, player, W.magnetSpeed);
+      }
+    });
+  }
 
   // Every frame, update each enemy according to its behavior (state machine).
   const now = this.time.now;

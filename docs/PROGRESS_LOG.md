@@ -204,3 +204,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - **Climbable Mezzanine Platforms & Stairs (`prop_platform`):**
   - Added raised **Mezzanine Platforms (`height = 42`)** with **6-step staircases** on their left side and **brass guardrails** on their top, right, and bottom ledges.
   - In **2D 16-Bit Mode**, platforms render as detailed pixel-art mezzanines with stairs and handrails; in **Diablo 3/4** and **3D Third-Person Modes**, they render as 3D multi-step staircases, columns, and raised decks that physically lift the player, enemies, pickups, and camera as you climb!
+
+## 2026-10-30: Chameleon + Corporate Satire HTML/CSS UI & Smashable Potted Plants! (Antigravity)
+- Created `src/ui.js` and styled `#ui-layer` in `index.html` using **Interface In Game** design principles (Option A + Option C):
+  - **Chameleon Theme Engine (`data-theme="0" | "1" | "2"`):** Pressing **`[V]`** morphs the entire UI typography, borders, and colors between **`2D 16-Bit` (`Press Start 2P`, pixel bevels, `"CORP-OS v1.98"`)**, **`Diablo 3/4` (`Cinzel`, obsidian & antique gold filigree, `"SANCTUARY HR"`)**, and **`AAA 3D` (`Bungee`, skewed Frosted Glass neon pods, `"MIDLIFE ROYALE"`)**.
+  - **Peripheral 3-Zone HUD:** Top-Left Employee ID & Vitality Pod (`HP`, `XP`, active perk badges), Top-Center **Decade Survival Timeline (`Age 40 -> 50`)** with Boss milestone pips (`42 📋`, `45 🏦`, `48 🏎️`, `50 🏆`), and Top-Right 401(k) Ticker + 3-Way Camera Pill.
+  - **3 Vertical Collectible Perk Cards (`#levelup-modal`)**, **Outlook-Style Boss Calendar Toast (`#boss-toast`)**, **Executive Dossier Title Screen (`#title-modal`)**, and **HR Exit Interview / AARP Certificate (`#gameover-modal`)**.
+- **Smashable Potted Office Plants (`prop_plant`) + Leftover Breakroom Pizza (`pizza`):**
+  - Potted plants can now be cracked open in 2 hits (`damagePlant` via Coffee Splash, Dad Joke, or "No.") to drop **Leftover Breakroom Pizza** (`+3 HP` heal!), **401(k) Gold Coins**, or a **3-Gem Bonus Stash**!

@@ -105,3 +105,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## DPS math, physical barriers, and 2.5D elevation (Oct 30)
 - **Kills-per-second vs. Spawns-per-second:** In wave 1, if an enemy takes `2.0s` to kill (`2 HP` at `1 shot/sec`) but spawns every `0.9s`, the screen floods before the player can reach Level 2. Making basic Bills `1 HP` with a `0.65s` starter fire rate lets the player earn early XP and level up in rhythm with the waves.
 - **2.5D Elevation (`ent.elev`):** Adding a single `.elev` number (`0` on the floor, `0..42` on the staircase ramp, `42` on the mezzanine deck) lets a 2D physics engine support multi-level platforms, guardrails, and 3D stair climbing across all three camera views!
+
+## HTML/CSS overlay UI and CSS custom properties (Oct 30)
+- **DOM UI over WebGL Canvas:** Instead of drawing text and menus inside the game canvas, layering a `<div id="ui-layer">` on top lets you use real Google Fonts, CSS flexbox/grid, `backdrop-filter: blur()`, and smooth CSS transitions while keeping the center 80% of the screen clear (`pointer-events: none`).
+- **Chameleon theming with CSS variables:** Changing a single attribute (`#ui-layer[data-theme="0" | "1" | "2"]`) swaps `--font-head`, `--border-col`, `--pod-skew`, and `--hp-grad` across every HUD pod and modal card at once.

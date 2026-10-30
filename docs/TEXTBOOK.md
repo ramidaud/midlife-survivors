@@ -608,6 +608,29 @@ Every office prop (`prop_desk`, `prop_plant`, `prop_cooler`) now has a solid Arc
 
 ---
 
+## Chapter 23: Chameleon UI (`src/ui.js`) & Smashable Props (`damagePlant`)
+
+### 1. Why Web Games Use an HTML/CSS UI Layer (`#ui-layer`) Over the Canvas
+Drawing complex menus, fonts, and cards inside a WebGL canvas takes hundreds of lines of positioning math. Layering a DOM `<div id="ui-layer">` on top gives us CSS Grid, Flexbox, `backdrop-filter: blur()`, and **CSS Custom Properties (`--var`)** so pressing **`[V]`** transforms the entire UI aesthetic automatically:
+
+```
+  Press [V] -> window.syncUITheme() sets #ui-layer[data-theme="0 | 1 | 2"]
+        ├── Theme 0 (16-Bit):  --font-head: 'Press Start 2P'; --pod-skew: 0deg;  ("CORP-OS v1.98")
+        ├── Theme 1 (Diablo):  --font-head: 'Cinzel';         --border-col: gold; ("SANCTUARY HR")
+        └── Theme 2 (AAA 3D):  --font-head: 'Bungee';         --pod-skew: -4deg; ("MIDLIFE ROYALE")
+```
+
+### 2. Smashable Potted Plants & Loot Table (`damagePlant`)
+Just like candlesticks in *Vampire Survivors*, every `prop_plant` has `hp: 2` and rolls a 3-way loot table when smashed:
+
+| Roll (`Math.random()`) | Drop Reward | Effect |
+|---|---|---|
+| `0.00 - 0.38` (**38%**) | **Leftover Breakroom Pizza (`pizza`)** | Restores **`+3 HP`** immediately on pickup! |
+| `0.38 - 0.78` (**40%**) | **401(k) Coin + Wisdom Gem** | **`+1k` permanent coin** + **`+1 XP`** |
+| `0.78 - 1.00` (**22%**) | **Bonus Stash Jackpot** | **3 Wisdom Gems + 1 Gold 401(k) Coin!** |
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

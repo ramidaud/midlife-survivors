@@ -94,6 +94,7 @@ function initThreeOverlay() {
     splashMeshes: new Map(),
     gemMeshes: new Map(),
     coinMeshes: new Map(),
+    pizzaMeshes: new Map(),
     chestMeshes: new Map(),
     propMeshes: [],
     platformMeshes: [],
@@ -406,6 +407,7 @@ function applyViewMode(scene) {
   if (stageProps) stageProps.forEach(p => p.setAlpha(is3D ? 0 : 1));
   if (window.stagePlatforms) window.stagePlatforms.forEach(pl => pl.setAlpha(is3D ? 0 : 1));
   if (player) player.setAlpha(is3D ? 0 : 1);
+  if (window.syncUITheme) window.syncUITheme();
 }
 
 // Sync every Phaser entity into the Three.js 3D scene and render the active camera style!
@@ -574,6 +576,16 @@ function renderThreeView(scene) {
     return c;
   }, 10, true, scene.time.now);
 
+  // Sync Leftover Pizza Slices (spinning cheese-and-pepperoni wedges!)
+  syncSimplePool(window.pizzas, threeState.pizzaMeshes, scene3d, () => {
+    const p = new THREE.Mesh(
+      new THREE.ConeGeometry(9, 14, 3),
+      new THREE.MeshStandardMaterial({ color: 0xffb838, emissive: 0x802208, roughness: 0.3 })
+    );
+    p.rotation.x = Math.PI / 2;
+    return p;
+  }, 10, true, scene.time.now);
+
   // Sync Boss Chests
   syncSimplePool(chests, threeState.chestMeshes, scene3d, () => {
     return new THREE.Mesh(
@@ -615,7 +627,7 @@ function restore2DSprites() {
   if (window.viewModeIdx !== 0) return;
   if (label) label.setVisible(true);
   if (window.stagePlatforms) window.stagePlatforms.forEach(pl => pl.setAlpha(1));
-  [bills, splashes, gems, coins, chests].forEach(grp => {
+  [bills, splashes, gems, coins, window.pizzas, chests].forEach(grp => {
     if (grp) grp.getChildren().forEach(item => {
       item.setAlpha(1);
       if (item.tag) item.tag.setVisible(true);
