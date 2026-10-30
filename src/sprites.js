@@ -630,6 +630,20 @@ function buildSprites(scene) {
     ctx.fillStyle = "#ffe042";
     ctx.fillRect(30, 23, 3, 2.5); ctx.fillRect(36, 23, 3, 2.5);
   });
+
+  // 16. 401(k) GOLD COIN: Shiny 16-bit embossed retirement coin!
+  makeCanvasTex(scene, "coin401k", 18, 18, (ctx) => {
+    ctx.fillStyle = "#3b2504";
+    ctx.beginPath(); ctx.arc(9, 9, 8, 0, Math.PI * 2); ctx.fill();
+    const g = ctx.createRadialGradient(6, 6, 1, 9, 9, 7.5);
+    g.addColorStop(0, "#fff8b8"); g.addColorStop(0.55, "#f5bd26"); g.addColorStop(1, "#996508");
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(9, 9, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = "#b3770c"; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.arc(9, 9, 5, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = "#593804"; ctx.font = "bold 8px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("k", 9, 9.5);
+  });
 }
 
 // Spawn infinite-scrolling office scenery (cubicle desks, potted plants, watercoolers)

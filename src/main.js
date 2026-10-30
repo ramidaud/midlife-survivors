@@ -32,8 +32,9 @@ function readPad(scene) {
 }
 const padJust = name => padNow[name] && !padPrev[name];
 
-let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, chests, hudText;
+let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, coins, chests, hudText;
 let xp = 0, level = 1, xpNeeded = 0, xpBar, levelText, currentAge = 40, bossesSpawned = {}, slowUntil = 0;
+let meta, runCoins = 0;
 // "stats" is this run's copy of the numbers. Upgrades change the copy, never the data files,
 // so every new run starts fresh.
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
@@ -49,6 +50,8 @@ function create() {
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
+  meta = loadMeta();
+  runCoins = 0;
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
@@ -56,6 +59,7 @@ function create() {
     dadJoke: false, jokeEveryMs: WEAPONS.dadJoke.fireEveryMs, jokeRadius: WEAPONS.dadJoke.radius, jokeDamage: WEAPONS.dadJoke.damage,
     wordNo: false, noEveryMs: WEAPONS.wordNo.fireEveryMs, noRadius: WEAPONS.wordNo.radius, noDamage: WEAPONS.wordNo.damage, noPush: WEAPONS.wordNo.pushPx
   };
+  applyMetaAndChar();
   // 1. Build pixel-art sprites for every character, enemy, pickup, and the background floor (in src/sprites.js).
   buildSprites(this);
 
@@ -117,9 +121,10 @@ function create() {
   drawHpBar();
   this.physics.add.overlap(player, bills, hurtPlayer);
 
-  // 11. Wisdom gems, boss chests, and experience (XP).
+  // 11. Wisdom gems, 401(k) Coins, boss chests, and experience (XP).
   xp = 0; level = 1; xpNeeded = LEVELING.firstLevelXp;
   gems = this.physics.add.group();
+  coins = this.physics.add.group();
   chests = this.physics.add.group();
   xpBar = this.add.graphics().setScrollFactor(0).setDepth(20);
   levelText = this.add.text(184, 64, "", {
@@ -127,6 +132,7 @@ function create() {
   }).setOrigin(0, 0.5).setScrollFactor(0).setDepth(20);
   drawXpBar();
   this.physics.add.overlap(player, gems, collectGem);
+  this.physics.add.overlap(player, coins, collectCoin);
   this.physics.add.overlap(player, chests, collectChest);
 
   // 12. Title screen on first load ("Clock In"), or start the music right away on "Try again".
@@ -137,7 +143,38 @@ function create() {
   }
 }
 
-// The Title Screen: shows the logo, cast showcase, and "Clock In" button (which also unlocks browser audio!).
+// Apply permanent 401(k) shop ranks and the chosen character's starting perks to `stats`.
+function applyMetaAndChar() {
+  stats.speed = PLAYER.speed; stats.maxHp = PLAYER.maxHp; stats.cooldownMult = 1;
+  stats.fireEveryMs = WEAPONS.coffeeSplash.fireEveryMs; stats.damage = WEAPONS.coffeeSplash.damage;
+  stats.range = WEAPONS.coffeeSplash.range; stats.magnetRadius = PICKUPS.wisdomGem.magnetRadius;
+  stats.dadJoke = false; stats.jokeEveryMs = WEAPONS.dadJoke.fireEveryMs; stats.jokeRadius = WEAPONS.dadJoke.radius; stats.jokeDamage = WEAPONS.dadJoke.damage;
+  stats.wordNo = false; stats.noEveryMs = WEAPONS.wordNo.fireEveryMs; stats.noRadius = WEAPONS.wordNo.radius; stats.noDamage = WEAPONS.wordNo.damage; stats.noPush = WEAPONS.wordNo.pushPx;
+
+  const rMatch = meta.ranks.compoundInterest || 0;
+  const rEsp   = meta.ranks.espressoMachine || 0;
+  const rCpa   = meta.ranks.taxWriteOff || 0;
+  stats.maxHp += rMatch * 2;
+  stats.speed = Math.round(stats.speed * (1 + rEsp * 0.10));
+  stats.cooldownMult *= Math.pow(0.92, rEsp);
+  stats.magnetRadius = Math.round(stats.magnetRadius * (1 + rCpa * 0.25));
+
+  const ch = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
+  ch.apply(stats);
+  hp = stats.maxHp;
+}
+
+// You picked up a gold 401(k) Coin: goes straight into your permanent retirement balance!
+function collectCoin(p, coin) {
+  if (!coin.active) return;
+  coin.destroy();
+  sfx("coin");
+  runCoins += PICKUPS.coin401k.value;
+  meta.coins += PICKUPS.coin401k.value;
+  saveMeta(meta);
+}
+
+// The Title Screen: shows the logo, Character Select, 401(k) Permanent Shop, and "Clock In" button!
 function showTitleScreen(scene) {
   titleOpen = true;
   setMusicPlaying(false);
@@ -147,31 +184,95 @@ function showTitleScreen(scene) {
   const W = scene.scale.width, H = scene.scale.height, cx = W / 2, cy = H / 2;
   const parts = [];
   const keep = o => (parts.push(o), o.setScrollFactor(0).setDepth(40));
+  const rebuild = () => { parts.forEach(o => o.destroy()); showTitleScreen(scene); };
 
-  keep(scene.add.rectangle(0, 0, W, H, 0x0d1021, 0.84).setOrigin(0));
-  keep(scene.add.rectangle(cx, cy, Math.min(540, W - 28), 320, 0x171c36)
-    .setStrokeStyle(3, 0xf0a24f));
+  keep(scene.add.rectangle(0, 0, W, H, 0x0d1021, 0.88).setOrigin(0));
+  const panelW = Math.min(600, W - 24), panelH = 440;
+  keep(scene.add.rectangle(cx, cy, panelW, panelH, 0x171c36).setStrokeStyle(3, 0xf0a24f));
 
-  keep(scene.add.text(cx, cy - 118, "MIDLIFE SURVIVORS", {
-    fontFamily: "monospace", fontSize: "34px", fontStyle: "bold", color: "#f0a24f",
+  keep(scene.add.text(cx, cy - 192, "MIDLIFE SURVIVORS", {
+    fontFamily: "monospace", fontSize: "30px", fontStyle: "bold", color: "#f0a24f",
     stroke: "#0d1021", strokeThickness: 4
   }).setOrigin(0.5));
-  keep(scene.add.text(cx, cy - 82, "Survive from Age 40 to the Big Five-Oh", {
-    fontFamily: "monospace", fontSize: "14px", color: "#8ccff0"
+  keep(scene.add.text(cx, cy - 162, `401(k) Balance: ${meta.coins} Coins  |  Survive from Age 40 to 50`, {
+    fontFamily: "monospace", fontSize: "13px", color: "#ffe042"
   }).setOrigin(0.5));
 
-  // Showcase lineup of 16-bit sprites right on the title card
-  const lineup = ["player", "bill", "spamCall", "snackAttack", "backTwinge", "midlifeCrisis"];
-  lineup.forEach((key, i) => {
-    const sx = cx + (i - (lineup.length - 1) / 2) * 68;
-    keep(scene.add.image(sx, cy - 22, key));
+  // ---- 1. Character Selection Row ----
+  keep(scene.add.text(cx, cy - 134, "CHOOSE YOUR MIDLIFE ARCHETYPE:", {
+    fontFamily: "monospace", fontSize: "12px", color: "#8ccff0"
+  }).setOrigin(0.5));
+
+  const charW = Math.floor((panelW - 44) / 3);
+  CHARACTERS.forEach((ch, i) => {
+    const bx = cx + (i - 1) * (charW + 10), by = cy - 86;
+    const owned = !!meta.unlockedChars[ch.id];
+    const selected = meta.selectedChar === ch.id;
+    const card = keep(scene.add.rectangle(bx, by, charW, 68, selected ? 0x2b3663 : 0x12152a)
+      .setStrokeStyle(selected ? 3 : 1.5, selected ? 0xffe042 : (owned ? 0x5fb3f0 : 0x555b7a))
+      .setInteractive({ useHandCursor: true }));
+    keep(scene.add.text(bx, by - 18, ch.name, {
+      fontFamily: "monospace", fontSize: "11px", fontStyle: "bold",
+      color: selected ? "#ffe042" : "#e8e9f3"
+    }).setOrigin(0.5));
+    const statusTxt = selected ? "[SELECTED]" : (owned ? "Click to select" : `Unlock: ${ch.cost} Coins`);
+    keep(scene.add.text(bx, by + 2, statusTxt, {
+      fontFamily: "monospace", fontSize: "10px", color: owned ? "#6fbf73" : "#f0a24f"
+    }).setOrigin(0.5));
+    keep(scene.add.text(bx, by + 20, ch.tagline, {
+      fontFamily: "monospace", fontSize: "9px", color: "#b8c2de",
+      wordWrap: { width: charW - 10 }, align: "center"
+    }).setOrigin(0.5));
+
+    card.on("pointerdown", (p, lx, ly, ev) => {
+      ev.stopPropagation();
+      unlockAudio();
+      if (owned) {
+        meta.selectedChar = ch.id; saveMeta(meta); sfx("pick"); rebuild();
+      } else if (meta.coins >= ch.cost) {
+        meta.coins -= ch.cost; meta.unlockedChars[ch.id] = true; meta.selectedChar = ch.id;
+        saveMeta(meta); sfx("levelUp"); rebuild();
+      } else {
+        sfx("hurt");
+      }
+    });
   });
 
-  keep(scene.add.text(cx, cy + 34, "Armed only with Coffee, Dad Jokes, and the word \"No.\"", {
-    fontFamily: "monospace", fontSize: "12px", color: "#e8e9f3"
+  // ---- 2. Permanent 401(k) Upgrade Shop ----
+  keep(scene.add.text(cx, cy - 34, "401(k) PERMANENT UPGRADES (Saved Between Runs):", {
+    fontFamily: "monospace", fontSize: "12px", color: "#8ccff0"
   }).setOrigin(0.5));
 
-  const btn = keep(scene.add.text(cx, cy + 92, "  CLOCK IN (Click, Space, or Start)  ", {
+  META_SHOP.forEach((item, i) => {
+    const sy = cy - 4 + i * 38;
+    const rank = meta.ranks[item.id] || 0;
+    const maxed = rank >= item.maxRank;
+    const cost = item.baseCost * (rank + 1);
+    const row = keep(scene.add.rectangle(cx, sy, panelW - 36, 32, 0x12152a)
+      .setStrokeStyle(1.5, maxed ? 0x6fbf73 : 0xf0a24f)
+      .setInteractive({ useHandCursor: true }));
+    keep(scene.add.text(cx - panelW / 2 + 28, sy, `${item.name} [Rank ${rank}/${item.maxRank}] — ${item.desc}`, {
+      fontFamily: "monospace", fontSize: "11px", color: "#e8e9f3"
+    }).setOrigin(0, 0.5));
+    keep(scene.add.text(cx + panelW / 2 - 28, sy, maxed ? "MAXED" : `Buy (${cost}k)`, {
+      fontFamily: "monospace", fontSize: "11px", fontStyle: "bold",
+      color: maxed ? "#6fbf73" : (meta.coins >= cost ? "#ffe042" : "#888ea8")
+    }).setOrigin(1, 0.5));
+
+    row.on("pointerdown", (p, lx, ly, ev) => {
+      ev.stopPropagation();
+      unlockAudio();
+      if (!maxed && meta.coins >= cost) {
+        meta.coins -= cost; meta.ranks[item.id] = rank + 1;
+        saveMeta(meta); sfx("billPaid"); rebuild();
+      } else {
+        sfx("hurt");
+      }
+    });
+  });
+
+  // ---- 3. Clock In Button ----
+  const btn = keep(scene.add.text(cx, cy + 166, "  CLOCK IN (Click, Space, or Start)  ", {
     fontFamily: "monospace", fontSize: "18px", fontStyle: "bold",
     backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 14, y: 10 }
   }).setOrigin(0.5).setInteractive({ useHandCursor: true }));
@@ -183,6 +284,12 @@ function showTitleScreen(scene) {
     titleOpen = false;
     titleSeen = true;
     startFromTitle = null;
+    applyMetaAndChar();
+    drawHpBar();
+    const cd = stats.cooldownMult;
+    fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
+    jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
+    noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
     parts.forEach(o => o.destroy());
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     startTime = scene.time.now;
@@ -392,14 +499,20 @@ function showGameOver(scene, killer, isWin) {
   }).setOrigin(0.5).setScrollFactor(0).setDepth(30);
   scene.add.text(cx, cy - 28, cause, { ...style, fontSize: "17px", wordWrap: { width: Math.min(520, scene.scale.width - 40) } })
     .setOrigin(0.5).setScrollFactor(0).setDepth(30);
-  scene.add.text(cx, cy + 25, `Reached Age ${currentAge.toFixed(1)}  |  Level ${level}`, { ...style, fontSize: "16px", color: "#f0a24f" })
+  scene.add.text(cx, cy + 25, `Reached Age ${currentAge.toFixed(1)}  |  Level ${level}  |  401(k): +${runCoins} (Total: ${meta.coins})`, { ...style, fontSize: "14px", color: "#ffe042" })
     .setOrigin(0.5).setScrollFactor(0).setDepth(30);
 
-  // The button: a text box you can click or tap. It restarts the whole scene.
-  const btn = scene.add.text(cx, cy + 78, isWin ? "  Play another decade  " : "  Try again  ", {
-    ...style, fontSize: "20px", backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 10, y: 8 }
+  // Two options: jump straight into another run, or visit the 401(k) Shop & Character Select on the Title Screen.
+  const btn = scene.add.text(cx - 95, cy + 78, "  Try again  ", {
+    ...style, fontSize: "18px", backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 10, y: 8 }
   }).setOrigin(0.5).setScrollFactor(0).setDepth(30).setInteractive({ useHandCursor: true });
   btn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); scene.scene.restart(); });
+
+  const shopBtn = scene.add.text(cx + 105, cy + 78, "  401(k) Shop  ", {
+    ...style, fontSize: "18px", backgroundColor: "#5fb3f0", color: "#12152a", padding: { x: 10, y: 8 }
+  }).setOrigin(0.5).setScrollFactor(0).setDepth(30).setInteractive({ useHandCursor: true });
+  shopBtn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); titleSeen = false; scene.scene.restart(); });
+
   scene.input.keyboard.once("keydown-SPACE", () => scene.scene.restart());
 }
 
@@ -458,13 +571,19 @@ function damageBill(bill, amount) {
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
       }).setOrigin(0.5).setDepth(4);
+      for (let i = -2; i <= 2; i++) coins.create(bill.x + i * 10, bill.y + 14, "coin401k").setDepth(3);
     } else if (bill.kind === "officeGossip") {
-      // Elite Reply-All Chain drops 3 Wisdom gems AND splits into 2 fast Late Fees!
+      // Elite Reply-All Chain drops 3 Wisdom gems, 2 401(k) Coins, AND splits into 2 fast Late Fees!
       for (let i = -1; i <= 1; i++) gems.create(bill.x + i * 10, bill.y, "gem").setDepth(3);
+      coins.create(bill.x - 8, bill.y + 10, "coin401k").setDepth(3);
+      coins.create(bill.x + 8, bill.y + 10, "coin401k").setDepth(3);
       createEnemy(sc, "lateFee", bill.x - 16, bill.y - 10);
       createEnemy(sc, "lateFee", bill.x + 16, bill.y + 10);
     } else {
       gems.create(bill.x, bill.y, "gem").setDepth(3); // leave a Wisdom gem behind
+      if (Math.random() < PICKUPS.coin401k.dropChance) {
+        coins.create(bill.x + 10, bill.y, "coin401k").setDepth(3);
+      }
     }
     bill.tag.destroy();
     bill.destroy(); // paid in full
@@ -645,7 +764,7 @@ function update() {
   // Age clock: every PLAYER.secondsPerYear seconds adds 1 year to your age.
   const elapsedSec = (this.time.now - startTime) / 1000;
   currentAge = PLAYER.startingAge + elapsedSec / PLAYER.secondsPerYear;
-  hudText.setText(`AGE ${currentAge.toFixed(1)} | P/Esc: pause | M: mute`);
+  hudText.setText(`AGE ${currentAge.toFixed(1)} | 401(k): ${meta.coins} | P: pause | M: mute`);
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
   ["performanceReview", "mortgageRefinance", "midlifeCrisis", "theReaper"].forEach(bk => {
     if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
@@ -688,11 +807,16 @@ function update() {
   floor.tilePositionY = this.cameras.main.scrollY;
   updateStageProps(this, stageProps);
 
-  // Magnet: gems close to you fly toward you. Gems farther away just sit and wait.
+  // Magnet: gems and 401(k) coins close to you fly toward you.
   const W = PICKUPS.wisdomGem;
   gems.getChildren().forEach(gem => {
     if (Phaser.Math.Distance.Between(player.x, player.y, gem.x, gem.y) < stats.magnetRadius) {
       this.physics.moveToObject(gem, player, W.magnetSpeed);
+    }
+  });
+  coins.getChildren().forEach(c => {
+    if (Phaser.Math.Distance.Between(player.x, player.y, c.x, c.y) < stats.magnetRadius) {
+      this.physics.moveToObject(c, player, W.magnetSpeed);
     }
   });
 

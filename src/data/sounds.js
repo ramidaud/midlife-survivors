@@ -8,6 +8,7 @@ window.SOUNDS = {
   wordNo:   [[180, 0.09, "square"], [360, 0.08, "triangle"]],          // firm thump
   hit:      [[220, 0.04, "square"]],
   billPaid: [[880, 0.06, "square"], [1320, 0.10, "square"]],          // "cha-ching"
+  coin:     [[1047, 0.05, "sine"], [1568, 0.09, "sine"]],             // 401(k) gold coin clink
   gem:      [[1200, 0.04, "sine"], [1600, 0.06, "sine"]],
   hurt:     [[140, 0.15, "sawtooth"]],
   levelUp:  [[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.18, "square"]],

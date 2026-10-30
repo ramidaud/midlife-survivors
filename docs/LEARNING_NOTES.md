@@ -93,3 +93,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## Game juice and step sequencers (Oct 30)
 - **Game juice:** Stacking tiny visual reactions—floating damage numbers, a 55ms squash-and-stretch tween, confetti scraps on KO, and short camera shakes—makes hits feel weighty without changing a single gameplay rule.
 - **Step sequencer:** A background music groove is just two arrays of frequencies (`bass` and `lead`) stepped through every `165ms` using the same Web Audio oscillators as sound effects.
+
+## Meta-progression and localStorage (Oct 30)
+- **Run stats vs. Meta data:** Run `stats` reset every time you press Try Again, while `meta` is saved as a JSON string in `localStorage.setItem("midlife_survivors_save_v1", JSON.stringify(meta))`, surviving browser reloads and tab closes.
+- **Compounding fun:** Even a short run where you die at Age 43 still earns 401(k) Coins toward unlocking a new character or permanent rank, so no run ever feels wasted.

@@ -12,6 +12,13 @@ window.PICKUPS = {
     name: "Bonus Chest",
     size: 24,
     color: 0xf5c542   // gold chest dropped by bosses; opens a free weapon/upgrade screen
+  },
+  coin401k: {
+    name: "401(k) Coin",
+    value: 1,
+    dropChance: 0.35, // 35% of paid-off Bills also drop a 401(k) Coin! (Elites drop 3, Bosses drop 5)
+    size: 16,
+    color: 0xf5c542
   }
 };
 

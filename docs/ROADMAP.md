@@ -3,8 +3,8 @@
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 
-**Current phase:** Phase 5 (Coming back for more)
-**Last updated:** 2026-10-30 (Phase 4 complete: Game juice, chiptune groove, Title screen)
+**Current phase:** Phase 6 (Share it)
+**Last updated:** 2026-10-30 (Phase 5 complete: 401(k) Coins, Permanent Shop, Save Data, 3 Characters)
 
 ---
 
@@ -48,10 +48,10 @@ Weekly check-in: Sundays, evening (automatic).
 - [x] Learn: "game juice" and why it matters
 
 ## Phase 5: Coming back for more (weeks 11-12)
-- [ ] 401(k) Coins and the permanent upgrade shop
-- [ ] Save data between sessions
-- [ ] 2-3 unlockable characters
-- [ ] Learn: saving data, meta-progression
+- [x] 401(k) Coins and the permanent upgrade shop
+- [x] Save data between sessions
+- [x] 2-3 unlockable characters
+- [x] Learn: saving data, meta-progression
 
 ## Phase 6: Share it (week 13+)
 - [ ] Playtest with friends or colleagues and collect notes

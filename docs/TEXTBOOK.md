@@ -535,6 +535,27 @@ flowchart LR
 
 ---
 
+## Chapter 20: Meta-Progression, 401(k) Shop & `localStorage` (`src/data/meta.js`)
+
+In a roguelite like *Vampire Survivors*, **Run Stats** (`stats`) reset when you die, while **Meta-Progression** (`meta`) saves permanently in the browser's `localStorage` so every run makes the next one a little stronger:
+
+```mermaid
+flowchart LR
+    A["Defeat Bills, Elites & Bosses"] --> B["Collect Gold 401(k) Coins"]
+    B --> C["saveMeta() -> Browser localStorage"]
+    C --> D["Title Screen: 401(k) Shop & Character Select"]
+    D --> E["Unlock 'Senior Photographer' or 'Employer Match'"]
+    E --> F["applyMetaAndChar() boosts starting stats for every future run!"]
+```
+
+| Feature | How it works |
+|---|---|
+| **401(k) Coins (`coin401k`)** | 35% drop from Bills, 2 from Elites, 5 from Decade Bosses; pulled in by your magnet |
+| **Permanent Shop (`META_SHOP`)** | **Employer Match** (+2 max HP/rank), **Home Espresso** (+10% speed & fire rate/rank), **CPA on Retainer** (+25% magnet/rank) |
+| **3 Playable Archetypes (`CHARACTERS`)** | **The 9-to-5er** (Free), **The Senior Photographer** (10k: starts with Dad Joke + 25% wider radius & faster feet), **The Grad Student at 45** (15k: starts with "No." shockwave + huge magnet) |
+
+---
+
 ## Coming next
 
-- **Chapter 20: 401(k) Coins, Permanent Shop & Unlockable Characters (Phase 5).**
+- **Phase 6: Sharing with friends & collecting playtest notes!**
