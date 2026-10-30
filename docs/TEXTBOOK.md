@@ -1094,3 +1094,18 @@ Lower third message (4 s):
   before fix  [show]---(you pause)---(expired while hidden)
   after fix   [show]---(you pause: held)---[show again]--done
 ```
+
+---
+
+## Chapter: Object pooling and the double move (V. 1.14.1)
+
+```
+You walk right  ──────────────▶
+
+  [desk] [plant] [cooler]  ...  (only 25 pieces exist)
+     │
+     └── falls off the left edge ──▶ picked up, set down on the right
+
+Bug:   code moves desk +420 px ──▶ physics adds +420 px again ──▶ desk lands at +840 (teleport!)
+Fix:   body.moves = false        ──▶ physics leaves the position alone
+```

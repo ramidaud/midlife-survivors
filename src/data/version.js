@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.14.0",
-  displayVersion: "V. 1.14.0",
+  version: "1.14.1",
+  displayVersion: "V. 1.14.1",
   lastUpdated: "Oct 30, 2026",
-  codename: "Credits",
-  build: 28,
+  codename: "Steady Furniture",
+  build: 29,
   changelog: [
+    {
+      ver: "V. 1.14.1",
+      date: "Oct 30, 2026",
+      title: "Steady Furniture",
+      highlights: [
+        "Fixed desks, plants and watercoolers flickering and jumping around while you walk.",
+        "Furniture near the mezzanine platforms no longer blinks in and out."
+      ]
+    },
     {
       ver: "V. 1.14.0",
       date: "Oct 30, 2026",

@@ -193,3 +193,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Every character has a **display name** (what you see) and an **ID** (what the save file remembers).
 - We changed the name to The Soccer Dad but kept the ID `photographer`, so anyone who already unlocked it keeps it.
 - Same idea as renaming a photo in Lightroom without breaking the catalog: the label changes, the file reference doesn't.
+
+## Object pooling and the double-move bug (Oct 30, Steady Furniture)
+- The office looks endless, but there are only **25 pieces of furniture**. As you walk, the ones behind you get picked up and set down ahead of you. That's called **object pooling**: reuse a few objects instead of creating thousands.
+- Bug: we moved a desk, then the physics engine saw "it moved!" and moved it **again** by the same amount. Two cooks, one pot.
+- Fix: tell physics this object never moves on its own (`body.moves = false`). It still blocks you; it just doesn't drift.

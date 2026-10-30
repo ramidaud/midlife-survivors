@@ -778,6 +778,9 @@ function spawnStageProps(scene) {
       const k = kinds[Math.abs(gx * 7 + gy * 13) % kinds.length];
       const s = window.propGroup.create(gx * STAGE_GRID + 140, gy * STAGE_GRID + 140, k).setDepth(2);
       s.setImmovable(true);
+      // Furniture is placed by code, never moved by physics. Without this, the physics engine
+      // re-applied every reposition a second time, so desks and plants teleported and flickered.
+      s.body.moves = false;
       applyPropBodySize(s, k);
       s.gx = gx; s.gy = gy;
       props.push(s);
@@ -795,6 +798,23 @@ function spawnStageProps(scene) {
   return props;
 }
 
+// Where the mezzanine platform for platform-cell (px, py) sits. Same answer every time.
+function platformPos(px, py) {
+  const ph = Math.abs(px * 2654435761 + py * 805459861) % 100;
+  return { x: px * PLAT_GRID + 260 + ((ph % 50) - 25), y: py * PLAT_GRID - 160 + (((ph * 7) % 50) - 25) };
+}
+
+function nearAnyPlatform(wx, wy) {
+  const pcx = Math.round(wx / PLAT_GRID), pcy = Math.round(wy / PLAT_GRID);
+  for (let px = pcx - 1; px <= pcx + 1; px++) {
+    for (let py = pcy - 1; py <= pcy + 1; py++) {
+      const pl = platformPos(px, py);
+      if (Math.abs(wx - pl.x) < 175 && Math.abs(wy - pl.y) < 130) return true;
+    }
+  }
+  return false;
+}
+
 // Reposition scenery props & platforms onto whichever grid cells are currently around the camera.
 function updateStageProps(scene, props) {
   if (!props) return;
@@ -808,9 +828,7 @@ function updateStageProps(scene, props) {
     for (let py = pcy - 1; py <= pcy + 1; py++) {
       const plat = window.stagePlatforms[pIdx++];
       if (!plat) continue;
-      const ph = Math.abs(px * 2654435761 + py * 805459861) % 100;
-      const wx = px * PLAT_GRID + 260 + ((ph % 50) - 25);
-      const wy = py * PLAT_GRID - 160 + (((ph * 7) % 50) - 25);
+      const { x: wx, y: wy } = platformPos(px, py);
       plat.setPosition(wx, wy).setAlpha(window.viewModeIdx === 0 ? 1 : 0);
       plat.worldX = wx; plat.worldY = wy;
     }
@@ -825,7 +843,7 @@ function updateStageProps(scene, props) {
       const h = Math.abs(gx * 374761393 + gy * 668265263) % 100;
       const ox = ((h * 17) % 140) - 70, oy = ((h * 31) % 140) - 70;
       const wx = gx * STAGE_GRID + 180 + ox, wy = gy * STAGE_GRID + 180 + oy;
-      const nearPlat = window.stagePlatforms.some(pl => Math.abs(wx - pl.worldX) < 175 && Math.abs(wy - pl.worldY) < 130);
+      const nearPlat = nearAnyPlatform(wx, wy);
       const cellKey = `${gx},${gy}`;
       if ((gx === 0 && gy === 0) || h < 34 || nearPlat || window.smashedPlants.has(cellKey)) {
         p.setVisible(false);

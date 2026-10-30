@@ -402,3 +402,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New Credits screen in Title > Extras; words live in `src/data/credits.js`.
 - Tested: no mention of Rami left in the game outside the Credits; old save loads and plays.
 - Next objective: Run length (1 minute per year, Death at 100).
+
+## 2026-10-30: Bug fix, steady furniture (V. 1.14.1) (Claude)
+- Rami spotted desks, plants and watercoolers flickering and changing positions.
+- Measured it: in a 14-second walk, furniture jumped 10 times and blinked 125 times.
+- Cause 1: when furniture was recycled to a new spot, the physics engine applied the move a second time. Fix: furniture bodies no longer "move" on their own.
+- Cause 2: furniture near a mezzanine blinked depending on which platforms were loaded. Fix: platform positions come from one formula.
+- After: 0 jumps, 0 blinks, desks still block you. Next objective unchanged: Run length.
