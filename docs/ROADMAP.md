@@ -16,6 +16,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 4. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
 5. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
 6. [ ] **First twist: Errands:** a To-Do List marks spots on the map; finish errands while the swarm closes in
+- [ ] **Lower third, redesigned (order TBD):** broadcast-style message strip for alerts, errands, first-time tips, chapter cards, lore teases and joke captions. See GAME_DESIGN.md
 7. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI to match
 
 ---

@@ -364,3 +364,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Parked the 3D views: `window.ENABLE_3D_VIEWS = false`, V key and title buttons no longer switch away from 2D.
 - Tested in a headless browser at laptop and phone sizes: no errors.
 - Next objective: Title screen (pick a character, then start).
+
+## 2026-10-30: Clean Screen feedback + lower third plan (Claude)
+- Rami: the clean screen feels much better, and age and XP read at a glance. He misses having info along the bottom.
+- Proposed a broadcast-style lower third (one message at a time: alerts, errands, tips, chapter cards, lore, joke captions). Added to GAME_DESIGN.md and the roadmap, waiting on 3 layout answers.
