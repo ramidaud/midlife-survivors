@@ -307,3 +307,12 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - **Built the Contextual Storytelling & In-Game Help Engine (`updateContextAndRadar` & `window.pushContextEvent` in `src/ui.js` & `src/main.js`):**
   - Continuously scans on-screen entities (`bills`, `chests`, `window.pizzas`, `stageProps`, `hp`, `player.elev`) to surface real-time help for whatever is happening on screen right now, and rotates through chapter-specific narrative & help beats (`STAGE_NARRATIVES`) for all 5 Life Stages (`office`, `hospital`, `home`, `social`, `senior`).
   - Hooked instant event overrides (`window.pushContextEvent`) into Boss arrivals, Boss defeats, Potted Plant loot drops, Overdue Bill splits, and New Life Chapter transitions.
+
+## 2026-10-30: Version Tracking Stamp (`V. 1.8.19`) & Interactive Patch Notes Dossier! (Antigravity)
+- **Created `src/data/version.js` (`window.GAME_VERSION`):**
+  - Tracks `version` (`"1.8.19"`), `displayVersion` (`"V. 1.8.19"`), `lastUpdated` (`"Oct 30, 2026"`), `codename` (`"Broadcast Edition"`), `build` (`19`), and a chronological `changelog` array of recent updates.
+- **Added Version & Last Updated Stamp to Title Screen, Pause Menu & Lower-Third HUD (`src/ui.js` & `index.html`):**
+  - **Title Screen (`.version-stamp-bar`):** Displays `🏷️ V. 1.8.19 • Last updated on: Oct 30, 2026` right below the game tagline alongside a clickable / controller-navigable **`📜 PATCH NOTES`** button (`#title-changelog-btn`).
+  - **Pause & Options Screen (`#pause-modal`):** Shows the version and last updated date in the top kicker and adds a **`📜 VERSION & PATCH NOTES`** option row (`#pause-changelog-btn`).
+  - **Lower-Third HUD (`#hud-dept`):** Appends `// V. 1.8.19` to the department readout so screenshots always show the exact build.
+  - **Release Notes & Version History Modal (`#changelog-modal`):** Displays all recent versions, dates, titles, and bulleted highlights, navigable with Keyboard, Mouse, Touch, and Game Controller.

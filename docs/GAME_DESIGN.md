@@ -144,3 +144,11 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
   1. **Bottom-Left Pod (`.hud-left`):** Employee ID Avatar, Department, Archetype, `LV` badge, side-by-side compact `HP` & `XP` bars, and active Weapon/Passive badges.
   2. **Bottom-Center Pod (`.hud-center`):** Life Chapter & Decade Timeline (`40 -> 80 / 100`) plus a live **On-Screen Situational Radar (`#hud-radar-row`)** showing active threat counts, Boss HP, nearby smashable plants/loot, and the next milestone countdown.
   3. **Bottom-Right Pod (`.hud-right`):** `🪙 401(k)` balance, `💾 SAVED`, `🎮 PAD` indicator, `[V]` Visual Engine switcher, and `⏸ PAUSE`, `🎮 INPUT`, `🔊 MUTE` buttons.
+
+## 9. Version Tracking & Release Notes Dossier (`src/data/version.js` & `#changelog-modal`)
+- **Single Source of Truth (`src/data/version.js`):** Defines `window.GAME_VERSION` with `version` (`"1.8.19"`), `displayVersion` (`"V. 1.8.19"`), `lastUpdated` (`"Oct 30, 2026"`), `codename` (`"Broadcast Edition"`), `build` (`19`), and a structured `changelog` list.
+- **Visible Across the Game:**
+  1. **Title Screen (`#title-modal`):** Displays a pill badge (`🏷️ V. 1.8.19 • Last updated on: Oct 30, 2026`) right below the game logo alongside a **`📜 PATCH NOTES`** button.
+  2. **Pause & Options Screen (`#pause-modal`):** Displays `V. 1.8.19 • LAST UPDATED ON: OCT 30, 2026` in the header kicker and includes a **`📜 VERSION & PATCH NOTES`** menu row.
+  3. **Lower-Third HUD (`#hud-dept`):** Appends `// V. 1.8.19` to the department header so any gameplay screenshot carries its build number.
+  4. **Interactive Patch Notes Modal (`#changelog-modal`):** Lists each build's version badge, date, title, and bulleted highlights with full Keyboard, Mouse, Touch, and Controller navigation.

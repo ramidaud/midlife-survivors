@@ -852,6 +852,40 @@ Every HUD update, `updateContextAndRadar()` in `src/ui.js` evaluates what is hap
 
 ---
 
+## Chapter 32: Semantic Versioning & In-Game Patch Notes (`src/data/version.js`)
+
+### 1. How Our Version Number Works (`V. 1.8.19`)
+Game developers use a 3-part version number (`Major.Phase.Build`) so anyone looking at the Title Screen or a screenshot knows the exact state of the game:
+
+```
+=============================================================================
+                  MIDLIFE SURVIVORS VERSIONING SCHEME
+=============================================================================
+                      V .   1   .   8   .   19
+                            │       │       │
+                            │       │       └──► BUILD / COMMIT STEP (#19)
+                            │       │            Increments on every update!
+                            │       │
+                            │       └──────────► FEATURE MILESTONE (8)
+                            │                    Increments when a major
+                            │                    system lands (3D, Stages, HUD)
+                            │
+                            └──────────────────► MAJOR ERA (1 = Playable Core)
+=============================================================================
+```
+
+### 2. Single Source of Truth (`src/data/version.js`)
+Instead of typing the version string separately into the Title Screen, the Pause Menu, and the HUD, we store `window.GAME_VERSION` in `src/data/version.js`:
+
+| UI Surface | Element ID | What It Shows |
+|---|---|---|
+| **Title Screen Dossier** | `#title-version-pill` + `#title-changelog-btn` | `🏷️ V. 1.8.19 • Last updated on: Oct 30, 2026` + **`📜 PATCH NOTES`** button |
+| **Pause & Options Menu** | `#pause-modal` kicker + `#pause-changelog-btn` | `✓ AUTO-SAVED // V. 1.8.19 • LAST UPDATED ON: OCT 30, 2026` + Patch Notes row |
+| **Lower-Third HUD** | `#hud-dept` | `MIDLIFE ROYALE // AAA 3D // V. 1.8.19` (visible in every screenshot) |
+| **Patch Notes Modal** | `#changelog-modal` | Scrollable release dossier showing each version's date, title, and bulleted highlights |
+
+---
+
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

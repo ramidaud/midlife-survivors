@@ -43,7 +43,19 @@ let uiScene = null;
 
 window.rebindState = null;
 window.controlsModalOpen = false;
+window.changelogModalOpen = false;
 let gamepadConnectedFlag = false;
+
+function getVersionInfo() {
+  return window.GAME_VERSION || {
+    version: "1.8.19",
+    displayVersion: "V. 1.8.19",
+    lastUpdated: "Oct 30, 2026",
+    codename: "Broadcast Edition",
+    build: 19,
+    changelog: []
+  };
+}
 
 // ============================================================================
 // UNIVERSAL MENU FOCUS & NAVIGATION MANAGER (`window.menuNav`)
@@ -53,7 +65,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -326,6 +338,9 @@ function initGameUI(scene) {
 
     <!-- MODAL 2B: INPUT & CONTROLS CONFIGURATION OVERLAY (Keyboard, Mouse, Touch, Controller) -->
     <div class="ui-modal hidden" id="controls-modal"></div>
+
+    <!-- MODAL 2C: VERSION HISTORY & RELEASE NOTES OVERLAY -->
+    <div class="ui-modal hidden" id="changelog-modal"></div>
 
     <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
     <div class="ui-modal hidden" id="retire80-modal">
@@ -764,7 +779,8 @@ window.syncUITheme = function() {
   const idx = window.viewModeIdx || 0;
   root.dataset.theme = String(idx);
   const dept = document.getElementById("hud-dept");
-  if (dept) dept.textContent = THEME_LABELS[idx] || THEME_LABELS[0];
+  const ver = getVersionInfo();
+  if (dept) dept.textContent = `${THEME_LABELS[idx] || THEME_LABELS[0]} // ${ver.displayVersion}`;
   root.querySelectorAll(".style-opt").forEach(btn => {
     btn.classList.toggle("active", Number(btn.dataset.idx) === idx);
   });
@@ -849,10 +865,11 @@ function renderPauseModal(scene, keepRowIdx) {
   const vIdx = window.viewModeIdx || 0;
   const muted = isMuted();
   const voiced = typeof isVoiceEnabled === "function" ? isVoiceEnabled() : true;
+  const verInfo = getVersionInfo();
 
   modal.innerHTML = `
     <div class="modal-card pause-box">
-      <div class="modal-kicker">✓ PROGRESS AUTO-SAVED TO LOCALSTORAGE</div>
+      <div class="modal-kicker">✓ AUTO-SAVED // ${verInfo.displayVersion} • LAST UPDATED ON: ${verInfo.lastUpdated.toUpperCase()}</div>
       <h2 class="modal-title">PAUSE & OPTIONS</h2>
       <p class="modal-sub">Age ${currentAge.toFixed(1)} | Level ${level} | HP ${Math.max(0, hp)}/${stats ? stats.maxHp : 12} | 401(k): ${meta ? meta.coins : 0}k</p>
       <div class="options-list">
@@ -872,6 +889,10 @@ function renderPauseModal(scene, keepRowIdx) {
         <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1">
           <span>🗣️ DAD JOKE VOICE</span>
           <span class="opt-val">◀ ${voiced ? "SPOKEN 🗣️" : "TEXT ONLY 💬"} ▶</span>
+        </button>
+        <button class="opt-btn" id="pause-changelog-btn">
+          <span>📜 VERSION & PATCH NOTES</span>
+          <span class="opt-val">${verInfo.displayVersion} (${verInfo.lastUpdated}) ▶</span>
         </button>
         <button class="opt-btn" id="pause-savequit-btn">
           <span>💾 SAVE & EXIT TO DOSSIER</span>
@@ -922,24 +943,93 @@ function renderPauseModal(scene, keepRowIdx) {
     renderPauseModal(scene, 4);
   }, keepRowIdx === 4);
 
-  bindNavItem(document.getElementById("pause-savequit-btn"), 5, () => {
+  bindNavItem(document.getElementById("pause-changelog-btn"), 5, () => {
+    sfx("pick");
+    openChangelogModal(scene);
+  }, keepRowIdx === 5);
+
+  bindNavItem(document.getElementById("pause-savequit-btn"), 6, () => {
     sfx("pick");
     if (window.persistActiveRun) window.persistActiveRun();
     setPauseModalVisible(false);
     paused = false;
     titleSeen = false;
     scene.scene.restart();
-  }, keepRowIdx === 5);
+  }, keepRowIdx === 6);
 
-  bindNavItem(document.getElementById("pause-restart-btn"), 6, () => {
+  bindNavItem(document.getElementById("pause-restart-btn"), 7, () => {
     sfx("pick");
     clearRunState();
     setPauseModalVisible(false);
     paused = false;
     scene.scene.restart();
-  }, keepRowIdx === 6);
+  }, keepRowIdx === 7);
 
   window.menuNav.refresh();
+}
+
+// ============================================================================
+// VERSION TRACKING & PATCH NOTES MODAL (`#changelog-modal`)
+// ============================================================================
+function openChangelogModal(scene) {
+  window.changelogModalOpen = true;
+  const modal = document.getElementById("changelog-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  renderChangelogModal(scene || uiScene);
+}
+
+function closeChangelogModal(scene) {
+  window.changelogModalOpen = false;
+  const modal = document.getElementById("changelog-modal");
+  if (modal) modal.classList.add("hidden");
+  const sc = scene || uiScene;
+  if (titleOpen) {
+    renderTitleModal(sc, "#title-changelog-btn");
+  } else if (paused) {
+    renderPauseModal(sc, 5);
+  } else {
+    window.menuNav.refresh();
+  }
+}
+
+function renderChangelogModal(scene) {
+  const modal = document.getElementById("changelog-modal");
+  if (!modal) return;
+  const verInfo = getVersionInfo();
+  const entriesHtml = (verInfo.changelog || []).map((entry, idx) => {
+    const notesHtml = (entry.highlights || []).map(h => `<li>${h}</li>`).join("");
+    return `
+      <div class="changelog-entry ${idx === 0 ? "latest" : ""}">
+        <div class="changelog-header">
+          <span class="changelog-ver">${entry.ver}${idx === 0 ? " // CURRENT BUILD" : ""}</span>
+          <span class="changelog-date">Last updated on: ${entry.date}</span>
+        </div>
+        <div class="changelog-title">${entry.title}</div>
+        <ul class="changelog-notes">${notesHtml}</ul>
+      </div>
+    `;
+  }).join("");
+
+  modal.innerHTML = `
+    <div class="modal-card changelog-box">
+      <div class="modal-kicker">OFFICIAL BUILD LOG // ${verInfo.displayVersion} (${verInfo.codename.toUpperCase()})</div>
+      <h2 class="modal-title">📜 VERSION HISTORY & PATCH NOTES</h2>
+      <p class="modal-sub">Current Version: <b>${verInfo.displayVersion}</b> &bull; Last updated on: <b>${verInfo.lastUpdated}</b> (Build #${verInfo.build})</p>
+      <div class="changelog-list">${entriesHtml}</div>
+      <button class="cta-btn" id="changelog-close-btn">✓ BACK TO MENU (Space / Enter / Esc / A)</button>
+      <div class="nav-hint-bar">
+        <span><b>Space / Enter / Esc / Click / A / B</b>: Close Patch Notes</span>
+      </div>
+    </div>
+  `;
+
+  bindNavItem(document.getElementById("changelog-close-btn"), 0, () => {
+    sfx("pick");
+    closeChangelogModal(scene);
+  }, true);
+
+  window.menuNav.refresh("#changelog-close-btn");
 }
 
 // ============================================================================
@@ -1400,6 +1490,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
     </button>
   ` : "";
 
+  const verInfo = getVersionInfo();
+
   modal.innerHTML = `
     <div class="modal-card title-box">
       <div class="title-top-banner">
@@ -1408,6 +1500,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
       </div>
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
       <p class="game-tagline">Survive to Age 80 Retirement, Unlock Decade Checkpoints, and Conquer the 80-100 Senior Bonus Rounds!</p>
+      <div class="version-stamp-bar">
+        <span class="version-pill" id="title-version-pill">
+          🏷️ <b>${verInfo.displayVersion}</b> &bull; Last updated on: <b>${verInfo.lastUpdated}</b>
+        </span>
+        <button class="t-style-btn version-notes-btn" id="title-changelog-btn" title="View Version History & Patch Notes">
+          📜 PATCH NOTES
+        </button>
+      </div>
 
       <div class="section-label">1. SELECT ARCHETYPE, STARTING DECADE & LIFE ENVIRONMENT</div>
       <div class="dossier-chars-grid">${charCardsHtml}</div>
@@ -1525,6 +1625,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
     });
   }
 
+  const titleChangelogBtn = document.getElementById("title-changelog-btn");
+  if (titleChangelogBtn) {
+    bindNavItem(titleChangelogBtn, 7, () => {
+      sfx("pick");
+      openChangelogModal(scene);
+    });
+  }
+
   // Row 8: Resume Saved Run (if present)
   const resumeBtn = document.getElementById("title-resume-btn");
   if (resumeBtn) {
@@ -1597,7 +1705,8 @@ function renderGameOverModal(scene, cause, isWin) {
 function hideAllModals() {
   window.rebindState = null;
   window.controlsModalOpen = false;
-  ["controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
+  window.changelogModalOpen = false;
+  ["changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add("hidden");
   });

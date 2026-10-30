@@ -211,6 +211,11 @@ function create() {
       if (!sc) return;
       unlockAudio();
       const c = (meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+      if (window.changelogModalOpen) {
+        sfx("pick");
+        closeChangelogModal(sc);
+        return;
+      }
       if (window.controlsModalOpen) {
         sfx("pick");
         closeControlsModal(sc);
@@ -334,7 +339,10 @@ function create() {
         if (code === "Escape") {
           e.preventDefault();
           unlockAudio();
-          if (window.controlsModalOpen) {
+          if (window.changelogModalOpen) {
+            sfx("pick");
+            closeChangelogModal(sc);
+          } else if (window.controlsModalOpen) {
             sfx("pick");
             closeControlsModal(sc);
           } else if (paused) {
@@ -1224,8 +1232,11 @@ function update(time, delta) {
   if (activeModal) {
     const stepDir = getPadMenuStep(performance.now());
     if (stepDir) window.menuNav.move(stepDir);
-    if (padJust("a") || (!paused && !window.controlsModalOpen && padJust("start"))) {
+    if (padJust("a") || (!paused && !window.controlsModalOpen && !window.changelogModalOpen && padJust("start"))) {
       window.menuNav.activate();
+    } else if (window.changelogModalOpen && (padJust("b") || padJust("start"))) {
+      sfx("pick");
+      closeChangelogModal(this);
     } else if (window.controlsModalOpen && (padJust("b") || padJust("start"))) {
       sfx("pick");
       closeControlsModal(this);
