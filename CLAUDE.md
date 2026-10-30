@@ -16,7 +16,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 4. **Make it playable.** Publish the current build as the "Midlife Survivors playtest" artifact (same URL each time) so Rami can play on laptop or phone.
 5. **Explain one concept** that the step taught (e.g. "game loop", "collision", "delta time") in 3-5 sentences. Add it to `docs/LEARNING_NOTES.md`.
    - **Show it visually in the chat** (a diagram, sketch or table right in the reply, not just a link), then add the same visuals as a new chapter in `docs/TEXTBOOK.md`. Rami learns best with pictures.
-6. **Log it.** Append a dated entry to `docs/PROGRESS_LOG.md`, tick items in `docs/ROADMAP.md`, and (once git is set up) save a commit with a clear message.
+6. **Log it.** Append a dated entry to `docs/PROGRESS_LOG.md`, tick items in `docs/ROADMAP.md`, and save a git commit with a clear message and push to GitHub (`origin main`) so the live GitHub Pages link (`https://ramidaud.github.io/midlife-survivors/`) stays current.
 7. **Ask for feedback** the way a playtester would: "too easy? too slow? funny?"
 
 ## Tech decisions (change only with Rami's OK)

@@ -163,3 +163,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-10-30: Published to GitHub & GitHub Pages (Antigravity)
 - Initialized git repository, committed the project, and pushed to `https://github.com/ramidaud/midlife-survivors`.
 - Enabled GitHub Pages so friends can play directly at `https://ramidaud.github.io/midlife-survivors/` on laptop, phone, or controller.
+
+## 2026-10-30: Age 50 Win Screen & Father Time — Phase 3 Complete! (Antigravity)
+- Approved CLAUDE.md rule update: every finished step now commits to git and pushes to `origin main` so the GitHub Pages link stays live.
+- Added **Father Time (`theReaper`)** at **Age 50.0** (`enemies.js` & 16-bit hooded scythe sprite in `sprites.js`): arrives when you turn 50 and triggers the gold **"YOU SURVIVED YOUR 40s!"** Win Screen with celebratory 50th-birthday jokes.
+- **Phase 3 is now complete!** Moving into Phase 4 (Feel and look: damage numbers, screen shake, title screen).

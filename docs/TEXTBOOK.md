@@ -504,6 +504,21 @@ Plus, `player.setFlipX(x < 0)` and a sine-wave wobble `Math.sin(time / 55) * 7` 
 
 ---
 
+## Chapter 18: Reaching Age 50 (The Reaper & Win Screen)
+
+Just like the 30-minute Reaper in *Vampire Survivors*, surviving to **Age 50.0** triggers **Father Time (`50:9999`)**, an unstoppable hooded figure with a scythe. Touching him doesn't mean you lost—it triggers the golden **"YOU SURVIVED YOUR 40s!"** victory screen!
+
+```mermaid
+flowchart LR
+    A["Age 40.0"] --> B["Age 42: HR Boss"]
+    B --> C["Age 45: Mortgage Boss"]
+    C --> D["Age 48: Midlife Crisis"]
+    D --> E["Age 50.0: Father Time arrives!"]
+    E --> F["YOU SURVIVED YOUR 40s! (Win Screen)"]
+```
+
+---
+
 ## Coming next
 
-- **Chapter 17: Reaching Age 50 (Win Screen / Death Event).**
+- **Chapter 19: Game Juice (Damage Numbers, Screen Shake, Title Screen).**

@@ -95,6 +95,16 @@ window.ENEMIES = {
     damage: 3,
     size: 58,
     color: 0xff2e4c    // sports-car red
+  },
+  theReaper: {
+    name: "Father Time (The Big 5-0)",
+    label: "50",
+    spawnAge: 50,      // Arrives at Age 50! Like the Vampire Survivors Reaper, surviving to see him is the WIN!
+    speed: 255,        // faster than the player
+    hp: 9999,          // unstoppable
+    damage: 99,        // one touch triggers the Age 50 Victory screen!
+    size: 64,
+    color: 0xf5c542
   }
 };
 

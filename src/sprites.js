@@ -604,6 +604,32 @@ function buildSprites(scene) {
     ctx.beginPath(); ctx.arc(17, 14, 1.5, 0, Math.PI * 2); ctx.fill();
     ctx.fillRect(16.2, 14, 1.6, 3.5);
   });
+
+  // 15. FATHER TIME / THE REAPER AT AGE 50: Hooded 16-bit figure with golden hourglass & scythe!
+  makeCanvasTex(scene, "theReaper", 68, 68, (ctx) => {
+    ctx.fillStyle = "rgba(245, 197, 66, 0.22)";
+    ctx.beginPath(); ctx.arc(34, 34, 30, 0, Math.PI * 2); ctx.fill();
+    // Curved silver scythe blade + wooden shaft
+    ctx.strokeStyle = "#8c6230"; ctx.lineWidth = 3.5;
+    ctx.beginPath(); ctx.moveTo(52, 12); ctx.lineTo(44, 60); ctx.stroke();
+    const bladeG = ctx.createLinearGradient(16, 6, 54, 18);
+    bladeG.addColorStop(0, "#ffffff"); bladeG.addColorStop(0.6, "#a8c4e0"); bladeG.addColorStop(1, "#4a6280");
+    ctx.fillStyle = bladeG;
+    ctx.beginPath(); ctx.moveTo(52, 14); ctx.quadraticCurveTo(26, 2, 12, 18); ctx.quadraticCurveTo(30, 12, 50, 20); ctx.closePath(); ctx.fill();
+    // Dark velvet robe & hood
+    ctx.fillStyle = "#0b0d17";
+    ctx.beginPath(); ctx.moveTo(34, 10); ctx.lineTo(52, 58); ctx.lineTo(16, 58); ctx.closePath(); ctx.fill();
+    const robeG = ctx.createLinearGradient(20, 12, 48, 58);
+    robeG.addColorStop(0, "#3b2d54"); robeG.addColorStop(0.5, "#1f1730"); robeG.addColorStop(1, "#0d0917");
+    ctx.fillStyle = robeG;
+    ctx.beginPath(); ctx.moveTo(34, 12); ctx.lineTo(49, 56); ctx.lineTo(19, 56); ctx.closePath(); ctx.fill();
+    // Gold trim & glowing eyes inside hood
+    ctx.strokeStyle = "#f5c542"; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(34, 12); ctx.lineTo(49, 56); ctx.lineTo(19, 56); ctx.closePath(); ctx.stroke();
+    ctx.fillStyle = "#08060d"; ctx.beginPath(); ctx.arc(34, 24, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#ffe042";
+    ctx.fillRect(30, 23, 3, 2.5); ctx.fillRect(36, 23, 3, 2.5);
+  });
 }
 
 // Spawn infinite-scrolling office scenery (cubicle desks, potted plants, watercoolers)

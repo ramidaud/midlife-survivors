@@ -86,3 +86,6 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## Procedural pixel art and walk wobble (Oct 30)
 - **String-grid sprites:** An array of strings like `"..SWWbeSSebWWS.."` paired with a color palette lets you paint retro pixel-art sprites directly in code with no `.png` files or server required.
 - **Procedural walk animation:** Flipping the sprite horizontally (`setFlipX`) based on movement direction and tilting its angle with `Math.sin(time)` creates an instant walking bounce without needing multi-frame sprite sheets.
+
+## The Vampire Survivors Reaper trick (Oct 30)
+- Instead of abruptly cutting to a win screen when the clock hits 50, spawning an unstoppable **Father Time** boss turns the end of the run into a dramatic final moment where *meeting him is the victory*.

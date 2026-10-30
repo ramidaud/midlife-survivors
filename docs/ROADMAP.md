@@ -3,8 +3,8 @@
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 
-**Current phase:** Phase 3 (The midlife run)
-**Last updated:** 2026-10-30 (Pixel-art sprites and office carpet background)
+**Current phase:** Phase 4 (Feel and look)
+**Last updated:** 2026-10-30 (Age 50 Win Screen + Father Time, Phase 3 complete)
 
 ---
 
@@ -37,8 +37,8 @@ Weekly check-in: Sundays, evening (automatic).
 - [x] 6+ enemy types, including an elite
 - [x] Bosses: Performance Review, Mortgage Refinance, Midlife Crisis
 - [x] Evolutions (at least 2)
-- [ ] Win screen at 50
-- [ ] Learn: difficulty curves and balancing
+- [x] Win screen at 50
+- [x] Learn: difficulty curves and balancing
 
 ## Phase 4: Feel and look (weeks 9-10)
 - [x] Decide art direction (procedural pixel-art sprites in src/sprites.js)

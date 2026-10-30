@@ -279,7 +279,9 @@ function drawHpBar() {
 // An enemy (Bill, Snack, Twinge, Elite, or Boss) touched you.
 function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
-  if (gameOver || now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
+  if (gameOver) return;
+  if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 50 = YOU WIN!
+  if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
   hp -= (bill.damage || ENEMIES.bill.damage);
   if (bill.kind === "snackAttack") {
@@ -293,30 +295,38 @@ function hurtPlayer(p, bill) {
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
-  if (hp <= 0) showGameOver(scene, bill.kind || "bill");
+  if (hp <= 0) showGameOver(scene, bill.kind || "bill", currentAge >= 50);
 }
 
-// The Game Over screen: freeze the world, show a funny cause of death and a restart button.
-function showGameOver(scene, killer) {
+// The Game Over / Victory screen: freeze the world, show a funny cause of death (or Age 50 win!) and a restart button.
+function showGameOver(scene, killer, isWin) {
   gameOver = true;
   restartGame = () => scene.scene.restart();
   scene.physics.pause();
-  const cause = Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
+  const winLines = [
+    "HAPPY 50th! You survived the entire decade, earned AARP eligibility, and unlocked the 4:30 PM Early Bird Special!",
+    "YOU MADE IT TO 50! Your back hurts, your inbox has 14,000 unread emails, and you have never felt more at peace.",
+    "THE BIG FIVE-OH! Father Time showed up, handed you a pair of New Balance sneakers, and let you take a nap."
+  ];
+  const cause = isWin
+    ? Phaser.Utils.Array.GetRandom(winLines)
+    : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
   const cx = scene.scale.width / 2, cy = scene.scale.height / 2;
 
   // A dark sheet over the whole screen so the text stands out.
-  scene.add.rectangle(0, 0, scene.scale.width, scene.scale.height, 0x000000, 0.65)
+  scene.add.rectangle(0, 0, scene.scale.width, scene.scale.height, 0x000000, 0.72)
     .setOrigin(0).setScrollFactor(0).setDepth(30);
   const style = { fontFamily: "monospace", align: "center", color: "#e8e9f3" };
-  scene.add.text(cx, cy - 90, "GAME OVER", { ...style, fontSize: "40px", color: "#e0564f" })
+  scene.add.text(cx, cy - 95, isWin ? "YOU SURVIVED YOUR 40s!" : "GAME OVER", {
+    ...style, fontSize: isWin ? "34px" : "40px", color: isWin ? "#f5c542" : "#e0564f"
+  }).setOrigin(0.5).setScrollFactor(0).setDepth(30);
+  scene.add.text(cx, cy - 28, cause, { ...style, fontSize: "17px", wordWrap: { width: Math.min(520, scene.scale.width - 40) } })
     .setOrigin(0.5).setScrollFactor(0).setDepth(30);
-  scene.add.text(cx, cy - 30, cause, { ...style, fontSize: "18px", wordWrap: { width: Math.min(500, scene.scale.width - 40) } })
-    .setOrigin(0.5).setScrollFactor(0).setDepth(30);
-  scene.add.text(cx, cy + 15, `Reached Age ${currentAge.toFixed(1)}`, { ...style, fontSize: "16px", color: "#f0a24f" })
+  scene.add.text(cx, cy + 25, `Reached Age ${currentAge.toFixed(1)}  |  Level ${level}`, { ...style, fontSize: "16px", color: "#f0a24f" })
     .setOrigin(0.5).setScrollFactor(0).setDepth(30);
 
   // The button: a text box you can click or tap. It restarts the whole scene.
-  const btn = scene.add.text(cx, cy + 75, "  Try again  ", {
+  const btn = scene.add.text(cx, cy + 78, isWin ? "  Play another decade  " : "  Try again  ", {
     ...style, fontSize: "20px", backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 10, y: 8 }
   }).setOrigin(0.5).setScrollFactor(0).setDepth(30).setInteractive({ useHandCursor: true });
   btn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); scene.scene.restart(); });
@@ -527,7 +537,7 @@ function update() {
   currentAge = PLAYER.startingAge + elapsedSec / PLAYER.secondsPerYear;
   hudText.setText(`AGE ${currentAge.toFixed(1)} | P/Esc: pause | M: mute`);
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
-  ["performanceReview", "mortgageRefinance", "midlifeCrisis"].forEach(bk => {
+  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "theReaper"].forEach(bk => {
     if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
   });
 
