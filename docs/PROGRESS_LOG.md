@@ -375,3 +375,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Words live in `src/data/tips.js`. Plant loot no longer spams the strip.
 - HP bar under the player is bigger. Fixed a restart error left over from the sprint.
 - Next objective: Title screen.
+
+## 2026-10-30: Objective 3 done, Title Screen (V. 1.11.0) (Claude)
+- Rami on the lower third: helpful, readable. Wants a hints on/off option (now objective 4) and to restyle it later.
+- Title screen is now: logo, best age and coins, 3 character cards, a big Start button.
+- 401(k) Shop, Options and Extras (start age, location, lore, patch notes) each open their own view with a Back button.
+- Tested at laptop and phone sizes; Enter starts a run from a fresh load.
+- Next objective: hints toggle in Options.

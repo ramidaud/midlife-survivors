@@ -12,12 +12,13 @@ Weekly check-in: Sundays, evening (automatic).
 One objective per session. Build it, publish it, Rami plays it, then move on.
 1. [x] **Clean screen HUD:** XP bar on top, age in the middle, HP under the player, 3D views parked (V. 1.9.0)
 2. [x] **Lower third:** on-demand strip for alerts, first-time tips, chapter cards and rewards, one at a time (V. 1.10.0)
-3. [ ] **Title screen:** pick a character, then start. Shop, stages and extras move behind a menu
-4. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
-5. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
-6. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
-7. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
-8. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI to match
+3. [x] **Title screen:** pick a character, then Start. Shop, Options and Extras sit behind buttons (V. 1.11.0)
+4. [ ] **Hints toggle:** turn game tips on or off in Options, for experienced players
+5. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
+6. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
+7. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
+8. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
+9. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI (including the lower third's look) to match
 
 ---
 

@@ -817,7 +817,6 @@
      ========================================================================= */
   .hud-lower-third, .mobile-dock, #hud-lower-third { display: none !important; }
   .title-style-switcher .t-style-btn[data-v] { display: none; }
-  .title-style-switcher > span:first-child { display: none; }
   .vs-hud {
     position: fixed; top: 0; left: 0; right: 0; z-index: 12; pointer-events: none;
     padding: max(6px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 0 max(10px, env(safe-area-inset-left));
@@ -870,25 +869,44 @@
     .vs-year { width: 90px; }
     .vs-btn { width: 36px; height: 36px; font-size: 14px; }
   }
+
+  /* TITLE SCREEN, CLEAN (Objective 3, Oct 30): Main / Shop / Extras views */
+  .title-clean { max-width: 640px; display: flex; flex-direction: column; gap: 14px; text-align: center; }
+  .title-clean .game-logo { margin: 6px 0 0; }
+  .title-clean .game-tagline { margin: 0; }
+  .title-meta-line { font-size: 13px; color: #9aa6c8; }
+  .title-clean .dossier-chars-grid { text-align: center; }
+  .title-clean .title-footer { display: flex; flex-direction: column; gap: 8px; margin: 0; }
+  .title-clean .clock-in-btn { font-size: 18px; padding: 16px; letter-spacing: 1px; }
+  .title-secondary { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .title-secondary .t-style-btn { min-width: 140px; padding: 10px 12px; font-size: 13px; }
+  .title-subhead { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #ffe042; display: flex; flex-direction: column; gap: 6px; }
+  .title-subnote { font-family: 'Chakra Petch', sans-serif; font-size: 13px; color: #9aa6c8; }
+  .title-clean .title-style-switcher { justify-content: center; flex-wrap: wrap; }
+  .title-version { font-size: 11px; color: #6b7598; }
+  @media (max-width: 600px) {
+    .title-secondary .t-style-btn { min-width: 0; flex: 1 1 30%; font-size: 12px; padding: 10px 6px; }
+    .title-clean .clock-in-btn { font-size: 16px; }
+  }
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/version.js?v=22"></script>
-<script src="src/data/lore.js?v=22"></script>
-<script src="src/data/player.js?v=22"></script>
-<script src="src/data/stages.js?v=22"></script>
-<script src="src/data/enemies.js?v=22"></script>
-<script src="src/data/weapons.js?v=22"></script>
-<script src="src/data/deaths.js?v=22"></script>
-<script src="src/data/tips.js?v=22"></script>
-<script src="src/data/pickups.js?v=22"></script>
-<script src="src/data/upgrades.js?v=22"></script>
-<script src="src/data/meta.js?v=22"></script>
-<script src="src/data/sounds.js?v=22"></script>
-<script src="src/sfx.js?v=22"></script>
-<script src="src/sprites.js?v=22"></script>
-<script src="src/view3d.js?v=22"></script>
-<script src="src/ui.js?v=22"></script>
-<script src="src/main.js?v=22"></script>
+<script src="src/data/version.js?v=23"></script>
+<script src="src/data/lore.js?v=23"></script>
+<script src="src/data/player.js?v=23"></script>
+<script src="src/data/stages.js?v=23"></script>
+<script src="src/data/enemies.js?v=23"></script>
+<script src="src/data/weapons.js?v=23"></script>
+<script src="src/data/deaths.js?v=23"></script>
+<script src="src/data/tips.js?v=23"></script>
+<script src="src/data/pickups.js?v=23"></script>
+<script src="src/data/upgrades.js?v=23"></script>
+<script src="src/data/meta.js?v=23"></script>
+<script src="src/data/sounds.js?v=23"></script>
+<script src="src/sfx.js?v=23"></script>
+<script src="src/sprites.js?v=23"></script>
+<script src="src/view3d.js?v=23"></script>
+<script src="src/ui.js?v=23"></script>
+<script src="src/main.js?v=23"></script>

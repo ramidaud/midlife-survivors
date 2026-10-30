@@ -69,15 +69,15 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
   <section class="clock" aria-label="Progress through the phases">
     <div class="bar" id="bar"></div>
     <div class="ages"><span>Sprint</span><span>Fun Pass</span><span>Later</span></div>
-    <p class="now-line">You are here: <b>Fun Pass · objective 3 of 8</b> <span id="count"></span></p>
+    <p class="now-line">You are here: <b>Fun Pass · objective 4 of 9</b> <span id="count"></span></p>
   </section>
 
   <section class="next">
     <h2>This week</h2>
     <ol>
-      <li><strong>Done:</strong> the lower third is live (V. 1.10.0). Alerts and first-time tips slide in at the bottom.</li>
-      <li>Play a run and tell me if the messages feel helpful or noisy.</li>
-      <li>Next objective: a title screen where you pick a character and start.</li>
+      <li><strong>Done:</strong> the clean title screen is live (V. 1.11.0). Pick a character, press Start.</li>
+      <li>Push to GitHub, then try the Shop and Extras buttons on your phone.</li>
+      <li>Next objective: a hints on/off switch in Options.</li>
     </ol>
   </section>
 
@@ -105,15 +105,15 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
     </div>
   </section>
 
-  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: ramidaud.github.io/midlife-survivors. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Oct 30, 2026 (Lower Third).</p>
+  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: ramidaud.github.io/midlife-survivors. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Oct 30, 2026 (Title Screen).</p>
 </div>
 
 <script>
 const PHASES = [
   {n:"Phases 0-5: Antigravity sprint", w:"Oct 30", learn:"Game loop, collisions, data files, game juice, save data", t:[
     ["Core loop: move, auto-fire, gems, level-ups, evolutions",1],["13 enemy and boss types from your Top 10",1],["Title screen, 401(k) shop, save and resume, 3 characters",1],["Published on GitHub Pages",1]]},
-  {n:"Fun Pass: one objective at a time", w:"Now", learn:"Visual hierarchy, priority queues", t:[
-    ["Clean screen HUD (V. 1.9.0)",1],["Lower third: on-demand alerts and tips (V. 1.10.0)",1],["Title screen: pick a character, then start",0],["Credits, not cameo: remove the Rami character, add Credits",0],
+  {n:"Fun Pass: one objective at a time", w:"Now", learn:"Visual hierarchy, priority queues, progressive disclosure", t:[
+    ["Clean screen HUD (V. 1.9.0)",1],["Lower third: on-demand alerts and tips (V. 1.10.0)",1],["Title screen: pick a character, then start (V. 1.11.0)",1],["Hints toggle in Options",0],["Credits, not cameo: remove the Rami character, add Credits",0],
     ["Run length: 1 minute per year, Death at 100",0],["Intensity curve: harder every decade",0],["First twist: Errands",0],["Art direction from your mood board",0]]},
   {n:"Phase 6: Share it", w:"After the Fun Pass", learn:"Playtesting with real people", t:[
     ["Playtest with friends or colleagues",0],["Decide: web, itch.io, or desktop app",0],["Optional: an EMAT write-up about the process",0]]},

@@ -1050,3 +1050,19 @@ flowchart LR
 | Tip (once ever) | 3 | Spam Likely rings before it charges |
 | Chapter card | 2 | AGE 50: The knees start talking |
 | Reward | 1 | 401(k): +9k deposited |
+
+---
+
+## Chapter: The clean title screen (V. 1.11.0)
+
+```mermaid
+flowchart TD
+    M["MAIN: pick a character + START"] --> S["401(k) SHOP"]
+    M --> O["OPTIONS (controls)"]
+    M --> E["EXTRAS: start age, location, lore, patch notes"]
+    S -- Back --> M
+    E -- Back --> M
+    M -- Start --> G["The run begins"]
+```
+
+**Before:** about a dozen choices on one long screen. **After:** two decisions (who, then Start), everything else one tap away.

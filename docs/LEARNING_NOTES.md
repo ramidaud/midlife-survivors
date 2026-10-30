@@ -172,3 +172,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Each message gets a number (alert 5, tip 3, reward 1). A bigger number **interrupts** a smaller one; smaller ones **wait in line** or get skipped if they're minor.
 - It's how a broadcast producer runs a lower third: breaking news beats the weather crawl.
 - "Once ever" tips are remembered in the browser's **localStorage**, a tiny notebook the page keeps between visits.
+
+## Progressive disclosure (Oct 30, Title Screen)
+- Show the **one thing most people want first** (pick a character, press Start), and tuck everything else one tap away.
+- Same menu items, just layered: Main, then Shop or Extras, with a Back button.
+- It's the difference between a camera's shutter button and its settings menu. Both matter, only one gets the big button.

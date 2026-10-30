@@ -1760,59 +1760,57 @@ function renderTitleModal(scene, preserveFocusSelector) {
     </div>
   ` : "";
 
-  modal.innerHTML = `
-    <div class="modal-card title-box">
-      <div class="title-top-banner">
-        <span class="dossier-stamp">🏅 CAREER BEST: AGE ${(meta.bestAge || 40).toFixed(1)} // GOAL: 80 (+100 SENIOR BONUS)</span>
-        <span class="dossier-balance">🪙 401(k): <b>${meta.coins} Coins</b></span>
-      </div>
-      <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
-      <p class="game-tagline">Survive to Age 80 Retirement, Unlock Decade Checkpoints, and Conquer the 80-100 Senior Bonus Rounds!</p>
-      <div class="version-stamp-bar">
-        <span class="version-pill" id="title-version-pill">
-          🏷️ <b>${verInfo.displayVersion}</b> &bull; Last updated on: <b>${verInfo.lastUpdated}</b>
-        </span>
-        <button class="t-style-btn version-notes-btn" id="title-lore-btn" title="Read the World Mythos, Subject Backstories & Scenario Lore">
-          📖 MYTHOS & LORE
-        </button>
-        <button class="t-style-btn version-notes-btn" id="title-changelog-btn" title="View Version History & Patch Notes">
-          📜 PATCH NOTES
-        </button>
-      </div>
-
-      <div class="section-label">1. SELECT SUBJECT ARCHETYPE, STARTING DECADE & LIFE SCENARIO</div>
-      <div class="dossier-chars-grid">${charCardsHtml}</div>
-      ${subjectBioHtml}
-      <div class="title-style-switcher" style="margin-top:6px;">
-        <span>START DECADE:</span>
-        ${decadeBtnsHtml}
-      </div>
-      <div class="title-style-switcher" style="margin-top:5px;">
-        <span>ENVIRONMENT:</span>
-        ${stageBtnsHtml}
-      </div>
-
-      <div class="section-label">2. 401(k) PERMANENT RETIREMENT UPGRADES (AUTO-SAVED)</div>
+  // Title screen views (Oct 30): "main" = pick a character + start; "shop" and "extras" sit behind buttons.
+  const view = window.titleView || "main";
+  const startAge = meta.startDecade || 40;
+  const backBtn = `<button class="t-style-btn title-back-btn" id="title-back-btn">◀ BACK</button>`;
+  let bodyHtml = "";
+  if (view === "shop") {
+    bodyHtml = `
+      <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
       <div class="shop-list">${shopRowsHtml}</div>
-
+      <div class="title-secondary">${backBtn}</div>`;
+  } else if (view === "extras") {
+    bodyHtml = `
+      <div class="title-subhead">✨ EXTRAS</div>
+      <div class="title-style-switcher"><span>START AT:</span>${decadeBtnsHtml}</div>
+      <div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>
+      <div class="title-secondary">
+        <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
+        <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
+        ${backBtn}
+      </div>`;
+  } else {
+    bodyHtml = `
+      <div class="title-meta-line">🏅 Best: age ${Math.floor(meta.bestAge || 40)} &nbsp;·&nbsp; 🪙 ${meta.coins}k saved</div>
+      <div class="dossier-chars-grid">${charCardsHtml}</div>
       <div class="title-footer">
-        <div class="title-style-switcher">
-          <span>VISUAL ENGINE [V]:</span>
-          <button class="t-style-btn ${window.viewModeIdx === 0 ? "active" : ""}" data-v="0">👾 16-Bit Retro</button>
-          <button class="t-style-btn ${window.viewModeIdx === 1 ? "active" : ""}" data-v="1">🕯️ Diablo 3/4 Indie</button>
-          <button class="t-style-btn ${window.viewModeIdx === 2 ? "active" : ""}" data-v="2">🚀 Fortnite AAA 3D</button>
-          <button class="t-style-btn" id="title-controls-btn" style="border-color:var(--accent);color:var(--accent);">🎮 INPUT & CONTROLS</button>
-        </div>
         ${resumeBannerHtml}
-        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START NEW RUN AT AGE ${meta.startDecade || 40} (Space / Enter / A)</button>
+        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START${startAge !== 40 ? ` AT AGE ${startAge}` : ""}</button>
       </div>
-      <div class="nav-hint-bar">
-        <span><b>▲▼◀▶</b> Arrow / D-Pad / Mouse: Browse Menu</span>
-        <span><b>Space / Enter / Click / A</b>: Select or Start</span>
-        <span><b>🎮 INPUT</b>: Configure Keys, Mouse, Touch & Pad</span>
-      </div>
+      <div class="title-secondary">
+        <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
+        <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
+        <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
+      </div>`;
+  }
+
+  modal.innerHTML = `
+    <div class="modal-card title-box title-clean" data-view="${view}">
+      <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
+      <p class="game-tagline">Survive from 40 to 100. Death is patient.</p>
+      ${bodyHtml}
+      <div class="title-version">${verInfo.displayVersion}</div>
     </div>
   `;
+
+  const goView = v => { window.titleView = v; sfx("pick"); renderTitleModal(scene); };
+  const shopBtn = document.getElementById("title-shop-btn");
+  if (shopBtn) bindNavItem(shopBtn, 10, () => goView("shop"));
+  const extrasBtn = document.getElementById("title-extras-btn");
+  if (extrasBtn) bindNavItem(extrasBtn, 10, () => goView("extras"));
+  const backEl = document.getElementById("title-back-btn");
+  if (backEl) bindNavItem(backEl, 10, () => goView("main"), view !== "main");
 
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {
@@ -1891,7 +1889,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
 
   const titleCtrlBtn = document.getElementById("title-controls-btn");
   if (titleCtrlBtn) {
-    bindNavItem(titleCtrlBtn, 7, () => {
+    bindNavItem(titleCtrlBtn, 10, () => {
       sfx("pick");
       openControlsModal(scene);
     });
@@ -1925,12 +1923,13 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const clockBtn = document.getElementById("title-clockin-btn");
   bindNavItem(clockBtn, 9, () => {
     if (startFromTitle) startFromTitle();
-  }, !resumeBtn);
+  }, !resumeBtn && view === "main");
 
   window.menuNav.refresh(preserveFocusSelector);
 }
 
 function hideTitleModal() {
+  window.titleView = "main";
   const modal = document.getElementById("title-modal");
   if (modal) modal.classList.add("hidden");
 }

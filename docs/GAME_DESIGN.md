@@ -211,3 +211,4 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - Decided: XP and age stay on top; the lower third is **on demand** (hidden until there is a message); built right away.
 - Built so far: alerts, first-time tips, decade chapter cards, dividends. Still to come: errands (with the Errands objective), lore teases, joke captions.
 - Words live in `src/data/tips.js` so Rami can edit them.
+- Rami's feedback: messages feel helpful and stay up long enough. Wants a hints on/off option for experienced players, and to restyle the strip during art direction.

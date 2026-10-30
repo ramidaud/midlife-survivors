@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.10.0",
-  displayVersion: "V. 1.10.0",
+  version: "1.11.0",
+  displayVersion: "V. 1.11.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Lower Third",
-  build: 24,
+  codename: "Title Screen",
+  build: 25,
   changelog: [
+    {
+      ver: "V. 1.11.0",
+      date: "Oct 30, 2026",
+      title: "Clean Title Screen",
+      highlights: [
+        "The title screen is now: pick a character, press Start.",
+        "The 401(k) Shop, Options and Extras (start age, location, lore, patch notes) moved behind three buttons.",
+        "Visual engine buttons removed while 3D is parked."
+      ]
+    },
     {
       ver: "V. 1.10.0",
       date: "Oct 30, 2026",
