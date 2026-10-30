@@ -166,3 +166,9 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Vampire Survivors shows only what you need **while dodging**: XP, time, health. Everything else waits for the pause menu.
 - Health sits **under your character** because that's where your eyes already are.
 - Same idea as framing a photo: one subject, nothing competing with it at the edges.
+
+## Priority queues (Oct 30, Lower Third)
+- Lots of things want to talk at once: bosses, tips, rewards. A **priority queue** decides who goes first.
+- Each message gets a number (alert 5, tip 3, reward 1). A bigger number **interrupts** a smaller one; smaller ones **wait in line** or get skipped if they're minor.
+- It's how a broadcast producer runs a lower third: breaking news beats the weather crawl.
+- "Once ever" tips are remembered in the browser's **localStorage**, a tiny notebook the page keeps between visits.

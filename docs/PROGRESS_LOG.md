@@ -368,3 +368,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-10-30: Clean Screen feedback + lower third plan (Claude)
 - Rami: the clean screen feels much better, and age and XP read at a glance. He misses having info along the bottom.
 - Proposed a broadcast-style lower third (one message at a time: alerts, errands, tips, chapter cards, lore, joke captions). Added to GAME_DESIGN.md and the roadmap, waiting on 3 layout answers.
+
+## 2026-10-30: Objective 2 done, Lower Third (V. 1.10.0) (Claude)
+- Rami's answers: keep XP and age on top, lower third on demand, build it now.
+- New strip at the bottom slides in for boss alerts, low HP, first-time tips (once ever), decade chapter cards and dividends. One message at a time, urgent ones jump the line.
+- Words live in `src/data/tips.js`. Plant loot no longer spams the strip.
+- HP bar under the player is bigger. Fixed a restart error left over from the sprint.
+- Next objective: Title screen.

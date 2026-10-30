@@ -137,6 +137,7 @@ let meta, runCoins = 0;
 // so every new run starts fresh.
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
 let titleSeen = false, titleOpen = false, startFromTitle = null;
+let ltDecadeShown = null, ltLowHpWarned = false; // lower third trackers
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
 let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office", lastDividendAge = 40;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
@@ -221,18 +222,36 @@ function create() {
   // 3b. Clean screen HUD: a small HP bar that rides under the player (Vampire Survivors style),
   //     redrawn after every frame. The top HUD (age, XP) also refreshes here about 10x a second.
   const hpBar = this.add.graphics().setDepth(7);
+  ltDecadeShown = null; ltLowHpWarned = false;
   let hudTick = 0;
-  this.events.on("postupdate", (t, dt) => {
+  const onPostUpdate = (t, dt) => {
     hpBar.clear();
     if (!player || !stats || titleOpen) return;
-    const w = 36, h = 5;
+    const w = 44, h = 6;
     const x = player.x - w / 2, y = player.y + player.displayHeight / 2 + 4;
     const pct = Phaser.Math.Clamp(hp / stats.maxHp, 0, 1);
     hpBar.fillStyle(0x0a0c18, 0.9).fillRect(x - 1, y - 1, w + 2, h + 2);
     hpBar.fillStyle(pct > 0.35 ? 0xd9383a : 0xff2d2d, 1).fillRect(x, y, w * pct, h);
+    // Lower third triggers (cheap checks, every frame)
+    if (!gameOver && window.showLowerThird) {
+      if (runElapsedMs > 1500) window.firstTimeTip("start");
+      if (runElapsedMs > 25000) window.firstTimeTip("plant");
+      const decade = Math.floor(currentAge / 10) * 10;
+      if (ltDecadeShown === null) ltDecadeShown = decade;
+      if (decade > ltDecadeShown) {
+        ltDecadeShown = decade;
+        const line = window.CHAPTER_CARDS && window.CHAPTER_CARDS[decade];
+        if (line) window.showLowerThird("chapter", `AGE ${decade}`, line, 5000);
+      }
+      const hpPct = hp / stats.maxHp;
+      if (hpPct <= 0.3 && !ltLowHpWarned) { ltLowHpWarned = true; window.showLowerThird("alert", "LOW HP", (window.ALERTS && window.ALERTS.lowHp) || "Low health!", 4000); }
+      if (hpPct > 0.6) ltLowHpWarned = false;
+    }
     hudTick += dt;
     if (hudTick > 100 && typeof updateCleanHUD === "function") { hudTick = 0; updateCleanHUD(); }
-  });
+  };
+  this.events.on("postupdate", onPostUpdate);
+  this.events.once("shutdown", () => this.events.off("postupdate", onPostUpdate)); // no duplicates after a restart
 
   // 4. The camera follows the player, like a photographer tracking a subject.
   this.cameras.main.startFollow(player, true, 0.12, 0.12);
@@ -975,13 +994,7 @@ function damageBill(bill, amount) {
       }).setOrigin(0.5).setDepth(4);
       for (let i = -2; i <= 2; i++) spawnCoin(bill.x + i * 10, bill.y + 14, 2);
       if (window.pushContextEvent) {
-        window.pushContextEvent(
-          "🏆 BOSS DEFEATED!",
-          `"You survived ${E.name}! A gold Executive Bonus Chest and 5x Double-Value 401(k) Coins just dropped!"`,
-          "💡 HELP: Walk over the gold BONUS Chest on the floor to claim your free promotion + Executive Dividend!",
-          "loot",
-          5000
-        );
+        window.showLowerThird("win", "SURVIVED", `You outlasted ${E.name}. Grab the gold chest.`, 5000);
       }
     } else if (bill.kind === "officeGossip") {
       // Elite Reply-All Chain drops 3 Wisdom gems, 2 401(k) Coins (one 2x value!), AND splits into 2 fast Late Fees!
@@ -1041,26 +1054,14 @@ function damagePlant(prop, amount) {
       spawnCoin(prop.x + 10, prop.y, 1);
       popupTxt = "🍕 PIZZA + 🪙!";
       if (window.pushContextEvent) {
-        window.pushContextEvent(
-          "🍕 BREAKROOM STASH!",
-          '"You cracked open a potted fern and found a warm slice of Leftover Pizza plus a 401(k) Coin!"',
-          "💡 HELP: Walk over the Pizza slice (+3 HP) and gold Coin to bank both!",
-          "loot",
-          3600
-        );
+        /* plant loot: floating popup only (lower third stays quiet) */
       }
     } else if (roll < 0.80) {
       spawnCoin(prop.x - 6, prop.y, 1);
       spawnCoin(prop.x + 6, prop.y, 1);
       popupTxt = "🪙 2x 401(k)!";
       if (window.pushContextEvent) {
-        window.pushContextEvent(
-          "🪴 PETTY CASH FOUND!",
-          '"Someone hid two gold 401(k) Coins inside the potted plant soil!"',
-          "💡 HELP: The longer you survive, the more each 401(k) Coin is worth (up to 6x Compound Yield!).",
-          "loot",
-          3200
-        );
+        /* plant loot: floating popup only (lower third stays quiet) */
       }
     } else {
       spawnCoin(prop.x - 10, prop.y, 1);
@@ -1069,13 +1070,7 @@ function damagePlant(prop, amount) {
       gems.create(prop.x, prop.y - 8, "gem").setDepth(3);
       popupTxt = "🎰 401(k) JACKPOT!";
       if (window.pushContextEvent) {
-        window.pushContextEvent(
-          "🎰 EXECUTIVE STASH!",
-          '"Jackpot! That potted fern was hiding a 4x 401(k) Coin stash and a bonus Wisdom Gem!"',
-          "💡 HELP: Keep cracking open green Potted Plants whenever you pass a new desk cluster.",
-          "loot",
-          3600
-        );
+        /* plant loot: floating popup only (lower third stays quiet) */
       }
     }
     const pt = project3DToPhaserWorld(sc, prop.x, 32, prop.y);
@@ -1225,6 +1220,7 @@ function currentWave() {
 
 // Create one enemy of the given kind at (x, y), scaling HP, speed, and Life Stage labels with your Age!
 function createEnemy(scene, kind, x, y) {
+  if (window.firstTimeTip) window.firstTimeTip(kind);
   const E = ENEMIES[kind];
   const e = bills.create(x, y, E.tex || kind).setDepth(4);
   if (E.tint) e.setTint(E.tint);
@@ -1286,13 +1282,7 @@ function spawnBoss(scene, bossKind) {
 
   showBossToastUI(P.name);
   if (window.pushContextEvent) {
-    window.pushContextEvent(
-      "🚨 BOSS ARRIVED!",
-      `"Calendar Alert: ${P.name} (${P.hp} HP) just entered the arena!"`,
-      "💡 HELP: Keep moving in wide circles around desks! Defeating a Boss drops a gold Bonus Chest + 5 Coins.",
-      "urgent",
-      5500
-    );
+    window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500);
   }
 }
 
@@ -1365,13 +1355,7 @@ function update(time, delta) {
     }).setOrigin(0.5).setDepth(20);
     this.tweens.add({ targets: dMsg, y: dMsg.y - 28, alpha: 0, duration: 1500, onComplete: () => dMsg.destroy() });
     if (window.pushContextEvent) {
-      window.pushContextEvent(
-        `📈 ${yld.label} // +${divBonus}k`,
-        `"Age ${lastDividendAge} Compound Interest Vested! +${divBonus}k 401(k) Coins deposited automatically!"`,
-        `💡 COMPOUNDING: Every Coin you pick up is now worth +${yld.value}k (${yld.label})! Stay alive to earn even more.`,
-        "loot",
-        4200
-      );
+      window.showLowerThird("reward", "401(k)", `Age ${lastDividendAge} dividend: +${divBonus}k deposited.`, 3800);
     }
   }
 
@@ -1389,13 +1373,7 @@ function update(time, delta) {
       if (runElapsedMs > 500 && prevId) {
         showBossToastUI(`${activeStage.name}`, `NEW LIFE CHAPTER UNLOCKED // ${activeStage.chapter}`);
         if (window.pushContextEvent) {
-          window.pushContextEvent(
-            `🌟 ${activeStage.name.toUpperCase()}`,
-            `"New Life Chapter Unlocked: ${activeStage.tagline}"`,
-            `💡 HELP: You unlocked ${activeStage.name}! You can now also select it directly on the Title Dossier.`,
-            "loot",
-            5200
-          );
+          window.showLowerThird("chapter", "NEW PLACE", `${activeStage.name}. ${activeStage.tagline}`, 5200);
         }
       }
     }
@@ -1574,13 +1552,7 @@ function update(time, delta) {
       createEnemy(this, "lateFee", bx - 14, by - 10);
       createEnemy(this, "lateFee", bx + 14, by + 10);
       if (window.pushContextEvent) {
-        window.pushContextEvent(
-          "💸 OVERDUE SPLIT!",
-          '"An unpaid Bill sat on the floor for 9 seconds and split into two fast red Late Fees!"',
-          "💡 HELP: Pay off green Bills early before their 9-second overdue timer runs out!",
-          "urgent",
-          3400
-        );
+        /* first Late Fee triggers a one-time tip via createEnemy */
       }
       return;
     }
@@ -1641,4 +1613,4 @@ function update(time, delta) {
   restore2DSprites();
 }
 
-new Phaser.Game(config);
+window.game = new Phaser.Game(config);

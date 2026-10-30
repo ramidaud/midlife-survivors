@@ -909,11 +909,13 @@ function resolveEntityPlatform(ent, enforceWalls) {
 }
 
 function updateElevationAndPlatforms(scene) {
-  resolveEntityPlatform(player, true);
-  if (bills) bills.getChildren().forEach(b => resolveEntityPlatform(b, true));
-  if (gems) gems.getChildren().forEach(g => resolveEntityPlatform(g, false));
-  if (coins) coins.getChildren().forEach(c => resolveEntityPlatform(c, false));
-  if (window.pizzas) window.pizzas.getChildren().forEach(pz => resolveEntityPlatform(pz, false));
-  if (chests) chests.getChildren().forEach(ch => resolveEntityPlatform(ch, false));
-  if (splashes) splashes.getChildren().forEach(s => resolveEntityPlatform(s, false));
+  // Groups can be mid-teardown for one frame during a restart, so skip any that are already cleared.
+  const kids = g => (g && g.children) ? g.getChildren() : [];
+  if (player && player.active) resolveEntityPlatform(player, true);
+  kids(bills).forEach(b => resolveEntityPlatform(b, true));
+  kids(gems).forEach(g => resolveEntityPlatform(g, false));
+  kids(coins).forEach(c => resolveEntityPlatform(c, false));
+  kids(window.pizzas).forEach(pz => resolveEntityPlatform(pz, false));
+  kids(chests).forEach(ch => resolveEntityPlatform(ch, false));
+  kids(splashes).forEach(s => resolveEntityPlatform(s, false));
 }

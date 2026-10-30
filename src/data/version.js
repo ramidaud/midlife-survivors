@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.9.0",
-  displayVersion: "V. 1.9.0",
+  version: "1.10.0",
+  displayVersion: "V. 1.10.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Clean Screen",
-  build: 23,
+  codename: "Lower Third",
+  build: 24,
   changelog: [
+    {
+      ver: "V. 1.10.0",
+      date: "Oct 30, 2026",
+      title: "Lower Third",
+      highlights: [
+        "New broadcast-style strip at the bottom that appears only when there's something to say: boss alerts, low HP, first-time tips, decade chapter cards and 401(k) dividends.",
+        "One message at a time. Urgent messages jump the line; minor ones are skipped when it's busy. Tips show once ever.",
+        "Bigger HP bar under the player. Fixed a rare error when restarting a run."
+      ]
+    },
     {
       ver: "V. 1.9.0",
       date: "Oct 30, 2026",

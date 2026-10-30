@@ -235,6 +235,12 @@ function initGameUI(scene) {
       <button class="mob-fab" id="mob-mute-btn" title="Toggle Sound">🔊</button>
     </div>
 
+    <!-- LOWER THIRD: on-demand message strip (alerts, tips, chapter cards, rewards) -->
+    <div class="lt-strip" id="lt-strip" role="status" aria-live="polite">
+      <div class="lt-badge" id="lt-badge">TIP</div>
+      <div class="lt-body"><div class="lt-text" id="lt-text"></div></div>
+    </div>
+
     <!-- CLEAN SCREEN HUD (Objective 1): XP bar, age, coins, loadout, pause/mute -->
     <div class="vs-hud hidden" id="vs-hud">
       <div class="vs-xp"><div class="vs-xp-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
@@ -560,15 +566,66 @@ window.updateTouchJoystickUI = function(touch) {
 // ============================================================================
 let activeContextOverride = null; // { badge, story, help, mood, untilMs }
 
+// ============================================================================
+// LOWER THIRD (Oct 30): one message at a time, slides in, holds, slides out.
+// Higher priority interrupts lower. Low-priority messages are dropped if busy.
+// ============================================================================
+const LT_PRIORITY = { alert: 5, win: 4, errand: 4, tip: 3, chapter: 2, reward: 1, lore: 1, joke: 0 };
+const ltState = { current: null, queue: [], timer: null };
+
+function ltShowNow(msg) {
+  const el = document.getElementById("lt-strip");
+  if (!el) return;
+  ltState.current = msg;
+  el.dataset.kind = msg.kind;
+  document.getElementById("lt-badge").textContent = msg.badge;
+  document.getElementById("lt-text").textContent = msg.text;
+  el.classList.add("show");
+  clearTimeout(ltState.timer);
+  ltState.timer = setTimeout(ltHide, msg.ms);
+}
+
+function ltHide() {
+  const el = document.getElementById("lt-strip");
+  if (el) el.classList.remove("show");
+  ltState.current = null;
+  clearTimeout(ltState.timer);
+  if (ltState.queue.length) {
+    const next = ltState.queue.shift();
+    ltState.timer = setTimeout(() => ltShowNow(next), 450); // short gap so messages don't blur together
+  }
+}
+
+window.showLowerThird = function(kind, badge, text, ms = 4500) {
+  const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
+  const cur = ltState.current;
+  if (!cur) return ltShowNow(msg);
+  if (msg.p > cur.p) return ltShowNow(msg);          // more urgent: take over
+  if (msg.p <= 1) return;                              // rewards and lore: skip if busy
+  ltState.queue.push(msg);
+  ltState.queue.sort((a, b) => b.p - a.p);
+  if (ltState.queue.length > 3) ltState.queue.length = 3;
+};
+
+// First-time tips: shown once ever, remembered in this browser.
+let tipsSeen = {};
+try { tipsSeen = JSON.parse(localStorage.getItem("ms-tips-seen-v1") || "{}"); } catch (e) {}
+window.firstTimeTip = function(key) {
+  const t = window.TIPS && window.TIPS[key];
+  if (!t || tipsSeen[key]) return;
+  tipsSeen[key] = true;
+  try { localStorage.setItem("ms-tips-seen-v1", JSON.stringify(tipsSeen)); } catch (e) {}
+  window.showLowerThird("tip", t.badge || "TIP", t.text, 5000);
+};
+window.resetTips = function() {
+  tipsSeen = {};
+  try { localStorage.removeItem("ms-tips-seen-v1"); } catch (e) {}
+};
+
+// Older code still calls pushContextEvent(badge, text, help, mood, ms). Route it into the lower third.
 window.pushContextEvent = function(badge, story, help, mood = "normal", durationMs = 4200) {
-  activeContextOverride = {
-    badge,
-    story,
-    help,
-    mood,
-    untilMs: performance.now() + durationMs
-  };
-  updateContextAndRadar();
+  const kind = mood === "urgent" ? "alert" : mood === "win" ? "win" : mood === "chapter" ? "chapter" : "reward";
+  window.showLowerThird(kind, badge, String(story).replace(/^"|"$/g, ""), durationMs);
 };
 
 const STAGE_NARRATIVES = {
@@ -871,7 +928,6 @@ function updateHUD() {
     loadoutEl.dataset.prev = html;
   }
 
-  updateContextAndRadar();
 }
 
 // Clean screen HUD: only the essentials, Vampire Survivors-style.

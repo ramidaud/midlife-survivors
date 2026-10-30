@@ -840,7 +840,32 @@
   .vs-btn { pointer-events: auto; width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(240,162,79,0.7); background: rgba(8,10,22,0.75); color: #fff; font-size: 16px; cursor: pointer; display: grid; place-items: center; padding: 0; }
   .vs-btn:focus-visible { outline: 3px solid #ffe042; outline-offset: 2px; }
   .boss-toast { margin-top: 84px !important; }
+  /* LOWER THIRD (Objective 2, Oct 30): on-demand broadcast strip, one message at a time */
+  .lt-strip {
+    position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 12;
+    width: min(720px, calc(100vw - 32px)); transform: translate(-50%, 140%); opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease; pointer-events: none;
+    display: flex; align-items: stretch; background: rgba(10, 12, 26, 0.92);
+    border-left: 6px solid var(--lt-accent, #f0a24f); box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+  }
+  .lt-strip.show { transform: translate(-50%, 0); opacity: 1; }
+  .lt-badge {
+    flex: none; display: flex; align-items: center; padding: 0 12px;
+    background: var(--lt-accent, #f0a24f); color: #0a0c18;
+    font-family: 'Press Start 2P', monospace; font-size: 10px; letter-spacing: 1px;
+  }
+  .lt-body { padding: 9px 14px; min-width: 0; }
+  .lt-text { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 16px; color: #f2f4fa; line-height: 1.25;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .lt-strip[data-kind="alert"]   { --lt-accent: #ff4d5e; }
+  .lt-strip[data-kind="win"]     { --lt-accent: #ffe042; }
+  .lt-strip[data-kind="tip"]     { --lt-accent: #6be2ff; }
+  .lt-strip[data-kind="chapter"] { --lt-accent: #f0a24f; }
+  .lt-strip[data-kind="reward"]  { --lt-accent: #8ff094; }
+  @media (prefers-reduced-motion: reduce) { .lt-strip { transition: opacity 0.2s; transform: translate(-50%, 0); } }
   @media (max-width: 600px) {
+    .lt-text { font-size: 14px; }
+    .lt-badge { font-size: 8px; padding: 0 8px; }
     .vs-age { font-size: 15px; }
     .vs-year { width: 90px; }
     .vs-btn { width: 36px; height: 36px; font-size: 14px; }
@@ -850,19 +875,20 @@
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/version.js?v=21"></script>
-<script src="src/data/lore.js?v=21"></script>
-<script src="src/data/player.js?v=21"></script>
-<script src="src/data/stages.js?v=21"></script>
-<script src="src/data/enemies.js?v=21"></script>
-<script src="src/data/weapons.js?v=21"></script>
-<script src="src/data/deaths.js?v=21"></script>
-<script src="src/data/pickups.js?v=21"></script>
-<script src="src/data/upgrades.js?v=21"></script>
-<script src="src/data/meta.js?v=21"></script>
-<script src="src/data/sounds.js?v=21"></script>
-<script src="src/sfx.js?v=21"></script>
-<script src="src/sprites.js?v=21"></script>
-<script src="src/view3d.js?v=21"></script>
-<script src="src/ui.js?v=21"></script>
-<script src="src/main.js?v=21"></script>
+<script src="src/data/version.js?v=22"></script>
+<script src="src/data/lore.js?v=22"></script>
+<script src="src/data/player.js?v=22"></script>
+<script src="src/data/stages.js?v=22"></script>
+<script src="src/data/enemies.js?v=22"></script>
+<script src="src/data/weapons.js?v=22"></script>
+<script src="src/data/deaths.js?v=22"></script>
+<script src="src/data/tips.js?v=22"></script>
+<script src="src/data/pickups.js?v=22"></script>
+<script src="src/data/upgrades.js?v=22"></script>
+<script src="src/data/meta.js?v=22"></script>
+<script src="src/data/sounds.js?v=22"></script>
+<script src="src/sfx.js?v=22"></script>
+<script src="src/sprites.js?v=22"></script>
+<script src="src/view3d.js?v=22"></script>
+<script src="src/ui.js?v=22"></script>
+<script src="src/main.js?v=22"></script>

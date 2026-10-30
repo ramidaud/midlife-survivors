@@ -1,0 +1,26 @@
+// Lower third messages. Edit the words freely; keep each line short (about 60 characters).
+// First-time tips show ONCE EVER (the game remembers), the first time you meet each thing.
+window.TIPS = {
+  start:       { badge: "TIP", text: "Your weapons fire on their own. Just keep moving." },
+  bill:        { badge: "TIP", text: "Bills chase you. Pay them off fast or they split into Late Fees." },
+  lateFee:     { badge: "TIP", text: "You let a Bill go overdue. Late Fees are small and fast." },
+  spamCall:    { badge: "TIP", text: "Spam Likely rings before it charges. Step aside." },
+  snackAttack: { badge: "TIP", text: "Donuts slow you down if they touch you. Tempting, but no." },
+  backTwinge:  { badge: "TIP", text: "Back Twinges lunge in bursts. Move when they pause." },
+  officeGossip:{ badge: "TIP", text: "Reply-All Chains are tough. Hit them from a distance." },
+  plant:       { badge: "TIP", text: "Potted plants hide pizza and coins. Shoot them open." }
+};
+
+// Chapter cards: shown each time you hit a new decade.
+window.CHAPTER_CARDS = {
+  50: "Your 50s. The knees start talking.",
+  60: "Your 60s. Everything costs more, including standing up.",
+  70: "Your 70s. You have opinions about lawn care.",
+  80: "Your 80s. Bonus years. Make them count.",
+  90: "Your 90s. Death is getting impatient."
+};
+
+// Alerts: short lines for urgent moments.
+window.ALERTS = {
+  lowHp: "Your back is barking. Find leftover pizza."
+};

@@ -1025,3 +1025,28 @@ Before, a console covered the bottom quarter of the screen. Now the play area ge
 ```
 
 **Rule of thumb:** if you don't need it while dodging, it belongs in the pause menu.
+
+---
+
+## Chapter: The lower third (V. 1.10.0)
+
+Messages line up like a TV producer's rundown. The most urgent one goes on air.
+
+```mermaid
+flowchart LR
+    A["New message"] --> B{"Is the strip empty?"}
+    B -- yes --> ON["On air (4-5 s)"]
+    B -- no --> C{"More urgent than what's on air?"}
+    C -- yes --> ON
+    C -- no --> D{"Minor (reward, lore)?"}
+    D -- yes --> X["Skipped"]
+    D -- no --> Q["Waits in line"] --> ON
+```
+
+| Kind | Priority | Example |
+|---|---|---|
+| Alert | 5 | BOSS: Annual Performance Review just walked in |
+| Win | 4 | SURVIVED: Grab the gold chest |
+| Tip (once ever) | 3 | Spam Likely rings before it charges |
+| Chapter card | 2 | AGE 50: The knees start talking |
+| Reward | 1 | 401(k): +9k deposited |

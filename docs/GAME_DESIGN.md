@@ -204,8 +204,10 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
   2. **Mobile Portrait (`@media (max-width: 768px)`):** Compacts the Broadcast Lower-Third Console (`<22%` screen height) by placing `.hud-left` (HP/XP/Perks) and `.hud-right` (401k + Yield Pill) side-by-side above the full-width `.hud-center` timeline & radar, keeps the 3 Subject Cards in a compact 3-column row on the Title Dossier, and enables smooth vertical touch scrolling (`touch-action: pan-y`) inside modals.
   3. **Mobile Landscape (`@media (max-height: 520px)`):** Keeps the Broadcast Lower-Third in a single ultra-low-profile horizontal deck so horizontal phone play (`844x390`) preserves maximum vertical arena visibility.
 
-## Lower third plan (proposed Oct 30, waiting on Rami's answers)
+## Lower third (decided Oct 30, built in V. 1.10.0)
 - Broadcast-style strip at the bottom: one message at a time, slides in, holds a few seconds, slides out. Max 2 lines, about 10% of screen height.
 - Message types, in priority order: alerts (boss, low HP) > errands (pinned while active) > first-time tips (shown once ever, remembered) > chapter cards (each decade) > lore drops (tease only; full text in the pause menu lore archive) > dad joke captions.
 - HP stays under the player (may get bigger). XP and age stay on top unless Rami picks the "one slim bottom bar" layout.
-- Open questions: top + bottom split or all-bottom? Always visible or on demand? Build before or after the title screen?
+- Decided: XP and age stay on top; the lower third is **on demand** (hidden until there is a message); built right away.
+- Built so far: alerts, first-time tips, decade chapter cards, dividends. Still to come: errands (with the Errands objective), lore teases, joke captions.
+- Words live in `src/data/tips.js` so Rami can edit them.
