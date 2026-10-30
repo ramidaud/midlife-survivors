@@ -261,3 +261,13 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - **Spoken Dad Jokes Out Loud (`speakDadJoke` in `src/sfx.js`):**
   - Uses the browser's built-in **Web Speech API (`window.speechSynthesis`)** so your character literally speaks the Dad Joke out loud when `fireDadJoke` triggers (with a slightly deeper senior voice pitch once you enter the Age 80-100 Senior Bonus Rounds!).
   - Expanded `WEAPONS.dadJoke.lines` to 12 midlife jokes plus 6 `seniorLines` in `src/data/weapons.js`, and added a **`🗣️ DAD JOKE VOICE: ◀ SPOKEN 🗣️ / TEXT ONLY 💬 ▶`** toggle in the **Pause & Options Screen** (`src/ui.js`).
+
+## 2026-10-30: True Isometric Tactical Overview (Mode 1) vs. Immersive 3D World & Skyline (Mode 2)! (Antigravity)
+- **Why Modes 2 & 3 Looked Too Similar Previously:**
+  - Previously, both `Diablo 3/4` (`FOV 38°` at `y = 420`) and `3D Third-Person` (`FOV 60°` at `y = 165`) looked down from mid-altitude onto the same floor texture with no visible horizon, making their scale and camera angle look nearly identical.
+- **Locked in Mode 1 (`Diablo 3/4` — True Isometric Tactical Overview in `src/view3d.js`):**
+  - **16-Degree Telephoto Isometric Lens (`FOV 16°` from `(-760, 1060, +760)`):** Compresses perspective distortion so parallel lines stay parallel like a true isometric tabletop diorama, showing a wide tactical battlefield overview of multiple mezzanines and incoming swarms.
+  - **Obsidian Sanctuary Floor & Flaming Corner Braziers (`floorTexDiablo`):** Swaps the floor to dark obsidian flagstones with warm ember grout lines, flickering player torchlight, and 4 flaming torch braziers atop every mezzanine platform.
+- **Locked in Mode 2 (`AAA 3D` — Low Over-the-Shoulder Immersive 3D Environment in `src/view3d.js`):**
+  - **68-Degree Low Chase Camera (`FOV 68°` at `(0, 68, +142)` looking out toward `(0, 34, -280)`):** Drops the camera right behind the hero's shoulder (`1.22x` hero scale with animated 3D walking legs `legL`/`legR`) so the upper third of the screen opens up into a deep 3D horizon!
+  - **360-Degree 3D City Skyline, Sunset Sun & Floating Clouds (`build3DHorizonEnvironment`):** Surrounds the 3D arena with 32 distant 3D corporate skyscrapers with neon rooftop trims, a glowing golden-hour horizon sun disk, 14 drifting 3D clouds, and tall 3D cubicle privacy walls.

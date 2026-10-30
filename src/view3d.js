@@ -1,13 +1,118 @@
 // Multi-style 3D & Isometric renderer (`src/view3d.js`).
-// Lets the player toggle live between:
-//   0: "2D 16-Bit"        — Classic top-down 16-bit Phaser view
-//   1: "Diablo 3/4"       — Moody isometric 3/4 dungeon-crawler view with torchlight & long shadows
-//   2: "3D Third-Person"  — Fortnite / Risk-of-Rain style stylized 3D view with sky, fog & 3D models!
+// Lets the player toggle live between 3 distinct visual experiences:
+//   0: "2D 16-Bit"        - Classic top-down 16-bit SNES/Genesis pixel-art view
+//   1: "Diablo 3/4"       - High-altitude 16-deg Telephoto Isometric Tactical Overview with obsidian dungeon slabs,
+//                           flaming mezzanine braziers, warm flickering torchlight, and long shadows
+//   2: "3D Third-Person"  - Low Over-the-Shoulder 68-deg Immersive 3D World with a 3D Skyscraper Horizon,
+//                           Sunset Sky Dome, Floating 3D Clouds, Tall Arena Pillars, and animated 3D hero legs!
 
 window.VIEW_MODES = ["2D 16-Bit", "Diablo 3/4", "3D Third-Person"];
 window.viewModeIdx = 0;
 
 let threeState = null;
+
+function makeFloorTexture(style) {
+  const can = document.createElement("canvas");
+  can.width = 256; can.height = 256;
+  const ctx = can.getContext("2d");
+
+  if (style === "diablo") {
+    // Dark obsidian dungeon flagstones with warm ember mortar lines & subtle arcane rune bevels
+    for (let y = 0; y < 256; y += 64) {
+      for (let x = 0; x < 256; x += 64) {
+        const alt = ((x + y) / 64) % 2 === 0;
+        ctx.fillStyle = alt ? "#14111d" : "#0e0c15";
+        ctx.fillRect(x, y, 64, 64);
+        ctx.strokeStyle = "#2b1d14"; ctx.lineWidth = 3;
+        ctx.strokeRect(x + 1, y + 1, 62, 62);
+        ctx.strokeStyle = "rgba(245, 185, 90, 0.10)"; ctx.lineWidth = 1;
+        ctx.strokeRect(x + 5, y + 5, 54, 54);
+      }
+    }
+  } else {
+    // AAA 3D Stylized Corporate Plaza Grid (clean high-contrast architectural tiles with cyan accent lines)
+    for (let y = 0; y < 256; y += 64) {
+      for (let x = 0; x < 256; x += 64) {
+        const alt = ((x + y) / 64) % 2 === 0;
+        ctx.fillStyle = alt ? "#263359" : "#1e294a";
+        ctx.fillRect(x, y, 64, 64);
+        ctx.strokeStyle = "#141c36"; ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, 64, 64);
+        ctx.fillStyle = "rgba(0, 229, 255, 0.10)";
+        ctx.fillRect(x + 6, y + 6, 52, 2);
+      }
+    }
+  }
+
+  const tex = new THREE.CanvasTexture(can);
+  tex.wrapS = THREE.RepeatWrapping;
+  tex.wrapT = THREE.RepeatWrapping;
+  tex.repeat.set(60, 60);
+  return tex;
+}
+
+// Build the Immersive 3D Horizon Environment for Mode 2 (3D Skyscraper Skyline, Glowing Sun, Clouds & Arena Pillars)
+function build3DHorizonEnvironment() {
+  const env = new THREE.Group();
+
+  // 1. Glowing Synthwave / Golden-Hour Sun Disk on the far horizon (z = -1800)
+  const sunGeo = new THREE.CircleGeometry(240, 32);
+  const sunMat = new THREE.MeshBasicMaterial({ color: 0xffb84d, fog: false });
+  const sun = new THREE.Mesh(sunGeo, sunMat);
+  sun.position.set(0, 340, -1750);
+  env.add(sun);
+
+  const sunHaloGeo = new THREE.CircleGeometry(330, 32);
+  const sunHaloMat = new THREE.MeshBasicMaterial({ color: 0xff5e7e, transparent: true, opacity: 0.35, fog: false });
+  const sunHalo = new THREE.Mesh(sunHaloGeo, sunHaloMat);
+  sunHalo.position.set(0, 340, -1760);
+  env.add(sunHalo);
+
+  // 2. 360-Degree Ring of Distant 3D Corporate Skyscrapers with Lit Windows!
+  const bldgCount = 32;
+  const ringR = 1450;
+  for (let i = 0; i < bldgCount; i++) {
+    const ang = (i / bldgCount) * Math.PI * 2;
+    const bw = 90 + (i % 3) * 35;
+    const bh = 220 + ((i * 73) % 340);
+    const bd = 90 + (i % 2) * 30;
+    const bMat = new THREE.MeshStandardMaterial({
+      color: i % 2 === 0 ? 0x162244 : 0x1d2c54,
+      roughness: 0.7,
+      metalness: 0.3,
+      emissive: 0x081024
+    });
+    const bldg = new THREE.Mesh(new THREE.BoxGeometry(bw, bh, bd), bMat);
+    bldg.position.set(Math.cos(ang) * ringR, bh / 2 - 10, Math.sin(ang) * ringR);
+    bldg.lookAt(0, bh / 2, 0);
+    env.add(bldg);
+
+    // Glowing rooftop neon trim & window bands
+    const roofTrim = new THREE.Mesh(
+      new THREE.BoxGeometry(bw + 4, 6, bd + 4),
+      new THREE.MeshBasicMaterial({ color: i % 3 === 0 ? 0x00e5ff : 0xffb84d })
+    );
+    roofTrim.position.set(bldg.position.x, bh - 8, bldg.position.z);
+    roofTrim.rotation.copy(bldg.rotation);
+    env.add(roofTrim);
+  }
+
+  // 3. Low-Poly Floating 3D Clouds Drifting Overhead
+  const cloudMat = new THREE.MeshBasicMaterial({ color: 0xdce8ff, transparent: true, opacity: 0.42, fog: false });
+  for (let i = 0; i < 14; i++) {
+    const cg = new THREE.Group();
+    const p1 = new THREE.Mesh(new THREE.BoxGeometry(110, 22, 55), cloudMat);
+    const p2 = new THREE.Mesh(new THREE.BoxGeometry(70, 28, 45), cloudMat);
+    p2.position.set(25, 10, 8);
+    cg.add(p1, p2);
+    const ang = (i / 14) * Math.PI * 2;
+    const r = 650 + (i % 3) * 260;
+    cg.position.set(Math.cos(ang) * r, 260 + (i % 4) * 35, Math.sin(ang) * r);
+    env.add(cg);
+  }
+
+  return env;
+}
 
 function initThreeOverlay() {
   if (threeState || typeof THREE === "undefined") return;
@@ -17,7 +122,6 @@ function initThreeOverlay() {
     position: "fixed", inset: "0", width: "100%", height: "100%",
     pointerEvents: "none", zIndex: "0", display: "none"
   });
-  // Insert behind the Phaser canvas so Phaser's HUD, XP bar, and menus draw cleanly on top!
   const gameDiv = document.getElementById("game");
   gameDiv.insertBefore(canvas, gameDiv.firstChild);
 
@@ -28,7 +132,7 @@ function initThreeOverlay() {
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const scene3d = new THREE.Scene();
-  const camera3d = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 2800);
+  const camera3d = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 10, 3500);
 
   // Lighting: hemisphere sky/ground + dramatic shadow-casting directional light + warm player torchlight
   const hemi = new THREE.HemisphereLight(0x9bb8ff, 0x1e2238, 0.65);
@@ -39,45 +143,32 @@ function initThreeOverlay() {
   dirLight.castShadow = true;
   dirLight.shadow.mapSize.width = 1024;
   dirLight.shadow.mapSize.height = 1024;
-  const d = 480;
+  const d = 720;
   dirLight.shadow.camera.left = -d; dirLight.shadow.camera.right = d;
   dirLight.shadow.camera.top = d;  dirLight.shadow.camera.bottom = -d;
-  dirLight.shadow.camera.near = 50; dirLight.shadow.camera.far = 1100;
+  dirLight.shadow.camera.near = 50; dirLight.shadow.camera.far = 1600;
   scene3d.add(dirLight);
   scene3d.add(dirLight.target);
 
   // Diablo-style warm torchlight following the player
-  const torchLight = new THREE.PointLight(0xffa84c, 1.4, 380, 1.6);
-  torchLight.position.set(0, 55, 0);
+  const torchLight = new THREE.PointLight(0xff9d3b, 1.4, 520, 1.5);
+  torchLight.position.set(0, 65, 0);
   scene3d.add(torchLight);
 
-  // Procedural 3D floor texture (checkerboard carpet + wood grain lines + rug motifs)
-  const floorCan = document.createElement("canvas");
-  floorCan.width = 256; floorCan.height = 256;
-  const fctx = floorCan.getContext("2d");
-  for (let y = 0; y < 256; y += 64) {
-    for (let x = 0; x < 256; x += 64) {
-      const alt = ((x + y) / 64) % 2 === 0;
-      fctx.fillStyle = alt ? "#222946" : "#1b2038";
-      fctx.fillRect(x, y, 64, 64);
-      fctx.strokeStyle = "#14182b"; fctx.lineWidth = 2;
-      fctx.strokeRect(x, y, 64, 64);
-      fctx.fillStyle = "rgba(255,255,255,0.04)";
-      fctx.fillRect(x + 6, y + 6, 52, 2);
-    }
-  }
-  const floorTex = new THREE.CanvasTexture(floorCan);
-  floorTex.wrapS = THREE.RepeatWrapping;
-  floorTex.wrapT = THREE.RepeatWrapping;
-  floorTex.repeat.set(50, 50);
+  const floorTexDiablo = makeFloorTexture("diablo");
+  const floorTex3D = makeFloorTexture("3d");
 
-  const floorMat = new THREE.MeshStandardMaterial({ map: floorTex, roughness: 0.85, metalness: 0.1 });
-  const floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(12800, 12800), floorMat);
+  const floorMat = new THREE.MeshStandardMaterial({ map: floorTex3D, roughness: 0.8, metalness: 0.12 });
+  const floorMesh = new THREE.Mesh(new THREE.PlaneGeometry(15360, 15360), floorMat);
   floorMesh.rotation.x = -Math.PI / 2;
   floorMesh.receiveShadow = true;
   scene3d.add(floorMesh);
 
-  // Build stylized 3D Player mesh group (body, head, glasses, tie, and steaming coffee mug!)
+  // Build 3D Horizon Skyline & Sky Dome for Mode 2 (Immersive 3D)
+  const skyEnvGroup = build3DHorizonEnvironment();
+  scene3d.add(skyEnvGroup);
+
+  // Build stylized 3D Player mesh group (with articulated legs!)
   const playerGroup = build3DPlayer();
   scene3d.add(playerGroup);
 
@@ -89,7 +180,8 @@ function initThreeOverlay() {
 
   threeState = {
     canvas, renderer, scene3d, camera3d, hemi, dirLight, torchLight,
-    floorMesh, floorTex, playerGroup,
+    floorMesh, floorMat, floorTexDiablo, floorTex3D, skyEnvGroup, playerGroup,
+    lastFloorMode: -1,
     enemyMeshes: new Map(),
     splashMeshes: new Map(),
     gemMeshes: new Map(),
@@ -103,26 +195,34 @@ function initThreeOverlay() {
   };
 }
 
-// Build a 3D Mezzanine Platform + 6-Step Staircase + Columns + Brass Guardrails!
+// Build a 3D Mezzanine Platform + 6-Step Staircase + Columns + Guardrails + Corner Braziers!
 function build3DPlatformMesh() {
   const g = new THREE.Group();
   const matDeck = new THREE.MeshStandardMaterial({ color: 0x2f3c66, roughness: 0.65, metalness: 0.15 });
   const matStep = new THREE.MeshStandardMaterial({ color: 0x3d4c7a, roughness: 0.6 });
   const matGold = new THREE.MeshStandardMaterial({ color: 0xf5c542, roughness: 0.3, metalness: 0.7, emissive: 0x3b2800 });
   const matPillar = new THREE.MeshStandardMaterial({ color: 0x1e2540, roughness: 0.7 });
+  const matFlame = new THREE.MeshBasicMaterial({ color: 0xff7722 });
 
-  // Raised Mezzanine Deck (x = -46 .. +104 -> width 150, center x = +29; z = -66 .. +66 -> depth 132)
+  // Raised Mezzanine Deck
   const deck = new THREE.Mesh(new THREE.BoxGeometry(150, 10, 132), matDeck);
   deck.position.set(29, 37, 0);
   deck.castShadow = true; deck.receiveShadow = true;
   g.add(deck);
 
-  // 4 Support Columns under the Mezzanine corners
+  // 4 Support Columns + Corner Torch Braziers on top of the deck corners!
   [[-38, -56], [96, -56], [-38, 56], [96, 56]].forEach(([cx, cz]) => {
     const col = new THREE.Mesh(new THREE.BoxGeometry(12, 36, 12), matPillar);
     col.position.set(cx, 18, cz);
     col.castShadow = true; col.receiveShadow = true;
     g.add(col);
+
+    // Corner Post + Glowing Torch Flame on top of the Mezzanine
+    const post = new THREE.Mesh(new THREE.CylinderGeometry(4, 5, 16, 8), matPillar);
+    post.position.set(cx, 50, cz);
+    const flame = new THREE.Mesh(new THREE.OctahedronGeometry(5.5, 0), matFlame);
+    flame.position.set(cx, 61, cz);
+    g.add(post, flame);
   });
 
   // 6-Step Staircase on the Left (x = -108 .. -46, z = -42 .. +42) climbing from y = 0 to y = 42!
@@ -133,13 +233,12 @@ function build3DPlatformMesh() {
     const step = new THREE.Mesh(new THREE.BoxGeometry(stepW + 0.5, sh, 84), matStep);
     step.position.set(sx, sh / 2, 0);
     step.castShadow = true; step.receiveShadow = true;
-    // Gold stair nosing strip on top edge of each step
     const strip = new THREE.Mesh(new THREE.BoxGeometry(2, 1.2, 82), matGold);
     strip.position.set(sx - stepW / 2 + 1, sh + 0.4, 0);
     g.add(step, strip);
   }
 
-  // Brass Guardrails along Top (z = -64), Bottom (z = +64), and Right (x = +102) of the deck
+  // Brass Guardrails along Top, Bottom, and Right of the deck
   const railTop = new THREE.Mesh(new THREE.BoxGeometry(150, 14, 4), matGold);
   railTop.position.set(29, 49, -64); railTop.castShadow = true;
   const railBot = new THREE.Mesh(new THREE.BoxGeometry(150, 14, 4), matGold);
@@ -151,46 +250,52 @@ function build3DPlatformMesh() {
   return g;
 }
 
-// Build a 3D Office Barrier Prop (Cubicle Desk, Potted Fern, or Watercooler)
+// Build a 3D Office Barrier Prop (Cubicle Desk with tall Partition, Potted Fern, or Watercooler)
 function build3DPropMesh(kind) {
   const g = new THREE.Group();
   g.propKind = kind;
   if (kind === "prop_plant") {
     const pot = new THREE.Mesh(
-      new THREE.CylinderGeometry(11, 8, 16, 12),
+      new THREE.CylinderGeometry(12, 8, 18, 12),
       new THREE.MeshStandardMaterial({ color: 0xc95f38, roughness: 0.7 })
     );
-    pot.position.y = 8; pot.castShadow = true;
+    pot.position.y = 9; pot.castShadow = true;
     const foliage = new THREE.Mesh(
-      new THREE.DodecahedronGeometry(15, 1),
-      new THREE.MeshStandardMaterial({ color: 0x42ad58, roughness: 0.6 })
+      new THREE.DodecahedronGeometry(17, 1),
+      new THREE.MeshStandardMaterial({ color: 0x42ad58, roughness: 0.55 })
     );
-    foliage.position.y = 24; foliage.castShadow = true;
+    foliage.position.y = 27; foliage.castShadow = true;
     g.add(pot, foliage);
   } else if (kind === "prop_cooler") {
     const base = new THREE.Mesh(
-      new THREE.BoxGeometry(22, 26, 22),
+      new THREE.BoxGeometry(22, 30, 22),
       new THREE.MeshStandardMaterial({ color: 0xdce3f2, roughness: 0.4 })
     );
-    base.position.y = 13; base.castShadow = true;
+    base.position.y = 15; base.castShadow = true;
     const jug = new THREE.Mesh(
-      new THREE.CylinderGeometry(8.5, 8.5, 18, 14),
+      new THREE.CylinderGeometry(9, 9, 20, 14),
       new THREE.MeshStandardMaterial({ color: 0x4cb8f5, emissive: 0x104070, roughness: 0.15 })
     );
-    jug.position.y = 35; jug.castShadow = true;
+    jug.position.y = 40; jug.castShadow = true;
     g.add(base, jug);
   } else {
     const desk = new THREE.Mesh(
-      new THREE.BoxGeometry(74, 24, 38),
+      new THREE.BoxGeometry(76, 24, 40),
       new THREE.MeshStandardMaterial({ color: 0x8c5e35, roughness: 0.6 })
     );
     desk.position.y = 12; desk.castShadow = true; desk.receiveShadow = true;
+    // Tall 3D Cubicle Privacy Wall & Dual Glowing Monitors so 3D view has vertical architecture!
+    const wall = new THREE.Mesh(
+      new THREE.BoxGeometry(78, 42, 5),
+      new THREE.MeshStandardMaterial({ color: 0x3b486b, roughness: 0.75 })
+    );
+    wall.position.set(0, 21, -18); wall.castShadow = true;
     const mon = new THREE.Mesh(
-      new THREE.BoxGeometry(42, 16, 4),
+      new THREE.BoxGeometry(44, 18, 4),
       new THREE.MeshStandardMaterial({ color: 0x5ce0ff, emissive: 0x1b5c80 })
     );
-    mon.position.set(0, 30, -10);
-    g.add(desk, mon);
+    mon.position.set(0, 33, -11);
+    g.add(desk, wall, mon);
   }
   return g;
 }
@@ -200,7 +305,7 @@ function build3DPropMesh(kind) {
 function project3DToPhaserWorld(scene, wx, wy, wz) {
   if (!threeState || window.viewModeIdx === 0) return { x: wx, y: wz, visible: true };
   const v = threeState.projVec.set(wx, wy, wz).project(threeState.camera3d);
-  if (v.z > 1) return { x: -9999, y: -9999, visible: false }; // behind camera
+  if (v.z > 1 || v.z < -1) return { x: -9999, y: -9999, visible: false };
   const sx = (v.x * 0.5 + 0.5) * scene.scale.width;
   const sy = (-v.y * 0.5 + 0.5) * scene.scale.height;
   return { x: scene.cameras.main.scrollX + sx, y: scene.cameras.main.scrollY + sy, visible: true };
@@ -227,41 +332,43 @@ function build3DPlayer() {
   const matSkin = new THREE.MeshStandardMaterial({ color: 0xf2bc94, roughness: 0.6 });
   const matHair = new THREE.MeshStandardMaterial({ color: 0x422c1e, roughness: 0.7 });
   const matGray = new THREE.MeshStandardMaterial({ color: 0xdce5f5, roughness: 0.5 });
-  const matMug = new THREE.MeshStandardMaterial({ color: 0xf08526, roughness: 0.3, emissive: 0x3b1800 });
+  const matMug = new THREE.MeshStandardMaterial({ color: 0xf08526, roughness: 0.3, emissive: 0x4d2000 });
 
-  // Legs
-  const legGeo = new THREE.BoxGeometry(6, 12, 6);
-  const legL = new THREE.Mesh(legGeo, matSuit); legL.position.set(-4.5, 6, 0); legL.castShadow = true;
-  const legR = new THREE.Mesh(legGeo, matSuit); legR.position.set(4.5, 6, 0);  legR.castShadow = true;
+  // Articulated Legs
+  const legGeo = new THREE.BoxGeometry(6, 13, 6);
+  const legL = new THREE.Mesh(legGeo, matSuit); legL.position.set(-4.5, 6.5, 0); legL.castShadow = true;
+  const legR = new THREE.Mesh(legGeo, matSuit); legR.position.set(4.5, 6.5, 0);  legR.castShadow = true;
   g.add(legL, legR);
+  g.legL = legL;
+  g.legR = legR;
 
   // Torso (blazer + shirt front + red tie)
-  const torso = new THREE.Mesh(new THREE.BoxGeometry(18, 16, 11), matSuit);
-  torso.position.set(0, 19, 0); torso.castShadow = true;
-  const shirt = new THREE.Mesh(new THREE.BoxGeometry(8, 15, 11.4), matShirt);
-  shirt.position.set(0, 19, 0);
-  const tie = new THREE.Mesh(new THREE.BoxGeometry(2.6, 11, 11.8), matTie);
-  tie.position.set(0, 18.5, 0);
+  const torso = new THREE.Mesh(new THREE.BoxGeometry(19, 17, 11.5), matSuit);
+  torso.position.set(0, 20, 0); torso.castShadow = true;
+  const shirt = new THREE.Mesh(new THREE.BoxGeometry(8, 16, 12), matShirt);
+  shirt.position.set(0, 20, 0);
+  const tie = new THREE.Mesh(new THREE.BoxGeometry(2.8, 12, 12.4), matTie);
+  tie.position.set(0, 19.5, 0);
   g.add(torso, shirt, tie);
 
   // Head + Hair + Silver Temples + Glasses
   const head = new THREE.Mesh(new THREE.BoxGeometry(15, 14, 14), matSkin);
-  head.position.set(0, 34, 0); head.castShadow = true;
-  const hair = new THREE.Mesh(new THREE.BoxGeometry(16, 5, 15), matHair);
-  hair.position.set(0, 40, -0.5);
-  const templeL = new THREE.Mesh(new THREE.BoxGeometry(1.5, 5, 14.4), matGray);
-  templeL.position.set(-7.5, 36, 0);
-  const templeR = templeL.clone(); templeR.position.x = 7.5;
+  head.position.set(0, 35, 0); head.castShadow = true;
+  const hair = new THREE.Mesh(new THREE.BoxGeometry(16, 5.5, 15), matHair);
+  hair.position.set(0, 41, -0.5);
+  const templeL = new THREE.Mesh(new THREE.BoxGeometry(1.6, 5, 14.4), matGray);
+  templeL.position.set(-7.6, 37, 0);
+  const templeR = templeL.clone(); templeR.position.x = 7.6;
   const glasses = new THREE.Mesh(
-    new THREE.BoxGeometry(14, 3.2, 14.8),
-    new THREE.MeshStandardMaterial({ color: 0x7ce0ff, metalness: 0.6, roughness: 0.2 })
+    new THREE.BoxGeometry(14.5, 3.4, 14.8),
+    new THREE.MeshStandardMaterial({ color: 0x7ce0ff, metalness: 0.6, roughness: 0.2, emissive: 0x103048 })
   );
-  glasses.position.set(0, 35, 0.5);
+  glasses.position.set(0, 36, 0.5);
   g.add(head, hair, templeL, templeR, glasses);
 
   // Right arm holding glowing orange Coffee Mug
-  const mug = new THREE.Mesh(new THREE.CylinderGeometry(4, 3.6, 8, 12), matMug);
-  mug.position.set(13, 21, 4); mug.castShadow = true;
+  const mug = new THREE.Mesh(new THREE.CylinderGeometry(4.2, 3.8, 8.5, 12), matMug);
+  mug.position.set(13.5, 22, 4); mug.castShadow = true;
   g.add(mug);
 
   return g;
@@ -302,7 +409,6 @@ function makeEnemy3DMesh(kind) {
     scr.position.y = 15;
     g.add(phone, scr);
   } else if (kind === "snackAttack") {
-    // 3D Torus Donut with pink icing!
     const dough = new THREE.Mesh(
       new THREE.TorusGeometry(10, 5, 12, 20),
       new THREE.MeshStandardMaterial({ color: 0xd98f38, roughness: 0.5 })
@@ -360,7 +466,6 @@ function makeEnemy3DMesh(kind) {
     roof.rotation.y = Math.PI / 4; roof.position.y = 50;
     g.add(base, roof);
   } else if (kind === "midlifeCrisis" || kind === "pickleballChamp") {
-    // 3D Red Sports Convertible (or Neon Yellow Pickleball Golf Cart)!
     const col = kind === "pickleballChamp" ? 0xc8f542 : 0xff1e38;
     const chassis = new THREE.Mesh(
       new THREE.BoxGeometry(58, 14, 30),
@@ -374,7 +479,6 @@ function makeEnemy3DMesh(kind) {
     windshield.position.set(-6, 19, 0);
     g.add(chassis, windshield);
   } else {
-    // Father Time / Reaper
     const robe = new THREE.Mesh(
       new THREE.ConeGeometry(24, 62, 12),
       new THREE.MeshStandardMaterial({ color: 0x221836, emissive: 0x120a24, roughness: 0.6 })
@@ -403,8 +507,6 @@ function applyViewMode(scene) {
   if (threeState) {
     threeState.canvas.style.display = is3D ? "block" : "none";
   }
-  // Make Phaser's background transparent in 3D/Diablo modes so the Three.js world shows through
-  // while Phaser's HUD, health/XP bars, floating damage numbers, and menus stay crisp on top!
   scene.cameras.main.setBackgroundColor(is3D ? "rgba(0,0,0,0)" : "#1b1f38");
   if (floor) floor.setVisible(!is3D);
   if (stageProps) stageProps.forEach(p => p.setAlpha(is3D ? 0 : 1));
@@ -419,52 +521,82 @@ function renderThreeView(scene) {
   initThreeOverlay();
   if (!threeState || !player) return;
 
-  const { renderer, scene3d, camera3d, hemi, dirLight, torchLight, floorMesh, floorTex, playerGroup } = threeState;
-  const mode = window.viewModeIdx; // 1 = Diablo 3/4, 2 = 3D Third-Person (Fortnite/Over-the-shoulder)
+  const {
+    renderer, scene3d, camera3d, hemi, dirLight, torchLight,
+    floorMesh, floorMat, floorTexDiablo, floorTex3D, skyEnvGroup, playerGroup
+  } = threeState;
+  const mode = window.viewModeIdx; // 1 = Diablo 3/4 Isometric Overview, 2 = 3D Immersive Third-Person
   const px = player.x, pz = player.y, pe = player.elev || 0;
 
-  // Keep infinite floor centered under player and scroll its UV coordinates seamlessly
-  floorMesh.position.set(px, 0, pz);
-  floorTex.offset.set(px / 256, -pz / 256);
+  // Swap floor material texture when switching between Mode 1 (Obsidian Dungeon) and Mode 2 (3D Corporate Plaza)
+  if (threeState.lastFloorMode !== mode) {
+    threeState.lastFloorMode = mode;
+    floorMat.map = mode === 1 ? floorTexDiablo : floorTex3D;
+    floorMat.needsUpdate = true;
+  }
 
-  // Sync Player 3D model position, elevation on stairs/platforms, facing, and walking bounce
-  const walkBounce = Math.abs(Math.sin(scene.time.now / 55)) * (player.body && player.body.velocity.length() > 5 ? 3.5 : 0);
+  // Keep infinite floor & 3D skyline centered on player
+  const activeTex = mode === 1 ? floorTexDiablo : floorTex3D;
+  floorMesh.position.set(px, 0, pz);
+  activeTex.offset.set(px / 256, -pz / 256);
+  skyEnvGroup.position.set(px, 0, pz);
+
+  // Sync Player 3D model position, leg stride animation, and scale
+  const moving = player.body && player.body.velocity.length() > 5;
+  const walkBounce = moving ? Math.abs(Math.sin(scene.time.now / 55)) * 3.5 : 0;
+  const stride = moving ? Math.sin(scene.time.now / 55) * 0.65 : 0;
+  if (playerGroup.legL) playerGroup.legL.rotation.x = stride;
+  if (playerGroup.legR) playerGroup.legR.rotation.x = -stride;
+
+  // In Mode 2 (3D Immersive), scale up the Hero slightly (1.22x) for strong over-the-shoulder presence
+  const heroScale = mode === 2 ? 1.22 : 0.95;
+  playerGroup.scale.set(heroScale, heroScale, heroScale);
   playerGroup.position.set(px, pe + walkBounce, pz);
-  if (player.body && player.body.velocity.length() > 5) {
+  if (moving) {
     playerGroup.rotation.y = Math.atan2(player.body.velocity.x, player.body.velocity.y);
   }
 
-  // Lighting & Camera setup per style (camera follows player's vertical elevation smoothly!)
-  torchLight.position.set(px, pe + 65, pz);
-  dirLight.position.set(px + 180, 340, pz + 220);
+  torchLight.position.set(px, pe + 68, pz);
+  dirLight.position.set(px + 220, 420, pz + 260);
   dirLight.target.position.set(px, pe, pz);
 
   if (mode === 1) {
-    // STYLE 1: DIABLO 3/4 ISOMETRIC DUNGEON VIEW
-    // Moody dark atmosphere, strong golden torchlight around the hero, tilted 45-degree isometric camera
-    scene3d.background = new THREE.Color(0x090b14);
-    scene3d.fog = new THREE.FogExp2(0x090b14, 0.0014);
-    hemi.intensity = 0.28;
-    dirLight.intensity = 0.55;
-    torchLight.intensity = 2.4;
-    torchLight.distance = 460;
-    camera3d.fov = 38;
+    // =========================================================================
+    // MODE 1: DIABLO 3/4 ISOMETRIC TACTICAL OVERVIEW
+    // True 16-deg Telephoto Isometric projection from high diagonal altitude!
+    // Shows a wide strategic overview of the dungeon floor, multiple mezzanines,
+    // and whole enemy swarms with dramatic flickering torchlight and dark fog.
+    // =========================================================================
+    skyEnvGroup.visible = false;
+    scene3d.background = new THREE.Color(0x07060d);
+    scene3d.fog = new THREE.FogExp2(0x07060d, 0.00048);
+    hemi.intensity = 0.22;
+    dirLight.intensity = 0.48;
+    const flicker = 1 + Math.sin(scene.time.now / 70) * 0.08 + Math.cos(scene.time.now / 43) * 0.05;
+    torchLight.intensity = 2.8 * flicker;
+    torchLight.distance = 620;
+    camera3d.fov = 16; // Narrow telephoto lens = true parallel isometric lines!
     camera3d.updateProjectionMatrix();
-    camera3d.position.set(px - 260, 420 + pe * 0.6, pz + 320);
-    camera3d.lookAt(px, 12 + pe * 0.8, pz);
+    camera3d.position.set(px - 760, 1060 + pe * 0.5, pz + 760);
+    camera3d.lookAt(px, 10 + pe * 0.5, pz);
   } else {
-    // STYLE 2: 3D THIRD-PERSON SHOOTER / ACTION VIEW ("Fortnite meets Vampire Survivors")
-    // Bright stylized sky, horizon fog, lower chase camera looking across the 3D arena!
-    scene3d.background = new THREE.Color(0x283866);
-    scene3d.fog = new THREE.FogExp2(0x283866, 0.0011);
-    hemi.intensity = 0.85;
-    dirLight.intensity = 1.1;
-    torchLight.intensity = 0.7;
-    torchLight.distance = 320;
-    camera3d.fov = 60;
+    // =========================================================================
+    // MODE 2: 3D IMMERSIVE THIRD-PERSON WORLD ("Fortnite meets Vampire Survivors")
+    // Low 68-deg wide-angle chase camera right behind the hero (y = 66, z = +142)
+    // looking out across the 3D arena into the 3D Skyscraper Horizon, Glowing Sun,
+    // and Floating Clouds!
+    // =========================================================================
+    skyEnvGroup.visible = true;
+    scene3d.background = new THREE.Color(0x1e2f66);
+    scene3d.fog = new THREE.FogExp2(0x283c7a, 0.00075);
+    hemi.intensity = 0.95;
+    dirLight.intensity = 1.25;
+    torchLight.intensity = 0.85;
+    torchLight.distance = 340;
+    camera3d.fov = 68; // Wide-angle action lens for deep 3D perspective!
     camera3d.updateProjectionMatrix();
-    camera3d.position.set(px, 165 + pe * 0.85, pz + 250);
-    camera3d.lookAt(px, 22 + pe * 0.9, pz - 90);
+    camera3d.position.set(px, 68 + pe * 0.92, pz + 142);
+    camera3d.lookAt(px, 34 + pe * 0.92, pz - 280);
   }
 
   // Sync 3D Raised Mezzanine Platforms & Staircases
@@ -480,7 +612,7 @@ function renderThreeView(scene) {
     pm.position.set(pl.worldX || pl.x, 0, pl.worldY || pl.y);
   });
 
-  // Sync 3D Office Barrier Props (desks, potted ferns, watercoolers)
+  // Sync 3D Office Barrier Props (cubicle desks with walls, potted ferns, watercoolers)
   while (threeState.propMeshes.length < (stageProps ? stageProps.length : 0)) {
     const box = build3DPropMesh("prop_desk");
     scene3d.add(box);
@@ -508,7 +640,7 @@ function renderThreeView(scene) {
     bills.getChildren().forEach(b => {
       if (!b.active) return;
       activeBills.add(b);
-      b.setAlpha(0); // hide 2D sprite while 3D mesh represents it
+      b.setAlpha(0);
       let m = threeState.enemyMeshes.get(b);
       if (!m) {
         m = makeEnemy3DMesh(b.kind || "bill");
@@ -516,10 +648,12 @@ function renderThreeView(scene) {
         threeState.enemyMeshes.set(b, m);
       }
       const be = b.elev || 0;
+      const eScale = mode === 2 ? 1.15 : 0.95;
+      m.scale.set(eScale, eScale, eScale);
       m.position.set(b.x, be, b.y);
       m.rotation.y = Math.atan2(px - b.x, pz - b.y);
       if (b.tag) {
-        const pt = project3DToPhaserWorld(scene, b.x, be + (b.isBoss ? 64 : 28), b.y);
+        const pt = project3DToPhaserWorld(scene, b.x, be + (b.isBoss ? 68 : 30), b.y);
         b.tag.setPosition(pt.x, pt.y).setVisible(pt.visible);
       }
     });
@@ -533,7 +667,7 @@ function renderThreeView(scene) {
 
   // Project Player label right above the 3D Hero's head
   if (label) {
-    const pt = project3DToPhaserWorld(scene, px, pe + 50, pz);
+    const pt = project3DToPhaserWorld(scene, px, pe + (mode === 2 ? 58 : 48), pz);
     label.setPosition(pt.x, pt.y).setVisible(pt.visible);
   }
 
@@ -554,7 +688,7 @@ function renderThreeView(scene) {
   // Sync Coffee Splashes (3D glowing espresso spheres)
   syncSimplePool(splashes, threeState.splashMeshes, scene3d, () => {
     const m = new THREE.Mesh(
-      new THREE.SphereGeometry(6, 10, 10),
+      new THREE.SphereGeometry(6.5, 10, 10),
       new THREE.MeshStandardMaterial({ color: 0xf09c42, emissive: 0x7b4a2a, roughness: 0.2 })
     );
     m.position.y = 18;
@@ -564,7 +698,7 @@ function renderThreeView(scene) {
   // Sync Wisdom Gems (spinning 3D blue crystals)
   syncSimplePool(gems, threeState.gemMeshes, scene3d, () => {
     return new THREE.Mesh(
-      new THREE.OctahedronGeometry(7, 0),
+      new THREE.OctahedronGeometry(7.5, 0),
       new THREE.MeshStandardMaterial({ color: 0x5fb3f0, emissive: 0x1b5699, metalness: 0.5, roughness: 0.1 })
     );
   }, 10, true, scene.time.now);
@@ -572,7 +706,7 @@ function renderThreeView(scene) {
   // Sync 401(k) Coins (spinning gold cylinders)
   syncSimplePool(coins, threeState.coinMeshes, scene3d, () => {
     const c = new THREE.Mesh(
-      new THREE.CylinderGeometry(7, 7, 3, 14),
+      new THREE.CylinderGeometry(7.5, 7.5, 3, 14),
       new THREE.MeshStandardMaterial({ color: 0xffe042, emissive: 0x805500, metalness: 0.8, roughness: 0.2 })
     );
     c.rotation.x = Math.PI / 2;
@@ -582,7 +716,7 @@ function renderThreeView(scene) {
   // Sync Leftover Pizza Slices (spinning cheese-and-pepperoni wedges!)
   syncSimplePool(window.pizzas, threeState.pizzaMeshes, scene3d, () => {
     const p = new THREE.Mesh(
-      new THREE.ConeGeometry(9, 14, 3),
+      new THREE.ConeGeometry(9.5, 14, 3),
       new THREE.MeshStandardMaterial({ color: 0xffb838, emissive: 0x802208, roughness: 0.3 })
     );
     p.rotation.x = Math.PI / 2;

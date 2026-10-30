@@ -918,7 +918,7 @@ function createEnemy(scene, kind, x, y) {
 function spawnBill(scene) {
   if (bills.countActive() >= SPAWNING.maxOnScreen) return;
   const view = scene.cameras.main.worldView; // the rectangle of the world you can currently see
-  const m = SPAWNING.offscreenMargin;
+  const m = window.viewModeIdx === 1 ? 220 : SPAWNING.offscreenMargin;
   let x, y;
   switch (Phaser.Math.Between(0, 3)) {
     case 0: x = Phaser.Math.Between(view.left, view.right); y = view.top - m; break;    // above

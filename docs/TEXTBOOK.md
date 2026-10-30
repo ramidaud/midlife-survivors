@@ -726,6 +726,34 @@ You can also toggle **`🗣️ DAD JOKE VOICE: ◀ SPOKEN 🗣️ / TEXT ONLY �
 
 ---
 
+## Chapter 28: Telephoto Isometric Overview (`FOV 16°`) vs. Immersive 3D Horizon (`FOV 68°`)
+
+### 1. Why Mode 1 and Mode 2 Looked Too Similar Before
+In 3D photography and game cameras, two things define how a view feels: **Focal Length (`FOV`)** and **Camera Pitch (whether you see the horizon)**. Previously, both modes had medium FOVs (`38°` vs `60°`) and looked down at the floor, so neither showed a true isometric overview nor a true 3D horizon!
+
+```
+  MODE 1: DIABLO 3/4 ISOMETRIC OVERVIEW                 MODE 2: AAA 3D IMMERSIVE THIRD-PERSON
+  ─────────────────────────────────────                 ─────────────────────────────────────
+  📷 Camera at (-760, 1060, +760), FOV = 16°            ☀️ Glowing Sun + ☁️ 3D Clouds + 🏙️ 32 Skyscrapers
+       \                                                ───────────────────────────────────── (Horizon)
+        \   Parallel telephoto rays                     📷 Low Chase Cam (y=68, FOV=68°) ──► [☕ Hero 1.22x]
+         ▼  (Zero perspective distortion!)              ═══════════════ 3D Corporate Plaza Floor ═════════════
+  ╔═════════════════════════════════════╗
+  ║ 🔥 [Mezzanine]   [☕]    [Desk]  🔥 ║
+  ║     Wide Tactical Dungeon Overview  ║
+  ╚═════════════════════════════════════╝
+```
+
+### 2. Side-by-Side Comparison (`src/view3d.js`)
+| Property | Mode 1: `Diablo 3/4` (Isometric Overview) | Mode 2: `AAA 3D` (3D Immersive World) |
+|---|---|---|
+| **Field of View (`camera3d.fov`)** | **`16°` Telephoto Lens** (flattens perspective into parallel isometric lines) | **`68°` Wide-Angle Action Lens** (exaggerates 3D depth and speed) |
+| **Camera Position & Aim** | High diagonal `(-760, 1060, +760)` looking at `(0, 10, 0)` | Low shoulder height `(0, 68, +142)` looking out at `(0, 34, -280)` |
+| **World Environment** | Dark Obsidian Sanctuary flagstones (`floorTexDiablo`) + 4 Flaming Mezzanine Braziers + flickering torchlight | 360° ring of **32 3D Corporate Skyscrapers**, **Glowing Sunset Sun**, **14 Floating 3D Clouds**, and **Tall Cubicle Walls** |
+| **Hero Scale & Animation** | `0.95x` tactical scale | **`1.22x` foreground hero scale** with 3D swinging leg stride (`legL` / `legR`) |
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

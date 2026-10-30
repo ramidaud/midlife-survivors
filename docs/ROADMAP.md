@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Phase 6 (Share it)
-**Last updated:** 2026-10-30 (Added Spoken Dad Jokes via Web Speech API + 2.85s Character-Following Comic Speech Bubble)
+**Last updated:** 2026-10-30 (Differentiated Mode 1 into a 16-deg Telephoto Isometric Tactical Overview and Mode 2 into a 68-deg Low Over-the-Shoulder 3D Immersive World with 3D Skyline, Sun, Clouds & Cubicle Walls)
 
 ---
 
