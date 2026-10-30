@@ -3,8 +3,8 @@
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 
-**Current phase:** Phase 4 (Feel and look)
-**Last updated:** 2026-10-30 (Age 50 Win Screen + Father Time, Phase 3 complete)
+**Current phase:** Phase 5 (Coming back for more)
+**Last updated:** 2026-10-30 (Phase 4 complete: Game juice, chiptune groove, Title screen)
 
 ---
 
@@ -42,10 +42,10 @@ Weekly check-in: Sundays, evening (automatic).
 
 ## Phase 4: Feel and look (weeks 9-10)
 - [x] Decide art direction (procedural pixel-art sprites in src/sprites.js)
-- [ ] Hit flashes, damage numbers, screen shake
-- [ ] Sound effects and music
-- [ ] Title screen
-- [ ] Learn: "game juice" and why it matters
+- [x] Hit flashes, damage numbers, screen shake
+- [x] Sound effects and music
+- [x] Title screen
+- [x] Learn: "game juice" and why it matters
 
 ## Phase 5: Coming back for more (weeks 11-12)
 - [ ] 401(k) Coins and the permanent upgrade shop

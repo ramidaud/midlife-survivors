@@ -519,6 +519,22 @@ flowchart LR
 
 ---
 
+## Chapter 19: Game Juice, Chiptune Groove & Title Screen
+
+**1. Layered "Game Juice" on Every Hit:** None of these effects change the math of the game, yet together they make combat feel 10x more physical:
+
+```
+  Weapon hits Enemy
+        ├── 1. White Flash + Squash-and-Stretch (scaleX 1.22, scaleY 0.82 for 55ms)
+        ├── 2. Floating Damage Number ("-2" drifts up & fades out; gold when >= 2)
+        ├── 3. Shredded Paper Confetti (6-16 colored scraps burst outward on KO)
+        └── 4. Camera Shake (120ms jolt on hurt, 180ms rumble on Boss arrival)
+```
+
+**2. Sequenced Chiptune Groove (`SOUNDS.music`):** A `setInterval` in `sfx.js` steps through a 16-note bassline (`triangle` wave) and melody (`square` wave) every `165ms`. And because clicking **"CLOCK IN"** on the Title Screen unlocks the browser's `AudioContext`, the groove and sound effects work from frame 1!
+
+---
+
 ## Coming next
 
-- **Chapter 19: Game Juice (Damage Numbers, Screen Shake, Title Screen).**
+- **Chapter 20: 401(k) Coins, Permanent Shop & Unlockable Characters (Phase 5).**

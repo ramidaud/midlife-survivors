@@ -16,5 +16,13 @@ window.SOUNDS = {
   ring:     [[980, 0.05, "square"], [1240, 0.05, "square"]],           // Spam Likely phone ring
   overdue:  [[300, 0.06, "sawtooth"], [420, 0.08, "sawtooth"]],        // Bill splits into Late Fees
   bossSpawn:[[220, 0.14, "sawtooth"], [165, 0.24, "sawtooth"]],        // ominous HR arrival
-  bossDefeat:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.22, "square"]]
+  bossDefeat:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.22, "square"]],
+
+  // Retro 16-bit synthwave/chiptune background groove (16-step loop, in Hz; 0 = rest).
+  music: {
+    volume: 0.065,     // gentle background level so SFX still pop on top
+    stepMs: 165,       // tempo (~180 eighth-notes per minute)
+    bass: [110, 110, 220, 110,  131, 131, 262, 131,  147, 147, 294, 147,  165, 147, 131, 98],
+    lead: [440, 0,   523, 659,  587, 0,   523, 440,  587, 0,   659, 784,  659, 587, 523, 0]
+  }
 };

@@ -89,3 +89,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 
 ## The Vampire Survivors Reaper trick (Oct 30)
 - Instead of abruptly cutting to a win screen when the clock hits 50, spawning an unstoppable **Father Time** boss turns the end of the run into a dramatic final moment where *meeting him is the victory*.
+
+## Game juice and step sequencers (Oct 30)
+- **Game juice:** Stacking tiny visual reactions—floating damage numbers, a 55ms squash-and-stretch tween, confetti scraps on KO, and short camera shakes—makes hits feel weighty without changing a single gameplay rule.
+- **Step sequencer:** A background music groove is just two arrays of frequencies (`bass` and `lead`) stepped through every `165ms` using the same Web Audio oscillators as sound effects.

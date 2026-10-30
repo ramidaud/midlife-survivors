@@ -37,6 +37,7 @@ let xp = 0, level = 1, xpNeeded = 0, xpBar, levelText, currentAge = 40, bossesSp
 // "stats" is this run's copy of the numbers. Upgrades change the copy, never the data files,
 // so every new run starts fresh.
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
+let titleSeen = false, titleOpen = false, startFromTitle = null;
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
 
@@ -127,12 +128,79 @@ function create() {
   drawXpBar();
   this.physics.add.overlap(player, gems, collectGem);
   this.physics.add.overlap(player, chests, collectChest);
+
+  // 12. Title screen on first load ("Clock In"), or start the music right away on "Try again".
+  if (!titleSeen) {
+    showTitleScreen(this);
+  } else {
+    setMusicPlaying(true);
+  }
+}
+
+// The Title Screen: shows the logo, cast showcase, and "Clock In" button (which also unlocks browser audio!).
+function showTitleScreen(scene) {
+  titleOpen = true;
+  setMusicPlaying(false);
+  scene.physics.pause();
+  scene.time.paused = true;
+
+  const W = scene.scale.width, H = scene.scale.height, cx = W / 2, cy = H / 2;
+  const parts = [];
+  const keep = o => (parts.push(o), o.setScrollFactor(0).setDepth(40));
+
+  keep(scene.add.rectangle(0, 0, W, H, 0x0d1021, 0.84).setOrigin(0));
+  keep(scene.add.rectangle(cx, cy, Math.min(540, W - 28), 320, 0x171c36)
+    .setStrokeStyle(3, 0xf0a24f));
+
+  keep(scene.add.text(cx, cy - 118, "MIDLIFE SURVIVORS", {
+    fontFamily: "monospace", fontSize: "34px", fontStyle: "bold", color: "#f0a24f",
+    stroke: "#0d1021", strokeThickness: 4
+  }).setOrigin(0.5));
+  keep(scene.add.text(cx, cy - 82, "Survive from Age 40 to the Big Five-Oh", {
+    fontFamily: "monospace", fontSize: "14px", color: "#8ccff0"
+  }).setOrigin(0.5));
+
+  // Showcase lineup of 16-bit sprites right on the title card
+  const lineup = ["player", "bill", "spamCall", "snackAttack", "backTwinge", "midlifeCrisis"];
+  lineup.forEach((key, i) => {
+    const sx = cx + (i - (lineup.length - 1) / 2) * 68;
+    keep(scene.add.image(sx, cy - 22, key));
+  });
+
+  keep(scene.add.text(cx, cy + 34, "Armed only with Coffee, Dad Jokes, and the word \"No.\"", {
+    fontFamily: "monospace", fontSize: "12px", color: "#e8e9f3"
+  }).setOrigin(0.5));
+
+  const btn = keep(scene.add.text(cx, cy + 92, "  CLOCK IN (Click, Space, or Start)  ", {
+    fontFamily: "monospace", fontSize: "18px", fontStyle: "bold",
+    backgroundColor: "#f0a24f", color: "#12152a", padding: { x: 14, y: 10 }
+  }).setOrigin(0.5).setInteractive({ useHandCursor: true }));
+
+  startFromTitle = () => {
+    if (!titleOpen) return;
+    unlockAudio();
+    sfx("pick");
+    titleOpen = false;
+    titleSeen = true;
+    startFromTitle = null;
+    parts.forEach(o => o.destroy());
+    touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+    startTime = scene.time.now;
+    scene.physics.resume();
+    scene.time.paused = false;
+    setMusicPlaying(true);
+  };
+
+  btn.on("pointerdown", (p, lx, ly, event) => { event.stopPropagation(); startFromTitle(); });
+  scene.input.keyboard.once("keydown-SPACE", () => startFromTitle && startFromTitle());
+  scene.input.keyboard.once("keydown-ENTER", () => startFromTitle && startFromTitle());
 }
 
 // Toggle pause (P, Esc, or controller Start button).
 function togglePause(scene) {
-  if (gameOver || levelUpOpen) return;
+  if (gameOver || levelUpOpen || titleOpen) return;
   paused = !paused;
+  setMusicPlaying(!paused);
   if (paused) {
     scene.physics.pause();
     scene.time.paused = true;
@@ -292,6 +360,7 @@ function hurtPlayer(p, bill) {
     scene.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 700, onComplete: () => msg.destroy() });
   }
   sfx("hurt");
+  scene.cameras.main.shake(120, 0.009); // screen shake when you take contact damage!
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
@@ -301,6 +370,7 @@ function hurtPlayer(p, bill) {
 // The Game Over / Victory screen: freeze the world, show a funny cause of death (or Age 50 win!) and a restart button.
 function showGameOver(scene, killer, isWin) {
   gameOver = true;
+  setMusicPlaying(false);
   restartGame = () => scene.scene.restart();
   scene.physics.pause();
   const winLines = [
@@ -333,19 +403,57 @@ function showGameOver(scene, killer, isWin) {
   scene.input.keyboard.once("keydown-SPACE", () => scene.scene.restart());
 }
 
+// Pop a floating damage number above an enemy that drifts up and fades out.
+function popDamageNumber(sc, x, y, amount) {
+  const big = amount >= 2;
+  const txt = sc.add.text(x + Phaser.Math.Between(-8, 8), y - 14, `-${amount}`, {
+    fontFamily: "monospace", fontSize: big ? "16px" : "13px", fontStyle: "bold",
+    color: big ? "#ffe042" : "#ffffff", stroke: "#12152a", strokeThickness: 3
+  }).setOrigin(0.5).setDepth(15);
+  sc.tweens.add({
+    targets: txt, y: txt.y - 26, alpha: 0, scale: big ? 1.25 : 1,
+    duration: 460, ease: "Cubic.easeOut", onComplete: () => txt.destroy()
+  });
+}
+
+// Burst shredded paper / confetti scraps when an enemy is paid off or defeated!
+function burstConfetti(sc, x, y, baseColor, count = 6) {
+  const cols = [baseColor || 0x6fbf73, 0xffffff, 0xf5c542];
+  for (let i = 0; i < count; i++) {
+    const ang = (Math.PI * 2 * i) / count + Phaser.Math.FloatBetween(-0.3, 0.3);
+    const dist = Phaser.Math.Between(18, 38);
+    const scrap = sc.add.rectangle(x, y, 5, 3, cols[i % cols.length]).setDepth(14);
+    sc.tweens.add({
+      targets: scrap,
+      x: x + Math.cos(ang) * dist,
+      y: y + Math.sin(ang) * dist,
+      angle: Phaser.Math.Between(-180, 180),
+      alpha: 0,
+      duration: 360,
+      onComplete: () => scrap.destroy()
+    });
+  }
+}
+
 // Apply damage to one enemy (shared by all weapons so gems, chests, flashes and sounds always match).
 function damageBill(bill, amount) {
   if (!bill.active) return;
   const sc = bill.scene;
   bill.hp -= amount;
+  popDamageNumber(sc, bill.x, bill.y, amount);
   if (bill.hp > 0) {
     sfx("hit");
     if (bill.isBoss) bill.tag.setText(`${ENEMIES[bill.kind].label}:${bill.hp}`);
     bill.setTintFill(0xffffff); // quick white flash so you can see the hit
+    // Quick squash-and-stretch punch on hit!
+    sc.tweens.add({ targets: bill, scaleX: 1.22, scaleY: 0.82, duration: 55, yoyo: true });
     sc.time.delayedCall(60, () => { if (bill.active) bill.clearTint(); });
   } else {
     sfx(bill.isBoss ? "bossDefeat" : "billPaid");
+    const E = ENEMIES[bill.kind] || ENEMIES.bill;
+    burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 6);
     if (bill.isBoss) {
+      sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
@@ -495,6 +603,7 @@ function spawnBill(scene) {
 function spawnBoss(scene, bossKind) {
   bossesSpawned[bossKind] = true;
   sfx("bossSpawn");
+  scene.cameras.main.shake(180, 0.01); // rumble the screen when a Decade Boss arrives!
   const P = ENEMIES[bossKind], view = scene.cameras.main.worldView;
   const x = view.right + SPAWNING.offscreenMargin, y = player.y;
   const boss = bills.create(x, y, bossKind).setDepth(4);
@@ -527,10 +636,11 @@ function update() {
     }
     if (padJust("a")) levelMenu.pickSelected();
   }
+  if (titleOpen && startFromTitle && (padJust("a") || padJust("start"))) startFromTitle();
   if (gameOver && restartGame && (padJust("a") || padJust("start"))) restartGame();
-  if (!gameOver && !levelUpOpen && padJust("start")) togglePause(this);
+  if (!gameOver && !levelUpOpen && !titleOpen && padJust("start")) togglePause(this);
 
-  if (gameOver || levelUpOpen || paused) return; // freeze while dead, paused, or choosing an upgrade
+  if (gameOver || levelUpOpen || paused || titleOpen) return; // freeze while dead, paused, on title, or choosing an upgrade
 
   // Age clock: every PLAYER.secondsPerYear seconds adds 1 year to your age.
   const elapsedSec = (this.time.now - startTime) / 1000;
