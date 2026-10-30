@@ -160,3 +160,9 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - **Why `<meta name="viewport">` is essential for mobile web games:** Without `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`, mobile browsers pretend the screen is `980px` wide and shrink all text and buttons down, preventing `@media (max-width: 768px)` from ever triggering.
 - **Separating Canvas Touch (`touch-action: none`) from Modal Scroll (`touch-action: pan-y`):** A game canvas needs `touch-action: none` so dragging a virtual thumbstick doesn't scroll the browser window. However, modal cards (`.modal-card`) need `touch-action: pan-y` and `max-height: 94dvh` so players on small phone screens can swipe up and down through shop items and settings.
 - **Designing for both Portrait (`max-width: 768px`) and Landscape (`max-height: 520px`):** Phones held vertically are narrow (`~390px` wide), while phones held horizontally are wide (`~844px`) but very short (`~390px` tall). Using both a width media query and a height media query ensures the Broadcast Lower-Third HUD stays under 22% of the screen in either orientation.
+
+## Visual hierarchy in a HUD (Oct 30, Clean Screen)
+- A HUD (heads-up display) is the info painted on top of the game. Every pixel it covers is a pixel you can't see danger in.
+- Vampire Survivors shows only what you need **while dodging**: XP, time, health. Everything else waits for the pause menu.
+- Health sits **under your character** because that's where your eyes already are.
+- Same idea as framing a photo: one subject, nothing competing with it at the edges.

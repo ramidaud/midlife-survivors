@@ -27,7 +27,7 @@ p{margin:0}
 .summary{color:var(--muted);max-width:62ch}
 .summary strong{color:var(--fg)}
 .clock{display:grid;gap:8px}
-.bar{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.bar{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
 .seg{height:14px;background:var(--line)}
 .seg.now{background:var(--accent)}
 .ages{display:flex;justify-content:space-between;font-family:var(--display);font-size:11px;color:var(--muted)}
@@ -61,23 +61,23 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Game dev roadmap · Age 40 to 50</div>
+    <div class="eyebrow">Game dev roadmap · Age 40 to 100</div>
     <h1>Midlife Survivors</h1>
-    <p class="summary">A Vampire Survivors-style game where you dodge emails, bills and back twinges with coffee, dad jokes and the word "No." <strong>Built in the browser with Phaser 3, one 45-90 minute step at a time</strong>, with a playable link at the end of every session.</p>
+    <p class="summary">A Vampire Survivors-style game where you dodge emails, bills and back twinges with coffee, dad jokes and the word "No." <strong>Built in the browser with Phaser 3, one objective at a time</strong>, with a playable link at the end of every session.</p>
   </header>
 
   <section class="clock" aria-label="Progress through the phases">
     <div class="bar" id="bar"></div>
-    <div class="ages"><span>Phase 0</span><span>Phase 3</span><span>Phase 6</span></div>
-    <p class="now-line">You are here: <b>Phase 0 · Setup and first pixels</b> <span id="count"></span></p>
+    <div class="ages"><span>Sprint</span><span>Fun Pass</span><span>Later</span></div>
+    <p class="now-line">You are here: <b>Fun Pass · objective 2 of 7</b> <span id="count"></span></p>
   </section>
 
   <section class="next">
     <h2>This week</h2>
     <ol>
-      <li><strong>Done:</strong> your Top 10 is now the enemy roster. Bills, Spam Likely calls, Snack Attacks and Death at 50.</li>
-      <li><strong>Done:</strong> Hello Game is built and published as the Midlife Survivors Playtest.</li>
-      <li>Play it on your laptop and your phone, then try changing <code>speed</code> in <code>src/data/player.js</code>.</li>
+      <li><strong>Done:</strong> the clean screen HUD is live (V. 1.9.0). The game now fills the screen.</li>
+      <li>Play a few minutes on the GitHub Pages link and tell me what you notice.</li>
+      <li>Next objective: a title screen where you pick a character and start.</li>
     </ol>
   </section>
 
@@ -100,39 +100,30 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
         <li><strong>Your jokes.</strong> The annoyances and moments that make midlife funny to you.</li>
         <li><strong>Your reactions.</strong> Play each build for five minutes and say how it feels.</li>
         <li><strong>Your eye.</strong> Art direction is yours to call in Phase 4.</li>
-        <li><strong>Permission to delete files</strong> in the project folder when asked, so save points (git) can work.</li>
+        <li><strong>Your gut reaction</strong> after each objective, before we start the next.</li>
       </ul>
     </div>
   </section>
 
-  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each session. Your own checkmarks here are saved in this browser only. Last updated Oct 30, 2026 (Hello Game built).</p>
+  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: ramidaud.github.io/midlife-survivors. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Oct 30, 2026 (Clean Screen).</p>
 </div>
 
 <script>
 const PHASES = [
-  {n:"Phase 0: Setup and first pixels", w:"Week 1", learn:"What a game loop is", t:[
-    ["Create project folder, instructions, design doc, roadmap",1],["Schedule weekly check-ins",1],
-    ["Answer the open questions (at least the Top 10 annoyances)",1],["\"Hello game\": a square that moves with arrow keys / WASD",1],
-    ["Publish the first playtest link",1],["Play it on laptop and phone",0]]},
-  {n:"Phase 1: Core loop", w:"Weeks 2-3", learn:"Collisions, delta time, spawning", t:[
-    ["Smooth movement; camera follows across an endless floor",0],["Unread Emails spawn offscreen and chase you",0],
-    ["Coffee Splash fires automatically",0],["Enemies take damage; you take contact damage",0],["Game Over screen with a funny cause of death",0]]},
-  {n:"Phase 2: Growing stronger", w:"Weeks 4-5", learn:"Data-driven design: editing the numbers yourself", t:[
-    ["Wisdom gems drop and get collected",0],["Level-up screen with 3 choices",0],["3 weapons and 2 passives",0],["Age clock (40 to 50) replaces the timer",0]]},
-  {n:"Phase 3: The midlife run", w:"Weeks 6-8", learn:"Difficulty curves and balancing", t:[
-    ["Wave schedule tied to age",0],["6+ enemy types, including an elite",0],["Bosses: Performance Review, Mortgage Refinance, Midlife Crisis",0],
-    ["At least 2 evolutions",0],["Win screen at 50",0]]},
-  {n:"Phase 4: Feel and look", w:"Weeks 9-10", learn:"\"Game juice\" and why it matters", t:[
-    ["Decide art direction",0],["Hit flashes, damage numbers, screen shake",0],["Sound effects and music",0],["Title screen",0]]},
-  {n:"Phase 5: Coming back for more", w:"Weeks 11-12", learn:"Saving data, meta-progression", t:[
-    ["401(k) Coins and the permanent upgrade shop",0],["Save data between sessions",0],["2-3 unlockable characters",0]]},
-  {n:"Phase 6: Share it", w:"Week 13+", learn:"Playtesting with real people", t:[
-    ["Playtest with friends or colleagues",0],["Decide: web, itch.io, or desktop app",0],["Optional: an EMAT write-up about the process",0]]}
+  {n:"Phases 0-5: Antigravity sprint", w:"Oct 30", learn:"Game loop, collisions, data files, game juice, save data", t:[
+    ["Core loop: move, auto-fire, gems, level-ups, evolutions",1],["13 enemy and boss types from your Top 10",1],["Title screen, 401(k) shop, save and resume, 3 characters",1],["Published on GitHub Pages",1]]},
+  {n:"Fun Pass: one objective at a time", w:"Now", learn:"Visual hierarchy in a HUD", t:[
+    ["Clean screen HUD (V. 1.9.0)",1],["Title screen: pick a character, then start",0],["Credits, not cameo: remove the Rami character, add Credits",0],
+    ["Run length: 1 minute per year, Death at 100",0],["Intensity curve: harder every decade",0],["First twist: Errands",0],["Art direction from your mood board",0]]},
+  {n:"Phase 6: Share it", w:"After the Fun Pass", learn:"Playtesting with real people", t:[
+    ["Playtest with friends or colleagues",0],["Decide: web, itch.io, or desktop app",0],["Optional: an EMAT write-up about the process",0]]},
+  {n:"Parked: 3D views and new life stages", w:"Later", learn:"Scope control", t:[
+    ["Diablo and 3D camera views",0],["Hospital, Home, Social and Resort stage mechanics",0]]}
 ];
-const CURRENT = 0;
+const CURRENT = 1;
 let saved = {};
-try { saved = JSON.parse(localStorage.getItem("ms-checks") || "{}"); } catch(e) {}
-function save(){ try { localStorage.setItem("ms-checks", JSON.stringify(saved)); } catch(e) {} }
+try { saved = JSON.parse(localStorage.getItem("ms-checks-v2") || "{}"); } catch(e) {}
+function save(){ try { localStorage.setItem("ms-checks-v2", JSON.stringify(saved)); } catch(e) {} }
 const root = document.getElementById("phases");
 const bar = document.getElementById("bar");
 function render(){

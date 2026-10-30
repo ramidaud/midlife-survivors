@@ -576,12 +576,16 @@ function makeEnemy3DMesh(kind) {
 
 // Cycle between 0 (2D 16-Bit), 1 (Diablo 3/4), and 2 (3D Third-Person).
 function cycleViewMode(scene) {
+  if (!window.ENABLE_3D_VIEWS) { applyViewMode(scene); return window.VIEW_MODES[0]; }
   window.viewModeIdx = (window.viewModeIdx + 1) % window.VIEW_MODES.length;
   applyViewMode(scene);
   return window.VIEW_MODES[window.viewModeIdx];
 }
 
+window.ENABLE_3D_VIEWS = false; // Parked Oct 30: 2D only until the game is fun. Set true to bring 3D back.
+
 function applyViewMode(scene) {
+  if (!window.ENABLE_3D_VIEWS) window.viewModeIdx = 0;
   initThreeOverlay();
   const is3D = window.viewModeIdx > 0;
   if (threeState) {

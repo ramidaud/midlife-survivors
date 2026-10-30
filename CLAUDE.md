@@ -9,20 +9,26 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 - **Writing style:** no em dashes, no formulaic parallel structures, no AI-sounding openers or closers.
 - **Time budget:** about 3-5 hours a week. Size every task so it fits a 45-90 minute sitting and ends with something playable.
 
+## Current focus: the Fun Pass (decided Oct 30)
+- **One objective at a time.** Work the list at the top of `docs/ROADMAP.md` in order. Finish one, publish it, let Rami play it, and get his reaction before starting the next. No bundling.
+- **Feature freeze** on new content (stages, modes, lore, menus) until the Fun Pass list is done.
+- **Locked decisions:** 1 real minute = 1 year, Death arrives at 100, 2D only (3D parked), Errands is the first twist, Rami appears in the Credits but not as a character.
+
 ## How a work session goes
 1. **Recap** where we are (one short paragraph, from ROADMAP + PROGRESS_LOG).
 2. **Propose one small step** with what Rami will see when it works.
 3. **Build it.** Keep changes small and focused.
-4. **Make it playable.** Publish the current build as the "Midlife Survivors playtest" artifact (same URL each time) so Rami can play on laptop or phone.
+4. **Make it playable.** Test it first (headless browser at laptop and phone sizes), bump `src/data/version.js` and the `?v=` cache-busters in `index.html`, then push to GitHub so the official playtest at https://ramidaud.github.io/midlife-survivors/ updates. If a push isn't possible from here, tell Rami exactly what to run.
 5. **Explain one concept** that the step taught (e.g. "game loop", "collision", "delta time") in 3-5 sentences. Add it to `docs/LEARNING_NOTES.md`.
    - **Show it visually in the chat** (a diagram, sketch or table right in the reply, not just a link), then add the same visuals as a new chapter in `docs/TEXTBOOK.md`. Rami learns best with pictures.
-6. **Log it.** Append a dated entry to `docs/PROGRESS_LOG.md`, tick items in `docs/ROADMAP.md`, and save a git commit with a clear message and push to GitHub (`origin main`) so the live GitHub Pages link (`https://ramidaud.github.io/midlife-survivors/`) stays current.
+6. **Log it.** Append a short dated entry (3-5 bullets) to `docs/PROGRESS_LOG.md`, tick items in `docs/ROADMAP.md`, and save a git commit with a clear message.
 7. **Ask for feedback** the way a playtester would: "too easy? too slow? funny?"
 
 ## Tech decisions (change only with Rami's OK)
 - **Engine:** Phaser 3 (JavaScript), loaded from cdnjs with a pinned version. Vampire Survivors itself started life as a browser game, so this is a well-worn path.
 - **No build step at first.** Plain `index.html` + files in `src/`. Add tooling (Vite, etc.) only when there's a real reason, and explain why.
-- **Placeholder art** (colored shapes, emoji, simple pixels) until the game is fun. Art direction is decided in Phase 4.
+- **Art:** current procedural pixel sprites (`src/sprites.js`) are placeholders. Final art direction comes from Rami's mood board, after the core loop is fun (Fun Pass objective 7).
+- **2D only for now.** The Diablo and 3D views are parked with `window.ENABLE_3D_VIEWS = false` in `src/view3d.js`. Don't build features for them.
 - **Data-driven content.** Enemies, weapons, passives and waves live in `src/data/*.js` as plain lists, so Rami can tweak numbers and jokes without touching game logic.
 - **Desktop packaging** (Electron/Tauri, itch.io, Steam) is a later decision. Keep code browser-first so any option stays open.
 
@@ -41,10 +47,13 @@ assets/                 art and sound (later)
 
 ## Design spirit (keep it Vampire Survivors at heart)
 - One input: **move**. Everything attacks automatically.
-- Swarms build slowly, then become absurd. Power fantasy by minute 20.
+- Swarms build slowly, then become absurd. Power fantasy by your 60s.
 - Level-ups offer **3 choices**; combining items unlocks **evolutions**.
-- Runs are short, deaths are funny, and a meta currency makes the next run a little better.
+- A full run is a whole life (about an hour, with save and resume), deaths are funny, and a meta currency makes the next run a little better.
 - The humor is warm and recognizable, never mean. Midlife is hard and also kind of great.
+
+## Keep the docs readable
+- Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
 
 ## Living roadmap page
 - Rami's visual tracker is the artifact "Midlife Survivors Roadmap": https://claude.ai/artifact/1dsfUZjtALvBnEkd1Nh3pf (source: `docs/roadmap.html`).

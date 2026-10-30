@@ -3,8 +3,20 @@
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 
-**Current phase:** Phase 6 (Share it) & Phase 7 (Life Chapters & Unlockable Worlds)
+**Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
 **Last updated:** 2026-10-30 (Added 5 Unlockable Life Stage Environments in `src/data/stages.js` + Phase 7 Roadmap for Birth, Parenting, and Friendship Challenges)
+
+---
+
+## Fun Pass (current focus, Oct 30)
+One objective per session. Build it, publish it, Rami plays it, then move on.
+1. [x] **Clean screen HUD:** XP bar on top, age in the middle, HP under the player, 3D views parked (V. 1.9.0)
+2. [ ] **Title screen:** pick a character, then start. Shop, stages and extras move behind a menu
+3. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
+4. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
+5. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
+6. [ ] **First twist: Errands:** a To-Do List marks spots on the map; finish errands while the swarm closes in
+7. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI to match
 
 ---
 

@@ -235,6 +235,25 @@ function initGameUI(scene) {
       <button class="mob-fab" id="mob-mute-btn" title="Toggle Sound">🔊</button>
     </div>
 
+    <!-- CLEAN SCREEN HUD (Objective 1): XP bar, age, coins, loadout, pause/mute -->
+    <div class="vs-hud hidden" id="vs-hud">
+      <div class="vs-xp"><div class="vs-xp-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
+      <div class="vs-row">
+        <div class="vs-left">
+          <div class="vs-coins" id="vs-coins">🪙 0k</div>
+          <div class="vs-loadout" id="vs-loadout"></div>
+        </div>
+        <div class="vs-center">
+          <div class="vs-age" id="vs-age">AGE 40</div>
+          <div class="vs-year" title="Progress through this year"><div class="vs-year-fill" id="vs-year-fill"></div></div>
+        </div>
+        <div class="vs-right">
+          <button class="vs-btn" id="vs-pause-btn" aria-label="Pause">⏸</button>
+          <button class="vs-btn" id="vs-mute-btn" aria-label="Mute">🔊</button>
+        </div>
+      </div>
+    </div>
+
     <!-- =======================================================================
          BROADCAST LOWER-THIRD HUD CONSOLE (Anchored at Bottom of Screen)
          1. Upper Lip: Live Contextual Story & In-Game Help Ticker
@@ -421,6 +440,8 @@ function initGameUI(scene) {
   document.getElementById("hud-mute-btn").addEventListener("pointerdown", doMuteToggle);
   document.getElementById("mob-mute-btn").addEventListener("pointerdown", doMuteToggle);
   document.getElementById("mob-view-btn").addEventListener("pointerdown", doViewCycle);
+  document.getElementById("vs-pause-btn").addEventListener("pointerdown", doPauseToggle);
+  document.getElementById("vs-mute-btn").addEventListener("pointerdown", doMuteToggle);
 
   window.syncUITheme();
   syncControlHUDHints();
@@ -455,6 +476,8 @@ function syncMuteButtons() {
   const mb = document.getElementById("mob-mute-btn");
   if (hb) hb.textContent = muted ? `🔇 [${mKey}]` : `🔊 [${mKey}]`;
   if (mb) mb.textContent = muted ? "🔇" : "🔊";
+  const vb = document.getElementById("vs-mute-btn");
+  if (vb) vb.textContent = muted ? "🔇" : "🔊";
 }
 
 window.setGamepadConnectedUI = function(connected) {
@@ -497,8 +520,8 @@ window.updateTouchJoystickUI = function(touch) {
     joy.classList.add("fixed-pad");
     joy.style.top = "auto";
     const ltEl = document.getElementById("hud-lower-third");
-    const ltH = (ltEl && ltEl.offsetHeight) ? ltEl.offsetHeight : 128;
-    joy.style.bottom = `${ltH + 12}px`;
+    const ltH = (ltEl && ltEl.offsetHeight) ? ltEl.offsetHeight : 0;
+    joy.style.bottom = `calc(${ltH + 28}px + env(safe-area-inset-bottom, 0px))`;
     if (c.touchMode === "fixedLeft") {
       joy.style.left = "16px";
       joy.style.right = "auto";
@@ -842,6 +865,7 @@ function updateHUD() {
   if (stats.hasGlasses) badges.push(`<span class="perk-badge passive">👓</span>`);
   const loadoutEl = document.getElementById("hud-loadout");
   const html = badges.join("");
+  updateCleanHUD();
   if (loadoutEl.dataset.prev !== html) {
     loadoutEl.innerHTML = html;
     loadoutEl.dataset.prev = html;
@@ -849,6 +873,30 @@ function updateHUD() {
 
   updateContextAndRadar();
 }
+
+// Clean screen HUD: only the essentials, Vampire Survivors-style.
+function updateCleanHUD() {
+  const hudEl = document.getElementById("vs-hud");
+  if (!hudEl || !stats || !meta) return;
+  hudEl.classList.toggle("hidden", !!titleOpen);
+  const xpPct = Math.max(0, Math.min(100, (xp / xpNeeded) * 100));
+  document.getElementById("vs-xp-fill").style.width = `${xpPct}%`;
+  document.getElementById("vs-lv").textContent = `LV ${level}`;
+  document.getElementById("vs-age").textContent = `AGE ${Math.floor(currentAge)}`;
+  const yearPct = Math.max(0, Math.min(100, (currentAge - Math.floor(currentAge)) * 100));
+  document.getElementById("vs-year-fill").style.width = `${yearPct}%`;
+  document.getElementById("vs-coins").textContent = `🪙 ${meta.coins}k`;
+  const icons = [stats.coldBrew ? "⚡" : "☕"];
+  if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
+  if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");
+  if (stats.hasShoes) icons.push("👟");
+  if (stats.hasSleep) icons.push("😴");
+  if (stats.hasGlasses) icons.push("👓");
+  const lo = document.getElementById("vs-loadout");
+  const loHtml = icons.map(i => `<span>${i}</span>`).join("");
+  if (lo.dataset.prev !== loHtml) { lo.innerHTML = loHtml; lo.dataset.prev = loHtml; }
+}
+window.updateCleanHUD = updateCleanHUD;
 
 function showBossToastUI(bossName, customSub) {
   const toast = document.getElementById("boss-toast");

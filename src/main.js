@@ -218,6 +218,22 @@ function create() {
     fontFamily: "monospace", fontSize: "14px", color: "#e8e9f3"
   }).setOrigin(0.5, 1).setDepth(6);
 
+  // 3b. Clean screen HUD: a small HP bar that rides under the player (Vampire Survivors style),
+  //     redrawn after every frame. The top HUD (age, XP) also refreshes here about 10x a second.
+  const hpBar = this.add.graphics().setDepth(7);
+  let hudTick = 0;
+  this.events.on("postupdate", (t, dt) => {
+    hpBar.clear();
+    if (!player || !stats || titleOpen) return;
+    const w = 36, h = 5;
+    const x = player.x - w / 2, y = player.y + player.displayHeight / 2 + 4;
+    const pct = Phaser.Math.Clamp(hp / stats.maxHp, 0, 1);
+    hpBar.fillStyle(0x0a0c18, 0.9).fillRect(x - 1, y - 1, w + 2, h + 2);
+    hpBar.fillStyle(pct > 0.35 ? 0xd9383a : 0xff2d2d, 1).fillRect(x, y, w * pct, h);
+    hudTick += dt;
+    if (hudTick > 100 && typeof updateCleanHUD === "function") { hudTick = 0; updateCleanHUD(); }
+  });
+
   // 4. The camera follows the player, like a photographer tracking a subject.
   this.cameras.main.startFollow(player, true, 0.12, 0.12);
 

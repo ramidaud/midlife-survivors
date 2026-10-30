@@ -347,3 +347,20 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - **Mobile Portrait (`@media (max-width: 768px)`):** Compacts the Broadcast Lower-Third Console (`<22%` screen height) with `.hud-left` and `.hud-right` side-by-side above a sleek full-width `.hud-center` timeline/radar, keeps the 3 Subject Cards in a compact 3-column row on the Title Screen, and enables `touch-action: pan-y` on `.modal-card` so tall menus swipe-scroll smoothly on mobile.
   - **Mobile Landscape (`@media (max-height: 520px)`):** Keeps the Lower-Third in a single low-profile horizontal row for horizontal phones (`844x390`), and dynamically positions fixed virtual thumbsticks `12px` above `#hud-lower-third.offsetHeight`.
   - Bumped version to **`V. 1.8.22`** (`src/data/version.js` & `?v=20` in `index.html`).
+
+## 2026-10-30: Claude review after the Antigravity sprint (Claude)
+- Played the build at desktop and phone sizes: runs with no errors. Phases 1-5 working, plus 3 camera views, 5 stages, ages 40-100, 13 enemy/boss types, controller support.
+- Biggest issues: UI clutter (HUD covers about a quarter of the screen, the title screen is a long form), scope sprawl (3 render engines, 1,600+ and 1,900-line code files), and the Top 10 mechanics (Blood Sugar, Energy, Errands) aren't built yet.
+- Recommendation: feature freeze, then a "fun pass" on the core loop and a minimal Vampire Survivors-style HUD before new art.
+- Open decisions: run length and age span, one camera view or three, which link is the official playtest (GitHub Pages vs claude.ai).
+
+## 2026-10-30: Decisions locked (Claude)
+- 1 minute per year, Death at 100, more intense levels. 2D only. Errands is the first twist. GitHub Pages is the official playtest. Rami credited, not a character. One objective at a time.
+- New "Fun Pass" list at the top of ROADMAP.md (7 objectives, in order).
+
+## 2026-10-30: Objective 1 done, Clean Screen HUD (V. 1.9.0) (Claude)
+- Hid the bottom lower-third console and mobile dock. New top HUD: full-width XP bar with level, big AGE number with a thin year-progress bar, coins and weapon icons top-left, pause and mute top-right.
+- HP bar now rides under the player, drawn every frame.
+- Parked the 3D views: `window.ENABLE_3D_VIEWS = false`, V key and title buttons no longer switch away from 2D.
+- Tested in a headless browser at laptop and phone sizes: no errors.
+- Next objective: Title screen (pick a character, then start).

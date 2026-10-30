@@ -4,6 +4,14 @@
 
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
+
+## Locked decisions (Oct 30, after the Antigravity sprint)
+- **Run length:** 1 real minute = 1 year. A full life runs 40 to 100, with **Death arriving at 100**. Levels get more intense as you age.
+- **Camera:** 2D only. The Diablo and 3D views are parked (`window.ENABLE_3D_VIEWS = false` in `src/view3d.js`).
+- **First twist mechanic:** Errands.
+- **Official playtest:** GitHub Pages, https://ramidaud.github.io/midlife-survivors/
+- **Rami is credited, not a character:** remove "The Senior Photographer" subject and lore references; his name goes in the Credits.
+- **Pace:** slow down, one objective at a time.
 ---
 
 ## 1. The core loop (same spirit as Vampire Survivors)

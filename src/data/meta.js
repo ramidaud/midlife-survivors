@@ -116,6 +116,17 @@ window.formatPadButton = function(idx) {
   return window.PAD_BUTTON_NAMES[idx] || `Button ${idx}`;
 };
 
+// Default Accessibility Configuration (Saved in localStorage)
+window.DEFAULT_ACCESSIBILITY = {
+  textScale: "normal",       // "normal" (100%) | "large" (115%) | "xl" (130%)
+  highContrast: false,       // High-contrast solid dark panels + clean sans-serif display font
+  colorblindMode: "none",    // "none" | "highVis" | "deuteranopia" | "tritanopia"
+  screenShake: 1.0,          // 1.0 (100% Full) | 0.5 (50% Gentle) | 0.0 (OFF - No Shake/Flash)
+  gameSpeed: 1.0,            // 1.0 (100% Normal) | 0.85 (85% Relaxed) | 0.7 (70% Story) | 0.5 (50% Slow-Mo)
+  autoMagnet: "standard",    // "standard" | "wide" (2x Range) | "auto" (Full-Screen Auto-Collect)
+  largeCaptions: false       // Enlarged Dad Joke speech bubbles + visual audio alerts
+};
+
 const SAVE_KEY = "midlife_survivors_save_v1";
 const RUN_SAVE_KEY = "midlife_survivors_active_run_v1";
 
@@ -133,7 +144,8 @@ function loadMeta() {
         unlockedDecades: parsed.unlockedDecades || [40],
         startDecade: parsed.startDecade || 40,
         selectedStage: parsed.selectedStage || "auto",
-        controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {})
+        controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {}),
+        accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {})
       };
     }
   } catch (e) {}
@@ -146,7 +158,8 @@ function loadMeta() {
     unlockedDecades: [40],
     startDecade: 40,
     selectedStage: "auto",
-    controls: Object.assign({}, window.DEFAULT_CONTROLS)
+    controls: Object.assign({}, window.DEFAULT_CONTROLS),
+    accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY)
   };
 }
 

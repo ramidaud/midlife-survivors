@@ -1003,3 +1003,25 @@ A mobile player might hold their phone **vertically in Portrait (`390x844`)**, *
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**
+
+---
+
+## Chapter: The clean screen (V. 1.9.0)
+
+Before, a console covered the bottom quarter of the screen. Now the play area gets almost all of it.
+
+```
+┌──────────────────────────────────────────────┐
+│████████████ XP BAR ████████████░░░░░░  LV 3 │  <- fills as you grab Wisdom gems
+│ 🪙 12k            AGE 47            ⏸  🔊   │  <- coins, age, pause/mute
+│ ☕ 😂 👟          ▬▬▬▬░░             (taps)   │  <- your loadout, this year's progress
+│                                              │
+│                  You (47)                    │
+│                    🧍                         │
+│                   ▬▬▬▬                       │  <- HP bar rides under you
+│        $ BILL             TEL                │
+│                                              │
+└──────────────────────────────────────────────┘
+```
+
+**Rule of thumb:** if you don't need it while dodging, it belongs in the pause menu.

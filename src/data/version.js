@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.8.22",
-  displayVersion: "V. 1.8.22",
+  version: "1.9.0",
+  displayVersion: "V. 1.9.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Mobile Responsive Edition",
-  build: 22,
+  codename: "Clean Screen",
+  build: 23,
   changelog: [
+    {
+      ver: "V. 1.9.0",
+      date: "Oct 30, 2026",
+      title: "Clean Screen HUD",
+      highlights: [
+        "Replaced the bottom console with a minimal Vampire Survivors-style HUD: XP bar across the top, age in the middle, coins and loadout top-left, pause and mute top-right.",
+        "Added a small HP bar that rides under your character.",
+        "Parked the 3D camera views; the game stays in 2D for now."
+      ]
+    },
     {
       ver: "V. 1.8.22",
       date: "Oct 30, 2026",
