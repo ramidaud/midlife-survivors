@@ -134,3 +134,13 @@ Every action in gameplay and menus is mapped across **Keyboard**, **Mouse**, **T
 - **🖱️ Mouse:** Configurable Mouse Movement Mode (`Hold Click to Steer`, `Cursor Auto-Follow`, `Click & Drag Stick`, or `UI Menus Only`), Right-Click Action (`Pause/Options`, `Hold to Move`, or `Switch View`), and Scroll Wheel (`Navigate Menus` + `Cycle Visual Engine`).
 - **📱 Touch Screen:** Configurable Touch Stick Style (`Floating Stick`, `Fixed Bottom-Left`, `Fixed Bottom-Right` with auto-swapped left dock, or `Touch & Hold Toward Finger`) and Touch Sensitivity (`Normal 10px`, `High 5px`, `Relaxed 18px`).
 - **🎮 Video Game Controller:** Live controller button listening (`Press any physical controller button` or `◀▶` to cycle `Btn 0..11`) for Confirm, Pause, Switch View, and Mute, plus Analog Stick Deadzone presets (`15% Sensitive`, `22% Standard`, `35% Anti-Drift`).
+
+---
+
+## 8. Broadcast Lower-Third HUD & Contextual Story/Help Engine (`#hud-lower-third`)
+To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) completely clear, the HUD sits at the bottom of the screen like a broadcast documentary **Lower Third**:
+- **Upper Lip (`#hud-context-bar`):** Displays a live **Context Badge (`#ctx-badge`)**, a second-person **Story Caption (`#ctx-story`)**, and an actionable **In-Game Help Tip (`#ctx-help`)** that react dynamically to on-screen events (Boss arrivals/defeats, low HP, Sugar Crash slowdowns, ringing Spam Calls, uncollected Pizza/Bonus Chests, Mezzanine high ground, Overdue Bill splits, and Life Chapter stories).
+- **Main Lower-Third Console (`.lower-third-deck`):**
+  1. **Bottom-Left Pod (`.hud-left`):** Employee ID Avatar, Department, Archetype, `LV` badge, side-by-side compact `HP` & `XP` bars, and active Weapon/Passive badges.
+  2. **Bottom-Center Pod (`.hud-center`):** Life Chapter & Decade Timeline (`40 -> 80 / 100`) plus a live **On-Screen Situational Radar (`#hud-radar-row`)** showing active threat counts, Boss HP, nearby smashable plants/loot, and the next milestone countdown.
+  3. **Bottom-Right Pod (`.hud-right`):** `🪙 401(k)` balance, `💾 SAVED`, `🎮 PAD` indicator, `[V]` Visual Engine switcher, and `⏸ PAUSE`, `🎮 INPUT`, `🔊 MUTE` buttons.

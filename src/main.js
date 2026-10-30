@@ -885,6 +885,15 @@ function damageBill(bill, amount) {
         fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
       }).setOrigin(0.5).setDepth(4);
       for (let i = -2; i <= 2; i++) coins.create(bill.x + i * 10, bill.y + 14, "coin401k").setDepth(3);
+      if (window.pushContextEvent) {
+        window.pushContextEvent(
+          "🏆 BOSS DEFEATED!",
+          `"You survived ${E.name}! A gold Executive Bonus Chest and 5x 401(k) Coins just dropped!"`,
+          "💡 HELP: Walk over the gold BONUS Chest on the floor to claim your free promotion reward!",
+          "loot",
+          5000
+        );
+      }
     } else if (bill.kind === "officeGossip") {
       // Elite Reply-All Chain drops 3 Wisdom gems, 2 401(k) Coins, AND splits into 2 fast Late Fees!
       for (let i = -1; i <= 1; i++) gems.create(bill.x + i * 10, bill.y, "gem").setDepth(3);
@@ -940,13 +949,40 @@ function damagePlant(prop, amount) {
     if (roll < 0.45) {
       window.pizzas.create(prop.x, prop.y, "pizza").setDepth(3);
       popupTxt = "🍕 PIZZA!";
+      if (window.pushContextEvent) {
+        window.pushContextEvent(
+          "🍕 BREAKROOM STASH!",
+          '"You cracked open a potted fern and found a warm slice of Leftover Breakroom Pizza!"',
+          "💡 HELP: Walk over the Pizza slice to restore +3 HP immediately!",
+          "loot",
+          3600
+        );
+      }
     } else if (roll < 0.85) {
       coins.create(prop.x, prop.y, "coin401k").setDepth(3);
+      if (window.pushContextEvent) {
+        window.pushContextEvent(
+          "🪴 PETTY CASH FOUND!",
+          '"Someone hid a gold 401(k) Coin inside the potted plant soil!"',
+          "💡 HELP: Gold 401(k) Coins are saved permanently for the Title Screen Retirement Shop.",
+          "loot",
+          3200
+        );
+      }
     } else {
       coins.create(prop.x - 8, prop.y, "coin401k").setDepth(3);
       coins.create(prop.x + 8, prop.y, "coin401k").setDepth(3);
       gems.create(prop.x, prop.y - 6, "gem").setDepth(3);
       popupTxt = "🪙 BONUS 401(k)!";
+      if (window.pushContextEvent) {
+        window.pushContextEvent(
+          "🎰 EXECUTIVE STASH!",
+          '"Jackpot! That potted fern was hiding 2x 401(k) Coins and a bonus Wisdom Gem!"',
+          "💡 HELP: Keep cracking open green Potted Plants whenever you pass a new desk cluster.",
+          "loot",
+          3600
+        );
+      }
     }
     const pt = project3DToPhaserWorld(sc, prop.x, 32, prop.y);
     const msg = sc.add.text(pt.x, pt.y - 12, popupTxt, {
@@ -1155,6 +1191,15 @@ function spawnBoss(scene, bossKind) {
   }).setOrigin(0.5).setDepth(5);
 
   showBossToastUI(P.name);
+  if (window.pushContextEvent) {
+    window.pushContextEvent(
+      "🚨 BOSS ARRIVED!",
+      `"Calendar Alert: ${P.name} (${P.hp} HP) just entered the arena!"`,
+      "💡 HELP: Keep moving in wide circles around desks! Defeating a Boss drops a gold Bonus Chest + 5 Coins.",
+      "urgent",
+      5500
+    );
+  }
 }
 
 // update() runs about 60 TIMES PER SECOND: this is the game loop.
@@ -1214,6 +1259,15 @@ function update(time, delta) {
       if (floor) floor.setTint(stageTints[currentStageId] || 0xffffff);
       if (runElapsedMs > 500 && prevId) {
         showBossToastUI(`${activeStage.name}`, `NEW LIFE CHAPTER UNLOCKED // ${activeStage.chapter}`);
+        if (window.pushContextEvent) {
+          window.pushContextEvent(
+            `🌟 ${activeStage.name.toUpperCase()}`,
+            `"New Life Chapter Unlocked: ${activeStage.tagline}"`,
+            `💡 HELP: You unlocked ${activeStage.name}! You can now also select it directly on the Title Dossier.`,
+            "loot",
+            5200
+          );
+        }
       }
     }
   }
@@ -1390,6 +1444,15 @@ function update(time, delta) {
       bill.tag.destroy(); bill.destroy();
       createEnemy(this, "lateFee", bx - 14, by - 10);
       createEnemy(this, "lateFee", bx + 14, by + 10);
+      if (window.pushContextEvent) {
+        window.pushContextEvent(
+          "💸 OVERDUE SPLIT!",
+          '"An unpaid Bill sat on the floor for 9 seconds and split into two fast red Late Fees!"',
+          "💡 HELP: Pay off green Bills early before their 9-second overdue timer runs out!",
+          "urgent",
+          3400
+        );
+      }
       return;
     }
 

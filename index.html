@@ -60,10 +60,96 @@
 
   .hidden { display: none !important; }
 
-  /* TOP HUD ROW */
-  .hud-top {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    gap: 12px; padding: 12px 16px; width: 100%;
+  /* =========================================================================
+     BROADCAST LOWER-THIRD HUD CONSOLE & CONTEXTUAL STORY/HELP TICKER
+     Anchored at the bottom of the viewport so the top 82% of the screen
+     (and the 3D horizon skyline!) stays completely unobstructed.
+     ========================================================================= */
+  .hud-lower-third {
+    margin-top: auto;
+    align-self: center;
+    width: min(1220px, 98vw);
+    padding: 0 6px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 12;
+  }
+
+  /* Upper Lip of Lower Third: Contextual Story & In-Game Help Ticker */
+  .context-ticker {
+    background: rgba(10, 13, 28, 0.94);
+    border: 2px solid var(--border-col);
+    border-radius: var(--pod-radius);
+    box-shadow: var(--pod-shadow);
+    backdrop-filter: blur(8px);
+    transform: skewX(var(--pod-skew));
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    pointer-events: auto;
+    transition: border-color 0.22s ease, box-shadow 0.22s ease;
+  }
+  .context-ticker.ctx-urgent {
+    border-color: #ff4757;
+    box-shadow: 0 0 18px rgba(255, 71, 87, 0.45);
+  }
+  .context-ticker.ctx-loot {
+    border-color: #52bf6a;
+    box-shadow: 0 0 18px rgba(82, 191, 106, 0.4);
+  }
+  .ctx-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1.25;
+    min-width: 0;
+  }
+  .ctx-badge {
+    font-family: var(--font-head);
+    font-size: 9px;
+    color: #0d1021;
+    background: var(--accent);
+    padding: 4px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+  .context-ticker.ctx-urgent .ctx-badge { background: #ff4757; color: #ffffff; }
+  .context-ticker.ctx-loot .ctx-badge { background: #52bf6a; color: #0d1021; }
+
+  .ctx-story {
+    font-size: 12px;
+    color: var(--text-main);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ctx-help {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    flex: 1;
+    text-align: right;
+    line-height: 1.25;
+  }
+
+  /* Main 3-Module Lower-Third Deck */
+  .lower-third-deck {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
   }
   .hud-pod {
     background: var(--bg-pod);
@@ -72,31 +158,37 @@
     box-shadow: var(--pod-shadow);
     backdrop-filter: blur(8px);
     transform: skewX(var(--pod-skew));
-    padding: 8px 12px;
+    padding: 7px 12px;
     pointer-events: auto;
     transition: all 0.22s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* Top-Left Employee ID Pod */
-  .hud-left { min-width: 245px; max-width: 290px; }
-  .id-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  /* Left Pod: Employee ID, HP/XP Bars & Active Perks */
+  .hud-left { min-width: 260px; max-width: 315px; flex: 1; }
+  .id-header { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
   .id-avatar {
-    width: 34px; height: 34px; border-radius: 6px;
+    width: 30px; height: 30px; border-radius: 6px;
     background: rgba(255,255,255,0.08); border: 1.5px solid var(--border-col);
-    display: flex; align-items: center; justify-content: center; font-size: 19px;
+    display: flex; align-items: center; justify-content: center; font-size: 17px;
   }
-  .id-titles { flex: 1; line-height: 1.15; }
+  .id-titles { flex: 1; line-height: 1.1; }
   .id-dept { font-size: 9px; color: var(--accent); letter-spacing: 0.6px; font-weight: 700; }
-  .id-name { font-size: 13px; color: var(--text-main); font-weight: 700; }
+  .id-name { font-size: 12px; color: var(--text-main); font-weight: 700; }
   .id-lv {
-    font-family: var(--font-head); font-size: 11px; color: #12152a;
-    background: var(--accent); padding: 4px 7px; border-radius: 4px; font-weight: 700;
+    font-family: var(--font-head); font-size: 10px; color: #12152a;
+    background: var(--accent); padding: 3px 6px; border-radius: 4px; font-weight: 700;
   }
 
-  .bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
-  .bar-label { font-size: 10px; font-weight: 700; width: 22px; color: var(--text-muted); }
+  .bars-compact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 3px;
+  }
+  .bar-row { display: flex; align-items: center; gap: 4px; }
+  .bar-label { font-size: 9px; font-weight: 700; width: 18px; color: var(--text-muted); }
   .bar-track {
-    flex: 1; height: 14px; background: rgba(6, 8, 18, 0.85);
+    flex: 1; height: 13px; background: rgba(6, 8, 18, 0.85);
     border: 1px solid rgba(255,255,255,0.2); border-radius: 3px;
     position: relative; overflow: hidden;
   }
@@ -105,58 +197,64 @@
   .xp-fill { background: var(--xp-grad); }
   .bar-text {
     position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    font-size: 10px; font-weight: 700; color: #ffffff; text-shadow: 0 1px 2px #000;
+    font-size: 9px; font-weight: 700; color: #ffffff; text-shadow: 0 1px 2px #000;
   }
 
-  .loadout-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .loadout-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
   .perk-badge {
-    font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+    font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px;
     background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.2); color: var(--text-main);
   }
 
-  /* Top-Center Decade Timeline */
-  .hud-center { flex: 1; max-width: 440px; padding: 8px 14px 18px; }
-  .timeline-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-  .timeline-title { font-size: 10px; color: var(--text-muted); letter-spacing: 0.8px; font-weight: 700; }
+  /* Center Pod: Life Chapter Timeline + On-Screen Situational Radar */
+  .hud-center { flex: 1.5; padding: 7px 14px 8px; }
+  .timeline-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .timeline-title { font-size: 10px; color: var(--text-muted); letter-spacing: 0.7px; font-weight: 700; }
   .timeline-age { font-family: var(--font-head); font-size: 12px; color: var(--accent); }
   .timeline-track {
-    height: 10px; background: rgba(6, 8, 18, 0.9); border: 1px solid var(--border-col);
-    border-radius: 5px; position: relative;
+    height: 9px; background: rgba(6, 8, 18, 0.9); border: 1px solid var(--border-col);
+    border-radius: 5px; position: relative; margin-bottom: 14px;
   }
   .timeline-fill {
     height: 100%; background: linear-gradient(90deg, #f0a24f, #ffe042);
     border-radius: 4px; transition: width 0.2s linear;
   }
   .milestone {
-    position: absolute; top: 11px; transform: translateX(-50%);
+    position: absolute; top: 10px; transform: translateX(-50%);
     font-size: 9px; color: var(--text-muted); font-weight: 700; white-space: nowrap;
   }
   .milestone.boss-pip { color: #ff8a82; }
   .milestone.win-pip { color: #ffe042; }
+  .radar-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+    font-size: 10px; font-weight: 700; color: #cbd4f0;
+    border-top: 1px solid rgba(255,255,255,0.12); padding-top: 4px;
+  }
+  .radar-row b { color: var(--accent); }
 
-  /* Top-Right 401(k) & Camera Switcher */
-  .hud-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  /* Right Pod: 401(k) Ticker, Camera Switcher & Quick Controls */
+  .hud-right { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 4px; }
   .coin-pill {
     display: flex; align-items: center; gap: 5px;
-    font-size: 13px; font-weight: 700; color: var(--accent);
+    font-size: 12px; font-weight: 700; color: var(--accent);
   }
   .style-pill {
     display: flex; align-items: center; gap: 3px;
-    background: rgba(0,0,0,0.45); padding: 3px; border-radius: 5px;
+    background: rgba(0,0,0,0.45); padding: 2px; border-radius: 5px;
     border: 1px solid rgba(255,255,255,0.18);
   }
   .style-key { font-size: 10px; color: var(--accent); padding: 0 4px; font-weight: 700; }
   .style-opt {
     background: transparent; border: none; color: var(--text-muted);
     font-family: var(--font-body); font-size: 10px; font-weight: 700;
-    padding: 4px 7px; border-radius: 3px; cursor: pointer;
+    padding: 3px 6px; border-radius: 3px; cursor: pointer;
   }
   .style-opt.active { background: var(--border-col); color: #0d1021; }
-  .util-btns { display: flex; gap: 6px; }
+  .util-btns { display: flex; gap: 5px; }
   .util-btn {
     background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.28);
-    color: var(--text-main); font-family: var(--font-body); font-size: 12px; font-weight: 700;
-    padding: 6px 11px; min-height: 34px; border-radius: 5px; cursor: pointer;
+    color: var(--text-main); font-family: var(--font-body); font-size: 11px; font-weight: 700;
+    padding: 4px 9px; min-height: 30px; border-radius: 5px; cursor: pointer;
     touch-action: manipulation;
   }
   .util-btn:hover { border-color: var(--accent); color: var(--accent); }
@@ -201,14 +299,14 @@
 
   /* MOBILE FLOATING QUICK-CONTROLS & VIRTUAL TOUCH JOYSTICK */
   .mobile-dock {
-    position: fixed; bottom: 16px; right: 16px; z-index: 20;
-    display: flex; gap: 8px; pointer-events: auto;
+    position: fixed; top: 12px; right: 12px; z-index: 20;
+    display: none; gap: 6px; pointer-events: auto;
   }
   .mob-fab {
     background: var(--bg-pod); border: 2px solid var(--border-col);
     color: var(--text-main); border-radius: 999px;
-    font-family: var(--font-body); font-size: 13px; font-weight: 700;
-    padding: 10px 14px; min-height: 44px; min-width: 44px;
+    font-family: var(--font-body); font-size: 12px; font-weight: 700;
+    padding: 8px 12px; min-height: 40px; min-width: 40px;
     display: flex; align-items: center; justify-content: center; gap: 5px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.6); backdrop-filter: blur(6px);
     cursor: pointer; touch-action: manipulation;
@@ -232,7 +330,7 @@
     background: rgba(255, 224, 66, 0.85); box-shadow: 0 0 12px rgba(255, 224, 66, 0.8);
   }
   .mobile-dock.dock-left {
-    right: auto; left: 16px;
+    right: auto; left: 12px;
   }
   .pointer-target {
     position: fixed; width: 28px; height: 28px; margin-left: -14px; margin-top: -14px;
@@ -442,10 +540,14 @@
     to   { opacity: 1; transform: scale(1) skewX(var(--pod-skew)); }
   }
   @media (max-width: 768px) {
-    .hud-top { flex-wrap: wrap; gap: 6px; padding: 8px 10px; }
-    .hud-left { min-width: 175px; flex: 1; padding: 6px 8px; }
-    .hud-center { order: 3; width: 100%; max-width: 100%; flex-basis: 100%; padding: 6px 10px 14px; }
-    .hud-right { padding: 6px 8px; }
+    .mobile-dock { display: flex; }
+    .hud-lower-third { padding: 0 6px 6px; gap: 4px; }
+    .context-ticker { flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 8px; }
+    .ctx-help { width: 100%; text-align: left; }
+    .lower-third-deck { flex-wrap: wrap; gap: 5px; }
+    .hud-left { min-width: 170px; flex: 1; padding: 5px 8px; }
+    .hud-center { order: 3; width: 100%; max-width: 100%; flex-basis: 100%; padding: 5px 8px; }
+    .hud-right { padding: 5px 8px; }
     .style-pill { display: none; }
     .perk-cards-grid, .dossier-chars-grid, .controls-grid { grid-template-columns: 1fr; }
     .perk-card { min-height: auto; flex-direction: row; gap: 10px; text-align: left; padding: 10px; }
@@ -459,17 +561,17 @@
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/player.js?v=15"></script>
-<script src="src/data/stages.js?v=15"></script>
-<script src="src/data/enemies.js?v=15"></script>
-<script src="src/data/weapons.js?v=15"></script>
-<script src="src/data/deaths.js?v=15"></script>
-<script src="src/data/pickups.js?v=15"></script>
-<script src="src/data/upgrades.js?v=15"></script>
-<script src="src/data/meta.js?v=15"></script>
-<script src="src/data/sounds.js?v=15"></script>
-<script src="src/sfx.js?v=15"></script>
-<script src="src/sprites.js?v=15"></script>
-<script src="src/view3d.js?v=15"></script>
-<script src="src/ui.js?v=15"></script>
-<script src="src/main.js?v=15"></script>
+<script src="src/data/player.js?v=16"></script>
+<script src="src/data/stages.js?v=16"></script>
+<script src="src/data/enemies.js?v=16"></script>
+<script src="src/data/weapons.js?v=16"></script>
+<script src="src/data/deaths.js?v=16"></script>
+<script src="src/data/pickups.js?v=16"></script>
+<script src="src/data/upgrades.js?v=16"></script>
+<script src="src/data/meta.js?v=16"></script>
+<script src="src/data/sounds.js?v=16"></script>
+<script src="src/sfx.js?v=16"></script>
+<script src="src/sprites.js?v=16"></script>
+<script src="src/view3d.js?v=16"></script>
+<script src="src/ui.js?v=16"></script>
+<script src="src/main.js?v=16"></script>

@@ -294,3 +294,16 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   2. **🖱️ Mouse:** Added full desktop mouse movement and button mapping: **Hold Click to Steer** (`holdFollow` ARPG mode with an on-screen `#pointer-target` reticle), **Cursor Auto-Follow** (`cursorFollow` hands-free mode), **Click & Drag Stick** (`clickDrag`), **Right-Click Action** (`Pause/Options`, `Hold to Move`, or `Switch View`), and **Mouse Wheel** (scrolls menu focus or cycles `16-Bit` / `Diablo 3/4` / `AAA 3D` in gameplay).
   3. **📱 Touch Screen:** Added **4 Touch Stick Modes** (`Floating Stick`, `Fixed Bottom-Left Stick`, `Fixed Bottom-Right Stick` with automatic left-side action dock swap, and `Touch & Hold Toward Finger`) plus **3 Touch Sensitivity presets** (`Normal 10px`, `High 5px`, `Relaxed 18px`).
   4. **🎮 Video Game Controller:** Added live controller button listening (`window.rebindState.type === "pad"` captures any physical button `0..11` pressed on an Xbox, PlayStation, Switch, or Bluetooth controller, or cycles with `◀▶`) for `Confirm`, `Pause`, `Switch View`, and `Mute`, plus configurable **Analog Stick Deadzone** (`15%`, `22%`, `35%`).
+
+## 2026-10-30: Broadcast Lower-Third HUD & Live Contextual Story/Help Ticker! (Antigravity)
+- **Relocated the HUD to a Bottom Broadcast Lower-Third Console (`#hud-lower-third` in `index.html` & `src/ui.js`):**
+  - Moved the entire gameplay HUD to the bottom of the screen (`margin-top: auto; width: min(1220px, 98vw)`), keeping the upper 82% of the viewport and the 3D skyscraper skyline, sunset sun, and action arena completely unobstructed.
+  - Designed a 2-tier broadcast lower-third architecture:
+    1. **Upper Lip (Live Contextual Story & In-Game Help Ticker `#hud-context-bar`):** Displays a dynamic category badge (`#ctx-badge`: `🚨 BOSS ALERT`, `🚨 CRITICAL`, `🎁 BONUS LOOT`, `🍕 RECOVERY`, `🍩 HAZARD`, `⛰️ HIGH GROUND`, `📖 CHAPTER`), a narrative storytelling beat (`#ctx-story`), and a yellow actionable tactical tip (`#ctx-help`).
+    2. **Main Deck (3-Module Lower-Third Console `.lower-third-deck`):**
+       - **Left Module (`hud-left`):** Employee Avatar Badge + Compact side-by-side `HP` & `XP` bars (`.bars-compact-grid`) + Active Perks Strip (`#hud-perks`).
+       - **Center Module (`hud-center`):** Life Timeline (`AGE 40.0` to `AGE 100.0`) + **`👀 ON SCREEN` Situational Radar (`#hud-radar-row`)** showing live enemy counts, nearby hazards, uncollected loot, and the next milestone countdown.
+       - **Right Module (`hud-right`):** Career Score (`SAVED`), Debt Paid (`PAID`), Combo Badge, Action Controls (`⏸ PAUSE`, `🎮 INPUT`, `🔊`), and 3-Mode View Switcher (`16-Bit` / `Diablo 3/4` / `AAA 3D`).
+- **Built the Contextual Storytelling & In-Game Help Engine (`updateContextAndRadar` & `window.pushContextEvent` in `src/ui.js` & `src/main.js`):**
+  - Continuously scans on-screen entities (`bills`, `chests`, `window.pizzas`, `stageProps`, `hp`, `player.elev`) to surface real-time help for whatever is happening on screen right now, and rotates through chapter-specific narrative & help beats (`STAGE_NARRATIVES`) for all 5 Life Stages (`office`, `hospital`, `home`, `social`, `senior`).
+  - Hooked instant event overrides (`window.pushContextEvent`) into Boss arrivals, Boss defeats, Potted Plant loot drops, Overdue Bill splits, and New Life Chapter transitions.

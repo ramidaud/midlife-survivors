@@ -810,6 +810,48 @@ When you select a Keyboard or Controller binding row in `#controls-modal`, `wind
 
 ---
 
+## Chapter 31: Broadcast Lower-Third UI & Contextual Narrative Engines (`#hud-lower-third`)
+
+### 1. Why Move the HUD to a Broadcast Lower Third?
+In TV broadcasts, documentaries, and modern narrative action games, a **Lower Third** places all telemetry and commentary in the bottom 18% of the frame. In *Midlife Survivors*, moving the HUD from the top to `.hud-lower-third` solves two big problems at once:
+1. **Unobstructed 3D Horizon & Up-Field Vision:** In `AAA 3D` and `Diablo 3/4` modes, enemies approach from the upper half of the screen and the 3D skyline sits at the top. A bottom console keeps the upper 82% of the viewport completely clear.
+2. **Live Storytelling + In-Game Help in One Peripheral Eye-Line:** By pairing a **Contextual Story & Help Ticker (`#hud-context-bar`)** on the top lip of the lower third with a **Situational Radar (`#hud-radar-row`)** inside the center module, the game teaches its mechanics and tells your midlife story in real time as events unfold on screen.
+
+```
+===========================================================================================
+                 BROADCAST LOWER-THIRD HUD & CONTEXTUAL STORY ENGINE
+===========================================================================================
+  ┌─────────────────────────────────────────────────────────────────────────────────────┐
+  │                        82% UNOBSTRUCTED 3D / ISOMETRIC ARENA                        │
+  │               (Skyscrapers, Horizon Sun, Floating Clouds & Action)                  │
+  ├─────────────────────────────────────────────────────────────────────────────────────┤
+  │ [📖 CHAPTER 1]  "Another Monday in the cubicle farm..."  │ 💡 TIP: Crack Plants...  │ ◄─ Upper Lip: Context Ticker
+  ├───────────────────────────┬──────────────────────────────┬──────────────────────────┤
+  │ [👔] ACTUARY LV.1         │ 🏢 OFFICE  AGE 42.4 / 80.0   │ SAVED $420   PAID 18     │ ◄─ Main Lower-Third Deck
+  │ ❤️ HP [█████] ⭐ XP [███] │ [──────────●───────────────] │ [⏸ PAUSE] [🎮] [🔊]      │
+  │ [☕2] [🏷️1] [🪴1]         │ 👀 4 Threats • 🪴 3 Plants   │ [16-Bit][Diablo][AAA 3D] │
+  └───────────────────────────┴──────────────────────────────┴──────────────────────────┘
+===========================================================================================
+```
+
+### 2. Priority Queue for Contextual Story & Help (`updateContextAndRadar`)
+Every HUD update, `updateContextAndRadar()` in `src/ui.js` evaluates what is happening on screen using a 10-tier priority cascade:
+
+| Priority | Condition Checked | Badge | Contextual Story & In-Game Help |
+|---|---|---|---|
+| **1. Event Override** | `window.pushContextEvent(...)` active | Custom (`🚨 BOSS`, `🌱 LOOT`, `🎓 CHAPTER`) | Instant feedback when a Boss spawns/dies, a Plant drops loot, or a Bill splits |
+| **2. Critical Vitals** | `hp / maxHp <= 0.34` | `🚨 CRITICAL` | Warns that burnout is imminent and directs you to Pizza slices or Potted Plants |
+| **3. Active Boss** | `bossCount > 0` | `🚨 BOSS ALERT` | Names the active Boss (`THE AUDIT` or `THE MORTGAGE`) and advises kiting around desks |
+| **4. Unclaimed Chest** | `chests.length > 0` | `🎁 BONUS LOOT` | Alerts you to walk over the golden chest for a free perk upgrade + `$100` |
+| **5. Floor Pizza** | `window.pizzas.length > 0` | `🍕 RECOVERY` | Guides you to the warm pizza slice for `+25 HP` |
+| **6. Sugar Crash** | `player.slowTimer > 0` | `🍩 SUGAR CRASH` | Explains the 55% Frosting Glaze slowdown and warns to dodge pink rings |
+| **7. Spam Call** | `spamCount > 0` | `📞 SPAM CALL` | Warns about expanding Robo-Ring shockwaves |
+| **8. High Ground** | `player.elev > 15` | `⛰️ HIGH GROUND` | Celebrates climbing the Mezzanine (`+25%` Bonus Damage & Throw Range) |
+| **9. Elite Threats** | `replyAllCount > 0` or `sciaticaCount > 0` | `📨 ELITE THREAT` | Explains Reply-All paper-clip bursts or Sciatica pincer flanks |
+| **10. Stage Story** | Default (rotates every `6.5s`) | `📖 CHAPTER` | Cycles through 4 stage-specific story & help beats in `STAGE_NARRATIVES` |
+
+---
+
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

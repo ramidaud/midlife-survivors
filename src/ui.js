@@ -196,75 +196,7 @@ function initGameUI(scene) {
   if (!root) return;
 
   root.innerHTML = `
-    <!-- TOP HUD BAR (3 Peripheral Zones) -->
-    <div class="hud-top">
-      <!-- Zone 1: Top-Left Employee ID & Vitality Pod -->
-      <div class="hud-pod hud-left">
-        <div class="id-header">
-          <div class="id-avatar" id="hud-avatar">☕</div>
-          <div class="id-titles">
-            <div class="id-dept" id="hud-dept">CORP-OS v1.98</div>
-            <div class="id-name" id="hud-charname">The 9-to-5er</div>
-          </div>
-          <div class="id-lv" id="hud-lv">LV 1</div>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">HP</span>
-          <div class="bar-track hp-track">
-            <div class="bar-fill hp-fill" id="hud-hp-fill" style="width:100%"></div>
-            <span class="bar-text" id="hud-hp-text">12 / 12</span>
-          </div>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">XP</span>
-          <div class="bar-track xp-track">
-            <div class="bar-fill xp-fill" id="hud-xp-fill" style="width:0%"></div>
-            <span class="bar-text" id="hud-xp-text">0 / 3</span>
-          </div>
-        </div>
-        <div class="loadout-row" id="hud-loadout"></div>
-      </div>
-
-      <!-- Zone 2: Top-Center Life & Senior Timeline (Age 40 -> 80 + Bonus 80 -> 100) -->
-      <div class="hud-pod hud-center">
-        <div class="timeline-header">
-          <span class="timeline-title" id="hud-timeline-title">CAREER TIMELINE (GOAL: AGE 80)</span>
-          <span class="timeline-age" id="hud-age">AGE 40.0</span>
-        </div>
-        <div class="timeline-track" id="hud-timeline-track">
-          <div class="timeline-fill" id="hud-age-fill" style="width:0%"></div>
-          <div class="milestone" style="left:0%"><span>40</span></div>
-          <div class="milestone boss-pip" style="left:25%" title="Age 50: Silver Fox Era"><span>50 🦊</span></div>
-          <div class="milestone boss-pip" style="left:50%" title="Age 60: Midlife Crisis V8"><span>60 🏎️</span></div>
-          <div class="milestone boss-pip" style="left:75%" title="Age 70: HOA President"><span>70 🏡</span></div>
-          <div class="milestone win-pip" style="left:100%" title="Age 80: Retirement Goal (+Bonus 80-100!)"><span>80 🏆</span></div>
-        </div>
-      </div>
-
-      <!-- Zone 3: Top-Right 401(k) Ticker, Auto-Save Badge & Quick Controls -->
-      <div class="hud-pod hud-right">
-        <div class="coin-pill">
-          <span class="save-dot" id="hud-pad-dot" style="display:none;color:#6fbf73;margin-right:4px;">🎮 PAD</span>
-          <span class="save-dot" id="hud-save-dot" title="Progress Auto-Saved to Browser!">💾 SAVED</span>
-          <span class="coin-icon">🪙</span>
-          <span class="coin-label">401(k):</span>
-          <span class="coin-val" id="hud-coins">0k</span>
-        </div>
-        <div class="style-pill" id="hud-style-pill" title="Press V or tap to switch visual engine!">
-          <span class="style-key" id="hud-view-key">[V]</span>
-          <button class="style-opt" data-idx="0">16-BIT</button>
-          <button class="style-opt" data-idx="1">DIABLO 3/4</button>
-          <button class="style-opt" data-idx="2">AAA 3D</button>
-        </div>
-        <div class="util-btns">
-          <button class="util-btn" id="hud-pause-btn" title="Pause / Options">⏸ PAUSE [Space]</button>
-          <button class="util-btn" id="hud-controls-btn" title="Configure Keyboard, Mouse, Touch & Controller">🎮 INPUT</button>
-          <button class="util-btn" id="hud-mute-btn" title="Mute Audio">🔊 [M]</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- OUTLOOK-STYLE BOSS CALENDAR ALERT TOAST -->
+    <!-- TOP-CENTER OUTLOOK BOSS / CHAPTER CALENDAR ALERT TOAST (Only visible briefly on alerts) -->
     <div class="boss-toast hidden" id="boss-toast">
       <div class="toast-icon">📅</div>
       <div class="toast-body">
@@ -273,7 +205,7 @@ function initGameUI(scene) {
       </div>
     </div>
 
-    <!-- ON-SCREEN VIRTUAL TOUCH JOYSTICK (Floating or Fixed Bottom-Left / Bottom-Right) -->
+    <!-- ON-SCREEN VIRTUAL TOUCH JOYSTICK (Floating or Fixed Above Lower-Third) -->
     <div class="touch-joystick hidden" id="touch-joystick">
       <div class="touch-knob" id="touch-knob"></div>
     </div>
@@ -281,12 +213,102 @@ function initGameUI(scene) {
     <!-- MOUSE / DIRECT-TOUCH STEERING TARGET RETICLE -->
     <div class="pointer-target hidden" id="pointer-target"></div>
 
-    <!-- FLOATING MOBILE QUICK-ACTION DOCK (Thumb-Friendly Pause / Input / Style / Audio) -->
+    <!-- FLOATING MOBILE QUICK-ACTION DOCK (Top corner on mobile screens) -->
     <div class="mobile-dock" id="mobile-dock">
       <button class="mob-fab" id="mob-pause-btn" title="Pause & Options">⏸ PAUSE</button>
       <button class="mob-fab" id="mob-controls-btn" title="Input & Controls">🎮 INPUT</button>
       <button class="mob-fab" id="mob-view-btn" title="Switch 2D / Diablo / 3D">🎥 VIEW</button>
       <button class="mob-fab" id="mob-mute-btn" title="Toggle Sound">🔊</button>
+    </div>
+
+    <!-- =======================================================================
+         BROADCAST LOWER-THIRD HUD CONSOLE (Anchored at Bottom of Screen)
+         1. Upper Lip: Live Contextual Story & In-Game Help Ticker
+         2. Main Deck: Employee Vitals | Life Chapter & On-Screen Radar | 401(k) & Controls
+         ======================================================================= -->
+    <div class="hud-lower-third" id="hud-lower-third">
+      <!-- Upper Lip: Contextual Story & In-Game Help Ticker -->
+      <div class="context-ticker" id="hud-context-bar">
+        <div class="ctx-left">
+          <span class="ctx-badge" id="ctx-badge">📖 CHAPTER 1 // OFFICE</span>
+          <span class="ctx-story" id="ctx-story">"40.0 and caffeinated: the fluorescent lights hum as the Q1 bills start drifting toward your desk."</span>
+        </div>
+        <div class="ctx-help" id="ctx-help">💡 TIP: Weapons fire automatically! Steer around furniture and crack open green Potted Plants for Pizza (+3 HP) & 401(k) Coins.</div>
+      </div>
+
+      <!-- Main Lower-Third 3-Module Console -->
+      <div class="lower-third-deck">
+        <!-- Module 1: Bottom-Left Employee ID, Vitals & Loadout -->
+        <div class="hud-pod hud-left">
+          <div class="id-header">
+            <div class="id-avatar" id="hud-avatar">☕</div>
+            <div class="id-titles">
+              <div class="id-dept" id="hud-dept">CORP-OS v1.98</div>
+              <div class="id-name" id="hud-charname">The 9-to-5er</div>
+            </div>
+            <div class="id-lv" id="hud-lv">LV 1</div>
+          </div>
+          <div class="bars-compact-grid">
+            <div class="bar-row">
+              <span class="bar-label">HP</span>
+              <div class="bar-track hp-track">
+                <div class="bar-fill hp-fill" id="hud-hp-fill" style="width:100%"></div>
+                <span class="bar-text" id="hud-hp-text">12 / 12</span>
+              </div>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">XP</span>
+              <div class="bar-track xp-track">
+                <div class="bar-fill xp-fill" id="hud-xp-fill" style="width:0%"></div>
+                <span class="bar-text" id="hud-xp-text">0 / 8</span>
+              </div>
+            </div>
+          </div>
+          <div class="loadout-row" id="hud-loadout"></div>
+        </div>
+
+        <!-- Module 2: Bottom-Center Life Chapter Timeline & On-Screen Situational Radar -->
+        <div class="hud-pod hud-center">
+          <div class="timeline-header">
+            <span class="timeline-title" id="hud-timeline-title">CAREER TIMELINE (GOAL: AGE 80)</span>
+            <span class="timeline-age" id="hud-age">AGE 40.0</span>
+          </div>
+          <div class="timeline-track" id="hud-timeline-track">
+            <div class="timeline-fill" id="hud-age-fill" style="width:0%"></div>
+            <div class="milestone" style="left:0%"><span>40</span></div>
+            <div class="milestone boss-pip" style="left:25%" title="Age 50: Silver Fox Era"><span>50 🦊</span></div>
+            <div class="milestone boss-pip" style="left:50%" title="Age 60: Midlife Crisis V8"><span>60 🏎️</span></div>
+            <div class="milestone boss-pip" style="left:75%" title="Age 70: HOA President"><span>70 🏡</span></div>
+            <div class="milestone win-pip" style="left:100%" title="Age 80: Retirement Goal (+Bonus 80-100!)"><span>80 🏆</span></div>
+          </div>
+          <div class="radar-row" id="hud-radar-row">
+            <span id="hud-radar-threats">👀 ON SCREEN: 0 Threats</span>
+            <span id="hud-radar-next">🎯 NEXT MILESTONE: Age 45.0 (Performance Review)</span>
+          </div>
+        </div>
+
+        <!-- Module 3: Bottom-Right 401(k) Ticker, Visual Engine Switcher & Utility Controls -->
+        <div class="hud-pod hud-right">
+          <div class="coin-pill">
+            <span class="save-dot" id="hud-pad-dot" style="display:none;color:#6fbf73;margin-right:4px;">🎮 PAD</span>
+            <span class="save-dot" id="hud-save-dot" title="Progress Auto-Saved to Browser!">💾 SAVED</span>
+            <span class="coin-icon">🪙</span>
+            <span class="coin-label">401(k):</span>
+            <span class="coin-val" id="hud-coins">0k</span>
+          </div>
+          <div class="style-pill" id="hud-style-pill" title="Press V or tap to switch visual engine!">
+            <span class="style-key" id="hud-view-key">[V]</span>
+            <button class="style-opt" data-idx="0">16-BIT</button>
+            <button class="style-opt" data-idx="1">DIABLO 3/4</button>
+            <button class="style-opt" data-idx="2">AAA 3D</button>
+          </div>
+          <div class="util-btns">
+            <button class="util-btn" id="hud-pause-btn" title="Pause / Options">⏸ PAUSE [Space]</button>
+            <button class="util-btn" id="hud-controls-btn" title="Configure Keyboard, Mouse, Touch & Controller">🎮 INPUT</button>
+            <button class="util-btn" id="hud-mute-btn" title="Mute Audio">🔊 [M]</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- MODAL 1: LEVEL-UP / HR PERK VOUCHER (3 Collectible Cards) -->
@@ -453,7 +475,7 @@ window.updateTouchJoystickUI = function(touch) {
     joy.classList.remove("hidden");
     joy.classList.add("fixed-pad");
     joy.style.top = "auto";
-    joy.style.bottom = "22px";
+    joy.style.bottom = "138px";
     if (c.touchMode === "fixedLeft") {
       joy.style.left = "22px";
       joy.style.right = "auto";
@@ -485,6 +507,256 @@ window.updateTouchJoystickUI = function(touch) {
   const clamp = dist > maxR ? maxR / dist : 1;
   knob.style.transform = `translate(${touch.dx * clamp}px, ${touch.dy * clamp}px)`;
 };
+
+// ============================================================================
+// CONTEXTUAL STORYTELLING & IN-GAME HELP ENGINE (Broadcast Lower-Third)
+// Reacts live to on-screen threats, loot, bosses, health, and life chapters!
+// ============================================================================
+let activeContextOverride = null; // { badge, story, help, mood, untilMs }
+
+window.pushContextEvent = function(badge, story, help, mood = "normal", durationMs = 4200) {
+  activeContextOverride = {
+    badge,
+    story,
+    help,
+    mood,
+    untilMs: performance.now() + durationMs
+  };
+  updateContextAndRadar();
+};
+
+const STAGE_NARRATIVES = {
+  office: [
+    {
+      badge: "📖 CHAPTER 1 // OFFICE",
+      story: '"40 and caffeinated: the fluorescent lights hum as the Q1 utility bills drift toward your cubicle."',
+      help: "💡 TIP: You attack automatically! Just steer around desks and collect blue Wisdom Gems to level up."
+    },
+    {
+      badge: "📖 CORPORATE SURVIVAL",
+      story: '"Someone left half a box of breakroom donuts by the printer, and your inbox just hit 412 unread."',
+      help: "💡 TIP: Shoot green Potted Plants to crack them open for Leftover Pizza (+3 HP) and 401(k) Gold Coins!"
+    },
+    {
+      badge: "📖 SYNERGY & EVOLUTIONS",
+      story: '"Your coffee mug is practically welded to your hand as the afternoon meetings close in."',
+      help: "💡 TIP: Upgrade any Weapon to Rank 2+ and pair it with its matching Passive perk to unlock a Gold Evolution!"
+    }
+  ],
+  hospital: [
+    {
+      badge: "📖 CHAPTER 2 // HOSPITAL",
+      story: '"3:14 AM in the maternity wing: the heart monitor beeps while itemized co-pays roll down the hallway."',
+      help: "💡 TIP: Purple Pager/Spam alerts pause and vibrate before rocketing in a straight line. Sidestep when they ring!"
+    },
+    {
+      badge: "📖 SLEEPLESS NIGHTS",
+      story: '"You have not slept four consecutive hours since Tuesday, and hospital Jell-O is everywhere."',
+      help: "💡 TIP: Pink Jell-O / Donut enemies briefly slow your feet on contact. Unlock Dad Joke or 'No.' to push swarms back!"
+    }
+  ],
+  home: [
+    {
+      badge: "📖 CHAPTER 3 // SUBURBIA",
+      story: '"Saturday morning in the living room: barefoot LEGO bricks on the rug and a minivan carpool waiting outside."',
+      help: "💡 TIP: Climb the 6-step Mezzanine stairs in Diablo or 3D mode to funnel chasing swarms into narrow choke points!"
+    },
+    {
+      badge: "📖 HOMEOWNERSHIP",
+      story: '"The water heater is making a brand-new knocking sound right as Common Core math homework begins."',
+      help: "💡 TIP: Every 401(k) Coin you pick up is permanently banked in your browser save for the 401(k) Retirement Shop!"
+    }
+  ],
+  social: [
+    {
+      badge: "📖 CHAPTER 4 // FRIENDSHIPS",
+      story: '"47 unread messages in the group chat trying to pick a restaurant before everyone gets sleepy at 9:00 PM."',
+      help: "💡 TIP: Large Reply-All / Drama Elites drop 3 Gems + 2 Coins when defeated, but split into 2 fast Late Fees!"
+    },
+    {
+      badge: "📖 THE GROUP TAB",
+      story: '"Someone ordered truffle tapas for the table and just suggested splitting the check evenly."',
+      help: "💡 TIP: Press [V] or scroll the Mouse Wheel anytime to switch live between 16-Bit Retro, Diablo 3/4, and AAA 3D!"
+    }
+  ],
+  senior: [
+    {
+      badge: "📖 CHAPTER 5 // RESORT 80+",
+      story: '"Welcome to Sunset Palms! The 3:00 PM Early-Bird Buffet is open and the Pickleball courts are ruthless."',
+      help: "💡 TIP: Survive the 20 Bonus Senior Rounds from Age 80 to Age 100 to claim the Centenarian Legend title!"
+    },
+    {
+      badge: "📖 GOLDEN YEARS",
+      story: '"Your knees predict rain three days in advance, and the HOA Board is measuring lawn heights with a ruler."',
+      help: "💡 TIP: Look for Senior-tier perks like Executive Delegation and Titanium Knees to overpower late-game swarms!"
+    }
+  ]
+};
+
+const MILESTONE_LIST = [
+  { age: 45, name: "Annual Performance Review" },
+  { age: 50, name: "Decade Checkpoint (Age 50)" },
+  { age: 52, name: "Adjustable-Rate Mortgage" },
+  { age: 60, name: "Midlife Crisis V8 Boss" },
+  { age: 70, name: "HOA Board President" },
+  { age: 80, name: "Full Retirement Boss" },
+  { age: 90, name: "6 AM Pickleball Champion" },
+  { age: 100, name: "Centenarian Victory (Age 100)" }
+];
+
+function updateContextAndRadar() {
+  const tickerEl = document.getElementById("hud-context-bar");
+  const badgeEl  = document.getElementById("ctx-badge");
+  const storyEl  = document.getElementById("ctx-story");
+  const helpEl   = document.getElementById("ctx-help");
+  const radarThreatsEl = document.getElementById("hud-radar-threats");
+  const radarNextEl    = document.getElementById("hud-radar-next");
+  if (!tickerEl || !badgeEl || !storyEl || !helpEl || typeof stats === "undefined" || !stats) return;
+
+  // 1. Scan live on-screen entities for the Situational Radar & Contextual Alerts
+  let activeEnemies = 0;
+  let activeBoss = null;
+  let ringingSpam = false;
+  let eliteNear = false;
+  let twingeNear = false;
+  if (typeof bills !== "undefined" && bills && bills.getChildren) {
+    const list = bills.getChildren();
+    for (let i = 0; i < list.length; i++) {
+      const b = list[i];
+      if (!b || !b.active) continue;
+      activeEnemies++;
+      if (b.isBoss) activeBoss = b;
+      if (b.kind === "spamCall" && b.state === "ringing") ringingSpam = true;
+      if (b.kind === "officeGossip") eliteNear = true;
+      if (b.kind === "backTwinge") twingeNear = true;
+    }
+  }
+
+  let chestCount = (typeof chests !== "undefined" && chests && chests.countActive) ? chests.countActive() : 0;
+  let pizzaCount = (window.pizzas && window.pizzas.countActive) ? window.pizzas.countActive() : 0;
+  let nearbyPlants = 0;
+  if (typeof stageProps !== "undefined" && stageProps && typeof player !== "undefined" && player) {
+    for (let i = 0; i < stageProps.length; i++) {
+      const p = stageProps[i];
+      if (p && p.visible && p.propKind === "prop_plant") {
+        const d = Math.hypot(p.x - player.x, p.y - player.y);
+        if (d < 340) nearbyPlants++;
+      }
+    }
+  }
+
+  // Update the Center Lower-Third Situational Radar Row
+  if (radarThreatsEl) {
+    const parts = [`👀 ON SCREEN: <b>${activeEnemies}</b> ${activeEnemies === 1 ? "Threat" : "Threats"}`];
+    if (activeBoss) {
+      const bCfg = (typeof ENEMIES !== "undefined" && ENEMIES[activeBoss.kind]) || { label: "BOSS" };
+      parts.push(`🚨 <b>${bCfg.label} (${activeBoss.hp} HP)</b>`);
+    }
+    if (chestCount > 0) parts.push(`🎁 <b>${chestCount} Bonus Chest!</b>`);
+    else if (pizzaCount > 0) parts.push(`🍕 <b>${pizzaCount} Pizza Slice!</b>`);
+    else if (nearbyPlants > 0) parts.push(`🪴 <b>${nearbyPlants} Potted ${nearbyPlants === 1 ? "Plant" : "Plants"}</b>`);
+    radarThreatsEl.innerHTML = parts.join(" &bull; ");
+  }
+
+  if (radarNextEl) {
+    const nextM = MILESTONE_LIST.find(m => m.age > currentAge) || MILESTONE_LIST[MILESTONE_LIST.length - 1];
+    const yrsLeft = Math.max(0, nextM.age - currentAge).toFixed(1);
+    radarNextEl.innerHTML = activeBoss
+      ? `⚔️ BOSS ACTIVE: <b>Defeat ${(ENEMIES[activeBoss.kind] && ENEMIES[activeBoss.kind].name) || "Boss"}!</b>`
+      : `🎯 NEXT: <b>Age ${nextM.age} ${nextM.name}</b> (${yrsLeft} yrs)`;
+  }
+
+  // 2. Determine the highest-priority Contextual Story & Help message
+  const now = performance.now();
+  let chosen = null;
+
+  if (activeContextOverride && now < activeContextOverride.untilMs) {
+    chosen = activeContextOverride;
+  } else {
+    activeContextOverride = null;
+  }
+
+  if (!chosen) {
+    if (hp <= Math.max(3, Math.floor(stats.maxHp * 0.34))) {
+      chosen = {
+        badge: "🩺 VITALITY LOW",
+        story: `"HP is down to ${Math.max(0, hp)}/${stats.maxHp}! Your lower back is barking and your energy is fading fast."`,
+        help: "💡 HELP: Crack open green Potted Plants for Leftover Pizza (+3 HP) or collect blue Gems to level up (+2 HP)!",
+        mood: "urgent"
+      };
+    } else if (activeBoss) {
+      const bInfo = (typeof ENEMIES !== "undefined" && ENEMIES[activeBoss.kind]) || { name: "Decade Boss", hp: activeBoss.hp };
+      chosen = {
+        badge: "🚨 BOSS ON FLOOR",
+        story: `"${bInfo.name} (${activeBoss.hp} HP remaining) is pursuing you across the floor!"`,
+        help: "💡 HELP: Keep kiting in wide circles around desks! Defeating a Boss drops a gold Executive Bonus Chest + 5 Coins.",
+        mood: "urgent"
+      };
+    } else if (chestCount > 0) {
+      chosen = {
+        badge: "🎁 BONUS CHEST READY",
+        story: '"An uncollected gold Executive Bonus Chest is gleaming on the floor nearby!"',
+        help: "💡 HELP: Walk right over the gold BONUS chest to claim an instant free Weapon or Perk upgrade!",
+        mood: "loot"
+      };
+    } else if (pizzaCount > 0 && hp < stats.maxHp) {
+      chosen = {
+        badge: "🍕 PIZZA ON FLOOR",
+        story: '"Someone left a warm slice of breakroom pepperoni pizza out in the open!"',
+        help: "💡 HELP: Walk near the Pizza slice to magnetize it and heal +3 HP immediately!",
+        mood: "loot"
+      };
+    } else if (typeof slowUntil !== "undefined" && typeof runElapsedMs !== "undefined" && runElapsedMs < slowUntil) {
+      chosen = {
+        badge: "🍩 SUGAR CRASH",
+        story: '"That frosted breakroom snack spiked your blood sugar and slowed your stride."',
+        help: "💡 HELP: Movement speed is temporarily reduced! Hug furniture corners to block chasing Bills until the crash clears.",
+        mood: "urgent"
+      };
+    } else if (ringingSpam) {
+      chosen = {
+        badge: "📞 SPAM CALL RINGING",
+        story: '"An Extended Auto Warranty robocall is vibrating on the floor and locking onto your position!"',
+        help: "💡 HELP: Step sideways now! Once a purple Spam Call finishes ringing, it rockets forward in a straight line.",
+        mood: "urgent"
+      };
+    } else if (typeof player !== "undefined" && player && (player.elev || 0) > 15) {
+      chosen = {
+        badge: "🪜 MEZZANINE HIGH GROUND",
+        story: '"You climbed the stairs onto the raised Mezzanine deck overlooking the arena floor."',
+        help: "💡 HELP: Use the staircase choke point to bunch enemies together so Coffee Splash and Dad Joke hit the whole pack!",
+        mood: "loot"
+      };
+    } else if (eliteNear) {
+      chosen = {
+        badge: "📨 ELITE THREAT NEARBY",
+        story: '"A tanky Reply-All thread with 24 people CC\'d is lumbering toward your position."',
+        help: "💡 HELP: Reply-All Elites drop 3 Gems + 2 Coins when paid off, but watch out: they split into 2 fast Late Fees!",
+        mood: "normal"
+      };
+    } else if (twingeNear) {
+      chosen = {
+        badge: "⚡ SCIATICA TWINGE",
+        story: '"A sudden orange lower-back spasm is lunging and resting across the floor."',
+        help: "💡 HELP: Orange Twinges lunge fast for 0.55s then pause for 0.45s. Strike while they pause to catch their breath!",
+        mood: "normal"
+      };
+    } else {
+      // Rotate smoothly through the active Life Stage's story & help beats every 8.5 seconds
+      const stObj = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
+      const stId = (stObj && stObj.id) || "office";
+      const pool = STAGE_NARRATIVES[stId] || STAGE_NARRATIVES.office;
+      const idx = Math.floor((typeof runElapsedMs !== "undefined" ? runElapsedMs : now) / 8500) % pool.length;
+      chosen = Object.assign({ mood: "normal" }, pool[idx]);
+    }
+  }
+
+  tickerEl.classList.toggle("ctx-urgent", chosen.mood === "urgent");
+  tickerEl.classList.toggle("ctx-loot", chosen.mood === "loot");
+  if (badgeEl.textContent !== chosen.badge) badgeEl.textContent = chosen.badge;
+  if (storyEl.textContent !== chosen.story) storyEl.textContent = chosen.story;
+  if (helpEl.textContent !== chosen.help)   helpEl.textContent = chosen.help;
+}
 
 window.syncUITheme = function() {
   const root = document.getElementById("ui-layer");
@@ -545,6 +817,8 @@ function updateHUD() {
     loadoutEl.innerHTML = html;
     loadoutEl.dataset.prev = html;
   }
+
+  updateContextAndRadar();
 }
 
 function showBossToastUI(bossName, customSub) {
