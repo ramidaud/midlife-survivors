@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.8.21",
-  displayVersion: "V. 1.8.21",
+  version: "1.8.22",
+  displayVersion: "V. 1.8.22",
   lastUpdated: "Oct 30, 2026",
-  codename: "Compound Yield Edition",
-  build: 21,
+  codename: "Mobile Responsive Edition",
+  build: 22,
   changelog: [
+    {
+      ver: "V. 1.8.22",
+      date: "Oct 30, 2026",
+      title: "Mobile Viewport Scaling (Portrait, Landscape & Safe-Area Support)",
+      highlights: [
+        "Added <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover'> and iOS/Android safe-area insets so mobile browsers render at native device resolution.",
+        "Optimized the Broadcast Lower-Third HUD for both Mobile Portrait (max-width: 768px) and Mobile Landscape (max-height: 520px), keeping over 78% of the arena open while the top Mobile Floating Dock handles Pause, Input, View, and Mute.",
+        "Added smooth vertical touch scrolling (touch-action: pan-y; 94dvh max-height) and compact 3-column Subject Cards inside the Title Dossier and modals."
+      ]
+    },
     {
       ver: "V. 1.8.21",
       date: "Oct 30, 2026",

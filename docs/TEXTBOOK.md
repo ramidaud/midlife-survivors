@@ -964,6 +964,42 @@ To reward staying alive longer without making the first 30 seconds crazy, we bui
 
 ---
 
+## Chapter 35: Mobile Responsive Game UI (Portrait, Landscape & Touch Safe-Areas)
+
+### 1. Why Mobile Web Games Need 3 Distinct Responsive Rules
+A mobile player might hold their phone **vertically in Portrait (`390x844`)**, **horizontally in Landscape (`844x390`)**, or play on a **Touch Tablet (`820x1180`)**. To make sure the UI scales cleanly across all three, we combine native viewport metadata with 3 responsive CSS breakpoints:
+
+```
+===========================================================================================
+                 MOBILE UI SCALING: PORTRAIT VS. LANDSCAPE BREAKPOINTS
+===========================================================================================
+   📱 MOBILE PORTRAIT (max-width: 768px)         📲 MOBILE LANDSCAPE (max-height: 520px)
+   ┌───────────────────────────────────┐         ┌────────────────────────────────────────┐
+   │                   [⏸][🎮][🎥][🔊] │ ◄─Dock  │                        [⏸][🎮][🎥][🔊] │
+   │                                   │         │                                        │
+   │         78% OPEN ARENA            │         │            78% OPEN ARENA              │
+   │         [☕ Hero + Swarms]         │         │          [☕ Hero + Swarms]             │
+   │                                   │         ├────────────────────────────────────────┤
+   ├───────────────────────────────────┤         │ [📖 CHAPTER] Story... │ 💡 Tip...      │
+   │ [📖 CHAPTER] Story... + 💡 Tip    │         ├────────────┬───────────────┬───────────┤
+   ├─────────────────────┬─────────────┤         │ ❤️ HP ⭐ XP │ 🏢 AGE 42.4   │ 🪙 24k    │
+   │ [👔] ❤️ HP  ⭐ XP    │ 🪙 24k 📈2x │         │            │ 👀 4 Threats  │ 📈 2x     │
+   ├─────────────────────┴─────────────┤         └────────────┴───────────────┴───────────┘
+   │ 🏢 AGE 42.4 [────●────] 👀 4      │
+   └───────────────────────────────────┘
+===========================================================================================
+```
+
+### 2. The Four Mobile Scaling Pillars (`index.html` & `src/ui.js`)
+| Mobile Pillar | Implementation | Why It Matters |
+|---|---|---|
+| **1. Native Viewport & Safe Areas** | `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">` + `env(safe-area-inset-*)` | Stops mobile browsers from shrinking the UI to a fake `980px` desktop width and keeps the HUD clear of iPhone notches and home bars |
+| **2. Touch-Scrollable Modals (`94dvh`)** | `.modal-card { max-height: 94dvh; touch-action: pan-y; overscroll-behavior: contain; }` | Overrides the canvas's `touch-action: none` inside menus so players can swipe up/down smoothly through the Title Dossier, Shop, and Lore Archive |
+| **3. Compact Lower-Third Deck** | Hides duplicate `.util-btns` & `.style-pill` inside `.hud-right` on mobile (since the top `.mobile-dock` has them) and stacks `.hud-left` + `.hud-right` above `.hud-center` | Cuts mobile HUD height in half so the Broadcast Lower-Third never crowds the action arena |
+| **4. Dynamic Thumbstick Clearance** | `joy.style.bottom = (ltEl.offsetHeight + 12) + "px"` in `updateTouchJoystickUI()` | Automatically positions Fixed Left/Right virtual thumbsticks `12px` above the top edge of `#hud-lower-third` on any screen size |
+
+---
+
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

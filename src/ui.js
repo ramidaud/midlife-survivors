@@ -485,7 +485,7 @@ window.updateTouchJoystickUI = function(touch) {
   if (!joy || !knob) return;
   const c = getControlsConfig();
   const isFixed = c.touchMode === "fixedLeft" || c.touchMode === "fixedRight";
-  const inActivePlay = !(typeof gameOver !== "undefined" && (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen));
+  const inActivePlay = !(typeof gameOver !== "undefined" && (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen || window.changelogModalOpen || window.loreModalOpen));
 
   if (c.touchMode === "directTouch") {
     joy.classList.add("hidden");
@@ -496,12 +496,14 @@ window.updateTouchJoystickUI = function(touch) {
     joy.classList.remove("hidden");
     joy.classList.add("fixed-pad");
     joy.style.top = "auto";
-    joy.style.bottom = "138px";
+    const ltEl = document.getElementById("hud-lower-third");
+    const ltH = (ltEl && ltEl.offsetHeight) ? ltEl.offsetHeight : 128;
+    joy.style.bottom = `${ltH + 12}px`;
     if (c.touchMode === "fixedLeft") {
-      joy.style.left = "22px";
+      joy.style.left = "16px";
       joy.style.right = "auto";
     } else {
-      joy.style.right = "22px";
+      joy.style.right = "16px";
       joy.style.left = "auto";
     }
     const maxR = 32;

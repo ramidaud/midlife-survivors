@@ -188,3 +188,10 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - **High-Value Drops (`bonusMult`):**
   - Potted Plants always drop at least 1 Coin alongside Pizza (`45%`), 2 Coins (`35%`), or a 4-Coin Jackpot (`20%`).
   - Elites drop a `1x` Coin + a `2x` Coin (`bonusMult = 2`), and Bosses drop 5 `2x` Coins plus an immediate `4x` Executive Bonus Dividend when you open their gold Chest!
+
+## 12. Mobile Responsive UI Architecture (Portrait, Landscape & Touch Safe-Areas)
+- **Native Viewport & Safe-Area Insets (`index.html`):** Uses `width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover` plus `env(safe-area-inset-*)` and dynamic viewport height (`94dvh`) so iOS Safari and Android Chrome render at native CSS pixel dimensions without overlapping notches or home indicator bars.
+- **3 Responsive Breakpoints:**
+  1. **Touch / Coarse Pointer (`@media (max-width: 900px), (pointer: coarse)`):** Displays the top-right **Mobile Floating Dock (`.mobile-dock`)** with thumb-sized `⏸ PAUSE`, `🎮 INPUT`, `🎥 VIEW`, and `🔊` buttons on all phones and tablets.
+  2. **Mobile Portrait (`@media (max-width: 768px)`):** Compacts the Broadcast Lower-Third Console (`<22%` screen height) by placing `.hud-left` (HP/XP/Perks) and `.hud-right` (401k + Yield Pill) side-by-side above the full-width `.hud-center` timeline & radar, keeps the 3 Subject Cards in a compact 3-column row on the Title Dossier, and enables smooth vertical touch scrolling (`touch-action: pan-y`) inside modals.
+  3. **Mobile Landscape (`@media (max-height: 520px)`):** Keeps the Broadcast Lower-Third in a single ultra-low-profile horizontal deck so horizontal phone play (`844x390`) preserves maximum vertical arena visibility.

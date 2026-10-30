@@ -337,3 +337,13 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - **Added 5-Year Automatic Survival Dividends & Live HUD Yield Badge (`#hud-yield-pill` in `src/ui.js`):**
   - Every 5 years of Age survived (`45, 50, 55, 60, 65, 70, 75, 80...`) automatically deposits a scaling **401(k) Compound Dividend** (`+6k`, `+9k`, `+12k`, `+16k`...) with a golden floating banner and Lower-Third Contextual Ticker alert.
   - Added `#hud-yield-pill` (`📈 1x MATCH (+1k/🪙)` -> `📈 6x GOLDEN (+6k/🪙)`) in the Bottom-Right HUD pod and bumped the build to **`V. 1.8.21`** (`?v=19`).
+
+## 2026-10-30: Full Mobile UI Scaling (Portrait, Landscape & Touch Safe-Areas `V. 1.8.22`)! (Antigravity)
+- **Added Native Mobile Viewport Meta Tag & Safe-Area Insets (`index.html`):**
+  - Added `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">` so iOS Safari and Android Chrome render at true device width instead of shrinking a 980px desktop layout.
+  - Added `env(safe-area-inset-top/bottom/left/right)` and `94dvh` modal sizing so phone notches and home bars never clip the HUD or menus.
+- **Built 3 Mobile Breakpoints + Touch-Scrollable Modals (`index.html` & `src/ui.js`):**
+  - **Coarse Pointer & Tablet (`@media (max-width: 900px), (pointer: coarse)`):** Automatically shows the top `.mobile-dock` (`⏸ PAUSE`, `🎮 INPUT`, `🎥 VIEW`, `🔊`) on all touch devices.
+  - **Mobile Portrait (`@media (max-width: 768px)`):** Compacts the Broadcast Lower-Third Console (`<22%` screen height) with `.hud-left` and `.hud-right` side-by-side above a sleek full-width `.hud-center` timeline/radar, keeps the 3 Subject Cards in a compact 3-column row on the Title Screen, and enables `touch-action: pan-y` on `.modal-card` so tall menus swipe-scroll smoothly on mobile.
+  - **Mobile Landscape (`@media (max-height: 520px)`):** Keeps the Lower-Third in a single low-profile horizontal row for horizontal phones (`844x390`), and dynamically positions fixed virtual thumbsticks `12px` above `#hud-lower-third.offsetHeight`.
+  - Bumped version to **`V. 1.8.22`** (`src/data/version.js` & `?v=20` in `index.html`).

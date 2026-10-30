@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Midlife Survivors Playtest</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -407,13 +408,16 @@
   .ui-modal {
     position: fixed; inset: 0; z-index: 30; pointer-events: auto;
     background: rgba(8, 10, 22, 0.78); backdrop-filter: blur(5px);
-    display: flex; align-items: center; justify-content: center; padding: 16px;
+    display: flex; align-items: center; justify-content: center;
+    padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+    touch-action: pan-y;
   }
   .modal-card {
     background: var(--bg-pod); border: 3px solid var(--border-col);
     border-radius: var(--pod-radius); box-shadow: var(--pod-shadow);
-    padding: 20px 24px; width: 100%; max-width: 680px; max-height: 92vh; overflow-y: auto;
+    padding: 20px 24px; width: 100%; max-width: 680px; max-height: 92vh; max-height: 92dvh; overflow-y: auto;
     text-align: center; -webkit-overflow-scrolling: touch;
+    touch-action: pan-y; overscroll-behavior: contain;
     transform: skewX(var(--pod-skew)); animation: popIn 0.2s ease-out;
   }
   .modal-kicker { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 1.2px; margin-bottom: 4px; }
@@ -650,41 +654,178 @@
     from { opacity: 0; transform: scale(0.92) skewX(var(--pod-skew)); }
     to   { opacity: 1; transform: scale(1) skewX(var(--pod-skew)); }
   }
+
+  /* Show Floating Quick-Control Dock on all Touch / Coarse-Pointer devices & Mobile Viewports */
+  @media (max-width: 900px), (pointer: coarse) {
+    .mobile-dock {
+      display: flex;
+      top: max(8px, env(safe-area-inset-top));
+      right: max(8px, env(safe-area-inset-right));
+    }
+    .mobile-dock.dock-left {
+      right: auto;
+      left: max(8px, env(safe-area-inset-left));
+    }
+  }
+
+  /* =========================================================================
+     MOBILE PORTRAIT & TABLET RESPONSIVE SCALING (max-width: 768px)
+     Keeps the Broadcast Lower-Third compact (<22% screen height) and makes
+     every modal, shop row, and button thumb-friendly and scrollable.
+     ========================================================================= */
   @media (max-width: 768px) {
-    .mobile-dock { display: flex; }
-    .hud-lower-third { padding: 0 6px 6px; gap: 4px; }
-    .context-ticker { flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 8px; }
-    .ctx-help { width: 100%; text-align: left; }
-    .lower-third-deck { flex-wrap: wrap; gap: 5px; }
-    .hud-left { min-width: 170px; flex: 1; padding: 5px 8px; }
-    .hud-center { order: 3; width: 100%; max-width: 100%; flex-basis: 100%; padding: 5px 8px; }
-    .hud-right { padding: 5px 8px; }
-    .style-pill { display: none; }
-    .perk-cards-grid, .dossier-chars-grid, .controls-grid { grid-template-columns: 1fr; }
-    .perk-card { min-height: auto; flex-direction: row; gap: 10px; text-align: left; padding: 10px; }
-    .perk-icon { font-size: 28px; margin: 0; }
-    .modal-card { padding: 14px; transform: none; }
-    .game-logo { font-size: 18px; }
-    .gameover-actions, .controls-actions { flex-direction: column; }
+    .hud-lower-third {
+      width: 100vw;
+      padding: 0 5px max(6px, env(safe-area-inset-bottom));
+      gap: 4px;
+    }
+    .context-ticker {
+      flex-direction: column; align-items: stretch; gap: 3px;
+      padding: 4px 8px; transform: none;
+    }
+    .ctx-left { gap: 6px; }
+    .ctx-badge { font-size: 8px; padding: 2px 6px; }
+    .ctx-story {
+      font-size: 10.5px; line-height: 1.2;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      white-space: normal;
+    }
+    .ctx-help {
+      width: 100%; text-align: left; font-size: 9.5px;
+      padding: 2px 6px; line-height: 1.2;
+    }
+
+    .lower-third-deck { flex-wrap: wrap; gap: 4px; }
+    .hud-pod { transform: none; padding: 5px 8px; }
+    .hud-left { min-width: 175px; max-width: none; flex: 1 1 58%; }
+    .id-header { gap: 6px; margin-bottom: 3px; }
+    .id-avatar { width: 24px; height: 24px; font-size: 14px; }
+    .id-dept { font-size: 8px; }
+    .id-name { font-size: 11px; }
+    .id-lv { font-size: 8.5px; padding: 2px 5px; }
+    .bars-compact-grid { gap: 4px; margin-bottom: 2px; }
+    .bar-track { height: 11px; }
+    .bar-text { font-size: 8px; }
+    .perk-badge { font-size: 8px; padding: 1px 4px; }
+
+    /* Right pod sits compactly beside Left pod; top Mobile Dock handles Pause/Input/View/Mute */
+    .hud-right {
+      flex: 0 0 auto; align-items: flex-end; justify-content: center;
+      padding: 5px 7px;
+    }
+    .coin-pill { flex-wrap: wrap; justify-content: flex-end; gap: 3px; font-size: 10.5px; }
+    #hud-save-dot { display: none; }
+    .style-pill, .hud-right .util-btns { display: none; }
+
+    /* Center Timeline & Radar spans full width at the bottom of the deck */
+    .hud-center {
+      order: 3; width: 100%; max-width: 100%; flex: 1 1 100%;
+      padding: 4px 8px 5px;
+    }
+    .timeline-header { margin-bottom: 3px; }
+    .timeline-title { font-size: 8.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 68%; }
+    .timeline-age { font-size: 10px; }
+    .timeline-track { height: 7px; margin-bottom: 11px; }
+    .milestone { font-size: 8px; top: 8px; }
+    .radar-row { font-size: 9px; padding-top: 3px; gap: 4px; flex-wrap: wrap; }
+
+    .mob-fab { padding: 6px 10px; min-height: 36px; min-width: 36px; font-size: 11px; }
+
+    /* Modals & Title Dossier on Mobile Portrait */
+    .ui-modal { padding: max(6px, env(safe-area-inset-top)) 6px max(6px, env(safe-area-inset-bottom)); }
+    .modal-card, .title-box, .controls-box, .lore-box, .changelog-box {
+      padding: 12px 11px; transform: none; max-height: 94dvh;
+    }
+    .title-top-banner { font-size: 9.5px; flex-wrap: wrap; gap: 4px; justify-content: center; }
+    .game-logo { font-size: clamp(16px, 5vw, 21px); margin: 2px 0; }
+    .game-tagline { font-size: 10.5px; margin-bottom: 5px; }
+    .version-stamp-bar { padding: 4px 8px; gap: 5px; margin-bottom: 6px; border-radius: 10px; }
+    .version-pill { font-size: 9.5px; width: 100%; text-align: center; }
+    .version-notes-btn { font-size: 9px !important; padding: 4px 8px !important; }
+
+    /* Keep 3 Subject Cards side-by-side in a compact 3-col grid on phones to save vertical height */
+    .dossier-chars-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
+    .dossier-char { padding: 6px 4px; }
+    .char-emoji { font-size: 18px; }
+    .char-title { font-size: 10px; line-height: 1.15; }
+    .char-desc { font-size: 8.5px; line-height: 1.2; min-height: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .char-badge { font-size: 8.5px; padding: 1px 4px; }
+
+    .subject-bio-strip { padding: 5px 8px; font-size: 10px; line-height: 1.3; }
+    .subject-bio-code { font-size: 8.5px; }
+    .subject-bio-real { font-size: 10px; }
+    .subject-bio-quote { font-size: 9.5px; }
+
+    .title-style-switcher { gap: 4px; font-size: 9.5px; }
+    .t-style-btn { padding: 4px 7px; font-size: 9.5px; }
+
+    .shop-row { padding: 5px 7px; gap: 6px; }
+    .shop-info { flex-wrap: wrap; gap: 4px; font-size: 10px; }
+    .shop-desc { width: 100%; font-size: 9.5px; }
+    .shop-buy-btn { padding: 5px 8px; font-size: 10px; white-space: nowrap; }
+
+    .cta-btn { font-size: 11.5px; padding: 11px 12px; }
+    .nav-hint-bar { font-size: 9.5px; gap: 8px; margin-top: 7px; padding-top: 6px; }
+
+    /* Level-Up Cards, Input Config & Lore Tabs on Mobile */
+    .perk-cards-grid, .controls-grid { grid-template-columns: 1fr; gap: 8px; }
+    .perk-card { min-height: auto; flex-direction: row; gap: 10px; text-align: left; padding: 9px 10px; }
+    .perk-icon { font-size: 26px; margin: 0; }
+    .perk-name { font-size: 11px; margin-bottom: 3px; }
+    .perk-desc { font-size: 11px; }
+    .perk-key { margin-top: 4px; padding: 2px 6px; font-size: 9px; white-space: nowrap; }
+
+    .opt-btn { padding: 9px 11px; font-size: 12px; }
+    .opt-btn span.opt-val { font-size: 9.5px; padding: 3px 6px; }
+    .lore-tab-btn { font-size: 8.5px; padding: 5px 8px; }
+    .lore-content, .changelog-list { max-height: 48dvh; }
+    .gameover-stats { flex-wrap: wrap; gap: 6px; }
+    .gameover-actions, .controls-actions { flex-direction: column; gap: 6px; }
+  }
+
+  /* =========================================================================
+     MOBILE LANDSCAPE RESPONSIVE SCALING (max-height: 520px)
+     Keeps the Lower-Third ultra-low-profile on horizontal phones (e.g. 844x390)
+     ========================================================================= */
+  @media (max-height: 520px) {
+    .hud-lower-third { padding: 0 8px max(4px, env(safe-area-inset-bottom)); gap: 3px; }
+    .context-ticker { flex-direction: row; padding: 3px 10px; gap: 8px; transform: none; }
+    .ctx-story { font-size: 10px; white-space: nowrap; }
+    .ctx-help { font-size: 9.5px; padding: 2px 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 44%; }
+    .lower-third-deck { flex-wrap: nowrap; gap: 5px; }
+    .hud-pod { padding: 4px 8px; transform: none; }
+    .hud-left { min-width: 190px; }
+    .id-avatar { width: 22px; height: 22px; font-size: 13px; }
+    .loadout-row { display: none; }
+    .timeline-track { height: 6px; margin-bottom: 9px; }
+    .milestone { font-size: 7.5px; top: 7px; }
+    .radar-row { font-size: 8.5px; padding-top: 2px; }
+    .style-pill, .hud-right .util-btns { display: none; }
+    .modal-card, .title-box, .controls-box, .lore-box, .changelog-box {
+      max-height: 94dvh; padding: 10px 14px; transform: none;
+    }
+    .game-logo { font-size: 16px; margin: 1px 0; }
+    .perk-card { min-height: auto; padding: 8px; }
+    .perk-icon { font-size: 24px; margin: 4px 0; }
   }
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/version.js?v=19"></script>
-<script src="src/data/lore.js?v=19"></script>
-<script src="src/data/player.js?v=19"></script>
-<script src="src/data/stages.js?v=19"></script>
-<script src="src/data/enemies.js?v=19"></script>
-<script src="src/data/weapons.js?v=19"></script>
-<script src="src/data/deaths.js?v=19"></script>
-<script src="src/data/pickups.js?v=19"></script>
-<script src="src/data/upgrades.js?v=19"></script>
-<script src="src/data/meta.js?v=19"></script>
-<script src="src/data/sounds.js?v=19"></script>
-<script src="src/sfx.js?v=19"></script>
-<script src="src/sprites.js?v=19"></script>
-<script src="src/view3d.js?v=19"></script>
-<script src="src/ui.js?v=19"></script>
-<script src="src/main.js?v=19"></script>
+<script src="src/data/version.js?v=20"></script>
+<script src="src/data/lore.js?v=20"></script>
+<script src="src/data/player.js?v=20"></script>
+<script src="src/data/stages.js?v=20"></script>
+<script src="src/data/enemies.js?v=20"></script>
+<script src="src/data/weapons.js?v=20"></script>
+<script src="src/data/deaths.js?v=20"></script>
+<script src="src/data/pickups.js?v=20"></script>
+<script src="src/data/upgrades.js?v=20"></script>
+<script src="src/data/meta.js?v=20"></script>
+<script src="src/data/sounds.js?v=20"></script>
+<script src="src/sfx.js?v=20"></script>
+<script src="src/sprites.js?v=20"></script>
+<script src="src/view3d.js?v=20"></script>
+<script src="src/ui.js?v=20"></script>
+<script src="src/main.js?v=20"></script>
