@@ -13,24 +13,89 @@ const config = {
   scene: { create, update }
 };
 
-// ---- Game controller helpers ----
-// Phaser tells us which buttons are held down RIGHT NOW. For menus we want "just pressed"
-// (one tap = one action), so we remember last frame's buttons and compare.
-let padPrev = {}, padNow = {};
+// ---- Game controller helpers (Direct HTML5 Gamepad API + Phaser fallback) ----
+// Reads directly from navigator.getGamepads() so Xbox, PlayStation, Switch Pro, and Bluetooth
+// controllers work reliably even when clicking HTML UI buttons!
+let padPrev = {}, padNow = {}, padHoldDir = null, padNextRepeatMs = 0;
 function readPad(scene) {
-  const pad = scene.input.gamepad && scene.input.gamepad.total ? scene.input.gamepad.getPad(0) : null;
   padPrev = padNow;
-  if (!pad) { padNow = {}; return; }
-  const sx = pad.leftStick.x, sy = pad.leftStick.y;
+  let gp = null;
+  if (navigator.getGamepads) {
+    const list = navigator.getGamepads();
+    for (let i = 0; i < list.length; i++) {
+      if (list[i] && list[i].connected) { gp = list[i]; break; }
+    }
+  }
+  if (!gp) {
+    const pPad = scene && scene.input && scene.input.gamepad && scene.input.gamepad.total
+      ? scene.input.gamepad.getPad(0) : null;
+    if (!pPad) {
+      padNow = {};
+      if (window.setGamepadConnectedUI) window.setGamepadConnectedUI(false);
+      return;
+    }
+    const sx = pPad.leftStick ? pPad.leftStick.x : 0;
+    const sy = pPad.leftStick ? pPad.leftStick.y : 0;
+    padNow = {
+      connected: true,
+      x: Math.abs(sx) > 0.2 ? sx : 0,
+      y: Math.abs(sy) > 0.2 ? sy : 0,
+      left: pPad.left || sx < -0.55,
+      right: pPad.right || sx > 0.55,
+      up: pPad.up || sy < -0.55,
+      down: pPad.down || sy > 0.55,
+      a: pPad.A, b: pPad.B, xBtn: pPad.X, yBtn: pPad.Y,
+      start: !!(pPad.buttons && pPad.buttons[9] && pPad.buttons[9].pressed)
+    };
+    if (window.setGamepadConnectedUI) window.setGamepadConnectedUI(true);
+    return;
+  }
+
+  if (window.setGamepadConnectedUI) window.setGamepadConnectedUI(true);
+  const btn = idx => !!(gp.buttons && gp.buttons[idx] && (gp.buttons[idx].pressed || gp.buttons[idx].value > 0.5));
+  const ax0 = (gp.axes && gp.axes[0]) || 0;
+  const ax1 = (gp.axes && gp.axes[1]) || 0;
+  const ax2 = (gp.axes && gp.axes[2]) || 0;
+  const ax3 = (gp.axes && gp.axes[3]) || 0;
+  const sx = Math.abs(ax0) >= Math.abs(ax2) ? ax0 : ax2;
+  const sy = Math.abs(ax1) >= Math.abs(ax3) ? ax1 : ax3;
+
   padNow = {
-    x: Math.abs(sx) > 0.2 ? sx : 0, y: Math.abs(sy) > 0.2 ? sy : 0, // ignore tiny stick drift
-    left: pad.left, right: pad.right,
-    up: pad.up || sy < -0.6, down: pad.down || sy > 0.6,
-    a: pad.A, yBtn: pad.Y, start: pad.buttons[9] && pad.buttons[9].pressed
+    connected: true,
+    x: Math.abs(sx) > 0.22 ? sx : 0,
+    y: Math.abs(sy) > 0.22 ? sy : 0,
+    up:    btn(12) || sy < -0.55,
+    down:  btn(13) || sy >  0.55,
+    left:  btn(14) || sx < -0.55,
+    right: btn(15) || sx >  0.55,
+    a:     btn(0),
+    b:     btn(1),
+    xBtn:  btn(2),
+    yBtn:  btn(3),
+    start: btn(9) || btn(8)
   };
-  if (pad.A || pad.Y) unlockAudio();
+  if (padNow.a || padNow.b || padNow.yBtn || padNow.start) unlockAudio();
 }
-const padJust = name => padNow[name] && !padPrev[name];
+const padJust = name => !!(padNow[name] && !padPrev[name]);
+
+// Returns "up" | "down" | "left" | "right" | null for menu navigation (with auto-repeat when held).
+function getPadMenuStep(nowMs) {
+  const curDir = padNow.up ? "up" : (padNow.down ? "down" : (padNow.left ? "left" : (padNow.right ? "right" : null)));
+  if (!curDir) {
+    padHoldDir = null;
+    return null;
+  }
+  if (curDir !== padHoldDir) {
+    padHoldDir = curDir;
+    padNextRepeatMs = nowMs + 280;
+    return curDir;
+  }
+  if (nowMs >= padNextRepeatMs) {
+    padNextRepeatMs = nowMs + 165;
+    return curDir;
+  }
+  return null;
+}
 
 let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, coins, chests, hudText, viewBtn;
 let xp = 0, level = 1, xpNeeded = 0, xpBar, levelText, currentAge = 40, bossesSpawned = {}, slowUntil = 0;
@@ -89,26 +154,98 @@ function create() {
     cycleViewMode(this);
     sfx("pick");
     if (titleOpen) renderTitleModal(this);
+    if (paused) renderPauseModal(this, 1);
   };
 
-  // 6. Controls: keyboard plus a "drag anywhere" joystick for phones.
+  // 6. Controls: Unified Keyboard Navigation + Spacebar Pause/Options + Mobile Virtual Touch Joystick.
   cursors = this.input.keyboard.createCursorKeys();
   keys = this.input.keyboard.addKeys("W,A,S,D");
-  this.input.keyboard.on("keydown-M", () => {
-    toggleMute();
-    const mb = document.getElementById("hud-mute-btn");
-    if (mb) mb.textContent = isMuted() ? "🔇 [M]" : "🔊 [M]";
+  window._activeGameScene = this;
+  if (!window._globalKeyBound) {
+    window._globalKeyBound = true;
+    window.addEventListener("keydown", e => {
+      const sc = window._activeGameScene;
+      if (!sc) return;
+      const code = e.code;
+      const activeModal = window.menuNav && window.menuNav.getActiveModal();
+
+      // Global Style Switch [V] and Mute [M]
+      if (code === "KeyV") {
+        e.preventDefault();
+        unlockAudio();
+        cycleViewMode(sc);
+        sfx("pick");
+        if (titleOpen) renderTitleModal(sc);
+        if (paused) renderPauseModal(sc, 1);
+        return;
+      }
+      if (code === "KeyM") {
+        e.preventDefault();
+        unlockAudio();
+        toggleMute();
+        if (typeof syncMuteButtons === "function") syncMuteButtons();
+        if (paused) renderPauseModal(sc, 2);
+        return;
+      }
+
+      // If ANY modal is open (Title, Level-Up, Pause/Options, Age 80 Retirement, or Game Over):
+      // Arrow keys & WASD move the highlight, and Space / Enter activates the highlighted option!
+      if (activeModal) {
+        if (code === "ArrowUp" || code === "KeyW") {
+          e.preventDefault(); unlockAudio(); window.menuNav.move("up"); return;
+        }
+        if (code === "ArrowDown" || code === "KeyS") {
+          e.preventDefault(); unlockAudio(); window.menuNav.move("down"); return;
+        }
+        if (code === "ArrowLeft" || code === "KeyA") {
+          e.preventDefault(); unlockAudio(); window.menuNav.move("left"); return;
+        }
+        if (code === "ArrowRight" || code === "KeyD") {
+          e.preventDefault(); unlockAudio(); window.menuNav.move("right"); return;
+        }
+        if (code === "Space" || code === "Enter" || code === "NumpadEnter") {
+          e.preventDefault(); unlockAudio(); window.menuNav.activate(); return;
+        }
+        if ((code === "Escape" || code === "KeyP") && paused) {
+          e.preventDefault(); unlockAudio(); togglePause(sc); return;
+        }
+        if (levelUpOpen && window.levelMenu && (e.key === "1" || e.key === "2" || e.key === "3")) {
+          e.preventDefault();
+          unlockAudio();
+          const idx = Number(e.key) - 1;
+          if (idx < window.levelMenu.count) {
+            window.levelMenu.highlight(idx);
+            window.menuNav.activate();
+          }
+          return;
+        }
+        return;
+      }
+
+      // During active gameplay: Spacebar, P, or Escape opens Pause & Options!
+      if (code === "Space" || code === "KeyP" || code === "Escape") {
+        e.preventDefault();
+        unlockAudio();
+        togglePause(sc);
+      }
+    }, { passive: false });
+  }
+
+  this.input.on("pointerdown", p => {
+    if (gameOver || levelUpOpen || paused || titleOpen || retire80Open) return;
+    touch = { active: true, startX: p.x, startY: p.y, dx: 0, dy: 0 };
+    if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   });
-  this.input.keyboard.on("keydown-V", () => toggleView());
-  this.input.keyboard.on("keydown-P", () => togglePause(this));
-  this.input.keyboard.on("keydown-ESC", () => togglePause(this));
-  this.input.on("pointerdown", p => { touch = { active: true, startX: p.x, startY: p.y, dx: 0, dy: 0 }; });
   this.input.on("pointermove", p => {
     if (!touch.active) return;
     touch.dx = p.x - touch.startX;
     touch.dy = p.y - touch.startY;
+    if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   });
-  this.input.on("pointerup", () => { touch.active = false; touch.dx = touch.dy = 0; });
+  this.input.on("pointerup", () => {
+    touch.active = false; touch.dx = touch.dy = 0;
+    if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
+  });
 
   // 7. Enemies. A "group" is a bag that holds every Bill so we can move them all at once.
   bills = this.physics.add.group();
@@ -328,20 +465,20 @@ function showTitleScreen(scene) {
     hideTitleModal();
     beginFreshRunAtDecade(scene);
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+    if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
     startTime = scene.time.now;
     scene.physics.resume();
     scene.time.paused = false;
     setMusicPlaying(true);
   };
-
-  scene.input.keyboard.once("keydown-SPACE", () => startFromTitle && startFromTitle());
-  scene.input.keyboard.once("keydown-ENTER", () => startFromTitle && startFromTitle());
 }
 
-// Toggle pause (P, Esc, or controller Start button).
+// Toggle pause (Spacebar, P, Esc, Controller Start, or Mobile Pause Button).
 function togglePause(scene) {
   if (gameOver || levelUpOpen || titleOpen || retire80Open) return;
   paused = !paused;
+  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+  if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   setMusicPlaying(!paused);
   setPauseModalVisible(paused);
   if (paused) {
@@ -350,7 +487,6 @@ function togglePause(scene) {
     scene.time.paused = true;
     player.setVelocity(0, 0);
   } else {
-    touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     scene.physics.resume();
     scene.time.paused = false;
   }
@@ -388,6 +524,8 @@ function collectGem(p, gem) {
 // The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
 function showLevelUp(scene, customTitle, preferWeapons) {
   levelUpOpen = true;
+  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+  if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   scene.physics.pause();
   scene.time.paused = true;
   player.setVelocity(0, 0);
@@ -403,6 +541,7 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     sfx("pick");
     if (levelMenu && levelMenu.close) levelMenu.close();
     levelMenu = null;
+    window.levelMenu = null;
     up.apply(stats);
     if (stats.heal) { hp = Math.min(stats.maxHp, hp + stats.heal); stats.heal = 0; }
     const cd = stats.cooldownMult;
@@ -410,7 +549,6 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
     noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
     updateHUD();
-    scene.input.keyboard.off("keydown", onKey);
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     pendingLevels--;
     levelUpOpen = false;
@@ -427,11 +565,9 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     close: () => uiCtrl && uiCtrl.close(),
     pickSelected: () => pick(choices[levelMenu.sel])
   };
+  window.levelMenu = levelMenu;
   levelMenu.highlight(0);
   sfx("levelUp");
-
-  const onKey = e => { const n = Number(e.key); if (n >= 1 && n <= choices.length) pick(choices[n - 1]); };
-  scene.input.keyboard.on("keydown", onKey);
 }
 
 // An enemy (Bill, Snack, Twinge, Elite, or Boss) touched you.
@@ -487,7 +623,6 @@ function showGameOver(scene, killer, isWin) {
     : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
 
   renderGameOverModal(scene, cause, isWin);
-  scene.input.keyboard.once("keydown-SPACE", () => { hideAllModals(); scene.scene.restart(); });
 }
 
 // Pop a floating damage number above an enemy that drifts up and fades out.
@@ -805,20 +940,23 @@ function update(time, delta) {
     cycleViewMode(this);
     sfx("pick");
     if (titleOpen) renderTitleModal(this);
+    if (paused) renderPauseModal(this, 1);
   }
 
-  // Controller in menus: up/down/left/right to choose a Perk Card, A to pick. A or Start to try again.
-  if (levelMenu) {
-    if (padJust("up") || padJust("down") || padJust("left") || padJust("right")) {
-      const step = (padJust("up") || padJust("left")) ? -1 : 1;
-      levelMenu.highlight((levelMenu.sel + step + levelMenu.count) % levelMenu.count);
-      sfx("move");
+  // Universal Controller Navigation across ALL menus (Title, Level-Up, Pause/Options, Age 80, Game Over):
+  const activeModal = window.menuNav && window.menuNav.getActiveModal();
+  if (activeModal) {
+    const stepDir = getPadMenuStep(performance.now());
+    if (stepDir) window.menuNav.move(stepDir);
+    if (padJust("a") || (!paused && padJust("start"))) {
+      window.menuNav.activate();
+    } else if (paused && (padJust("b") || padJust("start"))) {
+      togglePause(this);
     }
-    if (padJust("a")) levelMenu.pickSelected();
+  } else {
+    // Active gameplay controller shortcuts: Start or B opens Pause & Options
+    if (padJust("start") || padJust("b")) togglePause(this);
   }
-  if (titleOpen && startFromTitle && (padJust("a") || padJust("start"))) startFromTitle();
-  if (gameOver && restartGame && (padJust("a") || padJust("start"))) restartGame();
-  if (!gameOver && !levelUpOpen && !titleOpen && !retire80Open && padJust("start")) togglePause(this);
 
   if (gameOver || levelUpOpen || paused || titleOpen || retire80Open) {
     renderThreeView(this);

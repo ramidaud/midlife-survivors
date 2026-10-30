@@ -113,3 +113,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## Active-play clocks vs. wall-clock timers and mid-run save states (Oct 30)
 - **Active-play time (`runElapsedMs += delta`):** Subtracting `startTime` from `scene.time.now` measures wall-clock time, which keeps ticking while the player is paused or reading Level-Up cards! Accumulating `delta` only when `!paused && !levelUpOpen` guarantees the Age clock and enemy timers (`bornAt`) freeze cleanly whenever a menu is open.
 - **Two-tier `localStorage` persistence:** Separating permanent meta-progression (`midlife_survivors_save_v1`: coins, shop ranks, unlocked characters, and Decade Checkpoints) from a mid-run snapshot (`midlife_survivors_run_v1`: current Age, HP, level, and `stats` object) lets players pause, close the browser, and resume their exact run later without losing progress.
+
+## Spatial menu navigation and direct HTML5 Gamepad polling (Oct 30)
+- **2D Row/Column Menu Grid (`data-nav-row`):** Tagging every interactive DOM button/card with a `data-nav-row` number lets a single navigation manager (`window.menuNav`) handle `Left/Right` within a row and `Up/Down` between rows across every menu in the game using Arrow keys, WASD, or a controller.
+- **Direct `navigator.getGamepads()` vs. canvas focus:** When an HTML UI overlay sits on top of a WebGL canvas, clicking DOM buttons shifts browser focus away from the canvas. Polling `navigator.getGamepads()` directly every frame keeps controller sticks and buttons working seamlessly across menus and gameplay.

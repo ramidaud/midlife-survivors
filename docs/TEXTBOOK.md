@@ -655,6 +655,31 @@ In Phaser 3, `this.time.now` measures **wall-clock time** since the page loaded.
 
 ---
 
+## Chapter 25: Universal 2D Menu Navigation, Direct Gamepad Polling & Mobile Touch UX
+
+### 1. How `window.menuNav` Makes Every Screen Work with Arrow Keys, WASD & Controllers
+Instead of writing separate keyboard/controller code for the Title Screen, Level-Up Cards, Pause/Options, Age 80 Retirement, and Game Over screens, every interactive card or button is registered with `bindNavItem(el, rowIndex, onActivate)` in `src/ui.js`:
+
+```
+  TITLE DOSSIER 2D NAVIGATION GRID (data-nav-row)
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │ Row 0: [ ☕ The 9-to-5er ]  [ 📸 Photographer ]  [ 🎓 Grad Student ] │ ◄─ Left / Right
+  │ Row 1: [ 🔓 Age 40 ] [ 🔒 Age 50 ] [ 🔒 Age 60 ] [ 🔒 70 ] [ 🔒 80 ] │ ◄─ Left / Right
+  │ Row 2: [ 💼 Employer Match (Max HP)                      BUY 2k   ] │ ▲
+  │ Row 3: [ ☕ Home Espresso (Move Speed & Fire Rate)        BUY 2k   ] │ │ Up / Down
+  │ Row 4: [ 🧾 CPA on Retainer (Gem & Coin Magnet)          BUY 2k   ] │ │
+  │ Row 5: [ 📈 Pension Plan (+1 Starting Weapon Damage)     BUY 3k   ] │ ▼
+  │ Row 6: [ 👾 16-Bit Retro ]  [ 🕯️ Diablo 3/4 ]  [ 🚀 Fortnite 3D  ] │ ◄─ Left / Right
+  │ Row 7: [ 💾 RESUME SAVED RUN (if a mid-run save exists)           ] │
+  │ Row 8: [ ☕ START NEW RUN AT AGE 40 (Default Focus!)              ] │ ◄─ Space / Enter / A
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+### 2. Why Direct `navigator.getGamepads()` Beats Canvas-Only Gamepad Plugins
+When you click an HTML `<button>` inside `#ui-layer`, browser focus moves from the `<canvas>` to that `<button>`. By reading `navigator.getGamepads()` directly every frame in `readPad()` (and listening to `window.addEventListener("keydown")` with `e.preventDefault()`), controller sticks, D-pads, Arrow keys, and the **Spacebar Pause & Options Screen** stay 100% responsive no matter what you clicked last!
+
+---
+
 ## Coming next
 
 - **Phase 6: Sharing with friends & collecting playtest notes!**

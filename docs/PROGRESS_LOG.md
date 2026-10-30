@@ -226,3 +226,19 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - Active runs auto-save every 3 seconds (`midlife_survivors_run_v1` in `localStorage`) and via the **`💾 SAVE & EXIT TO DOSSIER`** button in the Pause Menu.
   - Added **`💾 RESUME SAVED RUN`** on the Title Screen so players can close the browser tab and pick up right where they left off (same Age, Level, HP, and upgrades).
   - Reaching **Age 50, 60, 70, or 80** permanently unlocks **Decade Checkpoints** on the Title Screen (starting with `+3 / +6 / +9 / +12` bonus starter upgrades), plus a new **Pension Plan (`+1` starting weapon damage)** upgrade in the 401(k) Shop!
+
+## 2026-10-30: Universal Menu Navigation, Spacebar Pause & Options, Native Gamepad Fix & Mobile Touch Controls! (Antigravity)
+- **Universal Menu Navigation (`window.menuNav` in `src/ui.js`):**
+  - Added 2D row/column focus navigation (`.nav-focused` golden highlight ring) across **every modal** (`#title-modal`, `#levelup-modal`, `#pause-modal`, `#retire80-modal`, `#gameover-modal`).
+  - Players can now arrow through Characters, Decade Checkpoints, 401(k) Shop upgrades, Camera Styles, Level-Up Perk Cards, and Pause Options using **Arrow Keys (`▲▼◀▶`)**, **`WASD`**, or **Controller D-Pad / Left Stick**, and press **`Space` / `Enter` / Controller `A`** to select.
+- **Spacebar Pause & Options Screen (`#pause-modal`):**
+  - Pressing **`Spacebar`** (or `P`, `Esc`, Controller `Start`/`B`, or tapping **`⏸ PAUSE`**) during gameplay now opens the full **Pause & Options Screen**, where you can arrow through:
+    1. **▶ Resume Shift**
+    2. **🎥 Visual Engine (`16-Bit Retro` / `Diablo 3/4 Indie` / `Fortnite AAA 3D`)**
+    3. **🔊 Sound & Music (`ON` / `MUTED`)**
+    4. **💾 Save & Exit to Dossier**
+    5. **🔄 Start Fresh Run**
+- **Fixed Controller Support via Direct HTML5 Gamepad API (`navigator.getGamepads()`):**
+  - Replaced Phaser-only `scene.input.gamepad` polling in `readPad()` with direct `navigator.getGamepads()` polling so Xbox, PlayStation, Switch Pro, and Bluetooth controllers stay responsive even after clicking HTML overlay buttons, with auto-repeat stepping (`getPadMenuStep`) and a live **`🎮 PAD`** indicator in the HUD.
+- **Mobile Touch Controls (`#mobile-dock` + `#touch-joystick`):**
+  - Added a thumb-friendly floating **Mobile Quick-Action Dock** (`⏸ PAUSE`, `🎥 VIEW`, `🔊`) at the bottom-right, an on-screen **Virtual Touch Joystick** ring and knob (`#touch-joystick`) when dragging on touchscreens, and responsive mobile HUD/modal layouts.

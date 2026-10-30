@@ -154,11 +154,77 @@
   .style-opt.active { background: var(--border-col); color: #0d1021; }
   .util-btns { display: flex; gap: 6px; }
   .util-btn {
-    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.22);
-    color: var(--text-main); font-family: var(--font-body); font-size: 11px; font-weight: 700;
-    padding: 3px 8px; border-radius: 4px; cursor: pointer;
+    background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.28);
+    color: var(--text-main); font-family: var(--font-body); font-size: 12px; font-weight: 700;
+    padding: 6px 11px; min-height: 34px; border-radius: 5px; cursor: pointer;
+    touch-action: manipulation;
   }
   .util-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* UNIVERSAL KEYBOARD & CONTROLLER FOCUS HIGHLIGHT (.nav-focused) */
+  .nav-focused {
+    outline: 3px solid var(--accent) !important;
+    outline-offset: 2px !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 20px rgba(255, 224, 66, 0.65) !important;
+    transform: translateY(-2px) scale(1.025) !important;
+    z-index: 6;
+  }
+  .nav-hint-bar {
+    margin-top: 10px; padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.14);
+    font-size: 11px; color: var(--text-muted); font-weight: 700;
+    display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+  }
+  .nav-hint-bar b { color: var(--accent); }
+
+  /* PAUSE & OPTIONS MENU LIST */
+  .options-list {
+    display: flex; flex-direction: column; gap: 8px; margin: 12px 0 6px;
+  }
+  .opt-btn {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10, 13, 28, 0.92); border: 2px solid rgba(255,255,255,0.22);
+    color: var(--text-main); border-radius: var(--pod-radius);
+    font-family: var(--font-body); font-size: 14px; font-weight: 700;
+    padding: 12px 16px; cursor: pointer; text-align: left; width: 100%;
+    transition: all 0.12s ease; touch-action: manipulation;
+  }
+  .opt-btn span.opt-val {
+    font-family: var(--font-head); font-size: 11px; color: var(--accent);
+    background: rgba(255,255,255,0.1); padding: 4px 9px; border-radius: 4px;
+  }
+  .opt-btn.primary-opt {
+    background: var(--border-col); color: #0d1021; border-color: var(--border-col);
+    font-family: var(--font-head); font-size: 13px; justify-content: center;
+  }
+
+  /* MOBILE FLOATING QUICK-CONTROLS & VIRTUAL TOUCH JOYSTICK */
+  .mobile-dock {
+    position: fixed; bottom: 16px; right: 16px; z-index: 20;
+    display: flex; gap: 8px; pointer-events: auto;
+  }
+  .mob-fab {
+    background: var(--bg-pod); border: 2px solid var(--border-col);
+    color: var(--text-main); border-radius: 999px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 700;
+    padding: 10px 14px; min-height: 44px; min-width: 44px;
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+    cursor: pointer; touch-action: manipulation;
+  }
+  .mob-fab:active { transform: scale(0.94); border-color: var(--accent); }
+
+  .touch-joystick {
+    position: fixed; width: 96px; height: 96px; margin-left: -48px; margin-top: -48px;
+    border-radius: 50%; border: 2px solid rgba(255, 224, 66, 0.55);
+    background: rgba(12, 16, 34, 0.38); pointer-events: none; z-index: 15;
+  }
+  .touch-knob {
+    position: absolute; left: 50%; top: 50%; width: 38px; height: 38px;
+    margin-left: -19px; margin-top: -19px; border-radius: 50%;
+    background: rgba(255, 224, 66, 0.85); box-shadow: 0 0 12px rgba(255, 224, 66, 0.8);
+  }
 
   /* BOSS OUTLOOK TOAST */
   .boss-toast {
@@ -181,7 +247,8 @@
   .modal-card {
     background: var(--bg-pod); border: 3px solid var(--border-col);
     border-radius: var(--pod-radius); box-shadow: var(--pod-shadow);
-    padding: 20px 24px; width: 100%; max-width: 680px; text-align: center;
+    padding: 20px 24px; width: 100%; max-width: 680px; max-height: 92vh; overflow-y: auto;
+    text-align: center; -webkit-overflow-scrolling: touch;
     transform: skewX(var(--pod-skew)); animation: popIn 0.2s ease-out;
   }
   .modal-kicker { font-size: 11px; color: var(--accent); font-weight: 700; letter-spacing: 1.2px; margin-bottom: 4px; }
@@ -307,26 +374,34 @@
     from { opacity: 0; transform: scale(0.92) skewX(var(--pod-skew)); }
     to   { opacity: 1; transform: scale(1) skewX(var(--pod-skew)); }
   }
-  @media (max-width: 680px) {
-    .hud-center { display: none; }
+  @media (max-width: 768px) {
+    .hud-top { flex-wrap: wrap; gap: 6px; padding: 8px 10px; }
+    .hud-left { min-width: 175px; flex: 1; padding: 6px 8px; }
+    .hud-center { order: 3; width: 100%; max-width: 100%; flex-basis: 100%; padding: 6px 10px 14px; }
+    .hud-right { padding: 6px 8px; }
+    .style-pill { display: none; }
     .perk-cards-grid, .dossier-chars-grid { grid-template-columns: 1fr; }
-    .perk-card { min-height: auto; flex-direction: row; gap: 10px; text-align: left; }
+    .perk-card { min-height: auto; flex-direction: row; gap: 10px; text-align: left; padding: 10px; }
+    .perk-icon { font-size: 28px; margin: 0; }
+    .modal-card { padding: 14px; transform: none; }
+    .game-logo { font-size: 18px; }
+    .gameover-actions { flex-direction: column; }
   }
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/player.js?v=9"></script>
-<script src="src/data/enemies.js?v=9"></script>
-<script src="src/data/weapons.js?v=9"></script>
-<script src="src/data/deaths.js?v=9"></script>
-<script src="src/data/pickups.js?v=9"></script>
-<script src="src/data/upgrades.js?v=9"></script>
-<script src="src/data/meta.js?v=9"></script>
-<script src="src/data/sounds.js?v=9"></script>
-<script src="src/sfx.js?v=9"></script>
-<script src="src/sprites.js?v=9"></script>
-<script src="src/view3d.js?v=9"></script>
-<script src="src/ui.js?v=9"></script>
-<script src="src/main.js?v=9"></script>
+<script src="src/data/player.js?v=10"></script>
+<script src="src/data/enemies.js?v=10"></script>
+<script src="src/data/weapons.js?v=10"></script>
+<script src="src/data/deaths.js?v=10"></script>
+<script src="src/data/pickups.js?v=10"></script>
+<script src="src/data/upgrades.js?v=10"></script>
+<script src="src/data/meta.js?v=10"></script>
+<script src="src/data/sounds.js?v=10"></script>
+<script src="src/sfx.js?v=10"></script>
+<script src="src/sprites.js?v=10"></script>
+<script src="src/view3d.js?v=10"></script>
+<script src="src/ui.js?v=10"></script>
+<script src="src/main.js?v=10"></script>

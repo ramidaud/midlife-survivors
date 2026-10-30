@@ -1,6 +1,6 @@
-// "Chameleon + Corporate Satire" HTML/CSS UI Manager (`src/ui.js`).
-// Combines Option A (morphs live between Retro 16-Bit, Diablo 3/4 Indie, and Fortnite AAA when you press [V])
-// with Option C (satirical Corporate / Adulting OS: Employee ID badge, Life Timeline 40->80->100, Save/Resume, Perk Vouchers).
+// "Chameleon + Corporate Satire" HTML/CSS UI & Universal Menu Navigation Manager (`src/ui.js`).
+// Supports full Keyboard Arrow/WASD + Space/Enter navigation, Game Controller D-Pad/Stick navigation,
+// and Mobile Touch Controls (Floating Action Dock + On-Screen Virtual Touch Joystick).
 
 const UPGRADE_META = {
   "Extra Shot":                    { icon: "☕", tag: "CAFFEINE PERK",   rarity: "common" },
@@ -31,7 +31,158 @@ const THEME_LABELS = [
   "MIDLIFE ROYALE // AAA 3D"
 ];
 
+const VIEW_SHORT_NAMES = [
+  "👾 16-Bit Retro",
+  "🕯️ Diablo 3/4 Indie",
+  "🚀 Fortnite AAA 3D"
+];
+
 let uiScene = null;
+
+// ============================================================================
+// UNIVERSAL MENU FOCUS & NAVIGATION MANAGER (`window.menuNav`)
+// Lets players arrow through EVERY modal with Arrow Keys, WASD, or Controller!
+// ============================================================================
+window.menuNav = {
+  focusedEl: null,
+
+  getActiveModal() {
+    const order = ["levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    for (const id of order) {
+      const el = document.getElementById(id);
+      if (el && !el.classList.contains("hidden")) return el;
+    }
+    return null;
+  },
+
+  getRows(modal) {
+    if (!modal) return [];
+    const items = Array.from(modal.querySelectorAll(".nav-item:not([disabled])"));
+    const rowMap = new Map();
+    items.forEach(el => {
+      const r = Number(el.dataset.navRow || 0);
+      if (!rowMap.has(r)) rowMap.set(r, []);
+      rowMap.get(r).push(el);
+    });
+    return Array.from(rowMap.keys()).sort((a, b) => a - b).map(k => rowMap.get(k));
+  },
+
+  focus(el, playSound = false) {
+    const modal = this.getActiveModal();
+    if (!modal || !el) return;
+    modal.querySelectorAll(".nav-focused").forEach(n => n.classList.remove("nav-focused"));
+    this.focusedEl = el;
+    el.classList.add("nav-focused");
+    if (el.classList.contains("perk-card")) {
+      modal.querySelectorAll(".perk-card").forEach((c, idx) => {
+        const isMatch = c === el;
+        c.classList.toggle("selected", isMatch);
+        if (isMatch && window.levelMenu) window.levelMenu.sel = idx;
+      });
+    }
+    try { el.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {}
+    if (playSound) sfx("move");
+  },
+
+  refresh(defaultSelector) {
+    const modal = this.getActiveModal();
+    if (!modal) { this.focusedEl = null; return; }
+    const all = Array.from(modal.querySelectorAll(".nav-item:not([disabled])"));
+    if (!all.length) { this.focusedEl = null; return; }
+    let target = null;
+    if (defaultSelector) target = modal.querySelector(defaultSelector);
+    if (!target || target.disabled) {
+      target = modal.querySelector(".nav-default:not([disabled])") || all[0];
+    }
+    this.focus(target, false);
+  },
+
+  move(dir) {
+    const modal = this.getActiveModal();
+    if (!modal) return false;
+    const rows = this.getRows(modal);
+    if (!rows.length) return false;
+
+    let rIdx = 0, cIdx = 0, found = false;
+    for (let r = 0; r < rows.length; r++) {
+      const c = rows[r].indexOf(this.focusedEl);
+      if (c !== -1) { rIdx = r; cIdx = c; found = true; break; }
+    }
+    if (!found) {
+      this.focus(rows[0][0], true);
+      return true;
+    }
+
+    // Special horizontal adjustment when on Pause/Options cycler rows (Camera Style / Audio)
+    if ((dir === "left" || dir === "right") && this.focusedEl && this.focusedEl.dataset.optCycle) {
+      this.activate(dir);
+      return true;
+    }
+
+    if (dir === "left" || dir === "right") {
+      const row = rows[rIdx];
+      if (row.length > 1) {
+        const step = dir === "left" ? -1 : 1;
+        const nextC = (cIdx + step + row.length) % row.length;
+        this.focus(row[nextC], true);
+      } else if (rows.length > 1) {
+        // Single-item row: Left/Right steps to previous/next row for effortless 1D arrowing
+        const step = dir === "left" ? -1 : 1;
+        const nextR = (rIdx + step + rows.length) % rows.length;
+        this.focus(rows[nextR][0], true);
+      }
+      return true;
+    }
+
+    if (dir === "up" || dir === "down") {
+      if (rows.length > 1) {
+        const step = dir === "up" ? -1 : 1;
+        const nextR = (rIdx + step + rows.length) % rows.length;
+        const targetRow = rows[nextR];
+        const nextC = Math.min(cIdx, targetRow.length - 1);
+        this.focus(targetRow[nextC], true);
+      } else {
+        // Only 1 row (e.g., 3 horizontal Perk Cards or 2 Game Over buttons): Up/Down also steps through items!
+        const row = rows[0];
+        const step = dir === "up" ? -1 : 1;
+        const nextC = (cIdx + step + row.length) % row.length;
+        this.focus(row[nextC], true);
+      }
+      return true;
+    }
+    return false;
+  },
+
+  activate(dirHint) {
+    const modal = this.getActiveModal();
+    if (!modal) return false;
+    if (!this.focusedEl || !modal.contains(this.focusedEl)) {
+      this.refresh();
+    }
+    if (!this.focusedEl) return false;
+    this.focusedEl.dataset.dirHint = dirHint || "";
+    this.focusedEl.dispatchEvent(new Event("nav-activate", { bubbles: true }));
+    return true;
+  }
+};
+
+function bindNavItem(el, row, onActivate, isDefault = false) {
+  if (!el) return;
+  el.classList.add("nav-item");
+  el.dataset.navRow = String(row);
+  if (isDefault) el.classList.add("nav-default");
+  el.addEventListener("pointerenter", () => window.menuNav.focus(el, false));
+  el.addEventListener("pointerdown", e => {
+    e.stopPropagation();
+    unlockAudio();
+    window.menuNav.focus(el, false);
+    onActivate(e);
+  });
+  el.addEventListener("nav-activate", e => {
+    unlockAudio();
+    onActivate(e);
+  });
+}
 
 function initGameUI(scene) {
   uiScene = scene;
@@ -84,22 +235,23 @@ function initGameUI(scene) {
         </div>
       </div>
 
-      <!-- Zone 3: Top-Right 401(k) Ticker, Auto-Save Badge & 3-Way Camera Switcher -->
+      <!-- Zone 3: Top-Right 401(k) Ticker, Auto-Save Badge & Quick Controls -->
       <div class="hud-pod hud-right">
         <div class="coin-pill">
+          <span class="save-dot" id="hud-pad-dot" style="display:none;color:#6fbf73;margin-right:4px;">🎮 PAD</span>
           <span class="save-dot" id="hud-save-dot" title="Progress Auto-Saved to Browser!">💾 SAVED</span>
           <span class="coin-icon">🪙</span>
           <span class="coin-label">401(k):</span>
           <span class="coin-val" id="hud-coins">0k</span>
         </div>
-        <div class="style-pill" id="hud-style-pill" title="Press V or click to switch visual engine!">
+        <div class="style-pill" id="hud-style-pill" title="Press V or tap to switch visual engine!">
           <span class="style-key">[V]</span>
           <button class="style-opt" data-idx="0">16-BIT</button>
           <button class="style-opt" data-idx="1">DIABLO 3/4</button>
           <button class="style-opt" data-idx="2">AAA 3D</button>
         </div>
         <div class="util-btns">
-          <button class="util-btn" id="hud-pause-btn" title="Pause / Save & Exit (P / Esc)">⏸ [P]</button>
+          <button class="util-btn" id="hud-pause-btn" title="Pause / Options (Space / P / Esc)">⏸ PAUSE [Space]</button>
           <button class="util-btn" id="hud-mute-btn" title="Mute Audio (M)">🔊 [M]</button>
         </div>
       </div>
@@ -114,28 +266,30 @@ function initGameUI(scene) {
       </div>
     </div>
 
-    <!-- MODAL 1: LEVEL-UP / HR PERK VOUCHER (3 Vertical Collectible Cards) -->
+    <!-- ON-SCREEN VIRTUAL TOUCH JOYSTICK (Appears when dragging on Mobile/Touch) -->
+    <div class="touch-joystick hidden" id="touch-joystick">
+      <div class="touch-knob" id="touch-knob"></div>
+    </div>
+
+    <!-- FLOATING MOBILE QUICK-ACTION DOCK (Thumb-Friendly Pause / Style / Audio) -->
+    <div class="mobile-dock" id="mobile-dock">
+      <button class="mob-fab" id="mob-pause-btn" title="Pause & Options">⏸ PAUSE</button>
+      <button class="mob-fab" id="mob-view-btn" title="Switch 2D / Diablo / 3D">🎥 VIEW</button>
+      <button class="mob-fab" id="mob-mute-btn" title="Toggle Sound">🔊</button>
+    </div>
+
+    <!-- MODAL 1: LEVEL-UP / HR PERK VOUCHER (3 Collectible Cards) -->
     <div class="ui-modal hidden" id="levelup-modal">
       <div class="modal-card levelup-box">
         <div class="modal-kicker" id="lv-kicker">HR BENEFITS DEPARTMENT // FORM W-40</div>
         <h2 class="modal-title" id="lv-title">LEVEL UP! SELECT ONE PERK VOUCHER</h2>
-        <div class="modal-sub">Click a card, press <b>1 / 2 / 3</b>, or use Controller D-Pad + <b>A</b></div>
+        <div class="modal-sub">Use <b>Arrow Keys</b> + <b>Space/Enter</b>, press <b>1 / 2 / 3</b>, Controller <b>D-Pad + A</b>, or Tap!</div>
         <div class="perk-cards-grid" id="lv-cards"></div>
       </div>
     </div>
 
-    <!-- MODAL 2: PAUSE & SAVE OVERLAY -->
-    <div class="ui-modal hidden" id="pause-modal">
-      <div class="modal-card pause-box">
-        <div class="modal-kicker">✓ RUN AUTO-SAVED TO LOCALSTORAGE</div>
-        <h2 class="modal-title">ON BREAK (PAUSED)</h2>
-        <p class="modal-sub">Your exact Age, Level, HP, and 401(k) Coins are saved. Resume now or clock out and continue later!</p>
-        <div class="gameover-actions">
-          <button class="cta-btn" id="pause-resume-btn">▶ RESUME SHIFT (P / Esc)</button>
-          <button class="cta-btn secondary-btn" id="pause-savequit-btn">💾 SAVE & EXIT TO DOSSIER</button>
-        </div>
-      </div>
-    </div>
+    <!-- MODAL 2: PAUSE & OPTIONS OVERLAY (Spacebar / P / Esc / Start / Tap Pause) -->
+    <div class="ui-modal hidden" id="pause-modal"></div>
 
     <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
     <div class="ui-modal hidden" id="retire80-modal">
@@ -146,6 +300,10 @@ function initGameUI(scene) {
         <div class="gameover-actions">
           <button class="cta-btn" id="retire80-senior-btn">🔥 ENTER BONUS SENIOR ROUNDS (AGE 80 -> 100!)</button>
           <button class="cta-btn secondary-btn" id="retire80-claim-btn">🏖️ RETIRE AT 80 & CLAIM VICTORY</button>
+        </div>
+        <div class="nav-hint-bar">
+          <span><b>▲▼◀▶</b> Arrow / D-Pad: Select</span>
+          <span><b>Space / Enter / A</b>: Confirm</span>
         </div>
       </div>
     </div>
@@ -165,31 +323,69 @@ function initGameUI(scene) {
       applyViewMode(uiScene);
       sfx("pick");
       if (titleOpen) renderTitleModal(uiScene);
+      if (paused) renderPauseModal(uiScene);
     });
   });
 
-  document.getElementById("hud-pause-btn").addEventListener("pointerdown", e => {
-    e.stopPropagation(); unlockAudio(); togglePause(uiScene);
-  });
-  document.getElementById("hud-mute-btn").addEventListener("pointerdown", e => {
-    e.stopPropagation(); unlockAudio(); toggleMute();
-    document.getElementById("hud-mute-btn").textContent = isMuted() ? "🔇 [M]" : "🔊 [M]";
-  });
-  document.getElementById("pause-resume-btn").addEventListener("pointerdown", e => {
-    e.stopPropagation(); unlockAudio(); togglePause(uiScene);
-  });
-  document.getElementById("pause-savequit-btn").addEventListener("pointerdown", e => {
+  const doPauseToggle = e => {
     e.stopPropagation();
     unlockAudio();
-    if (window.persistActiveRun) window.persistActiveRun();
-    setPauseModalVisible(false);
-    paused = false;
-    titleSeen = false;
-    uiScene.scene.restart();
-  });
+    togglePause(uiScene);
+  };
+  const doMuteToggle = e => {
+    e.stopPropagation();
+    unlockAudio();
+    toggleMute();
+    syncMuteButtons();
+    if (paused) renderPauseModal(uiScene);
+  };
+  const doViewCycle = e => {
+    e.stopPropagation();
+    unlockAudio();
+    cycleViewMode(uiScene);
+    sfx("pick");
+    if (titleOpen) renderTitleModal(uiScene);
+    if (paused) renderPauseModal(uiScene);
+  };
+
+  document.getElementById("hud-pause-btn").addEventListener("pointerdown", doPauseToggle);
+  document.getElementById("mob-pause-btn").addEventListener("pointerdown", doPauseToggle);
+  document.getElementById("hud-mute-btn").addEventListener("pointerdown", doMuteToggle);
+  document.getElementById("mob-mute-btn").addEventListener("pointerdown", doMuteToggle);
+  document.getElementById("mob-view-btn").addEventListener("pointerdown", doViewCycle);
 
   window.syncUITheme();
 }
+
+function syncMuteButtons() {
+  const muted = isMuted();
+  const hb = document.getElementById("hud-mute-btn");
+  const mb = document.getElementById("mob-mute-btn");
+  if (hb) hb.textContent = muted ? "🔇 [M]" : "🔊 [M]";
+  if (mb) mb.textContent = muted ? "🔇" : "🔊";
+}
+
+window.setGamepadConnectedUI = function(connected) {
+  const dot = document.getElementById("hud-pad-dot");
+  if (dot) dot.style.display = connected ? "inline" : "none";
+};
+
+window.updateTouchJoystickUI = function(touch) {
+  const joy = document.getElementById("touch-joystick");
+  const knob = document.getElementById("touch-knob");
+  if (!joy || !knob) return;
+  if (!touch || !touch.active) {
+    joy.classList.add("hidden");
+    return;
+  }
+  joy.classList.remove("hidden");
+  joy.style.left = `${touch.startX}px`;
+  joy.style.top = `${touch.startY}px`;
+  const maxR = 32;
+  const dist = Math.hypot(touch.dx, touch.dy);
+  const clamp = dist > maxR ? maxR / dist : 1;
+  knob.style.transform = `translate(${touch.dx * clamp}px, ${touch.dy * clamp}px)`;
+};
 
 window.syncUITheme = function() {
   const root = document.getElementById("ui-layer");
@@ -233,6 +429,7 @@ function updateHUD() {
   }
 
   document.getElementById("hud-coins").textContent = `${meta.coins}k`;
+  syncMuteButtons();
 
   const badges = [];
   badges.push(`<span class="perk-badge" title="Coffee Splash">${stats.coldBrew ? "⚡☕ Cold Brew" : "☕ Coffee"}</span>`);
@@ -261,25 +458,121 @@ function showBossToastUI(bossName, customSub) {
   toast._timer = setTimeout(() => toast.classList.add("hidden"), 3400);
 }
 
+// Render & show/hide the PAUSE & OPTIONS Modal (`Space` / `P` / `Esc` / `Start` / `⏸ PAUSE`)
 function setPauseModalVisible(vis) {
   const el = document.getElementById("pause-modal");
-  if (el) el.classList.toggle("hidden", !vis);
+  if (!el) return;
+  el.classList.toggle("hidden", !vis);
+  if (vis) {
+    renderPauseModal(uiScene);
+  }
+}
+
+function renderPauseModal(scene, keepRowIdx) {
+  const modal = document.getElementById("pause-modal");
+  if (!modal) return;
+  const vIdx = window.viewModeIdx || 0;
+  const muted = isMuted();
+
+  modal.innerHTML = `
+    <div class="modal-card pause-box">
+      <div class="modal-kicker">✓ PROGRESS AUTO-SAVED TO LOCALSTORAGE</div>
+      <h2 class="modal-title">PAUSE & OPTIONS</h2>
+      <p class="modal-sub">Age ${currentAge.toFixed(1)} | Level ${level} | HP ${Math.max(0, hp)}/${stats ? stats.maxHp : 12} | 401(k): ${meta ? meta.coins : 0}k</p>
+      <div class="options-list">
+        <button class="opt-btn primary-opt" id="pause-resume-btn">▶ RESUME SHIFT (Space / Esc / A)</button>
+        <button class="opt-btn" id="pause-style-btn" data-opt-cycle="1">
+          <span>🎥 VISUAL ENGINE</span>
+          <span class="opt-val">◀ ${VIEW_SHORT_NAMES[vIdx]} ▶</span>
+        </button>
+        <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1">
+          <span>🔊 SOUND & MUSIC</span>
+          <span class="opt-val">◀ ${muted ? "MUTED 🔇" : "ON 🔊"} ▶</span>
+        </button>
+        <button class="opt-btn" id="pause-savequit-btn">
+          <span>💾 SAVE & EXIT TO DOSSIER</span>
+          <span class="opt-val">401(k) SHOP</span>
+        </button>
+        <button class="opt-btn" id="pause-restart-btn">
+          <span>🔄 START FRESH RUN</span>
+          <span class="opt-val">AGE ${meta ? (meta.startDecade || 40) : 40}</span>
+        </button>
+      </div>
+      <div class="nav-hint-bar">
+        <span><b>▲▼</b> Arrow / D-Pad: Navigate</span>
+        <span><b>◀▶ / Space / Enter / A</b>: Select or Toggle</span>
+        <span><b>Esc / B / Start</b>: Resume</span>
+      </div>
+    </div>
+  `;
+
+  bindNavItem(document.getElementById("pause-resume-btn"), 0, () => {
+    sfx("pick");
+    togglePause(scene);
+  }, keepRowIdx === undefined || keepRowIdx === 0);
+
+  bindNavItem(document.getElementById("pause-style-btn"), 1, () => {
+    const dir = document.getElementById("pause-style-btn").dataset.dirHint;
+    const step = dir === "left" ? -1 : 1;
+    window.viewModeIdx = (vIdx + step + window.VIEW_MODES.length) % window.VIEW_MODES.length;
+    applyViewMode(scene);
+    sfx("pick");
+    renderPauseModal(scene, 1);
+  }, keepRowIdx === 1);
+
+  bindNavItem(document.getElementById("pause-audio-btn"), 2, () => {
+    toggleMute();
+    syncMuteButtons();
+    sfx("pick");
+    renderPauseModal(scene, 2);
+  }, keepRowIdx === 2);
+
+  bindNavItem(document.getElementById("pause-savequit-btn"), 3, () => {
+    sfx("pick");
+    if (window.persistActiveRun) window.persistActiveRun();
+    setPauseModalVisible(false);
+    paused = false;
+    titleSeen = false;
+    scene.scene.restart();
+  }, keepRowIdx === 3);
+
+  bindNavItem(document.getElementById("pause-restart-btn"), 4, () => {
+    sfx("pick");
+    clearRunState();
+    setPauseModalVisible(false);
+    paused = false;
+    scene.scene.restart();
+  }, keepRowIdx === 4);
+
+  window.menuNav.refresh();
 }
 
 function showRetire80Modal(scene, onContinueSenior, onClaimWin) {
   const modal = document.getElementById("retire80-modal");
   if (!modal) return;
   modal.classList.remove("hidden");
-  document.getElementById("retire80-senior-btn").onclick = e => {
-    e.stopPropagation();
+
+  const senBtn = document.getElementById("retire80-senior-btn");
+  const clmBtn = document.getElementById("retire80-claim-btn");
+  // Clone to clear old listeners cleanly
+  const senClean = senBtn.cloneNode(true);
+  const clmClean = clmBtn.cloneNode(true);
+  senBtn.replaceWith(senClean);
+  clmBtn.replaceWith(clmClean);
+
+  bindNavItem(senClean, 0, () => {
+    sfx("pick");
     modal.classList.add("hidden");
     onContinueSenior();
-  };
-  document.getElementById("retire80-claim-btn").onclick = e => {
-    e.stopPropagation();
+  }, true);
+
+  bindNavItem(clmClean, 1, () => {
+    sfx("pick");
     modal.classList.add("hidden");
     onClaimWin();
-  };
+  }, false);
+
+  window.menuNav.refresh();
 }
 
 function renderLevelUpModal(choices, customTitle, onPick) {
@@ -302,25 +595,24 @@ function renderLevelUpModal(choices, customTitle, onPick) {
       <div class="perk-icon">${info.icon}</div>
       <div class="perk-name">${up.name}</div>
       <div class="perk-desc">${up.text}</div>
-      <div class="perk-key">PRESS [${i + 1}]</div>
+      <div class="perk-key">PRESS [${i + 1}] / SPACE</div>
     `;
-    card.addEventListener("pointerenter", () => highlightCard(i));
-    card.addEventListener("pointerdown", e => {
-      e.stopPropagation();
-      unlockAudio();
+    bindNavItem(card, 0, () => {
       modal.classList.add("hidden");
       onPick(up);
-    });
+    }, i === 0);
     grid.appendChild(card);
     return card;
   });
 
   function highlightCard(idx) {
-    if (levelMenu) levelMenu.sel = idx;
-    cardEls.forEach((el, j) => el.classList.toggle("selected", j === idx));
+    const target = cardEls[idx];
+    if (target) window.menuNav.focus(target, false);
   }
 
   modal.classList.remove("hidden");
+  window.menuNav.refresh();
+
   return {
     highlight: highlightCard,
     close: () => modal.classList.add("hidden")
@@ -328,7 +620,7 @@ function renderLevelUpModal(choices, customTitle, onPick) {
 }
 
 // Render the Title Screen ("Executive Dossier, Save/Resume & 401(k) Portal")
-function renderTitleModal(scene) {
+function renderTitleModal(scene, preserveFocusSelector) {
   const modal = document.getElementById("title-modal");
   if (!modal) return;
   modal.classList.remove("hidden");
@@ -372,7 +664,7 @@ function renderTitleModal(scene) {
           <span class="shop-pips">${"■".repeat(rank)}${"□".repeat(item.maxRank - rank)}</span>
           <span class="shop-desc">${item.desc}</span>
         </div>
-        <button class="shop-buy-btn">${maxed ? "MAXED" : `BUY ${cost}k`}</button>
+        <button class="shop-buy-btn" tabindex="-1">${maxed ? "MAXED" : `BUY ${cost}k`}</button>
       </div>
     `;
   }).join("");
@@ -410,82 +702,93 @@ function renderTitleModal(scene) {
           <button class="t-style-btn ${window.viewModeIdx === 2 ? "active" : ""}" data-v="2">🚀 Fortnite AAA 3D</button>
         </div>
         ${resumeBannerHtml}
-        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START NEW RUN AT AGE ${meta.startDecade || 40} (Space / Start)</button>
+        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START NEW RUN AT AGE ${meta.startDecade || 40} (Space / Enter / A)</button>
+      </div>
+      <div class="nav-hint-bar">
+        <span><b>▲▼◀▶</b> Arrow Keys / Controller D-Pad: Browse Menu</span>
+        <span><b>Space / Enter / A</b>: Select or Start</span>
+        <span><b>[V] / Y</b>: Switch 2D/3D Style</span>
       </div>
     </div>
   `;
 
+  // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {
-    el.addEventListener("pointerdown", e => {
-      e.stopPropagation();
-      unlockAudio();
-      const ch = CHARACTERS.find(c => c.id === el.dataset.char);
+    const chId = el.dataset.char;
+    bindNavItem(el, 0, () => {
+      const ch = CHARACTERS.find(c => c.id === chId);
       if (!ch) return;
       if (meta.unlockedChars[ch.id]) {
-        meta.selectedChar = ch.id; saveMeta(meta); sfx("pick"); renderTitleModal(scene); updateHUD();
+        meta.selectedChar = ch.id; saveMeta(meta); sfx("pick");
+        renderTitleModal(scene, `[data-char="${chId}"]`); updateHUD();
       } else if (meta.coins >= ch.cost) {
         meta.coins -= ch.cost; meta.unlockedChars[ch.id] = true; meta.selectedChar = ch.id;
-        saveMeta(meta); sfx("levelUp"); renderTitleModal(scene); updateHUD();
+        saveMeta(meta); sfx("levelUp");
+        renderTitleModal(scene, `[data-char="${chId}"]`); updateHUD();
       } else {
         sfx("hurt");
       }
     });
   });
 
+  // Row 1: Decade Checkpoints
   modal.querySelectorAll("[data-dec]").forEach(btn => {
-    btn.addEventListener("pointerdown", e => {
-      e.stopPropagation();
-      unlockAudio();
-      const d = Number(btn.dataset.dec);
+    if (btn.disabled) return;
+    const d = Number(btn.dataset.dec);
+    bindNavItem(btn, 1, () => {
       if ((meta.unlockedDecades || [40]).includes(d)) {
         meta.startDecade = d;
         saveMeta(meta);
         sfx("pick");
-        renderTitleModal(scene);
+        renderTitleModal(scene, `[data-dec="${d}"]`);
       }
     });
   });
 
-  modal.querySelectorAll(".shop-row").forEach(el => {
-    el.addEventListener("pointerdown", e => {
-      e.stopPropagation();
-      unlockAudio();
-      const item = META_SHOP.find(it => it.id === el.dataset.shop);
+  // Rows 2..5: 401(k) Shop Upgrades
+  modal.querySelectorAll(".shop-row").forEach((el, idx) => {
+    const shopId = el.dataset.shop;
+    bindNavItem(el, 2 + idx, () => {
+      const item = META_SHOP.find(it => it.id === shopId);
       if (!item) return;
       const rank = meta.ranks[item.id] || 0;
       const cost = item.baseCost * (rank + 1);
       if (rank < item.maxRank && meta.coins >= cost) {
         meta.coins -= cost; meta.ranks[item.id] = rank + 1;
-        saveMeta(meta); sfx("billPaid"); renderTitleModal(scene); updateHUD();
+        saveMeta(meta); sfx("billPaid");
+        renderTitleModal(scene, `[data-shop="${shopId}"]`); updateHUD();
       } else {
         sfx("hurt");
       }
     });
   });
 
+  // Row 6: Visual Style Switcher
   modal.querySelectorAll("[data-v]").forEach(btn => {
-    btn.addEventListener("pointerdown", e => {
-      e.stopPropagation();
-      unlockAudio();
-      window.viewModeIdx = Number(btn.dataset.v);
+    const v = Number(btn.dataset.v);
+    bindNavItem(btn, 6, () => {
+      window.viewModeIdx = v;
       applyViewMode(scene);
       sfx("pick");
-      renderTitleModal(scene);
+      renderTitleModal(scene, `[data-v="${v}"]`);
     });
   });
 
+  // Row 7: Resume Saved Run (if present)
   const resumeBtn = document.getElementById("title-resume-btn");
   if (resumeBtn) {
-    resumeBtn.addEventListener("pointerdown", e => {
-      e.stopPropagation();
+    bindNavItem(resumeBtn, 7, () => {
       if (window.resumeSavedRunFromTitle) window.resumeSavedRunFromTitle();
-    });
+    }, true);
   }
 
-  document.getElementById("title-clockin-btn").addEventListener("pointerdown", e => {
-    e.stopPropagation();
+  // Row 8: Clock In / Start New Run (Default focus if no saved run)
+  const clockBtn = document.getElementById("title-clockin-btn");
+  bindNavItem(clockBtn, 8, () => {
     if (startFromTitle) startFromTitle();
-  });
+  }, !resumeBtn);
+
+  window.menuNav.refresh(preserveFocusSelector);
 }
 
 function hideTitleModal() {
@@ -514,23 +817,30 @@ function renderGameOverModal(scene, cause, isWin) {
         <div class="stat-pill"><span>401(k) SAVED</span><b>+${runCoins}k (Bank: ${meta.coins}k)</b></div>
       </div>
       <div class="gameover-actions">
-        <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / A)</button>
+        <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP & DECADE SELECT</button>
+      </div>
+      <div class="nav-hint-bar">
+        <span><b>◀▶ / ▲▼</b> Arrow / D-Pad: Switch Option</span>
+        <span><b>Space / Enter / A</b>: Confirm</span>
       </div>
     </div>
   `;
 
-  document.getElementById("go-retry-btn").addEventListener("pointerdown", e => {
-    e.stopPropagation();
+  bindNavItem(document.getElementById("go-retry-btn"), 0, () => {
+    sfx("pick");
     modal.classList.add("hidden");
     scene.scene.restart();
-  });
-  document.getElementById("go-shop-btn").addEventListener("pointerdown", e => {
-    e.stopPropagation();
+  }, true);
+
+  bindNavItem(document.getElementById("go-shop-btn"), 0, () => {
+    sfx("pick");
     modal.classList.add("hidden");
     titleSeen = false;
     scene.scene.restart();
-  });
+  }, false);
+
+  window.menuNav.refresh();
 }
 
 function hideAllModals() {
