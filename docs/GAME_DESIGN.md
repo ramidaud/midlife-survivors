@@ -252,3 +252,9 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - Built so far: alerts, first-time tips, decade chapter cards, dividends. Still to come: errands (with the Errands objective), lore teases, joke captions.
 - Words live in `src/data/tips.js` so Rami can edit them.
 - Rami's feedback: messages feel helpful and stay up long enough. Wants a hints on/off option for experienced players, and to restyle the strip during art direction.
+
+## Scores and leaderboard (decided Oct 30, built in V. 1.19.0)
+- Rami had already shared the game, so: **online leaderboard, no accounts.** Players type a name at Game Over (remembered for next time).
+- Score = 1,000 per year survived + 2 per enemy beaten (25 per boss) + 5 per 401(k) coin + 25,000 for meeting Death at 100. Tunable in `src/data/leaderboard.js`.
+- Online storage: a free Supabase table (`docs/LEADERBOARD_SETUP.sql`). Anyone can read and add scores; nobody can edit or delete. Fake scores are possible, which is fine for friends; revisit before a public launch.
+- Scores are always saved on the device too, so nothing is lost offline.

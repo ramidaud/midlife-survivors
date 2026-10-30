@@ -224,3 +224,9 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Vampire Survivors weapons fall into a few **shapes**: aimed shots, auras, boomerangs, orbits, piercing lines. A new shape changes how you move; a new number on an old shape doesn't.
 - **Hit windows:** a boomerang or orbit touches the same enemy many frames in a row. Each one remembers who it hit and waits a moment before hitting them again, or it would shred everything instantly.
 - **Evolutions** reward combos: one weapon plus one passive becomes something bigger.
+
+## Talking to a server (Oct 30, Leaderboard)
+- GitHub Pages only serves files; it can't remember anything. A shared leaderboard needs a **database** somewhere else. Ours is Supabase.
+- The game sends a score with `fetch()` (a web request) and asks for the top 10 the same way.
+- The **public key** in the code is safe to share because the database's **rules** only allow reading and adding scores, never editing or deleting.
+- If the internet drops, the score is still saved on the device: always have a fallback.

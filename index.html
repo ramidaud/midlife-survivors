@@ -898,28 +898,50 @@
   .credit-name { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #f2f4fa; margin-top: 4px; }
   .credit-sec:first-child .credit-name { color: #ffe042; font-size: 16px; }
   .credit-closing { font-style: italic; color: #f0a24f; }
+
+  /* SCORES + LEADERBOARD */
+  .score-panel { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+  .score-big { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #9aa6c8; }
+  .score-big b { color: #ffe042; font-size: 20px; margin-left: 6px; }
+  .score-break { font-size: 13px; color: #9aa6c8; }
+  .score-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+  .score-form input { flex: 1 1 160px; min-width: 0; max-width: 260px; padding: 10px 12px; font-size: 16px; font-family: 'Chakra Petch', sans-serif;
+    background: #0a0c18; color: #f2f4fa; border: 2px solid #f0a24f; border-radius: 4px; user-select: text; -webkit-user-select: text; }
+  .score-form input:focus { outline: 3px solid #ffe042; outline-offset: 1px; }
+  .score-post-btn { padding: 10px 14px; font-size: 13px; }
+  .score-post-btn:disabled { opacity: 0.5; }
+  .score-msg { font-size: 13px; color: #8ff094; min-height: 1em; }
+  .lb-status { font-size: 12px; color: #9aa6c8; margin-bottom: 4px; }
+  .lb-wrap { overflow-x: auto; max-height: 40vh; overflow-y: auto; }
+  .lb-table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .lb-table th { font-family: 'Press Start 2P', monospace; font-size: 9px; color: #f0a24f; text-align: left; padding: 6px 6px; border-bottom: 1px solid #2e3356; }
+  .lb-table td { padding: 5px 6px; color: #f2f4fa; border-bottom: 1px solid rgba(46,51,86,0.6); text-align: left; }
+  .lb-table tr.lb-me td { background: rgba(255,224,66,0.16); color: #ffe042; font-weight: 700; }
+  .lb-empty { text-align: center !important; color: #9aa6c8 !important; }
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/version.js?v=32"></script>
-<script src="src/data/lore.js?v=32"></script>
-<script src="src/data/player.js?v=32"></script>
-<script src="src/data/stages.js?v=32"></script>
-<script src="src/data/enemies.js?v=32"></script>
-<script src="src/data/weapons.js?v=32"></script>
-<script src="src/data/deaths.js?v=32"></script>
-<script src="src/data/tips.js?v=32"></script>
-<script src="src/data/credits.js?v=32"></script>
-<script src="src/data/swarms.js?v=32"></script>
-<script src="src/data/pickups.js?v=32"></script>
-<script src="src/data/upgrades.js?v=32"></script>
-<script src="src/data/meta.js?v=32"></script>
-<script src="src/data/sounds.js?v=32"></script>
-<script src="src/sfx.js?v=32"></script>
-<script src="src/sprites.js?v=32"></script>
-<script src="src/weapons_extra.js?v=32"></script>
-<script src="src/view3d.js?v=32"></script>
-<script src="src/ui.js?v=32"></script>
-<script src="src/main.js?v=32"></script>
+<script src="src/data/version.js?v=33"></script>
+<script src="src/data/lore.js?v=33"></script>
+<script src="src/data/player.js?v=33"></script>
+<script src="src/data/stages.js?v=33"></script>
+<script src="src/data/enemies.js?v=33"></script>
+<script src="src/data/weapons.js?v=33"></script>
+<script src="src/data/deaths.js?v=33"></script>
+<script src="src/data/tips.js?v=33"></script>
+<script src="src/data/credits.js?v=33"></script>
+<script src="src/data/swarms.js?v=33"></script>
+<script src="src/data/leaderboard.js?v=33"></script>
+<script src="src/data/pickups.js?v=33"></script>
+<script src="src/data/upgrades.js?v=33"></script>
+<script src="src/data/meta.js?v=33"></script>
+<script src="src/data/sounds.js?v=33"></script>
+<script src="src/sfx.js?v=33"></script>
+<script src="src/sprites.js?v=33"></script>
+<script src="src/weapons_extra.js?v=33"></script>
+<script src="src/view3d.js?v=33"></script>
+<script src="src/leaderboard.js?v=33"></script>
+<script src="src/ui.js?v=33"></script>
+<script src="src/main.js?v=33"></script>

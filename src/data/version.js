@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.18.0",
-  displayVersion: "V. 1.18.0",
+  version: "1.19.0",
+  displayVersion: "V. 1.19.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Arsenal",
-  build: 34,
+  codename: "High Scores",
+  build: 35,
   changelog: [
+    {
+      ver: "V. 1.19.0",
+      date: "Oct 30, 2026",
+      title: "Scores & Leaderboard",
+      highlights: [
+        "Every run ends with a score: years survived, enemies beaten and 401(k) coins earned.",
+        "Type a name and post it. No account needed; the game remembers your name.",
+        "New Leaderboard button on the title screen. Online for everyone once it's connected; saved on this device until then."
+      ]
+    },
     {
       ver: "V. 1.18.0",
       date: "Oct 30, 2026",

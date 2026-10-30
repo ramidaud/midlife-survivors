@@ -1181,3 +1181,17 @@ AIMED        AURA         BOOMERANG       ORBIT          PIERCING LINE
 Coffee       Dad Joke     TV Remote       Spreadsheet    Podcast at 2x
 ```
 Same enemies, five different ways to deal with them.
+
+---
+
+## Chapter: How a score reaches the leaderboard (V. 1.19.0)
+
+```mermaid
+flowchart LR
+    A["Game Over: you type a name"] --> B["Score saved on this device"]
+    B --> C{"Online board set up?"}
+    C -- yes --> D["fetch() sends it to Supabase"]
+    D --> E["Supabase rules: read + add only"]
+    E --> F["Top 10 comes back, your row highlighted"]
+    C -- no / offline --> G["Show this device's top 10"]
+```

@@ -1,0 +1,101 @@
+// Scores + online leaderboard. No accounts: players type a name at Game Over.
+// Talks to Supabase with plain fetch() calls, so there's no build step or library.
+// If the online board isn't set up or the internet is down, scores are kept on this device.
+
+const LB_LOCAL_KEY = "ms-local-scores-v1";
+const LB_NAME_KEY = "ms-player-name";
+
+function lbConfigured() {
+  const L = window.LEADERBOARD || {};
+  return !!(L.supabaseUrl && L.supabaseAnonKey);
+}
+
+function computeRunScore(ageReached, startAge, kills, coins, isCentennial) {
+  const L = window.LEADERBOARD || {};
+  const years = Math.max(0, ageReached - startAge);
+  return Math.round(years * (L.pointsPerYear || 1000) + kills * (L.pointsPerKill || 2) +
+    coins * (L.pointsPerCoin || 5) + (isCentennial ? (L.centennialBonus || 0) : 0));
+}
+
+function lbCleanName(raw) {
+  return String(raw || "").replace(/[<>"'`\\]/g, "").replace(/\s+/g, " ").trim().slice(0, 16);
+}
+function lbSavedName() { try { return localStorage.getItem(LB_NAME_KEY) || ""; } catch (e) { return ""; } }
+function lbSaveName(n) { try { localStorage.setItem(LB_NAME_KEY, n); } catch (e) {} }
+
+function lbLocalScores() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]"); } catch (e) { return []; } }
+function lbAddLocal(entry) {
+  const list = lbLocalScores().concat([entry]).sort((a, b) => b.score - a.score).slice(0, 25);
+  try { localStorage.setItem(LB_LOCAL_KEY, JSON.stringify(list)); } catch (e) {}
+  return list;
+}
+
+function lbHeaders() {
+  const L = window.LEADERBOARD, k = L.supabaseAnonKey;
+  const h = { apikey: k, "Content-Type": "application/json" };
+  // Older "anon" keys are JWTs and also go in Authorization. Newer "sb_publishable_..." keys only go in apikey.
+  if (!String(k).startsWith("sb_")) h.Authorization = `Bearer ${k}`;
+  return h;
+}
+
+// Post a score. Always saved on this device too. Resolves to { online: true|false }.
+async function lbSubmit(entry) {
+  lbAddLocal(entry);
+  if (!lbConfigured()) return { online: false, reason: "not-set-up" };
+  const L = window.LEADERBOARD;
+  try {
+    const res = await fetch(`${L.supabaseUrl}/rest/v1/${L.table}`, {
+      method: "POST", headers: Object.assign(lbHeaders(), { Prefer: "return=minimal" }),
+      body: JSON.stringify({ name: entry.name, score: entry.score, age: entry.age, start_age: entry.startAge, character: entry.character, version: entry.version })
+    });
+    return { online: res.ok, reason: res.ok ? "" : `HTTP ${res.status}` };
+  } catch (e) {
+    return { online: false, reason: "offline" };
+  }
+}
+
+// Top scores. Falls back to this device's scores if the online board can't be reached.
+async function lbFetchTop() {
+  const L = window.LEADERBOARD || {};
+  const n = L.topCount || 10;
+  if (lbConfigured()) {
+    try {
+      const res = await fetch(`${L.supabaseUrl}/rest/v1/${L.table}?select=name,score,age,character,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
+      if (res.ok) return { online: true, rows: await res.json() };
+    } catch (e) {}
+  }
+  return { online: false, rows: lbLocalScores().slice(0, n) };
+}
+
+function lbEscape(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// Render a top-10 table into an element. Highlights rows matching `mine` (name + score).
+async function lbRenderInto(el, mine) {
+  if (!el) return;
+  el.innerHTML = `<div class="lb-status">Loading scores…</div>`;
+  const { online, rows } = await lbFetchTop();
+  const charName = id => {
+    const c = (window.CHARACTERS || []).find(x => x.id === id);
+    return c ? c.name.replace(/^The /, "") : "";
+  };
+  const body = rows.length ? rows.map((r, i) => {
+    const me = mine && r.name === mine.name && Number(r.score) === Number(mine.score);
+    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
+  }).join("") : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`;
+  el.innerHTML = `
+    <div class="lb-status">${online ? "🌐 Online leaderboard" : (lbConfigured() ? "📴 Offline: showing scores from this device" : "📱 Scores on this device (online board not set up yet)")}</div>
+    <div class="lb-wrap"><table class="lb-table">
+      <thead><tr><th>#</th><th>NAME</th><th>SCORE</th><th>AGE</th><th>AS</th></tr></thead>
+      <tbody>${body}</tbody>
+    </table></div>`;
+}
+
+window.computeRunScore = computeRunScore;
+window.lbSubmit = lbSubmit;
+window.lbRenderInto = lbRenderInto;
+window.lbSavedName = lbSavedName;
+window.lbSaveName = lbSaveName;
+window.lbCleanName = lbCleanName;
+window.lbConfigured = lbConfigured;

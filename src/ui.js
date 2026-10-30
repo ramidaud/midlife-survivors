@@ -1802,6 +1802,11 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
       <div class="shop-list">${shopRowsHtml}</div>
       <div class="title-secondary">${backBtn}</div>`;
+  } else if (view === "leaders") {
+    bodyHtml = `
+      <div class="title-subhead">🏆 LEADERBOARD</div>
+      <div id="title-leaderboard"></div>
+      <div class="title-secondary">${backBtn}</div>`;
   } else if (view === "credits") {
     const C = window.CREDITS || { title: "CREDITS", sections: [], closing: "" };
     const secs = C.sections.map(sec => `
@@ -1837,6 +1842,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
         <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
         <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
+        <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
       </div>`;
   }
 
@@ -1854,6 +1860,9 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (shopBtn) bindNavItem(shopBtn, 10, () => goView("shop"));
   const extrasBtn = document.getElementById("title-extras-btn");
   if (extrasBtn) bindNavItem(extrasBtn, 10, () => goView("extras"));
+  const leadersBtn = document.getElementById("title-leaders-btn");
+  if (leadersBtn) bindNavItem(leadersBtn, 10, () => goView("leaders"));
+  if (view === "leaders" && window.lbRenderInto) window.lbRenderInto(document.getElementById("title-leaderboard"), null);
   const creditsBtn = document.getElementById("title-credits-btn");
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
   const backEl = document.getElementById("title-back-btn");
@@ -1987,6 +1996,7 @@ function renderGameOverModal(scene, cause, isWin) {
   modal.classList.remove("hidden");
 
   const isCentennial = isWin && currentAge >= 99.5;
+  const runScore = window.computeRunScore ? window.computeRunScore(currentAge, runStartAge, runKills, runCoins, isCentennial) : 0;
   const headline = isCentennial
     ? "👑 CENTENNIAL LEGEND! YOU REACHED AGE 100!"
     : (isWin ? "🏆 HAPPY 80th! YOU SURVIVED TO RETIREMENT!" : "📋 BURNOUT! SHIFT ENDED");
@@ -2001,6 +2011,16 @@ function renderGameOverModal(scene, cause, isWin) {
         <div class="stat-pill"><span>SENIORITY</span><b>Level ${level}</b></div>
         <div class="stat-pill"><span>401(k) SAVED</span><b>+${runCoins}k (Bank: ${meta.coins}k)</b></div>
       </div>
+      <div class="score-panel">
+        <div class="score-big">SCORE <b>${runScore.toLocaleString()}</b></div>
+        <div class="score-break">${Math.max(0, currentAge - runStartAge).toFixed(1)} years · ${runKills} beaten · ${runCoins}k saved</div>
+        <form class="score-form" id="score-form" autocomplete="off">
+          <input id="score-name" maxlength="16" placeholder="Your name" value="${(window.lbSavedName ? window.lbSavedName() : "").replace(/"/g, "")}" aria-label="Your name for the leaderboard">
+          <button type="submit" class="cta-btn score-post-btn" id="score-post-btn">🏆 POST SCORE</button>
+        </form>
+        <div class="score-msg" id="score-msg"></div>
+        <div id="go-leaderboard"></div>
+      </div>
       <div class="gameover-actions">
         <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>
@@ -2011,6 +2031,32 @@ function renderGameOverModal(scene, cause, isWin) {
       </div>
     </div>
   `;
+
+  // Leaderboard: type a name, post once per run. Typing must not trigger game shortcuts (WASD, M, Space).
+  const nameInput = document.getElementById("score-name");
+  const scoreForm = document.getElementById("score-form");
+  const scoreMsg = document.getElementById("score-msg");
+  ["keydown", "keyup", "keypress"].forEach(t => nameInput.addEventListener(t, e => e.stopPropagation()));
+  nameInput.addEventListener("pointerdown", e => e.stopPropagation());
+  let posted = false;
+  scoreForm.addEventListener("submit", async e => {
+    e.preventDefault();
+    if (posted) return;
+    const name = window.lbCleanName(nameInput.value);
+    if (!name) { scoreMsg.textContent = "Type a name first."; nameInput.focus(); return; }
+    posted = true;
+    window.lbSaveName(name);
+    nameInput.blur();
+    document.getElementById("score-post-btn").disabled = true;
+    scoreMsg.textContent = "Posting…";
+    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") };
+    const res = await window.lbSubmit(entry);
+    scoreMsg.textContent = res.online ? "Posted to the online leaderboard!" : (window.lbConfigured() ? "Couldn't reach the online board. Saved on this device." : "Saved on this device.");
+    sfx("levelUp");
+    window.lbRenderInto(document.getElementById("go-leaderboard"), entry);
+  });
+  document.getElementById("score-post-btn").addEventListener("pointerdown", e => e.stopPropagation());
+  window.lbRenderInto(document.getElementById("go-leaderboard"), null);
 
   bindNavItem(document.getElementById("go-retry-btn"), 0, () => {
     sfx("pick");

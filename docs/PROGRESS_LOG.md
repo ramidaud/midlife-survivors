@@ -443,3 +443,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New code lives in its own file, `src/weapons_extra.js`; numbers in `src/data/weapons.js`.
 - Tested: all three deal damage, evolutions unlock with the right passives, pausing freezes them, retry clears them, no errors.
 - Rami asked about scores and a leaderboard (names vs. accounts). Added as a new objective, waiting on his choice.
+
+## 2026-10-30: Scores + Leaderboard (V. 1.19.0) (Claude)
+- Rami has already shared the game with people, so he chose an online board (option B), no accounts.
+- Game Over now shows a score, a name box (remembered) and the top 10. New Leaderboard button on the title screen.
+- Online storage is Supabase; setup SQL in `docs/LEADERBOARD_SETUP.sql`. Until Rami pastes in his project URL and key, scores save on the device.
+- Tested with a stand-in database at laptop and phone sizes: posting works, your row is highlighted, typing a name doesn't trigger game keys. No errors.
+- Waiting on: Rami's Supabase URL + publishable key.
