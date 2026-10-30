@@ -49,5 +49,20 @@ window.DEATHS = {
     "Bought a cherry-red convertible you couldn't afford.",
     "Tried to learn skateboarding at 48 without knee pads.",
     "Started a podcast instead of going to therapy."
+  ],
+  hoaPresident: [
+    "Cited by the HOA for leaving your trash cans out 4 minutes past noon.",
+    "Fined into oblivion for painting your mailbox 'Non-Approved Eggshell'.",
+    "Measured your grass with a ruler. It was 0.2 inches too tall."
+  ],
+  retirementBoss: [
+    "Fell asleep during your own retirement slideshow.",
+    "Forgot your financial advisor's password right at Age 79.",
+    "Tried to calculate Required Minimum Distributions without coffee."
+  ],
+  pickleballChamp: [
+    "Dove for a kitchen dink shot in the 6:00 AM Senior Pickleball Finals.",
+    "Out-hustled by an 88-year-old named Muriel wearing a visor.",
+    "Pulled a hamstring arguing a line call at the Rec Center."
   ]
 };

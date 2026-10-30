@@ -3,10 +3,12 @@
 window.PLAYER = {
   name: "You",
   startingAge: 40,
-  secondsPerYear: 20, // 20 seconds = 1 year of age (so Age 40 to 50 is a fast 3m20s run; set to 180 for a full 30-min run)
-  speed: 235,        // pixels per second. Brisk enough to kite crowds around desks and up stairs!
-  size: 32,          // width and height of the square, in pixels
-  maxHp: 14,         // generous starting health, plus you heal +2 HP on every level-up!
-  hurtCooldownMs: 900, // after a hit, you're safe for 0.9s (so a crowd doesn't drain you instantly)
-  color: 0xf0a24f    // coffee orange, written as a hex color
+  retirementAge: 80,  // Main Campaign Goal: Survive from Age 40 to Age 80!
+  maxSeniorAge: 100,  // Bonus Senior Rounds: 20 extra years (Age 80 to 100) of Senior Life chaos!
+  secondsPerYear: 15, // 15s of active unpaused combat = 1 year (so each Decade is 2m30s, and you can Save & Resume anytime!)
+  speed: 230,         // pixels per second
+  size: 32,           // width and height of the square, in pixels
+  maxHp: 12,          // starting health
+  hurtCooldownMs: 750,// brief mercy window after taking a hit
+  color: 0xf0a24f     // coffee orange, written as a hex color
 };

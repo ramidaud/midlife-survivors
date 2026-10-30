@@ -1,6 +1,6 @@
 // "Chameleon + Corporate Satire" HTML/CSS UI Manager (`src/ui.js`).
 // Combines Option A (morphs live between Retro 16-Bit, Diablo 3/4 Indie, and Fortnite AAA when you press [V])
-// with Option C (satirical Corporate / Adulting OS: Employee ID badge, Decade Timeline, Perk Vouchers, Outlook Boss Alerts).
+// with Option C (satirical Corporate / Adulting OS: Employee ID badge, Life Timeline 40->80->100, Save/Resume, Perk Vouchers).
 
 const UPGRADE_META = {
   "Extra Shot":                    { icon: "☕", tag: "CAFFEINE PERK",   rarity: "common" },
@@ -20,7 +20,7 @@ const UPGRADE_META = {
 };
 
 const CHAR_ICONS = {
-  nineToFiver: "☕",
+  officeWorker: "☕",
   photographer: "📸",
   gradStudent: "🎓"
 };
@@ -55,7 +55,7 @@ function initGameUI(scene) {
           <span class="bar-label">HP</span>
           <div class="bar-track hp-track">
             <div class="bar-fill hp-fill" id="hud-hp-fill" style="width:100%"></div>
-            <span class="bar-text" id="hud-hp-text">14 / 14</span>
+            <span class="bar-text" id="hud-hp-text">12 / 12</span>
           </div>
         </div>
         <div class="bar-row">
@@ -68,25 +68,26 @@ function initGameUI(scene) {
         <div class="loadout-row" id="hud-loadout"></div>
       </div>
 
-      <!-- Zone 2: Top-Center Decade Timeline (Age 40 -> 50) -->
+      <!-- Zone 2: Top-Center Life & Senior Timeline (Age 40 -> 80 + Bonus 80 -> 100) -->
       <div class="hud-pod hud-center">
         <div class="timeline-header">
-          <span class="timeline-title">DECADE SURVIVAL TIMELINE</span>
+          <span class="timeline-title" id="hud-timeline-title">CAREER TIMELINE (GOAL: AGE 80)</span>
           <span class="timeline-age" id="hud-age">AGE 40.0</span>
         </div>
-        <div class="timeline-track">
+        <div class="timeline-track" id="hud-timeline-track">
           <div class="timeline-fill" id="hud-age-fill" style="width:0%"></div>
           <div class="milestone" style="left:0%"><span>40</span></div>
-          <div class="milestone boss-pip" style="left:20%" title="Age 42: Performance Review"><span>42 📋</span></div>
-          <div class="milestone boss-pip" style="left:50%" title="Age 45: Mortgage Refinance"><span>45 🏦</span></div>
-          <div class="milestone boss-pip" style="left:80%" title="Age 48: Midlife Crisis"><span>48 🏎️</span></div>
-          <div class="milestone win-pip" style="left:100%" title="Age 50: AARP Victory!"><span>50 🏆</span></div>
+          <div class="milestone boss-pip" style="left:25%" title="Age 50: Silver Fox Era"><span>50 🦊</span></div>
+          <div class="milestone boss-pip" style="left:50%" title="Age 60: Midlife Crisis V8"><span>60 🏎️</span></div>
+          <div class="milestone boss-pip" style="left:75%" title="Age 70: HOA President"><span>70 🏡</span></div>
+          <div class="milestone win-pip" style="left:100%" title="Age 80: Retirement Goal (+Bonus 80-100!)"><span>80 🏆</span></div>
         </div>
       </div>
 
-      <!-- Zone 3: Top-Right 401(k) Ticker & 3-Way Camera Switcher -->
+      <!-- Zone 3: Top-Right 401(k) Ticker, Auto-Save Badge & 3-Way Camera Switcher -->
       <div class="hud-pod hud-right">
         <div class="coin-pill">
+          <span class="save-dot" id="hud-save-dot" title="Progress Auto-Saved to Browser!">💾 SAVED</span>
           <span class="coin-icon">🪙</span>
           <span class="coin-label">401(k):</span>
           <span class="coin-val" id="hud-coins">0k</span>
@@ -98,7 +99,7 @@ function initGameUI(scene) {
           <button class="style-opt" data-idx="2">AAA 3D</button>
         </div>
         <div class="util-btns">
-          <button class="util-btn" id="hud-pause-btn" title="Pause (P / Esc)">⏸ [P]</button>
+          <button class="util-btn" id="hud-pause-btn" title="Pause / Save & Exit (P / Esc)">⏸ [P]</button>
           <button class="util-btn" id="hud-mute-btn" title="Mute Audio (M)">🔊 [M]</button>
         </div>
       </div>
@@ -108,7 +109,7 @@ function initGameUI(scene) {
     <div class="boss-toast hidden" id="boss-toast">
       <div class="toast-icon">📅</div>
       <div class="toast-body">
-        <div class="toast-sub">URGENT CALENDAR REMINDER // MANDATORY ATTENDANCE</div>
+        <div class="toast-sub" id="boss-toast-sub">URGENT CALENDAR REMINDER // MANDATORY ATTENDANCE</div>
         <div class="toast-title" id="boss-toast-title">BOSS APPROACHING!</div>
       </div>
     </div>
@@ -123,24 +124,39 @@ function initGameUI(scene) {
       </div>
     </div>
 
-    <!-- MODAL 2: PAUSE OVERLAY -->
+    <!-- MODAL 2: PAUSE & SAVE OVERLAY -->
     <div class="ui-modal hidden" id="pause-modal">
       <div class="modal-card pause-box">
-        <div class="modal-kicker">OUT OF OFFICE AUTO-REPLY</div>
+        <div class="modal-kicker">✓ RUN AUTO-SAVED TO LOCALSTORAGE</div>
         <h2 class="modal-title">ON BREAK (PAUSED)</h2>
-        <p class="modal-sub">Take a breath, stretch your lower back, and hydrate.</p>
-        <button class="cta-btn" id="pause-resume-btn">RESUME SHIFT (P / Esc / Start)</button>
+        <p class="modal-sub">Your exact Age, Level, HP, and 401(k) Coins are saved. Resume now or clock out and continue later!</p>
+        <div class="gameover-actions">
+          <button class="cta-btn" id="pause-resume-btn">▶ RESUME SHIFT (P / Esc)</button>
+          <button class="cta-btn secondary-btn" id="pause-savequit-btn">💾 SAVE & EXIT TO DOSSIER</button>
+        </div>
       </div>
     </div>
 
-    <!-- MODAL 3: TITLE SCREEN (Executive Dossier & 401(k) Shop) -->
+    <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
+    <div class="ui-modal hidden" id="retire80-modal">
+      <div class="modal-card win-box">
+        <div class="modal-kicker">🎉 MILESTONE UNLOCKED // +15k 401(k) BONUS AWARDED!</div>
+        <h2 class="modal-title">HAPPY 80th! YOU REACHED FULL RETIREMENT!</h2>
+        <p class="gameover-cause">You survived 40 years of Bills, HR Reviews, Mortgages, and the HOA! Do you want to retire in peace, or push into the <b>20 Bonus Senior Life Rounds (Age 80 to 100)</b> against Early-Bird Buffets, Sciatica, and 6AM Pickleball Champions?</p>
+        <div class="gameover-actions">
+          <button class="cta-btn" id="retire80-senior-btn">🔥 ENTER BONUS SENIOR ROUNDS (AGE 80 -> 100!)</button>
+          <button class="cta-btn secondary-btn" id="retire80-claim-btn">🏖️ RETIRE AT 80 & CLAIM VICTORY</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 4: TITLE SCREEN (Executive Dossier, Save/Resume & 401(k) Shop) -->
     <div class="ui-modal hidden" id="title-modal"></div>
 
-    <!-- MODAL 4: GAME OVER / RETIREMENT VICTORY CERTIFICATE -->
+    <!-- MODAL 5: GAME OVER / RETIREMENT VICTORY CERTIFICATE -->
     <div class="ui-modal hidden" id="gameover-modal"></div>
   `;
 
-  // Wire top-right style buttons
   root.querySelectorAll(".style-opt").forEach(btn => {
     btn.addEventListener("pointerdown", e => {
       e.stopPropagation();
@@ -162,11 +178,19 @@ function initGameUI(scene) {
   document.getElementById("pause-resume-btn").addEventListener("pointerdown", e => {
     e.stopPropagation(); unlockAudio(); togglePause(uiScene);
   });
+  document.getElementById("pause-savequit-btn").addEventListener("pointerdown", e => {
+    e.stopPropagation();
+    unlockAudio();
+    if (window.persistActiveRun) window.persistActiveRun();
+    setPauseModalVisible(false);
+    paused = false;
+    titleSeen = false;
+    uiScene.scene.restart();
+  });
 
   window.syncUITheme();
 }
 
-// Switch the entire UI theme between 0 (Retro 16-Bit), 1 (Diablo 3/4 Indie), and 2 (Fortnite AAA)!
 window.syncUITheme = function() {
   const root = document.getElementById("ui-layer");
   if (!root) return;
@@ -179,7 +203,6 @@ window.syncUITheme = function() {
   });
 };
 
-// Update the live HUD every frame (or whenever stats/HP/XP/Age change)
 function updateHUD() {
   const hpFill = document.getElementById("hud-hp-fill");
   if (!hpFill || !stats || !meta) return;
@@ -198,12 +221,19 @@ function updateHUD() {
   document.getElementById("hud-xp-text").textContent = `${xp} / ${xpNeeded} XP`;
 
   document.getElementById("hud-age").textContent = `AGE ${currentAge.toFixed(1)}`;
-  const agePct = Math.max(0, Math.min(100, ((currentAge - 40) / 10) * 100));
-  document.getElementById("hud-age-fill").style.width = `${agePct}%`;
+  const tlTitle = document.getElementById("hud-timeline-title");
+  if (currentAge < 80) {
+    tlTitle.textContent = "CAREER TIMELINE (GOAL: AGE 80)";
+    const agePct = Math.max(0, Math.min(100, ((currentAge - 40) / 40) * 100));
+    document.getElementById("hud-age-fill").style.width = `${agePct}%`;
+  } else {
+    tlTitle.textContent = "🔥 SENIOR BONUS ROUNDS (AGE 80 -> 100!)";
+    const senPct = Math.max(0, Math.min(100, ((currentAge - 80) / 20) * 100));
+    document.getElementById("hud-age-fill").style.width = `${senPct}%`;
+  }
 
   document.getElementById("hud-coins").textContent = `${meta.coins}k`;
 
-  // Render active weapons & passives badges
   const badges = [];
   badges.push(`<span class="perk-badge" title="Coffee Splash">${stats.coldBrew ? "⚡☕ Cold Brew" : "☕ Coffee"}</span>`);
   if (stats.dadJoke) badges.push(`<span class="perk-badge" title="Dad Joke">${stats.punStorm ? "🌩️😂 Pun Storm" : "😂 Dad Joke"}</span>`);
@@ -219,24 +249,39 @@ function updateHUD() {
   }
 }
 
-// Show Outlook-style calendar reminder banner when a Boss spawns
-function showBossToastUI(bossName) {
+function showBossToastUI(bossName, customSub) {
   const toast = document.getElementById("boss-toast");
   const title = document.getElementById("boss-toast-title");
+  const sub = document.getElementById("boss-toast-sub");
   if (!toast || !title) return;
-  title.textContent = `MANDATORY MEETING: ${bossName.toUpperCase()}!`;
+  if (sub) sub.textContent = customSub || "URGENT CALENDAR REMINDER // MANDATORY ATTENDANCE";
+  title.textContent = `${bossName.toUpperCase()}!`;
   toast.classList.remove("hidden");
   clearTimeout(toast._timer);
-  toast._timer = setTimeout(() => toast.classList.add("hidden"), 3200);
+  toast._timer = setTimeout(() => toast.classList.add("hidden"), 3400);
 }
 
-// Show/hide Pause modal
 function setPauseModalVisible(vis) {
   const el = document.getElementById("pause-modal");
   if (el) el.classList.toggle("hidden", !vis);
 }
 
-// Show the 3-card vertical Level-Up screen!
+function showRetire80Modal(scene, onContinueSenior, onClaimWin) {
+  const modal = document.getElementById("retire80-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  document.getElementById("retire80-senior-btn").onclick = e => {
+    e.stopPropagation();
+    modal.classList.add("hidden");
+    onContinueSenior();
+  };
+  document.getElementById("retire80-claim-btn").onclick = e => {
+    e.stopPropagation();
+    modal.classList.add("hidden");
+    onClaimWin();
+  };
+}
+
 function renderLevelUpModal(choices, customTitle, onPick) {
   const modal = document.getElementById("levelup-modal");
   const title = document.getElementById("lv-title");
@@ -282,16 +327,18 @@ function renderLevelUpModal(choices, customTitle, onPick) {
   };
 }
 
-// Render the Title Screen ("Executive Dossier & 401(k) Portal")
+// Render the Title Screen ("Executive Dossier, Save/Resume & 401(k) Portal")
 function renderTitleModal(scene) {
   const modal = document.getElementById("title-modal");
   if (!modal) return;
   modal.classList.remove("hidden");
 
+  const savedRun = loadRunState();
+
   const charCardsHtml = CHARACTERS.map(ch => {
     const owned = !!meta.unlockedChars[ch.id];
     const sel = meta.selectedChar === ch.id;
-    const status = sel ? "✓ ACTIVE ARCHETYPE" : (owned ? "CLICK TO SELECT" : `🔒 UNLOCK (${ch.cost}k)`);
+    const status = sel ? "✓ ACTIVE" : (owned ? "SELECT" : `🔒 ${ch.cost}k`);
     return `
       <div class="dossier-char ${sel ? "selected" : ""} ${owned ? "owned" : "locked"}" data-char="${ch.id}">
         <div class="char-emoji">${CHAR_ICONS[ch.id] || "☕"}</div>
@@ -299,6 +346,17 @@ function renderTitleModal(scene) {
         <div class="char-desc">${ch.tagline}</div>
         <div class="char-badge">${status}</div>
       </div>
+    `;
+  }).join("");
+
+  const unlockedDecs = meta.unlockedDecades || [40];
+  const decadeBtnsHtml = DECADE_CHECKPOINTS.map(dc => {
+    const isUnlocked = unlockedDecs.includes(dc.age);
+    const isSel = (meta.startDecade || 40) === dc.age;
+    return `
+      <button class="t-style-btn ${isSel ? "active" : ""}" data-dec="${dc.age}" ${isUnlocked ? "" : "disabled style='opacity:0.4;cursor:not-allowed'"} title="${dc.name}">
+        ${isUnlocked ? "🔓" : "🔒"} Age ${dc.age} ${dc.bonusLevels ? `(+${dc.bonusLevels} Perks)` : ""}
+      </button>
     `;
   }).join("");
 
@@ -314,24 +372,34 @@ function renderTitleModal(scene) {
           <span class="shop-pips">${"■".repeat(rank)}${"□".repeat(item.maxRank - rank)}</span>
           <span class="shop-desc">${item.desc}</span>
         </div>
-        <button class="shop-buy-btn">${maxed ? "MAXED OUT" : `INVEST ${cost}k`}</button>
+        <button class="shop-buy-btn">${maxed ? "MAXED" : `BUY ${cost}k`}</button>
       </div>
     `;
   }).join("");
 
+  const resumeBannerHtml = savedRun ? `
+    <button class="cta-btn resume-saved-btn" id="title-resume-btn" style="background:#52bf6a;margin-bottom:6px;">
+      💾 RESUME SAVED RUN (Age ${Number(savedRun.currentAge).toFixed(1)} | Level ${savedRun.level} | HP ${savedRun.hp}/${savedRun.stats.maxHp})
+    </button>
+  ` : "";
+
   modal.innerHTML = `
     <div class="modal-card title-box">
       <div class="title-top-banner">
-        <span class="dossier-stamp">CONFIDENTIAL // FORM 40-50</span>
-        <span class="dossier-balance">🪙 401(k) Portfolio: <b>${meta.coins} Coins</b></span>
+        <span class="dossier-stamp">🏅 CAREER BEST: AGE ${(meta.bestAge || 40).toFixed(1)} // GOAL: 80 (+100 SENIOR BONUS)</span>
+        <span class="dossier-balance">🪙 401(k): <b>${meta.coins} Coins</b></span>
       </div>
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
-      <p class="game-tagline">Dodge Bills, Smash Office Ferns for Leftover Pizza, Climb Mezzanines & Survive from Age 40 to 50!</p>
+      <p class="game-tagline">Survive to Age 80 Retirement, Unlock Decade Checkpoints, and Conquer the 80-100 Senior Bonus Rounds!</p>
 
-      <div class="section-label">1. SELECT YOUR EMPLOYEE ARCHETYPE</div>
+      <div class="section-label">1. SELECT ARCHETYPE & STARTING DECADE CHECKPOINT</div>
       <div class="dossier-chars-grid">${charCardsHtml}</div>
+      <div class="title-style-switcher" style="margin-top:6px;">
+        <span>START DECADE:</span>
+        ${decadeBtnsHtml}
+      </div>
 
-      <div class="section-label">2. 401(k) PERMANENT RETIREMENT UPGRADES</div>
+      <div class="section-label">2. 401(k) PERMANENT RETIREMENT UPGRADES (AUTO-SAVED)</div>
       <div class="shop-list">${shopRowsHtml}</div>
 
       <div class="title-footer">
@@ -341,7 +409,8 @@ function renderTitleModal(scene) {
           <button class="t-style-btn ${window.viewModeIdx === 1 ? "active" : ""}" data-v="1">🕯️ Diablo 3/4 Indie</button>
           <button class="t-style-btn ${window.viewModeIdx === 2 ? "active" : ""}" data-v="2">🚀 Fortnite AAA 3D</button>
         </div>
-        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ CLOCK IN FOR YOUR 40s (Space / Start)</button>
+        ${resumeBannerHtml}
+        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START NEW RUN AT AGE ${meta.startDecade || 40} (Space / Start)</button>
       </div>
     </div>
   `;
@@ -363,6 +432,20 @@ function renderTitleModal(scene) {
     });
   });
 
+  modal.querySelectorAll("[data-dec]").forEach(btn => {
+    btn.addEventListener("pointerdown", e => {
+      e.stopPropagation();
+      unlockAudio();
+      const d = Number(btn.dataset.dec);
+      if ((meta.unlockedDecades || [40]).includes(d)) {
+        meta.startDecade = d;
+        saveMeta(meta);
+        sfx("pick");
+        renderTitleModal(scene);
+      }
+    });
+  });
+
   modal.querySelectorAll(".shop-row").forEach(el => {
     el.addEventListener("pointerdown", e => {
       e.stopPropagation();
@@ -380,7 +463,7 @@ function renderTitleModal(scene) {
     });
   });
 
-  modal.querySelectorAll(".t-style-btn").forEach(btn => {
+  modal.querySelectorAll("[data-v]").forEach(btn => {
     btn.addEventListener("pointerdown", e => {
       e.stopPropagation();
       unlockAudio();
@@ -390,6 +473,14 @@ function renderTitleModal(scene) {
       renderTitleModal(scene);
     });
   });
+
+  const resumeBtn = document.getElementById("title-resume-btn");
+  if (resumeBtn) {
+    resumeBtn.addEventListener("pointerdown", e => {
+      e.stopPropagation();
+      if (window.resumeSavedRunFromTitle) window.resumeSavedRunFromTitle();
+    });
+  }
 
   document.getElementById("title-clockin-btn").addEventListener("pointerdown", e => {
     e.stopPropagation();
@@ -402,25 +493,29 @@ function hideTitleModal() {
   if (modal) modal.classList.add("hidden");
 }
 
-// Render Game Over ("Exit Interview") or Age 50 Victory ("AARP Certificate")
 function renderGameOverModal(scene, cause, isWin) {
   const modal = document.getElementById("gameover-modal");
   if (!modal) return;
   modal.classList.remove("hidden");
 
+  const isCentennial = isWin && currentAge >= 99.5;
+  const headline = isCentennial
+    ? "👑 CENTENNIAL LEGEND! YOU REACHED AGE 100!"
+    : (isWin ? "🏆 HAPPY 80th! YOU SURVIVED TO RETIREMENT!" : "📋 BURNOUT! SHIFT ENDED");
+
   modal.innerHTML = `
     <div class="modal-card gameover-box ${isWin ? "win-box" : "loss-box"}">
-      <div class="modal-kicker">${isWin ? "OFFICIAL AARP RETIREMENT CERTIFICATE" : "HR EXIT INTERVIEW // INCIDENT REPORT"}</div>
-      <h2 class="modal-title">${isWin ? "🏆 YOU SURVIVED YOUR 40s!" : "📋 BURNOUT! SHIFT ENDED"}</h2>
+      <div class="modal-kicker">${isWin ? "OFFICIAL RETIREMENT & PENSION CERTIFICATE" : "HR EXIT INTERVIEW // PROGRESS SAVED"}</div>
+      <h2 class="modal-title">${headline}</h2>
       <p class="gameover-cause">"${cause}"</p>
       <div class="gameover-stats">
-        <div class="stat-pill"><span>FINAL AGE</span><b>${currentAge.toFixed(1)}</b></div>
+        <div class="stat-pill"><span>REACHED AGE</span><b>${currentAge.toFixed(1)} (Best: ${(meta.bestAge || currentAge).toFixed(1)})</b></div>
         <div class="stat-pill"><span>SENIORITY</span><b>Level ${level}</b></div>
-        <div class="stat-pill"><span>RUN 401(k)</span><b>+${runCoins}k (Total: ${meta.coins}k)</b></div>
+        <div class="stat-pill"><span>401(k) SAVED</span><b>+${runCoins}k (Bank: ${meta.coins}k)</b></div>
       </div>
       <div class="gameover-actions">
-        <button class="cta-btn" id="go-retry-btn">🔄 CLOCK BACK IN (Space / A)</button>
-        <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 VISIT 401(k) SHOP & DOSSIER</button>
+        <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / A)</button>
+        <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP & DECADE SELECT</button>
       </div>
     </div>
   `;
@@ -439,7 +534,7 @@ function renderGameOverModal(scene, cause, isWin) {
 }
 
 function hideAllModals() {
-  ["levelup-modal", "pause-modal", "title-modal", "gameover-modal"].forEach(id => {
+  ["levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add("hidden");
   });

@@ -333,10 +333,11 @@ function makeEnemy3DMesh(kind) {
     );
     badge.position.set(12, 24, 8);
     g.add(stack, badge);
-  } else if (kind === "performanceReview") {
+  } else if (kind === "performanceReview" || kind === "hoaPresident") {
+    const col = kind === "hoaPresident" ? 0x4bbf73 : 0xc92c49;
     const board = new THREE.Mesh(
       new THREE.BoxGeometry(44, 56, 10),
-      new THREE.MeshStandardMaterial({ color: 0xc92c49, roughness: 0.4 })
+      new THREE.MeshStandardMaterial({ color: col, roughness: 0.4 })
     );
     board.position.y = 28; board.castShadow = true;
     const clip = new THREE.Mesh(
@@ -345,10 +346,11 @@ function makeEnemy3DMesh(kind) {
     );
     clip.position.set(0, 56, 0);
     g.add(board, clip);
-  } else if (kind === "mortgageRefinance") {
+  } else if (kind === "mortgageRefinance" || kind === "retirementBoss") {
+    const col = kind === "retirementBoss" ? 0xf5c542 : 0x7b5cc2;
     const base = new THREE.Mesh(
       new THREE.BoxGeometry(52, 38, 42),
-      new THREE.MeshStandardMaterial({ color: 0x7b5cc2, roughness: 0.5 })
+      new THREE.MeshStandardMaterial({ color: col, roughness: 0.5 })
     );
     base.position.y = 19; base.castShadow = true;
     const roof = new THREE.Mesh(
@@ -357,11 +359,12 @@ function makeEnemy3DMesh(kind) {
     );
     roof.rotation.y = Math.PI / 4; roof.position.y = 50;
     g.add(base, roof);
-  } else if (kind === "midlifeCrisis") {
-    // 3D Red Sports Convertible!
+  } else if (kind === "midlifeCrisis" || kind === "pickleballChamp") {
+    // 3D Red Sports Convertible (or Neon Yellow Pickleball Golf Cart)!
+    const col = kind === "pickleballChamp" ? 0xc8f542 : 0xff1e38;
     const chassis = new THREE.Mesh(
       new THREE.BoxGeometry(58, 14, 30),
-      new THREE.MeshStandardMaterial({ color: 0xff1e38, metalness: 0.5, roughness: 0.2, emissive: 0x330006 })
+      new THREE.MeshStandardMaterial({ color: col, metalness: 0.5, roughness: 0.2, emissive: 0x330006 })
     );
     chassis.position.y = 10; chassis.castShadow = true;
     const windshield = new THREE.Mesh(

@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Phase 6 (Share it)
-**Last updated:** 2026-10-30 (Live 3-Way Camera Style Switcher added: 2D 16-Bit, Diablo 3/4, and 3D Third-Person)
+**Last updated:** 2026-10-30 (Expanded campaign to Age 80 + 20 Senior Bonus Rounds to Age 100, fixed pause-time Age bug, and added Mid-Run Save State & Decade Checkpoints)
 
 ---
 

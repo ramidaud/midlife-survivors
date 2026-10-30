@@ -212,3 +212,17 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
   - **3 Vertical Collectible Perk Cards (`#levelup-modal`)**, **Outlook-Style Boss Calendar Toast (`#boss-toast`)**, **Executive Dossier Title Screen (`#title-modal`)**, and **HR Exit Interview / AARP Certificate (`#gameover-modal`)**.
 - **Smashable Potted Office Plants (`prop_plant`) + Leftover Breakroom Pizza (`pizza`):**
   - Potted plants can now be cracked open in 2 hits (`damagePlant` via Coffee Splash, Dad Joke, or "No.") to drop **Leftover Breakroom Pizza** (`+3 HP` heal!), **401(k) Gold Coins**, or a **3-Gem Bonus Stash**!
+
+## 2026-10-30: Age 40-to-80 Campaign, 20 Bonus Senior Rounds (80-100) & Mid-Run Save State! (Antigravity)
+- **Fixed Pause-Time Age Clock Bug (`runElapsedMs`):**
+  - Previously, `currentAge` was calculated from `(this.time.now - startTime) / 1000`. Because `this.time.now` keeps ticking during level-up menus and pause screens, reading upgrade cards caused the player's age to jump to 50.8 in ~40 seconds!
+  - Replaced `this.time.now - startTime` with an active-play accumulator `runElapsedMs += delta` that only advances during live gameplay, and increased `secondsPerYear` from `10` to `15` (`10 minutes` of active play from Age 40 to 80, plus `5 minutes` for Ages 80 to 100).
+- **Expanded Campaign to Age 80 + 20 Bonus Senior Life Rounds (Age 80 to 100):**
+  - **Age 40 -> 80 (Working Decades):** Battle **The Performance Review (Age 45)**, **The Mortgage Refinance (Age 52)**, **The Midlife Crisis (Age 60)**, **The HOA President (Age 70)**, and **The Mandatory Retirement Audit (Age 80)**.
+  - **Age 80 Retirement Modal (`#retire80-modal`):** Reaching Age 80 awards `+15` bonus 401(k) Coins and lets you either **Retire with Honor at 80** or enter the **20 Bonus Senior Rounds (Age 80 to 100)**!
+  - **Senior Life Mode (80-100):** Enemy labels transform into hilarious senior-life scenarios (**Medicare Copays (`COPAY`)**, **HOA Special Assessments (`HOA$`)**, **Grandkid Gift-Card Scams (`SCAM!`)**, **3 PM Early-Bird Buffets (`PRUNE`)**, **Sciatica & Hip Spasms (`HIP!`)**, and **Bingo Hall Drama (`BINGO`)**), culminating in **The 6 AM Pickleball Champion (Age 90)** and **Father Time (Age 100)**.
+  - **Dynamic Enemy Scaling:** Enemy HP (`hpScale`), speed, and contact damage scale up every 4 years so late-game waves challenge your evolved weapons.
+- **Mid-Run Save State & Decade Checkpoints (`src/data/meta.js`):**
+  - Active runs auto-save every 3 seconds (`midlife_survivors_run_v1` in `localStorage`) and via the **`💾 SAVE & EXIT TO DOSSIER`** button in the Pause Menu.
+  - Added **`💾 RESUME SAVED RUN`** on the Title Screen so players can close the browser tab and pick up right where they left off (same Age, Level, HP, and upgrades).
+  - Reaching **Age 50, 60, 70, or 80** permanently unlocks **Decade Checkpoints** on the Title Screen (starting with `+3 / +6 / +9 / +12` bonus starter upgrades), plus a new **Pension Plan (`+1` starting weapon damage)** upgrade in the 401(k) Shop!

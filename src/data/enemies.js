@@ -1,123 +1,176 @@
-// Enemy settings. Each enemy is one entry. Tweak the numbers, reload, and feel it.
+// Enemy settings & Full Life Wave Schedule (Age 40 -> 80 Main Goal, plus Age 80 -> 100 Bonus Senior Rounds!).
+// Note: Base HP and Speed below are for Age 40; `createEnemy` in `main.js` scales HP, Speed, and Damage
+// upward every few years so later decades require real builds, evolutions, and 401(k) upgrades!
+
 window.ENEMIES = {
   // ---- Regular Swarm (6 types, including 1 Elite) ----
   bill: {
     name: "Bill",
-    label: "$",        // drawn on the enemy so you can tell what it is
-    speed: 74,         // relaxed early-game speed so you can kite and collect gems
-    hp: 1,             // 1 splash of coffee pays off a regular Bill right at Level 1!
-    damage: 1,         // how much health it takes from you on contact
+    label: "$",
+    seniorLabel: "COPAY",
+    speed: 84,
+    hp: 1,
+    damage: 1,
     size: 24,
-    color: 0x6fbf73,   // money green
-    overdueAfterMs: 14000 // leave a Bill unpaid for 14 seconds and it splits into 2 Late Fees!
+    color: 0x6fbf73,
+    overdueAfterMs: 11000 // leave a Bill unpaid for 11 seconds and it splits into 2 fast Late Fees!
   },
   lateFee: {
     name: "Late Fee",
     label: "FEE",
-    speed: 110,        // faster and angrier than a regular Bill, but easy to outrun
-    hp: 1,             // fragile: 1 splash clears it
+    seniorLabel: "HOA$",
+    speed: 125,
+    hp: 1,
     damage: 1,
     size: 18,
-    color: 0xe0564f    // urgent red
+    color: 0xe0564f
   },
   spamCall: {
     name: "Spam Likely",
     label: "TEL",
-    speed: 52,         // creeps onto the screen first...
-    dashSpeed: 245,    // ...then RINGS and rockets in a straight line!
-    ringAfterMs: 1600, // how long it creeps before ringing
-    ringPauseMs: 750,  // stands still vibrating for 0.75s so you have plenty of time to sidestep
+    seniorLabel: "SCAM!",
+    speed: 56,
+    dashSpeed: 275,
+    ringAfterMs: 1450,
+    ringPauseMs: 620,
     hp: 2,
     damage: 1,
     size: 22,
-    color: 0xb06ff0    // annoying notification purple
+    color: 0xb06ff0
   },
   snackAttack: {
     name: "Late-Night Donut",
     label: "YUM",
-    speed: 88,         // tempting frosted donut chasing you
-    hp: 2,             // takes 2 splashes at base damage
-    damage: 1,         // hurts your waistline AND slows you down briefly on contact
-    slowFactor: 0.72,  // mild 28% slow during a sugar crash
-    slowDurationMs: 1500,
+    seniorLabel: "PRUNE",
+    speed: 96,
+    hp: 2,
+    damage: 1,
+    slowFactor: 0.68,
+    slowDurationMs: 1800,
     size: 24,
-    color: 0xf078b8    // pink frosting
+    color: 0xf078b8
   },
   backTwinge: {
     name: "Back Twinge",
     label: "OUCH",
-    speed: 170,        // lunges in short bursts
-    lungeMs: 500,      // bursts forward for 0.50s...
-    restMs: 550,       // ...then freezes for 0.55s (spasm -> pause -> spasm)
+    seniorLabel: "HIP!",
+    speed: 188,
+    lungeMs: 520,
+    restMs: 480,
     hp: 2,
     damage: 1,
     size: 20,
-    color: 0xf09c42    // sharp warning orange
+    color: 0xf09c42
   },
   officeGossip: {
     name: "Reply-All Chain",
     label: "CC:",
-    isElite: true,     // ELITE enemy: tough, drops 3 Wisdom gems + 2 Coins!
-    speed: 70,
-    hp: 6,
-    damage: 1,
+    seniorLabel: "BINGO",
+    isElite: true,
+    speed: 75,
+    hp: 7,
+    damage: 2,
     size: 34,
-    color: 0x4fb8e0    // corporate inbox blue
+    color: 0x4fb8e0
   },
 
-  // ---- The 3 Decade Bosses ----
+  // ---- Decade Bosses (Age 45, 52, 60, 70, 80, plus Senior Bosses at 90 and 100!) ----
   performanceReview: {
     name: "The Performance Review",
     label: "HR",
-    spawnAge: 42,      // First boss at Age 42
-    speed: 62,
-    hp: 18,
-    damage: 1,
+    tex: "performanceReview",
+    spawnAge: 45,
+    speed: 68,
+    hp: 30,
+    damage: 2,
     size: 52,
-    color: 0xd94f6a    // crimson
+    color: 0xd94f6a
   },
   mortgageRefinance: {
-    name: "The Mortgage Refinance",
+    name: "The 30-Year Mortgage",
     label: "APR",
-    spawnAge: 45,      // Second boss at Age 45
-    speed: 58,         // heavy and steady
-    hp: 34,            // paperwork tank, scaled for mid-run upgrades
+    tex: "mortgageRefinance",
+    spawnAge: 52,
+    speed: 64,
+    hp: 70,
     damage: 2,
     size: 60,
-    color: 0x8c6fd9    // deep bank purple
+    color: 0x8c6fd9
   },
   midlifeCrisis: {
-    name: "The Midlife Crisis",
+    name: "The Midlife Crisis V8",
     label: "V8",
-    spawnAge: 48,      // Final boss at Age 48: arrives in a red sports convertible!
-    speed: 108,        // fast, but slower than your upgraded character
-    hp: 50,
-    damage: 2,
+    tex: "midlifeCrisis",
+    spawnAge: 60,
+    speed: 118,
+    hp: 130,
+    damage: 3,
     size: 58,
-    color: 0xff2e4c    // sports-car red
+    color: 0xff2e4c
+  },
+  hoaPresident: {
+    name: "The HOA Board President",
+    label: "HOA",
+    tex: "performanceReview",
+    tint: 0xffe042,
+    spawnAge: 70,
+    speed: 82,
+    hp: 210,
+    damage: 3,
+    size: 56,
+    color: 0xf5c542
+  },
+  retirementBoss: {
+    name: "Mandatory Retirement Test",
+    label: "80!",
+    tex: "mortgageRefinance",
+    tint: 0x6be2ff,
+    spawnAge: 79.2,
+    speed: 78,
+    hp: 300,
+    damage: 4,
+    size: 62,
+    color: 0x6be2ff
+  },
+  pickleballChamp: {
+    name: "6AM Pickleball Champion (Senior Boss)",
+    label: "90!",
+    tex: "midlifeCrisis",
+    tint: 0x6fbf73,
+    spawnAge: 90,
+    speed: 132,
+    hp: 460,
+    damage: 4,
+    size: 60,
+    color: 0x6fbf73
   },
   theReaper: {
-    name: "Father Time (The Big 5-0)",
-    label: "50",
-    spawnAge: 50,      // Arrives at Age 50! Like the Vampire Survivors Reaper, surviving to see him is the WIN!
-    speed: 255,        // faster than the player
-    hp: 9999,          // unstoppable
-    damage: 99,        // one touch triggers the Age 50 Victory screen!
+    name: "Father Time (The Big 1-0-0!)",
+    label: "100",
+    tex: "theReaper",
+    spawnAge: 100,
+    speed: 260,
+    hp: 9999,
+    damage: 99,
     size: 64,
     color: 0xf5c542
   }
 };
 
-// Wave schedule tied to your Age. Each wave lists weighted enemy types to spawn.
+// Wave schedule tied to your Age (from 40 to 80, plus the 80-100 Senior Bonus Rounds!).
 window.SPAWNING = {
-  everyMs: 1250,
-  maxOnScreen: 55,
+  everyMs: 1050,
+  maxOnScreen: 75,
   offscreenMargin: 70,
   waves: [
-    { minAge: 40, everyMs: 1250, mix: [["bill", 10]] },
-    { minAge: 41, everyMs: 1050, mix: [["bill", 8], ["spamCall", 2]] },
-    { minAge: 43, everyMs: 880,  mix: [["bill", 6], ["spamCall", 2], ["snackAttack", 2]] },
-    { minAge: 44, everyMs: 740,  mix: [["bill", 5], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1]] },
-    { minAge: 46, everyMs: 620,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 2]] }
+    { minAge: 40, everyMs: 1050, mix: [["bill", 10]] },
+    { minAge: 42, everyMs: 880,  mix: [["bill", 7], ["spamCall", 3]] },
+    { minAge: 45, everyMs: 740,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2]] },
+    { minAge: 50, everyMs: 620,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1]] },
+    { minAge: 60, everyMs: 500,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2]] },
+    { minAge: 70, everyMs: 410,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3]] },
+    // BONUS 20 SENIOR ROUNDS (Age 80 to 100): Fast, chaotic Golden Years!
+    { minAge: 80, everyMs: 330,  mix: [["bill", 2], ["spamCall", 4], ["snackAttack", 3], ["backTwinge", 5], ["officeGossip", 4]] },
+    { minAge: 90, everyMs: 270,  mix: [["spamCall", 4], ["snackAttack", 4], ["backTwinge", 6], ["officeGossip", 5]] }
   ]
 };

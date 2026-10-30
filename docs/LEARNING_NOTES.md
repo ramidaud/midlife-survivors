@@ -109,3 +109,7 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 ## HTML/CSS overlay UI and CSS custom properties (Oct 30)
 - **DOM UI over WebGL Canvas:** Instead of drawing text and menus inside the game canvas, layering a `<div id="ui-layer">` on top lets you use real Google Fonts, CSS flexbox/grid, `backdrop-filter: blur()`, and smooth CSS transitions while keeping the center 80% of the screen clear (`pointer-events: none`).
 - **Chameleon theming with CSS variables:** Changing a single attribute (`#ui-layer[data-theme="0" | "1" | "2"]`) swaps `--font-head`, `--border-col`, `--pod-skew`, and `--hp-grad` across every HUD pod and modal card at once.
+
+## Active-play clocks vs. wall-clock timers and mid-run save states (Oct 30)
+- **Active-play time (`runElapsedMs += delta`):** Subtracting `startTime` from `scene.time.now` measures wall-clock time, which keeps ticking while the player is paused or reading Level-Up cards! Accumulating `delta` only when `!paused && !levelUpOpen` guarantees the Age clock and enemy timers (`bornAt`) freeze cleanly whenever a menu is open.
+- **Two-tier `localStorage` persistence:** Separating permanent meta-progression (`midlife_survivors_save_v1`: coins, shop ranks, unlocked characters, and Decade Checkpoints) from a mid-run snapshot (`midlife_survivors_run_v1`: current Age, HP, level, and `stats` object) lets players pause, close the browser, and resume their exact run later without losing progress.

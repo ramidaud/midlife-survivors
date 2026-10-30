@@ -40,17 +40,20 @@ let meta, runCoins = 0;
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
+let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
 
 // create() runs ONCE when the game starts: build the world.
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now;
-  currentAge = PLAYER.startingAge; bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
+  runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
+  meta = loadMeta();
+  runStartAge = meta.startDecade || PLAYER.startingAge;
+  currentAge = runStartAge; bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
-  meta = loadMeta();
   runCoins = 0;
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
@@ -152,13 +155,39 @@ function create() {
   // Apply the active camera/graphics style (2D 16-Bit, Diablo 3/4, or 3D Third-Person)
   applyViewMode(this);
 
-  // 12. Title screen on first load ("Clock In"), or start the music right away on "Try again".
+  // 12. Title screen on first load ("Clock In"), or start a fresh run at the chosen Decade Checkpoint on "Try again".
   if (!titleSeen) {
     showTitleScreen(this);
   } else {
+    beginFreshRunAtDecade(this);
     setMusicPlaying(true);
   }
 }
+
+// Persist the active run state + unlock Decade Checkpoints (40, 50, 60, 70, 80) in localStorage!
+window.persistActiveRun = () => {
+  if (gameOver || titleOpen) return;
+  meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
+  [40, 50, 60, 70, 80].forEach(dec => {
+    if (currentAge >= dec && !meta.unlockedDecades.includes(dec)) {
+      meta.unlockedDecades.push(dec);
+    }
+  });
+  saveMeta(meta);
+  saveRunState({
+    currentAge,
+    runStartAge,
+    runElapsedMs,
+    hp,
+    level,
+    xp,
+    xpNeeded,
+    runCoins,
+    bossesSpawned,
+    retire80Prompted,
+    stats
+  });
+};
 
 // Apply permanent 401(k) shop ranks and the chosen character's starting perks to `stats`.
 function applyMetaAndChar() {
@@ -171,14 +200,54 @@ function applyMetaAndChar() {
   const rMatch = meta.ranks.compoundInterest || 0;
   const rEsp   = meta.ranks.espressoMachine || 0;
   const rCpa   = meta.ranks.taxWriteOff || 0;
+  const rPen   = meta.ranks.pensionPlan || 0;
   stats.maxHp += rMatch * 2;
   stats.speed = Math.round(stats.speed * (1 + rEsp * 0.10));
   stats.cooldownMult *= Math.pow(0.92, rEsp);
   stats.magnetRadius = Math.round(stats.magnetRadius * (1 + rCpa * 0.25));
+  stats.damage += rPen;
+  stats.jokeDamage += rPen;
+  stats.noDamage += rPen;
 
   const ch = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
   ch.apply(stats);
   hp = stats.maxHp;
+}
+
+// Start a brand-new run at the selected Decade Checkpoint (40, 50, 60, 70, or 80) with starter upgrades!
+function beginFreshRunAtDecade(scene) {
+  clearRunState();
+  applyMetaAndChar();
+  runStartAge = meta.startDecade || PLAYER.startingAge;
+  currentAge = runStartAge;
+  runElapsedMs = 0;
+  lastAutoSave = 0;
+  retire80Prompted = runStartAge >= 80;
+  bossesSpawned = {};
+  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
+    if (ENEMIES[bk] && ENEMIES[bk].spawnAge < runStartAge) bossesSpawned[bk] = true;
+  });
+
+  // Grant starter levels/upgrades when starting at a later Decade Checkpoint (50, 60, 70, 80)!
+  const cp = (typeof DECADE_CHECKPOINTS !== "undefined") && DECADE_CHECKPOINTS.find(d => d.age === runStartAge);
+  if (cp && cp.bonusLevels > 0) {
+    for (let i = 0; i < cp.bonusLevels; i++) {
+      level++;
+      xpNeeded = Math.round(xpNeeded * LEVELING.growth);
+      const pool = UPGRADES.filter(u => !u.when || u.when(stats));
+      if (pool.length) {
+        const up = Phaser.Utils.Array.GetRandom(pool);
+        up.apply(stats);
+      }
+    }
+    hp = stats.maxHp;
+  }
+
+  const cd = stats.cooldownMult;
+  fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
+  jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
+  noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
+  updateHUD();
 }
 
 // You picked up a gold 401(k) Coin: goes straight into your permanent retirement balance!
@@ -206,7 +275,7 @@ function collectPizza(p, pz) {
   p.scene.tweens.add({ targets: txt, y: txt.y - 24, alpha: 0, duration: 600, onComplete: () => txt.destroy() });
 }
 
-// The Title Screen: renders the HTML/CSS Executive Dossier, Character Select, and 401(k) Shop!
+// The Title Screen: renders the HTML/CSS Executive Dossier, Character Select, Decade Checkpoints, and 401(k) Shop!
 function showTitleScreen(scene) {
   titleOpen = true;
   setMusicPlaying(false);
@@ -214,6 +283,40 @@ function showTitleScreen(scene) {
   scene.time.paused = true;
 
   renderTitleModal(scene);
+
+  window.resumeSavedRunFromTitle = () => {
+    const saved = loadRunState();
+    if (!titleOpen || !saved) return;
+    unlockAudio();
+    sfx("pick");
+    titleOpen = false;
+    titleSeen = true;
+    startFromTitle = null;
+    hideTitleModal();
+
+    currentAge = saved.currentAge || 40;
+    runStartAge = saved.runStartAge || 40;
+    runElapsedMs = saved.runElapsedMs || 0;
+    lastAutoSave = runElapsedMs;
+    level = saved.level || 1;
+    xp = saved.xp || 0;
+    xpNeeded = saved.xpNeeded || LEVELING.firstLevelXp;
+    runCoins = saved.runCoins || 0;
+    bossesSpawned = saved.bossesSpawned || {};
+    retire80Prompted = !!saved.retire80Prompted;
+    if (saved.stats) Object.assign(stats, saved.stats);
+    hp = Math.min(stats.maxHp, saved.hp || stats.maxHp);
+
+    const cd = stats.cooldownMult;
+    fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
+    jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
+    noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
+    updateHUD();
+    touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+    scene.physics.resume();
+    scene.time.paused = false;
+    setMusicPlaying(true);
+  };
 
   startFromTitle = () => {
     if (!titleOpen) return;
@@ -223,12 +326,7 @@ function showTitleScreen(scene) {
     titleSeen = true;
     startFromTitle = null;
     hideTitleModal();
-    applyMetaAndChar();
-    updateHUD();
-    const cd = stats.cooldownMult;
-    fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
-    jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
-    noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
+    beginFreshRunAtDecade(scene);
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     startTime = scene.time.now;
     scene.physics.resume();
@@ -242,11 +340,12 @@ function showTitleScreen(scene) {
 
 // Toggle pause (P, Esc, or controller Start button).
 function togglePause(scene) {
-  if (gameOver || levelUpOpen || titleOpen) return;
+  if (gameOver || levelUpOpen || titleOpen || retire80Open) return;
   paused = !paused;
   setMusicPlaying(!paused);
   setPauseModalVisible(paused);
   if (paused) {
+    window.persistActiveRun();
     scene.physics.pause();
     scene.time.paused = true;
     player.setVelocity(0, 0);
@@ -339,13 +438,14 @@ function showLevelUp(scene, customTitle, preferWeapons) {
 function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
   if (gameOver) return;
-  if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 50 = YOU WIN!
+  if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 100 = CENTENARIAN VICTORY!
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
   hp -= (bill.damage || ENEMIES.bill.damage);
   if (bill.kind === "snackAttack") {
-    slowUntil = now + ENEMIES.snackAttack.slowDurationMs;
-    const msg = scene.add.text(p.x, p.y - 30, "SUGAR CRASH!", {
+    slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
+    const isSenior = currentAge >= 80;
+    const msg = scene.add.text(p.x, p.y - 30, isSenior ? "3 PM DINNER NAP!" : "SUGAR CRASH!", {
       fontFamily: "monospace", fontSize: "12px", color: "#f078b8"
     }).setOrigin(0.5);
     scene.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 700, onComplete: () => msg.destroy() });
@@ -355,22 +455,35 @@ function hurtPlayer(p, bill) {
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
-  if (hp <= 0) showGameOver(scene, bill.kind || "bill", currentAge >= 50);
+  if (hp <= 0) showGameOver(scene, bill.kind || "bill", currentAge >= 80);
 }
 
 // The Game Over / Victory screen: freeze the world and render the HTML/CSS Exit Interview or AARP Certificate!
 function showGameOver(scene, killer, isWin) {
   gameOver = true;
+  clearRunState();
+  meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
+  [40, 50, 60, 70, 80].forEach(dec => {
+    if (currentAge >= dec && !meta.unlockedDecades.includes(dec)) {
+      meta.unlockedDecades.push(dec);
+    }
+  });
+  saveMeta(meta);
   setMusicPlaying(false);
   restartGame = () => { hideAllModals(); scene.scene.restart(); };
   scene.physics.pause();
-  const winLines = [
-    "HAPPY 50th! You survived the entire decade, earned AARP eligibility, and unlocked the 4:30 PM Early Bird Special!",
-    "YOU MADE IT TO 50! Your back hurts, your inbox has 14,000 unread emails, and you have never felt more at peace.",
-    "THE BIG FIVE-OH! Father Time showed up, handed you a pair of New Balance sneakers, and let you take a nap."
+  const winLines80 = [
+    "HAPPY RETIREMENT AT 80! Your 401(k) finally vested, your mortgage is paid off, and you unlocked the 3:00 PM Early Bird Buffet!",
+    "YOU MADE IT TO 80! Four decades of corporate buzzwords, HOA fines, and back spasms defeated. Time to nap on the porch!",
+    "AGE 80 ACHIEVED! You outlasted the mandatory return-to-office memos and earned a lifetime supply of orthopedic slip-ons."
+  ];
+  const winLines100 = [
+    "CENTENARIAN LEGEND (AGE 100)! You conquered the 6 AM Pickleball League, outlived the HOA Board, and Father Time asked for your autograph!",
+    "HAPPY 100th BIRTHDAY! You beat all 20 Bonus Senior Rounds, mastered the 3 PM dinner rush, and achieved immortality!",
+    "THE BIG 1-0-0! Not even Medicare Part D Copays or the 6 AM Pickleball Champion could slow you down."
   ];
   const cause = isWin
-    ? Phaser.Utils.Array.GetRandom(winLines)
+    ? Phaser.Utils.Array.GetRandom(currentAge >= 99.5 ? winLines100 : winLines80)
     : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
 
   renderGameOverModal(scene, cause, isWin);
@@ -624,17 +737,21 @@ function currentWave() {
   return w;
 }
 
-// Create one enemy of the given kind at (x, y).
+// Create one enemy of the given kind at (x, y), scaling HP, speed, and Senior Life labels with your Age!
 function createEnemy(scene, kind, x, y) {
   const E = ENEMIES[kind];
-  const e = bills.create(x, y, kind).setDepth(4);
+  const e = bills.create(x, y, E.tex || kind).setDepth(4);
+  if (E.tint) e.setTint(E.tint);
+  const yrs = Math.max(0, currentAge - 40);
+  const hpScale = 1 + Math.floor(yrs / 4) * 0.85 + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0);
   e.kind = kind;
-  e.hp = E.hp;
-  e.speed = E.speed;
-  e.damage = E.damage;
-  e.bornAt = scene.time.now;
-  e.tag = scene.add.text(x, y - E.size / 2 - 6, E.label, {
-    fontFamily: "monospace", fontSize: "10px", color: "#e8e9f3"
+  e.hp = Math.max(1, Math.round(E.hp * hpScale));
+  e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
+  e.damage = E.damage + (currentAge >= 80 ? 2 : (currentAge >= 60 ? 1 : 0));
+  e.bornAt = runElapsedMs;
+  const lbl = (currentAge >= 80 && E.seniorLabel) ? E.seniorLabel : E.label;
+  e.tag = scene.add.text(x, y - E.size / 2 - 6, lbl, {
+    fontFamily: "monospace", fontSize: "10px", color: currentAge >= 80 ? "#f5c542" : "#e8e9f3"
   }).setOrigin(0.5).setDepth(5);
   return e;
 }
@@ -660,14 +777,15 @@ function spawnBill(scene) {
   createEnemy(scene, kind, x, y);
 }
 
-// Spawn a milestone Boss ("performanceReview" at 42, "mortgageRefinance" at 45, "midlifeCrisis" at 48).
+// Spawn a milestone Boss (Ages 45, 52, 60, 70, 80, 90, 100).
 function spawnBoss(scene, bossKind) {
   bossesSpawned[bossKind] = true;
   sfx("bossSpawn");
   scene.cameras.main.shake(180, 0.01); // rumble the screen when a Decade Boss arrives!
   const P = ENEMIES[bossKind], view = scene.cameras.main.worldView;
   const x = view.right + SPAWNING.offscreenMargin, y = player.y;
-  const boss = bills.create(x, y, bossKind).setDepth(4);
+  const boss = bills.create(x, y, P.tex || bossKind).setDepth(4);
+  if (P.tint) boss.setTint(P.tint);
   boss.isBoss = true;
   boss.kind = bossKind;
   boss.hp = P.hp;
@@ -681,7 +799,7 @@ function spawnBoss(scene, bossKind) {
 }
 
 // update() runs about 60 TIMES PER SECOND: this is the game loop.
-function update() {
+function update(time, delta) {
   readPad(this);
   if (padJust("yBtn")) {
     cycleViewMode(this);
@@ -700,20 +818,52 @@ function update() {
   }
   if (titleOpen && startFromTitle && (padJust("a") || padJust("start"))) startFromTitle();
   if (gameOver && restartGame && (padJust("a") || padJust("start"))) restartGame();
-  if (!gameOver && !levelUpOpen && !titleOpen && padJust("start")) togglePause(this);
+  if (!gameOver && !levelUpOpen && !titleOpen && !retire80Open && padJust("start")) togglePause(this);
 
-  if (gameOver || levelUpOpen || paused || titleOpen) {
+  if (gameOver || levelUpOpen || paused || titleOpen || retire80Open) {
     renderThreeView(this);
     restore2DSprites();
     return; // freeze while dead, paused, on title, or choosing an upgrade
   }
 
-  // Age clock: every PLAYER.secondsPerYear seconds adds 1 year to your age.
-  const elapsedSec = (this.time.now - startTime) / 1000;
-  currentAge = PLAYER.startingAge + elapsedSec / PLAYER.secondsPerYear;
+  // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
+  runElapsedMs += (delta || 16.6);
+  currentAge = runStartAge + (runElapsedMs / 1000) / PLAYER.secondsPerYear;
   updateHUD();
   label.setText(`${PLAYER.name} (${Math.floor(currentAge)})`);
-  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "theReaper"].forEach(bk => {
+
+  // Auto-save active run + unlock Decade Checkpoints every 3 seconds of active play!
+  if (runElapsedMs - lastAutoSave > 3000) {
+    lastAutoSave = runElapsedMs;
+    window.persistActiveRun();
+  }
+
+  // Milestone Age 80 Retirement Modal: claim Victory or enter the 20 Bonus Senior Rounds (80-100)!
+  if (currentAge >= PLAYER.retirementAge && !retire80Prompted) {
+    retire80Prompted = true;
+    retire80Open = true;
+    meta.coins += 15;
+    runCoins += 15;
+    window.persistActiveRun();
+    this.physics.pause();
+    this.time.paused = true;
+    player.setVelocity(0, 0);
+    sfx("levelUp");
+    showRetire80Modal(this, () => {
+      retire80Open = false;
+      hp = stats.maxHp;
+      updateHUD();
+      touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+      this.physics.resume();
+      this.time.paused = false;
+    }, () => {
+      retire80Open = false;
+      showGameOver(this, "theReaper", true);
+    });
+    return;
+  }
+
+  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
     if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
   });
 
@@ -743,7 +893,7 @@ function update() {
   const len = Math.hypot(x, y);
   if (len > 0) { x /= len; y /= len; }
 
-  const moveSpd = this.time.now < slowUntil ? stats.speed * ENEMIES.snackAttack.slowFactor : stats.speed;
+  const moveSpd = runElapsedMs < slowUntil ? stats.speed * ENEMIES.snackAttack.slowFactor : stats.speed;
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   player.setAngle((x !== 0 || y !== 0) ? Math.sin(this.time.now / 55) * 7 : 0); // jaunty walk wobble
@@ -775,7 +925,7 @@ function update() {
   }
 
   // Every frame, update each enemy according to its behavior (state machine).
-  const now = this.time.now;
+  const now = runElapsedMs;
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;
     const ageMs = now - (bill.bornAt || now);
@@ -806,7 +956,7 @@ function update() {
         bill.tag.setPosition(bill.x + Phaser.Math.Between(-3, 3), bill.y - SC.size / 2 - 8);
         if (now >= bill.ringEnd) {
           bill.state = "dashing";
-          bill.tag.setText(SC.label);
+          bill.tag.setText(currentAge >= 80 && SC.seniorLabel ? SC.seniorLabel : SC.label);
         }
         return;
       } else if (bill.state === "dashing") {

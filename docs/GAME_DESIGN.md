@@ -1,6 +1,6 @@
 # Midlife Survivors: Game Design (living draft v0.1)
 
-**Pitch:** You're 40. The emails, bills, back twinges and group chats are coming for you, and they will not stop. Survive ten years, from 40 to the Big Five-Oh, armed only with coffee, dad jokes and the word "No."
+**Pitch:** You're 40. The emails, bills, back twinges and group chats are coming for you, and they will not stop. Survive four decades to **Retirement at Age 80**, plus **20 Bonus Senior Life Rounds (Age 80 to 100)**, armed only with coffee, dad jokes and the word "No."
 
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
