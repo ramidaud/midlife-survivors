@@ -774,6 +774,42 @@ Instead of a 2-color grid, `makeFloorTexture(style, stageObj)` paints a `512x512
 
 ---
 
+## Chapter 30: Universal 4-Device Input Abstraction & Live Rebinding (`#controls-modal`)
+
+### 1. The Input Abstraction Layer (`meta.controls`)
+Instead of hardcoding specific keys or buttons inside the game loop, all 4 input devices (**Keyboard**, **Mouse**, **Touch**, and **Video Game Controller**) feed into a single unified **Input Abstraction Layer** backed by `meta.controls` in `localStorage`:
+
+```
+===================================================================================
+            4-DEVICE INPUT ABSTRACTION & CONFIGURATION PIPELINE
+===================================================================================
+
+  [⌨️ KEYBOARD]            [🖱️ MOUSE]              [📱 TOUCH]            [🎮 CONTROLLER]
+  Custom Key Codes         Hold-Click Steer /      Floating Stick /      Left & Right Sticks
+  (W/A/S/D + Arrows,       Cursor Auto-Follow /    Fixed Left or Right / + D-Pad + Custom
+   Pause, View, Mute)      Click-Drag / R-Click    Direct Touch Follow   Button Indices (0-11)
+         │                         │                        │                      │
+         └─────────────────────────┴───────────┬────────────┴──────────────────────┘
+                                               ▼
+                        ┌─────────────────────────────────────────────┐
+                        │   `meta.controls` (Saved in localStorage)   │
+                        │   Configured via `#controls-modal` UI       │
+                        └──────────────────────┬──────────────────────┘
+                                               ▼
+                    ┌──────────────────────────┴──────────────────────────┐
+                    ▼                                                     ▼
+     [GAMEPLAY MOVEMENT VECTOR (x, y)]                     [UNIVERSAL MENU NAV (`menuNav`)]
+     Normalized unit vector (len = 1.0)                    2D Row/Col Focus + Activate/Back
+===================================================================================
+```
+
+### 2. How Live Key & Controller Button Listening Works (`window.rebindState`)
+When you select a Keyboard or Controller binding row in `#controls-modal`, `window.rebindState` enters listening mode:
+1. **Keyboard Capture (`window.rebindState.type === "key"`):** The global `keydown` listener intercepts the very next key press (`e.code`), writes it to `meta.controls[field]`, saves to `localStorage`, and updates the HUD key badges (`⏸ PAUSE [KEY]`, `[KEY]`, `🔊 [KEY]`).
+2. **Controller Capture (`window.rebindState.type === "pad"`):** Inside `readPad()`, the game scans `gp.buttons[0..11]` for the first newly pressed physical button on your controller (or lets you cycle button presets with `◀ / ▶`), binding that button index immediately.
+
+---
+
 ## Coming next
 
 - **Phase 6 & 7: Sharing with friends + building stage-specific props & interactive challenges (Birth, Parenting, Friendships)!**

@@ -41,15 +41,19 @@ const VIEW_SHORT_NAMES = [
 
 let uiScene = null;
 
+window.rebindState = null;
+window.controlsModalOpen = false;
+let gamepadConnectedFlag = false;
+
 // ============================================================================
 // UNIVERSAL MENU FOCUS & NAVIGATION MANAGER (`window.menuNav`)
-// Lets players arrow through EVERY modal with Arrow Keys, WASD, or Controller!
+// Lets players arrow through EVERY modal with Arrow Keys, WASD, Mouse, Touch, or Controller!
 // ============================================================================
 window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -247,14 +251,15 @@ function initGameUI(scene) {
           <span class="coin-val" id="hud-coins">0k</span>
         </div>
         <div class="style-pill" id="hud-style-pill" title="Press V or tap to switch visual engine!">
-          <span class="style-key">[V]</span>
+          <span class="style-key" id="hud-view-key">[V]</span>
           <button class="style-opt" data-idx="0">16-BIT</button>
           <button class="style-opt" data-idx="1">DIABLO 3/4</button>
           <button class="style-opt" data-idx="2">AAA 3D</button>
         </div>
         <div class="util-btns">
-          <button class="util-btn" id="hud-pause-btn" title="Pause / Options (Space / P / Esc)">⏸ PAUSE [Space]</button>
-          <button class="util-btn" id="hud-mute-btn" title="Mute Audio (M)">🔊 [M]</button>
+          <button class="util-btn" id="hud-pause-btn" title="Pause / Options">⏸ PAUSE [Space]</button>
+          <button class="util-btn" id="hud-controls-btn" title="Configure Keyboard, Mouse, Touch & Controller">🎮 INPUT</button>
+          <button class="util-btn" id="hud-mute-btn" title="Mute Audio">🔊 [M]</button>
         </div>
       </div>
     </div>
@@ -268,14 +273,18 @@ function initGameUI(scene) {
       </div>
     </div>
 
-    <!-- ON-SCREEN VIRTUAL TOUCH JOYSTICK (Appears when dragging on Mobile/Touch) -->
+    <!-- ON-SCREEN VIRTUAL TOUCH JOYSTICK (Floating or Fixed Bottom-Left / Bottom-Right) -->
     <div class="touch-joystick hidden" id="touch-joystick">
       <div class="touch-knob" id="touch-knob"></div>
     </div>
 
-    <!-- FLOATING MOBILE QUICK-ACTION DOCK (Thumb-Friendly Pause / Style / Audio) -->
+    <!-- MOUSE / DIRECT-TOUCH STEERING TARGET RETICLE -->
+    <div class="pointer-target hidden" id="pointer-target"></div>
+
+    <!-- FLOATING MOBILE QUICK-ACTION DOCK (Thumb-Friendly Pause / Input / Style / Audio) -->
     <div class="mobile-dock" id="mobile-dock">
       <button class="mob-fab" id="mob-pause-btn" title="Pause & Options">⏸ PAUSE</button>
+      <button class="mob-fab" id="mob-controls-btn" title="Input & Controls">🎮 INPUT</button>
       <button class="mob-fab" id="mob-view-btn" title="Switch 2D / Diablo / 3D">🎥 VIEW</button>
       <button class="mob-fab" id="mob-mute-btn" title="Toggle Sound">🔊</button>
     </div>
@@ -285,13 +294,16 @@ function initGameUI(scene) {
       <div class="modal-card levelup-box">
         <div class="modal-kicker" id="lv-kicker">HR BENEFITS DEPARTMENT // FORM W-40</div>
         <h2 class="modal-title" id="lv-title">LEVEL UP! SELECT ONE PERK VOUCHER</h2>
-        <div class="modal-sub">Use <b>Arrow Keys</b> + <b>Space/Enter</b>, press <b>1 / 2 / 3</b>, Controller <b>D-Pad + A</b>, or Tap!</div>
+        <div class="modal-sub">Use <b>Arrow Keys / WASD</b> + <b>Space/Enter</b>, <b>Mouse Click</b>, <b>Controller D-Pad + A</b>, or <b>Tap</b>!</div>
         <div class="perk-cards-grid" id="lv-cards"></div>
       </div>
     </div>
 
     <!-- MODAL 2: PAUSE & OPTIONS OVERLAY (Spacebar / P / Esc / Start / Tap Pause) -->
     <div class="ui-modal hidden" id="pause-modal"></div>
+
+    <!-- MODAL 2B: INPUT & CONTROLS CONFIGURATION OVERLAY (Keyboard, Mouse, Touch, Controller) -->
+    <div class="ui-modal hidden" id="controls-modal"></div>
 
     <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
     <div class="ui-modal hidden" id="retire80-modal">
@@ -304,8 +316,8 @@ function initGameUI(scene) {
           <button class="cta-btn secondary-btn" id="retire80-claim-btn">🏖️ RETIRE AT 80 & CLAIM VICTORY</button>
         </div>
         <div class="nav-hint-bar">
-          <span><b>▲▼◀▶</b> Arrow / D-Pad: Select</span>
-          <span><b>Space / Enter / A</b>: Confirm</span>
+          <span><b>▲▼◀▶</b> Arrow / D-Pad / Mouse: Select</span>
+          <span><b>Space / Enter / Click / A</b>: Confirm</span>
         </div>
       </div>
     </div>
@@ -334,6 +346,15 @@ function initGameUI(scene) {
     unlockAudio();
     togglePause(uiScene);
   };
+  const doControlsOpen = e => {
+    e.stopPropagation();
+    unlockAudio();
+    sfx("pick");
+    if (!paused && !titleOpen && !gameOver && !levelUpOpen && !retire80Open) {
+      togglePause(uiScene);
+    }
+    openControlsModal(uiScene);
+  };
   const doMuteToggle = e => {
     e.stopPropagation();
     unlockAudio();
@@ -352,30 +373,106 @@ function initGameUI(scene) {
 
   document.getElementById("hud-pause-btn").addEventListener("pointerdown", doPauseToggle);
   document.getElementById("mob-pause-btn").addEventListener("pointerdown", doPauseToggle);
+  document.getElementById("hud-controls-btn").addEventListener("pointerdown", doControlsOpen);
+  document.getElementById("mob-controls-btn").addEventListener("pointerdown", doControlsOpen);
   document.getElementById("hud-mute-btn").addEventListener("pointerdown", doMuteToggle);
   document.getElementById("mob-mute-btn").addEventListener("pointerdown", doMuteToggle);
   document.getElementById("mob-view-btn").addEventListener("pointerdown", doViewCycle);
 
   window.syncUITheme();
+  syncControlHUDHints();
+}
+
+function getControlsConfig() {
+  if (typeof meta !== "undefined" && meta && meta.controls) {
+    return meta.controls;
+  }
+  return Object.assign({}, window.DEFAULT_CONTROLS || {});
+}
+
+function syncControlHUDHints() {
+  const c = getControlsConfig();
+  const fmt = window.formatKeyCode || (k => k);
+  const pauseBtn = document.getElementById("hud-pause-btn");
+  const viewKey = document.getElementById("hud-view-key");
+  if (pauseBtn) pauseBtn.textContent = `⏸ PAUSE [${fmt(c.keyPause || "Space")}]`;
+  if (viewKey) viewKey.textContent = `[${fmt(c.keyView || "KeyV")}]`;
+  syncMuteButtons();
+  const dock = document.getElementById("mobile-dock");
+  if (dock) dock.classList.toggle("dock-left", c.touchMode === "fixedRight");
+  if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(typeof touch !== "undefined" ? touch : null);
 }
 
 function syncMuteButtons() {
   const muted = isMuted();
+  const c = getControlsConfig();
+  const fmt = window.formatKeyCode || (k => k);
+  const mKey = fmt(c.keyMute || "KeyM");
   const hb = document.getElementById("hud-mute-btn");
   const mb = document.getElementById("mob-mute-btn");
-  if (hb) hb.textContent = muted ? "🔇 [M]" : "🔊 [M]";
+  if (hb) hb.textContent = muted ? `🔇 [${mKey}]` : `🔊 [${mKey}]`;
   if (mb) mb.textContent = muted ? "🔇" : "🔊";
 }
 
 window.setGamepadConnectedUI = function(connected) {
+  const changed = gamepadConnectedFlag !== !!connected;
+  gamepadConnectedFlag = !!connected;
   const dot = document.getElementById("hud-pad-dot");
   if (dot) dot.style.display = connected ? "inline" : "none";
+  if (changed && window.controlsModalOpen && uiScene) {
+    renderControlsModal(uiScene);
+  }
+};
+
+window.updatePointerTargetUI = function(pt) {
+  const el = document.getElementById("pointer-target");
+  if (!el) return;
+  if (!pt || !pt.active) {
+    el.classList.add("hidden");
+    return;
+  }
+  el.classList.remove("hidden");
+  el.style.left = `${pt.x}px`;
+  el.style.top = `${pt.y}px`;
 };
 
 window.updateTouchJoystickUI = function(touch) {
   const joy = document.getElementById("touch-joystick");
   const knob = document.getElementById("touch-knob");
   if (!joy || !knob) return;
+  const c = getControlsConfig();
+  const isFixed = c.touchMode === "fixedLeft" || c.touchMode === "fixedRight";
+  const inActivePlay = !(typeof gameOver !== "undefined" && (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen));
+
+  if (c.touchMode === "directTouch") {
+    joy.classList.add("hidden");
+    return;
+  }
+
+  if (isFixed && inActivePlay) {
+    joy.classList.remove("hidden");
+    joy.classList.add("fixed-pad");
+    joy.style.top = "auto";
+    joy.style.bottom = "22px";
+    if (c.touchMode === "fixedLeft") {
+      joy.style.left = "22px";
+      joy.style.right = "auto";
+    } else {
+      joy.style.right = "22px";
+      joy.style.left = "auto";
+    }
+    const maxR = 32;
+    const dx = (touch && touch.active) ? touch.dx : 0;
+    const dy = (touch && touch.active) ? touch.dy : 0;
+    const dist = Math.hypot(dx, dy);
+    const clamp = dist > maxR ? maxR / dist : 1;
+    knob.style.transform = `translate(${dx * clamp}px, ${dy * clamp}px)`;
+    return;
+  }
+
+  joy.classList.remove("fixed-pad");
+  joy.style.bottom = "auto";
+  joy.style.right = "auto";
   if (!touch || !touch.active) {
     joy.classList.add("hidden");
     return;
@@ -486,6 +583,10 @@ function renderPauseModal(scene, keepRowIdx) {
       <p class="modal-sub">Age ${currentAge.toFixed(1)} | Level ${level} | HP ${Math.max(0, hp)}/${stats ? stats.maxHp : 12} | 401(k): ${meta ? meta.coins : 0}k</p>
       <div class="options-list">
         <button class="opt-btn primary-opt" id="pause-resume-btn">▶ RESUME SHIFT (Space / Esc / A)</button>
+        <button class="opt-btn" id="pause-controls-btn">
+          <span>🎮 INPUT & CONTROLS CONFIG</span>
+          <span class="opt-val">KEYS / MOUSE / TOUCH / PAD ▶</span>
+        </button>
         <button class="opt-btn" id="pause-style-btn" data-opt-cycle="1">
           <span>🎥 VISUAL ENGINE</span>
           <span class="opt-val">◀ ${VIEW_SHORT_NAMES[vIdx]} ▶</span>
@@ -508,7 +609,7 @@ function renderPauseModal(scene, keepRowIdx) {
         </button>
       </div>
       <div class="nav-hint-bar">
-        <span><b>▲▼</b> Arrow / D-Pad: Navigate</span>
+        <span><b>▲▼</b> Arrow / D-Pad / Mouse: Navigate</span>
         <span><b>◀▶ / Space / Enter / A</b>: Select or Toggle</span>
         <span><b>Esc / B / Start</b>: Resume</span>
       </div>
@@ -520,46 +621,364 @@ function renderPauseModal(scene, keepRowIdx) {
     togglePause(scene);
   }, keepRowIdx === undefined || keepRowIdx === 0);
 
-  bindNavItem(document.getElementById("pause-style-btn"), 1, () => {
+  bindNavItem(document.getElementById("pause-controls-btn"), 1, () => {
+    sfx("pick");
+    openControlsModal(scene);
+  }, keepRowIdx === 1);
+
+  bindNavItem(document.getElementById("pause-style-btn"), 2, () => {
     const dir = document.getElementById("pause-style-btn").dataset.dirHint;
     const step = dir === "left" ? -1 : 1;
     window.viewModeIdx = (vIdx + step + window.VIEW_MODES.length) % window.VIEW_MODES.length;
     applyViewMode(scene);
     sfx("pick");
-    renderPauseModal(scene, 1);
-  }, keepRowIdx === 1);
-
-  bindNavItem(document.getElementById("pause-audio-btn"), 2, () => {
-    toggleMute();
-    syncMuteButtons();
-    sfx("pick");
     renderPauseModal(scene, 2);
   }, keepRowIdx === 2);
 
-  bindNavItem(document.getElementById("pause-voice-btn"), 3, () => {
-    if (typeof toggleVoice === "function") toggleVoice();
+  bindNavItem(document.getElementById("pause-audio-btn"), 3, () => {
+    toggleMute();
+    syncMuteButtons();
     sfx("pick");
     renderPauseModal(scene, 3);
   }, keepRowIdx === 3);
 
-  bindNavItem(document.getElementById("pause-savequit-btn"), 4, () => {
+  bindNavItem(document.getElementById("pause-voice-btn"), 4, () => {
+    if (typeof toggleVoice === "function") toggleVoice();
+    sfx("pick");
+    renderPauseModal(scene, 4);
+  }, keepRowIdx === 4);
+
+  bindNavItem(document.getElementById("pause-savequit-btn"), 5, () => {
     sfx("pick");
     if (window.persistActiveRun) window.persistActiveRun();
     setPauseModalVisible(false);
     paused = false;
     titleSeen = false;
     scene.scene.restart();
-  }, keepRowIdx === 4);
+  }, keepRowIdx === 5);
 
-  bindNavItem(document.getElementById("pause-restart-btn"), 5, () => {
+  bindNavItem(document.getElementById("pause-restart-btn"), 6, () => {
     sfx("pick");
     clearRunState();
     setPauseModalVisible(false);
     paused = false;
     scene.scene.restart();
-  }, keepRowIdx === 5);
+  }, keepRowIdx === 6);
 
   window.menuNav.refresh();
+}
+
+// ============================================================================
+// INPUT & CONTROLS CONFIGURATION MODAL (Keyboard, Mouse, Touch, Controller)
+// ============================================================================
+const MOUSE_MOVE_MODES = [
+  { id: "holdFollow",   label: "🖱️ Hold Click to Steer" },
+  { id: "cursorFollow", label: "🎯 Cursor Auto-Follow" },
+  { id: "clickDrag",    label: "✋ Click & Drag Stick" },
+  { id: "off",          label: "🚫 UI Menus Only" }
+];
+
+const MOUSE_RCLICK_MODES = [
+  { id: "pause", label: "⏸ Pause / Options" },
+  { id: "move",  label: "🏃 Hold to Move" },
+  { id: "view",  label: "🎥 Switch View" }
+];
+
+const TOUCH_MODES = [
+  { id: "floating",    label: "🕹️ Floating Stick" },
+  { id: "fixedLeft",   label: "👈 Fixed Bottom-Left" },
+  { id: "fixedRight",  label: "👉 Fixed Bottom-Right" },
+  { id: "directTouch", label: "👆 Touch & Hold Follow" }
+];
+
+const TOUCH_SENS_MODES = [
+  { id: "normal", label: "👌 Normal (10px)" },
+  { id: "high",   label: "⚡ High (5px)" },
+  { id: "low",    label: "🛡️ Relaxed (18px)" }
+];
+
+const PAD_DEADZONE_MODES = [
+  { val: 0.22, label: "22% Standard" },
+  { val: 0.15, label: "15% Sensitive" },
+  { val: 0.35, label: "35% Anti-Drift" }
+];
+
+function openControlsModal(scene) {
+  window.rebindState = null;
+  window.controlsModalOpen = true;
+  const modal = document.getElementById("controls-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  renderControlsModal(scene || uiScene);
+}
+
+function closeControlsModal(scene) {
+  window.rebindState = null;
+  window.controlsModalOpen = false;
+  const modal = document.getElementById("controls-modal");
+  if (modal) modal.classList.add("hidden");
+  syncControlHUDHints();
+  const sc = scene || uiScene;
+  if (titleOpen) {
+    renderTitleModal(sc, "#title-controls-btn");
+  } else if (paused) {
+    renderPauseModal(sc, 1);
+  } else {
+    window.menuNav.refresh();
+  }
+}
+
+function renderControlsModal(scene, keepSelector) {
+  const modal = document.getElementById("controls-modal");
+  if (!modal) return;
+  if (meta && !meta.controls) {
+    meta.controls = Object.assign({}, window.DEFAULT_CONTROLS);
+  }
+  const c = getControlsConfig();
+  const fmtKey = window.formatKeyCode || (k => k);
+  const fmtPad = window.formatPadButton || (b => `Btn ${b}`);
+  const reb = window.rebindState;
+
+  const keyBtnLabel = (field, fallback) => {
+    if (reb && reb.type === "key" && reb.field === field) {
+      return "🔴 PRESS ANY KEY... (ESC)";
+    }
+    return fmtKey(c[field] || fallback);
+  };
+
+  const padBtnLabel = (field, fallback) => {
+    if (reb && reb.type === "pad" && reb.field === field) {
+      return "🔴 PRESS PAD BTN... (◀▶)";
+    }
+    return `◀ ${fmtPad(c[field] !== undefined ? c[field] : fallback)} ▶`;
+  };
+
+  const mMode = MOUSE_MOVE_MODES.find(m => m.id === c.mouseMoveMode) || MOUSE_MOVE_MODES[0];
+  const rMode = MOUSE_RCLICK_MODES.find(m => m.id === c.mouseRightClick) || MOUSE_RCLICK_MODES[0];
+  const tMode = TOUCH_MODES.find(m => m.id === c.touchMode) || TOUCH_MODES[0];
+  const tSens = TOUCH_SENS_MODES.find(m => m.id === c.touchSensitivity) || TOUCH_SENS_MODES[0];
+  const pDead = PAD_DEADZONE_MODES.find(m => Math.abs(m.val - Number(c.padDeadzone || 0.22)) < 0.03) || PAD_DEADZONE_MODES[0];
+
+  modal.innerHTML = `
+    <div class="modal-card controls-box">
+      <div class="modal-kicker">ALL 4 INPUT DEVICES ACTIVE // AUTO-SAVED TO LOCALSTORAGE</div>
+      <h2 class="modal-title">🎮 INPUT & CONTROLS CONFIGURATION</h2>
+      <div class="device-status-bar">
+        <span class="device-pill ready">⌨️ KEYBOARD: READY</span>
+        <span class="device-pill ready">🖱️ MOUSE: READY</span>
+        <span class="device-pill ready">📱 TOUCH: READY</span>
+        <span class="device-pill ${gamepadConnectedFlag ? "ready" : ""}">🎮 CONTROLLER: ${gamepadConnectedFlag ? "CONNECTED" : "PLUG & PLAY"}</span>
+      </div>
+
+      <div class="controls-grid">
+        <!-- SECTION 1: KEYBOARD MAPPING -->
+        <div class="ctrl-section">
+          <div class="ctrl-sec-title">⌨️ KEYBOARD BINDINGS (CLICK TO REBIND)</div>
+          <div class="ctrl-rows">
+            <button class="ctrl-btn ${reb && reb.field === "keyUp" ? "listening" : ""}" id="ctrl-keyUp">
+              <span>Move Up</span><span class="ctrl-val">${keyBtnLabel("keyUp", "KeyW")}</span>
+            </button>
+            <button class="ctrl-btn ${reb && reb.field === "keyDown" ? "listening" : ""}" id="ctrl-keyDown">
+              <span>Move Down</span><span class="ctrl-val">${keyBtnLabel("keyDown", "KeyS")}</span>
+            </button>
+            <button class="ctrl-btn ${reb && reb.field === "keyLeft" ? "listening" : ""}" id="ctrl-keyLeft">
+              <span>Move Left</span><span class="ctrl-val">${keyBtnLabel("keyLeft", "KeyA")}</span>
+            </button>
+            <button class="ctrl-btn ${reb && reb.field === "keyRight" ? "listening" : ""}" id="ctrl-keyRight">
+              <span>Move Right</span><span class="ctrl-val">${keyBtnLabel("keyRight", "KeyD")}</span>
+            </button>
+            <button class="ctrl-btn" id="ctrl-arrowMove" data-opt-cycle="1">
+              <span>Arrow Keys Move</span><span class="ctrl-val">◀ ${c.arrowMove !== false ? "ON (WASD + ▲▼◀▶)" : "CUSTOM ONLY"} ▶</span>
+            </button>
+            <button class="ctrl-btn ${reb && reb.field === "keyPause" ? "listening" : ""}" id="ctrl-keyPause">
+              <span>Pause / Options</span><span class="ctrl-val">${keyBtnLabel("keyPause", "Space")}</span>
+            </button>
+            <button class="ctrl-btn ${reb && reb.field === "keyView" ? "listening" : ""}" id="ctrl-keyView">
+              <span>Switch View (2D/3D)</span><span class="ctrl-val">${keyBtnLabel("keyView", "KeyV")}</span>
+            </button>
+            <button class="ctrl-btn ${reb && reb.field === "keyMute" ? "listening" : ""}" id="ctrl-keyMute">
+              <span>Mute Audio</span><span class="ctrl-val">${keyBtnLabel("keyMute", "KeyM")}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SECTION 2: GAME CONTROLLER + MOUSE + TOUCH -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="ctrl-section">
+            <div class="ctrl-sec-title">🎮 VIDEO GAME CONTROLLER (PRESS OR ◀▶)</div>
+            <div class="ctrl-rows">
+              <button class="ctrl-btn ${reb && reb.field === "padConfirmBtn" ? "listening" : ""}" id="ctrl-padConfirmBtn" data-opt-cycle="1">
+                <span>Confirm / Select</span><span class="ctrl-val">${padBtnLabel("padConfirmBtn", 0)}</span>
+              </button>
+              <button class="ctrl-btn ${reb && reb.field === "padPauseBtn" ? "listening" : ""}" id="ctrl-padPauseBtn" data-opt-cycle="1">
+                <span>Pause / Options</span><span class="ctrl-val">${padBtnLabel("padPauseBtn", 9)}</span>
+              </button>
+              <button class="ctrl-btn ${reb && reb.field === "padViewBtn" ? "listening" : ""}" id="ctrl-padViewBtn" data-opt-cycle="1">
+                <span>Switch 2D/3D View</span><span class="ctrl-val">${padBtnLabel("padViewBtn", 3)}</span>
+              </button>
+              <button class="ctrl-btn ${reb && reb.field === "padMuteBtn" ? "listening" : ""}" id="ctrl-padMuteBtn" data-opt-cycle="1">
+                <span>Mute Audio</span><span class="ctrl-val">${padBtnLabel("padMuteBtn", 2)}</span>
+              </button>
+              <button class="ctrl-btn" id="ctrl-padDeadzone" data-opt-cycle="1">
+                <span>Stick Deadzone</span><span class="ctrl-val">◀ ${pDead.label} ▶</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="ctrl-section">
+            <div class="ctrl-sec-title">🖱️ MOUSE & 📱 TOUCH CONFIGURATION</div>
+            <div class="ctrl-rows">
+              <button class="ctrl-btn" id="ctrl-mouseMoveMode" data-opt-cycle="1">
+                <span>Mouse Movement</span><span class="ctrl-val">◀ ${mMode.label} ▶</span>
+              </button>
+              <button class="ctrl-btn" id="ctrl-mouseRightClick" data-opt-cycle="1">
+                <span>Mouse Right-Click</span><span class="ctrl-val">◀ ${rMode.label} ▶</span>
+              </button>
+              <button class="ctrl-btn" id="ctrl-mouseWheelView" data-opt-cycle="1">
+                <span>Mouse Wheel View</span><span class="ctrl-val">◀ ${c.mouseWheelView !== false ? "ON (Cycles 2D/3D)" : "OFF"} ▶</span>
+              </button>
+              <button class="ctrl-btn" id="ctrl-touchMode" data-opt-cycle="1">
+                <span>Touch Stick Mode</span><span class="ctrl-val">◀ ${tMode.label} ▶</span>
+              </button>
+              <button class="ctrl-btn" id="ctrl-touchSensitivity" data-opt-cycle="1">
+                <span>Touch Sensitivity</span><span class="ctrl-val">◀ ${tSens.label} ▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-actions">
+        <button class="cta-btn" id="ctrl-done-btn">✓ SAVE & RETURN (Esc / B)</button>
+        <button class="cta-btn secondary-btn" id="ctrl-reset-btn">🔄 RESET CONTROLS TO DEFAULTS</button>
+      </div>
+      <div class="nav-hint-bar">
+        <span><b>▲▼◀▶</b> Arrow / D-Pad / Mouse: Select</span>
+        <span><b>Enter / Space / Click / A</b>: Rebind or Cycle</span>
+        <span><b>Esc / B</b>: Save & Return</span>
+      </div>
+    </div>
+  `;
+
+  const bindKeyRebind = (field, rowIdx) => {
+    const el = document.getElementById(`ctrl-${field}`);
+    bindNavItem(el, rowIdx, () => {
+      sfx("pick");
+      if (window.rebindState && window.rebindState.field === field) {
+        window.rebindState = null;
+      } else {
+        window.rebindState = { type: "key", field, selector: `#ctrl-${field}` };
+      }
+      renderControlsModal(scene, `#ctrl-${field}`);
+    });
+  };
+
+  bindKeyRebind("keyUp", 0);
+  bindKeyRebind("keyDown", 1);
+  bindKeyRebind("keyLeft", 2);
+  bindKeyRebind("keyRight", 3);
+
+  bindNavItem(document.getElementById("ctrl-arrowMove"), 4, () => {
+    window.rebindState = null;
+    c.arrowMove = c.arrowMove === false ? true : false;
+    saveMeta(meta);
+    sfx("pick");
+    renderControlsModal(scene, "#ctrl-arrowMove");
+  });
+
+  bindKeyRebind("keyPause", 5);
+  bindKeyRebind("keyView", 6);
+  bindKeyRebind("keyMute", 7);
+
+  const bindPadRebindOrCycle = (field, fallback, rowIdx) => {
+    const el = document.getElementById(`ctrl-${field}`);
+    bindNavItem(el, rowIdx, () => {
+      const dir = el.dataset.dirHint;
+      sfx("pick");
+      if (dir === "left" || dir === "right") {
+        window.rebindState = null;
+        const cur = c[field] !== undefined ? Number(c[field]) : fallback;
+        const step = dir === "left" ? -1 : 1;
+        c[field] = (cur + step + 12) % 12;
+        saveMeta(meta);
+        renderControlsModal(scene, `#ctrl-${field}`);
+        return;
+      }
+      if (window.rebindState && window.rebindState.field === field) {
+        // Clicking/activating a second time cycles to the next button if you don't have a pad plugged in
+        window.rebindState = null;
+        const cur = c[field] !== undefined ? Number(c[field]) : fallback;
+        c[field] = (cur + 1) % 12;
+        saveMeta(meta);
+      } else {
+        window.rebindState = { type: "pad", field, selector: `#ctrl-${field}` };
+      }
+      renderControlsModal(scene, `#ctrl-${field}`);
+    });
+  };
+
+  bindPadRebindOrCycle("padConfirmBtn", 0, 8);
+  bindPadRebindOrCycle("padPauseBtn", 9, 9);
+  bindPadRebindOrCycle("padViewBtn", 3, 10);
+  bindPadRebindOrCycle("padMuteBtn", 2, 11);
+
+  bindNavItem(document.getElementById("ctrl-padDeadzone"), 12, () => {
+    window.rebindState = null;
+    const dir = document.getElementById("ctrl-padDeadzone").dataset.dirHint;
+    const step = dir === "left" ? -1 : 1;
+    const idx = PAD_DEADZONE_MODES.findIndex(m => Math.abs(m.val - Number(c.padDeadzone || 0.22)) < 0.03);
+    const next = (Math.max(0, idx) + step + PAD_DEADZONE_MODES.length) % PAD_DEADZONE_MODES.length;
+    c.padDeadzone = PAD_DEADZONE_MODES[next].val;
+    saveMeta(meta);
+    sfx("pick");
+    renderControlsModal(scene, "#ctrl-padDeadzone");
+  });
+
+  const bindListCycle = (id, list, field, rowIdx) => {
+    const el = document.getElementById(id);
+    bindNavItem(el, rowIdx, () => {
+      window.rebindState = null;
+      const dir = el.dataset.dirHint;
+      const step = dir === "left" ? -1 : 1;
+      const idx = list.findIndex(m => m.id === c[field]);
+      const next = (Math.max(0, idx) + step + list.length) % list.length;
+      c[field] = list[next].id;
+      saveMeta(meta);
+      syncControlHUDHints();
+      sfx("pick");
+      renderControlsModal(scene, `#${id}`);
+    });
+  };
+
+  bindListCycle("ctrl-mouseMoveMode", MOUSE_MOVE_MODES, "mouseMoveMode", 13);
+  bindListCycle("ctrl-mouseRightClick", MOUSE_RCLICK_MODES, "mouseRightClick", 14);
+
+  bindNavItem(document.getElementById("ctrl-mouseWheelView"), 15, () => {
+    window.rebindState = null;
+    c.mouseWheelView = c.mouseWheelView === false ? true : false;
+    saveMeta(meta);
+    sfx("pick");
+    renderControlsModal(scene, "#ctrl-mouseWheelView");
+  });
+
+  bindListCycle("ctrl-touchMode", TOUCH_MODES, "touchMode", 16);
+  bindListCycle("ctrl-touchSensitivity", TOUCH_SENS_MODES, "touchSensitivity", 17);
+
+  bindNavItem(document.getElementById("ctrl-done-btn"), 18, () => {
+    sfx("pick");
+    closeControlsModal(scene);
+  }, !keepSelector);
+
+  bindNavItem(document.getElementById("ctrl-reset-btn"), 18, () => {
+    window.rebindState = null;
+    meta.controls = Object.assign({}, window.DEFAULT_CONTROLS);
+    saveMeta(meta);
+    syncControlHUDHints();
+    sfx("levelUp");
+    renderControlsModal(scene, "#ctrl-reset-btn");
+  }, false);
+
+  window.menuNav.refresh(keepSelector || "#ctrl-done-btn");
 }
 
 function showRetire80Modal(scene, onContinueSenior, onClaimWin) {
@@ -736,14 +1155,15 @@ function renderTitleModal(scene, preserveFocusSelector) {
           <button class="t-style-btn ${window.viewModeIdx === 0 ? "active" : ""}" data-v="0">👾 16-Bit Retro</button>
           <button class="t-style-btn ${window.viewModeIdx === 1 ? "active" : ""}" data-v="1">🕯️ Diablo 3/4 Indie</button>
           <button class="t-style-btn ${window.viewModeIdx === 2 ? "active" : ""}" data-v="2">🚀 Fortnite AAA 3D</button>
+          <button class="t-style-btn" id="title-controls-btn" style="border-color:var(--accent);color:var(--accent);">🎮 INPUT & CONTROLS</button>
         </div>
         ${resumeBannerHtml}
         <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START NEW RUN AT AGE ${meta.startDecade || 40} (Space / Enter / A)</button>
       </div>
       <div class="nav-hint-bar">
-        <span><b>▲▼◀▶</b> Arrow Keys / Controller D-Pad: Browse Menu</span>
-        <span><b>Space / Enter / A</b>: Select or Start</span>
-        <span><b>[V] / Y</b>: Switch 2D/3D Style</span>
+        <span><b>▲▼◀▶</b> Arrow / D-Pad / Mouse: Browse Menu</span>
+        <span><b>Space / Enter / Click / A</b>: Select or Start</span>
+        <span><b>🎮 INPUT</b>: Configure Keys, Mouse, Touch & Pad</span>
       </div>
     </div>
   `;
@@ -812,7 +1232,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     });
   });
 
-  // Row 7: Visual Style Switcher
+  // Row 7: Visual Style Switcher + Input & Controls Config Button
   modal.querySelectorAll("[data-v]").forEach(btn => {
     const v = Number(btn.dataset.v);
     bindNavItem(btn, 7, () => {
@@ -822,6 +1242,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
       renderTitleModal(scene, `[data-v="${v}"]`);
     });
   });
+
+  const titleCtrlBtn = document.getElementById("title-controls-btn");
+  if (titleCtrlBtn) {
+    bindNavItem(titleCtrlBtn, 7, () => {
+      sfx("pick");
+      openControlsModal(scene);
+    });
+  }
 
   // Row 8: Resume Saved Run (if present)
   const resumeBtn = document.getElementById("title-resume-btn");
@@ -870,8 +1298,8 @@ function renderGameOverModal(scene, cause, isWin) {
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP & DECADE SELECT</button>
       </div>
       <div class="nav-hint-bar">
-        <span><b>◀▶ / ▲▼</b> Arrow / D-Pad: Switch Option</span>
-        <span><b>Space / Enter / A</b>: Confirm</span>
+        <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Option</span>
+        <span><b>Space / Enter / Click / A</b>: Confirm</span>
       </div>
     </div>
   `;
@@ -893,7 +1321,9 @@ function renderGameOverModal(scene, cause, isWin) {
 }
 
 function hideAllModals() {
-  ["levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
+  window.rebindState = null;
+  window.controlsModalOpen = false;
+  ["controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "title-modal", "gameover-modal"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.add("hidden");
   });

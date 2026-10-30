@@ -15,10 +15,13 @@ const config = {
 
 // ---- Game controller helpers (Direct HTML5 Gamepad API + Phaser fallback) ----
 // Reads directly from navigator.getGamepads() so Xbox, PlayStation, Switch Pro, and Bluetooth
-// controllers work reliably even when clicking HTML UI buttons!
+// controllers work reliably even when clicking HTML UI buttons, and supports live button rebinding!
 let padPrev = {}, padNow = {}, padHoldDir = null, padNextRepeatMs = 0;
 function readPad(scene) {
   padPrev = padNow;
+  const c = (typeof meta !== "undefined" && meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+  const deadzone = Number(c.padDeadzone || 0.22);
+
   let gp = null;
   if (navigator.getGamepads) {
     const list = navigator.getGamepads();
@@ -36,16 +39,23 @@ function readPad(scene) {
     }
     const sx = pPad.leftStick ? pPad.leftStick.x : 0;
     const sy = pPad.leftStick ? pPad.leftStick.y : 0;
+    const pBtn = idx => !!(pPad.buttons && pPad.buttons[idx] && pPad.buttons[idx].pressed);
+    const rawBtns = [];
+    for (let b = 0; b < 16; b++) rawBtns[b] = pBtn(b);
     padNow = {
       connected: true,
-      x: Math.abs(sx) > 0.2 ? sx : 0,
-      y: Math.abs(sy) > 0.2 ? sy : 0,
+      rawBtns,
+      x: Math.abs(sx) > deadzone ? sx : 0,
+      y: Math.abs(sy) > deadzone ? sy : 0,
       left: pPad.left || sx < -0.55,
       right: pPad.right || sx > 0.55,
       up: pPad.up || sy < -0.55,
       down: pPad.down || sy > 0.55,
-      a: pPad.A, b: pPad.B, xBtn: pPad.X, yBtn: pPad.Y,
-      start: !!(pPad.buttons && pPad.buttons[9] && pPad.buttons[9].pressed)
+      a: pBtn(c.padConfirmBtn !== undefined ? c.padConfirmBtn : 0),
+      b: pBtn(1),
+      xBtn: pBtn(c.padMuteBtn !== undefined ? c.padMuteBtn : 2),
+      yBtn: pBtn(c.padViewBtn !== undefined ? c.padViewBtn : 3),
+      start: pBtn(c.padPauseBtn !== undefined ? c.padPauseBtn : 9) || pBtn(8)
     };
     if (window.setGamepadConnectedUI) window.setGamepadConnectedUI(true);
     return;
@@ -53,6 +63,28 @@ function readPad(scene) {
 
   if (window.setGamepadConnectedUI) window.setGamepadConnectedUI(true);
   const btn = idx => !!(gp.buttons && gp.buttons[idx] && (gp.buttons[idx].pressed || gp.buttons[idx].value > 0.5));
+  const rawBtns = [];
+  for (let b = 0; b < 16; b++) rawBtns[b] = btn(b);
+
+  // Live Controller Button Rebinding inside the Input & Controls Modal!
+  if (window.rebindState && window.rebindState.type === "pad") {
+    for (let b = 0; b < 12; b++) {
+      if (rawBtns[b] && !(padPrev.rawBtns && padPrev.rawBtns[b])) {
+        const sel = window.rebindState.selector;
+        if (meta && meta.controls) {
+          meta.controls[window.rebindState.field] = b;
+          saveMeta(meta);
+        }
+        window.rebindState = null;
+        unlockAudio();
+        sfx("pick");
+        if (typeof renderControlsModal === "function") renderControlsModal(scene, sel);
+        padNow = { connected: true, rawBtns };
+        return;
+      }
+    }
+  }
+
   const ax0 = (gp.axes && gp.axes[0]) || 0;
   const ax1 = (gp.axes && gp.axes[1]) || 0;
   const ax2 = (gp.axes && gp.axes[2]) || 0;
@@ -62,19 +94,20 @@ function readPad(scene) {
 
   padNow = {
     connected: true,
-    x: Math.abs(sx) > 0.22 ? sx : 0,
-    y: Math.abs(sy) > 0.22 ? sy : 0,
+    rawBtns,
+    x: Math.abs(sx) > deadzone ? sx : 0,
+    y: Math.abs(sy) > deadzone ? sy : 0,
     up:    btn(12) || sy < -0.55,
     down:  btn(13) || sy >  0.55,
     left:  btn(14) || sx < -0.55,
     right: btn(15) || sx >  0.55,
-    a:     btn(0),
+    a:     btn(c.padConfirmBtn !== undefined ? c.padConfirmBtn : 0),
     b:     btn(1),
-    xBtn:  btn(2),
-    yBtn:  btn(3),
-    start: btn(9) || btn(8)
+    xBtn:  btn(c.padMuteBtn !== undefined ? c.padMuteBtn : 2),
+    yBtn:  btn(c.padViewBtn !== undefined ? c.padViewBtn : 3),
+    start: btn(c.padPauseBtn !== undefined ? c.padPauseBtn : 9) || btn(8)
   };
-  if (padNow.a || padNow.b || padNow.yBtn || padNow.start) unlockAudio();
+  if (padNow.a || padNow.b || padNow.xBtn || padNow.yBtn || padNow.start) unlockAudio();
 }
 const padJust = name => !!(padNow[name] && !padPrev[name]);
 
@@ -106,7 +139,10 @@ let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelU
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
 let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office";
-let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
+let mouseState = { leftDown: false, rightDown: false, x: 0, y: 0, activeCursor: false, overUI: false };
+window._heldKeys = window._heldKeys || new Set();
+let lastWheelMs = 0;
 
 // create() runs ONCE when the game starts: build the world.
 function create() {
@@ -117,7 +153,9 @@ function create() {
   runStartAge = meta.startDecade || PLAYER.startingAge;
   currentAge = runStartAge; bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
   paused = false; pauseParts = [];
-  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
+  mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
+  window._heldKeys.clear();
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   runCoins = 0;
   stats = {
@@ -150,63 +188,164 @@ function create() {
   initGameUI(this);
   hideAllModals();
 
-  const toggleView = () => {
-    cycleViewMode(this);
-    sfx("pick");
-    if (titleOpen) renderTitleModal(this);
-    if (paused) renderPauseModal(this, 1);
-  };
-
-  // 6. Controls: Unified Keyboard Navigation + Spacebar Pause/Options + Mobile Virtual Touch Joystick.
+  // 6. Controls: Full Keyboard, Mouse, Touch & Video Game Controller Mapping + Live Rebinding!
   cursors = this.input.keyboard.createCursorKeys();
   keys = this.input.keyboard.addKeys("W,A,S,D");
   window._activeGameScene = this;
   if (!window._globalKeyBound) {
     window._globalKeyBound = true;
+
+    window.addEventListener("keyup", e => {
+      window._heldKeys.delete(e.code);
+    });
+    window.addEventListener("blur", () => {
+      window._heldKeys.clear();
+      mouseState.leftDown = false;
+      mouseState.rightDown = false;
+    });
+
+    // Mouse Right-Click (contextmenu) handler for Pause, Move, or Switch View
+    window.addEventListener("contextmenu", e => {
+      e.preventDefault();
+      const sc = window._activeGameScene;
+      if (!sc) return;
+      unlockAudio();
+      const c = (meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+      if (window.controlsModalOpen) {
+        sfx("pick");
+        closeControlsModal(sc);
+        return;
+      }
+      if (paused) {
+        sfx("pick");
+        togglePause(sc);
+        return;
+      }
+      if (gameOver || levelUpOpen || titleOpen || retire80Open) return;
+      if (c.mouseRightClick === "pause") {
+        togglePause(sc);
+      } else if (c.mouseRightClick === "view") {
+        cycleViewMode(sc);
+        sfx("pick");
+      }
+    });
+
+    // Mouse Wheel handler: navigates open menus OR cycles Visual Engine in gameplay
+    window.addEventListener("wheel", e => {
+      const sc = window._activeGameScene;
+      if (!sc) return;
+      const now = performance.now();
+      if (now - lastWheelMs < 220) return;
+      const activeModal = window.menuNav && window.menuNav.getActiveModal();
+      if (activeModal) {
+        lastWheelMs = now;
+        window.menuNav.move(e.deltaY > 0 ? "down" : "up");
+        return;
+      }
+      const c = (meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+      if (c.mouseWheelView !== false && !gameOver && !paused && !titleOpen && !levelUpOpen && !retire80Open) {
+        lastWheelMs = now;
+        unlockAudio();
+        cycleViewMode(sc);
+        sfx("pick");
+      }
+    }, { passive: true });
+
+    // Track mouse button up/move globally so dragging outside canvas never sticks
+    window.addEventListener("pointermove", e => {
+      if (e.pointerType === "mouse") {
+        mouseState.x = e.clientX;
+        mouseState.y = e.clientY;
+        mouseState.activeCursor = true;
+        const tgt = e.target;
+        mouseState.overUI = !!(tgt && tgt.closest && (tgt.closest(".hud-pod") || tgt.closest(".mobile-dock") || tgt.closest(".ui-modal")));
+      }
+    });
+    window.addEventListener("pointerup", e => {
+      if (e.pointerType === "mouse") {
+        if (e.button === 0) mouseState.leftDown = false;
+        if (e.button === 2) mouseState.rightDown = false;
+      }
+    });
+
     window.addEventListener("keydown", e => {
       const sc = window._activeGameScene;
       if (!sc) return;
       const code = e.code;
+      window._heldKeys.add(code);
+      const c = (meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+
+      // 1. Live Interactive Key Rebinding in the Input & Controls Modal!
+      if (window.rebindState && window.rebindState.type === "key") {
+        e.preventDefault();
+        unlockAudio();
+        const sel = window.rebindState.selector;
+        if (code === "Escape") {
+          window.rebindState = null;
+          sfx("move");
+          renderControlsModal(sc, sel);
+          return;
+        }
+        c[window.rebindState.field] = code;
+        saveMeta(meta);
+        window.rebindState = null;
+        if (typeof syncControlHUDHints === "function") syncControlHUDHints();
+        sfx("pick");
+        renderControlsModal(sc, sel);
+        return;
+      }
+
       const activeModal = window.menuNav && window.menuNav.getActiveModal();
 
-      // Global Style Switch [V] and Mute [M]
-      if (code === "KeyV") {
+      // 2. Global Style Switch (Default [V]) and Mute (Default [M])
+      if (code === (c.keyView || "KeyV")) {
         e.preventDefault();
         unlockAudio();
         cycleViewMode(sc);
         sfx("pick");
-        if (titleOpen) renderTitleModal(sc);
-        if (paused) renderPauseModal(sc, 1);
+        if (window.controlsModalOpen) renderControlsModal(sc);
+        else if (titleOpen) renderTitleModal(sc);
+        else if (paused) renderPauseModal(sc, 2);
         return;
       }
-      if (code === "KeyM") {
+      if (code === (c.keyMute || "KeyM")) {
         e.preventDefault();
         unlockAudio();
         toggleMute();
         if (typeof syncMuteButtons === "function") syncMuteButtons();
-        if (paused) renderPauseModal(sc, 2);
+        if (paused && !window.controlsModalOpen) renderPauseModal(sc, 3);
         return;
       }
 
-      // If ANY modal is open (Title, Level-Up, Pause/Options, Age 80 Retirement, or Game Over):
-      // Arrow keys & WASD move the highlight, and Space / Enter activates the highlighted option!
+      // 3. If ANY modal is open (Controls Config, Title, Level-Up, Pause/Options, Age 80, or Game Over):
       if (activeModal) {
-        if (code === "ArrowUp" || code === "KeyW") {
+        if (code === "ArrowUp" || code === (c.keyUp || "KeyW")) {
           e.preventDefault(); unlockAudio(); window.menuNav.move("up"); return;
         }
-        if (code === "ArrowDown" || code === "KeyS") {
+        if (code === "ArrowDown" || code === (c.keyDown || "KeyS")) {
           e.preventDefault(); unlockAudio(); window.menuNav.move("down"); return;
         }
-        if (code === "ArrowLeft" || code === "KeyA") {
+        if (code === "ArrowLeft" || code === (c.keyLeft || "KeyA")) {
           e.preventDefault(); unlockAudio(); window.menuNav.move("left"); return;
         }
-        if (code === "ArrowRight" || code === "KeyD") {
+        if (code === "ArrowRight" || code === (c.keyRight || "KeyD")) {
           e.preventDefault(); unlockAudio(); window.menuNav.move("right"); return;
+        }
+        if (code === "Escape") {
+          e.preventDefault();
+          unlockAudio();
+          if (window.controlsModalOpen) {
+            sfx("pick");
+            closeControlsModal(sc);
+          } else if (paused) {
+            togglePause(sc);
+          }
+          return;
         }
         if (code === "Space" || code === "Enter" || code === "NumpadEnter") {
           e.preventDefault(); unlockAudio(); window.menuNav.activate(); return;
         }
-        if ((code === "Escape" || code === "KeyP") && paused) {
+        if ((code === "KeyP" || code === (c.keyPause || "Space")) && paused && !window.controlsModalOpen) {
           e.preventDefault(); unlockAudio(); togglePause(sc); return;
         }
         if (levelUpOpen && window.levelMenu && (e.key === "1" || e.key === "2" || e.key === "3")) {
@@ -222,8 +361,8 @@ function create() {
         return;
       }
 
-      // During active gameplay: Spacebar, P, or Escape opens Pause & Options!
-      if (code === "Space" || code === "KeyP" || code === "Escape") {
+      // 4. During active gameplay: Custom Pause key, Spacebar, P, or Escape opens Pause & Options!
+      if (code === (c.keyPause || "Space") || code === "Space" || code === "KeyP" || code === "Escape") {
         e.preventDefault();
         unlockAudio();
         togglePause(sc);
@@ -232,19 +371,72 @@ function create() {
   }
 
   this.input.on("pointerdown", p => {
-    if (gameOver || levelUpOpen || paused || titleOpen || retire80Open) return;
-    touch = { active: true, startX: p.x, startY: p.y, dx: 0, dy: 0 };
+    if (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen) return;
+    const c = (meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+    const isTouch = !!(p.wasTouch || (p.event && p.event.pointerType === "touch"));
+
+    if (!isTouch) {
+      mouseState.x = p.x;
+      mouseState.y = p.y;
+      const btn = p.event ? p.event.button : 0;
+      if (btn === 2) {
+        mouseState.rightDown = true;
+        return;
+      }
+      mouseState.leftDown = true;
+      if (c.mouseMoveMode === "clickDrag") {
+        touch = { active: true, startX: p.x, startY: p.y, dx: 0, dy: 0, isTouch: false, curX: p.x, curY: p.y };
+        if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
+      }
+      return;
+    }
+
+    // Touch screen input (`floating`, `fixedLeft`, `fixedRight`, or `directTouch`)
+    let startX = p.x, startY = p.y;
+    if (c.touchMode === "fixedLeft") {
+      startX = 70;
+      startY = window.innerHeight - 70;
+    } else if (c.touchMode === "fixedRight") {
+      startX = window.innerWidth - 70;
+      startY = window.innerHeight - 70;
+    }
+    touch = {
+      active: true,
+      startX,
+      startY,
+      dx: (c.touchMode === "fixedLeft" || c.touchMode === "fixedRight") ? (p.x - startX) : 0,
+      dy: (c.touchMode === "fixedLeft" || c.touchMode === "fixedRight") ? (p.y - startY) : 0,
+      isTouch: true,
+      curX: p.x,
+      curY: p.y
+    };
     if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   });
+
   this.input.on("pointermove", p => {
+    const isTouch = !!(p.wasTouch || (p.event && p.event.pointerType === "touch"));
+    if (!isTouch) {
+      mouseState.x = p.x;
+      mouseState.y = p.y;
+      mouseState.activeCursor = true;
+    }
     if (!touch.active) return;
+    touch.curX = p.x;
+    touch.curY = p.y;
     touch.dx = p.x - touch.startX;
     touch.dy = p.y - touch.startY;
     if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   });
-  this.input.on("pointerup", () => {
+
+  this.input.on("pointerup", p => {
+    const isTouch = !!(p && (p.wasTouch || (p.event && p.event.pointerType === "touch")));
+    if (!isTouch) {
+      mouseState.leftDown = false;
+      mouseState.rightDown = false;
+    }
     touch.active = false; touch.dx = touch.dy = 0;
     if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
+    if (window.updatePointerTargetUI) window.updatePointerTargetUI(null);
   });
 
   // 7. Enemies. A "group" is a bag that holds every Bill so we can move them all at once.
@@ -478,12 +670,18 @@ function showTitleScreen(scene) {
   };
 }
 
-// Toggle pause (Spacebar, P, Esc, Controller Start, or Mobile Pause Button).
+// Toggle pause (Spacebar, P, Esc, Right-Click, Controller Start, or Mobile Pause Button).
 function togglePause(scene) {
   if (gameOver || levelUpOpen || titleOpen || retire80Open) return;
+  if (window.controlsModalOpen && typeof closeControlsModal === "function") {
+    closeControlsModal(scene);
+  }
   paused = !paused;
-  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
+  mouseState.leftDown = false;
+  mouseState.rightDown = false;
   if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
+  if (window.updatePointerTargetUI) window.updatePointerTargetUI(null);
   setMusicPlaying(!paused);
   setPauseModalVisible(paused);
   if (paused) {
@@ -965,17 +1163,27 @@ function update(time, delta) {
   if (padJust("yBtn")) {
     cycleViewMode(this);
     sfx("pick");
-    if (titleOpen) renderTitleModal(this);
-    if (paused) renderPauseModal(this, 1);
+    if (window.controlsModalOpen) renderControlsModal(this);
+    else if (titleOpen) renderTitleModal(this);
+    else if (paused) renderPauseModal(this, 2);
+  }
+  if (padJust("xBtn")) {
+    toggleMute();
+    if (typeof syncMuteButtons === "function") syncMuteButtons();
+    sfx("pick");
+    if (paused && !window.controlsModalOpen) renderPauseModal(this, 3);
   }
 
-  // Universal Controller Navigation across ALL menus (Title, Level-Up, Pause/Options, Age 80, Game Over):
+  // Universal Controller Navigation across ALL menus (Controls Config, Title, Level-Up, Pause/Options, Age 80, Game Over):
   const activeModal = window.menuNav && window.menuNav.getActiveModal();
   if (activeModal) {
     const stepDir = getPadMenuStep(performance.now());
     if (stepDir) window.menuNav.move(stepDir);
-    if (padJust("a") || (!paused && padJust("start"))) {
+    if (padJust("a") || (!paused && !window.controlsModalOpen && padJust("start"))) {
       window.menuNav.activate();
+    } else if (window.controlsModalOpen && (padJust("b") || padJust("start"))) {
+      sfx("pick");
+      closeControlsModal(this);
     } else if (paused && (padJust("b") || padJust("start"))) {
       togglePause(this);
     }
@@ -984,7 +1192,7 @@ function update(time, delta) {
     if (padJust("start") || padJust("b")) togglePause(this);
   }
 
-  if (gameOver || levelUpOpen || paused || titleOpen || retire80Open) {
+  if (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen) {
     renderThreeView(this);
     restore2DSprites();
     return; // freeze while dead, paused, on title, or choosing an upgrade
@@ -1031,7 +1239,7 @@ function update(time, delta) {
       retire80Open = false;
       hp = stats.maxHp;
       updateHUD();
-      touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+      touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
       this.physics.resume();
       this.time.paused = false;
     }, () => {
@@ -1051,21 +1259,71 @@ function update(time, delta) {
     currentWaveIdx = wIdx;
     spawnTimer.reset({ delay: SPAWNING.waves[wIdx].everyMs, loop: true, callback: spawnTimer.callback });
   }
-  let x = 0, y = 0;
-  if (cursors.left.isDown || keys.A.isDown) x -= 1;
-  if (cursors.right.isDown || keys.D.isDown) x += 1;
-  if (cursors.up.isDown || keys.W.isDown) y -= 1;
-  if (cursors.down.isDown || keys.S.isDown) y += 1;
 
-  // Controller: the d-pad works like arrow keys, the left stick allows gentle movement.
+  // =========================================================================
+  // UNIFIED 4-DEVICE MOVEMENT (Keyboard + Controller + Touch + Mouse)
+  // =========================================================================
+  const c = (meta && meta.controls) ? meta.controls : (window.DEFAULT_CONTROLS || {});
+  const held = window._heldKeys;
+  const useArrows = c.arrowMove !== false;
+  let x = 0, y = 0;
+
+  // 1. Keyboard: Custom bound keys + optional Arrow Keys
+  if (held.has(c.keyLeft || "KeyA") || (useArrows && (cursors.left.isDown || held.has("ArrowLeft")))) x -= 1;
+  if (held.has(c.keyRight || "KeyD") || (useArrows && (cursors.right.isDown || held.has("ArrowRight")))) x += 1;
+  if (held.has(c.keyUp || "KeyW") || (useArrows && (cursors.up.isDown || held.has("ArrowUp")))) y -= 1;
+  if (held.has(c.keyDown || "KeyS") || (useArrows && (cursors.down.isDown || held.has("ArrowDown")))) y += 1;
+
+  // 2. Video Game Controller: D-Pad + Analog Stick (with configurable deadzone)
   if (padNow.left) x -= 1;
   if (padNow.right) x += 1;
   if (padNow.up) y -= 1;
   if (padNow.down) y += 1;
   if (padNow.x || padNow.y) { x = padNow.x; y = padNow.y; }
 
-  // Touch: only count a drag longer than 10px, so a tap doesn't move you.
-  if (touch.active && Math.hypot(touch.dx, touch.dy) > 10) { x = touch.dx; y = touch.dy; }
+  // 3. Touch & 4. Mouse Steering
+  let pointerTarget = null;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const sensDeadzone = c.touchSensitivity === "high" ? 5 : (c.touchSensitivity === "low" ? 18 : 10);
+
+  if (touch.active && touch.isTouch) {
+    if (c.touchMode === "directTouch") {
+      const dx = touch.curX - centerX;
+      const dy = touch.curY - centerY;
+      if (Math.hypot(dx, dy) > 14) {
+        x = dx; y = dy;
+        pointerTarget = { active: true, x: touch.curX, y: touch.curY };
+      }
+    } else if (Math.hypot(touch.dx, touch.dy) > sensDeadzone) {
+      x = touch.dx; y = touch.dy;
+    }
+  } else {
+    // Mouse Movement Modes (`holdFollow`, `cursorFollow`, `clickDrag`, or Right-Click Move)
+    const isMouseHoldMove = (c.mouseMoveMode === "holdFollow" && mouseState.leftDown) ||
+                            (c.mouseRightClick === "move" && mouseState.rightDown);
+    if (isMouseHoldMove) {
+      const dx = mouseState.x - centerX;
+      const dy = mouseState.y - centerY;
+      if (Math.hypot(dx, dy) > 14) {
+        x = dx; y = dy;
+        pointerTarget = { active: true, x: mouseState.x, y: mouseState.y };
+      }
+    } else if (c.mouseMoveMode === "cursorFollow" && mouseState.activeCursor && !mouseState.overUI && x === 0 && y === 0) {
+      const dx = mouseState.x - centerX;
+      const dy = mouseState.y - centerY;
+      if (Math.hypot(dx, dy) > 28) {
+        x = dx; y = dy;
+        pointerTarget = { active: true, x: mouseState.x, y: mouseState.y };
+      }
+    } else if (c.mouseMoveMode === "clickDrag" && touch.active && Math.hypot(touch.dx, touch.dy) > sensDeadzone) {
+      x = touch.dx; y = touch.dy;
+    }
+  }
+  if (window.updatePointerTargetUI) window.updatePointerTargetUI(pointerTarget);
+  if (window.updateTouchJoystickUI && (c.touchMode === "fixedLeft" || c.touchMode === "fixedRight")) {
+    window.updateTouchJoystickUI(touch);
+  }
 
   // Normalize so moving diagonally isn't faster than moving straight.
   const len = Math.hypot(x, y);

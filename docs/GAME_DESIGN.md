@@ -125,3 +125,12 @@ Instead of staying on a single endless office checkerboard, progressing through 
 | **3. 🏡 Suburban Home & Yard** (Age 50) | Warm oak living room planks, backyard grass, crimson family rug & scattered colorful LEGO bricks | `TUITION`, `LEGO!`, `SCHOOL`, `JUICEBX`, `CARPOOL`, `NEWMATH` | **Parenting & Common Core Homework:** Dodge LEGO-brick floor hazards, complete Carpool Errand zones, and defeat **New Math** |
 | **4. 🍻 The Social Courtyard** (Age 60) | Cobblestone patio, cedar bistro deck, warm string-light floor pools & lounge rugs | `SPLIT$`, `FLAKE!`, `TXT-47`, `TAPAS`, `9PM BED`, `DRAMA` | **Navigating Adult Friendships:** Stand inside RSVP Table rings to lock in dinner plans before all 4 friends flake at 6:45 PM; dodge *"Let's Split the Check Evenly"* traps |
 | **5. 🌴 Sunset Palms Resort** (Age 80) | Terracotta lanai tiles, white-lined Pickleball Courts & tropical resort borders | `COPAY`, `HOA$`, `SCAM!`, `PRUNE`, `HIP!`, `BINGO` | **Senior Bonus Rounds (80-100):** Survive the 3 PM Early-Bird Buffet rush and defeat the **6 AM Pickleball Champion** |
+
+---
+
+## 7. Universal 4-Device Input & Controls Configuration (`#controls-modal`)
+Every action in gameplay and menus is mapped across **Keyboard**, **Mouse**, **Touch**, and **Video Game Controller**, and can be customized at any time from the **Input & Controls Configuration Screen** (accessible from the Title Dossier, Pause & Options menu, Top-Right HUD, and Mobile Dock) with automatic persistence in `localStorage` (`meta.controls`):
+- **⌨️ Keyboard:** Live interactive key rebinding (`Click / Press Enter -> Press Any Key`) for Move Up/Down/Left/Right, Pause/Options, Switch Visual Engine (`2D/Diablo/3D`), and Mute Audio, plus an optional toggle to keep Arrow Keys active alongside custom movement keys.
+- **🖱️ Mouse:** Configurable Mouse Movement Mode (`Hold Click to Steer`, `Cursor Auto-Follow`, `Click & Drag Stick`, or `UI Menus Only`), Right-Click Action (`Pause/Options`, `Hold to Move`, or `Switch View`), and Scroll Wheel (`Navigate Menus` + `Cycle Visual Engine`).
+- **📱 Touch Screen:** Configurable Touch Stick Style (`Floating Stick`, `Fixed Bottom-Left`, `Fixed Bottom-Right` with auto-swapped left dock, or `Touch & Hold Toward Finger`) and Touch Sensitivity (`Normal 10px`, `High 5px`, `Relaxed 18px`).
+- **🎮 Video Game Controller:** Live controller button listening (`Press any physical controller button` or `◀▶` to cycle `Btn 0..11`) for Confirm, Pause, Switch View, and Mute, plus Analog Stick Deadzone presets (`15% Sensitive`, `22% Standard`, `35% Anti-Drift`).

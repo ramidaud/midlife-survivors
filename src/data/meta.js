@@ -43,6 +43,79 @@ window.DECADE_CHECKPOINTS = [
   { age: 80, name: "Age 80: Senior Bonus Rounds", bonusLevels: 8 }
 ];
 
+// Default Cross-Device Input Configuration (Keyboard, Mouse, Touch & Game Controller)
+window.DEFAULT_CONTROLS = {
+  // 1. Keyboard bindings (Event.code strings)
+  keyUp: "KeyW",
+  keyDown: "KeyS",
+  keyLeft: "KeyA",
+  keyRight: "KeyD",
+  keyPause: "Space",
+  keyView: "KeyV",
+  keyMute: "KeyM",
+  arrowMove: true,            // Arrow keys also move player alongside custom keys
+
+  // 2. Mouse controls
+  mouseMoveMode: "holdFollow", // "holdFollow" | "cursorFollow" | "clickDrag" | "off"
+  mouseRightClick: "pause",    // "pause" | "move" | "view"
+  mouseWheelView: true,        // Mouse wheel cycles Visual Engine during gameplay
+
+  // 3. Touch controls
+  touchMode: "floating",       // "floating" | "fixedLeft" | "fixedRight" | "directTouch"
+  touchSensitivity: "normal",  // "high" (5px) | "normal" (10px) | "low" (18px)
+
+  // 4. Video Game Controller (HTML5 Gamepad API standard button indices)
+  padConfirmBtn: 0,            // 0 = A / Cross
+  padPauseBtn: 9,              // 9 = Start / Options
+  padViewBtn: 3,               // 3 = Y / Triangle
+  padMuteBtn: 2,               // 2 = X / Square
+  padDeadzone: 0.22            // 0.15 | 0.22 | 0.35
+};
+
+window.formatKeyCode = function(code) {
+  if (!code) return "NONE";
+  if (code.startsWith("Key")) return code.slice(3).toUpperCase();
+  if (code.startsWith("Digit")) return code.slice(5);
+  if (code.startsWith("Numpad")) return "NUM " + code.slice(6).toUpperCase();
+  const map = {
+    Space: "SPACE",
+    Escape: "ESC",
+    Enter: "ENTER",
+    Tab: "TAB",
+    ShiftLeft: "L-SHIFT",
+    ShiftRight: "R-SHIFT",
+    ControlLeft: "L-CTRL",
+    ControlRight: "R-CTRL",
+    AltLeft: "L-ALT",
+    AltRight: "R-ALT",
+    ArrowUp: "▲ UP",
+    ArrowDown: "▼ DOWN",
+    ArrowLeft: "◀ LEFT",
+    ArrowRight: "▶ RIGHT",
+    Backspace: "BACKSPACE"
+  };
+  return map[code] || code.toUpperCase();
+};
+
+window.PAD_BUTTON_NAMES = {
+  0: "A / Cross (Btn 0)",
+  1: "B / Circle (Btn 1)",
+  2: "X / Square (Btn 2)",
+  3: "Y / Triangle (Btn 3)",
+  4: "LB / L1 (Btn 4)",
+  5: "RB / R1 (Btn 5)",
+  6: "LT / L2 (Btn 6)",
+  7: "RT / R2 (Btn 7)",
+  8: "Select / Share (Btn 8)",
+  9: "Start / Options (Btn 9)",
+  10: "L3 Stick (Btn 10)",
+  11: "R3 Stick (Btn 11)"
+};
+
+window.formatPadButton = function(idx) {
+  return window.PAD_BUTTON_NAMES[idx] || `Button ${idx}`;
+};
+
 const SAVE_KEY = "midlife_survivors_save_v1";
 const RUN_SAVE_KEY = "midlife_survivors_active_run_v1";
 
@@ -59,7 +132,8 @@ function loadMeta() {
         bestAge: parsed.bestAge || 40.0,
         unlockedDecades: parsed.unlockedDecades || [40],
         startDecade: parsed.startDecade || 40,
-        selectedStage: parsed.selectedStage || "auto"
+        selectedStage: parsed.selectedStage || "auto",
+        controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {})
       };
     }
   } catch (e) {}
@@ -71,7 +145,8 @@ function loadMeta() {
     bestAge: 40.0,
     unlockedDecades: [40],
     startDecade: 40,
-    selectedStage: "auto"
+    selectedStage: "auto",
+    controls: Object.assign({}, window.DEFAULT_CONTROLS)
   };
 }
 
