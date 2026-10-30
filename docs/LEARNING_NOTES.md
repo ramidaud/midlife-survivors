@@ -208,3 +208,9 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - A **difficulty curve** is a graph of "how hard" over time. Ours is a table like `[[40, 1], [60, 3], [90, 6]]`, and the game blends smoothly between the rows, so it never jumps.
 - **Set pieces** are designed moments that break the rhythm: a ring of Bills closing in feels different from a steady drip, even with the same enemies.
 - Good pacing alternates pressure and relief. The drip builds tension; a swarm spikes it; clearing it feels great.
+
+## Balancing with a test you can repeat (Oct 30, Fight Back)
+- "It feels too easy" becomes a number with a **repeatable test**: stand still at age 40 and record enemies on screen and HP lost every few seconds.
+- Before: 3 enemies max, 0 HP lost in 40 seconds. After tuning: hit at 12 s, nearly out at 25-30 s.
+- Change one or two numbers, rerun the same test, compare. That's how designers tune pacing without guessing.
+- Watch out for **hidden links**: stretching years to a minute quietly made enemies 4x slower to toughen up.

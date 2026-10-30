@@ -9,7 +9,7 @@ window.ENEMIES = {
     label: "$",
     seniorLabel: "COPAY",
     speed: 84,
-    hp: 1,
+    hp: 2,           // two splashes to pay off (was 1: you could stand still and win)
     damage: 1,
     size: 24,
     color: 0x6fbf73,
@@ -163,14 +163,14 @@ window.SPAWNING = {
   maxOnScreen: 75,
   offscreenMargin: 70,
   waves: [
-    { minAge: 40, everyMs: 1050, mix: [["bill", 10]] },
-    { minAge: 42, everyMs: 880,  mix: [["bill", 7], ["spamCall", 3]] },
-    { minAge: 45, everyMs: 740,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2]] },
-    { minAge: 50, everyMs: 620,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1]] },
-    { minAge: 60, everyMs: 500,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2]] },
-    { minAge: 70, everyMs: 410,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3]] },
+    { minAge: 40, everyMs: 800, mix: [["bill", 10]] },
+    { minAge: 42, everyMs: 640,  mix: [["bill", 7], ["spamCall", 3]] },
+    { minAge: 45, everyMs: 450,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2]] },
+    { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1]] },
+    { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2]] },
+    { minAge: 70, everyMs: 280,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3]] },
     // BONUS 20 SENIOR ROUNDS (Age 80 to 100): Fast, chaotic Golden Years!
-    { minAge: 80, everyMs: 330,  mix: [["bill", 2], ["spamCall", 4], ["snackAttack", 3], ["backTwinge", 5], ["officeGossip", 4]] },
-    { minAge: 90, everyMs: 270,  mix: [["spamCall", 4], ["snackAttack", 4], ["backTwinge", 6], ["officeGossip", 5]] }
+    { minAge: 80, everyMs: 240,  mix: [["bill", 2], ["spamCall", 4], ["snackAttack", 3], ["backTwinge", 5], ["officeGossip", 4]] },
+    { minAge: 90, everyMs: 200,  mix: [["spamCall", 4], ["snackAttack", 4], ["backTwinge", 6], ["officeGossip", 5]] }
   ]
 };

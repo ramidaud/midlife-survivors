@@ -4,7 +4,7 @@ window.WEAPONS = {
     name: "Coffee Splash",
     fireEveryMs: 650,  // brisk auto-fire right from Level 1 so early Bills don't overwhelm you
     speed: 440,        // pixels per second the splash flies
-    damage: 1,         // health removed per hit (a regular Bill has 1 HP, so 1 splash pays it off!)
+    damage: 1,         // health removed per hit (a fresh Bill has 2 HP, so 2 splashes pay it off)
     range: 480,        // how far it flies before it evaporates, in pixels
     size: 12,
     color: 0x7b4a2a    // coffee brown

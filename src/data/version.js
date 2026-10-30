@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.16.0",
-  displayVersion: "V. 1.16.0",
+  version: "1.16.1",
+  displayVersion: "V. 1.16.1",
   lastUpdated: "Oct 30, 2026",
-  codename: "Swarms",
-  build: 31,
+  codename: "Fight Back",
+  build: 32,
   changelog: [
+    {
+      ver: "V. 1.16.1",
+      date: "Oct 30, 2026",
+      title: "Balance Pass: Fight Back",
+      highlights: [
+        "Bills take 2 hits. Enemies spawn about 25-40% faster at every age, and packs grow sooner.",
+        "Enemies get tougher smoothly every year (+9%) instead of in big 4-year steps.",
+        "Swarms grow with age, and Tax Season starts at 41. Standing still now catches up with you in about 30 seconds."
+      ]
+    },
     {
       ver: "V. 1.16.0",
       date: "Oct 30, 2026",

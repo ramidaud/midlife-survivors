@@ -423,3 +423,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - 7 swarm events with lower third announcements (Tax Season ring, Robocall wall, Donut Drop pack, and more). Settings in `src/data/swarms.js`.
 - Measured: about 50 enemies per minute at 40, 170 at 50, 500 at 65, 1,100 at 85. No errors.
 - Next objective: Enemy variety (Rami can reorder).
+
+## 2026-10-30: Balance pass, Fight Back (V. 1.16.1) (Claude)
+- Rami: swarms feel good but not challenging; you could stand still and kill everything early on.
+- Measured standing still at 40 for 40 game-seconds: max 3 enemies on screen, 0 HP lost. Cause: toughness was tuned for 15-second years, and Bills died in one hit.
+- Changes: Bills 2 HP, faster spawns at every age, packs grow sooner, smooth +9% toughness per year, swarms grow with age, first swarm at 41.
+- After: standing still, first hit at about 12 s and you're nearly out of HP around 25-30 s. Moving is now required.
+- Next objective unchanged: Enemy variety.

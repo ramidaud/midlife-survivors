@@ -1145,3 +1145,17 @@ $    🧍    $                                 🍩🍩🍩
  $ $ $ $ $             🧍                 🧍
  (closes in)        (sweeps across)     (one clump)
 ```
+
+---
+
+## Chapter: The stand-still test (V. 1.16.1)
+
+```
+HP lost while standing still at age 40
+  60 |                                   ● after
+  40 |                       ●
+  20 |            ●
+   0 |●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ before (always 0)
+     0s         20s        40s        60s
+```
+Same test, two settings, clear answer.

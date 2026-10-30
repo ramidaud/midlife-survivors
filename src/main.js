@@ -1228,7 +1228,8 @@ function createEnemy(scene, kind, x, y) {
   const e = bills.create(x, y, E.tex || kind).setDepth(4);
   if (E.tint) e.setTint(E.tint);
   const yrs = Math.max(0, currentAge - 40);
-  const hpScale = 1 + Math.floor(yrs / 4) * 0.85 + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0);
+  const perYear = (window.INTENSITY && window.INTENSITY.hpPerYear) || 0.09;
+  const hpScale = 1 + yrs * perYear + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0); // smooth toughness ramp
   e.kind = kind;
   e.hp = Math.max(1, Math.round(E.hp * hpScale));
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
@@ -1292,6 +1293,8 @@ function spawnSwarm(scene, ev) {
   const view = scene.cameras.main.worldView;
   const m = SPAWNING.offscreenMargin + 20;
   const kindFor = () => ev.kind === "mixed" ? rollWaveKind() : ev.kind;
+  const growth = (window.INTENSITY && window.INTENSITY.swarmGrowthPerYear) || 0;
+  ev = Object.assign({}, ev, { count: Math.round(ev.count * (1 + Math.max(0, currentAge - ev.minAge) * growth)) });
   const spots = [];
   if (ev.pattern === "ring") {
     const r = Math.hypot(view.width, view.height) / 2 + m;
