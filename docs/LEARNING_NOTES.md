@@ -188,3 +188,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - A timer that uses the **real clock** keeps ticking while you're in a menu. That's why lower third messages vanished before you could read them.
 - The fix is a **game-time clock**: count down only while you're actually playing, and hold still when a menu is open.
 - Same reason the age clock stops when you pause. Anything the player should see needs to run on game time.
+
+## Display names vs. IDs (Oct 30, Credits)
+- Every character has a **display name** (what you see) and an **ID** (what the save file remembers).
+- We changed the name to The Soccer Dad but kept the ID `photographer`, so anyone who already unlocked it keeps it.
+- Same idea as renaming a photo in Lightroom without breaking the catalog: the label changes, the file reference doesn't.

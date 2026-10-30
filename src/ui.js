@@ -23,7 +23,7 @@ const UPGRADE_META = {
 
 const CHAR_ICONS = {
   officeWorker: "☕",
-  photographer: "📸",
+  photographer: "⚽", // The Soccer Dad
   gradStudent: "🎓"
 };
 
@@ -1790,6 +1790,18 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
       <div class="shop-list">${shopRowsHtml}</div>
       <div class="title-secondary">${backBtn}</div>`;
+  } else if (view === "credits") {
+    const C = window.CREDITS || { title: "CREDITS", sections: [], closing: "" };
+    const secs = C.sections.map(sec => `
+      <div class="credit-sec">
+        <div class="credit-role">${sec.role}</div>
+        ${sec.names.map(n => `<div class="credit-name">${n}</div>`).join("")}
+      </div>`).join("");
+    bodyHtml = `
+      <div class="title-subhead">🎬 ${C.title}</div>
+      <div class="credits-list">${secs}</div>
+      <div class="credit-closing">${C.closing}</div>
+      <div class="title-secondary">${backBtn}</div>`;
   } else if (view === "extras") {
     bodyHtml = `
       <div class="title-subhead">✨ EXTRAS</div>
@@ -1798,6 +1810,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-secondary">
         <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
+        <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         ${backBtn}
       </div>`;
   } else {
@@ -1829,8 +1842,10 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (shopBtn) bindNavItem(shopBtn, 10, () => goView("shop"));
   const extrasBtn = document.getElementById("title-extras-btn");
   if (extrasBtn) bindNavItem(extrasBtn, 10, () => goView("extras"));
+  const creditsBtn = document.getElementById("title-credits-btn");
+  if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
   const backEl = document.getElementById("title-back-btn");
-  if (backEl) bindNavItem(backEl, 10, () => goView("main"), view !== "main");
+  if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" ? "extras" : "main"), view !== "main");
 
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {

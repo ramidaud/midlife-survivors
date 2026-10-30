@@ -395,3 +395,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Game Over's shop button lands on the shop; lower third holds its message while menus are open; pause menu opens on Resume and dropped to 7 rows.
 - Reran the full playthrough plus a level-up check at laptop and phone sizes: all fixed, no errors.
 - Next objective: Credits, not cameo.
+
+## 2026-10-30: Objective 6 done, Credits not cameo (V. 1.14.0) (Claude)
+- "The Senior Photographer" (lore name "Rami 'The Shutter' D.") is now **The Soccer Dad**, same stats and icon ⚽. Internal id unchanged so old saves keep the unlock.
+- Grad Student lore no longer mentions EMAT or creative coding.
+- New Credits screen in Title > Extras; words live in `src/data/credits.js`.
+- Tested: no mention of Rami left in the game outside the Credits; old save loads and plays.
+- Next objective: Run length (1 minute per year, Death at 100).

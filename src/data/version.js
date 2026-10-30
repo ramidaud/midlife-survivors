@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.13.0",
-  displayVersion: "V. 1.13.0",
+  version: "1.14.0",
+  displayVersion: "V. 1.14.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Menu Fixes",
-  build: 27,
+  codename: "Credits",
+  build: 28,
   changelog: [
+    {
+      ver: "V. 1.14.0",
+      date: "Oct 30, 2026",
+      title: "Credits, Not Cameo",
+      highlights: [
+        "New Credits screen in Title > Extras.",
+        "The second character is now The Soccer Dad (same stats: Dad Joke aura, wider range, faster feet). Old saves keep the unlock.",
+        "Grad Student lore made generic."
+      ]
+    },
     {
       ver: "V. 1.13.0",
       date: "Oct 30, 2026",

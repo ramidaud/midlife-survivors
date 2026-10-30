@@ -10,7 +10,7 @@ Status: brainstorm. Everything here is a starting point for Rami to cut, rename 
 - **Camera:** 2D only. The Diablo and 3D views are parked (`window.ENABLE_3D_VIEWS = false` in `src/view3d.js`).
 - **First twist mechanic:** Errands.
 - **Official playtest:** GitHub Pages, https://ramidaud.github.io/midlife-survivors/
-- **Rami is credited, not a character:** remove "The Senior Photographer" subject and lore references; his name goes in the Credits.
+- **Rami is credited, not a character:** done in V. 1.14.0. The photographer slot became **The Soccer Dad** (same stats); Rami is in the Credits (`src/data/credits.js`).
 - **Pace:** slow down, one objective at a time.
 ---
 

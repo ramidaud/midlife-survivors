@@ -891,25 +891,33 @@
 
   /* MENU FIXES (Objective 5, Oct 30): menus opened FROM another menu sit on a higher layer */
   #controls-modal, #changelog-modal, #lore-modal { z-index: 40; }
+
+  /* CREDITS (Objective 6, Oct 30) */
+  .credits-list { display: flex; flex-direction: column; gap: 14px; padding: 4px 0; }
+  .credit-role { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #9aa6c8; }
+  .credit-name { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #f2f4fa; margin-top: 4px; }
+  .credit-sec:first-child .credit-name { color: #ffe042; font-size: 16px; }
+  .credit-closing { font-style: italic; color: #f0a24f; }
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="src/data/version.js?v=25"></script>
-<script src="src/data/lore.js?v=25"></script>
-<script src="src/data/player.js?v=25"></script>
-<script src="src/data/stages.js?v=25"></script>
-<script src="src/data/enemies.js?v=25"></script>
-<script src="src/data/weapons.js?v=25"></script>
-<script src="src/data/deaths.js?v=25"></script>
-<script src="src/data/tips.js?v=25"></script>
-<script src="src/data/pickups.js?v=25"></script>
-<script src="src/data/upgrades.js?v=25"></script>
-<script src="src/data/meta.js?v=25"></script>
-<script src="src/data/sounds.js?v=25"></script>
-<script src="src/sfx.js?v=25"></script>
-<script src="src/sprites.js?v=25"></script>
-<script src="src/view3d.js?v=25"></script>
-<script src="src/ui.js?v=25"></script>
-<script src="src/main.js?v=25"></script>
+<script src="src/data/version.js?v=26"></script>
+<script src="src/data/lore.js?v=26"></script>
+<script src="src/data/player.js?v=26"></script>
+<script src="src/data/stages.js?v=26"></script>
+<script src="src/data/enemies.js?v=26"></script>
+<script src="src/data/weapons.js?v=26"></script>
+<script src="src/data/deaths.js?v=26"></script>
+<script src="src/data/tips.js?v=26"></script>
+<script src="src/data/credits.js?v=26"></script>
+<script src="src/data/pickups.js?v=26"></script>
+<script src="src/data/upgrades.js?v=26"></script>
+<script src="src/data/meta.js?v=26"></script>
+<script src="src/data/sounds.js?v=26"></script>
+<script src="src/sfx.js?v=26"></script>
+<script src="src/sprites.js?v=26"></script>
+<script src="src/view3d.js?v=26"></script>
+<script src="src/ui.js?v=26"></script>
+<script src="src/main.js?v=26"></script>

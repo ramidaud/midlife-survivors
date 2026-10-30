@@ -15,7 +15,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 3. [x] **Title screen:** pick a character, then Start. Shop, Options and Extras sit behind buttons (V. 1.11.0)
 4. [x] **Hints toggle:** GAME TIPS on/off in the Pause menu (V. 1.12.0)
 5. [x] **Menu fixes:** sub-menus open on top, Game Over shop button goes to the shop, lower third waits during menus, pause opens on Resume and is shorter, HUD hidden behind title and Game Over (V. 1.13.0)
-6. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
+6. [x] **Credits, not cameo:** the photographer is now The Soccer Dad, Grad Student lore made generic, Credits screen in Extras (V. 1.14.0)
 7. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
 8. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
 9. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third

@@ -36,29 +36,29 @@ const GAME_LORE = {
       edge: "Balanced baseline stats. Reliable dark-roast arcs that melt paper invoices before they turn overdue.",
       quote: '"Per my last email, I will be surviving until 5:00 PM or Age 80, whichever comes first."'
     },
-    photographer: {
+    photographer: { // internal id kept for old saves; this is The Soccer Dad
       id: "photographer",
-      code: "SUBJECT #02 // DEPT: VISUAL CHRONICLES",
-      name: "The Senior Photographer",
-      realName: "Rami 'The Shutter' D. (Age 42)",
-      icon: "📸",
-      archetype: "University Visual Storyteller & High-ISO Field Specialist",
-      backstory: "Spent fifteen years hauling heavy pelican cases across campus quads, lighting portrait setups in three minutes flat, and spotting clean composition lines inside total chaos. Years of coaxing genuine smiles out of nervous deans, athletes, and freshmen unlocked a weaponized Dad Joke Aura so potent it physically blasts back oncoming paperwork.",
+      code: "SUBJECT #02 // DEPT: SATURDAY SIDELINES",
+      name: "The Soccer Dad",
+      realName: "Dale 'Coach' Mercer (Age 43)",
+      icon: "⚽",
+      archetype: "Folding-Chair Veteran & Orange-Slice Logistics Lead",
+      backstory: "Has spent every Saturday for nine years pacing a muddy sideline with a travel mug and a whistle he was never asked to bring. Years of yelling encouragement at under-10s and keeping the snack schedule alive unlocked a weaponized Dad Joke Aura so potent it physically blasts back oncoming paperwork.",
       relic: "😂 Dad Joke Aura + ☕ Coffee (Evolves with 👓 Reading Glasses -> 🌩️😂 Unhinged Pun Storm)",
-      edge: "Starts with Dad Joke unlocked, +25% wider acoustic blast radius, and +12% faster photojournalist footwork.",
-      quote: '"Hold that pose, watch the light stand, and did you hear about the claustrophobic astronaut? He just needed a little space."'
+      edge: "Starts with Dad Joke unlocked, +25% wider acoustic blast radius, and +12% faster sideline footwork.",
+      quote: '"Hustle back on defense! Also, did you hear about the claustrophobic astronaut? He just needed a little space."'
     },
     gradStudent: {
       id: "gradStudent",
-      code: "SUBJECT #03 // DEPT: EMAT NIGHT LAB",
+      code: "SUBJECT #03 // DEPT: NIGHT SCHOOL",
       name: "The Grad Student at 45",
       realName: "The Dual-Career Night-Owl (Age 45)",
       icon: "🎓",
       archetype: "Full-Time Professional, Seminar Scholar & Boundary Architect",
-      backstory: "Decided that working a full-time career wasn't quite intense enough, so they enrolled in graduate school at 45. Powered by late-night creative coding, peer-reviewed PDFs, and zero remaining patience for pointless committee meetings, they mastered the rarest superpower in adult life: looking a calendar invite dead in the eye and saying 'No.'",
+      backstory: "Decided that working a full-time career wasn't quite intense enough, so they enrolled in graduate school at 45. Powered by late-night study sessions, peer-reviewed PDFs, and zero remaining patience for pointless committee meetings, they mastered the rarest superpower in adult life: looking a calendar invite dead in the eye and saying 'No.'",
       relic: '🛑 The Word "No." + ☕ Coffee (Evolves with 👟 Comfortable Shoes -> 🛡️🛑 Healthy Boundaries)',
       edge: 'Starts with the "No." repulsor shockwave, 10% faster ability cooldowns, and +50% Wisdom Gem magnet range.',
-      quote: '"I have a studio prototype due at midnight and a staff meeting at eight. Your calendar invite has been declined."'
+      quote: '"I have a paper due at midnight and a staff meeting at eight. Your calendar invite has been declined."'
     }
   },
 
