@@ -38,6 +38,29 @@ window.WEAPONS = {
       "Get off my meticulously edged Bermuda grass!"
     ]
   },
+  // ---- New weapon types (Objective 10) ----
+  remote: {
+    name: "The TV Remote",   // boomerang: thrown out, flies back, hits both ways
+    fireEveryMs: 1900,
+    speed: 520,
+    range: 300,
+    damage: 2
+  },
+  spreadsheet: {
+    name: "Spreadsheet",     // orbit: cells circle you and hit what they touch
+    count: 2,
+    radius: 78,
+    damage: 1,
+    spinPerSec: 3.2          // radians per second
+  },
+  podcast: {
+    name: "Podcast at 2x",   // piercing line: fires the way you walk
+    fireEveryMs: 1400,
+    speed: 480,
+    lifeMs: 1300,
+    damage: 2,
+    pierce: 3                // how many enemies one wave passes through
+  },
   wordNo: {
     name: 'The Word "No."',
     fireEveryMs: 3200, // how often you put your foot down

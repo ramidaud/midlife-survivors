@@ -437,3 +437,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - 3 new swarms (Back-to-Back, 3 AM, Homework), plus tips and death jokes for each new enemy.
 - Note: this session restarted mid-build; the first attempt's unsaved work was reviewed, tested and finished rather than redone.
 - Tested each behavior plus natural spawns at 63: all present, no errors. Next objective: More weapons.
+
+## 2026-10-30: Objective 10 done, Three New Weapons (V. 1.18.0) (Claude)
+- The TV Remote (boomerang), Spreadsheet (orbiting cells), Podcast at 2x (piercing line in your walking direction). Each has an unlock card, a 4-rank upgrade, and an evolution: Smart TV, Pivot Table, Binge Mode.
+- New code lives in its own file, `src/weapons_extra.js`; numbers in `src/data/weapons.js`.
+- Tested: all three deal damage, evolutions unlock with the right passives, pausing freezes them, retry clears them, no errors.
+- Rami asked about scores and a leaderboard (names vs. accounts). Added as a new objective, waiting on his choice.

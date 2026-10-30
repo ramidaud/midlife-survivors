@@ -3,6 +3,15 @@
 // and Mobile Touch Controls (Floating Action Dock + On-Screen Virtual Touch Joystick).
 
 const UPGRADE_META = {
+  "Unlock: The TV Remote":         { icon: "📺", tag: "NEW WEAPON",      rarity: "unlock" },
+  "Universal Remote":              { icon: "🔁", tag: "CHANNEL SURF",    rarity: "common" },
+  "Unlock: Spreadsheet":           { icon: "📊", tag: "NEW WEAPON",      rarity: "unlock" },
+  "More Columns":                  { icon: "➕", tag: "CELL FORMAT",     rarity: "common" },
+  "Unlock: Podcast at 2x":         { icon: "🎧", tag: "NEW WEAPON",      rarity: "unlock" },
+  "Playback Speed":                { icon: "⏩", tag: "SPEED LISTEN",    rarity: "common" },
+  "EVOLVE: Smart TV":              { icon: "📡", tag: "✨ EVOLUTION",   rarity: "evo" },
+  "EVOLVE: Pivot Table":           { icon: "🧮", tag: "✨ EVOLUTION",   rarity: "evo" },
+  "EVOLVE: Binge Mode":            { icon: "🍿", tag: "✨ EVOLUTION",   rarity: "evo" },
   "Extra Shot":                    { icon: "☕", tag: "CAFFEINE PERK",   rarity: "common" },
   "Dark Roast":                    { icon: "🫘", tag: "ESPRESSO GRADE",  rarity: "common" },
   "Long Pour":                     { icon: "🥤", tag: "RANGE MEMO",      rarity: "common" },
@@ -974,6 +983,9 @@ function updateCleanHUD() {
   const icons = [stats.coldBrew ? "⚡" : "☕"];
   if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
   if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");
+  if (stats.remote) icons.push(stats.smartTv ? "📡" : "📺");
+  if (stats.sheet) icons.push(stats.pivotTable ? "🧮" : "📊");
+  if (stats.podcast) icons.push(stats.bingeMode ? "🍿" : "🎧");
   if (stats.hasShoes) icons.push("👟");
   if (stats.hasSleep) icons.push("😴");
   if (stats.hasGlasses) icons.push("👓");

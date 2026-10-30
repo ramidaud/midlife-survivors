@@ -203,11 +203,17 @@ function create() {
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
     range: WEAPONS.coffeeSplash.range, magnetRadius: PICKUPS.wisdomGem.magnetRadius,
     dadJoke: false, jokeEveryMs: WEAPONS.dadJoke.fireEveryMs, jokeRadius: WEAPONS.dadJoke.radius, jokeDamage: WEAPONS.dadJoke.damage,
-    wordNo: false, noEveryMs: WEAPONS.wordNo.fireEveryMs, noRadius: WEAPONS.wordNo.radius, noDamage: WEAPONS.wordNo.damage, noPush: WEAPONS.wordNo.pushPx
+    wordNo: false, noEveryMs: WEAPONS.wordNo.fireEveryMs, noRadius: WEAPONS.wordNo.radius, noDamage: WEAPONS.wordNo.damage, noPush: WEAPONS.wordNo.pushPx,
+    // New weapon types (src/weapons_extra.js)
+    remote: false, remoteEveryMs: WEAPONS.remote.fireEveryMs, remoteRange: WEAPONS.remote.range, remoteDamage: WEAPONS.remote.damage, remoteCount: 1,
+    sheet: false, sheetCount: WEAPONS.spreadsheet.count, sheetRadius: WEAPONS.spreadsheet.radius, sheetDamage: WEAPONS.spreadsheet.damage,
+    podcast: false, podEveryMs: WEAPONS.podcast.fireEveryMs, podDamage: WEAPONS.podcast.damage, podPierce: WEAPONS.podcast.pierce
   };
   applyMetaAndChar();
   // 1. Build pixel-art sprites for every character, enemy, pickup, and the background floor (in src/sprites.js).
   buildSprites(this);
+  buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
+  initExtraWeapons(this);
 
   // 2. The stage: an open-plan office floor (carpet, wood hallway, breakroom rug) plus scattered office props!
   floor = this.add.tileSprite(0, 0, this.scale.width, this.scale.height, "floor")
@@ -1417,6 +1423,7 @@ function update(time, delta) {
     restore2DSprites();
     return; // freeze while dead, paused, on title, or choosing an upgrade
   }
+  updateExtraWeapons(this, delta); // TV Remote, Spreadsheet, Podcast (src/weapons_extra.js)
 
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
   runElapsedMs += (delta || 16.6);

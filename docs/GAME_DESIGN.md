@@ -94,7 +94,17 @@ Still on the idea list: Bad Knee (cracks and slows you), Push Notifications, Kid
 - **Group Chat**: a cloud that pings you constantly
 - **Bill**: drops extra 401(k) coins (or steals them?)
 
-### Weapons
+### Weapons in the game now (V. 1.18.0)
+| Weapon | Type | Evolves with | Into |
+|---|---|---|---|
+| Coffee Splash | aimed shot | Good Night's Sleep | Cold Brew Concentrate |
+| Dad Joke | aura pulse | Reading Glasses | Unhinged Pun Storm |
+| "No." | push-back wave | Comfortable Shoes | Healthy Boundaries |
+| The TV Remote | boomerang | Comfortable Shoes | Smart TV |
+| Spreadsheet | orbit | Reading Glasses | Pivot Table |
+| Podcast at 2x | piercing line | Good Night's Sleep | Binge Mode |
+
+### Weapons (original brainstorm)
 | Weapon | Behavior (VS equivalent) | Notes |
 |---|---|---|
 | **Coffee Splash** | Forward cone/whip | Starting weapon |

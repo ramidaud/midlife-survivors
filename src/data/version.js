@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.17.0",
-  displayVersion: "V. 1.17.0",
+  version: "1.18.0",
+  displayVersion: "V. 1.18.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "New Faces",
-  build: 33,
+  codename: "Arsenal",
+  build: 34,
   changelog: [
+    {
+      ver: "V. 1.18.0",
+      date: "Oct 30, 2026",
+      title: "Three New Weapons",
+      highlights: [
+        "The TV Remote: a boomerang thrown at the nearest enemy that hits both ways.",
+        "Spreadsheet: cells orbit you and damage what they touch.",
+        "Podcast at 2x: fires the way you walk and passes through crowds.",
+        "3 new evolutions: Smart TV (Remote + Shoes), Pivot Table (Spreadsheet + Glasses), Binge Mode (Podcast + Sleep)."
+      ]
+    },
     {
       ver: "V. 1.17.0",
       date: "Oct 30, 2026",

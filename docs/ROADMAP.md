@@ -19,7 +19,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 7. [x] **Run length:** 1 minute per year, retirement bonus at 80 with no stop screen, Death at 100 is the only win (V. 1.15.0)
 8. [x] **Intensity curve + swarms:** packs that grow each decade, smooth ramp, bigger crowds with age, 7 announced swarm events (V. 1.16.0)
 9. [x] **Enemy variety:** 3 AM Thought (ghosts in and out), Calendar Invite (straight-line charge), Group Chat (ranged pings), Math Homework (shrinking spiral), plus 3 new swarms (V. 1.17.0)
-10. [ ] **More weapons:** new auto-weapons and evolutions beyond Coffee, Dad Joke and "No."
+10. [x] **More weapons:** TV Remote (boomerang), Spreadsheet (orbit), Podcast at 2x (piercing line), each with level-ups and an evolution (V. 1.18.0)
+- [ ] **Scores + leaderboard (new, order TBD):** score at Game Over, name entry, top-10 board. Local first or online? Waiting on Rami.
 11. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
 12. [ ] **Art direction + bigger world:** Rami's mood board, then a larger, detailed pixel-art office full of funny details, and restyled sprites and UI (including the lower third)
 

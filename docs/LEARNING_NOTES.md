@@ -219,3 +219,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Every enemy runs the same loop, but each **kind** gets its own little rulebook each frame: chase, charge, orbit, fade.
 - **Ranged enemies** change everything: the Group Chat makes standing at a distance unsafe too, so there's no perfect spot to camp.
 - Good enemies **telegraph**: "RING!", "typing...", or turning see-through warns you what's coming, so dodging feels fair.
+
+## Weapon archetypes (Oct 30, Three New Weapons)
+- Vampire Survivors weapons fall into a few **shapes**: aimed shots, auras, boomerangs, orbits, piercing lines. A new shape changes how you move; a new number on an old shape doesn't.
+- **Hit windows:** a boomerang or orbit touches the same enemy many frames in a row. Each one remembers who it hit and waits a moment before hitting them again, or it would shred everything instantly.
+- **Evolutions** reward combos: one weapon plus one passive becomes something bigger.

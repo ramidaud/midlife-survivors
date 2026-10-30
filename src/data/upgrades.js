@@ -69,6 +69,56 @@ window.UPGRADES = [
     apply: s => { addRank(s, "firmBoundaries"); s.noRadius = Math.round(s.noRadius * 1.22); s.noPush = Math.round(s.noPush * 1.3); s.noDamage += 1; s.noUp = true; s.noRank = (s.noRank || 0) + 1; }
   },
 
+  // ---- New weapon types (Objective 10) ----
+  {
+    id: "unlockRemote",
+    name: "Unlock: The TV Remote",
+    maxRank: 1,
+    text: "Thrown at the nearest enemy, then flies back. Hits both ways.",
+    when: s => !s.remote,
+    apply: s => { addRank(s, "unlockRemote"); s.remote = true; }
+  },
+  {
+    id: "universalRemote",
+    name: "Universal Remote",
+    maxRank: 4,
+    text: "Remote deals +1 damage and flies 15% farther. Ranks 2 and 4 add another remote.",
+    when: s => s.remote && getRank(s, "universalRemote") < 4,
+    apply: s => { addRank(s, "universalRemote"); const r = getRank(s, "universalRemote"); s.remoteDamage += 1; s.remoteRange = Math.round(s.remoteRange * 1.15); if (r === 2 || r === 4) s.remoteCount += 1; s.remoteRank = r; }
+  },
+  {
+    id: "unlockSheet",
+    name: "Unlock: Spreadsheet",
+    maxRank: 1,
+    text: "Cells orbit you and damage anything they touch.",
+    when: s => !s.sheet,
+    apply: s => { addRank(s, "unlockSheet"); s.sheet = true; }
+  },
+  {
+    id: "moreColumns",
+    name: "More Columns",
+    maxRank: 4,
+    text: "Spreadsheet gets +1 cell, +1 damage and a wider orbit.",
+    when: s => s.sheet && getRank(s, "moreColumns") < 4,
+    apply: s => { addRank(s, "moreColumns"); s.sheetCount += 1; s.sheetDamage += 1; s.sheetRadius = Math.round(s.sheetRadius * 1.1); s.sheetRank = getRank(s, "moreColumns"); }
+  },
+  {
+    id: "unlockPodcast",
+    name: "Unlock: Podcast at 2x",
+    maxRank: 1,
+    text: "Fires the way you're walking and passes through crowds.",
+    when: s => !s.podcast,
+    apply: s => { addRank(s, "unlockPodcast"); s.podcast = true; }
+  },
+  {
+    id: "playbackSpeed",
+    name: "Playback Speed",
+    maxRank: 4,
+    text: "Podcast fires 15% faster, +1 damage, passes through 1 more enemy.",
+    when: s => s.podcast && getRank(s, "playbackSpeed") < 4,
+    apply: s => { addRank(s, "playbackSpeed"); s.podEveryMs = Math.max(450, Math.round(s.podEveryMs * 0.85)); s.podDamage += 1; s.podPierce += 1; s.podRank = getRank(s, "playbackSpeed"); }
+  },
+
   // ---- TIER 1: Core Passives (Unlock Evolutions!) ----
   {
     id: "comfyShoes",
@@ -96,6 +146,33 @@ window.UPGRADES = [
   },
 
   // ---- TIER 2: MID-CAREER EVOLUTIONS (Requires Weapon Rank 2+ AND Matching Passive!) ----
+  {
+    id: "evoSmartTv",
+    name: "EVOLVE: Smart TV",
+    maxRank: 1,
+    text: "Remote Lv 2+ & Comfortable Shoes: 3 big remotes, +2 damage, faster throws!",
+    isEvolution: true,
+    when: s => s.remote && (s.remoteRank || 0) >= 2 && s.hasShoes && !s.smartTv,
+    apply: s => { addRank(s, "evoSmartTv"); s.smartTv = true; s.remoteCount = Math.max(s.remoteCount, 3); s.remoteDamage += 2; s.remoteEveryMs = Math.round(s.remoteEveryMs * 0.7); }
+  },
+  {
+    id: "evoPivotTable",
+    name: "EVOLVE: Pivot Table",
+    maxRank: 1,
+    text: "Spreadsheet Lv 2+ & Reading Glasses: 8 big cells, +2 damage!",
+    isEvolution: true,
+    when: s => s.sheet && (s.sheetRank || 0) >= 2 && s.hasGlasses && !s.pivotTable,
+    apply: s => { addRank(s, "evoPivotTable"); s.pivotTable = true; s.sheetCount = Math.max(s.sheetCount, 8); s.sheetDamage += 2; s.sheetRadius = Math.round(s.sheetRadius * 1.2); }
+  },
+  {
+    id: "evoBingeMode",
+    name: "EVOLVE: Binge Mode",
+    maxRank: 1,
+    text: "Podcast Lv 2+ & Good Night's Sleep: fires 3 waves at once, pierces twice as far!",
+    isEvolution: true,
+    when: s => s.podcast && (s.podRank || 0) >= 2 && s.hasSleep && !s.bingeMode,
+    apply: s => { addRank(s, "evoBingeMode"); s.bingeMode = true; s.podPierce *= 2; s.podDamage += 1; }
+  },
   {
     id: "evoColdBrew",
     name: "EVOLVE: Cold Brew Concentrate",

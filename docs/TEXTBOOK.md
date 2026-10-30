@@ -1170,3 +1170,14 @@ CHASE        CHARGE           ORBIT + SHOOT       SPIRAL            GHOST
 Bill         Calendar Invite   Group Chat          Math Homework     3 AM Thought
 ```
 Each one asks for a different dodge: outrun, sidestep, close the gap, break out, or time your hits.
+
+---
+
+## Chapter: Weapon shapes (V. 1.18.0)
+
+```
+AIMED        AURA         BOOMERANG       ORBIT          PIERCING LINE
+🧍 ☕ → $     ((🧍))        🧍 📺 ⇄ $ $     📊 🧍 📊        🧍 🎧 ━━$━━$━━$━▶
+Coffee       Dad Joke     TV Remote       Spreadsheet    Podcast at 2x
+```
+Same enemies, five different ways to deal with them.
