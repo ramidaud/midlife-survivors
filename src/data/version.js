@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.11.0",
-  displayVersion: "V. 1.11.0",
+  version: "1.12.0",
+  displayVersion: "V. 1.12.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Title Screen",
-  build: 25,
+  codename: "Tips Switch",
+  build: 26,
   changelog: [
+    {
+      ver: "V. 1.12.0",
+      date: "Oct 30, 2026",
+      title: "Game Tips Switch",
+      highlights: [
+        "New Pause menu option: GAME TIPS on or off, for experienced players. Remembered between visits.",
+        "Alerts, chapter cards and rewards still show when tips are off.",
+        "Replaced the Visual Engine row while 3D is parked."
+      ]
+    },
     {
       ver: "V. 1.11.0",
       date: "Oct 30, 2026",

@@ -144,6 +144,7 @@ function loadMeta() {
         unlockedDecades: parsed.unlockedDecades || [40],
         startDecade: parsed.startDecade || 40,
         selectedStage: parsed.selectedStage || "auto",
+        tipsOff: !!parsed.tipsOff, // Game Tips switch in the Pause menu
         controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {}),
         accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {})
       };

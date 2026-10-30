@@ -610,9 +610,20 @@ window.showLowerThird = function(kind, badge, text, ms = 4500) {
 // First-time tips: shown once ever, remembered in this browser.
 let tipsSeen = {};
 try { tipsSeen = JSON.parse(localStorage.getItem("ms-tips-seen-v1") || "{}"); } catch (e) {}
+// Game Tips switch (Pause menu): experienced players can turn first-time tips off.
+// Alerts, chapter cards and rewards still show; only the TIP messages are affected.
+window.tipsEnabled = function() {
+  return !(typeof meta !== "undefined" && meta && meta.tipsOff);
+};
+window.setTipsEnabled = function(on) {
+  if (typeof meta === "undefined" || !meta) return;
+  meta.tipsOff = !on;
+  if (typeof saveMeta === "function") saveMeta(meta);
+};
+
 window.firstTimeTip = function(key) {
   const t = window.TIPS && window.TIPS[key];
-  if (!t || tipsSeen[key]) return;
+  if (!t || tipsSeen[key] || !window.tipsEnabled()) return;
   tipsSeen[key] = true;
   try { localStorage.setItem("ms-tips-seen-v1", JSON.stringify(tipsSeen)); } catch (e) {}
   window.showLowerThird("tip", t.badge || "TIP", t.text, 5000);
@@ -996,8 +1007,8 @@ function renderPauseModal(scene, keepRowIdx) {
           <span class="opt-val">KEYS / MOUSE / TOUCH / PAD ▶</span>
         </button>
         <button class="opt-btn" id="pause-style-btn" data-opt-cycle="1">
-          <span>🎥 VISUAL ENGINE</span>
-          <span class="opt-val">◀ ${VIEW_SHORT_NAMES[vIdx]} ▶</span>
+          <span>💡 GAME TIPS</span>
+          <span class="opt-val">◀ ${window.tipsEnabled() ? "ON" : "OFF"} ▶</span>
         </button>
         <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1">
           <span>🔊 SOUND & MUSIC</span>
@@ -1043,10 +1054,8 @@ function renderPauseModal(scene, keepRowIdx) {
   }, keepRowIdx === 1);
 
   bindNavItem(document.getElementById("pause-style-btn"), 2, () => {
-    const dir = document.getElementById("pause-style-btn").dataset.dirHint;
-    const step = dir === "left" ? -1 : 1;
-    window.viewModeIdx = (vIdx + step + window.VIEW_MODES.length) % window.VIEW_MODES.length;
-    applyViewMode(scene);
+    // Row 2 is now the Game Tips switch (the Visual Engine row went away while 3D is parked).
+    window.setTipsEnabled(!window.tipsEnabled());
     sfx("pick");
     renderPauseModal(scene, 2);
   }, keepRowIdx === 2);

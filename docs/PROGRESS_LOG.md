@@ -382,3 +382,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - 401(k) Shop, Options and Extras (start age, location, lore, patch notes) each open their own view with a Back button.
 - Tested at laptop and phone sizes; Enter starts a run from a fresh load.
 - Next objective: hints toggle in Options.
+
+## 2026-10-30: Objective 4 done, Game Tips switch (V. 1.12.0) + UI test run (Claude)
+- Pause menu now has GAME TIPS on/off (replaces the Visual Engine row). Saved between visits.
+- Ran a scripted playthrough of every menu at laptop and phone sizes: title, shop, extras, options, pause, level-up, game over, retry, save and quit, resume, age 80.
+- No crashes. Found 7 menu problems, biggest: Options, Lore and Patch Notes open behind the title screen. Listed as objective 5, "Menu fixes."
+- Next objective: Menu fixes.

@@ -177,3 +177,9 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Show the **one thing most people want first** (pick a character, press Start), and tuck everything else one tap away.
 - Same menu items, just layered: Main, then Shop or Extras, with a Back button.
 - It's the difference between a camera's shutter button and its settings menu. Both matter, only one gets the big button.
+
+## Layers and z-index (Oct 30, UI test run)
+- Every menu is a sheet of glass stacked on the screen. **z-index** is the number that says which sheet is on top.
+- When two sheets have the **same number**, the one written later in the code wins. That's why Options opened behind the title screen.
+- Fix: give "sub-menus" a higher number than the screen that opens them, so they always land on top.
+- Saving settings needs both halves: **write** the value and **read it back** on load. The Tips switch almost forgot itself because the loader didn't know the new setting existed.

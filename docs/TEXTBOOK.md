@@ -1066,3 +1066,18 @@ flowchart TD
 ```
 
 **Before:** about a dozen choices on one long screen. **After:** two decisions (who, then Start), everything else one tap away.
+
+---
+
+## Chapter: Layers (z-index)
+
+```
+ z 30  ┌────────────── TITLE SCREEN ──────────────┐   <- written last, so it wins
+ z 30  │  ┌──────────── OPTIONS ─────────────┐    │   <- same number, written earlier: hidden!
+       │  └──────────────────────────────────┘    │
+       └──────────────────────────────────────────┘
+ z 12   HUD and lower third
+ z 1    the game itself
+```
+
+**Rule:** a menu opened *from* another menu needs a higher layer number than its parent.

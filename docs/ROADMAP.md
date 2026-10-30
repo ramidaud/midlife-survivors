@@ -13,12 +13,20 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 1. [x] **Clean screen HUD:** XP bar on top, age in the middle, HP under the player, 3D views parked (V. 1.9.0)
 2. [x] **Lower third:** on-demand strip for alerts, first-time tips, chapter cards and rewards, one at a time (V. 1.10.0)
 3. [x] **Title screen:** pick a character, then Start. Shop, Options and Extras sit behind buttons (V. 1.11.0)
-4. [ ] **Hints toggle:** turn game tips on or off in Options, for experienced players
-5. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
-6. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
-7. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
-8. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
-9. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI (including the lower third's look) to match
+4. [x] **Hints toggle:** GAME TIPS on/off in the Pause menu (V. 1.12.0)
+5. [ ] **Menu fixes (from the Oct 30 UI test run):**
+   - Options, Lore and Patch Notes open *behind* the title screen (they share a layer and the title wins)
+   - Keyboard focus gets stuck on buttons in menus that already closed, so Enter can do nothing
+   - Game Over's "401(k) Shop" button lands on the main title screen, not the shop
+   - Lower third keeps counting down behind the pause and level-up menus, so messages expire unseen
+   - Pause menu opens with the Lore row highlighted instead of Resume; menu is long (8 rows)
+   - Top HUD shows faintly behind the title and Game Over screens
+   - Death joke can mismatch the killer (died to a Bill, joke about an HOA fee)
+6. [ ] **Credits, not cameo:** remove Rami as a playable character and from the lore; add a Credits screen with his name
+7. [ ] **Run length:** 1 minute per year, no stop at 80, Death arrives at 100
+8. [ ] **Intensity curve:** swarms and bosses ramp harder each decade
+9. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
+10. [ ] **Art direction:** Rami's mood board, then restyle sprites and UI (including the lower third's look) to match
 
 ---
 
