@@ -8,7 +8,11 @@ window.TIPS = {
   snackAttack: { badge: "TIP", text: "Donuts slow you down if they touch you. Tempting, but no." },
   backTwinge:  { badge: "TIP", text: "Back Twinges lunge in bursts. Move when they pause." },
   officeGossip:{ badge: "TIP", text: "Reply-All Chains are tough. Hit them from a distance." },
-  plant:       { badge: "TIP", text: "Potted plants hide pizza and coins. Shoot them open." }
+  plant:       { badge: "TIP", text: "Potted plants hide pizza and coins. Shoot them open." },
+  threeAmThought: { badge: "TIP", text: "3 AM Thoughts fade in and out. Hit them while they're solid." },
+  calendarInvite: { badge: "TIP", text: "Calendar Invites charge in a straight line. Step out of the way." },
+  groupChat:      { badge: "TIP", text: "The Group Chat keeps its distance. Watch for \"typing...\" then dodge." },
+  mathWorksheet:  { badge: "TIP", text: "Math Homework circles you closer and closer. Break out early." }
 };
 
 // Chapter cards: shown each time you hit a new decade.

@@ -855,7 +855,7 @@ function restore2DSprites() {
   if (window.stagePlatforms) window.stagePlatforms.forEach(pl => pl.setAlpha(1));
   [bills, splashes, gems, coins, window.pizzas, chests].forEach(grp => {
     if (grp) grp.getChildren().forEach(item => {
-      item.setAlpha(1);
+      item.setAlpha(item.ghost ? 0.25 : 1); // keep faded 3 AM Thoughts faded
       if (item.tag) item.tag.setVisible(true);
     });
   });

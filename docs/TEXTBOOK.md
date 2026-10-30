@@ -1159,3 +1159,14 @@ HP lost while standing still at age 40
      0s         20s        40s        60s
 ```
 Same test, two settings, clear answer.
+
+---
+
+## Chapter: Nine ways to chase you (V. 1.17.0)
+
+```
+CHASE        CHARGE           ORBIT + SHOOT       SPIRAL            GHOST
+ $ → → 🧍     📅 ━━━━━━━━▶      💬 ↻  · · → 🧍     📝 ⟲ ⟲ → 🧍      👻 (faded) → 💭 (solid)
+Bill         Calendar Invite   Group Chat          Math Homework     3 AM Thought
+```
+Each one asks for a different dodge: outrun, sidestep, close the gap, break out, or time your hits.

@@ -74,6 +74,58 @@ window.ENEMIES = {
     color: 0x4fb8e0
   },
 
+  // ---- New enemies (Objective 9): each one moves in its own way ----
+  threeAmThought: {
+    name: "3 AM Thought",
+    label: "3AM",
+    seniorLabel: "4:12AM",
+    speed: 72,
+    hp: 3,
+    damage: 1,
+    size: 28,
+    color: 0x9a8cff,
+    solidMs: 1800,     // solid: can hurt you and be hit
+    ghostMs: 1500,     // ghost: see-through, can't hurt you or be hit, sneaks closer faster
+    ghostSpeed: 125
+  },
+  calendarInvite: {
+    name: "Calendar Invite",
+    label: "MTG",
+    seniorLabel: "BINGO",
+    speed: 165,        // charges straight across in the direction it locked when it appeared
+    hp: 2,
+    damage: 1,
+    size: 26,
+    color: 0x5aa0ff
+  },
+  groupChat: {
+    name: "Group Chat",
+    label: "87 NEW",
+    seniorLabel: "FWD:FWD",
+    speed: 80,
+    hp: 4,
+    damage: 1,
+    size: 30,
+    color: 0x6fd98c,
+    keepDistance: 260, // hangs back this far away
+    fireEveryMs: 2600, // sends a message ping this often
+    typingMs: 650,     // shows "typing..." this long before each ping (your warning)
+    pingSpeed: 210,
+    pingLifeMs: 3200
+  },
+  mathWorksheet: {
+    name: "Math Homework",
+    label: "2+2=?",
+    seniorLabel: "SUDOKU",
+    speed: 260,        // max speed while spiraling
+    hp: 7,
+    damage: 2,
+    size: 30,
+    color: 0xf2f2e6,
+    spinPerSec: 1.6,   // how fast it circles you (radians per second)
+    closeInPerSec: 34  // how fast the circle shrinks (pixels per second)
+  },
+
   // ---- Decade Bosses (Age 45, 52, 60, 70, 80, plus Senior Bosses at 90 and 100!) ----
   performanceReview: {
     name: "The Performance Review",
@@ -165,12 +217,12 @@ window.SPAWNING = {
   waves: [
     { minAge: 40, everyMs: 800, mix: [["bill", 10]] },
     { minAge: 42, everyMs: 640,  mix: [["bill", 7], ["spamCall", 3]] },
-    { minAge: 45, everyMs: 450,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2]] },
-    { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1]] },
-    { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2]] },
-    { minAge: 70, everyMs: 280,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3]] },
+    { minAge: 45, everyMs: 450,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2], ["calendarInvite", 2]] },
+    { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1], ["calendarInvite", 2], ["threeAmThought", 2]] },
+    { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2], ["calendarInvite", 2], ["threeAmThought", 2], ["groupChat", 2], ["mathWorksheet", 1]] },
+    { minAge: 70, everyMs: 280,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3], ["calendarInvite", 2], ["threeAmThought", 3], ["groupChat", 2], ["mathWorksheet", 2]] },
     // BONUS 20 SENIOR ROUNDS (Age 80 to 100): Fast, chaotic Golden Years!
-    { minAge: 80, everyMs: 240,  mix: [["bill", 2], ["spamCall", 4], ["snackAttack", 3], ["backTwinge", 5], ["officeGossip", 4]] },
-    { minAge: 90, everyMs: 200,  mix: [["spamCall", 4], ["snackAttack", 4], ["backTwinge", 6], ["officeGossip", 5]] }
+    { minAge: 80, everyMs: 240,  mix: [["bill", 2], ["spamCall", 4], ["snackAttack", 3], ["backTwinge", 5], ["officeGossip", 4], ["calendarInvite", 2], ["threeAmThought", 4], ["groupChat", 3], ["mathWorksheet", 2]] },
+    { minAge: 90, everyMs: 200,  mix: [["spamCall", 4], ["snackAttack", 4], ["backTwinge", 6], ["officeGossip", 5], ["threeAmThought", 5], ["groupChat", 3], ["mathWorksheet", 3]] }
   ]
 };

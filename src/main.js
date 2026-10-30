@@ -139,6 +139,7 @@ let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelU
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let ltDecadeShown = null, ltLowHpWarned = false; // lower third trackers
 let nextSwarmAt = null; // when the next swarm event fires (game time)
+let pings = null;       // Group Chat message pings
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
 let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office", lastDividendAge = 40;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
@@ -552,6 +553,13 @@ function create() {
   // 9. Collisions. "overlap" asks the physics engine: are these two things touching?
   // If a splash touches a Bill, run hitBill. If a splash touches a Potted Plant, crack it open for loot!
   this.physics.add.overlap(splashes, bills, hitBill);
+  // Group Chat message pings (the first enemy that shoots at you)
+  pings = this.physics.add.group();
+  this.physics.add.overlap(player, pings, (p, ping) => {
+    if (!ping.active) return;
+    ping.destroy();
+    hurtPlayer(p, { kind: "groupChat", damage: ping.damage || 1 });
+  });
   if (window.propGroup) {
     this.physics.add.overlap(splashes, window.propGroup, hitProp);
   }
@@ -889,6 +897,7 @@ function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
   if (gameOver) return;
   if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 100 = CENTENARIAN VICTORY!
+  if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
   hp -= (bill.damage || ENEMIES.bill.damage);
@@ -975,6 +984,7 @@ function burstConfetti(sc, x, y, baseColor, count = 6) {
 // Apply damage to one enemy (shared by all weapons so gems, chests, flashes and sounds always match).
 function damageBill(bill, amount) {
   if (!bill.active) return;
+  if (bill.ghost) return; // faded 3 AM Thoughts ignore auras too
   const sc = bill.scene;
   bill.hp -= amount;
   popDamageNumber(sc, bill.x, bill.y, amount);
@@ -1021,6 +1031,7 @@ function damageBill(bill, amount) {
 // A splash landed on a Bill: the splash is used up (unless evolved to Cold Brew, which pierces!), the Bill loses health.
 function hitBill(splash, bill) {
   if (!splash.active || !bill.active) return; // already gone this frame
+  if (bill.ghost) return; // splashes pass right through a faded 3 AM Thought
   if (splash.pierce) {
     if (splash.hitSet.has(bill)) return; // already pierced this enemy
     splash.hitSet.add(bill);
@@ -1664,12 +1675,83 @@ function update(time, delta) {
       }
     }
 
+    // 4. 3 AM Thought: solid for a bit, then fades into a ghost that can't hurt you or be hit, and sneaks closer.
+    if (bill.kind === "threeAmThought") {
+      const T = ENEMIES.threeAmThought, cyc = T.solidMs + T.ghostMs;
+      const ghost = (ageMs % cyc) >= T.solidMs;
+      if (ghost !== !!bill.ghost) {
+        bill.ghost = ghost;
+        bill.setAlpha(ghost ? 0.25 : 1);
+        bill.tag.setAlpha(ghost ? 0.3 : 1);
+      }
+      this.physics.moveToObject(bill, player, ghost ? T.ghostSpeed : bill.speed);
+      bill.tag.setPosition(bill.x, bill.y - T.size / 2 - 6);
+      return;
+    }
+
+    // 5. Calendar Invite: locks a direction when it appears and charges straight across. Never turns.
+    if (bill.kind === "calendarInvite") {
+      if (bill.lockVx === undefined) {
+        const a = Phaser.Math.Angle.Between(bill.x, bill.y, player.x, player.y);
+        bill.lockVx = Math.cos(a) * bill.speed; bill.lockVy = Math.sin(a) * bill.speed;
+      }
+      bill.setVelocity(bill.lockVx, bill.lockVy);
+      bill.tag.setPosition(bill.x, bill.y - ENEMIES.calendarInvite.size / 2 - 6);
+      if (Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y) > 1100) { bill.tag.destroy(); bill.destroy(); }
+      return;
+    }
+
+    // 6. Group Chat: hangs back at a distance, shows "typing...", then fires a message ping at you.
+    if (bill.kind === "groupChat") {
+      const G = ENEMIES.groupChat;
+      const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
+      const a = Phaser.Math.Angle.Between(player.x, player.y, bill.x, bill.y);
+      if (d > G.keepDistance + 40) this.physics.moveToObject(bill, player, bill.speed);
+      else if (d < G.keepDistance - 40) bill.setVelocity(Math.cos(a) * bill.speed, Math.sin(a) * bill.speed); // back away
+      else bill.setVelocity(-Math.sin(a) * bill.speed * 0.8, Math.cos(a) * bill.speed * 0.8);                // circle you
+      if (!bill.nextPing) bill.nextPing = now + G.fireEveryMs * (0.5 + Math.random() * 0.5);
+      if (!bill.typing && now >= bill.nextPing - G.typingMs) { bill.typing = true; bill.tag.setText("typing...").setColor("#8ff0a8"); }
+      if (now >= bill.nextPing) {
+        bill.typing = false; bill.nextPing = now + G.fireEveryMs;
+        bill.tag.setText(currentAge >= 80 && G.seniorLabel ? G.seniorLabel : G.label).setColor("#e8e9f3");
+        const pa = Phaser.Math.Angle.Between(bill.x, bill.y, player.x, player.y);
+        const ping = pings.create(bill.x, bill.y, "ping").setDepth(6);
+        ping.setVelocity(Math.cos(pa) * G.pingSpeed, Math.sin(pa) * G.pingSpeed);
+        ping.dieAt = now + G.pingLifeMs; ping.damage = bill.damage;
+        sfx("ring");
+      }
+      bill.setFlipX(player.x < bill.x);
+      bill.tag.setPosition(bill.x, bill.y - G.size / 2 - 6);
+      return;
+    }
+
+    // 7. Math Homework: circles you in a shrinking spiral.
+    if (bill.kind === "mathWorksheet") {
+      const MW = ENEMIES.mathWorksheet, dt = Math.min(delta, 50) / 1000;
+      if (bill.orbitR === undefined) {
+        bill.orbitR = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
+        bill.orbitA = Phaser.Math.Angle.Between(player.x, player.y, bill.x, bill.y);
+        bill.spinDir = Math.random() < 0.5 ? -1 : 1;
+      }
+      bill.orbitR = Math.max(0, bill.orbitR - MW.closeInPerSec * dt);
+      bill.orbitA += MW.spinPerSec * dt * bill.spinDir;
+      const tx = player.x + Math.cos(bill.orbitA) * bill.orbitR, ty = player.y + Math.sin(bill.orbitA) * bill.orbitR;
+      let vx = (tx - bill.x) * 5, vy = (ty - bill.y) * 5;
+      const sp = Math.hypot(vx, vy); if (sp > bill.speed) { vx *= bill.speed / sp; vy *= bill.speed / sp; }
+      bill.setVelocity(vx, vy);
+      bill.tag.setPosition(bill.x, bill.y - MW.size / 2 - 6);
+      return;
+    }
+
     // Default behavior (Bills, Late Fees, Snacks, Twinge lunge, Elites, Bosses): steer directly toward you.
     this.physics.moveToObject(bill, player, bill.speed || ENEMIES.bill.speed);
     bill.setFlipX(player.x < bill.x);
     const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
     bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
   });
+
+  // Old message pings fade away.
+  if (pings) pings.getChildren().slice().forEach(pg => { if (now >= pg.dieAt) pg.destroy(); });
 
   // Splashes that flew past their range evaporate (we delete them so they don't pile up).
   splashes.getChildren().slice().forEach(s => {

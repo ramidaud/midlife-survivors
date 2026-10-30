@@ -485,6 +485,73 @@ function buildSprites(scene) {
     ctx.fillText("99+", 34, 8.5);
   });
 
+  // ---- New enemies (Objective 9) ----
+  // 3 AM THOUGHT (28x30): a sleepy purple thought cloud with a "?" and drifting Zzz
+  makeCanvasTex(scene, "threeAmThought", 30, 32, (ctx) => {
+    ctx.fillStyle = "rgba(0,0,0,0.3)"; ctx.beginPath(); ctx.ellipse(15, 29, 10, 2.5, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#3a2f7a";
+    [[9, 14, 8], [17, 11, 9], [22, 17, 7], [12, 19, 7], [18, 20, 7]].forEach(([x, y, r]) => { ctx.beginPath(); ctx.arc(x, y, r + 1, 0, Math.PI * 2); ctx.fill(); });
+    ctx.fillStyle = "#9a8cff";
+    [[9, 14, 8], [17, 11, 9], [22, 17, 7], [12, 19, 7], [18, 20, 7]].forEach(([x, y, r]) => { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); });
+    ctx.fillStyle = "#c9c0ff"; ctx.beginPath(); ctx.arc(14, 10, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#1b1440"; ctx.font = "bold 13px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText("?", 16, 16);
+    ctx.fillStyle = "#e6e0ff"; ctx.font = "bold 7px monospace"; ctx.fillText("z", 26, 5); ctx.fillText("z", 28, 1.5);
+    ctx.fillStyle = "#9a8cff"; ctx.beginPath(); ctx.arc(6, 27, 2, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(3, 30, 1.2, 0, Math.PI * 2); ctx.fill();
+  });
+
+  // CALENDAR INVITE (28x28): a tear-off calendar page with red binding rings and "ACCEPT?"
+  makeCanvasTex(scene, "calendarInvite", 28, 30, (ctx) => {
+    ctx.fillStyle = "rgba(0,0,0,0.35)"; rrect(ctx, 4, 6, 22, 23, 3); ctx.fill();
+    ctx.fillStyle = "#0e2238"; rrect(ctx, 2, 3, 24, 24, 3); ctx.fill();
+    ctx.fillStyle = "#ffffff"; rrect(ctx, 3, 4, 22, 22, 2); ctx.fill();
+    ctx.fillStyle = "#e0384a"; ctx.fillRect(3, 4, 22, 7);
+    ctx.fillStyle = "#2b2b2b"; [7, 14, 21].forEach(x => { ctx.fillRect(x - 1, 1, 2, 5); });
+    ctx.fillStyle = "#ffffff"; ctx.font = "bold 6px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("MON", 14, 7.8);
+    ctx.fillStyle = "#1d2a44"; ctx.font = "bold 11px monospace"; ctx.fillText("7", 14, 16.5);
+    ctx.fillStyle = "#5aa0ff"; ctx.fillRect(6, 21, 16, 3);
+    ctx.fillStyle = "#ffffff"; ctx.font = "bold 4px monospace"; ctx.fillText("AM", 14, 22.6);
+  });
+
+  // GROUP CHAT (32x30): a stack of green chat bubbles with a red unread badge
+  makeCanvasTex(scene, "groupChat", 34, 32, (ctx) => {
+    ctx.fillStyle = "rgba(0,0,0,0.35)"; rrect(ctx, 4, 8, 26, 21, 6); ctx.fill();
+    [[2, 9, "#2f8f4e"], [6, 5, "#45b86a"], [10, 2, "#6fd98c"]].forEach(([x, y, c]) => {
+      ctx.fillStyle = "#123b22"; rrect(ctx, x - 1, y - 1, 21, 15, 6); ctx.fill();
+      ctx.fillStyle = c; rrect(ctx, x, y, 19, 13, 5); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(x + 4, y + 12); ctx.lineTo(x + 2, y + 17); ctx.lineTo(x + 9, y + 12); ctx.fill();
+    });
+    ctx.fillStyle = "#123b22"; [15, 19, 23].forEach(x => { ctx.beginPath(); ctx.arc(x, 8.5, 1.4, 0, Math.PI * 2); ctx.fill(); });
+    ctx.fillStyle = "#3b070e"; ctx.beginPath(); ctx.arc(28, 5, 5.5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#ff2e44"; ctx.beginPath(); ctx.arc(28, 5, 4.6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#ffffff"; ctx.font = "bold 6px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("87", 28, 5.4);
+  });
+
+  // MESSAGE PING (12x12): the little bubble the Group Chat throws at you
+  makeCanvasTex(scene, "ping", 14, 14, (ctx) => {
+    ctx.fillStyle = "#123b22"; ctx.beginPath(); ctx.arc(7, 6, 6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#8ff0a8"; ctx.beginPath(); ctx.arc(7, 6, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(3, 9); ctx.lineTo(2, 13); ctx.lineTo(6, 10); ctx.fill();
+    ctx.fillStyle = "#123b22"; [4.5, 7, 9.5].forEach(x => ctx.fillRect(x - 0.6, 5.4, 1.2, 1.2));
+  });
+
+  // MATH HOMEWORK (30x32): a worksheet with a red "F" circled and a pencil
+  makeCanvasTex(scene, "mathWorksheet", 32, 34, (ctx) => {
+    ctx.fillStyle = "rgba(0,0,0,0.35)"; ctx.fillRect(5, 6, 24, 27);
+    ctx.fillStyle = "#3a3a2a"; ctx.fillRect(3, 3, 24, 28);
+    ctx.fillStyle = "#fbfaf0"; ctx.fillRect(4, 4, 22, 26);
+    ctx.fillStyle = "#9ec3ff"; for (let y = 9; y < 29; y += 4) ctx.fillRect(5, y, 20, 1);
+    ctx.fillStyle = "#e0384a"; ctx.fillRect(7, 4, 1, 26);
+    ctx.fillStyle = "#33334d"; ctx.font = "bold 5px monospace"; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    ctx.fillText("7x8=", 9, 12); ctx.fillText("12÷?", 9, 20); ctx.fillText("x=??", 9, 28);
+    ctx.strokeStyle = "#e0384a"; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.arc(22, 21, 4.5, 0, Math.PI * 2); ctx.stroke();
+    ctx.fillStyle = "#e0384a"; ctx.font = "bold 7px monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("F", 22, 21.5);
+    ctx.save(); ctx.translate(26, 9); ctx.rotate(0.7);
+    ctx.fillStyle = "#f5c542"; ctx.fillRect(-2, -9, 4, 14); ctx.fillStyle = "#f2a6a6"; ctx.fillRect(-2, -11, 4, 2);
+    ctx.fillStyle = "#e8c9a0"; ctx.beginPath(); ctx.moveTo(-2, 5); ctx.lineTo(2, 5); ctx.lineTo(0, 9); ctx.fill(); ctx.restore();
+  });
+
   // BOSS 1, 2, 3, SPLASH, GEM, CHEST (keep crisp 16-bit polish)
   makeCanvasTex(scene, "performanceReview", 64, 68, (ctx) => {
     ctx.fillStyle = "rgba(0,0,0,0.45)"; rrect(ctx, 8, 9, 50, 56, 6); ctx.fill();

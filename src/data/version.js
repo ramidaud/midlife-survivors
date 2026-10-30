@@ -2,12 +2,24 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.16.1",
-  displayVersion: "V. 1.16.1",
+  version: "1.17.0",
+  displayVersion: "V. 1.17.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Fight Back",
-  build: 32,
+  codename: "New Faces",
+  build: 33,
   changelog: [
+    {
+      ver: "V. 1.17.0",
+      date: "Oct 30, 2026",
+      title: "Enemy Variety",
+      highlights: [
+        "3 AM Thought (age 50+): fades into a ghost you can't hit, then turns solid again.",
+        "Calendar Invite (45+): locks a direction and charges straight through.",
+        "Group Chat (60+): keeps its distance, shows 'typing...', then fires message pings. The first enemy that shoots.",
+        "Math Homework (60+): circles you in a shrinking spiral.",
+        "3 new swarms: Back-to-Back, 3 AM and Homework. New tips and death jokes for each."
+      ]
+    },
     {
       ver: "V. 1.16.1",
       date: "Oct 30, 2026",

@@ -430,3 +430,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Changes: Bills 2 HP, faster spawns at every age, packs grow sooner, smooth +9% toughness per year, swarms grow with age, first swarm at 41.
 - After: standing still, first hit at about 12 s and you're nearly out of HP around 25-30 s. Moving is now required.
 - Next objective unchanged: Enemy variety.
+
+## 2026-10-30: Objective 9 done, Enemy Variety (V. 1.17.0) (Claude)
+- Rami: the balance pass feels better; revisit difficulty once more enemies and weapons are in.
+- 4 new enemies, each with its own movement: 3 AM Thought (ghosts in and out), Calendar Invite (straight-line charge), Group Chat (ranged "typing..." pings), Math Homework (shrinking spiral). Reused unused pixel art from the sprint.
+- 3 new swarms (Back-to-Back, 3 AM, Homework), plus tips and death jokes for each new enemy.
+- Note: this session restarted mid-build; the first attempt's unsaved work was reviewed, tested and finished rather than redone.
+- Tested each behavior plus natural spawns at 63: all present, no errors. Next objective: More weapons.

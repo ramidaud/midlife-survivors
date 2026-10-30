@@ -18,5 +18,8 @@ window.SWARM_EVENTS = [
   { id: "lateFeeRush", minAge: 55, weight: 2, pattern: "wall", kind: "lateFee",      count: 16, badge: "PAST DUE",    text: "A rush of Late Fees. Small, fast, everywhere." },
   { id: "replyAll",    minAge: 58, weight: 2, pattern: "ring", kind: "officeGossip", count: 8,  badge: "REPLY ALL",   text: "The whole office hit Reply All. Keep your distance." },
   { id: "backOut",     minAge: 65, weight: 2, pattern: "ring", kind: "backTwinge",   count: 12, badge: "THREW OUT BACK", text: "Back Twinges from every side. Move when they pause." },
+  { id: "backToBack",  minAge: 48, weight: 2, pattern: "wall", kind: "calendarInvite", count: 14, badge: "BACK-TO-BACK", text: "Back-to-back meetings charging through. Find the gap." },
+  { id: "insomnia",    minAge: 54, weight: 2, pattern: "ring", kind: "threeAmThought", count: 12, badge: "3 AM",        text: "Can't sleep. Every thought at once. Hit them when they're solid." },
+  { id: "homework",    minAge: 62, weight: 2, pattern: "ring", kind: "mathWorksheet",  count: 8,  badge: "HOMEWORK",    text: "Math Homework is circling. Break out before it closes in." },
   { id: "allAtOnce",   minAge: 80, weight: 2, pattern: "ring", kind: "mixed",        count: 26, badge: "EVERYTHING",  text: "Everything, all at once. Welcome to your 80s." }
 ];

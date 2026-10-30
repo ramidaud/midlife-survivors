@@ -69,7 +69,22 @@ These come first. Everything in section 3 is backup material.
 
 ## 3. Content brainstorm
 
-### Enemies (the swarm)
+### Enemies in the game now (V. 1.17.0)
+| Enemy | From age | How it moves |
+|---|---|---|
+| Bill | 40 | Chases; splits into 2 Late Fees if ignored 11 s |
+| Spam Likely | 42 | Creeps, rings, then dashes in a straight line |
+| Calendar Invite | 45 | Locks a direction and charges through |
+| Late-Night Donut | 45 | Chases; touching it slows you |
+| Back Twinge | 50 | Lunges in bursts, pauses between |
+| Reply-All Chain | 50 | Tough elite |
+| 3 AM Thought | 50 | Fades into an untouchable ghost, then turns solid |
+| Group Chat | 60 | Keeps its distance and fires message pings |
+| Math Homework | 60 | Circles you in a shrinking spiral |
+
+Still on the idea list: Bad Knee (cracks and slows you), Push Notifications, Kids' Worksheets you need an "answer" to beat.
+
+### Enemies (original brainstorm)
 - **Unread Email**: slow, endless, the basic grunt
 - **Push Notification**: fast, fragile, comes in bursts
 - **Calendar Invite**: travels in formation, blocks paths

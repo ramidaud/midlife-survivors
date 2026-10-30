@@ -214,3 +214,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - Before: 3 enemies max, 0 HP lost in 40 seconds. After tuning: hit at 12 s, nearly out at 25-30 s.
 - Change one or two numbers, rerun the same test, compare. That's how designers tune pacing without guessing.
 - Watch out for **hidden links**: stretching years to a minute quietly made enemies 4x slower to toughen up.
+
+## Enemy behaviors (Oct 30, Enemy Variety)
+- Every enemy runs the same loop, but each **kind** gets its own little rulebook each frame: chase, charge, orbit, fade.
+- **Ranged enemies** change everything: the Group Chat makes standing at a distance unsafe too, so there's no perfect spot to camp.
+- Good enemies **telegraph**: "RING!", "typing...", or turning see-through warns you what's coming, so dodging feels fair.

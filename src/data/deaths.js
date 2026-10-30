@@ -64,5 +64,25 @@ window.DEATHS = {
     "Dove for a kitchen dink shot in the 6:00 AM Senior Pickleball Finals.",
     "Out-hustled by an 88-year-old named Muriel wearing a visor.",
     "Pulled a hamstring arguing a line call at the Rec Center."
+  ],
+  threeAmThought: [
+    "Lay awake replaying something you said in 2009.",
+    "Remembered every unanswered email at once.",
+    "Wondered if the stove was off. Forever."
+  ],
+  calendarInvite: [
+    "Double-booked, then triple-booked, then flattened.",
+    "Ran over by a meeting that could have been an email.",
+    "Accepted a recurring 7 AM sync. No end date."
+  ],
+  groupChat: [
+    "Muted the group chat. It found you anyway.",
+    "Buried under 412 thumbs-up reactions.",
+    "Someone asked 'who's bringing ice?' and you never recovered."
+  ],
+  mathWorksheet: [
+    "Couldn't explain long division the 'new way.'",
+    "Show your work. You could not show your work.",
+    "Trapped in a word problem about two trains."
   ]
 };
