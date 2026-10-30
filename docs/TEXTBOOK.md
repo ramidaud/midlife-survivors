@@ -1109,3 +1109,16 @@ You walk right  ──────────────▶
 Bug:   code moves desk +420 px ──▶ physics adds +420 px again ──▶ desk lands at +840 (teleport!)
 Fix:   body.moves = false        ──▶ physics leaves the position alone
 ```
+
+---
+
+## Chapter: A full life in an hour (V. 1.15.0)
+
+```
+real minutes  0     5     12    20    30    40    50    60
+age           40    45    52    60    70    80    90    100
+              │     │     │     │     │     │     │     │
+              start  📈    🏠    🏎️    🏡    🏖️    🏓    💀
+                   review mortgage crisis HOA retire pickle DEATH (the win)
+```
+One number controls all of it: `secondsPerYear: 60`.

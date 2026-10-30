@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.14.1",
-  displayVersion: "V. 1.14.1",
+  version: "1.15.0",
+  displayVersion: "V. 1.15.0",
   lastUpdated: "Oct 30, 2026",
-  codename: "Steady Furniture",
-  build: 29,
+  codename: "A Full Life",
+  build: 30,
   changelog: [
+    {
+      ver: "V. 1.15.0",
+      date: "Oct 30, 2026",
+      title: "A Full Life",
+      highlights: [
+        "1 real minute = 1 year. A full run from 40 to 100 takes about an hour (Save & Exit keeps your place).",
+        "No more stop screen at 80: the retirement bonus (+15k, full health) pays out automatically and the run keeps going.",
+        "The only win is meeting Death at 100. Dying earlier is a regular Game Over."
+      ]
+    },
     {
       ver: "V. 1.14.1",
       date: "Oct 30, 2026",

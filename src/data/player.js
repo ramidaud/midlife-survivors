@@ -3,9 +3,9 @@
 window.PLAYER = {
   name: "You",
   startingAge: 40,
-  retirementAge: 80,  // Main Campaign Goal: Survive from Age 40 to Age 80!
-  maxSeniorAge: 100,  // Bonus Senior Rounds: 20 extra years (Age 80 to 100) of Senior Life chaos!
-  secondsPerYear: 15, // 15s of active unpaused combat = 1 year (so each Decade is 2m30s, and you can Save & Resume anytime!)
+  retirementAge: 80,  // Age 80: retirement bonus pays out automatically. The run keeps going.
+  maxSeniorAge: 100,  // Age 100: Death arrives. Meeting him is the win.
+  secondsPerYear: 60, // 1 real minute of play = 1 year. A full life (40 to 100) is about an hour. Save & Resume anytime.
   speed: 230,         // pixels per second
   size: 32,           // width and height of the square, in pixels
   maxHp: 12,          // starting health

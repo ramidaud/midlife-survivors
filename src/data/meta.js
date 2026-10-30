@@ -40,7 +40,7 @@ window.DECADE_CHECKPOINTS = [
   { age: 50, name: "Age 50: Silver Fox Era",      bonusLevels: 2 },
   { age: 60, name: "Age 60: Empty Nest Decade",   bonusLevels: 4 },
   { age: 70, name: "Age 70: HOA Battleground",    bonusLevels: 6 },
-  { age: 80, name: "Age 80: Senior Bonus Rounds", bonusLevels: 8 }
+  { age: 80, name: "Age 80: The Bonus Years", bonusLevels: 8 }
 ];
 
 // Default Cross-Device Input Configuration (Keyboard, Mouse, Touch & Game Controller)

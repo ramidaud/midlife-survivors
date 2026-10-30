@@ -198,3 +198,8 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - The office looks endless, but there are only **25 pieces of furniture**. As you walk, the ones behind you get picked up and set down ahead of you. That's called **object pooling**: reuse a few objects instead of creating thousands.
 - Bug: we moved a desk, then the physics engine saw "it moved!" and moved it **again** by the same amount. Two cooks, one pot.
 - Fix: tell physics this object never moves on its own (`body.moves = false`). It still blocks you; it just doesn't drift.
+
+## Time scale and fast-forward testing (Oct 30, A Full Life)
+- The whole game's pace hangs on one number: `secondsPerYear` in `src/data/player.js`. Changing 15 to 60 made every age-based event (bosses, chapters, dividends) four times further apart, with no other edits.
+- To test an hour-long run in seconds, the test **fast-forwards the clock** straight to age 80 or 100. Game developers do this constantly; nobody plays the whole hour to check the ending.
+- Each frame only counts a capped amount of time, so a laggy moment can't skip you ahead a whole year.

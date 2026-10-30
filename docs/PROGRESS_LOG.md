@@ -409,3 +409,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Cause 1: when furniture was recycled to a new spot, the physics engine applied the move a second time. Fix: furniture bodies no longer "move" on their own.
 - Cause 2: furniture near a mezzanine blinked depending on which platforms were loaded. Fix: platform positions come from one formula.
 - After: 0 jumps, 0 blinks, desks still block you. Next objective unchanged: Run length.
+
+## 2026-10-30: Objective 7 done, A Full Life (V. 1.15.0) (Claude)
+- Rami: furniture feels much more solid after the fix.
+- 1 real minute = 1 year (was 15 seconds). A full life, 40 to 100, is about an hour.
+- Age 80 no longer stops the game: +15k and full health pay out automatically with a lower third card.
+- Death at 100 is the only win; dying earlier is a regular Game Over. Death gets his own arrival message.
+- Tested by fast-forwarding to 80, 85 and 100: no stop screen at 80, normal Game Over at 85, victory on meeting Death. Next objective: Intensity curve.

@@ -23,6 +23,21 @@ Status: brainstorm. Everything here is a starting point for Rami to cut, rename 
 - **Spend 401(k) Coins** between runs on permanent upgrades.
 
 ## 2. The clock: age, not minutes
+**Current (V. 1.15.0):** 1 real minute = 1 year, ages 40 to 100, about an hour per full life.
+
+| Real time | Age | What happens |
+|---|---|---|
+| 0:00 | 40 | Bills start drifting in |
+| 5:00 | 45 | Boss: Annual Performance Review |
+| 12:00 | 52 | Boss: The 30-Year Mortgage |
+| 20:00 | 60 | Boss: The Midlife Crisis V8 |
+| 30:00 | 70 | Boss: The HOA Board President |
+| 39:12 | 79.2 | Boss: Mandatory Retirement Test |
+| 40:00 | 80 | Retirement bonus: +15k and full health, run keeps going |
+| 50:00 | 90 | Boss: 6AM Pickleball Champion |
+| 60:00 | 100 | Death arrives. Meeting him is the win |
+
+*Original 40-to-50 plan, kept for reference:*
 | Real time | Age | What changes |
 |---|---|---|
 | 0:00 | 40 | Light trickle of emails and notifications |

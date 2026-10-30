@@ -904,7 +904,7 @@ function hurtPlayer(p, bill) {
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
-  if (hp <= 0) showGameOver(scene, bill.kind || "bill", currentAge >= 80);
+  if (hp <= 0) showGameOver(scene, bill.kind || "bill", false); // dying is never a win; only meeting Death at 100 is
 }
 
 // The Game Over / Victory screen: freeze the world and render the HTML/CSS Exit Interview or AARP Certificate!
@@ -1284,7 +1284,8 @@ function spawnBoss(scene, bossKind) {
 
   showBossToastUI(P.name);
   if (window.pushContextEvent) {
-    window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500);
+    if (bossKind === "theReaper") window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);
+    else window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500);
   }
 }
 
@@ -1387,29 +1388,17 @@ function update(time, delta) {
     window.persistActiveRun();
   }
 
-  // Milestone Age 80 Retirement Modal: claim Victory or enter the 20 Bonus Senior Rounds (80-100)!
+  // Age 80 Retirement: the bonus pays out automatically and the run keeps going (no more stop screen).
+  // The only finish line is Death at 100.
   if (currentAge >= PLAYER.retirementAge && !retire80Prompted) {
     retire80Prompted = true;
-    retire80Open = true;
     meta.coins += 15;
     runCoins += 15;
+    hp = stats.maxHp; // a retirement party heals you up
+    updateHUD();
     window.persistActiveRun();
-    this.physics.pause();
-    this.time.paused = true;
-    player.setVelocity(0, 0);
     sfx("levelUp");
-    showRetire80Modal(this, () => {
-      retire80Open = false;
-      hp = stats.maxHp;
-      updateHUD();
-      touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
-      this.physics.resume();
-      this.time.paused = false;
-    }, () => {
-      retire80Open = false;
-      showGameOver(this, "theReaper", true);
-    });
-    return;
+    if (window.showLowerThird) window.showLowerThird("win", "RETIRED", "Age 80: +15k bonus and full health. Death arrives at 100.", 5500);
   }
 
   ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
