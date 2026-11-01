@@ -17,3 +17,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - For the site: About lead portrait and social previews. Not a playable-character asset. Source photograph remains outside the repository; older portrait remains intact.
 - Image size: 1536x1024, one horizontal illustration, full background.
 - Notes: inspected generated art, verified image loading and metadata, and checked desktop/phone layout and browser logs. No devlog post content changed, so share-page/RSS regeneration was not needed.
+
+## 2026-11-01: Bio portrait style refinement (Codex) [done]
+- What: Rami requested a stronger game-art treatment. Generated v2 using the first portrait as edit target and office key art as style reference, simplifying shapes, lighting and details.
+- Files: `assets/bio/rami-studio-pixel-v2.png`, `rami-studio-pixel-v2-prompt.txt`, `studio-about-preview-v2.jpg`; About and devlog README reference v2.
+- For the site: creator bio lead and social previews, 1536x1024. Older artwork retained. Desktop/phone fit, image references and browser logs checked; no gameplay changes.

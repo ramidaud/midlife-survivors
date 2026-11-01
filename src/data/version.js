@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.5",
-  displayVersion: "V. 1.28.5",
+  version: "1.28.6",
+  displayVersion: "V. 1.28.6",
   lastUpdated: "Nov 1, 2026",
-  codename: "One Office",
-  build: 61,
+  codename: "Drawn Into the Game",
+  build: 62,
   changelog: [
+    {
+      ver: "V. 1.28.6",
+      date: "Nov 1, 2026",
+      title: "Drawn Into the Game",
+      highlights: [
+        "Reworked the About portrait with chunkier game-art shapes, simpler shading, stronger navy outlines and the office key art's warm cream-and-teal lighting. Updated the bio and share image to the new revision."
+      ]
+    },
     {
       ver: "V. 1.28.5",
       date: "Nov 1, 2026",

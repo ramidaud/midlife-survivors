@@ -327,3 +327,6 @@ A four-frame walk needs opposite foot poses so it reads as walking rather than h
 
 ## Matching a photograph to a game palette (Nov 1, studio portrait, Codex)
 A photograph can join the game's visual world without turning its subject into a game character. Keep the recognizable face, pose and setting, then simplify surfaces into pixel-color clusters. Reusing navy shadows and warm cream highlights ties the portrait to the office art. A versioned image filename also helps the updated page avoid a stale cached portrait.
+
+## Shape language (Nov 1, bio refinement, Codex)
+Matching pixel sizes alone does not match an art style. **Shape language** means how an artist simplifies faces, props and shadows into recognizable forms. The revised portrait uses the same bold outlines and broad warm/cool shapes as the office art, with quieter interior detail. This makes it belong to the same world while keeping Rami recognizable.

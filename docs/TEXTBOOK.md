@@ -1427,3 +1427,13 @@ photo: face + pose + studio
 ```
 
 The subject remains the real creator. Shared color and edge treatment establish consistency with the game while preserving his personal setting. The page and its social metadata point to the same new image filename, with alt text describing the illustrated scene.
+
+## Chapter: Matching the drawing language (V. 1.28.5, Codex)
+
+```text
+recognizable face + broad shade clusters + navy outline
+                         |
+               same game-art language
+```
+
+Pixel size is one part of consistency. Face proportions, silhouette, color grouping and prop detail also matter. The second studio portrait uses the office key art as a direct style reference while preserving the real subject and setting.
