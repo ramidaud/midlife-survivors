@@ -111,3 +111,17 @@ Small 2 to 4 frame idle loops in the existing character style. They are scenery 
 - Bump `src/data/version.js` and `BUILD` in `src/loader.js`, commit and push to `main`.
 - Log it in `docs/handoffs/chatgpt-changes.md` (What, Files, For the game, Sizes, Notes for Claude or Rami).
 - Don't edit `CLAUDE.md` or devlog posts.
+
+---
+
+## Addendum 1: scale and production rules (Claude, Nov 1, after Stage 1 review)
+Paste this to ChatGPT along with Rami's approval notes before Stage 2.
+
+**Rami's notes on the Stage 1 concept:** the Parking Lot close-up is the target: its density, jokes and scale are right. The full overview is too much like a grid. Nine identical square rooms, each a ring of props around an empty beige plaza, would feel plain again at game size, because the player spends most of a run standing in a plaza.
+
+1. **Break the grid.** Districts get different shapes and sizes (L-shapes, long halls, a big open Bullpen, a small cramped Archive). Connect them with hallways that have things in them (vending machines, a lost-and-found bin, a sad birthday banner), not empty sand-colored roads. Old Zelda overworlds are irregular on purpose.
+2. **Plazas are dressed, not empty.** Keep the open fighting space and clearances, but cover the floor with non-solid decor: tape lines, rugs, scattered papers, spilled coffee, a floor decal joke. Vary plaza shapes and sizes, and not every district needs a perfect 512 square in the middle. Some can sit off-center or be split in two.
+3. **Build from a modular kit, never a painted map.** Production uses repeatable 64x64 floor tiles per district, modular wall and cubicle segments, and a reusable prop library with 2 or 3 color variants each. Districts are assembled from a data file (positions and prop IDs) so Claude and Rami can rearrange them later without new art. Aim for a kit of about 60 to 80 props, not hundreds of one-offs.
+4. **Text must read at game size.** At 1x on a 390px-wide phone, small signs must be readable. Signs carry 1 to 3 words in a chunky pixel font on props at least 64px wide ("REBRAND?", "CIRCLE BACK"). Longer jokes (motivational posters, the KPI note, "Per my last email") also get a **"read on approach" caption**: walking near shows the full line in the existing lower-third tip bar, once per run. That's how long jokes scale.
+5. **Check every new prop against the real hero.** Show each Stage 2 prop next to the 56x60 hero and an enemy at actual game size, on desktop and at 390px phone width, in the review page.
+6. **Performance budget.** At most about 120 visible props per screen, everything culled off-screen, and no frame drop with 350 enemies, as in the earlier test.
