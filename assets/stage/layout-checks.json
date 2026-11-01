@@ -1,0 +1,13 @@
+{
+  "districts": 9,
+  "mainRoutes": 6,
+  "branchLoops": 9,
+  "clearPlazas": 9,
+  "mainWidth": 224,
+  "branchWidth": 160,
+  "connected": true,
+  "wrapConnections": true,
+  "walkCells": 57672,
+  "landmarksOutsideRoutes": true,
+  "productionMapChanged": false
+}

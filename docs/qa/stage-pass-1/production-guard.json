@@ -1,0 +1,16 @@
+{
+  "unchanged": {
+    "src/world-art.js": "fac7739d34349ea2598eca3795efdcdc08abba039804893f68eb3a51acc78d1a",
+    "src/office-environment.js": "83a05ce8494181b9d5380944935f389ecebc551a8ad55555b1b0324410515225",
+    "src/main.js": "0d88811cc33fd61f2e02dc8385fc56378e8dd170e0067f46530dd4e84b6a56c5",
+    "src/data/office-layout.js": "18bc349d2ad1156db2e802ec8e79ce3ecdf6d5d296365bfb4c6149edd8dc89ed",
+    "src/enemy-art.js": "175c24ee2e485db56d1fad7f72c84a76a29aa9d35ee420a961f85f2ded06d219",
+    "src/data/enemies.js": "a4ef869e0e34626df2efc9e298183e70b63371ba5a25700b1cc79235da7d3958",
+    "src/leaderboard.js": "9c219154dd24e135c21350fdd8f459bd6ecd3489e54e6900c921ec0b68c080bd"
+  },
+  "exceptions": [
+    "src/data/version.js: release metadata only",
+    "src/loader.js: BUILD only"
+  ],
+  "stage": "Stage 1 proposal only"
+}

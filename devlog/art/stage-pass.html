@@ -1,0 +1,218 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corporate Campus: Stage Pass review | Midlife Survivors</title>
+<meta name="description" content="Stage 1 concept review: nine districts, connected loops and a literal indoor idea parking lot. Awaiting approval before game changes.">
+<link rel="icon" href="../../favicon.png?v=clock-1"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#171c35;color:#fff0cf;font:17px/1.5 'Atkinson Hyperlegible',system-ui,sans-serif}main{max-width:1480px;margin:auto;padding:24px}h1,h2,h3,.eyebrow,button{font-family:Silkscreen,monospace}h1{font-size:clamp(26px,4vw,42px);line-height:1.2;margin:14px 0}h2{font-size:24px}h3{font-size:18px;margin:0 0 8px}p{max-width:76ch}a{color:#f2d7a1}header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.eyebrow{font-size:12px;color:#83a89a;letter-spacing:.1em}.notice{padding:12px 16px;background:#303750;border-left:5px solid #ef9347;max-width:none}.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0}.controls label{display:flex;align-items:center;gap:6px;font-size:14px}button,select,.pill-link{border:1px solid #526078;background:#303750;color:#fff0cf;padding:10px 14px;border-radius:4px;font-size:13px;cursor:pointer}button[aria-pressed=true]{background:#3e7775;border-color:#83a89a}button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f2d7a1;outline-offset:3px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:20px}.map-panel{min-width:0}.map-view{aspect-ratio:16/9;background:#303750;border:2px solid #3e7775;overflow:auto}.map-view img,.map-view svg{display:block;width:100%;height:100%;object-fit:contain;image-rendering:pixelated}.map-view[hidden]{display:none}.caption{font-size:14px;color:#d3b78d;margin:10px 0 18px}.districts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.districts button{padding:8px;font-family:inherit;font-size:13px;text-align:left;min-height:58px}.detail{background:#242b43;border:1px solid #526078;padding:16px;align-self:start}.detail p{font-size:15px}.measure-note{font-size:13px;color:#83a89a}.detail ul{padding-left:20px}.detail li{margin:8px 0;font-size:15px}.parking{margin-top:40px;padding-top:16px;border-top:1px solid #526078}.parking img{display:block;width:100%;max-width:1280px;height:auto;border:2px solid #3e7775;image-rendering:pixelated}.scale-reference{display:flex;gap:16px;align-items:center;margin:18px 0;padding:12px 16px;background:#303750;max-width:1280px}.scale-reference canvas{width:56px;height:60px;flex:none;image-rendering:pixelated}.scale-reference p{margin:0;font-size:14px}.downloads{display:flex;gap:16px;flex-wrap:wrap;font-size:14px}footer{margin-top:32px;color:#83a89a;font-size:13px}.legend{font-size:13px;color:#d3b78d}.legend span{white-space:nowrap;margin-right:12px}.dot{display:inline-block;width:12px;height:12px;margin-right:5px;background:#83a89a}.dot.route{background:#d3b78d}.dot.camera{background:#ef9347}@media(max-width:850px){.layout{grid-template-columns:1fr}.detail{order:2}.districts{grid-template-columns:repeat(3,minmax(0,1fr))}main{padding:16px}}@media(max-width:480px){.districts{grid-template-columns:repeat(2,minmax(0,1fr))}.controls{gap:8px}.controls button{flex:1}h2{font-size:20px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body><main>
+<header><a href="./">← Art Room</a><span class="eyebrow">MIDLIFE SURVIVORS / STAGE PASS / 01</span></header>
+<h1>An office big enough to get lost in.</h1>
+<p>Nine districts, nine landmarks and room for a very bad meeting to become a very large fight.</p>
+<p class="notice"><strong>Stage 1: awaiting Rami’s review.</strong> These are proposals. The playable map is unchanged. Props, posters, coworkers and overworld implementation follow layout approval.</p>
+<section id="overview" aria-labelledby="overview-heading"><h2 id="overview-heading">The whole campus</h2>
+<p>Switch from the illustrated direction to the measured plan to inspect the open spaces. Choose a district for its landmark and jokes.</p>
+<div class="controls"><button id="illustrated" aria-pressed="true">Illustrated concept</button><button id="measured" aria-pressed="false">Measured plan</button><label>Zoom <select id="zoom"><option value="1">Fit</option><option value="2">2×</option><option value="4">4×</option></select></label><label><input type="checkbox" id="measures"> Route widths and plazas</label><label><input type="checkbox" id="grid"> 6 × 4 planning grid</label><a href="#parking" class="pill-link">Parking Lot close-up ↓</a></div>
+<div class="layout"><div class="map-panel">
+<div class="map-view" id="painting"><img src="../../assets/stage/campus-overview-v1.png" width="1671" height="941" alt="Illustrated Corporate Campus overview: Archive, Server Room and Executive Wing to the north; Parking Lot, Lobby and Bullpen across the middle; Wellness, Break Room and Conference Rooms to the south."></div>
+<div class="map-view" id="blueprint" hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7680 4320" role="img" aria-labelledby="map-title map-desc">
+<title id="map-title">Corporate Campus measured layout proposal</title>
+<desc id="map-desc">Nine districts, 224-pixel main loops, 160-pixel branches, nine clear 512-pixel plazas, and a 1280 by 800 Parking Lot camera box. Not the production map.</desc>
+<style>text{font-family:monospace;fill:#fff0cf}.district-hit{fill:transparent;stroke:transparent;stroke-width:24;cursor:pointer}.district-hit:hover,.district-hit:focus{stroke:#f2d7a1;outline:none}.selected .district-hit{stroke:#ef9347}.measure{display:none}.show-measures .measure{display:block}.planning{display:none}.show-grid .planning{display:block}</style>
+<rect width="7680" height="4320" fill="#171c35"/>
+<rect x="0" y="0" width="2560" height="1440" fill="#526078" opacity=".7"/>
+<rect x="2560" y="0" width="2560" height="1440" fill="#303750" opacity=".7"/>
+<rect x="5120" y="0" width="2560" height="1440" fill="#874c3b" opacity=".7"/>
+<rect x="0" y="1440" width="2560" height="1440" fill="#526078" opacity=".7"/>
+<rect x="2560" y="1440" width="2560" height="1440" fill="#a88b70" opacity=".7"/>
+<rect x="5120" y="1440" width="2560" height="1440" fill="#3e7775" opacity=".7"/>
+<rect x="0" y="2880" width="2560" height="1440" fill="#83a89a" opacity=".7"/>
+<rect x="2560" y="2880" width="2560" height="1440" fill="#a88b70" opacity=".7"/>
+<rect x="5120" y="2880" width="2560" height="1440" fill="#3e7775" opacity=".7"/>
+<g class="planning" stroke="#fff0cf" stroke-width="8" opacity=".2">
+<path d="M1280 0V4320"/>
+<path d="M2560 0V4320"/>
+<path d="M3840 0V4320"/>
+<path d="M5120 0V4320"/>
+<path d="M6400 0V4320"/>
+<path d="M0 1080H7680"/>
+<path d="M0 2160H7680"/>
+<path d="M0 3240H7680"/>
+</g>
+<rect x="384" y="160" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="384" y="1120" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="304" y="240" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="2096" y="240" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="2944" y="160" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="2944" y="1120" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="2864" y="240" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="4656" y="240" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="5504" y="160" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="5504" y="1120" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="5424" y="240" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="7216" y="240" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="384" y="1600" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="384" y="2560" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="304" y="1680" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="2096" y="1680" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="2944" y="1600" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="2944" y="2560" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="2864" y="1680" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="4656" y="1680" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="5504" y="1600" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="5504" y="2560" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="5424" y="1680" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="7216" y="1680" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="384" y="3040" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="384" y="4000" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="304" y="3120" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="2096" y="3120" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="2944" y="3040" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="2944" y="4000" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="2864" y="3120" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="4656" y="3120" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="5504" y="3040" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="5504" y="4000" width="1792" height="160" fill="#a88b70" opacity=".7"/>
+<rect x="5424" y="3120" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="7216" y="3120" width="160" height="960" fill="#a88b70" opacity=".7"/>
+<rect x="0" y="608" width="7680" height="224" fill="#d3b78d"/>
+<rect x="0" y="2048" width="7680" height="224" fill="#d3b78d"/>
+<rect x="0" y="3488" width="7680" height="224" fill="#d3b78d"/>
+<rect x="1168" y="0" width="224" height="4320" fill="#d3b78d"/>
+<rect x="3728" y="0" width="224" height="4320" fill="#d3b78d"/>
+<rect x="6288" y="0" width="224" height="4320" fill="#d3b78d"/>
+<g data-district="archive" class="district">
+<rect x="1024" y="464" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="1280" y="695" text-anchor="middle" font-size="72">01</text><text x="1280" y="805" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="528" y="192" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="560" y="336" width="160" height="48" fill="#f2d7a1"/>
+<text x="640" y="284" text-anchor="middle" font-size="64">01</text>
+<text x="128" y="100" font-size="70" font-weight="bold">01 SUPPLY CLOSET / ARCHIVE</text>
+<text x="128" y="190" font-size="48">The lost binder</text>
+<text class="measure" x="1280" y="910" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="16" y="16" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Supply Closet / Archive" data-id="archive"/>
+</g>
+<g data-district="server" class="district">
+<rect x="3584" y="464" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="3840" y="695" text-anchor="middle" font-size="72">02</text><text x="3840" y="805" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="3088" y="192" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="3120" y="336" width="160" height="48" fill="#f2d7a1"/>
+<text x="3200" y="284" text-anchor="middle" font-size="64">02</text>
+<text x="2688" y="100" font-size="70" font-weight="bold">02 SERVER ROOM</text>
+<text x="2688" y="190" font-size="48">Taken Offline</text>
+<text class="measure" x="3840" y="910" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="2576" y="16" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Server Room" data-id="server"/>
+</g>
+<g data-district="executive" class="district">
+<rect x="6144" y="464" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="6400" y="695" text-anchor="middle" font-size="72">03</text><text x="6400" y="805" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="5648" y="192" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="5680" y="336" width="160" height="48" fill="#f2d7a1"/>
+<text x="5760" y="284" text-anchor="middle" font-size="64">03</text>
+<text x="5248" y="100" font-size="70" font-weight="bold">03 EXECUTIVE WING</text>
+<text x="5248" y="190" font-size="48">Thought Leadership</text>
+<text class="measure" x="6400" y="910" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="5136" y="16" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Executive Wing" data-id="executive"/>
+</g>
+<g data-district="parking" class="district">
+<rect x="1024" y="1904" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="1280" y="2135" text-anchor="middle" font-size="72">04</text><text x="1280" y="2245" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="528" y="1632" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="560" y="1776" width="160" height="48" fill="#f2d7a1"/>
+<text x="640" y="1724" text-anchor="middle" font-size="64">04</text>
+<text x="128" y="1540" font-size="70" font-weight="bold">04 THE PARKING LOT</text>
+<text x="128" y="1630" font-size="48">Parked Ideas</text>
+<text class="measure" x="1280" y="2350" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="16" y="1456" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect The Parking Lot" data-id="parking"/>
+</g>
+<g data-district="lobby" class="district">
+<rect x="3584" y="1904" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="3840" y="2135" text-anchor="middle" font-size="72">05</text><text x="3840" y="2245" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="3088" y="1632" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="3120" y="1776" width="160" height="48" fill="#f2d7a1"/>
+<text x="3200" y="1724" text-anchor="middle" font-size="64">05</text>
+<text x="2688" y="1540" font-size="70" font-weight="bold">05 LOBBY AND RECEPTION</text>
+<text x="2688" y="1630" font-size="48">Please Wait to Be Ignored</text>
+<text class="measure" x="3840" y="2350" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="2576" y="1456" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Lobby and Reception" data-id="lobby"/>
+</g>
+<g data-district="bullpen" class="district">
+<rect x="6144" y="1904" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="6400" y="2135" text-anchor="middle" font-size="72">06</text><text x="6400" y="2245" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="5648" y="1632" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="5680" y="1776" width="160" height="48" fill="#f2d7a1"/>
+<text x="5760" y="1724" text-anchor="middle" font-size="64">06</text>
+<text x="5248" y="1540" font-size="70" font-weight="bold">06 THE BULLPEN</text>
+<text x="5248" y="1630" font-size="48">Q4 Goals</text>
+<text class="measure" x="6400" y="2350" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="5136" y="1456" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect The Bullpen" data-id="bullpen"/>
+</g>
+<g data-district="wellness" class="district">
+<rect x="1024" y="3344" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="1280" y="3575" text-anchor="middle" font-size="72">07</text><text x="1280" y="3685" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="528" y="3072" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="560" y="3216" width="160" height="48" fill="#f2d7a1"/>
+<text x="640" y="3164" text-anchor="middle" font-size="64">07</text>
+<text x="128" y="2980" font-size="70" font-weight="bold">07 WELLNESS CORNER</text>
+<text x="128" y="3070" font-size="48">Mandatory Fun</text>
+<text class="measure" x="1280" y="3790" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="16" y="2896" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Wellness Corner" data-id="wellness"/>
+</g>
+<g data-district="breakroom" class="district">
+<rect x="3584" y="3344" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="3840" y="3575" text-anchor="middle" font-size="72">08</text><text x="3840" y="3685" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="3088" y="3072" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="3120" y="3216" width="160" height="48" fill="#f2d7a1"/>
+<text x="3200" y="3164" text-anchor="middle" font-size="64">08</text>
+<text x="2688" y="2980" font-size="70" font-weight="bold">08 BREAK ROOM AND WATER COOLER</text>
+<text x="2688" y="3070" font-size="48">The Permanent Huddle</text>
+<text class="measure" x="3840" y="3790" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="2576" y="2896" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Break Room and Water Cooler" data-id="breakroom"/>
+</g>
+<g data-district="conference" class="district">
+<rect x="6144" y="3344" width="512" height="512" fill="#303750" stroke="#83a89a" stroke-width="10"/>
+<text x="6400" y="3575" text-anchor="middle" font-size="72">09</text><text x="6400" y="3685" text-anchor="middle" font-size="48">CLEAR PLAZA</text>
+<rect x="5648" y="3072" width="224" height="192" fill="#526078" stroke="#171c35" stroke-width="12"/>
+<rect x="5680" y="3216" width="160" height="48" fill="#f2d7a1"/>
+<text x="5760" y="3164" text-anchor="middle" font-size="64">09</text>
+<text x="5248" y="2980" font-size="70" font-weight="bold">09 CONFERENCE ROOMS</text>
+<text x="5248" y="3070" font-size="48">The Nine-Hour Meeting</text>
+<text class="measure" x="6400" y="3790" text-anchor="middle" font-size="44">512 × 512</text>
+<rect x="5136" y="2896" width="2528" height="1408" class="district-hit" role="button" tabindex="0" aria-label="Inspect Conference Rooms" data-id="conference"/>
+</g>
+<g class="measure" fill="none" stroke="#fff0cf" stroke-width="8">
+<path d="M3728 2100H3952M3728 2060V2140M3952 2060V2140"/>
+</g>
+<text class="measure" x="4010" y="2080" font-size="52">224 px main</text>
+<rect x="640" y="1760" width="1280" height="800" fill="none" stroke="#ef9347" stroke-width="18" stroke-dasharray="40 24" pointer-events="none"/>
+<text x="640" y="1700" font-size="56" fill="#ef9347">PARKING LOT CAMERA 1280 × 800</text>
+<circle cx="3840" cy="2160" r="28" fill="#ef9347"/><text x="3890" y="2180" font-size="44">START</text></svg>
+</div>
+<p id="mode-caption" class="caption">Illustrated direction for mood, district identity and landmarks. The measured plan governs the proposed scale and clearances.</p>
+<div class="legend"><span><i class="dot route"></i>224 px main routes</span><span><i class="dot"></i>512 × 512 clear plazas</span><span><i class="dot camera"></i>1280 × 800 camera</span></div>
+<div id="district-buttons" class="districts" aria-label="Inspect district"></div>
+</div><aside class="detail" aria-live="polite"><div class="eyebrow" id="district-number">05 / START</div><h3 id="district-name">Lobby and Reception</h3><strong id="landmark"></strong><p id="description"></p><p id="vibe"></p><ul id="jokes"></ul><p class="measure-note">Each district reserves one 512 × 512 plaza without solid props. Main routes are 224 px; side loops are 160 px. Landmark markers sit outside these lanes.</p></aside></div>
+<p class="caption">Proposed repeating world: 7680 × 4320 px, about 5.3 times the area of the current section. The brief’s 6 × 4 planning panels are 1280 × 1080; the actual 1280 × 800 camera outline is shown separately. Corridors join opposite edges for eventual wrapping.</p>
+<div class="downloads"><a href="../../assets/stage/campus-overview-v1.png">Full overview PNG</a><a href="../../assets/stage/campus-plan.svg">Measured plan SVG</a><a href="../../assets/stage/campus-layout-concept.json">Layout proposal</a></div>
+</section>
+<section class="parking" id="parking" aria-labelledby="parking-heading"><h2 id="parking-heading">“Let’s put that in the parking lot.”</h2><p>Ideas, parked literally. Dave’s has a boot. The open middle is fighting space, with four ways out.</p>
+<img loading="lazy" src="../../assets/stage/parking-lot-closeup-v1.png" width="1280" height="800" alt="Parking Lot concept: four parked idea cars surround an open cross-shaped route, with Rebrand, Blockchain, Casual Fridays and a clamped Dave’s Idea. A small office hero holds coffee in the center.">
+<p class="caption">One 1280 × 800 camera study. Concept illustration, not a running game screenshot or finished tile kit. Labels and incidental figures are part of this proposal; future native assets will follow the approved footprint plan.</p>
+<div class="scale-reference"><canvas width="56" height="60" id="native-hero" role="img" aria-label="Existing 9-to-5er sprite at its actual 56 by 60 pixel frame size"></canvas><p><strong>Actual hero frame: 56 × 60 px at 1×.</strong><br>This existing native sprite is a scale reference for the proposed scene. On smaller screens the large concept image fits the page; the reference keeps its native size.</p></div>
+<div class="downloads"><a href="../../assets/stage/parking-lot-closeup-v1.png">Full camera-study PNG</a><a href="../../assets/stage/campus-manifest.json">Concept manifest</a></div>
+</section><footer>Built-in imagegen illustrations and an authored measured plan. Stage 1 only. No game map, collisions, combat, leaderboard or save behavior changed.</footer>
+</main><script src="../../assets/stage/campus-plan-data.js?v=1"></script><script src="../../assets/characters/character-data.js?v=1"></script><script>
+(()=>{
+ const plan=window.CAMPUS_CONCEPT,painting=document.getElementById('painting'),blueprint=document.getElementById('blueprint'),svg=blueprint.querySelector('svg');
+ const art=document.getElementById('illustrated'),measured=document.getElementById('measured'),caption=document.getElementById('mode-caption');
+ function mode(showPlan){painting.hidden=showPlan;blueprint.hidden=!showPlan;art.setAttribute('aria-pressed',String(!showPlan));measured.setAttribute('aria-pressed',String(showPlan));caption.textContent=showPlan?'Measured geometry: 224 px main routes, 160 px branch loops, and nine reserved 512 × 512 plazas. Landmark blocks indicate footprints, not final assets.':'Illustrated direction for mood, district identity and landmarks. The measured plan governs the proposed scale and clearances.';}
+ function select(id){const d=plan.districts.find(d=>d.id===id);document.getElementById('district-number').textContent=String(plan.districts.indexOf(d)+1).padStart(2,'0')+(id==='lobby'?' / START':'');document.getElementById('district-name').textContent=d.name;document.getElementById('landmark').textContent=d.landmark;document.getElementById('description').textContent=d.description;document.getElementById('vibe').textContent=d.vibe;const list=document.getElementById('jokes');list.replaceChildren();for(const joke of d.jokes){const li=document.createElement('li');li.textContent=joke;list.append(li);}for(const b of document.querySelectorAll('[data-district-button]'))b.setAttribute('aria-pressed',String(b.dataset.districtButton===id));for(const g of svg.querySelectorAll('.district'))g.classList.toggle('selected',g.dataset.district===id);}
+ for(const [i,d]of plan.districts.entries()){const b=document.createElement('button');b.dataset.districtButton=d.id;b.textContent=String(i+1).padStart(2,'0')+' '+d.name;b.onclick=()=>select(d.id);document.getElementById('district-buttons').append(b);}
+ for(const hit of svg.querySelectorAll('.district-hit')){hit.addEventListener('click',()=>select(hit.dataset.id));hit.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();select(hit.dataset.id);}});}
+ document.getElementById('zoom').onchange=e=>{for(const content of [painting.querySelector('img'),svg]){content.style.width=Number(e.target.value)*100+'%';content.style.height=Number(e.target.value)*100+'%';}for(const box of [painting,blueprint]){box.scrollTop=0;box.scrollLeft=0;}};
+ art.onclick=()=>mode(false);measured.onclick=()=>mode(true);
+ document.getElementById('measures').onchange=e=>{svg.classList.toggle('show-measures',e.target.checked);if(e.target.checked)mode(true);};document.getElementById('grid').onchange=e=>{svg.classList.toggle('show-grid',e.target.checked);if(e.target.checked)mode(true);};
+ const image=new Image();image.onload=()=>{const ctx=document.getElementById('native-hero').getContext('2d',{willReadFrequently:true});ctx.imageSmoothingEnabled=false;ctx.drawImage(image,56,0,56,60,0,0,56,60);const pixels=ctx.getImageData(0,0,56,60);for(let i=0;i<pixels.data.length;i+=4)if(pixels.data[i]===255&&pixels.data[i+1]===0&&pixels.data[i+2]===255)pixels.data[i+3]=0;ctx.putImageData(pixels,0,0);};image.src=window.CHARACTER_SHEETS.officeWorker;
+ select('lobby');
+})();
+</script></body></html>

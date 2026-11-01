@@ -1492,3 +1492,15 @@ static article ──> direct shared link
 ```
 
 The simplified twins portrait follows the birth announcement in both views. A versioned filename avoids stale-image caching. The older illustration stays available while the article uses the new file.
+
+## Chapter: Planning an overworld before building it (V. 1.28.16, Codex)
+
+```text
+Archive       Server        Executive
+   |--- plaza loops and broad routes ---|
+Parking       Lobby/start   Bullpen
+   |--- plaza loops and broad routes ---|
+Wellness      Break Room    Conference
+```
+
+Each district has a recognizable landmark outside its clear fighting plaza. Main paths are 224px wide; side loops are 160px. A 16px-grid check verifies that all proposed routes and nine 512x512 plazas connect across wrapping edges. The illustrated map expresses the mood; the measured plan controls dimensions. Neither replaces the live world until the layout is approved.

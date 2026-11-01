@@ -680,3 +680,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Platform goal set: Steam, then PlayStation and Xbox (roadmap section added). Stage art pass added to Next up: funnier, more props, inside jokes.
 - Added a one-screen link page at /links/ (Play, Devlog, Discord, Coffee) for Instagram, Threads and QR codes.
 - Wrote the ChatGPT stage pass brief from Rami's jokes: a Zelda-style overworld with nine districts, literal corporate slang props, ambient coworkers and posters gone wrong. Overworld mockup first, for Rami's approval.
+
+## 2026-11-01: Stage Pass 1, Parked Ideas, V. 1.28.16 (Codex)
+- Followed Rami’s Stage Pass handoff through Stage 1 only. Created a full-campus concept and a Parking Lot camera study with parked-idea cars, Dave’s wheel clamp and corporate-slang vignettes. Added both to the Art Room.
+- Authored a separate measured 7680x4320 proposal: nine districts, connected wrapping routes, 224px main lanes, 160px side loops and nine reserved 512x512 plazas. Kept the brief’s world size while showing its 6x4 planning grid separately from the real 1280x800 camera.
+- Review page supports district inspection, illustration/plan switching, measurements and zoom. Saved prompts, sources, manifest and geometry checks. Corrected illustration scale before delivery; concept paintings remain separate from precise collision planning.
+- Stage 1 review checks cover desktop/phone loading, controls and layout. Production world, collisions, combat, leaderboard and posts are unchanged. Stop here for Rami’s approval before props/posters, coworker sheets or overworld implementation.

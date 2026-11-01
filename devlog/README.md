@@ -56,3 +56,6 @@ The Art Room links to `../assets/enemies/review.html`, an isolated animation rev
 
 ## Coffee-post twins illustration (Nov 1, Codex)
 Post 05's Why now section uses `img/05-twins-pixel-v2.png`, Rami's simplified 1536x1152 edit, immediately after the birth announcement. The full edit prompt is alongside it. The earlier `05-twins-pixel.png` is retained. Markdown and the direct static article reference v2; the lead image/share card remain about the coffee button. The builder was run, with existing published HTML preserved against this environment's minimal Markdown fallback.
+
+## Stage Pass concept review (Nov 1, Codex)
+The Art Room now shows the two Stage 1 campus concepts and links to `art/stage-pass.html`: nine-district illustration, measured route/plaza plan, zoom, district inspection and Parking Lot camera study. Files and prompts are under `../assets/stage/`. This is approval-stage art only; the walkable preview and production world remain unchanged. No post or RSS content changed.

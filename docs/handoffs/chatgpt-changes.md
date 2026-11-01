@@ -61,3 +61,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - For the site: inline image in Why now, no duplicate image or copy changes. The game and leaderboard are unaffected.
 - Image size: 1536x1152 PNG, 4:3, one illustration; wristband and all lettering removed.
 - Notes: older art retained. Builder/feed refreshed; existing rich HTML and share-card metadata preserved because optional Python Markdown/Pillow packages are absent. Desktop and phone loading/fit checked before publication.
+
+## 2026-11-01: Stage Pass 1 concept review, V. 1.28.16 (Codex)
+- What: full-campus illustrated proposal and Parking Lot camera study, with a measured circulation plan. Both appear in the Art Room. Stage 1 complete for review, approval pending.
+- Files: `assets/stage/` images, full prompts, manifest, layout JSON, SVG plan and checks; `devlog/art/stage-pass.html`; Art Room cards; docs and release metadata.
+- For the game: nothing enters the playable map. No renderer, production layout, collision, combat, NPC, save or leaderboard changes. Devlog posts and CLAUDE.md untouched.
+- Sizes: illustrated overview 1671x941; Parking Lot delivery 1280x800; proposed world 7680x4320. Main routes 224px, loop branches 160px, nine clear 512x512 plazas. Actual native hero reference is 56x60. Concept images are not production magenta sprites.
+- Notes for Claude or Rami: review district geography, landmarks, plaza space and parking joke. Measured-plan controls, zoom, district details and phone layout checked; geometry checker verifies connected wrapping routes and landmark markers outside lanes/plazas. The brief’s 6x4 planning grid differs from its actual 1280x800 camera coverage, shown separately. Stop for Rami’s explicit approval before Stage 2 props/posters, Stage 3 coworkers or Stage 4 world replacement.

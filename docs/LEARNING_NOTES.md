@@ -359,3 +359,8 @@ In a three-quarter view, a desk's drawing extends upward from the place it touch
 
 ## Versioning a published image (Nov 1, twins portrait, Codex)
 A new image filename lets a published page load a revision without relying on readers to clear their browser cache. The devlog has both a Markdown source and a static share page; both must reference the same image. Keeping the previous PNG makes reverting the art a small reference change.
+
+## Landmarks, loops and fighting space (Nov 1, Stage Pass, Codex)
+A **landmark** lets you recognize an area without opening a map. A **loop** gives you another way out when enemies follow. A clear plaza gives a swarm room to spread out. In the campus proposal, the illustration tests the personality while a separate measured plan checks that those spaces actually connect.
+
+`landmark pocket → clear plaza → two or more routes → next district`

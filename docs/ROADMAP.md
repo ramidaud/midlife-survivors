@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-01 (Codex: approved heroes and Corporate Campus now in the main game)
+**Last updated:** 2026-11-01 (Codex: Stage Pass 1 campus and Parking Lot proposals ready for approval)
 
 ---
 
@@ -158,3 +158,10 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 
 ### Coffee-post illustration (Nov 1, Codex)
 - [x] Place Rami's simplified twins portrait in the published coffee memo's Why now section, replacing the previous illustration (V. 1.28.15).
+
+### Stage Pass: authored overworld (Nov 1, Codex)
+- [x] Stage 1: illustrated nine-district campus and Parking Lot camera study in the Art Room, with a measured 7680x4320 proposal and clear routes/plazas (V. 1.28.16).
+- [ ] Rami approves district layout, landmark direction and Parking Lot concept. Stop here until approval.
+- [ ] Stage 2: native props/posters and review page.
+- [ ] Stage 3: ambient coworker idle sheets and review page.
+- [ ] Stage 4: authored wrapping overworld, explored-path map and age-50 crowd/performance checks.

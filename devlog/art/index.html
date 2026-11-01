@@ -28,6 +28,14 @@
     border-radius: 8px; box-shadow: 0 0 0 2px var(--teal, #3E7775); }
   .art-intro { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 4px 0 16px; }
   .art-wrap { max-width: 1180px; }
+  .stage-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:16px 0 24px; }
+  .stage-card { display:block; color:var(--warm-white,#FFF0CF); text-decoration:none; background:#242b43; border:2px solid #3E7775; border-radius:6px; overflow:hidden; }
+  .stage-card img { display:block; width:100%; aspect-ratio:16/10; object-fit:contain; image-rendering:pixelated; background:#171C35; }
+  .stage-card span { display:block; padding:12px; font-size:14px; }
+  .stage-card strong { display:block; margin-bottom:5px; }
+  .stage-card:focus-visible { outline:3px solid #F2D7A1; outline-offset:4px; }
+  .stage-status { color:#EF9347; font-size:13px; }
+  @media(max-width:640px) { .stage-grid { grid-template-columns:1fr; } }
   .gallery { margin: 8px 0 34px; }
   .gallery-h { font-size: 22px; margin: 26px 0 4px; color: var(--warm-white, #FFF0CF); }
   .gallery-sub { margin: 0 0 14px; color: var(--muted, #a3a8c7); font-size: 15px; }
@@ -79,6 +87,16 @@
       <a class="btn btn-ghost" href="../../assets/enemies/review.html">Review animated enemies</a>
       <a class="btn btn-ghost" href="../">Read the build memos</a>
     </div>
+    <section aria-labelledby="stage-pass-h">
+      <h2 class="gallery-h" id="stage-pass-h">Stage Pass: an office worth getting lost in</h2>
+      <p class="stage-status">STAGE 1 · CONCEPT REVIEW · AWAITING RAMI’S APPROVAL</p>
+      <p class="gallery-sub">A larger nine-district overworld and the literal idea Parking Lot. The playable office stays as it is while we review this direction.</p>
+      <a class="btn btn-ghost" href="stage-pass.html">Review campus, routes and plazas</a>
+      <div class="stage-grid">
+        <a class="stage-card" href="stage-pass.html#overview"><img src="../../assets/stage/campus-overview-v1.png" width="1671" height="941" alt="Nine-district Corporate Campus illustrated proposal"><span><strong>The whole campus</strong>Distinct districts, recognizable landmarks and connected loops. Open the measured plan to inspect clearances.</span></a>
+        <a class="stage-card" href="stage-pass.html#parking"><img src="../../assets/stage/parking-lot-closeup-v1.png" width="1280" height="800" alt="Parking Lot concept with parked idea cars, a wheel clamp and a clear central route"><span><strong>Let’s put that in the parking lot</strong>Rebrand, Blockchain, Casual Fridays and Dave’s Idea. A one-screen camera study.</span></a>
+      </div>
+    </section>
     <section class="gallery" aria-labelledby="gallery-h">
       <h2 class="gallery-h" id="gallery-h">Key art</h2>
       <p class="gallery-sub">Illustrations made with ChatGPT and Codex from Rami's briefs, used for covers and menus. Concept art, not gameplay.</p>

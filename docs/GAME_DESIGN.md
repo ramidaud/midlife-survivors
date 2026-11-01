@@ -380,3 +380,10 @@ Post 05 now uses the simplified 4:3 twins illustration beside the birth announce
 
 ### Platform goal (Nov 1, Rami)
 - Long-term goal: **Steam, then PlayStation and Xbox.** Plan: finish the browser game, launch on Steam in a desktop wrapper, build an audience, then go to consoles, ideally with a publisher who handles the port. Details in ROADMAP.md under "Platforms".
+
+## Stage Pass 1 proposal: Corporate Campus overworld (Nov 1, 2026, Codex)
+**Awaiting approval.** Proposed extent is 7680x4320, with Archive / Server / Executive north; Parking Lot / Lobby / Bullpen middle; Wellness / Break Room / Conference south. The bright central Lobby is the start. Districts use recognizable landmarks and literal corporate slang; the Parking Lot is the signature joke.
+
+The measured proposal reserves a 512x512 prop-free plaza in each district, 224px primary routes and 160px branch loops, with matching edge exits for future wrapping. The 6x4 planning panels are 1280x1080; at the actual 1280x800 camera the requested extent is about 6x5.4 views. Illustrated mood maps do not establish pixel-exact footprints.
+
+Stage 1 assets and geometry live under `assets/stage/`; the Art Room links to `devlog/art/stage-pass.html`. No runtime map or collision rules are changed. Rami’s handoff explicitly requires approval after Stage 1; native props/posters, coworkers and implementation remain later stages.

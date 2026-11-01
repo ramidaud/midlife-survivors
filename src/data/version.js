@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.15",
-  displayVersion: "V. 1.28.15",
+  version: "1.28.16",
+  displayVersion: "V. 1.28.16",
   lastUpdated: "Nov 1, 2026",
-  codename: "Two New Humans",
-  build: 71,
+  codename: "Parked Ideas",
+  build: 72,
   changelog: [
+    {
+      ver: "V. 1.28.16",
+      date: "Nov 1, 2026",
+      title: "Parked Ideas",
+      highlights: ["The Art Room has a nine-district campus proposal, measured route/plaza plan and literal idea Parking Lot concept for review. The playable world is unchanged pending approval."]
+    },
     {
       ver: "V. 1.28.15",
       date: "Nov 1, 2026",

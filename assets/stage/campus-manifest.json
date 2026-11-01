@@ -1,0 +1,52 @@
+{
+  "batch": "stage-pass-1",
+  "status": "awaiting-approval",
+  "productionReady": false,
+  "worldSize": [
+    7680,
+    4320
+  ],
+  "assets": [
+    {
+      "id": "campus-overview",
+      "file": "campus-overview-v1.png",
+      "size": [
+        1671,
+        941
+      ],
+      "floorFootprint": null,
+      "solid": false,
+      "kind": "concept-illustration",
+      "district": "all",
+      "frameCount": 1,
+      "status": "awaiting-stage-1-approval",
+      "sha256": "d566d552f69fac6a1f2d7e82b21614315069af744452c4043e87a489dd68a903",
+      "prompt": "campus-overview-v1-prompt.txt"
+    },
+    {
+      "id": "parking-lot-closeup",
+      "file": "parking-lot-closeup-v1.png",
+      "size": [
+        1280,
+        800
+      ],
+      "floorFootprint": null,
+      "solid": false,
+      "kind": "concept-illustration",
+      "district": "parking",
+      "frameCount": 1,
+      "status": "awaiting-stage-1-approval",
+      "sha256": "868f2d7c905fef49208bbf66c304fbffce36ab80abc1ada0967375980f28aedf",
+      "prompt": "parking-lot-closeup-v1-prompt.txt"
+    }
+  ],
+  "layout": "campus-layout-concept.json",
+  "measuredPlan": "campus-plan.svg",
+  "review": "../../devlog/art/stage-pass.html",
+  "notes": [
+    "Concept paintings include illustrative light/contact cues and full backgrounds; they are not magenta sprite exports.",
+    "Future production props keep exact magenta, native sizes, code-drawn shadows and floor-footprint collisions.",
+    "No Stage 2 props, posters or Stage 3 coworker sheets have been generated.",
+    "Illustration is not a pixel-accurate collision map. The measured plan reserves route and plaza geometry."
+  ]
+}
