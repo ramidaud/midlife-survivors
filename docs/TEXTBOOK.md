@@ -2,6 +2,19 @@
 
 A picture-first guide to how this game works, one chapter per idea. Each chapter adds what we just built. Read it in any order, but it makes the most sense from top to bottom.
 
+## Environment layers: make the room support the action (Nov 1, 2026, Codex)
+
+```text
+  Health bar                         always readable
+  Furniture + people                 ordered by floor contact
+  Light pools + paper + short shadows quiet detail
+  Carpet / wood                      repeating seamless patterns
+```
+
+`Floor -> light and floor marks -> furniture and people -> health bar`
+
+The office kit separates solid illustrated props from flat floor details. The cabinet and printer block their floor footprints; papers and coffee stains do not. The 64x64 carpet and wood textures have identical opposite edges, so copies join seamlessly on the existing 32px grid. Low-contrast floors and small upper-left light accents keep attention on moving characters and discoveries.
+
 ## Character animation: four directions, one consistent frame (Oct 31, 2026, Codex)
 
 ```text

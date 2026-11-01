@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.24.0",
-  displayVersion: "V. 1.24.0",
-  lastUpdated: "Oct 31, 2026",
-  codename: "Midlife Is Hard",
-  build: 48,
+  version: "1.24.1",
+  displayVersion: "V. 1.24.1",
+  lastUpdated: "Nov 1, 2026",
+  codename: "Office Details",
+  build: 49,
   changelog: [
+    {
+      ver: "V. 1.24.1",
+      date: "Nov 1, 2026",
+      title: "An Office With Some History",
+      highlights: [
+        "The Campus art test has new office floors, warm lighting accents, a jammed printer, filing cabinet and drooping plant.",
+        "Visit Accounts jumps to the first detailed section. Native props and seamless floor tiles can be downloaded in the environment gallery."
+      ]
+    },
     {
       ver: "V. 1.24.0",
       date: "Oct 31, 2026",

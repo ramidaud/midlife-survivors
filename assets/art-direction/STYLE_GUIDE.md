@@ -35,6 +35,7 @@ These are production targets, not a claim that the generated concept contains on
 - Readability: coffee orange is the hero's focal accent. Keep small props quieter than enemies and the player.
 - Current approved hero study: 56x60 after Rami requested a small size increase. Desk family: 96x104 game frames with one bottom anchor and floor footprint. Large silhouette details carry each desk's story; material palette and camera stay consistent.
 - Character animation study: shared 56x60 frame, four directions (down, up, left, right) with four walk poses each. Keep one scale for the whole sheet. Step timing follows actual movement, so blocked feet stop. The Grad Student adds #B97A58 and #70402F as warm skin shades within the character palette.
+- Office environment patterns repeat in 64x64 units on the 32px placement grid, with matching opposite edges. Keep floor texture low contrast. Use hard rectangular light accents and short stepped southeast scene shadows; exported prop backgrounds stay flat magenta. Illustrated props use the same cream, teal and navy family as the desks.
 
 ## Asset delivery rules
 

@@ -3,10 +3,14 @@
 window.OFFICE_LAYOUT = {
   name: 'Corporate Campus', width: 1280, height: 896,
   spawn: [0, 38], laneWidth: 192,
+  environmentProps: [
+    {id:'cabinet',x:-565,y:-350},
+    {id:'plant',x:-166,y:-350}
+  ],
   departments: [
     { id: 'accounts', name: 'ACCOUNTS PAYABLE', x: -336, y: -232, color: 0x526078,
       landmark: 'The paperwork skyline', joke: 'Every pile has been marked urgent since 2009.',
-      desks: [[-450, -254, 'tidy'], [-336, -254, 'paperwork'], [-222, -254, 'lunch']], prop: 'prop_copier', propAt: [-485, -370] },
+      desks: [[-450, -254, 'tidy'], [-336, -254, 'paperwork'], [-222, -254, 'lunch']], prop: 'prop_copier', propAt: [-485, -365] },
     { id: 'quiet', name: 'THE QUIET ZONE', x: 336, y: -232, color: 0x3e7775,
       landmark: 'The loudest printer in the building', joke: 'Quiet hours begin as soon as this finishes printing.',
       desks: [[250, -254, 'tidy'], [370, -254, 'paperwork']], prop: 'prop_copier', propAt: [485, -305] },

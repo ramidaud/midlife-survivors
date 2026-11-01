@@ -2,6 +2,11 @@
 
 Game-dev ideas you've picked up along the way. One short entry per concept.
 
+## An environment is a stack of layers (Nov 1, 2026, Codex)
+The room starts with a quiet floor, then adds light, tiny marks of use, and furniture. Characters sort against furniture by where their feet touch the floor, while health bars stay readable. Our carpet and wood patterns have matching opposite edges, so repeating them does not create a visible border. Keeping floor detail low contrast lets the hero and pickups keep your attention.
+
+`Floor -> light and floor marks -> furniture and people -> health bar`
+
 ## Sprite sheets and a walk cycle (Oct 31, 2026, Codex)
 A **sprite sheet** is a grid of drawings the game shows one at a time, like a flipbook. Each character now has four directions with four walk poses, packed into 56x60 frames. All frames share one scale so the head and body do not grow between steps. Walking advances only when position changes, so pressing into a desk does not make the feet keep marching.
 

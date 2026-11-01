@@ -537,3 +537,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Measured with bots: weapons out-killed the spawns, and coins scaled with kills (5,766k in one run). Fixed with player-level scaling (enemy HP, crowd size, spawn speed), bosses that scale, harder hits after 52, and flat rare coins.
 - Shop deepened: higher prices plus Continuing Ed, Side Hustle and Second Opinion. Extras > Reset Progress for a true fresh start.
 - Bot results after: new 2.7 min, half upgraded 3.9, fully upgraded 5.8 (people should last 2-3x longer than the bot).
+
+## 2026-11-01: First office environment pass, V. 1.24.1 (Codex)
+- Rami asked to work on environments. Started with Accounts Payable as the reference section, using the approved desk and character style.
+- Added generated printer, filing cabinet and drooping plant; seamless carpet/wood; material trim, low north-wall detail, small floor stories, warm light accents and stepped scene shadows. Visit Accounts frames the section directly.
+- Native props have flat magenta backgrounds and explicit floor footprints. The central routes and discoveries remain reachable; extra props hide without invisible collisions in Current Art.
+- Checked native dimensions/palette, exact opposite tile edges, cabinet approach/readability, art switching, phone layout and browser errors. Other life-stage environments remain future work.
+- Next: Rami judges the warmth and detail density before extending the kit to other departments or the hospital. Devlog draft saved for review.

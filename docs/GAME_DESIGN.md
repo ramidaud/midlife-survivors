@@ -4,6 +4,12 @@
 
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
+## Office environment kit (Nov 1, 2026, Codex)
+- Rami asked to work on environments after the walking sheets. First detail pass focuses on Accounts Payable as the reference section, with shared floor language across Campus. Hospital, home, courtyard and resort art remain future work.
+- Generated a broken printer, filing cabinet and drooping plant to match the desk family. Native game frames are 80x80, 56x88 and 48x64, with explicit floor footprints and bottom anchors. Decorative floor papers and coffee stains do not block movement.
+- Quiet 64x64 carpet and wood patterns repeat on the 32px placement grid. Warm hard-edged light pools and short southeast floor shadows connect the props to upper-left illumination. Department borders remain floor transitions, not collision walls.
+- Visit Accounts frames the detailed section. Original Current Art and the small Art Study comparison still work. Native downloads and full generation prompts are saved with the office kit. Next: feedback on warmth, density and readability before extending the environment pass.
+
 ## Corporate Campus exploration direction (Oct 31, 2026, Codex)
 - Rami requested all three playable-character sheets and a more animated feel. First pass: four directions and four walk poses per direction for the 9-to-5er, Soccer Dad and Grad Student. Native frames are 56x60 with consistent sheet-wide scale and keyed magenta backgrounds.
 - The preview's Explore As selector tests each character in the same office. Facing follows movement, walking advances with distance traveled, and blocked/stopped characters hold a pose. A looping gallery compares all directions. Dedicated idle, attack, hurt and victory art remains future work; walking art awaits feedback before main-game replacement.

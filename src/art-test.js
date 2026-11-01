@@ -14,11 +14,14 @@
   const shots = [];
   const campus = window.OFFICE_LAYOUT;
   let campusMode = !!campus, layoutObjects = [], campusProps = [], discoveries = [];
+  let environmentObjects = [];
   let visited = new Set(), found = new Set(), currentDepartment = '', lastMapX = Infinity, lastMapY = Infinity;
 
   // Screen Y represents the point where an object's feet meet the floor.
   // The desk's back wall is drawn ABOVE its floor footprint in this 3/4 view.
   function deskFootprint(desk) {
+    if(desk.footprint) return {left:desk.x-desk.footprint.width/2,right:desk.x+desk.footprint.width/2,
+      top:desk.y-desk.footprint.back,bottom:desk.y+desk.footprint.front};
     if (desk.isLandmark) return { left: desk.x - 20, right: desk.x + 20, top: desk.y - 22, bottom: desk.y + 3 };
     return { left: desk.x - 40, right: desk.x + 40,
       top: desk.y - (newArt ? 70 : 38), bottom: desk.y + 2 };
@@ -26,6 +29,7 @@
 
   function moveAroundDesks(actor, dx, dy, radius) {
     const blocks = (x, y) => [...desks, ...campusProps].some(desk => {
+      if(desk.visible===false) return false;
       const box = deskFootprint(desk);
       return x > box.left - radius && x < box.right + radius &&
         y > box.top - 5 && y < box.bottom + 5;
@@ -74,7 +78,7 @@
   function buildLayout() {
     desks.forEach(d => d.destroy());
     layoutObjects.forEach(o => o.destroy());
-    desks = []; layoutObjects = []; campusProps = []; discoveries = [];
+    desks = []; layoutObjects = []; campusProps = []; discoveries = []; environmentObjects=[];
     visited = new Set(); found = new Set(); currentDepartment = '';
     const positions = campusMode ? campus.departments.flatMap(d => d.desks) : deskPositions;
     desks = positions.map(([x, y, variant]) => {
@@ -90,10 +94,14 @@
       for (const d of campus.departments) {
         ground.fillStyle(d.color, .3); ground.fillRect(d.x - 192, d.y - 128, 384, 256);
         ground.lineStyle(1, d.color); ground.strokeRect(d.x - 192, d.y - 128, 384, 256);
-        const label = scene.add.text(d.x, d.y + 100, d.name, {fontFamily:'monospace',fontSize:'12px',color:'#fff0cf',backgroundColor:'#171c35',padding:{x:5,y:3}}).setOrigin(.5,0).setDepth(-999999997);
+        const label = scene.add.text(d.x, d.y + 100, d.name, {fontFamily:'monospace',fontSize:'12px',color:'#fff0cf',backgroundColor:'#171c35',padding:{x:5,y:3}}).setOrigin(.5,0).setDepth(-999999980);
         const prop = scene.add.image(...d.propAt, d.prop).setOrigin(.5,1).setDepth(d.propAt[1]); prop.isLandmark = true;
+        prop.originalTexture=d.prop;
+        prop.environmentType=d.prop==='prop_copier'?'printer':d.prop==='prop_plant'?'plant':null;
         campusProps.push(prop); layoutObjects.push(label,prop);
       }
+      const environment=OfficeEnvironment.build(scene,campus,desks);
+      environmentObjects=environment.objects;layoutObjects.push(...environment.objects);campusProps.push(...environment.blockers);
       for (const d of campus.discoveries) {
         const marker = scene.add.rectangle(d.x, d.y - 8, 22, 22, 0xef9347).setAngle(45).setDepth(d.y);
         const icon = scene.add.text(d.x,d.y - 8,d.glyph,{fontFamily:'monospace',fontSize:'16px',color:'#171c35'}).setOrigin(.5).setDepth(d.y + 1);
@@ -101,10 +109,11 @@
       }
     } else scene.cameras.main.removeBounds();
     document.getElementById('exploration').hidden = !campusMode;
+    document.getElementById('tour-accounts').disabled=!campusMode;
     document.getElementById('layout').textContent = campusMode ? 'Layout: Campus' : 'Layout: Art Study';
     document.getElementById('layout').setAttribute('aria-pressed',String(campusMode));
     document.getElementById('test-heading').textContent = campusMode ? 'Corporate Campus: take the long way to coffee.' : 'A little more character. Same coffee problem.';
-    document.getElementById('test-intro').textContent = campusMode ? 'Four departments, wide escape routes, and three small discoveries. A playable layout study.' : 'Try the new office look in motion, then switch back to compare.';
+    document.getElementById('test-intro').textContent = campusMode ? 'The office environment pass: detailed Accounts Payable, warm walkways, and three optional discoveries.' : 'Try the new office look in motion, then switch back to compare.';
     document.getElementById('test-help').textContent = campusMode ? 'WASD / arrows or hold and drag. Explore four departments and walk over the glowing finds. This study tests exploration without combat.' : 'WASD / arrows or hold and drag. Coffee fires automatically at one persistent Bill. No damage or score.';
     document.getElementById('discovery-note').textContent = 'Follow the broad crossroads. Each department has more than one way in.';
     bill.setVisible(!campusMode);
@@ -236,6 +245,11 @@
       ctx.clearRect(0,0,canvas.width,canvas.height);
       ctx.drawImage(scene.textures.get('desk_' + variant).getSourceImage(),0,0);
     }
+    for(const prop of OfficeEnvironment.props) {
+      const canvas=document.getElementById(prop.id+'-environment');const ctx=canvas.getContext('2d');
+      ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(scene.textures.get(prop.key).getSourceImage(),0,0);
+    }
   }
 
   function appearance() {
@@ -244,11 +258,17 @@
     document.getElementById('character').disabled=!newArt;
     bill.setTexture(newArt ? 'art_bill' : 'bill');
     desks.forEach(d => d.setTexture(newArt ? (campusMode ? 'desk_' + d.variant : 'art_desk') : 'prop_desk'));
-    floor.setTexture(newArt ? 'art_floor' : 'floor');
+    floor.setTexture(newArt ? (campusMode?'env_floor':'art_floor') : 'floor');
+    environmentObjects.forEach(o=>o.setVisible(newArt));
+    for(const prop of campusProps) if(prop.environmentType) {
+      const def=OfficeEnvironment.props.find(p=>p.id===prop.environmentType);
+      prop.setTexture(newArt?def.key:prop.originalTexture);prop.footprint=newArt?def.footprint:null;
+    }
     walkway.setVisible(newArt && !campusMode);
     // Switching art can change the furniture footprint around an actor.
     for (const actor of [hero, bill]) {
-      for (const desk of desks) {
+      for (const desk of [...desks,...campusProps]) {
+        if(desk.visible===false) continue;
         const box = deskFootprint(desk);
         if (actor.x > box.left - 11 && actor.x < box.right + 11 && actor.y > box.top - 5 && actor.y < box.bottom + 5) {
           actor.y = box.bottom + 6;
@@ -285,6 +305,7 @@
     scene.load.image('atlas_source', window.ART_TEST_SHEET);
     for (const [variant, data] of Object.entries(window.DESK_VARIANT_IMAGES || {})) scene.load.image('source_' + variant, data);
     for (const [id, data] of Object.entries(window.CHARACTER_SHEETS || {})) scene.load.image('character_source_' + id, data);
+    for(const [id,data] of Object.entries(window.ENVIRONMENT_IMAGES || {}))scene.load.image('environment_source_'+id,data);
     scene.load.once('complete', () => {
       try {
         const source = scene.textures.get('atlas_source').getSourceImage();
@@ -297,6 +318,9 @@
         }
         for(const character of CharacterArt.characters) CharacterArt.importSheet(scene,
           scene.textures.get('character_source_'+character.id).getSourceImage(),character.id,[...palette,[185,122,88],[112,64,47]]);
+        for(const prop of OfficeEnvironment.props) importCell(scene.textures.get('environment_source_'+prop.id).getSourceImage(),null,prop.key,prop.width,prop.height);
+        OfficeEnvironment.createTiles(scene);
+        OfficeEnvironment.downloads(scene);
         makeFloor('art_floor', false); makeFloor('art_walkway', true);
         // Scenery must stay behind actors even north of world Y=0.
         floor = scene.add.tileSprite(0, 0, 2000, 2000, 'art_floor').setDepth(-1000000000);
@@ -362,7 +386,7 @@
       if (s.age > 1.5) { s.image.destroy(); shots.splice(i, 1); }
     }
     coffee.clear();
-    const behindDesk = desks.some(desk => hero.y < desk.y && hero.y > desk.y - desk.height &&
+    const behindDesk = [...desks,...campusProps].some(desk => desk.visible!==false && hero.y < desk.y && hero.y > desk.y - desk.height &&
       Math.abs(hero.x - desk.x) < desk.width / 2 + 12);
     const barY = Math.round(behindDesk ? hero.y - hero.height - 7 : hero.y + 5);
     coffee.fillStyle(0x171c35); coffee.fillRect(Math.round(hero.x - 16), barY, 32, 4);
@@ -371,6 +395,9 @@
   }
 
   document.getElementById('new-art').onclick = () => { newArt = true; appearance(); };
+  document.getElementById('tour-accounts').onclick = () => {
+    if(ready && campusMode){hero.setPosition(-336,-345);scene.cameras.main.centerOn(hero.x,hero.y);explore();}
+  };
   document.getElementById('character').onchange = event => {
     characterId=event.target.value;walked=0;
     if(ready) appearance();

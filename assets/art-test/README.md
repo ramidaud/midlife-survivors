@@ -1,5 +1,7 @@
 # Office art study 01
 
+V. 1.24.1 adds the first office environment detail pass. Visit Accounts jumps to the reference section. Generated printer/cabinet/plant props, seamless 64x64 carpet/wood, floor marks, trim and quiet fluorescent light accents are in `assets/office-environment/` and `src/office-environment.js`. The original layout, 192px crossroads and discovery positions are retained. Other life-stage environments remain unillustrated.
+
 V. 1.23.4 adds all three playable-character walking sheets. Explore As switches characters; the animation gallery compares four directions and pauses with the scene. Native 224x240 sheets (4x4 frames of 56x60) and source prompts are in `assets/characters/`. Walking advances with actual movement; held idle poses and static old-art comparison remain. The preview alone loads `src/character-animation.js` and the embedded sheets.
 
 V. 1.23.1 defaults to the Corporate Campus exploration blockout. Use Layout to return to the original art comparison. Campus is one bounded 1280x896 sample block with four departments, a 192px central crossing, an outer loop, a revealing map and three optional joke discoveries. No combat, rewards, saves or unlocks in this mode. Reset clears the visit/find counters. Layout data lives in `src/data/office-layout.js`, loaded only by the isolated preview, not the main-game loader. Existing plant/cooler sprites and a simple code-drawn printer stand in for final landmark art.
