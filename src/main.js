@@ -147,6 +147,20 @@ let mouseState = { leftDown: false, rightDown: false, x: 0, y: 0, activeCursor: 
 window._heldKeys = window._heldKeys || new Set();
 let lastWheelMs = 0;
 
+// ---------- Run modes (src/data/modes.js) ----------
+let runMode = "midlife";
+function modeCfg() { return RUN_MODES[runMode] || RUN_MODES.midlife; }
+function pickRunMode() { return (meta.runMode === "full" && isFullLifeUnlocked(meta)) ? "full" : "midlife"; }
+function modeStartAge() { return modeCfg().startAge || meta.startDecade || PLAYER.startingAge; }
+// When the run ends: Midlife ends at 65 plus any Overtime bought in the shop; Full Life at 100.
+function modeEndAge() {
+  const m = modeCfg();
+  if (m.id !== "midlife") return m.endAge;
+  return m.endAge + ((meta.ranks && meta.ranks.delayedRetirement) || 0) * m.overtimeYearsPerRank;
+}
+window.getRunMode = () => runMode;
+window.refreshRunMode = () => { runMode = pickRunMode(); runStartAge = modeStartAge(); currentAge = runStartAge; };
+
 // Calculate current 401(k) Coin value & drop chance based on how long you have survived and your Age!
 window.getCoinYieldInfo = function() {
   const C = (typeof PICKUPS !== "undefined" && PICKUPS.coin401k) ? PICKUPS.coin401k : { value: 1, dropChance: 0.55 };
@@ -189,7 +203,8 @@ function create() {
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now;
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   meta = loadMeta();
-  runStartAge = meta.startDecade || PLAYER.startingAge;
+  runMode = pickRunMode();
+  runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
   paused = false; pauseParts = [];
@@ -619,6 +634,7 @@ window.persistActiveRun = () => {
     runCoins,
     bossesSpawned,
     retire80Prompted,
+    runMode,
     stats
   });
 };
@@ -657,7 +673,8 @@ function applyMetaAndChar() {
 function beginFreshRunAtDecade(scene) {
   clearRunState();
   applyMetaAndChar();
-  runStartAge = meta.startDecade || PLAYER.startingAge;
+  runMode = pickRunMode();
+  runStartAge = modeStartAge();
   currentAge = runStartAge;
   lastDividendAge = Math.floor(runStartAge / 5) * 5;
   runElapsedMs = 0;
@@ -749,6 +766,7 @@ function showTitleScreen(scene) {
 
     currentAge = saved.currentAge || 40;
     runStartAge = saved.runStartAge || 40;
+    runMode = saved.runMode || "full"; // runs saved before modes existed were Full Life runs
     lastDividendAge = Math.floor(currentAge / 5) * 5;
     runElapsedMs = saved.runElapsedMs || 0;
     lastAutoSave = runElapsedMs;
@@ -928,6 +946,7 @@ function hurtPlayer(p, bill) {
 // The Game Over / Victory screen: freeze the world and render the HTML/CSS Exit Interview or AARP Certificate!
 function showGameOver(scene, killer, isWin) {
   gameOver = true;
+  window.justUnlockedFull = isWin && runMode === "midlife" && !isFullLifeUnlocked(meta);
   clearRunState();
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
   [40, 50, 60, 70, 80].forEach(dec => {
@@ -949,8 +968,14 @@ function showGameOver(scene, killer, isWin) {
     "HAPPY 100th BIRTHDAY! You beat all 20 Bonus Senior Rounds, mastered the 3 PM dinner rush, and achieved immortality!",
     "THE BIG 1-0-0! Not even Medicare Part D Copays or the 6 AM Pickleball Champion could slow you down."
   ];
+  const winLinesRetire = [
+    `RETIRED AT ${Math.round(currentAge)}! You outlasted the Performance Review, the Mortgage and a red convertible. The cake says "Good Luck" in blue icing.`,
+    `CLOCKED OUT FOR GOOD AT ${Math.round(currentAge)}! Your coworkers signed a card. Most of them spelled your name right.`,
+    `YOU MADE IT TO ${Math.round(currentAge)}! Gold watch, sheet cake, and a speech from someone in HR you've never met.`
+  ];
+  if (isWin && runMode === "midlife") { meta.fullLifeUnlocked = true; saveMeta(meta); }
   const cause = isWin
-    ? Phaser.Utils.Array.GetRandom(currentAge >= 99.5 ? winLines100 : winLines80)
+    ? Phaser.Utils.Array.GetRandom(runMode === "midlife" ? winLinesRetire : (currentAge >= 99.5 ? winLines100 : winLines80))
     : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
 
   renderGameOverModal(scene, cause, isWin);
@@ -1372,19 +1397,22 @@ function spawnBoss(scene, bossKind) {
   const P = ENEMIES[bossKind], view = scene.cameras.main.worldView;
   const x = view.right + SPAWNING.offscreenMargin, y = player.y;
   const boss = bills.create(x, y, P.tex || bossKind).setDepth(4);
+  const isEnd = bossKind === "theReaper", m = modeCfg();
+  const label = (isEnd && m.endBossLabel) || P.label, bossName = (isEnd && m.endBossName) || P.name;
   if (P.tint) boss.setTint(P.tint);
   boss.isBoss = true;
   boss.kind = bossKind;
   boss.hp = P.hp;
   boss.speed = P.speed;
   boss.damage = P.damage;
-  boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${P.label}:${P.hp}`, {
+  boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${P.hp}`, {
     fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
   }).setOrigin(0.5).setDepth(5);
 
-  showBossToastUI(P.name);
+  showBossToastUI(bossName);
   if (window.pushContextEvent) {
-    if (bossKind === "theReaper") window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);
+    if (isEnd && m.endBossLabel) window.showLowerThird("win", `AGE ${Math.round(modeEndAge())}`, m.endText, 7000);
+    else if (isEnd) window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);
     else window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500);
   }
 }
@@ -1439,7 +1467,7 @@ function update(time, delta) {
 
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
   runElapsedMs += (delta || 16.6);
-  currentAge = runStartAge + (runElapsedMs / 1000) / PLAYER.secondsPerYear;
+  currentAge = runStartAge + (runElapsedMs / 1000) / modeCfg().secondsPerYear; // 45 s/year in Midlife, 60 in Full Life
 
   // 5-Year 401(k) Compound Interest Dividend! The longer you survive, the larger your automatic dividend payout!
   const nextDivAge = lastDividendAge + 5;
@@ -1491,7 +1519,7 @@ function update(time, delta) {
 
   // Age 80 Retirement: the bonus pays out automatically and the run keeps going (no more stop screen).
   // The only finish line is Death at 100.
-  if (currentAge >= PLAYER.retirementAge && !retire80Prompted) {
+  if (runMode === "full" && currentAge >= PLAYER.retirementAge && !retire80Prompted) {
     retire80Prompted = true;
     meta.coins += 15;
     runCoins += 15;
@@ -1502,9 +1530,11 @@ function update(time, delta) {
     if (window.showLowerThird) window.showLowerThird("win", "RETIRED", "Age 80: +15k bonus and full health. Death arrives at 100.", 5500);
   }
 
-  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
+  // Bosses for this mode, then the ending: Retirement at 65 (Midlife) or Father Time at 100 (Full Life).
+  modeCfg().bosses.forEach(bk => {
     if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
   });
+  if (!bossesSpawned.theReaper && currentAge >= modeEndAge()) spawnBoss(this, "theReaper");
 
   // Wave schedule: as you pass milestone ages, speed up the spawn timer!
   const wIdx = SPAWNING.waves.reduce((acc, w, i) => currentAge >= w.minAge ? i : acc, 0);

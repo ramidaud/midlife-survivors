@@ -1229,3 +1229,20 @@ flowchart LR
 | Mouse | on press (feels snappy) |
 | Touch | on release; slide off to cancel |
 | Perk cards on touch | first tap selects, second tap picks |
+
+
+## Chapter: One game, two rulebooks (V. 1.21.0)
+
+| Setting | Midlife | Full Life |
+|---|---|---|
+| Ages | 40 to 65 (+5 per Overtime rank) | 40 to 100 |
+| Seconds per year | 45 | 60 |
+| Bosses | Review, Mortgage, V8 | all six |
+| Ending | Retirement Party | Father Time |
+| Leaderboard | `scores_midlife` | `scores` |
+
+```mermaid
+flowchart LR
+    T["Title: pick MODE"] --> M["modes.js: look up the rulebook"]
+    M --> G["Same game code reads ages, clock, bosses, board"]
+```

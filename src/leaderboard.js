@@ -10,11 +10,17 @@ function lbConfigured() {
   return !!(L.supabaseUrl && L.supabaseAnonKey);
 }
 
-function computeRunScore(ageReached, startAge, kills, coins, isCentennial) {
+// Each mode has its own board (Midlife and Full Life scores aren't comparable).
+function lbMode() { return (window.getRunMode && window.getRunMode()) || "midlife"; }
+function lbTable() { const m = window.RUN_MODES && window.RUN_MODES[lbMode()]; return (m && m.table) || (window.LEADERBOARD || {}).table; }
+
+// isClear = reached the end of the mode (Retirement or Father Time) and gets that mode's clear bonus.
+function computeRunScore(ageReached, startAge, kills, coins, isClear) {
   const L = window.LEADERBOARD || {};
   const years = Math.max(0, ageReached - startAge);
+  const m = window.RUN_MODES && window.RUN_MODES[lbMode()];
   return Math.round(years * (L.pointsPerYear || 1000) + kills * (L.pointsPerKill || 2) +
-    coins * (L.pointsPerCoin || 5) + (isCentennial ? (L.centennialBonus || 0) : 0));
+    coins * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0));
 }
 
 function lbCleanName(raw) {
@@ -23,9 +29,10 @@ function lbCleanName(raw) {
 function lbSavedName() { try { return localStorage.getItem(LB_NAME_KEY) || ""; } catch (e) { return ""; } }
 function lbSaveName(n) { try { localStorage.setItem(LB_NAME_KEY, n); } catch (e) {} }
 
-function lbLocalScores() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]"); } catch (e) { return []; } }
+function lbLocalScores() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]").filter(r => (r.mode || "full") === lbMode()); } catch (e) { return []; } }
+function lbAllLocal() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]"); } catch (e) { return []; } }
 function lbAddLocal(entry) {
-  const list = lbLocalScores().concat([entry]).sort((a, b) => b.score - a.score).slice(0, 25);
+  const list = lbAllLocal().concat([Object.assign({ mode: lbMode() }, entry)]).sort((a, b) => b.score - a.score).slice(0, 50);
   try { localStorage.setItem(LB_LOCAL_KEY, JSON.stringify(list)); } catch (e) {}
   return list;
 }
@@ -44,7 +51,7 @@ async function lbSubmit(entry) {
   if (!lbConfigured()) return { online: false, reason: "not-set-up" };
   const L = window.LEADERBOARD;
   try {
-    const res = await fetch(`${L.supabaseUrl}/rest/v1/${L.table}`, {
+    const res = await fetch(`${L.supabaseUrl}/rest/v1/${lbTable()}`, {
       method: "POST", headers: Object.assign(lbHeaders(), { Prefer: "return=minimal" }),
       body: JSON.stringify({ name: entry.name, score: entry.score, age: entry.age, start_age: entry.startAge, character: entry.character, version: entry.version })
     });
@@ -60,7 +67,7 @@ async function lbFetchTop() {
   const n = L.fetchLimit || 1000; // grab plenty, then keep each player's best (no top-10 cap)
   if (lbConfigured()) {
     try {
-      const res = await fetch(`${L.supabaseUrl}/rest/v1/${L.table}?select=name,score,age,character,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
+      const res = await fetch(`${L.supabaseUrl}/rest/v1/${lbTable()}?select=name,score,age,character,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
       if (res.ok) return { online: true, rows: lbBestPerName(await res.json()) };
     } catch (e) {}
   }
@@ -95,7 +102,7 @@ async function lbRenderInto(el, mine) {
     return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
   }).join("") : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`;
   el.innerHTML = `
-    <div class="lb-status">${online ? "🌐 Online leaderboard" : (lbConfigured() ? "📴 Offline: showing scores from this device" : "📱 Scores on this device (online board not set up yet)")}</div>
+    <div class="lb-status">${lbMode() === "full" ? "FULL LIFE" : "MIDLIFE"} BOARD · ${online ? "🌐 Online leaderboard" : (lbConfigured() ? "📴 Offline: showing scores from this device" : "📱 Scores on this device (online board not set up yet)")}</div>
     <div class="lb-wrap"><table class="lb-table">
       <thead><tr><th>#</th><th>NAME</th><th>SCORE</th><th>AGE</th><th>AS</th></tr></thead>
       <tbody>${body}</tbody>

@@ -244,3 +244,9 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - The Retry button used to fire on *down*, so the game restarted mid-touch and the new run never saw the finger lift. Steering froze.
 - Now touch buttons fire on *up*, like most phone apps. Mouse clicks still fire on down so the desktop feels snappy.
 - Same idea protects perks: on phones the first tap only **selects** a card and the second tap **confirms**.
+
+
+## Modes are just data (Oct 31, Midlife mode)
+- The game code didn't fork into two games. `src/data/modes.js` holds two small **rulebooks**: ages, clock speed, bosses, ending, leaderboard table.
+- When a run starts, the game looks up the chosen rulebook and every system reads from it.
+- Want a 10-minute "Speed Midlife" later? Add one more entry to the list. No new game logic.

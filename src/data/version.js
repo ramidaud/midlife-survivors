@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.20.0",
-  displayVersion: "V. 1.20.0",
+  version: "1.21.0",
+  displayVersion: "V. 1.21.0",
   lastUpdated: "Oct 31, 2026",
-  codename: "Playtest Fixes",
-  build: 38,
+  codename: "Midlife Mode",
+  build: 39,
   changelog: [
+    {
+      ver: "V. 1.21.0",
+      date: "Oct 31, 2026",
+      title: "The 19-Minute Midlife",
+      highlights: [
+        "New main mode: Midlife, ages 40 to 65 in about 19 minutes. Three bosses, then your Retirement Party. Walk up and clock out to win.",
+        "Full Life (40 to 100) is still here. It unlocks once you reach 65 in Midlife.",
+        "Overtime: buy Delayed Retirement in the 401(k) Shop to add 5 more years per rank (up to 80).",
+        "Each mode has its own leaderboard."
+      ]
+    },
     {
       ver: "V. 1.20.0",
       date: "Oct 31, 2026",

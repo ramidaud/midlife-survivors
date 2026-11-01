@@ -8,7 +8,8 @@ window.META_SHOP = [
   { id: "compoundInterest", name: "Employer Match",    desc: "+2 max HP at start of run",         baseCost: 5,  maxRank: 6 },
   { id: "espressoMachine",  name: "Home Espresso",     desc: "+10% starting move & fire speed",   baseCost: 6,  maxRank: 6 },
   { id: "taxWriteOff",      name: "CPA on Retainer",   desc: "+25% starting gem magnet range",    baseCost: 5,  maxRank: 5 },
-  { id: "pensionPlan",      name: "Roth IRA & Pension", desc: "+1 starting damage to all weapons", baseCost: 12, maxRank: 4 }
+  { id: "pensionPlan",      name: "Roth IRA & Pension", desc: "+1 starting damage to all weapons", baseCost: 12, maxRank: 4 },
+  { id: "delayedRetirement", name: "Delayed Retirement", desc: "Overtime: Midlife runs last 5 more years", baseCost: 20, maxRank: 3 }
 ];
 
 window.CHARACTERS = [
@@ -145,6 +146,8 @@ function loadMeta() {
         startDecade: parsed.startDecade || 40,
         selectedStage: parsed.selectedStage || "auto",
         tipsOff: !!parsed.tipsOff, // Game Tips switch in the Pause menu
+        runMode: parsed.runMode || "midlife",      // "midlife" (40-65) or "full" (40-100)
+        fullLifeUnlocked: !!parsed.fullLifeUnlocked,
         controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {}),
         accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {})
       };
@@ -159,6 +162,8 @@ function loadMeta() {
     unlockedDecades: [40],
     startDecade: 40,
     selectedStage: "auto",
+    runMode: "midlife",
+    fullLifeUnlocked: false,
     controls: Object.assign({}, window.DEFAULT_CONTROLS),
     accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY)
   };

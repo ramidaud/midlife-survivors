@@ -1,0 +1,35 @@
+// Run modes. "midlife" is the main game: ages 40 to 65 in about 19 minutes.
+// "full" is the original whole life (40 to 100, about an hour), unlocked by reaching 65 once.
+// Tweak ages, clock speed, bosses and leaderboard tables here.
+window.RUN_MODES = {
+  midlife: {
+    id: "midlife",
+    name: "Midlife",
+    blurb: "Ages 40 to 65. About 19 minutes.",
+    startAge: 40,
+    endAge: 65,              // Retirement arrives here (Overtime in the shop pushes it back)
+    secondsPerYear: 45,      // 45 real seconds = 1 year
+    bosses: ["performanceReview", "mortgageRefinance", "midlifeCrisis"],
+    overtimeYearsPerRank: 5, // each "Delayed Retirement" rank adds 5 years (65 -> 70 -> 75 -> 80)
+    endBossLabel: "RETIREMENT",
+    endBossName: "Your Retirement Party",
+    endText: "Retirement is here. Walk up and clock out for good.",
+    table: "scores_midlife", // its own online leaderboard
+    clearBonus: 8000         // score bonus for reaching retirement
+  },
+  full: {
+    id: "full",
+    name: "Full Life",
+    blurb: "Ages 40 to 100. About an hour, with save and resume.",
+    startAge: null,          // uses the START AT age picked in Extras
+    endAge: 100,
+    secondsPerYear: 60,
+    bosses: ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp"],
+    endBossLabel: null,      // Father Time, as before
+    table: "scores",
+    clearBonus: 25000,
+    unlockText: "Reach 65 in Midlife to unlock"
+  }
+};
+
+window.isFullLifeUnlocked = m => !!(m && (m.fullLifeUnlocked || (m.bestAge || 40) >= 65));

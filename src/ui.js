@@ -1825,7 +1825,15 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Title screen views (Oct 30): "main" = pick a character + start; "shop" and "extras" sit behind buttons.
   if (window.titleViewNext) { window.titleView = window.titleViewNext; window.titleViewNext = null; }
   const view = window.titleView || "main";
-  const startAge = meta.startDecade || 40;
+  const fullOk = window.isFullLifeUnlocked && isFullLifeUnlocked(meta);
+  const curMode = (meta.runMode === "full" && fullOk) ? "full" : "midlife";
+  const startAge = curMode === "full" ? (meta.startDecade || 40) : 40; // START AT only applies to Full Life
+  const modeRowHtml = `
+      <div class="title-style-switcher title-mode-row"><span>MODE:</span>
+        <button class="t-style-btn ${curMode === "midlife" ? "active" : ""}" data-mode="midlife" title="${RUN_MODES.midlife.blurb}">🗂️ MIDLIFE · 40-65</button>
+        <button class="t-style-btn ${curMode === "full" ? "active" : ""}" data-mode="full" ${fullOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${fullOk ? RUN_MODES.full.blurb : RUN_MODES.full.unlockText}">${fullOk ? "🕰️" : "🔒"} FULL LIFE · 40-100</button>
+      </div>
+      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${fullOk ? "" : " Full Life unlocks when you reach 65."}</div>`;
   const backBtn = `<button class="t-style-btn title-back-btn" id="title-back-btn">◀ BACK</button>`;
   let bodyHtml = "";
   if (view === "shop") {
@@ -1853,7 +1861,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   } else if (view === "extras") {
     bodyHtml = `
       <div class="title-subhead">✨ EXTRAS</div>
-      <div class="title-style-switcher"><span>START AT:</span>${decadeBtnsHtml}</div>
+      <div class="title-style-switcher"><span>START AT (FULL LIFE):</span>${decadeBtnsHtml}</div>
       <div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>
       <div class="title-secondary">
         <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
@@ -1867,6 +1875,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     bodyHtml = `
       <div class="title-meta-line">🏅 Best: age ${Math.floor(meta.bestAge || 40)} &nbsp;·&nbsp; 🪙 ${meta.coins}k saved</div>
       <div class="dossier-chars-grid">${charCardsHtml}</div>
+      ${modeRowHtml}
       <div class="title-footer">
         <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START${startAge !== 40 ? ` AT AGE ${startAge}` : ""}</button>
         ${resumeBannerHtml}
@@ -1882,7 +1891,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   modal.innerHTML = `
     <div class="modal-card title-box title-clean" data-view="${view}">
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
-      <p class="game-tagline">Survive from 40 to 100. Death is patient.</p>
+      <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
       ${bodyHtml}
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
@@ -1921,6 +1930,18 @@ function renderTitleModal(scene, preserveFocusSelector) {
       } else {
         sfx("hurt");
       }
+    });
+  });
+
+  // Row 6: Mode picker (Midlife or Full Life)
+  modal.querySelectorAll("[data-mode]").forEach(btn => {
+    if (btn.disabled) return;
+    bindNavItem(btn, 6, () => {
+      meta.runMode = btn.dataset.mode;
+      saveMeta(meta);
+      if (window.refreshRunMode) window.refreshRunMode();
+      sfx("pick");
+      renderTitleModal(scene, `[data-mode="${btn.dataset.mode}"]`);
     });
   });
 
@@ -2007,14 +2028,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Row 8: Resume Saved Run (if present)
   const resumeBtn = document.getElementById("title-resume-btn");
   if (resumeBtn) {
-    bindNavItem(resumeBtn, 8, () => {
+    bindNavItem(resumeBtn, 9, () => { // row 9: sits under Start
       if (window.resumeSavedRunFromTitle) window.resumeSavedRunFromTitle();
     }, false);
   }
 
   // Row 9: Clock In / Start New Run (Default focus if no saved run)
   const clockBtn = document.getElementById("title-clockin-btn");
-  bindNavItem(clockBtn, 9, () => {
+  bindNavItem(clockBtn, 8, () => {
     if (startFromTitle) startFromTitle();
   }, view === "main");
 
@@ -2032,11 +2053,12 @@ function renderGameOverModal(scene, cause, isWin) {
   if (!modal) return;
   modal.classList.remove("hidden");
 
+  const mode = window.getRunMode ? window.getRunMode() : "midlife";
   const isCentennial = isWin && currentAge >= 99.5;
-  const runScore = window.computeRunScore ? window.computeRunScore(currentAge, runStartAge, runKills, runCoins, isCentennial) : 0;
+  const runScore = window.computeRunScore ? window.computeRunScore(currentAge, runStartAge, runKills, runCoins, isWin) : 0;
   const headline = isCentennial
     ? "👑 CENTENNIAL LEGEND! YOU REACHED AGE 100!"
-    : (isWin ? "🏆 HAPPY 80th! YOU SURVIVED TO RETIREMENT!" : "📋 BURNOUT! SHIFT ENDED");
+    : (isWin ? (mode === "midlife" ? `🏆 RETIRED AT ${Math.round(currentAge)}!${window.justUnlockedFull ? " FULL LIFE UNLOCKED" : ""}` : "🏆 YOU SURVIVED TO RETIREMENT!") : "📋 BURNOUT! SHIFT ENDED");
 
   modal.innerHTML = `
     <div class="modal-card gameover-box ${isWin ? "win-box" : "loss-box"}">

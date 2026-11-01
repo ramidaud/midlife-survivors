@@ -475,3 +475,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Simplified the generated sheet after the first size check. The hero keeps the current 48x52 frame; the Bill and desk have labeled proposed sizes. These are single poses, not walking animations.
 - Checked desktop and 390x844 phone layout, comparison controls, 1x/2x, pause, movement and Extras navigation. Fixed canvas sizing during resize; JavaScript syntax and diff checks pass.
 - Next: Rami's feedback on readability and character size before more assets or production replacement. Main gameplay art remains the current set.
+
+
+## 2026-10-31: Midlife mode (V. 1.21.0) (Claude)
+- New main mode: ages 40 to 65 at 45 seconds per year (about 19 minutes). Three bosses, then a Retirement Party ending.
+- Full Life (40 to 100) stays and unlocks when you reach 65 (a stand-in until achievements exist).
+- Overtime: "Delayed Retirement" in the 401(k) Shop adds 5 years per rank, up to 80.
+- Separate leaderboards per mode. Rami needs to run `docs/LEADERBOARD_MIDLIFE.sql` once in Supabase.
+- Next: Content drop + discoverable items.

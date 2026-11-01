@@ -282,3 +282,5 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 ## Oct 31 (later): devlog and other AI tools
 - **Devlog:** a casual blog in Rami's voice about learning to make the game with AI. Lives at `/devlog` on the game site, linked from Extras. Claude drafts from the progress log and screenshots; Rami edits and approves (posts stay `draft: true` until then). One post per milestone.
 - **Other AI tools:** ChatGPT (art), Gemini and Grok each have a Project with shared instructions. They end replies with a change-log block that Rami pastes into `docs/handoffs/<tool>-changes.md`. Claude reads these each session and folds approved items into the game.
+
+- **Built (V. 1.21.0):** Midlife mode ends with "Your Retirement Party" at 65 (walk up and clock out). Overtime = "Delayed Retirement" shop item, +5 years per rank, max 80. Full Life unlocks by reaching 65 until achievements replace that. Midlife scores go to the `scores_midlife` table.
