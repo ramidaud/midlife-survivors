@@ -655,3 +655,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added small shared contact shadows except for ghost/ping. Tuned Late Fee to 25px versus Bill's 36px and moved labels above taller drawings. Pauses, enemy destruction and restarts cleanly manage the art layer.
 - Tax Bracket 0 run reached age 45 with 109 peak enemies and no errors. A 350-enemy animation/AI stress scene averaged about 99 FPS. Desktop/phone, state selection, missing-sheet fallback, toggle and cleanup checks passed; isolated tests used memory-only saves and blocked leaderboard traffic. See QA evidence for exact scope and measurements.
 - Published post 05, "There's a coffee button now. It feels weird." Codex's "long way to coffee" post is still a draft.
+- Published Codex's office-expansion post as post 06, retitled "The office got bigger. Somebody lost a binder." No drafts left.

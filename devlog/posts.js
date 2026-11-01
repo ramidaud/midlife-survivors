@@ -4,6 +4,19 @@
 // Optional fields: cover, teaser, changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "06-the-office-got-bigger",
+    "date": "2026-11-01",
+    "title": "The office got bigger. Somebody lost a binder.",
+    "version": "V. 1.27.1",
+    "draft": false,
+    "cover": "img/04-long-way-cover-v1.jpg",
+    "leadAlt": "Pixel-art cover illustration: the 9-to-5er takes the long way to coffee through the office, with Bills, a spam phone and a donut trailing him.",
+    "teaser": "The art preview grows an atrium, side wings and a records annex with a lost binder. The map fills in as you walk.",
+    "changes": ["Atrium, longer paths and side wings in the Campus preview", "Map reveals as you explore", "Brighter carpet, chair mats, coffee rings and a printer paper trail"],
+    "nextUp": "See what happens when a crowd tries to get around those desks.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/devlog/art/"
+  },
+  {
     "slug": "05-buy-the-dev-a-coffee",
     "date": "2026-11-01",
     "title": "There's a coffee button now. It feels weird.",
@@ -15,19 +28,6 @@ window.DEVLOG_POSTS = [
     "changes": ["Buy the Dev a Coffee on the main menu and Game Over screen", "Ko-fi links in the devlog header, footer and About page", "Early tips go to AI usage to finish the game"],
     "nextUp": "Reviewing the first batch of real enemy art from ChatGPT.",
     "playUrl": "https://ramidaud.github.io/midlife-survivors/"
-  },
-  {
-    "slug": "04-the-long-way-to-coffee",
-    "date": "2026-11-01",
-    "title": "I took the long way to coffee.",
-    "version": "V. 1.27.1",
-    "draft": true,
-    "cover": "img/04-long-way-cover-v1.jpg",
-    "leadAlt": "Pixel-art cover illustration: the 9-to-5er takes the long way to coffee through the office, with Bills, a spam phone and a donut trailing him.",
-    "teaser": "The art preview grows an atrium, side wings and a records annex with a lost binder. The map fills in as you walk.",
-    "changes": ["Atrium, longer paths and side wings in the Campus preview", "Map reveals as you explore", "Brighter carpet, chair mats, coffee rings and a printer paper trail"],
-    "nextUp": "See what happens when a crowd tries to get around those desks.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/devlog/art/"
   },
   {
     "slug": "04-midlife-is-hard",
