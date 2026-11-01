@@ -4,6 +4,4 @@ The art preview now has an atrium, longer paths, and side wings. The map fills i
 
 The floor got some attention too: brighter carpet, worn chair mats, coffee rings, and a printer paper trail. Enough history to feel used, with room left to see whatever is chasing me.
 
-![The larger office floor at game scale](img/04-large-office.jpg)
-
 This is still the separate art preview. Next we need to see what happens when a crowd tries to get around those desks.

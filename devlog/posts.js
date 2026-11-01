@@ -4,12 +4,27 @@
 // Optional fields: cover, teaser, changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "04-the-long-way-to-coffee",
+    "date": "2026-11-01",
+    "title": "I took the long way to coffee.",
+    "version": "V. 1.27.1",
+    "draft": true,
+    "cover": "img/04-large-office.jpg",
+    "leadAlt": "The larger office floor at game scale.",
+    "teaser": "The art preview grows an atrium, side wings and a records annex with a lost binder. The map fills in as you walk.",
+    "changes": ["Atrium, longer paths and side wings in the Campus preview", "Map reveals as you explore", "Brighter carpet, chair mats, coffee rings and a printer paper trail"],
+    "nextUp": "See what happens when a crowd tries to get around those desks.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/art-test.html"
+  },
+  {
     "slug": "04-midlife-is-hard",
     "date": "2026-11-01",
     "title": "I could beat my own game standing still. So I hired a robot.",
     "version": "V. 1.24 to 1.27",
     "draft": false,
     "cover": "img/04-midlife-is-hard.jpg",
+    "leadVideo": "img/04-midlife-is-hard.mp4",
+    "leadAlt": "15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in.",
     "teaser": "Four minutes in, I could put the controller down. A test bot, a Grok review and a Comfort Zone Tax fixed that.",
     "changes": [
       "Enemies and bosses scale with your level",
@@ -27,6 +42,7 @@ window.DEVLOG_POSTS = [
     "version": "V. 1.24.1",
     "draft": false,
     "cover": "img/03-office-with-some-history.jpg",
+    "leadAlt": "The first detailed office section in the separate Campus preview.",
     "teaser": "Accounts Payable gets desks with personality, a jammed printer, and a plant that needs PTO.",
     "changes": [
       "Three desk personalities in the Campus art test",
@@ -43,6 +59,7 @@ window.DEVLOG_POSTS = [
     "version": "V. 1.23.4",
     "draft": false,
     "cover": "img/02-three-different-strides.jpg",
+    "leadAlt": "The first walking pass for the three playable characters.",
     "teaser": "Walking sheets for the 9-to-5er, Soccer Dad, and Grad Student. Four directions, feet that stop when you do.",
     "changes": [
       "Four-direction walking sheets for all three playable characters",

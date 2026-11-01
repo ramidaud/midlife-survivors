@@ -5,7 +5,8 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 ## Add a post
 1. Write `posts/<slug>.md` (casual, Rami's voice). Screenshots go in `img/` and are linked as `img/<file>.jpg`.
 2. Add an entry at the top of `posts.js` with `"draft": true`. Keep the JSON style (quoted keys, no trailing commas).
-   Optional fields: `cover`, `teaser`, `changes` (list), `nextUp`, `playUrl`.
+   Optional fields: `cover`, `leadVideo`, `leadAlt`, `teaser`, `changes` (list), `nextUp`, `playUrl`.
+   Every memo opens with a lead visual: `leadVideo` (a looping clip) if set, otherwise `cover`. Don't repeat that image in the post body.
 3. Preview at `devlog/?drafts=1`. When Rami approves, set `"draft": false`.
 4. Rebuild the share pages and RSS feed, then commit everything:
    `python3 scripts/build_devlog.py --root . --site-url https://ramidaud.github.io/midlife-survivors/devlog`

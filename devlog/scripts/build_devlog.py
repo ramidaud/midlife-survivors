@@ -106,6 +106,7 @@ PAGE = """<!doctype html>
         {version_pill}{draft_pill}
       </div>
     </div>
+    {lead}
     <div class="post-cta">
       <div><a class="btn btn-primary" href="{play}">▶ Play this build</a></div>
       {changes}
@@ -115,7 +116,7 @@ PAGE = """<!doctype html>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to {version}. Screenshots are from the real game at the time.</div>
     </article>
   </div>
-  <footer class="site-footer">© 2026 Rami Daud. Written by Rami Daud. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
+  <footer class="site-footer">© 2026 <a href="../about/">Rami Daud</a>. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
 </body>
 </html>
 """
@@ -160,6 +161,14 @@ def main():
             next_up = f'<div class="next-up"><strong>Next up</strong>{html.escape(p["nextUp"])}</div>'
 
         version_pill = f'<span class="pill">{html.escape(version)}</span>' if version else ""
+        alt = html.escape(p.get("leadAlt") or title)
+        cap = f"<figcaption>{alt}</figcaption>" if p.get("leadAlt") else ""
+        if p.get("leadVideo"):
+            lead = f'<figure class="post-lead"><video src="../{html.escape(p["leadVideo"])}" poster="../{html.escape(p.get("cover", ""))}" autoplay muted loop playsinline controls aria-label="{alt}"></video>{cap}</figure>'
+        elif p.get("cover"):
+            lead = f'<figure class="post-lead"><img src="../{html.escape(p["cover"])}" alt="{alt}">{cap}</figure>'
+        else:
+            lead = ""
         draft_pill = '<span class="pill draft">DRAFT</span>' if p.get("draft") else ""
 
         out_dir = root / slug
@@ -173,6 +182,7 @@ def main():
             date=html.escape(date),
             date_fmt=html.escape(date_fmt),
             version_pill=version_pill,
+            lead=lead,
             draft_pill=draft_pill,
             changes=changes,
             next_up=next_up,

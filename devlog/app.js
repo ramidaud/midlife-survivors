@@ -82,6 +82,11 @@
     const changes = Array.isArray(post.changes) && post.changes.length
       ? `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`
       : "";
+    // Every memo opens with a strong visual: a looping gameplay clip if there is one, otherwise the cover.
+    const leadSrc = post.leadVideo || post.cover || "";
+    const lead = post.leadVideo
+      ? `<figure class="post-lead"><video src="${esc(post.leadVideo)}" poster="${esc(post.cover || "")}" autoplay muted loop playsinline controls aria-label="${esc(post.leadAlt || post.title)}"></video>${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>`
+      : (post.cover ? `<figure class="post-lead"><img src="${esc(post.cover)}" alt="${esc(post.leadAlt || post.title)}">${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>` : "");
     const nextUp = post.nextUp
       ? `<div class="next-up"><strong>Next up</strong>${esc(post.nextUp)}</div>`
       : "";
@@ -100,6 +105,7 @@
           ${post.draft ? `<span class="pill draft">DRAFT</span>` : ""}
         </div>
       </div>
+      ${lead}
       <div class="post-cta">
         <div><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a></div>
         ${changes}
@@ -118,7 +124,7 @@
       </nav>`;
     // Respect "reduce motion": clips stay paused until the reader presses play.
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.querySelectorAll(".prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+      document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
     window.scrollTo(0, 0);
   }
