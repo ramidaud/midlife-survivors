@@ -12,6 +12,24 @@
   const deskPositions = [[-125, 60], [125, 60], [180, 200]];
   const shots = [];
 
+  // Screen Y represents the point where an object's feet meet the floor.
+  // The desk's back wall is drawn ABOVE its floor footprint in this 3/4 view.
+  function deskFootprint(desk) {
+    return { left: desk.x - 40, right: desk.x + 40,
+      top: desk.y - (newArt ? 70 : 38), bottom: desk.y + 2 };
+  }
+
+  function moveAroundDesks(actor, dx, dy, radius) {
+    const blocks = (x, y) => desks.some(desk => {
+      const box = deskFootprint(desk);
+      return x > box.left - radius && x < box.right + radius &&
+        y > box.top - 5 && y < box.bottom + 5;
+    });
+    // Resolve each axis separately: brushing a corner slides along it.
+    if (!blocks(actor.x + dx, actor.y)) actor.x += dx;
+    if (!blocks(actor.x, actor.y + dy)) actor.y += dy;
+  }
+
   // This import step keys the magenta and fits each atlas cell into game pixels.
   // Nearest-neighbor sampling and palette mapping keep the final textures hard edged.
   const palette = ['171c35', '303750', '526078', '3e7775', '83a89a', 'a88b70',
@@ -87,6 +105,7 @@
         Math.round((canvas.height - image.height * scale) / 2), image.width * scale, image.height * scale);
     }
     document.getElementById('bill-size').textContent = newArt ? '32 × 36 game pixels' : '36 × 26 game pixels';
+    document.getElementById('hero-size').textContent = newArt ? '56 × 60 game pixels' : '48 × 52 game pixels';
     document.getElementById('desk-size').textContent = newArt ? '96 × 104 game pixels' : '96 × 68 game pixels';
   }
 
@@ -97,15 +116,24 @@
     desks.forEach(d => d.setTexture(newArt ? 'art_desk' : 'prop_desk'));
     floor.setTexture(newArt ? 'art_floor' : 'floor');
     walkway.setVisible(newArt);
+    // Switching art can change the furniture footprint around an actor.
+    for (const actor of [hero, bill]) {
+      for (const desk of desks) {
+        const box = deskFootprint(desk);
+        if (actor.x > box.left - 11 && actor.x < box.right + 11 && actor.y > box.top - 5 && actor.y < box.bottom + 5) {
+          actor.y = box.bottom + 6;
+        }
+      }
+    }
     document.getElementById('new-art').setAttribute('aria-pressed', String(newArt));
     document.getElementById('current-art').setAttribute('aria-pressed', String(!newArt));
     status.textContent = (newArt ? 'New art' : 'Current art') + ' · ' + zoom + '× view' +
-      (zoom === 1 ? ' · Same hero frame size as the game' : ' · Enlarged for a closer look') + (paused ? ' · Paused' : '');
+      (zoom === 1 ? (newArt ? ' · Hero about 15% larger' : ' · Original hero size') : ' · Enlarged for a closer look') + (paused ? ' · Paused' : '');
     samples();
   }
 
   function reset() {
-    hero.setPosition(0, 38); bill.setPosition(-130, 65);
+    hero.setPosition(0, 38); bill.setPosition(-75, 100);
     shots.splice(0).forEach(s => s.image.destroy());
     shotAt = 0;
   }
@@ -117,15 +145,16 @@
     scene.load.once('complete', () => {
       try {
         const source = scene.textures.get('atlas_source').getSourceImage();
-        importCell(source, 0, 'art_hero', 48, 52);
+        importCell(source, 0, 'art_hero', 56, 60);
         importCell(source, 1, 'art_bill', 32, 36);
         importCell(source, 2, 'art_desk', 96, 104);
         makeFloor('art_floor', false); makeFloor('art_walkway', true);
-        floor = scene.add.tileSprite(0, 0, 2000, 2000, 'art_floor');
-        walkway = scene.add.tileSprite(0, 75, 2000, 112, 'art_walkway');
+        // Scenery must stay behind actors even north of world Y=0.
+        floor = scene.add.tileSprite(0, 0, 2000, 2000, 'art_floor').setDepth(-1000000000);
+        walkway = scene.add.tileSprite(0, 75, 2000, 112, 'art_walkway').setDepth(-999999999);
         desks = deskPositions.map(([x, y]) => scene.add.image(x, y, 'art_desk').setOrigin(.5, 1).setDepth(y));
         hero = scene.add.image(0, 38, 'art_hero').setOrigin(.5, 1);
-        bill = scene.add.image(-130, 65, 'art_bill').setOrigin(.5, 1);
+        bill = scene.add.image(-75, 100, 'art_bill').setOrigin(.5, 1);
         coffee = scene.add.graphics();
         keys = scene.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT');
         scene.input.keyboard.addCapture(['UP', 'DOWN', 'LEFT', 'RIGHT', 'SPACE']);
@@ -154,18 +183,13 @@
     }
     const length = Math.hypot(dx, dy);
     if (length) {
-      let nx = hero.x + dx / length * 150 * dt, ny = hero.y + dy / length * 150 * dt;
-      // A shallow footprint keeps tall artwork from blocking empty floor above it.
-      for (const desk of desks) {
-        if (Math.abs(nx - desk.x) < 48 && ny > desk.y - 38 && ny < desk.y + 8) { nx = hero.x; ny = hero.y; }
-      }
-      hero.setPosition(nx, ny);
+      moveAroundDesks(hero, dx / length * 150 * dt, dy / length * 150 * dt, 11);
     }
     hero.setDepth(hero.y); bill.setDepth(bill.y);
     floor.setPosition(hero.x, hero.y); floor.tilePositionX = hero.x; floor.tilePositionY = hero.y;
     walkway.x = hero.x; walkway.tilePositionX = hero.x;
     const bx = hero.x - bill.x, by = hero.y - bill.y, distance = Math.hypot(bx, by);
-    if (distance > 25) { bill.x += bx / distance * 38 * dt; bill.y += by / distance * 38 * dt; }
+    if (distance > 25) moveAroundDesks(bill, bx / distance * 38 * dt, by / distance * 38 * dt, 8);
     if (time > shotAt && distance > 28) {
       const image = scene.add.rectangle(hero.x - 12, hero.y - 24, 6, 4, 0xef9347).setDepth(10000);
       shots.push({ image, vx: bx / distance * -230, vy: by / distance * -230, age: 0 });
@@ -174,14 +198,21 @@
     for (let i = shots.length - 1; i >= 0; i--) {
       const s = shots[i]; s.image.x += s.vx * dt; s.image.y += s.vy * dt; s.age += dt;
       if (Math.hypot(s.image.x - bill.x, s.image.y - (bill.y - 16)) < 19) {
-        bill.setPosition(hero.x - 150, hero.y + 60);
+        bill.setPosition(hero.x - 65, hero.y + 80);
+        for (const desk of desks) {
+          const box = deskFootprint(desk);
+          if (bill.x > box.left - 8 && bill.x < box.right + 8 && bill.y > box.top - 5 && bill.y < box.bottom + 5) bill.y = box.bottom + 6;
+        }
         s.age = 2;
       }
       if (s.age > 1.5) { s.image.destroy(); shots.splice(i, 1); }
     }
     coffee.clear();
-    coffee.fillStyle(0x171c35); coffee.fillRect(Math.round(hero.x - 16), Math.round(hero.y + 5), 32, 4);
-    coffee.fillStyle(0x83a89a); coffee.fillRect(Math.round(hero.x - 15), Math.round(hero.y + 6), 30, 2);
+    const behindDesk = desks.some(desk => hero.y < desk.y && hero.y > desk.y - desk.height &&
+      Math.abs(hero.x - desk.x) < desk.width / 2 + 12);
+    const barY = Math.round(behindDesk ? hero.y - hero.height - 7 : hero.y + 5);
+    coffee.fillStyle(0x171c35); coffee.fillRect(Math.round(hero.x - 16), barY, 32, 4);
+    coffee.fillStyle(0x83a89a); coffee.fillRect(Math.round(hero.x - 15), barY + 1, 30, 2);
     coffee.setDepth(10001);
   }
 
@@ -206,6 +237,7 @@
     scale: { mode: Phaser.Scale.NONE, width: arena.clientWidth, height: arena.clientHeight },
     scene: { create, update } });
   new ResizeObserver(() => {
+    if (!game.isRunning || !game.canvas || !game.renderer) return;
     game.scale.resize(arena.clientWidth, arena.clientHeight);
   }).observe(arena);
 })();

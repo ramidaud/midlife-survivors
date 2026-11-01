@@ -3,6 +3,12 @@
 A picture-first guide to how this game works, one chapter per idea. Each chapter adds what we just built. Read it in any order, but it makes the most sense from top to bottom.
 
 ## Art study: big illustration, tiny game character (Oct 31, 2026, Codex)
+Follow-up: the revised hero is 56x60, about 15% larger. A desk must block its full floor footprint, rather than only its front edge. Otherwise the hero can walk inside it and disappear. Sorting by feet still makes the back wall cover part of someone behind it.
+
+`behind = partly covered | beside = blocked | in front = visible`
+
+Floors also need a layer below every actor. Our first study used layer 0 for the floor; walking north made the hero's foot-based layer negative, which put him under it. Giving floors a fixed background layer preserves visibility on either side of the map origin.
+
 
 `Key art -> simpler sprite -> 1x movement test -> feedback`
 

@@ -10,4 +10,6 @@ The runtime imports each subject, removes magenta, samples with nearest-neighbor
 
 Floor and walkway are native 32x32 repeating canvas textures using the guide palette. The floor contains no unique markings or light pools that expose repetition. Desk collisions use a shallow base and objects sort by foot position, so the player can walk behind furniture.
 
+Revision V. 1.20.1: Rami approved the direction but wanted a slightly larger hero and believable desk overlap. The new hero now uses a 56x60 frame (about 15% larger). Desk footprints extend to their back edge on the floor, preventing entry into the furniture and full accidental occlusion. Axis-by-axis collision allows sliding around corners. Bills also respect desk footprints. The comparison retains the original hero size.
+
 Only one pose per character is available. No directional or walking-animation claims. This is an isolated visual test, awaiting feedback before production integration.

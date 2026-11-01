@@ -5,6 +5,8 @@
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
 ## Office art study (Oct 31, 2026, Codex)
+- Rami's feedback: direction is good, hero slightly too small, disappearing behind desks feels wrong. Revised study uses a 56x60 hero (about 15% larger). Desks block their full projected floor footprint, preserving natural partial overlap behind their back wall and full visibility in front. Movement slides along corners.
+- Floors stay behind all actors at negative map coordinates too. When a desk covers the hero's feet, his health bar moves above his head.
 - Rami approved the warm office key art as the style direction: navy shadows, teal partitions, fluorescent cream and the orange coffee mug. Palette and drawing rules live in `assets/art-direction/STYLE_GUIDE.md`.
 - An isolated Phaser study in `art-test.html` compares the current art with a generated hero, Bill and workstation over native seamless floor tiles. The main game's Extras menu links to it.
 - Test at 1x for gameplay readability, 2x for inspection. Hero keeps the current 48x52 frame; proposed Bill is 32x36 and workstation 96x104. Objects sort by their feet; desks block only their shallow base.

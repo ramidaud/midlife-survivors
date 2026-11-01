@@ -476,6 +476,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Checked desktop and 390x844 phone layout, comparison controls, 1x/2x, pause, movement and Extras navigation. Fixed canvas sizing during resize; JavaScript syntax and diff checks pass.
 - Next: Rami's feedback on readability and character size before more assets or production replacement. Main gameplay art remains the current set.
 
+## 2026-10-31: Hero scale and believable desks, V. 1.20.1 (Codex)
+- Rami liked the direction and requested a slightly larger hero and believable overlap behind desks. Hero frame increased to 56x60, about 15% larger.
+- Corrected desk floor footprints, added sliding at corners, and kept Bills out of desks too.
+- Fixed a second disappearance cause: the floor drew over actors north of map Y=0. Health bar moves above the hero when his feet are behind furniture.
+- Checked the behind-desk case in the browser and collision boundaries in a focused movement test. These changes apply to the separate art study.
 
 ## 2026-10-31: Midlife mode (V. 1.21.0) (Claude)
 - New main mode: ages 40 to 65 at 45 seconds per year (about 19 minutes). Three bosses, then a Retirement Party ending.

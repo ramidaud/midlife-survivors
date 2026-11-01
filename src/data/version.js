@@ -6,7 +6,7 @@ const GAME_VERSION = {
   displayVersion: "V. 1.21.0",
   lastUpdated: "Oct 31, 2026",
   codename: "Midlife Mode",
-  build: 39,
+  build: 40,
   changelog: [
     {
       ver: "V. 1.21.0",
@@ -17,6 +17,15 @@ const GAME_VERSION = {
         "Full Life (40 to 100) is still here. It unlocks once you reach 65 in Midlife.",
         "Overtime: buy Delayed Retirement in the 401(k) Shop to add 5 more years per rank (up to 80).",
         "Each mode has its own leaderboard."
+      ]
+    },
+    {
+      ver: "V. 1.20.1",
+      date: "Oct 31, 2026",
+      title: "A Clearer Office Art Test",
+      highlights: [
+        "The new hero is about 15% larger in the art test.",
+        "Desk collisions match their full floor space, with smoother movement around corners and believable overlap."
       ]
     },
     {
