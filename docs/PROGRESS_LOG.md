@@ -592,3 +592,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Title screen now sits on the office key art (scanlines, slow pan, off for reduce-motion), matching the devlog hero.
 - Links: Devlog on the title's main row (same tab), Art Test renamed Art Preview, devlog hero has a Play button, Art Preview links to the devlog. Shared pixel "MS" favicon and a share-preview image for the game link.
 - Audited all menus (title, shop, extras, achievements, leaderboard, options, level-up, pause, game over) at laptop and phone sizes.
+- Devlog: sidenotes (inspired by hankgreen.com). Write ^[note] in a post; margin note on wide screens, tap-to-open sticky note on phones. Two examples in post 4.

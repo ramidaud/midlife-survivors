@@ -21,3 +21,8 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
   `<video src="img/<file>.mp4" poster="img/<file>.jpg" autoplay muted loop playsinline controls></video>`
 - Clips autoplay muted on loop like a GIF, and stay paused for readers who turn on "reduce motion".
 - To shrink a phone or screen recording: `ffmpeg -i in.mov -t 15 -an -vf scale=960:-2 -c:v libx264 -crf 26 -preset veryfast -movflags +faststart out.mp4`
+
+## Sidenotes (inline references)
+- Write `^[your note]` right after a word or sentence. It becomes a small orange number.
+- On wide screens the note sits in the right margin; on phones, tapping the number opens it under the line.
+- Notes can include links: `^[More on this in [post 1](?post=01-never-made-a-game).]`

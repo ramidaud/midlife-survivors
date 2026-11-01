@@ -119,6 +119,7 @@ PAGE = """<!doctype html>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
+<script>document.querySelectorAll(".sn-ref").forEach(b=>b.addEventListener("click",()=>{{const n=document.getElementById(b.getAttribute("aria-controls"));const o=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",String(o));if(n)n.classList.toggle("open",o);}}));</script>
 </body>
 </html>
 """
@@ -142,6 +143,14 @@ def main():
         slug = p["slug"]
         md_path = root / "posts" / f"{slug}.md"
         body_md = md_path.read_text() if md_path.exists() else "_Missing memo._"
+        # Sidenotes: ^[note] -> numbered margin note (same markup as app.js)
+        sn = {"n": 0}
+        def _sn(m):
+            sn["n"] += 1; n = sn["n"]
+            inner = mdlib.markdown(m.group(1))[3:-4] if mdlib else html.escape(m.group(1))
+            return (f'<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-{n}" aria-label="Note {n}">{n}</button>'
+                    f'<span class="sn" id="sn-{n}" role="note"><b>{n}</b> {inner}</span>')
+        body_md = re.sub(r"\^\[([^\]]+)\]", _sn, body_md)
         body = md_to_html(body_md)
         body = body.replace('src="img/', 'src="../img/')
 

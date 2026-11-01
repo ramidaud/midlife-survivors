@@ -444,3 +444,27 @@ a, button, [role="button"], summary, .hotspot, .card { cursor: url("img/cursor-h
 
 /* Play button on the hero memo: the devlog leads straight into the game. */
 .hero-memo .memo-play { pointer-events: auto; display: inline-block; margin-top: 14px; }
+
+/* Sidenotes (inline references): orange number in the text, note in the margin on wide screens,
+   a tap-to-open sticky note on phones. Write ^[note text] in a post's markdown. */
+.sn-ref {
+  font: 700 11px/1 "Silkscreen", monospace; color: var(--navy, #171C35); background: var(--coffee, #EF9347);
+  border: 0; border-radius: 3px; padding: 2px 4px; margin: 0 2px; vertical-align: super;
+  cursor: url("img/cursor-hand.png") 8 0, pointer;
+}
+.sn-ref[aria-expanded="true"], .sn-ref:hover { background: var(--cream, #F2D7A1); }
+.sn {
+  display: none; font-size: 14px; line-height: 1.5; color: var(--navy, #171C35);
+  background: var(--cream, #F2D7A1); border-left: 4px solid var(--coffee, #EF9347);
+  padding: 8px 10px; margin: 8px 0; border-radius: 2px; transform: rotate(-0.4deg);
+}
+.sn b { font-family: "Silkscreen", monospace; font-weight: 400; color: var(--teal, #3E7775); margin-right: 4px; }
+.sn a { color: var(--teal, #3E7775); }
+.sn.open { display: block; }
+@media (min-width: 1320px) {
+  .sn, .sn.open {
+    display: block; float: right; clear: right; width: 200px;
+    margin: 2px -244px 10px 0; font-size: 13px; transform: none;
+  }
+  .sn-ref { cursor: default; pointer-events: none; }
+}

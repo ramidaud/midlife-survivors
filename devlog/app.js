@@ -73,6 +73,14 @@
     } catch (e) {}
 
     // Rewrite relative img/ paths that already include img/ in markdown
+    // Sidenotes: write ^[a note] in the markdown. It becomes a small orange number;
+    // the note sits in the margin on wide screens and opens under the line when tapped on phones.
+    let snCount = 0;
+    md = md.replace(/\^\[([^\]]+)\]/g, (m, note) => {
+      snCount++;
+      const inner = window.marked ? marked.parseInline(note) : esc(note);
+      return `<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-${snCount}" aria-label="Note ${snCount}">${snCount}</button><span class="sn" id="sn-${snCount}" role="note"><b>${snCount}</b> ${inner}</span>`;
+    });
     const html = window.marked
       ? marked.parse(md, { gfm: true })
       : `<pre>${esc(md)}</pre>`;
@@ -126,6 +134,14 @@
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
+    postMain.querySelectorAll(".sn-ref").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const note = document.getElementById(btn.getAttribute("aria-controls"));
+        const open = btn.getAttribute("aria-expanded") !== "true";
+        btn.setAttribute("aria-expanded", String(open));
+        if (note) note.classList.toggle("open", open);
+      });
+    });
     window.scrollTo(0, 0);
   }
 
