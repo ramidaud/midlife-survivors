@@ -411,3 +411,6 @@ The Midlife run moves through four places as you age: the Open-Plan Office (done
 ```
 
 Rami pastes this into `docs/handoffs/chatgpt-changes.md`. Claude then slices the sheets, tests them in the devlog's Art Room first, and swaps them into the game one batch at a time.
+
+## Delivery status: November 1, 2026 (Codex)
+Batch 1 art generation is complete: all ten enemy species and Group Chat ping are saved under `assets/enemies/`. Review via the Art Room's **Review animated enemies** link or `assets/enemies/review.html`. The manifest lists 11 sheets and 42 native frames. Full prompts, corrected sources, individual GIFs, an overview and a native ZIP are included. Await visual review before production integration. Bosses and later batches remain pending; see `chatgpt-changes.md` for the integration handoff.

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.9",
-  displayVersion: "V. 1.28.9",
+  version: "1.28.10",
+  displayVersion: "V. 1.28.10",
   lastUpdated: "Nov 1, 2026",
-  codename: "Clocking Out",
-  build: 65,
+  codename: "A Whole Inbox of Trouble",
+  build: 66,
   changelog: [
+    {
+      ver: "V. 1.28.10",
+      date: "Nov 1, 2026",
+      title: "A Whole Inbox of Trouble",
+      highlights: [
+        "All ten Batch 1 enemy species and the Group Chat projectile now have animated native sprite sheets: 11 sheets, 42 frames, with magenta backgrounds and the office palette.",
+        "Review the full cast from the Art Room with pause, individual poses, native scale and floor comparisons. Art awaits visual review before combat integration."
+      ]
+    },
     {
       ver: "V. 1.28.9",
       date: "Nov 1, 2026",

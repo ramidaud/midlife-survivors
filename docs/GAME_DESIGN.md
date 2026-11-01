@@ -351,3 +351,8 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - Rami chose a clock icon instead of the orange boxed MS initials. Use cream face, stepped teal rim, navy hands and one orange hour marker. The game's name stays cream pixel lettering in the devlog header.
 - Favicon silhouette is designed at 16x16, rather than reduced from the large concept image. Header SVG and integer-scaled PNG exports share the same geometry. Home-screen export uses navy padding.
 - Applies to branding and browser/home-screen icons only. Enemy sprite work resumes with Late Fee next.
+
+## Full enemy art batch (Nov 1, 2026, Codex)
+- Batch 1 generation is complete: Bill, Late Fee, Spam Likely, Late-Night Donut, Back Twinge, Reply-All, 3 AM Thought, Calendar Invite, Group Chat and Math Homework, plus Group Chat ping. This replaces the earlier Bill-only delivery status.
+- Keep distinct motion personalities: quick receipt scurry, ringing phone, bouncing pastry, coiling bolt, swaying envelope chain, fading ghost, calendar charge, typing bubble and fluttering worksheet.
+- Assets remain separate from combat until visual review. The Art Room links to an isolated native-size comparison page. Game logic still controls attack timing, ghost vulnerability and collision; baked art poses do not change those rules. Boss art is a later batch.

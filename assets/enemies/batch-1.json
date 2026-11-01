@@ -1,0 +1,79 @@
+[
+  {
+    "id": "bill",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.18,
+    "anchor": "feet"
+  },
+  {
+    "id": "late-fee",
+    "size": 32,
+    "frames": 4,
+    "delay": 0.1,
+    "anchor": "feet"
+  },
+  {
+    "id": "spam-likely",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.16,
+    "anchor": "feet"
+  },
+  {
+    "id": "late-night-donut",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.15,
+    "anchor": "feet"
+  },
+  {
+    "id": "back-twinge",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.14,
+    "anchor": "center"
+  },
+  {
+    "id": "reply-all",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.22,
+    "anchor": "center"
+  },
+  {
+    "id": "3am-thought",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.23,
+    "anchor": "center"
+  },
+  {
+    "id": "calendar-invite",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.12,
+    "anchor": "feet"
+  },
+  {
+    "id": "group-chat",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.2,
+    "anchor": "center"
+  },
+  {
+    "id": "math-homework",
+    "size": 48,
+    "frames": 4,
+    "delay": 0.17,
+    "anchor": "center"
+  },
+  {
+    "id": "group-chat-ping",
+    "size": 16,
+    "frames": 2,
+    "delay": 0.16,
+    "anchor": "center"
+  }
+]
