@@ -258,3 +258,11 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - Score = 1,000 per year survived + 2 per enemy beaten (25 per boss) + 5 per 401(k) coin + 25,000 for meeting Death at 100. Tunable in `src/data/leaderboard.js`.
 - Online storage: a free Supabase table (`docs/LEADERBOARD_SETUP.sql`). Anyone can read and add scores; nobody can edit or delete. Fake scores are possible, which is fine for friends; revisit before a public launch.
 - Scores are always saved on the device too, so nothing is lost offline.
+
+## Decisions and feedback (Oct 31: Ben's playtest + Rami's design doc)
+- **Playtest fixes (Ben):** Quick Retry kills touch input on phones; level-up perks need **tap-to-confirm**; long dad jokes must wrap on small screens; Resume button confuses new players (make Start primary); "escalates quickly, brutal."
+- **Dad jokes:** aura pulses silently. A joke is spoken/shown when you unlock or upgrade Dad Joke, plus an occasional bonus joke (max about one per 45-60 s).
+- **Difficulty:** soften the first few minutes, then ramp like Vampire Survivors.
+- **Core mode becomes a short run** (max about 20 min), with small ways to earn more time at advanced levels. Reaching 100 becomes a special mode unlocked by an achievement. Proposed: core run 40 to 60 at 1 min/year, "Overtime" unlocks add years. (Awaiting Rami's OK on the age range.)
+- **Content:** drop in all jokes and death lines from Rami's design doc, plus additions. Goal: dynamic, not repetitive.
+- **New ideas from Rami:** discoverable items (magnet, energy drink with speed + brief invincibility, more), a discoverable map showing items, bosses and moments; accounts so players come back for progression; split work across AI tools (ChatGPT for art via GPT Image, others for writing); push a stronger indie pixel-art look.

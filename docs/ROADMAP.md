@@ -26,6 +26,16 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 
 ---
 
+## Next up (planned Oct 31, usage-light: one session per item)
+1. [ ] **Playtest fix pack:** Retry touch bug, tap-to-confirm perks, joke wrapping + quieter jokes, Start over Resume, plain rarity labels, coin economy fix, softer first minutes
+2. [ ] **Core 20-minute run:** short Midlife mode as the main game, Overtime unlocks, Full Life (to 100) as an unlockable mode, separate leaderboards
+3. [ ] **Content drop + items:** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
+4. [ ] **Achievements** (one unlocks Full Life)
+5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel
+6. [ ] **Discoverable map + bigger world**
+7. [ ] **Accounts / cloud saves**
+8. [ ] Errands, Daily Challenge, gallery
+
 ## Phase 0: Setup and first pixels (week 1)
 - [x] Create project folder, CLAUDE.md, design doc, roadmap
 - [x] Schedule weekly check-ins
