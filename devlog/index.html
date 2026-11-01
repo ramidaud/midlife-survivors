@@ -47,7 +47,10 @@ footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px
   <footer>Written by Rami Daud. Built with Claude. Screenshots are from the actual builds at the time.</footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
-<script src="posts.js?v=1"></script>
+<script>
+  // Load the post list fresh on every visit (a cached copy hid new posts for up to 10 minutes).
+  document.write('<script src="posts.js?t=' + Date.now() + '"><\/script>');
+</script>
 <script>
 const params = new URLSearchParams(location.search);
 const showDrafts = params.has("drafts");
@@ -70,7 +73,7 @@ async function render() {
   }
   document.title = post.title + " | Midlife Survivors Devlog";
   let md = "Couldn't load this post.";
-  try { const r = await fetch(`posts/${post.slug}.md?v=1`); if (r.ok) md = await r.text(); } catch (e) {}
+  try { const r = await fetch(`posts/${post.slug}.md?t=${Date.now()}`); if (r.ok) md = await r.text(); } catch (e) {}
   const html = window.marked ? marked.parse(md) : `<pre>${esc(md)}</pre>`;
   main.innerHTML = `<a class="back" href="./${showDrafts ? "?drafts" : ""}">← All posts</a>
     <article><div class="date">${fmt(post.date)} · ${esc(post.version || "")}</div><h1>${esc(post.title)}</h1>${html}</article>`;
