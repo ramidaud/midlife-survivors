@@ -29,7 +29,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ## Next up (planned Oct 31, usage-light: one session per item)
 1. [x] **Playtest fix pack (V. 1.20.0):** Retry touch bug, tap-to-confirm perks, joke wrapping + quieter jokes, Start over Resume, plain rarity labels, coin economy fix, softer first minutes, leaderboard shows personal bests only with no top-10 cap
 2. [x] **Core 19-minute run (V. 1.21.0) (ages 40 to 65, 45 s/year):** short Midlife mode as the main game, Overtime unlocks, Full Life (to 100) as an unlockable mode, separate leaderboards
-3. [ ] **Content drop + items:** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
+3. [x] **Content drop + items (V. 1.22.0):** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
 4. [ ] **Achievements** (one unlocks Full Life)
 5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. First isolated office study ready in `art-test.html` (Extras > Art Test): Current/New comparison, hero, Bill, workstation and seamless floor. Await feedback before production replacement.
 6. [ ] **Discoverable map + bigger world**

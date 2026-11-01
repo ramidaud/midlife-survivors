@@ -223,8 +223,35 @@ window.UPGRADES = [
   {
     id: "annualCheckup",
     name: "Annual Checkup",
-    maxRank: 99,
+    maxRank: 3,
     text: "+3 Max HP and immediately restore +4 HP.",
     apply: s => { addRank(s, "annualCheckup"); s.maxHp += 3; s.heal = 4; }
-  }
+  },
+
+  // ---- BOOSTS (one-time effects). Offered when the regular cards run low, or now and then after 50. ----
+  { id: "leftoverFriday", name: "Leftover Friday Pizza", maxRank: 6, isConsumable: true,
+    text: "Heal 5 HP and pull in every gem and coin nearby.",
+    apply: s => { addRank(s, "leftoverFriday"); s.heal = 5; window.itemEffect && window.itemEffect("fannyPack", true); } },
+  { id: "ptoDayCard", name: "PTO Day", maxRank: 3, isConsumable: true,
+    text: "Out of office: every regular enemy on screen leaves.",
+    apply: s => { addRank(s, "ptoDayCard"); window.itemEffect && window.itemEffect("ptoDay", true); } },
+  { id: "fannyPackCard", name: "Fanny Pack", maxRank: 4, isConsumable: true,
+    text: "Every gem and coin on screen comes to you.",
+    apply: s => { addRank(s, "fannyPackCard"); window.itemEffect && window.itemEffect("fannyPack", true); } },
+  { id: "standingDesk", name: "Standing Desk", maxRank: 5, isConsumable: true,
+    text: "Move 15% faster for 45 seconds.",
+    apply: s => { addRank(s, "standingDesk"); window.startBuff && window.startBuff("speed", 1.15, 45000, "STANDING DESK"); } },
+  { id: "calendarBlock", name: "Focus Block", maxRank: 5, isConsumable: true,
+    text: "Blocked your calendar: +25% damage for 30 seconds.",
+    apply: s => { addRank(s, "calendarBlock"); window.startBuff && window.startBuff("damage", 1.25, 30000, "FOCUS BLOCK"); } },
+  { id: "hrSnack", name: "HR Appreciation Snacks", maxRank: 8, isConsumable: true,
+    text: "+2 Max HP and heal 2. Someone brought the good granola bars.",
+    apply: s => { addRank(s, "hrSnack"); s.maxHp += 2; s.heal = 2; } }
 ];
+
+// Every card respects its maxRank (so Annual Checkup no longer shows up forever).
+window.UPGRADES.forEach(u => {
+  if (!u.id || !u.maxRank) return;
+  const prev = u.when;
+  u.when = s => getRank(s, u.id) < u.maxRank && (!prev || prev(s));
+});

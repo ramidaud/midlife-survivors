@@ -260,3 +260,9 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - Browsers keep copies of web files (a **cache**) so pages load faster. GitHub Pages lets them reuse the page for about 10 minutes.
 - Right after an update, a reload could pair an **old page** with **new code**, which didn't match, so the controls broke until a second reload.
 - Fix: the page now loads one tiny file, `src/loader.js`, fresh every time, and that file lists every code file with the same build number. Everything always matches.
+
+
+## Timed effects (Oct 31, items)
+- A temporary boost is just a **deadline**: when you grab an Energy Drink, the game writes down "fast until 12 seconds from now."
+- Every frame it asks one question: is it before the deadline? If yes, multiply speed. If no, do nothing.
+- Because the deadline uses game time, pausing freezes the boost too. No timer can run out while you read a menu.

@@ -16,22 +16,75 @@ window.WEAPONS = {
     damage: 1,         // hits EVERY Bill inside the circle
     bonusEveryMs: 50000, // a bonus joke is told (and spoken) at most this often; jokes are also told right after you unlock or upgrade Dad Joke
     color: 0xe6c84f,   // cheesy yellow
+    // Fallback jokes for any stage. Stage-specific jokes are in linesByStage below (from Rami's design doc).
     lines: [
-      "Hi Hungry, I'm Dad!",
-      "Working hard or hardly working?",
-      "It's not the heat, it's the humidity!",
       "Didn't scan? Must be free!",
       "Who touched the thermostat?!",
       "I'm not sleeping, I'm resting my eyes!",
-      "We're making great time on this drive!",
-      "Looks like rain... we really needed this.",
       "Are we paying to air-condition the whole neighborhood?",
       "Let's rock and roll... right after my ibuprofen.",
-      "I used to be with 'it', then they changed what 'it' was!",
-      "Careful, that's load-bearing drywall!"
+      "Careful, that's load-bearing drywall!",
+      "I know a guy who can fix that.",
+      "Lefty loosey, righty... hang on.",
+      "Back in a minute. Gotta check the gutters.",
+      "That's a 'future me' problem."
     ],
+    linesByStage: {
+      office: [
+        "Per my last email... and the twelve before that!",
+        "The microwave has claims on that leftover.",
+        "If you're free at 4:58, you're not free.",
+        "Reply-all is a lifestyle, not a button.",
+        "My standing desk is sitting today.",
+        "This meeting could've been a calendar decline.",
+        "Breakroom coffee: burnt, beloved, mandatory.",
+        "I brought a mug. Do not touch the mug.",
+        "Synergy? I thought we fired synergy.",
+        "Parking garage cardio counts as steps!"
+      ],
+      hospital: [
+        "Out-of-network is just Latin for surprise.",
+        "The pager knows when you sit down.",
+        "Jell-O is not a personality, but it's dinner.",
+        "3 AM: baby's fine. I'm negotiating with time.",
+        "Copay first, existential dread second.",
+        "Vinyl chairs: where backs go to complain.",
+        "We packed the bag. Twice. Still forgot the charger.",
+        "Sleep is a rumor we tell coworkers."
+      ],
+      home: [
+        "LEGO: the original home security system.",
+        "Carpool math beats Common Core math.",
+        "The water heater knocks in Morse for money.",
+        "Homework help: I too am discovering fractions.",
+        "Snack schedule is my magnum opus.",
+        "Yard work: where weekends go to retire.",
+        "We own a house! The house also owns us.",
+        "Lost a sock. Gained a mystery.",
+        "Thermostat wars: Geneva Conventions apply."
+      ],
+      social: [
+        "Rain check #4 still counts as friendship.",
+        "Splitting the check evenly is a contact sport.",
+        "Group chat: 47 unread, 0 plans.",
+        "9 PM is the new midnight, and I honor it.",
+        "Tapas: paying rent for three olives.",
+        "Let's pencil that in... in disappearing ink.",
+        "I muted the chat. It evolved.",
+        "We should do this more often! (annually)"
+      ],
+      senior: [
+        "Early-bird buffet: cardio before soup.",
+        "Pickleball: where knees file HR complaints.",
+        "HOA newsletter: gripping seasonal content.",
+        "If we leave now, we beat the 4:00 seating.",
+        "My hip is a better forecast than the app.",
+        "Scam call? Ask them to hold for my attorney.",
+        "Visor on. Knees braced. Let's dink.",
+        "Father Time can take a number."
+      ]
+    },
     seniorLines: [
-      "In my day, coffee cost a nickel!",
       "Turn that racket down, it's 4:15 PM!",
       "My left knee says a storm's rolling in!",
       "Is this covered by Medicare Part B?",

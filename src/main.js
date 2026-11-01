@@ -213,6 +213,7 @@ function create() {
   window._heldKeys.clear();
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   runCoins = 0; runKills = 0; lastJokeToldAt = 0;
+  buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
@@ -594,10 +595,12 @@ function create() {
   gems = this.physics.add.group();
   coins = this.physics.add.group();
   window.pizzas = this.physics.add.group();
+  window.fieldItems = this.physics.add.group(); // Fanny Pack, Energy Drink, PTO Day (src/data/items.js)
   chests = this.physics.add.group();
   this.physics.add.overlap(player, gems, collectGem);
   this.physics.add.overlap(player, coins, collectCoin);
   this.physics.add.overlap(player, window.pizzas, collectPizza);
+  this.physics.add.overlap(player, window.fieldItems, collectFieldItem);
   this.physics.add.overlap(player, chests, collectChest);
   updateHUD();
 
@@ -732,6 +735,60 @@ function collectCoin(p, coin) {
 }
 
 // You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +3 HP!
+// ---------- Discoverable items + timed boosts ----------
+let buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
+
+window.startBuff = (type, mult, durMs, label) => {
+  buffs[type + "Until"] = runElapsedMs + durMs;
+  buffs[type + "Mult"] = mult;
+  if (window.showLowerThird) window.showLowerThird("reward", label, `${type === "speed" ? "Faster feet" : "Extra damage"} for ${Math.round(durMs / 1000)} seconds.`, 3500);
+};
+
+function itemTexture(scene, kind) {
+  const key = "item_" + kind, I = FIELD_ITEMS[kind];
+  if (!scene.textures.exists(key)) {
+    makeCanvasTex(scene, key, 34, 34, ctx => {
+      ctx.fillStyle = "rgba(18,21,42,0.85)"; ctx.beginPath(); ctx.arc(17, 17, 16, 0, Math.PI * 2); ctx.fill();
+      ctx.font = "22px sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(I.emoji, 17, 19);
+    });
+  }
+  return key;
+}
+
+function spawnFieldItem(scene, x, y, kind) {
+  if (!window.fieldItems || window.fieldItems.countActive() >= ITEM_DROPS.maxOnFloor) return;
+  if (!kind) {
+    const kinds = Object.keys(FIELD_ITEMS), total = kinds.reduce((a, k) => a + FIELD_ITEMS[k].weight, 0);
+    let r = Math.random() * total; kind = kinds.find(k => (r -= FIELD_ITEMS[k].weight) < 0) || kinds[0];
+  }
+  const it = window.fieldItems.create(x, y, itemTexture(scene, kind)).setDepth(3);
+  it.kind = kind; it.expireAt = runElapsedMs + ITEM_DROPS.lifeMs;
+  it.glowRing = scene.add.circle(x, y, 20).setStrokeStyle(2, FIELD_ITEMS[kind].glow, 0.9).setDepth(2);
+  scene.tweens.add({ targets: it.glowRing, scale: { from: 0.8, to: 1.25 }, alpha: { from: 1, to: 0.3 }, yoyo: true, repeat: -1, duration: 600 });
+  scene.tweens.add({ targets: it, y: y - 4, yoyo: true, repeat: -1, duration: 700, ease: "Sine.easeInOut" });
+}
+
+// What each item does. quiet = triggered from a level-up card (the card already explained it).
+window.itemEffect = (kind, quiet) => {
+  const sc = player && player.scene; if (!sc) return;
+  if (kind === "fannyPack") buffs.vacuumUntil = runElapsedMs + 2500;
+  if (kind === "energyDrink") { buffs.speedUntil = runElapsedMs + FIELD_ITEMS.energyDrink.durMs; buffs.speedMult = FIELD_ITEMS.energyDrink.speedMult; }
+  if (kind === "ptoDay") {
+    sc.cameras.main.flash(250, 120, 220, 160);
+    bills.getChildren().slice().forEach(b => { if (b.active && !b.isBoss) { b.ghost = false; damageBill(b, 9999); } });
+  }
+  if (!quiet && window.showLowerThird) window.showLowerThird("reward", FIELD_ITEMS[kind].name.toUpperCase(), FIELD_ITEMS[kind].text, 4000);
+};
+
+function collectFieldItem(p, it) {
+  if (!it.active) return;
+  const kind = it.kind;
+  if (it.glowRing) it.glowRing.destroy();
+  it.destroy();
+  sfx("levelUp");
+  window.itemEffect(kind, false);
+}
+
 function collectPizza(p, pz) {
   if (!pz.active) return;
   pz.destroy();
@@ -877,11 +934,16 @@ function showLevelUp(scene, customTitle, preferWeapons) {
   player.setVelocity(0, 0);
 
   const pool = UPGRADES.filter(u => !u.when || u.when(stats));
-  const evos = pool.filter(u => u.isEvolution);
-  const unlocked = preferWeapons ? pool.filter(u => u.name.startsWith("Unlock:")) : [];
+  const boosts = Phaser.Utils.Array.Shuffle(pool.filter(u => u.isConsumable));
+  const regular = pool.filter(u => !u.isConsumable);
+  const evos = regular.filter(u => u.isEvolution);
+  const unlocked = preferWeapons ? regular.filter(u => u.name.startsWith("Unlock:")) : [];
   const priority = evos.concat(unlocked);
-  const rest = Phaser.Utils.Array.Shuffle(pool.filter(u => !priority.includes(u)).slice());
-  const choices = priority.concat(rest).slice(0, 3);
+  const rest = Phaser.Utils.Array.Shuffle(regular.filter(u => !priority.includes(u)).slice());
+  let choices = priority.concat(rest).slice(0, 3);
+  // Boosts fill empty slots when regular cards run out, and after 50 one sometimes takes the third slot.
+  while (choices.length < 3 && boosts.length) choices.push(boosts.shift());
+  if (choices.length === 3 && boosts.length && !choices.some(c => c.isConsumable) && currentAge >= 50 && Math.random() < 0.3) choices[2] = boosts.shift();
 
   const pick = up => {
     sfx("pick");
@@ -976,7 +1038,7 @@ function showGameOver(scene, killer, isWin) {
   if (isWin && runMode === "midlife") { meta.fullLifeUnlocked = true; saveMeta(meta); }
   const cause = isWin
     ? Phaser.Utils.Array.GetRandom(runMode === "midlife" ? winLinesRetire : (currentAge >= 99.5 ? winLines100 : winLines80))
-    : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.bill);
+    : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.fallback);
 
   renderGameOverModal(scene, cause, isWin);
 }
@@ -1019,6 +1081,7 @@ function damageBill(bill, amount) {
   if (!bill.active) return;
   if (bill.ghost) return; // faded 3 AM Thoughts ignore auras too
   const sc = bill.scene;
+  if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
   bill.hp -= amount;
   popDamageNumber(sc, bill.x, bill.y, amount);
   if (bill.hp > 0) {
@@ -1052,6 +1115,7 @@ function damageBill(bill, amount) {
       createEnemy(sc, "lateFee", bill.x + 16, bill.y + 10);
     } else {
       gems.create(bill.x, bill.y, "gem").setDepth(3); // leave a Wisdom gem behind
+      if (Math.random() < ITEM_DROPS.fromEnemy) spawnFieldItem(sc, bill.x, bill.y + 12); // rare item drop
       const yld = window.getCoinYieldInfo();
       if (Math.random() < yld.dropChance) {
         spawnCoin(bill.x + 10, bill.y, 1);
@@ -1094,6 +1158,7 @@ function damagePlant(prop, amount) {
     prop.setVisible(false);
     if (prop.body) prop.body.enable = false;
 
+    if (Math.random() < ITEM_DROPS.fromPlant) spawnFieldItem(sc, prop.x, prop.y + 14);
     // Roll plant loot reward: 45% Leftover Pizza (+3 HP) + 1 Coin, 35% 2x 401(k) Coins, 20% 3x Coins + 1 Gem Jackpot!
     const roll = Math.random();
     let popupTxt = "🪙 +401(k)!";
@@ -1168,7 +1233,11 @@ function fireDadJoke(scene) {
     const ring = scene.add.circle(player.x, player.y, 12, J.color, 0.25).setStrokeStyle(3, J.color);
     scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 380, onComplete: () => ring.destroy() });
   }
-  const pool = (currentAge >= 80 && J.seniorLines) ? J.seniorLines.concat(J.lines) : J.lines;
+  // Prefer jokes for the stage you're in (office, hospital, home...), mixed with a few all-purpose ones.
+  const stJ = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
+  const stagePool = (stJ && J.linesByStage && J.linesByStage[stJ.id]) || [];
+  const base = (currentAge >= 80 && J.seniorLines) ? J.seniorLines.concat(J.lines) : J.lines;
+  const pool = stagePool.length && Math.random() < 0.75 ? stagePool : base;
   // The groan ring hits every time, but the joke itself is only told now and then:
   // right after you unlock or upgrade Dad Joke, plus an occasional bonus joke (WEAPONS.dadJoke.bonusEveryMs).
   const bonusDue = runElapsedMs - lastJokeToldAt >= (J.bonusEveryMs || 50000);
@@ -1618,7 +1687,8 @@ function update(time, delta) {
   const len = Math.hypot(x, y);
   if (len > 0) { x /= len; y /= len; }
 
-  const moveSpd = runElapsedMs < slowUntil ? stats.speed * ENEMIES.snackAttack.slowFactor : stats.speed;
+  const buffSpd = runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1; // Energy Drink / Standing Desk
+  const moveSpd = (runElapsedMs < slowUntil ? stats.speed * ENEMIES.snackAttack.slowFactor : stats.speed) * buffSpd;
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   player.setAngle((x !== 0 || y !== 0) ? Math.sin(this.time.now / 55) * 7 : 0); // jaunty walk wobble
@@ -1653,8 +1723,12 @@ function update(time, delta) {
       this.physics.moveToObject(gem, player, W.magnetSpeed);
     }
   });
+  const vacuum = runElapsedMs < buffs.vacuumUntil; // Fanny Pack: pull from anywhere
+  if (vacuum) gems.getChildren().forEach(g => this.physics.moveToObject(g, player, W.magnetSpeed * 1.6));
+  // Items on the floor expire after a while.
+  if (window.fieldItems) window.fieldItems.getChildren().slice().forEach(it => { if (runElapsedMs > it.expireAt) { if (it.glowRing) it.glowRing.destroy(); it.destroy(); } else if (it.glowRing) it.glowRing.setPosition(it.x, it.y); });
   coins.getChildren().forEach(c => {
-    if (Phaser.Math.Distance.Between(player.x, player.y, c.x, c.y) < stats.magnetRadius) {
+    if (vacuum || Phaser.Math.Distance.Between(player.x, player.y, c.x, c.y) < stats.magnetRadius) {
       this.physics.moveToObject(c, player, W.magnetSpeed);
     }
   });

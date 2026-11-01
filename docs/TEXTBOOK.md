@@ -1252,3 +1252,19 @@ flowchart LR
     T["Title: pick MODE"] --> M["modes.js: look up the rulebook"]
     M --> G["Same game code reads ages, clock, bosses, board"]
 ```
+
+
+## Chapter: Timers on effects (V. 1.22.0)
+
+```
+pick up Energy Drink at 3:10
+   buffs.speedUntil = now + 12 s   →  3:22
+every frame:  is now < 3:22 ?  yes → speed × 1.35
+                               no  → normal speed
+```
+
+| Item | Effect | How long |
+|---|---|---|
+| 👝 Fanny Pack | pulls every gem and coin | 2.5 s |
+| 🥤 Energy Drink | +35% speed | 12 s |
+| 🌴 PTO Day | clears non-boss enemies | instant |

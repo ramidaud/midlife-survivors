@@ -27,7 +27,13 @@ const UPGRADE_META = {
   "Titanium Knees":                { icon: "🦿", tag: "BIONIC PERK",     rarity: "passive" },
   "EVOLVE: Cold Brew Concentrate": { icon: "⚡☕", tag: "✨ EVOLUTION",   rarity: "evo" },
   "EVOLVE: Unhinged Pun Storm":    { icon: "🌩️😂", tag: "✨ EVOLUTION",   rarity: "evo" },
-  "EVOLVE: Healthy Boundaries":    { icon: "🛡️🛑", tag: "✨ EVOLUTION",   rarity: "evo" }
+  "EVOLVE: Healthy Boundaries":    { icon: "🛡️🛑", tag: "✨ EVOLUTION",   rarity: "evo" },
+  "Leftover Friday Pizza":         { icon: "🍕", tag: "BOOST", rarity: "boost" },
+  "PTO Day":                       { icon: "🌴", tag: "BOOST", rarity: "boost" },
+  "Fanny Pack":                    { icon: "👝", tag: "BOOST", rarity: "boost" },
+  "Standing Desk":                 { icon: "🧍", tag: "BOOST", rarity: "boost" },
+  "Focus Block":                   { icon: "📅", tag: "BOOST", rarity: "boost" },
+  "HR Appreciation Snacks":        { icon: "🥨", tag: "BOOST", rarity: "boost" }
 };
 
 const CHAR_ICONS = {
@@ -1690,9 +1696,9 @@ function renderLevelUpModal(choices, customTitle, onPick) {
     // Plain labels a new player can read at a glance (from Rami's design doc).
     const plain = up.isEvolution || info.rarity === "evo" ? "EVOLUTION"
       : up.name.startsWith("Unlock:") ? "NEW WEAPON"
-      : up.name === "Annual Checkup" ? "BOOST"
+      : (up.isConsumable || up.name === "Annual Checkup") ? "BOOST"
       : info.rarity === "passive" ? "PASSIVE" : "UPGRADE";
-    const rankLabel = (up.maxRank && up.maxRank > 1 && up.maxRank < 50)
+    const rankLabel = (!up.isConsumable && up.maxRank && up.maxRank > 1 && up.maxRank < 50)
       ? `${plain} · LEVEL ${curRank + 1} OF ${up.maxRank}`
       : plain;
     const card = document.createElement("div");

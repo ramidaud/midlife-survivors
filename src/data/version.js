@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.21.1",
-  displayVersion: "V. 1.21.1",
+  version: "1.22.0",
+  displayVersion: "V. 1.22.0",
   lastUpdated: "Oct 31, 2026",
-  codename: "Midlife Mode",
-  build: 41,
+  codename: "Lost and Found",
+  build: 42,
   changelog: [
+    {
+      ver: "V. 1.22.0",
+      date: "Oct 31, 2026",
+      title: "Lost and Found",
+      highlights: [
+        "Items on the floor: Fanny Pack (pulls in every gem and coin), Energy Drink (faster for 12 seconds) and PTO Day (clears the screen). Smash plants to find them.",
+        "New Boost cards when your regular perks run out: Leftover Friday Pizza, Standing Desk, Focus Block, HR Snacks and more. Annual Checkup no longer repeats forever.",
+        "Dad Joke tells jokes that match where you are: office, hospital, home or the social scene.",
+        "Over 50 new death lines, one set for every enemy and boss."
+      ]
+    },
     {
       ver: "V. 1.21.1",
       date: "Oct 31, 2026",

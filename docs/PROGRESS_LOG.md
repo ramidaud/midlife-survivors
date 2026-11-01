@@ -493,3 +493,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-10-31: Reload fix (V. 1.21.1) (Claude)
 - Rami: controls sometimes didn't work until a second reload. Couldn't reproduce locally; cause was a cached old page mixing with new code right after updates.
 - Game code now loads through `src/loader.js`, fetched fresh on every visit. Version bumps now change `BUILD` there instead of `?v=` tags.
+
+
+## 2026-10-31: Content drop + items (V. 1.22.0) (Claude)
+- Floor items: Fanny Pack, Energy Drink, PTO Day. They drop from smashed plants (22%) and rarely from enemies.
+- Boost cards (Leftover Friday Pizza, PTO Day, Fanny Pack, Standing Desk, Focus Block, HR Snacks) fill in when regular perks run out. Annual Checkup capped at 3.
+- Dad Joke uses stage-specific jokes from Rami's design doc; weak lines retired. 50+ new death lines plus a fallback.
+- Next: Achievements (one unlocks Full Life).

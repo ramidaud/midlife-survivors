@@ -86,3 +86,26 @@ window.DEATHS = {
     "Trapped in a word problem about two trains."
   ]
 };
+
+// More lines from Rami's design doc (Oct 31). Merged into the lists above.
+const MORE_DEATHS = {
+  bill: ["Autopay blinked. So did you.", "The envelope said FINAL. It meant it.", "Itemized into the next life."],
+  lateFee: ["$35 never looked so athletic.", "Midnight plus one minute: legend status.", "Overdue fees held a reunion on your lawn."],
+  spamCall: ["Extended warranty found your soft spot.", "Unknown number. Known outcome.", "Dinner time is peak ambush hour."],
+  snackAttack: ["The kitchen light won the staring contest.", "Midnight snack committee overruled you.", "Glaze happened. Momentum did not."],
+  backTwinge: ["A polite sneeze. An impolite spine.", "The sock was not worth it. It never is.", "Wrong pillow. Right away, consequences."],
+  officeGossip: ["Reply All: the final form of cardio.", "CC'd into a plot you didn't audition for.", "Thread length exceeded life expectancy."],
+  threeAmThought: ["2009 called. It brought slides.", "The stove was fine. You were not.", "Inbox zero? Try brain zero."],
+  calendarInvite: ["Recurring forever: the silent killer.", "Back-to-back, then flat.", "Accepted on accident. Lived on purpose. Briefly."],
+  groupChat: ["Who's bringing ice? History will remember.", "412 reactions. Zero exits.", "Muted in app. Unmuted in fate."],
+  mathWorksheet: ["New Math: same kid, new rules, old parent.", "Two trains left. You stayed.", "Showing work required. Work declined."],
+  performanceReview: ["Q3 synergy remains undiscussed.", "PIP stood for Please Immediately Panic.", "Five-year plan loading... error."],
+  mortgageRefinance: ["Page 83 wanted an initial. You gave up.", "APR did cardio around you.", "Escrow ate the last hit point."],
+  midlifeCrisis: ["Leather jacket: approved. Knees: pending.", "The V8 had a better exit strategy.", "Podcast mic on. Common sense off."],
+  hoaPresident: ["Trash cans: 4 minutes late to glory.", "Eggshell was never on the palette.", "The ruler does not negotiate."],
+  retirementBoss: ["Password hint: your first pet's Wi-Fi.", "Slideshow outlasted the retiree.", "RMD math without coffee: classified hazard."],
+  pickleballChamp: ["Muriel sends her regards. And a visor.", "Dink shot: small ball, big feelings.", "Line call disputed. Hamstring settled it."],
+  // Used when an enemy has no lines of its own yet.
+  fallback: ["Midlife called. You picked up.", "The actuarial tables were undefeated today.", "Form W-40 filed itself."]
+};
+Object.keys(MORE_DEATHS).forEach(k => { window.DEATHS[k] = (window.DEATHS[k] || []).concat(MORE_DEATHS[k]); });
