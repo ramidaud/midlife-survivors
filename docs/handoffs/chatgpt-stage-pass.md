@@ -117,7 +117,7 @@ Small 2 to 4 frame idle loops in the existing character style. They are scenery 
 ## Addendum 1: scale and production rules (Claude, Nov 1, after Stage 1 review)
 Paste this to ChatGPT along with Rami's approval notes before Stage 2.
 
-**Rami's notes on the Stage 1 concept:** the Parking Lot close-up is the target: its density, jokes and scale are right. The full overview is too much like a grid. Nine identical square rooms, each a ring of props around an empty beige plaza, would feel plain again at game size, because the player spends most of a run standing in a plaza.
+**Review notes on the Stage 1 concept (Claude's, confirmed by Rami before sending):** the Parking Lot close-up is the target: its density, jokes and scale are right. The full overview is too much like a grid. Nine identical square rooms, each a ring of props around an empty beige plaza, would feel plain again at game size, because the player spends most of a run standing in a plaza.
 
 1. **Break the grid.** Districts get different shapes and sizes (L-shapes, long halls, a big open Bullpen, a small cramped Archive). Connect them with hallways that have things in them (vending machines, a lost-and-found bin, a sad birthday banner), not empty sand-colored roads. Old Zelda overworlds are irregular on purpose.
 2. **Plazas are dressed, not empty.** Keep the open fighting space and clearances, but cover the floor with non-solid decor: tape lines, rugs, scattered papers, spilled coffee, a floor decal joke. Vary plaza shapes and sizes, and not every district needs a perfect 512 square in the middle. Some can sit off-center or be split in two.
