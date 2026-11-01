@@ -313,3 +313,6 @@ A large level needs clues about where to go. **Wayfinding** means using floor ma
 A **contact shadow** is the small dark area where an object meets the floor. A gap between the object and its shadow makes it look airborne. The preview now traces furniture bases so the shadow touches the feet, wheels and pot bottoms. A lighter cast extends toward the lower right, matching the light from the upper left. Chair mats and wear marks provide extra clues about where furniture sits.
 
 `Sprite base → tight contact shadow → lighter cast on the floor`
+
+## Negative space (Nov 1, devlog cover, Codex)
+**Negative space** is a calmer part of an image where the eye can rest. Leaving the left third quiet gives a later title room to breathe. Placing the hero and enemies to the right keeps their silhouettes readable without filling the title area with detail.

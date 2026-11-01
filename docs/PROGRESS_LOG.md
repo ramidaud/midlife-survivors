@@ -581,3 +581,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Posts 1-4 stay public (Rami had already approved them). Email and Discord show "coming soon".
 - Devlog: video clip support (post 4 has a 15-second bot-recorded gameplay clip) and a new footer crediting Claude, Gemini, ChatGPT and Grok with links.
 - Devlog: every memo now opens with a lead visual (clip or cover); post 4's video moved to the top. New About page (personnel file) linked from the header and footer. Restored Codex's draft post "I took the long way to coffee" that the redesign had dropped.
+
+## 2026-11-01: Office devlog cover, V. 1.27.3 (Codex)
+- Rami supplied a devlog-cover brief with open scene/enemy placeholders. Used the latest office-exploration post: the 9-to-5er taking the long way to coffee, followed by Bills, a purple spam phone and a donut.
+- Generated one 1536x1024 landscape cover in the approved pixel-art palette. Left third stays calm for a future title overlay; no title or logo is baked in.
+- Saved the PNG and full prompt, and assigned it to draft post 04 with alt text identifying it as an illustration. The post remains unpublished. Verified image dimensions and inspected composition.

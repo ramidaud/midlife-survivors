@@ -1387,3 +1387,12 @@ This is a route sketch, not a collision map. The 3072x2048 office keeps the same
 ```
 
 A detached shadow suggests height above the ground. The scene now reads the bottom edge of each imported furniture texture once and places short shadow pixels directly against it. A quieter cast sits lower right; chair mats and scuffs sit underneath the furniture. The sprite exports keep their plain magenta background because shadows belong to the scene. This changes visual contact without changing collision.
+
+## Chapter: Leaving room for a title (V. 1.27.3, Codex)
+
+```text
+| quiet left third | office story, hero and enemies |
+| optional title   | strongest contrast and detail |
+```
+
+The title is added later. The illustration provides a low-contrast area behind it, while the action stays on the right. This lets one clean, text-free cover work with several title treatments.

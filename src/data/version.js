@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.27.2",
-  displayVersion: "V. 1.27.2",
+  version: "1.27.3",
+  displayVersion: "V. 1.27.3",
   lastUpdated: "Nov 1, 2026",
-  codename: "Feet on the Floor",
-  build: 54,
+  codename: "The Long Way, Illustrated",
+  build: 55,
   changelog: [
+    {
+      ver: "V. 1.27.3",
+      date: "Nov 1, 2026",
+      title: "The Long Way, Illustrated",
+      highlights: [
+        "Prepared a 1536x1024 illustrated cover for the draft office-exploration devlog, with calm space on the left for a future title overlay. The post remains a draft."
+      ]
+    },
     {
       ver: "V. 1.27.2",
       date: "Nov 1, 2026",
