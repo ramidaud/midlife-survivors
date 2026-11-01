@@ -10,3 +10,4 @@
 - **Tag your log entries** with the tool name, e.g. `## 2026-11-03: Bills chase the player (Antigravity)`, so Claude can catch up, republish the playtest and sync the Project next time.
 - **Don't change the rules** in `CLAUDE.md` or the tech decisions (Phaser 3 from cdnjs, no build step) without Rami's OK.
 - **ChatGPT, Gemini and Grok** don't edit this folder. Their notes arrive in `docs/handoffs/<tool>-changes.md`.
+- **Art preview:** `art-test.html` is shown inside the devlog's Art Room (`devlog/art/`, loaded with `?embed=1`, which hides its eyebrow and nav links). Keep working in `art-test.html`; the devlog page picks up changes automatically.

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.0",
-  displayVersion: "V. 1.28.0",
+  version: "1.28.1",
+  displayVersion: "V. 1.28.1",
   lastUpdated: "Nov 1, 2026",
   codename: "One Office",
-  build: 56,
+  build: 57,
   changelog: [
+    {
+      ver: "V. 1.28.1",
+      date: "Nov 1, 2026",
+      title: "The Art Room",
+      highlights: [
+        "Extras > Art Room now opens the art preview inside the devlog, with the devlog's header and links."
+      ]
+    },
     {
       ver: "V. 1.28.0",
       date: "Nov 1, 2026",

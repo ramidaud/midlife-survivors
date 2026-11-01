@@ -14,7 +14,7 @@ window.DEVLOG_POSTS = [
     "teaser": "The art preview grows an atrium, side wings and a records annex with a lost binder. The map fills in as you walk.",
     "changes": ["Atrium, longer paths and side wings in the Campus preview", "Map reveals as you explore", "Brighter carpet, chair mats, coffee rings and a printer paper trail"],
     "nextUp": "See what happens when a crowd tries to get around those desks.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/art-test.html"
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/devlog/art/"
   },
   {
     "slug": "04-midlife-is-hard",

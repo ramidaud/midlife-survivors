@@ -594,3 +594,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Audited all menus (title, shop, extras, achievements, leaderboard, options, level-up, pause, game over) at laptop and phone sizes.
 - Devlog: inline references (inspired by hankgreen.com). Write ^[note] in a post; clicking the superscript number pops a card under the line with a quick animation. Two examples in post 4.
 - Devlog: inline notes added to posts 1-3 (game loop, sprite sheets, why photographers keep backgrounds quiet, and more). Rami's pixel-art bio portrait now heads the About page and is its share image.
+- Devlog: the art preview now lives inside the devlog as the Art Room (`devlog/art/`, header link; game Extras > Art Room goes there). "← All memos" is now a large button. V. 1.28.1.

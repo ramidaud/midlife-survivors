@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <title>Midlife Survivors | Office art test</title>
   <style>
     * { box-sizing: border-box; }
-    body { margin: 0; background: #171c35; color: #fff0cf; font: 16px/1.5 system-ui, sans-serif; }
+    body { margin: 0; background: #171c35; color: #fff0cf; font: 16px/1.5 'Atkinson Hyperlegible', system-ui, sans-serif; }
     main { max-width: 1120px; margin: auto; padding: 24px; }
     .eyebrow { color: #83a89a; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
     h1 { margin: 4px 0 8px; font-size: clamp(24px, 4vw, 36px); line-height: 1.2; }
@@ -44,6 +45,12 @@
     .character-gallery figcaption a { display: block; padding: 6px 8px; margin-top: 6px; font-size: 12px; }
     @media(max-width: 600px) { main { padding: 16px; } nav { gap: 6px; } button, a { font-size: 13px; padding: 9px; } figure { min-width: 90px; padding: 8px; } .samples { gap: 6px; } figure canvas { width: 100%; height: 110px; } }
   </style>
+  <style>
+    /* Inside the devlog's Art Room (art-test.html?embed=1): the devlog supplies the header and links */
+    html.embedded main { padding-top: 8px; }
+    html.embedded .eyebrow, html.embedded nav a[href="index.html"], html.embedded nav a[href="devlog/"] { display: none; }
+  </style>
+  <script>if (/[?&]embed=1/.test(location.search)) document.documentElement.classList.add("embedded");</script>
 </head>
 <body>
 <main>

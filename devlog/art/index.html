@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Art Room · Midlife Survivors Devlog</title>
+<meta name="description" content="Walk around the newest Midlife Survivors art before it reaches the game: characters, desks and the Corporate Campus.">
+<meta property="og:title" content="The Art Room · Midlife Survivors">
+<meta property="og:description" content="Walk around the newest Midlife Survivors art before it reaches the game.">
+<meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/04-long-way-cover-v1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../styles.css?v=10">
+<style>
+  .art-frame { width: 100%; border: 0; display: block; min-height: 70vh; background: #171C35;
+    border-radius: 8px; box-shadow: 0 0 0 2px var(--teal, #3E7775); }
+  .art-intro { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 4px 0 16px; }
+  .art-wrap { max-width: 1180px; }
+</style>
+</head>
+<body>
+  <header class="site-header is-compact">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">MS</span>
+      <span><span class="brand-title">Midlife Survivors</span></span>
+    </a>
+    <div class="actions">
+      <a class="btn btn-ghost" href="../">Filed memos</a>
+      <a class="btn btn-primary" href="../../">▶ Play</a>
+    </div>
+  </header>
+  <div class="wrap art-wrap">
+    <a class="back" href="../">← All memos</a>
+    <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>The Art Room</strong></div>
+    <div class="post-header">
+      <h1>The Art Room</h1>
+      <div class="post-meta">New art lives here before it reaches the game. Walk around, swap characters, and compare it with the current look.</div>
+    </div>
+    <div class="art-intro">
+      <a class="btn btn-ghost" href="../../art-test.html">Open full screen</a>
+      <a class="btn btn-ghost" href="../">Read the build memos</a>
+    </div>
+    <iframe class="art-frame" id="art-frame" src="../../art-test.html?embed=1" title="Midlife Survivors art preview: Corporate Campus"></iframe>
+  </div>
+  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
+<script>
+  // Grow the frame to fit the art preview so the page scrolls as one piece.
+  const f = document.getElementById("art-frame");
+  function fit() { try { const h = f.contentDocument.documentElement.scrollHeight; if (h) f.style.height = h + "px"; } catch (e) {} }
+  f.addEventListener("load", () => { fit(); try { new ResizeObserver(fit).observe(f.contentDocument.body); } catch (e) { setInterval(fit, 1000); } });
+</script>
+</body>
+</html>

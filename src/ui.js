@@ -1907,7 +1907,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
         <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
-        <button class="t-style-btn" id="title-art-test-btn">🎨 ART PREVIEW</button>
+        <button class="t-style-btn" id="title-art-test-btn">🎨 ART ROOM</button>
         ${backBtn}
       </div>`;
   } else {
@@ -1960,7 +1960,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const devlogBtn = document.getElementById("title-devlog-btn");
   if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.location.href = "devlog/"; }); // same tab: the devlog's Play button brings you right back
   const artTestBtn = document.getElementById("title-art-test-btn");
-  if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "art-test.html"; });
+  if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "devlog/art/"; });
   const backEl = document.getElementById("title-back-btn");
   if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" || view === "achievements" ? "extras" : "main"), view !== "main");
 
