@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.21.0",
-  displayVersion: "V. 1.21.0",
+  version: "1.21.1",
+  displayVersion: "V. 1.21.1",
   lastUpdated: "Oct 31, 2026",
   codename: "Midlife Mode",
-  build: 40,
+  build: 41,
   changelog: [
+    {
+      ver: "V. 1.21.1",
+      date: "Oct 31, 2026",
+      title: "Reload Fix",
+      highlights: [
+        "Fixed controls sometimes not working until a second reload right after an update."
+      ]
+    },
     {
       ver: "V. 1.21.0",
       date: "Oct 31, 2026",

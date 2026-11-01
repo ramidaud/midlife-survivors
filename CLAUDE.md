@@ -25,7 +25,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
    - Read any new entries in `docs/handoffs/*-changes.md` (notes from ChatGPT, Gemini and Grok) and fold approved items into the game. Mark them **[done]**.
 2. **Propose one small step** with what Rami will see when it works.
 3. **Build it.** Keep changes small and focused.
-4. **Make it playable.** Test it first (headless browser at laptop and phone sizes), bump `src/data/version.js` and the `?v=` cache-busters in `index.html`, then push to GitHub so the official playtest at https://ramidaud.github.io/midlife-survivors/ updates. If a push isn't possible from here, tell Rami exactly what to run.
+4. **Make it playable.** Test it first (headless browser at laptop and phone sizes), bump `src/data/version.js` and `BUILD` in `src/loader.js` (new code files go in its file list, not in `index.html`), then push to GitHub so the official playtest at https://ramidaud.github.io/midlife-survivors/ updates. If a push isn't possible from here, tell Rami exactly what to run.
 5. **Explain one concept** that the step taught (e.g. "game loop", "collision", "delta time") in 3-5 sentences. Add it to `docs/LEARNING_NOTES.md`.
    - **Show it visually in the chat** (a diagram, sketch or table right in the reply, not just a link), then add the same visuals as a new chapter in `docs/TEXTBOOK.md`. Rami learns best with pictures.
 6. **Log it.** Append a short dated entry (3-5 bullets) to `docs/PROGRESS_LOG.md`, tick items in `docs/ROADMAP.md`, and save a git commit with a clear message.

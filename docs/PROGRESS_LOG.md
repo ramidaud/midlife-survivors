@@ -488,3 +488,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Overtime: "Delayed Retirement" in the 401(k) Shop adds 5 years per rank, up to 80.
 - Separate leaderboards per mode. Rami needs to run `docs/LEADERBOARD_MIDLIFE.sql` once in Supabase.
 - Next: Content drop + discoverable items.
+
+
+## 2026-10-31: Reload fix (V. 1.21.1) (Claude)
+- Rami: controls sometimes didn't work until a second reload. Couldn't reproduce locally; cause was a cached old page mixing with new code right after updates.
+- Game code now loads through `src/loader.js`, fetched fresh on every visit. Version bumps now change `BUILD` there instead of `?v=` tags.

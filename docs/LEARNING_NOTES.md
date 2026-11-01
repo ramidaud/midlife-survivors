@@ -254,3 +254,9 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - The game code didn't fork into two games. `src/data/modes.js` holds two small **rulebooks**: ages, clock speed, bosses, ending, leaderboard table.
 - When a run starts, the game looks up the chosen rulebook and every system reads from it.
 - Want a 10-minute "Speed Midlife" later? Add one more entry to the list. No new game logic.
+
+
+## Caching (Oct 31, reload fix)
+- Browsers keep copies of web files (a **cache**) so pages load faster. GitHub Pages lets them reuse the page for about 10 minutes.
+- Right after an update, a reload could pair an **old page** with **new code**, which didn't match, so the controls broke until a second reload.
+- Fix: the page now loads one tiny file, `src/loader.js`, fresh every time, and that file lists every code file with the same build number. Everything always matches.
