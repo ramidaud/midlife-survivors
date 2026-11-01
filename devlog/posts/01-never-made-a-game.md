@@ -2,13 +2,13 @@ I'm a photographer. I've spent twenty-some years figuring out where to stand and
 
 But I've played a lot of Vampire Survivors. If you haven't: you walk around, your weapons fire on their own, and an absurd number of monsters try to touch you. That's it. It's the most relaxing stressful thing I own.
 
-Somewhere around my mid-forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.
+Somewhere around my forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.
 
 So that's the game. **Midlife Survivors.** You start at 40. You survive.
 
 ## The vision part (that's my job)
 
-Before any code, I wrote down my Top 10 midlife annoyances. Bills. Phone calls. Diabetes. Fat. Work drama. Sleep. Aches and pains. Death. Kids' math homework. Errands.
+Before any code, I wrote down my Top 10 midlife annoyances. Bills. Phone calls. Diabetes. Fat. Work drama. Sleep. Aches and pains. Kids' math homework. Errands. Death.
 
 That list turned into the enemies. A Bill chases you, and if you don't pay it off fast it splits into Late Fees. "Spam Likely" rings before it charges. Donuts slow you down if you touch them. Death shows up at the end and can't be beaten, because, well.
 
