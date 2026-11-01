@@ -1,4 +1,4 @@
-// Animation import and frame selection for the isolated art preview.
+// Shared animation import and frame selection for the preview and main game.
 // Every frame uses one shared crop/scale so characters don't grow between steps.
 window.CharacterArt = (() => {
   const directions = ['down', 'up', 'left', 'right'];

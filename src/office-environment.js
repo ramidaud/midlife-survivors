@@ -1,4 +1,4 @@
-// Office environment study. Geometric tiles/decals stay native and seamless;
+// Shared office environment. Geometric tiles/decals stay native and seamless;
 // illustrated props use generated art imported by the preview.
 window.OfficeEnvironment = (() => {
   const props = [
