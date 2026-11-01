@@ -546,3 +546,8 @@ article.post .prose { position: relative; }
 .tk-n { color: var(--orange); }
 .tk-k { color: #8fb8ff; }
 @media (max-width: 560px) { .code-card code { font-size: 12.5px; } .code-card .ln::before { width: 2em; margin-right: 10px; } }
+
+/* Ko-fi tip button: warm cream so it reads as friendly, never louder than Play */
+.btn-coffee { background: var(--cream); color: var(--navy); border: 1px solid var(--cream); }
+.btn-coffee:hover, .btn-coffee:focus-visible { background: var(--warm-white, #FFF0CF); color: var(--navy); }
+@media (max-width: 720px) { .coffee-long { display: none; } }

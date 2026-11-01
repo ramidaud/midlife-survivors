@@ -617,3 +617,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Replaced the About lead image, Open Graph image and Twitter preview with a new versioned PNG. Added accurate alt text; retained the older silhouette asset. The source photograph was not added to the repository.
 - Checked the image loads at its native dimensions, the local desktop page, phone 390x844 layout with no horizontal overflow, and clean browser logs. Saved page proof and full generation prompt.
 - Bio-only update. Bill feedback and remaining enemy-art work stay pending; no gameplay or character design changed.
+- Ko-fi tip jar (https://ko-fi.com/ramidaud): devlog header button (cream, never louder than Play), footer line on every devlog page, About page link, game Extras button and a friendly line on Game Over. V. 1.28.5.

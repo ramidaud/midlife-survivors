@@ -338,3 +338,4 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 ## Creator bio art (Nov 1, 2026, Codex)
 - Rami requested a pixel-art interpretation of his studio photograph as the new About-page portrait. Preserve the real seated creator and room, using the game's warm cream light, navy shadows and stepped pixel clusters.
 - This is editorial creator art, not a playable-character design. The new 1536x1024 versioned PNG also serves as the About social preview; earlier silhouette art stays archived.
+- **Decided (Nov 1): tip jar.** Ko-fi at ko-fi.com/ramidaud (0% platform fee on tips). Friendly and never pushy: devlog header/footer/About, game Extras and the Game Over screen only; never during play, never a pop-up.

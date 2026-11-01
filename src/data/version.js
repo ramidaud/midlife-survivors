@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.4",
-  displayVersion: "V. 1.28.4",
+  version: "1.28.5",
+  displayVersion: "V. 1.28.5",
   lastUpdated: "Nov 1, 2026",
-  codename: "In the Studio",
-  build: 60,
+  codename: "One Office",
+  build: 61,
   changelog: [
+    {
+      ver: "V. 1.28.5",
+      date: "Nov 1, 2026",
+      title: "Buy the Dev a Coffee",
+      highlights: [
+        "The game is free. If you'd like to support it, there's now a Ko-fi tip link in Extras and on the Game Over screen."
+      ]
+    },
     {
       ver: "V. 1.28.4",
       date: "Nov 1, 2026",
