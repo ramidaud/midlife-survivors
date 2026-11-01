@@ -11,8 +11,8 @@ window.DEVLOG_POSTS = [
     "draft": true,
     "cover": "img/05-buy-the-dev-a-coffee.jpg",
     "leadAlt": "The Midlife Survivors main menu, with a cream Buy the Dev a Coffee button next to Devlog.",
-    "teaser": "Asking for money feels strange. Then the twins arrived, and I decided to throw my net out and follow the things I love.",
-    "changes": ["Buy the Dev a Coffee moved from Extras to the main menu", "Ko-fi links in the devlog header, footer and About page", "A friendly coffee line on the Game Over screen"],
+    "teaser": "Asking for money feels weird, so here is exactly where it goes: more AI time to finish this game. Also, I am looking for people who want to help build it.",
+    "changes": ["Buy the Dev a Coffee on the main menu and Game Over screen", "Ko-fi links in the devlog header, footer and About page", "Early tips go to AI usage to finish the game"],
     "nextUp": "Reviewing the first batch of real enemy art from ChatGPT.",
     "playUrl": "https://ramidaud.github.io/midlife-survivors/"
   },
