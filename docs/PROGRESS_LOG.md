@@ -695,3 +695,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Saved tunable promotion/door/spawn policies and a 72-family modular kit plan with variants, seamless tile contract and readable signs. Assets and runtime behaviors remain planned, not generated or implemented.
 - Physical floor checks passed 18 promotion-boundary/achievement cases including wrapping, without locked-floor leaks. Desktop and 390px phone checks passed with clean logs and contained zoom. Runtime crowd/performance tests remain future work.
 - Stop for v2 review before Stage 2. No live world, balance, save, leaderboard, post or CLAUDE.md changes.
+
+
+## 2026-11-01: Stage 2A props and posters, V. 1.28.18 (Codex)
+- Rami approved campus v2 and asked to begin Stage 2. Recorded full 224px clear openings for every gate, including Archive/seam gates, with jambs outside the route. Runtime navigation and locked-area spawning remain Claude's work.
+- Generated 13 families: three new desk personalities, KPI frame, parked compact car, wheel clamp, keycard jamb, subtle FILES cabinet, four posters and REBRAND? sign. Delivered 31 quiet colorways on exact-magenta native grids; existing desk art was not regenerated.
+- Added an isolated review with real 56x60 hero and 36px Bill comparisons, palette/footprint controls, once-only caption demo and open/closed gate studies. Sources, full prompts, manifest and optional native exporter are saved under assets/stage/props.
+- Native checks passed palette, opacity, margins, one-pixel outlines, unique variants and matching masks; 16 gate contracts keep 224px spans. Desktop and 390px phone review passed, including contained zoom and all 13 native canvas widths. No runtime world, pathing, balance, saves, leaderboard or posts changed.
+- Stage 2 remains in progress. Next batch: remaining slang props and district landmarks, reusing existing furniture. No new-world age-50 or 350-enemy run is claimed before integration.

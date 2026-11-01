@@ -1,7 +1,7 @@
 {
   "id": "corporate-campus-v2",
   "revision": 2,
-  "status": "overview-revision-before-stage-2",
+  "status": "v2-approved-stage-2-in-progress",
   "world": {
     "width": 7680,
     "height": 4320,
@@ -546,7 +546,10 @@
       "decorBays": [
         "vending alcove",
         "lost-and-found bin"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "break-access",
@@ -575,7 +578,10 @@
       "decorBays": [
         "sad birthday banner",
         "dropped party plate"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "west-return",
@@ -603,7 +609,10 @@
       "label": "STAFF ACCESS",
       "decorBays": [
         "vending alcove"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "server-access",
@@ -632,7 +641,10 @@
       "decorBays": [
         "Take It Offline sign",
         "unplugged lamp bay"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "server-return",
@@ -658,7 +670,10 @@
         "height": 224
       },
       "label": "STAFF ACCESS",
-      "decorBays": []
+      "decorBays": [],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "meeting-access",
@@ -687,7 +702,10 @@
       "decorBays": [
         "HARD STOP sign",
         "nine-hour meeting clock"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "executive-access",
@@ -715,7 +733,10 @@
       "label": "EXECUTIVES ONLY",
       "decorBays": [
         "thought-leadership portrait"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "executive-return",
@@ -741,7 +762,10 @@
         "height": 224
       },
       "label": "EXECUTIVES ONLY",
-      "decorBays": []
+      "decorBays": [],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "wellness-access",
@@ -769,7 +793,10 @@
       "label": "PLEASE SEE HR",
       "decorBays": [
         "Mandatory Fun banner"
-      ]
+      ],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "wellness-west",
@@ -795,7 +822,10 @@
         "height": 224
       },
       "label": "PLEASE SEE HR",
-      "decorBays": []
+      "decorBays": [],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "wellness-east",
@@ -821,7 +851,10 @@
         "height": 224
       },
       "label": "PLEASE SEE HR",
-      "decorBays": []
+      "decorBays": [],
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "hidden-binder",
@@ -848,7 +881,11 @@
       },
       "label": "FILES",
       "decorBays": [],
-      "achievement": "firstCoffee"
+      "achievement": "firstCoffee",
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening",
+      "entranceReadability": "subtle FILES label, protruding lavender binder, no glow or giant key icon"
     }
   ],
   "wrapConnections": [
@@ -897,7 +934,10 @@
           "height": 224
         }
       ],
-      "label": "STAFF ACCESS"
+      "label": "STAFF ACCESS",
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     },
     {
       "id": "wrap-vertical",
@@ -944,7 +984,10 @@
           "height": 64
         }
       ],
-      "label": "PLEASE SEE HR"
+      "label": "PLEASE SEE HR",
+      "clearWidth": 224,
+      "jambPlacement": "outside-clear-opening",
+      "openStateCollision": "no-door-panel-collision-in-clear-opening"
     }
   ],
   "internalRoutes": [
@@ -1588,19 +1631,25 @@
         "id": "desk_sticky_notes",
         "category": "furniture",
         "variants": 3,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/desk_sticky_notes-v1.png"
       },
       {
         "id": "desk_family_photo",
         "category": "furniture",
         "variants": 3,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/desk_family_photo-v1.png"
       },
       {
         "id": "desk_2009",
         "category": "furniture",
         "variants": 3,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/desk_2009-v1.png"
       },
       {
         "id": "chair_task",
@@ -1774,7 +1823,9 @@
         "id": "kpi_frame",
         "category": "slang",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/kpi_frame-v1.png"
       },
       {
         "id": "last_email_monitor",
@@ -1858,7 +1909,9 @@
         "id": "car_compact",
         "category": "parking",
         "variants": 3,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/car_compact-v1.png"
       },
       {
         "id": "car_sedan",
@@ -1876,7 +1929,9 @@
         "id": "wheel_boot",
         "category": "parking",
         "variants": 3,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/wheel_boot-v1.png"
       },
       {
         "id": "parking_kiosk",
@@ -1894,7 +1949,9 @@
         "id": "gate_keycard",
         "category": "gates",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/gate_keycard-v1.png"
       },
       {
         "id": "gate_double",
@@ -1906,7 +1963,9 @@
         "id": "gate_hidden_cabinet",
         "category": "gates",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/gate_hidden_cabinet-v1.png"
       },
       {
         "id": "gate_turnstile",
@@ -1930,7 +1989,9 @@
         "id": "hang_cat_high",
         "category": "posters",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/hang_cat_high-v1.png"
       },
       {
         "id": "hang_cat_low",
@@ -1948,7 +2009,9 @@
         "id": "hang_branch",
         "category": "posters",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/hang_branch-v1.png"
       },
       {
         "id": "teamwork",
@@ -1966,13 +2029,17 @@
         "id": "opportunity",
         "category": "posters",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/opportunity-v1.png"
       },
       {
         "id": "perseverance",
         "category": "posters",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/perseverance-v1.png"
       },
       {
         "id": "success",
@@ -1996,7 +2063,9 @@
         "id": "sign_plate",
         "category": "signs",
         "variants": 2,
-        "status": "planned-not-generated"
+        "status": "ready-for-stage-2a-review",
+        "manifest": "props/manifest-2a.json",
+        "file": "props/sign_plate-v1.png"
       }
     ],
     "floorTiles": {
@@ -2186,7 +2255,7 @@
   },
   "notes": [
     "Parking Lot close-up v1 approved unchanged as density/style/scale target.",
-    "All gate, reachability and caption behavior here is a tunable proposal, not a live gameplay change.",
+    "Rami approved v2. Every gate has a 224px clear opening. Claude owns runtime flow-field navigation and locked-area spawn filtering.",
     "Production uses modular tiles/walls/props assembled from positions and IDs, never this painted overview."
   ]
 }

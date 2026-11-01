@@ -1,0 +1,12 @@
+# Stage 2A art review QA (Codex, Nov 1, 2026)
+
+V. 1.28.18, build 74. Scope is the first 13 prop/poster families, 31 colorways and art assembly contracts. This is not runtime integration or the end of all Stage 2 work.
+
+- `python3 assets/stage/props/validate-props.py`: pass. All 31 frames have exact native dimensions, opaque shared-palette pixels, flat magenta margins, one-pixel navy silhouette boundaries, identical masks between colorways, distinct colors and exact sheet/individual parity. All 16 physical gate openings preserve a 224px cross-route span; jambs remain outside local [-112,112].
+- Root campus authoring/validation: pass, including all 18 age-boundary/achievement combinations, closed-area reachability and wrapped seams. Geometry is unchanged apart from explicit clearance metadata. Approved Parking Lot source hash unchanged.
+- Desktop 1280x800: gallery loads all 13 sheets and native hero/Bill references. Inspected desk/poster/parking/entrance art, color buttons, category filters, footprint overlay, floor switch, 1x/2x/4x and caption once/reset. Open/closed Archive study demonstrates a full-width empty opening with only the hero inside. Schematic panels are not finished door-animation art.
+- Phone 390x844: all 13 comparison canvases measured exactly 320 CSS px at 1x, preserving one game pixel per canvas pixel. Hero reference remains 56x60; Bill is drawn 36px. Poster headings, short labels and full-caption fallback checked. Document width 375px within 390px viewport. At 4x the canvas is 1280px wide inside its own scroller; page width stays 375px. Gate canvas scrolls locally. No browser warnings/errors captured.
+- Browser proof: desktop-desks.jpg, desktop-posters.jpg, desktop-all.jpg, phone-poster.jpg and phone-archive.jpg. Screenshots retain surrounding controls and native character references. Source/native images were also inspected directly. Car source v2 was selected after flat-color cleanup; original retained.
+- Static checks: review links, JSON/JS data parity, JavaScript syntax and git whitespace. Root kit marks exactly 13 families ready for Stage 2A review, leaving 59 needing completion (some reuse existing art). No missing or duplicate families.
+
+Runtime navigation/spawn filtering explicitly belongs to Claude. No main.js, enemy/balance data, world-art.js, office-environment.js, save or leaderboard code changes. No scores submitted. No live age-50 or 350-enemy test is claimed for these new props before world integration. Culling/120-visible-prop and crowd targets remain later checks.

@@ -1,0 +1,262 @@
+[
+  {
+    "id": "desk_sticky_notes",
+    "name": "Sticky-note fortress",
+    "category": "furniture",
+    "frame": [
+      96,
+      104
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 32,
+      "front": 5
+    },
+    "solid": true,
+    "district": "bullpen",
+    "variants": 3,
+    "source": "desk_sticky_notes-source-v1.png",
+    "file": "desk_sticky_notes-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 96x104, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: A work desk and cubicle with a CRT monitor nearly buried in pastel sticky notes, one single little clear viewing slot in the screen, chair tucked in front, keyboard, quiet sage and lavender paper clusters. No writing or numbers."
+  },
+  {
+    "id": "desk_family_photo",
+    "name": "The family-photo desk",
+    "category": "furniture",
+    "frame": [
+      96,
+      104
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 32,
+      "front": 5
+    },
+    "solid": true,
+    "district": "bullpen",
+    "variants": 3,
+    "source": "desk_family_photo-source-v1.png",
+    "file": "desk_family_photo-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 96x104, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: A well-used work desk and teal cubicle, chunky cream CRT, keyboard, chair tucked in front, one little framed family photograph showing only simplified tiny silhouettes, a school drawing pinned up, a small succulent, a cream mug. No writing."
+  },
+  {
+    "id": "desk_2009",
+    "name": "Still 2009",
+    "category": "furniture",
+    "frame": [
+      96,
+      104
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 32,
+      "front": 5
+    },
+    "solid": true,
+    "district": "bullpen",
+    "variants": 3,
+    "source": "desk_2009-source-v1.png",
+    "file": "desk_2009-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 96x104, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: An outdated work desk and teal cubicle, cream CRT computer and chunky keyboard, obsolete desk telephone, chair tucked in front, a small cream desk calendar prominently and legibly reading only \"2009\" in chunky pixel digits. Paper tray and quiet lavender sticky note. No other writing."
+  },
+  {
+    "id": "kpi_frame",
+    "name": "What is a KPI?",
+    "category": "slang",
+    "frame": [
+      80,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "bullpen",
+    "variants": 2,
+    "source": "kpi_frame-source-v1.png",
+    "file": "kpi_frame-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 80x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: A single vertically oriented chunky office wall frame, brushed navy border, cream face. A simple bewildering bar-chart pictogram fills its middle. Header reads exactly \"KPIs\" in large chunky pixel letters. At bottom a lavender sticky note with a tiny drawn question mark, no tiny writing. No stand or floor."
+  },
+  {
+    "id": "car_compact",
+    "name": "The parked rebrand",
+    "category": "parking",
+    "frame": [
+      144,
+      112
+    ],
+    "footprint": {
+      "width": 118,
+      "back": 56,
+      "front": 6
+    },
+    "solid": true,
+    "district": "parking",
+    "variants": 3,
+    "source": "car_compact-source-v2.png",
+    "file": "car_compact-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 144x112, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One small worn cream hatchback car from the approved indoor Parking Lot, top-down three-quarter view, facing down-left, roof and hood visible, muted teal glass, dark navy tires, a slightly crooked side mirror. Charming mundane car, not a toy or sports car. No ground, parking lines, signs, text or wheels separate from vehicle."
+  },
+  {
+    "id": "wheel_boot",
+    "name": "Dave\u2019s idea clamp",
+    "category": "parking",
+    "frame": [
+      48,
+      40
+    ],
+    "footprint": {
+      "width": 32,
+      "back": 12,
+      "front": 3
+    },
+    "solid": true,
+    "district": "parking",
+    "variants": 3,
+    "source": "wheel_boot-source-v1.png",
+    "file": "wheel_boot-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 48x40, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One squat yellow-cream wheel boot immobilizer with a chunky square lock box, curved metal clamp jaws gripping one dark navy car tire. Compact readable triangular silhouette, funny bureaucratic finality. No car body, ground, signs or writing."
+  },
+  {
+    "id": "gate_keycard",
+    "name": "Keycard gate jamb",
+    "category": "gates",
+    "frame": [
+      24,
+      96
+    ],
+    "footprint": {
+      "width": 20,
+      "back": 16,
+      "front": 4
+    },
+    "solid": true,
+    "district": "lobby",
+    "variants": 2,
+    "source": "gate_keycard-source-v1.png",
+    "file": "gate_keycard-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 24x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One narrow freestanding office security gate jamb/pillar only, tall rectangular teal metal post with a cream cap, a small navy keycard reader and one cream status square on its front, upper surface visible in three-quarter view. Designed as a repeatable side jamb for a 224-pixel-wide doorway. No horizontal door or overhead beam, no sign or text."
+  },
+  {
+    "id": "gate_hidden_cabinet",
+    "name": "Archive entrance cabinet",
+    "category": "gates",
+    "frame": [
+      96,
+      112
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 32,
+      "front": 4
+    },
+    "solid": true,
+    "district": "archive",
+    "variants": 2,
+    "source": "gate_hidden_cabinet-source-v1.png",
+    "file": "gate_hidden_cabinet-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 96x112, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One ordinary dusty teal office binder cabinet, top surface and front visible, two sliding front panels, cream metal handle, one modest cream label plate that reads exactly \"FILES\" in small chunky pixel uppercase. One lavender binder protrudes slightly like a quiet clue. Subtle, inviting but no glow, key icon, arrows, or giant sign. No other props or text."
+  },
+  {
+    "id": "hang_cat_high",
+    "name": "Hang in there",
+    "category": "posters",
+    "frame": [
+      80,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "breakroom",
+    "variants": 2,
+    "source": "hang_cat_high-source-v1.png",
+    "file": "hang_cat_high-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 80x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One rectangular office motivational poster in a simple navy frame. Cream paper, large top header exactly \"HANG\" then \"IN THERE\" on two lines in chunky readable pixel uppercase. Picture below: an affectionate ginger cat hanging by two paws from a teal tree branch. Broad simple shapes, warm funny expression. No floor, glass glare or drop shadow."
+  },
+  {
+    "id": "hang_branch",
+    "name": "The cat took PTO",
+    "category": "posters",
+    "frame": [
+      80,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "breakroom",
+    "variants": 2,
+    "source": "hang_branch-source-v1.png",
+    "file": "hang_branch-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 80x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One rectangular office motivational poster in a simple navy frame. Cream paper, large top header exactly \"HANG\" then \"IN THERE\" on two lines in chunky readable pixel uppercase. Picture below: just a completely empty teal tree branch and a few leaves, no cat. The absence is the joke. Broad simple shapes. No floor, glass glare or drop shadow."
+  },
+  {
+    "id": "opportunity",
+    "name": "Bricked-up opportunity",
+    "category": "posters",
+    "frame": [
+      80,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "conference",
+    "variants": 2,
+    "source": "opportunity-source-v1.png",
+    "file": "opportunity-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 80x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One rectangular office motivational poster in a simple navy frame. Cream paper, big header exactly \"OPPORTUNITY\" in readable chunky pixel uppercase. Below: a friendly diagram of a doorway completely bricked up with russet bricks, one cream doorknob uselessly left on the brick. Simple broad color clusters. No other text, floor or drop shadow."
+  },
+  {
+    "id": "perseverance",
+    "name": "Printer optimism",
+    "category": "posters",
+    "frame": [
+      80,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "bullpen",
+    "variants": 2,
+    "source": "perseverance-source-v1.png",
+    "file": "perseverance-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 80x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One rectangular office motivational poster in a simple navy frame. Cream paper, big header exactly \"PERSEVERANCE\" in readable chunky pixel uppercase. Below: an exhausted old teal office printer with a huge silly cream paper accordion jammed out of the front. Simple broad color clusters. No other text, floor or drop shadow."
+  },
+  {
+    "id": "sign_plate",
+    "name": "Parked idea sign",
+    "category": "signs",
+    "frame": [
+      80,
+      48
+    ],
+    "footprint": {
+      "width": 56,
+      "back": 8,
+      "front": 3
+    },
+    "solid": true,
+    "district": "parking",
+    "variants": 2,
+    "source": "sign_plate-source-v1.png",
+    "file": "sign_plate-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 80x48, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nSubject: One low freestanding office parking sign, wide rectangular warm cream face inside a chunky navy frame, two little muted khaki feet. Front face visible in top-down three-quarter view. The face reads exactly \"REBRAND?\" in very bold chunky pixel uppercase, centered on one line, no other text. This is the literal idea Parking Lot joke. No ground, floor, car or surrounding props."
+  }
+]

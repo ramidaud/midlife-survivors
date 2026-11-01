@@ -1,0 +1,261 @@
+{
+  "status": "art-assembly-contract-no-runtime-code",
+  "clearWidth": 224,
+  "openingLocal": {
+    "min": -112,
+    "max": 112
+  },
+  "jambLocal": [
+    {
+      "x": -136,
+      "width": 24
+    },
+    {
+      "x": 112,
+      "width": 24
+    }
+  ],
+  "openState": "all moving leaves retract outside [-112,112]; no collision inside the clear span",
+  "archive": "ordinary FILES cabinet and one lavender binder clue; no glowing marker or giant key icon",
+  "navigationOwner": "Claude",
+  "gates": [
+    {
+      "id": "parking-access",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 2144,
+          "y": 1616,
+          "width": 128,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "break-access",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 2144,
+          "y": 2816,
+          "width": 128,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "west-return",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 912,
+          "y": 2072,
+          "width": 224,
+          "height": 128
+        }
+      ],
+      "openingAxis": "x",
+      "hidden": false
+    },
+    {
+      "id": "server-access",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 3152,
+          "y": 1312,
+          "width": 224,
+          "height": 128
+        }
+      ],
+      "openingAxis": "x",
+      "hidden": false
+    },
+    {
+      "id": "server-return",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 2384,
+          "y": 432,
+          "width": 128,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "meeting-access",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 6416,
+          "y": 3136,
+          "width": 224,
+          "height": 128
+        }
+      ],
+      "openingAxis": "x",
+      "hidden": false
+    },
+    {
+      "id": "executive-access",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 5712,
+          "y": 1296,
+          "width": 224,
+          "height": 128
+        }
+      ],
+      "openingAxis": "x",
+      "hidden": false
+    },
+    {
+      "id": "executive-return",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 5120,
+          "y": 304,
+          "width": 128,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "wellness-access",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 3344,
+          "y": 3248,
+          "width": 224,
+          "height": 128
+        }
+      ],
+      "openingAxis": "x",
+      "hidden": false
+    },
+    {
+      "id": "wellness-west",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 2800,
+          "y": 3632,
+          "width": 128,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "wellness-east",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 5104,
+          "y": 3680,
+          "width": 128,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "hidden-binder",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 2304,
+          "y": 1968,
+          "width": 64,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": true
+    },
+    {
+      "id": "wrap-horizontal",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 32,
+          "y": 400,
+          "width": 64,
+          "height": 224
+        },
+        {
+          "type": "rect",
+          "x": 7584,
+          "y": 400,
+          "width": 64,
+          "height": 224
+        }
+      ],
+      "openingAxis": "y",
+      "hidden": false
+    },
+    {
+      "id": "wrap-vertical",
+      "clearWidth": 224,
+      "jambsOutsideOpening": true,
+      "closedBlockers": [
+        {
+          "type": "rect",
+          "x": 3728,
+          "y": 64,
+          "width": 224,
+          "height": 64
+        },
+        {
+          "type": "rect",
+          "x": 3728,
+          "y": 4192,
+          "width": 224,
+          "height": 64
+        }
+      ],
+      "openingAxis": "x",
+      "hidden": false
+    }
+  ]
+}

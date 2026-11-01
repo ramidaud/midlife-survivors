@@ -63,3 +63,7 @@ The Art Room now shows the two Stage 1 campus concepts and links to `art/stage-p
 
 ## Campus overview v2 (Nov 1, Codex)
 The Art Room now opens `art/stage-pass-v2.html`: irregular district geometry, promotion-age controls, starting area, hidden Archive, captions and a planned modular kit. Parking Lot v1 remains the approved scale/density target. Original review retained as an archive. Proposal only; no post or runtime world changes.
+
+
+## Stage 2A props/posters (Nov 1, Codex)
+Rami approved campus v2. Art Room links to ../assets/stage/props/review.html with the first 13 prop families and 31 colorways, native hero/enemy scale checks, footprints and 224px gate study. Prompts and manifests live beside the images. Stage 2 is ongoing; runtime pathing/spawn filtering belong to Claude. No post content changed.

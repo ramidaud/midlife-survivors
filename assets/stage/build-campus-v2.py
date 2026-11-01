@@ -65,6 +65,14 @@ link('hidden-binder','lobby','archive',[[2528,2080],[2144,2080]],None,rect(2304,
 connections[-1]['achievement']='firstCoffee'
 # Wrapping routes have a gate at BOTH seam ends; no locked-area bypass.
 wraps=[dict(id='wrap-horizontal',fromDistrict='parking',toDistrict='executive',minAge=55,axis='x',width=224,segments=[[[0,512],[256,512]],[[7392,512],[7680,512]]],gates=[rect(32,400,64,224),rect(7584,400,64,224)],label='STAFF ACCESS'),dict(id='wrap-vertical',fromDistrict='server',toDistrict='wellness',minAge=60,axis='y',width=224,segments=[[[3840,0],[3840,320]],[[3840,3968],[3840,4320]]],gates=[rect(3728,64,224,64),rect(3728,4192,224,64)],label='PLEASE SEE HR')]
+# Gate bodies are thin rectangles across a full 224px connector. Jambs belong outside it.
+for gate in connections+wraps:
+ if gate.get('gate') or gate.get('gates'):
+  gate['clearWidth']=224
+  gate['jambPlacement']='outside-clear-opening'
+  gate['openStateCollision']='no-door-panel-collision-in-clear-opening'
+  if gate.get('achievement'):
+   gate['entranceReadability']='subtle FILES label, protruding lavender binder, no glow or giant key icon'
 phases=[dict(age=40,areas=['lobby','bullpen'],message='New hire access: Lobby and Bullpen.'),dict(age=45,areas=['breakroom','parking'],message="You've earned a break. Break Room and Parking Lot access granted."),dict(age=50,areas=['server','conference'],message="Now you're in the meetings. Server Room and Conference Rooms unlocked."),dict(age=55,areas=['executive'],message='Promotion approved. Executive Wing access granted.'),dict(age=60,areas=['wellness'],message='HR says you should relax. Wellness Corner unlocked.')]
 schedule=dict(status='proposal-not-loaded-by-game',phases=phases,hidden=dict(area='archive',achievement='firstCoffee',achievementName='Per My Last Email',rationale='Existing achievement, pay off 50 Bills in one run. Proposed binding, tunable.',message='A filing cabinet clicks open. You found the Supply Closet.'),doorAnimation=dict(frames=4,durationMs=320,releaseCollision='after-final-opening-frame',messageChannel='existing-lower-third',messageOnce='per-promotion-per-run'),spawnPolicy=dict(mode='reachable-floor-only',closedGatesBlock=True,requireUnlockedDistrict=True,requireReachableFromPlayer=True,wrapCannotBypass=True),captionPolicy=dict(channel='existing-lower-third-tip-bar',radiusPx=128,once='per-caption-per-run',smallSignWords=[1,3],smallSignMinWidth=64))
 (R/'campus-promotions.json').write_text(json.dumps(schedule,indent=2)+'\n')
@@ -79,6 +87,14 @@ kit_groups={
 'signs':'sign_plate'}
 kit=[dict(id=id,category=category,variants=3 if category in ['furniture','parking','ambient'] else 2,status='planned-not-generated') for category,ids in kit_groups.items() for id in ids.split()]
 assert len(kit)==72
+# Delivered art is indexed here; this does not wire it into the production game.
+batch_path=R/'props/manifest-2a.json'
+if batch_path.exists():
+ batch=json.loads(batch_path.read_text())
+ delivered={a['id']:a for a in batch['assets']}
+ for prop in kit:
+  if prop['id'] in delivered:
+   art=delivered[prop['id']];prop.update(status='ready-for-stage-2a-review',manifest='props/manifest-2a.json',file='props/'+art['file'])
 production=dict(propFamilies=kit,floorTiles=dict(size=[64,64],districtFamilies=9,seamless=True),modularBoundaries=['wall_straight','wall_corner','wall_end','cubicle_straight','cubicle_corner','glass_segment'],maxVisibleProps=120,cullOffscreen=True,enemyStressTarget=350,propReview=dict(heroFrame=[56,60],enemyReference='enemy-bill-v1.png',displayScale=1,desktop=[1280,800],phone=[390,844]),paintedMapIsRuntime=False,captionPolicy=schedule['captionPolicy'])
 # Full lines are data, not tiny lettering baked into sprite art.
 caption_lines={
@@ -100,7 +116,7 @@ caption_lines={
 production['captions']=[dict(id='caption-'+id,propId=id,shortLabel=short,signMinWidth=64,fullLine=line,radiusPx=128,once='per-run') for id,(short,line) in caption_lines.items()]
 production['placementsStatus']='Stage 2 will add per-instance positions, prop IDs, variants and floor footprints after native-size review.'
 (R/'campus-kit-plan.json').write_text(json.dumps(production,indent=2)+'\n')
-plan=dict(id='corporate-campus-v2',revision=2,status='overview-revision-before-stage-2',world=dict(width=7680,height=4320,wrapX=True,wrapY=True),start=dict(district='lobby',point=[3168,2448],openDistricts=['lobby','bullpen']),camera=dict(x=512,y=640,width=1280,height=800,district='parking'),mainRouteWidth=224,branchRouteWidth=160,districts=districts,connections=connections,wrapConnections=wraps,internalRoutes=[dict(district=k,width=160 if k=='archive' else 224,points=line) for k,lines in loops.items() for line in lines],combatSpaces=reserves,solidProps=[],decorPolicy='Non-solid rugs, tape, paper and spills dress every reserve; never bare identical beige squares.',schedule=schedule,production=production,notes=['Parking Lot close-up v1 approved unchanged as density/style/scale target.','All gate, reachability and caption behavior here is a tunable proposal, not a live gameplay change.','Production uses modular tiles/walls/props assembled from positions and IDs, never this painted overview.'])
+plan=dict(id='corporate-campus-v2',revision=2,status='v2-approved-stage-2-in-progress',world=dict(width=7680,height=4320,wrapX=True,wrapY=True),start=dict(district='lobby',point=[3168,2448],openDistricts=['lobby','bullpen']),camera=dict(x=512,y=640,width=1280,height=800,district='parking'),mainRouteWidth=224,branchRouteWidth=160,districts=districts,connections=connections,wrapConnections=wraps,internalRoutes=[dict(district=k,width=160 if k=='archive' else 224,points=line) for k,lines in loops.items() for line in lines],combatSpaces=reserves,solidProps=[],decorPolicy='Non-solid rugs, tape, paper and spills dress every reserve; never bare identical beige squares.',schedule=schedule,production=production,notes=['Parking Lot close-up v1 approved unchanged as density/style/scale target.','Rami approved v2. Every gate has a 224px clear opening. Claude owns runtime flow-field navigation and locked-area spawn filtering.','Production uses modular tiles/walls/props assembled from positions and IDs, never this painted overview.'])
 (R/'campus-layout-v2.json').write_text(json.dumps(plan,indent=2)+'\n')
 (R/'campus-plan-v2-data.js').write_text('window.CAMPUS_V2 = '+json.dumps(plan,separators=(',',':'))+';\n')
 # Draw exact authored floor geometry as an SVG reference and accessible review plan.

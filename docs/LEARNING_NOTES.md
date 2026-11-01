@@ -379,3 +379,15 @@ Secret achievement --> tiny Archive
 ```
 
 This validates the floor proposal before furniture is placed. Runtime enemies and door animations still need their own implementation and crowd tests.
+
+
+## Art bounds and clear openings (V. 1.28.18, Codex)
+A gate's picture can be wider than its usable doorway. We measure the doorway separately so decorative posts do not silently squeeze a swarm. Both posts stand outside the 224px clear span, and open panels must retract completely out of it. The same separation lets a desk have a small floor footprint while its monitor rises above that footprint.
+
+```text
+24px post |<-------- 224px clear -------->| 24px post
+          -112                         +112
+          no jamb or open leaf inside
+```
+
+The manifest carries native image size, foot-point origin and proposed footprint as separate data. Runtime collision and enemy navigation still belong to implementation and testing.

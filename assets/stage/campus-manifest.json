@@ -1,7 +1,7 @@
 {
   "batch": "stage-pass-1",
   "revision": 2,
-  "status": "awaiting-v2-review-before-stage-2",
+  "status": "v2-approved-stage-2a-art-ready",
   "productionReady": false,
   "worldSize": [
     7680,
@@ -20,7 +20,7 @@
       "kind": "concept-illustration",
       "district": "all",
       "frameCount": 1,
-      "status": "awaiting-v2-review",
+      "status": "v2-approved",
       "sha256": "bc575523596a9e38500bb2b49bb3320ff424c43eb39516365c7dce002cfcfb59",
       "prompt": "campus-overview-v2-prompt.txt"
     },
@@ -61,12 +61,13 @@
   "measuredPlan": "campus-plan-v2.svg",
   "schedule": "campus-promotions.json",
   "productionPlan": "campus-kit-plan.json",
+  "productionAssetsManifest": "props/manifest-2a.json",
   "checks": "campus-v2-checks.json",
   "review": "../../devlog/art/stage-pass-v2.html",
   "notes": [
     "Parking Lot v1 stays approved and unchanged.",
     "Illustration is approximate; measured data defines floor geometry and gates.",
-    "72 prop families are planned, not generated; instance placements and native-size prop review belong to Stage 2.",
+    "72 prop families planned; first 13 generated in props/manifest-2a.json, with native-size review. Remaining families and district assembly are pending.",
     "No runtime gates, spawn policy, captions or map replacement have shipped. Performance is a target, not measured for this proposed world."
   ]
 }

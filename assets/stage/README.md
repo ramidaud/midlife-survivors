@@ -1,6 +1,6 @@
 # Corporate Campus Stage Pass: v2 overview
 
-Status: **v2 ready for Rami's review before Stage 2**. Parking Lot close-up v1 is approved as the density, joke and scale target and remains unchanged. The old nine-square overview is superseded. The playable game is unchanged.
+Status: **Rami approved v2. Stage 2A art is ready: 13 families, 31 colorways.** See `props/review.html` and `props/README.md`. Parking Lot close-up v1 is approved as the density, joke and scale target and remains unchanged. The old nine-square overview is superseded. The playable game is unchanged.
 
 Open `devlog/art/stage-pass-v2.html` through the Art Room. Switch to the measured plan and try ages 40, 45, 50, 55 and 60 plus the achievement toggle. Illustration is a mood reference with compressed corridors; exact proposed geometry lives in the measured SVG and JSON.
 
@@ -9,7 +9,7 @@ Open `devlog/art/stage-pass-v2.html` through the Art Room. Switch to the measure
 - `campus-layout-v2.json`: unequal district polygons, 13 non-solid dressed combat reserves, clearance loops, connector bays and gate bodies. Lobby and Bullpen begin open. Archive is a tiny hidden L-shaped closet.
 - `campus-promotions.json`: tunable age schedule, proposed four-frame door opening, lower-third messages and reachable-floor-only spawning. The Archive provisionally uses the existing `firstCoffee` achievement. None is loaded by the game.
 - `campus-kit-plan.json`: 72 planned prop families, two or three variants each, nine seamless 64x64 floor families, six modular boundaries and 15 caption records. Per-instance positions, variants and collision footprints come after native-size review in Stage 2. Production never uses the painted overview as a map.
-- `campus-plan-v2.svg` and `campus-plan-v2-data.js`: exact static plan and file-safe browser data. The review demonstrates real 56x60 hero and 36px displayed Bill references. New prop comparisons remain a Stage 2 requirement at desktop and 390px phone width.
+- `campus-plan-v2.svg` and `campus-plan-v2-data.js`: exact static plan and file-safe browser data. The review demonstrates real 56x60 hero and 36px displayed Bill references. Stage 2A now supplies prop comparisons at desktop and 390px phone width.
 - `campus-manifest.json`: current asset dimensions, status and hashes. Parking Lot remains byte-identical to the approved image.
 
 ## Reproduce checks
@@ -17,7 +17,7 @@ Run `python3 assets/stage/build-campus-v2.py`, then `python3 assets/stage/valida
 
 Starting reachable floor is 7,749,632 pixels, about 7.57 desktop camera areas **before furniture placement**. Three differently shaped starting combat reserves remain clear of solids. Main routes are 224px and the tiny Archive branch is 160px. Matching wrap gates at both endpoints prevent locked-wing shortcuts.
 
-Runtime targets remain at most about 120 visible props, off-screen culling and smooth play with 350 enemies. No runtime performance, age-50 pathfinding or new prop readability result is claimed yet. Door opening animation, spawn filtering and proximity captions are specified, not implemented. Wait for v2 approval before Stage 2 props/posters, then coworkers, then runtime integration.
+Runtime targets remain at most about 120 visible props, off-screen culling and smooth play with 350 enemies. Stage 2A native-size readability is reviewed on desktop and phone. Runtime performance and age-50 pathfinding remain untested for this proposed map. Door opening animation, spawn filtering and proximity captions are specified, not implemented. V2 is approved. Stage 2 started with 13 prop/poster families; coworkers and runtime integration remain later stages. Claude owns runtime navigation and locked-area spawn filtering.
 
 ## Archived v1 documentation
 

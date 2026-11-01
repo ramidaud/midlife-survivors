@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.17",
-  displayVersion: "V. 1.28.17",
+  version: "1.28.18",
+  displayVersion: "V. 1.28.18",
   lastUpdated: "Nov 1, 2026",
-  codename: "Promotion Plan",
-  build: 73,
+  codename: "Sticky Business",
+  build: 74,
   changelog: [
+    {
+      ver: "V. 1.28.18",
+      date: "Nov 1, 2026",
+      title: "Sticky Business",
+      highlights: ["The Art Room has 13 new prop/poster families in 31 colorways, native hero comparisons and a 224px gate-clearance study. Stage 2 art is underway; runtime navigation and spawning are unchanged."]
+    },
     {
       ver: "V. 1.28.17",
       date: "Nov 1, 2026",
