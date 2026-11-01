@@ -338,3 +338,7 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 ## Creator bio art (Nov 1, 2026, Codex)
 - Rami requested a pixel-art interpretation of his studio photograph as the new About-page portrait. Preserve the real seated creator and room, using the game's warm cream light, navy shadows and stepped pixel clusters.
 - This is editorial creator art, not a playable-character design. The new 1536x1024 versioned PNG also serves as the About social preview; earlier silhouette art stays archived.
+
+### Bio style refinement (Nov 1, 2026, Codex)
+- Rami wants the creator portrait to share the game's drawn character language, beyond photographic detail broken into pixels. V2 uses broader shapes, navy contours, simplified surfaces and warm cream/teal room lighting, referencing the office key art directly.
+- About and social previews now use `assets/bio/rami-studio-pixel-v2.png`. Creator likeness and real studio remain the subject; gameplay characters and balance stay unchanged.
