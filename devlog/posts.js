@@ -8,7 +8,7 @@ window.DEVLOG_POSTS = [
     "date": "2026-11-01",
     "title": "There's a coffee button now. It feels weird.",
     "version": "V. 1.28.7",
-    "draft": true,
+    "draft": false,
     "cover": "img/05-buy-the-dev-a-coffee.jpg",
     "leadAlt": "The Midlife Survivors main menu, with a cream Buy the Dev a Coffee button next to Devlog.",
     "teaser": "Asking for money feels weird, so here is exactly where it goes: more AI time to finish this game. Also, I am looking for people who want to help build it.",
