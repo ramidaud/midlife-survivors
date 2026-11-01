@@ -350,3 +350,9 @@ The enemy review page lets us pause the loop and inspect each pose at the actual
 A **hitbox** is the invisible shape the game checks for collisions. Replacing its texture can accidentally resize that shape. Here, the original enemy keeps its physics body while a separate animated drawing follows it. The drawing can change pose and size without changing which attacks connect.
 
 `unchanged physics body → position / facing / state → animated drawing`
+
+## Sorting by feet (Nov 1, hero and office integration, Codex)
+In a three-quarter view, a desk's drawing extends upward from the place it touches the floor. **Drawing order** decides which object appears in front. Comparing the hero's feet with the furniture's floor position lets the hero pass behind a desk naturally. A little transparency on the one desk concealing the hero preserves visibility without changing collisions.
+
+`hero feet above desk base → desk in front`
+`hero feet below desk base → hero in front`

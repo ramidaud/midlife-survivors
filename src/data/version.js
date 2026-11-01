@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.12",
-  displayVersion: "V. 1.28.12",
+  version: "1.28.13",
+  displayVersion: "V. 1.28.13",
   lastUpdated: "Nov 1, 2026",
-  codename: "The Inbox Moves",
-  build: 68,
+  codename: "Out of the Art Room",
+  build: 69,
   changelog: [
+    {
+      ver: "V. 1.28.13",
+      date: "Nov 1, 2026",
+      title: "Out of the Art Room",
+      highlights: ["All three animated heroes and the detailed Corporate Campus now appear in the main game, with looping office sections, grounded furniture and readable characters behind desks."]
+    },
     {
       ver: "V. 1.28.12",
       date: "Nov 1, 2026",

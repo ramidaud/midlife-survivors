@@ -1,0 +1,41 @@
+{
+ "errors": [],
+ "leaderboardRequests": 0,
+ "checks": [],
+ "maxEnemies": 0,
+ "fps": [],
+ "ready": true,
+ "walk": {
+  "frames": [
+   7,
+   14,
+   2,
+   9
+  ],
+  "body": [
+   48,
+   52
+  ]
+ },
+ "office": {
+  "active": true,
+  "body": [
+   48,
+   52
+  ],
+  "props": 360,
+  "platforms": 0,
+  "floor": "1f9d7e94-3ea8-4a23-9f57-853b8dbcad0a",
+  "heroes": [
+   {
+    "key": "walk_officeWorker",
+    "frame": 9,
+    "w": 56,
+    "h": 60,
+    "x": -704,
+    "y": -422
+   }
+  ],
+  "fps": 93.23294130407368
+ }
+}

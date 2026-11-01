@@ -654,3 +654,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Kept original physics sprites and attached a separate animated visual layer. Every collision box/offset and all combat data remain unchanged. Phone ringing, Twinge lunges and ghost fades follow existing states; bosses are untouched.
 - Added small shared contact shadows except for ghost/ping. Tuned Late Fee to 25px versus Bill's 36px and moved labels above taller drawings. Pauses, enemy destruction and restarts cleanly manage the art layer.
 - Tax Bracket 0 run reached age 45 with 109 peak enemies and no errors. A 350-enemy animation/AI stress scene averaged about 99 FPS. Desktop/phone, state selection, missing-sheet fallback, toggle and cleanup checks passed; isolated tests used memory-only saves and blocked leaderboard traffic. See QA evidence for exact scope and measurements.
+
+## 2026-11-01: Hero and Corporate Campus in the main game, V. 1.28.13 (Codex)
+- Rami pointed out that the approved hero and office were still confined to the Art Room. Integrated all three four-direction walking sheets and the seven-area Corporate Campus into normal play.
+- Office sections repeat through a nine-section pool, keeping exploration open-ended. Desk variants, printer/cabinet/plant art, carpets, wood routes, chair mats, wear, paper trails and contact shadows now appear in combat. The old mezzanines are replaced by the approved ground-floor layout.
+- Kept the player's original 48x52 collision body and all combat settings. Furniture uses the preview's floor footprints; feet control drawing order, and foreground furniture fades only when it conceals the hero.
+- Exported the existing desk sources to native PNGs, reducing the main-game desk data from 5.2 MB to 24 KB. Distant sections are excluded from rendering while retaining their world state. Desktop stress with 350 enemies averaged about 100 FPS.
+- Movement, desk collision, occlusion and section-seam checks passed. Phone, normal-play, fallback and restart evidence is saved under `docs/qa/world-art/`. No leaderboard test scores were submitted.

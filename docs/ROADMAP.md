@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-01 (Codex: approved Batch 1 enemy art integrated, combat values preserved)
+**Last updated:** 2026-11-01 (Codex: approved heroes and Corporate Campus now in the main game)
 
 ---
 
@@ -33,9 +33,9 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 4. [x] **Achievements (V. 1.23.0)** (one unlocks Full Life)
 4b. [x] **Grok difficulty handoff, Parts 1 and 2 (V. 1.25.0)**
 4c. [ ] **Grok Part 3, one at a time:** ~~Tax Bracket (V. 1.26.0)~~ done, ~~dynamic intensity (V. 1.27.0)~~ done, near-miss rewards, age-50+ run modifiers
-5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. Campus study now includes three desk variants and walking sheets for all three playable characters. Explore As switches characters; the gallery compares four directions and exports native grids. Await animation feedback before idle/combat art and main-game replacement.
+5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. Campus study now includes three desk variants and walking sheets for all three playable characters. Explore As switches characters; the gallery compares four directions and exports native grids. Approved walking sheets now run in the main game (V. 1.28.13); extra idle/combat poses remain pending.
    - Batch 1 enemy generation complete: ten enemy species plus Group Chat ping, 11 native sheets and 42 frames. Review animated enemies from the Art Room, with pause, pose, scale and floor controls. Approved Batch 1 is integrated in V. 1.28.12 with independent canvas fallback; bosses remain a separate batch.
-   - Office environment study: detailed Accounts Payable with seamless carpet/wood, fluorescent lighting accents, native printer/cabinet/plant props and floor-level stories. Visit Accounts opens it directly. Expanded ground pass now adds brighter carpet, welcome rug, chair mats, floor wear, paper trails and cream lighting. Rami approved the larger exploration scale. Furniture now has fitted contact shadows, visible chair mats and nearby floor wear; await grounding feedback, then test crowd pressure before integration.
+   - Office environment study: detailed Accounts Payable with seamless carpet/wood, fluorescent lighting accents, native printer/cabinet/plant props and floor-level stories. Visit Accounts opens it directly. Expanded ground pass now adds brighter carpet, welcome rug, chair mats, floor wear, paper trails and cream lighting. Rami approved the larger exploration scale. Furniture now has fitted contact shadows, visible chair mats and nearby floor wear; grounded room art and repeating campus now run in the main game (V. 1.28.13), with crowd-pressure QA completed.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery
@@ -126,3 +126,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ### Batch 1 enemy artwork (Nov 1, Codex)
 - [x] Generate the full regular enemy batch: 10 species plus one projectile, 42 frames. Save exact native exports, full prompts, sources, loops and review/download page.
 - [x] Integrate approved Batch 1 in combat, preserving bodies and balance, with per-sheet fallback and desktop/phone checks (V. 1.28.12). Boss generation remains Batch 2.
+
+### Hero and office production pass (Nov 1, Codex)
+- [x] Bring the three approved walking heroes and the detailed Corporate Campus into normal play (V. 1.28.13). Preserve hero/combat values; use approved furniture footprints, contact shadows and depth sorting. Repeat the campus for open-ended exploration, with fallback and desktop/phone checks.
+- [ ] Rami's feedback on the complete cast in the office; bosses and later environment kits remain pending.

@@ -1,7 +1,7 @@
 // Loads the game's code files in order, all tagged with the same BUILD number.
 // index.html fetches this file fresh on every visit, so the browser can't mix an old page with new code
 // (that mismatch broke controls until a second reload). Bump BUILD after every change; it replaces the old ?v= tags.
-window.BUILD = 68;
+window.BUILD = 69;
 window.GAME_FILES = [
   "src/data/version.js",
   "src/data/lore.js",
@@ -25,6 +25,13 @@ window.GAME_FILES = [
   "src/sfx.js",
   "src/sprites.js",
   "src/enemy-art.js",
+  "assets/characters/character-data.js",
+  "assets/desks/desk-native-data.js",
+  "assets/office-environment/environment-data.js",
+  "src/character-animation.js",
+  "src/data/office-layout.js",
+  "src/office-environment.js",
+  "src/world-art.js",
   "src/weapons_extra.js",
   "src/view3d.js",
   "src/leaderboard.js",

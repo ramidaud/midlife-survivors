@@ -1470,3 +1470,15 @@ original enemy body   ->   position + facing + existing state
 ```
 
 The invisible original sprite still owns movement, health and collisions. Its attached drawing has no physics body. This makes the visual pass safe for game balance: a new 48px source frame cannot silently enlarge the target. A missing sheet simply leaves the original drawing visible. The shared run clock freezes visual animations during menus; destroying the original removes its artwork and shadow.
+
+## Chapter: Belonging to the room (V. 1.28.13, Codex)
+
+```text
+               desk drawing
+             ┌──────────────┐
+hero behind  │              │
+             └──── base ────┘  <- floor position decides draw order
+                  hero in front
+```
+
+The hero's original physics object still controls movement and collisions. A 56x60 walking drawing follows its floor position. Desks use a smaller ground footprint than their full illustration, so the visible upper half does not behave like an invisible wall. Contact shadows and chair mats attach the furniture to the carpet. Repeating the approved campus in neighboring sections keeps the world open-ended; sections outside the camera are skipped by the renderer.

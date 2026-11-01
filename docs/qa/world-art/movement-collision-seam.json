@@ -1,0 +1,62 @@
+{
+ "errors": [],
+ "leaderboardRequests": 0,
+ "checks": [],
+ "maxEnemies": 0,
+ "fps": [],
+ "ready": true,
+ "walk": {
+  "frames": [
+   7,
+   13,
+   1,
+   9
+  ],
+  "body": [
+   48,
+   52
+  ]
+ },
+ "collision": {
+  "x": -771.8333333333334,
+  "y": -324,
+  "body": [
+   48,
+   52
+  ],
+  "blocked": true
+ },
+ "occlusion": [
+  {
+   "key": "desk_paperwork",
+   "alpha": 0.48
+  }
+ ],
+ "office": {
+  "active": true,
+  "body": [
+   48,
+   52
+  ],
+  "props": 360,
+  "platforms": 0,
+  "floor": "f083c8f7-7ccf-43db-9df9-b444a2bc6995",
+  "heroes": [
+   {
+    "key": "walk_gradStudent",
+    "frame": 5,
+    "w": 56,
+    "h": 60,
+    "x": -768,
+    "y": -630
+   }
+  ],
+  "fps": 55.93149619278977
+ },
+ "seam": {
+  "x": 2304,
+  "nearProps": 9,
+  "bodiesSynced": true,
+  "props": 360
+ }
+}

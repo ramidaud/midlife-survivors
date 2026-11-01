@@ -884,6 +884,7 @@ function nearAnyPlatform(wx, wy) {
 
 // Reposition scenery props & platforms onto whichever grid cells are currently around the camera.
 function updateStageProps(scene, props) {
+  if(scene.worldArt && scene.worldArt.active) {scene.worldArt.update();return;}
   if (!props) return;
   const cx = Math.round(player.x / STAGE_GRID), cy = Math.round(player.y / STAGE_GRID);
   const kinds = ["prop_desk", "prop_plant", "prop_cooler", "prop_plant", "prop_desk"];

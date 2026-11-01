@@ -15,3 +15,6 @@ The authoring import uses one common crop and scale across an entire sheet, pres
 In Extras > Art Test, Explore As switches the playable character. Movement chooses facing, steps advance with distance actually traveled, and stopping against furniture holds the standing pose. The gallery loops all three at 8 poses per second with a direction selector. Pause freezes the gallery too. Download links export the same native pixel grid on magenta.
 
 Scope: first walking/turning pass in the separate preview. Idle uses a held passing pose; bespoke idle, attack, hurt and victory sequences have not been drawn. Generated costume/pose consistency should receive Rami's visual approval before production replacement.
+
+## Production integration (V. 1.28.13, Codex)
+The existing native embedded sheets now animate all three playable characters in normal play through `src/world-art.js`. They retain the 56x60 frame and four directions/four poses. A separate drawing follows the original 48x52 physics sprite, preserving combat values. Standing holds a passing pose; distance traveled drives the walking cycle. The Art Room remains available for comparison.

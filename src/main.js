@@ -277,6 +277,7 @@ function create() {
   // 3b. Clean screen HUD: a small HP bar that rides under the player (Vampire Survivors style),
   //     redrawn after every frame. The top HUD (age, XP) also refreshes here about 10x a second.
   const hpBar = this.add.graphics().setDepth(7);
+  WorldArt.init(this, {player, floor, props:stageProps, label, hpBar, clock:()=>runElapsedMs, enemies:()=>bills});
   ltDecadeShown = null; ltLowHpWarned = false; nextSwarmAt = null;
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {

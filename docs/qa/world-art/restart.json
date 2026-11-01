@@ -1,0 +1,38 @@
+{
+ "errors": [],
+ "leaderboardRequests": 0,
+ "checks": [],
+ "maxEnemies": 0,
+ "fps": [],
+ "ready": true,
+ "restart": {
+  "age": 40,
+  "tax": 0,
+  "hp": 12,
+  "dead": false,
+  "elapsed": 0,
+  "enemies": 0,
+  "fps": 100.00041631081385
+ },
+ "office": {
+  "active": true,
+  "body": [
+   48,
+   52
+  ],
+  "props": 360,
+  "platforms": 0,
+  "floor": "e6b6e074-bd13-4f3d-9728-cb2993c25078",
+  "heroes": [
+   {
+    "key": "walk_officeWorker",
+    "frame": 1,
+    "w": 56,
+    "h": 60,
+    "x": 0,
+    "y": 26
+   }
+  ],
+  "fps": 100.05049646795534
+ }
+}

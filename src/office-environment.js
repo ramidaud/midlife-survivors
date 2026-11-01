@@ -130,6 +130,7 @@ window.OfficeEnvironment = (() => {
       groundObject(scene,grounding,def?def.key:prop.originalTexture,prop.x,prop.y,'prop');
     }
     const left=-layout.width/2,top=-layout.height/2;
+    if(!layout.endless) {
     details.fillStyle(0x3e7775);details.fillRect(left,top,layout.width,24);
     details.fillStyle(0x83a89a);details.fillRect(left,top,layout.width,3);
     details.fillStyle(0x171c35);details.fillRect(left,top+24,layout.width,6);
@@ -140,6 +141,7 @@ window.OfficeEnvironment = (() => {
       details.fillStyle(0xf2d7a1,.75);details.fillRect(x+3,top+9,106,7);
       details.fillStyle(0x874c3b);details.fillRect(x+54,top+8,3,12);
       details.fillStyle(0xf2d7a1,.06);details.fillRect(x+8,top+32,112,192);
+    }
     }
     const paper=(x,y)=>{
       details.fillStyle(0x171c35,.3);details.fillRect(x+2,y+2,13,17);

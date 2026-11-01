@@ -1,0 +1,20 @@
+{
+ "errors": [],
+ "leaderboardRequests": 0,
+ "checks": [],
+ "maxEnemies": 0,
+ "fps": [],
+ "ready": true,
+ "office": {
+  "active": false,
+  "body": [
+   48,
+   52
+  ],
+  "props": 25,
+  "platforms": 9,
+  "floor": "ecdea4a3-7b8a-4fe7-ad5d-eb69fccd7fc2",
+  "heroes": [],
+  "fps": 100.15845060425389
+ }
+}

@@ -1,0 +1,79 @@
+<!doctype html><meta charset="utf-8"><title>Hero and office integration checks</title>
+<style>html,body{margin:0;width:100%;height:100%;background:#171c35}iframe{border:0;width:100%;height:100%;display:block}aside{position:fixed;right:4px;bottom:4px;max-width:330px;background:#171c35e8;color:#fff0cf;padding:8px;font:11px monospace;z-index:99999}button{margin:3px}pre{white-space:pre-wrap;max-height:155px;overflow:auto}</style>
+<iframe id="game" title="Isolated enemy art playtest"></iframe><aside>
+<button id="run">Play to age 45</button><button id="cast">Check full cast</button><button id="stress">Stress 350</button><button id="fallback">Fallback</button><button id="restart">Restart</button><button id="states">States + cleanup</button><button id="office">Check office</button><button id="tour">Accounts</button><button id="hero">Next hero</button><button id="seam">Cross seam</button><button id="walk">Walk directions</button><button id="collision">Desk check</button><button id="hide">Hide checks</button><pre id="report">Loading isolated game. Storage is in memory. All leaderboard requests blocked.</pre></aside>
+<script>
+const frame=document.querySelector('iframe'),report=document.querySelector('#report');
+const results={errors:[],leaderboardRequests:0,checks:[],maxEnemies:0,fps:[]};
+let w,autoplay=false,timer,fixtures=[];
+const say=()=>report.textContent=JSON.stringify(results,null,1);
+window.addEventListener('error',e=>{results.errors.push('Harness: '+e.message);say();});
+window.addEventListener('message',e=>{if(e.source!==frame.contentWindow)return;if(e.data.error){results.errors.push(e.data.error);say();}if(e.data.leaderboard){results.leaderboardRequests++;say();}});
+(async()=>{
+ const html=await(await fetch('../index.html')).text();
+ const setup=`<base href="${new URL('../',location.href)}"><script>
+ const memory=new Map();Object.defineProperty(window,'localStorage',{value:{getItem:k=>memory.get(k)||null,setItem:(k,v)=>memory.set(k,String(v)),removeItem:k=>memory.delete(k),clear:()=>memory.clear()}});
+ const actualFetch=window.fetch.bind(window);window.fetch=(input,options)=>{if(String(input).includes('supabase.co')){parent.postMessage({leaderboard:true},'*');return Promise.resolve(new Response('[]',{status:200,headers:{'Content-Type':'application/json'}}));}return actualFetch(input,options);};
+ addEventListener('error',e=>parent.postMessage({error:e.message},'*'));addEventListener('unhandledrejection',e=>parent.postMessage({error:String(e.reason)},'*'));
+ <\/script>`;
+ const missing=(new URLSearchParams(location.search).get('missing')||'').replace(/[^a-z0-9-]/g,'');
+ const fail=missing?`<script>const descriptor=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');Object.defineProperty(HTMLImageElement.prototype,'src',{get:descriptor.get,set(value){descriptor.set.call(this,String(value).includes('enemy-${missing}-v1.png')?'assets/enemies/does-not-exist.png':value);}});<\/script>`:'';
+ const mode=new URLSearchParams(location.search);
+ const switches=mode.has('old')?`<script>Object.defineProperty(window,'USE_HERO_ART',{value:false});Object.defineProperty(window,'USE_OFFICE_ART',{value:false});<\/script>`:mode.has('missing-office')?`<script>let officeImages;Object.defineProperty(window,'ENVIRONMENT_IMAGES',{get(){return officeImages},set(value){officeImages=value;officeImages.printer='data:image/png;base64,invalid'}});<\/script>`:'';
+ frame.srcdoc=setup+switches+fail+html;
+ const wait=setInterval(()=>{w=frame.contentWindow;if(!w.game||!w._activeGameScene)return;clearInterval(wait);w.eval('muted=true;voiceEnabled=false;unlockAudio=()=>{};');results.ready=true;say();},100);
+})();
+function run(code){return w.eval(code);}
+function clean(){run(`bills.getChildren().slice().forEach(e=>{if(e.tag)e.tag.destroy();e.destroy();});pings.clear(true,true);`);fixtures=[];}
+function start(){run(`if(titleOpen&&startFromTitle)startFromTitle();paused=false;_activeGameScene.physics.resume();_activeGameScene.time.paused=false;`);}
+function metrics(){return run(`({age:currentAge,tax:runTaxBracket,hp,dead:gameOver,elapsed:runElapsedMs,enemies:bills.countActive(),fps:game.loop.actualFps})`);}
+document.querySelector('#office').onclick=()=>{results.office=run(`({active:_activeGameScene.worldArt.active,body:[player.body.width,player.body.height],props:stageProps.length,platforms:stagePlatforms.length,floor:floor.texture.key,heroes:_activeGameScene.children.list.filter(e=>e.texture&&e.texture.key.startsWith('walk_')).map(e=>({key:e.texture.key,frame:e.frame.name,w:e.displayWidth,h:e.displayHeight,x:e.x,y:e.y})),fps:game.loop.actualFps})`);say();};
+ document.querySelector('#tour').onclick=()=>{start();run(`paused=true;_activeGameScene.physics.pause();player.setPosition(-704,-448);player.body.updateFromGameObject();`);};
+ document.querySelector('#hero').onclick=()=>{run(`meta.selectedChar=['officeWorker','photographer','gradStudent'][(['officeWorker','photographer','gradStudent'].indexOf(meta.selectedChar)+1)%3];`);};
+ document.querySelector('#seam').onclick=()=>{run(`player.x+=3072;player.body.updateFromGameObject();_activeGameScene.worldArt.update();`);setTimeout(()=>{results.seam=run(`({x:player.x,nearProps:stageProps.filter(e=>e.visible&&Math.abs(e.x-player.x)<500&&Math.abs(e.y-player.y)<500).length,bodiesSynced:stageProps.every(e=>!e.body.enable||Math.abs(e.body.center.x-e.x)<1),props:stageProps.length})`);say();},100);};
+ document.querySelector('#walk').onclick=async()=>{start();const frames=[];for(const key of ['KeyW','KeyD','KeyS','KeyA']){run(`_heldKeys.clear();_heldKeys.add('${key}');`);await new Promise(r=>setTimeout(r,250));frames.push(run(`_activeGameScene.children.list.find(e=>e.texture&&e.texture.key.startsWith('walk_')).frame.name`));}run(`_heldKeys.clear();paused=true;_activeGameScene.physics.pause();`);results.walk={frames,body:run(`[player.body.width,player.body.height]`)};say();};
+ document.querySelector('#collision').onclick=async()=>{start();run(`player.setPosition(-768,-300);player.body.updateFromGameObject();_heldKeys.clear();_heldKeys.add('KeyW');`);await new Promise(r=>setTimeout(r,700));run(`_heldKeys.clear();paused=true;_activeGameScene.physics.pause();`);results.collision=run(`({x:player.x,y:player.y,body:[player.body.width,player.body.height],blocked:player.y>=-325})`);run(`player.setPosition(-768,-656);player.body.updateFromGameObject();`);await new Promise(r=>setTimeout(r,100));results.occlusion=run(`stageProps.filter(p=>p.alpha<1).map(p=>({key:p.texture.key,alpha:p.alpha}))`);say();};
+ document.querySelector('#hide').onclick=()=>document.querySelector('aside').hidden=true;
+document.querySelector('#run').onclick=()=>{clean();start();autoplay=true;clearInterval(timer);timer=setInterval(()=>{
+ const m=metrics();results.run=m;results.maxEnemies=Math.max(results.maxEnemies,m.enemies);results.fps.push(m.fps);
+ run(`if(levelUpOpen&&levelMenu&&performance.now()>(window.menuInputGateUntil||0))levelMenu.pickSelected();
+ if(!levelUpOpen&&!gameOver){
+  const enemies=bills.getChildren().filter(e=>e.active&&!e.ghost);let best=-Infinity,choice=[1,0];
+  for(let i=0;i<16;i++){const a=i*Math.PI/8,dx=Math.cos(a),dy=Math.sin(a),x=player.x+dx*120,y=player.y+dy*120;let score=0;
+   enemies.forEach(e=>{const distance=Math.hypot(e.x-x,e.y-y);score-=12000/Math.max(12,distance)**2;});
+   score+=0.04*Math.cos(a-runElapsedMs/15000);if(score>best){best=score;choice=[dx,dy];}}
+  touch={active:true,startX:0,startY:0,dx:choice[0]*100,dy:choice[1]*100,isTouch:true,curX:0,curY:0};
+ }`);
+ if(m.dead||m.age>=45){clearInterval(timer);autoplay=false;run('paused=true;_activeGameScene.physics.pause();touch.active=false;');results.runFinished=m.age>=45;results.fpsSummary={min:Math.min(...results.fps.slice(10)),average:results.fps.reduce((a,b)=>a+b,0)/results.fps.length};results.fps=[];}
+ if(results.fps.length>1000)results.fps.shift();say();
+ },200);};
+document.querySelector('#cast').onclick=()=>{clearInterval(timer);autoplay=false;start();clean();run('paused=true;_activeGameScene.physics.pause();');
+ const dims=run(`Object.keys(ENEMIES).filter(k=>!ENEMIES[k].isBoss&&['bill','lateFee','spamCall','snackAttack','backTwinge','officeGossip','threeAmThought','calendarInvite','groupChat','mathWorksheet'].includes(k)).map((k,i)=>{const e=createEnemy(_activeGameScene,k,player.x+(i%5-2)*65,player.y+(Math.floor(i/5)*90-100));return [k,e.body.width,e.body.height,e.body.offset.x,e.body.offset.y];})`);
+ setTimeout(()=>{results.checks=run(`bills.getChildren().map(e=>({kind:e.kind,physicsTexture:e.texture.key,body:[e.body.width,e.body.height,e.body.offset.x,e.body.offset.y],art:game.scene.scenes[0].children.list.filter(v=>v.texture&&v.texture.key==='enemy-art-'+e.kind).map(v=>({key:v.texture.key,frame:v.frame.name,width:v.displayWidth}))}))`);results.originalBodies=dims;results.bodyPreserved=results.checks.every(e=>{const original=dims.find(d=>d[0]===e.kind);return original&&JSON.stringify(e.body)===JSON.stringify(original.slice(1));});say();},300);
+};
+document.querySelector('#stress').onclick=()=>{clearInterval(timer);start();clean();run(`for(let i=0;i<350;i++){const a=i*2.4,r=120+i%12*10;createEnemy(_activeGameScene,['bill','lateFee','spamCall','snackAttack','backTwinge','officeGossip','threeAmThought','calendarInvite','groupChat','mathWorksheet'][i%10],player.x+Math.cos(a)*r,player.y+Math.sin(a)*r);}paused=false;_activeGameScene.physics.pause();`);let samples=[],motionFrames=new Set();const begin=performance.now();timer=setInterval(()=>{samples.push(metrics().fps);motionFrames.add(run(`_activeGameScene.children.list.find(e=>e.texture&&e.texture.key==='enemy-art-bill').frame.name`));if(performance.now()-begin>6000){clearInterval(timer);run('paused=true;_activeGameScene.physics.pause();');results.stress={count:metrics().enemies,framesSeen:Array.from(motionFrames),animatedSprites:run(`_activeGameScene.children.list.filter(e=>e.anims&&e.anims.isPlaying&&e.texture.key.startsWith('enemy-art-')).length`),min:Math.min(...samples.slice(5)),average:samples.slice(5).reduce((a,b)=>a+b,0)/(samples.length-5)};say();}},100);};
+document.querySelector('#fallback').onclick=()=>{run('window.USE_ENEMY_ART=!window.USE_ENEMY_ART;');setTimeout(()=>{results.fallback=run(`({enabled:USE_ENEMY_ART,visibleOriginals:bills.getChildren().filter(e=>e.visible).length,visibleArt:_activeGameScene.children.list.filter(e=>e.visible&&e.texture&&e.texture.key.startsWith('enemy-art-')&&e.texture.key!=='enemy-art-contact').length})`);say();},100);};
+document.querySelector('#states').onclick=async()=>{
+ const wait=()=>new Promise(resolve=>setTimeout(resolve,100));
+ const read=expression=>run(expression);
+ const visual=kind=>`_activeGameScene.children.list.find(v=>v.texture&&v.texture.key==='enemy-art-${kind}')`;
+ run(`paused=true;_activeGameScene.physics.pause();`);
+ const states={};
+ for(const state of ['ringing','dashing']){
+  run(`bills.getChildren().find(e=>e.kind==='spamCall').state='${state}';`);await wait();
+  states[state]=read(`({animation:${visual('spamCall')}.anims.currentAnim.key,frame:${visual('spamCall')}.frame.name})`);
+ }
+ states.twinge=[];
+ for(const phase of [100,400,600,900]){
+  run(`bills.getChildren().find(e=>e.kind==='backTwinge').bornAt=runElapsedMs-${phase};`);await wait();
+  states.twinge.push(read(`${visual('backTwinge')}.frame.name`));
+ }
+ states.ghost=read(`(()=>{const e=bills.getChildren().find(e=>e.kind==='threeAmThought');e.ghost=true;const before=e.hp;damageBill(e,1);return {before,after:e.hp,bodyEnabled:e.body.enable};})()`);
+ run(`const testPing=pings.create(player.x+40,player.y+40,'ping');_activeGameScene.enemyArt.attach(testPing,'ping');testPing.dieAt=Infinity;`);await wait();
+ states.ping=read(`({body:pings.getChildren().map(e=>[e.body.width,e.body.height]),art:${visual('ping')}.texture.key})`);
+ states.shadowCount=read(`_activeGameScene.children.list.filter(e=>e.texture&&e.texture.key==='enemy-art-contact').length`);
+ clean();await wait();states.remainingVisuals=read(`_activeGameScene.children.list.filter(e=>e.texture&&e.texture.key.startsWith('enemy-art-')).length`);
+ results.states=states;say();
+};
+document.querySelector('#restart').onclick=()=>{clearInterval(timer);run('_activeGameScene.scene.restart();');setTimeout(()=>{results.restart=metrics();say();},600);};
+</script>
