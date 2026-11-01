@@ -1482,3 +1482,13 @@ hero behind  │              │
 ```
 
 The hero's original physics object still controls movement and collisions. A 56x60 walking drawing follows its floor position. Desks use a smaller ground footprint than their full illustration, so the visible upper half does not behave like an invisible wall. Contact shadows and chair mats attach the furniture to the carpet. Repeating the approved campus in neighboring sections keeps the world open-ended; sections outside the camera are skipped by the renderer.
+
+## Chapter: One image, two article views (V. 1.28.15, Codex)
+
+```text
+Markdown post ──> devlog reader
+       same versioned PNG
+static article ──> direct shared link
+```
+
+The simplified twins portrait follows the birth announcement in both views. A versioned filename avoids stale-image caching. The older illustration stays available while the article uses the new file.

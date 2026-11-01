@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.13",
-  displayVersion: "V. 1.28.13",
+  version: "1.28.15",
+  displayVersion: "V. 1.28.15",
   lastUpdated: "Nov 1, 2026",
-  codename: "Out of the Art Room",
-  build: 69,
+  codename: "Two New Humans",
+  build: 71,
   changelog: [
+    {
+      ver: "V. 1.28.15",
+      date: "Nov 1, 2026",
+      title: "Two New Humans",
+      highlights: ["The coffee devlog now includes the simplified pixel-art twins portrait in its Why now section."]
+    },
     {
       ver: "V. 1.28.13",
       date: "Nov 1, 2026",

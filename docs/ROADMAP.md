@@ -130,3 +130,6 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ### Hero and office production pass (Nov 1, Codex)
 - [x] Bring the three approved walking heroes and the detailed Corporate Campus into normal play (V. 1.28.13). Preserve hero/combat values; use approved furniture footprints, contact shadows and depth sorting. Repeat the campus for open-ended exploration, with fallback and desktop/phone checks.
 - [ ] Rami's feedback on the complete cast in the office; bosses and later environment kits remain pending.
+
+### Coffee-post illustration (Nov 1, Codex)
+- [x] Place Rami's simplified twins portrait in the published coffee memo's Why now section, replacing the previous illustration (V. 1.28.15).

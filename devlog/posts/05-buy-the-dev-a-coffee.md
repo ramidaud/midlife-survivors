@@ -16,7 +16,7 @@ So any early tips go to **more AI time to get this game finished.** Higher plans
 
 Four days ago, my wife and I had twins.
 
-![Pixel-art version of a photo of newborn twins side by side in striped hospital hats, one awake and looking over, one asleep.](img/05-twins-pixel.png)
+![Pixel-art version of a photo of newborn twins side by side in striped hospital hats, one awake and looking over, one asleep.](img/05-twins-pixel-v2.png)
 
 I'm not going to pretend that doesn't matter. Two new humans is real financial pressure, and like everybody, I wish I made a little more. But that's not what this button is for. Holding a newborn at 3 a.m. just made it clear to me that I want to finish the things I start, and to let my kids see me make things I care about.^[In this house the 3 AM Thought is basically a documentary now.]
 

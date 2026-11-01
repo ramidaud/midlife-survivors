@@ -53,3 +53,6 @@ The Art Room links to `../assets/enemies/review.html`, an isolated animation rev
 - Every page has a 1200x630 preview image so links look good in iMessage, Slack, Facebook, LinkedIn and Discord.
 - Post cards are made automatically by `build_devlog.py` (saved in `img/share/<slug>.jpg`, built from the post's cover and title). It needs Pillow: `pip install pillow`.
 - Cards for the game, devlog home, Art Room, About, enemy review and roadmap live in `assets/share/`. Rebuild them with `python3 devlog/scripts/share_cards.py --root .` after changing their art.
+
+## Coffee-post twins illustration (Nov 1, Codex)
+Post 05's Why now section uses `img/05-twins-pixel-v2.png`, Rami's simplified 1536x1152 edit, immediately after the birth announcement. The full edit prompt is alongside it. The earlier `05-twins-pixel.png` is retained. Markdown and the direct static article reference v2; the lead image/share card remain about the coffee button. The builder was run, with existing published HTML preserved against this environment's minimal Markdown fallback.

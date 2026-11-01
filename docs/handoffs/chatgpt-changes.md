@@ -54,3 +54,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - For the game: original hero physics body and combat data preserved. Stage geometry now follows the approved flat office footprints instead of scattered props/mezzanines. Seven-area sections repeat around the player; no new reward system or later-stage art added. Missing office assets leave the original stage intact. Set hero/office flags false and reload for comparison.
 - Frame sizes: all three hero sheets remain 224x240 with 16 frames of 56x60. Desk frames are 96x104; printer/cabinet/plant frames retain 80x80, 56x88 and 48x64.
 - Notes for Claude or Rami: desk data reduced from 5.2 MB to 24 KB by preparing existing sources at native size. Feet determine visual depth; foreground furniture fades to 48% only when concealing the hero. Original player body stays 48x52. Collision/seam checks passed, with all 360 pooled prop bodies aligned. Off-camera sections are excluded from rendering; 350-enemy stress averaged about 100 FPS here. See QA notes for normal-play, phone, fallback and restart results.
+
+## 2026-11-01: Coffee-post twins illustration, V. 1.28.15 (Codex) [done]
+- What: replaced the older illustration under the twins announcement with the simplified edit Rami selected.
+- Files: `devlog/img/05-twins-pixel-v2.png` and prompt; post 05 Markdown and static page; docs/version.
+- For the site: inline image in Why now, no duplicate image or copy changes. The game and leaderboard are unaffected.
+- Image size: 1536x1152 PNG, 4:3, one illustration; wristband and all lettering removed.
+- Notes: older art retained. Builder/feed refreshed; existing rich HTML and share-card metadata preserved because optional Python Markdown/Pillow packages are absent. Desktop and phone loading/fit checked before publication.

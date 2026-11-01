@@ -356,3 +356,6 @@ In a three-quarter view, a desk's drawing extends upward from the place it touch
 
 `hero feet above desk base → desk in front`
 `hero feet below desk base → hero in front`
+
+## Versioning a published image (Nov 1, twins portrait, Codex)
+A new image filename lets a published page load a revision without relying on readers to clear their browser cache. The devlog has both a Markdown source and a static share page; both must reference the same image. Keeping the previous PNG makes reverting the art a small reference change.

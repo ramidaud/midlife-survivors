@@ -367,3 +367,6 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - The approved 3072x2048 seven-area floor repeats in both directions using a surrounding section pool. This replaces the procedural scattered-office/mezzanine layout with broad connected routes, recognizable departments and native desk/prop art. There are no new discovery rewards or combat modifiers in this pass.
 - Furniture collisions use the art preview's ground footprints. Draw order follows the point where feet meet the floor. Foreground desks fade when they would hide the hero; shadows, chair mats and floor wear keep the furniture attached to the ground.
 - `USE_HERO_ART` and `USE_OFFICE_ART` at the top of `src/world-art.js` provide reload-based comparisons. Hero loading is independent of office loading; an unavailable office asset keeps the previous stage intact. Hospital, home, courtyard and resort remain future environment kits.
+
+## Editorial twins portrait (Nov 1, 2026, Codex)
+Post 05 now uses the simplified 4:3 twins illustration beside the birth announcement. This is personal devlog art, with wristband and lettering removed, not a gameplay asset or new character. Earlier revisions remain archived.
