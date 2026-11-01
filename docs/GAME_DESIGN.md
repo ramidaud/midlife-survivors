@@ -374,7 +374,9 @@ Post 05 now uses the simplified 4:3 twins illustration beside the birth announce
 ### Stage art direction (Nov 1, Rami)
 - The current stage layout feels too plain after the last visual pass. The next stage pass should be **more pixel-art forward, friendly and funny**.
 - Lots of variety in objects and setups: different desk personalities, break-room clutter, plants in various states of giving up.
-- **Inside jokes hidden in props** (a "Reply All" mug, a "Per my last email" sticky note). Rami will supply his own jokes; Claude turns them into a prop list for ChatGPT.
+- **Inside jokes hidden in props** (a "Reply All" mug, a "Per my last email" sticky note).
+- Rami's jokes (Nov 1): "What the hell is a KPI again?", "Let's put that in the parking lot", corporate slang visualized literally, coworkers at desks / asleep under tables / at the water cooler, "Hang in there" posters, motivational posters gone wrong.
+- **The stage should feel massive and explorable, like an old Zelda overworld:** distinct districts with landmarks (Lobby, Bullpen, the literal Parking Lot of ideas, Break Room, Server Room, Executive Wing, Conference Rooms, Supply Closet, Wellness Corner). Full brief: `docs/handoffs/chatgpt-stage-pass.md`.
 
 ### Platform goal (Nov 1, Rami)
 - Long-term goal: **Steam, then PlayStation and Xbox.** Plan: finish the browser game, launch on Steam in a desktop wrapper, build an audience, then go to consoles, ideally with a publisher who handles the port. Details in ROADMAP.md under "Platforms".

@@ -679,3 +679,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Ran the devlog builder and refreshed the feed. This environment lacks the optional Markdown/Pillow packages, so preserved published HTML formatting and share-card metadata while applying the intended image-reference change. Desktop/phone image loading, fit and browser checks completed.
 - Platform goal set: Steam, then PlayStation and Xbox (roadmap section added). Stage art pass added to Next up: funnier, more props, inside jokes.
 - Added a one-screen link page at /links/ (Play, Devlog, Discord, Coffee) for Instagram, Threads and QR codes.
+- Wrote the ChatGPT stage pass brief from Rami's jokes: a Zelda-style overworld with nine districts, literal corporate slang props, ambient coworkers and posters gone wrong. Overworld mockup first, for Rami's approval.
