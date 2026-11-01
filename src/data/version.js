@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.6",
-  displayVersion: "V. 1.28.6",
+  version: "1.28.7",
+  displayVersion: "V. 1.28.7",
   lastUpdated: "Nov 1, 2026",
-  codename: "Drawn Into the Game",
-  build: 62,
+  codename: "Coffee on the Menu",
+  build: 63,
   changelog: [
+    {
+      ver: "V. 1.28.7",
+      date: "Nov 1, 2026",
+      title: "Coffee on the Menu",
+      highlights: [
+        "The Buy the Dev a Coffee button moved out of Extras and onto the main menu, next to Devlog."
+      ]
+    },
     {
       ver: "V. 1.28.6",
       date: "Nov 1, 2026",
