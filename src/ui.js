@@ -1906,7 +1906,6 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
-        <button class="t-style-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
         <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
         <button class="t-style-btn" id="title-art-test-btn">🎨 ART ROOM</button>
         ${backBtn}
@@ -1926,6 +1925,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
         <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
         <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
+        <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
       </div>`;
   }
 

@@ -117,4 +117,4 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 
 - [x] Bio portrait revised toward the actual game-art style after Rami's feedback: larger flat color clusters, stronger outlines and simpler studio details (V. 1.28.6).
 
-- [x] Restore the first studio portrait after Rami's comparison (V. 1.28.7). Bio work parked; resume Batch 1 with Late Fee. Bill is the only completed enemy-art reference so far.
+- [x] Restore the first studio portrait after Rami's comparison (V. 1.28.8). Bio work parked; resume Batch 1 with Late Fee. Bill is the only completed enemy-art reference so far.

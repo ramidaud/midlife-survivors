@@ -2,18 +2,26 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.7",
-  displayVersion: "V. 1.28.7",
+  version: "1.28.8",
+  displayVersion: "V. 1.28.8",
   lastUpdated: "Nov 1, 2026",
   codename: "Back to the Studio",
-  build: 63,
+  build: 64,
   changelog: [
     {
-      ver: "V. 1.28.7",
+      ver: "V. 1.28.8",
       date: "Nov 1, 2026",
       title: "Back to the Studio",
       highlights: [
         "Restored the previous studio bio portrait and its share image at Rami's request. Both portrait revisions remain saved."
+      ]
+    },
+    {
+      ver: "V. 1.28.7",
+      date: "Nov 1, 2026",
+      title: "Coffee on the Menu",
+      highlights: [
+        "The Buy the Dev a Coffee button moved out of Extras and onto the main menu, next to Devlog."
       ]
     },
     {

@@ -623,8 +623,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami asked for the studio portrait to look more like the game. Used the first portrait as the edit target and the approved office key art as an explicit style reference.
 - Generated v2 with broader color clusters, stronger navy contours, simplified props, warmer cream/teal lighting and a more illustrated face while retaining Rami's likeness and studio. Kept v1 intact.
 - Updated the About lead and share images to the new versioned PNG. Checked desktop rendering, exact 1536x1024 dimensions, phone fit without overflow and clean browser logs. Saved the complete edit prompt and page proof.
+- Moved Buy the Dev a Coffee from Extras to the main menu (cream button next to Devlog). V. 1.28.7.
 
-## 2026-11-01: Restore preferred bio portrait, V. 1.28.7 (Codex)
+
+## 2026-11-01: Restore preferred bio portrait, V. 1.28.8 (Codex)
 - Rami preferred the first studio portrait. Restored v1 on the About page and its social-preview metadata; both revisions remain saved.
 - Returning to the visual handoff. Only Bill's walking sheet is generated from Batch 1; nine enemy sheets and the Group Chat projectile remain. Next object is Late Fee.
 - No additional portrait generation or enemy integration in this step. Remaining handoff batches cover bosses, pickups, weapons, extra hero poses, icons and later stage kits.
