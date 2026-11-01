@@ -593,3 +593,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Links: Devlog on the title's main row (same tab), Art Test renamed Art Preview, devlog hero has a Play button, Art Preview links to the devlog. Shared pixel "MS" favicon and a share-preview image for the game link.
 - Audited all menus (title, shop, extras, achievements, leaderboard, options, level-up, pause, game over) at laptop and phone sizes.
 - Devlog: inline references (inspired by hankgreen.com). Write ^[note] in a post; clicking the superscript number pops a card under the line with a quick animation. Two examples in post 4.
+- Devlog: inline notes added to posts 1-3 (game loop, sprite sheets, why photographers keep backgrounds quiet, and more). Rami's pixel-art bio portrait now heads the About page and is its share image.
