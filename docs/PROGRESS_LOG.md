@@ -619,7 +619,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Bio-only update. Bill feedback and remaining enemy-art work stay pending; no gameplay or character design changed.
 - Ko-fi tip jar (https://ko-fi.com/ramidaud): devlog header button (cream, never louder than Play), footer line on every devlog page, About page link, game Extras button and a friendly line on Game Over. V. 1.28.5.
 
-
 ## 2026-11-01: Stronger game-style bio portrait, V. 1.28.6 (Codex)
 - Rami asked for the studio portrait to look more like the game. Used the first portrait as the edit target and the approved office key art as an explicit style reference.
 - Generated v2 with broader color clusters, stronger navy contours, simplified props, warmer cream/teal lighting and a more illustrated face while retaining Rami's likeness and studio. Kept v1 intact.

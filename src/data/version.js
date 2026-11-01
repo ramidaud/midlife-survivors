@@ -17,14 +17,6 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.28.6",
-      date: "Nov 1, 2026",
-      title: "Drawn Into the Game",
-      highlights: [
-        "Reworked the About portrait with chunkier game-art shapes, simpler shading, stronger navy outlines and the office key art's warm cream-and-teal lighting. Updated the bio and share image to the new revision."
-      ]
-    },
-    {
       ver: "V. 1.28.5",
       date: "Nov 1, 2026",
       title: "Buy the Dev a Coffee",

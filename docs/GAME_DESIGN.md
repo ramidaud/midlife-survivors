@@ -340,7 +340,6 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - This is editorial creator art, not a playable-character design. The new 1536x1024 versioned PNG also serves as the About social preview; earlier silhouette art stays archived.
 - **Decided (Nov 1): tip jar.** Ko-fi at ko-fi.com/ramidaud (0% platform fee on tips). Friendly and never pushy: devlog header/footer/About, game Extras and the Game Over screen only; never during play, never a pop-up.
 
-
 ### Bio style refinement (Nov 1, 2026, Codex)
 - Rami wants the creator portrait to share the game's drawn character language, beyond photographic detail broken into pixels. V2 uses broader shapes, navy contours, simplified surfaces and warm cream/teal room lighting, referencing the office key art directly.
 - About and social previews now use `assets/bio/rami-studio-pixel-v2.png`. Creator likeness and real studio remain the subject; gameplay characters and balance stay unchanged.
