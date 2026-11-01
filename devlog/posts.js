@@ -6,7 +6,7 @@ window.DEVLOG_POSTS = [
     date: "2026-11-01",
     title: "I could beat my own game standing still. So I hired a robot.",
     version: "V. 1.24 to 1.27",
-    draft: true
+    draft: false
   },
   {
     slug: "03-office-with-some-history",
