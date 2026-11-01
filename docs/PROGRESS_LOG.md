@@ -561,3 +561,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Grok Part 3B: 45 s without a hit triggers the Comfort Zone Tax (+2 enemies per spawn group for 20 s, announced in the lower third). Any hit ends it.
 - Below 25% HP, spawns slow 15% for at least 8 s. Both stay off for the first 90 s. Knobs in `INTENSITY.dynamic`.
 - Next: Grok Part 3C near-miss rewards.
+- Rami playtest (Nov 1, 1:04 AM): "feels really good, much more like Vampire Survivors." Difficulty direction confirmed.
