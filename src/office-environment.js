@@ -9,12 +9,14 @@ window.OfficeEnvironment = (() => {
   function tile(scene,key,draw) { makeCanvasTex(scene,key,64,64,draw); }
   function createTiles(scene) {
     tile(scene,'env_floor',ctx=>{
-      ctx.fillStyle='#171c35';ctx.fillRect(0,0,64,64);
-      ctx.fillStyle='#303750';ctx.fillRect(3,4,2,1);ctx.fillRect(36,42,1,2);
+      ctx.fillStyle='#303750';ctx.fillRect(0,0,64,64);
+      ctx.fillStyle='#526078';ctx.globalAlpha=.18;
+      ctx.fillRect(1,1,62,1);ctx.fillRect(1,1,1,62);
+      ctx.fillRect(3,4,2,1);ctx.fillRect(36,42,1,2);ctx.globalAlpha=1;
     });
     tile(scene,'env_carpet',ctx=>{
-      ctx.fillStyle='#303750';ctx.fillRect(0,0,64,64);
-      ctx.fillStyle='#526078';ctx.globalAlpha=.14;
+      ctx.fillStyle='#526078';ctx.fillRect(0,0,64,64);
+      ctx.fillStyle='#303750';ctx.globalAlpha=.14;
       for(let y=4;y<60;y+=8)for(let x=4;x<60;x+=8)ctx.fillRect(x,y,3,1);
       ctx.globalAlpha=.18;ctx.fillStyle='#171c35';ctx.fillRect(2,31,60,1);ctx.fillRect(31,2,1,60);ctx.globalAlpha=1;
     });
@@ -35,51 +37,86 @@ window.OfficeEnvironment = (() => {
     const objects=[],blockers=[];const base=-999999990;
     const add=o=>{objects.push(o);return o;};
     const floor=(x,y,w,h,key)=>add(scene.add.tileSprite(x,y,w,h,key).setDepth(base));
-    floor(0,0,1280,192,'env_wood');floor(0,0,192,896,'env_wood');
-    const details=add(scene.add.graphics().setDepth(base+1));
-    // Low trim separates materials without pretending the department edges are walls.
+    const details=add(scene.add.graphics().setDepth(base+2));
     for(const d of layout.departments) {
-      const patch=floor(d.x,d.y,384,256,d.id==='breakroom'?'env_vinyl':'env_carpet');
-      patch.tilePositionX=d.x-192;patch.tilePositionY=d.y-128;
-      details.fillStyle(0x171c35,.6);details.fillRect(d.x-192,d.y-128,384,3);details.fillRect(d.x-192,d.y-128,3,256);
-      details.fillRect(d.x+189,d.y-128,3,256);details.fillRect(d.x-192,d.y+125,384,3);
-      details.fillStyle(0xa88b70,.35);details.fillRect(d.x-192,d.y+128,384,1);
+      const key=['atrium','breakroom'].includes(d.id)?'env_vinyl':'env_carpet';
+      const patch=floor(d.x,d.y,d.width,d.height,key);
+      patch.tilePositionX=d.x-d.width/2;patch.tilePositionY=d.y-d.height/2;
+      details.fillStyle(d.color,.45);
+      details.fillRect(d.x-d.width/2,d.y-d.height/2,d.width,4);
+      details.fillRect(d.x-d.width/2,d.y+d.height/2-4,d.width,4);
+      // Broad pools repeat at room scale, not at the floor-tile boundary.
+      details.fillStyle(0xf2d7a1,.08);
+      details.fillRect(d.x-d.width/2+24,d.y-d.height/2+24,d.width-48,96);
     }
-    // Warm fluorescent pools are hard-edged, very low contrast, and part of the scene.
-    details.fillStyle(0xf2d7a1,.08);details.fillRect(-528,-348,366,110);
-    details.fillStyle(0xf2d7a1,.04);details.fillRect(-514,-238,350,72);
+    for(const lane of layout.corridors) {
+      const strip=floor(lane.x,lane.y,lane.width,lane.height,'env_wood').setDepth(base+1);
+      strip.tilePositionX=lane.x-lane.width/2;strip.tilePositionY=lane.y-lane.height/2;
+      // Faint wear down the route helps the eye follow it into the distance.
+      details.fillStyle(0xf2d7a1,.09);
+      if(lane.width>lane.height) details.fillRect(lane.x-lane.width/2,lane.y-22,lane.width,44);
+      else details.fillRect(lane.x-22,lane.y-lane.height/2,44,lane.height);
+    }
+    details.fillStyle(0xf2d7a1,.08);
+    for(const x of [-1344,-768,0,768,1344]) details.fillRect(x-64,-80,128,128);
+    for(const y of [-832,-448,448,832]) details.fillRect(-64,y-64,128,128);
+    // A welcome rug gives the central intersection an unmistakable home base.
+    details.fillStyle(0x171c35);details.fillRect(-104,-74,208,148);
+    details.fillStyle(0x3e7775);details.fillRect(-100,-70,200,140);
+    details.fillStyle(0x83a89a,.65);
+    details.fillRect(-92,-62,184,3);details.fillRect(-92,59,184,3);
+    for(let i=-2;i<=2;i++) details.fillRect(i*24-3,-5,6,10);
+    const arrow=(x,y,dx,dy)=>{
+      details.fillStyle(0xf2d7a1,.45);
+      for(let i=0;i<5;i++) {
+        details.fillRect(x-dx*i*3+dy*i*3,y-dy*i*3+dx*i*3,3,3);
+        details.fillRect(x-dx*i*3-dy*i*3,y-dy*i*3-dx*i*3,3,3);
+      }
+    };
+    for(const x of [-1152,0,1152])for(const y of [-832,832]) arrow(x,y,0,y<0?-1:1);
+    for(const x of [-320,320,-1152,1152]) arrow(x,0,x<0?-1:1,0);
+    for(const d of layout.departments.filter(d=>d.desks.length)) {
+      // Chair mats and scuffed approach strips distinguish work areas from paths.
+      for(const [x,y] of d.desks) {
+        details.fillStyle(0x526078,.28);details.fillRect(x-32,y-20,64,48);
+        details.fillStyle(0x171c35,.22);details.fillRect(x-28,y+26,56,2);
+      }
+    }
     details.fillStyle(0x171c35,.32);
     for(const desk of desks) {
       details.fillRect(desk.x-36,desk.y-7,72,10);
       details.fillRect(desk.x-30,desk.y+3,76,6);details.fillRect(desk.x-24,desk.y+9,68,3);
     }
-    // North perimeter: trim and a low office wall, clear of the walking bounds.
-    details.fillStyle(0x3e7775);details.fillRect(-640,-448,1280,22);
-    details.fillStyle(0x83a89a);details.fillRect(-640,-448,1280,3);
-    details.fillStyle(0x171c35);details.fillRect(-640,-428,1280,6);
-    details.fillStyle(0x526078);details.fillRect(-640,-448,7,896);details.fillRect(633,-448,7,896);
-    // Recessed windows and a small bulletin board act as landmarks above Accounts.
-    for(const x of [-520,-382,-244]) {
-      details.fillStyle(0x171c35);details.fillRect(x,-441,94,10);
-      details.fillStyle(0xf2d7a1,.75);details.fillRect(x+3,-440,88,6);
-      details.fillStyle(0x874c3b);details.fillRect(x+44,-441,3,10);
+    const left=-layout.width/2,top=-layout.height/2;
+    details.fillStyle(0x3e7775);details.fillRect(left,top,layout.width,24);
+    details.fillStyle(0x83a89a);details.fillRect(left,top,layout.width,3);
+    details.fillStyle(0x171c35);details.fillRect(left,top+24,layout.width,6);
+    details.fillStyle(0x526078);details.fillRect(left,top,7,layout.height);details.fillRect(-left-7,top,7,layout.height);
+    details.fillRect(left,-top-7,layout.width,7);
+    for(let x=left+96;x<-left-96;x+=192) {
+      details.fillStyle(0x171c35);details.fillRect(x,top+8,112,12);
+      details.fillStyle(0xf2d7a1,.75);details.fillRect(x+3,top+9,106,7);
+      details.fillStyle(0x874c3b);details.fillRect(x+54,top+8,3,12);
+      details.fillStyle(0xf2d7a1,.06);details.fillRect(x+8,top+32,112,192);
     }
-    // A few floor-level stories. Keep the central combat routes clear and quiet.
     const paper=(x,y)=>{
       details.fillStyle(0x171c35,.3);details.fillRect(x+2,y+2,13,17);
       details.fillStyle(0xf2d7a1);details.fillRect(x,y,13,17);
       details.fillStyle(0x526078);details.fillRect(x+3,y+4,7,1);details.fillRect(x+3,y+7,6,1);
     };
-    paper(-479,-324);paper(-465,-314);paper(-493,-308);
-    details.fillStyle(0x874c3b,.6);
-    for(const [x,y] of [[-258,-188],[-255,-185]]) {
-      details.fillRect(x,y,9,1);details.fillRect(x,y+6,9,1);details.fillRect(x,y,1,7);details.fillRect(x+8,y,1,7);
+    [[-944,-608],[-930,-584],[-906,-576],[-1008,-480],[-1056,-448],
+      [-1208,-112],[-1240,-80],[-1272,-48],[940,-544],[922,-512]].forEach(p=>paper(...p));
+    // Offset carpet repairs and coffee rings tell small stories without blocking movement.
+    for(const [x,y] of [[-1024,-288],[576,-256],[-608,512],[832,560],[-1280,240]]) {
+      details.fillStyle(0x526078,.35);details.fillRect(x,y,32,32);
+      details.fillStyle(0x874c3b,.65);
+      details.fillRect(x+9,y+9,10,2);details.fillRect(x+9,y+17,10,2);
+      details.fillRect(x+7,y+11,2,6);details.fillRect(x+19,y+11,2,6);
     }
-    details.fillStyle(0xbfa8cf);details.fillRect(-302,-150,7,6);
-    details.fillStyle(0x83a89a);details.fillRect(-170,-306,5,2);
-    // Decorative floor directional marks use the same wood/cream language.
-    details.fillStyle(0xf2d7a1,.28);details.fillRect(-135,-56,23,2);
-    for(let i=0;i<4;i++){details.fillRect(-135+i*2,-56-i*2,2,2);details.fillRect(-135+i*2,-54+i*2,2,2);}
+    // Wellness has a quiet exercise-mat island; breakroom vinyl has worn chair patches.
+    details.fillStyle(0x3e7775);details.fillRect(624,400,128,56);
+    details.fillStyle(0x83a89a);details.fillRect(628,404,120,2);details.fillRect(628,450,120,2);
+    details.fillStyle(0x171c35,.1);details.fillRect(-784,400,160,80);
     for(const spec of layout.environmentProps || []) {
       const def=props.find(p=>p.id===spec.id);
       const image=add(scene.add.image(spec.x,spec.y,def.key).setOrigin(.5,1).setDepth(spec.y));

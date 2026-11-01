@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.27.0",
-  displayVersion: "V. 1.27.0",
+  version: "1.27.1",
+  displayVersion: "V. 1.27.1",
   lastUpdated: "Nov 1, 2026",
-  codename: "Comfort Zone Tax",
-  build: 52,
+  codename: "The Long Way to Coffee",
+  build: 53,
   changelog: [
+    {
+      ver: "V. 1.27.1",
+      date: "Nov 1, 2026",
+      title: "The Long Way to Coffee",
+      highlights: [
+        "The separate Campus art preview is now 3072 by 2048 pixels, about 5.5 times its previous area, with seven areas, looping routes and five optional finds.",
+        "Brighter carpet, floor wear, chair mats, paper trails and cream light pools give the office ground more character. The map remembers the paths you explore."
+      ]
+    },
     {
       ver: "V. 1.27.0",
       date: "Nov 1, 2026",

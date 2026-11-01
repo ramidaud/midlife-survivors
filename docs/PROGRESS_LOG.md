@@ -562,3 +562,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Below 25% HP, spawns slow 15% for at least 8 s. Both stay off for the first 90 s. Knobs in `INTENSITY.dynamic`.
 - Next: Grok Part 3C near-miss rewards.
 - Rami playtest (Nov 1, 1:04 AM): "feels really good, much more like Vampire Survivors." Difficulty direction confirmed.
+
+## 2026-11-01: The long way to coffee, V. 1.27.1 (Codex)
+- Rami asked for ground detail and large, explorable stages. Expanded the separate office preview from 1280x896 to 3072x2048 (5.5x area), with seven areas, connected loops, records and meeting wings, and five finds.
+- Added brighter carpet, welcome rug, chair mats, worn paths, repair patches, coffee rings, paper trails and cream light pools. The map now reveals ground as you walk, with a camera-view outline.
+- Walked atrium to Accounts to Records and collected two finds. A 32px navigation check reached all seven areas and five finds with inflated furniture footprints. Checked phone layout, comparison toggles, JavaScript syntax and browser logs. Carpet edges match exactly.
+- Read Rami's visual handoff. Real swarm readability, crowd pathing and production integration remain pending; no production combat values changed. Next: feedback on exploration and floor brightness, then a separate crowd-pressure preview.

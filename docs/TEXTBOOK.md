@@ -1355,3 +1355,21 @@ your level goes up ─► enemies get tougher (+7% HP per level)
 shop upgrades      ─► you start stronger WITHOUT raising your level
 = permanent upgrades are the way to beat the clock
 ```
+
+## Chapter: Making a larger world readable (V. 1.27.1, Codex)
+
+```text
+          OUTER LOOP
+      +-------+-------+
+      |       |       |
+   Accounts   |    Quiet zone
+      |       |       |
+Files +---- ATRIUM ---+ Meetings
+      |       |       |
+   Breakroom  |    Wellness
+      |       |       |
+      +-------+-------+
+          OUTER LOOP
+```
+
+This is a route sketch, not a collision map. The 3072x2048 office keeps the same character size, so distance feels real. Wood flooring connects destinations; brighter carpet identifies work areas. Small wear marks tell stories without adding obstacles. The minimap reveals nearby ground as we walk, so exploration leaves a visible record. Before these routes enter the main game, we still need to test whether swarms flow around furniture.

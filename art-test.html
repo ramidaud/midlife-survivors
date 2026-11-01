@@ -25,7 +25,7 @@
     figcaption { text-align: center; font-size: 13px; color: #d3b78d; }
     footer { margin-top: 20px; font-size: 13px; color: #83a89a; }
     .exploration-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin: 12px 0; }
-    #campus-map { width: 240px; max-width: 100%; height: 168px; image-rendering: pixelated; border: 1px solid #526078; }
+    #campus-map { width: 288px; max-width: 100%; height: auto; aspect-ratio: 3 / 2; image-rendering: pixelated; border: 1px solid #526078; }
     #discovery-note { flex: 1; min-width: 200px; }
     [hidden] { display: none !important; }
     .desk-gallery { margin-top: 22px; }
@@ -48,7 +48,7 @@
 <main>
   <div class="eyebrow">MIDLIFE SURVIVORS / ART STUDY 01</div>
   <h1 id="test-heading">Corporate Campus: take the long way to coffee.</h1>
-  <p id="test-intro">Four departments, wide escape routes, and three small discoveries. A playable layout study.</p>
+  <p id="test-intro">Seven areas, looping routes, side wings and five discoveries across a larger connected office.</p>
   <nav aria-label="Art test controls">
     <button id="new-art" aria-pressed="true">New art</button>
     <button id="current-art" aria-pressed="false">Current art</button>
@@ -66,9 +66,9 @@
   <div id="arena" tabindex="0" role="application" aria-label="Office art test. Move with arrows or WASD, or hold and drag on the office."></div>
   <div id="status" role="status">Loading the office...</div>
   <p id="motion-status" class="help">The 9-to-5er · Facing down · Standing</p>
-  <p class="help" id="test-help">Move with <strong>WASD / arrows</strong>, or <strong>hold and drag</strong>. Explore four departments and walk over the glowing finds. This study tests exploration without combat.</p>
+  <p class="help" id="test-help">Move with <strong>WASD / arrows</strong>, or <strong>hold and drag</strong>. Explore seven areas and walk over the glowing finds. This study tests exploration without combat.</p>
   <div id="exploration" class="exploration-strip">
-    <canvas id="campus-map" width="320" height="224" role="img" aria-label="Office map. Departments reveal as you explore."></canvas>
+    <canvas id="campus-map" width="384" height="256" role="img" aria-label="Office map. Departments reveal as you explore."></canvas>
     <div id="discovery-note" role="status">Follow the broad crossroads. Each department has more than one way in.</div>
   </div>
   <div class="samples">
@@ -105,7 +105,7 @@
       <figure><canvas id="lunch-sample" width="96" height="104"></canvas><figcaption><strong>Lunch at the keyboard</strong>Today's meeting could have been a pizza.</figcaption></figure>
     </div>
   </section>
-  <footer>One 1280 × 896 office blockout. Character animation and desk art study with placeholder landmarks. Main-game art replacement follows preview feedback.</footer>
+  <footer>One 3072 × 2048 connected office floor (96 × 64 tiles). Character animation and desk art study with placeholder landmarks. Main-game art replacement follows preview feedback.</footer>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="src/sprites.js?v=35"></script>
@@ -114,8 +114,8 @@
 <script src="assets/characters/character-data.js?v=1"></script>
 <script src="src/character-animation.js?v=1"></script>
 <script src="assets/office-environment/environment-data.js?v=1"></script>
-<script src="src/office-environment.js?v=1"></script>
-<script src="src/data/office-layout.js?v=3"></script>
-<script src="src/art-test.js?v=6"></script>
+<script src="src/office-environment.js?v=53"></script>
+<script src="src/data/office-layout.js?v=53"></script>
+<script src="src/art-test.js?v=53"></script>
 </body>
 </html>

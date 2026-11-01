@@ -1,6 +1,6 @@
 # Office environment kit, first detail pass
 
-The first detailed section is Accounts Payable in the separate Campus art preview. Visit Accounts frames it directly. The 192px central routes and department/discovery locations are retained. Other departments reuse the floor language and selected props; this does not finish the hospital, home, courtyard or resort.
+The first detailed section is Accounts Payable in the separate Campus art preview. Visit Accounts frames it directly. The Nov 1 expansion uses a 3072x2048 floor, seven areas, five finds, 224px central routes, 192px outer loops and 160px branch paths. Other departments reuse the floor language and selected props; this does not finish the hospital, home, courtyard or resort.
 
 ## Illustrated assets
 
@@ -18,8 +18,10 @@ The preview keys magenta to transparency. Background shadows are not part of the
 
 ## Floors and environment layers
 
-`carpet-native.png` and `wood-native.png` are opaque 64x64 repeating patterns on the existing 32px placement grid. Their opposite edges match exactly. Native geometric drawing keeps them seamless; generated images provide the illustrated props. The floor is intentionally quieter than characters and pickups.
+`carpet-native.png` and `wood-native.png` are opaque 64x64 repeating patterns on the existing 32px placement grid. Their opposite edges match exactly. Native geometric drawing keeps them seamless; generated images provide the illustrated props. The floor is intentionally quieter than characters and pickups. The expanded preview lightens carpet to #526078 with restrained darker texture and retains seamless matching borders.
 
 `src/office-environment.js` creates carpet, wood and breakroom vinyl textures, material trim, low north-wall trim, recessed window lights, small floor papers/notes/coffee stains and gentle hard-edged light pools. The warm/cool balance and restrained placement tie the office to the key art. These floor-level accents do not add collision obstacles.
+
+The expanded layout adds a central welcome rug, worn chair mats, repair patches, coffee rings, paper trails and rectangular cream light pools. These remain non-solid scenery. The map reveals 128px ground cells as the hero explores. `preview-large-floor.jpg` shows the revised ground at 1x.
 
 Native props are embedded in `environment-data.js` for direct-from-disk loading. The main game does not load this kit yet. Current Art hides the new environment overlay and extra props, allowing comparison; Layout returns to the original small art study. Native downloads are also available in the environment gallery.

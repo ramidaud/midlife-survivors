@@ -15,7 +15,7 @@
   const campus = window.OFFICE_LAYOUT;
   let campusMode = !!campus, layoutObjects = [], campusProps = [], discoveries = [];
   let environmentObjects = [];
-  let visited = new Set(), found = new Set(), currentDepartment = '', lastMapX = Infinity, lastMapY = Infinity;
+  let explored = new Set(), visited = new Set(), found = new Set(), currentDepartment = '', lastMapX = Infinity, lastMapY = Infinity;
 
   // Screen Y represents the point where an object's feet meet the floor.
   // The desk's back wall is drawn ABOVE its floor footprint in this 3/4 view.
@@ -45,41 +45,52 @@
 
   function updateStatus() {
     status.textContent = campusMode ?
-      `Corporate Campus · ${currentDepartment || 'Central crossroads'} · ${visited.size}/4 departments · ${found.size}/3 discoveries · ${zoom}×${paused ? ' · Paused' : ''}` :
+      `Corporate Campus · ${currentDepartment || 'Connecting walkways'} · ${visited.size}/${campus.departments.length} areas · ${found.size}/${campus.discoveries.length} discoveries · ${zoom}×${paused ? ' · Paused' : ''}` :
       (newArt ? 'New art' : 'Current art') + ' · ' + zoom + '× view' +
       (zoom === 1 ? (newArt ? ' · Hero about 15% larger' : ' · Original hero size') : ' · Enlarged for a closer look') + (paused ? ' · Paused' : '');
   }
 
+  const inArea = (x,y,d) => Math.abs(x-d.x)<d.width/2 && Math.abs(y-d.y)<d.height/2;
+  function revealGround() {
+    const cx=Math.floor((hero.x+campus.width/2)/128),cy=Math.floor((hero.y+campus.height/2)/128);
+    for(let y=cy-2;y<=cy+2;y++)for(let x=cx-2;x<=cx+2;x++) {
+      if(x>=0&&y>=0&&x<campus.width/128&&y<campus.height/128&&Math.hypot(x-cx,y-cy)<2.5) explored.add(x+','+y);
+    }
+  }
   function drawMap() {
     if (!campusMode) return;
     const canvas = document.getElementById('campus-map'), ctx = canvas.getContext('2d');
-    const mx = x => (x + campus.width / 2) / 4, my = y => (y + campus.height / 2) / 4;
-    ctx.fillStyle = '#171c35'; ctx.fillRect(0, 0, 320, 224);
-    ctx.fillStyle = '#a88b70'; ctx.fillRect(0, 88, 320, 48); ctx.fillRect(136, 0, 48, 224);
-    for (const department of campus.departments) {
-      ctx.fillStyle = visited.has(department.id) ? '#3e7775' : '#303750';
-      ctx.fillRect(mx(department.x - 192), my(department.y - 128), 96, 64);
-      if (visited.has(department.id)) {
-        ctx.fillStyle = '#fff0cf'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
-        const shortNames = {accounts:'Accounts',quiet:'Quiet zone',breakroom:'Breakroom',wellness:'Wellness'};
-        ctx.fillText(shortNames[department.id], mx(department.x), my(department.y) + 4);
-      }
+    const sx=canvas.width/campus.width,sy=canvas.height/campus.height;
+    const mx=x=>(x+campus.width/2)*sx,my=y=>(y+campus.height/2)*sy;
+    ctx.fillStyle='#171c35';ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.save();ctx.beginPath();
+    for(const cell of explored) {const [x,y]=cell.split(',').map(Number);ctx.rect(x*128*sx,y*128*sy,128*sx,128*sy);}
+    ctx.clip();ctx.fillStyle='#303750';ctx.fillRect(0,0,canvas.width,canvas.height);
+    for(const d of campus.departments) {
+      ctx.fillStyle=visited.has(d.id)?'#3e7775':'#526078';
+      ctx.fillRect(mx(d.x-d.width/2),my(d.y-d.height/2),d.width*sx,d.height*sy);
     }
-    ctx.fillStyle = '#ef9347';
-    for (const d of campus.discoveries) if (!found.has(d.id)) {
-      const department = campus.departments.find(z => Math.abs(d.x - z.x) < 192 && Math.abs(d.y - z.y) < 128);
-      if (department && visited.has(department.id)) ctx.fillRect(mx(d.x) - 2, my(d.y) - 2, 4, 4);
+    ctx.fillStyle='#a88b70';
+    for(const c of campus.corridors)ctx.fillRect(mx(c.x-c.width/2),my(c.y-c.height/2),c.width*sx,c.height*sy);
+    ctx.fillStyle='#ef9347';
+    for(const d of campus.discoveries)if(!found.has(d.id))ctx.fillRect(mx(d.x)-2,my(d.y)-2,4,4);
+    ctx.restore();
+    for(const d of campus.departments)if(visited.has(d.id)) {
+      ctx.fillStyle='#fff0cf';ctx.font='14px sans-serif';ctx.textAlign='center';
+      ctx.fillText(d.shortName,mx(d.x),my(d.y)+5);
     }
-    ctx.fillStyle = '#fff0cf'; ctx.fillRect(mx(hero.x) - 2, my(hero.y) - 2, 5, 5);
-    canvas.setAttribute('aria-label', `Campus map: ${visited.size} of four departments visited, ${found.size} of three discoveries found. You are at ${currentDepartment || 'Central crossroads'}.`);
-    lastMapX = hero.x; lastMapY = hero.y;
+    const view=scene.cameras.main.worldView;
+    ctx.strokeStyle='#83a89a';ctx.lineWidth=1;ctx.strokeRect(mx(view.x),my(view.y),view.width*sx,view.height*sy);
+    ctx.fillStyle='#fff0cf';ctx.fillRect(mx(hero.x)-2,my(hero.y)-2,5,5);
+    canvas.setAttribute('aria-label', `Campus map: ${visited.size} of ${campus.departments.length} areas visited, ${found.size} of ${campus.discoveries.length} discoveries found. You are at ${currentDepartment || 'the connecting walkways'}.`);
+    lastMapX=hero.x;lastMapY=hero.y;
   }
 
   function buildLayout() {
     desks.forEach(d => d.destroy());
     layoutObjects.forEach(o => o.destroy());
     desks = []; layoutObjects = []; campusProps = []; discoveries = []; environmentObjects=[];
-    visited = new Set(); found = new Set(); currentDepartment = '';
+    explored = new Set(); visited = new Set(); found = new Set(); currentDepartment = '';
     const positions = campusMode ? campus.departments.flatMap(d => d.desks) : deskPositions;
     desks = positions.map(([x, y, variant]) => {
       const desk = scene.add.image(x, y, 'art_desk').setOrigin(.5, 1).setDepth(y);
@@ -87,14 +98,15 @@
       return desk;
     });
     if (campusMode) {
-      scene.cameras.main.setBounds(-640, -448, campus.width, campus.height);
+      scene.cameras.main.setBounds(-campus.width/2, -campus.height/2, campus.width, campus.height);
       const ground = scene.add.graphics().setDepth(-999999998); layoutObjects.push(ground);
-      ground.fillStyle(0xa88b70); ground.fillRect(-640, -96, 1280, 192); ground.fillRect(-96, -448, 192, 896);
-      ground.lineStyle(2, 0x526078); ground.strokeRect(-640, -448, 1280, 896);
+      ground.fillStyle(0xa88b70);
+      for(const c of campus.corridors) ground.fillRect(c.x-c.width/2,c.y-c.height/2,c.width,c.height);
+      ground.lineStyle(2, 0x526078); ground.strokeRect(-campus.width/2,-campus.height/2,campus.width,campus.height);
       for (const d of campus.departments) {
-        ground.fillStyle(d.color, .3); ground.fillRect(d.x - 192, d.y - 128, 384, 256);
-        ground.lineStyle(1, d.color); ground.strokeRect(d.x - 192, d.y - 128, 384, 256);
-        const label = scene.add.text(d.x, d.y + 100, d.name, {fontFamily:'monospace',fontSize:'12px',color:'#fff0cf',backgroundColor:'#171c35',padding:{x:5,y:3}}).setOrigin(.5,0).setDepth(-999999980);
+        ground.fillStyle(d.color, .3); ground.fillRect(d.x-d.width/2,d.y-d.height/2,d.width,d.height);
+        ground.lineStyle(1, d.color); ground.strokeRect(d.x-d.width/2,d.y-d.height/2,d.width,d.height);
+        const label = scene.add.text(d.x, d.y+d.height/2-28, d.name, {fontFamily:'monospace',fontSize:'12px',color:'#fff0cf',backgroundColor:'#171c35',padding:{x:5,y:3}}).setOrigin(.5,0).setDepth(-999999980);
         const prop = scene.add.image(...d.propAt, d.prop).setOrigin(.5,1).setDepth(d.propAt[1]); prop.isLandmark = true;
         prop.originalTexture=d.prop;
         prop.environmentType=d.prop==='prop_copier'?'printer':d.prop==='prop_plant'?'plant':null;
@@ -113,15 +125,16 @@
     document.getElementById('layout').textContent = campusMode ? 'Layout: Campus' : 'Layout: Art Study';
     document.getElementById('layout').setAttribute('aria-pressed',String(campusMode));
     document.getElementById('test-heading').textContent = campusMode ? 'Corporate Campus: take the long way to coffee.' : 'A little more character. Same coffee problem.';
-    document.getElementById('test-intro').textContent = campusMode ? 'The office environment pass: detailed Accounts Payable, warm walkways, and three optional discoveries.' : 'Try the new office look in motion, then switch back to compare.';
-    document.getElementById('test-help').textContent = campusMode ? 'WASD / arrows or hold and drag. Explore four departments and walk over the glowing finds. This study tests exploration without combat.' : 'WASD / arrows or hold and drag. Coffee fires automatically at one persistent Bill. No damage or score.';
-    document.getElementById('discovery-note').textContent = 'Follow the broad crossroads. Each department has more than one way in.';
+    document.getElementById('test-intro').textContent = campusMode ? 'A 3072 × 2048 connected office floor: seven areas, looping routes, side wings and five optional finds.' : 'Try the new office look in motion, then switch back to compare.';
+    document.getElementById('test-help').textContent = campusMode ? 'WASD / arrows or hold and drag. Follow the floor markings through seven areas. The map remembers the ground you explore. This study tests exploration without combat.' : 'WASD / arrows or hold and drag. Coffee fires automatically at one persistent Bill. No damage or score.';
+    document.getElementById('discovery-note').textContent = 'Start at the atrium. Follow the wood paths, or take the long loop out to the side wings.';
     bill.setVisible(!campusMode);
-    reset(); appearance(); drawMap();
+    reset(); appearance(); if(campusMode) explore(); drawMap();
   }
 
   function explore() {
-    const department = campus.departments.find(d => Math.abs(hero.x - d.x) < 192 && Math.abs(hero.y - d.y) < 128);
+    revealGround();
+    const department = campus.departments.find(d => inArea(hero.x,hero.y,d));
     const name = department ? department.name : '';
     if (name !== currentDepartment) {
       currentDepartment = name;
@@ -134,7 +147,7 @@
     for (const d of discoveries) if (!found.has(d.id) && Math.hypot(hero.x - d.x, hero.y - d.y) < 32) {
       found.add(d.id); d.marker.setVisible(false); d.icon.setVisible(false);
       document.getElementById('discovery-note').textContent = d.name + ': ' + d.note;
-      if (found.size === 3 && visited.size === 4) document.getElementById('discovery-note').textContent += ' All corners explored. Head back to the crossroads.';
+      if (found.size === campus.discoveries.length && visited.size === campus.departments.length) document.getElementById('discovery-note').textContent += ' All corners explored. Head back to the crossroads.';
       updateStatus(); drawMap();
     }
     if (Math.hypot(hero.x - lastMapX, hero.y - lastMapY) > 4) drawMap();
@@ -283,7 +296,7 @@
   }
 
   function reset() {
-    hero.setPosition(0, 38); bill.setPosition(-75, 100);
+    hero.setPosition(...(campusMode?campus.spawn:[0,38])); bill.setPosition(-75, 100);
     facing='down';walked=0;
     shots.splice(0).forEach(s => s.image.destroy());
     shotAt = 0;
@@ -396,7 +409,7 @@
 
   document.getElementById('new-art').onclick = () => { newArt = true; appearance(); };
   document.getElementById('tour-accounts').onclick = () => {
-    if(ready && campusMode){hero.setPosition(-336,-345);scene.cameras.main.centerOn(hero.x,hero.y);explore();}
+    if(ready && campusMode){hero.setPosition(...campus.departments.find(d=>d.id==='accounts').tour);scene.cameras.main.centerOn(hero.x,hero.y);explore();}
   };
   document.getElementById('character').onchange = event => {
     characterId=event.target.value;walked=0;

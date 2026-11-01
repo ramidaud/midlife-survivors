@@ -303,3 +303,8 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - Games like Vampire Survivors and Hades let veterans **choose** extra pain for extra rewards. New players never see it unless they go looking.
 - The bracket is **locked in when the run starts**, so you can't lower it halfway through.
 - All the numbers live in one small file, `src/data/heat.js`, and every system reads from it through one helper.
+
+## Wayfinding (Nov 1, larger office, Codex)
+A large level needs clues about where to go. **Wayfinding** means using floor materials, landmarks and light to make routes understandable. The atrium rug gives us a home base; wood paths and paper trails suggest destinations. Loops let us return by a different route, while the revealing map remembers where we have been.
+
+`Atrium → wood path → department → outer loop → a different way home`

@@ -2,6 +2,13 @@
 // draft: true hides a post until Rami approves it (preview drafts with devlog/?drafts=1).
 window.DEVLOG_POSTS = [
   {
+    slug: "04-the-long-way-to-coffee",
+    date: "2026-11-01",
+    title: "I took the long way to coffee.",
+    version: "V. 1.27.1",
+    draft: true
+  },
+  {
     slug: "04-midlife-is-hard",
     date: "2026-11-01",
     title: "I could beat my own game standing still. So I hired a robot.",
