@@ -4,6 +4,19 @@
 // Optional fields: cover, teaser, changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "05-buy-the-dev-a-coffee",
+    "date": "2026-11-01",
+    "title": "There's a coffee button now. It feels weird.",
+    "version": "V. 1.28.7",
+    "draft": true,
+    "cover": "img/05-buy-the-dev-a-coffee.jpg",
+    "leadAlt": "The Midlife Survivors main menu, with a cream Buy the Dev a Coffee button next to Devlog.",
+    "teaser": "Asking for money feels strange. Then the twins arrived, and I decided to throw my net out and follow the things I love.",
+    "changes": ["Buy the Dev a Coffee moved from Extras to the main menu", "Ko-fi links in the devlog header, footer and About page", "A friendly coffee line on the Game Over screen"],
+    "nextUp": "Reviewing the first batch of real enemy art from ChatGPT.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "04-the-long-way-to-coffee",
     "date": "2026-11-01",
     "title": "I took the long way to coffee.",

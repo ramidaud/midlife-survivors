@@ -643,3 +643,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Built an animated comparison page linked from the Art Room. Pause, step poses, compare floors and inspect at native scale. Main-game combat still uses its existing renderer pending visual review.
 - Corrected Calendar's opposite stride and Late Fee's foot jitter; preserved ghost fade gaps and added a two-pixel lift to Donut's airborne poses. Kept palette, opaque magenta, clear margins and hard outlines.
 - Pixel checks passed for every sheet; desktop/phone review passed loading, controls, overflow and browser logs. Updated handoff and learning notes. Bosses remain the next separate art batch.
+
+## 2026-11-01: Link previews and the coffee post, V. 1.28.11
+- Synced Codex's finished Batch 1 enemy art (10 enemies plus the chat ping) to GitHub. It still needs Rami's review before it goes in the game.
+- Every shareable page now has a 1200x630 preview card: game, devlog, each post, About, Art Room, enemy review and roadmap. Post cards build themselves.
+- Drafted post 05, "There's a coffee button now. It feels weird." Waiting on Rami's OK.
