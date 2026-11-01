@@ -1373,3 +1373,17 @@ Files +---- ATRIUM ---+ Meetings
 ```
 
 This is a route sketch, not a collision map. The 3072x2048 office keeps the same character size, so distance feels real. Wood flooring connects destinations; brighter carpet identifies work areas. Small wear marks tell stories without adding obstacles. The minimap reveals nearby ground as we walk, so exploration leaves a visible record. Before these routes enter the main game, we still need to test whether swarms flow around furniture.
+
+## Chapter: Keeping furniture on the floor (V. 1.27.2, Codex)
+
+```text
+ upper-left light
+        \
+       [ desk ]
+         |  |       legs meet the floor
+        ######      tight contact shadow
+          ....      short southeast cast
+ ~~~~~~~~~~~~~~~~~  mat, caster wear, carpet
+```
+
+A detached shadow suggests height above the ground. The scene now reads the bottom edge of each imported furniture texture once and places short shadow pixels directly against it. A quieter cast sits lower right; chair mats and scuffs sit underneath the furniture. The sprite exports keep their plain magenta background because shadows belong to the scene. This changes visual contact without changing collision.

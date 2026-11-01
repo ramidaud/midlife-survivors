@@ -568,3 +568,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added brighter carpet, welcome rug, chair mats, worn paths, repair patches, coffee rings, paper trails and cream light pools. The map now reveals ground as you walk, with a camera-view outline.
 - Walked atrium to Accounts to Records and collected two finds. A 32px navigation check reached all seven areas and five finds with inflated furniture footprints. Checked phone layout, comparison toggles, JavaScript syntax and browser logs. Carpet edges match exactly.
 - Read Rami's visual handoff. Real swarm readability, crowd pathing and production integration remain pending; no production combat values changed. Next: feedback on exploration and floor brightness, then a separate crowd-pressure preview.
+
+## 2026-11-01: Feet on the floor, V. 1.27.2 (Codex)
+- Rami approved the larger world but said the floor felt separate and objects floated. Found invisible same-color chair mats and generic shadow bars; department landmarks had no fitted contact shadows.
+- Added per-texture contact contours, short southeast casts, under-desk shade, contrasting mats beneath wheels, caster wear and cables. Carpet tufts and wood grain now have small pixel clusters. Added the player's foot shadow.
+- Fixed stale HP-bar placement and facing after paused resets/Visit Accounts. No hitboxes, movement rules, stage dimensions or production balance changed.
+- Checked 1x at 1280x800 and phone 390x844, new/current art toggles, movement and paused repositioning. Browser logs clean; both exported 64x64 tiles remain opaque with exact matching opposite edges. Next: Rami judges whether objects feel seated on the ground before crowd testing.

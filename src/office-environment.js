@@ -17,13 +17,18 @@ window.OfficeEnvironment = (() => {
     tile(scene,'env_carpet',ctx=>{
       ctx.fillStyle='#526078';ctx.fillRect(0,0,64,64);
       ctx.fillStyle='#303750';ctx.globalAlpha=.14;
-      for(let y=4;y<60;y+=8)for(let x=4;x<60;x+=8)ctx.fillRect(x,y,3,1);
+      for(let y=4;y<60;y+=8)for(let x=4;x<60;x+=8){
+        ctx.fillRect(x,y,3,1);ctx.fillRect(x+2,y+2,1,2);
+      }
+      ctx.fillStyle='#83a89a';ctx.globalAlpha=.09;
+      [[10,11],[42,19],[26,43],[50,51]].forEach(([x,y])=>{ctx.fillRect(x,y,2,1);ctx.fillRect(x+3,y+2,1,1);});
       ctx.globalAlpha=.18;ctx.fillStyle='#171c35';ctx.fillRect(2,31,60,1);ctx.fillRect(31,2,1,60);ctx.globalAlpha=1;
     });
     tile(scene,'env_wood',ctx=>{
       ctx.fillStyle='#a88b70';ctx.fillRect(0,0,64,64);
       ctx.fillStyle='#874c3b';ctx.globalAlpha=.24;
       for(let y=15;y<63;y+=16)ctx.fillRect(1,y,62,1);
+      [[8,7,7],[32,23,10],[18,39,8],[44,55,7]].forEach(([x,y,w])=>{ctx.fillRect(x,y,w,1);ctx.fillRect(x+3,y+2,w-3,1);});
       ctx.fillRect(23,1,1,14);ctx.fillRect(45,17,1,14);ctx.fillRect(12,33,1,14);ctx.fillRect(38,49,1,13);
       ctx.fillStyle='#f2d7a1';ctx.globalAlpha=.13;
       [[4,5,14],[30,9,22],[8,23,28],[27,39,25],[5,55,21]].forEach(([x,y,w])=>ctx.fillRect(x,y,w,1));ctx.globalAlpha=1;
@@ -33,7 +38,34 @@ window.OfficeEnvironment = (() => {
       ctx.fillStyle='#d3b78d';ctx.globalAlpha=.18;ctx.fillRect(2,2,29,29);ctx.fillRect(33,33,29,29);ctx.globalAlpha=1;
     });
   }
-  function build(scene,layout,desks) {
+  // Contact contours are read once from the imported texture. Every column's
+  // bottom pixel gets a short shadow, so feet and bases actually meet the ground.
+  const profiles=new Map();
+  function contactProfile(scene,key) {
+    if(profiles.has(key)) return profiles.get(key);
+    const image=scene.textures.get(key).getSourceImage();
+    const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;
+    const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(image,0,0);
+    const pixels=ctx.getImageData(0,0,image.width,image.height).data,columns=[];
+    for(let x=0;x<image.width;x++)for(let y=image.height-1;y>=Math.floor(image.height*.68);y--) {
+      if(pixels[(y*image.width+x)*4+3]>0){columns.push([x-image.width/2,y-image.height]);break;}
+    }
+    profiles.set(key,columns);return columns;
+  }
+  function groundObject(scene,g,key,x,y,kind) {
+    const columns=contactProfile(scene,key);
+    // Two hard-edged tones: a short southeast cast, then tight dark contact.
+    g.fillStyle(0x171c35,.18);
+    for(const [px,py] of columns)g.fillRect(x+px+4,y+py+2,1,5);
+    g.fillStyle(0x171c35,.48);
+    for(const [px,py] of columns)g.fillRect(x+px,y+py+1,1,2);
+    if(kind==='desk') {
+      // Recessed shadow beneath the worktop ties the legs, drawers and chair together.
+      g.fillStyle(0x171c35,.16);
+      g.fillRect(x-38,y-28,70,12);g.fillRect(x-30,y-16,72,12);
+    }
+  }
+  function build(scene,layout,desks,landmarks=[]) {
     const objects=[],blockers=[];const base=-999999990;
     const add=o=>{objects.push(o);return o;};
     const floor=(x,y,w,h,key)=>add(scene.add.tileSprite(x,y,w,h,key).setDepth(base));
@@ -75,17 +107,27 @@ window.OfficeEnvironment = (() => {
     };
     for(const x of [-1152,0,1152])for(const y of [-832,832]) arrow(x,y,0,y<0?-1:1);
     for(const x of [-320,320,-1152,1152]) arrow(x,0,x<0?-1:1,0);
-    for(const d of layout.departments.filter(d=>d.desks.length)) {
-      // Chair mats and scuffed approach strips distinguish work areas from paths.
-      for(const [x,y] of d.desks) {
-        details.fillStyle(0x526078,.28);details.fillRect(x-32,y-20,64,48);
-        details.fillStyle(0x171c35,.22);details.fillRect(x-28,y+26,56,2);
-      }
-    }
-    details.fillStyle(0x171c35,.32);
+    const grounding=add(scene.add.graphics().setDepth(base+3));
     for(const desk of desks) {
-      details.fillRect(desk.x-36,desk.y-7,72,10);
-      details.fillRect(desk.x-30,desk.y+3,76,6);details.fillRect(desk.x-24,desk.y+9,68,3);
+      const {x,y}=desk;
+      // A stepped chair mat extends UNDER the wheels. Its worn edge is attached,
+      // not a detached stripe beyond the workstation.
+      details.fillStyle(0x303750,.32);
+      details.fillRect(x-38,y-24,58,34);details.fillRect(x-34,y-28,50,42);
+      details.fillStyle(0x83a89a,.16);details.fillRect(x-34,y-28,50,1);details.fillRect(x-38,y-24,1,34);
+      details.fillStyle(0x171c35,.19);
+      [[-24,3,6],[-8,9,8],[11,-3,5]].forEach(([px,py,w])=>details.fillRect(x+px,y+py,w,1));
+      // A little floor grit and cable beside each island belongs to that desk.
+      details.fillStyle(0x303750,.55);
+      details.fillRect(x+43,y-23,1,15);details.fillRect(x+39,y-9,5,1);
+      details.fillRect(x+39,y-9,1,5);details.fillRect(x+39,y-5,7,1);
+      details.fillStyle(0xf2d7a1,.20);details.fillRect(x-43,y-7,2,1);details.fillRect(x+39,y+6,2,1);
+      groundObject(scene,grounding,'desk_'+desk.variant,x,y,'desk');
+    }
+    // Existing department landmarks need the same grounding as the extra props.
+    for(const prop of landmarks) {
+      const def=props.find(p=>p.id===prop.environmentType);
+      groundObject(scene,grounding,def?def.key:prop.originalTexture,prop.x,prop.y,'prop');
     }
     const left=-layout.width/2,top=-layout.height/2;
     details.fillStyle(0x3e7775);details.fillRect(left,top,layout.width,24);
@@ -121,7 +163,7 @@ window.OfficeEnvironment = (() => {
       const def=props.find(p=>p.id===spec.id);
       const image=add(scene.add.image(spec.x,spec.y,def.key).setOrigin(.5,1).setDepth(spec.y));
       image.footprint=def.footprint;blockers.push(image);
-      details.fillStyle(0x171c35,.3);details.fillRect(spec.x-def.footprint.width/2+5,spec.y-3,def.footprint.width,8);
+      groundObject(scene,grounding,def.key,spec.x,spec.y,'prop');
     }
     return {objects,blockers};
   }

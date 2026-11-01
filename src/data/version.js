@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.27.1",
-  displayVersion: "V. 1.27.1",
+  version: "1.27.2",
+  displayVersion: "V. 1.27.2",
   lastUpdated: "Nov 1, 2026",
-  codename: "The Long Way to Coffee",
-  build: 53,
+  codename: "Feet on the Floor",
+  build: 54,
   changelog: [
+    {
+      ver: "V. 1.27.2",
+      date: "Nov 1, 2026",
+      title: "Feet on the Floor",
+      highlights: [
+        "Campus furniture now has contact shadows fitted to each sprite's base, including printers, plants and cabinets. Chair mats, wheel wear and short cables connect desks to their floor space.",
+        "Added a player foot shadow and richer carpet/wood texture. Paused resets and Visit Accounts keep the hero, shadow and health bar together."
+      ]
+    },
     {
       ver: "V. 1.27.1",
       date: "Nov 1, 2026",

@@ -308,3 +308,8 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 A large level needs clues about where to go. **Wayfinding** means using floor materials, landmarks and light to make routes understandable. The atrium rug gives us a home base; wood paths and paper trails suggest destinations. Loops let us return by a different route, while the revealing map remembers where we have been.
 
 `Atrium → wood path → department → outer loop → a different way home`
+
+## Contact shadows (Nov 1, furniture grounding, Codex)
+A **contact shadow** is the small dark area where an object meets the floor. A gap between the object and its shadow makes it look airborne. The preview now traces furniture bases so the shadow touches the feet, wheels and pot bottoms. A lighter cast extends toward the lower right, matching the light from the upper left. Chair mats and wear marks provide extra clues about where furniture sits.
+
+`Sprite base → tight contact shadow → lighter cast on the floor`

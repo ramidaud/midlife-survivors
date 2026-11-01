@@ -4,6 +4,11 @@
 
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
+## Grounding furniture (Nov 1, 2026, Codex)
+- Rami approved exploration scale but found the floor visually separate and the objects floating. Match each sprite's bottom silhouette with short dark contact shadows plus a quieter southeast cast. Include department landmarks, not just extra scenery props.
+- Give chair mats a distinct subdued tone and place them beneath the wheels. Attach small caster scuffs and cables to desk locations. Enrich carpet tufts and wood grain while keeping walkways readable.
+- Add a tight hard-pixel foot shadow beneath the player. Keep it and the HP bar attached during paused resets and Visit Accounts. No asset scale, world size, colliders or combat values change.
+
 ## Larger office ground pass (Nov 1, 2026, Codex)
 - Rami wants stages to feel large and explorable. The office is the first reference: keep the approved character scale while increasing travel distance, route choices and side destinations.
 - Brighter muted-blue carpet, a teal welcome rug, quiet tiled service floors, worn chair mats, repairs, coffee rings and paper trails add floor-level identity. Wood routes and cream light pools guide movement. All decorative ground marks remain non-solid.

@@ -7,7 +7,7 @@
     status.textContent = 'Phaser could not load. Connect to the internet and reload this page.';
     return;
   }
-  let scene, hero, bill, desks = [], floor, walkway, keys, coffee;
+  let scene, hero, bill, desks = [], floor, walkway, keys, coffee, footShadow;
   let newArt = true, zoom = 1, paused = false, ready = false, shotAt = 0;
   let characterId = 'officeWorker', facing = 'down', walked = 0, galleryClock = 0, currentFrame = 1;
   const deskPositions = [[-125, 60], [125, 60], [180, 200]];
@@ -25,6 +25,17 @@
     if (desk.isLandmark) return { left: desk.x - 20, right: desk.x + 20, top: desk.y - 22, bottom: desk.y + 3 };
     return { left: desk.x - 40, right: desk.x + 40,
       top: desk.y - (newArt ? 70 : 38), bottom: desk.y + 2 };
+  }
+
+  function drawGroundContact() {
+    footShadow.setPosition(Math.round(hero.x),Math.round(hero.y)-2);
+    coffee.clear();
+    const behindDesk = [...desks,...campusProps].some(desk => desk.visible!==false && hero.y < desk.y && hero.y > desk.y - desk.height &&
+      Math.abs(hero.x - desk.x) < desk.width / 2 + 12);
+    const barY = Math.round(behindDesk ? hero.y - hero.height - 7 : hero.y + 5);
+    coffee.fillStyle(0x171c35); coffee.fillRect(Math.round(hero.x - 16), barY, 32, 4);
+    coffee.fillStyle(0x83a89a); coffee.fillRect(Math.round(hero.x - 15), barY + 1, 30, 2);
+    coffee.setDepth(10001);
   }
 
   function moveAroundDesks(actor, dx, dy, radius) {
@@ -112,7 +123,7 @@
         prop.environmentType=d.prop==='prop_copier'?'printer':d.prop==='prop_plant'?'plant':null;
         campusProps.push(prop); layoutObjects.push(label,prop);
       }
-      const environment=OfficeEnvironment.build(scene,campus,desks);
+      const environment=OfficeEnvironment.build(scene,campus,desks,campusProps);
       environmentObjects=environment.objects;layoutObjects.push(...environment.objects);campusProps.push(...environment.blockers);
       for (const d of campus.discoveries) {
         const marker = scene.add.rectangle(d.x, d.y - 8, 22, 22, 0xef9347).setAngle(45).setDepth(d.y);
@@ -278,6 +289,7 @@
       prop.setTexture(newArt?def.key:prop.originalTexture);prop.footprint=newArt?def.footprint:null;
     }
     walkway.setVisible(newArt && !campusMode);
+    footShadow.setVisible(newArt);
     // Switching art can change the furniture footprint around an actor.
     for (const actor of [hero, bill]) {
       for (const desk of [...desks,...campusProps]) {
@@ -288,6 +300,7 @@
         }
       }
     }
+    drawGroundContact();
     document.getElementById('new-art').setAttribute('aria-pressed', String(newArt));
     document.getElementById('current-art').setAttribute('aria-pressed', String(!newArt));
     updateStatus();
@@ -297,7 +310,8 @@
 
   function reset() {
     hero.setPosition(...(campusMode?campus.spawn:[0,38])); bill.setPosition(-75, 100);
-    facing='down';walked=0;
+    footShadow.setPosition(Math.round(hero.x),Math.round(hero.y)-2);
+    facing='down';walked=0;currentFrame=CharacterArt.frame(facing,1);
     shots.splice(0).forEach(s => s.image.destroy());
     shotAt = 0;
   }
@@ -340,6 +354,10 @@
         walkway = scene.add.tileSprite(0, 75, 2000, 112, 'art_walkway').setDepth(-999999999);
         hero = scene.add.image(0, 38, 'art_hero').setOrigin(.5, 1);
         bill = scene.add.image(-75, 100, 'art_bill').setOrigin(.5, 1);
+        footShadow=scene.add.graphics().setDepth(-999999986);
+        footShadow.fillStyle(0x171c35,.20);footShadow.fillRect(-11,-5,22,6);
+        footShadow.fillRect(-8,-7,16,10);
+        footShadow.fillStyle(0x171c35,.30);footShadow.fillRect(-7,-4,14,3);
         coffee = scene.add.graphics();
         keys = scene.input.keyboard.addKeys('W,A,S,D,UP,DOWN,LEFT,RIGHT');
         scene.input.keyboard.addCapture(['UP', 'DOWN', 'LEFT', 'RIGHT', 'SPACE']);
@@ -398,18 +416,12 @@
       }
       if (s.age > 1.5) { s.image.destroy(); shots.splice(i, 1); }
     }
-    coffee.clear();
-    const behindDesk = [...desks,...campusProps].some(desk => desk.visible!==false && hero.y < desk.y && hero.y > desk.y - desk.height &&
-      Math.abs(hero.x - desk.x) < desk.width / 2 + 12);
-    const barY = Math.round(behindDesk ? hero.y - hero.height - 7 : hero.y + 5);
-    coffee.fillStyle(0x171c35); coffee.fillRect(Math.round(hero.x - 16), barY, 32, 4);
-    coffee.fillStyle(0x83a89a); coffee.fillRect(Math.round(hero.x - 15), barY + 1, 30, 2);
-    coffee.setDepth(10001);
+    drawGroundContact();
   }
 
   document.getElementById('new-art').onclick = () => { newArt = true; appearance(); };
   document.getElementById('tour-accounts').onclick = () => {
-    if(ready && campusMode){hero.setPosition(...campus.departments.find(d=>d.id==='accounts').tour);scene.cameras.main.centerOn(hero.x,hero.y);explore();}
+    if(ready && campusMode){hero.setPosition(...campus.departments.find(d=>d.id==='accounts').tour);drawGroundContact();scene.cameras.main.centerOn(hero.x,hero.y);explore();}
   };
   document.getElementById('character').onchange = event => {
     characterId=event.target.value;walked=0;
