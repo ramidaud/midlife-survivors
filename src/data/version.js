@@ -2,12 +2,24 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.24.1",
-  displayVersion: "V. 1.24.1",
+  version: "1.25.0",
+  displayVersion: "V. 1.25.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Office Details",
-  build: 49,
+  codename: "Tax Season Prep",
+  build: 50,
   changelog: [
+    {
+      ver: "V. 1.25.0",
+      date: "Nov 1, 2026",
+      title: "Tax Season Prep",
+      highlights: [
+        "Harder mid-game: enemies thicken faster as you level, hits start hurting more at 48, and the safe window after a hit is shorter.",
+        "Bosses are real fights now: more base HP, and they scale with your age as well as your level. Their HP tag shows the real number.",
+        "Less free healing: +1 HP per level (was +2), smaller pizza heals, HR Snacks capped at 3, Healthy Boundaries heals every other pulse.",
+        "Fixes: Roth IRA and Executive Delegation now boost Remote, Spreadsheet and Podcast too. Podcast pierce is exact. Holding a move key no longer scrolls the perk cards. Late-game hits no longer double-count age damage.",
+        "The first 90 seconds stay gentle."
+      ]
+    },
     {
       ver: "V. 1.24.1",
       date: "Nov 1, 2026",

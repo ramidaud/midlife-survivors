@@ -298,6 +298,7 @@ function create() {
 
     window.addEventListener("keyup", e => {
       window._heldKeys.delete(e.code);
+      if (window.menuHeldAtOpen) window.menuHeldAtOpen.delete(e.code); // released, so the next press can steer the menu
     });
     window.addEventListener("blur", () => {
       window._heldKeys.clear();
@@ -430,6 +431,7 @@ function create() {
 
       // 3. If ANY modal is open (Controls Config, Title, Level-Up, Pause/Options, Age 80, or Game Over):
       if (activeModal) {
+        if (levelUpOpen && (performance.now() < (window.menuInputGateUntil || 0) || (window.menuHeldAtOpen && window.menuHeldAtOpen.has(code)))) { e.preventDefault(); return; }
         if (code === "ArrowUp" || code === (c.keyUp || "KeyW")) {
           e.preventDefault(); unlockAudio(); window.menuNav.move("up"); return;
         }
@@ -653,7 +655,8 @@ function applyMetaAndChar() {
   stats.dadJoke = false; stats.jokeEveryMs = WEAPONS.dadJoke.fireEveryMs; stats.jokeRadius = WEAPONS.dadJoke.radius; stats.jokeDamage = WEAPONS.dadJoke.damage;
   stats.wordNo = false; stats.noEveryMs = WEAPONS.wordNo.fireEveryMs; stats.noRadius = WEAPONS.wordNo.radius; stats.noDamage = WEAPONS.wordNo.damage; stats.noPush = WEAPONS.wordNo.pushPx;
   stats.coffeeUp = false; stats.jokeUp = false; stats.noUp = false;
-  stats.hasShoes = false; stats.hasSleep = false; stats.hasGlasses = false;
+  stats.hasShoes = false; stats.hasSleep = false; stats.hasGlasses = false; stats.boundariesPulse = 0;
+  stats.remoteDamage = WEAPONS.remote.damage; stats.sheetDamage = WEAPONS.spreadsheet.damage; stats.podDamage = WEAPONS.podcast.damage; // reset before shop ranks apply
   stats.coldBrew = false; stats.punStorm = false; stats.healthyBoundaries = false;
   stats.coffeeRank = 0; stats.jokeRank = 0; stats.noRank = 0;
   stats.perkRanks = {};
@@ -672,6 +675,7 @@ function applyMetaAndChar() {
   stats.revives = meta.ranks.secondOpinion || 0; // one comeback per rank
   stats.jokeDamage += rPen;
   stats.noDamage += rPen;
+  stats.remoteDamage += rPen; stats.sheetDamage += rPen; stats.podDamage += rPen; // "all weapons" means all six
 
   const ch = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
   ch.apply(stats);
@@ -962,7 +966,7 @@ function collectGem(p, gem) {
     level++;
     xpNeeded = Math.round(xpNeeded * LEVELING.growth + (LEVELING.stepXp || 4));
     pendingLevels++;
-    hp = Math.min(stats.maxHp, hp + 2); // leveling up restores +2 HP!
+    hp = Math.min(stats.maxHp, hp + 1); // leveling up restores +1 HP (was +2: too much healing)
   }
   updateHUD();
   if (pendingLevels > 0 && !levelUpOpen) showLevelUp(p.scene);
@@ -971,6 +975,11 @@ function collectGem(p, gem) {
 // The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
 function showLevelUp(scene, customTitle, preferWeapons) {
   levelUpOpen = true;
+  // Keys/stick you were holding to walk shouldn't scroll the perk cards. Ignore them until released and pressed again.
+  window.menuInputGateUntil = performance.now() + 200;
+  window.menuHeldAtOpen = new Set(window._heldKeys || []);
+  padHoldDir = padNow.up ? "up" : (padNow.down ? "down" : (padNow.left ? "left" : (padNow.right ? "right" : null)));
+  padNextRepeatMs = Infinity; // a held direction won't repeat until you let go
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
   if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
   scene.physics.pause();
@@ -1330,11 +1339,14 @@ function fireWordNo(scene) {
     scene.tweens.add({ targets: wave, radius: r, alpha: 0, duration: 320, onComplete: () => wave.destroy() });
   }
   const pt = project3DToPhaserWorld(scene, player.x, 54, player.y);
-  const shout = scene.add.text(pt.x, pt.y - 28, stats.healthyBoundaries ? "NO! (+1 HP)" : "NO.", {
+  // Healthy Boundaries heals on every OTHER pulse now (was every pulse).
+  if (stats.healthyBoundaries) stats.boundariesPulse = (stats.boundariesPulse || 0) + 1;
+  const healPulse = stats.healthyBoundaries && stats.boundariesPulse % 2 === 0 && hp < stats.maxHp;
+  const shout = scene.add.text(pt.x, pt.y - 28, healPulse ? "NO! (+1 HP)" : (stats.healthyBoundaries ? "NO!" : "NO."), {
     fontFamily: "monospace", fontSize: "16px", color: "#6fd9c4"
   }).setOrigin(0.5).setDepth(16);
   scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
-  if (stats.healthyBoundaries && hp < stats.maxHp) { hp = Math.min(stats.maxHp, hp + 1); drawHpBar(); }
+  if (healPulse) { hp = Math.min(stats.maxHp, hp + 1); drawHpBar(); }
 
   bills.getChildren().slice().forEach(bill => {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
@@ -1412,7 +1424,7 @@ function createEnemy(scene, kind, x, y) {
   e.kind = kind;
   e.hp = Math.max(1, Math.round(E.hp * hpScale));
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
-  e.damage = E.damage + (currentAge >= 80 ? 2 : (currentAge >= 60 ? 1 : 0));
+  e.damage = E.damage; // age bonus comes only from INTENSITY.hitDamageByAge (in hurtPlayer), so it can't stack twice
   e.bornAt = runElapsedMs;
   const st = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
   const lbl = (currentAge >= 80 && E.seniorLabel)
@@ -1528,10 +1540,12 @@ function spawnBoss(scene, bossKind) {
   if (P.tint) boss.setTint(P.tint);
   boss.isBoss = true;
   boss.kind = bossKind;
-  boss.hp = isEnd ? P.hp : Math.round(P.hp * (1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0)));
+  const lvlMult = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0);
+  const ageMult = 1 + Math.max(0, currentAge - 40) * ((window.INTENSITY && window.INTENSITY.bossHpPerYear) || 0.10);
+  boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult); // bosses scale with your level AND your age
   boss.speed = P.speed;
   boss.damage = P.damage;
-  boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${P.hp}`, {
+  boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${boss.hp}`, { // show the scaled HP, not the base
     fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
   }).setOrigin(0.5).setDepth(5);
 
@@ -1563,7 +1577,7 @@ function update(time, delta) {
   // Universal Controller Navigation across ALL menus (Controls Config, Title, Level-Up, Pause/Options, Age 80, Game Over):
   const activeModal = window.menuNav && window.menuNav.getActiveModal();
   if (activeModal) {
-    const stepDir = getPadMenuStep(performance.now());
+    const stepDir = performance.now() < (window.menuInputGateUntil || 0) ? null : getPadMenuStep(performance.now());
     if (stepDir) window.menuNav.move(stepDir);
     if (padJust("a") || (!paused && !window.controlsModalOpen && !window.changelogModalOpen && !window.loreModalOpen && padJust("start"))) {
       window.menuNav.activate();

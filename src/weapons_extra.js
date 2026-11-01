@@ -130,12 +130,12 @@ function updateExtraWeapons(scene, delta) {
     extraW.pods = extraW.pods.filter(w => {
       w.x += w.vx * dt; w.y += w.vy * dt; w.life -= dt * 1000;
       bills.getChildren().slice().forEach(b => {
-        if (w.hits > stats.podPierce || !b.active || b.ghost) return;
+        if (w.hits >= stats.podPierce || !b.active || b.ghost) return; // pierce 3 = exactly 3 enemies
         if (Phaser.Math.Distance.Between(w.x, w.y, b.x, b.y) <= 14 + ((ENEMIES[b.kind] && ENEMIES[b.kind].size) || 24) / 2 && canHit(w, b, 10000)) {
           damageBill(b, stats.podDamage); w.hits++;
         }
       });
-      if (w.life <= 0 || w.hits > stats.podPierce) { w.destroy(); return false; }
+      if (w.life <= 0 || w.hits >= stats.podPierce) { w.destroy(); return false; }
       return true;
     });
   }

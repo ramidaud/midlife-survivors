@@ -31,6 +31,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 2. [x] **Core 19-minute run (V. 1.21.0) (ages 40 to 65, 45 s/year):** short Midlife mode as the main game, Overtime unlocks, Full Life (to 100) as an unlockable mode, separate leaderboards
 3. [x] **Content drop + items (V. 1.22.0):** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
 4. [x] **Achievements (V. 1.23.0)** (one unlocks Full Life)
+4b. [x] **Grok difficulty handoff, Parts 1 and 2 (V. 1.25.0)**
+4c. [ ] **Grok Part 3, one at a time:** Tax Bracket (opt-in heat), dynamic intensity, near-miss rewards, age-50+ run modifiers
 5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. Campus study now includes three desk variants and walking sheets for all three playable characters. Explore As switches characters; the gallery compares four directions and exports native grids. Await animation feedback before idle/combat art and main-game replacement.
    - Office environment study: detailed Accounts Payable with seamless carpet/wood, fluorescent lighting accents, native printer/cabinet/plant props and floor-level stories. Visit Accounts opens it directly. Await visual feedback before completing other departments or later environments.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: four departments, revealing map, three optional finds. Test navigation first, then crowd pressure before main-game integration.

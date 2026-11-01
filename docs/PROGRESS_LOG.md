@@ -544,3 +544,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Native props have flat magenta backgrounds and explicit floor footprints. The central routes and discoveries remain reachable; extra props hide without invisible collisions in Current Art.
 - Checked native dimensions/palette, exact opposite tile edges, cabinet approach/readability, art switching, phone layout and browser errors. Other life-stage environments remain future work.
 - Next: Rami judges the warmth and detail density before extending the kit to other departments or the hospital. Devlog draft saved for review.
+
+## 2026-11-01: Grok difficulty handoff, Parts 1 and 2 (V. 1.25.0) (Claude)
+- Applied Grok's review: tougher level scaling, bosses that scale with age and level (higher base HP), harder hits from 48, shorter hurt window, less healing, fewer free perks at decade starts.
+- Fixed 5 bugs from the review plus one found while testing (shop damage applied twice to the newer weapons).
+- Bot check: new 2:16, light meta 1:42, max meta 3:32. Bots are weak; human runs on 1.23 lasted about 3-4x the bot.
+- Next: Rami playtests fresh and with light meta; then Part 3A Tax Bracket.

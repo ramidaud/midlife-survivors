@@ -9,6 +9,6 @@ window.PLAYER = {
   speed: 230,         // pixels per second
   size: 32,           // width and height of the square, in pixels
   maxHp: 12,          // starting health
-  hurtCooldownMs: 750,// brief mercy window after taking a hit
+  hurtCooldownMs: 550,// brief mercy window after taking a hit
   color: 0xf0a24f     // coffee orange, written as a hex color
 };

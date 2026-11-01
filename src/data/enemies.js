@@ -133,7 +133,7 @@ window.ENEMIES = {
     tex: "performanceReview",
     spawnAge: 45,
     speed: 68,
-    hp: 30,
+    hp: 45,
     damage: 2,
     size: 52,
     color: 0xd94f6a
@@ -144,7 +144,7 @@ window.ENEMIES = {
     tex: "mortgageRefinance",
     spawnAge: 52,
     speed: 64,
-    hp: 70,
+    hp: 110,
     damage: 2,
     size: 60,
     color: 0x8c6fd9
@@ -155,7 +155,7 @@ window.ENEMIES = {
     tex: "midlifeCrisis",
     spawnAge: 60,
     speed: 118,
-    hp: 130,
+    hp: 200,
     damage: 3,
     size: 58,
     color: 0xff2e4c

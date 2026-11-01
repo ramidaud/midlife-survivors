@@ -208,7 +208,7 @@ window.UPGRADES = [
     maxRank: 4,
     text: "Senior Perk: ALL weapons deal +1 damage and fire 10% faster.",
     when: s => (s.coffeeRank || 0) >= 2 && getRank(s, "execDelegation") < 4,
-    apply: s => { addRank(s, "execDelegation"); s.damage += 1; s.jokeDamage += 1; s.noDamage += 1; s.cooldownMult *= 0.90; }
+    apply: s => { addRank(s, "execDelegation"); s.damage += 1; s.jokeDamage += 1; s.noDamage += 1; s.remoteDamage += 1; s.sheetDamage += 1; s.podDamage += 1; s.cooldownMult *= 0.90; }
   },
   {
     id: "titaniumKnees",
@@ -230,8 +230,8 @@ window.UPGRADES = [
 
   // ---- BOOSTS (one-time effects). Offered when the regular cards run low, or now and then after 50. ----
   { id: "leftoverFriday", name: "Leftover Friday Pizza", maxRank: 6, isConsumable: true,
-    text: "Heal 5 HP and pull in every gem and coin nearby.",
-    apply: s => { addRank(s, "leftoverFriday"); s.heal = 5; window.itemEffect && window.itemEffect("fannyPack", true); } },
+    text: "Heal 3 HP and pull in every gem and coin nearby.",
+    apply: s => { addRank(s, "leftoverFriday"); s.heal = 3; window.itemEffect && window.itemEffect("fannyPack", true); } },
   { id: "ptoDayCard", name: "PTO Day", maxRank: 3, isConsumable: true,
     text: "Out of office: every regular enemy on screen leaves.",
     apply: s => { addRank(s, "ptoDayCard"); window.itemEffect && window.itemEffect("ptoDay", true); } },
@@ -244,7 +244,7 @@ window.UPGRADES = [
   { id: "calendarBlock", name: "Focus Block", maxRank: 5, isConsumable: true,
     text: "Blocked your calendar: +25% damage for 30 seconds.",
     apply: s => { addRank(s, "calendarBlock"); window.startBuff && window.startBuff("damage", 1.25, 30000, "FOCUS BLOCK"); } },
-  { id: "hrSnack", name: "HR Appreciation Snacks", maxRank: 8, isConsumable: true,
+  { id: "hrSnack", name: "HR Appreciation Snacks", maxRank: 3, isConsumable: true,
     text: "+2 Max HP and heal 2. Someone brought the good granola bars.",
     apply: s => { addRank(s, "hrSnack"); s.maxHp += 2; s.heal = 2; } }
 ];

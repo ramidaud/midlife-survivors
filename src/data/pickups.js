@@ -32,7 +32,7 @@ window.PICKUPS = {
   },
   pizza: {
     name: "Leftover Breakroom Pizza",
-    heal: 3,          // restores +3 HP when you smash a potted office plant!
+    heal: 2,          // restores +2 HP when you smash a potted office plant!
     size: 20,
     color: 0xff6b4a
   }

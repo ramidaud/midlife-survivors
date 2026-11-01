@@ -43,10 +43,10 @@ window.CHARACTERS = [
 
 window.DECADE_CHECKPOINTS = [
   { age: 40, name: "Age 40: The Grind Begins",    bonusLevels: 0 },
-  { age: 50, name: "Age 50: Silver Fox Era",      bonusLevels: 2 },
-  { age: 60, name: "Age 60: Empty Nest Decade",   bonusLevels: 4 },
-  { age: 70, name: "Age 70: HOA Battleground",    bonusLevels: 6 },
-  { age: 80, name: "Age 80: The Bonus Years", bonusLevels: 8 }
+  { age: 50, name: "Age 50: Silver Fox Era",      bonusLevels: 1 },
+  { age: 60, name: "Age 60: Empty Nest Decade",   bonusLevels: 2 },
+  { age: 70, name: "Age 70: HOA Battleground",    bonusLevels: 3 },
+  { age: 80, name: "Age 80: The Bonus Years", bonusLevels: 4 }
 ];
 
 // Default Cross-Device Input Configuration (Keyboard, Mouse, Touch & Game Controller)
