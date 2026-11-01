@@ -5,9 +5,17 @@ const GAME_VERSION = {
   version: "1.28.1",
   displayVersion: "V. 1.28.1",
   lastUpdated: "Nov 1, 2026",
-  codename: "One Office",
+  codename: "Before the Swarm",
   build: 57,
   changelog: [
+    {
+      ver: "V. 1.28.1",
+      date: "Nov 1, 2026",
+      title: "Before the Swarm",
+      highlights: [
+        "Prepared three 1920x1080 title-screen art concepts for review: a surrounding swarm, a whole-midlife panorama and the 8:59 office lobby. Selection and title-screen integration remain pending."
+      ]
+    },
     {
       ver: "V. 1.28.1",
       date: "Nov 1, 2026",

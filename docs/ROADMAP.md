@@ -103,3 +103,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 - [ ] **Stage 3 Mechanics (🏡 Home & Parenting):** Custom suburban home props (minivans, backyard grills, toy chests), **LEGO-Brick Floor Hazards**, and **Boss: Common Core New Math**
 - [ ] **Stage 4 Mechanics (🍻 Social Courtyard & Navigating Friendships):** Custom bistro/patio props + **Friendship Battery / Group-Chat Scheduling Challenge** (reach RSVP zones before flaky friends cancel at 6:45 PM)
 - [ ] **Stage 5 Mechanics (🌴 Senior Resort 80-100):** Golf-cart obstacles, pickleball nets, and Early-Bird Buffet rush events
+
+### Title background review (Nov 1, Codex)
+- [x] Three 1920x1080 pixel-art concepts saved with prompts: swarm, midlife panorama and 8:59 lobby. Lobby includes a 900px center-crop check.
+- [ ] Rami chooses a direction before title-screen integration. Desktop lobby composition crops the hero out on portrait; decide whether mobile needs separate artwork.

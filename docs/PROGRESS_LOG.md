@@ -595,3 +595,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Devlog: inline references (inspired by hankgreen.com). Write ^[note] in a post; clicking the superscript number pops a card under the line with a quick animation. Two examples in post 4.
 - Devlog: inline notes added to posts 1-3 (game loop, sprite sheets, why photographers keep backgrounds quiet, and more). Rami's pixel-art bio portrait now heads the About page and is its share image.
 - Devlog: the art preview now lives inside the devlog as the Art Room (`devlog/art/`, header link; game Extras > Art Room goes there). "← All memos" is now a large button. V. 1.28.1.
+
+## 2026-11-01: Three title-screen directions, V. 1.28.1 (Codex)
+- Rami supplied swarm, midlife panorama and 8:59 lobby briefs. The identical repeated lobby briefs were treated as one concept.
+- Generated all three with built-in imagegen, saved full prompts, and exported exact 1920x1080 PNGs with nearest-neighbor sampling. Kept menu space clear and no title/UI baked into the art.
+- Inspected the images and exported the lobby's exact 900x1080 central crop. It preserves menu space but loses the hero from the left third; a separate mobile composition may be needed.
+- Assets are review-only, not integrated into the title screen. Preferred menu composition is the lobby; next step is Rami's selection. No gameplay values changed.

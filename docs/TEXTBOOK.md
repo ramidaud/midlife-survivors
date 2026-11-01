@@ -1396,3 +1396,12 @@ A detached shadow suggests height above the ground. The scene now reads the bott
 ```
 
 The title is added later. The illustration provides a low-contrast area behind it, while the action stays on the right. This lets one clean, text-free cover work with several title treatments.
+
+## Chapter: Designing for the crop (V. 1.28.1, Codex)
+
+```text
+1920px desktop: | hero |   quiet menu space   | enemies |
+ 900px crop:           |   quiet menu space   |
+```
+
+The center crop preserves the menu area while removing much of the scene's story. A crop check makes this visible before UI integration. If showing the hero on phones is essential, compose a separate portrait image rather than squeezing every desktop element into the middle.

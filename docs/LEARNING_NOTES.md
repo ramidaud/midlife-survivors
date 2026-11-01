@@ -316,3 +316,6 @@ A **contact shadow** is the small dark area where an object meets the floor. A g
 
 ## Negative space (Nov 1, devlog cover, Codex)
 **Negative space** is a calmer part of an image where the eye can rest. Leaving the left third quiet gives a later title room to breathe. Placing the hero and enemies to the right keeps their silhouettes readable without filling the title area with detail.
+
+## Crop-safe composition (Nov 1, title art, Codex)
+A wide image loses its sides when cropped for a phone. Keeping the middle calm protects menu readability, but characters placed in the outer thirds can disappear. The lobby crop demonstrates that tradeoff. A separate mobile composition can keep both the story and the controls visible.

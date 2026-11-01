@@ -323,3 +323,9 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 ## Decided (Nov 1): one brand for game + devlog
 - Palette from `assets/art-direction/STYLE_GUIDE.md`. Fonts: Silkscreen for short labels and headings, Atkinson Hyperlegible for reading text. HR-memo framing ("MEMO · RE:") on menus and posts. Office key art behind the title screen and the devlog hero.
 - Game styles live in the "SHARED BRAND" block in `index.html`; devlog styles in `devlog/styles.css`. Change both together.
+
+## Title-screen art candidates (Nov 1, 2026, Codex)
+- Three review-only 1920x1080 directions: the swarm as the spectacle around an open center; a continuous office-to-resort life panorama with a dark menu band; and the calm 8:59 lobby with hero/time clock left and enemies behind glass right.
+- All use the office key-art palette and full illustrated backgrounds, with no baked text, logos or menu UI. Prompts and PNGs are saved in `assets/title-screen/`.
+- The lobby gives centered controls the clearest space. Its 900px center crop removes the desktop hero and most enemies; preserve menu readability first, then consider a separate portrait composition if character visibility matters.
+- Await Rami's choice before production title-screen changes.
