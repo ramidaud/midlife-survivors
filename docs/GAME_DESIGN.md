@@ -343,3 +343,6 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 ### Bio style refinement (Nov 1, 2026, Codex)
 - Rami wants the creator portrait to share the game's drawn character language, beyond photographic detail broken into pixels. V2 uses broader shapes, navy contours, simplified surfaces and warm cream/teal room lighting, referencing the office key art directly.
 - About and social previews now use `assets/bio/rami-studio-pixel-v2.png`. Creator likeness and real studio remain the subject; gameplay characters and balance stay unchanged.
+
+### Preferred bio portrait (Nov 1, 2026, Codex)
+- Rami chose the earlier studio portrait over the more simplified revision. About and share metadata use `rami-studio-pixel-v1.png` again. Keep both versions; resume the enemy-art handoff with Late Fee next.

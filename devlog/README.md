@@ -38,5 +38,5 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - Keep snippets short (under ~15 lines), use real code from the repo, and say in a sentence before or after what changed and why.
 
 ## About portrait
-- `about/index.html` uses `../../assets/bio/rami-studio-pixel-v2.png` for its lead image and the same versioned PNG in share metadata. Full prompt: `assets/bio/rami-studio-pixel-v2-prompt.txt` at the project root.
+- `about/index.html` uses `../../assets/bio/rami-studio-pixel-v1.png` for its lead image and the same versioned PNG in share metadata. Full prompt: `assets/bio/rami-studio-pixel-v1-prompt.txt` at the project root.
 - Rami requested this replacement on Nov 1. It is an illustrated portrait of the creator, not a gameplay character. The original supplied photograph stays outside the repository. Prior silhouette art is retained.

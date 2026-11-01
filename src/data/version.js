@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.6",
-  displayVersion: "V. 1.28.6",
+  version: "1.28.7",
+  displayVersion: "V. 1.28.7",
   lastUpdated: "Nov 1, 2026",
-  codename: "Drawn Into the Game",
-  build: 62,
+  codename: "Back to the Studio",
+  build: 63,
   changelog: [
+    {
+      ver: "V. 1.28.7",
+      date: "Nov 1, 2026",
+      title: "Back to the Studio",
+      highlights: [
+        "Restored the previous studio bio portrait and its share image at Rami's request. Both portrait revisions remain saved."
+      ]
+    },
     {
       ver: "V. 1.28.6",
       date: "Nov 1, 2026",

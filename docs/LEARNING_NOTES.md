@@ -330,3 +330,6 @@ A photograph can join the game's visual world without turning its subject into a
 
 ## Shape language (Nov 1, bio refinement, Codex)
 Matching pixel sizes alone does not match an art style. **Shape language** means how an artist simplifies faces, props and shadows into recognizable forms. The revised portrait uses the same bold outlines and broad warm/cool shapes as the office art, with quieter interior detail. This makes it belong to the same world while keeping Rami recognizable.
+
+## Choosing between art revisions (Nov 1, bio comparison, Codex)
+A closer style match can still lose qualities we liked in an earlier image. Rami preferred the first studio portrait's likeness and atmosphere. Keeping versioned files made restoring that choice a small reference change instead of regenerating the art.

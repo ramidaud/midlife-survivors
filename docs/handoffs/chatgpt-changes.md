@@ -22,3 +22,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - What: Rami requested a stronger game-art treatment. Generated v2 using the first portrait as edit target and office key art as style reference, simplifying shapes, lighting and details.
 - Files: `assets/bio/rami-studio-pixel-v2.png`, `rami-studio-pixel-v2-prompt.txt`, `studio-about-preview-v2.jpg`; About and devlog README reference v2.
 - For the site: creator bio lead and social previews, 1536x1024. Older artwork retained. Desktop/phone fit, image references and browser logs checked; no gameplay changes.
+
+## 2026-11-01: Restore preferred bio, return to visual pass (Codex) [done]
+- Restored the first studio portrait on About and in social-preview metadata at Rami's request. V2 remains archived.
+- Batch 1 inventory checked: Bill native sheet and preview exist. Next is Late Fee; the other eight enemy species plus Group Chat ping are still ungenerated. No new enemy assets integrated.
