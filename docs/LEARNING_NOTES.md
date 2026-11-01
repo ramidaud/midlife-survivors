@@ -338,3 +338,10 @@ A closer style match can still lose qualities we liked in an earlier image. Rami
 A **favicon** is the tiny image in a browser tab. Fine detail disappears there, so we draw the important silhouette at 16x16 first. The 32px version repeats each pixel as a 2x2 block, keeping the edges crisp. Larger versions share that same shape, so the header and browser tab feel related.
 
 `16px original → 32px (2x) → 64px (4x)`
+
+## Animation personality and anchors (Nov 1, enemy batch, Codex)
+An **anchor** is the point a sprite stays attached to as its pose changes. Walkers share a foot baseline so they do not jitter above the floor. A bounce deliberately lifts the sprite while its world position stays on the ground. Floating effects use a shared center. Different timing gives each enemy a personality without changing its gameplay speed.
+
+`feet stay put → pose changes → sprite feels grounded`
+
+The enemy review page lets us pause the loop and inspect each pose at the actual game size before connecting it to combat.

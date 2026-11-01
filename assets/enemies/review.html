@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enemy Art Review | Midlife Survivors</title>
+<link rel="icon" href="../../favicon.png?v=clock-1" type="image/png">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171c35;color:#fff0cf;font:16px/1.5 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:24px}h1{font-size:clamp(25px,4vw,36px);margin:4px 0 8px}p{color:#d3b78d;margin:6px 0 18px}.eyebrow{color:#83a89a;font:12px monospace;letter-spacing:.14em}.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 0 20px}button,select,a{font:inherit;color:#fff0cf;background:#303750;border:1px solid #526078;border-radius:4px;padding:8px 12px}a{display:inline-block;text-decoration:none}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #f2d7a1;outline-offset:3px}label{display:flex;gap:8px;align-items:center;flex-wrap:wrap}input{accent-color:#83a89a}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}article{padding:14px;border:1px solid #526078;background:#242b43}h2{font-size:18px;margin:0 0 6px}.spec{font:12px monospace;color:#83a89a}.stage{height:210px;display:flex;align-items:center;justify-content:center;background:#303750;margin:12px 0;image-rendering:pixelated}canvas{display:block;image-rendering:pixelated}.links{display:flex;gap:8px;flex-wrap:wrap}.links a{font-size:12px;padding:6px 8px}.motion{font-size:13px;min-height:40px}.frame{font:12px monospace;color:#83a89a;margin-bottom:12px}footer{margin-top:24px;color:#83a89a;font-size:13px}#load-status{font:13px monospace;color:#83a89a}body[data-floor="carpet"] .stage{background-image:url('../office-environment/carpet-native.png')}body[data-floor="wood"] .stage{background-image:url('../office-environment/wood-native.png')}@media(max-width:560px){main{padding:16px}.grid{grid-template-columns:1fr}.controls label{width:100%}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body data-floor="carpet"><main>
+<div class="eyebrow">MIDLIFE SURVIVORS / ENEMY ART / BATCH 1</div>
+<h1>A whole inbox of trouble.</h1>
+<p>Ten enemy species and one projectile. Review their silhouettes at 1×, then inspect the four-pose loops at 4×.</p>
+<div class="controls">
+<button id="motion" type="button" aria-pressed="false">Pause animations</button>
+<label>Scale <select id="scale"><option value="1">1× game pixels</option><option value="2">2×</option><option value="4" selected>4× inspection</option></select></label>
+<label>Floor <select id="floor"><option value="carpet">Office carpet</option><option value="wood">Wood walkway</option><option value="navy">Plain slate</option></select></label>
+<label>Pose <input id="pose" type="range" min="1" max="4" value="1" step="1"><output id="pose-label" for="pose">1 / 4</output></label>
+<a href="../../devlog/art/">Back to Art Room</a>
+</div>
+<p id="load-status" role="status">Loading native sheets…</p>
+<section id="enemies" class="grid" aria-label="Animated enemy comparison"></section>
+<footer>Art review only. These sheets do not change combat, hitboxes, spawning or the production enemy renderer. Native downloads have flat magenta backgrounds; the previews key magenta to show floor readability.</footer>
+</main><script src="review-data.js?v=1"></script><script>
+(() => {
+ const names={bill:'Bill','late-fee':'Late Fee','spam-likely':'Spam Likely','late-night-donut':'Late-Night Donut','back-twinge':'Back Twinge','reply-all':'Reply-All Chain','3am-thought':'3 AM Thought','calendar-invite':'Calendar Invite','group-chat':'Group Chat','math-homework':'Math Homework','group-chat-ping':'Group Chat Ping'};
+ const moves={bill:'Waddle and paper flutter','late-fee':'Fast scurry','spam-likely':'Walk, then ring and tremble','late-night-donut':'Rolling bounce','back-twinge':'Coil → lunge → stretch → recover','reply-all':'Three linked envelopes sway','3am-thought':'Solid → dithered fade → solid','calendar-invite':'Charging run','group-chat':'Typing dots, one at a time','math-homework':'Spinning paper flutter','group-chat-ping':'Two-frame notification pulse'};
+ const root=document.getElementById('enemies'),items=[];
+ const button=document.getElementById('motion'),slider=document.getElementById('pose');
+ let paused=matchMedia('(prefers-reduced-motion: reduce)').matches,manual=0,scale=4,clock=0,last=0;
+ function sync(){button.textContent=paused?'Play animations':'Pause animations';button.setAttribute('aria-pressed',String(paused));}
+ function resize(){for(const item of items){item.canvas.style.width=item.spec.size*scale+'px';item.canvas.style.height=item.spec.size*scale+'px';}for(const stage of document.querySelectorAll('.stage'))stage.style.backgroundSize=64*scale+'px '+64*scale+'px';}
+ function draw(item,frame){const n=item.spec.size;item.ctx.clearRect(0,0,n,n);item.ctx.drawImage(item.sheet,frame*n,0,n,n,0,0,n,n);item.label.textContent='Pose '+(frame+1)+' / '+item.spec.frames;}
+ function render(){for(const item of items)draw(item,paused?manual%item.spec.frames:Math.floor(clock/item.spec.delay)%item.spec.frames);}
+ Promise.all(window.ENEMY_ART_REVIEW.map(spec=>new Promise((resolve,reject)=>{
+  const article=document.createElement('article');article.innerHTML='<h2>'+names[spec.id]+'</h2><div class="spec">'+spec.size+' × '+spec.size+' · '+spec.frames+' frames</div><div class="stage"><canvas role="img" aria-label="'+names[spec.id]+' animated sprite preview" width="'+spec.size+'" height="'+spec.size+'"></canvas></div><div class="frame"></div><p class="motion">'+moves[spec.id]+'</p><div class="links"><a href="enemy-'+spec.id+'-v1.png" download>Native PNG</a><a href="enemy-'+spec.id+'-preview-v1.gif" download>Loop GIF</a><a href="enemy-'+spec.id+'-v1-prompt.txt">Full prompt</a></div>';root.append(article);
+  const image=new Image();image.onload=()=>{const sheet=document.createElement('canvas');sheet.width=image.width;sheet.height=image.height;const ctx=sheet.getContext('2d',{willReadFrequently:true});ctx.drawImage(image,0,0);const data=ctx.getImageData(0,0,sheet.width,sheet.height);for(let i=0;i<data.data.length;i+=4)if(data.data[i]===255&&data.data[i+1]===0&&data.data[i+2]===255)data.data[i+3]=0;ctx.putImageData(data,0,0);const canvas=article.querySelector('canvas'),view=canvas.getContext('2d');view.imageSmoothingEnabled=false;items.push({spec,sheet,canvas,ctx:view,label:article.querySelector('.frame')});resolve();};image.onerror=()=>reject(new Error('Could not load '+spec.id));image.src=spec.src;
+ }))).then(()=>{resize();render();document.getElementById('load-status').textContent='11 sheets loaded · 10 enemies + 1 projectile · 42 native frames';}).catch(error=>{document.getElementById('load-status').textContent=error.message;});
+ button.onclick=()=>{paused=!paused;sync();render();};slider.oninput=()=>{manual=Number(slider.value)-1;paused=true;document.getElementById('pose-label').textContent=slider.value+' / 4';sync();render();};document.getElementById('scale').onchange=e=>{scale=Number(e.target.value);resize();};document.getElementById('floor').onchange=e=>{document.body.dataset.floor=e.target.value;};
+ function tick(time){if(last&&!paused)clock+=Math.min(time-last,100)/1000;last=time;if(!paused)render();requestAnimationFrame(tick);}sync();requestAnimationFrame(tick);
+})();
+</script></body></html>

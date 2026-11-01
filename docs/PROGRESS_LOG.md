@@ -637,3 +637,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Replaced the root favicon and home-screen icon, removed boxed initials in all devlog headers, updated the static-post template, and refreshed icon/CSS URLs. Phone headers keep the mark and game name on one row above navigation.
 - Checked 16/32/64/180px exports, hard alpha and exact 2x pixel blocks, reference paths, desktop/phone layouts without overflow and clean browser logs. Published article bodies are unchanged.
 - The devlog rebuild exposed its pre-existing minimal Markdown fallback changing rich article formatting in this environment. Preserved the published article bodies and applied only branding/reference changes; documented the generator limitation. No gameplay values changed.
+
+## 2026-11-01: Enemy batch complete for review, V. 1.28.10 (Codex)
+- Finished all nine remaining regular enemy species plus Group Chat ping. Together with Bill: 11 native sheets and 42 distinct frames, with sources, prompts, loops and a download bundle.
+- Built an animated comparison page linked from the Art Room. Pause, step poses, compare floors and inspect at native scale. Main-game combat still uses its existing renderer pending visual review.
+- Corrected Calendar's opposite stride and Late Fee's foot jitter; preserved ghost fade gaps and added a two-pixel lift to Donut's airborne poses. Kept palette, opaque magenta, clear margins and hard outlines.
+- Pixel checks passed for every sheet; desktop/phone review passed loading, controls, overflow and browser logs. Updated handoff and learning notes. Bosses remain the next separate art batch.

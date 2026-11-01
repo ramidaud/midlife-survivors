@@ -32,3 +32,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - Files: `assets/branding/`, root icon PNGs, favicon links in game/preview/devlog pages, `devlog/styles.css`, `devlog/scripts/build_devlog.py`.
 - QA: checked native sizes, pixel/alpha integrity, desktop/phone header layout, references and browser logs. Published post bodies preserved exactly; builder's existing minimal Markdown fallback needs care when rebuilding without Markdown support.
 - Next: Late Fee sprite sheet. Branding selection is complete; no gameplay changes.
+
+## 2026-11-01: Batch 1 enemies complete for visual review (Codex / ChatGPT)
+- What: finished the remaining nine enemy species and Group Chat ping, retaining Bill. Eleven sheets, 42 distinct native frames, full prompts, generated sources and animated previews saved. This supersedes the earlier Bill-only batch status.
+- Files: `assets/enemies/`, especially `batch-1.json`, `README.md`, `review.html`, `enemy-batch-1-native.zip` and `enemy-batch-1-overview.gif`. Canonical filename pattern is `enemy-<id>-v1.png`; exact IDs and timing live in the manifest. Art Room links to review.
+- For the game: art generation complete; awaiting Rami's visual review before Art Room combat preview and main-game replacement. No runtime enemy renderer, hitbox, spawn, damage or attack values changed.
+- Frame sizes and count: nine species at 48x48 x4, Late Fee at 32x32 x4, ping at 16x16 x2. Single rows, exact magenta, hard palette pixels. GIFs are preview only.
+- Notes for Claude or Rami: see README for animation states, origins and contact shadows. Calendar's third stride was corrected; Late Fee's sampling jitter fixed; ghost fades through pixel gaps; Donut airborne phases rise two pixels. PNG QA passed dimensions, opacity, palette, margins, unique poses, baseline/outline checks and fade ordering. Browser review passed desktop/390px phone, pose/pause/scale/floor controls and clean logs. Next generation batch is bosses, after enemy feedback. V. 1.28.10, build 66.

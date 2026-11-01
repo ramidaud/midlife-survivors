@@ -45,3 +45,6 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - Clocking Out assets live in `assets/branding/` at the project root. Devlog headers use the same crisp SVG through `styles.css`; root favicon and touch PNGs match its native pixel grid.
 - Keep the brand markup and icon/CSS URLs in `scripts/build_devlog.py` synchronized with the main, About and Art Room pages.
 - Build note: the Python `markdown` package is optional in the current script, but its minimal fallback changes rich article formatting and escapes sidenote HTML. Check generated diffs before saving on a machine without Markdown support. This brand pass retained the existing published article bodies.
+
+### Enemy review (Nov 1, Codex)
+The Art Room links to `../assets/enemies/review.html`, an isolated animation review for all ten enemy species and Group Chat ping. It supports pause, pose selection, scale and floor comparison, with native PNG/GIF/prompt downloads. Batch 1 art generation is complete; main-game integration awaits visual review. No published post content changed in this pass.

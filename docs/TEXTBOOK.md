@@ -1446,3 +1446,16 @@ Pixel size is one part of consistency. Face proportions, silhouette, color group
 ```
 
 The cream clock face and teal outline carry the identity at the smallest size. Integer enlargement repeats whole pixels instead of inventing intermediate edge colors. The home-screen icon uses the same shape with padding. A new query tag on the favicon links tells browsers to refresh the previous icon.
+
+## Chapter: Giving a swarm different personalities (V. 1.28.10, Codex)
+
+```text
+Late Fee       stride → tuck → opposite stride → tuck
+Donut          ground → lift → ground → lift
+3 AM Thought   solid → gaps → sparse → solid
+               same world anchor throughout
+```
+
+A sprite sheet is a row of poses. Timing and shape changes make a scurry feel different from a float even with four poses each. An anchor keeps the character attached to the same place while its drawing changes. Walking feet keep a shared baseline; Donut deliberately rises two pixels in airborne poses. Ghost fading uses omitted whole pixels, so edges stay crisp. The art preview shows these motions separately from combat rules, which continue to control speed, hits and attacks.
+
+![Enemy cast at three times native pixels](../assets/enemies/enemy-batch-1-overview.gif)
