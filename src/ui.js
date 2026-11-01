@@ -1828,6 +1828,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
+        <button class="t-style-btn" id="title-art-test-btn">🎨 ART TEST</button>
         ${backBtn}
       </div>`;
   } else {
@@ -1865,6 +1866,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (view === "leaders" && window.lbRenderInto) window.lbRenderInto(document.getElementById("title-leaderboard"), null);
   const creditsBtn = document.getElementById("title-credits-btn");
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
+  const artTestBtn = document.getElementById("title-art-test-btn");
+  if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "art-test.html"; });
   const backEl = document.getElementById("title-back-btn");
   if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" ? "extras" : "main"), view !== "main");
 

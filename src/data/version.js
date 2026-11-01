@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.19.1",
-  displayVersion: "V. 1.19.1",
-  lastUpdated: "Oct 30, 2026",
-  codename: "Online Board",
-  build: 36,
+  version: "1.19.2",
+  displayVersion: "V. 1.19.2",
+  lastUpdated: "Oct 31, 2026",
+  codename: "Office Art Study",
+  build: 37,
   changelog: [
+    {
+      ver: "V. 1.19.2",
+      date: "Oct 31, 2026",
+      title: "Try the New Office Art",
+      highlights: [
+        "Extras > Art Test opens a small office art preview with the new hero, Bill and workstation.",
+        "Switch between current and new art at gameplay size, or zoom in for a closer look."
+      ]
+    },
     {
       ver: "V. 1.19.1",
       date: "Oct 30, 2026",

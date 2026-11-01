@@ -461,3 +461,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Granola notes added: AI dialogue/character layer (future), personal-best leaderboard with no cap, version archive with screenshots.
 - New CLAUDE.md rule (approved): keep usage light, about 2-3 build sessions a week.
 - Next: Playtest fix pack.
+
+## 2026-10-31: Office art study, V. 1.19.2 (Codex)
+- Rami approved the warm office key art and asked for a small playable art test before replacing production sprites.
+- Added an isolated Current/New comparison: generated hero, Bill and workstation, native seamless floor, automatic coffee and keyboard/pointer movement. Extras > Art Test opens it.
+- Simplified the generated sheet after the first size check. The hero keeps the current 48x52 frame; the Bill and desk have labeled proposed sizes. These are single poses, not walking animations.
+- Checked desktop and 390x844 phone layout, comparison controls, 1x/2x, pause, movement and Extras navigation. Fixed canvas sizing during resize; JavaScript syntax and diff checks pass.
+- Next: Rami's feedback on readability and character size before more assets or production replacement. Main gameplay art remains the current set.

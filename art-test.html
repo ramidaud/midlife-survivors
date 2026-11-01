@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Midlife Survivors | Office art test</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #171c35; color: #fff0cf; font: 16px/1.5 system-ui, sans-serif; }
+    main { max-width: 1120px; margin: auto; padding: 24px; }
+    .eyebrow { color: #83a89a; font-size: 12px; font-weight: 700; letter-spacing: .16em; }
+    h1 { margin: 4px 0 8px; font-size: clamp(24px, 4vw, 36px); line-height: 1.2; }
+    p { margin: 6px 0 18px; color: #d3b78d; }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 16px 0; }
+    button, a { border: 1px solid #526078; border-radius: 4px; background: #303750; color: #fff0cf; padding: 9px 13px; font: inherit; cursor: pointer; text-decoration: none; }
+    button[aria-pressed="true"] { background: #ef9347; color: #171c35; border-color: #ef9347; }
+    button:focus-visible, a:focus-visible, #arena:focus-visible { outline: 3px solid #f2d7a1; outline-offset: 3px; }
+    #arena { height: min(52vh, 480px); min-height: 280px; border: 2px solid #526078; position: relative; overflow: hidden; touch-action: none; background: #303750; }
+    #arena canvas { display: block; image-rendering: pixelated; }
+    #status { font-size: 13px; color: #83a89a; margin: 8px 0 14px; }
+    .help { font-size: 14px; }
+    .samples { display: flex; gap: 16px; flex-wrap: wrap; }
+    figure { margin: 0; flex: 1; min-width: 180px; padding: 16px; background: #242b43; border: 1px solid #3e7775; }
+    figure canvas { display: block; width: 144px; height: 156px; image-rendering: pixelated; object-fit: contain; margin: 0 auto 10px; }
+    figcaption { text-align: center; font-size: 13px; color: #d3b78d; }
+    footer { margin-top: 20px; font-size: 13px; color: #83a89a; }
+    @media(max-width: 600px) { main { padding: 16px; } nav { gap: 6px; } button, a { font-size: 13px; padding: 9px; } figure { min-width: 90px; padding: 8px; } .samples { gap: 6px; } figure canvas { width: 100%; height: 110px; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">MIDLIFE SURVIVORS / ART STUDY 01</div>
+  <h1>A little more character. Same coffee problem.</h1>
+  <p>Try the new office look in motion, then switch back to compare.</p>
+  <nav aria-label="Art test controls">
+    <button id="new-art" aria-pressed="true">New art</button>
+    <button id="current-art" aria-pressed="false">Current art</button>
+    <button id="zoom" aria-pressed="false">Zoom: 1×</button>
+    <button id="pause" aria-pressed="false">Pause motion</button>
+    <button id="reset">Reset positions</button>
+    <a href="index.html">Full game</a>
+  </nav>
+  <div id="arena" tabindex="0" role="application" aria-label="Office art test. Move with arrows or WASD, or hold and drag on the office."></div>
+  <div id="status" role="status">Loading the office...</div>
+  <p class="help">Move with <strong>WASD / arrows</strong>, or <strong>hold and drag</strong> on the office. Coffee fires automatically. One persistent Bill, no damage or score.</p>
+  <div class="samples">
+    <figure><canvas id="hero-sample" width="48" height="52"></canvas><figcaption>The 9-to-5er<br>48 × 52 game pixels</figcaption></figure>
+    <figure><canvas id="bill-sample" width="48" height="52"></canvas><figcaption>One persistent Bill<br><span id="bill-size">32 × 36 game pixels</span></figcaption></figure>
+    <figure><canvas id="desk-sample" width="96" height="104"></canvas><figcaption>The workstation<br><span id="desk-size">96 × 104 game pixels</span></figcaption></figure>
+  </div>
+  <footer>First art study: single poses, not walking animations. The floor is a seamless 32 × 32 code-drawn tile using the new palette.</footer>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+<script src="src/sprites.js?v=35"></script>
+<script src="assets/art-test/sheet-data.js?v=1"></script>
+<script src="src/art-test.js?v=1"></script>
+</body>
+</html>
