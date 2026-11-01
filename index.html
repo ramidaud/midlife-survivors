@@ -1003,12 +1003,12 @@
   #ui-layer[data-theme="0"] #title-modal {
     background:
       repeating-linear-gradient(0deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px),
-      radial-gradient(ellipse at center, rgba(23,28,53,0.35) 0%, rgba(23,28,53,0.82) 75%),
-      url("devlog/img/office-key-art-hero.jpg") center / cover no-repeat;
+      radial-gradient(ellipse at center, rgba(23,28,53,0.45) 0%, rgba(23,28,53,0.30) 60%, rgba(23,28,53,0.55) 100%),
+      url("assets/title-screen/title-bg-lobby.jpg") center / cover no-repeat; /* 8:59 AM lobby (assets/title-screen/) */
     backdrop-filter: none;
     animation: msTitlePan 40s ease-in-out infinite alternate;
   }
-  @keyframes msTitlePan { from { background-position: 0 0, center, 45% 40%; } to { background-position: 0 0, center, 55% 60%; } }
+  @keyframes msTitlePan { from { background-position: 0 0, center, 46% 50%; } to { background-position: 0 0, center, 54% 50%; } }
   @media (prefers-reduced-motion: reduce) { #ui-layer[data-theme="0"] #title-modal { animation: none; } }
   #ui-layer[data-theme="0"] .title-box { background: rgba(23, 28, 53, 0.90); }
   #ui-layer[data-theme="0"] .title-links { display: flex; justify-content: center; gap: 14px; font-size: 12px; }

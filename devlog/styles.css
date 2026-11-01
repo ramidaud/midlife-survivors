@@ -481,3 +481,47 @@ article.post .prose { position: relative; }
 .sn-body { display: block; padding: 12px 14px 14px; }
 .sn-body a { color: var(--teal, #3E7775); }
 @media (prefers-reduced-motion: reduce) { .sn.open { animation: none; } }
+
+/* Art Room banner on the home page: a sticky note pinned over the panorama art */
+.art-banner {
+  position: relative; display: block; overflow: hidden; margin: 6px 0 30px;
+  border-radius: 10px; box-shadow: 0 0 0 2px var(--teal); text-decoration: none;
+  min-height: 250px; isolation: isolate; padding: 30px 24px;
+}
+.art-banner-img {
+  position: absolute; inset: 0; z-index: -2;
+  background: url("img/art-room-banner.jpg") center / cover no-repeat; image-rendering: pixelated;
+  transition: transform .4s ease;
+}
+.art-banner::after { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse at 25% 50%, rgba(23,28,53,0.35), rgba(23,28,53,0.05) 70%); }
+.art-banner-text {
+  position: relative; display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+  max-width: 340px; padding: 26px 22px 20px;
+  background: var(--cream); color: var(--navy);
+  transform: rotate(-2.2deg); transform-origin: 50% 0;
+  box-shadow: 4px 6px 0 rgba(23,28,53,0.55), 0 14px 24px rgba(0,0,0,0.35);
+  transition: transform .2s ease;
+}
+/* the strip of tape holding it up */
+.art-banner-text::before {
+  content: ""; position: absolute; top: -12px; left: 50%; width: 92px; height: 24px;
+  transform: translateX(-50%) rotate(3deg);
+  background: rgba(255,240,207,0.55); border: 1px solid rgba(23,28,53,0.12);
+}
+/* folded corner */
+.art-banner-text::after {
+  content: ""; position: absolute; right: 0; bottom: 0; width: 22px; height: 22px;
+  background: linear-gradient(135deg, var(--cream) 50%, #d9bd86 50%);
+}
+.art-banner:hover .art-banner-img, .art-banner:focus-visible .art-banner-img { transform: scale(1.03); }
+.art-banner:hover .art-banner-text, .art-banner:focus-visible .art-banner-text { transform: rotate(-0.8deg) translateY(-2px); }
+.art-banner:focus-visible { outline: 3px solid var(--cream); outline-offset: 3px; }
+.art-banner-eyebrow { font-family: var(--display); font-size: 11px; letter-spacing: .08em; color: var(--teal); }
+.art-banner-title { font-weight: 700; font-size: clamp(20px, 3vw, 24px); line-height: 1.2; color: var(--navy); }
+.art-banner-cta { margin-top: 4px; }
+@media (max-width: 560px) {
+  .art-banner { padding: 150px 16px 22px; }
+  .art-banner-text { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .art-banner-img, .art-banner-text { transition: none; } }

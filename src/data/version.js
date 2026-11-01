@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.1",
-  displayVersion: "V. 1.28.1",
+  version: "1.28.2",
+  displayVersion: "V. 1.28.2",
   lastUpdated: "Nov 1, 2026",
-  codename: "Before the Swarm",
-  build: 57,
+  codename: "One Office",
+  build: 58,
   changelog: [
+    {
+      ver: "V. 1.28.2",
+      date: "Nov 1, 2026",
+      title: "8:59 AM",
+      highlights: [
+        "New title screen art: you clocking in at 8:59 while the whole swarm presses against the lobby glass."
+      ]
+    },
     {
       ver: "V. 1.28.1",
       date: "Nov 1, 2026",
