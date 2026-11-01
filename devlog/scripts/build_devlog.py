@@ -23,6 +23,13 @@ from __future__ import annotations
 import argparse, json, re, html, datetime
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from share_cards import make_post_card  # 1200x630 link-preview cards (needs Pillow)
+except Exception:
+    make_post_card = None
+
 try:
     import markdown as mdlib
 except ImportError:
@@ -73,10 +80,13 @@ PAGE = """<!doctype html>
 <title>{title} · Midlife Survivors Devlog</title>
 <meta name="description" content="{description}">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="Midlife Survivors Devlog">
+<meta property="og:site_name" content="Midlife Survivors">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{description}">
 <meta property="og:image" content="{og_image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{title}">
 <meta property="og:url" content="{og_url}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
@@ -170,6 +180,9 @@ def main():
         desc = p.get("teaser") or title
         cover = p.get("cover") or "img/office-key-art-hero.jpg"
         og_image = f"{site}/{cover}" if not cover.startswith("http") else cover
+        card = make_post_card(root.resolve().parent, p) if make_post_card else None
+        if card:
+            og_image = f"{site}/{card}"
         play = p.get("playUrl") or "https://ramidaud.github.io/midlife-survivors/"
         version = p.get("version") or ""
         date = p["date"]

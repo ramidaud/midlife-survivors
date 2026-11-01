@@ -48,3 +48,8 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 
 ### Enemy review (Nov 1, Codex)
 The Art Room links to `../assets/enemies/review.html`, an isolated animation review for all ten enemy species and Group Chat ping. It supports pause, pose selection, scale and floor comparison, with native PNG/GIF/prompt downloads. Batch 1 art generation is complete; main-game integration awaits visual review. No published post content changed in this pass.
+
+## Link previews (share cards)
+- Every page has a 1200x630 preview image so links look good in iMessage, Slack, Facebook, LinkedIn and Discord.
+- Post cards are made automatically by `build_devlog.py` (saved in `img/share/<slug>.jpg`, built from the post's cover and title). It needs Pillow: `pip install pillow`.
+- Cards for the game, devlog home, Art Room, About, enemy review and roadmap live in `assets/share/`. Rebuild them with `python3 devlog/scripts/share_cards.py --root .` after changing their art.

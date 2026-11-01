@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.10",
-  displayVersion: "V. 1.28.10",
+  version: "1.28.11",
+  displayVersion: "V. 1.28.11",
   lastUpdated: "Nov 1, 2026",
-  codename: "A Whole Inbox of Trouble",
-  build: 66,
+  codename: "Link Previews",
+  build: 67,
   changelog: [
+    {
+      ver: "V. 1.28.11",
+      date: "Nov 1, 2026",
+      title: "Link Previews",
+      highlights: [
+        "Sharing any Midlife Survivors link (the game, devlog, posts, About, Art Room or the enemy review) now shows a proper preview card with art and a title."
+      ]
+    },
     {
       ver: "V. 1.28.10",
       date: "Nov 1, 2026",
