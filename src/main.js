@@ -147,6 +147,21 @@ let mouseState = { leftDown: false, rightDown: false, x: 0, y: 0, activeCursor: 
 window._heldKeys = window._heldKeys || new Set();
 let lastWheelMs = 0;
 
+// ---------- Dynamic intensity (INTENSITY.dynamic in src/data/swarms.js) ----------
+let dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
+function updateDynamicIntensity() {
+  const D = window.INTENSITY && INTENSITY.dynamic;
+  if (!D || runElapsedMs < D.armAfterMs || !stats) return;
+  if (hp / stats.maxHp < D.mercyHpFrac) { dyn.mercyUntil = runElapsedMs + D.mercyDurationMs; dyn.comfortUntil = 0; return; }
+  if (runElapsedMs >= dyn.comfortUntil && runElapsedMs > dyn.mercyUntil && runElapsedMs - Math.max(dyn.lastHitAt, D.armAfterMs - D.noHitBonusAfterMs) > D.noHitBonusAfterMs) {
+    dyn.comfortUntil = runElapsedMs + D.bonusDurationMs;
+    dyn.lastHitAt = runElapsedMs + D.bonusDurationMs; // the next tax needs another 45 s of no hits after this one
+    if (window.showLowerThird) window.showLowerThird("alert", "COMFORT ZONE TAX", "Too comfortable. More of everything for 20 seconds.", 4000);
+  }
+}
+const dynPackAdd = () => (runElapsedMs < dyn.comfortUntil ? ((INTENSITY.dynamic || {}).bonusPackAdd || 0) : 0);
+const dynSpawnMult = () => (runElapsedMs < dyn.mercyUntil ? ((INTENSITY.dynamic || {}).mercySpawnSlow || 1) : 1);
+
 // ---------- Tax Bracket (src/data/heat.js): locked in when the run starts ----------
 let runTaxBracket = 0;
 function tax(key) { return runTaxBracket * ((window.TAX_BRACKET && TAX_BRACKET.perLevel[key]) || 0); }
@@ -227,6 +242,7 @@ function create() {
   runCoins = 0; runKills = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
+  dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
   coinFrac = 0; xpFrac = 0;
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
@@ -1057,6 +1073,7 @@ function hurtPlayer(p, bill) {
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
+  dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
   hp -= (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
   if (bill.kind === "snackAttack") {
     slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
@@ -1488,7 +1505,7 @@ function spawnBill(scene) {
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
-  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")); // stronger you = bigger crowds
+  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")) + dynPackAdd(); // stronger you = bigger crowds
   for (let i = 0; i < pack && bills.countActive() < cap; i++) {
     createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
   }
@@ -1699,7 +1716,8 @@ function update(time, delta) {
   const span = Math.max(1, nextW.minAge - curW.minAge);
   const blend = nextW === curW ? 0 : Phaser.Math.Clamp((currentAge - curW.minAge) / span, 0, 1);
   const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0) - tax("spawnFaster"));
-  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed);
+  updateDynamicIntensity();
+  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed * dynSpawnMult());
   if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;
     spawnTimer.reset({ delay: wantDelay, loop: true, callback: spawnTimer.callback });

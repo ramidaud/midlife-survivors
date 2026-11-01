@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.26.0",
-  displayVersion: "V. 1.26.0",
+  version: "1.27.0",
+  displayVersion: "V. 1.27.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Tax Bracket",
-  build: 51,
+  codename: "Comfort Zone Tax",
+  build: 52,
   changelog: [
+    {
+      ver: "V. 1.27.0",
+      date: "Nov 1, 2026",
+      title: "Comfort Zone Tax",
+      highlights: [
+        "Go 45 seconds without getting hit and the Comfort Zone Tax kicks in: bigger crowds for 20 seconds.",
+        "Drop below 25% HP and enemies arrive a little slower until you recover.",
+        "Neither happens in the first 90 seconds."
+      ]
+    },
     {
       ver: "V. 1.26.0",
       date: "Nov 1, 2026",

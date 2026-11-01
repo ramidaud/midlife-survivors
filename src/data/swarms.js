@@ -11,6 +11,16 @@ window.INTENSITY = {
   maxOnScreenByAge: [[40, 70], [50, 120], [58, 170], [65, 210], [100, 250]], // crowd limit grows as you age
   packPerLevel: 0.35,       // +1 enemy per spawn group for about every 3 levels you gain
   spawnFasterPerLevel: 0.028, // spawns come 2.8% faster per level you gain (down to 45% of the normal delay)
+  // Dynamic intensity (Grok Part 3B): punish playing it too safe, give a breather when you're nearly dead.
+  dynamic: {
+    armAfterMs: 90000,          // off for the first 90 seconds of a run
+    noHitBonusAfterMs: 45000,   // go 45 s without getting hit...
+    bonusPackAdd: 2,            // ...and every spawn group gets 2 extra enemies
+    bonusDurationMs: 20000,     // for 20 seconds ("Comfort Zone Tax")
+    mercyHpFrac: 0.25,          // below 25% HP...
+    mercySpawnSlow: 1.15,       // ...spawns come 15% slower
+    mercyDurationMs: 8000       // for at least 8 seconds
+  },
   hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // extra damage every enemy deals on contact as you age
   eventEveryMsByAge: [[40, 80000], [60, 60000], [80, 45000], [100, 35000]] // time between swarm events
 };

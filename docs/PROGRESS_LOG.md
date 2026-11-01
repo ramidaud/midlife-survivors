@@ -556,3 +556,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Each bracket: +12% enemy/boss HP, bigger crowds, faster spawns, harder hits, weaker heals; in return +20% coins, +10% XP, +15% score.
 - Leaderboard shows a TAX badge (stored in the version field, no database change). Three new achievements for retiring at brackets 1, 3 and 5.
 - Next: Rami playtests 1.25/1.26; then Grok Part 3B dynamic intensity.
+
+## 2026-11-01: Comfort Zone Tax (V. 1.27.0) (Claude)
+- Grok Part 3B: 45 s without a hit triggers the Comfort Zone Tax (+2 enemies per spawn group for 20 s, announced in the lower third). Any hit ends it.
+- Below 25% HP, spawns slow 15% for at least 8 s. Both stay off for the first 90 s. Knobs in `INTENSITY.dynamic`.
+- Next: Grok Part 3C near-miss rewards.
