@@ -18,13 +18,43 @@ I'm building this with Claude as my co-developer. I describe what I want to see 
 
 The first thing we built was a square. You could move it with the arrow keys or by dragging on your phone. That's the whole game at that point: a square on an endless carpet.
 
+Here's the code that moved it, from the very first build. The lines in green are Claude explaining itself, which is how I learned to read code at all.
+
+```js src/main.js
+// Read the keys: left/right and up/down each add or subtract 1.
+let x = 0, y = 0;
+if (cursors.left.isDown || keys.A.isDown) x -= 1;
+if (cursors.right.isDown || keys.D.isDown) x += 1;
+if (cursors.up.isDown || keys.W.isDown) y -= 1;
+if (cursors.down.isDown || keys.S.isDown) y += 1;
+
+// Normalize so moving diagonally isn't faster than moving straight.
+const len = Math.hypot(x, y);
+if (len > 0) { x /= len; y /= len; }
+
+player.setVelocity(x * moveSpd, y * moveSpd);
+```
+
+That "normalize" bit was my first real lesson: without it, holding up and right at the same time makes you about 40% faster. Every game has to fix that.
+
 Then a green dollar sign showed up and started chasing it. I laughed way harder than I should have.
 
 <!-- SCREENSHOT: first build, the square and the first Bill -->
 
 ## The learning part (that's the point)
 
-Every session ends with one new idea I actually understand. The first one: a game redraws the screen about 60 times a second, and everything you see happens inside that loop. Move the player, move the enemies, check if they're touching, draw it all again. Sixty times. Every second.
+Every session ends with one new idea I actually understand. One of the first: the numbers don't live in the code. They live in small data files I can edit myself.
+
+```js src/data/player.js
+window.PLAYER = {
+  startingAge: 40,
+  speed: 220,        // pixels per second. Try 120 (tired) or 400 (too much coffee)
+  maxHp: 10,         // your health. Each Bill touch costs 1
+  hurtCooldownMs: 700, // after a hit, you're safe for this long
+};
+```
+
+Another: a game redraws the screen about 60 times a second, and everything you see happens inside that loop. Move the player, move the enemies, check if they're touching, draw it all again. Sixty times. Every second.
 
 That one blew my mind a little.
 

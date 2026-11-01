@@ -119,7 +119,7 @@ PAGE = """<!doctype html>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
-<script src="../sidenotes.js"></script><script>initSidenotes(document);</script>
+<script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
 </body>
 </html>
 """
@@ -143,6 +143,16 @@ def main():
         slug = p["slug"]
         md_path = root / "posts" / f"{slug}.md"
         body_md = md_path.read_text() if md_path.exists() else "_Missing memo._"
+        # Code snippets: ```js src/file.js ... ``` -> code card (same markup as app.js; colors added by code.js)
+        cards = []
+        def _code(m):
+            lang, fname, code = m.group(1), (m.group(2) or "").strip(), m.group(3)
+            cards.append('<figure class="code-card"><figcaption>'
+                         f'<span class="code-file">{html.escape(fname or lang)}</span><span class="code-lang">{html.escape(lang.upper())}</span>'
+                         '<button class="code-copy" type="button">Copy</button></figcaption>'
+                         f"<pre><code>{html.escape(code, quote=False)}</code></pre></figure>")
+            return f"\n\nCODECARD{len(cards) - 1}\n\n"  # placeholder, swapped back after markdown
+        body_md = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _code, body_md, flags=re.M)
         # Sidenotes: ^[note] -> numbered margin note (same markup as app.js)
         sn = {"n": 0}
         def _sn(m):
@@ -152,6 +162,7 @@ def main():
                     f'<span class="sn" id="sn-{n}" role="note"><span class="sn-head"><b>{n}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">{inner}</span></span>')
         body_md = re.sub(r"\^\[([^\]]+)\]", _sn, body_md)
         body = md_to_html(body_md)
+        body = re.sub(r"<p>CODECARD(\d+)</p>", lambda m: cards[int(m.group(1))], body)
         body = body.replace('src="img/', 'src="../img/')
 
         title = p["title"]

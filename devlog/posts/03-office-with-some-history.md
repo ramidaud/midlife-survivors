@@ -4,4 +4,14 @@ The first environment pass is Accounts Payable. It has the three desk personalit
 
 One thing I'm learning: background detail has to stay quieter than the action.^[Photographers know this one. If the background is as busy as the subject, nobody knows where to look. Same rule in a game, except the subject is being chased by donuts.] The floor can have texture without competing with the person trying to survive on it. The furniture also needs to block the right amount of floor space so walking around it feels believable.
 
+Even the jokes live in a data file. Each department gets a landmark and a line you see when you walk in:
+
+```js src/data/office-layout.js
+{ id: 'accounts', name: 'ACCOUNTS PAYABLE',
+  landmark: 'The paperwork skyline',
+  joke: 'Every pile has been marked urgent since 2009.',
+  // three desk personalities, placed on the 32-pixel grid
+  desks: [[-928, -544, 'tidy'], [-768, -544, 'paperwork'], [-608, -544, 'lunch']] }
+```
+
 This is still the separate art test. Next is deciding how much detail feels right before extending the look to the other departments and environments.

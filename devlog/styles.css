@@ -525,3 +525,24 @@ article.post .prose { position: relative; }
   .art-banner-text { max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) { .art-banner-img, .art-banner-text { transition: none; } }
+
+/* Code snippets in posts: a dark "printout" with a cream file tab. Comments (the "why") are the brightest. */
+.code-card { margin: 22px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 0 0 2px var(--teal), 5px 5px 0 rgba(0,0,0,0.35); background: #10142a; }
+.code-card figcaption {
+  display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+  background: var(--cream); color: var(--navy); border-bottom: 3px solid var(--orange);
+}
+.code-file { font-family: var(--display); font-size: 12px; letter-spacing: .03em; flex: 1; overflow-wrap: anywhere; }
+.code-file::before { content: "📄 "; }
+.code-lang { font-family: var(--display); font-size: 10px; background: var(--teal); color: var(--warm-white, #FFF0CF); padding: 3px 6px; border-radius: 3px; }
+.code-copy { font-family: var(--display); font-size: 11px; background: var(--navy); color: var(--cream); border: 0; border-radius: 4px; padding: 5px 9px; cursor: url("img/cursor-hand.png") 8 0, pointer; }
+.code-copy:hover { background: var(--orange); color: var(--navy); }
+.code-card pre { margin: 0; padding: 14px 0; overflow-x: auto; }
+.code-card code { display: block; counter-reset: ln; font: 14px/1.6 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: #dfe3f2; white-space: pre; }
+.code-card .ln { display: block; padding: 0 16px 0 0; }
+.code-card .ln::before { counter-increment: ln; content: counter(ln); display: inline-block; width: 2.6em; margin-right: 14px; text-align: right; color: #526078; user-select: none; }
+.tk-c { color: #a9d4bf; font-style: italic; }   /* comments: the plain-English "why" */
+.tk-s { color: var(--cream); }
+.tk-n { color: var(--orange); }
+.tk-k { color: #8fb8ff; }
+@media (max-width: 560px) { .code-card code { font-size: 12.5px; } .code-card .ln::before { width: 2em; margin-right: 10px; } }

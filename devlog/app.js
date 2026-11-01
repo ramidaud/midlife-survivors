@@ -73,6 +73,12 @@
     } catch (e) {}
 
     // Rewrite relative img/ paths that already include img/ in markdown
+    // Code snippets: ```js src/file.js ... ``` becomes a code card with a file tab (styled by code.js + styles.css).
+    const codeCards = [];
+    md = md.replace(/^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$/gm, (m, lang, file, body) => {
+      codeCards.push(`<figure class="code-card"><figcaption><span class="code-file">${esc(file.trim() || lang)}</span><span class="code-lang">${esc(lang.toUpperCase())}</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>${esc(body)}</code></pre></figure>`);
+      return `\n\nCODECARD${codeCards.length - 1}\n\n`; // placeholder, swapped back after markdown
+    });
     // Sidenotes: write ^[a note] in the markdown. It becomes a small orange number;
     // the note sits in the margin on wide screens and opens under the line when tapped on phones.
     let snCount = 0;
@@ -81,9 +87,10 @@
       const inner = window.marked ? marked.parseInline(note) : esc(note);
       return `<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-${snCount}" aria-label="Note ${snCount}">${snCount}</button><span class="sn" id="sn-${snCount}" role="note"><span class="sn-head"><b>${snCount}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">${inner}</span></span>`;
     });
-    const html = window.marked
+    let html = window.marked
       ? marked.parse(md, { gfm: true })
       : `<pre>${esc(md)}</pre>`;
+    html = html.replace(/<p>CODECARD(\d+)<\/p>/g, (m, i) => codeCards[+i] || "");
 
     const { prev, next } = neighbors(post.slug);
     const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
@@ -135,6 +142,7 @@
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
     if (window.initSidenotes) initSidenotes(postMain);
+    if (window.initCodeCards) initCodeCards(postMain);
     window.scrollTo(0, 0);
   }
 

@@ -26,3 +26,13 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - Write `^[your note]` right after a word or sentence. It becomes a small orange number.
 - Click (or tap) the number and the note pops in as a card under that line, like hankgreen.com. X, Escape or a click elsewhere closes it.
 - Notes can include links: `^[More on this in [post 1](?post=01-never-made-a-game).]`
+
+## Code snippets
+- Write a fenced block with the language and the file it came from:
+  ````
+  ```js src/data/swarms.js
+  hpPerLevel: 0.10, // enemies get 10% tougher per level
+  ```
+  ````
+- It renders as a code card: cream file tab, line numbers, comments highlighted (they carry the "why"), and a Copy button.
+- Keep snippets short (under ~15 lines), use real code from the repo, and say in a sentence before or after what changed and why.

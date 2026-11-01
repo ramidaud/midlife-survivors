@@ -50,11 +50,18 @@
     <article class="post"><div class="prose"><p>The characters can walk now, so I wanted the office around them to feel more like a place.</p>
 <p>The first environment pass is Accounts Payable. It has the three desk personalities, a printer with a paper jam, an overstuffed filing cabinet and a plant that could use a day off.<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-1" aria-label="Note 1">1</button><span class="sn" id="sn-1" role="note"><span class="sn-head"><b>1</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">It's no coincidence that PTO Day is also a pickup in the game. It clears the whole screen. The plant would like one too.</span></span> The floors have carpet and wood patterns now, with warmer lighting and a few scattered signs of office life.</p>
 <p>One thing I'm learning: background detail has to stay quieter than the action.<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-2" aria-label="Note 2">2</button><span class="sn" id="sn-2" role="note"><span class="sn-head"><b>2</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">Photographers know this one. If the background is as busy as the subject, nobody knows where to look. Same rule in a game, except the subject is being chased by donuts.</span></span> The floor can have texture without competing with the person trying to survive on it. The furniture also needs to block the right amount of floor space so walking around it feels believable.</p>
+<p>Even the jokes live in a data file. Each department gets a landmark and a line you see when you walk in:</p>
+<figure class="code-card"><figcaption><span class="code-file">src/data/office-layout.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>{ id: 'accounts', name: 'ACCOUNTS PAYABLE',
+  landmark: 'The paperwork skyline',
+  joke: 'Every pile has been marked urgent since 2009.',
+  // three desk personalities, placed on the 32-pixel grid
+  desks: [[-928, -544, 'tidy'], [-768, -544, 'paperwork'], [-608, -544, 'lunch']] }
+</code></pre></figure>
 <p>This is still the separate art test. Next is deciding how much detail feels right before extending the look to the other departments and environments.</p></div>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to V. 1.24.1. Screenshots are from the real game at the time.</div>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
-<script src="../sidenotes.js"></script><script>initSidenotes(document);</script>
+<script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
 </body>
 </html>

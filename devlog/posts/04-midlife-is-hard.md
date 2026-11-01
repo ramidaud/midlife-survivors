@@ -14,12 +14,28 @@ The numbers were rough. A fully upgraded bot standing completely still lasted 13
 
 Now enemies get tougher and more numerous every time you level up. Bosses scale with your level and your age. Hits hurt more after 48. Coins come in slowly, so the 401(k) Shop is something you work toward over a lot of runs.
 
-Leveling up keeps you even. Permanent upgrades are how you get ahead.
+Leveling up keeps you even. Permanent upgrades are how you get ahead. Here's what that looks like in the actual file. Every one of these numbers is a dial I can turn:
+
+```js src/data/swarms.js
+hpPerLevel: 0.10,     // enemies get 10% tougher for every level YOU gain
+packPerLevel: 0.35,   // ...and show up in bigger groups
+bossHpPerYear: 0.10,  // bosses get 10% tougher for every year past 40
+hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 55 and 62
+```
 
 ## Then I got a second opinion
 
 I asked Grok to review the difficulty too.^[Grok's notes came back as a document I handed straight to Claude. Two AIs passing notes through me, like a group project where I'm the only one who shows up to meetings.] It came back with a full handoff document: bugs (one perk claimed to boost "all weapons" and quietly skipped three of them), tuning numbers, and some new ideas. Claude worked through it in order.
 
 Two of those ideas made it in. **Tax Bracket** is an optional difficulty you can crank from "Standard Deduction" up to "Full Audit" for bigger rewards. And my favorite, the **Comfort Zone Tax**: go 45 seconds without getting hit and the game sends extra enemies for 20 seconds.
+
+```js src/data/swarms.js
+dynamic: {
+  armAfterMs: 90000,        // off for the first 90 seconds of a run
+  noHitBonusAfterMs: 45000, // go 45 s without getting hit...
+  bonusPackAdd: 2,          // ...and every group gets 2 extra enemies
+  bonusDurationMs: 20000,   // for 20 seconds. That's the Comfort Zone Tax.
+}
+```
 
 I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.
