@@ -455,3 +455,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami created the Supabase project and sent the Project URL and publishable key; both added to `src/data/leaderboard.js`.
 - The secret/service key was never needed or shared.
 - Checked from a real browser against the live database (read only, no test rows added).
+
+## 2026-10-31: Planning session (Claude)
+- Ben's playtest + Rami's design doc reviewed; decisions recorded in GAME_DESIGN.md. Core run decided: ages 40 to 65 at 45 s/year.
+- Granola notes added: AI dialogue/character layer (future), personal-best leaderboard with no cap, version archive with screenshots.
+- New CLAUDE.md rule (approved): keep usage light, about 2-3 build sessions a week.
+- Next: Playtest fix pack.

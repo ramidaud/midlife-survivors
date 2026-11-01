@@ -263,6 +263,11 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - **Playtest fixes (Ben):** Quick Retry kills touch input on phones; level-up perks need **tap-to-confirm**; long dad jokes must wrap on small screens; Resume button confuses new players (make Start primary); "escalates quickly, brutal."
 - **Dad jokes:** aura pulses silently. A joke is spoken/shown when you unlock or upgrade Dad Joke, plus an occasional bonus joke (max about one per 45-60 s).
 - **Difficulty:** soften the first few minutes, then ramp like Vampire Survivors.
-- **Core mode becomes a short run** (max about 20 min), with small ways to earn more time at advanced levels. Reaching 100 becomes a special mode unlocked by an achievement. Proposed: core run 40 to 60 at 1 min/year, "Overtime" unlocks add years. (Awaiting Rami's OK on the age range.)
+- **Core mode becomes a short run** (max about 20 min), with small ways to earn more time at advanced levels. Reaching 100 becomes a special mode unlocked by an achievement. **Decided: core run is 40 to 65 at 45 seconds per year (about 19 minutes).** "Overtime" unlocks add years; Full Life (40 to 100) is unlocked by an achievement.
 - **Content:** drop in all jokes and death lines from Rami's design doc, plus additions. Goal: dynamic, not repetitive.
 - **New ideas from Rami:** discoverable items (magnet, energy drink with speed + brief invincibility, more), a discoverable map showing items, bosses and moments; accounts so players come back for progression; split work across AI tools (ChatGPT for art via GPT Image, others for writing); push a stronger indie pixel-art look.
+
+## Ideas from Rami's Granola notes (Oct 31)
+- **AI layer (future proof of concept):** LLM-generated dialogue so jokes and lines stay fresh; later, LLM character creation where the player enters their age and personal struggles and the game builds tailored challenges.
+- **Leaderboard:** show only each player's personal best (no test-run clutter) and remove the top-10 cap (show everyone for now).
+- **Version history:** keep a revision log with screenshots and archive every major version.

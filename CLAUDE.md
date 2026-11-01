@@ -14,6 +14,12 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 - **Feature freeze** on new content (stages, modes, lore, menus) until the Fun Pass list is done.
 - **Locked decisions:** 1 real minute = 1 year, Death arrives at 100, 2D only (3D parked), Errands is the first twist, Rami appears in the Credits but not as a character.
 
+## Keep usage light (Rami's standing request, Oct 31)
+- Rami is on a monthly plan and wants Claude time left for other things. Aim for about 2-3 build sessions a week.
+- One targeted test per change, not full playthroughs every time. Screenshots only when the visual result matters.
+- Bundle small related fixes into one session. Update docs, roadmap page and the Project once per session, at the end.
+- Keep replies short and skimmable.
+
 ## How a work session goes
 1. **Recap** where we are (one short paragraph, from ROADMAP + PROGRESS_LOG).
 2. **Propose one small step** with what Rami will see when it works.
