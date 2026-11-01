@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.23.0",
-  displayVersion: "V. 1.23.0",
+  version: "1.23.1",
+  displayVersion: "V. 1.23.1",
   lastUpdated: "Oct 31, 2026",
-  codename: "Achievements",
-  build: 43,
+  codename: "Campus Exploration Study",
+  build: 44,
   changelog: [
+    {
+      ver: "V. 1.23.1",
+      date: "Oct 31, 2026",
+      title: "Explore the Office Layout Study",
+      highlights: [
+        "Extras > Art Test now opens Corporate Campus: four departments, a revealing map and three optional discoveries.",
+        "Switch Layout to return to the original art comparison. This separate study tests exploration before combat and finished scenery."
+      ]
+    },
     {
       ver: "V. 1.23.0",
       date: "Oct 31, 2026",

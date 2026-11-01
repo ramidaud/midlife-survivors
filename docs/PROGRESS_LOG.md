@@ -507,3 +507,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Full Life now unlocks with "Retirement Plan" (reach the Retirement Party). Old saves that already reached 65 keep it.
 - Cosmetic rewards from the doc (hats, bubble skins, titles) became coins for now; revisit after the art pass.
 - Next: Art pass with GPT Image assets (waiting on Rami's art), or Discoverable map.
+
+## 2026-10-31: Corporate Campus blockout, V. 1.23.1 (Codex)
+- Rami chose exploration and Corporate Campus after reviewing three office wireframes. Kept wide routes and recognizable departments.
+- Extras > Art Test now opens a bounded campus sample: Accounts Payable, Quiet Zone, Breakroom and Wellness, with a revealing map and three optional joke discoveries. Layout returns to the original art study.
+- Existing approved hero/desk art and placeholder landmarks test movement before finished scenery. Campus has no combat, saved progress or production rewards.
+- Walked all four departments and collected all three finds in the browser; checked route reachability with hero clearance, reset, layout switching, pointer steering and phone sizing. Syntax and diff checks pass.
+- Next: Rami judges navigation and spacing, then test crowd pressure before main-game integration.

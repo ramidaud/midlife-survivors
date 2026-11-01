@@ -1,5 +1,7 @@
 # Office art study 01
 
+V. 1.23.1 defaults to the Corporate Campus exploration blockout. Use Layout to return to the original art comparison. Campus is one bounded 1280x896 sample block with four departments, a 192px central crossing, an outer loop, a revealing map and three optional joke discoveries. No combat, rewards, saves or unlocks in this mode. Reset clears the visit/find counters. Layout data lives in `src/data/office-layout.js`, loaded only by the isolated preview, not the main-game loader. Existing plant/cooler sprites and a simple code-drawn printer stand in for final landmark art.
+
 Open `art-test.html` from the project root. It uses the same pinned Phaser 3 CDN as the game and needs an internet connection for that library. No build step. The PNG is embedded in `sheet-data.js` so canvas import also works when opening the page directly from disk.
 
 Controls: WASD/arrows or hold and drag in the office. Coffee fires automatically at one persistent Bill. Switch Current/New art, 1x/2x, pause or reset. No scores or saves are loaded.

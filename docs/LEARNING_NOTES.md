@@ -2,6 +2,11 @@
 
 Game-dev ideas you've picked up along the way. One short entry per concept.
 
+## Level blockouts and exploration loops (Oct 31, 2026, Codex)
+A **blockout** is a playable rough layout used to test space before making finished scenery. A landmark helps you remember where you are, while an optional find gives you a reason to take a detour. A loop gives you another way back when a crowd blocks the direct path. We checked that the hero can reach all four departments and all three finds with furniture collisions enabled; swarm pressure comes next.
+
+`Landmark -> detour -> small discovery -> alternate route back`
+
 ## Art readability at game size (Oct 31, 2026, Codex)
 Follow-up: a tall desk drawing needs a matching footprint on the floor. The first shallow collision area let the hero walk into space occupied by the desk, so the drawing hid him completely. Blocking that floor space while sorting by feet gives believable overlap: `behind = partly covered | beside = blocked | in front = visible`.
 

@@ -2,6 +2,20 @@
 
 A picture-first guide to how this game works, one chapter per idea. Each chapter adds what we just built. Read it in any order, but it makes the most sense from top to bottom.
 
+## Corporate Campus: exploration before decoration (Oct 31, 2026, Codex)
+
+```text
+  Accounts Payable      Quiet Zone
+       |     \          /     |
+       |      CROSSROADS      |    outer routes connect departments
+       |     /          \    |
+    Breakroom          Wellness
+```
+
+`Landmark -> detour -> small discovery -> alternate route back`
+
+A blockout tests space using existing art and simple placeholders. Our four departments give the office memorable destinations; optional finds reward curiosity. The 192-pixel crossroads and outer routes preserve room to move. The first test checks navigation; the next should add crowds before final scenery is commissioned.
+
 ## Art study: big illustration, tiny game character (Oct 31, 2026, Codex)
 Follow-up: the revised hero is 56x60, about 15% larger. A desk must block its full floor footprint, rather than only its front edge. Otherwise the hero can walk inside it and disappear. Sorting by feet still makes the back wall cover part of someone behind it.
 

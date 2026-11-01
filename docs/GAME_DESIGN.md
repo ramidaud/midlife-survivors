@@ -4,6 +4,13 @@
 
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
+## Corporate Campus exploration direction (Oct 31, 2026, Codex)
+- Rami chose exploration after comparing Cubicle Commons, The Meeting Loop and Corporate Campus wireframes. Favor recognizable departments joined by wide combat routes over a maze.
+- Separate playable blockout in `art-test.html`: Accounts Payable, the Quiet Zone, the Breakroom and the Wellness Corner. A 1280x896 sample block has a 192-pixel central cross and alternate outer routes. This is a bounded sample of an eventual larger office.
+- The small map reveals department names on entry. A coupon, headphones and leftover pizza reward optional detours with jokes. These are prototype discoveries with no production stats, unlocks or saved progress.
+- Uses the approved hero size and desk overlap rules, existing artwork and simple placeholder landmarks. No combat in Campus mode; Layout > Art Study retains the original comparison and coffee test.
+- Next: feedback on navigation, spacing and the urge to explore. Add crowd pressure before deciding on production integration or finished environment art.
+
 ## Office art study (Oct 31, 2026, Codex)
 - Rami's feedback: direction is good, hero slightly too small, disappearing behind desks feels wrong. Revised study uses a 56x60 hero (about 15% larger). Desks block their full projected floor footprint, preserving natural partial overlap behind their back wall and full visibility in front. Movement slides along corners.
 - Floors stay behind all actors at negative map coordinates too. When a desk covers the hero's feet, his health bar moves above his head.
