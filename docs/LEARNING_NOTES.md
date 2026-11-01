@@ -298,3 +298,8 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - A **bot** is a tiny script that plays the game: it dodges enemies, walks to gems and picks random perks.
 - The test browser **fast-forwards the clock**, so a 5-minute run takes about 2 real minutes. Three bots ran at once: new player, half upgraded, fully upgraded.
 - **Scaling with the player:** enemies now get tougher and more numerous as *you* level up. Level-up perks keep you even; permanent shop upgrades put you ahead. That's what makes repeat runs matter.
+
+## Opt-in difficulty (Nov 1, Tax Bracket)
+- Games like Vampire Survivors and Hades let veterans **choose** extra pain for extra rewards. New players never see it unless they go looking.
+- The bracket is **locked in when the run starts**, so you can't lower it halfway through.
+- All the numbers live in one small file, `src/data/heat.js`, and every system reads from it through one helper.

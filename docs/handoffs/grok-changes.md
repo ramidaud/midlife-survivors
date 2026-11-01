@@ -8,4 +8,5 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - Full handoff saved as `docs/handoffs/grok-difficulty-2026-11-01.md`.
 - Part 2 bugs fixed: boss HP tag, double age damage, Pension/Exec Delegation on Remote/Sheet/Podcast, Podcast pierce, held keys scrolling level-up.
 - Part 1 tuning applied as written. Also fixed: shop ranks were applied twice to Remote/Sheet/Podcast damage.
-- Pending (one at a time, after Rami playtests): 3A Tax Bracket, 3B dynamic intensity, 3C near-miss, 3D age-50+ modifiers.
+- 3A Tax Bracket [done: V. 1.26.0]. Leaderboard uses option 1 (bracket appended to the version field) to avoid a database change.
+- Pending (one at a time, after Rami playtests): 3B dynamic intensity, 3C near-miss, 3D age-50+ modifiers.

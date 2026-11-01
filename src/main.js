@@ -147,6 +147,16 @@ let mouseState = { leftDown: false, rightDown: false, x: 0, y: 0, activeCursor: 
 window._heldKeys = window._heldKeys || new Set();
 let lastWheelMs = 0;
 
+// ---------- Tax Bracket (src/data/heat.js): locked in when the run starts ----------
+let runTaxBracket = 0;
+function tax(key) { return runTaxBracket * ((window.TAX_BRACKET && TAX_BRACKET.perLevel[key]) || 0); }
+// Every heal goes through here so the Tax Bracket can trim it (fractions round randomly so small heals still matter).
+function healAmt(n) {
+  const v = n * Math.max(0.4, 1 - tax("healEfficacy"));
+  return Math.floor(v) + (Math.random() < v - Math.floor(v) ? 1 : 0);
+}
+window.getRunTaxBracket = () => runTaxBracket;
+
 // ---------- Run modes (src/data/modes.js) ----------
 let runMode = "midlife";
 function modeCfg() { return RUN_MODES[runMode] || RUN_MODES.midlife; }
@@ -205,6 +215,7 @@ function create() {
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   meta = loadMeta();
   runMode = pickRunMode();
+  runTaxBracket = meta.taxBracket || 0;
   runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
@@ -643,6 +654,7 @@ window.persistActiveRun = () => {
     bossesSpawned,
     retire80Prompted,
     runMode,
+    runTaxBracket,
     stats
   });
 };
@@ -687,6 +699,7 @@ function beginFreshRunAtDecade(scene) {
   clearRunState();
   applyMetaAndChar();
   runMode = pickRunMode();
+  runTaxBracket = meta.taxBracket || 0;
   runStartAge = modeStartAge();
   currentAge = runStartAge;
   lastDividendAge = Math.floor(runStartAge / 5) * 5;
@@ -749,7 +762,7 @@ function collectCoin(p, coin) {
 // Fractions add up over the run instead of being lost.
 let coinFrac = 0, xpFrac = 0;
 function bankCoins(v) {
-  coinFrac += v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1);
+  coinFrac += v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1) * (1 + tax("coinMult"));
   const whole = Math.floor(coinFrac); coinFrac -= whole; return whole;
 }
 
@@ -840,10 +853,11 @@ function collectPizza(p, pz) {
   if (slowUntil > 0 && runElapsedMs - slowUntil < 8000) window.achEvent("pizzaAfterSlow"); // donut, then pizza
   pz.destroy();
   sfx("levelUp");
-  hp = Math.min(stats.maxHp, hp + PICKUPS.pizza.heal);
+  const pzHeal = healAmt(PICKUPS.pizza.heal);
+  hp = Math.min(stats.maxHp, hp + pzHeal);
   updateHUD();
   const pt = project3DToPhaserWorld(p.scene, p.x, 42, p.y);
-  const txt = p.scene.add.text(pt.x, pt.y - 18, `+${PICKUPS.pizza.heal} HP (PIZZA!)`, {
+  const txt = p.scene.add.text(pt.x, pt.y - 18, `+${pzHeal} HP (PIZZA!)`, {
     fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#6fbf73", stroke: "#12152a", strokeThickness: 3
   }).setOrigin(0.5).setDepth(16);
   p.scene.tweens.add({ targets: txt, y: txt.y - 24, alpha: 0, duration: 600, onComplete: () => txt.destroy() });
@@ -871,6 +885,7 @@ function showTitleScreen(scene) {
     currentAge = saved.currentAge || 40;
     runStartAge = saved.runStartAge || 40;
     runMode = saved.runMode || "full"; // runs saved before modes existed were Full Life runs
+    runTaxBracket = saved.runTaxBracket || 0; // resuming keeps the bracket you started with
     lastDividendAge = Math.floor(currentAge / 5) * 5;
     runElapsedMs = saved.runElapsedMs || 0;
     lastAutoSave = runElapsedMs;
@@ -959,14 +974,14 @@ function collectGem(p, gem) {
   if (!gem.active) return;
   gem.destroy();
   sfx("gem");
-  xpFrac += PICKUPS.wisdomGem.xp * (stats.xpMult || 1); // Continuing Ed adds a little to every gem
+  xpFrac += PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")); // Continuing Ed + Tax Bracket add to every gem
   xp += Math.floor(xpFrac); xpFrac -= Math.floor(xpFrac);
   while (xp >= xpNeeded) {
     xp -= xpNeeded;
     level++;
     xpNeeded = Math.round(xpNeeded * LEVELING.growth + (LEVELING.stepXp || 4));
     pendingLevels++;
-    hp = Math.min(stats.maxHp, hp + 1); // leveling up restores +1 HP (was +2: too much healing)
+    hp = Math.min(stats.maxHp, hp + healAmt(1)); // leveling up restores +1 HP (was +2: too much healing)
   }
   updateHUD();
   if (pendingLevels > 0 && !levelUpOpen) showLevelUp(p.scene);
@@ -1007,7 +1022,7 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     up.apply(stats);
     if (up.isEvolution) window.achEvent("evolve", { name: up.name });
     if (stats.dadJoke && jokeBefore !== [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join()) stats.jokeAnnounce = true;
-    if (stats.heal) { hp = Math.min(stats.maxHp, hp + stats.heal); stats.heal = 0; }
+    if (stats.heal) { hp = Math.min(stats.maxHp, hp + healAmt(stats.heal)); stats.heal = 0; }
     const cd = stats.cooldownMult;
     fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
     jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
@@ -1042,7 +1057,7 @@ function hurtPlayer(p, bill) {
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
-  hp -= (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0);
+  hp -= (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
   if (bill.kind === "snackAttack") {
     slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
     const isSenior = currentAge >= 80;
@@ -1057,7 +1072,7 @@ function hurtPlayer(p, bill) {
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
   if (hp <= 0 && stats.revives > 0) { // Second Opinion (401k shop): get back up once
-    stats.revives--; hp = Math.ceil(stats.maxHp / 2); drawHpBar(); lastHurt = now + 1500;
+    stats.revives--; hp = Math.max(1, healAmt(Math.ceil(stats.maxHp / 2))); drawHpBar(); lastHurt = now + 1500;
     if (window.itemEffect) window.itemEffect("ptoDay", true);
     if (window.showLowerThird) window.showLowerThird("win", "SECOND OPINION", "The second doctor says you're fine. Back on your feet with half HP.", 4500);
     return;
@@ -1069,7 +1084,7 @@ function hurtPlayer(p, bill) {
 function showGameOver(scene, killer, isWin) {
   gameOver = true;
   window.justUnlockedFull = isWin && runMode === "midlife" && !isFullLifeUnlocked(meta);
-  if (isWin) window.achEvent("clear", { mode: runMode, age: currentAge });
+  if (isWin) window.achEvent("clear", { mode: runMode, age: currentAge, taxBracket: runTaxBracket });
   else window.achEvent("death", { killer });
   clearRunState();
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
@@ -1346,7 +1361,7 @@ function fireWordNo(scene) {
     fontFamily: "monospace", fontSize: "16px", color: "#6fd9c4"
   }).setOrigin(0.5).setDepth(16);
   scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
-  if (healPulse) { hp = Math.min(stats.maxHp, hp + 1); drawHpBar(); }
+  if (healPulse) { hp = Math.min(stats.maxHp, hp + healAmt(1)); drawHpBar(); }
 
   bills.getChildren().slice().forEach(bill => {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
@@ -1422,7 +1437,7 @@ function createEnemy(scene, kind, x, y) {
   const lvlScale = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.hpPerLevel) || 0); // the stronger you get, the tougher they get
   const hpScale = (1 + yrs * perYear + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0)) * lvlScale; // smooth toughness ramp
   e.kind = kind;
-  e.hp = Math.max(1, Math.round(E.hp * hpScale));
+  e.hp = Math.max(1, Math.round(E.hp * hpScale * (1 + tax("enemyHpMult"))));
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
   e.damage = E.damage; // age bonus comes only from INTENSITY.hitDamageByAge (in hurtPlayer), so it can't stack twice
   e.bornAt = runElapsedMs;
@@ -1473,7 +1488,7 @@ function spawnBill(scene) {
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
-  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)); // stronger you = bigger crowds
+  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")); // stronger you = bigger crowds
   for (let i = 0; i < pack && bills.countActive() < cap; i++) {
     createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
   }
@@ -1542,7 +1557,7 @@ function spawnBoss(scene, bossKind) {
   boss.kind = bossKind;
   const lvlMult = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0);
   const ageMult = 1 + Math.max(0, currentAge - 40) * ((window.INTENSITY && window.INTENSITY.bossHpPerYear) || 0.10);
-  boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult); // bosses scale with your level AND your age
+  boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult * (1 + tax("enemyHpMult"))); // bosses scale with your level AND your age
   boss.speed = P.speed;
   boss.damage = P.damage;
   boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${boss.hp}`, { // show the scaled HP, not the base
@@ -1683,7 +1698,7 @@ function update(time, delta) {
   const nextW = SPAWNING.waves[Math.min(wIdx + 1, SPAWNING.waves.length - 1)], curW = SPAWNING.waves[wIdx];
   const span = Math.max(1, nextW.minAge - curW.minAge);
   const blend = nextW === curW ? 0 : Phaser.Math.Clamp((currentAge - curW.minAge) / span, 0, 1);
-  const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0));
+  const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0) - tax("spawnFaster"));
   const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed);
   if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;

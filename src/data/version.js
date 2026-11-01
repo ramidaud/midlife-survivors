@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.25.0",
-  displayVersion: "V. 1.25.0",
+  version: "1.26.0",
+  displayVersion: "V. 1.26.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Tax Season Prep",
-  build: 50,
+  codename: "Tax Bracket",
+  build: 51,
   changelog: [
+    {
+      ver: "V. 1.26.0",
+      date: "Nov 1, 2026",
+      title: "Tax Bracket",
+      highlights: [
+        "New on the title screen: Tax Bracket, an optional difficulty from 0 to 5 (Standard Deduction to Full Audit).",
+        "Each bracket: enemies tougher and more numerous, hits harder, heals weaker. In return: more coins, more XP and a bigger score.",
+        "Leaderboard shows a TAX badge on high-bracket scores. Three new achievements for retiring at Tax Bracket 1, 3 and 5."
+      ]
+    },
     {
       ver: "V. 1.25.0",
       date: "Nov 1, 2026",

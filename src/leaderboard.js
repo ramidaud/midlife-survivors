@@ -19,8 +19,10 @@ function computeRunScore(ageReached, startAge, kills, coins, isClear) {
   const L = window.LEADERBOARD || {};
   const years = Math.max(0, ageReached - startAge);
   const m = window.RUN_MODES && window.RUN_MODES[lbMode()];
-  return Math.round(years * (L.pointsPerYear || 1000) + kills * (L.pointsPerKill || 2) +
-    coins * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0));
+  const tb = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
+  const taxMult = 1 + tb * ((window.TAX_BRACKET && TAX_BRACKET.perLevel.scoreMult) || 0); // harder bracket, bigger score
+  return Math.round((years * (L.pointsPerYear || 1000) + kills * (L.pointsPerKill || 2) +
+    coins * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0)) * taxMult);
 }
 
 function lbCleanName(raw) {
@@ -67,7 +69,7 @@ async function lbFetchTop() {
   const n = L.fetchLimit || 1000; // grab plenty, then keep each player's best (no top-10 cap)
   if (lbConfigured()) {
     try {
-      const res = await fetch(`${L.supabaseUrl}/rest/v1/${lbTable()}?select=name,score,age,character,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
+      const res = await fetch(`${L.supabaseUrl}/rest/v1/${lbTable()}?select=name,score,age,character,version,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
       if (res.ok) return { online: true, rows: lbBestPerName(await res.json()) };
     } catch (e) {}
   }
@@ -99,7 +101,7 @@ async function lbRenderInto(el, mine) {
   };
   const body = rows.length ? rows.map((r, i) => {
     const me = mine && r.name === mine.name && Number(r.score) === Number(mine.score);
-    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
+    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
   }).join("") : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`;
   el.innerHTML = `
     <div class="lb-status">${lbMode() === "full" ? "FULL LIFE" : "MIDLIFE"} BOARD · ${online ? "🌐 Online leaderboard" : (lbConfigured() ? "📴 Offline: showing scores from this device" : "📱 Scores on this device (online board not set up yet)")}</div>

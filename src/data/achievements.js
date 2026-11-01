@@ -31,5 +31,8 @@ window.ACHIEVEMENTS = [
   { id: "nightOwl",      icon: "🎓", name: "Seminar Survivor",          desc: "Reach 50 as The Grad Student.",           reward: 5,  on: "age", test: d => d.age >= 50 && d.char === "gradStudent" },
   { id: "taxSeason",     icon: "🧾", name: "April Is Coming",           desc: "Survive a Tax Season swarm.",             reward: 3,  on: "swarmSurvived", test: d => d.id === "taxSeason" },
   { id: "plantDad",      icon: "🪴", name: "Breakroom Forager",         desc: "Smash 25 potted plants (any runs).",      reward: 4,  on: "plant", test: (d, run, life) => life.plants >= 25 },
+  { id: "auditSurvivor", icon: "🧾", name: "Audit Survivor",            desc: "Reach retirement in Midlife at Tax Bracket 1+.", reward: 10, on: "clear", test: d => d.mode === "midlife" && d.taxBracket >= 1 },
+  { id: "auditTrail",    icon: "🗂️", name: "Paper Trail",               desc: "Reach retirement in Midlife at Tax Bracket 3+.", reward: 20, on: "clear", test: d => d.mode === "midlife" && d.taxBracket >= 3 },
+  { id: "fullAudit",     icon: "🏛️", name: "Full Audit",                desc: "Reach retirement in Midlife at Tax Bracket 5.",  reward: 40, on: "clear", test: d => d.mode === "midlife" && d.taxBracket >= 5 },
   { id: "shopRat",       icon: "💼", name: "Maxed The Match",           desc: "Max out Employer Match in the shop.",     reward: 5,  on: "shopMax", test: d => d.id === "compoundInterest" }
 ];

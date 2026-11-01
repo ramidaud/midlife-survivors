@@ -153,6 +153,7 @@ function loadMeta() {
         tipsOff: !!parsed.tipsOff, // Game Tips switch in the Pause menu
         runMode: parsed.runMode || "midlife",      // "midlife" (40-65) or "full" (40-100)
         fullLifeUnlocked: !!parsed.fullLifeUnlocked,
+        taxBracket: Math.max(0, Math.min(5, parsed.taxBracket | 0)), // opt-in difficulty (src/data/heat.js)
         achievements: Object.assign({ unlocked: {}, life: { splits: 0, plants: 0, evos: {} } }, parsed.achievements || {}),
         controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {}),
         accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {})
@@ -170,6 +171,7 @@ function loadMeta() {
     selectedStage: "auto",
     runMode: "midlife",
     fullLifeUnlocked: false,
+    taxBracket: 0,
     achievements: { unlocked: {}, life: { splits: 0, plants: 0, evos: {} } },
     controls: Object.assign({}, window.DEFAULT_CONTROLS),
     accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY)

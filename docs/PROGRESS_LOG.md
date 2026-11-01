@@ -550,3 +550,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Fixed 5 bugs from the review plus one found while testing (shop damage applied twice to the newer weapons).
 - Bot check: new 2:16, light meta 1:42, max meta 3:32. Bots are weak; human runs on 1.23 lasted about 3-4x the bot.
 - Next: Rami playtests fresh and with light meta; then Part 3A Tax Bracket.
+
+## 2026-11-01: Tax Bracket (V. 1.26.0) (Claude)
+- Grok Part 3A: opt-in difficulty 0 to 5 on the title screen (Standard Deduction to Full Audit), locked in when a run starts.
+- Each bracket: +12% enemy/boss HP, bigger crowds, faster spawns, harder hits, weaker heals; in return +20% coins, +10% XP, +15% score.
+- Leaderboard shows a TAX badge (stored in the version field, no database change). Three new achievements for retiring at brackets 1, 3 and 5.
+- Next: Rami playtests 1.25/1.26; then Grok Part 3B dynamic intensity.

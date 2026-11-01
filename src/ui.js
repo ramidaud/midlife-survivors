@@ -1006,7 +1006,8 @@ function updateCleanHUD() {
   timerEl.textContent = mmss(runElapsedMs);
   timerEl.title = endMs ? `${mmss(endMs - runElapsedMs)} until the end of this life` : "";
   timerEl.classList.toggle("vs-timer-final", !!endMs && endMs - runElapsedMs < 60000);
-  if (window.computeRunScore) document.getElementById("vs-score").textContent = `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}`;
+  const tbNow = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
+  if (window.computeRunScore) document.getElementById("vs-score").textContent = `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}${tbNow ? ` · TAX×${tbNow}` : ""}`;
   const icons = [stats.coldBrew ? "⚡" : "☕"];
   if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
   if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");
@@ -1844,12 +1845,19 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const fullOk = window.isFullLifeUnlocked && isFullLifeUnlocked(meta);
   const curMode = (meta.runMode === "full" && fullOk) ? "full" : "midlife";
   const startAge = curMode === "full" ? (meta.startDecade || 40) : 40; // START AT only applies to Full Life
+  const TB = window.TAX_BRACKET, tb = meta.taxBracket || 0;
   const modeRowHtml = `
       <div class="title-style-switcher title-mode-row"><span>MODE:</span>
         <button class="t-style-btn ${curMode === "midlife" ? "active" : ""}" data-mode="midlife" title="${RUN_MODES.midlife.blurb}">🗂️ MIDLIFE · 40-65</button>
         <button class="t-style-btn ${curMode === "full" ? "active" : ""}" data-mode="full" ${fullOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${fullOk ? RUN_MODES.full.blurb : RUN_MODES.full.unlockText}">${fullOk ? "🕰️" : "🔒"} FULL LIFE · 40-100</button>
       </div>
-      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${fullOk ? "" : " Full Life unlocks with the Retirement Plan achievement."}</div>`;
+      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${fullOk ? "" : " Full Life unlocks with the Retirement Plan achievement."}</div>
+      <div class="title-style-switcher title-tax-row"><span>TAX BRACKET:</span>
+        <button class="t-style-btn" data-tax="-1" ${tb <= 0 ? "disabled style='opacity:0.4'" : ""} aria-label="Lower tax bracket">−</button>
+        <b class="tax-val ${tb > 0 ? "on" : ""}">${tb} · ${TB.labels[tb]}</b>
+        <button class="t-style-btn" data-tax="1" ${tb >= TB.maxLevel ? "disabled style='opacity:0.4'" : ""} aria-label="Raise tax bracket">+</button>
+      </div>
+      <div class="title-mode-blurb">${tb > 0 ? `Enemies +${Math.round(tb * TB.perLevel.enemyHpMult * 100)}% HP, hit harder, heals weaker. Coins +${Math.round(tb * TB.perLevel.coinMult * 100)}%, XP +${Math.round(tb * TB.perLevel.xpMult * 100)}%, score +${Math.round(tb * TB.perLevel.scoreMult * 100)}%.` : "Optional: raise it for harder runs and bigger rewards."}</div>`;
   const backBtn = `<button class="t-style-btn title-back-btn" id="title-back-btn">◀ BACK</button>`;
   let bodyHtml = "";
   if (view === "shop") {
@@ -1971,6 +1979,16 @@ function renderTitleModal(scene, preserveFocusSelector) {
       } else {
         sfx("hurt");
       }
+    });
+  });
+
+  // Row 7: Tax Bracket − / +
+  modal.querySelectorAll("[data-tax]").forEach(btn => {
+    if (btn.disabled) return;
+    bindNavItem(btn, 7, () => {
+      meta.taxBracket = Math.max(0, Math.min(TAX_BRACKET.maxLevel, (meta.taxBracket || 0) + Number(btn.dataset.tax)));
+      saveMeta(meta); sfx("pick");
+      renderTitleModal(scene, `[data-tax="${btn.dataset.tax}"]`);
     });
   });
 
@@ -2114,7 +2132,7 @@ function renderGameOverModal(scene, cause, isWin) {
       </div>
       <div class="score-panel">
         <div class="score-big">SCORE <b>${runScore.toLocaleString()}</b></div>
-        <div class="score-break">${Math.max(0, currentAge - runStartAge).toFixed(1)} years · ${runKills} beaten · ${runCoins}k saved</div>
+        <div class="score-break">${Math.max(0, currentAge - runStartAge).toFixed(1)} years · ${runKills} beaten · ${runCoins}k saved${window.getRunTaxBracket && window.getRunTaxBracket() ? ` · Tax Bracket ${window.getRunTaxBracket()}` : ""}</div>
         <form class="score-form" id="score-form" autocomplete="off">
           <input id="score-name" maxlength="16" placeholder="Your name" value="${(window.lbSavedName ? window.lbSavedName() : "").replace(/"/g, "")}" aria-label="Your name for the leaderboard">
           <button type="submit" class="cta-btn score-post-btn" id="score-post-btn">🏆 POST SCORE</button>
@@ -2151,7 +2169,7 @@ function renderGameOverModal(scene, cause, isWin) {
     nameInput.blur();
     document.getElementById("score-post-btn").disabled = true;
     scoreMsg.textContent = "Posting…";
-    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") };
+    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") + (window.getRunTaxBracket && window.getRunTaxBracket() ? ` T${window.getRunTaxBracket()}` : "") };
     const res = await window.lbSubmit(entry);
     scoreMsg.textContent = res.online ? "Posted to the online leaderboard!" : (window.lbConfigured() ? "Couldn't reach the online board. Saved on this device." : "Saved on this device.");
     sfx("levelUp");
