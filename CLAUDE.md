@@ -61,6 +61,7 @@ assets/                 art and sound (later)
 
 ## Devlog
 - `devlog/` is Rami's public build diary. At each milestone, draft a short casual post in his voice (`devlog/posts/`, listed in `devlog/posts.js` with `draft: true`) plus screenshots in `devlog/img/`. Rami approves before it goes public.
+- After any post change, run `devlog/scripts/build_devlog.py` (see `devlog/README.md`) so the share pages and RSS feed stay current.
 
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.

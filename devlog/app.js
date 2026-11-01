@@ -1,0 +1,275 @@
+(function () {
+  const params = new URLSearchParams(location.search);
+  const showDrafts = params.has("drafts");
+  const posts = (window.DEVLOG_POSTS || []).filter(p => showDrafts || !p.draft);
+  const hotspots = window.DEVLOG_HOTSPOTS || [];
+
+  const homeView = document.getElementById("home-view");
+  const postView = document.getElementById("post-view");
+  const listMain = document.getElementById("list-main");
+  const postMain = document.getElementById("post-main");
+  const header = document.getElementById("site-header");
+  const tipEl = document.getElementById("live-tip");
+  const brandHome = document.getElementById("brand-home");
+
+  const fmt = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", {
+    month: "short", day: "numeric", year: "numeric"
+  });
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]
+  ));
+  const draftQ = showDrafts ? "&drafts=1" : "";
+  const draftOnly = showDrafts ? "?drafts=1" : "./";
+
+  brandHome.href = draftOnly === "./" ? "./" : "./?drafts=1";
+
+  function coverUrl(p) {
+    return p.cover || "img/office-key-art-hero-960.jpg";
+  }
+
+  function renderList() {
+    header.classList.remove("is-compact");
+    homeView.hidden = false;
+    postView.hidden = true;
+    document.title = "Midlife Survivors Devlog";
+    if (!posts.length) {
+      listMain.innerHTML = `<p class="empty">No filed memos yet. Pass <code>?drafts=1</code> to preview drafts.</p>`;
+      return;
+    }
+    listMain.innerHTML = `<ul class="card-list">${posts.map(p => `
+      <li>
+        <a class="card" href="?post=${esc(p.slug)}${draftQ}">
+          <div class="card-cover" style="background-image:url('${esc(coverUrl(p))}')" role="img" aria-label=""></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <time datetime="${esc(p.date)}">${fmt(p.date)}</time>
+              ${p.version ? `<span class="pill">${esc(p.version)}</span>` : ""}
+              ${p.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+            </div>
+            <h2 class="card-title">${esc(p.title)}</h2>
+            <p class="card-teaser">${esc(p.teaser || "Open memo for the full debrief.")}</p>
+          </div>
+        </a>
+      </li>`).join("")}</ul>`;
+  }
+
+  function neighbors(slug) {
+    const i = posts.findIndex(p => p.slug === slug);
+    return { prev: i < posts.length - 1 ? posts[i + 1] : null, next: i > 0 ? posts[i - 1] : null, i };
+  }
+
+  async function renderPost(slug) {
+    const post = posts.find(p => p.slug === slug);
+    if (!post) { renderList(); return; }
+    header.classList.add("is-compact");
+    homeView.hidden = true;
+    postView.hidden = false;
+    document.title = post.title + " · Midlife Survivors Devlog";
+
+    let md = "_Couldn't load this memo._";
+    try {
+      const r = await fetch(`posts/${post.slug}.md?t=${Date.now()}`); // always the latest text
+      if (r.ok) md = await r.text();
+    } catch (e) {}
+
+    // Rewrite relative img/ paths that already include img/ in markdown
+    const html = window.marked
+      ? marked.parse(md, { gfm: true })
+      : `<pre>${esc(md)}</pre>`;
+
+    const { prev, next } = neighbors(post.slug);
+    const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
+    const changes = Array.isArray(post.changes) && post.changes.length
+      ? `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`
+      : "";
+    const nextUp = post.nextUp
+      ? `<div class="next-up"><strong>Next up</strong>${esc(post.nextUp)}</div>`
+      : "";
+
+    postMain.innerHTML = `
+      <a class="back" href="${draftOnly}">← All memos</a>
+      <div class="memo-strip">
+        <span class="re">MEMO · RE:</span>
+        <strong>${esc(post.title)}</strong>
+      </div>
+      <div class="post-header">
+        <h1>${esc(post.title)}</h1>
+        <div class="post-meta">
+          <time datetime="${esc(post.date)}">${fmt(post.date)}</time>
+          ${post.version ? `<span class="pill">${esc(post.version)}</span>` : ""}
+          ${post.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+        </div>
+      </div>
+      <div class="post-cta">
+        <div><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a></div>
+        ${changes}
+        ${nextUp}
+      </div>
+      <article class="post">
+        <div class="prose">${html}</div>
+        <div class="signoff">
+          <div class="silk">Filed by Rami.</div>
+          Survived to ${esc(post.version || "the next build")}. Screenshots are from the real game at the time.
+        </div>
+      </article>
+      <nav class="post-nav" aria-label="Adjacent memos">
+        ${prev ? `<a href="?post=${esc(prev.slug)}${draftQ}"><span>← Older</span>${esc(prev.title)}</a>` : `<span></span>`}
+        ${next ? `<a href="?post=${esc(next.slug)}${draftQ}" style="text-align:right"><span>Newer →</span>${esc(next.title)}</a>` : `<span></span>`}
+      </nav>`;
+    window.scrollTo(0, 0);
+  }
+
+  /* —— Key-art hotspots —— */
+  let openId = null;
+
+  function closeTip() {
+    openId = null;
+    tipEl.hidden = true;
+    tipEl.classList.remove("is-open");
+    tipEl.innerHTML = "";
+    document.querySelectorAll(".hotspot, .hotspot-chip").forEach(el => el.classList.remove("is-open"));
+  }
+
+  function tipHtml(h) {
+    const link = h.post ? `<a href="?post=${esc(h.post)}${draftQ}">Related memo →</a>` : "";
+    return `<div class="ht-label">${esc(h.label)}</div>
+      <p class="ht-joke">“${esc(h.joke)}”</p>
+      <p class="ht-tip">${esc(h.tip || "")}</p>${link}`;
+  }
+
+  function placeTipForHotspot(h, anchorEl) {
+    tipEl.innerHTML = tipHtml(h);
+    tipEl.hidden = false;
+    tipEl.classList.add("is-open");
+    tipEl.style.position = "fixed";
+    const pad = 12;
+    tipEl.style.left = "0px";
+    tipEl.style.top = "0px";
+    const tw = tipEl.offsetWidth || 240;
+    const th = tipEl.offsetHeight || 140;
+    const hero = document.querySelector(".hero");
+    const heroRect = hero ? hero.getBoundingClientRect() : null;
+    let left, top;
+    // Prefer % coords on the hero so layout races can't pin the tip to 0,0
+    if (heroRect && heroRect.width > 40) {
+      const cx = heroRect.left + (h.x / 100) * heroRect.width;
+      const cy = heroRect.top + (h.y / 100) * heroRect.height;
+      left = cx + 18;
+      top = cy - 10;
+      if (left + tw > window.innerWidth - pad) left = cx - tw - 18;
+    } else {
+      const r = anchorEl.getBoundingClientRect();
+      left = r.right + 10;
+      top = r.top;
+      if (left + tw > window.innerWidth - pad) left = r.left - tw - 10;
+    }
+    if (left < pad) left = pad;
+    if (top + th > window.innerHeight - pad) top = window.innerHeight - th - pad;
+    if (top < pad) top = pad;
+    tipEl.style.left = left + "px";
+    tipEl.style.top = top + "px";
+  }
+
+  function openHotspot(h, anchorEl) {
+    if (openId === h.id) { closeTip(); return; }
+    openId = h.id;
+    document.querySelectorAll(".hotspot, .hotspot-chip").forEach(el => {
+      el.classList.toggle("is-open", el.dataset.id === h.id);
+    });
+    placeTipForHotspot(h, anchorEl);
+  }
+
+  function buildHotspots() {
+    const layer = document.getElementById("hotspot-layer");
+    const strip = document.getElementById("hotspot-strip");
+    if (!layer || !strip) return;
+    layer.innerHTML = hotspots.map(h => `
+      <button type="button" class="hotspot" data-id="${esc(h.id)}"
+        style="left:${h.x}%;top:${h.y}%;width:${Math.max(28, (h.w || 8) * 0.9)}px;height:${Math.max(28, (h.h || 8) * 0.9)}px"
+        aria-label="${esc(h.label)}" title="${esc(h.label)}"></button>`).join("");
+    strip.innerHTML = hotspots.map(h =>
+      `<button type="button" class="hotspot-chip" data-id="${esc(h.id)}">${esc(h.label)}</button>`
+    ).join("");
+
+    const onActivate = (id, el) => {
+      const h = hotspots.find(x => x.id === id);
+      if (h) openHotspot(h, el);
+    };
+    layer.querySelectorAll(".hotspot").forEach(btn => {
+      btn.addEventListener("click", e => { e.stopPropagation(); onActivate(btn.dataset.id, btn); });
+    });
+    strip.querySelectorAll(".hotspot-chip").forEach(btn => {
+      btn.addEventListener("click", e => { e.stopPropagation(); onActivate(btn.dataset.id, btn); });
+    });
+  }
+
+  document.addEventListener("click", e => {
+    if (!tipEl.contains(e.target) && !e.target.closest(".hotspot, .hotspot-chip")) closeTip();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeTip(); });
+  window.addEventListener("resize", () => { if (openId) closeTip(); });
+
+  // Support ?hotspot= for screenshotting tooltip state
+  function mountPinnedTip(h) {
+    // Guaranteed on-art tip card (also used for screenshots). Absolute inside .hero.
+    let pin = document.getElementById("pinned-tip");
+    if (!pin) {
+      pin = document.createElement("div");
+      pin.id = "pinned-tip";
+      pin.className = "hotspot-tip is-open";
+      pin.style.position = "absolute";
+      pin.style.zIndex = "20";
+      pin.style.display = "block";
+      document.querySelector(".hero").appendChild(pin);
+    }
+    pin.innerHTML = tipHtml(h);
+    pin.hidden = false;
+    const left = Math.min(72, Math.max(4, h.x + 3));
+    const top = Math.min(70, Math.max(8, h.y - 6));
+    // Prefer left of hotspot if near right edge
+    if (h.x > 70) {
+      pin.style.left = "auto";
+      pin.style.right = (100 - h.x + 3) + "%";
+    } else {
+      pin.style.left = left + "%";
+      pin.style.right = "auto";
+    }
+    pin.style.top = top + "%";
+    tipEl.hidden = true; // avoid duplicate floating tip in shot mode
+  }
+
+  function maybeAutoOpen() {
+    const id = params.get("hotspot");
+    if (!id) return;
+    const btn = document.querySelector('.hotspot[data-id="' + id + '"]') ||
+      document.querySelector('.hotspot-chip[data-id="' + id + '"]');
+    const h = hotspots.find(x => x.id === id);
+    if (!h) return;
+    if (params.has("hotspotShot") || params.has("hotspot")) {
+      mountPinnedTip(h);
+      document.querySelectorAll(".hotspot, .hotspot-chip").forEach(el => {
+        el.classList.toggle("is-open", el.dataset.id === h.id);
+      });
+      openId = h.id;
+    }
+    if (btn && !params.has("hotspotShot")) openHotspot(h, btn);
+  }
+
+  async function route() {
+    const slug = params.get("post");
+    if (slug) await renderPost(slug);
+    else renderList();
+  }
+
+  buildHotspots();
+  route();
+  // Wait for CSS/layout (and fonts) so % hotspot coords resolve before placing the tip.
+  const afterLayout = () => {
+    maybeAutoOpen();
+  };
+  if (document.readyState === "complete") {
+    requestAnimationFrame(() => requestAnimationFrame(afterLayout));
+  } else {
+    window.addEventListener("load", () => requestAnimationFrame(afterLayout));
+  }
+})();

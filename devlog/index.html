@@ -4,82 +4,91 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Midlife Survivors Devlog</title>
+<meta name="description" content="Making Midlife Survivors: a photographer learning to build a Vampire Survivors-style game about turning 40, one build at a time.">
+<meta property="og:site_name" content="Midlife Survivors Devlog">
+<meta property="og:title" content="Making Midlife Survivors">
+<meta property="og:description" content="HR memos from the trenches of learning game development with AI.">
+<meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/office-key-art-hero.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<style>
-:root {
-  --bg: #12152a; --surface: #1b1f38; --fg: #e8e9f3; --muted: #a3a8c7; --line: #2e3356;
-  --accent: #f0a24f; --money: #5fd39c;
-  --display: "Silkscreen", "Courier New", monospace;
-  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.65 var(--body); }
-.wrap { max-width: 680px; margin: 0 auto; padding: 32px 16px 80px; }
-a { color: var(--accent); }
-header { border-bottom: 2px solid var(--line); padding-bottom: 20px; margin-bottom: 28px; }
-.eyebrow, h1, h2, .date, .back { font-family: var(--display); letter-spacing: .03em; }
-.eyebrow { color: var(--accent); font-size: 12px; text-transform: uppercase; }
-h1 { font-size: clamp(26px, 6vw, 40px); line-height: 1.1; margin: 6px 0 10px; }
-header p { color: var(--muted); margin: 0; }
-.play { display: inline-block; margin-top: 14px; padding: 8px 14px; background: var(--accent); color: var(--bg); font-family: var(--display); text-decoration: none; }
-.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
-.list a { display: block; padding: 16px; background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--fg); }
-.list a:hover, .list a:focus-visible { border-color: var(--accent); outline: none; }
-.list .t { font-weight: 700; font-size: 19px; display: block; margin-top: 4px; }
-.date { color: var(--muted); font-size: 11px; }
-.draft { color: #ff6b7f; }
-article h2 { font-size: 18px; margin: 34px 0 8px; color: var(--accent); }
-article img { max-width: 100%; display: block; margin: 18px 0; border: 2px solid var(--line); image-rendering: pixelated; }
-article strong { color: var(--money); }
-.back { display: inline-block; margin-bottom: 18px; font-size: 12px; text-decoration: none; }
-footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 14px; }
-</style>
+<link rel="stylesheet" href="styles.css?v=3">
+<link rel="alternate" type="application/rss+xml" title="Midlife Survivors Devlog" href="feed.xml">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="eyebrow">Devlog</div>
-    <h1>Making Midlife Survivors</h1>
-    <p>A photographer with zero game experience, a vision, and an AI co-developer, figuring it out one build at a time.</p>
-    <a class="play" href="../">▶ Play the game</a>
+  <header class="site-header" id="site-header">
+    <a class="brand" href="./" id="brand-home">
+      <span class="brand-mark" aria-hidden="true">MS</span>
+      <span>
+        <span class="brand-title">Midlife Survivors</span>
+        <span class="brand-sub">Devlog · Internal memos</span>
+      </span>
+    </a>
+    <div class="actions">
+      <a class="btn btn-ghost" href="#memos">Filed memos</a>
+      <a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play</a>
+    </div>
   </header>
-  <main id="main"></main>
-  <footer>Written by Rami Daud. Built with Claude. Screenshots are from the actual builds at the time.</footer>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
-<script>
+
+  <div id="home-view">
+    <section class="hero" aria-label="Key art from Midlife Survivors">
+      <div class="hero-stage" role="img" aria-label="Pixel office: you sprint with coffee while Bills, Spam Likely, and a donut close in."></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-scan" aria-hidden="true"></div>
+      <div class="hero-frame" aria-hidden="true"></div>
+
+      <div class="hero-memo">
+        <div class="memo-eyebrow">Internal memo · Devlog</div>
+        <h1>Making Midlife Survivors</h1>
+        <p>A photographer with zero game experience, a vision, and an AI co-developer, filing build notes like HR memos.</p>
+        <div class="memo-meta">FROM: Rami Daud · RE: Surviving to the next version · CC: Anyone who has ever said “just one more run”</div>
+      </div>
+
+      <div class="hotspot-layer" id="hotspot-layer" aria-hidden="false"></div>
+    </section>
+
+    <div class="hotspot-strip" id="hotspot-strip" aria-label="Characters in the key art"></div>
+
+    <div class="wrap" id="memos">
+      <div class="section-label">Filed memos</div>
+      <main id="list-main"></main>
+
+      <aside class="follow" aria-label="Follow">
+        <div class="silk">Stay in the loop</div>
+        <div class="todos">
+          <a class="todo" href="feed.xml">RSS feed</a>
+          <span class="todo">Email list · coming soon</span>
+          <span class="todo">Discord · coming soon</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div id="post-view" hidden>
+    <div class="wrap">
+      <main id="post-main"></main>
+      <aside class="follow" aria-label="Follow">
+        <div class="silk">Stay in the loop</div>
+        <div class="todos">
+          <a class="todo" href="feed.xml">RSS feed</a>
+          <span class="todo">Email list · coming soon</span>
+          <span class="todo">Discord · coming soon</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    Written by Rami Daud. Built with Claude (and the occasional Grok review). Screenshots are from the actual builds. Palette from the Midlife Survivors style guide.
+  </footer>
+
+  <div id="live-tip" class="hotspot-tip" role="dialog" aria-live="polite" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+  <script>
   // Load the post list fresh on every visit (a cached copy hid new posts for up to 10 minutes).
   document.write('<script src="posts.js?t=' + Date.now() + '"><\/script>');
 </script>
-<script>
-const params = new URLSearchParams(location.search);
-const showDrafts = params.has("drafts");
-const posts = (window.DEVLOG_POSTS || []).filter(p => showDrafts || !p.draft);
-const main = document.getElementById("main");
-const fmt = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-
-async function render() {
-  const slug = params.get("post");
-  const post = posts.find(p => p.slug === slug);
-  if (!post) {
-    main.innerHTML = posts.length
-      ? `<ul class="list">${posts.map(p => `<li><a href="?post=${p.slug}${showDrafts ? "&drafts" : ""}">
-          <span class="date">${fmt(p.date)} · ${esc(p.version || "")}${p.draft ? ' · <span class="draft">DRAFT</span>' : ""}</span>
-          <span class="t">${esc(p.title)}</span></a></li>`).join("")}</ul>`
-      : `<p>First post coming soon.</p>`;
-    document.title = "Midlife Survivors Devlog";
-    return;
-  }
-  document.title = post.title + " | Midlife Survivors Devlog";
-  let md = "Couldn't load this post.";
-  try { const r = await fetch(`posts/${post.slug}.md?t=${Date.now()}`); if (r.ok) md = await r.text(); } catch (e) {}
-  const html = window.marked ? marked.parse(md) : `<pre>${esc(md)}</pre>`;
-  main.innerHTML = `<a class="back" href="./${showDrafts ? "?drafts" : ""}">← All posts</a>
-    <article><div class="date">${fmt(post.date)} · ${esc(post.version || "")}</div><h1>${esc(post.title)}</h1>${html}</article>`;
-  window.scrollTo(0, 0);
-}
-render();
-</script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>

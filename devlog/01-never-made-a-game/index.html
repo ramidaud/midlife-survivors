@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square. · Midlife Survivors Devlog</title>
+<meta name="description" content="A photographer, Vampire Survivors, and the moment midlife became a bullet hell.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Midlife Survivors Devlog">
+<meta property="og:title" content="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square.">
+<meta property="og:description" content="A photographer, Vampire Survivors, and the moment midlife became a bullet hell.">
+<meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/01-never-made-a-game.jpg">
+<meta property="og:url" content="https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square.">
+<meta name="twitter:description" content="A photographer, Vampire Survivors, and the moment midlife became a bullet hell.">
+<meta name="twitter:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/01-never-made-a-game.jpg">
+<link rel="alternate" type="application/rss+xml" title="Midlife Survivors Devlog" href="../feed.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header is-compact">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true">MS</span>
+      <span><span class="brand-title">Midlife Survivors</span></span>
+    </a>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a>
+    </div>
+  </header>
+  <div class="wrap">
+    <a class="back" href="../">← All memos</a>
+    <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square.</strong></div>
+    <div class="post-header">
+      <h1>I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square.</h1>
+      <div class="post-meta">
+        <time datetime="2026-10-30">Oct 30, 2026</time>
+        <span class="pill">V. 0.1 to 1.8</span>
+      </div>
+    </div>
+    <div class="post-cta">
+      <div><a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a></div>
+      <div class="changes-box"><h3>What changed</h3><ul><li>First playable square with touch and keyboard movement</li><li>First Bill (green $) chase</li><li>Top 10 midlife annoyances became the enemy roster</li></ul></div>
+      <div class="next-up"><strong>Next up</strong>Coffee Splash that fires on its own, and the first real Game Over.</div>
+    </div>
+    <article class="post"><div class="prose"><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
+<p>But I've played a lot of Vampire Survivors. If you haven't: you walk around, your weapons fire on their own, and an absurd number of monsters try to touch you. That's it. It's the most relaxing stressful thing I own.</p>
+<p>Somewhere around my forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.</p>
+<p>So that's the game. <strong>Midlife Survivors.</strong> You start at 40. You survive.</p>
+<h2>The vision part (that's my job)</h2>
+<p>Before any code, I wrote down my Top 10 midlife annoyances. Bills. Phone calls. Diabetes. Fat. Work drama. Sleep. Aches and pains. Kids' math homework. Errands. Death.</p>
+<p>That list turned into the enemies. A Bill chases you, and if you don't pay it off fast it splits into Late Fees. "Spam Likely" rings before it charges. Donuts slow you down if you touch them. Death shows up at the end and can't be beaten, because, well.</p>
+<h2>The AI part (that's Claude's job)</h2>
+<p>I'm building this with Claude as my co-developer. I describe what I want to see and feel, and it writes the code and explains what it did in plain English. It's like working with a patient engineer who never gets tired of "wait, what's a game loop?"</p>
+<p>The first thing we built was a square. You could move it with the arrow keys or by dragging on your phone. That's the whole game at that point: a square on an endless carpet.</p>
+<p>Then a green dollar sign showed up and started chasing it. I laughed way harder than I should have.</p>
+<!-- SCREENSHOT: first build, the square and the first Bill -->
+
+<h2>The learning part (that's the point)</h2>
+<p>Every session ends with one new idea I actually understand. The first one: a game redraws the screen about 60 times a second, and everything you see happens inside that loop. Move the player, move the enemies, check if they're touching, draw it all again. Sixty times. Every second.</p>
+<p>That one blew my mind a little.</p>
+<p>Next up: a coffee splash that fires on its own, and the first time I got hit by a Bill and died.</p></div>
+      <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to V. 0.1 to 1.8. Screenshots are from the real game at the time.</div>
+    </article>
+  </div>
+  <footer class="site-footer">Written by Rami Daud · Midlife Survivors Devlog</footer>
+</body>
+</html>

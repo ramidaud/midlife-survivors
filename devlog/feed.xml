@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Midlife Survivors Devlog</title>
+    <link>https://ramidaud.github.io/midlife-survivors/devlog/</link>
+    <description>HR memos from building Midlife Survivors.</description>
+    
+    <item>
+      <title>I could beat my own game standing still. So I hired a robot.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/</guid>
+      <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Four minutes in, I could put the controller down. A test bot, a Grok review and a Comfort Zone Tax fixed that.</description>
+    </item>
+    <item>
+      <title>The office has seen a few restructurings.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/03-office-with-some-history/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/03-office-with-some-history/</guid>
+      <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Accounts Payable gets desks with personality, a jammed printer, and a plant that needs PTO.</description>
+    </item>
+    <item>
+      <title>The office has people in it now. And they walk.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/</guid>
+      <pubDate>Sat, 31 Oct 2026 12:00:00 GMT</pubDate>
+      <description>Walking sheets for the 9-to-5er, Soccer Dad, and Grad Student. Four directions, feet that stop when you do.</description>
+    </item>
+    <item>
+      <title>I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/</guid>
+      <pubDate>Fri, 30 Oct 2026 12:00:00 GMT</pubDate>
+      <description>A photographer, Vampire Survivors, and the moment midlife became a bullet hell.</description>
+    </item>
+  </channel>
+</rss>
