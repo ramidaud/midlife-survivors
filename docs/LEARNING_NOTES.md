@@ -345,3 +345,8 @@ An **anchor** is the point a sprite stays attached to as its pose changes. Walke
 `feet stay put → pose changes → sprite feels grounded`
 
 The enemy review page lets us pause the loop and inspect each pose at the actual game size before connecting it to combat.
+
+## Separating the drawing from the hitbox (Nov 1, enemy integration, Codex)
+A **hitbox** is the invisible shape the game checks for collisions. Replacing its texture can accidentally resize that shape. Here, the original enemy keeps its physics body while a separate animated drawing follows it. The drawing can change pose and size without changing which attacks connect.
+
+`unchanged physics body → position / facing / state → animated drawing`

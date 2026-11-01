@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.11",
-  displayVersion: "V. 1.28.11",
+  version: "1.28.12",
+  displayVersion: "V. 1.28.12",
   lastUpdated: "Nov 1, 2026",
-  codename: "Link Previews",
-  build: 67,
+  codename: "The Inbox Moves",
+  build: 68,
   changelog: [
+    {
+      ver: "V. 1.28.12",
+      date: "Nov 1, 2026",
+      title: "The Inbox Moves",
+      highlights: ["All ten regular enemies and chat pings now use animated pixel art with grounded shadows, original-art fallback and unchanged combat rules."]
+    },
     {
       ver: "V. 1.28.11",
       date: "Nov 1, 2026",

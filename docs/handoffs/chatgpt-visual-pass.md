@@ -414,3 +414,6 @@ Rami pastes this into `docs/handoffs/chatgpt-changes.md`. Claude then slices the
 
 ## Delivery status: November 1, 2026 (Codex)
 Batch 1 art generation is complete: all ten enemy species and Group Chat ping are saved under `assets/enemies/`. Review via the Art Room's **Review animated enemies** link or `assets/enemies/review.html`. The manifest lists 11 sheets and 42 native frames. Full prompts, corrected sources, individual GIFs, an overview and a native ZIP are included. Await visual review before production integration. Bosses and later batches remain pending; see `chatgpt-changes.md` for the integration handoff.
+
+### Approved production integration: V. 1.28.12 (Codex)
+Rami's integration handoff approved Batch 1 for the main game. All regular enemy sheets plus ping now render through `src/enemy-art.js`, with state-aware animation and canvas fallback. Original physics bodies, combat data and bosses remain unchanged. See `chatgpt-changes.md` and `docs/qa/enemy-art/` for tests and tuning.

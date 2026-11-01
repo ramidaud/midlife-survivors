@@ -1,6 +1,6 @@
 # Enemy art: Batch 1 complete for visual review
 
-Ten enemy species plus one projectile, 11 native sheets and 42 frames. Bill is the existing reference; the other nine species and ping were generated in this pass with built-in imagegen. Art generation is complete. Visual approval and production integration remain pending.
+Ten enemy species plus one projectile, 11 native sheets and 42 frames. Bill is the existing reference; the other nine species and ping were generated in this pass with built-in imagegen. Art generation is complete. Rami approved Batch 1 for main-game integration on November 1; V. 1.28.12 now uses these sheets.
 
 Open `review.html` locally or use **Review animated enemies** in the devlog Art Room. Pause, step poses, change floor, and inspect at 1x/2x/4x. `review-data.js` embeds the exact native PNGs so file:// preview works without a server. No game code or asset loader is required.
 
@@ -40,3 +40,12 @@ swift -module-cache-path /private/tmp/midlife-bio-swift-cache assets/enemies/exp
 Bill retains its earlier dedicated `export-bill.swift`. The batch exporter skips it. QA checks PNG dimensions, opacity, exact colors/magenta, clear borders, unique poses, foot baselines, navy outline boundaries and ghost fade ordering; it also refreshes embedded review data. `enemy-batch-1-overview.gif` synchronizes poses for comparison, while individual GIFs and the review page use the suggested per-species delays. Preview labels/floors are not part of sprite assets.
 
 `enemy-batch-1-native.zip` contains native PNGs, prompts, manifest and this README. Browser proofs are `review-desktop.png` and `review-phone.png`. Checked 11 loaded sheets, scale widths, pose selection (including two-frame ping), floor switches, pause/play, phone overflow and clean browser logs. Bosses are Batch 2, outside this regular-enemy delivery.
+
+## Main-game integration (V. 1.28.12, Codex)
+`src/enemy-art.js` imports these native PNGs, keys only exact magenta to alpha, and registers nearest-neighbor sheets/animations. `window.USE_ENEMY_ART = true` at its top enables the art; set false and reload for the original look. Every missing or unreadable sheet falls back independently.
+
+The original physics sprites remain intact and hidden while lightweight visual sprites follow their position, facing, tint and alpha. This preserves every original body dimension/offset, speed, HP, damage, spawn rate and attack clock. Phone walk/ring uses the existing state. Twinge poses follow its unchanged lunge/rest cycle. Ghost fade drawings follow its existing ghost window, without deciding collision or vulnerability. Bosses stay on their original renderer.
+
+Display squares are Bill/Phone 36px, Late Fee 25px, Donut/Chat/Worksheet 34px, Twinge/Ghost/Calendar 32px, Reply-All 42px, Ping 14px. Late Fee remains smaller than Bill. Labels sit above the new silhouettes. Contact shadows use a shared small radial texture, excluding ghost and ping. Animation stops while the run clock is paused; destroy/restart cleanup removes attached visuals and shadows.
+
+See `docs/qa/enemy-art/README.md` and `tests/enemy-art-playtest.html` for isolated checks. The test harness blocks leaderboard traffic and uses in-memory storage; it is never loaded by the game.

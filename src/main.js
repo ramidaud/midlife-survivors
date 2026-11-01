@@ -258,6 +258,7 @@ function create() {
   applyMetaAndChar();
   // 1. Build pixel-art sprites for every character, enemy, pickup, and the background floor (in src/sprites.js).
   buildSprites(this);
+  EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
   initExtraWeapons(this);
 
@@ -1448,6 +1449,7 @@ function createEnemy(scene, kind, x, y) {
   if (window.firstTimeTip) window.firstTimeTip(kind);
   const E = ENEMIES[kind];
   const e = bills.create(x, y, E.tex || kind).setDepth(4);
+  scene.enemyArt.attach(e, kind);
   if (E.tint) e.setTint(E.tint);
   const yrs = Math.max(0, currentAge - 40);
   const perYear = (window.INTENSITY && window.INTENSITY.hpPerYear) || 0.09;
@@ -1946,6 +1948,7 @@ function update(time, delta) {
         bill.tag.setText(currentAge >= 80 && G.seniorLabel ? G.seniorLabel : G.label).setColor("#e8e9f3");
         const pa = Phaser.Math.Angle.Between(bill.x, bill.y, player.x, player.y);
         const ping = pings.create(bill.x, bill.y, "ping").setDepth(6);
+        this.enemyArt.attach(ping, "ping");
         ping.setVelocity(Math.cos(pa) * G.pingSpeed, Math.sin(pa) * G.pingSpeed);
         ping.dieAt = now + G.pingLifeMs; ping.damage = bill.damage;
         sfx("ring");

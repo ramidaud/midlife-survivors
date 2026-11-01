@@ -1,0 +1,289 @@
+{
+ "errors": [],
+ "leaderboardRequests": 0,
+ "checks": [
+  {
+   "kind": "bill",
+   "physicsTexture": "bill",
+   "body": [
+    36,
+    26,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-bill",
+     "frame": 0,
+     "width": 36
+    }
+   ]
+  },
+  {
+   "kind": "lateFee",
+   "physicsTexture": "lateFee",
+   "body": [
+    30,
+    24,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-lateFee",
+     "frame": 0,
+     "width": 25
+    }
+   ]
+  },
+  {
+   "kind": "spamCall",
+   "physicsTexture": "spamCall",
+   "body": [
+    30,
+    36,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-spamCall",
+     "frame": 0,
+     "width": 36
+    }
+   ]
+  },
+  {
+   "kind": "snackAttack",
+   "physicsTexture": "snackAttack",
+   "body": [
+    34,
+    34,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-snackAttack",
+     "frame": 0,
+     "width": 34
+    }
+   ]
+  },
+  {
+   "kind": "backTwinge",
+   "physicsTexture": "backTwinge",
+   "body": [
+    32,
+    32,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-backTwinge",
+     "frame": 1,
+     "width": 32
+    }
+   ]
+  },
+  {
+   "kind": "officeGossip",
+   "physicsTexture": "officeGossip",
+   "body": [
+    42,
+    34,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-officeGossip",
+     "frame": 0,
+     "width": 42
+    }
+   ]
+  },
+  {
+   "kind": "threeAmThought",
+   "physicsTexture": "threeAmThought",
+   "body": [
+    30,
+    32,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-threeAmThought",
+     "frame": 0,
+     "width": 32
+    }
+   ]
+  },
+  {
+   "kind": "calendarInvite",
+   "physicsTexture": "calendarInvite",
+   "body": [
+    28,
+    30,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-calendarInvite",
+     "frame": 0,
+     "width": 32
+    }
+   ]
+  },
+  {
+   "kind": "groupChat",
+   "physicsTexture": "groupChat",
+   "body": [
+    34,
+    32,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-groupChat",
+     "frame": 0,
+     "width": 34
+    }
+   ]
+  },
+  {
+   "kind": "mathWorksheet",
+   "physicsTexture": "mathWorksheet",
+   "body": [
+    32,
+    34,
+    0,
+    0
+   ],
+   "art": [
+    {
+     "key": "enemy-art-mathWorksheet",
+     "frame": 0,
+     "width": 34
+    }
+   ]
+  }
+ ],
+ "maxEnemies": 0,
+ "fps": [],
+ "ready": true,
+ "originalBodies": [
+  [
+   "bill",
+   36,
+   26,
+   0,
+   0
+  ],
+  [
+   "lateFee",
+   30,
+   24,
+   0,
+   0
+  ],
+  [
+   "spamCall",
+   30,
+   36,
+   0,
+   0
+  ],
+  [
+   "snackAttack",
+   34,
+   34,
+   0,
+   0
+  ],
+  [
+   "backTwinge",
+   32,
+   32,
+   0,
+   0
+  ],
+  [
+   "officeGossip",
+   42,
+   34,
+   0,
+   0
+  ],
+  [
+   "threeAmThought",
+   30,
+   32,
+   0,
+   0
+  ],
+  [
+   "calendarInvite",
+   28,
+   30,
+   0,
+   0
+  ],
+  [
+   "groupChat",
+   34,
+   32,
+   0,
+   0
+  ],
+  [
+   "mathWorksheet",
+   32,
+   34,
+   0,
+   0
+  ]
+ ],
+ "bodyPreserved": true,
+ "states": {
+  "ringing": {
+   "animation": "enemy-art-spamCall-ring",
+   "frame": 2
+  },
+  "dashing": {
+   "animation": "enemy-art-spamCall-walk",
+   "frame": 0
+  },
+  "twinge": [
+   1,
+   2,
+   3,
+   0
+  ],
+  "ghost": {
+   "before": 3,
+   "after": 3,
+   "bodyEnabled": true
+  },
+  "ping": {
+   "body": [
+    [
+     14,
+     14
+    ]
+   ],
+   "art": "enemy-art-ping"
+  },
+  "shadowCount": 27,
+  "remainingVisuals": 0
+ },
+ "stress": {
+  "count": 350,
+  "min": 98.71841130085436,
+  "average": 99.20548458931245
+ }
+}

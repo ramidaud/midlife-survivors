@@ -648,3 +648,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Synced Codex's finished Batch 1 enemy art (10 enemies plus the chat ping) to GitHub. It still needs Rami's review before it goes in the game.
 - Every shareable page now has a 1200x630 preview card: game, devlog, each post, About, Art Room, enemy review and roadmap. Post cards build themselves.
 - Drafted post 05, "There's a coffee button now. It feels weird." Waiting on Rami's OK.
+
+## 2026-11-01: Approved enemy art in combat, V. 1.28.12 (Codex)
+- Integrated all ten Batch 1 enemy species and ping. Exact magenta becomes transparent; nearest-neighbor frames retain hard edges. Missing sheets fall back independently, and the top-of-file flag restores original art on reload.
+- Kept original physics sprites and attached a separate animated visual layer. Every collision box/offset and all combat data remain unchanged. Phone ringing, Twinge lunges and ghost fades follow existing states; bosses are untouched.
+- Added small shared contact shadows except for ghost/ping. Tuned Late Fee to 25px versus Bill's 36px and moved labels above taller drawings. Pauses, enemy destruction and restarts cleanly manage the art layer.
+- Tax Bracket 0 run reached age 45 with 109 peak enemies and no errors. A 350-enemy animation/AI stress scene averaged about 99 FPS. Desktop/phone, state selection, missing-sheet fallback, toggle and cleanup checks passed; isolated tests used memory-only saves and blocked leaderboard traffic. See QA evidence for exact scope and measurements.

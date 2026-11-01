@@ -356,3 +356,8 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - Batch 1 generation is complete: Bill, Late Fee, Spam Likely, Late-Night Donut, Back Twinge, Reply-All, 3 AM Thought, Calendar Invite, Group Chat and Math Homework, plus Group Chat ping. This replaces the earlier Bill-only delivery status.
 - Keep distinct motion personalities: quick receipt scurry, ringing phone, bouncing pastry, coiling bolt, swaying envelope chain, fading ghost, calendar charge, typing bubble and fluttering worksheet.
 - Assets remain separate from combat until visual review. The Art Room links to an isolated native-size comparison page. Game logic still controls attack timing, ghost vulnerability and collision; baked art poses do not change those rules. Boss art is a later batch.
+
+## Batch 1 combat integration (Nov 1, 2026, Codex)
+- Rami approved the regular-enemy sheets for production. V. 1.28.12 displays all ten species plus ping, retaining the existing canvas art as an independent per-sheet fallback. Bosses remain unchanged.
+- Visual sprites follow the original physics objects, preserving collision geometry and every gameplay number. Phone rings only in its ring state; Twinge follows its current lunge/rest timing; ghost fade poses stay within the existing ghost window.
+- Keep Late Fee visibly smaller than Bill (25px versus 36px display square). Native pixels use nearest-neighbor sampling. Small shared contact shadows ground the cast, excluding ghost/ping. The comparison switch is `USE_ENEMY_ART` at the top of `src/enemy-art.js`, followed by reload.

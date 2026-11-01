@@ -4,7 +4,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ---
 
-## 2026-11-01: Batch 1 reference, Bill walking sheet (Codex / ChatGPT)
+## 2026-11-01: Batch 1 reference, Bill walking sheet (Codex / ChatGPT) [done]
 - What: first enemy review asset only, an angry cream Bill with four walking poses and subtle paper flutter. Batch 1 remains in progress.
 - Files: `assets/enemies/enemy-bill-v1.png`, `enemy-bill-v1-prompt.txt`, `enemy-bill-source-v1.png`, `enemy-bill-preview-v1.gif`; export script and README alongside.
 - For the game: proposed replacement for the existing regular Bill enemy; not integrated or approved yet.
@@ -33,10 +33,17 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - QA: checked native sizes, pixel/alpha integrity, desktop/phone header layout, references and browser logs. Published post bodies preserved exactly; builder's existing minimal Markdown fallback needs care when rebuilding without Markdown support.
 - Next: Late Fee sprite sheet. Branding selection is complete; no gameplay changes.
 
-## 2026-11-01: Batch 1 enemies complete for visual review (Codex / ChatGPT)
+## 2026-11-01: Batch 1 enemies complete for visual review (Codex / ChatGPT) [done]
 - What: finished the remaining nine enemy species and Group Chat ping, retaining Bill. Eleven sheets, 42 distinct native frames, full prompts, generated sources and animated previews saved. This supersedes the earlier Bill-only batch status.
 - Files: `assets/enemies/`, especially `batch-1.json`, `README.md`, `review.html`, `enemy-batch-1-native.zip` and `enemy-batch-1-overview.gif`. Canonical filename pattern is `enemy-<id>-v1.png`; exact IDs and timing live in the manifest. Art Room links to review.
 - For the game: art generation complete; awaiting Rami's visual review before Art Room combat preview and main-game replacement. No runtime enemy renderer, hitbox, spawn, damage or attack values changed.
 - Frame sizes and count: nine species at 48x48 x4, Late Fee at 32x32 x4, ping at 16x16 x2. Single rows, exact magenta, hard palette pixels. GIFs are preview only.
 - Notes for Claude or Rami: see README for animation states, origins and contact shadows. Calendar's third stride was corrected; Late Fee's sampling jitter fixed; ghost fades through pixel gaps; Donut airborne phases rise two pixels. PNG QA passed dimensions, opacity, palette, margins, unique poses, baseline/outline checks and fade ordering. Browser review passed desktop/390px phone, pose/pause/scale/floor controls and clean logs. Next generation batch is bosses, after enemy feedback. V. 1.28.10, build 66.
 - Claude (Nov 1): read and synced to GitHub. Share card added for the review page. Waiting on Rami's visual review before anything goes into the game.
+
+## 2026-11-01: Batch 1 enemy integration, V. 1.28.12 (Codex) [done]
+- What: integrated the approved ten regular enemy species and Group Chat ping, with exact-magenta transparency, nearest-neighbor animation, contact shadows and independent fallback.
+- Files: `src/enemy-art.js`, three attachment hooks in `src/main.js`, loader/version updates, `assets/enemies/README.md`, isolated test harness and `docs/qa/enemy-art/` evidence.
+- For the game: production enemy visuals only. Original physics sprites/bodies remain intact; HP, damage, speeds, spawning, attack timing, bosses and leaderboard code/data are unchanged. Set `USE_ENEMY_ART` false at the top of the module and reload to compare.
+- Frame sizes: native 48x48 x4 for nine species, 32x32 x4 Late Fee, 16x16 x2 ping. Display squares range from 25px Late Fee to 42px elite; Bill/Phone 36px.
+- Notes for Claude or Rami: attached render sprites preserve every body dimension and offset. Phone walk/ring and Twinge coil/lunge/stretch/recovery follow existing states; ghost visuals never decide collision. Labels were raised for taller silhouettes. Ghost/ping have no shadow. Tests reached age 45 at Tax 0 (109 peak enemies), exercised 350 enemies with all four Bill frames observed, checked desktop/phone, fallback, ghost immunity, 14x14 ping body and cleanup. Test harness blocks all leaderboard requests and uses memory-only saves. No scores submitted. Bosses remain the next art batch.

@@ -1,0 +1,20 @@
+{
+ "errors": [],
+ "leaderboardRequests": 0,
+ "checks": [],
+ "maxEnemies": 0,
+ "fps": [],
+ "ready": true,
+ "stress": {
+  "count": 350,
+  "framesSeen": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "animatedSprites": 315,
+  "min": 98.60402790841759,
+  "average": 99.23427262384138
+ }
+}

@@ -1459,3 +1459,14 @@ Donut          ground → lift → ground → lift
 A sprite sheet is a row of poses. Timing and shape changes make a scurry feel different from a float even with four poses each. An anchor keeps the character attached to the same place while its drawing changes. Walking feet keep a shared baseline; Donut deliberately rises two pixels in airborne poses. Ghost fading uses omitted whole pixels, so edges stay crisp. The art preview shows these motions separately from combat rules, which continue to control speed, hits and attacks.
 
 ![Enemy cast at three times native pixels](../assets/enemies/enemy-batch-1-overview.gif)
+
+## Chapter: New art, same rules (V. 1.28.12, Codex)
+
+```text
+original enemy body   ->   position + facing + existing state
+  same collisions                       |
+                                 animated artwork
+                                 + contact shadow
+```
+
+The invisible original sprite still owns movement, health and collisions. Its attached drawing has no physics body. This makes the visual pass safe for game balance: a new 48px source frame cannot silently enlarge the target. A missing sheet simply leaves the original drawing visible. The shared run clock freezes visual animations during menus; destroying the original removes its artwork and shadow.
