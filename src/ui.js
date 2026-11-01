@@ -1860,6 +1860,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
+        <button class="t-style-btn" id="title-art-test-btn">🎨 ART TEST</button>
         ${backBtn}
       </div>`;
   } else {
@@ -1899,6 +1900,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
   const devlogBtn = document.getElementById("title-devlog-btn");
   if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.open("devlog/", "_blank", "noopener"); }); // how the game got made
+  const artTestBtn = document.getElementById("title-art-test-btn");
+  if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "art-test.html"; });
   const backEl = document.getElementById("title-back-btn");
   if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" ? "extras" : "main"), view !== "main");
 

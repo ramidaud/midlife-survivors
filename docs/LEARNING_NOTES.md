@@ -2,6 +2,13 @@
 
 Game-dev ideas you've picked up along the way. One short entry per concept.
 
+## Art readability at game size (Oct 31, 2026, Codex)
+An illustration can have wonderful detail that disappears when squeezed into a tiny sprite. We tested the hero in the same 48x52 frame as the current game, then simplified the source art so the glasses, mug and enemy faces read more clearly. Nearest-neighbor scaling copies hard pixel blocks instead of blending their edges; a fixed palette keeps them visually related.
+
+`Key art -> simpler sprite -> 1x movement test -> feedback`
+
+Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visible height and its collision area can differ: a tall desk blocks your feet at its base while you can walk behind its upper artwork.
+
 ---
 
 ## How building with Claude works

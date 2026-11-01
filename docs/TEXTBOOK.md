@@ -2,6 +2,21 @@
 
 A picture-first guide to how this game works, one chapter per idea. Each chapter adds what we just built. Read it in any order, but it makes the most sense from top to bottom.
 
+## Art study: big illustration, tiny game character (Oct 31, 2026, Codex)
+
+`Key art -> simpler sprite -> 1x movement test -> feedback`
+
+The key art sets the mood. The sprite keeps only what the player needs to recognize: grey temples, black glasses, a red tie and an orange mug. Our hero uses the existing 48x52 game frame. Inspect at 2x, judge readability at 1x. Nearest-neighbor scaling enlarges square pixels without blending their edges.
+
+```text
+      desk top           artwork can be tall
+   +--------------+
+   |    monitor   |      hero can pass BEHIND this
+   +--------------+
+   [ shallow base ]      feet collide HERE
+          o              hero in front draws on top
+```
+
 ---
 
 ## Chapter 1: The map of the project

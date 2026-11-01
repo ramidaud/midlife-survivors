@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-10-30 (Added 5 Unlockable Life Stage Environments in `src/data/stages.js` + Phase 7 Roadmap for Birth, Parenting, and Friendship Challenges)
+**Last updated:** 2026-10-31 (Codex: first playable office art study, awaiting Rami's feedback)
 
 ---
 
@@ -31,7 +31,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 2. [ ] **Core 19-minute run (ages 40 to 65, 45 s/year):** short Midlife mode as the main game, Overtime unlocks, Full Life (to 100) as an unlockable mode, separate leaderboards
 3. [ ] **Content drop + items:** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
 4. [ ] **Achievements** (one unlocks Full Life)
-5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel
+5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. First isolated office study ready in `art-test.html` (Extras > Art Test): Current/New comparison, hero, Bill, workstation and seamless floor. Await feedback before production replacement.
 6. [ ] **Discoverable map + bigger world**
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery

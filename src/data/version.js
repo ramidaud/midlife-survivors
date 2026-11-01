@@ -6,7 +6,7 @@ const GAME_VERSION = {
   displayVersion: "V. 1.20.0",
   lastUpdated: "Oct 31, 2026",
   codename: "Playtest Fixes",
-  build: 37,
+  build: 38,
   changelog: [
     {
       ver: "V. 1.20.0",
@@ -18,6 +18,15 @@ const GAME_VERSION = {
         "Gentler first few minutes, then the usual ramp. Coins come in slower so the shop means something.",
         "Start is the big button; a saved run is a smaller Continue link. Perk labels are plain: New Weapon, Upgrade, Passive, Evolution.",
         "Leaderboard shows each player's personal best, with no top-10 cap. New Devlog link in Extras."
+      ]
+    },
+    {
+      ver: "V. 1.19.2",
+      date: "Oct 31, 2026",
+      title: "Try the New Office Art",
+      highlights: [
+        "Extras > Art Test opens a small office art preview with the new hero, Bill and workstation.",
+        "Switch between current and new art at gameplay size, or zoom in for a closer look."
       ]
     },
     {
