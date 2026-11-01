@@ -668,3 +668,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Kept the player's original 48x52 collision body and all combat settings. Furniture uses the preview's floor footprints; feet control drawing order, and foreground furniture fades only when it conceals the hero.
 - Exported the existing desk sources to native PNGs, reducing the main-game desk data from 5.2 MB to 24 KB. Distant sections are excluded from rendering while retaining their world state. Desktop stress with 350 enemies averaged about 100 FPS.
 - Movement, desk collision, occlusion and section-seam checks passed. Phone, normal-play, fallback and restart evidence is saved under `docs/qa/world-art/`. No leaderboard test scores were submitted.
+- Discord is live (discord.gg/E6N9j5tZe): linked in the devlog follow boxes, footers, About page, coffee post and the game's Extras. V. 1.28.14.

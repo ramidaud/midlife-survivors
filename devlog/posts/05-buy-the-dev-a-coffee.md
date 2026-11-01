@@ -30,6 +30,7 @@ What I'd really love is to find a small group of people who want to see this gam
 - **Bring a skill.** Pixel art, sound, music, game design, code, writing jokes about the DMV. If any of that is you, I'd love to talk.
 - **Share it** with a friend who just turned 40. They'll get it.
 - **Buy a coffee** if you want to and can. It keeps the AI running.
+- **Join the [Discord](https://discord.gg/E6N9j5tZe).** That's where playtests, art previews and the crew live.
 
 The button itself is about the smallest piece of code in the whole game:
 
@@ -44,6 +45,6 @@ That `"_blank"` means it opens in a new tab. I asked for that on purpose. If you
 
 ## No coffee required
 
-Everybody's budget is spoken for, mine included. Playing, sharing, or telling me the Donut is too strong helps this project just as much. If you want to get involved, you can find me through my [About page](https://ramidaud.github.io/midlife-survivors/devlog/about/).
+Everybody's budget is spoken for, mine included. Playing, sharing, or telling me the Donut is too strong helps this project just as much. If you want to get involved, come say hi in the [Midlife Survivors Discord](https://discord.gg/E6N9j5tZe). There's a #want-to-help channel waiting for you.
 
 Now go survive a few years. I'll be over here, running on very little sleep and whatever AI time I have left this week.

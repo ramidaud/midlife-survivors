@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.13",
-  displayVersion: "V. 1.28.13",
+  version: "1.28.14",
+  displayVersion: "V. 1.28.14",
   lastUpdated: "Nov 1, 2026",
-  codename: "Out of the Art Room",
-  build: 69,
+  codename: "Join the Crew",
+  build: 70,
   changelog: [
+    {
+      ver: "V. 1.28.14",
+      date: "Nov 1, 2026",
+      title: "Join the Crew",
+      highlights: [
+        "There's a Midlife Survivors Discord now. Find it in Extras, or in the devlog. Come share playtest notes, see art early, or help build the game."
+      ]
+    },
     {
       ver: "V. 1.28.13",
       date: "Nov 1, 2026",
