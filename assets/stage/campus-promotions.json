@@ -1,0 +1,74 @@
+{
+  "status": "proposal-not-loaded-by-game",
+  "phases": [
+    {
+      "age": 40,
+      "areas": [
+        "lobby",
+        "bullpen"
+      ],
+      "message": "New hire access: Lobby and Bullpen."
+    },
+    {
+      "age": 45,
+      "areas": [
+        "breakroom",
+        "parking"
+      ],
+      "message": "You've earned a break. Break Room and Parking Lot access granted."
+    },
+    {
+      "age": 50,
+      "areas": [
+        "server",
+        "conference"
+      ],
+      "message": "Now you're in the meetings. Server Room and Conference Rooms unlocked."
+    },
+    {
+      "age": 55,
+      "areas": [
+        "executive"
+      ],
+      "message": "Promotion approved. Executive Wing access granted."
+    },
+    {
+      "age": 60,
+      "areas": [
+        "wellness"
+      ],
+      "message": "HR says you should relax. Wellness Corner unlocked."
+    }
+  ],
+  "hidden": {
+    "area": "archive",
+    "achievement": "firstCoffee",
+    "achievementName": "Per My Last Email",
+    "rationale": "Existing achievement, pay off 50 Bills in one run. Proposed binding, tunable.",
+    "message": "A filing cabinet clicks open. You found the Supply Closet."
+  },
+  "doorAnimation": {
+    "frames": 4,
+    "durationMs": 320,
+    "releaseCollision": "after-final-opening-frame",
+    "messageChannel": "existing-lower-third",
+    "messageOnce": "per-promotion-per-run"
+  },
+  "spawnPolicy": {
+    "mode": "reachable-floor-only",
+    "closedGatesBlock": true,
+    "requireUnlockedDistrict": true,
+    "requireReachableFromPlayer": true,
+    "wrapCannotBypass": true
+  },
+  "captionPolicy": {
+    "channel": "existing-lower-third-tip-bar",
+    "radiusPx": 128,
+    "once": "per-caption-per-run",
+    "smallSignWords": [
+      1,
+      3
+    ],
+    "smallSignMinWidth": 64
+  }
+}

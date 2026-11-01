@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-01 (Codex: Stage Pass 1 campus and Parking Lot proposals ready for approval)
+**Last updated:** 2026-11-01 (Codex: campus v2 and promotion plan ready before Stage 2)
 
 ---
 
@@ -37,6 +37,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - Batch 1 enemy generation complete: ten enemy species plus Group Chat ping, 11 native sheets and 42 frames. Review animated enemies from the Art Room, with pause, pose, scale and floor controls. Approved Batch 1 is integrated in V. 1.28.12 with independent canvas fallback; bosses remain a separate batch.
    - Office environment study: detailed Accounts Payable with seamless carpet/wood, fluorescent lighting accents, native printer/cabinet/plant props and floor-level stories. Visit Accounts opens it directly. Expanded ground pass now adds brighter carpet, welcome rug, chair mats, floor wear, paper trails and cream lighting. Rami approved the larger exploration scale. Furniture now has fitted contact shadows, visible chair mats and nearby floor wear; grounded room art and repeating campus now run in the main game (V. 1.28.13), with crowd-pressure QA completed.
 5b. [ ] **Stage art pass (Rami, Nov 1):** the office needs to be more pixel-art forward, friendly and funny. Many different desk setups and break-room clutter, with inside jokes hidden in props (a "Reply All" mug, a fern that has given up). Rami sends his own inside jokes; Claude turns them into a prop list for ChatGPT.
+   - [x] **Overview v2:** unequal wings, 13 dressed fighting spaces, Lobby/Bullpen starting area and age-gate review. Parking Lot v1 approved as density/scale target; previous square-grid overview superseded. Promotion schedule and 72-family modular kit are proposal data, not live gameplay.
+   - [ ] Rami reviews v2 before Stage 2 props/posters. Then each prop gets native hero/enemy comparisons; gate animation, spawn filtering and 350-enemy performance checks wait for runtime integration.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery

@@ -1,0 +1,241 @@
+{
+  "status": "proposal-geometry-passed",
+  "cellSize": 16,
+  "startingFloorPixels": 7749632,
+  "startingScreenAreas": 7.57,
+  "cases": [
+    {
+      "age": 40,
+      "achievement": false,
+      "reachable": [
+        "bullpen",
+        "lobby"
+      ],
+      "reachableFloorPixels": 7749632
+    },
+    {
+      "age": 40,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "bullpen",
+        "lobby"
+      ],
+      "reachableFloorPixels": 7911424
+    },
+    {
+      "age": 44.99,
+      "achievement": false,
+      "reachable": [
+        "bullpen",
+        "lobby"
+      ],
+      "reachableFloorPixels": 7749632
+    },
+    {
+      "age": 44.99,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "bullpen",
+        "lobby"
+      ],
+      "reachableFloorPixels": 7911424
+    },
+    {
+      "age": 45,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "lobby",
+        "parking"
+      ],
+      "reachableFloorPixels": 14612480
+    },
+    {
+      "age": 45,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "lobby",
+        "parking"
+      ],
+      "reachableFloorPixels": 14774272
+    },
+    {
+      "age": 49.99,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "lobby",
+        "parking"
+      ],
+      "reachableFloorPixels": 14612480
+    },
+    {
+      "age": 49.99,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "lobby",
+        "parking"
+      ],
+      "reachableFloorPixels": 14774272
+    },
+    {
+      "age": 50,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "conference",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 18324480
+    },
+    {
+      "age": 50,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "conference",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 18486272
+    },
+    {
+      "age": 54.99,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "conference",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 18324480
+    },
+    {
+      "age": 54.99,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "conference",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 18486272
+    },
+    {
+      "age": 55,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "conference",
+        "executive",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 20763136
+    },
+    {
+      "age": 55,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "conference",
+        "executive",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 20924928
+    },
+    {
+      "age": 59.99,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "conference",
+        "executive",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 20763136
+    },
+    {
+      "age": 59.99,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "conference",
+        "executive",
+        "lobby",
+        "parking",
+        "server"
+      ],
+      "reachableFloorPixels": 20924928
+    },
+    {
+      "age": 60,
+      "achievement": false,
+      "reachable": [
+        "breakroom",
+        "bullpen",
+        "conference",
+        "executive",
+        "lobby",
+        "parking",
+        "server",
+        "wellness"
+      ],
+      "reachableFloorPixels": 22453760
+    },
+    {
+      "age": 60,
+      "achievement": true,
+      "reachable": [
+        "archive",
+        "breakroom",
+        "bullpen",
+        "conference",
+        "executive",
+        "lobby",
+        "parking",
+        "server",
+        "wellness"
+      ],
+      "reachableFloorPixels": 22615552
+    }
+  ],
+  "lockedFloorLeak": false,
+  "wrapBypass": false,
+  "combatSpaces": 13,
+  "propFamilies": 72,
+  "runtimeImplemented": false,
+  "performanceTested": false
+}

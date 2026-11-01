@@ -388,3 +388,11 @@ The measured proposal reserves a 512x512 prop-free plaza in each district, 224px
 
 Stage 1 assets and geometry live under `assets/stage/`; the Art Room links to `devlog/art/stage-pass.html`. No runtime map or collision rules are changed. Rami’s handoff explicitly requires approval after Stage 1; native props/posters, coworkers and implementation remain later stages.
 - **Campus structure (Nov 1):** one campus map whose areas unlock as you age, like promotions (Lobby and Bullpen at 40, then Break Room/Parking Lot, Server/Conference, Executive Wing, Wellness, plus a hidden Supply Closet). The later life chapters (Hospital, Home, Courtyard, Resort) remain the separate, menu-picked stages.
+
+
+## Corporate Campus v2 revision (Nov 1, Codex)
+This supersedes the square-grid Stage 1 layout proposal. Parking Lot v1 is the approved visual-density/scale target. World extent remains 7680x4320, but floor polygons differ: L-shaped Lobby, large stepped Bullpen, long service hall, social annex, offset meeting pods and a tiny achievement closet. Thirteen reserves use non-solid tape, rugs, papers, spills and decals. Main routes are 224px, Archive branch 160px.
+
+Promotion schedule remains tunable in `assets/stage/campus-promotions.json`: 40 Lobby/Bullpen, 45 Break/Parking, 50 Server/Conference, 55 Executive, 60 Wellness. Hidden Archive provisionally uses existing `firstCoffee` (Per My Last Email, 50 Bills). Matching gates guard both wrap ends. Proposed door opening releases collision after the final of four frames, with a lower-third message; spawning requires unlocked, reachable floor. These policies are not runtime code yet.
+
+The kit plan has 72 reusable prop families with 2 or 3 variants, nine seamless 64x64 floor families and modular boundaries. Each production instance will have a prop ID, position, variant and floor footprint. Short sign labels are 1 to 3 words on at least 64px props; longer jokes use once-per-run proximity captions in the existing lower third. Every new prop must be compared with the real 56x60 hero and enemy at native size on desktop and a 390px phone. Target: about 120 visible props, off-screen culling, 350 enemies without frame loss. Runtime testing and Stage 2 remain pending v2 review.

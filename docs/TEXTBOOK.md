@@ -1504,3 +1504,18 @@ Wellness      Break Room    Conference
 ```
 
 Each district has a recognizable landmark outside its clear fighting plaza. Main paths are 224px wide; side loops are 160px. A 16px-grid check verifies that all proposed routes and nine 512x512 plazas connect across wrapping edges. The illustrated map expresses the mood; the measured plan controls dimensions. Neither replaces the live world until the layout is approved.
+
+
+## Chapter: Promotion gates and reachable floor (V. 1.28.17, Codex)
+An unlock list says which rooms you should enter. A reachability check also asks whether you can physically get there without sneaking through a wall gap or wrapping around a gate. We close the proposed door rectangles, then flood outward from the Lobby across the remaining floor. Locked wings must never join that flood, including at opposite map edges.
+
+```text
+40: Lobby <--> large Bullpen
+45:   + Break Room + Parking
+50:   + Server + Conference
+55:   + Executive
+60:   + Wellness
+Secret achievement --> tiny Archive
+```
+
+This validates the floor proposal before furniture is placed. Runtime enemies and door animations still need their own implementation and crowd tests.

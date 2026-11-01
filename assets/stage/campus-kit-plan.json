@@ -1,0 +1,620 @@
+{
+  "propFamilies": [
+    {
+      "id": "desk_tidy",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "desk_paperwork",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "desk_lunch",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "desk_sticky_notes",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "desk_family_photo",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "desk_2009",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "chair_task",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "chair_exec",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "table_round",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "table_conference",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "reception_counter",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "sofa",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "bench",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "file_cabinet",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "binder_shelf",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "server_rack",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "printer",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "water_cooler",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "kitchen_counter",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "vending_machine",
+      "category": "furniture",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "roundabout",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "gauge",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "fruit_tree",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "kiddie_pool",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "baseball_base",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "ocean_pot",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "duck_row",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "manager_cats",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "goal_dollies",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "cardboard_thinker",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "memo_flagpole",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "hard_stop",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "firehose",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "pie_chart",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "kpi_frame",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "last_email_monitor",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "offline_lamp",
+      "category": "slang",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "desk_sleeper",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "nap_pod",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "yoga_mat",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "cot",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "coat_rack",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "umbrella_bin",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "lost_found",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "birthday_banner",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "trash_recycle",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "coffee_cart",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "plant_sad",
+      "category": "ambient",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "car_compact",
+      "category": "parking",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "car_sedan",
+      "category": "parking",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "car_convertible",
+      "category": "parking",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "wheel_boot",
+      "category": "parking",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "parking_kiosk",
+      "category": "parking",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "bollard",
+      "category": "parking",
+      "variants": 3,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "gate_keycard",
+      "category": "gates",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "gate_double",
+      "category": "gates",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "gate_hidden_cabinet",
+      "category": "gates",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "gate_turnstile",
+      "category": "gates",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "giant_logo",
+      "category": "landmarks",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "goals_board",
+      "category": "landmarks",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "hang_cat_high",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "hang_cat_low",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "hang_cat_claw",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "hang_branch",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "teamwork",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "synergy",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "opportunity",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "perseverance",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "success",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "think_big",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "team",
+      "category": "posters",
+      "variants": 2,
+      "status": "planned-not-generated"
+    },
+    {
+      "id": "sign_plate",
+      "category": "signs",
+      "variants": 2,
+      "status": "planned-not-generated"
+    }
+  ],
+  "floorTiles": {
+    "size": [
+      64,
+      64
+    ],
+    "districtFamilies": 9,
+    "seamless": true
+  },
+  "modularBoundaries": [
+    "wall_straight",
+    "wall_corner",
+    "wall_end",
+    "cubicle_straight",
+    "cubicle_corner",
+    "glass_segment"
+  ],
+  "maxVisibleProps": 120,
+  "cullOffscreen": true,
+  "enemyStressTarget": 350,
+  "propReview": {
+    "heroFrame": [
+      56,
+      60
+    ],
+    "enemyReference": "enemy-bill-v1.png",
+    "displayScale": 1,
+    "desktop": [
+      1280,
+      800
+    ],
+    "phone": [
+      390,
+      844
+    ]
+  },
+  "paintedMapIsRuntime": false,
+  "captionPolicy": {
+    "channel": "existing-lower-third-tip-bar",
+    "radiusPx": 128,
+    "once": "per-caption-per-run",
+    "smallSignWords": [
+      1,
+      3
+    ],
+    "smallSignMinWidth": 64
+  },
+  "captions": [
+    {
+      "id": "caption-hang_cat_high",
+      "propId": "hang_cat_high",
+      "shortLabel": "HANG IN THERE",
+      "signMinWidth": 64,
+      "fullLine": "Hang in there. The cat still has two paws on the branch.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-hang_cat_low",
+      "propId": "hang_cat_low",
+      "shortLabel": "HANG IN THERE",
+      "signMinWidth": 64,
+      "fullLine": "Hang in there. The branch has been restructured.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-hang_cat_claw",
+      "propId": "hang_cat_claw",
+      "shortLabel": "HANG IN THERE",
+      "signMinWidth": 64,
+      "fullLine": "Hang in there. One claw counts as full engagement.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-hang_branch",
+      "propId": "hang_branch",
+      "shortLabel": "HANG IN THERE",
+      "signMinWidth": 64,
+      "fullLine": "Hang in there. The cat has taken PTO.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-teamwork",
+      "propId": "teamwork",
+      "shortLabel": "TEAMWORK",
+      "signMinWidth": 64,
+      "fullLine": "TEAMWORK: Because none of us is as dumb as all of us.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-synergy",
+      "propId": "synergy",
+      "shortLabel": "SYNERGY",
+      "signMinWidth": 64,
+      "fullLine": "SYNERGY: Two staplers fighting over the same memo.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-opportunity",
+      "propId": "opportunity",
+      "shortLabel": "OPPORTUNITY",
+      "signMinWidth": 64,
+      "fullLine": "OPPORTUNITY: Please use the door that has been bricked up.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-perseverance",
+      "propId": "perseverance",
+      "shortLabel": "PERSEVERANCE",
+      "signMinWidth": 64,
+      "fullLine": "PERSEVERANCE: The printer has been jammed since Tuesday.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-success",
+      "propId": "success",
+      "shortLabel": "SUCCESS",
+      "signMinWidth": 64,
+      "fullLine": "SUCCESS. The SS is crossed out. Underneath: PTO denied.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-think_big",
+      "propId": "think_big",
+      "shortLabel": "THINK BIG",
+      "signMinWidth": 64,
+      "fullLine": "THINK BIG. Printed as small as the budget allows.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-team",
+      "propId": "team",
+      "shortLabel": "TEAM",
+      "signMinWidth": 64,
+      "fullLine": "There is no I in TEAM, but there is in quiet quitting.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-kpi_frame",
+      "propId": "kpi_frame",
+      "shortLabel": "KPIs",
+      "signMinWidth": 64,
+      "fullLine": "What the hell is a KPI again?",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-last_email_monitor",
+      "propId": "last_email_monitor",
+      "shortLabel": "LAST EMAIL",
+      "signMinWidth": 64,
+      "fullLine": "Per my last email. And the one before that.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-birthday_banner",
+      "propId": "birthday_banner",
+      "shortLabel": "ANOTHER YEAR",
+      "signMinWidth": 64,
+      "fullLine": "Another year somehow. The cake is in a meeting.",
+      "radiusPx": 128,
+      "once": "per-run"
+    },
+    {
+      "id": "caption-reception_counter",
+      "propId": "reception_counter",
+      "shortLabel": "PLEASE WAIT",
+      "signMinWidth": 64,
+      "fullLine": "Please wait to be ignored.",
+      "radiusPx": 128,
+      "once": "per-run"
+    }
+  ],
+  "placementsStatus": "Stage 2 will add per-instance positions, prop IDs, variants and floor footprints after native-size review."
+}

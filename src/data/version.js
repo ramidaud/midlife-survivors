@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.16",
-  displayVersion: "V. 1.28.16",
+  version: "1.28.17",
+  displayVersion: "V. 1.28.17",
   lastUpdated: "Nov 1, 2026",
-  codename: "Parked Ideas",
-  build: 72,
+  codename: "Promotion Plan",
+  build: 73,
   changelog: [
+    {
+      ver: "V. 1.28.17",
+      date: "Nov 1, 2026",
+      title: "Promotion Plan",
+      highlights: ["Campus overview v2 adds irregular wings, starting-area and age-gate previews, plus a modular production plan in the Art Room. The playable world stays unchanged pending review."]
+    },
     {
       ver: "V. 1.28.16",
       date: "Nov 1, 2026",

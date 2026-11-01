@@ -1,0 +1,125 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Corporate Campus v2 | Midlife Survivors</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#171c35;color:#fff0cf;font:16px/1.5 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:24px}a{color:#f2d7a1}h1{font-size:clamp(26px,5vw,42px);line-height:1.1}h2{font-size:24px;margin:28px 0 12px}p{max-width:80ch}button,select{font:inherit;background:#303750;color:#fff0cf;border:1px solid #83a89a;border-radius:6px;padding:9px 12px;cursor:pointer}button[aria-pressed=true]{background:#3e7775;border-color:#ef9347}label{display:inline-flex;align-items:center;gap:8px}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}.tag{color:#ef9347;font-weight:700;font-size:13px;letter-spacing:1px}.panel{background:#222941;border:1px solid #526078;border-radius:8px;padding:16px}.map-scroll{overflow:auto;border:1px solid #526078;background:#171c35}.map-content{width:100%;min-width:100%}.map-content>img,.map-content>svg{display:block;width:100%;height:auto}img{max-width:100%;image-rendering:pixelated}#blueprint svg .district.locked{opacity:.23}#blueprint .gate.open rect{fill:#3e7775}#blueprint .gate.open text{fill:#fff0cf}#blueprint.hide-routes .route,#blueprint.hide-routes .space{display:none}.legend{font-size:14px;color:#b9c4ce}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.cards p{margin:6px 0}.district-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.district-buttons button{font-size:14px}.district-buttons button.locked{opacity:.6}#details{margin-top:12px}#accessible{font-weight:700;color:#83a89a}#tip{min-height:76px;border-left:5px solid #ef9347}canvas{image-rendering:pixelated;flex-shrink:0}.scale-strip{display:flex;gap:24px;align-items:end;background:#3e7775;padding:18px;flex-wrap:wrap}.scale-strip figure{margin:0;text-align:center}.scale-strip figcaption{font-size:13px}.parking-scroll{overflow:auto}.parking-scroll img{max-width:none;display:block;width:1280px;height:800px}details{margin:16px 0}summary{cursor:pointer}code{overflow-wrap:anywhere}footer{margin:28px 0} [hidden]{display:none!important}@media(max-width:500px){main{padding:14px}.controls{gap:8px}button,select{padding:8px}h2{font-size:22px}}
+</style><main><a href="./">← Art Room</a><h1>Corporate Campus, v2</h1><p class="tag">REVISED OVERVIEW · BEFORE STAGE 2 · PROPOSAL ONLY</p><p>A large Bullpen, an L-shaped Lobby, service halls and a tiny secret closet. The approved Parking Lot remains the target for density, scale and jokes. This review does not change the playable game.</p>
+<section id="overview"><h2>Explore the promotion plan</h2><div class="controls"><button id="illustrated" aria-pressed="true">Illustration</button><button id="measured" aria-pressed="false">Measured plan</button><label>Zoom <select id="zoom"><option value="1">Fit</option><option value="2">2×</option><option value="4">4×</option></select></label><a href="#parking">Approved Parking Lot ↓</a></div>
+<div class="map-scroll"><div class="map-content" id="painting"><img src="../../assets/stage/campus-overview-v2.png" width="1672" height="941" alt="Irregular Corporate Campus concept: Parking, Server and Executive wings above, bright Lobby and large Bullpen in the middle, Break Room, Wellness and Conference below, with promotion doors between them."></div><div class="map-content" id="blueprint" hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7680 4320" role="img" aria-labelledby="title desc">
+<title id="title">Corporate Campus v2: irregular wings and promotion gates</title>
+<desc id="desc">Lobby and the large Bullpen start open. Age gates unlock side wings. The hidden Archive uses an achievement. Floor shapes and fighting spaces differ in size and shape.</desc>
+<style>text{font-family:monospace;fill:#fff0cf;paint-order:stroke;stroke:#171c35;stroke-width:6}.district{transition:opacity .15s}.gate text{stroke-width:8}.space{stroke:#83a89a;stroke-width:10;fill:#83a89a;fill-opacity:.12}.route{fill:none;stroke:#fff0cf;stroke-opacity:.16;stroke-linejoin:round;stroke-linecap:square}.start-outline{fill:none;stroke:#ef9347;stroke-width:22;stroke-dasharray:48 20}.gridline{stroke:#526078;stroke-width:2;opacity:.16}</style>
+<rect width="7680" height="4320" fill="#171c35"/>
+<path d="M4224 2112L4736 2112" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M4224 2112L4736 2112" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M4224 2624L4736 2624" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M4224 2624L4736 2624" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M2592 1728L1760 1728" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M2592 1728L1760 1728" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M2560 2928L1856 2928" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M2560 2928L1856 2928" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M1024 1728L1024 2432" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M1024 1728L1024 2432" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M3264 1728L3264 1056" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M3264 1728L3264 1056" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M2080 544L2752 544" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M2080 544L2752 544" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M6528 2848L6528 3504" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M6528 2848L6528 3504" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M5824 1536L5824 1184" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M5824 1536L5824 1184" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M4832 416L5536 416" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M4832 416L5536 416" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M3456 3040L3456 3568" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M3456 3040L3456 3568" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M2560 3744L3168 3744" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M2560 3744L3168 3744" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M5504 3792L4832 3792" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M5504 3792L4832 3792" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M2528 2080L2144 2080" fill="none" stroke="#526078" stroke-width="272"/>
+<path d="M2528 2080L2144 2080" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M0 512L256 512" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M7392 512L7680 512" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M3840 0L3840 320" fill="none" stroke="#a88b70" stroke-width="224"/>
+<path d="M3840 3968L3840 4320" fill="none" stroke="#a88b70" stroke-width="224"/>
+<g class="district" data-district="lobby"><path d="M2400 1600L4000 1600L4000 1856L4480 1856L4480 2816L3616 2816L3616 3168L2400 3168Z" fill="#d3b78d" stroke="#526078" stroke-width="24"/>
+<path class="start-outline" d="M2400 1600L4000 1600L4000 1856L4480 1856L4480 2816L3616 2816L3616 3168L2400 3168Z"/>
+<path class="route" d="M2624 1792L3744 1792L3744 2112L4208 2112L4208 2592L3392 2592L3392 2944L2624 2944L2624 1792" stroke-width="224"/>
+<path d="M2720 2112L3584 2112L3584 2528L3328 2528L3328 2944L2720 2944Z" class="space"/>
+<text x="3168" y="2448" text-anchor="middle" font-size="68" font-weight="bold">LOBBY / START</text><text x="3168" y="2522" text-anchor="middle" font-size="52">OPEN AT 40</text></g>
+<g class="district" data-district="bullpen"><path d="M4480 1408L6528 1408L6528 1600L7360 1600L7360 2976L6016 2976L6016 3280L4672 3280L4672 2976L4480 2976Z" fill="#3e7775" stroke="#526078" stroke-width="24"/>
+<path class="start-outline" d="M4480 1408L6528 1408L6528 1600L7360 1600L7360 2976L6016 2976L6016 3280L4672 3280L4672 2976L4480 2976Z"/>
+<path class="route" d="M4736 1664L6272 1664L6272 1856L7104 1856L7104 2720L5760 2720L5760 3024L4928 3024L4928 2720L4736 2720L4736 1664" stroke-width="224"/>
+<rect x="4864" y="1760" width="1024" height="576" class="space"/>
+<path d="M4896 1792h96m32 0h64M4896 1856h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<rect x="6240" y="2176" width="832" height="576" class="space"/>
+<path d="M6272 2208h96m32 0h64M6272 2272h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="5792" y="2336" text-anchor="middle" font-size="68" font-weight="bold">BIG OPEN BULLPEN</text><text x="5792" y="2410" text-anchor="middle" font-size="52">OPEN AT 40</text></g>
+<g class="district" data-district="parking"><path d="M128 192L2240 192L2240 896L1920 896L1920 1856L128 1856Z" fill="#526078" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M352 416L2016 416L2016 672L1696 672L1696 1632L352 1632L352 416" stroke-width="224"/>
+<rect x="480" y="736" width="1024" height="576" class="space"/>
+<path d="M512 768h96m32 0h64M512 832h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="1152" y="1024" text-anchor="middle" font-size="68" font-weight="bold">PARKING LOT</text><text x="1152" y="1098" text-anchor="middle" font-size="52">AGE 45</text></g>
+<g class="district" data-district="breakroom"><path d="M384 2304L2016 2304L2016 3456L2688 3456L2688 4096L384 4096Z" fill="#a88b70" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M608 2528L1792 2528L1792 3680L2464 3680L2464 3872L608 3872L608 2528" stroke-width="224"/>
+<rect x="608" y="2656" width="1024" height="512" class="space"/>
+<path d="M640 2688h96m32 0h64M640 2752h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<rect x="1856" y="3616" width="640" height="320" class="space"/>
+<path d="M1888 3648h96m32 0h64M1888 3712h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="1248" y="3072" text-anchor="middle" font-size="68" font-weight="bold">BREAK ROOM</text><text x="1248" y="3146" text-anchor="middle" font-size="52">AGE 45</text></g>
+<g class="district" data-district="server"><path d="M2656 192L4960 192L4960 672L4384 672L4384 1152L2656 1152Z" fill="#303750" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M2880 416L4736 416L4736 448L4160 448L4160 928L2880 928L2880 416" stroke-width="224"/>
+<rect x="3040" y="448" width="928" height="288" class="space"/>
+<path d="M3072 480h96m32 0h64M3072 544h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<rect x="3040" y="864" width="832" height="224" class="space"/>
+<path d="M3072 896h96m32 0h64M3072 960h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="3504" y="656" text-anchor="middle" font-size="68" font-weight="bold">SERVER ROOM</text><text x="3504" y="730" text-anchor="middle" font-size="52">AGE 50</text></g>
+<g class="district" data-district="conference"><path d="M6240 3376L7520 3376L7520 4160L5376 4160L5376 3568L6240 3568Z" fill="#3e7775" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M6464 3600L7296 3600L7296 3936L5600 3936L5600 3792L6464 3792L6464 3600" stroke-width="224"/>
+<rect x="6416" y="3520" width="736" height="384" class="space"/>
+<path d="M6448 3552h96m32 0h64M6448 3616h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<rect x="5536" y="3712" width="640" height="320" class="space"/>
+<path d="M5568 3744h96m32 0h64M5568 3808h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="6656" y="3824" text-anchor="middle" font-size="68" font-weight="bold">CONFERENCE</text><text x="6656" y="3898" text-anchor="middle" font-size="52">AGE 50</text></g>
+<g class="district" data-district="executive"><path d="M5408 192L7520 192L7520 1216L6752 1216L6752 1312L5408 1312Z" fill="#874c3b" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M5632 416L7296 416L7296 992L6528 992L6528 1088L5632 1088L5632 416" stroke-width="224"/>
+<rect x="5728" y="544" width="1280" height="512" class="space"/>
+<path d="M5760 576h96m32 0h64M5760 640h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="6384" y="768" text-anchor="middle" font-size="68" font-weight="bold">EXECUTIVE WING</text><text x="6384" y="842" text-anchor="middle" font-size="52">AGE 55</text></g>
+<g class="district" data-district="wellness"><path d="M3040 3440L4960 3440L4960 4096L4480 4096L4480 4256L3040 4256Z" fill="#83a89a" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M3264 3664L4736 3664L4736 3872L4256 3872L4256 4032L3264 4032L3264 3664" stroke-width="224"/>
+<ellipse cx="3856" cy="3776" rx="608" ry="224" class="space"/>
+<text x="3888" y="3824" text-anchor="middle" font-size="68" font-weight="bold">WELLNESS</text><text x="3888" y="3898" text-anchor="middle" font-size="52">AGE 60</text></g>
+<g class="district" data-district="archive"><path d="M1824 1904L2272 1904L2272 2240L1984 2240L1984 2176L1824 2176Z" fill="#526078" stroke="#526078" stroke-width="24"/>
+<path class="route" d="M2016 2032L2160 2032L2160 2144" stroke-width="160"/>
+<rect x="2016" y="1968" width="160" height="208" class="space"/>
+<path d="M2048 2000h96m32 0h64M2048 2064h48" stroke="#f2d7a1" stroke-width="8" opacity=".45"/>
+<text x="2096" y="2048" text-anchor="middle" font-size="40" font-weight="bold">HIDDEN ARCHIVE</text><text x="2096" y="2122" text-anchor="middle" font-size="32">ACHIEVEMENT</text></g>
+<g class="gate" data-gate="parking-access"><rect x="2144" y="1616" width="128" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="2208.0" y="1748.0" text-anchor="middle" font-size="60">45</text></g>
+<g class="gate" data-gate="break-access"><rect x="2144" y="2816" width="128" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="2208.0" y="2948.0" text-anchor="middle" font-size="60">45</text></g>
+<g class="gate" data-gate="west-return"><rect x="912" y="2072" width="224" height="128" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="1024.0" y="2156.0" text-anchor="middle" font-size="60">45</text></g>
+<g class="gate" data-gate="server-access"><rect x="3152" y="1312" width="224" height="128" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="3264.0" y="1396.0" text-anchor="middle" font-size="60">50</text></g>
+<g class="gate" data-gate="server-return"><rect x="2384" y="432" width="128" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="2448.0" y="564.0" text-anchor="middle" font-size="60">50</text></g>
+<g class="gate" data-gate="meeting-access"><rect x="6416" y="3136" width="224" height="128" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="6528.0" y="3220.0" text-anchor="middle" font-size="60">50</text></g>
+<g class="gate" data-gate="executive-access"><rect x="5712" y="1296" width="224" height="128" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="5824.0" y="1380.0" text-anchor="middle" font-size="60">55</text></g>
+<g class="gate" data-gate="executive-return"><rect x="5120" y="304" width="128" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="5184.0" y="436.0" text-anchor="middle" font-size="60">55</text></g>
+<g class="gate" data-gate="wellness-access"><rect x="3344" y="3248" width="224" height="128" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="3456.0" y="3332.0" text-anchor="middle" font-size="60">60</text></g>
+<g class="gate" data-gate="wellness-west"><rect x="2800" y="3632" width="128" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="2864.0" y="3764.0" text-anchor="middle" font-size="60">60</text></g>
+<g class="gate" data-gate="wellness-east"><rect x="5104" y="3680" width="128" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="5168.0" y="3812.0" text-anchor="middle" font-size="60">60</text></g>
+<g class="gate" data-gate="hidden-binder"><rect x="2304" y="1968" width="64" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="10"/><text x="2336.0" y="2100.0" text-anchor="middle" font-size="60">KEY</text></g>
+<g class="gate" data-wrap="wrap-horizontal"><rect x="32" y="400" width="64" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="8"/><text x="64.0" y="528.0" text-anchor="middle" font-size="44">55</text></g>
+<g class="gate" data-wrap="wrap-horizontal"><rect x="7584" y="400" width="64" height="224" fill="#c45c4b" stroke="#171c35" stroke-width="8"/><text x="7616.0" y="528.0" text-anchor="middle" font-size="44">55</text></g>
+<g class="gate" data-wrap="wrap-vertical"><rect x="3728" y="64" width="224" height="64" fill="#c45c4b" stroke="#171c35" stroke-width="8"/><text x="3840.0" y="112.0" text-anchor="middle" font-size="44">60</text></g>
+<g class="gate" data-wrap="wrap-vertical"><rect x="3728" y="4192" width="224" height="64" fill="#c45c4b" stroke="#171c35" stroke-width="8"/><text x="3840.0" y="4240.0" text-anchor="middle" font-size="44">60</text></g>
+<circle cx="3168" cy="2448" r="32" fill="#ef9347"/>
+<text x="120" y="4280" font-size="52">V2: IRREGULAR MODULAR WINGS • ORANGE = START AREA • RED BARS = PROMOTION GATES</text>
+</svg>
+</div></div>
+<p class="legend">Orange outline = starting wings. Red bars = closed gates. Teal bars = open gates. Pale lanes = reserved clearance, not roads. Green shapes = fighting spaces with non-solid floor dressing.</p>
+<div class="controls"><label>Preview age <select id="age"><option>40</option><option>45</option><option>50</option><option>55</option><option>60</option></select></label><label><input id="achievement" type="checkbox"> Archive achievement earned</label><label><input id="routes" type="checkbox" checked> Clearances</label></div><div class="panel" aria-live="polite"><div id="accessible"></div><p id="promotion"></p><small>Closed wings are excluded from proposed spawn eligibility. Both ends of wrap routes have gates, so wrapping cannot bypass a promotion. Age controls switch to the measured plan.</small></div>
+<div id="districts" class="district-buttons"></div><div class="panel" id="details"></div><p class="legend">The illustration compresses corridors and the hidden Archive. The measured plan and JSON define the exact proposed geometry.</p></section>
+<section><h2>Fighting room with things to notice</h2><div class="cards"><div class="panel"><strong>A roomy start</strong><p>Lobby and Bullpen are open at 40. About 7.6 desktop camera areas of connected floor before furniture. Three differently shaped fighting reserves stay free of solid props.</p></div><div class="panel"><strong>Dressed open space</strong><p>13 reserves: queue tape, rugs, chair-mat wear, coffee rings, paper trails and floor decals. Some split in two or sit off-center.</p></div><div class="panel"><strong>Hallways have stories</strong><p>Vending alcoves, lost-and-found, a sad birthday banner and an unplugged lamp. Solids belong in side bays, clear of the 224px main route.</p></div></div></section>
+<section><h2>A modular kit, then native-size review</h2><p>72 planned prop families with two or three color variants, nine seamless 64×64 floor families and six wall/cubicle/glass segments. These are a production plan, not generated assets. Stage 2 will assemble instances from prop IDs, positions, variants and floor footprints.</p><div class="scale-strip"><figure><canvas id="hero" width="56" height="60"></canvas><figcaption>Hero · 56×60 · 1×</figcaption></figure><figure><canvas id="bill" width="48" height="48" style="width:36px;height:36px"></canvas><figcaption>Bill · 36px in game</figcaption></figure><p>Every new prop must appear beside these real sprites, at 1× on desktop and a 390px phone. New prop comparisons come with Stage 2.</p></div><p class="legend">Runtime target: no more than about 120 visible props, off-screen culling, smooth play with 350 enemies. Geometry is checked here; that performance test belongs to implementation.</p>
+<details><summary>View the planned prop families</summary><div id="kit"></div></details></section>
+<section><h2>Short signs, full jokes on approach</h2><p>One to three words on sign props at least 64px wide. Longer lines appear once per run in the existing lower-third tip bar when you walk near. Try a proposed caption:</p><div class="controls"><label>Prop <select id="caption"></select></label></div><div id="tip" class="panel" aria-live="polite"></div><p class="legend">Demo only. Proposed radius 128px. No game save is read or written. Archive access is provisionally tied to the existing “Per My Last Email” achievement (50 Bills); the binding remains tunable.</p></section>
+<section id="parking"><h2>Approved target: the Parking Lot</h2><p>Unchanged from v1. Use its density, grounded objects, jokes and scale for production. The image below stays at native 1280×800; scroll across on a phone.</p><div class="parking-scroll"><img src="../../assets/stage/parking-lot-closeup-v1.png" width="1280" height="800" alt="Approved Parking Lot: idea cars, Rebrand and Blockchain signs, Dave’s clamped car, office clutter and painted floor markings."></div></section>
+<footer><a href="../../assets/stage/campus-layout-v2.json">Layout JSON</a> · <a href="../../assets/stage/campus-promotions.json">Promotion schedule</a> · <a href="../../assets/stage/campus-kit-plan.json">Kit and captions</a> · <a href="../../assets/stage/campus-v2-checks.json">Geometry checks</a> · <a href="stage-pass.html">Archived v1 review</a><p>Next: Rami reviews v2, then Stage 2 props and posters. Coworkers and runtime gate logic come later.</p></footer>
+<script src="../../assets/stage/campus-plan-v2-data.js"></script><script src="../../assets/characters/character-data.js"></script><script src="../../assets/enemies/review-data.js"></script><script src="stage-pass-v2.js"></script></main></html>

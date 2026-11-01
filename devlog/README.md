@@ -59,3 +59,7 @@ Post 05's Why now section uses `img/05-twins-pixel-v2.png`, Rami's simplified 15
 
 ## Stage Pass concept review (Nov 1, Codex)
 The Art Room now shows the two Stage 1 campus concepts and links to `art/stage-pass.html`: nine-district illustration, measured route/plaza plan, zoom, district inspection and Parking Lot camera study. Files and prompts are under `../assets/stage/`. This is approval-stage art only; the walkable preview and production world remain unchanged. No post or RSS content changed.
+
+
+## Campus overview v2 (Nov 1, Codex)
+The Art Room now opens `art/stage-pass-v2.html`: irregular district geometry, promotion-age controls, starting area, hidden Archive, captions and a planned modular kit. Parking Lot v1 remains the approved scale/density target. Original review retained as an archive. Proposal only; no post or runtime world changes.

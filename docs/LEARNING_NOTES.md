@@ -364,3 +364,18 @@ A new image filename lets a published page load a revision without relying on re
 A **landmark** lets you recognize an area without opening a map. A **loop** gives you another way out when enemies follow. A clear plaza gives a swarm room to spread out. In the campus proposal, the illustration tests the personality while a separate measured plan checks that those spaces actually connect.
 
 `landmark pocket → clear plaza → two or more routes → next district`
+
+
+## Promotion gates and reachable floor (V. 1.28.17, Codex)
+An unlock list says which rooms you should enter. A reachability check also asks whether you can physically get there without sneaking through a wall gap or wrapping around a gate. We close the proposed door rectangles, then flood outward from the Lobby across the remaining floor. Locked wings must never join that flood, including at opposite map edges.
+
+```text
+40: Lobby <--> large Bullpen
+45:   + Break Room + Parking
+50:   + Server + Conference
+55:   + Executive
+60:   + Wellness
+Secret achievement --> tiny Archive
+```
+
+This validates the floor proposal before furniture is placed. Runtime enemies and door animations still need their own implementation and crowd tests.

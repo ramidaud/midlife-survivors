@@ -687,3 +687,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Review page supports district inspection, illustration/plan switching, measurements and zoom. Saved prompts, sources, manifest and geometry checks. Corrected illustration scale before delivery; concept paintings remain separate from precise collision planning.
 - Stage 1 review checks cover desktop/phone loading, controls and layout. Production world, collisions, combat, leaderboard and posts are unchanged. Stop here for Rami’s approval before props/posters, coworker sheets or overworld implementation.
 - Stage structure: one campus with areas that unlock as you age ("promotions"). Added to the stage pass addendum, with an overview v2 before Stage 2.
+
+
+## 2026-11-01: Campus v2, promotion gates and production plan, V. 1.28.17 (Codex)
+- Revised the overview after Claude's review confirmed by Rami: unequal floor shapes, bigger Bullpen, tiny hidden Archive, dressed fighting spaces and hallway story bays. Kept the approved Parking Lot image unchanged.
+- Added an isolated Art Room review with age and achievement controls, exact measured plan, caption previews and native hero/enemy references. About 7.6 desktop camera areas of starting floor before prop placement.
+- Saved tunable promotion/door/spawn policies and a 72-family modular kit plan with variants, seamless tile contract and readable signs. Assets and runtime behaviors remain planned, not generated or implemented.
+- Physical floor checks passed 18 promotion-boundary/achievement cases including wrapping, without locked-floor leaks. Desktop and 390px phone checks passed with clean logs and contained zoom. Runtime crowd/performance tests remain future work.
+- Stop for v2 review before Stage 2. No live world, balance, save, leaderboard, post or CLAUDE.md changes.

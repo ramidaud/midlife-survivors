@@ -1,6 +1,7 @@
 {
   "batch": "stage-pass-1",
-  "status": "awaiting-approval",
+  "revision": 2,
+  "status": "awaiting-v2-review-before-stage-2",
   "productionReady": false,
   "worldSize": [
     7680,
@@ -8,10 +9,10 @@
   ],
   "assets": [
     {
-      "id": "campus-overview",
-      "file": "campus-overview-v1.png",
+      "id": "campus-overview-v2",
+      "file": "campus-overview-v2.png",
       "size": [
-        1671,
+        1672,
         941
       ],
       "floorFootprint": null,
@@ -19,9 +20,9 @@
       "kind": "concept-illustration",
       "district": "all",
       "frameCount": 1,
-      "status": "awaiting-stage-1-approval",
-      "sha256": "d566d552f69fac6a1f2d7e82b21614315069af744452c4043e87a489dd68a903",
-      "prompt": "campus-overview-v1-prompt.txt"
+      "status": "awaiting-v2-review",
+      "sha256": "bc575523596a9e38500bb2b49bb3320ff424c43eb39516365c7dce002cfcfb59",
+      "prompt": "campus-overview-v2-prompt.txt"
     },
     {
       "id": "parking-lot-closeup",
@@ -35,18 +36,37 @@
       "kind": "concept-illustration",
       "district": "parking",
       "frameCount": 1,
-      "status": "awaiting-stage-1-approval",
+      "status": "approved-style-density-scale-target",
       "sha256": "868f2d7c905fef49208bbf66c304fbffce36ab80abc1ada0967375980f28aedf",
       "prompt": "parking-lot-closeup-v1-prompt.txt"
+    },
+    {
+      "id": "campus-overview-v1",
+      "file": "campus-overview-v1.png",
+      "size": [
+        1671,
+        941
+      ],
+      "floorFootprint": null,
+      "solid": false,
+      "kind": "concept-illustration",
+      "district": "all",
+      "frameCount": 1,
+      "status": "superseded-grid-layout",
+      "sha256": "d566d552f69fac6a1f2d7e82b21614315069af744452c4043e87a489dd68a903",
+      "prompt": "campus-overview-v1-prompt.txt"
     }
   ],
-  "layout": "campus-layout-concept.json",
-  "measuredPlan": "campus-plan.svg",
-  "review": "../../devlog/art/stage-pass.html",
+  "layout": "campus-layout-v2.json",
+  "measuredPlan": "campus-plan-v2.svg",
+  "schedule": "campus-promotions.json",
+  "productionPlan": "campus-kit-plan.json",
+  "checks": "campus-v2-checks.json",
+  "review": "../../devlog/art/stage-pass-v2.html",
   "notes": [
-    "Concept paintings include illustrative light/contact cues and full backgrounds; they are not magenta sprite exports.",
-    "Future production props keep exact magenta, native sizes, code-drawn shadows and floor-footprint collisions.",
-    "No Stage 2 props, posters or Stage 3 coworker sheets have been generated.",
-    "Illustration is not a pixel-accurate collision map. The measured plan reserves route and plaza geometry."
+    "Parking Lot v1 stays approved and unchanged.",
+    "Illustration is approximate; measured data defines floor geometry and gates.",
+    "72 prop families are planned, not generated; instance placements and native-size prop review belong to Stage 2.",
+    "No runtime gates, spawn policy, captions or map replacement have shipped. Performance is a target, not measured for this proposed world."
   ]
 }

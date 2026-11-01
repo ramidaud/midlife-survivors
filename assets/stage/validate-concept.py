@@ -37,7 +37,9 @@ for id,name,district in [('campus-overview','campus-overview-v1.png','all'),('pa
  if district=='parking':assert size==[1280,800]
  assets.append(dict(id=id,file=name,size=size,floorFootprint=None,solid=False,kind='concept-illustration',district=district,frameCount=1,status='awaiting-stage-1-approval',sha256=hashlib.sha256(data).hexdigest(),prompt=id+'-v1-prompt.txt'))
 manifest=dict(batch='stage-pass-1',status='awaiting-approval',productionReady=False,worldSize=[7680,4320],assets=assets,layout='campus-layout-concept.json',measuredPlan='campus-plan.svg',review='../../devlog/art/stage-pass.html',notes=['Concept paintings include illustrative light/contact cues and full backgrounds; they are not magenta sprite exports.','Future production props keep exact magenta, native sizes, code-drawn shadows and floor-footprint collisions.','No Stage 2 props, posters or Stage 3 coworker sheets have been generated.','Illustration is not a pixel-accurate collision map. The measured plan reserves route and plaza geometry.'])
-(root/'campus-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+# Archived v1 checks must not replace the current revision manifest.
+if not (root/'campus-layout-v2.json').exists():
+ (root/'campus-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 result=dict(districts=9,mainRoutes=len(plan['mainRoutes']),branchLoops=9,clearPlazas=9,mainWidth=224,branchWidth=160,connected=True,wrapConnections=True,walkCells=len(walk),landmarksOutsideRoutes=True,productionMapChanged=False)
 (root/'layout-checks.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result))
