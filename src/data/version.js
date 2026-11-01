@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.23.2",
-  displayVersion: "V. 1.23.2",
+  version: "1.23.3",
+  displayVersion: "V. 1.23.3",
   lastUpdated: "Oct 31, 2026",
-  codename: "Timer and Score",
-  build: 45,
+  codename: "Three Ways Through Tuesday",
+  build: 46,
   changelog: [
+    {
+      ver: "V. 1.23.3",
+      date: "Oct 31, 2026",
+      title: "Three Desks, Three Personalities",
+      highlights: [
+        "The Campus art test now has tidy, paperwork-covered and working-lunch desks together in Accounts Payable.",
+        "Compare the three in the new close-up gallery. They share a game frame and collision footprint."
+      ]
+    },
     {
       ver: "V. 1.23.2",
       date: "Oct 31, 2026",

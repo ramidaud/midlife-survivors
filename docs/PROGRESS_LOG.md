@@ -517,3 +517,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-10-31: Timer and live score (V. 1.23.2) (Claude)
 - Rami asked for a running timer and a score tally. Timer sits top center above AGE and turns red in the last minute before the ending.
 - Live score counts up in the top left, using the same formula as the leaderboard.
+
+## 2026-10-31: Three desk personalities, V. 1.23.3 (Codex)
+- Rami approved the exploration layout and asked to tie the indie art together. Generated Tidy Perfectionist, Paperwork Avalanche and Lunch at the Keyboard using the existing workstation reference.
+- All three appear in Accounts Payable, with suitable variations in the other departments. Added 2x close-ups, stacked on phones, for direct comparison.
+- Runtime import removes magenta, limits colors and uses hard nearest-neighbor sampling. All desk variants share a 96x104 game frame and existing collision rules. Sources and full prompts saved in `assets/desks/`.
+- Checked game-size readability, front collision, route clearance and phone gallery layout; browser had no errors. Scope stays in the separate art test.
+- Next: feedback on detail and personality, then the 9-to-5er's walking sheet. The rest of Accounts Payable scenery is still pending.

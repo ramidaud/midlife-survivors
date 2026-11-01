@@ -2,6 +2,21 @@
 
 A picture-first guide to how this game works, one chapter per idea. Each chapter adds what we just built. Read it in any order, but it makes the most sense from top to bottom.
 
+## Prop families: three ways through Tuesday (Oct 31, 2026, Codex)
+
+```text
+               SAME DESK FRAME
+            /         |         \
+        File tray  Paper stacks  Pizza box
+          Tidy      Overloaded   Working lunch
+            \         |         /
+              SAME FLOOR FOOTPRINT
+```
+
+`Shared desk shape + one readable story = a cohesive prop family`
+
+The desk base, camera and palette tie the variants together. A few large objects carry the personality, rather than tiny scattered detail. Each imported frame is 96x104 with the same bottom anchor and floor collision area, so the artwork can vary without changing navigation. Check readability at game size before producing the full furniture set.
+
 ## Corporate Campus: exploration before decoration (Oct 31, 2026, Codex)
 
 ```text

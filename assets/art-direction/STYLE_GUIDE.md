@@ -1,6 +1,6 @@
 # Midlife Survivors: art direction v1
 
-First key art direction, prepared with Codex and built-in image generation. Awaiting Rami's visual feedback before producing game assets.
+Key art direction approved by Rami, prepared with Codex and built-in image generation. The separate Campus preview tests assets before production replacement.
 
 Warm, funny office survival. Top-down three-quarter view with readable silhouettes, chunky shapes, tired determination, and affectionate everyday absurdity.
 
@@ -33,6 +33,7 @@ These are production targets, not a claim that the generated concept contains on
 - Pixel scale: use 48x52 logical pixels for the first hero study, matching the current game frame, and 32x32 floor tiles. Draw at native resolution, then enlarge only by whole-number nearest-neighbor scaling. A 1024x1024 delivery canvas is packaging, not the sprite's logical resolution.
 - Camera: top-down three-quarter view, showing tops and fronts, consistent across characters and props.
 - Readability: coffee orange is the hero's focal accent. Keep small props quieter than enemies and the player.
+- Current approved hero study: 56x60 after Rami requested a small size increase. Desk family: 96x104 game frames with one bottom anchor and floor footprint. Large silhouette details carry each desk's story; material palette and camera stay consistent.
 
 ## Asset delivery rules
 

@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-10-31 (Codex: Corporate Campus exploration blockout ready for feedback)
+**Last updated:** 2026-10-31 (Codex: three desk variants ready in the Campus art test)
 
 ---
 
@@ -31,7 +31,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 2. [x] **Core 19-minute run (V. 1.21.0) (ages 40 to 65, 45 s/year):** short Midlife mode as the main game, Overtime unlocks, Full Life (to 100) as an unlockable mode, separate leaderboards
 3. [x] **Content drop + items (V. 1.22.0):** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
 4. [x] **Achievements (V. 1.23.0)** (one unlocks Full Life)
-5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. First isolated office study ready in `art-test.html` (Extras > Art Test): Current/New comparison, hero, Bill, workstation and seamless floor. Await feedback before production replacement.
+5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. Separate Campus study in Extras > Art Test now includes three generated desk variants and a close-up comparison. Rami liked the layout; next judge the furniture style before the hero walking sheet and production replacement.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: four departments, revealing map, three optional finds. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery

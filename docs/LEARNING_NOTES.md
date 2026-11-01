@@ -2,6 +2,11 @@
 
 Game-dev ideas you've picked up along the way. One short entry per concept.
 
+## Prop families: same furniture, different people (Oct 31, 2026, Codex)
+Related props can tell different stories while sharing a silhouette, palette and collision area. Our three desks differ through a few large objects: a file tray, leaning paper stacks and a pizza box. Keeping one 96x104 frame and one floor footprint means changing desk art does not change where the hero can walk. Judge the differences at 1x; the 2x gallery helps inspect pixels.
+
+`Shared desk shape + one readable story = a cohesive prop family`
+
 ## Level blockouts and exploration loops (Oct 31, 2026, Codex)
 A **blockout** is a playable rough layout used to test space before making finished scenery. A landmark helps you remember where you are, while an optional find gives you a reason to take a detour. A loop gives you another way back when a crowd blocks the direct path. We checked that the hero can reach all four departments and all three finds with furniture collisions enabled; swarm pressure comes next.
 

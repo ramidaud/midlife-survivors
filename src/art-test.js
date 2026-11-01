@@ -76,7 +76,11 @@
     desks = []; layoutObjects = []; campusProps = []; discoveries = [];
     visited = new Set(); found = new Set(); currentDepartment = '';
     const positions = campusMode ? campus.departments.flatMap(d => d.desks) : deskPositions;
-    desks = positions.map(([x, y]) => scene.add.image(x, y, newArt ? 'art_desk' : 'prop_desk').setOrigin(.5, 1).setDepth(y));
+    desks = positions.map(([x, y, variant]) => {
+      const desk = scene.add.image(x, y, 'art_desk').setOrigin(.5, 1).setDepth(y);
+      desk.variant = variant || 'tidy';
+      return desk;
+    });
     if (campusMode) {
       scene.cameras.main.setBounds(-640, -448, campus.width, campus.height);
       const ground = scene.add.graphics().setDepth(-999999998); layoutObjects.push(ground);
@@ -135,7 +139,8 @@
   function importCell(image, column, key, width, height) {
     // Crop windows exclude a few pixels of desk that the generated atlas placed
     // over a cell boundary. Never include neighboring objects in the import.
-    const [sx, sy, sw, sh] = [[32, 176, 456, 656], [544, 304, 448, 496], [1000, 232, 520, 592]][column];
+    const [sx, sy, sw, sh] = column === null ? [0, 0, image.width, image.height] :
+      [[32, 176, 456, 656], [544, 304, 448, 496], [1000, 232, 520, 592]][column];
     const source = document.createElement('canvas');
     source.width = sw; source.height = sh;
     const ctx = source.getContext('2d', { willReadFrequently: true });
@@ -203,13 +208,19 @@
     document.getElementById('bill-size').textContent = newArt ? '32 × 36 game pixels' : '36 × 26 game pixels';
     document.getElementById('hero-size').textContent = newArt ? '56 × 60 game pixels' : '48 × 52 game pixels';
     document.getElementById('desk-size').textContent = newArt ? '96 × 104 game pixels' : '96 × 68 game pixels';
+    for (const variant of ['tidy', 'paperwork', 'lunch']) {
+      const canvas = document.getElementById(variant + '-sample');
+      const ctx = canvas.getContext('2d'); ctx.imageSmoothingEnabled = false;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(scene.textures.get('desk_' + variant).getSourceImage(),0,0);
+    }
   }
 
   function appearance() {
     if (!ready) return;
     hero.setTexture(newArt ? 'art_hero' : 'player');
     bill.setTexture(newArt ? 'art_bill' : 'bill');
-    desks.forEach(d => d.setTexture(newArt ? 'art_desk' : 'prop_desk'));
+    desks.forEach(d => d.setTexture(newArt ? (campusMode ? 'desk_' + d.variant : 'art_desk') : 'prop_desk'));
     floor.setTexture(newArt ? 'art_floor' : 'floor');
     walkway.setVisible(newArt && !campusMode);
     // Switching art can change the furniture footprint around an actor.
@@ -247,12 +258,17 @@
       ctx.fillStyle = '#83a89a'; ctx.fillRect(34, 17, 5, 4);
     });
     scene.load.image('atlas_source', window.ART_TEST_SHEET);
+    for (const [variant, data] of Object.entries(window.DESK_VARIANT_IMAGES || {})) scene.load.image('source_' + variant, data);
     scene.load.once('complete', () => {
       try {
         const source = scene.textures.get('atlas_source').getSourceImage();
         importCell(source, 0, 'art_hero', 56, 60);
         importCell(source, 1, 'art_bill', 32, 36);
         importCell(source, 2, 'art_desk', 96, 104);
+        for (const variant of ['tidy', 'paperwork', 'lunch']) {
+          const image = scene.textures.get('source_' + variant).getSourceImage();
+          importCell(image, null, 'desk_' + variant, 96, 104);
+        }
         makeFloor('art_floor', false); makeFloor('art_walkway', true);
         // Scenery must stay behind actors even north of world Y=0.
         floor = scene.add.tileSprite(0, 0, 2000, 2000, 'art_floor').setDepth(-1000000000);

@@ -5,6 +5,8 @@
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
 ## Corporate Campus exploration direction (Oct 31, 2026, Codex)
+- Rami approved the exploration spacing and asked to strengthen the indie look. First furniture set: Tidy Perfectionist, Paperwork Avalanche and Lunch at the Keyboard. All three stand together in Accounts Payable and share 96x104 frames, bottom anchors and collision footprints. Other departments use variations that fit their personality.
+- A dedicated 2x gallery compares the imported game textures. Next approve the furniture detail level, then build the 9-to-5er's four-direction walking sheet before the other characters. This step does not finish all Accounts Payable scenery.
 - Rami chose exploration after comparing Cubicle Commons, The Meeting Loop and Corporate Campus wireframes. Favor recognizable departments joined by wide combat routes over a maze.
 - Separate playable blockout in `art-test.html`: Accounts Payable, the Quiet Zone, the Breakroom and the Wellness Corner. A 1280x896 sample block has a 192-pixel central cross and alternate outer routes. This is a bounded sample of an eventual larger office.
 - The small map reveals department names on entry. A coupon, headphones and leftover pizza reward optional detours with jokes. These are prototype discoveries with no production stats, unlocks or saved progress.
