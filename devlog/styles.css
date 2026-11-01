@@ -441,3 +441,6 @@ a, button, [role="button"], summary, .hotspot, .card { cursor: url("img/cursor-h
   image-rendering: pixelated;
 }
 .post-lead figcaption { font-size: 13px; color: var(--muted, #a3a8c7); margin-top: 8px; }
+
+/* Play button on the hero memo: the devlog leads straight into the game. */
+.hero-memo .memo-play { pointer-events: auto; display: inline-block; margin-top: 14px; }

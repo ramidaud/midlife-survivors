@@ -586,3 +586,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami supplied a devlog-cover brief with open scene/enemy placeholders. Used the latest office-exploration post: the 9-to-5er taking the long way to coffee, followed by Bills, a purple spam phone and a donut.
 - Generated one 1536x1024 landscape cover in the approved pixel-art palette. Left third stays calm for a future title overlay; no title or logo is baked in.
 - Saved the PNG and full prompt, and assigned it to draft post 04 with alt text identifying it as an illustration. The post remains unpublished. Verified image dimensions and inspected composition.
+
+## 2026-11-01: One Office (V. 1.28.0) (Claude)
+- Rami asked for the devlog and game to feel like one unit. Shared brand layer: style-guide palette, Silkscreen labels and Atkinson Hyperlegible text in both; cream "MEMO · RE:" strips on every game menu; teal replaces the off-palette blue.
+- Title screen now sits on the office key art (scanlines, slow pan, off for reduce-motion), matching the devlog hero.
+- Links: Devlog on the title's main row (same tab), Art Test renamed Art Preview, devlog hero has a Play button, Art Preview links to the devlog. Shared pixel "MS" favicon and a share-preview image for the game link.
+- Audited all menus (title, shop, extras, achievements, leaderboard, options, level-up, pause, game over) at laptop and phone sizes.

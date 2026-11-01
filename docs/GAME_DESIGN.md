@@ -319,3 +319,7 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 ## Devlog cover direction (Nov 1, 2026, Codex)
 - Editorial covers match the warm office key art but remain separate from gameplay screenshots. Landscape 1536x1024, no baked-in text, logos or watermarks, and a calm left third for optional title overlays.
 - First cover illustrates the latest office-exploration post, using the approved hero and recognizable paper/phone/donut enemies. Saved in draft post 04; this introduces no gameplay assets or mechanics.
+
+## Decided (Nov 1): one brand for game + devlog
+- Palette from `assets/art-direction/STYLE_GUIDE.md`. Fonts: Silkscreen for short labels and headings, Atkinson Hyperlegible for reading text. HR-memo framing ("MEMO · RE:") on menus and posts. Office key art behind the title screen and the devlog hero.
+- Game styles live in the "SHARED BRAND" block in `index.html`; devlog styles in `devlog/styles.css`. Change both together.

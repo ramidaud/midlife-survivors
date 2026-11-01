@@ -1906,9 +1906,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
-        <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
         <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
-        <button class="t-style-btn" id="title-art-test-btn">🎨 ART TEST</button>
+        <button class="t-style-btn" id="title-art-test-btn">🎨 ART PREVIEW</button>
         ${backBtn}
       </div>`;
   } else {
@@ -1925,11 +1924,13 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
         <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
         <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
+        <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
       </div>`;
   }
 
   modal.innerHTML = `
     <div class="modal-card title-box title-clean" data-view="${view}">
+      <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${({ main: "Surviving 40 to 65", shop: "Your 401(k)", extras: "Extras", achievements: "Performance record", leaders: "Leaderboard", credits: "Credits" })[view] || "Midlife Survivors"}</strong></div>
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
       <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
       ${bodyHtml}
@@ -1957,7 +1958,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     location.reload();
   });
   const devlogBtn = document.getElementById("title-devlog-btn");
-  if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.open("devlog/", "_blank", "noopener"); }); // how the game got made
+  if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.location.href = "devlog/"; }); // same tab: the devlog's Play button brings you right back
   const artTestBtn = document.getElementById("title-art-test-btn");
   if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "art-test.html"; });
   const backEl = document.getElementById("title-back-btn");

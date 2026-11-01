@@ -1,10 +1,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>Midlife Survivors Playtest</title>
+<title>Midlife Survivors</title>
+<meta name="description" content="A Vampire Survivors-style game about surviving midlife. Dodge bills, robocalls and back twinges from 40 to 65.">
+<meta property="og:title" content="Midlife Survivors">
+<meta property="og:description" content="Survive from 40 to 65. Bills, robocalls, donuts and back twinges are coming. Your coffee fires on its own.">
+<meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/office-key-art-hero.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Chakra Petch', sans-serif; }
@@ -937,6 +945,74 @@
   .lb-table td { padding: 5px 6px; color: #f2f4fa; border-bottom: 1px solid rgba(46,51,86,0.6); text-align: left; }
   .lb-table tr.lb-me td { background: rgba(255,224,66,0.16); color: #ffe042; font-weight: 700; }
   .lb-empty { text-align: center !important; color: #9aa6c8 !important; }
+
+  /* =========================================================================
+     SHARED BRAND (Nov 1): the game and the devlog are one product.
+     Same palette (assets/art-direction/STYLE_GUIDE.md), same fonts as devlog/styles.css:
+     Silkscreen for short labels and headings, Atkinson Hyperlegible for anything you read.
+     Applies to the default 2D theme (data-theme="0").
+     ========================================================================= */
+  :root {
+    --ms-navy: #171C35; --ms-slate: #303750; --ms-teal: #3E7775; --ms-sage: #83A89A;
+    --ms-cream: #F2D7A1; --ms-white: #FFF0CF; --ms-coffee: #EF9347; --ms-red: #C45C4B; --ms-muted: #B9BED6;
+  }
+  #ui-layer[data-theme="0"] {
+    --bg-pod: rgba(23, 28, 53, 0.95);
+    --border-col: var(--ms-coffee);
+    --accent: var(--ms-cream);
+    --text-main: var(--ms-white);
+    --text-muted: var(--ms-muted);
+    --font-head: 'Silkscreen', 'Press Start 2P', monospace;
+    --font-body: 'Atkinson Hyperlegible', 'Chakra Petch', system-ui, sans-serif;
+    --pod-shadow: 0 0 0 2px var(--ms-teal), 6px 6px 0 #0b0e1d;
+    font-family: var(--font-body);
+  }
+  #ui-layer[data-theme="0"] .modal-card { border-width: 3px; }
+  /* Memo strip: same cream "MEMO · RE:" bar as the devlog posts */
+  #ui-layer[data-theme="0"] .modal-kicker {
+    display: inline-block; background: var(--ms-cream); color: var(--ms-navy);
+    border-left: 4px solid var(--ms-coffee); padding: 5px 10px; border-radius: 2px;
+    font-family: var(--font-head); font-size: 10px; font-weight: 400; letter-spacing: 0.06em;
+  }
+  #ui-layer[data-theme="0"] .memo-strip {
+    display: flex; gap: 8px; align-items: baseline; justify-content: center; flex-wrap: wrap;
+    background: var(--ms-cream); color: var(--ms-navy); border-left: 4px solid var(--ms-coffee);
+    padding: 6px 12px; border-radius: 2px; text-align: left;
+  }
+  #ui-layer[data-theme="0"] .memo-strip .re { font-family: var(--font-head); font-size: 10px; color: var(--ms-teal); letter-spacing: 0.06em; }
+  #ui-layer[data-theme="0"] .memo-strip strong { font-family: var(--font-body); font-size: 13px; font-weight: 700; }
+  #ui-layer[data-theme="0"] .game-logo { font-family: var(--font-head); color: var(--ms-coffee); letter-spacing: 0.04em; text-shadow: 3px 3px 0 var(--ms-navy); }
+  #ui-layer[data-theme="0"] .modal-title { font-family: var(--font-body); font-weight: 700; }
+  #ui-layer[data-theme="0"] .game-tagline { color: var(--ms-white); }
+  /* Buttons: orange primary, teal secondary (no more off-palette blue) */
+  #ui-layer[data-theme="0"] .cta-btn { font-family: var(--font-head); font-weight: 400; color: var(--ms-navy); }
+  #ui-layer[data-theme="0"] .cta-btn:hover { background: var(--ms-cream); }
+  #ui-layer[data-theme="0"] .secondary-btn { background: var(--ms-teal); color: var(--ms-white); }
+  #ui-layer[data-theme="0"] .t-style-btn { font-family: var(--font-head); font-weight: 400; letter-spacing: 0.03em; border-color: rgba(131,168,154,0.45); }
+  #ui-layer[data-theme="0"] .t-style-btn.active { background: var(--ms-cream); border-color: var(--ms-cream); color: var(--ms-navy); }
+  #ui-layer[data-theme="0"] .opt-btn { font-family: var(--font-body); border-color: rgba(131,168,154,0.35); }
+  #ui-layer[data-theme="0"] .opt-btn span.opt-val { font-family: var(--font-head); font-weight: 400; color: var(--ms-cream); }
+  #ui-layer[data-theme="0"] .opt-btn.primary-opt { font-family: var(--font-head); font-weight: 400; color: var(--ms-navy); }
+  /* Focus ring: cream outline, warm glow */
+  #ui-layer[data-theme="0"] .nav-focused {
+    outline-color: var(--ms-cream) !important; border-color: var(--ms-cream) !important;
+    box-shadow: 0 0 0 2px var(--ms-navy), 0 0 18px rgba(239,147,71,0.55) !important;
+  }
+  #ui-layer[data-theme="0"] .nav-hint-bar b { color: var(--ms-cream); }
+  /* Title screen sits on the office key art, like the devlog hero */
+  #ui-layer[data-theme="0"] #title-modal {
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px),
+      radial-gradient(ellipse at center, rgba(23,28,53,0.35) 0%, rgba(23,28,53,0.82) 75%),
+      url("devlog/img/office-key-art-hero.jpg") center / cover no-repeat;
+    backdrop-filter: none;
+    animation: msTitlePan 40s ease-in-out infinite alternate;
+  }
+  @keyframes msTitlePan { from { background-position: 0 0, center, 45% 40%; } to { background-position: 0 0, center, 55% 60%; } }
+  @media (prefers-reduced-motion: reduce) { #ui-layer[data-theme="0"] #title-modal { animation: none; } }
+  #ui-layer[data-theme="0"] .title-box { background: rgba(23, 28, 53, 0.90); }
+  #ui-layer[data-theme="0"] .title-links { display: flex; justify-content: center; gap: 14px; font-size: 12px; }
+  #ui-layer[data-theme="0"] .title-links a { color: var(--ms-cream); text-decoration: underline; text-underline-offset: 3px; pointer-events: auto; }
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>

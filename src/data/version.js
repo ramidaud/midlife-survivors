@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.27.3",
-  displayVersion: "V. 1.27.3",
+  version: "1.28.0",
+  displayVersion: "V. 1.28.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "The Long Way, Illustrated",
-  build: 55,
+  codename: "One Office",
+  build: 56,
   changelog: [
+    {
+      ver: "V. 1.28.0",
+      date: "Nov 1, 2026",
+      title: "One Office",
+      highlights: [
+        "The game and the devlog now share one look: the same palette, fonts and cream HR-memo headers.",
+        "The title screen sits on the office key art, with a Devlog button right on the main menu.",
+        "Teal replaces the old blue buttons, and the game has its own icon in your browser tab."
+      ]
+    },
     {
       ver: "V. 1.27.3",
       date: "Nov 1, 2026",

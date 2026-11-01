@@ -83,6 +83,8 @@ PAGE = """<!doctype html>
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{og_image}">
 <link rel="alternate" type="application/rss+xml" title="Midlife Survivors Devlog" href="../feed.xml">
+<link rel="icon" href="../../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../styles.css">
 </head>
