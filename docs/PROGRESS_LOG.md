@@ -669,6 +669,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Exported the existing desk sources to native PNGs, reducing the main-game desk data from 5.2 MB to 24 KB. Distant sections are excluded from rendering while retaining their world state. Desktop stress with 350 enemies averaged about 100 FPS.
 - Movement, desk collision, occlusion and section-seam checks passed. Phone, normal-play, fallback and restart evidence is saved under `docs/qa/world-art/`. No leaderboard test scores were submitted.
 
+## 2026-11-01: Discord community, V. 1.28.14
+- Discord is live (discord.gg/E6N9j5tZe): linked in the devlog follow boxes, footers, About page, coffee post and the game's Extras. V. 1.28.14.
+
+
 ## 2026-11-01: Simplified twins portrait in coffee post, V. 1.28.15 (Codex)
 - Replaced the older twins illustration after the birth announcement in post 05's Why now section with Rami's simplified pixel-art revision. The previous image remains saved.
 - Added a versioned 1536x1152 PNG and its full built-in-imagegen edit prompt. Updated Markdown and static article references, retaining descriptive alt text and the article's existing copy.

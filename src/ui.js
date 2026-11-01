@@ -1906,6 +1906,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
+        <button class="t-style-btn" id="title-discord-btn">💬 DISCORD</button>
         <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
         <button class="t-style-btn" id="title-art-test-btn">🎨 ART ROOM</button>
         ${backBtn}
@@ -1954,6 +1955,9 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Ko-fi tip jar: opens in a new tab so the game stays put
   const coffeeBtn = document.getElementById("title-coffee-btn");
   if (coffeeBtn) bindNavItem(coffeeBtn, 10, () => { window.open("https://ko-fi.com/ramidaud", "_blank", "noopener"); });
+  // Discord community: new tab, same as the coffee button
+  const discordBtn = document.getElementById("title-discord-btn");
+  if (discordBtn) bindNavItem(discordBtn, 10, () => { window.open("https://discord.gg/E6N9j5tZe", "_blank", "noopener"); });
   // Reset Progress: tap twice (no pop-up dialogs). Clears coins, shop, unlocks and achievements; keeps your leaderboard name.
   const resetBtn = document.getElementById("title-reset-btn");
   if (resetBtn) bindNavItem(resetBtn, 10, () => {

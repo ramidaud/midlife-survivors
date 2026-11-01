@@ -15,6 +15,14 @@ const GAME_VERSION = {
       highlights: ["The coffee devlog now includes the simplified pixel-art twins portrait in its Why now section."]
     },
     {
+      ver: "V. 1.28.14",
+      date: "Nov 1, 2026",
+      title: "Join the Crew",
+      highlights: [
+        "There's a Midlife Survivors Discord now. Find it in Extras, or in the devlog. Come share playtest notes, see art early, or help build the game."
+      ]
+    },
+    {
       ver: "V. 1.28.13",
       date: "Nov 1, 2026",
       title: "Out of the Art Room",
