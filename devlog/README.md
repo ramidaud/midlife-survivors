@@ -24,5 +24,5 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 
 ## Sidenotes (inline references)
 - Write `^[your note]` right after a word or sentence. It becomes a small orange number.
-- On wide screens the note sits in the right margin; on phones, tapping the number opens it under the line.
+- Click (or tap) the number and the note pops in as a card under that line, like hankgreen.com. X, Escape or a click elsewhere closes it.
 - Notes can include links: `^[More on this in [post 1](?post=01-never-made-a-game).]`

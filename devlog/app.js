@@ -79,7 +79,7 @@
     md = md.replace(/\^\[([^\]]+)\]/g, (m, note) => {
       snCount++;
       const inner = window.marked ? marked.parseInline(note) : esc(note);
-      return `<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-${snCount}" aria-label="Note ${snCount}">${snCount}</button><span class="sn" id="sn-${snCount}" role="note"><b>${snCount}</b> ${inner}</span>`;
+      return `<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-${snCount}" aria-label="Note ${snCount}">${snCount}</button><span class="sn" id="sn-${snCount}" role="note"><span class="sn-head"><b>${snCount}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">${inner}</span></span>`;
     });
     const html = window.marked
       ? marked.parse(md, { gfm: true })
@@ -134,14 +134,7 @@
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
-    postMain.querySelectorAll(".sn-ref").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const note = document.getElementById(btn.getAttribute("aria-controls"));
-        const open = btn.getAttribute("aria-expanded") !== "true";
-        btn.setAttribute("aria-expanded", String(open));
-        if (note) note.classList.toggle("open", open);
-      });
-    });
+    if (window.initSidenotes) initSidenotes(postMain);
     window.scrollTo(0, 0);
   }
 

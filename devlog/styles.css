@@ -445,26 +445,37 @@ a, button, [role="button"], summary, .hotspot, .card { cursor: url("img/cursor-h
 /* Play button on the hero memo: the devlog leads straight into the game. */
 .hero-memo .memo-play { pointer-events: auto; display: inline-block; margin-top: 14px; }
 
-/* Sidenotes (inline references): orange number in the text, note in the margin on wide screens,
-   a tap-to-open sticky note on phones. Write ^[note text] in a post's markdown. */
+/* Inline references, popover style (see sidenotes.js). Write ^[note text] in a post's markdown. */
+article.post .prose { position: relative; }
 .sn-ref {
-  font: 700 11px/1 "Silkscreen", monospace; color: var(--navy, #171C35); background: var(--coffee, #EF9347);
-  border: 0; border-radius: 3px; padding: 2px 4px; margin: 0 2px; vertical-align: super;
+  font: 700 12px/1 "Atkinson Hyperlegible", system-ui, sans-serif; color: var(--coffee, #EF9347);
+  background: none; border: 0; padding: 0 1px 0 2px; margin: 0; vertical-align: super;
   cursor: url("img/cursor-hand.png") 8 0, pointer;
 }
-.sn-ref[aria-expanded="true"], .sn-ref:hover { background: var(--cream, #F2D7A1); }
+.sn-ref:hover, .sn-ref[aria-expanded="true"] { color: var(--cream, #F2D7A1); text-decoration: underline; }
+.sn-ref:focus-visible { outline: 2px solid var(--cream, #F2D7A1); outline-offset: 2px; border-radius: 2px; }
 .sn {
-  display: none; font-size: 14px; line-height: 1.5; color: var(--navy, #171C35);
-  background: var(--cream, #F2D7A1); border-left: 4px solid var(--coffee, #EF9347);
-  padding: 8px 10px; margin: 8px 0; border-radius: 2px; transform: rotate(-0.4deg);
+  display: none; position: absolute; z-index: 30;
+  background: var(--warm-white, #FFF0CF); color: var(--navy, #171C35);
+  border: 2px solid var(--navy, #171C35); border-radius: 10px;
+  box-shadow: 0 0 0 2px var(--teal, #3E7775), 0 14px 30px rgba(0,0,0,0.45);
+  font-size: 15px; line-height: 1.55; text-align: left;
 }
-.sn b { font-family: "Silkscreen", monospace; font-weight: 400; color: var(--teal, #3E7775); margin-right: 4px; }
-.sn a { color: var(--teal, #3E7775); }
-.sn.open { display: block; }
-@media (min-width: 1320px) {
-  .sn, .sn.open {
-    display: block; float: right; clear: right; width: 200px;
-    margin: 2px -244px 10px 0; font-size: 13px; transform: none;
-  }
-  .sn-ref { cursor: default; pointer-events: none; }
+.sn.open { display: block; animation: snPop .16s ease-out; transform-origin: 40px -6px; }
+@keyframes snPop { from { opacity: 0; transform: translateY(-4px) scale(.96); } to { opacity: 1; transform: none; } }
+.sn-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 10px 8px 12px; border-bottom: 1px solid rgba(23,28,53,0.15);
 }
+.sn-head b {
+  font: 400 12px/1 "Silkscreen", monospace; background: var(--teal, #3E7775); color: var(--warm-white, #FFF0CF);
+  padding: 5px 7px; border-radius: 4px;
+}
+.sn-close {
+  background: none; border: 0; font-size: 22px; line-height: 1; color: var(--coffee, #EF9347);
+  padding: 2px 6px; cursor: url("img/cursor-hand.png") 8 0, pointer;
+}
+.sn-close:hover { color: var(--navy, #171C35); }
+.sn-body { display: block; padding: 12px 14px 14px; }
+.sn-body a { color: var(--teal, #3E7775); }
+@media (prefers-reduced-motion: reduce) { .sn.open { animation: none; } }

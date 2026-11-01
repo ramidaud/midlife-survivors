@@ -119,7 +119,7 @@ PAGE = """<!doctype html>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
-<script>document.querySelectorAll(".sn-ref").forEach(b=>b.addEventListener("click",()=>{{const n=document.getElementById(b.getAttribute("aria-controls"));const o=b.getAttribute("aria-expanded")!=="true";b.setAttribute("aria-expanded",String(o));if(n)n.classList.toggle("open",o);}}));</script>
+<script src="../sidenotes.js"></script><script>initSidenotes(document);</script>
 </body>
 </html>
 """
@@ -149,7 +149,7 @@ def main():
             sn["n"] += 1; n = sn["n"]
             inner = mdlib.markdown(m.group(1))[3:-4] if mdlib else html.escape(m.group(1))
             return (f'<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-{n}" aria-label="Note {n}">{n}</button>'
-                    f'<span class="sn" id="sn-{n}" role="note"><b>{n}</b> {inner}</span>')
+                    f'<span class="sn" id="sn-{n}" role="note"><span class="sn-head"><b>{n}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">{inner}</span></span>')
         body_md = re.sub(r"\^\[([^\]]+)\]", _sn, body_md)
         body = md_to_html(body_md)
         body = body.replace('src="img/', 'src="../img/')
