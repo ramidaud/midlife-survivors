@@ -26,3 +26,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 ## 2026-11-01: Restore preferred bio, return to visual pass (Codex) [done]
 - Restored the first studio portrait on About and in social-preview metadata at Rami's request. V2 remains archived.
 - Batch 1 inventory checked: Bill native sheet and preview exist. Next is Late Fee; the other eight enemy species plus Group Chat ping are still ungenerated. No new enemy assets integrated.
+
+## 2026-11-01: Clocking Out brand mark (Codex) [done]
+- What: Rami chose concept 02 after rejecting the boxed orange MS identity. Added native pixel-clock SVG/PNGs, root favicon and touch icon; updated devlog headers and static-page template.
+- Files: `assets/branding/`, root icon PNGs, favicon links in game/preview/devlog pages, `devlog/styles.css`, `devlog/scripts/build_devlog.py`.
+- QA: checked native sizes, pixel/alpha integrity, desktop/phone header layout, references and browser logs. Published post bodies preserved exactly; builder's existing minimal Markdown fallback needs care when rebuilding without Markdown support.
+- Next: Late Fee sprite sheet. Branding selection is complete; no gameplay changes.

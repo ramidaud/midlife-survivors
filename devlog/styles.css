@@ -72,15 +72,22 @@ a:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
   text-decoration: none; color: var(--cream);
 }
 .site-header .brand-mark {
-  width: 28px; height: 28px; border-radius: 4px;
-  background: var(--orange); color: var(--navy);
-  font-family: var(--display); font-size: 14px;
-  display: grid; place-items: center;
+  display: block; flex: 0 0 32px; width: 32px; height: 32px;
+  background: url("../assets/branding/clock-mark-v1.svg") center / 32px 32px no-repeat;
+  image-rendering: pixelated;
 }
 .site-header .brand-title { font-family: var(--display); font-size: 12px; }
 .site-header .brand-sub { display: block; font-family: var(--body); font-size: 12px; color: var(--muted); font-weight: 400; }
 .site-header.is-compact .brand-sub { display: none; }
+
 .site-header .actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 560px) {
+  .site-header { flex-wrap: wrap; }
+  .site-header .brand { flex: 1 0 100%; }
+  .site-header .brand-sub { display: none; }
+  .site-header .actions { width: 100%; justify-content: flex-start; }
+}
+
 .btn {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--display); font-size: 11px; letter-spacing: .03em;

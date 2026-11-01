@@ -1437,3 +1437,12 @@ recognizable face + broad shade clusters + navy outline
 ```
 
 Pixel size is one part of consistency. Face proportions, silhouette, color grouping and prop detail also matter. The second studio portrait uses the office key art as a direct style reference while preserving the real subject and setting.
+
+## Chapter: One mark at several sizes (V. 1.28.9, Codex)
+
+```text
+16x16 source grid -> 32x32 browser/header -> 64x64 larger use
+     one pixel          2x2 block              4x4 block
+```
+
+The cream clock face and teal outline carry the identity at the smallest size. Integer enlargement repeats whole pixels instead of inventing intermediate edge colors. The home-screen icon uses the same shape with padding. A new query tag on the favicon links tells browsers to refresh the previous icon.

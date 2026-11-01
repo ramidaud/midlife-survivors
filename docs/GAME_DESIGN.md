@@ -346,3 +346,8 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 
 ### Preferred bio portrait (Nov 1, 2026, Codex)
 - Rami chose the earlier studio portrait over the more simplified revision. About and share metadata use `rami-studio-pixel-v1.png` again. Keep both versions; resume the enemy-art handoff with Late Fee next.
+
+## Clocking Out brand identity (Nov 1, 2026, Codex)
+- Rami chose a clock icon instead of the orange boxed MS initials. Use cream face, stepped teal rim, navy hands and one orange hour marker. The game's name stays cream pixel lettering in the devlog header.
+- Favicon silhouette is designed at 16x16, rather than reduced from the large concept image. Header SVG and integer-scaled PNG exports share the same geometry. Home-screen export uses navy padding.
+- Applies to branding and browser/home-screen icons only. Enemy sprite work resumes with Late Fee next.

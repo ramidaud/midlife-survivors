@@ -333,3 +333,8 @@ Matching pixel sizes alone does not match an art style. **Shape language** means
 
 ## Choosing between art revisions (Nov 1, bio comparison, Codex)
 A closer style match can still lose qualities we liked in an earlier image. Rami preferred the first studio portrait's likeness and atmosphere. Keeping versioned files made restoring that choice a small reference change instead of regenerating the art.
+
+## Designing at favicon size (Nov 1, Clocking Out, Codex)
+A **favicon** is the tiny image in a browser tab. Fine detail disappears there, so we draw the important silhouette at 16x16 first. The 32px version repeats each pixel as a 2x2 block, keeping the edges crisp. Larger versions share that same shape, so the header and browser tab feel related.
+
+`16px original → 32px (2x) → 64px (4x)`

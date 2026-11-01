@@ -631,3 +631,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Returning to the visual handoff. Only Bill's walking sheet is generated from Batch 1; nine enemy sheets and the Group Chat projectile remain. Next object is Late Fee.
 - No additional portrait generation or enemy integration in this step. Remaining handoff batches cover bosses, pickups, weapons, extra hero poses, icons and later stage kits.
 - Verified the restored image loads, lead/share references use v1, phone layout has no overflow, and browser logs are clean.
+
+## 2026-11-01: Clocking Out identity, V. 1.28.9 (Codex)
+- Rami disliked the orange MS mark/favicon and selected clock concept 02. Built a native 16px pixel clock with cream face, teal rim, navy hands and orange accent.
+- Replaced the root favicon and home-screen icon, removed boxed initials in all devlog headers, updated the static-post template, and refreshed icon/CSS URLs. Phone headers keep the mark and game name on one row above navigation.
+- Checked 16/32/64/180px exports, hard alpha and exact 2x pixel blocks, reference paths, desktop/phone layouts without overflow and clean browser logs. Published article bodies are unchanged.
+- The devlog rebuild exposed its pre-existing minimal Markdown fallback changing rich article formatting in this environment. Preserved the published article bodies and applied only branding/reference changes; documented the generator limitation. No gameplay values changed.

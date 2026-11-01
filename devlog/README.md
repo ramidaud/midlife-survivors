@@ -40,3 +40,8 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 ## About portrait
 - `about/index.html` uses `../../assets/bio/rami-studio-pixel-v1.png` for its lead image and the same versioned PNG in share metadata. Full prompt: `assets/bio/rami-studio-pixel-v1-prompt.txt` at the project root.
 - Rami requested this replacement on Nov 1. It is an illustrated portrait of the creator, not a gameplay character. The original supplied photograph stays outside the repository. Prior silhouette art is retained.
+
+## Brand mark
+- Clocking Out assets live in `assets/branding/` at the project root. Devlog headers use the same crisp SVG through `styles.css`; root favicon and touch PNGs match its native pixel grid.
+- Keep the brand markup and icon/CSS URLs in `scripts/build_devlog.py` synchronized with the main, About and Art Room pages.
+- Build note: the Python `markdown` package is optional in the current script, but its minimal fallback changes rich article formatting and escapes sidenote HTML. Check generated diffs before saving on a machine without Markdown support. This brand pass retained the existing published article bodies.
