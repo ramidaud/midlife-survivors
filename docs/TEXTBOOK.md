@@ -2,6 +2,21 @@
 
 A picture-first guide to how this game works, one chapter per idea. Each chapter adds what we just built. Read it in any order, but it makes the most sense from top to bottom.
 
+## Character animation: four directions, one consistent frame (Oct 31, 2026, Codex)
+
+```text
+             Walk 1    Walk 2    Walk 3    Walk 4
+  Down         []        []        []        []
+  Up           []        []        []        []
+  Left         []        []        []        []
+  Right        []        []        []        []
+       Every box is the same 56x60 game frame.
+```
+
+`Move -> choose direction -> advance walk pose -> stop -> hold pose`
+
+The sheet is a flipbook. We imported all three characters using a shared crop and scale for each sheet, then exported exact 224x240 grids with magenta backgrounds. The preview advances through poses as distance accumulates, rather than playing a walk loop when the hero is stationary. Separate idle and combat sequences can be added after the walking pass looks right.
+
 ## Prop families: three ways through Tuesday (Oct 31, 2026, Codex)
 
 ```text

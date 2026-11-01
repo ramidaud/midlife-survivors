@@ -2,6 +2,11 @@
 
 Game-dev ideas you've picked up along the way. One short entry per concept.
 
+## Sprite sheets and a walk cycle (Oct 31, 2026, Codex)
+A **sprite sheet** is a grid of drawings the game shows one at a time, like a flipbook. Each character now has four directions with four walk poses, packed into 56x60 frames. All frames share one scale so the head and body do not grow between steps. Walking advances only when position changes, so pressing into a desk does not make the feet keep marching.
+
+`Move -> choose direction -> advance walk pose -> stop -> hold pose`
+
 ## Prop families: same furniture, different people (Oct 31, 2026, Codex)
 Related props can tell different stories while sharing a silhouette, palette and collision area. Our three desks differ through a few large objects: a file tray, leaning paper stacks and a pizza box. Keeping one 96x104 frame and one floor footprint means changing desk art does not change where the hero can walk. Judge the differences at 1x; the 2x gallery helps inspect pixels.
 

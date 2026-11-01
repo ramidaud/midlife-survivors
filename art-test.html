@@ -33,6 +33,13 @@
     .desk-gallery figure { min-width: 220px; }
     .desk-gallery figure canvas { width: 192px; max-width: 100%; height: 208px; }
     .desk-gallery figcaption strong { display: block; color: #fff0cf; }
+    .character-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 14px 0; }
+    select { font: inherit; color: #fff0cf; background: #303750; border: 1px solid #526078; padding: 8px; max-width: 100%; }
+    .character-gallery { margin-top: 22px; }
+    .character-gallery h2 { margin: 0 0 8px; font-size: 20px; }
+    .character-gallery figure { min-width: 220px; }
+    .character-gallery figure canvas { width: 168px; height: 180px; }
+    .character-gallery figcaption a { display: block; padding: 6px 8px; margin-top: 6px; font-size: 12px; }
     @media(max-width: 600px) { main { padding: 16px; } nav { gap: 6px; } button, a { font-size: 13px; padding: 9px; } figure { min-width: 90px; padding: 8px; } .samples { gap: 6px; } figure canvas { width: 100%; height: 110px; } }
   </style>
 </head>
@@ -50,18 +57,33 @@
     <button id="layout" aria-pressed="true">Layout: Campus</button>
     <a href="index.html">Full game</a>
   </nav>
+  <div class="character-controls">
+    <label for="character">Explore as</label>
+    <select id="character"><option value="officeWorker">The 9-to-5er</option><option value="photographer">The Soccer Dad</option><option value="gradStudent">The Grad Student at 45</option></select>
+  </div>
   <div id="arena" tabindex="0" role="application" aria-label="Office art test. Move with arrows or WASD, or hold and drag on the office."></div>
   <div id="status" role="status">Loading the office...</div>
+  <p id="motion-status" class="help">The 9-to-5er · Facing down · Standing</p>
   <p class="help" id="test-help">Move with <strong>WASD / arrows</strong>, or <strong>hold and drag</strong>. Explore four departments and walk over the glowing finds. This study tests exploration without combat.</p>
   <div id="exploration" class="exploration-strip">
     <canvas id="campus-map" width="320" height="224" role="img" aria-label="Office map. Departments reveal as you explore."></canvas>
     <div id="discovery-note" role="status">Follow the broad crossroads. Each department has more than one way in.</div>
   </div>
   <div class="samples">
-    <figure><canvas id="hero-sample" width="56" height="60"></canvas><figcaption>The 9-to-5er<br><span id="hero-size">56 × 60 game pixels</span></figcaption></figure>
+    <figure><canvas id="hero-sample" width="56" height="60"></canvas><figcaption><span id="hero-name">The 9-to-5er</span><br><span id="hero-size">56 × 60 game pixels</span></figcaption></figure>
     <figure><canvas id="bill-sample" width="48" height="52"></canvas><figcaption>One persistent Bill<br><span id="bill-size">32 × 36 game pixels</span></figcaption></figure>
     <figure><canvas id="desk-sample" width="96" height="104"></canvas><figcaption>The workstation<br><span id="desk-size">96 × 104 game pixels</span></figcaption></figure>
   </div>
+  <section class="character-gallery" aria-label="Animated playable character comparison">
+    <h2>Same Tuesday. Three different strides.</h2>
+    <div class="character-controls"><label for="walk-direction">Compare direction</label><select id="walk-direction"><option value="down">Facing down</option><option value="up">Facing up</option><option value="left">Facing left</option><option value="right">Facing right</option></select><span id="walk-step">Walk pose 1 / 4</span></div>
+    <p class="help">Four directions × four walking poses per character. Move in the office to see turns and starts; Pause motion freezes these previews too.</p>
+    <div class="samples">
+      <figure><canvas id="officeWorker-walk" width="56" height="60"></canvas><figcaption>The 9-to-5er<br><a id="officeWorker-native" href="#" download>Download native sheet: 9-to-5er</a><br><a href="assets/characters/office-worker-walk-v1.png">Generated source</a></figcaption></figure>
+      <figure><canvas id="photographer-walk" width="56" height="60"></canvas><figcaption>The Soccer Dad<br><a id="photographer-native" href="#" download>Download native sheet: Soccer Dad</a><br><a href="assets/characters/soccer-dad-walk-v1.png">Generated source</a></figcaption></figure>
+      <figure><canvas id="gradStudent-walk" width="56" height="60"></canvas><figcaption>The Grad Student at 45<br><a id="gradStudent-native" href="#" download>Download native sheet: Grad Student</a><br><a href="assets/characters/grad-student-walk-v1.png">Generated source</a></figcaption></figure>
+    </div>
+  </section>
   <section class="desk-gallery" aria-label="Three desk variants at twice game size">
     <h2>Three desks. Three ways to get through Tuesday.</h2>
     <p class="help">All three sit together in Accounts Payable. Below: 2× close-ups, with the same 96 × 104 game frame.</p>
@@ -71,13 +93,15 @@
       <figure><canvas id="lunch-sample" width="96" height="104"></canvas><figcaption><strong>Lunch at the keyboard</strong>Today's meeting could have been a pizza.</figcaption></figure>
     </div>
   </section>
-  <footer>One 1280 × 896 office blockout. Existing art and placeholder landmarks; single character poses. Switch to Art Study for the original comparison scene.</footer>
+  <footer>One 1280 × 896 office blockout. Character animation and desk art study with placeholder landmarks. Main-game art replacement follows preview feedback.</footer>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="src/sprites.js?v=35"></script>
 <script src="assets/art-test/sheet-data.js?v=1"></script>
 <script src="assets/desks/desk-data.js?v=1"></script>
+<script src="assets/characters/character-data.js?v=1"></script>
+<script src="src/character-animation.js?v=1"></script>
 <script src="src/data/office-layout.js?v=2"></script>
-<script src="src/art-test.js?v=4"></script>
+<script src="src/art-test.js?v=5"></script>
 </body>
 </html>

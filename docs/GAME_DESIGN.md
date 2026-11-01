@@ -5,6 +5,8 @@
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
 
 ## Corporate Campus exploration direction (Oct 31, 2026, Codex)
+- Rami requested all three playable-character sheets and a more animated feel. First pass: four directions and four walk poses per direction for the 9-to-5er, Soccer Dad and Grad Student. Native frames are 56x60 with consistent sheet-wide scale and keyed magenta backgrounds.
+- The preview's Explore As selector tests each character in the same office. Facing follows movement, walking advances with distance traveled, and blocked/stopped characters hold a pose. A looping gallery compares all directions. Dedicated idle, attack, hurt and victory art remains future work; walking art awaits feedback before main-game replacement.
 - Rami approved the exploration spacing and asked to strengthen the indie look. First furniture set: Tidy Perfectionist, Paperwork Avalanche and Lunch at the Keyboard. All three stand together in Accounts Payable and share 96x104 frames, bottom anchors and collision footprints. Other departments use variations that fit their personality.
 - A dedicated 2x gallery compares the imported game textures. Next approve the furniture detail level, then build the 9-to-5er's four-direction walking sheet before the other characters. This step does not finish all Accounts Payable scenery.
 - Rami chose exploration after comparing Cubicle Commons, The Meeting Loop and Corporate Campus wireframes. Favor recognizable departments joined by wide combat routes over a maze.

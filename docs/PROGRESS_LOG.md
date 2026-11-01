@@ -524,3 +524,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Runtime import removes magenta, limits colors and uses hard nearest-neighbor sampling. All desk variants share a 96x104 game frame and existing collision rules. Sources and full prompts saved in `assets/desks/`.
 - Checked game-size readability, front collision, route clearance and phone gallery layout; browser had no errors. Scope stays in the separate art test.
 - Next: feedback on detail and personality, then the 9-to-5er's walking sheet. The rest of Accounts Payable scenery is still pending.
+
+## 2026-10-31: Three playable walking sheets, V. 1.23.4 (Codex)
+- Rami requested all playable-character sheets and more animation. Generated four-direction walking sheets for the 9-to-5er, Soccer Dad and Grad Student, with distinct silhouettes and consistent office styling.
+- Added Explore As, movement-driven animation, a direction-comparison gallery, frame pause and native-sheet downloads to the separate preview. Dedicated idle/combat poses remain future work.
+- Exported 48 populated native frames: exact 4x4 grids of 56x60, flat magenta backgrounds and at most 17 foreground colors. Kept large source images and full prompts alongside them.
+- Checked native PNG grids/palettes, direction-to-frame mapping, all character switches, turns, pause and phone layout. Browser showed no errors. Saved a devlog draft for Rami to review.
+- Next: judge the walking rhythm and costumes before drawing idle, attack or hit reactions and integrating production art.

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.23.3",
-  displayVersion: "V. 1.23.3",
+  version: "1.23.4",
+  displayVersion: "V. 1.23.4",
   lastUpdated: "Oct 31, 2026",
-  codename: "Three Ways Through Tuesday",
-  build: 46,
+  codename: "Three Different Strides",
+  build: 47,
   changelog: [
+    {
+      ver: "V. 1.23.4",
+      date: "Oct 31, 2026",
+      title: "Three Different Strides",
+      highlights: [
+        "The art test now lets you walk as the 9-to-5er, Soccer Dad or Grad Student, with four-direction animation.",
+        "Compare all three walking sheets in motion, pause a pose, and download their native sprite grids."
+      ]
+    },
     {
       ver: "V. 1.23.3",
       date: "Oct 31, 2026",

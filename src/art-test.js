@@ -9,6 +9,7 @@
   }
   let scene, hero, bill, desks = [], floor, walkway, keys, coffee;
   let newArt = true, zoom = 1, paused = false, ready = false, shotAt = 0;
+  let characterId = 'officeWorker', facing = 'down', walked = 0, galleryClock = 0, currentFrame = 1;
   const deskPositions = [[-125, 60], [125, 60], [180, 200]];
   const shots = [];
   const campus = window.OFFICE_LAYOUT;
@@ -136,6 +137,26 @@
     'd3b78d', 'f2d7a1', 'fff0cf', '874c3b', 'c45c4b', 'ef9347', 'e5a995',
     'f1b5bf', 'bfa8cf'].map(hex => [0, 2, 4].map(i => parseInt(hex.slice(i, i + 2), 16)));
 
+  function drawCharacter(canvas, id, frame) {
+    const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=false;ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.drawImage(scene.textures.get('walk_'+id).getSourceImage(),frame%4*56,Math.floor(frame/4)*60,56,60,0,0,canvas.width,canvas.height);
+  }
+
+  function animateCharacters(dt, moving) {
+    if(newArt) {
+      if(!paused) currentFrame=CharacterArt.frame(facing,moving?Math.floor(walked/17):1);
+      hero.setTexture('walk_'+characterId,currentFrame);
+      drawCharacter(document.getElementById('hero-sample'),characterId,currentFrame);
+    }
+    galleryClock+=dt;
+    const step=Math.floor(galleryClock*8)%4;
+    const direction=document.getElementById('walk-direction').value;
+    for(const character of CharacterArt.characters) drawCharacter(document.getElementById(character.id+'-walk'),character.id,CharacterArt.frame(direction,step));
+    document.getElementById('walk-step').textContent='Walk pose '+(step+1)+' / 4';
+    document.getElementById('motion-status').textContent=newArt?
+      `${CharacterArt.characters.find(c=>c.id===characterId).name} · Facing ${facing} · ${paused?'Paused':moving?'Walking':'Standing'}`:'Original 9-to-5er · Static comparison';
+  }
+
   function importCell(image, column, key, width, height) {
     // Crop windows exclude a few pixels of desk that the generated atlas placed
     // over a cell boundary. Never include neighboring objects in the import.
@@ -195,8 +216,8 @@
   }
 
   function samples() {
-    for (const [id, key] of [['hero', newArt ? 'art_hero' : 'player'],
-      ['bill', newArt ? 'art_bill' : 'bill'], ['desk', newArt ? 'art_desk' : 'prop_desk']]) {
+    for (const [id, key] of [['bill', newArt ? 'art_bill' : 'bill'], ['desk', newArt ? 'art_desk' : 'prop_desk'],
+      ...(!newArt?[['hero','player']]:[])]) {
       const canvas = document.getElementById(id + '-sample'), ctx = canvas.getContext('2d');
       ctx.imageSmoothingEnabled = false;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -207,6 +228,7 @@
     }
     document.getElementById('bill-size').textContent = newArt ? '32 × 36 game pixels' : '36 × 26 game pixels';
     document.getElementById('hero-size').textContent = newArt ? '56 × 60 game pixels' : '48 × 52 game pixels';
+    document.getElementById('hero-name').textContent = newArt ? CharacterArt.characters.find(c=>c.id===characterId).name : 'The 9-to-5er';
     document.getElementById('desk-size').textContent = newArt ? '96 × 104 game pixels' : '96 × 68 game pixels';
     for (const variant of ['tidy', 'paperwork', 'lunch']) {
       const canvas = document.getElementById(variant + '-sample');
@@ -218,7 +240,8 @@
 
   function appearance() {
     if (!ready) return;
-    hero.setTexture(newArt ? 'art_hero' : 'player');
+    hero.setTexture(newArt ? 'walk_'+characterId : 'player',newArt?(paused?currentFrame:CharacterArt.frame(facing,1)):undefined);
+    document.getElementById('character').disabled=!newArt;
     bill.setTexture(newArt ? 'art_bill' : 'bill');
     desks.forEach(d => d.setTexture(newArt ? (campusMode ? 'desk_' + d.variant : 'art_desk') : 'prop_desk'));
     floor.setTexture(newArt ? 'art_floor' : 'floor');
@@ -236,10 +259,12 @@
     document.getElementById('current-art').setAttribute('aria-pressed', String(!newArt));
     updateStatus();
     samples();
+    animateCharacters(0,false);
   }
 
   function reset() {
     hero.setPosition(0, 38); bill.setPosition(-75, 100);
+    facing='down';walked=0;
     shots.splice(0).forEach(s => s.image.destroy());
     shotAt = 0;
   }
@@ -259,6 +284,7 @@
     });
     scene.load.image('atlas_source', window.ART_TEST_SHEET);
     for (const [variant, data] of Object.entries(window.DESK_VARIANT_IMAGES || {})) scene.load.image('source_' + variant, data);
+    for (const [id, data] of Object.entries(window.CHARACTER_SHEETS || {})) scene.load.image('character_source_' + id, data);
     scene.load.once('complete', () => {
       try {
         const source = scene.textures.get('atlas_source').getSourceImage();
@@ -269,6 +295,8 @@
           const image = scene.textures.get('source_' + variant).getSourceImage();
           importCell(image, null, 'desk_' + variant, 96, 104);
         }
+        for(const character of CharacterArt.characters) CharacterArt.importSheet(scene,
+          scene.textures.get('character_source_'+character.id).getSourceImage(),character.id,[...palette,[185,122,88],[112,64,47]]);
         makeFloor('art_floor', false); makeFloor('art_walkway', true);
         // Scenery must stay behind actors even north of world Y=0.
         floor = scene.add.tileSprite(0, 0, 2000, 2000, 'art_floor').setDepth(-1000000000);
@@ -302,9 +330,14 @@
       if (Math.hypot(px, py) > 8) { dx = px; dy = py; }
     }
     const length = Math.hypot(dx, dy);
+    const oldX=hero.x,oldY=hero.y;
     if (length) {
+      facing=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');
       moveAroundDesks(hero, dx / length * 150 * dt, dy / length * 150 * dt, 11);
     }
+    const distanceWalked=Math.hypot(hero.x-oldX,hero.y-oldY);
+    walked+=distanceWalked;
+    animateCharacters(dt,distanceWalked>.05);
     hero.setDepth(hero.y); bill.setDepth(bill.y);
     floor.setPosition(hero.x, hero.y); floor.tilePositionX = hero.x; floor.tilePositionY = hero.y;
     walkway.x = hero.x; walkway.tilePositionX = hero.x;
@@ -338,6 +371,11 @@
   }
 
   document.getElementById('new-art').onclick = () => { newArt = true; appearance(); };
+  document.getElementById('character').onchange = event => {
+    characterId=event.target.value;walked=0;
+    if(ready) appearance();
+  };
+  document.getElementById('walk-direction').onchange = () => { if(ready) animateCharacters(0,false); };
   document.getElementById('current-art').onclick = () => { newArt = false; appearance(); };
   document.getElementById('zoom').onclick = event => {
     if (!ready) return;
