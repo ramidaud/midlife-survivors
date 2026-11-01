@@ -655,6 +655,13 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added small shared contact shadows except for ghost/ping. Tuned Late Fee to 25px versus Bill's 36px and moved labels above taller drawings. Pauses, enemy destruction and restarts cleanly manage the art layer.
 - Tax Bracket 0 run reached age 45 with 109 peak enemies and no errors. A 350-enemy animation/AI stress scene averaged about 99 FPS. Desktop/phone, state selection, missing-sheet fallback, toggle and cleanup checks passed; isolated tests used memory-only saves and blocked leaderboard traffic. See QA evidence for exact scope and measurements.
 
+## 2026-11-01: Devlog publication and usage update
+- Published post 05, "There's a coffee button now. It feels weird." Codex's "long way to coffee" post is still a draft.
+- Published Codex's office-expansion post as post 06, retitled "The office got bigger. Somebody lost a binder." No drafts left.
+- Rami moved to the Claude Max plan. CLAUDE.md usage rule updated: normal sessions, full laptop/phone tests. Enemy art integration handed to ChatGPT.
+- Added a pixel-art version of the twins photo to post 05 (hospital wristband hidden).
+
+
 ## 2026-11-01: Hero and Corporate Campus in the main game, V. 1.28.13 (Codex)
 - Rami pointed out that the approved hero and office were still confined to the Art Room. Integrated all three four-direction walking sheets and the seven-area Corporate Campus into normal play.
 - Office sections repeat through a nine-section pool, keeping exploration open-ended. Desk variants, printer/cabinet/plant art, carpets, wood routes, chair mats, wear, paper trails and contact shadows now appear in combat. The old mezzanines are replaced by the approved ground-floor layout.
