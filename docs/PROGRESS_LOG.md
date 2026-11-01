@@ -602,3 +602,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Inspected the images and exported the lobby's exact 900x1080 central crop. It preserves menu space but loses the hero from the left third; a separate mobile composition may be needed.
 - Assets are review-only, not integrated into the title screen. Preferred menu composition is the lobby; next step is Rami's selection. No gameplay values changed.
 - Title art: reviewed ChatGPT's three concepts. 03 "8:59 Lobby" is now the title background (calm carpet center for the menu; hero clocking in left, swarm at the glass right). 02 "Panorama" became the devlog's Art Room banner, styled as a taped sticky note above the memos. 01 "Swarm" kept for a future loading or game-over screen. V. 1.28.2.
+- Devlog Art Room: key art gallery (office key art, three title concepts, the long-way cover) with click-to-enlarge, arrow keys and captions, above the walkable preview.

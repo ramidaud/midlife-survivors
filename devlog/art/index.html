@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Art Room · Midlife Survivors Devlog</title>
-<meta name="description" content="Walk around the newest Midlife Survivors art before it reaches the game: characters, desks and the Corporate Campus.">
+<meta name="description" content="Key art and the walkable art preview for Midlife Survivors, before it reaches the game.">
 <meta property="og:title" content="The Art Room · Midlife Survivors">
 <meta property="og:description" content="Walk around the newest Midlife Survivors art before it reaches the game.">
 <meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/04-long-way-cover-v1.jpg">
@@ -18,6 +18,31 @@
     border-radius: 8px; box-shadow: 0 0 0 2px var(--teal, #3E7775); }
   .art-intro { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 4px 0 16px; }
   .art-wrap { max-width: 1180px; }
+  .gallery { margin: 8px 0 34px; }
+  .gallery-h { font-size: 22px; margin: 26px 0 4px; color: var(--warm-white, #FFF0CF); }
+  .gallery-sub { margin: 0 0 14px; color: var(--muted, #a3a8c7); font-size: 15px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+  .g-item { display: flex; flex-direction: column; text-align: left; padding: 0; border: 0; border-radius: 8px; overflow: hidden;
+    background: var(--surface, #1f2640); box-shadow: 0 0 0 2px var(--teal, #3E7775); color: var(--cream, #F2D7A1);
+    cursor: url("../img/cursor-hand.png") 8 0, pointer; transition: transform .15s, box-shadow .15s; }
+  .g-item:hover, .g-item:focus-visible { transform: translateY(-3px); box-shadow: 0 0 0 2px var(--cream, #F2D7A1), 0 10px 22px rgba(0,0,0,.35); outline: none; }
+  .g-item img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; image-rendering: pixelated; }
+  .g-cap { display: block; padding: 10px 12px 12px; font-size: 13px; line-height: 1.45; color: var(--muted, #a3a8c7); }
+  .g-cap b { display: block; font-size: 15px; color: var(--warm-white, #FFF0CF); margin-bottom: 2px; }
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: min(1400px, 96vw); width: 96vw; color: var(--warm-white, #FFF0CF); }
+  .lightbox::backdrop { background: rgba(10, 12, 26, 0.92); }
+  .lightbox[open] { display: flex; align-items: center; gap: 10px; animation: lbIn .18s ease-out; }
+  @keyframes lbIn { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+  .lightbox figure { margin: 0; flex: 1; }
+  .lightbox img { width: 100%; max-height: 82vh; object-fit: contain; display: block; image-rendering: pixelated; border: 3px solid var(--navy, #171C35); box-shadow: 0 0 0 2px var(--teal, #3E7775); }
+  .lightbox figcaption { margin-top: 10px; font-size: 15px; color: var(--muted, #a3a8c7); }
+  .lightbox figcaption b { color: var(--warm-white, #FFF0CF); margin-right: 6px; }
+  .lb-close { position: fixed; top: 14px; right: 18px; font-size: 34px; }
+  .lb-close, .lb-nav { background: none; border: 0; color: var(--orange, #EF9347); cursor: url("../img/cursor-hand.png") 8 0, pointer; line-height: 1; }
+  .lb-nav { font-size: 56px; padding: 0 6px; }
+  .lb-close:hover, .lb-nav:hover { color: var(--cream, #F2D7A1); }
+  @media (max-width: 560px) { .lb-nav { position: fixed; bottom: 18px; font-size: 44px; } .lb-prev { left: 18px; } .lb-next { right: 18px; } }
+  @media (prefers-reduced-motion: reduce) { .lightbox[open] { animation: none; } .g-item { transition: none; } }
 </style>
 </head>
 <body>
@@ -42,6 +67,13 @@
       <a class="btn btn-ghost" href="../../art-test.html">Open full screen</a>
       <a class="btn btn-ghost" href="../">Read the build memos</a>
     </div>
+    <section class="gallery" aria-labelledby="gallery-h">
+      <h2 class="gallery-h" id="gallery-h">Key art</h2>
+      <p class="gallery-sub">Illustrations made with ChatGPT and Codex from Rami's briefs, used for covers and menus. Concept art, not gameplay.</p>
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+    <h2 class="gallery-h">Walk it yourself</h2>
+    <p class="gallery-sub">The newest in-game art, before it reaches the main game. Use the arrow keys or drag to walk.</p>
     <iframe class="art-frame" id="art-frame" src="../../art-test.html?embed=1" title="Midlife Survivors art preview: Corporate Campus"></iframe>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
@@ -50,6 +82,39 @@
   const f = document.getElementById("art-frame");
   function fit() { try { const h = f.contentDocument.documentElement.scrollHeight; if (h) f.style.height = h + "px"; } catch (e) {} }
   f.addEventListener("load", () => { fit(); try { new ResizeObserver(fit).observe(f.contentDocument.body); } catch (e) { setInterval(fit, 1000); } });
+</script>
+<dialog class="lightbox" id="lightbox" aria-label="Key art viewer">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-nav lb-next" type="button" aria-label="Next">›</button>
+</dialog>
+<script>
+  // Key art gallery. Add a piece: drop a full-size and a -thumb JPG in ../img/gallery/ and add a line here.
+  const GALLERY = [
+    { img: "office-key-art", title: "Office key art", note: "The first approved art direction. It set the palette, the light and the hero." },
+    { img: "title-lobby", title: "Title screen: 8:59 AM", note: "Clocking in while the swarm waits at the glass. Now the game's title screen." },
+    { img: "title-swarm", title: "Title concept: The Ring", note: "The whole swarm closing in. Saved for a loading or victory screen." },
+    { img: "title-panorama", title: "Title concept: One Life", note: "Office, hospital, home and resort in one walk. Used for the Art Room banner." },
+    { img: "cover-long-way", title: "Cover: The long way to coffee", note: "Devlog cover for the Corporate Campus memo." }
+  ];
+  const grid = document.getElementById("gallery-grid"), lb = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
+  let cur = 0;
+  grid.innerHTML = GALLERY.map((g, i) => `<button class="g-item" type="button" data-i="${i}">
+    <img src="../img/gallery/${g.img}-thumb.jpg" alt="${g.title}" loading="lazy">
+    <span class="g-cap"><b>${g.title}</b>${g.note}</span></button>`).join("");
+  function show(i) {
+    cur = (i + GALLERY.length) % GALLERY.length; const g = GALLERY[cur];
+    lbImg.src = `../img/gallery/${g.img}.jpg`; lbImg.alt = g.title;
+    lbCap.innerHTML = `<b>${g.title}</b> ${g.note}`;
+  }
+  grid.addEventListener("click", e => { const b = e.target.closest(".g-item"); if (!b) return; show(+b.dataset.i); lb.showModal(); });
+  lb.querySelector(".lb-close").onclick = () => lb.close();
+  lb.querySelector(".lb-prev").onclick = () => show(cur - 1);
+  lb.querySelector(".lb-next").onclick = () => show(cur + 1);
+  lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+  lb.addEventListener("keydown", e => { if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
 </script>
 </body>
 </html>
