@@ -178,9 +178,9 @@ window.getCoinYieldInfo = function() {
     }
   }
   // Extra endurance bonus if you survive more than 3.5 minutes in a single continuous run
-  const streakBonus = age >= 50 ? Math.floor(secs / 210) : 0; // no endurance bonus before 50
+  const streakBonus = 0; // removed Oct 31: it made long runs pay out too much
   val += streakBonus;
-  const dropChance = Math.min(0.78, (C.dropChance || 0.55) + Math.max(0, age - 40) * 0.004);
+  const dropChance = C.dropChance || 0.06; // flat: coins track time survived, not kill count
   return { value: val, label: streakBonus > 0 ? `${val}x COMPOUND` : label, dropChance };
 };
 
@@ -216,6 +216,7 @@ function create() {
   runCoins = 0; runKills = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
+  coinFrac = 0; xpFrac = 0;
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
@@ -666,6 +667,9 @@ function applyMetaAndChar() {
   stats.cooldownMult *= Math.pow(0.92, rEsp);
   stats.magnetRadius = Math.round(stats.magnetRadius * (1 + rCpa * 0.25));
   stats.damage += rPen;
+  stats.xpMult = 1 + (meta.ranks.continuingEd || 0) * 0.08;
+  stats.coinMult = 1 + (meta.ranks.sideHustle || 0) * 0.15;
+  stats.revives = meta.ranks.secondOpinion || 0; // one comeback per rank
   stats.jokeDamage += rPen;
   stats.noDamage += rPen;
 
@@ -719,7 +723,7 @@ function collectCoin(p, coin) {
   coin.destroy();
   sfx("coin");
   const yld = window.getCoinYieldInfo();
-  const gain = yld.value * mult;
+  const gain = bankCoins(yld.value * mult);
   runCoins += gain;
   meta.coins += gain;
   saveMeta(meta);
@@ -737,6 +741,14 @@ function collectCoin(p, coin) {
 }
 
 // You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +3 HP!
+// Coins: only part of a coin's face value reaches the bank (PICKUPS.coin401k.bankMult), boosted by Side Hustle.
+// Fractions add up over the run instead of being lost.
+let coinFrac = 0, xpFrac = 0;
+function bankCoins(v) {
+  coinFrac += v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1);
+  const whole = Math.floor(coinFrac); coinFrac -= whole; return whole;
+}
+
 // ---------- Achievements (src/data/achievements.js) ----------
 let runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
 window.getNewAchievements = () => runAch.newly;
@@ -943,7 +955,8 @@ function collectGem(p, gem) {
   if (!gem.active) return;
   gem.destroy();
   sfx("gem");
-  xp += PICKUPS.wisdomGem.xp;
+  xpFrac += PICKUPS.wisdomGem.xp * (stats.xpMult || 1); // Continuing Ed adds a little to every gem
+  xp += Math.floor(xpFrac); xpFrac -= Math.floor(xpFrac);
   while (xp >= xpNeeded) {
     xp -= xpNeeded;
     level++;
@@ -1020,7 +1033,7 @@ function hurtPlayer(p, bill) {
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
-  hp -= (bill.damage || ENEMIES.bill.damage);
+  hp -= (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0);
   if (bill.kind === "snackAttack") {
     slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
     const isSenior = currentAge >= 80;
@@ -1034,6 +1047,12 @@ function hurtPlayer(p, bill) {
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
+  if (hp <= 0 && stats.revives > 0) { // Second Opinion (401k shop): get back up once
+    stats.revives--; hp = Math.ceil(stats.maxHp / 2); drawHpBar(); lastHurt = now + 1500;
+    if (window.itemEffect) window.itemEffect("ptoDay", true);
+    if (window.showLowerThird) window.showLowerThird("win", "SECOND OPINION", "The second doctor says you're fine. Back on your feet with half HP.", 4500);
+    return;
+  }
   if (hp <= 0) showGameOver(scene, bill.kind || "bill", false); // dying is never a win; only meeting Death at 100 is
 }
 
@@ -1388,7 +1407,8 @@ function createEnemy(scene, kind, x, y) {
   if (E.tint) e.setTint(E.tint);
   const yrs = Math.max(0, currentAge - 40);
   const perYear = (window.INTENSITY && window.INTENSITY.hpPerYear) || 0.09;
-  const hpScale = 1 + yrs * perYear + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0); // smooth toughness ramp
+  const lvlScale = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.hpPerLevel) || 0); // the stronger you get, the tougher they get
+  const hpScale = (1 + yrs * perYear + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0)) * lvlScale; // smooth toughness ramp
   e.kind = kind;
   e.hp = Math.max(1, Math.round(E.hp * hpScale));
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
@@ -1441,7 +1461,7 @@ function spawnBill(scene) {
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
-  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1));
+  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)); // stronger you = bigger crowds
   for (let i = 0; i < pack && bills.countActive() < cap; i++) {
     createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
   }
@@ -1508,7 +1528,7 @@ function spawnBoss(scene, bossKind) {
   if (P.tint) boss.setTint(P.tint);
   boss.isBoss = true;
   boss.kind = bossKind;
-  boss.hp = P.hp;
+  boss.hp = isEnd ? P.hp : Math.round(P.hp * (1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0)));
   boss.speed = P.speed;
   boss.damage = P.damage;
   boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${P.hp}`, {
@@ -1582,7 +1602,7 @@ function update(time, delta) {
     lastDividendAge = Math.floor(currentAge / 5) * 5;
     const stepNum = Math.max(1, Math.round((lastDividendAge - 40) / 5));
     const yld = window.getCoinYieldInfo();
-    const divBonus = 2 + stepNum * 2 + yld.value; // e.g., +6k at Age 45, +9k at 50, +12k at 55, +16k at 60...
+    const divBonus = bankCoins(2 + stepNum * 2 + yld.value); // birthday dividend, scaled like every other coin
     runCoins += divBonus;
     meta.coins += divBonus;
     saveMeta(meta);
@@ -1649,7 +1669,8 @@ function update(time, delta) {
   const nextW = SPAWNING.waves[Math.min(wIdx + 1, SPAWNING.waves.length - 1)], curW = SPAWNING.waves[wIdx];
   const span = Math.max(1, nextW.minAge - curW.minAge);
   const blend = nextW === curW ? 0 : Phaser.Math.Clamp((currentAge - curW.minAge) / span, 0, 1);
-  const wantDelay = Math.round(curW.everyMs + (nextW.everyMs - curW.everyMs) * blend);
+  const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0));
+  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed);
   if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;
     spawnTimer.reset({ delay: wantDelay, loop: true, callback: spawnTimer.callback });

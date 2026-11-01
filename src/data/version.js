@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.23.4",
-  displayVersion: "V. 1.23.4",
+  version: "1.24.0",
+  displayVersion: "V. 1.24.0",
   lastUpdated: "Oct 31, 2026",
-  codename: "Three Different Strides",
-  build: 47,
+  codename: "Midlife Is Hard",
+  build: 48,
   changelog: [
+    {
+      ver: "V. 1.24.0",
+      date: "Oct 31, 2026",
+      title: "Midlife Is Hard",
+      highlights: [
+        "Much harder. Enemies get tougher and more numerous as YOU level up, bosses scale with you, and hits hurt more after 52. Standing still no longer works.",
+        "Coins come in slowly (a first run banks about 10k), so the 401(k) Shop is the long game.",
+        "Three new shop upgrades: Continuing Ed (more XP), Side Hustle (more coins) and Second Opinion (get back up after a fatal hit).",
+        "Extras > Reset Progress wipes your save for a true fresh start (tap twice)."
+      ]
+    },
     {
       ver: "V. 1.23.4",
       date: "Oct 31, 2026",

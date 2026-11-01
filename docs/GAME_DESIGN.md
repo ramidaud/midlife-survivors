@@ -297,3 +297,5 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - **Other AI tools:** ChatGPT (art), Gemini and Grok each have a Project with shared instructions. They end replies with a change-log block that Rami pastes into `docs/handoffs/<tool>-changes.md`. Claude reads these each session and folds approved items into the game.
 
 - **Built (V. 1.21.0):** Midlife mode ends with "Your Retirement Party" at 65 (walk up and clock out). Overtime = "Delayed Retirement" shop item, +5 years per rank, max 80. Full Life unlocks by reaching 65 until achievements replace that. Midlife scores go to the `scores_midlife` table.
+
+- **Decided (Oct 31): progression loop.** A first run should die well before 20 minutes. Enemies scale with the player's level; permanent 401(k) upgrades are how you beat the clock over many runs. All knobs live in `src/data/swarms.js` (INTENSITY), `src/data/pickups.js` (coins) and `src/data/meta.js` (shop).

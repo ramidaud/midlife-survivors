@@ -4,12 +4,17 @@
 // 2. Live Mid-Run Save State (`midlife_survivors_active_run_v1`): Auto-saves your exact Age, Level, HP,
 //    and upgrades so you can close the browser or take a break and Resume Run anytime!
 
+// Permanent upgrades. Cost of the next rank = baseCost x (rank + 1), in thousands.
+// Tuned (Oct 31) so a first run buys about one cheap rank and maxing everything takes many runs.
 window.META_SHOP = [
-  { id: "compoundInterest", name: "Employer Match",    desc: "+2 max HP at start of run",         baseCost: 5,  maxRank: 6 },
-  { id: "espressoMachine",  name: "Home Espresso",     desc: "+10% starting move & fire speed",   baseCost: 6,  maxRank: 6 },
-  { id: "taxWriteOff",      name: "CPA on Retainer",   desc: "+25% starting gem magnet range",    baseCost: 5,  maxRank: 5 },
-  { id: "pensionPlan",      name: "Roth IRA & Pension", desc: "+1 starting damage to all weapons", baseCost: 12, maxRank: 4 },
-  { id: "delayedRetirement", name: "Delayed Retirement", desc: "Overtime: Midlife runs last 5 more years", baseCost: 20, maxRank: 3 }
+  { id: "compoundInterest", name: "Employer Match",    desc: "+2 max HP at start of run",         baseCost: 8,  maxRank: 6 },
+  { id: "espressoMachine",  name: "Home Espresso",     desc: "+10% starting move & fire speed",   baseCost: 12, maxRank: 6 },
+  { id: "taxWriteOff",      name: "CPA on Retainer",   desc: "+25% starting gem magnet range",    baseCost: 6,  maxRank: 5 },
+  { id: "pensionPlan",      name: "Roth IRA & Pension", desc: "+1 starting damage to all weapons", baseCost: 25, maxRank: 4 },
+  { id: "continuingEd",     name: "Continuing Ed",     desc: "+8% Wisdom (XP) from every gem",    baseCost: 10, maxRank: 5 },
+  { id: "sideHustle",       name: "Side Hustle",       desc: "+15% 401(k) coins earned",          baseCost: 10, maxRank: 5 },
+  { id: "secondOpinion",    name: "Second Opinion",    desc: "Survive a fatal hit with half HP (once per rank, per run)", baseCost: 60, maxRank: 2 },
+  { id: "delayedRetirement", name: "Delayed Retirement", desc: "Overtime: Midlife runs last 5 more years", baseCost: 40, maxRank: 3 }
 ];
 
 window.CHARACTERS = [

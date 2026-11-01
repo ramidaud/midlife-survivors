@@ -1899,6 +1899,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
         <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
+        <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
         <button class="t-style-btn" id="title-art-test-btn">🎨 ART TEST</button>
         ${backBtn}
       </div>`;
@@ -1940,12 +1941,19 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
   const achBtn = document.getElementById("title-ach-btn");
   if (achBtn) bindNavItem(achBtn, 10, () => goView("achievements"));
+  // Reset Progress: tap twice (no pop-up dialogs). Clears coins, shop, unlocks and achievements; keeps your leaderboard name.
+  const resetBtn = document.getElementById("title-reset-btn");
+  if (resetBtn) bindNavItem(resetBtn, 10, () => {
+    if (!resetBtn.dataset.armed) { resetBtn.dataset.armed = "1"; resetBtn.textContent = "⚠️ TAP AGAIN TO ERASE EVERYTHING"; sfx("move"); return; }
+    try { localStorage.removeItem("midlife_survivors_save_v1"); localStorage.removeItem("midlife_survivors_active_run_v1"); } catch (e) {}
+    location.reload();
+  });
   const devlogBtn = document.getElementById("title-devlog-btn");
   if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.open("devlog/", "_blank", "noopener"); }); // how the game got made
   const artTestBtn = document.getElementById("title-art-test-btn");
   if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "art-test.html"; });
   const backEl = document.getElementById("title-back-btn");
-  if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" || view === "achievements" ? "extras" : "main"), view !== "main");
+  if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" || view === "achievements" ? "extras" : "main"), view !== "main");
 
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {

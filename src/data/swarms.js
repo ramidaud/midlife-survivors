@@ -4,8 +4,13 @@
 window.INTENSITY = {
   packSizeByAge: [[40, 1], [43, 1], [47, 2], [55, 3], [70, 4], [85, 5], [95, 6]], // enemies per spawn tick, they arrive as a little group
   hpPerYear: 0.09,          // enemies get 9% tougher every year you age (smooth, no big jumps)
+  hpPerLevel: 0.07,         // ...and 7% tougher for every level YOU gain, so perks alone can't make you untouchable
+  bossHpPerLevel: 0.15,     // bosses scale with your level too (they used to stay the same and melt)
   swarmGrowthPerYear: 0.035, // swarms get 3.5% bigger for every year past their first appearance
-  maxOnScreenByAge: [[40, 60], [60, 110], [80, 160], [100, 200]],       // crowd limit grows as you age
+  maxOnScreenByAge: [[40, 70], [50, 120], [58, 170], [65, 210], [100, 250]], // crowd limit grows as you age
+  packPerLevel: 0.2,        // +1 enemy per spawn group for every 5 levels you gain
+  spawnFasterPerLevel: 0.02, // spawns come 2% faster per level you gain (down to 45% of the normal delay)
+  hitDamageByAge: [[40, 0], [52, 1], [60, 2]], // extra damage every enemy deals on contact as you age
   eventEveryMsByAge: [[40, 80000], [60, 60000], [80, 45000], [100, 35000]] // time between swarm events
 };
 

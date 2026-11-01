@@ -531,3 +531,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Exported 48 populated native frames: exact 4x4 grids of 56x60, flat magenta backgrounds and at most 17 foreground colors. Kept large source images and full prompts alongside them.
 - Checked native PNG grids/palettes, direction-to-frame mapping, all character switches, turns, pause and phone layout. Browser showed no errors. Saved a devlog draft for Rami to review.
 - Next: judge the walking rhythm and costumes before drawing idle, attack or hit reactions and integrating production art.
+
+## 2026-10-31: Difficulty pass (V. 1.24.0) (Claude)
+- Rami: 19 minutes feels right, but it's far too easy; at 4 minutes he could stand still. A first run shouldn't get near 20 minutes.
+- Measured with bots: weapons out-killed the spawns, and coins scaled with kills (5,766k in one run). Fixed with player-level scaling (enemy HP, crowd size, spawn speed), bosses that scale, harder hits after 52, and flat rare coins.
+- Shop deepened: higher prices plus Continuing Ed, Side Hustle and Second Opinion. Extras > Reset Progress for a true fresh start.
+- Bot results after: new 2.7 min, half upgraded 3.9, fully upgraded 5.8 (people should last 2-3x longer than the bot).

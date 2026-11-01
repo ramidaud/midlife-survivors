@@ -287,3 +287,9 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - Instead of checking 29 achievements everywhere, the game **announces events**: "an enemy was beaten," "a plant was smashed," "a boss went down."
 - Each achievement **listens** for one kind of event and runs a tiny test ("was it a 3 AM Thought?").
 - Adding an achievement is one line in `src/data/achievements.js`. The game code doesn't change.
+
+
+## Playtesting with a bot (Oct 31, difficulty pass)
+- A **bot** is a tiny script that plays the game: it dodges enemies, walks to gems and picks random perks.
+- The test browser **fast-forwards the clock**, so a 5-minute run takes about 2 real minutes. Three bots ran at once: new player, half upgraded, fully upgraded.
+- **Scaling with the player:** enemies now get tougher and more numerous as *you* level up. Level-up perks keep you even; permanent shop upgrades put you ahead. That's what makes repeat runs matter.

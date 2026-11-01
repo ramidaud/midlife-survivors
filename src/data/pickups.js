@@ -16,17 +16,15 @@ window.PICKUPS = {
   coin401k: {
     name: "401(k) Coin",
     value: 1,
-    dropChance: 0.3,         // 30% base drop chance from regular Bills (rises slowly as you age). Was 55%: coins piled up too fast.
+    bankMult: 0.5,           // half of each coin's value reaches your bank (Oct 31: runs were paying far too much)
+    dropChance: 0.06,        // 6% of regular enemies drop a coin (was 55%, then 30%: strong runs paid millions)
     size: 16,
     color: 0xf5c542,
     // Compound Interest Tiers: the longer you survive in a run, the more each 401(k) Coin is worth!
-    compoundTiers: [
-      { minSeconds: 0,   minAge: 40, value: 1, label: "1x MATCH" },
-      { minSeconds: 42,  minAge: 47, value: 2, label: "2x VESTED" },
-      { minSeconds: 100, minAge: 50, value: 3, label: "3x SENIORITY" },
-      { minSeconds: 175, minAge: 60, value: 4, label: "4x EXECUTIVE" },
-      { minSeconds: 250, minAge: 70, value: 5, label: "5x COMPOUND" },
-      { minSeconds: 320, minAge: 80, value: 6, label: "6x GOLDEN" }
+    compoundTiers: [         // coin value by age (kept small: coins now pay roughly by time survived, not by kill count)
+      { minSeconds: 0, minAge: 40, value: 1, label: "1x MATCH" },
+      { minSeconds: 0, minAge: 55, value: 2, label: "2x VESTED" },
+      { minSeconds: 0, minAge: 75, value: 3, label: "3x GOLDEN" }
     ],
     // Every 5 years of Age survived in a run awards a scaling Compound Dividend bonus!
     dividendEveryYears: 5,

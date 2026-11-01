@@ -1325,3 +1325,20 @@ flowchart LR
     C -- yes --> U["Unlock, pay coins, lower third"]
     C -- no --> N["Nothing happens"]
 ```
+
+
+## Chapter: Balancing with a robot (V. 1.24.0)
+
+| Bot run (dodges, random perks) | Before | After |
+|---|---|---|
+| Brand new player | 4.7 min, 31k coins | 2.7 min, 10k coins |
+| Half upgraded | (not tested) | 3.9 min, 32k |
+| Fully upgraded, standing still | 13 min, 5,766k coins | 3.9 min |
+| Fully upgraded, dodging | 7.3 min | 5.8 min, 116k |
+
+```
+your level goes up ─► enemies get tougher (+7% HP per level)
+                   ─► bigger crowds, faster spawns
+shop upgrades      ─► you start stronger WITHOUT raising your level
+= permanent upgrades are the way to beat the clock
+```
