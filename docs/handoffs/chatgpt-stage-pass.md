@@ -125,3 +125,12 @@ Paste this to ChatGPT along with Rami's approval notes before Stage 2.
 4. **Text must read at game size.** At 1x on a 390px-wide phone, small signs must be readable. Signs carry 1 to 3 words in a chunky pixel font on props at least 64px wide ("REBRAND?", "CIRCLE BACK"). Longer jokes (motivational posters, the KPI note, "Per my last email") also get a **"read on approach" caption**: walking near shows the full line in the existing lower-third tip bar, once per run. That's how long jokes scale.
 5. **Check every new prop against the real hero.** Show each Stage 2 prop next to the 56x60 hero and an enemy at actual game size, on desktop and at 390px phone width, in the review page.
 6. **Performance budget.** At most about 120 visible props per screen, everything culled off-screen, and no frame drop with 350 enemies, as in the earlier test.
+7. **Areas unlock as you age ("promotions").** Keep one campus map, but put locked doors or keycard gates between areas. Each gate is a solid, readable prop with a short sign ("AUTHORIZED PERSONNEL", "EXECUTIVES ONLY", "PLEASE SEE HR"). Proposed schedule, to tune later:
+   - Age 40: Lobby and Bullpen open (the new hire)
+   - Age 45: Break Room and Parking Lot ("You've earned a break")
+   - Age 50: Server Room and Conference Rooms ("Now you're in the meetings")
+   - Age 55: Executive Wing (the Performance Review boss could guard it)
+   - Age 60: Wellness Corner ("HR says you should relax")
+   - Hidden: Supply Closet, opened by an achievement
+
+   **Revise the overview (v2) to show the gates and the starting area before Stage 2.** Even with every gate locked, the starting area must be big enough for a full early swarm. Gates open with a short lower-third message and a door animation. While a gate is closed, enemies never spawn behind it. Store the schedule in a data file so Claude can tune it.
