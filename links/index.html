@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Midlife Survivors · Links</title>
+<meta name="description" content="Play Midlife Survivors free in your browser, read the devlog, join the Discord, or buy the dev a coffee.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Midlife Survivors">
+<meta property="og:title" content="Midlife Survivors">
+<meta property="og:description" content="Play free, read the devlog, join the Discord, or buy the dev a coffee.">
+<meta property="og:url" content="https://ramidaud.github.io/midlife-survivors/links/">
+<meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/assets/share/game.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pixel-art office lobby at 8:59 AM: a tired office worker punches in while Bills and a spam phone press against the glass doors.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ramidaud.github.io/midlife-survivors/assets/share/game.jpg">
+<link rel="icon" href="../favicon.png?v=clock-1" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png?v=clock-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+  :root {
+    --navy: #171C35; --navy-2: #222947; --teal: #3E7775; --cream: #F2D7A1;
+    --coffee: #EF9347; --warm: #FFF0CF;
+    --head: "Silkscreen", "Courier New", monospace;
+    --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    background: var(--navy);
+    color: var(--warm);
+    font-family: var(--body);
+    min-height: 100dvh;
+    display: flex; justify-content: center;
+    padding: max(24px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    position: relative; overflow-x: hidden;
+  }
+  /* The title-screen lobby, dimmed, with the same slow pan and scanlines as the game */
+  .bg {
+    position: fixed; inset: -4%;
+    background: url("../assets/title-screen/title-bg-lobby.jpg") center / cover no-repeat;
+    image-rendering: pixelated;
+    filter: brightness(.42) saturate(.9);
+    animation: pan 40s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+  .scan {
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,.18) 0 1px, transparent 1px 3px);
+  }
+  @keyframes pan { from { transform: translateX(-2%); } to { transform: translateX(2%); } }
+  @media (prefers-reduced-motion: reduce) { .bg { animation: none; } .btn { transition: none; } }
+
+  main {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 420px;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }
+  .memo {
+    width: 100%;
+    background: var(--cream); color: var(--navy);
+    border-left: 6px solid var(--coffee);
+    font-family: var(--head); font-size: 11px; letter-spacing: .1em;
+    padding: 8px 12px; text-transform: uppercase;
+  }
+  .memo b { font-family: var(--body); font-size: 14px; letter-spacing: 0; text-transform: none; margin-left: 6px; }
+  .mark { width: 88px; height: 88px; image-rendering: pixelated; margin-top: 6px; filter: drop-shadow(4px 4px 0 rgba(0,0,0,.45)); }
+  h1 {
+    font-family: var(--head); color: var(--coffee); font-size: clamp(26px, 8vw, 34px);
+    margin: 0; text-align: center; line-height: 1.05; text-shadow: 3px 3px 0 var(--navy);
+  }
+  .tag { margin: -6px 0 4px; text-align: center; color: var(--warm); opacity: .9; font-size: 15px; }
+
+  nav { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+  .btn {
+    display: flex; align-items: center; gap: 14px;
+    width: 100%; min-height: 64px; padding: 12px 18px;
+    text-decoration: none; color: var(--warm);
+    background: rgba(23, 28, 53, .88);
+    border: 3px solid var(--teal);
+    box-shadow: 4px 4px 0 rgba(0,0,0,.5);
+    transition: transform .08s, box-shadow .08s, border-color .08s;
+  }
+  .btn:hover, .btn:focus-visible { border-color: var(--cream); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 rgba(0,0,0,.5); outline: none; }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 rgba(0,0,0,.5); }
+  .btn .ico { font-size: 26px; width: 34px; text-align: center; flex: none; }
+  .btn .txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .btn .lbl { font-family: var(--head); font-size: 17px; letter-spacing: .04em; }
+  .btn .sub { font-size: 14px; opacity: .8; }
+  .btn.play { background: var(--coffee); border-color: var(--coffee); color: var(--navy); }
+  .btn.play .sub { opacity: .85; }
+  .btn.play:hover, .btn.play:focus-visible { border-color: var(--warm); }
+  .btn.coffee { background: var(--cream); border-color: var(--cream); color: var(--navy); }
+  .btn.coffee:hover, .btn.coffee:focus-visible { border-color: var(--warm); }
+
+  footer { margin-top: 6px; text-align: center; font-size: 13px; opacity: .8; line-height: 1.6; }
+  footer a { color: var(--cream); }
+</style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
+  <main>
+    <div class="memo">Internal memo · RE:<b>All the links</b></div>
+    <img class="mark" src="../assets/branding/clock-64-v1.png" alt="">
+    <h1>Midlife<br>Survivors</h1>
+    <p class="tag">Survive from 40 to 65. Your coffee fires on its own.</p>
+    <nav aria-label="Midlife Survivors links">
+      <a class="btn play" href="../">
+        <span class="ico" aria-hidden="true">▶</span>
+        <span class="txt"><span class="lbl">Play free</span><span class="sub">In your browser, on phone or laptop</span></span>
+      </a>
+      <a class="btn" href="../devlog/">
+        <span class="ico" aria-hidden="true">📝</span>
+        <span class="txt"><span class="lbl">Devlog</span><span class="sub">How a photographer is building it with AI</span></span>
+      </a>
+      <a class="btn" href="https://discord.gg/E6N9j5tZe" rel="noopener">
+        <span class="ico" aria-hidden="true">💬</span>
+        <span class="txt"><span class="lbl">Join the Discord</span><span class="sub">Playtests, early art, and the crew</span></span>
+      </a>
+      <a class="btn coffee" href="https://ko-fi.com/ramidaud" rel="noopener">
+        <span class="ico" aria-hidden="true">☕</span>
+        <span class="txt"><span class="lbl">Buy Rami a coffee</span><span class="sub">Tips buy AI time to finish the game</span></span>
+      </a>
+    </nav>
+    <footer>Made by <a href="https://ramidaud.com" rel="noopener">Rami Daud</a> · <a href="https://ramidaud.substack.com" rel="noopener">Substack</a></footer>
+  </main>
+</body>
+</html>

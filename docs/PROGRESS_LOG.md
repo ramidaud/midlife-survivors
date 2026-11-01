@@ -678,3 +678,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added a versioned 1536x1152 PNG and its full built-in-imagegen edit prompt. Updated Markdown and static article references, retaining descriptive alt text and the article's existing copy.
 - Ran the devlog builder and refreshed the feed. This environment lacks the optional Markdown/Pillow packages, so preserved published HTML formatting and share-card metadata while applying the intended image-reference change. Desktop/phone image loading, fit and browser checks completed.
 - Platform goal set: Steam, then PlayStation and Xbox (roadmap section added). Stage art pass added to Next up: funnier, more props, inside jokes.
+- Added a one-screen link page at /links/ (Play, Devlog, Discord, Coffee) for Instagram, Threads and QR codes.
