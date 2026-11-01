@@ -461,3 +461,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Granola notes added: AI dialogue/character layer (future), personal-best leaderboard with no cap, version archive with screenshots.
 - New CLAUDE.md rule (approved): keep usage light, about 2-3 build sessions a week.
 - Next: Playtest fix pack.
+
+
+## 2026-10-31: Playtest fix pack (V. 1.20.0) (Claude)
+- Fixed Ben's phone bugs: steering works after Retry, and perks need a second tap to confirm.
+- Dad Joke speaks on unlock or upgrade plus a bonus joke about every 50 seconds; bubbles wrap and sit higher.
+- Softer first two minutes, slower coins, Start as the main button, plain perk labels, leaderboard shows personal bests with no cap.
+- New: devlog page (link in Extras; first post is a hidden draft for Rami to edit) and `docs/handoffs/` for ChatGPT, Gemini and Grok notes.
+- Next: Core 19-minute run (ages 40 to 65).

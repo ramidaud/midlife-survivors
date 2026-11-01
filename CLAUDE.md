@@ -12,7 +12,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 ## Current focus: the Fun Pass (decided Oct 30)
 - **One objective at a time.** Work the list at the top of `docs/ROADMAP.md` in order. Finish one, publish it, let Rami play it, and get his reaction before starting the next. No bundling.
 - **Feature freeze** on new content (stages, modes, lore, menus) until the Fun Pass list is done.
-- **Locked decisions:** 1 real minute = 1 year, Death arrives at 100, 2D only (3D parked), Errands is the first twist, Rami appears in the Credits but not as a character.
+- **Locked decisions:** core run is ages 40 to 65 at 45 seconds per year (about 19 minutes), with Full Life (to 100) as an unlockable mode; 2D only (3D parked); Rami appears in the Credits but not as a character.
 
 ## Keep usage light (Rami's standing request, Oct 31)
 - Rami is on a monthly plan and wants Claude time left for other things. Aim for about 2-3 build sessions a week.
@@ -22,6 +22,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 
 ## How a work session goes
 1. **Recap** where we are (one short paragraph, from ROADMAP + PROGRESS_LOG).
+   - Read any new entries in `docs/handoffs/*-changes.md` (notes from ChatGPT, Gemini and Grok) and fold approved items into the game. Mark them **[done]**.
 2. **Propose one small step** with what Rami will see when it works.
 3. **Build it.** Keep changes small and focused.
 4. **Make it playable.** Test it first (headless browser at laptop and phone sizes), bump `src/data/version.js` and the `?v=` cache-busters in `index.html`, then push to GitHub so the official playtest at https://ramidaud.github.io/midlife-survivors/ updates. If a push isn't possible from here, tell Rami exactly what to run.
@@ -57,6 +58,9 @@ assets/                 art and sound (later)
 - Level-ups offer **3 choices**; combining items unlocks **evolutions**.
 - A full run is a whole life (about an hour, with save and resume), deaths are funny, and a meta currency makes the next run a little better.
 - The humor is warm and recognizable, never mean. Midlife is hard and also kind of great.
+
+## Devlog
+- `devlog/` is Rami's public build diary. At each milestone, draft a short casual post in his voice (`devlog/posts/`, listed in `devlog/posts.js` with `draft: true`) plus screenshots in `devlog/img/`. Rami approves before it goes public.
 
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.

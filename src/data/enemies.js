@@ -215,9 +215,9 @@ window.SPAWNING = {
   maxOnScreen: 75,
   offscreenMargin: 70,
   waves: [
-    { minAge: 40, everyMs: 800, mix: [["bill", 10]] },
-    { minAge: 42, everyMs: 640,  mix: [["bill", 7], ["spamCall", 3]] },
-    { minAge: 45, everyMs: 450,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2], ["calendarInvite", 2]] },
+    { minAge: 40, everyMs: 1150, mix: [["bill", 10]] }, // gentle first minutes (Ben: "brutal")
+    { minAge: 42, everyMs: 820,  mix: [["bill", 7], ["spamCall", 3]] },
+    { minAge: 45, everyMs: 520,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2], ["calendarInvite", 2]] },
     { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1], ["calendarInvite", 2], ["threeAmThought", 2]] },
     { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2], ["calendarInvite", 2], ["threeAmThought", 2], ["groupChat", 2], ["mathWorksheet", 1]] },
     { minAge: 70, everyMs: 280,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3], ["calendarInvite", 2], ["threeAmThought", 3], ["groupChat", 2], ["mathWorksheet", 2]] },

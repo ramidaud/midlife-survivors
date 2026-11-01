@@ -2,7 +2,7 @@
 
 // The everyday drip of enemies, smoothed between the waves in enemies.js.
 window.INTENSITY = {
-  packSizeByAge: [[40, 1], [45, 2], [55, 3], [70, 4], [85, 5], [95, 6]], // enemies per spawn tick, they arrive as a little group
+  packSizeByAge: [[40, 1], [43, 1], [47, 2], [55, 3], [70, 4], [85, 5], [95, 6]], // enemies per spawn tick, they arrive as a little group
   hpPerYear: 0.09,          // enemies get 9% tougher every year you age (smooth, no big jumps)
   swarmGrowthPerYear: 0.035, // swarms get 3.5% bigger for every year past their first appearance
   maxOnScreenByAge: [[40, 60], [60, 110], [80, 160], [100, 200]],       // crowd limit grows as you age
@@ -12,7 +12,7 @@ window.INTENSITY = {
 // Swarm events: set pieces announced in the lower third.
 // pattern: "ring" = surrounds you and closes in, "wall" = a line sweeping in from one side, "pack" = a tight clump from one direction
 window.SWARM_EVENTS = [
-  { id: "taxSeason",   minAge: 41, weight: 3, pattern: "ring", kind: "bill",         count: 18, badge: "TAX SEASON",  text: "You're surrounded by Bills. Pick a gap and push through." },
+  { id: "taxSeason",   minAge: 43, weight: 3, pattern: "ring", kind: "bill",         count: 14, badge: "TAX SEASON",  text: "You're surrounded by Bills. Pick a gap and push through." },
   { id: "robocalls",   minAge: 46, weight: 3, pattern: "wall", kind: "spamCall",     count: 12, badge: "ROBOCALLS",   text: "A wall of Spam Likely incoming. Dodge sideways." },
   { id: "donutDrop",   minAge: 50, weight: 2, pattern: "pack", kind: "snackAttack",  count: 14, badge: "DONUT DROP",  text: "Someone brought donuts. Do not touch the donuts." },
   { id: "lateFeeRush", minAge: 55, weight: 2, pattern: "wall", kind: "lateFee",      count: 16, badge: "PAST DUE",    text: "A rush of Late Fees. Small, fast, everywhere." },

@@ -2,12 +2,24 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.19.1",
-  displayVersion: "V. 1.19.1",
-  lastUpdated: "Oct 30, 2026",
-  codename: "Online Board",
-  build: 36,
+  version: "1.20.0",
+  displayVersion: "V. 1.20.0",
+  lastUpdated: "Oct 31, 2026",
+  codename: "Playtest Fixes",
+  build: 37,
   changelog: [
+    {
+      ver: "V. 1.20.0",
+      date: "Oct 31, 2026",
+      title: "Playtest Fix Pack",
+      highlights: [
+        "Phones: steering works again after Retry. Perks need a second tap to confirm, so no more accidental picks.",
+        "Dad Joke tells a joke when you unlock or upgrade it, plus an occasional bonus joke. Bubbles wrap and sit higher.",
+        "Gentler first few minutes, then the usual ramp. Coins come in slower so the shop means something.",
+        "Start is the big button; a saved run is a smaller Continue link. Perk labels are plain: New Weapon, Upgrade, Passive, Evolution.",
+        "Leaderboard shows each player's personal best, with no top-10 cap. New Devlog link in Extras."
+      ]
+    },
     {
       ver: "V. 1.19.1",
       date: "Oct 30, 2026",

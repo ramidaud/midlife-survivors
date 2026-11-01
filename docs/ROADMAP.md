@@ -27,7 +27,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ---
 
 ## Next up (planned Oct 31, usage-light: one session per item)
-1. [ ] **Playtest fix pack:** Retry touch bug, tap-to-confirm perks, joke wrapping + quieter jokes, Start over Resume, plain rarity labels, coin economy fix, softer first minutes, leaderboard shows personal bests only with no top-10 cap
+1. [x] **Playtest fix pack (V. 1.20.0):** Retry touch bug, tap-to-confirm perks, joke wrapping + quieter jokes, Start over Resume, plain rarity labels, coin economy fix, softer first minutes, leaderboard shows personal bests only with no top-10 cap
 2. [ ] **Core 19-minute run (ages 40 to 65, 45 s/year):** short Midlife mode as the main game, Overtime unlocks, Full Life (to 100) as an unlockable mode, separate leaderboards
 3. [ ] **Content drop + items:** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
 4. [ ] **Achievements** (one unlocks Full Life)
@@ -35,7 +35,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 6. [ ] **Discoverable map + bigger world**
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery
-9. [ ] **Version archive:** git tag each major version + screenshots in `docs/versions/`
+9. [ ] **Version archive + devlog:** git tag each major version, screenshots in `devlog/img/`, one devlog post per milestone (devlog page started in V. 1.20.0)
 10. [ ] **AI layer (proof of concept):** LLM-generated dialogue, then LLM character creation
 
 ## Phase 0: Setup and first pixels (week 1)

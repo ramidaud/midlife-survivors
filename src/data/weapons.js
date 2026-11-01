@@ -14,6 +14,7 @@ window.WEAPONS = {
     fireEveryMs: 2600, // how often a cringe aura ripples out around you (gives time to read & hear the joke!)
     radius: 110,       // size of the groan circle, in pixels
     damage: 1,         // hits EVERY Bill inside the circle
+    bonusEveryMs: 50000, // a bonus joke is told (and spoken) at most this often; jokes are also told right after you unlock or upgrade Dad Joke
     color: 0xe6c84f,   // cheesy yellow
     lines: [
       "Hi Hungry, I'm Dad!",

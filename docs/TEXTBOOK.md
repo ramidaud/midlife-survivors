@@ -1195,3 +1195,22 @@ flowchart LR
     E --> F["Top 10 comes back, your row highlighted"]
     C -- no / offline --> G["Show this device's top 10"]
 ```
+
+
+## Chapter: Press vs. release (V. 1.20.0)
+
+```
+ finger DOWN ───────────── finger UP
+     │                          │
+ old: button fired here     new: button fires here
+     (game restarts while       (touch is finished, so the
+      the finger is still on     new run starts with a clean
+      the glass, and the new     slate)
+      run never hears it lift)
+```
+
+| Input | When a button fires |
+|---|---|
+| Mouse | on press (feels snappy) |
+| Touch | on release; slide off to cancel |
+| Perk cards on touch | first tap selects, second tap picks |

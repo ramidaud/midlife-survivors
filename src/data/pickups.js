@@ -16,13 +16,13 @@ window.PICKUPS = {
   coin401k: {
     name: "401(k) Coin",
     value: 1,
-    dropChance: 0.55,        // 55% base drop chance from regular Bills (scales up to 75% as you age!)
+    dropChance: 0.3,         // 30% base drop chance from regular Bills (rises slowly as you age). Was 55%: coins piled up too fast.
     size: 16,
     color: 0xf5c542,
     // Compound Interest Tiers: the longer you survive in a run, the more each 401(k) Coin is worth!
     compoundTiers: [
       { minSeconds: 0,   minAge: 40, value: 1, label: "1x MATCH" },
-      { minSeconds: 42,  minAge: 44, value: 2, label: "2x VESTED" },
+      { minSeconds: 42,  minAge: 47, value: 2, label: "2x VESTED" },
       { minSeconds: 100, minAge: 50, value: 3, label: "3x SENIORITY" },
       { minSeconds: 175, minAge: 60, value: 4, label: "4x EXECUTIVE" },
       { minSeconds: 250, minAge: 70, value: 5, label: "5x COMPOUND" },

@@ -157,15 +157,15 @@ window.getCoinYieldInfo = function() {
   const tiers = C.compoundTiers || [];
   for (let i = 0; i < tiers.length; i++) {
     const t = tiers[i];
-    if (secs >= t.minSeconds || age >= t.minAge) {
+    if (age >= t.minAge) { // by age only (seconds made coins pile up too fast early on)
       val = t.value;
       label = t.label;
     }
   }
   // Extra endurance bonus if you survive more than 3.5 minutes in a single continuous run
-  const streakBonus = Math.floor(secs / 210);
+  const streakBonus = age >= 50 ? Math.floor(secs / 210) : 0; // no endurance bonus before 50
   val += streakBonus;
-  const dropChance = Math.min(0.78, (C.dropChance || 0.55) + Math.max(0, age - 40) * 0.005);
+  const dropChance = Math.min(0.78, (C.dropChance || 0.55) + Math.max(0, age - 40) * 0.004);
   return { value: val, label: streakBonus > 0 ? `${val}x COMPOUND` : label, dropChance };
 };
 
@@ -197,7 +197,7 @@ function create() {
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
   window._heldKeys.clear();
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
-  runCoins = 0; runKills = 0;
+  runCoins = 0; runKills = 0; lastJokeToldAt = 0;
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
@@ -870,7 +870,9 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     if (levelMenu && levelMenu.close) levelMenu.close();
     levelMenu = null;
     window.levelMenu = null;
+    const jokeBefore = [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join();
     up.apply(stats);
+    if (stats.dadJoke && jokeBefore !== [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join()) stats.jokeAnnounce = true;
     if (stats.heal) { hp = Math.min(stats.maxHp, hp + stats.heal); stats.heal = 0; }
     const cd = stats.cooldownMult;
     fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
@@ -1110,20 +1112,22 @@ function hitProp(splash, prop) {
 
 // Weapon 2: Dad Joke. A yellow ring ripples out, your character speaks a Dad Joke out loud,
 // and a comic speech bubble follows above your head for ~2.8 seconds so you can read it easily!
-let playerSpeech = null;
+let playerSpeech = null, lastJokeToldAt = 0;
 function showPlayerSpeechBubble(scene, text, color = "#ffe042", holdMs = 2300) {
   if (playerSpeech && playerSpeech.active) playerSpeech.destroy();
   const pt = project3DToPhaserWorld(scene, player.x, (player.elev || 0) + 68, player.y);
-  playerSpeech = scene.add.text(pt.x, pt.y - 34, `💬 "${text}"`, {
+  playerSpeech = scene.add.text(pt.x, pt.y - 52, `💬 "${text}"`, {
     fontFamily: "monospace",
-    fontSize: "14px",
+    fontSize: "15px",
+    align: "center",
+    wordWrap: { width: Math.min(280, scene.scale.width - 40), useAdvancedWrap: true },
     fontStyle: "bold",
     color,
     backgroundColor: "#12152aee",
     padding: { x: 10, y: 6 },
     stroke: "#090b14",
     strokeThickness: 3
-  }).setOrigin(0.5, 1).setDepth(22);
+  }).setOrigin(0.5, 1).setDepth(60);
   playerSpeech.holdUntil = runElapsedMs + holdMs;
   playerSpeech.fadeEnd = runElapsedMs + holdMs + 550;
   scene.tweens.add({ targets: playerSpeech, scaleX: { from: 0.85, to: 1 }, scaleY: { from: 0.85, to: 1 }, duration: 140, ease: "Back.easeOut" });
@@ -1140,9 +1144,16 @@ function fireDadJoke(scene) {
     scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 380, onComplete: () => ring.destroy() });
   }
   const pool = (currentAge >= 80 && J.seniorLines) ? J.seniorLines.concat(J.lines) : J.lines;
-  const line = Phaser.Utils.Array.GetRandom(pool);
-  showPlayerSpeechBubble(scene, line, "#ffe042", 2300);
-  if (typeof speakDadJoke === "function") speakDadJoke(line, currentAge >= 80 ? 0.84 : 0.94, 1.05);
+  // The groan ring hits every time, but the joke itself is only told now and then:
+  // right after you unlock or upgrade Dad Joke, plus an occasional bonus joke (WEAPONS.dadJoke.bonusEveryMs).
+  const bonusDue = runElapsedMs - lastJokeToldAt >= (J.bonusEveryMs || 50000);
+  if (stats.jokeAnnounce || bonusDue) {
+    stats.jokeAnnounce = false;
+    lastJokeToldAt = runElapsedMs;
+    const line = Phaser.Utils.Array.GetRandom(pool);
+    showPlayerSpeechBubble(scene, line, "#ffe042", 3400);
+    if (typeof speakDadJoke === "function") speakDadJoke(line, currentAge >= 80 ? 0.84 : 0.94, 1.05);
+  }
 
   bills.getChildren().slice().forEach(bill => {
     if (Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y) <= r) {
@@ -1590,7 +1601,7 @@ function update(time, delta) {
       playerSpeech = null;
     } else {
       const sPt = project3DToPhaserWorld(this, player.x, (player.elev || 0) + 68, player.y);
-      playerSpeech.setPosition(sPt.x, sPt.y - 34).setVisible(sPt.visible);
+      playerSpeech.setPosition(sPt.x, sPt.y - 52).setVisible(sPt.visible);
       if (runElapsedMs > playerSpeech.holdUntil) {
         const rem = (playerSpeech.fadeEnd - runElapsedMs) / (playerSpeech.fadeEnd - playerSpeech.holdUntil);
         playerSpeech.setAlpha(Math.max(0, rem));

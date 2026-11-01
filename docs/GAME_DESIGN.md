@@ -271,3 +271,8 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - **AI layer (future proof of concept):** LLM-generated dialogue so jokes and lines stay fresh; later, LLM character creation where the player enters their age and personal struggles and the game builds tailored challenges.
 - **Leaderboard:** show only each player's personal best (no test-run clutter) and remove the top-10 cap (show everyone for now).
 - **Version history:** keep a revision log with screenshots and archive every major version.
+
+
+## Oct 31 (later): devlog and other AI tools
+- **Devlog:** a casual blog in Rami's voice about learning to make the game with AI. Lives at `/devlog` on the game site, linked from Extras. Claude drafts from the progress log and screenshots; Rami edits and approves (posts stay `draft: true` until then). One post per milestone.
+- **Other AI tools:** ChatGPT (art), Gemini and Grok each have a Project with shared instructions. They end replies with a change-log block that Rami pastes into `docs/handoffs/<tool>-changes.md`. Claude reads these each session and folds approved items into the game.

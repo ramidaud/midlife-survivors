@@ -57,21 +57,31 @@ async function lbSubmit(entry) {
 // Top scores. Falls back to this device's scores if the online board can't be reached.
 async function lbFetchTop() {
   const L = window.LEADERBOARD || {};
-  const n = L.topCount || 10;
+  const n = L.fetchLimit || 1000; // grab plenty, then keep each player's best (no top-10 cap)
   if (lbConfigured()) {
     try {
       const res = await fetch(`${L.supabaseUrl}/rest/v1/${L.table}?select=name,score,age,character,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
-      if (res.ok) return { online: true, rows: await res.json() };
+      if (res.ok) return { online: true, rows: lbBestPerName(await res.json()) };
     } catch (e) {}
   }
-  return { online: false, rows: lbLocalScores().slice(0, n) };
+  return { online: false, rows: lbBestPerName(lbLocalScores()) };
+}
+
+// One row per player: their personal best. Rows arrive sorted by score, so the first time we see a name is their best.
+function lbBestPerName(rows) {
+  const seen = new Set();
+  return rows.filter(r => {
+    const key = String(r.name || "").trim().toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  });
 }
 
 function lbEscape(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
-// Render a top-10 table into an element. Highlights rows matching `mine` (name + score).
+// Render the full board (personal bests) into an element. Highlights rows matching `mine` (name + score).
 async function lbRenderInto(el, mine) {
   if (!el) return;
   el.innerHTML = `<div class="lb-status">Loading scores…</div>`;

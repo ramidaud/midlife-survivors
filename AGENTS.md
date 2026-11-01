@@ -9,3 +9,4 @@
 - **Bump the version after every finished step:** update `src/data/version.js` (`version`, `displayVersion`, `lastUpdated`, `build`, and prepend a new `changelog` entry) and increment the `?v=` cache-buster query string on the `<script>` tags in `index.html`.
 - **Tag your log entries** with the tool name, e.g. `## 2026-11-03: Bills chase the player (Antigravity)`, so Claude can catch up, republish the playtest and sync the Project next time.
 - **Don't change the rules** in `CLAUDE.md` or the tech decisions (Phaser 3 from cdnjs, no build step) without Rami's OK.
+- **ChatGPT, Gemini and Grok** don't edit this folder. Their notes arrive in `docs/handoffs/<tool>-changes.md`.

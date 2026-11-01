@@ -203,12 +203,23 @@ function bindNavItem(el, row, onActivate, isDefault = false) {
   el.addEventListener("pointermove", e => {
     if (e.pointerType === "mouse" && window.menuNav.focusedEl !== el) window.menuNav.focus(el, false);
   });
+  // Mouse clicks act right away. Touch taps act when the finger LIFTS (pointerup), so a restart
+  // never happens mid-touch (that broke touch steering after Retry) and a stray touch can slide off to cancel.
   el.addEventListener("pointerdown", e => {
     e.stopPropagation();
     unlockAudio();
+    if (e.pointerType === "mouse") { window.menuNav.focus(el, false); onActivate(e); return; }
+    el._pressId = e.pointerId;
     window.menuNav.focus(el, false);
+  });
+  el.addEventListener("pointerup", e => {
+    if (e.pointerType === "mouse" || el._pressId !== e.pointerId) return;
+    e.stopPropagation();
+    el._pressId = null;
     onActivate(e);
   });
+  el.addEventListener("pointercancel", () => { el._pressId = null; });
+  el.addEventListener("pointerleave", e => { if (e.pointerType !== "mouse") el._pressId = null; });
   el.addEventListener("nav-activate", e => {
     unlockAudio();
     onActivate(e);
@@ -1669,13 +1680,21 @@ function renderLevelUpModal(choices, customTitle, onPick) {
   kicker.textContent = customTitle ? "EXECUTIVE BONUS // TAX-FREE REWARD" : `HR BENEFITS DEPT // PROMOTION LEVEL ${level - pendingLevels + 1}`;
   title.textContent = customTitle || "SELECT YOUR MIDLIFE PERK";
   grid.innerHTML = "";
+  const openedAt = performance.now();
+  const isTouchUI = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+  let armed = null;
 
   const cardEls = choices.map((up, i) => {
     const info = UPGRADE_META[up.name] || { icon: "⭐", tag: "PERK VOUCHER", rarity: "common" };
     const curRank = (stats && stats.perkRanks && up.id) ? (stats.perkRanks[up.id] || 0) : 0;
+    // Plain labels a new player can read at a glance (from Rami's design doc).
+    const plain = up.isEvolution || info.rarity === "evo" ? "EVOLUTION"
+      : up.name.startsWith("Unlock:") ? "NEW WEAPON"
+      : up.name === "Annual Checkup" ? "BOOST"
+      : info.rarity === "passive" ? "PASSIVE" : "UPGRADE";
     const rankLabel = (up.maxRank && up.maxRank > 1 && up.maxRank < 50)
-      ? `${info.tag} // RANK ${curRank + 1}/${up.maxRank}`
-      : info.tag;
+      ? `${plain} · LEVEL ${curRank + 1} OF ${up.maxRank}`
+      : plain;
     const card = document.createElement("div");
     card.className = `perk-card rarity-${info.rarity}`;
     card.innerHTML = `
@@ -1683,9 +1702,20 @@ function renderLevelUpModal(choices, customTitle, onPick) {
       <div class="perk-icon">${info.icon}</div>
       <div class="perk-name">${up.name}</div>
       <div class="perk-desc">${up.text}</div>
-      <div class="perk-key">PRESS [${i + 1}] / SPACE</div>
+      <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `PRESS [${i + 1}] / SPACE`}</div>
     `;
-    bindNavItem(card, 0, () => {
+    bindNavItem(card, 0, e => {
+      // Ignore taps in the first moment after the menu appears, so a finger that was steering doesn't grab a perk.
+      if (performance.now() - openedAt < 450) return;
+      // Touch: first tap selects, second tap on the same card confirms.
+      const pt = e && e.pointerType;
+      if (pt && pt !== "mouse" && armed !== card) {
+        cardEls.forEach(c => { c.classList.remove("armed"); c.querySelector(".perk-key").textContent = "TAP TO SELECT"; });
+        armed = card; card.classList.add("armed");
+        card.querySelector(".perk-key").textContent = "TAP AGAIN TO PICK";
+        sfx("move");
+        return;
+      }
       modal.classList.add("hidden");
       onPick(up);
     }, i === 0);
@@ -1770,9 +1800,10 @@ function renderTitleModal(scene, preserveFocusSelector) {
     `;
   }).join("");
 
+  // Start is the big button. A saved run is a smaller "continue" link under it, so new players aren't confused.
   const resumeBannerHtml = savedRun ? `
-    <button class="cta-btn resume-saved-btn" id="title-resume-btn" style="background:#52bf6a;margin-bottom:6px;">
-      💾 RESUME SAVED RUN (Age ${Number(savedRun.currentAge).toFixed(1)} | Level ${savedRun.level} | HP ${savedRun.hp}/${savedRun.stats.maxHp})
+    <button class="t-style-btn resume-saved-btn" id="title-resume-btn" style="width:100%;margin-top:6px;">
+      ↩ Continue saved run (age ${Math.floor(Number(savedRun.currentAge))}, level ${savedRun.level})
     </button>
   ` : "";
 
@@ -1828,6 +1859,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
+        <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
         ${backBtn}
       </div>`;
   } else {
@@ -1835,8 +1867,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-meta-line">🏅 Best: age ${Math.floor(meta.bestAge || 40)} &nbsp;·&nbsp; 🪙 ${meta.coins}k saved</div>
       <div class="dossier-chars-grid">${charCardsHtml}</div>
       <div class="title-footer">
-        ${resumeBannerHtml}
         <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START${startAge !== 40 ? ` AT AGE ${startAge}` : ""}</button>
+        ${resumeBannerHtml}
       </div>
       <div class="title-secondary">
         <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
@@ -1865,6 +1897,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (view === "leaders" && window.lbRenderInto) window.lbRenderInto(document.getElementById("title-leaderboard"), null);
   const creditsBtn = document.getElementById("title-credits-btn");
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
+  const devlogBtn = document.getElementById("title-devlog-btn");
+  if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.open("devlog/", "_blank", "noopener"); }); // how the game got made
   const backEl = document.getElementById("title-back-btn");
   if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" ? "extras" : "main"), view !== "main");
 
@@ -1972,14 +2006,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (resumeBtn) {
     bindNavItem(resumeBtn, 8, () => {
       if (window.resumeSavedRunFromTitle) window.resumeSavedRunFromTitle();
-    }, true);
+    }, false);
   }
 
   // Row 9: Clock In / Start New Run (Default focus if no saved run)
   const clockBtn = document.getElementById("title-clockin-btn");
   bindNavItem(clockBtn, 9, () => {
     if (startFromTitle) startFromTitle();
-  }, !resumeBtn && view === "main");
+  }, view === "main");
 
   window.menuNav.refresh(preserveFocusSelector);
 }

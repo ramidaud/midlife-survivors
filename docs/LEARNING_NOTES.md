@@ -230,3 +230,10 @@ Game-dev ideas you've picked up along the way. One short entry per concept.
 - The game sends a score with `fetch()` (a web request) and asks for the top 10 the same way.
 - The **public key** in the code is safe to share because the database's **rules** only allow reading and adding scores, never editing or deleting.
 - If the internet drops, the score is still saved on the device: always have a fallback.
+
+
+## Press vs. release (Oct 31, Playtest fix pack)
+- Every tap is two events: **pointerdown** (finger touches) and **pointerup** (finger lifts).
+- The Retry button used to fire on *down*, so the game restarted mid-touch and the new run never saw the finger lift. Steering froze.
+- Now touch buttons fire on *up*, like most phone apps. Mouse clicks still fire on down so the desktop feels snappy.
+- Same idea protects perks: on phones the first tap only **selects** a card and the second tap **confirms**.
