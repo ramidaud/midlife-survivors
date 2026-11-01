@@ -111,3 +111,6 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ### Visual handoff, Batch 1 (Nov 1, Codex)
 - [x] First enemy reference: Bill's four-frame 48x48 walking sheet, native PNG, preview GIF and full prompts saved and checked.
 - [ ] Rami reviews Bill's expression and motion. Remaining Batch 1 enemies follow the approved reference; Art Room and production integration remain with the lead developer.
+
+### Bio portrait (Nov 1, Codex)
+- [x] Replace the About silhouette with a game-style pixel-art illustration of Rami's studio photograph. Update social preview and alt text; verify desktop and phone layouts.

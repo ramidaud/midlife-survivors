@@ -334,3 +334,7 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 - Start the visual handoff with Bill: cream bill-envelope, red stripe without lettering, furrowed brows, gritted teeth, mitten hands and small navy boots, facing down-right.
 - Four 48x48 frames form alternate stride / passing / opposite stride / passing, with a small paper flutter. Native sheet is 192x48, pure magenta, shared scale and baseline, palette-mapped with a one-pixel navy silhouette outline.
 - Bill is the first review object, not a completed enemy batch. Remaining enemies follow after feedback; existing runtime Bill stays unchanged until approved integration.
+
+## Creator bio art (Nov 1, 2026, Codex)
+- Rami requested a pixel-art interpretation of his studio photograph as the new About-page portrait. Preserve the real seated creator and room, using the game's warm cream light, navy shadows and stepped pixel clusters.
+- This is editorial creator art, not a playable-character design. The new 1536x1024 versioned PNG also serves as the About social preview; earlier silhouette art stays archived.

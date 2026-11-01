@@ -1415,3 +1415,15 @@ pose:  left stride -> feet pass -> right stride -> feet pass
 ```
 
 Opposite strides are the readable beats. Passing poses bridge them, while the Bill's paper corner flutters slightly. All cells stay 48x48, use one scale, and share the same lowest foot baseline. The large generated source is converted to exact native frames and palette colors before integration. The review GIF enlarges those pixels by four without smoothing.
+
+## Chapter: A portrait in the same visual world (V. 1.28.4, Codex)
+
+```text
+photo: face + pose + studio
+                 |
+     navy shadows, warm highlights, pixel clusters
+                 |
+       illustrated bio portrait
+```
+
+The subject remains the real creator. Shared color and edge treatment establish consistency with the game while preserving his personal setting. The page and its social metadata point to the same new image filename, with alt text describing the illustrated scene.

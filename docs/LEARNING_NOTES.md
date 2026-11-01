@@ -324,3 +324,6 @@ A wide image loses its sides when cropped for a phone. Keeping the middle calm p
 A four-frame walk needs opposite foot poses so it reads as walking rather than hopping. Frames one and three carry the two strides; the frames between them pass the feet under the body. Keeping one scale and a common foot baseline prevents the sprite from growing or floating between poses. We corrected the generated Bill's repeated third step before exporting it.
 
 `left stride → feet pass → right stride → feet pass → repeat`
+
+## Matching a photograph to a game palette (Nov 1, studio portrait, Codex)
+A photograph can join the game's visual world without turning its subject into a game character. Keep the recognizable face, pose and setting, then simplify surfaces into pixel-color clusters. Reusing navy shadows and warm cream highlights ties the portrait to the office art. A versioned image filename also helps the updated page avoid a stale cached portrait.

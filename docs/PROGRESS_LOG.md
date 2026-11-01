@@ -611,3 +611,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Generated four poses, then corrected the repeated third-frame foot pose with a targeted imagegen edit. Exported a native 192x48 sheet (four 48x48 cells) plus a 4x review GIF, source and full prompts.
 - Pixel QA passed: four distinct frames, shared y45 baseline, clear padding, exact magenta, opaque pixels, project palette and one-pixel navy silhouette outline. Inspected the looping preview.
 - Batch 1 is still in progress. Await Bill feedback before generating the remaining enemies. No new art integrated into production or Art Room; no gameplay values changed. Handoff notes saved for Claude.
+
+## 2026-11-01: Studio bio portrait, V. 1.28.4 (Codex)
+- Rami supplied a studio photograph and requested a game-style version replacing the bio image. Generated a 1536x1024 pixel-art portrait preserving his seated likeness, glasses, beard, dark shirt/tie and creative workspace.
+- Replaced the About lead image, Open Graph image and Twitter preview with a new versioned PNG. Added accurate alt text; retained the older silhouette asset. The source photograph was not added to the repository.
+- Checked the image loads at its native dimensions, the local desktop page, phone 390x844 layout with no horizontal overflow, and clean browser logs. Saved page proof and full generation prompt.
+- Bio-only update. Bill feedback and remaining enemy-art work stay pending; no gameplay or character design changed.

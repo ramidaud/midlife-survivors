@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.3",
-  displayVersion: "V. 1.28.3",
+  version: "1.28.4",
+  displayVersion: "V. 1.28.4",
   lastUpdated: "Nov 1, 2026",
-  codename: "The Bill Has Legs",
-  build: 59,
+  codename: "In the Studio",
+  build: 60,
   changelog: [
+    {
+      ver: "V. 1.28.4",
+      date: "Nov 1, 2026",
+      title: "In the Studio",
+      highlights: [
+        "The devlog About page now features a new pixel-art portrait of Rami at his studio desk, based on his supplied photo. Updated the page's social preview image and accessible descriptions too."
+      ]
+    },
     {
       ver: "V. 1.28.3",
       date: "Nov 1, 2026",
