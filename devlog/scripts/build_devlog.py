@@ -116,7 +116,7 @@ PAGE = """<!doctype html>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to {version}. Screenshots are from the real game at the time.</div>
     </article>
   </div>
-  <footer class="site-footer">© 2026 <a href="../about/">Rami Daud</a>. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
+  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
 </body>
 </html>
 """
