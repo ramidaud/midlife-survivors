@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-10-31 (Codex: first playable office art study, awaiting Rami's feedback)
+**Last updated:** 2026-10-31 (Codex: art study revised with a slightly larger hero and corrected desk footprints)
 
 ---
 

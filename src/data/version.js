@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.20.0",
-  displayVersion: "V. 1.20.0",
+  version: "1.20.1",
+  displayVersion: "V. 1.20.1",
   lastUpdated: "Oct 31, 2026",
-  codename: "Playtest Fixes",
-  build: 38,
+  codename: "Office Scale and Depth",
+  build: 39,
   changelog: [
+    {
+      ver: "V. 1.20.1",
+      date: "Oct 31, 2026",
+      title: "A Clearer Office Art Test",
+      highlights: [
+        "The new hero is about 15% larger in the art test.",
+        "Desk collisions match their full floor space, with smoother movement around corners and believable overlap."
+      ]
+    },
     {
       ver: "V. 1.20.0",
       date: "Oct 31, 2026",
