@@ -36,6 +36,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. Campus study now includes three desk variants and walking sheets for all three playable characters. Explore As switches characters; the gallery compares four directions and exports native grids. Approved walking sheets now run in the main game (V. 1.28.13); extra idle/combat poses remain pending.
    - Batch 1 enemy generation complete: ten enemy species plus Group Chat ping, 11 native sheets and 42 frames. Review animated enemies from the Art Room, with pause, pose, scale and floor controls. Approved Batch 1 is integrated in V. 1.28.12 with independent canvas fallback; bosses remain a separate batch.
    - Office environment study: detailed Accounts Payable with seamless carpet/wood, fluorescent lighting accents, native printer/cabinet/plant props and floor-level stories. Visit Accounts opens it directly. Expanded ground pass now adds brighter carpet, welcome rug, chair mats, floor wear, paper trails and cream lighting. Rami approved the larger exploration scale. Furniture now has fitted contact shadows, visible chair mats and nearby floor wear; grounded room art and repeating campus now run in the main game (V. 1.28.13), with crowd-pressure QA completed.
+5b. [ ] **Stage art pass (Rami, Nov 1):** the office needs to be more pixel-art forward, friendly and funny. Many different desk setups and break-room clutter, with inside jokes hidden in props (a "Reply All" mug, a fern that has given up). Rami sends his own inside jokes; Claude turns them into a prop list for ChatGPT.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery
@@ -89,8 +90,32 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 
 ## Phase 6: Share it (week 13+)
 - [ ] Playtest with friends or colleagues and collect notes
-- [ ] Decide: stay on the web, itch.io, or desktop app
+- [x] Decide the platform goal (Nov 1): Steam first, then PlayStation and Xbox. See "Platforms" below.
 - [ ] Optional: tie a write-up into EMAT coursework or Framing the Cosmos-style storytelling
+
+## Platforms: Steam, then consoles (goal set Nov 1)
+Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPHXN3jtsk). Steam is realistic with the current Phaser code. PlayStation and Xbox can't run browser code, so consoles mean a Unity rebuild or a porting studio or publisher.
+
+**Phase A: Finish the browser game**
+- [ ] Fun Pass and visual pass done (enemies, bosses, pickups, icons)
+- [ ] Stage art pass: friendlier, funnier, lots of props and inside jokes
+- [ ] Grow the Discord and devlog audience; collect playtest notes
+
+**Phase B: Steam**
+- [ ] Wrap as a desktop app (Electron or Tauri), the way Vampire Survivors first shipped
+- [ ] Steamworks account and app fee, store page, capsule art, trailer
+- [ ] Steam achievements, cloud saves, full controller support, Steam Deck testing
+- [ ] Wishlist campaign; consider a free demo and Steam Next Fest
+
+**Phase C: Consoles (PlayStation, Xbox)**
+- [ ] Apply to ID@Xbox and PlayStation Partners for dev kits
+- [ ] Port: Unity rebuild (what Vampire Survivors did for consoles) or a porting studio
+- [ ] Strongly consider a publisher for porting, certification and console marketing
+- [ ] Certification: performance, controller-only menus, platform save rules, ESRB/PEGI ratings
+
+**Keep doing now so a port is easier:** content stays in data files, every menu works with a controller, art stays in clean native sprite sheets, no browser-only shortcuts in core gameplay.
+
+**Open questions:** self-publish on Steam or pitch publishers early? Budget for the Steam fee, trailer and capsule art?
 
 ## Phase 7: Life Chapters, Diverse Environments & Interactive Challenges (Planned Expansion)
 - [x] **Multi-Stage Biome Architecture (`src/data/stages.js`):** 5 unlockable environments (`🏢 The Open-Plan Office`, `🏥 St. Deductible Hospital`, `🏡 Suburban Home & Yard`, `🍻 The Social Courtyard`, `🌴 Sunset Palms Resort`) with multi-zone procedural floors, 3D sky palettes, and Title Screen Stage Selector

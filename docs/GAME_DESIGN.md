@@ -370,3 +370,11 @@ To keep the top 82% of the viewport (and the 3D skyline horizon in Mode 2) compl
 
 ## Editorial twins portrait (Nov 1, 2026, Codex)
 Post 05 now uses the simplified 4:3 twins illustration beside the birth announcement. This is personal devlog art, with wristband and lettering removed, not a gameplay asset or new character. Earlier revisions remain archived.
+
+### Stage art direction (Nov 1, Rami)
+- The current stage layout feels too plain after the last visual pass. The next stage pass should be **more pixel-art forward, friendly and funny**.
+- Lots of variety in objects and setups: different desk personalities, break-room clutter, plants in various states of giving up.
+- **Inside jokes hidden in props** (a "Reply All" mug, a "Per my last email" sticky note). Rami will supply his own jokes; Claude turns them into a prop list for ChatGPT.
+
+### Platform goal (Nov 1, Rami)
+- Long-term goal: **Steam, then PlayStation and Xbox.** Plan: finish the browser game, launch on Steam in a desktop wrapper, build an audience, then go to consoles, ideally with a publisher who handles the port. Details in ROADMAP.md under "Platforms".
