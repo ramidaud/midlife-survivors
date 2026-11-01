@@ -1906,6 +1906,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
+        <button class="t-style-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
         <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
         <button class="t-style-btn" id="title-art-test-btn">🎨 ART ROOM</button>
         ${backBtn}
@@ -1950,6 +1951,9 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
   const achBtn = document.getElementById("title-ach-btn");
   if (achBtn) bindNavItem(achBtn, 10, () => goView("achievements"));
+  // Ko-fi tip jar: opens in a new tab so the game stays put
+  const coffeeBtn = document.getElementById("title-coffee-btn");
+  if (coffeeBtn) bindNavItem(coffeeBtn, 10, () => { window.open("https://ko-fi.com/ramidaud", "_blank", "noopener"); });
   // Reset Progress: tap twice (no pop-up dialogs). Clears coins, shop, unlocks and achievements; keeps your leaderboard name.
   const resetBtn = document.getElementById("title-reset-btn");
   if (resetBtn) bindNavItem(resetBtn, 10, () => {
@@ -2146,6 +2150,7 @@ function renderGameOverModal(scene, cause, isWin) {
         <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>
       </div>
+      <div class="go-coffee">Midlife Survivors is free. If it made you laugh, <a href="https://ko-fi.com/ramidaud" target="_blank" rel="noopener">buy the developer a coffee</a> ☕</div>
       <div class="nav-hint-bar">
         <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Option</span>
         <span><b>Space / Enter / Click / A</b>: Confirm</span>

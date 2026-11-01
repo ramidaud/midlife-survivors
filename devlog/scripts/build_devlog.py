@@ -95,6 +95,7 @@ PAGE = """<!doctype html>
       <span><span class="brand-title">Midlife Survivors</span></span>
     </a>
     <div class="actions">
+      <a class="btn btn-coffee" href="https://ko-fi.com/ramidaud" rel="noopener">☕ <span class="coffee-long">Buy Rami a </span>Coffee</a>
       <a class="btn btn-primary" href="{play}">▶ Play this build</a>
     </div>
   </header>
@@ -118,7 +119,7 @@ PAGE = """<!doctype html>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to {version}. Screenshots are from the real game at the time.</div>
     </article>
   </div>
-  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time.</footer>
+  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕</footer>
 <script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
 </body>
 </html>

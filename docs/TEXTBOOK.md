@@ -1428,7 +1428,7 @@ photo: face + pose + studio
 
 The subject remains the real creator. Shared color and edge treatment establish consistency with the game while preserving his personal setting. The page and its social metadata point to the same new image filename, with alt text describing the illustrated scene.
 
-## Chapter: Matching the drawing language (V. 1.28.5, Codex)
+## Chapter: Matching the drawing language (V. 1.28.6, Codex)
 
 ```text
 recognizable face + broad shade clusters + navy outline
