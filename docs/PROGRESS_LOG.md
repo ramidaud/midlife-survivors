@@ -514,3 +514,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Existing approved hero/desk art and placeholder landmarks test movement before finished scenery. Campus has no combat, saved progress or production rewards.
 - Walked all four departments and collected all three finds in the browser; checked route reachability with hero clearance, reset, layout switching, pointer steering and phone sizing. Syntax and diff checks pass.
 - Next: Rami judges navigation and spacing, then test crowd pressure before main-game integration.
+## 2026-10-31: Timer and live score (V. 1.23.2) (Claude)
+- Rami asked for a running timer and a score tally. Timer sits top center above AGE and turns red in the last minute before the ending.
+- Live score counts up in the top left, using the same formula as the leaderboard.

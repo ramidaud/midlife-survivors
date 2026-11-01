@@ -159,6 +159,7 @@ function modeEndAge() {
   return m.endAge + ((meta.ranks && meta.ranks.delayedRetirement) || 0) * m.overtimeYearsPerRank;
 }
 window.getRunMode = () => runMode;
+window.getRunEndMs = () => (modeEndAge() - runStartAge) * modeCfg().secondsPerYear * 1000; // when the ending arrives, in run time
 window.refreshRunMode = () => { runMode = pickRunMode(); runStartAge = modeStartAge(); currentAge = runStartAge; };
 
 // Calculate current 401(k) Coin value & drop chance based on how long you have survived and your Age!

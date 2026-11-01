@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.23.1",
-  displayVersion: "V. 1.23.1",
+  version: "1.23.2",
+  displayVersion: "V. 1.23.2",
   lastUpdated: "Oct 31, 2026",
-  codename: "Campus Exploration Study",
-  build: 44,
+  codename: "Timer and Score",
+  build: 45,
   changelog: [
+    {
+      ver: "V. 1.23.2",
+      date: "Oct 31, 2026",
+      title: "Timer and Live Score",
+      highlights: [
+        "A run timer sits at the top center, above your age. It turns red in the last minute before your Retirement Party.",
+        "Your score now counts up live in the top left."
+      ]
+    },
     {
       ver: "V. 1.23.1",
       date: "Oct 31, 2026",

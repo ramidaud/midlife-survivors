@@ -274,10 +274,12 @@ function initGameUI(scene) {
       <div class="vs-xp"><div class="vs-xp-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
       <div class="vs-row">
         <div class="vs-left">
+          <div class="vs-score" id="vs-score">SCORE 0</div>
           <div class="vs-coins" id="vs-coins">🪙 0k</div>
           <div class="vs-loadout" id="vs-loadout"></div>
         </div>
         <div class="vs-center">
+          <div class="vs-timer" id="vs-timer">00:00</div>
           <div class="vs-age" id="vs-age">AGE 40</div>
           <div class="vs-year" title="Progress through this year"><div class="vs-year-fill" id="vs-year-fill"></div></div>
         </div>
@@ -997,6 +999,14 @@ function updateCleanHUD() {
   const yearPct = Math.max(0, Math.min(100, (currentAge - Math.floor(currentAge)) * 100));
   document.getElementById("vs-year-fill").style.width = `${yearPct}%`;
   document.getElementById("vs-coins").textContent = `🪙 ${meta.coins}k`;
+  // Run timer (game time, so it stops while paused) and the live score.
+  const mmss = ms => { const t = Math.max(0, Math.floor(ms / 1000)); return `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`; };
+  const timerEl = document.getElementById("vs-timer");
+  const endMs = window.getRunEndMs ? window.getRunEndMs() : 0;
+  timerEl.textContent = mmss(runElapsedMs);
+  timerEl.title = endMs ? `${mmss(endMs - runElapsedMs)} until the end of this life` : "";
+  timerEl.classList.toggle("vs-timer-final", !!endMs && endMs - runElapsedMs < 60000);
+  if (window.computeRunScore) document.getElementById("vs-score").textContent = `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}`;
   const icons = [stats.coldBrew ? "⚡" : "☕"];
   if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
   if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");
