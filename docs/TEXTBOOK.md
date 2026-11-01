@@ -1405,3 +1405,13 @@ The title is added later. The illustration provides a low-contrast area behind i
 ```
 
 The center crop preserves the menu area while removing much of the scene's story. A crop check makes this visible before UI integration. If showing the hero on phones is essential, compose a separate portrait image rather than squeezing every desktop element into the middle.
+
+## Chapter: Four steps that loop (V. 1.28.3, Codex)
+
+```text
+frame:     1             2              3             4
+pose:  left stride -> feet pass -> right stride -> feet pass
+       ^______________________________________________|
+```
+
+Opposite strides are the readable beats. Passing poses bridge them, while the Bill's paper corner flutters slightly. All cells stay 48x48, use one scale, and share the same lowest foot baseline. The large generated source is converted to exact native frames and palette colors before integration. The review GIF enlarges those pixels by four without smoothing.

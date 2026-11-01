@@ -605,3 +605,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Devlog Art Room: key art gallery (office key art, three title concepts, the long-way cover) with click-to-enlarge, arrow keys and captions, above the walkable preview.
 - Devlog: code snippet cards (file tab, line numbers, highlighted comments, Copy button). Real snippets added to all four posts: first movement code, data files, walk-by-distance, office layout jokes, difficulty dials and the Comfort Zone Tax.
 - Visual pass: full ChatGPT handoff written (`docs/handoffs/chatgpt-visual-pass.md`): setup, style bible, what's done, delivery specs, prompts for 10 enemies + projectile, 4 Midlife bosses, 7 pickups, weapons and evolutions, hero extra poses, perk/shop/achievement icon sheets, stage kits, QA checklist and change-log format.
+
+## 2026-11-01: Bill walking-sheet reference, V. 1.28.3 (Codex)
+- Read the visual-pass handoff and reviewed a short local run. Started Batch 1 with its first object, Bill, as the style/scale reference for the remaining enemies.
+- Generated four poses, then corrected the repeated third-frame foot pose with a targeted imagegen edit. Exported a native 192x48 sheet (four 48x48 cells) plus a 4x review GIF, source and full prompts.
+- Pixel QA passed: four distinct frames, shared y45 baseline, clear padding, exact magenta, opaque pixels, project palette and one-pixel navy silhouette outline. Inspected the looping preview.
+- Batch 1 is still in progress. Await Bill feedback before generating the remaining enemies. No new art integrated into production or Art Room; no gameplay values changed. Handoff notes saved for Claude.

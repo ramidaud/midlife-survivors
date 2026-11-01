@@ -107,3 +107,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ### Title background review (Nov 1, Codex)
 - [x] Three 1920x1080 pixel-art concepts saved with prompts: swarm, midlife panorama and 8:59 lobby. Lobby includes a 900px center-crop check.
 - [ ] Rami chooses a direction before title-screen integration. Desktop lobby composition crops the hero out on portrait; decide whether mobile needs separate artwork.
+
+### Visual handoff, Batch 1 (Nov 1, Codex)
+- [x] First enemy reference: Bill's four-frame 48x48 walking sheet, native PNG, preview GIF and full prompts saved and checked.
+- [ ] Rami reviews Bill's expression and motion. Remaining Batch 1 enemies follow the approved reference; Art Room and production integration remain with the lead developer.

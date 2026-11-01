@@ -319,3 +319,8 @@ A **contact shadow** is the small dark area where an object meets the floor. A g
 
 ## Crop-safe composition (Nov 1, title art, Codex)
 A wide image loses its sides when cropped for a phone. Keeping the middle calm protects menu readability, but characters placed in the outer thirds can disappear. The lobby crop demonstrates that tradeoff. A separate mobile composition can keep both the story and the controls visible.
+
+## Opposite steps in a walk loop (Nov 1, Bill, Codex)
+A four-frame walk needs opposite foot poses so it reads as walking rather than hopping. Frames one and three carry the two strides; the frames between them pass the feet under the body. Keeping one scale and a common foot baseline prevents the sprite from growing or floating between poses. We corrected the generated Bill's repeated third step before exporting it.
+
+`left stride → feet pass → right stride → feet pass → repeat`

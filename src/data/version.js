@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.2",
-  displayVersion: "V. 1.28.2",
+  version: "1.28.3",
+  displayVersion: "V. 1.28.3",
   lastUpdated: "Nov 1, 2026",
-  codename: "One Office",
-  build: 58,
+  codename: "The Bill Has Legs",
+  build: 59,
   changelog: [
+    {
+      ver: "V. 1.28.3",
+      date: "Nov 1, 2026",
+      title: "The Bill Has Legs",
+      highlights: [
+        "Prepared the first Batch 1 enemy-art review asset: Bill, with four 48x48 walking frames, a looping preview and complete generation prompts. Awaiting visual approval before Art Room or production integration."
+      ]
+    },
     {
       ver: "V. 1.28.2",
       date: "Nov 1, 2026",
