@@ -1839,7 +1839,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn ${curMode === "midlife" ? "active" : ""}" data-mode="midlife" title="${RUN_MODES.midlife.blurb}">🗂️ MIDLIFE · 40-65</button>
         <button class="t-style-btn ${curMode === "full" ? "active" : ""}" data-mode="full" ${fullOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${fullOk ? RUN_MODES.full.blurb : RUN_MODES.full.unlockText}">${fullOk ? "🕰️" : "🔒"} FULL LIFE · 40-100</button>
       </div>
-      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${fullOk ? "" : " Full Life unlocks when you reach 65."}</div>`;
+      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${fullOk ? "" : " Full Life unlocks with the Retirement Plan achievement."}</div>`;
   const backBtn = `<button class="t-style-btn title-back-btn" id="title-back-btn">◀ BACK</button>`;
   let bodyHtml = "";
   if (view === "shop") {
@@ -1851,6 +1851,20 @@ function renderTitleModal(scene, preserveFocusSelector) {
     bodyHtml = `
       <div class="title-subhead">🏆 LEADERBOARD</div>
       <div id="title-leaderboard"></div>
+      <div class="title-secondary">${backBtn}</div>`;
+  } else if (view === "achievements") {
+    const got = (meta.achievements && meta.achievements.unlocked) || {};
+    const list = window.ACHIEVEMENTS || [];
+    const n = list.filter(a => got[a.id]).length;
+    bodyHtml = `
+      <div class="title-subhead">🏅 ACHIEVEMENTS · ${n} of ${list.length}</div>
+      <div class="ach-grid">${list.map(a => `
+        <div class="ach-tile ${got[a.id] ? "got" : "locked"}">
+          <div class="ach-icon">${got[a.id] ? a.icon : "🔒"}</div>
+          <div class="ach-name">${a.name}</div>
+          <div class="ach-desc">${a.desc}</div>
+          <div class="ach-reward">${got[a.id] ? "✓ EARNED" : `+${a.reward}k`}</div>
+        </div>`).join("")}</div>
       <div class="title-secondary">${backBtn}</div>`;
   } else if (view === "credits") {
     const C = window.CREDITS || { title: "CREDITS", sections: [], closing: "" };
@@ -1873,6 +1887,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
+        <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
         <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
         <button class="t-style-btn" id="title-art-test-btn">🎨 ART TEST</button>
         ${backBtn}
@@ -1913,12 +1928,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (view === "leaders" && window.lbRenderInto) window.lbRenderInto(document.getElementById("title-leaderboard"), null);
   const creditsBtn = document.getElementById("title-credits-btn");
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
+  const achBtn = document.getElementById("title-ach-btn");
+  if (achBtn) bindNavItem(achBtn, 10, () => goView("achievements"));
   const devlogBtn = document.getElementById("title-devlog-btn");
   if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.open("devlog/", "_blank", "noopener"); }); // how the game got made
   const artTestBtn = document.getElementById("title-art-test-btn");
   if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "art-test.html"; });
   const backEl = document.getElementById("title-back-btn");
-  if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" ? "extras" : "main"), view !== "main");
+  if (backEl) bindNavItem(backEl, 10, () => goView(view === "credits" || view === "achievements" ? "extras" : "main"), view !== "main");
 
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {
@@ -1988,6 +2005,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
       const cost = item.baseCost * (rank + 1);
       if (rank < item.maxRank && meta.coins >= cost) {
         meta.coins -= cost; meta.ranks[item.id] = rank + 1;
+        if (rank + 1 >= item.maxRank && window.achEvent) window.achEvent("shopMax", { id: item.id });
         saveMeta(meta); sfx("billPaid");
         renderTitleModal(scene, `[data-shop="${shopId}"]`); updateHUD();
       } else {
@@ -2086,6 +2104,7 @@ function renderGameOverModal(scene, cause, isWin) {
         <div class="score-msg" id="score-msg"></div>
         <div id="go-leaderboard"></div>
       </div>
+      ${(window.getNewAchievements && window.getNewAchievements().length) ? `<div class="go-ach"><b>🏅 NEW THIS RUN:</b> ${window.getNewAchievements().map(a => `${a.icon} ${a.name} (+${a.reward}k)`).join(" · ")}</div>` : ""}
       <div class="gameover-actions">
         <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>

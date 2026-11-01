@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.22.0",
-  displayVersion: "V. 1.22.0",
+  version: "1.23.0",
+  displayVersion: "V. 1.23.0",
   lastUpdated: "Oct 31, 2026",
-  codename: "Lost and Found",
-  build: 42,
+  codename: "Achievements",
+  build: 43,
   changelog: [
+    {
+      ver: "V. 1.23.0",
+      date: "Oct 31, 2026",
+      title: "Achievements",
+      highlights: [
+        "29 achievements with midlife names, like Per My Last Email, The Sock Incident and Keep The Sedan. Each pays 401(k) coins.",
+        "See them all in Extras > Achievements. New ones pop up in the lower third and on the Game Over screen.",
+        "Full Life now unlocks with the Retirement Plan achievement (reach your Retirement Party in Midlife)."
+      ]
+    },
     {
       ver: "V. 1.22.0",
       date: "Oct 31, 2026",

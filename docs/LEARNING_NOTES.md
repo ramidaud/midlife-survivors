@@ -266,3 +266,9 @@ Use 2x to inspect pixels, but judge gameplay readability at 1x. A sprite's visib
 - A temporary boost is just a **deadline**: when you grab an Energy Drink, the game writes down "fast until 12 seconds from now."
 - Every frame it asks one question: is it before the deadline? If yes, multiply speed. If no, do nothing.
 - Because the deadline uses game time, pausing freezes the boost too. No timer can run out while you read a menu.
+
+
+## Events (Oct 31, achievements)
+- Instead of checking 29 achievements everywhere, the game **announces events**: "an enemy was beaten," "a plant was smashed," "a boss went down."
+- Each achievement **listens** for one kind of event and runs a tiny test ("was it a 3 AM Thought?").
+- Adding an achievement is one line in `src/data/achievements.js`. The game code doesn't change.

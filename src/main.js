@@ -214,6 +214,7 @@ function create() {
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   runCoins = 0; runKills = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
+  runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
@@ -735,6 +736,34 @@ function collectCoin(p, coin) {
 }
 
 // You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +3 HP!
+// ---------- Achievements (src/data/achievements.js) ----------
+let runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
+window.getNewAchievements = () => runAch.newly;
+window.achEvent = (on, d = {}) => {
+  if (!meta || !window.ACHIEVEMENTS) return;
+  const A = meta.achievements || (meta.achievements = { unlocked: {}, life: {} });
+  const life = A.life || (A.life = {});
+  life.evos = life.evos || {};
+  // Keep the counters some achievements need.
+  if (on === "kill") { runAch.kinds[d.kind] = (runAch.kinds[d.kind] || 0) + 1; if (d.kind === "bill") runAch.bills++; }
+  if (on === "split") life.splits = (life.splits || 0) + 1;
+  if (on === "plant") life.plants = (life.plants || 0) + 1;
+  if (on === "evolve") life.evos[d.name] = 1;
+  d.char = meta.selectedChar;
+  let changed = on === "split" || on === "plant" || on === "evolve";
+  ACHIEVEMENTS.forEach(def => {
+    if (def.on !== on || A.unlocked[def.id]) return;
+    let ok = false; try { ok = def.test(d, runAch, life); } catch (e) {}
+    if (!ok) return;
+    A.unlocked[def.id] = Date.now();
+    meta.coins += def.reward; changed = true;
+    runAch.newly.push(def);
+    sfx("levelUp");
+    if (window.showLowerThird) window.showLowerThird("win", "ACHIEVED", `${def.icon} ${def.name}: ${def.desc} +${def.reward}k`, 4500);
+  });
+  if (changed) saveMeta(meta);
+};
+
 // ---------- Discoverable items + timed boosts ----------
 let buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
 
@@ -791,6 +820,7 @@ function collectFieldItem(p, it) {
 
 function collectPizza(p, pz) {
   if (!pz.active) return;
+  if (slowUntil > 0 && runElapsedMs - slowUntil < 8000) window.achEvent("pizzaAfterSlow"); // donut, then pizza
   pz.destroy();
   sfx("levelUp");
   hp = Math.min(stats.maxHp, hp + PICKUPS.pizza.heal);
@@ -952,6 +982,7 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     window.levelMenu = null;
     const jokeBefore = [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join();
     up.apply(stats);
+    if (up.isEvolution) window.achEvent("evolve", { name: up.name });
     if (stats.dadJoke && jokeBefore !== [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join()) stats.jokeAnnounce = true;
     if (stats.heal) { hp = Math.min(stats.maxHp, hp + stats.heal); stats.heal = 0; }
     const cd = stats.cooldownMult;
@@ -1009,6 +1040,8 @@ function hurtPlayer(p, bill) {
 function showGameOver(scene, killer, isWin) {
   gameOver = true;
   window.justUnlockedFull = isWin && runMode === "midlife" && !isFullLifeUnlocked(meta);
+  if (isWin) window.achEvent("clear", { mode: runMode, age: currentAge });
+  else window.achEvent("death", { killer });
   clearRunState();
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
   [40, 50, 60, 70, 80].forEach(dec => {
@@ -1093,6 +1126,7 @@ function damageBill(bill, amount) {
     sc.time.delayedCall(60, () => { if (bill.active) bill.clearTint(); });
   } else {
     runKills += bill.isBoss ? 25 : 1; // bosses count extra toward your score
+    window.achEvent(bill.isBoss ? "bossKill" : "kill", { kind: bill.kind });
     sfx(bill.isBoss ? "bossDefeat" : "billPaid");
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
     burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 6);
@@ -1155,6 +1189,7 @@ function damagePlant(prop, amount) {
     sfx("billPaid");
     burstConfetti(sc, prop.x, prop.y, 0x52bf6a, 10);
     if (prop.cellKey) window.smashedPlants.add(prop.cellKey);
+    window.achEvent("plant");
     prop.setVisible(false);
     if (prop.body) prop.body.enable = false;
 
@@ -1442,6 +1477,7 @@ function spawnSwarm(scene, ev) {
   spots.forEach(([sx, sy]) => createEnemy(scene, kindFor(), sx, sy));
   if (window.showLowerThird) window.showLowerThird("alert", ev.badge, ev.text, 4500);
   sfx("bossSpawn");
+  scene.time.delayedCall(20000, () => { if (!gameOver && hp > 0) window.achEvent("swarmSurvived", { id: ev.id }); }); // survived it
 }
 
 function maybeRunSwarmEvent(scene) {
@@ -1537,6 +1573,7 @@ function update(time, delta) {
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
   runElapsedMs += (delta || 16.6);
   currentAge = runStartAge + (runElapsedMs / 1000) / modeCfg().secondsPerYear; // 45 s/year in Midlife, 60 in Full Life
+  if (Math.floor(currentAge) > runAch.lastAge) { runAch.lastAge = Math.floor(currentAge); window.achEvent("age", { age: currentAge }); }
 
   // 5-Year 401(k) Compound Interest Dividend! The longer you survive, the larger your automatic dividend payout!
   const nextDivAge = lastDividendAge + 5;
@@ -1751,6 +1788,7 @@ function update(time, delta) {
       sfx("overdue");
       const bx = bill.x, by = bill.y;
       bill.tag.destroy(); bill.destroy();
+      window.achEvent("split");
       createEnemy(this, "lateFee", bx - 14, by - 10);
       createEnemy(this, "lateFee", bx + 14, by + 10);
       if (window.pushContextEvent) {

@@ -1268,3 +1268,16 @@ every frame:  is now < 3:22 ?  yes → speed × 1.35
 | 👝 Fanny Pack | pulls every gem and coin | 2.5 s |
 | 🥤 Energy Drink | +35% speed | 12 s |
 | 🌴 PTO Day | clears non-boss enemies | instant |
+
+
+## Chapter: Events and listeners (V. 1.23.0)
+
+```mermaid
+flowchart LR
+    K["Enemy beaten"] -->|"kill: 3 AM Thought"| E["achEvent()"]
+    B["Boss beaten"] -->|bossKill| E
+    P["Plant smashed"] -->|plant| E
+    E --> C{"Any achievement listening\nfor this event whose test passes?"}
+    C -- yes --> U["Unlock, pay coins, lower third"]
+    C -- no --> N["Nothing happens"]
+```

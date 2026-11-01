@@ -500,3 +500,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Boost cards (Leftover Friday Pizza, PTO Day, Fanny Pack, Standing Desk, Focus Block, HR Snacks) fill in when regular perks run out. Annual Checkup capped at 3.
 - Dad Joke uses stage-specific jokes from Rami's design doc; weak lines retired. 50+ new death lines plus a fallback.
 - Next: Achievements (one unlocks Full Life).
+
+
+## 2026-10-31: Achievements (V. 1.23.0) (Claude)
+- 29 achievements from Rami's design doc, each paying 401(k) coins. Extras > Achievements shows them; new ones pop in the lower third and on Game Over.
+- Full Life now unlocks with "Retirement Plan" (reach the Retirement Party). Old saves that already reached 65 keep it.
+- Cosmetic rewards from the doc (hats, bubble skins, titles) became coins for now; revisit after the art pass.
+- Next: Art pass with GPT Image assets (waiting on Rami's art), or Discoverable map.

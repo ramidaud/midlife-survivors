@@ -28,8 +28,9 @@ window.RUN_MODES = {
     endBossLabel: null,      // Father Time, as before
     table: "scores",
     clearBonus: 25000,
-    unlockText: "Reach 65 in Midlife to unlock"
+    unlockText: "Earn the Retirement Plan achievement to unlock"
   }
 };
 
-window.isFullLifeUnlocked = m => !!(m && (m.fullLifeUnlocked || (m.bestAge || 40) >= 65));
+// Unlocked by the "Retirement Plan" achievement (older saves that already reached 65 keep it too).
+window.isFullLifeUnlocked = m => !!(m && ((m.achievements && m.achievements.unlocked && m.achievements.unlocked.retired) || m.fullLifeUnlocked || (m.bestAge || 40) >= 65));
