@@ -24,4 +24,6 @@ Two of those ideas made it in. **Tax Bracket** is an optional difficulty you can
 
 ![A run at age 51, Tax Bracket 2, right as the Comfort Zone Tax kicks in](img/04-midlife-is-hard.jpg)
 
+<video src="img/04-midlife-is-hard.mp4" poster="img/04-midlife-is-hard.jpg" autoplay muted loop playsinline controls aria-label="15 seconds of play at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in"></video>
+
 I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.

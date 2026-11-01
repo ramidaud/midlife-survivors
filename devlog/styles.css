@@ -331,6 +331,12 @@ article.post .prose h2 {
   font-size: 20px; color: var(--orange); margin: 28px 0 8px;
 }
 article.post .prose p { margin: 0 0 1em; }
+/* Gameplay clips: autoplay muted on loop, like a GIF but smaller. */
+article.post .prose video {
+  display: block; width: 100%; max-width: 100%; height: auto; margin: 18px auto;
+  border: 3px solid var(--navy); box-shadow: 0 0 0 2px var(--teal); background: #000;
+}
+.site-footer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 article.post .prose img {
   display: block; margin: 18px auto;
   border: 3px solid var(--navy);

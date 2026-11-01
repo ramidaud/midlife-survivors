@@ -116,6 +116,10 @@
         ${prev ? `<a href="?post=${esc(prev.slug)}${draftQ}"><span>← Older</span>${esc(prev.title)}</a>` : `<span></span>`}
         ${next ? `<a href="?post=${esc(next.slug)}${draftQ}" style="text-align:right"><span>Newer →</span>${esc(next.title)}</a>` : `<span></span>`}
       </nav>`;
+    // Respect "reduce motion": clips stay paused until the reader presses play.
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+    }
     window.scrollTo(0, 0);
   }
 
