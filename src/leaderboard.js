@@ -22,7 +22,8 @@ function computeRunScore(ageReached, startAge, kills, coins, isClear) {
   const tb = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
   const taxMult = 1 + tb * ((window.TAX_BRACKET && TAX_BRACKET.perLevel.scoreMult) || 0); // harder bracket, bigger score
   return Math.round((years * (L.pointsPerYear || 1000) + kills * (L.pointsPerKill || 2) +
-    coins * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0)) * taxMult);
+    coins * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0) +
+    (window.NearMiss ? window.NearMiss.score() * (L.pointsPerNearMiss || 1) : 0)) * taxMult); // Close Calls add a little
 }
 
 function lbCleanName(raw) {

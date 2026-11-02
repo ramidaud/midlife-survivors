@@ -244,6 +244,7 @@ function create() {
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
   dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
   coinFrac = 0; xpFrac = 0;
+  if (window.NearMiss) window.NearMiss.reset(); // Close Call streak starts fresh every run
   stats = {
     speed: PLAYER.speed, maxHp: PLAYER.maxHp, cooldownMult: 1,
     fireEveryMs: WEAPONS.coffeeSplash.fireEveryMs, damage: WEAPONS.coffeeSplash.damage,
@@ -992,7 +993,12 @@ function collectGem(p, gem) {
   if (!gem.active) return;
   gem.destroy();
   sfx("gem");
-  xpFrac += PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")); // Continuing Ed + Tax Bracket add to every gem
+  addXp(p.scene, PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult"))); // Continuing Ed + Tax Bracket add to every gem
+}
+
+// Add XP (fractions carry over) and open the level-up screen if you earned one. Gems and Close Calls both use this.
+function addXp(scene, amount) {
+  xpFrac += amount;
   xp += Math.floor(xpFrac); xpFrac -= Math.floor(xpFrac);
   while (xp >= xpNeeded) {
     xp -= xpNeeded;
@@ -1002,8 +1008,9 @@ function collectGem(p, gem) {
     hp = Math.min(stats.maxHp, hp + healAmt(1)); // leveling up restores +1 HP (was +2: too much healing)
   }
   updateHUD();
-  if (pendingLevels > 0 && !levelUpOpen) showLevelUp(p.scene);
+  if (pendingLevels > 0 && !levelUpOpen) showLevelUp(scene);
 }
+window.addXp = addXp;
 
 // The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
 function showLevelUp(scene, customTitle, preferWeapons) {
@@ -1086,6 +1093,7 @@ function hurtPlayer(p, bill) {
     scene.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 700, onComplete: () => msg.destroy() });
   }
   sfx("hurt");
+  if (window.NearMiss) window.NearMiss.onHurt(); // a real hit breaks the Close Call streak
   scene.cameras.main.shake(120, 0.009); // screen shake when you take contact damage!
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
@@ -1105,6 +1113,7 @@ function showGameOver(scene, killer, isWin) {
   window.justUnlockedFull = isWin && runMode === "midlife" && !isFullLifeUnlocked(meta);
   if (isWin) window.achEvent("clear", { mode: runMode, age: currentAge, taxBracket: runTaxBracket });
   else window.achEvent("death", { killer });
+  if (window.NearMiss) window.NearMiss.logSummary();
   clearRunState();
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
   [40, 50, 60, 70, 80].forEach(dec => {
@@ -1802,7 +1811,7 @@ function update(time, delta) {
   const len = Math.hypot(x, y);
   if (len > 0) { x /= len; y /= len; }
 
-  const buffSpd = runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1; // Energy Drink / Standing Desk
+  const buffSpd = Math.max(runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1, window.NearMiss ? window.NearMiss.speedMult() : 1); // Energy Drink / Standing Desk, or a Close Call blip (never both stacked)
   const moveSpd = (runElapsedMs < slowUntil ? stats.speed * ENEMIES.snackAttack.slowFactor : stats.speed) * buffSpd;
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
@@ -1991,6 +2000,9 @@ function update(time, delta) {
     const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
     bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
   });
+
+  // Close Calls: reward enemies (and pings) that nearly got you.
+  if (window.NearMiss) window.NearMiss.scan(this, player, bills, pings);
 
   // Old message pings fade away.
   if (pings) pings.getChildren().slice().forEach(pg => { if (now >= pg.dieAt) pg.destroy(); });

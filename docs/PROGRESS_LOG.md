@@ -723,3 +723,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Native checks pass all 55 frames and unchanged 224px gate contracts. Desktop/phone review checks are recorded under QA. No new-world performance result is claimed before integration.
 - Stage 2 remains in progress: 47 planned families still need completion, including existing-art preparation. Next: break-room furniture, ambient clutter and the remaining posters.
 - Placed 10 of ChatGPT's Stage 2B slang props in the current office: roundabout, MEH gauge, fruit tree, kiddie pool, ocean pot, ducks, goalposts, STOP sign, offline lamp, and Touch Base at the start. The Q4 Goals board and values wall are saved for the new Bullpen and Lobby.
+
+## 2026-11-01: Close Calls (near-miss rewards), V. 1.30.0
+- Built Grok's Part 3C: dodging an enemy that's coming at you earns a little XP, a speed blip, score and a streak meter (CLOSE CALL, SIDE-STEP, OUT OF OFFICE, PERFORMANCE EXCEEDED). A hit breaks the streak.
+- Anti-cheat: you must be moving, or the enemy must have a clear path (no desk camping). XP caps at 6 per 10 seconds.
+- Caught a design gap in testing: the player's real hit box is 48x52, not 32, so the ring is now measured between the real hit boxes.
+- Saved Gemini's caption library (districts, gates, posters, coworker lines) for ChatGPT's remaining props.

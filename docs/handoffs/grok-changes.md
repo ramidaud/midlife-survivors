@@ -12,8 +12,9 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - 3B dynamic intensity [done: V. 1.27.0].
 - Pending (one at a time, after Rami playtests): 3C near-miss, 3D age-50+ modifiers.
 
-## 2026-11-01: Near-miss rewards spec (Grok Part 3C)
+## 2026-11-01: Near-miss rewards spec (Grok Part 3C) [built: V. 1.30.0, awaiting Rami's playtest]
 - What: implementation handoff for Close Call / near-miss rewards (definition, anti-farm rules with the V. 1.29.0 flow field, XP + speed burst + combo meter, HUD/SFX, tuning table, telemetry, acceptance tests). Spec only — no gameplay code in this step.
 - File: `docs/handoffs/grok-near-miss.md` (replaces the short §3C sketch in `grok-difficulty-2026-11-01.md` as the source of truth for implementers).
 - For Claude/Codex: add `src/data/nearMiss.js`, hook the bills/pings update loop, `NAV.hasClearApproach`, HUD meter, and Comfort Zone engagement via `dyn.lastHitAt`. Do not change hitboxes, spawn rates, Tax Bracket, or Comfort Zone Tax numbers.
 - Pending after Rami playtests the implementation: mark **[done]** with version; then Part 3D age-50+ modifiers.
+- Claude (V. 1.30.0): built as specced in `src/data/nearMiss.js` + `src/near-miss.js`, with hooks in main.js (scan, hurt reset, speed max, shared addXp), `NAV.hasClearApproach`, HUD meter, score term and a `nearMiss` sound. One deviation: the band is measured between the real physics hit boxes, not `PLAYER.size`, because the player's body is 48x52 (not 32). With the 32px circle model, "near misses" were actually hits. Tests: pass at gap 6-7 gives 1 credit, a far pass gives 0, a hit gives 0 and resets the streak, 12 in a row reaches tier 3 with the +5 bonus, and XP caps at exactly 6 per 10s. A desk blocks `hasClearApproach`.

@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.29.3",
-  displayVersion: "V. 1.29.3",
+  version: "1.30.0",
+  displayVersion: "V. 1.30.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Circle Back",
-  build: 78,
+  codename: "Close Call",
+  build: 79,
   changelog: [
+    {
+      ver: "V. 1.30.0",
+      date: "Nov 1, 2026",
+      title: "Close Call",
+      highlights: [
+        "Dodging pays now. When an enemy nearly gets you and misses, you earn a Close Call: a little XP, a quick speed blip and a few points.",
+        "Chain them for a streak meter under the age bar: CLOSE CALL, SIDE-STEP, OUT OF OFFICE, PERFORMANCE EXCEEDED. Getting hit breaks the streak.",
+        "Hiding behind a desk while enemies circle doesn't count, and near misses keep the Comfort Zone Tax away while you're actively weaving. Designed by Grok."
+      ]
+    },
     {
       ver: "V. 1.29.3",
       date: "Nov 1, 2026",

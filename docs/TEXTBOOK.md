@@ -1576,3 +1576,30 @@ Same shape + same floor footprint
        |                 |
  rim / pot changes    water / leaves stay
 ```
+
+
+## Chapter: Close Calls, and why the picture isn't the hit box (V. 1.30.0)
+A **near miss** sounds simple: an enemy got close but didn't touch you. To make it fair, the game tracks a tiny story for every nearby enemy:
+
+```text
+ far away  ->  enters the "close" ring, moving toward you  ->  closest point  ->  distance grows again
+                                                                   |
+                                         never touched you?  ->  CLOSE CALL!  (+XP, speed blip, streak)
+                                         touched you?        ->  that's a hit, no reward, streak resets
+```
+
+**The surprise while building it:** the design measured "close" from the player's *size number* (32 pixels). But the physics box the game actually uses for damage is 48x52. So a "near miss" by the formula was really a hit. The fix: measure the gap between the two **real hit boxes**, the same ones that decide damage.
+
+```text
+ +--------------+   gap   +----+
+ | player body  | <-----> |Bill|     gap <= 0   -> touching (damage)
+ |   48 x 52    |         |box |     0 < gap <= 14 -> close call ring
+ +--------------+         +----+     gap > 14   -> just an enemy
+```
+
+Lesson: **what you see is not always what collides.** Sprites, data sizes and physics boxes can drift apart, especially after an art swap. Always test against the thing that actually decides the outcome.
+
+Fairness rules that stop cheating:
+- The enemy has to be *moving toward you*. Running past a parked enemy doesn't count.
+- If you're standing still, the enemy needs a clear path (the flow field checks this). Hiding behind a desk while enemies circle earns nothing.
+- XP from Close Calls caps at 6 per 10 seconds, so gems are still the main way to level.

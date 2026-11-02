@@ -865,6 +865,14 @@
   .vs-score { font-size: 12px; color: #ffffff; font-weight: 700; text-shadow: 2px 2px 0 #000; margin-bottom: 3px; font-variant-numeric: tabular-nums; }
   .vs-timer { font-size: 22px; font-weight: 700; color: #ffffff; text-shadow: 2px 2px 0 #000; text-align: center; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
   .vs-timer-final { color: #ff6b7f; }
+  /* Close Call streak meter (under the year bar) */
+  .vs-combo { margin-top: 4px; font-family: "Silkscreen", monospace; font-size: 11px; letter-spacing: 1px; text-align: center;
+    color: #171C35; background: #EF9347; padding: 2px 8px; box-shadow: 2px 2px 0 #000; white-space: nowrap; }
+  .vs-combo[data-tier="0"] { background: #F2D7A1; }
+  .vs-combo[data-tier="-1"] { background: #c45c4b; color: #FFF0CF; }
+  .vs-combo[data-tier="3"], .vs-combo[data-tier="4"] { animation: vs-combo-pulse .6s ease-in-out infinite alternate; }
+  @keyframes vs-combo-pulse { to { background: #FFF0CF; } }
+  @media (prefers-reduced-motion: reduce) { .vs-combo { animation: none !important; } }
   .vs-loadout { display: flex; flex-wrap: wrap; gap: 4px; }
   .vs-loadout span { font-family: 'Chakra Petch', sans-serif; font-size: 15px; line-height: 1; padding: 4px; background: rgba(8,10,22,0.7); border: 1px solid rgba(240,162,79,0.5); border-radius: 3px; }
   .vs-center { display: flex; flex-direction: column; align-items: center; gap: 6px; }

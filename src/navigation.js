@@ -167,6 +167,17 @@
     return null; // nowhere sensible nearby: skip this spawn
   };
 
+  // Can an enemy at (x, y) come straight at the player, with nothing in the way? Used by Close Calls,
+  // so circling a desk you're hiding behind doesn't count as a dodge. (Same test steer() uses.)
+  NAV.hasClearApproach = function (x, y) {
+    if (!NAV.enabled || !ready) return true;
+    const i = cellOf(x, y);
+    if (i < 0 || !isFinite(dist[i])) return true;
+    const px = ox + NAV.radius * NAV.cell + NAV.cell / 2, py = oy + NAV.radius * NAV.cell + NAV.cell / 2;
+    const straight = Math.hypot(px - x, py - y) / NAV.cell;
+    return dist[i] <= 2 || dist[i] <= straight * 1.12 + 1.5;
+  };
+
   NAV.stats = function () {
     let open = 0, reach = 0;
     for (let i = 0; i < N; i++) { if (!blocked[i]) open++; if (isFinite(dist[i])) reach++; }

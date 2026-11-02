@@ -406,3 +406,6 @@ Same shape + same floor footprint
        |                 |
  rim / pot changes    water / leaves stay
 ```
+
+## Hit boxes vs. pictures (V. 1.30.0)
+The sprite you see, the "size" number in a data file and the physics box that decides damage can all be different. Close Calls first used the 32px size number, but the player's real hit box is 48x52, so "near misses" were actually hits. Measuring between the real hit boxes fixed it. Test against whatever actually decides the outcome.

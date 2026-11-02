@@ -282,6 +282,7 @@ function initGameUI(scene) {
           <div class="vs-timer" id="vs-timer">00:00</div>
           <div class="vs-age" id="vs-age">AGE 40</div>
           <div class="vs-year" title="Progress through this year"><div class="vs-year-fill" id="vs-year-fill"></div></div>
+          <div class="vs-combo hidden" id="vs-combo" aria-live="off"></div>
         </div>
         <div class="vs-right">
           <button class="vs-btn" id="vs-pause-btn" aria-label="Pause">⏸</button>
@@ -1006,6 +1007,12 @@ function updateCleanHUD() {
   timerEl.textContent = mmss(runElapsedMs);
   timerEl.title = endMs ? `${mmss(endMs - runElapsedMs)} until the end of this life` : "";
   timerEl.classList.toggle("vs-timer-final", !!endMs && endMs - runElapsedMs < 60000);
+  const comboEl = document.getElementById("vs-combo"); // Close Call streak meter
+  if (comboEl && window.NearMiss) {
+    const c = window.NearMiss.hud();
+    comboEl.classList.toggle("hidden", !c);
+    if (c) { comboEl.textContent = c.text; comboEl.dataset.tier = c.tier; }
+  }
   const tbNow = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
   if (window.computeRunScore) document.getElementById("vs-score").textContent = `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}${tbNow ? ` · TAX×${tbNow}` : ""}`;
   const icons = [stats.coldBrew ? "⚡" : "☕"];
