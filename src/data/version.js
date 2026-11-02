@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.36.0",
-  displayVersion: "V. 1.36.0",
+  version: "1.37.0",
+  displayVersion: "V. 1.37.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Coffee Break Campus",
-  build: 95,
+  codename: "Promoted",
+  build: 96,
   changelog: [
+    {
+      ver: "V. 1.37.0",
+      date: "Nov 2, 2026",
+      title: "Promoted",
+      highlights: [
+        "At age 45 you get promoted: the Parking Lot and Break Room doors roll up, giving you a lot more room to roam. Enemies follow you in. (Rooms built by ChatGPT.)",
+        "The Server Room and Conference doors stay locked for now. Those rooms are next."
+      ]
+    },
     {
       ver: "V. 1.36.0",
       date: "Nov 2, 2026",

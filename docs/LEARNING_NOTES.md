@@ -461,3 +461,6 @@ walk / drive  ->  wind-up  ->  attack  ->  recover
 The map and the promotion rule are separate pieces. We can finish a room's floor, furniture and captions while its doorway stays solid. The review page temporarily removes that doorway inside an isolated test game so we can check traffic. The shipped game keeps it closed until Claude connects the age rule.
 
 `Lobby → closed age-45 door → finished room → closed age-50 door → future room`
+
+## Unlocking areas (Nov 2)
+A locked door in a game is usually two things: a wall you can't walk through, and an invisible "no entry" zone for enemy pathfinding so they don't try to route through it. Opening the door removes both at once: the door's body is switched off, and its zone is taken out of the list the flow field reads. From then on, enemies can spawn in the new room and follow you there, and the map just got much bigger.

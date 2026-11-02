@@ -830,3 +830,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Eight new prop families, 23 colorways and two extra car paints. Original Lobby/Bullpen fixtures and coworkers stay unchanged; longer jokes use approach captions.
 - All four gates ship closed, including the far age-50 doors. Routes retain 224px clearance. Claude's new breakable/boss integration was pulled and preserved before delivery.
 - Desktop and 390x844 game-frame checks cover closed-room births, doorway routing, native scale and 350-enemy stress. Isolated review blocks analytics and Supabase. See assets/stage/start-area/qa for scope and evidence.
+
+## 2026-11-02: Promoted at 45 (V. 1.37.0)
+- Reviewed ChatGPT's Stage 2D (V. 1.36.0): Parking Lot and Break Room, 8 new prop families, 27 cars, four closed doors; my runtime files untouched.
+- Built the door opening: at 45 the two doors roll up with a PROMOTED banner, their no-entry zones come out of enemy pathing, and the rooms join the fight. The age-50 doors stay shut until those rooms exist (PROMOTIONS.openUpToAge in src/promotions.js).
+- Tests: desktop and phone, the player walks into the Parking Lot, and a Bill spawned in the Lobby followed through the door from about 1,000 px away to within 134 px.
+- Leaderboard scare at 6:43: data was intact the whole time (67 scores); most likely a page loaded mid-deploy.

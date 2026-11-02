@@ -282,6 +282,7 @@ function create() {
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
   window._heldKeys.clear();
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
+  if (window.Promotions) Promotions.reset();
   runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
@@ -1980,6 +1981,7 @@ function update(time, delta) {
   const now = runElapsedMs;
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
+  if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;
