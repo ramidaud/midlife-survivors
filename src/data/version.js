@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.32.1",
-  displayVersion: "V. 1.32.1",
+  version: "1.32.2",
+  displayVersion: "V. 1.32.2",
   lastUpdated: "Nov 1, 2026",
-  codename: "Tune-Up",
-  build: 88,
+  codename: "Second Helping",
+  build: 89,
   changelog: [
+    {
+      ver: "V. 1.32.2",
+      date: "Nov 2, 2026",
+      title: "Second Helping",
+      highlights: [
+        "A little tougher up front: Bills take 3 hits instead of 2, and donuts start showing up at 42 instead of 45.",
+        "Smashed plants grow back after 75 seconds, so long runs don't run out of pizza."
+      ]
+    },
     {
       ver: "V. 1.32.1",
       date: "Nov 2, 2026",

@@ -1305,6 +1305,7 @@ function hitBill(splash, bill) {
   damageBill(bill, stats.damage);
 }
 
+const PLANT_REGROW_MS = 75000; // a smashed plant grows back after 75 seconds
 // Smashable Potted Office Plants ("prop_plant")! Crack them open for Leftover Pizza (+3 HP), 401(k) Coins, or Bonus Gems!
 function damagePlant(prop, amount) {
   if (!prop || !prop.visible || prop.propKind !== "prop_plant") return;
@@ -1322,6 +1323,17 @@ function damagePlant(prop, amount) {
     window.achEvent("plant");
     prop.setVisible(false);
     if (prop.body) prop.body.enable = false;
+    // Plants grow back after a while, so a long run never runs out of pizza (Rami, Nov 2).
+    const baseSX = prop.scaleX, baseSY = prop.scaleY;
+    const regrow = () => {
+      if (!prop.active || prop.visible || gameOver) return;
+      if (Phaser.Math.Distance.Between(prop.x, prop.y, player.x, player.y) < 90) { sc.time.delayedCall(3000, regrow); return; } // not on top of you
+      prop.hp = 2; prop.setVisible(true).setScale(baseSX * 0.2, baseSY * 0.2); prop.clearTint();
+      if (prop.body) { prop.body.enable = true; prop.body.updateFromGameObject && prop.body.updateFromGameObject(); }
+      if (prop.cellKey) window.smashedPlants.delete(prop.cellKey);
+      sc.tweens.add({ targets: prop, scaleX: baseSX, scaleY: baseSY, duration: 420, ease: "Back.Out" });
+    };
+    sc.time.delayedCall(PLANT_REGROW_MS, regrow);
 
     if (Math.random() < ITEM_DROPS.fromPlant) spawnFieldItem(sc, prop.x, prop.y + 14);
     // Roll plant loot reward: 45% Leftover Pizza (+3 HP) + 1 Coin, 35% 2x 401(k) Coins, 20% 3x Coins + 1 Gem Jackpot!

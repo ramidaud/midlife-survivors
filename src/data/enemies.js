@@ -9,7 +9,7 @@ window.ENEMIES = {
     label: "$",
     seniorLabel: "COPAY",
     speed: 84,
-    hp: 2,           // two splashes to pay off (was 1: you could stand still and win)
+    hp: 3,           // three splashes to pay off (was 2 until Nov 2: Rami never got touched early)
     damage: 1,
     size: 24,
     color: 0x6fbf73,
@@ -225,8 +225,9 @@ window.SPAWNING = {
   maxOnScreen: 75,
   offscreenMargin: 70,
   waves: [
-    { minAge: 40, everyMs: 1150, mix: [["bill", 10]] }, // gentle first minutes (Ben: "brutal")
-    { minAge: 42, everyMs: 820,  mix: [["bill", 7], ["spamCall", 3]] },
+    { minAge: 40, everyMs: 1150, mix: [["bill", 10]] }, // still gentle (Ben: "brutal"), but not empty (Rami, Nov 2: "too easy up front")
+    { minAge: 42, everyMs: 820,  mix: [["bill", 7], ["spamCall", 3], ["snackAttack", 1]] }, // donuts show up earlier
+    { minAge: 43.5, everyMs: 700, mix: [["bill", 6], ["spamCall", 3], ["snackAttack", 2]] },
     { minAge: 45, everyMs: 520,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2], ["calendarInvite", 2]] },
     { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1], ["calendarInvite", 2], ["threeAmThought", 2]] },
     { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2], ["calendarInvite", 2], ["threeAmThought", 2], ["groupChat", 2], ["mathWorksheet", 1]] },

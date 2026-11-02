@@ -785,3 +785,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: laggy on iPad. Profiled 250 to 400 enemies.
 - Fixes: floor shadows baked into 4 images (were redrawn every frame), frame cap for 120 Hz screens, HUD batched to once per frame, fewer full re-sorts of the scene, a 3D leftover no longer touches every sprite each frame.
 - Game logic at 400 enemies went from about 14 ms to 11 ms per frame here. Biggest remaining cost is Phaser's enemy-vs-enemy bumping, which is what makes swarms look like swarms.
+
+## 2026-11-02: Tougher start, plants regrow (V. 1.32.2)
+- Rami: never touched early, ran out of pizza plants.
+- Bills now 3 HP (was 2); donuts arrive at 42 (was 45); a small extra ramp at 43.5. Test bot now dies at 41.0 to 41.6 (was 41.3 to 42.3).
+- Smashed plants grow back after 75 seconds (not while you're standing on them).
+- Rami's new wish list logged in the roadmap: more room by minute 20, death and hit effects, movement polish, sound sliders, end-of-run achievements summary, his son making the music.

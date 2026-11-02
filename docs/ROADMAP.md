@@ -48,6 +48,12 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [ ] **Break things for loot:** most small office props smash open (printers, cabinets, vending machines, trash cans). The good loot hides there. Big structures (walls, desks) stay solid.
    - [ ] **Bosses with their own attacks:** each boss gets a telegraphed attack and look (charges, shockwaves, summons). Spec from Grok, art from ChatGPT.
    - [ ] **Smoother animation:** more walk frames from ChatGPT; in code, hit flash, squash and stretch, knockback and a death poof.
+   - [ ] **Death and hit effects:** pop, squash, flash and a little burst when enemies die; small dust puffs and bumps when you move or touch enemies.
+   - [ ] **Sound sliders:** separate volume for music and effects.
+   - [ ] **End-of-run summary:** achievements earned this run, what they unlocked and how that changes your next run.
+   - [ ] **Track damage taken per run** (needs one new column in the runs table).
+   - [ ] **Music by Rami's son** (guidance in GAME_DESIGN.md).
+   - [x] Plants regrow (V. 1.32.2). [x] Tougher first minutes (V. 1.32.2).
    - Also considering: bigger early crowds, office mess that lingers (paper scraps, coffee rings), build icons on the HUD.
 5c. [x] **Enemy navigation (V. 1.29.0):** flow field so swarms walk around furniture and through doorways; spawns avoid furniture and unreachable (locked) areas. Gates hook in via `window.navExtraBlockers`.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
