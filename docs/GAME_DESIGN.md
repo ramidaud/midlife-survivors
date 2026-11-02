@@ -451,3 +451,8 @@ The shared connection is broad and open-plan with protected 224px routes; promot
 **Rules of the road:** everything original. No samples from existing songs. Loops from GarageBand's own library are fine. He gets credited in the game's Credits by name or handle, his choice.
 
 **How it gets into the game:** he sends files (Drive or AirDrop to Rami). Claude adds a music player that swaps tracks by age and boss, with the new music and effects sliders.
+
+## Breakables and boss art candidates (Nov 2, Codex)
+Eight small prop families now have candidate intact/cracked/broken states and independent debris. Intact pixels remain unchanged; rubble keeps the full frame/origin and occupies at most one third of the standing height. Big structural props remain outside this art batch. Breaking and loot behavior are still Claude's work.
+
+The three Midlife bosses have candidate native 144x152 art, with six walk/drive poses, two anticipation poses, two attack poses and one hurt pose each. Charge lanes, interest rings and drift tracks are separate centered floor decals. Native art already represents the large boss appearance and should not receive another 2.3x visual multiplier. These assets are awaiting Rami's review and are not integrated into combat.

@@ -1616,3 +1616,12 @@ A vertical slice finishes a small playable part of the game all the way through.
                     |
           build the next district
 ```
+
+## Anticipation (Nov 2, Codex)
+Anticipation is the warning pose before an attack. A clipboard pulling back or a car revving tells the player to move before damage happens. A bold silhouette helps that warning remain visible in a crowded fight. Art supplies the poses; Claude will set the timing and collision after review.
+
+```text
+walk / drive  ->  wind-up  ->  attack  ->  recover
+                     |
+              time to move away
+```

@@ -1,0 +1,130 @@
+{
+  "status": "passed",
+  "families": 8,
+  "colorways": 18,
+  "stateFrames": 54,
+  "debrisFrames": 108,
+  "gameCodeChanged": false,
+  "assets": [
+    {
+      "id": "printer",
+      "frame": [
+        80,
+        80
+      ],
+      "colorways": 1,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 6
+    },
+    {
+      "id": "cabinet",
+      "frame": [
+        56,
+        88
+      ],
+      "colorways": 1,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 6
+    },
+    {
+      "id": "vending_machine",
+      "frame": [
+        80,
+        128
+      ],
+      "colorways": 3,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 18
+    },
+    {
+      "id": "trash_recycle",
+      "frame": [
+        64,
+        64
+      ],
+      "colorways": 3,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 18
+    },
+    {
+      "id": "water_cooler",
+      "frame": [
+        64,
+        104
+      ],
+      "colorways": 3,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 18
+    },
+    {
+      "id": "lost_found",
+      "frame": [
+        80,
+        72
+      ],
+      "colorways": 3,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 18
+    },
+    {
+      "id": "coat_rack",
+      "frame": [
+        64,
+        112
+      ],
+      "colorways": 3,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 18
+    },
+    {
+      "id": "plant",
+      "frame": [
+        48,
+        64
+      ],
+      "colorways": 1,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 6
+    }
+  ]
+}

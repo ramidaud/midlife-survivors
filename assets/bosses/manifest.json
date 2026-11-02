@@ -1,0 +1,309 @@
+{
+  "status": "art-only-awaiting-rami-review",
+  "generation": "built-in imagegen",
+  "bosses": 3,
+  "poseFrames": 33,
+  "telegraphs": 3,
+  "background": "#FF00FF",
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "assets": [
+    {
+      "id": "performance-review",
+      "gameKey": "performanceReview",
+      "name": "The Performance Review",
+      "description": "A stern clipboard with a bar-chart face. Pulls back, then charges with papers flying.",
+      "file": "boss-performance-review-v1.png",
+      "source": "sources/performance-review-source-v1.png",
+      "frame": [
+        144,
+        152
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 11,
+      "blankCells": [
+        11
+      ],
+      "footPoint": [
+        72,
+        148
+      ],
+      "origin": [
+        0.5,
+        0.9736842105263158
+      ],
+      "minimumPadding": 4,
+      "drawSize": [
+        144,
+        152
+      ],
+      "facing": "down three-quarter; mirror as needed",
+      "colorways": 1,
+      "animationTiming": "review proposals only, not attack logic",
+      "animations": {
+        "walk": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "delay": 140,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            6,
+            7
+          ],
+          "delay": 220,
+          "loop": false
+        },
+        "attack": {
+          "frames": [
+            8,
+            9
+          ],
+          "delay": 130,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            10
+          ],
+          "delay": 160,
+          "loop": false
+        }
+      },
+      "marker": {
+        "file": "telegraph-performance-review-v1.png",
+        "source": "sources/performance-review-telegraph-source-v1.png",
+        "frame": [
+          256,
+          128
+        ],
+        "origin": [
+          0.5,
+          0.5
+        ],
+        "solid": false,
+        "rotation": "charge points right; rotate decal as needed"
+      },
+      "integrationNote": "Native draw size already replaces the old approximately 2.3x art. Do not multiply these 144x152 frames by 2.3 again. Claude owns bodies, attack timing and marker collision.",
+      "sha256": "f47c1ddf698a5b9e346cd14f934100f0dd0f089b41ca23ab0a8cdb6b3518f461",
+      "attackCorrection": "sources/performance-review-attack-source-v2.png",
+      "walkSourceOrder": [
+        0,
+        1,
+        3,
+        2,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "30-year-mortgage",
+      "gameKey": "mortgageRefinance",
+      "name": "The 30-Year Mortgage",
+      "description": "A heavy house riding a contract stack. Stamps down to send compounding-interest shockwaves.",
+      "file": "boss-30-year-mortgage-v1.png",
+      "source": "sources/30-year-mortgage-source-v1.png",
+      "frame": [
+        144,
+        152
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 11,
+      "blankCells": [
+        11
+      ],
+      "footPoint": [
+        72,
+        148
+      ],
+      "origin": [
+        0.5,
+        0.9736842105263158
+      ],
+      "minimumPadding": 4,
+      "drawSize": [
+        144,
+        152
+      ],
+      "facing": "down three-quarter; mirror as needed",
+      "colorways": 1,
+      "animationTiming": "review proposals only, not attack logic",
+      "animations": {
+        "walk": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "delay": 180,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            6,
+            7
+          ],
+          "delay": 220,
+          "loop": false
+        },
+        "attack": {
+          "frames": [
+            8,
+            9
+          ],
+          "delay": 130,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            10
+          ],
+          "delay": 160,
+          "loop": false
+        }
+      },
+      "marker": {
+        "file": "telegraph-30-year-mortgage-v1.png",
+        "source": "sources/30-year-mortgage-telegraph-source-v1.png",
+        "frame": [
+          192,
+          128
+        ],
+        "origin": [
+          0.5,
+          0.5
+        ],
+        "solid": false,
+        "rotation": "charge points right; rotate decal as needed"
+      },
+      "integrationNote": "Native draw size already replaces the old approximately 2.3x art. Do not multiply these 144x152 frames by 2.3 again. Claude owns bodies, attack timing and marker collision.",
+      "sha256": "26d84af9ee5802738c39f22d15c5401ec12298ed244b05d5badf9e060917cd86",
+      "walkCorrection": {
+        "source": "sources/30-year-mortgage-walk-source-v2.png",
+        "frames": [
+          4,
+          5
+        ],
+        "reason": "Weight-bearing and passing poses complete the right-foot half."
+      }
+    },
+    {
+      "id": "midlife-crisis-v8",
+      "gameKey": "midlifeCrisis",
+      "name": "The Midlife Crisis V8",
+      "description": "A red convertible with too much confidence. Revs, then slides sideways into a drift.",
+      "file": "boss-midlife-crisis-v8-v1.png",
+      "source": "sources/midlife-crisis-v8-source-v1.png",
+      "frame": [
+        144,
+        152
+      ],
+      "columns": 4,
+      "rows": 3,
+      "frameCount": 11,
+      "blankCells": [
+        11
+      ],
+      "footPoint": [
+        72,
+        148
+      ],
+      "origin": [
+        0.5,
+        0.9736842105263158
+      ],
+      "minimumPadding": 4,
+      "drawSize": [
+        144,
+        152
+      ],
+      "facing": "down three-quarter; mirror as needed",
+      "colorways": 1,
+      "animationTiming": "review proposals only, not attack logic",
+      "animations": {
+        "walk": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "delay": 110,
+          "loop": true
+        },
+        "windup": {
+          "frames": [
+            6,
+            7
+          ],
+          "delay": 220,
+          "loop": false
+        },
+        "attack": {
+          "frames": [
+            8,
+            9
+          ],
+          "delay": 130,
+          "loop": false
+        },
+        "hurt": {
+          "frames": [
+            10
+          ],
+          "delay": 160,
+          "loop": false
+        }
+      },
+      "marker": {
+        "file": "telegraph-midlife-crisis-v8-v1.png",
+        "source": "sources/midlife-crisis-v8-telegraph-source-v1.png",
+        "frame": [
+          256,
+          128
+        ],
+        "origin": [
+          0.5,
+          0.5
+        ],
+        "solid": false,
+        "rotation": "charge points right; rotate decal as needed"
+      },
+      "integrationNote": "Native draw size already replaces the old approximately 2.3x art. Do not multiply these 144x152 frames by 2.3 again. Claude owns bodies, attack timing and marker collision.",
+      "sha256": "8479f993d3f37355841d08300c43aea8e063e4c1eb83ae9c28260d2e2fe7c05a",
+      "attackCorrection": "sources/midlife-crisis-v8-attack-source-v2.png"
+    }
+  ],
+  "gameCodeChanged": false
+}

@@ -1,0 +1,108 @@
+{
+  "status": "passed",
+  "bosses": 3,
+  "poseFrames": 33,
+  "telegraphs": 3,
+  "gameCodeChanged": false,
+  "assets": [
+    {
+      "id": "performance-review",
+      "frames": 11,
+      "walkFrames": 6,
+      "uniquePoses": true,
+      "nativeFrame": [
+        144,
+        152
+      ],
+      "frameHeights": [
+        141,
+        144,
+        144,
+        144,
+        144,
+        144,
+        144,
+        137,
+        129,
+        129,
+        139
+      ],
+      "blankFinalCell": true,
+      "minimumPadding": 4,
+      "palette": true,
+      "opaque": true,
+      "navyOutlines": true,
+      "individualParity": true,
+      "marker": [
+        256,
+        128
+      ]
+    },
+    {
+      "id": "30-year-mortgage",
+      "frames": 11,
+      "walkFrames": 6,
+      "uniquePoses": true,
+      "nativeFrame": [
+        144,
+        152
+      ],
+      "frameHeights": [
+        133,
+        131,
+        131,
+        134,
+        130,
+        132,
+        144,
+        140,
+        127,
+        113,
+        126
+      ],
+      "blankFinalCell": true,
+      "minimumPadding": 4,
+      "palette": true,
+      "opaque": true,
+      "navyOutlines": true,
+      "individualParity": true,
+      "marker": [
+        192,
+        128
+      ]
+    },
+    {
+      "id": "midlife-crisis-v8",
+      "frames": 11,
+      "walkFrames": 6,
+      "uniquePoses": true,
+      "nativeFrame": [
+        144,
+        152
+      ],
+      "frameHeights": [
+        120,
+        122,
+        123,
+        119,
+        123,
+        122,
+        127,
+        124,
+        99,
+        101,
+        123
+      ],
+      "blankFinalCell": true,
+      "minimumPadding": 4,
+      "palette": true,
+      "opaque": true,
+      "navyOutlines": true,
+      "individualParity": true,
+      "marker": [
+        256,
+        128
+      ]
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "status": "art-only-awaiting-rami-review",
+  "generation": "built-in imagegen",
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "families": 8,
+  "colorways": 18,
+  "stateFrames": 54,
+  "debrisFrames": 108,
+  "assets": [
+    {
+      "id": "printer",
+      "frame": [
+        80,
+        80
+      ],
+      "variants": 1,
+      "intact": "unchanged pixels from ../office-environment/printer-native.png",
+      "joke": "Cracked: dented cream printer with paper visibly jammed and one split teal panel. Broken: collapsed teal and cream printer shell, spilled sheets and a tiny front LCD/plaque reading exactly PC LOAD LETTER; one last sheet still refusing to feed.",
+      "debris": "printer-debris-v1.png",
+      "file": "printer-states-v1.png",
+      "source": "sources/printer-damage-source-v1.png",
+      "columns": 3,
+      "rows": 1,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 1,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "150e68ad809354150ed930dc724d2e5483cd7eb3c16bcc5ce1c0365f72723c3a"
+    },
+    {
+      "id": "cabinet",
+      "frame": [
+        56,
+        88
+      ],
+      "variants": 1,
+      "intact": "unchanged pixels from ../office-environment/cabinet-native.png",
+      "joke": "Cracked: dented teal two-drawer filing cabinet, top drawer partly pulled out with papers poking through. Broken: flattened two-drawer cabinet pile with a single clearly lavender binder spilled beside it, a bent drawer and papers.",
+      "debris": "cabinet-debris-v1.png",
+      "file": "cabinet-states-v1.png",
+      "source": "sources/cabinet-damage-source-v1.png",
+      "columns": 3,
+      "rows": 1,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 1,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "52365b116e03686c3a9761e8994e993d4543c84d193ead14768ffa72f5e6d9fc"
+    },
+    {
+      "id": "vending_machine",
+      "frame": [
+        80,
+        128
+      ],
+      "variants": 3,
+      "intact": "unchanged pixels from ../stage/props/vending_machine-v1.png",
+      "joke": "Cracked: retain tall teal snack machine and cream frame, crack the glass with bold angular navy fissures; one snack still stuck at the edge. Broken: fallen low flattened vending machine shell and one stubborn orange snack packet finally fallen out.",
+      "debris": "vending_machine-debris-v1.png",
+      "file": "vending_machine-states-v1.png",
+      "source": "sources/vending_machine-damage-source-v1.png",
+      "columns": 3,
+      "rows": 3,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 3,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "49a22942568cb6e0423a6b4c0151f55e79a6158771037b5fab29cd4ba387de93"
+    },
+    {
+      "id": "trash_recycle",
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "intact": "unchanged pixels from ../stage/props/trash_recycle-v1.png",
+      "joke": "Cracked: same paired navy trash and teal recycle bins with cream lids, one lid dented and paper escaping. Broken: two squashed bin bodies and their loose cream lids with a very orderly tiny paper pile.",
+      "debris": "trash_recycle-debris-v1.png",
+      "file": "trash_recycle-states-v1.png",
+      "source": "sources/trash_recycle-damage-source-v1.png",
+      "columns": 3,
+      "rows": 3,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 3,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "81d4049714bd6233b0da0f8a2709ed3cf0101c806eac0405e35c0923b5ace1ee"
+    },
+    {
+      "id": "water_cooler",
+      "frame": [
+        64,
+        104
+      ],
+      "variants": 3,
+      "intact": "unchanged pixels from ../stage/props/water_cooler-v1.png",
+      "joke": "Cracked: same cream dispenser with sage translucent jug, angular crack through jug and a tiny drip. Broken: collapsed cooler base and jug fragments with a flat teal puddle and one sideways white paper cup. Puddle has hard pixel edge and no shadow.",
+      "debris": "water_cooler-debris-v1.png",
+      "file": "water_cooler-states-v1.png",
+      "source": "sources/water_cooler-damage-source-v1.png",
+      "columns": 3,
+      "rows": 3,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 3,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "f1bfeb9f52283f54d3d21a478b1fe6d404a97dd45501f514e721adedc5b06e27"
+    },
+    {
+      "id": "lost_found",
+      "frame": [
+        80,
+        72
+      ],
+      "variants": 3,
+      "intact": "unchanged pixels from ../stage/props/lost_found-v1.png",
+      "joke": "Cracked: same teal rectangular lost-and-found bin with umbrella and scarf, a split corner and scarf drooping through. Broken: collapsed bin and a low orderly heap of scarf, tiny charger cable and folded umbrella. Keep compassionate humor.",
+      "debris": "lost_found-debris-v1.png",
+      "file": "lost_found-states-v1.png",
+      "source": "sources/lost_found-damage-source-v1.png",
+      "columns": 3,
+      "rows": 3,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 3,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "ef9a92e7f66dbaca34a394dcacd966bad233e30fb124fe92852f8b6ec3a5c7d8"
+    },
+    {
+      "id": "coat_rack",
+      "frame": [
+        64,
+        112
+      ],
+      "variants": 3,
+      "intact": "unchanged pixels from ../stage/props/coat_rack-v1.png",
+      "joke": "Cracked: same tall navy and teal coat stand, visibly bent shaft and one crooked hook, still upright with same brown coat. Broken: coat rack lying folded flat on the floor, low navy hook/shaft pieces and rumpled brown coat, as if the coat has clocked out.",
+      "debris": "coat_rack-debris-v1.png",
+      "source": "sources/coat_rack-damage-source-v2.png",
+      "file": "coat_rack-states-v1.png",
+      "columns": 3,
+      "rows": 3,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 3,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "3d968022adc36f14335f99df1fbf984b6c64f26f360d31609151b650b6ef30a1"
+    },
+    {
+      "id": "plant",
+      "frame": [
+        48,
+        64
+      ],
+      "variants": 1,
+      "intact": "unchanged pixels from ../office-environment/plant-native.png",
+      "joke": "Cracked: same leafy teal potted plant, warm terracotta pot has a broad angular crack, one tired leaf droops. Broken: low broken terracotta pot with a small navy soil mound and the still-living plant lying sideways with two teal leaves. Funny and tender, no dead plant gore.",
+      "debris": "plant-debris-v1.png",
+      "file": "plant-states-v1.png",
+      "source": "sources/plant-damage-source-v1.png",
+      "columns": 3,
+      "rows": 1,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 1,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "584dadbe607ffd304638cb3f750cb5b32006b1660d2b36550da447c31d28098a"
+    }
+  ],
+  "gameCodeChanged": false
+}

@@ -443,3 +443,12 @@ Before speeding a game up, measure where each frame's time goes; guesses are usu
 
 ## Juice (Nov 2)
 "Juice" is game-dev slang for feedback that makes actions feel good without changing the rules: a white flash on hit, a squash, a little shove, a pop when something dies, a sound that rises in pitch during a streak. None of it changes damage or hit boxes. Players describe juicy games as "satisfying" without knowing why. The pentatonic trick: any notes from a 5-note major scale sound good together, so dozens of overlapping kill sounds become a melody instead of noise.
+
+## Anticipation (Nov 2, Codex)
+Anticipation is the warning pose before an attack. A clipboard pulling back or a car revving tells the player to move before damage happens. A bold silhouette helps that warning remain visible in a crowded fight. Art supplies the poses; Claude will set the timing and collision after review.
+
+```text
+walk / drive  ->  wind-up  ->  attack  ->  recover
+                     |
+              time to move away
+```

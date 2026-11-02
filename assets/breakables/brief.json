@@ -1,0 +1,107 @@
+[
+  {
+    "id": "printer",
+    "frame": [
+      80,
+      80
+    ],
+    "variants": 1,
+    "intact": "../office-environment/printer-native.png",
+    "ref": "assets/office-environment/printer-native.png",
+    "joke": "Cracked: dented cream printer with paper visibly jammed and one split teal panel. Broken: collapsed teal and cream printer shell, spilled sheets and a tiny front LCD/plaque reading exactly PC LOAD LETTER; one last sheet still refusing to feed.",
+    "debris": "two paper scraps, two cream plastic shards, a teal panel chip, a bent spring",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 80x80. Subject: Cracked: dented cream printer with paper visibly jammed and one split teal panel. Broken: collapsed teal and cream printer shell, spilled sheets and a tiny front LCD/plaque reading exactly PC LOAD LETTER; one last sheet still refusing to feed. Bottom debris, one per cell: two paper scraps, two cream plastic shards, a teal panel chip, a bent spring."
+  },
+  {
+    "id": "cabinet",
+    "frame": [
+      56,
+      88
+    ],
+    "variants": 1,
+    "intact": "../office-environment/cabinet-native.png",
+    "ref": "assets/office-environment/cabinet-native.png",
+    "joke": "Cracked: dented teal two-drawer filing cabinet, top drawer partly pulled out with papers poking through. Broken: flattened two-drawer cabinet pile with a single clearly lavender binder spilled beside it, a bent drawer and papers.",
+    "debris": "two cream paper scraps, a lavender binder cover chip, two teal metal chips, a tiny cream drawer handle",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 56x88. Subject: Cracked: dented teal two-drawer filing cabinet, top drawer partly pulled out with papers poking through. Broken: flattened two-drawer cabinet pile with a single clearly lavender binder spilled beside it, a bent drawer and papers. Bottom debris, one per cell: two cream paper scraps, a lavender binder cover chip, two teal metal chips, a tiny cream drawer handle."
+  },
+  {
+    "id": "vending_machine",
+    "frame": [
+      80,
+      128
+    ],
+    "variants": 3,
+    "intact": "../stage/props/vending_machine-v1.png",
+    "ref": "assets/stage/props/vending_machine-variant-1-v1.png",
+    "joke": "Cracked: retain tall teal snack machine and cream frame, crack the glass with bold angular navy fissures; one snack still stuck at the edge. Broken: fallen low flattened vending machine shell and one stubborn orange snack packet finally fallen out.",
+    "debris": "two teal panel chips, two cream plastic shards, a clear sage glass shard, one tiny snack packet",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 80x128. Subject: Cracked: retain tall teal snack machine and cream frame, crack the glass with bold angular navy fissures; one snack still stuck at the edge. Broken: fallen low flattened vending machine shell and one stubborn orange snack packet finally fallen out. Bottom debris, one per cell: two teal panel chips, two cream plastic shards, a clear sage glass shard, one tiny snack packet."
+  },
+  {
+    "id": "trash_recycle",
+    "frame": [
+      64,
+      64
+    ],
+    "variants": 3,
+    "intact": "../stage/props/trash_recycle-v1.png",
+    "ref": "assets/stage/props/trash_recycle-variant-1-v1.png",
+    "joke": "Cracked: same paired navy trash and teal recycle bins with cream lids, one lid dented and paper escaping. Broken: two squashed bin bodies and their loose cream lids with a very orderly tiny paper pile.",
+    "debris": "two cream paper scraps, two teal bin fragments, one navy lid fragment, a crumpled paper ball",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 64x64. Subject: Cracked: same paired navy trash and teal recycle bins with cream lids, one lid dented and paper escaping. Broken: two squashed bin bodies and their loose cream lids with a very orderly tiny paper pile. Bottom debris, one per cell: two cream paper scraps, two teal bin fragments, one navy lid fragment, a crumpled paper ball."
+  },
+  {
+    "id": "water_cooler",
+    "frame": [
+      64,
+      104
+    ],
+    "variants": 3,
+    "intact": "../stage/props/water_cooler-v1.png",
+    "ref": "assets/stage/props/water_cooler-variant-1-v1.png",
+    "joke": "Cracked: same cream dispenser with sage translucent jug, angular crack through jug and a tiny drip. Broken: collapsed cooler base and jug fragments with a flat teal puddle and one sideways white paper cup. Puddle has hard pixel edge and no shadow.",
+    "debris": "two sage jug shards, two cream dispenser chips, one white paper cup fragment, a teal water droplet",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 64x104. Subject: Cracked: same cream dispenser with sage translucent jug, angular crack through jug and a tiny drip. Broken: collapsed cooler base and jug fragments with a flat teal puddle and one sideways white paper cup. Puddle has hard pixel edge and no shadow. Bottom debris, one per cell: two sage jug shards, two cream dispenser chips, one white paper cup fragment, a teal water droplet."
+  },
+  {
+    "id": "lost_found",
+    "frame": [
+      80,
+      72
+    ],
+    "variants": 3,
+    "intact": "../stage/props/lost_found-v1.png",
+    "ref": "assets/stage/props/lost_found-variant-1-v1.png",
+    "joke": "Cracked: same teal rectangular lost-and-found bin with umbrella and scarf, a split corner and scarf drooping through. Broken: collapsed bin and a low orderly heap of scarf, tiny charger cable and folded umbrella. Keep compassionate humor.",
+    "debris": "two teal bin chips, a lavender cloth scrap, one cream umbrella-tip chip, a navy cable curl, one tiny paper tag",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 80x72. Subject: Cracked: same teal rectangular lost-and-found bin with umbrella and scarf, a split corner and scarf drooping through. Broken: collapsed bin and a low orderly heap of scarf, tiny charger cable and folded umbrella. Keep compassionate humor. Bottom debris, one per cell: two teal bin chips, a lavender cloth scrap, one cream umbrella-tip chip, a navy cable curl, one tiny paper tag."
+  },
+  {
+    "id": "coat_rack",
+    "frame": [
+      64,
+      112
+    ],
+    "variants": 3,
+    "intact": "../stage/props/coat_rack-v1.png",
+    "ref": "assets/stage/props/coat_rack-variant-1-v1.png",
+    "joke": "Cracked: same tall navy and teal coat stand, visibly bent shaft and one crooked hook, still upright with same brown coat. Broken: coat rack lying folded flat on the floor, low navy hook/shaft pieces and rumpled brown coat, as if the coat has clocked out.",
+    "debris": "two navy stand fragments, two teal hook chips, one brown cloth scrap, a tiny cream button",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 64x112. Subject: Cracked: same tall navy and teal coat stand, visibly bent shaft and one crooked hook, still upright with same brown coat. Broken: coat rack lying folded flat on the floor, low navy hook/shaft pieces and rumpled brown coat, as if the coat has clocked out. Bottom debris, one per cell: two navy stand fragments, two teal hook chips, one brown cloth scrap, a tiny cream button.",
+    "source": "sources/coat_rack-damage-source-v2.png"
+  },
+  {
+    "id": "plant",
+    "frame": [
+      48,
+      64
+    ],
+    "variants": 1,
+    "intact": "../office-environment/plant-native.png",
+    "ref": "assets/office-environment/plant-native.png",
+    "joke": "Cracked: same leafy teal potted plant, warm terracotta pot has a broad angular crack, one tired leaf droops. Broken: low broken terracotta pot with a small navy soil mound and the still-living plant lying sideways with two teal leaves. Funny and tender, no dead plant gore.",
+    "debris": "two terracotta pot shards, two teal leaves, a small soil clump, one tiny root curl",
+    "prompt": "Use case: precise-object-edit. Asset type: production breakable pixel-art prop states and six debris particles for Midlife Survivors. Image 1 is the exact current native intact sprite. Preserve its design, camera and materials; do not redesign it. Style: crisp hand-placed 16-bit pixels, broad uniform color clusters, top-down three-quarter view, one logical pixel deep navy silhouette, warm upper-left cream light. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Solid FLAT opaque exact #FF00FF background, no background shadow, no ground plane, no gradients, blur, antialiasing, texture noise or watermark.\nOutput one 1536x1024 source sprite sheet with STRICT layout: top 768 pixels high contains exactly TWO equal 768x768 cells. Top LEFT contains the CRACKED prop, top RIGHT contains the BROKEN prop. Both centered horizontally with their lowest point at y=720, equal padding. Cracked retains the intact height and footprint, broken is only one third as tall and lies low on the same baseline, entirely within its own cell. Do NOT draw an intact sprite: the existing intact PNG will be copied unchanged at export. Bottom strip y=768..1024 contains exactly SIX equal 256x256 cells left-to-right, each holding ONE distinct debris fragment centered alone, sized as an 8\u201316px logical particle enlarged to clear square pixels. Leave generous flat magenta separation, no labels, grid lines, dividers, sparks or floating particles in the two prop cells. No text except explicitly requested. Single image, not a scene. Native prop frame 48x64. Subject: Cracked: same leafy teal potted plant, warm terracotta pot has a broad angular crack, one tired leaf droops. Broken: low broken terracotta pot with a small navy soil mound and the still-living plant lying sideways with two teal leaves. Funny and tender, no dead plant gore. Bottom debris, one per cell: two terracotta pot shards, two teal leaves, a small soil clump, one tiny root curl."
+  }
+]

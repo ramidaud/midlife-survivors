@@ -1,0 +1,26 @@
+[
+  {
+    "id": "performance-review",
+    "frame": [
+      256,
+      128
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: ONE production ground telegraph decal for the top-down three-quarter pixel-art game Midlife Survivors. Single flat floor marker only, centered on solid flat opaque EXACT #FF00FF background. Hard square native pixels, thick readable broad clusters, no anti-aliasing, blur, noise, gradients, shadows, lighting bloom, perspective vanishing points, text, labels, characters, cars, scenery, title or watermark. Palette only deep navy #171C35, rusty coral #C45C4B, coffee orange #EF9347 and warm cream #F2D7A1. Broken-line marker with open magenta gaps and generous empty center so a game sprite remains readable over it. Outline each disconnected piece with one native navy pixel. Draw at logical native target size then enlarge with nearest-neighbor square pixels for packaging. The background is magenta, NEVER black. Canvas 1536x768 landscape; marker fills central 1300x600 maximum with generous even margins. Camera: semi-flat floor decal, slightly vertically compressed top-down shape. Native target 256x128. Subject: red dashed horizontal CHARGE LANE, two parallel rails made of six chunky coral dashes each, long clear magenta lane between them, three small coffee-orange chevrons pointing RIGHT inside the lane, an outlined cream arrowhead at far right. A warning lane that clearly shows a straight-line rush. No rectangular filled background."
+  },
+  {
+    "id": "30-year-mortgage",
+    "frame": [
+      192,
+      128
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: ONE production ground telegraph decal for the top-down three-quarter pixel-art game Midlife Survivors. Single flat floor marker only, centered on solid flat opaque EXACT #FF00FF background. Hard square native pixels, thick readable broad clusters, no anti-aliasing, blur, noise, gradients, shadows, lighting bloom, perspective vanishing points, text, labels, characters, cars, scenery, title or watermark. Palette only deep navy #171C35, rusty coral #C45C4B, coffee orange #EF9347 and warm cream #F2D7A1. Broken-line marker with open magenta gaps and generous empty center so a game sprite remains readable over it. Outline each disconnected piece with one native navy pixel. Draw at logical native target size then enlarge with nearest-neighbor square pixels for packaging. The background is magenta, NEVER black. Canvas 1536x768 landscape; marker fills central 1300x600 maximum with generous even margins. Camera: semi-flat floor decal, slightly vertically compressed top-down shape. Native target 192x128. Subject: a broad elliptical SHOCKWAVE warning ring, three concentric broken oval rings in coral and coffee orange, a clear magenta center, four large cream percentage % glyphs evenly spaced around the outer ellipse. Simple readable percent symbols, no other numbers or letters. Each ring has broad evenly spaced gaps. No filled disc."
+  },
+  {
+    "id": "midlife-crisis-v8",
+    "frame": [
+      256,
+      128
+    ],
+    "prompt": "Use case: stylized-concept. Asset type: ONE production ground telegraph decal for the top-down three-quarter pixel-art game Midlife Survivors. Single flat floor marker only, centered on solid flat opaque EXACT #FF00FF background. Hard square native pixels, thick readable broad clusters, no anti-aliasing, blur, noise, gradients, shadows, lighting bloom, perspective vanishing points, text, labels, characters, cars, scenery, title or watermark. Palette only deep navy #171C35, rusty coral #C45C4B, coffee orange #EF9347 and warm cream #F2D7A1. Broken-line marker with open magenta gaps and generous empty center so a game sprite remains readable over it. Outline each disconnected piece with one native navy pixel. Draw at logical native target size then enlarge with nearest-neighbor square pixels for packaging. The background is magenta, NEVER black. Canvas 1536x768 landscape; marker fills central 1300x600 maximum with generous even margins. Camera: semi-flat floor decal, slightly vertically compressed top-down shape. Native target 256x128. Subject: a pair of curved tire-track arcs describing a sideways DRIFT LOOP, two parallel broken oval/crescent tracks in coral and coffee orange with short blocky tread marks, open magenta center and a single warm cream direction arrow along the right-hand curve. Make two distinct arcs with clean magenta space between them, not a spiral, no smoke or vehicle."
+  }
+]

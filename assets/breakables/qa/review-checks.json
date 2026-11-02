@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "Art-only review page, no game loaded",
+  "desktop": {"width":1280,"height":800,"documentScrollWidth":1265},
+  "phone": {"width":390,"height":844,"documentScrollWidth":375},
+  "props":8,
+  "colorways":18,
+  "bosses":3,
+  "nativeComparisonCanvasWidth":320,
+  "phoneOneXCanvasAndContainer":320,
+  "phoneTwoXCanvas":640,
+  "phoneTwoXContainer":321,
+  "horizontalPageOverflow":false,
+  "heroFrame":[56,60],
+  "billDisplay":[50.4,50.4],
+  "imageRendering":"pixelated",
+  "controls":{"colorways":true,"windup":true,"attack":true,"hurt":true,"manualFrames":true,"pauseResume":true,"telegraphToggle":true,"oneXTwoX":true},
+  "consoleErrors":[],
+  "consoleWarnings":[],
+  "analyticsScripts":0,
+  "gameCodeChanged":false,
+  "note":"Native pixel checks are in ../checks.json and ../../bosses/checks.json. Sources and prompts were created with built-in imagegen. No game version bump for this art-only delivery."
+}

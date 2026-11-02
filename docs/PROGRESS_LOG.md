@@ -802,3 +802,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New daily scheduled task "Midlife Survivors morning stats" (7:27 AM, read-only Supabase queries, push notification).
 - Next ChatGPT job written: Stage 2D Parking Lot and Break Room (docs/handoffs/chatgpt-stage-2d-rooms.md). Gemini pass 2 saved; achievement lines need a redo against the real list.
 - Grok boss-attack spec saved (charge, % rings with a gap, V8 drift with skid marks). Approved to build next session.
+
+## 2026-11-02: Breakable props and big boss art ready for review (Codex)
+- Finished Part A first: eight prop families, every existing colorway, unchanged intact pixels, cracked/broken states and six debris pieces per color. Total: 54 state frames and 108 debris cells.
+- Finished Part B: Performance Review, 30-Year Mortgage and Midlife Crisis V8, each with six walk, two wind-up, two attack and one hurt pose, plus a separate floor marker.
+- Sources, full prompts, native exports, manifests and an isolated 1x/2x animated review are saved under assets/breakables and assets/bosses. Checked at 1280x800 and 390x844 beside the real-size hero and Bill.
+- Art only, awaiting Rami. No runtime registration, game code, stats, balance or version change in this art delivery. Claude owns breaking, loot and attacks.
