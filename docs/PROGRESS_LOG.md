@@ -747,3 +747,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Pause menu now lists what's affecting the run right now, with time left.
 - Ben's lost-controls bug: still can't reproduce (also tried Pause > Save & Exit > Shop > Resume). The Shop B-button trap is a strong suspect if he used a controller.
 - Drafted devlog post 07 (office jokes, smarter enemies, Close Calls, playtester fixes).
+- Saved Grok's Part 3D spec (8 age-50+ run modifiers: Ghost Hour, Reading Glasses, Rent Hike, Empty Nest, Back Spasm, Reply-All Tax, Past Due, Open Enrollment). Not built yet.
