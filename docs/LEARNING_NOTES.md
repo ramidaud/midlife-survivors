@@ -437,3 +437,6 @@ Enemies take a shortcut and chase you directly when the path is "nearly straight
 
 ## Look size vs hit box (Nov 2)
 What you see and what you bump into don't have to match. Regular enemies grew in both. Bosses got huge on screen, but their hit box is only half that, so a giant Performance Review can still squeeze between desks instead of jamming. Games fake this all the time; it usually feels fairer when hit boxes are a little smaller than the art.
+
+## Profiling (Nov 2)
+Before speeding a game up, measure where each frame's time goes; guesses are usually wrong. A profiler samples what the computer is doing thousands of times a second. Ours showed shadows being redrawn from scratch every frame (now painted once into images), and 120 Hz iPads running all the game logic twice as often as needed. A frame has about 16 milliseconds at 60 fps, so every millisecond counts.

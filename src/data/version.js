@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.32.0",
-  displayVersion: "V. 1.32.0",
+  version: "1.32.1",
+  displayVersion: "V. 1.32.1",
   lastUpdated: "Nov 1, 2026",
-  codename: "Supersized",
-  build: 87,
+  codename: "Tune-Up",
+  build: 88,
   changelog: [
+    {
+      ver: "V. 1.32.1",
+      date: "Nov 2, 2026",
+      title: "Tune-Up",
+      highlights: [
+        "Speed pass for iPads and phones: floor shadows are painted once instead of every frame, 120 Hz screens no longer run the game twice as often, and the HUD updates once per frame instead of once per gem."
+      ]
+    },
     {
       ver: "V. 1.32.0",
       date: "Nov 2, 2026",

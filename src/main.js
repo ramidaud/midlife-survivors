@@ -9,6 +9,7 @@ const config = {
   transparent: true, // allows the underlying Three.js 3D / Diablo canvas to show through in 3D modes!
   scale: { mode: Phaser.Scale.RESIZE, width: window.innerWidth, height: window.innerHeight },
   physics: { default: "arcade" },
+  fps: { limit: 70 }, // 120 Hz iPads and monitors would run all game logic twice as often; this caps them near 60. (70, not 60, so 60 Hz screens never skip a frame.) Nov 2
   input: { gamepad: true }, // listen for game controllers (Xbox, PlayStation, Switch Pro, etc.)
   scene: { create, update }
 };

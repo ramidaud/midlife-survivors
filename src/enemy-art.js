@@ -104,8 +104,9 @@ window.EnemyArt = (() => {
         }
         const visual = record.visual;
         entity.setVisible(false); record.shown = true;
-        visual.setVisible(true).setPosition(entity.x, entity.y).setDepth(entity.depth)
+        visual.setVisible(true).setPosition(entity.x, entity.y)
           .setFlip(entity.flipX, entity.flipY).setAlpha(entity.alpha).setRotation(entity.rotation);
+        if (visual.depth !== entity.depth) visual.setDepth(entity.depth); // setDepth re-sorts the whole scene, so only when it changes
         if (entity.tag) entity.tag.setY(entity.y - Math.max(displaySize, ENEMIES[kind].size) / 2 - 6
           - (kind === 'spamCall' && entity.state === 'ringing' ? 2 : 0));
         if (entity.isTinted) {
@@ -131,7 +132,8 @@ window.EnemyArt = (() => {
           visual.anims.timeScale = running ? 1 : 0;
         }
         if (record.shadow) record.shadow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.4)
-          .setDepth(entity.depth - 0.1).setAlpha(entity.alpha);
+          .setAlpha(entity.alpha);
+          if (record.shadow.depth !== entity.depth - 0.1) record.shadow.setDepth(entity.depth - 0.1);
       }
     }
     scene.events.on('postupdate', sync);

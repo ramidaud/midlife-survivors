@@ -780,3 +780,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - One dial to tweak: `ENEMY_SCALE` at the bottom of `src/data/enemies.js`.
 - Tests: desktop and phone clean; roundabout route still 5 of 5; test bot dies around 41.3 (same range as before).
 - Wrote ChatGPT's next brief: smashed versions of office props, and big boss art for the three Midlife bosses.
+
+## 2026-11-02: Speed pass (V. 1.32.1)
+- Rami: laggy on iPad. Profiled 250 to 400 enemies.
+- Fixes: floor shadows baked into 4 images (were redrawn every frame), frame cap for 120 Hz screens, HUD batched to once per frame, fewer full re-sorts of the scene, a 3D leftover no longer touches every sprite each frame.
+- Game logic at 400 enemies went from about 14 ms to 11 ms per frame here. Biggest remaining cost is Phaser's enemy-vs-enemy bumping, which is what makes swarms look like swarms.

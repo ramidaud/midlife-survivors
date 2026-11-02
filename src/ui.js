@@ -521,6 +521,7 @@ function syncMuteButtons() {
 
 window.setGamepadConnectedUI = function(connected) {
   const changed = gamepadConnectedFlag !== !!connected;
+  if (!changed) return; // called every frame: only touch the page when it changes
   gamepadConnectedFlag = !!connected;
   const dot = document.getElementById("hud-pad-dot");
   if (dot) dot.style.display = connected ? "inline" : "none";
@@ -949,7 +950,15 @@ window.syncUITheme = function() {
   });
 };
 
+// Speed (Nov 2): updateHUD gets called for every gem, coin and hit, sometimes dozens of times a frame.
+// Batch those into one page update per frame.
+let hudQueued = false;
 function updateHUD() {
+  if (hudQueued) return;
+  hudQueued = true;
+  requestAnimationFrame(() => { hudQueued = false; updateHUDNow(); });
+}
+function updateHUDNow() {
   const hpFill = document.getElementById("hud-hp-fill");
   if (!hpFill || !stats || !meta) return;
 

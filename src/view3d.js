@@ -849,8 +849,12 @@ function syncSimplePool(phaserGroup, map, scene3d, createFn, yHeight, spin, now)
 }
 
 // Restore 2D sprite visibility when switching back to Mode 0 ("2D 16-Bit").
+// Speed (Nov 2): this used to run every frame, touching every enemy, gem and coin. Now it only runs once,
+// right after leaving a 3D view.
+let lastRestoreMode = 0;
 function restore2DSprites() {
-  if (window.viewModeIdx !== 0) return;
+  const was = lastRestoreMode; lastRestoreMode = window.viewModeIdx;
+  if (window.viewModeIdx !== 0 || was === 0) return;
   if (label) label.setVisible(true);
   if (window.stagePlatforms) window.stagePlatforms.forEach(pl => pl.setAlpha(1));
   [bills, splashes, gems, coins, window.pizzas, chests].forEach(grp => {

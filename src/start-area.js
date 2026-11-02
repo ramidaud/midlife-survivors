@@ -69,6 +69,20 @@ window.StartAreaArt = (() => {
     }
     const q=best||fallback;if(q)repairedSpawns++;return q;
   }
+  // Speed (Nov 2): floor-shadow Graphics are redrawn from scratch every frame in WebGL. They never change, so
+  // paint all of them once into 1024px tiles covering the map, and show the tiles as plain images instead.
+  try{const chunkG=all.filter(e=>e.bounds&&e.o&&e.o.type==='Graphics'&&e.o.active);
+   if(chunkG.length&&scene.make.renderTexture){const B=data.bounds,T=1024;let n=0;
+    for(let ty=B.y;ty<B.y+B.height;ty+=T)for(let tx=B.x;tx<B.x+B.width;tx+=T){
+     const w=Math.min(T,B.x+B.width-tx),h=Math.min(T,B.y+B.height-ty),key='slice_bake_'+(n++);
+     if(scene.textures.exists(key))scene.textures.remove(key);
+     const rt=scene.make.renderTexture({x:0,y:0,width:w,height:h},false);
+     for(const e of chunkG)rt.draw(e.o,-tx,-ty);
+     rt.saveTexture(key);
+     all.push({o:scene.add.image(tx,ty,key).setOrigin(0).setDepth(chunkG[0].o.depth),bounds:{x:tx,y:ty,width:w,height:h},rt});
+    }
+    for(const e of chunkG){e.o.destroy();all.splice(all.indexOf(e),1);}
+   }}catch(e){}
   const state={data,gates,items,bodies,active:true,visibleProps:0,peakVisibleProps:0,get repairedSpawns(){return repairedSpawns;},resolveSpawn,update,sync,destroy,contains:within};
   function update(){if(!alive)return;const x=p.x,y=p.y+p.height/2;if(!within(x,y)){p.setPosition(...[lastValid[0],lastValid[1]-p.height/2]);p.setVelocity(0,0);p.body.updateFromGameObject();}else lastValid=[x,y];}
   function sync(){if(!alive)return;const v=scene.cameras.main.worldView,cam=scene.cameras.main.id,visible=[];
@@ -77,7 +91,7 @@ window.StartAreaArt = (() => {
    for(const {o,bounds:r}of all)if(r)o.cameraFilter=(r.x+r.width>v.x-96&&r.x<v.right+96&&r.y+r.height>v.y-96&&r.y<v.bottom+96)?0:cam;
    const now=refs.clock();if(now-lastMemo>6000&&window.showLowerThird)for(const o of captions){if(!o.visible||seen.has(o.caption))continue;if(Math.abs(o.x-p.x)<110&&Math.abs(o.y-(p.y+p.height/2))<110){seen.add(o.caption);lastMemo=now;window.showLowerThird('lore','MEMO',o.caption,4500);break;}}
   }
-  function destroy(){alive=false;window.navExtraBlockers=(window.navExtraBlockers||[]).filter(r=>!ownedBlockers.includes(r));if(window.START_AREA_GATES===gates)window.START_AREA_GATES=[];for(const {o}of all)if(o.active)o.destroy();}
+  function destroy(){alive=false;window.navExtraBlockers=(window.navExtraBlockers||[]).filter(r=>!ownedBlockers.includes(r));if(window.START_AREA_GATES===gates)window.START_AREA_GATES=[];for(const e of all){if(e.o.active)e.o.destroy();if(e.rt)e.rt.destroy();}}
   return state;
  }
  return {build,contains:within};
