@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.33.0",
-  displayVersion: "V. 1.33.0",
+  version: "1.33.1",
+  displayVersion: "V. 1.33.1",
   lastUpdated: "Nov 1, 2026",
   codename: "Beautiful Chaos",
-  build: 90,
+  build: 91,
   changelog: [
+    {
+      ver: "V. 1.33.1",
+      date: "Nov 2, 2026",
+      title: "Beautiful Chaos",
+      highlights: [
+        "Play stats now note the kind of device (phone, tablet or desktop, system, browser, rough screen size) and how smoothly the game ran, so we can find and fix lag. Nothing personal is recorded."
+      ]
+    },
     {
       ver: "V. 1.33.0",
       date: "Nov 2, 2026",

@@ -21,7 +21,7 @@ window.Telemetry = (() => {
   const device = () => (window.matchMedia && matchMedia("(pointer: coarse)").matches ? "phone" : "desktop");
   // Coarse device details (no fingerprinting): phone/tablet/desktop, OS family, browser family, screen size
   // rounded to 100 px, and how smooth the game ran. Only sent once the runs table has these columns.
-  const DEVICE_DETAIL = false; // flip to true after running docs/sql/RUNS_DEVICE.sql
+  const DEVICE_DETAIL = true; // columns added by docs/sql/RUNS_DEVICE.sql (Rami ran it Nov 2)
   function deviceDetail() {
     const ua = navigator.userAgent || "", touch = navigator.maxTouchPoints > 1;
     const os = /iPhone|iPod/.test(ua) ? "iOS" : (/iPad/.test(ua) || (/Macintosh/.test(ua) && touch)) ? "iPadOS" : /Android/.test(ua) ? "Android"

@@ -797,3 +797,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Sound: every effect wobbles in pitch, some get a noise layer (paper rip, thud, whoosh), kill and gem streaks climb a pentatonic scale, a compressor glues big fights together, and a voice cap keeps it from turning to mush. Tunable in `SOUND_VARY` (src/data/sounds.js).
 - Pause menu: separate Music and Effects volume (saved per browser).
 - Play stats now log hits and damage taken per run. Device and smoothness fields are ready but switched off until docs/sql/RUNS_DEVICE.sql is run.
+- Device details and smoothness (avg fps, slow frames) now recorded per run (V. 1.33.1).
