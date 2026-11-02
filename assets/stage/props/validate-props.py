@@ -1,8 +1,9 @@
 """Read-only native PNG QA plus saved report. Python standard library only."""
 from pathlib import Path
-import json,struct,zlib,hashlib
+import json,struct,zlib,hashlib,sys
 R=Path(__file__).resolve().parent
-M=json.loads((R/'manifest-2a.json').read_text())
+manifest_file=sys.argv[1] if len(sys.argv)>1 else 'manifest.json'
+M=json.loads((R/manifest_file).read_text())
 def png(path):
  data=path.read_bytes();offset=8;packed=b''
  while offset<len(data):
@@ -43,4 +44,4 @@ for g in contract['gates']:
  assert g['clearWidth']==224 and g['jambsOutsideOpening']
  for r in g['closedBlockers']:assert r['width' if g['openingAxis']=='x' else 'height']==224
 report=dict(status='passed',families=len(results),colorways=sum(s['variants'] for s in M['assets']),assets=results,gateClearWidth=224,gateOpenings=sum(len(g['closedBlockers']) for g in contract['gates']),runtimeNavigationTouched=False,runtimePerformanceTested=False)
-(R/'checks-2a.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='assets'}))
+(R/('checks.json' if manifest_file=='manifest.json' else manifest_file.replace('manifest','checks'))).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='assets'}))

@@ -1,0 +1,266 @@
+[
+  {
+    "id": "roundabout",
+    "name": "Circle back",
+    "category": "slang",
+    "frame": [
+      128,
+      96
+    ],
+    "footprint": {
+      "width": 92,
+      "back": 30,
+      "front": 4
+    },
+    "solid": true,
+    "district": "parking",
+    "mount": "floor",
+    "variants": 2,
+    "source": "roundabout-source-v1.png",
+    "file": "roundabout-v1.png",
+    "caption": "Circle back. This meeting has its own traffic pattern.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 128x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One miniature indoor traffic island, a low circular cream curb with a small sage shrub in the center. Attached short freestanding cream sign reads exactly \"CIRCLE\" over \"BACK\" in bold chunky navy pixel letters. Three broad curved teal arrows painted on the TOP of the circular island suggest a roundabout. The island and its sign are one modular prop. No road, floor, surrounding pavement, extra plants, or shadows outside the island."
+  },
+  {
+    "id": "gauge",
+    "name": "Move the needle",
+    "category": "slang",
+    "frame": [
+      112,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "bullpen",
+    "mount": "wall",
+    "variants": 2,
+    "source": "gauge-source-v1.png",
+    "file": "gauge-v1.png",
+    "caption": "Move the needle. The needle has requested a follow-up meeting.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 112x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One large chunky wall gauge in a rectangular navy frame with cream face, broad teal semicircular dial and a motionless rust-red needle pointing near the middle. A big simple label below the needle reads exactly \"MEH\" in bold pixel uppercase. Only three chunky tick marks, no numbers or tiny writing. No stand or backdrop."
+  },
+  {
+    "id": "fruit_tree",
+    "name": "Low-hanging fruit",
+    "category": "slang",
+    "frame": [
+      72,
+      104
+    ],
+    "footprint": {
+      "width": 40,
+      "back": 20,
+      "front": 4
+    },
+    "solid": true,
+    "district": "bullpen",
+    "mount": "floor",
+    "variants": 2,
+    "source": "fruit_tree-source-v1.png",
+    "file": "fruit_tree-v1.png",
+    "caption": "Low-hanging fruit. Finally, a deliverable within reach.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 72x104, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One short potted office fruit tree, broad simple sage and teal foliage, one comically low branch carrying exactly ONE red apple, almost touching the top of the ordinary khaki pot. No other fruit, no flowers, no text, no floor or dropped leaves outside the silhouette."
+  },
+  {
+    "id": "kiddie_pool",
+    "name": "Deep dive",
+    "category": "slang",
+    "frame": [
+      112,
+      80
+    ],
+    "footprint": {
+      "width": 88,
+      "back": 28,
+      "front": 4
+    },
+    "solid": true,
+    "district": "wellness",
+    "mount": "floor",
+    "variants": 2,
+    "source": "kiddie_pool-source-v1.png",
+    "file": "kiddie_pool-v1.png",
+    "caption": "Deep dive. Please mind the three inches of water.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 112x80, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One tiny office kiddie pool, oval teal inflatable rim, perfectly flat slate-blue water, one very short cream diving board attached to its back-right rim, and a single little khaki step. Shallow, comically underambitious. A few large cream ripple shapes INSIDE the pool only. No people, no text, no splashes, no ground or outside shadows."
+  },
+  {
+    "id": "baseball_base",
+    "name": "Touch base",
+    "category": "slang",
+    "frame": [
+      48,
+      32
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "district": "conference",
+    "mount": "floor",
+    "variants": 2,
+    "source": "baseball_base-source-v1.png",
+    "file": "baseball_base-v1.png",
+    "caption": "Touch base. This could also have been an email.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 48x32, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One squat cream baseball base with a navy stepped outline, slight top-down three-quarter thickness, a large teal X of office tape attached directly across its top. Broad simple pixel shape. No ball, bat, turf, floor or background shadow. No text."
+  },
+  {
+    "id": "ocean_pot",
+    "name": "Boil the ocean",
+    "category": "slang",
+    "frame": [
+      72,
+      72
+    ],
+    "footprint": {
+      "width": 48,
+      "back": 20,
+      "front": 4
+    },
+    "solid": true,
+    "district": "breakroom",
+    "mount": "floor",
+    "variants": 2,
+    "source": "ocean_pot-source-v1.png",
+    "file": "ocean_pot-v1.png",
+    "caption": "Boil the ocean. The kitchenette budget was approved.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 72x72, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One ordinary cream cooking pot with dark navy handles sitting on a squat teal office hotplate. Inside the pot is a tiny stylized OCEAN: two broad teal breaking wave shapes and one little cream sailboat. A couple of chunky cream steam steps rise from the rim, no transparency or blur. One composite prop, no people, lettering, ground or surrounding kitchen."
+  },
+  {
+    "id": "duck_row",
+    "name": "Ducks in a row",
+    "category": "slang",
+    "frame": [
+      96,
+      48
+    ],
+    "footprint": {
+      "width": 76,
+      "back": 14,
+      "front": 3
+    },
+    "solid": true,
+    "district": "bullpen",
+    "mount": "floor",
+    "variants": 2,
+    "source": "duck_row-source-v1.png",
+    "file": "duck_row-v1.png",
+    "caption": "Ducks in a row. One has concerns about the agenda.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 96x48, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One low narrow teal office desk organizer tray holding exactly FIVE small cream rubber ducks in a row, four facing the same way and the fifth turned in the opposite direction. Simple navy outlines, tiny rust-red bills, no bright orange. Warm and funny. This tray and ducks are one object. No desk, floor, text or other props."
+  },
+  {
+    "id": "goal_dollies",
+    "name": "Move the goalposts",
+    "category": "slang",
+    "frame": [
+      128,
+      104
+    ],
+    "footprint": {
+      "width": 100,
+      "back": 26,
+      "front": 4
+    },
+    "solid": true,
+    "district": "executive",
+    "mount": "floor",
+    "variants": 2,
+    "source": "goal_dollies-source-v1.png",
+    "file": "goal_dollies-v1.png",
+    "caption": "Move the goalposts. Now with locking casters.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 128x104, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One miniature rectangular soccer goal in an office-friendly scale, cream posts and crossbar, sparse simple dark-teal square net, with the two front goalposts each standing on a little navy wheeled dolly. Broad readable silhouette, wheels clearly attached. No ball, field, floor, people or text."
+  },
+  {
+    "id": "hard_stop",
+    "name": "Hard stop",
+    "category": "slang",
+    "frame": [
+      64,
+      96
+    ],
+    "footprint": {
+      "width": 32,
+      "back": 14,
+      "front": 3
+    },
+    "solid": true,
+    "district": "conference",
+    "mount": "floor",
+    "variants": 2,
+    "source": "hard_stop-source-v1.png",
+    "file": "hard_stop-v1.png",
+    "caption": "Hard stop. The meeting has negotiated an extension.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 64x96, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One miniature freestanding stop sign for an office meeting room: wide muted tie-red octagonal sign face, cream inset border, bold centered cream word exactly \"STOP\", squat navy post, broad quiet khaki weighted foot. Top and front visible, native width 64 pixels. No other writing, floor or shadow."
+  },
+  {
+    "id": "offline_lamp",
+    "name": "Take it offline",
+    "category": "slang",
+    "frame": [
+      64,
+      88
+    ],
+    "footprint": {
+      "width": 38,
+      "back": 15,
+      "front": 3
+    },
+    "solid": true,
+    "district": "server",
+    "mount": "floor",
+    "variants": 2,
+    "source": "offline_lamp-source-v1.png",
+    "file": "offline_lamp-v1.png",
+    "caption": "Let's take this offline. Facilities already unplugged it.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 64x88, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One squat old teal articulated office desk lamp with a cream inner shade, switched OFF. Its short black-navy cord curls beside its weighted base and ends in a clearly visible UNPLUGGED cream two-prong plug. One lamp with its attached cord. No beam, glow, socket, text, furniture, floor or background shadow."
+  },
+  {
+    "id": "goals_board",
+    "name": "Q4 Goals labyrinth",
+    "category": "landmarks",
+    "frame": [
+      160,
+      136
+    ],
+    "footprint": {
+      "width": 136,
+      "back": 28,
+      "front": 4
+    },
+    "solid": true,
+    "district": "bullpen",
+    "mount": "floor",
+    "variants": 2,
+    "source": "goals_board-source-v1.png",
+    "file": "goals_board-v1.png",
+    "caption": "Q4 Goals. Every arrow leads to another arrow.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 160x136, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One towering freestanding cream office whiteboard on two dark navy legs and small caster wheels. Big clean bold header reads exactly \"Q4 GOALS\" on one line. Below it are broad teal arrows forming a ridiculous closed loop, three lavender sticky notes with NO writing, and a single rust-red question mark. No other letters or numbers. Strong readable landmark silhouette, no surrounding scene or floor."
+  },
+  {
+    "id": "giant_logo",
+    "name": "The company values wall",
+    "category": "landmarks",
+    "frame": [
+      160,
+      144
+    ],
+    "footprint": {
+      "width": 144,
+      "back": 44,
+      "front": 3
+    },
+    "solid": true,
+    "district": "lobby",
+    "mount": "floor",
+    "variants": 2,
+    "source": "giant_logo-source-v2.png",
+    "file": "giant_logo-v1.png",
+    "caption": "Our values: continuous improvement of the values statement.",
+    "prompt": "Use case: stylized-concept. Asset type: one isolated modular production prop for Midlife Survivors, not concept art or a scene. Image 1 is the approved Parking Lot style/density reference only. Image 2 is the established native desk family style reference only. Match the same affectionate warm indie 16-bit pixel art, top-down three-quarter camera, upper-left cream fluorescent highlights, one logical pixel deep navy silhouette outline, broken interior lines, two or three broad shading clusters per material. Strict limited palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Quiet environmental colors, reserve bright coffee-orange for hero. Single object centered, large flat opaque EXACT magenta #FF00FF canvas, generous even empty margin all around, no shadow or reflection whatsoever on the magenta, no ground plane, no surrounding scene, no watermark. Crisp square hard pixels, no blur, no anti-aliasing, no gradients, no dithering noise, no photorealism. Logical asset target 160x144, create broad readable forms for this native size then enlarge with nearest-neighbor square pixels for packaging. Do not add any text except that explicitly quoted in the subject. Produce exactly one object, not a sheet or variants.\nFlat-color discipline: broad regions are perfectly uniform palette colors. No surface grain, no stippled shading, no gradients within color clusters, no photographic texture. One native pixel equals a clear square enlarged for packaging.\nSubject: One modular freestanding office lobby feature-wall segment: low wide teal panel with cream trim and a large simple FICTIONAL COMPANY emblem, three chunky cream curved arrows chasing one another in an endless circle. A large cream plaque at the bottom reads exactly \"OUR VALUES\" in bold navy pixel letters. No real brand logo and do not use the Midlife Survivors mark. Top and front visible, shallow navy plinth, no floor or people."
+  }
+]

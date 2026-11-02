@@ -1,0 +1,1004 @@
+{
+  "batch": "stage-2-props-posters",
+  "status": "stage-2b-ready-for-review",
+  "families": 25,
+  "colorways": 55,
+  "plannedFamilies": 72,
+  "remainingFamilies": 47,
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "background": "#FF00FF",
+  "assets": [
+    {
+      "id": "desk_sticky_notes",
+      "name": "Sticky-note fortress",
+      "category": "furniture",
+      "frame": [
+        96,
+        104
+      ],
+      "footprint": {
+        "width": 80,
+        "back": 32,
+        "front": 5
+      },
+      "solid": true,
+      "district": "bullpen",
+      "variants": 3,
+      "source": "desk_sticky_notes-source-v1.png",
+      "file": "desk_sticky_notes-v1.png",
+      "batch": "2a",
+      "size": [
+        288,
+        104
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 101
+      },
+      "caption": "There is a monitor under there. According to the last status meeting.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "f1bb101fb21755251968da59994caba9577bf0ce00052ee436244a2f59b87ee4",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "desk_family_photo",
+      "name": "The family-photo desk",
+      "category": "furniture",
+      "frame": [
+        96,
+        104
+      ],
+      "footprint": {
+        "width": 80,
+        "back": 32,
+        "front": 5
+      },
+      "solid": true,
+      "district": "bullpen",
+      "variants": 3,
+      "source": "desk_family_photo-source-v1.png",
+      "file": "desk_family_photo-v1.png",
+      "batch": "2a",
+      "size": [
+        288,
+        104
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 101
+      },
+      "caption": "The family photo is the only meeting worth being on time for.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "c35cb9add1cf937aa067ad7e8edb1d57e79716947841ecc33d5f32dc9a622a09",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "desk_2009",
+      "name": "Still 2009",
+      "category": "furniture",
+      "frame": [
+        96,
+        104
+      ],
+      "footprint": {
+        "width": 80,
+        "back": 32,
+        "front": 5
+      },
+      "solid": true,
+      "district": "bullpen",
+      "variants": 3,
+      "source": "desk_2009-source-v1.png",
+      "file": "desk_2009-v1.png",
+      "batch": "2a",
+      "size": [
+        288,
+        104
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 101
+      },
+      "caption": "The desk calendar says 2009. The software budget agrees.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "2961649069ba0655db18fb47d022dbca789d5ce68d835943692ad7a2a1c2a924",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "kpi_frame",
+      "name": "What is a KPI?",
+      "category": "slang",
+      "frame": [
+        80,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "bullpen",
+      "variants": 2,
+      "source": "kpi_frame-source-v1.png",
+      "file": "kpi_frame-v1.png",
+      "batch": "2a",
+      "size": [
+        160,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 93
+      },
+      "caption": "What the hell is a KPI again?",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "1e0613c1ae88e338fe3fac3b3c3493ed61e67c4434a9fe4969803bb9e4c12bb4",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "car_compact",
+      "name": "The parked rebrand",
+      "category": "parking",
+      "frame": [
+        144,
+        112
+      ],
+      "footprint": {
+        "width": 118,
+        "back": 56,
+        "front": 6
+      },
+      "solid": true,
+      "district": "parking",
+      "variants": 3,
+      "source": "car_compact-source-v2.png",
+      "file": "car_compact-v1.png",
+      "batch": "2a",
+      "size": [
+        432,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 72.0,
+        "y": 109
+      },
+      "caption": "Rebrand? Park it here. We will circle back next quarter.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "c06998679109a947be09157c9726b585d51d54ee3819d806b0f8a4781d82a114",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "wheel_boot",
+      "name": "Dave\u2019s idea clamp",
+      "category": "parking",
+      "frame": [
+        48,
+        40
+      ],
+      "footprint": {
+        "width": 32,
+        "back": 12,
+        "front": 3
+      },
+      "solid": true,
+      "district": "parking",
+      "variants": 3,
+      "source": "wheel_boot-source-v1.png",
+      "file": "wheel_boot-v1.png",
+      "batch": "2a",
+      "size": [
+        144,
+        40
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 24.0,
+        "y": 37
+      },
+      "caption": "Dave's idea is going nowhere. Facilities made it official.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "91707a34f0046b59e7130a88cdfb89ea69b7d6497efb9accffd95372b4b0aea6",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "gate_keycard",
+      "name": "Keycard gate jamb",
+      "category": "gates",
+      "frame": [
+        24,
+        96
+      ],
+      "footprint": {
+        "width": 20,
+        "back": 16,
+        "front": 4
+      },
+      "solid": true,
+      "district": "lobby",
+      "variants": 2,
+      "source": "gate_keycard-source-v1.png",
+      "file": "gate_keycard-v1.png",
+      "batch": "2a",
+      "size": [
+        48,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 12.0,
+        "y": 93
+      },
+      "caption": "Authorized personnel. The door is wider than the approval process.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "1511adf7e280a881cc491c66c55987c4a8e4d3a0cbe3d320e401f32002a44a23",
+      "shadow": "code-contact-only",
+      "notes": "Modular side jamb. Place entirely outside the 224px clear opening. No runtime gate behavior supplied.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "gate_hidden_cabinet",
+      "name": "Archive entrance cabinet",
+      "category": "gates",
+      "frame": [
+        96,
+        112
+      ],
+      "footprint": {
+        "width": 80,
+        "back": 32,
+        "front": 4
+      },
+      "solid": true,
+      "district": "archive",
+      "variants": 2,
+      "source": "gate_hidden_cabinet-source-v1.png",
+      "file": "gate_hidden_cabinet-v1.png",
+      "batch": "2a",
+      "size": [
+        192,
+        112
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 109
+      },
+      "caption": "FILES. A lavender binder is sticking out. That seems worth a look.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "27f074e76764a436d4018388396f2b0ae62daa2319eb2c19c35d90ee3d45655c",
+      "shadow": "code-contact-only",
+      "notes": "FILES is the short clue. Repeat as a cabinet facade; retract every door leaf fully outside the 224px opening.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "hang_cat_high",
+      "name": "Hang in there",
+      "category": "posters",
+      "frame": [
+        80,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "breakroom",
+      "variants": 2,
+      "source": "hang_cat_high-source-v1.png",
+      "file": "hang_cat_high-v1.png",
+      "batch": "2a",
+      "size": [
+        160,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 93
+      },
+      "caption": "Hang in there. The cat still has two paws on the branch.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "c2e326aa9a1be5f0b9cb2488318bc4df6359f3391358027fda5477a0b09f5f63",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "hang_branch",
+      "name": "The cat took PTO",
+      "category": "posters",
+      "frame": [
+        80,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "breakroom",
+      "variants": 2,
+      "source": "hang_branch-source-v1.png",
+      "file": "hang_branch-v1.png",
+      "batch": "2a",
+      "size": [
+        160,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 93
+      },
+      "caption": "Hang in there. The cat has taken PTO.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "eed10768682390f8eec58dec9b49b8757f367a0fbf89b49e45d899fbcc579419",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "opportunity",
+      "name": "Bricked-up opportunity",
+      "category": "posters",
+      "frame": [
+        80,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "conference",
+      "variants": 2,
+      "source": "opportunity-source-v1.png",
+      "file": "opportunity-v1.png",
+      "batch": "2a",
+      "size": [
+        160,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 93
+      },
+      "caption": "OPPORTUNITY: Please use the door that has been bricked up.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "addd6f9b7ae637026e520c69628c1082cf08f86d5b32983f78869a3ecbfa7f6d",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "perseverance",
+      "name": "Printer optimism",
+      "category": "posters",
+      "frame": [
+        80,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "bullpen",
+      "variants": 2,
+      "source": "perseverance-source-v1.png",
+      "file": "perseverance-v1.png",
+      "batch": "2a",
+      "size": [
+        160,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 93
+      },
+      "caption": "PERSEVERANCE: The printer has been jammed since Tuesday.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "2e560956f6ba6feb539d5aeed83f26ba2ddaab99a0245effb5c7fd291da3fee1",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "sign_plate",
+      "name": "Parked idea sign",
+      "category": "signs",
+      "frame": [
+        80,
+        48
+      ],
+      "footprint": {
+        "width": 56,
+        "back": 8,
+        "front": 3
+      },
+      "solid": true,
+      "district": "parking",
+      "variants": 2,
+      "source": "sign_plate-source-v1.png",
+      "file": "sign_plate-v1.png",
+      "batch": "2a",
+      "size": [
+        160,
+        48
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 45
+      },
+      "caption": "Rebrand? Another great idea, safely parked.",
+      "status": "ready-for-stage-2a-review",
+      "sha256": "938bdcf3d631a4c6ad1ca39c0437983a7533ae7d58a2aad384a766e18083f3e9",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "roundabout",
+      "name": "Circle back",
+      "category": "slang",
+      "frame": [
+        128,
+        96
+      ],
+      "footprint": {
+        "width": 92,
+        "back": 30,
+        "front": 4
+      },
+      "solid": true,
+      "district": "parking",
+      "mount": "floor",
+      "variants": 2,
+      "source": "roundabout-source-v1.png",
+      "file": "roundabout-v1.png",
+      "caption": "Circle back. This meeting has its own traffic pattern.",
+      "batch": "2b",
+      "size": [
+        256,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "868da90bd7c6e3b465f06b32e80e94544336516bc0fbbd82dcc53f29c1c7ebfd",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "gauge",
+      "name": "Move the needle",
+      "category": "slang",
+      "frame": [
+        112,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "bullpen",
+      "mount": "wall",
+      "variants": 2,
+      "source": "gauge-source-v1.png",
+      "file": "gauge-v1.png",
+      "caption": "Move the needle. The needle has requested a follow-up meeting.",
+      "batch": "2b",
+      "size": [
+        224,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 56.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "d47370d78336a93468493094c95b3a567dc1bd604786d76d473901c74da40c88",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "fruit_tree",
+      "name": "Low-hanging fruit",
+      "category": "slang",
+      "frame": [
+        72,
+        104
+      ],
+      "footprint": {
+        "width": 40,
+        "back": 20,
+        "front": 4
+      },
+      "solid": true,
+      "district": "bullpen",
+      "mount": "floor",
+      "variants": 2,
+      "source": "fruit_tree-source-v1.png",
+      "file": "fruit_tree-v1.png",
+      "caption": "Low-hanging fruit. Finally, a deliverable within reach.",
+      "batch": "2b",
+      "size": [
+        144,
+        104
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 36.0,
+        "y": 101
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "4f491e441c56161c4ea28a892590e7dffd76708c71be315e69422da463a5dfb4",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "kiddie_pool",
+      "name": "Deep dive",
+      "category": "slang",
+      "frame": [
+        112,
+        80
+      ],
+      "footprint": {
+        "width": 88,
+        "back": 28,
+        "front": 4
+      },
+      "solid": true,
+      "district": "wellness",
+      "mount": "floor",
+      "variants": 2,
+      "source": "kiddie_pool-source-v1.png",
+      "file": "kiddie_pool-v1.png",
+      "caption": "Deep dive. Please mind the three inches of water.",
+      "batch": "2b",
+      "size": [
+        224,
+        80
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 56.0,
+        "y": 77
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "07ab2e9bd04c599dc5d7bb73fea3777c1b7593750d3a50373c762b75e514242a",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "baseball_base",
+      "name": "Touch base",
+      "category": "slang",
+      "frame": [
+        48,
+        32
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "conference",
+      "mount": "floor",
+      "variants": 2,
+      "source": "baseball_base-source-v1.png",
+      "file": "baseball_base-v1.png",
+      "caption": "Touch base. This could also have been an email.",
+      "batch": "2b",
+      "size": [
+        96,
+        32
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 24.0,
+        "y": 29
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "21ef5d2b00fa7c4a2a093718d80d600bc7e75d53839ca94bbd00fb7cfd7c873b",
+      "shadow": "none",
+      "notes": "Floor decor, non-solid. Full caption supplies the joke.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "ocean_pot",
+      "name": "Boil the ocean",
+      "category": "slang",
+      "frame": [
+        72,
+        72
+      ],
+      "footprint": {
+        "width": 48,
+        "back": 20,
+        "front": 4
+      },
+      "solid": true,
+      "district": "breakroom",
+      "mount": "floor",
+      "variants": 2,
+      "source": "ocean_pot-source-v1.png",
+      "file": "ocean_pot-v1.png",
+      "caption": "Boil the ocean. The kitchenette budget was approved.",
+      "batch": "2b",
+      "size": [
+        144,
+        72
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 36.0,
+        "y": 69
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "63687f6d3e713f277b45a78287f491c1f57857ec246e799475c0b2674ddda62c",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "duck_row",
+      "name": "Ducks in a row",
+      "category": "slang",
+      "frame": [
+        96,
+        48
+      ],
+      "footprint": {
+        "width": 76,
+        "back": 14,
+        "front": 3
+      },
+      "solid": true,
+      "district": "bullpen",
+      "mount": "floor",
+      "variants": 2,
+      "source": "duck_row-source-v1.png",
+      "file": "duck_row-v1.png",
+      "caption": "Ducks in a row. One has concerns about the agenda.",
+      "batch": "2b",
+      "size": [
+        192,
+        48
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 45
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "4940c7b39b9421411f58acc343f03436a505985e9493d1d6efc621859f50e7c5",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "goal_dollies",
+      "name": "Move the goalposts",
+      "category": "slang",
+      "frame": [
+        128,
+        104
+      ],
+      "footprint": {
+        "width": 100,
+        "back": 26,
+        "front": 4
+      },
+      "solid": true,
+      "district": "executive",
+      "mount": "floor",
+      "variants": 2,
+      "source": "goal_dollies-source-v1.png",
+      "file": "goal_dollies-v1.png",
+      "caption": "Move the goalposts. Now with locking casters.",
+      "batch": "2b",
+      "size": [
+        256,
+        104
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 101
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "d55ab109c0d83d2cff1ab6d20ab0f8694c008e4a050c5fcf2cb4fe9484ab0ada",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "hard_stop",
+      "name": "Hard stop",
+      "category": "slang",
+      "frame": [
+        64,
+        96
+      ],
+      "footprint": {
+        "width": 32,
+        "back": 14,
+        "front": 3
+      },
+      "solid": true,
+      "district": "conference",
+      "mount": "floor",
+      "variants": 2,
+      "source": "hard_stop-source-v1.png",
+      "file": "hard_stop-v1.png",
+      "caption": "Hard stop. The meeting has negotiated an extension.",
+      "batch": "2b",
+      "size": [
+        128,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "6c1dfb0a76a1f3d4ada5a0428da3ba70273fcf296a1121801f47013d3ddb79e0",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "offline_lamp",
+      "name": "Take it offline",
+      "category": "slang",
+      "frame": [
+        64,
+        88
+      ],
+      "footprint": {
+        "width": 38,
+        "back": 15,
+        "front": 3
+      },
+      "solid": true,
+      "district": "server",
+      "mount": "floor",
+      "variants": 2,
+      "source": "offline_lamp-source-v1.png",
+      "file": "offline_lamp-v1.png",
+      "caption": "Let's take this offline. Facilities already unplugged it.",
+      "batch": "2b",
+      "size": [
+        128,
+        88
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 85
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "2a55affd3008ab4a84a43af50d86305700c67b171805846ff33afe956e85f032",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "goals_board",
+      "name": "Q4 Goals labyrinth",
+      "category": "landmarks",
+      "frame": [
+        160,
+        136
+      ],
+      "footprint": {
+        "width": 136,
+        "back": 28,
+        "front": 4
+      },
+      "solid": true,
+      "district": "bullpen",
+      "mount": "floor",
+      "variants": 2,
+      "source": "goals_board-source-v1.png",
+      "file": "goals_board-v1.png",
+      "caption": "Q4 Goals. Every arrow leads to another arrow.",
+      "batch": "2b",
+      "size": [
+        320,
+        136
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 133
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "a15a3fa24d5bbf283b8f0209d34305f7fa43ea79f032615a81f2cd18a4eb5fb5",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "giant_logo",
+      "name": "The company values wall",
+      "category": "landmarks",
+      "frame": [
+        160,
+        144
+      ],
+      "footprint": {
+        "width": 144,
+        "back": 44,
+        "front": 3
+      },
+      "solid": true,
+      "district": "lobby",
+      "mount": "floor",
+      "variants": 2,
+      "source": "giant_logo-source-v2.png",
+      "file": "giant_logo-v1.png",
+      "caption": "Our values: continuous improvement of the values statement.",
+      "batch": "2b",
+      "size": [
+        320,
+        144
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 141
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "e8587689806e8905d4ff177d7f2b2094b480a63dc6722b9c2c79650191a001df",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    }
+  ],
+  "productionIntegrated": false,
+  "runtimeOwner": "Claude: flow-field navigation and locked-area spawn filtering",
+  "generation": "built-in-imagegen",
+  "export": "nearest-neighbor native sampling, palette normalization, one-pixel navy silhouette, controlled palette colorways",
+  "review": "review.html",
+  "integration": {
+    "registeredFamilies": [
+      "desk_sticky_notes",
+      "desk_family_photo",
+      "desk_2009",
+      "kpi_frame",
+      "car_compact",
+      "wheel_boot",
+      "gate_hidden_cabinet",
+      "hang_cat_high",
+      "hang_branch",
+      "opportunity",
+      "perseverance",
+      "sign_plate"
+    ],
+    "unregisteredFamilies": [
+      "gate_keycard",
+      "roundabout",
+      "gauge",
+      "fruit_tree",
+      "kiddie_pool",
+      "baseball_base",
+      "ocean_pot",
+      "duck_row",
+      "goal_dollies",
+      "hard_stop",
+      "offline_lamp",
+      "goals_board",
+      "giant_logo"
+    ],
+    "basis": "Current src/data/stage-props.js family registry, read only. Runtime integration belongs to Claude."
+  }
+}

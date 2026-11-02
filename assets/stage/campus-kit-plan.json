@@ -23,7 +23,7 @@
       "category": "furniture",
       "variants": 3,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/desk_sticky_notes-v1.png"
     },
     {
@@ -31,7 +31,7 @@
       "category": "furniture",
       "variants": 3,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/desk_family_photo-v1.png"
     },
     {
@@ -39,7 +39,7 @@
       "category": "furniture",
       "variants": 3,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/desk_2009-v1.png"
     },
     {
@@ -130,43 +130,57 @@
       "id": "roundabout",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/roundabout-v1.png"
     },
     {
       "id": "gauge",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/gauge-v1.png"
     },
     {
       "id": "fruit_tree",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/fruit_tree-v1.png"
     },
     {
       "id": "kiddie_pool",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/kiddie_pool-v1.png"
     },
     {
       "id": "baseball_base",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/baseball_base-v1.png"
     },
     {
       "id": "ocean_pot",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/ocean_pot-v1.png"
     },
     {
       "id": "duck_row",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/duck_row-v1.png"
     },
     {
       "id": "manager_cats",
@@ -178,7 +192,9 @@
       "id": "goal_dollies",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/goal_dollies-v1.png"
     },
     {
       "id": "cardboard_thinker",
@@ -196,7 +212,9 @@
       "id": "hard_stop",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/hard_stop-v1.png"
     },
     {
       "id": "firehose",
@@ -215,7 +233,7 @@
       "category": "slang",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/kpi_frame-v1.png"
     },
     {
@@ -228,7 +246,9 @@
       "id": "offline_lamp",
       "category": "slang",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/offline_lamp-v1.png"
     },
     {
       "id": "desk_sleeper",
@@ -301,7 +321,7 @@
       "category": "parking",
       "variants": 3,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/car_compact-v1.png"
     },
     {
@@ -321,7 +341,7 @@
       "category": "parking",
       "variants": 3,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/wheel_boot-v1.png"
     },
     {
@@ -341,7 +361,7 @@
       "category": "gates",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/gate_keycard-v1.png"
     },
     {
@@ -355,7 +375,7 @@
       "category": "gates",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/gate_hidden_cabinet-v1.png"
     },
     {
@@ -368,20 +388,24 @@
       "id": "giant_logo",
       "category": "landmarks",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/giant_logo-v1.png"
     },
     {
       "id": "goals_board",
       "category": "landmarks",
       "variants": 2,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2b-review",
+      "manifest": "props/manifest.json",
+      "file": "props/goals_board-v1.png"
     },
     {
       "id": "hang_cat_high",
       "category": "posters",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/hang_cat_high-v1.png"
     },
     {
@@ -401,7 +425,7 @@
       "category": "posters",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/hang_branch-v1.png"
     },
     {
@@ -421,7 +445,7 @@
       "category": "posters",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/opportunity-v1.png"
     },
     {
@@ -429,7 +453,7 @@
       "category": "posters",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/perseverance-v1.png"
     },
     {
@@ -455,7 +479,7 @@
       "category": "signs",
       "variants": 2,
       "status": "ready-for-stage-2a-review",
-      "manifest": "props/manifest-2a.json",
+      "manifest": "props/manifest.json",
       "file": "props/sign_plate-v1.png"
     }
   ],

@@ -76,7 +76,7 @@ for space in P['combatSpaces']:
  assert cells<=districts[space['district']],space['id']
  assert space['decor'],space['id']
 assert len(P['production']['propFamilies'])==72
-assert all(p['variants'] in [2,3] and p['status'] in ['planned-not-generated','ready-for-stage-2a-review'] for p in P['production']['propFamilies'])
+assert all(p['variants'] in [2,3] and p['status'] in ['planned-not-generated','ready-for-stage-2a-review','ready-for-stage-2b-review'] for p in P['production']['propFamilies'])
 assert P['production']['maxVisibleProps']==120 and P['production']['enemyStressTarget']==350
 base=next(r for r in results if r['age']==40 and not r['achievement'])
 assert base['reachableFloorPixels']>=1280*800*4
@@ -96,5 +96,5 @@ for id,file,district,status in [('campus-overview-v2','campus-overview-v2.png','
  digest=hashlib.sha256(data).hexdigest()
  if district=='parking':assert digest=='868f2d7c905fef49208bbf66c304fbffce36ab80abc1ada0967375980f28aedf','Approved image changed'
  assets.append(dict(id=id,file=file,size=list(struct.unpack('>II',data[16:24])),floorFootprint=None,solid=False,kind='concept-illustration',district=district,frameCount=1,status=status,sha256=digest,prompt=file.replace('.png','-prompt.txt')))
-manifest=dict(batch='stage-pass-1',revision=2,status='v2-approved-stage-2a-art-ready',productionReady=False,worldSize=[7680,4320],assets=assets,layout='campus-layout-v2.json',measuredPlan='campus-plan-v2.svg',schedule='campus-promotions.json',productionPlan='campus-kit-plan.json',productionAssetsManifest='props/manifest-2a.json',checks='campus-v2-checks.json',review='../../devlog/art/stage-pass-v2.html',notes=['Parking Lot v1 stays approved and unchanged.','Illustration is approximate; measured data defines floor geometry and gates.','72 prop families planned; first 13 generated in props/manifest-2a.json, with native-size review. Remaining families and district assembly are pending.','No runtime gates, spawn policy, captions or map replacement have shipped. Performance is a target, not measured for this proposed world.'])
+manifest=dict(batch='stage-pass-1',revision=2,status='v2-approved-stage-2b-art-ready',productionReady=False,worldSize=[7680,4320],assets=assets,layout='campus-layout-v2.json',measuredPlan='campus-plan-v2.svg',schedule='campus-promotions.json',productionPlan='campus-kit-plan.json',productionAssetsManifest='props/manifest.json',checks='campus-v2-checks.json',review='../../devlog/art/stage-pass-v2.html',notes=['Parking Lot v1 stays approved and unchanged.','Illustration is approximate; measured data defines floor geometry and gates.','72 prop families planned; 25 generated in props/manifest.json, with native-size review. Remaining families and district assembly are pending.','Campus replacement and promotion gates remain future work. Claude shipped navigation and first-batch captions in the existing office; this revision adds art only. Proposed campus performance remains unmeasured.'])
 (R/'campus-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

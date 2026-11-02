@@ -394,3 +394,15 @@ The manifest carries native image size, foot-point origin and proposed footprint
 
 ## Flow field (V. 1.29.0)
 Instead of every enemy solving its own maze, the game floods outward from the player once and writes "steps to reach you" on every floor cell. Each enemy walks toward a neighbor with a smaller number, so whole swarms pour around desks and through doorways. It rebuilds a few times a second and costs almost nothing per enemy. Bonus: a cell with no number can't reach you, which is how spawning avoids desks and locked rooms.
+
+
+## Color variants and materials (V. 1.29.2, Codex)
+Color variants reuse one shape and floor footprint while changing selected surfaces. A pool can have a different rim while its water stays blue-green, and a tree can have a different pot while its leaves stay green. This creates variety without introducing different collision shapes. The native checker confirms both colorways have exactly the same occupied pixels.
+
+```text
+Same shape + same floor footprint
+                 |
+          two colorways
+       |                 |
+ rim / pot changes    water / leaves stay
+```

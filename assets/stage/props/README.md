@@ -1,4 +1,51 @@
-# Stage 2A: props and posters, first batch
+# Stage 2 modular prop kit
+
+Latest: **Stage 2B adds 12 families and 24 colorways. Total: 25 families, 55 colorways.** Stage 2 remains in progress, with 47 planned families still needing completion. The gallery opens on 2B; use Batch to review 2A or all 25. Every card compares native art with the actual 56x60 hero and 36px Bill on desktop and a 390px phone.
+
+## Batch 2B: literal slang and landmarks
+
+| Family | Native frame | Collision role |
+| --- | --- | --- |
+| roundabout | 128x96 | solid footprint |
+| gauge | 112x96 | non-solid wall |
+| fruit_tree | 72x104 | solid footprint |
+| kiddie_pool | 112x80 | solid footprint |
+| baseball_base | 48x32 | non-solid floor |
+| ocean_pot | 72x72 | solid footprint |
+| duck_row | 96x48 | solid footprint |
+| goal_dollies | 128x104 | solid footprint |
+| hard_stop | 64x96 | solid footprint |
+| offline_lamp | 64x88 | solid footprint |
+| goals_board | 160x136 | solid footprint |
+| giant_logo | 160x144 | solid footprint |
+
+Each has two colorways on an even horizontal grid, plus individual frame PNGs. Colorways are not animations. Root kit IDs remain unchanged, so future map instances can reuse them. The company-values wall is a fictional employer's landmark, not a replacement game logo. Its source v2 removes attached plants so they can be assembled separately from the reusable library.
+
+`manifest.json` indexes both batches. `manifest-2b.json` describes this batch; historical `manifest-2a.json` is retained. Full built-in-imagegen prompts are in `batch-2b.json`, with the focused wall edit in `wall-refinement-prompt.txt`. Sources are versioned, native art has opaque #FF00FF and hard shared-palette edges. Selected paint/container surfaces vary while water and foliage keep their material colors.
+
+```sh
+swift -module-cache-path /private/tmp/midlife-bio-swift-cache assets/stage/props/export-native.swift "$PWD/assets/stage/props" batch-2b.json
+python3 assets/stage/props/build-review-data.py
+python3 assets/stage/props/validate-props.py
+python3 assets/stage/props/validate-props.py manifest-2b.json
+```
+
+These are optional authoring checks, not a game build step. `checks.json` covers all 55 frames and `checks-2b.json` covers the new 24. Both also check the unchanged 224px gate contracts. The older exporter defaults to the 2A brief when no batch argument is supplied.
+
+## Integration ownership
+
+Claude shipped flow-field navigation in V. 1.29.0 and first-batch props/captions in the current office in V. 1.29.1. The gallery authoring script reads the current family registry to document which art is registered, without editing it. Existing 2A native PNGs remain byte-identical in this pass. The new 2B families are not registered or placed by this art delivery.
+
+`integration-2b.json` is an unloaded data candidate shaped like the existing stage-props.js family/caption lists. It has no chosen placements. Solid objects include proposed floor footprints for future propGroup bodies; Touch Base is non-solid floor decor, the MEH gauge is non-solid wall art. Neither should create a floor blocker. Claude owns navigation, locked-area spawn filtering and runtime integration. No main.js, navigation.js, world renderer, stage-props.js, balance, save or leaderboard edits are part of 2B.
+
+All gate clearances remain 224px, with jambs outside that span. No new gate artwork or geometry is introduced in this batch. Desktop/phone and native QA evidence lives under docs/qa/stage-pass-2b/. New-world crowd testing, modular boundaries/floors, remaining posters/furniture/slang and district assembly remain later deliveries.
+
+
+The values-wall footprint uses width 144, back 44 and front 3 after checking its angled base against the hero. Gallery contact shadows follow the lower silhouette rather than a detached rectangle; native PNGs retain no baked shadows.
+
+## Batch 2A delivery record
+
+### First batch
 
 Rami approved campus v2 on Nov 1. This starts Stage 2 with **13 of the planned 72 families**, delivered in **31 colorways**. Stage 2 as a whole is still in progress. Existing tidy, paperwork and lunch desks remain reusable; they were not regenerated.
 

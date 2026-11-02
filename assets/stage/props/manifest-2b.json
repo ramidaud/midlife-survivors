@@ -1,0 +1,525 @@
+{
+  "batch": "stage-2b-slang-landmarks",
+  "status": "stage-2b-ready-for-review",
+  "families": 12,
+  "colorways": 24,
+  "plannedFamilies": 72,
+  "remainingFamilies": 47,
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "background": "#FF00FF",
+  "assets": [
+    {
+      "id": "roundabout",
+      "name": "Circle back",
+      "category": "slang",
+      "frame": [
+        128,
+        96
+      ],
+      "footprint": {
+        "width": 92,
+        "back": 30,
+        "front": 4
+      },
+      "solid": true,
+      "district": "parking",
+      "mount": "floor",
+      "variants": 2,
+      "source": "roundabout-source-v1.png",
+      "file": "roundabout-v1.png",
+      "caption": "Circle back. This meeting has its own traffic pattern.",
+      "batch": "2b",
+      "size": [
+        256,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "868da90bd7c6e3b465f06b32e80e94544336516bc0fbbd82dcc53f29c1c7ebfd",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "gauge",
+      "name": "Move the needle",
+      "category": "slang",
+      "frame": [
+        112,
+        96
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "bullpen",
+      "mount": "wall",
+      "variants": 2,
+      "source": "gauge-source-v1.png",
+      "file": "gauge-v1.png",
+      "caption": "Move the needle. The needle has requested a follow-up meeting.",
+      "batch": "2b",
+      "size": [
+        224,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 56.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "d47370d78336a93468493094c95b3a567dc1bd604786d76d473901c74da40c88",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "fruit_tree",
+      "name": "Low-hanging fruit",
+      "category": "slang",
+      "frame": [
+        72,
+        104
+      ],
+      "footprint": {
+        "width": 40,
+        "back": 20,
+        "front": 4
+      },
+      "solid": true,
+      "district": "bullpen",
+      "mount": "floor",
+      "variants": 2,
+      "source": "fruit_tree-source-v1.png",
+      "file": "fruit_tree-v1.png",
+      "caption": "Low-hanging fruit. Finally, a deliverable within reach.",
+      "batch": "2b",
+      "size": [
+        144,
+        104
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 36.0,
+        "y": 101
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "4f491e441c56161c4ea28a892590e7dffd76708c71be315e69422da463a5dfb4",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "kiddie_pool",
+      "name": "Deep dive",
+      "category": "slang",
+      "frame": [
+        112,
+        80
+      ],
+      "footprint": {
+        "width": 88,
+        "back": 28,
+        "front": 4
+      },
+      "solid": true,
+      "district": "wellness",
+      "mount": "floor",
+      "variants": 2,
+      "source": "kiddie_pool-source-v1.png",
+      "file": "kiddie_pool-v1.png",
+      "caption": "Deep dive. Please mind the three inches of water.",
+      "batch": "2b",
+      "size": [
+        224,
+        80
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 56.0,
+        "y": 77
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "07ab2e9bd04c599dc5d7bb73fea3777c1b7593750d3a50373c762b75e514242a",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "baseball_base",
+      "name": "Touch base",
+      "category": "slang",
+      "frame": [
+        48,
+        32
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "district": "conference",
+      "mount": "floor",
+      "variants": 2,
+      "source": "baseball_base-source-v1.png",
+      "file": "baseball_base-v1.png",
+      "caption": "Touch base. This could also have been an email.",
+      "batch": "2b",
+      "size": [
+        96,
+        32
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 24.0,
+        "y": 29
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "21ef5d2b00fa7c4a2a093718d80d600bc7e75d53839ca94bbd00fb7cfd7c873b",
+      "shadow": "none",
+      "notes": "Floor decor, non-solid. Full caption supplies the joke.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "ocean_pot",
+      "name": "Boil the ocean",
+      "category": "slang",
+      "frame": [
+        72,
+        72
+      ],
+      "footprint": {
+        "width": 48,
+        "back": 20,
+        "front": 4
+      },
+      "solid": true,
+      "district": "breakroom",
+      "mount": "floor",
+      "variants": 2,
+      "source": "ocean_pot-source-v1.png",
+      "file": "ocean_pot-v1.png",
+      "caption": "Boil the ocean. The kitchenette budget was approved.",
+      "batch": "2b",
+      "size": [
+        144,
+        72
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 36.0,
+        "y": 69
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "63687f6d3e713f277b45a78287f491c1f57857ec246e799475c0b2674ddda62c",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "duck_row",
+      "name": "Ducks in a row",
+      "category": "slang",
+      "frame": [
+        96,
+        48
+      ],
+      "footprint": {
+        "width": 76,
+        "back": 14,
+        "front": 3
+      },
+      "solid": true,
+      "district": "bullpen",
+      "mount": "floor",
+      "variants": 2,
+      "source": "duck_row-source-v1.png",
+      "file": "duck_row-v1.png",
+      "caption": "Ducks in a row. One has concerns about the agenda.",
+      "batch": "2b",
+      "size": [
+        192,
+        48
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 45
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "4940c7b39b9421411f58acc343f03436a505985e9493d1d6efc621859f50e7c5",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "goal_dollies",
+      "name": "Move the goalposts",
+      "category": "slang",
+      "frame": [
+        128,
+        104
+      ],
+      "footprint": {
+        "width": 100,
+        "back": 26,
+        "front": 4
+      },
+      "solid": true,
+      "district": "executive",
+      "mount": "floor",
+      "variants": 2,
+      "source": "goal_dollies-source-v1.png",
+      "file": "goal_dollies-v1.png",
+      "caption": "Move the goalposts. Now with locking casters.",
+      "batch": "2b",
+      "size": [
+        256,
+        104
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 101
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "d55ab109c0d83d2cff1ab6d20ab0f8694c008e4a050c5fcf2cb4fe9484ab0ada",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "hard_stop",
+      "name": "Hard stop",
+      "category": "slang",
+      "frame": [
+        64,
+        96
+      ],
+      "footprint": {
+        "width": 32,
+        "back": 14,
+        "front": 3
+      },
+      "solid": true,
+      "district": "conference",
+      "mount": "floor",
+      "variants": 2,
+      "source": "hard_stop-source-v1.png",
+      "file": "hard_stop-v1.png",
+      "caption": "Hard stop. The meeting has negotiated an extension.",
+      "batch": "2b",
+      "size": [
+        128,
+        96
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "6c1dfb0a76a1f3d4ada5a0428da3ba70273fcf296a1121801f47013d3ddb79e0",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "offline_lamp",
+      "name": "Take it offline",
+      "category": "slang",
+      "frame": [
+        64,
+        88
+      ],
+      "footprint": {
+        "width": 38,
+        "back": 15,
+        "front": 3
+      },
+      "solid": true,
+      "district": "server",
+      "mount": "floor",
+      "variants": 2,
+      "source": "offline_lamp-source-v1.png",
+      "file": "offline_lamp-v1.png",
+      "caption": "Let's take this offline. Facilities already unplugged it.",
+      "batch": "2b",
+      "size": [
+        128,
+        88
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 85
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "2a55affd3008ab4a84a43af50d86305700c67b171805846ff33afe956e85f032",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "goals_board",
+      "name": "Q4 Goals labyrinth",
+      "category": "landmarks",
+      "frame": [
+        160,
+        136
+      ],
+      "footprint": {
+        "width": 136,
+        "back": 28,
+        "front": 4
+      },
+      "solid": true,
+      "district": "bullpen",
+      "mount": "floor",
+      "variants": 2,
+      "source": "goals_board-source-v1.png",
+      "file": "goals_board-v1.png",
+      "caption": "Q4 Goals. Every arrow leads to another arrow.",
+      "batch": "2b",
+      "size": [
+        320,
+        136
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 133
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "a15a3fa24d5bbf283b8f0209d34305f7fa43ea79f032615a81f2cd18a4eb5fb5",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "giant_logo",
+      "name": "The company values wall",
+      "category": "landmarks",
+      "frame": [
+        160,
+        144
+      ],
+      "footprint": {
+        "width": 144,
+        "back": 44,
+        "front": 3
+      },
+      "solid": true,
+      "district": "lobby",
+      "mount": "floor",
+      "variants": 2,
+      "source": "giant_logo-source-v2.png",
+      "file": "giant_logo-v1.png",
+      "caption": "Our values: continuous improvement of the values statement.",
+      "batch": "2b",
+      "size": [
+        320,
+        144
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 141
+      },
+      "status": "ready-for-stage-2b-review",
+      "sha256": "e8587689806e8905d4ff177d7f2b2094b480a63dc6722b9c2c79650191a001df",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "not-registered"
+    }
+  ],
+  "productionIntegrated": false,
+  "runtimeOwner": "Claude: flow-field navigation and locked-area spawn filtering",
+  "generation": "built-in-imagegen",
+  "export": "nearest-neighbor native sampling, palette normalization, one-pixel navy silhouette, controlled palette colorways",
+  "review": "review.html",
+  "integration": {
+    "registeredFamilies": [
+      "desk_sticky_notes",
+      "desk_family_photo",
+      "desk_2009",
+      "kpi_frame",
+      "car_compact",
+      "wheel_boot",
+      "gate_hidden_cabinet",
+      "hang_cat_high",
+      "hang_branch",
+      "opportunity",
+      "perseverance",
+      "sign_plate"
+    ],
+    "unregisteredFamilies": [
+      "gate_keycard",
+      "roundabout",
+      "gauge",
+      "fruit_tree",
+      "kiddie_pool",
+      "baseball_base",
+      "ocean_pot",
+      "duck_row",
+      "goal_dollies",
+      "hard_stop",
+      "offline_lamp",
+      "goals_board",
+      "giant_logo"
+    ],
+    "basis": "Current src/data/stage-props.js family registry, read only. Runtime integration belongs to Claude."
+  },
+  "totalReadyFamilies": 25,
+  "totalColorways": 55
+}

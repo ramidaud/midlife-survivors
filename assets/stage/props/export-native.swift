@@ -6,7 +6,8 @@ import ImageIO
 import UniformTypeIdentifiers
 struct Spec: Decodable { let id:String; let frame:[Int]; let variants:Int; let source:String; let file:String; let category:String }
 let root=CommandLine.arguments[1]
-let specs=try JSONDecoder().decode([Spec].self,from:Data(contentsOf:URL(fileURLWithPath:root+"/batch-2a.json")))
+let batch=CommandLine.arguments.count>2 ? CommandLine.arguments[2] : "batch-2a.json"
+let specs=try JSONDecoder().decode([Spec].self,from:Data(contentsOf:URL(fileURLWithPath:root+"/"+batch)))
 let hex=["171c35","303750","526078","3e7775","83a89a","a88b70","d3b78d","f2d7a1","fff0cf","874c3b","c45c4b","ef9347","e5a995","f1b5bf","bfa8cf","b97a58","70402f"]
 let palette=hex.map{v->[Int] in let n=Int(v,radix:16)!; return [(n>>16)&255,(n>>8)&255,n&255]}
 let cs=CGColorSpaceCreateDeviceRGB(),flags=CGBitmapInfo.byteOrder32Big.rawValue|CGImageAlphaInfo.premultipliedLast.rawValue
@@ -32,6 +33,14 @@ for s in specs {
   let sx=l+min(r-l,Int(Double(x)*Double(r-l+1)/Double(dw))),sy=t+min(b-t,Int(Double(y)*Double(b-t+1)/Double(dh)))
   if !foreground(sx,sy){continue};let i=(sy*sw+sx)*4;var best=0,distance=Int.max
   for (j,c) in palette.enumerated() {let d=(0..<3).reduce(0){$0+(c[$1]-Int(pixels[i+$1]))*(c[$1]-Int(pixels[i+$1]))};if d<distance{best=j;distance=d}}
+  // Keep yellow-green source foliage in the shared teal/sage ramp.
+  if s.id=="roundabout" && Double(pixels[i+1])>Double(pixels[i])*0.85 && Double(pixels[i+1])>Double(pixels[i+2])*1.2 && pixels[i+1]>65 {
+   best=[3,4].min{a,b in
+    let da=(0..<3).reduce(0){$0+(palette[a][$1]-Int(pixels[i+$1]))*(palette[a][$1]-Int(pixels[i+$1]))}
+    let db=(0..<3).reduce(0){$0+(palette[b][$1]-Int(pixels[i+$1]))*(palette[b][$1]-Int(pixels[i+$1]))}
+    return da<db
+   }!
+  }
   grid[(y+oy)*w+x+ox]=best
  }}
  // Give the silhouette a consistent one-native-pixel navy edge.
@@ -50,6 +59,10 @@ for s in specs {
     if v==1 {c=[6:3,7:4,8:7][base] ?? base}
     if v==2 {c=[6:9,7:10,8:6][base] ?? base}
    }
+   if ["kiddie_pool","ocean_pot"].contains(s.id) && v==1 {c=[3:2,7:6,8:7][base] ?? base}
+   if s.id=="fruit_tree" && v==1 {c=base;if y>=h*68/100 {c=[5:2,6:14,7:8][base] ?? base}}
+   if s.id=="roundabout" && v==1 {c=[7:6,8:7][base] ?? base}
+   if s.id=="hard_stop" && v==1 {c=[10:9,7:6,8:7][base] ?? c}
    if s.id=="wheel_boot" && v>0 {c=(v==1 ? [6:4,7:4,8:7] : [6:2,7:6,8:7])[base] ?? c}
    for k in 0..<3 {out[i+k]=UInt8(palette[c][k])}
   }}

@@ -1,0 +1,179 @@
+{
+  "status": "passed",
+  "families": 12,
+  "colorways": 24,
+  "assets": [
+    {
+      "id": "roundabout",
+      "size": [
+        256,
+        96
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "gauge",
+      "size": [
+        224,
+        96
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "fruit_tree",
+      "size": [
+        144,
+        104
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "kiddie_pool",
+      "size": [
+        224,
+        80
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "baseball_base",
+      "size": [
+        96,
+        32
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "ocean_pot",
+      "size": [
+        144,
+        72
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "duck_row",
+      "size": [
+        192,
+        48
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "goal_dollies",
+      "size": [
+        256,
+        104
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "hard_stop",
+      "size": [
+        128,
+        96
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "offline_lamp",
+      "size": [
+        128,
+        88
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "goals_board",
+      "size": [
+        320,
+        136
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "giant_logo",
+      "size": [
+        320,
+        144
+      ],
+      "variants": 2,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    }
+  ],
+  "gateClearWidth": 224,
+  "gateOpenings": 16,
+  "runtimeNavigationTouched": false,
+  "runtimePerformanceTested": false
+}

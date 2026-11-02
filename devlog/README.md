@@ -67,3 +67,7 @@ The Art Room now opens `art/stage-pass-v2.html`: irregular district geometry, pr
 
 ## Stage 2A props/posters (Nov 1, Codex)
 Rami approved campus v2. Art Room links to ../assets/stage/props/review.html with the first 13 prop families and 31 colorways, native hero/enemy scale checks, footprints and 224px gate study. Prompts and manifests live beside the images. Stage 2 is ongoing; runtime pathing/spawn filtering belong to Claude. No post content changed.
+
+
+## Stage 2B slang and landmarks (Nov 1, Codex)
+The same prop gallery now opens on 12 new families and switches between 2A, 2B and all 25. It includes native hero/Bill comparisons and a cumulative 55-colorway manifest. Claude's current-office navigation and 2A integration are preserved; new 2B art remains separate until integration. No posts changed.

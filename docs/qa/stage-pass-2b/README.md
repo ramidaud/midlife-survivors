@@ -1,0 +1,13 @@
+# Stage 2B slang/landmark review QA (Codex, Nov 1, 2026)
+
+V. 1.29.2, build 77. Scope: 12 new families, 24 new colorways, 25 total families / 55 colorways. No new runtime placement or navigation work.
+
+- Native QA: `validate-props.py` passes all 55 frames; `validate-props.py manifest-2b.json` passes the new 24. Exact shared palette, opaque pixels, flat magenta margins, navy silhouette boundary, equal masks across colorways, unique images, frame/individual parity and footprint bounds pass. First-batch native hashes remain unchanged.
+- Gate contracts and campus geometry: all 16 physical openings remain 224px clear with jambs outside the span. Existing 18 age/achievement reachability cases pass, including wrapped seams. No floor/door layout changed in this batch.
+- Desktop 1280x800: all new assets load, native hero/Bill references visible, batch filters show 12 / 13 / 25 families. Category filters and an empty combination show useful results text; changing batches resets category. Colorway buttons, footprints, wood floor and 2x inspection work. No page overflow or browser warnings/errors.
+- Phone 390x844: all 12 new comparison canvases measure 320px at 1x. Document width stays 375px within 390px viewport, including 4x (1280px canvas inside its own scroller). OUR VALUES, Q4 GOALS, MEH and CIRCLE BACK reviewed at native size. Full values-wall caption displays in the lower third; reset works. No browser warnings/errors.
+- Visual corrections: values-wall source v2 removes the attached plants for modular reuse. Its proposed footprint back is 44px, covering the angled base (width144/front3). Gallery shadows now follow lower silhouette contacts instead of a detached horizontal rectangle. Water/foliage keep their material colors across variants. These changes do not edit native first-batch pixels or game shadow code.
+- Proof images: desktop-slang.jpg, desktop-landmarks.jpg, phone-slang.jpg, phone-values-wall.jpg. Source/native PNGs also inspected directly. All 12 new cards were visited on phone at 1x.
+- Preservation: fetched and fast-forwarded Claude's V. 1.29.0 navigation and V. 1.29.1 first-batch integration. main.js, navigation.js, world-art.js, stage-props.js, office-layout.js, enemy data and CLAUDE.md are unchanged relative to that baseline. The new candidate family/caption JSON is not loaded by the game and has no placements. No leaderboard requests or scores from this gallery.
+
+Remaining: 47 planned families need completion, including reusable existing-art preparation. New-world age-50 pathfinding, 350-enemy and 120-visible-prop culling checks belong to later integration. Claude owns runtime navigation and locked-area spawn filtering.

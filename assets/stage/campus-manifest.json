@@ -1,7 +1,7 @@
 {
   "batch": "stage-pass-1",
   "revision": 2,
-  "status": "v2-approved-stage-2a-art-ready",
+  "status": "v2-approved-stage-2b-art-ready",
   "productionReady": false,
   "worldSize": [
     7680,
@@ -61,13 +61,13 @@
   "measuredPlan": "campus-plan-v2.svg",
   "schedule": "campus-promotions.json",
   "productionPlan": "campus-kit-plan.json",
-  "productionAssetsManifest": "props/manifest-2a.json",
+  "productionAssetsManifest": "props/manifest.json",
   "checks": "campus-v2-checks.json",
   "review": "../../devlog/art/stage-pass-v2.html",
   "notes": [
     "Parking Lot v1 stays approved and unchanged.",
     "Illustration is approximate; measured data defines floor geometry and gates.",
-    "72 prop families planned; first 13 generated in props/manifest-2a.json, with native-size review. Remaining families and district assembly are pending.",
-    "No runtime gates, spawn policy, captions or map replacement have shipped. Performance is a target, not measured for this proposed world."
+    "72 prop families planned; 25 generated in props/manifest.json, with native-size review. Remaining families and district assembly are pending.",
+    "Campus replacement and promotion gates remain future work. Claude shipped navigation and first-batch captions in the existing office; this revision adds art only. Proposed campus performance remains unmeasured."
   ]
 }

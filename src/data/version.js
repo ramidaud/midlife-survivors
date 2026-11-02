@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.29.1",
-  displayVersion: "V. 1.29.1",
+  version: "1.29.2",
+  displayVersion: "V. 1.29.2",
   lastUpdated: "Nov 1, 2026",
-  codename: "Hang in There",
-  build: 76,
+  codename: "Circle Back",
+  build: 77,
   changelog: [
+    {
+      ver: "V. 1.29.2",
+      date: "Nov 1, 2026",
+      title: "Circle Back",
+      highlights: ["The Art Room adds 12 literal office-slang props and landmarks, bringing the modular kit to 25 families and 55 colorways. New art is ready for review; current navigation and first-batch integration are preserved."]
+    },
     {
       ver: "V. 1.29.1",
       date: "Nov 1, 2026",

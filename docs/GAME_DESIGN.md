@@ -404,3 +404,13 @@ The kit plan has 72 reusable prop families with 2 or 3 variants, nine seamless 6
 First Stage 2 delivery: 13 families and 31 colorways, with three desk personalities, KPI frame, idea Parking Lot car/clamp/sign, entrance components and four posters. Native art is on opaque exact magenta with one-pixel navy silhouettes. Source prompts, proposed floor footprints and an origin are recorded per family. Colorway frames share geometry and are not animation states. Full jokes are data-driven captions; the isolated review simulates reading once, but runtime proximity triggers remain future work.
 
 Review path: assets/stage/props/review.html, linked from the Art Room. Every card includes the real 56x60 hero and 36px Bill at 1x. Gate studies are schematic assembly proposals, not finished door animations. 59 planned families still need completion, including preparing reusable existing art. Runtime map assembly, culling, age-50 and 350-enemy crowd checks remain later work.
+
+
+## Stage 2B: literal slang and district landmarks (Nov 1, Codex)
+The modular kit now has 25 families and 55 colorways. New: Circle Back island, MEH gauge, Low-hanging Fruit tree, Deep Dive pool, Touch Base, Boil the Ocean, Ducks in a Row, wheeled goalposts, Hard Stop and unplugged lamp. Q4 Goals board and fictional employer values wall provide Bullpen/Lobby landmarks. Plants are separate kit components rather than baked into the wall.
+
+New metadata distinguishes floor decor from wall decor. Touch Base stays non-solid on the floor; the gauge is non-solid on a wall; freestanding objects carry proposed small floor footprints. Full captions are supplied for each joke. Color variants preserve water and foliage while changing selected surfaces. A data candidate matches Claude's existing family/caption format without choosing placements or loading anything into the game.
+
+Claude's V. 1.29.0 navigation and V. 1.29.1 first-batch integration are retained. New 2B art is unplaced, and 47 families remain to complete. All proposed gate openings stay 224px clear. The 7680x4320 campus replacement, remaining floor/boundary kit and new-world crowd tests remain later work.
+
+The values-wall footprint uses width 144, back 44 and front 3 after checking its angled base against the hero. Gallery contact shadows follow the lower silhouette rather than a detached rectangle; native PNGs retain no baked shadows.

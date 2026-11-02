@@ -1,0 +1,194 @@
+{
+  "status": "data-only-candidate-not-loaded-by-game",
+  "families": {
+    "roundabout": {
+      "file": "roundabout-v1.png",
+      "frame": [
+        128,
+        96
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 92,
+        "back": 30,
+        "front": 4
+      }
+    },
+    "gauge": {
+      "file": "gauge-v1.png",
+      "frame": [
+        112,
+        96
+      ],
+      "frames": 2,
+      "solid": false,
+      "mount": "wall"
+    },
+    "fruit_tree": {
+      "file": "fruit_tree-v1.png",
+      "frame": [
+        72,
+        104
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 40,
+        "back": 20,
+        "front": 4
+      }
+    },
+    "kiddie_pool": {
+      "file": "kiddie_pool-v1.png",
+      "frame": [
+        112,
+        80
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 88,
+        "back": 28,
+        "front": 4
+      }
+    },
+    "baseball_base": {
+      "file": "baseball_base-v1.png",
+      "frame": [
+        48,
+        32
+      ],
+      "frames": 2,
+      "solid": false,
+      "mount": "floor"
+    },
+    "ocean_pot": {
+      "file": "ocean_pot-v1.png",
+      "frame": [
+        72,
+        72
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 48,
+        "back": 20,
+        "front": 4
+      }
+    },
+    "duck_row": {
+      "file": "duck_row-v1.png",
+      "frame": [
+        96,
+        48
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 76,
+        "back": 14,
+        "front": 3
+      }
+    },
+    "goal_dollies": {
+      "file": "goal_dollies-v1.png",
+      "frame": [
+        128,
+        104
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 100,
+        "back": 26,
+        "front": 4
+      }
+    },
+    "hard_stop": {
+      "file": "hard_stop-v1.png",
+      "frame": [
+        64,
+        96
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 32,
+        "back": 14,
+        "front": 3
+      }
+    },
+    "offline_lamp": {
+      "file": "offline_lamp-v1.png",
+      "frame": [
+        64,
+        88
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 38,
+        "back": 15,
+        "front": 3
+      }
+    },
+    "goals_board": {
+      "file": "goals_board-v1.png",
+      "frame": [
+        160,
+        136
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 136,
+        "back": 28,
+        "front": 4
+      }
+    },
+    "giant_logo": {
+      "file": "giant_logo-v1.png",
+      "frame": [
+        160,
+        144
+      ],
+      "frames": 2,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 144,
+        "back": 44,
+        "front": 3
+      }
+    }
+  },
+  "captions": {
+    "roundabout": "Circle back. This meeting has its own traffic pattern.",
+    "gauge": "Move the needle. The needle has requested a follow-up meeting.",
+    "fruit_tree": "Low-hanging fruit. Finally, a deliverable within reach.",
+    "kiddie_pool": "Deep dive. Please mind the three inches of water.",
+    "baseball_base": "Touch base. This could also have been an email.",
+    "ocean_pot": "Boil the ocean. The kitchenette budget was approved.",
+    "duck_row": "Ducks in a row. One has concerns about the agenda.",
+    "goal_dollies": "Move the goalposts. Now with locking casters.",
+    "hard_stop": "Hard stop. The meeting has negotiated an extension.",
+    "offline_lamp": "Let's take this offline. Facilities already unplugged it.",
+    "goals_board": "Q4 Goals. Every arrow leads to another arrow.",
+    "giant_logo": "Our values: continuous improvement of the values statement."
+  },
+  "place": [],
+  "notes": [
+    "Matches the existing stage-props.js family/caption shape.",
+    "Choose placements later; join solid props to propGroup using these proposed floor footprints. Runtime navigation and spawn filtering belong to Claude."
+  ]
+}

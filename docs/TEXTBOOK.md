@@ -1564,3 +1564,15 @@ The same numbers answer a second question for free: **"can anything reach the pl
 | 12 donuts behind a desk, 8 seconds | 0 reach you | most reach you within 2 seconds |
 | Spawn inside furniture | possible | moved to the nearest open spot |
 | Locked room | n/a | counted as unreachable |
+
+
+## Chapter: Color variants and materials (V. 1.29.2, Codex)
+Color variants reuse one shape and floor footprint while changing selected surfaces. A pool can have a different rim while its water stays blue-green, and a tree can have a different pot while its leaves stay green. This creates variety without introducing different collision shapes. The native checker confirms both colorways have exactly the same occupied pixels.
+
+```text
+Same shape + same floor footprint
+                 |
+          two colorways
+       |                 |
+ rim / pot changes    water / leaves stay
+```

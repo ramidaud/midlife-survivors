@@ -88,13 +88,14 @@ kit_groups={
 kit=[dict(id=id,category=category,variants=3 if category in ['furniture','parking','ambient'] else 2,status='planned-not-generated') for category,ids in kit_groups.items() for id in ids.split()]
 assert len(kit)==72
 # Delivered art is indexed here; this does not wire it into the production game.
-batch_path=R/'props/manifest-2a.json'
+batch_path=R/'props/manifest.json'
+if not batch_path.exists():batch_path=R/'props/manifest-2a.json'
 if batch_path.exists():
  batch=json.loads(batch_path.read_text())
  delivered={a['id']:a for a in batch['assets']}
  for prop in kit:
   if prop['id'] in delivered:
-   art=delivered[prop['id']];prop.update(status='ready-for-stage-2a-review',manifest='props/manifest-2a.json',file='props/'+art['file'])
+   art=delivered[prop['id']];prop.update(status=art['status'],manifest='props/manifest.json',file='props/'+art['file'])
 production=dict(propFamilies=kit,floorTiles=dict(size=[64,64],districtFamilies=9,seamless=True),modularBoundaries=['wall_straight','wall_corner','wall_end','cubicle_straight','cubicle_corner','glass_segment'],maxVisibleProps=120,cullOffscreen=True,enemyStressTarget=350,propReview=dict(heroFrame=[56,60],enemyReference='enemy-bill-v1.png',displayScale=1,desktop=[1280,800],phone=[390,844]),paintedMapIsRuntime=False,captionPolicy=schedule['captionPolicy'])
 # Full lines are data, not tiny lettering baked into sprite art.
 caption_lines={

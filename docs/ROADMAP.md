@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-01 (Codex: Stage 2A props/posters ready, v2 approved)
+**Last updated:** 2026-11-01 (Codex: Stage 2B slang/landmarks ready; Claude integrated 2A)
 
 ---
 
@@ -40,7 +40,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] **Overview v2:** unequal wings, 13 dressed fighting spaces, Lobby/Bullpen starting area and age-gate review. Parking Lot v1 approved as density/scale target; previous square-grid overview superseded. Promotion schedule and 72-family modular kit are proposal data, not live gameplay.
    - [x] Rami approved v2. Every doorway retains a 224px clear opening; hidden Archive entrance readable but subtle. Claude owns runtime flow-field navigation and locked-area spawn filtering.
    - [x] Stage 2A first art batch: 13 prop/poster families, 31 colorways, native hero/Bill comparisons, manifest and gate-clearance study. Review in the Art Room.
-   - [ ] Finish the remaining Stage 2 kit, reusing existing art where possible: 59 families still need completion, plus modular floor/boundary delivery and district assembly. Runtime gate animation and 350-enemy tests wait for integration.
+   - [x] Stage 2B: 12 literal-slang/landmark families, 24 colorways. Total kit now 25 families and 55 colorways, with batch filters and native comparisons. New batch is art-only; Claude's current-office integration and navigation are preserved.
+   - [ ] Finish the remaining Stage 2 kit, reusing existing art where possible: 47 families still need completion, plus modular floor/boundary delivery and district assembly. Runtime gate animation and 350-enemy tests wait for integration.
 5c. [x] **Enemy navigation (V. 1.29.0):** flow field so swarms walk around furniture and through doorways; spawns avoid furniture and unreachable (locked) areas. Gates hook in via `window.navExtraBlockers`.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**

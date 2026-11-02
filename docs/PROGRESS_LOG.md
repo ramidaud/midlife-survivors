@@ -714,3 +714,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - ChatGPT's first 13 prop families now appear in the current office: sticky-note, 2009 and family-photo desks, Hang in There posters, the KPI sign, OPPORTUNITY and PERSEVERANCE posters, two parked cars (one REBRAND, one booted "Dave's idea"), and the FILES cabinet by the lost binder.
 - New "read on approach" captions: walking up to a joke shows the full line as a MEMO in the lower third, once per run.
 - Positions and captions live in `src/data/stage-props.js`, so they're easy to move or rewrite.
+
+
+## 2026-11-01: Literal office slang and landmarks, V. 1.29.2 (Codex)
+- Continued Stage 2 with 12 new families: ten literal corporate-slang props and the Q4 Goals/company-values landmarks. Added 24 colorways, bringing the kit to 25 families and 55 colorways. Sources and full prompts are saved.
+- Expanded the existing review with batch/category filters, real hero/Bill comparisons, floor-versus-wall decor roles and caption previews. Kept water/foliage colors consistent across variants; removed attached plants from the wall so the kit stays reusable.
+- Pulled Claude's V. 1.29.0 navigation and V. 1.29.1 first-batch integration before release. Preserved all existing native PNGs and runtime logic. New family/caption candidate is asset data only, with placements still empty.
+- Native checks pass all 55 frames and unchanged 224px gate contracts. Desktop/phone review checks are recorded under QA. No new-world performance result is claimed before integration.
+- Stage 2 remains in progress: 47 planned families still need completion, including existing-art preparation. Next: break-room furniture, ambient clutter and the remaining posters.
