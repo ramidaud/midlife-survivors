@@ -28,3 +28,28 @@ window.SOUNDS = {
     lead: [440, 0,   523, 659,  587, 0,   523, 440,  587, 0,   659, 784,  659, 587, 523, 0]
   }
 };
+
+// Variety for each sound (Nov 2, "beautiful chaos"). Tweak freely:
+//   vary   = random pitch wobble (0.1 = up to 10% up or down) so repeats never sound identical
+//   ladder = fast repeats climb a happy 5-note scale (kills and gems in a streak make a little melody)
+//   noise  = [length s, filter Hz, loudness, filter type] a short noise layer: paper rips, thuds, whooshes
+//   gain   = louder/quieter than the master volume; important = always plays even in huge fights
+window.SOUND_VARY = {
+  maxVoices: 28, // how many sound effects can overlap before small ones get skipped
+  shoot:    { vary: 0.10, gain: 0.6 },
+  hit:      { vary: 0.18, gain: 0.8, noise: [0.035, 2400, 0.5] },               // paper smack
+  billPaid: { ladder: true, ladderMs: 420, ladderMax: 12, noise: [0.07, 3200, 0.35, "highpass"] }, // cha-ching + paper rip, climbing in streaks
+  gem:      { ladder: true, ladderMs: 300, ladderMax: 14, gain: 0.7 },
+  coin:     { vary: 0.03, ladder: true, ladderMs: 350, ladderMax: 9 },
+  hurt:     { vary: 0.08, important: true, noise: [0.12, 300, 0.8, "lowpass"] },  // a thud you feel
+  nearMiss: { vary: 0.06, noise: [0.09, 1800, 0.4, "bandpass"] },              // whoosh
+  dadJoke:  { vary: 0.05 },
+  wordNo:   { vary: 0.08, noise: [0.06, 500, 0.6, "lowpass"] },
+  overdue:  { vary: 0.06 },
+  ring:     { vary: 0.04 },
+  levelUp:  { vary: 0, important: true },
+  bossSpawn:{ vary: 0, important: true, noise: [0.4, 200, 0.7, "lowpass"] },
+  bossDefeat:{ vary: 0, important: true, noise: [0.3, 1500, 0.5, "bandpass"] },
+  pick:     { vary: 0, important: true },
+  move:     { vary: 0, important: true }
+};

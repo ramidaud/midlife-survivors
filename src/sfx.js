@@ -4,8 +4,36 @@ let audioCtx = null, muted = false, voiceEnabled = true, musicStep = 0, musicPla
 const lastPlayed = {}; // so a sound can't play 60 times a second
 let lastSpokenAt = 0;
 
+// Separate volume for music and sound effects (0 to 1), saved in this browser.
+const audioVol = (() => { try { return Object.assign({ music: 0.8, sfx: 1 }, JSON.parse(localStorage.getItem("ms-audio-vol") || "{}")); } catch (e) { return { music: 0.8, sfx: 1 }; } })();
+let sfxBus = null, musicBus = null, noiseBuf = null, liveVoices = 0;
+function setupBuses() {
+  if (sfxBus || !audioCtx) return;
+  // A compressor glues lots of overlapping sounds together, so a big fight sounds full instead of clipping.
+  const comp = audioCtx.createDynamicsCompressor();
+  comp.threshold.value = -20; comp.knee.value = 12; comp.ratio.value = 4; comp.attack.value = 0.003; comp.release.value = 0.15;
+  comp.connect(audioCtx.destination);
+  sfxBus = audioCtx.createGain(); sfxBus.connect(comp);
+  musicBus = audioCtx.createGain(); musicBus.connect(audioCtx.destination);
+  applyVolumes();
+  // Half a second of white noise, reused for paper rips, thuds and whooshes.
+  noiseBuf = audioCtx.createBuffer(1, audioCtx.sampleRate / 2, audioCtx.sampleRate);
+  const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+}
+function applyVolumes() {
+  if (sfxBus) sfxBus.gain.value = audioVol.sfx;
+  if (musicBus) musicBus.gain.value = audioVol.music;
+}
+function getVolume(which) { return audioVol[which]; }
+function setVolume(which, v) {
+  audioVol[which] = Math.max(0, Math.min(1, Math.round(v * 100) / 100));
+  try { localStorage.setItem("ms-audio-vol", JSON.stringify(audioVol)); } catch (e) {}
+  applyVolumes();
+}
+
 function unlockAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  setupBuses();
   // iPhones use an "interrupted" state (calls, Siri, app switching), not just "suspended": wake it either way.
   if (audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {});
   // iOS 17+: play game audio even when the ringer switch is on silent, like other games do.
@@ -71,7 +99,7 @@ setInterval(() => {
     o.type = "triangle"; o.frequency.value = bFreq;
     g.gain.setValueAtTime(M.volume, t);
     g.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    o.connect(g).connect(audioCtx.destination);
+    o.connect(g).connect(musicBus || audioCtx.destination);
     o.start(t); o.stop(t + dur);
   }
   if (lFreq) {
@@ -79,24 +107,51 @@ setInterval(() => {
     o.type = "square"; o.frequency.value = lFreq;
     g.gain.setValueAtTime(M.volume * 0.55, t);
     g.gain.exponentialRampToValueAtTime(0.001, t + dur);
-    o.connect(g).connect(audioCtx.destination);
+    o.connect(g).connect(musicBus || audioCtx.destination);
     o.start(t); o.stop(t + dur);
   }
 }, 165);
 
+// Sound effects with variety (Nov 2, "beautiful chaos"): every play is slightly different in pitch,
+// some sounds get a noise layer (paper rip, thud), and kills climb a happy scale when they come fast.
+const PENTA = [1, 1.125, 1.25, 1.5, 1.667]; // major pentatonic: any mix of these notes sounds good together
+const ladders = {}; // kill/gem streaks: how far up the scale we are
 function sfx(name, minGapMs = 40) {
   if (muted || !audioCtx || audioCtx.state !== "running" || !SOUNDS[name]) return;
+  setupBuses();
   const now = performance.now();
   if (now - (lastPlayed[name] || 0) < minGapMs) return;
+  const V = (window.SOUND_VARY && SOUND_VARY[name]) || {};
+  if (liveVoices > (SOUND_VARY && SOUND_VARY.maxVoices || 28) && !V.important) return; // too much at once: skip the small stuff
   lastPlayed[name] = now;
-  let t = audioCtx.currentTime;
+  let mult = 1 + (Math.random() * 2 - 1) * (V.vary != null ? V.vary : 0.04);
+  if (V.ladder) { // fast streaks climb the scale, a pause starts it over
+    const L = ladders[name] || (ladders[name] = { step: 0, at: 0 });
+    L.step = now - L.at < (V.ladderMs || 450) ? L.step + 1 : 0; L.at = now;
+    const st = Math.min(L.step, (V.ladderMax || 10));
+    mult = PENTA[st % 5] * Math.pow(2, Math.floor(st / 5)) * (1 + (Math.random() * 2 - 1) * 0.01);
+  }
+  const vol = SOUNDS.volume * (V.gain || 1);
+  let t = audioCtx.currentTime + 0.001, end = t;
   SOUNDS[name].forEach(([freq, len, wave]) => {
     const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
-    osc.type = wave; osc.frequency.value = freq;
-    gain.gain.setValueAtTime(SOUNDS.volume, t);
-    gain.gain.exponentialRampToValueAtTime(0.001, t + len); // fade out so it doesn't click
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start(t); osc.stop(t + len);
-    t += len; // next note starts when this one ends
+    osc.type = wave; osc.frequency.value = freq * mult;
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(vol, t + 0.004); // tiny fade-in: no clicks
+    gain.gain.exponentialRampToValueAtTime(0.001, t + len);
+    osc.connect(gain).connect(sfxBus);
+    osc.start(t); osc.stop(t + len + 0.01);
+    t += len; end = t;
   });
+  if (V.noise && noiseBuf) { // a short filtered noise burst layered on top
+    const [nLen, nFreq, nGain, nType] = V.noise;
+    const src = audioCtx.createBufferSource(), f = audioCtx.createBiquadFilter(), g = audioCtx.createGain();
+    src.buffer = noiseBuf; src.playbackRate.value = 0.8 + Math.random() * 0.4;
+    f.type = nType || "bandpass"; f.frequency.value = nFreq * (0.85 + Math.random() * 0.3); f.Q.value = 1.2;
+    const t0 = audioCtx.currentTime + 0.001;
+    g.gain.setValueAtTime(vol * nGain, t0); g.gain.exponentialRampToValueAtTime(0.001, t0 + nLen);
+    src.connect(f).connect(g).connect(sfxBus); src.start(t0); src.stop(t0 + nLen + 0.01);
+  }
+  liveVoices++;
+  setTimeout(() => { liveVoices--; }, (end - audioCtx.currentTime) * 1000 + 30);
 }

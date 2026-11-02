@@ -440,3 +440,6 @@ What you see and what you bump into don't have to match. Regular enemies grew in
 
 ## Profiling (Nov 2)
 Before speeding a game up, measure where each frame's time goes; guesses are usually wrong. A profiler samples what the computer is doing thousands of times a second. Ours showed shadows being redrawn from scratch every frame (now painted once into images), and 120 Hz iPads running all the game logic twice as often as needed. A frame has about 16 milliseconds at 60 fps, so every millisecond counts.
+
+## Juice (Nov 2)
+"Juice" is game-dev slang for feedback that makes actions feel good without changing the rules: a white flash on hit, a squash, a little shove, a pop when something dies, a sound that rises in pitch during a streak. None of it changes damage or hit boxes. Players describe juicy games as "satisfying" without knowing why. The pentatonic trick: any notes from a 5-note major scale sound good together, so dozens of overlapping kill sounds become a melody instead of noise.

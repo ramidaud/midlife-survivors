@@ -1099,6 +1099,8 @@ function activeEffectsHtml() {
   return `<div class="active-effects"><div class="ae-head">RIGHT NOW</div><ul>${body}</ul></div>`;
 }
 
+// A little 10-block volume meter, e.g. ■■■■■■■□□□ 70%
+function volBar(v) { const n = Math.round(v * 10); return `${"■".repeat(n)}${"□".repeat(10 - n)} ${Math.round(v * 100)}%`; }
 function renderPauseModal(scene, keepRowIdx) {
   const modal = document.getElementById("pause-modal");
   if (!modal) return;
@@ -1126,6 +1128,14 @@ function renderPauseModal(scene, keepRowIdx) {
         <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1">
           <span>🔊 SOUND & MUSIC</span>
           <span class="opt-val">◀ ${muted ? "MUTED 🔇" : "ON 🔊"} ▶</span>
+        </button>
+        <button class="opt-btn" id="pause-music-vol-btn" data-opt-cycle="1">
+          <span>🎵 MUSIC VOLUME</span>
+          <span class="opt-val">◀ ${volBar(getVolume("music"))} ▶</span>
+        </button>
+        <button class="opt-btn" id="pause-sfx-vol-btn" data-opt-cycle="1">
+          <span>💥 EFFECTS VOLUME</span>
+          <span class="opt-val">◀ ${volBar(getVolume("sfx"))} ▶</span>
         </button>
         <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1">
           <span>🗣️ DAD JOKE VOICE</span>
@@ -1171,6 +1181,19 @@ function renderPauseModal(scene, keepRowIdx) {
     sfx("pick");
     renderPauseModal(scene, 3);
   }, keepRowIdx === 3);
+
+  // Volume rows: left/right (or arrows on a controller) step by 10%; a tap steps up and wraps around.
+  [["pause-music-vol-btn", "music", 3.3], ["pause-sfx-vol-btn", "sfx", 3.6]].forEach(([id, which, row]) => {
+    const el = document.getElementById(id);
+    bindNavItem(el, row, () => {
+      const dir = el.dataset.dirHint, cur = getVolume(which);
+      let v = Math.round((dir === "left" ? cur - 0.1 : cur + 0.1) * 10) / 10;
+      if (!dir && cur >= 0.999) v = 0; // tapping past full wraps to off
+      setVolume(which, Math.max(0, Math.min(1, v)));
+      if (which === "sfx") sfx("billPaid", 0); else sfx("pick");
+      renderPauseModal(scene, row);
+    }, keepRowIdx === row);
+  });
 
   bindNavItem(document.getElementById("pause-voice-btn"), 4, () => {
     if (typeof toggleVoice === "function") toggleVoice();

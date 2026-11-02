@@ -19,6 +19,27 @@ window.Telemetry = (() => {
     } catch (e) { return "no-storage"; }
   }
   const device = () => (window.matchMedia && matchMedia("(pointer: coarse)").matches ? "phone" : "desktop");
+  // Coarse device details (no fingerprinting): phone/tablet/desktop, OS family, browser family, screen size
+  // rounded to 100 px, and how smooth the game ran. Only sent once the runs table has these columns.
+  const DEVICE_DETAIL = false; // flip to true after running docs/sql/RUNS_DEVICE.sql
+  function deviceDetail() {
+    const ua = navigator.userAgent || "", touch = navigator.maxTouchPoints > 1;
+    const os = /iPhone|iPod/.test(ua) ? "iOS" : (/iPad/.test(ua) || (/Macintosh/.test(ua) && touch)) ? "iPadOS" : /Android/.test(ua) ? "Android"
+      : /CrOS/.test(ua) ? "ChromeOS" : /Windows/.test(ua) ? "Windows" : /Macintosh/.test(ua) ? "macOS" : /Linux/.test(ua) ? "Linux" : "other";
+    const browser = /Edg\//.test(ua) ? "Edge" : /SamsungBrowser/.test(ua) ? "Samsung" : /Firefox|FxiOS/.test(ua) ? "Firefox"
+      : /CriOS|Chrome/.test(ua) ? "Chrome" : /Safari/.test(ua) ? "Safari" : "other";
+    const w = Math.round(screen.width / 100) * 100, h = Math.round(screen.height / 100) * 100, short = Math.min(screen.width, screen.height);
+    const form = !touch ? "desktop" : short >= 700 ? "tablet" : "phone";
+    return { form, os, browser, screen_size: `${w}x${h}` };
+  }
+  // Frame rate while playing: average fps and the share of slow frames (under 40 fps).
+  let fpsFrames = 0, fpsSlow = 0, fpsTime = 0, fpsLast = 0;
+  (function fpsLoop(t) {
+    if (run && !run.reported && typeof gameOver !== "undefined" && !gameOver && !(typeof paused !== "undefined" && paused) && fpsLast) {
+      const dt = t - fpsLast; if (dt < 500) { fpsFrames++; fpsTime += dt; if (dt > 25) fpsSlow++; }
+    }
+    fpsLast = t; requestAnimationFrame(fpsLoop);
+  })(0);
 
   // GoatCounter event (silently skipped if the script didn't load or is blocked)
   function event(name) {
@@ -46,11 +67,17 @@ window.Telemetry = (() => {
       level: typeof level !== "undefined" ? level : null,
       kills: typeof runKills !== "undefined" ? runKills : null,
       close_calls: window.NearMiss ? window.NearMiss.getStats().credits : null,
+      hits_taken: typeof runHits !== "undefined" ? runHits : null,
+      damage_taken: typeof runDamageTaken !== "undefined" ? runDamageTaken : null,
       tax_bracket: typeof runTaxBracket !== "undefined" ? runTaxBracket : 0,
       device: device(),
       resumed: !!run.resumed,
       version: String((window.GAME_VERSION && GAME_VERSION.displayVersion) || "").slice(0, 24)
     };
+    if (DEVICE_DETAIL) Object.assign(row, deviceDetail(), {
+      avg_fps: fpsTime ? Math.round(1000 * fpsFrames / fpsTime) : null,
+      slow_frame_pct: fpsFrames ? Math.round(100 * fpsSlow / fpsFrames) : null
+    });
     try {
       fetch(`${L.supabaseUrl}/rest/v1/runs`, {
         method: "POST", keepalive: true, // keepalive lets it finish even if the tab is closing
@@ -63,6 +90,7 @@ window.Telemetry = (() => {
   // A run began (fresh or resumed). If the previous run never finished (Retry from pause, etc.), log it first.
   function runStarted(resumed) {
     if (run && !run.reported) send("restarted");
+    fpsFrames = 0; fpsSlow = 0; fpsTime = 0;
     run = { startMs: typeof runElapsedMs !== "undefined" ? runElapsedMs : 0, startAge: typeof currentAge !== "undefined" ? currentAge : 40, resumed: !!resumed, reported: false, milestones: {} };
     event(resumed ? "run-resume" : "run-start");
   }

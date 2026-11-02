@@ -133,7 +133,7 @@ function getPadMenuStep(nowMs) {
 
 let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, coins, chests, hudText, viewBtn;
 let xp = 0, level = 1, xpNeeded = 0, xpBar, levelText, currentAge = 40, bossesSpawned = {}, slowUntil = 0;
-let meta, runCoins = 0, runKills = 0; // runKills feeds the leaderboard score
+let meta, runCoins = 0, runKills = 0, runHits = 0, runDamageTaken = 0; // runKills feeds the leaderboard score
 // "stats" is this run's copy of the numbers. Upgrades change the copy, never the data files,
 // so every new run starts fresh.
 let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelUpOpen = false, paused = false, pauseParts = [], pendingLevels = 0, levelMenu = null, restartGame = null;
@@ -282,7 +282,7 @@ function create() {
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
   window._heldKeys.clear();
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
-  runCoins = 0; runKills = 0; lastJokeToldAt = 0;
+  runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
   dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
@@ -1140,7 +1140,8 @@ function hurtPlayer(p, bill) {
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
   dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
-  hp -= (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
+  { const dmg = (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
+    hp -= dmg; runHits++; runDamageTaken += dmg; } // runHits/runDamageTaken go to the play-stats table
   if (bill.kind === "snackAttack") {
     slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
     const isSenior = currentAge >= 80;
@@ -1251,15 +1252,16 @@ function damageBill(bill, amount) {
     sfx("hit");
     if (bill.isBoss) bill.tag.setText(`${ENEMIES[bill.kind].label}:${bill.hp}`);
     bill.setTintFill(0xffffff); // quick white flash so you can see the hit
-    // Quick squash-and-stretch punch on hit!
-    sc.tweens.add({ targets: bill, scaleX: 1.22, scaleY: 0.82, duration: 55, yoyo: true });
+    // Squash-and-stretch on the drawn sprite plus a small shove (src/juice.js). The hit box never changes size.
+    if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs);
     sc.time.delayedCall(60, () => { if (bill.active) bill.clearTint(); });
   } else {
     runKills += bill.isBoss ? 25 : 1; // bosses count extra toward your score
     window.achEvent(bill.isBoss ? "bossKill" : "kill", { kind: bill.kind });
     sfx(bill.isBoss ? "bossDefeat" : "billPaid");
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
-    burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 6);
+    if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
+    burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 8);
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
@@ -1915,6 +1917,7 @@ function update(time, delta) {
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   player.setAngle((x !== 0 || y !== 0) ? Math.sin(this.time.now / 55) * 7 : 0); // jaunty walk wobble
+  if (window.Juice) Juice.step(this, player, len > 0, runElapsedMs, this.worldArt && this.worldArt.hero); // dust puffs
   label.setPosition(player.x, player.y - PLAYER.size / 2 - 4);
 
   // Keep the Dad Joke speech bubble anchored right above the character's head as you move!

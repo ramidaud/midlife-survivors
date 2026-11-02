@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.32.2",
-  displayVersion: "V. 1.32.2",
+  version: "1.33.0",
+  displayVersion: "V. 1.33.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Second Helping",
-  build: 89,
+  codename: "Beautiful Chaos",
+  build: 90,
   changelog: [
+    {
+      ver: "V. 1.33.0",
+      date: "Nov 2, 2026",
+      title: "Beautiful Chaos",
+      highlights: [
+        "Enemies now flash, squash and pop with a little shockwave when you pay them off, and get shoved back when hit.",
+        "Sound effects have variety: every hit sounds a little different, and fast kill streaks climb a happy scale. Big fights blend together instead of clipping.",
+        "Separate MUSIC and EFFECTS volume in the pause menu.",
+        "Little dust puffs follow your feet."
+      ]
+    },
     {
       ver: "V. 1.32.2",
       date: "Nov 2, 2026",

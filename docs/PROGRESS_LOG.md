@@ -791,3 +791,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Bills now 3 HP (was 2); donuts arrive at 42 (was 45); a small extra ramp at 43.5. Test bot now dies at 41.0 to 41.6 (was 41.3 to 42.3).
 - Smashed plants grow back after 75 seconds (not while you're standing on them).
 - Rami's new wish list logged in the roadmap: more room by minute 20, death and hit effects, movement polish, sound sliders, end-of-run achievements summary, his son making the music.
+
+## 2026-11-02: Beautiful Chaos (V. 1.33.0)
+- Kills flash, squash and pop with a shockwave ring; hits squash the sprite and shove the enemy back; dust puffs at your feet. Tunable in `JUICE` (src/juice.js).
+- Sound: every effect wobbles in pitch, some get a noise layer (paper rip, thud, whoosh), kill and gem streaks climb a pentatonic scale, a compressor glues big fights together, and a voice cap keeps it from turning to mush. Tunable in `SOUND_VARY` (src/data/sounds.js).
+- Pause menu: separate Music and Effects volume (saved per browser).
+- Play stats now log hits and damage taken per run. Device and smoothness fields are ready but switched off until docs/sql/RUNS_DEVICE.sql is run.

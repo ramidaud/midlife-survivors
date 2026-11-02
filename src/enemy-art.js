@@ -70,6 +70,7 @@ window.EnemyArt = (() => {
     function attach(entity, kind) {
       if (!specs[kind]) return; // bosses never enter the art layer
       const record = { entity, kind, visual: null, shadow: null, shown: false };
+      entity.artRecord = record; // lets hit and death effects find the drawn sprite
       entities.add(record);
       entity.once('destroy', () => {
         if (record.visual) record.visual.destroy();
@@ -106,7 +107,12 @@ window.EnemyArt = (() => {
         entity.setVisible(false); record.shown = true;
         visual.setVisible(true).setPosition(entity.x, entity.y)
           .setFlip(entity.flipX, entity.flipY).setAlpha(entity.alpha).setRotation(entity.rotation);
-        if (visual.depth !== entity.depth) visual.setDepth(entity.depth); // setDepth re-sorts the whole scene, so only when it changes
+        if (visual.depth !== entity.depth) visual.setDepth(entity.depth);
+        { // squash and stretch for ~120 ms after a hit (src/juice.js sets entity.hitAt)
+          const base = displaySize / size, k = entity.hitAt ? (now - entity.hitAt) / 120 : 1;
+          if (k >= 0 && k < 1) { const w = Math.sin(Math.PI * k); visual.setScale(base * (1 + 0.24 * w), base * (1 - 0.2 * w)); record.squashed = true; }
+          else if (record.squashed) { visual.setScale(base); record.squashed = false; }
+        } // setDepth re-sorts the whole scene, so only when it changes
         if (entity.tag) entity.tag.setY(entity.y - Math.max(displaySize, ENEMIES[kind].size) / 2 - 6
           - (kind === 'spamCall' && entity.state === 'ringing' ? 2 : 0));
         if (entity.isTinted) {
