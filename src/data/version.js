@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.33.2",
-  displayVersion: "V. 1.33.2",
+  version: "1.34.0",
+  displayVersion: "V. 1.34.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Exit Interview",
-  build: 92,
+  codename: "Boss Fight",
+  build: 93,
   changelog: [
+    {
+      ver: "V. 1.34.0",
+      date: "Nov 2, 2026",
+      title: "Boss Fight",
+      highlights: [
+        "The Performance Review now charges in a straight line after an orange warning lane. Step sideways.",
+        "The 30-Year Mortgage sends out expanding interest rings. Slip into the % gap.",
+        "The Midlife Crisis V8 drifts in a loop and leaves skid marks that hurt. Cut inside or get clear.",
+        "Every attack gives a clear warning first, a little faster as you age or raise the Tax Bracket, but never too short to react on a phone. (Designed with Grok.)"
+      ]
+    },
     {
       ver: "V. 1.33.2",
       date: "Nov 2, 2026",

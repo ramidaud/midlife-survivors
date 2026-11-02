@@ -443,3 +443,6 @@ Before speeding a game up, measure where each frame's time goes; guesses are usu
 
 ## Juice (Nov 2)
 "Juice" is game-dev slang for feedback that makes actions feel good without changing the rules: a white flash on hit, a squash, a little shove, a pop when something dies, a sound that rises in pitch during a streak. None of it changes damage or hit boxes. Players describe juicy games as "satisfying" without knowing why. The pentatonic trick: any notes from a 5-note major scale sound good together, so dozens of overlapping kill sounds become a melody instead of noise.
+
+## Telegraphs (Nov 2)
+A telegraph is the warning before an attack: the orange lane before the charge, the ghost ring before the Mortgage fires. Good boss fights are fair because you can see what's coming and react, so the warning has a minimum length (about half a second, enough for a thumb on a phone). Bosses run a tiny state machine: chase, then telegraph, then attack, then recover, then back to chase.
