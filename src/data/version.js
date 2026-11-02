@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.40.0",
-  displayVersion: "V. 1.40.0",
+  version: "1.40.1",
+  displayVersion: "V. 1.40.1",
   lastUpdated: "Nov 2, 2026",
   codename: "Corner Office Energy",
-  build: 102,
+  build: 103,
   changelog: [
+    {
+      ver: "V. 1.40.1", date: "Nov 2, 2026", title: "Corner Office Energy",
+      highlights: [
+        "Playtesters: add ?navdebug=1 to the game link to see the spots enemies treat as solid (red squares). Handy for recording pathing bugs."
+      ]
+    },
     {
       ver: "V. 1.40.0", date: "Nov 2, 2026", title: "Corner Office Energy",
       highlights: [

@@ -19,7 +19,8 @@
     radius: 34,         // cells from the player to each edge (34 * 32 = about 1090px, past the spawn ring)
     refreshMs: 180,     // how often the field is rebuilt
     pad: 10,            // furniture is treated as this many pixels bigger, so enemies don't scrape corners
-    debug: false        // true draws the arrows (handy for screenshots and the devlog)
+    // true draws the arrows (handy for screenshots and the devlog). Playtesters: add ?navdebug=1 to the URL.
+    debug: /[?&]navdebug=1/.test(location.search)
   };
 
   const SIZE = NAV.radius * 2 + 1;
@@ -231,7 +232,7 @@
   };
 
   function drawDebug(scene) {
-    if (!debugGfx) debugGfx = scene.add.graphics().setDepth(60000);
+    if (!debugGfx || !debugGfx.scene) debugGfx = scene.add.graphics().setDepth(60000); // new run = new scene
     debugGfx.clear();
     const c = NAV.cell;
     for (let i = 0; i < N; i++) {

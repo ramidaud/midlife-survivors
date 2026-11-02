@@ -859,3 +859,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Cause: the "No." shockwave teleported Bills 95px straight away from you without checking for walls, so near the dark block it popped them through the thin wall. Trapped inside, they lined up along it. Reproduced: 4 of 8 Bills stuck inside the wall, still stuck 4 seconds later.
 - Fix: shoves (the "No." and hit knockback) now move in small steps and stop at walls, furniture and floor edges. Any enemy that still ends up off the floor for 2 seconds is put back on a reachable spot. Same test after: 0 stuck.
 - Checked: age-50 test, promotion doors, bot playtests on desktop and phone, no errors.
+
+## 2026-11-02: Rami's recording, pathing debug switch (V. 1.39.3)
+- Rami's 10-second recording (1.39.1, level 1, Lobby under the "Hang in there" poster): Bills and Late Fees bunch in a column about 250px away, facing him but not arriving.
+- Couldn't reproduce on 1.39.1 or 1.39.2 at his exact spot and screen size, with any starting character, standing still or walking. No solid object is there.
+- Added a playtester switch: put ?navdebug=1 on the game link to see the spots enemies treat as solid (red), so the next recording shows what's blocking them.
