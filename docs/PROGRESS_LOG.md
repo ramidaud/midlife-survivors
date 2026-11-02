@@ -848,3 +848,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami approved Stage 2E. At age 50 the Server Room and Conference doors roll up; the Executive Wing (55) stays locked.
 - Promotion messages now wait their turn instead of getting dropped when a boss or the AGE card is on screen. The big center PROMOTED flash always shows.
 - Tests: doors open on their own at 50 on desktop and phone, all new rooms reachable, no errors.
+
+## 2026-11-02: Music sleeps in the background (V. 1.39.1)
+- Rami: music kept plinking slowly after closing the game or locking the phone. Browsers slow hidden timers instead of stopping them, so the music loop kept going. Audio now suspends when the page is hidden and wakes on return.
+- Derek and T.J. reported odd enemy pathing (a single-file line along a wall, enemies drifting away). A bot playtest at 1280x800 didn't reproduce it: 94 to 97% of enemies chase normally. Asked for device, version and where it happened.

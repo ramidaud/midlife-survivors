@@ -467,3 +467,6 @@ A locked door in a game is usually two things: a wall you can't walk through, an
 
 ## Guarding the right lines (Nov 2)
 `if (thing)` without braces only protects the very next line. The speed pass added a second line under the shadow check, but indentation made it look protected when it wasn't. The 3 AM Thought has no shadow, so that second line tried to read a shadow that didn't exist and crashed. Braces `{ }` make the guard cover every line you meant, no matter how it's indented.
+
+## Background tabs and timers (Nov 2)
+When a tab is hidden or the phone is locked, browsers don't stop JavaScript timers, they slow them down to about once a second to save battery. Our music is played by a timer that fires a note every beat, so in the background it kept firing, just slowly: a sad little plink. The fix is to listen for the page becoming hidden and put the whole audio system to sleep (`audioCtx.suspend()`), then wake it when the page is visible again.

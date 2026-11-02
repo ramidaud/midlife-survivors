@@ -43,10 +43,18 @@ function unlockAudio() {
   }
 }
 ["keydown", "pointerdown", "touchstart", "touchend", "click"].forEach(ev => window.addEventListener(ev, unlockAudio));
-// Coming back to the tab (or the phone unlocking) can leave audio asleep: try to wake it.
+// Leaving the tab, closing the app or locking the phone: put all audio to sleep. (Rami, Nov 2: the music kept
+// plinking slowly in the background, because browsers slow down hidden timers instead of stopping them.)
+// Coming back wakes it again.
+function sleepAudio() {
+  if (audioCtx && audioCtx.state === "running") audioCtx.suspend().catch(() => {});
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+}
 document.addEventListener("visibilitychange", () => {
-  if (!document.hidden && audioCtx && audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {});
+  if (document.hidden) return sleepAudio();
+  if (audioCtx && audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {});
 });
+window.addEventListener("pagehide", sleepAudio);
 
 function toggleMute() {
   muted = !muted;
@@ -90,7 +98,7 @@ function speakDadJoke(text, pitch = 0.94, rate = 1.06) {
 
 // Background 16-bit synth groove scheduler: ticks every SOUNDS.music.stepMs.
 setInterval(() => {
-  if (muted || !musicPlaying || !audioCtx || audioCtx.state !== "running" || !SOUNDS.music) return;
+  if (muted || !musicPlaying || document.hidden || !audioCtx || audioCtx.state !== "running" || !SOUNDS.music) return;
   const M = SOUNDS.music, i = musicStep++ % M.bass.length;
   const t = audioCtx.currentTime, dur = (M.stepMs / 1000) * 0.85;
   const bFreq = M.bass[i], lFreq = M.lead[i];

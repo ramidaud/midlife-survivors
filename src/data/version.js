@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.39.0",
-  displayVersion: "V. 1.39.0",
+  version: "1.39.1",
+  displayVersion: "V. 1.39.1",
   lastUpdated: "Nov 2, 2026",
   codename: "In the Meetings",
-  build: 99,
+  build: 100,
   changelog: [
+    {
+      ver: "V. 1.39.1", date: "Nov 2, 2026", title: "In the Meetings",
+      highlights: [
+        "The music now stops when you switch apps, close the tab or lock your phone, and comes back when you return. (It used to keep plinking slowly in the background.)"
+      ]
+    },
     {
       ver: "V. 1.39.0", date: "Nov 2, 2026", title: "In the Meetings",
       highlights: [
