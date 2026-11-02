@@ -801,3 +801,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Supabase connector linked. First live read: 22 runs from 9 players in the last day, average 4.6 minutes, average age 46.1, nobody has retired yet. Top killers: Bills, Spam Likely, Late Fees.
 - New daily scheduled task "Midlife Survivors morning stats" (7:27 AM, read-only Supabase queries, push notification).
 - Next ChatGPT job written: Stage 2D Parking Lot and Break Room (docs/handoffs/chatgpt-stage-2d-rooms.md). Gemini pass 2 saved; achievement lines need a redo against the real list.
+- Grok boss-attack spec saved (charge, % rings with a gap, V8 drift with skid marks). Approved to build next session.

@@ -24,3 +24,10 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - File: `docs/handoffs/grok-modifiers.md` (expands the short §3D sketch in `grok-difficulty-2026-11-01.md`).
 - For Claude/Codex: add `src/data/modifiers.js` (`RUN_MODIFIER_TUNING` + `RUN_MODIFIER_DEFS`), schedule by age-years using Midlife `secondsPerYear = 45`, announce with `flashBanner(title, sub, kind)`, suspend new Comfort Zone Tax while a modifier is active, keep Close Call XP caps, do not break flow-field spawning.
 - Pending after implementation and Rami playtest: mark [done] with version.
+
+## 2026-11-02: Boss attacks spec (Grok)
+- What: implementation handoff for special attacks on the three Midlife decade bosses (Performance Review charge, 30-Year Mortgage % shockwave rings, Midlife Crisis V8 drift + skid marks). Covers telegraphs, speeds, sizes, damage, cooldowns, phone-fair floors, furniture rules, Close Call / Comfort / modifiers / Dad Joke / i-frame interactions, tuning table, debug force, acceptance tests. Spec only; no gameplay code in this step.
+- File: `docs/handoffs/grok-boss-attacks.md`.
+- For Claude/Codex: add `src/data/bosses.js` (`BOSS_ATTACK_TUNING` + `BOSS_ATTACKS`), state machine on `boss._atk` in the bills update loop, edge pips for off-screen bosses, keep `hurtPlayer` i-frames, do not farm Close Calls from skid zones, do not widen idle boss hitboxes without Rami (current `ENEMY_SCALE.bossHitbox` is half of texture frame, not half of visual).
+- Pending after implementation and Rami phone playtest: mark [done] with version.
+- Claude review (Nov 2): spec approved for the next build. One correction to §9.1: the boss body is set in texture-frame units and then scaled by the sprite's 2.3x, so the real hit box is about 74x78 on a ~147x156 Performance Review, which is half the visual as Rami asked. No hitbox change needed.
