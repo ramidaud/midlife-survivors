@@ -774,3 +774,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Review: merge clean, my touch/shop/zoom fixes intact, no errors on desktop or phone. The whole run now happens in these two rooms until more districts exist.
 - Fixed the "Circle Back hesitation": enemies right behind a small prop charged straight into it. Pathing now checks for a clear line, and enemies squeezed against furniture slide out. Test: 2 of 5 stuck before, 0 of 5 after.
 - Test bot dies at 41.3 to 42.3 in the new rooms (about the same as before).
+
+## 2026-11-02: Bigger enemies (V. 1.32.0)
+- Regular enemies 1.4x bigger (hit boxes too). Bosses 2.3x, with a hit box half that so they still fit between desks.
+- One dial to tweak: `ENEMY_SCALE` at the bottom of `src/data/enemies.js`.
+- Tests: desktop and phone clean; roundabout route still 5 of 5; test bot dies around 41.3 (same range as before).
+- Wrote ChatGPT's next brief: smashed versions of office props, and big boss art for the three Midlife bosses.

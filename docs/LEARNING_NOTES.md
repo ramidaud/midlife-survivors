@@ -434,3 +434,6 @@ A vertical slice finishes a small playable part of the game all the way through.
 
 ## Line of sight (Nov 2)
 Enemies take a shortcut and chase you directly when the path is "nearly straight." The old test only compared distances, so a Bill right behind a small roundabout thought the detour was short enough to ignore and walked into it. Now it also traces the straight line across the grid and only charges if no furniture sits on it. Checking "can I actually see you?" is called line of sight.
+
+## Look size vs hit box (Nov 2)
+What you see and what you bump into don't have to match. Regular enemies grew in both. Bosses got huge on screen, but their hit box is only half that, so a giant Performance Review can still squeeze between desks instead of jamming. Games fake this all the time; it usually feels fairer when hit boxes are a little smaller than the art.

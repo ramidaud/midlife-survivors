@@ -94,7 +94,8 @@ window.EnemyArt = (() => {
           if (record.shadow) record.shadow.setVisible(false);
           continue;
         }
-        const [, size, , , displaySize] = specs[kind];
+        const [, size, , , baseDisplay] = specs[kind];
+        const displaySize = baseDisplay * ((ENEMIES[kind] && ENEMIES[kind].scale) || 1); // ENEMY_SCALE in src/data/enemies.js
         if (!record.visual) {
           record.visual = scene.add.sprite(entity.x, entity.y, key(kind)).setScale(displaySize / size);
           if (kind !== 'threeAmThought' && kind !== 'ping') {

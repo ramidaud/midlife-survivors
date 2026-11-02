@@ -1532,7 +1532,7 @@ function createEnemy(scene, kind, x, y) {
   }
   if (window.firstTimeTip) window.firstTimeTip(kind);
   const E = ENEMIES[kind];
-  const e = bills.create(x, y, E.tex || kind).setDepth(4);
+  const e = bills.create(x, y, E.tex || kind).setDepth(4).setScale(E.scale || 1); // hit box grows with the scale too
   scene.enemyArt.attach(e, kind);
   if (E.tint) e.setTint(E.tint);
   const yrs = Math.max(0, currentAge - 40);
@@ -1657,7 +1657,11 @@ function spawnBoss(scene, bossKind) {
     const spot = scene.worldArt.startArea.resolveSpawn(x, y);
     if (spot) [x, y] = spot;
   }
-  const boss = bills.create(x, y, P.tex || bossKind).setDepth(4);
+  const boss = bills.create(x, y, P.tex || bossKind).setDepth(4).setScale(P.scale || 1);
+  { // big to look at, smaller to bump into (so a huge boss can still get between desks)
+    const hb = (window.ENEMY_SCALE && ENEMY_SCALE.bossHitbox) || 1, fw = boss.frame.width, fh = boss.frame.height;
+    boss.body.setSize(fw * hb, fh * hb, true);
+  }
   const isEnd = bossKind === "theReaper", m = modeCfg();
   const label = (isEnd && m.endBossLabel) || P.label, bossName = (isEnd && m.endBossName) || P.name;
   if (P.tint) boss.setTint(P.tint);

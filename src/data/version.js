@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.31.1",
-  displayVersion: "V. 1.31.1",
+  version: "1.32.0",
+  displayVersion: "V. 1.32.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Roundabout",
-  build: 86,
+  codename: "Supersized",
+  build: 87,
   changelog: [
+    {
+      ver: "V. 1.32.0",
+      date: "Nov 2, 2026",
+      title: "Supersized",
+      highlights: [
+        "Enemies are 40% bigger, closer to your own size, and their hit boxes grew with them.",
+        "Bosses are now more than twice your height, so they feel like bosses. Their hit box stays smaller than they look, so they still fit between desks."
+      ]
+    },
     {
       ver: "V. 1.31.1",
       date: "Nov 2, 2026",

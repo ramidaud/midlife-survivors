@@ -210,6 +210,16 @@ window.ENEMIES = {
 };
 
 // Wave schedule tied to your Age (from 40 to 80, plus the 80-100 Senior Bonus Rounds!).
+// How big enemies look and how big their hit boxes are (Nov 2, after Rami played Nerd Survivors).
+// Regular enemies were about half the hero's height, and bosses were barely bigger than the hero.
+// 1 = original size. Bosses keep a smaller hit box than they look, so they don't jam between desks.
+window.ENEMY_SCALE = { regular: 1.4, boss: 2.3, bossHitbox: 0.5 };
+window.BOSS_KINDS = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
+for (const [kind, E] of Object.entries(window.ENEMIES)) {
+  E.scale = window.BOSS_KINDS.includes(kind) ? window.ENEMY_SCALE.boss : window.ENEMY_SCALE.regular;
+  E.size = Math.round(E.size * E.scale); // labels, weapon reach and Close Calls read this
+}
+
 window.SPAWNING = {
   everyMs: 1050,
   maxOnScreen: 75,
