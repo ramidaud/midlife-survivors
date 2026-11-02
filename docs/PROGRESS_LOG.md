@@ -836,3 +836,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Built the door opening: at 45 the two doors roll up with a PROMOTED banner, their no-entry zones come out of enemy pathing, and the rooms join the fight. The age-50 doors stay shut until those rooms exist (PROMOTIONS.openUpToAge in src/promotions.js).
 - Tests: desktop and phone, the player walks into the Parking Lot, and a Bill spawned in the Lobby followed through the door from about 1,000 px away to within 134 px.
 - Leaderboard scare at 6:43: data was intact the whole time (67 scores); most likely a page loaded mid-deploy.
+- Wrote ChatGPT brief for Stage 2E (Server Room + Conference Rooms behind the age-50 doors, plus a closed age-55 Executive Wing door).
