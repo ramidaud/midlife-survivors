@@ -428,3 +428,26 @@ The shared connection is broad and open-plan with protected 224px routes; promot
 - **Bosses feel different:** each boss gets its own telegraphed attack and visual, not just a bigger chaser.
 - **Cleaner, smoother animation:** more frames, plus hit flash, squash and stretch, knockback and death effects.
 - Also noted: big crowds early, lots of loot on the floor, persistent battle mess, build icons on screen, a clear death banner.
+
+## Music brief (for Rami's son, Nov 2)
+**The vibe:** office music that slowly loses its mind. Early game sounds like hold music or an elevator ride (calm, a little cheesy). As the run goes on and the swarm grows, it picks up drums, speed and attitude until it's a full rock or chiptune freak-out. Midlife: hard, and also kind of great.
+
+**Tracks wanted, in priority order:**
+1. **Main run loop, calm** (ages 40 to 50): 60 to 90 seconds, loops seamlessly.
+2. **Main run loop, intense** (50 to 65): same key and tempo as #1 so the game can crossfade between them.
+3. **Boss theme**: 30 to 60 second loop, dramatic but still funny.
+4. **Title screen**: 30 to 60 second loop, chill.
+5. **Short stings** (2 to 5 seconds, no loop): level up, game over ("you're fired"), retirement win.
+
+**Technical rules:**
+- Pick one tempo for tracks 1 and 2 (somewhere around 110 to 130 BPM) and stay in the same key.
+- Loops must start and end on the beat with no silence at either end, so they repeat without a hiccup.
+- Export as **MP3 (192 kbps)**, plus WAV masters kept safe. MP3 plays everywhere, including iPhones.
+- Keep loudness even between tracks; no clipping. Leave a little headroom, since sound effects play on top.
+- Under about 3 MB per loop so the game still loads fast on phones.
+
+**Free tools that work well:** GarageBand (Mac/iPad), BeepBox (in the browser, great for chiptune), Bosca Ceoil, LMMS, FamiStudio (NES-style).
+
+**Rules of the road:** everything original. No samples from existing songs. Loops from GarageBand's own library are fine. He gets credited in the game's Credits by name or handle, his choice.
+
+**How it gets into the game:** he sends files (Drive or AirDrop to Rami). Claude adds a music player that swaps tracks by age and boss, with the new music and effects sliders.
