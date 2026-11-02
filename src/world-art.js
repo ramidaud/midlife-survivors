@@ -53,6 +53,20 @@ window.WorldArt = (() => {
       }
     }
     async function loadOffice() {
+      if(window.USE_START_AREA && window.StartAreaArt) {
+        const before=new Set(scene.children.list);
+        try {
+          const area=await StartAreaArt.build(scene,refs,{image,propTexture,body,isAlive:()=>alive});
+          if(!alive||!area){if(area)area.destroy();return;}
+          refs.props.forEach(p=>p.destroy());refs.props.splice(0,refs.props.length,...pendingProps);pendingProps.length=0;
+          window.stagePlatforms.forEach(p=>p.destroy());window.stagePlatforms=[];
+          refs.floor.setTexture('slice_void').clearTint().setDepth(-1000000000);
+          state.startArea=area;state.active=true;scene.cameras.main.setRoundPixels(true);return;
+        } catch(error) {
+          scene.children.list.slice().forEach(o=>{if(!before.has(o))o.destroy();});pendingProps.length=0;
+          scene.cameras.main.removeBounds();console.warn('Start-area art fallback: '+error.message);
+        }
+      }
       let beforeChildren;
       try {
         const desks=await Promise.all(['tidy','paperwork','lunch'].map(async id=>[id,await image(window.DESK_VARIANT_IMAGES[id])]));
@@ -125,6 +139,7 @@ window.WorldArt = (() => {
     }
     function update() {
       if(!state.active)return;
+      if(state.startArea){state.startArea.update();return;}
       const cx=Math.round(refs.player.x/OFFICE_LAYOUT.width),cy=Math.round(refs.player.y/OFFICE_LAYOUT.height);
       for(const chunk of chunks) {
         const gx=cx+chunk.ix,gy=cy+chunk.iy;
@@ -177,10 +192,11 @@ window.WorldArt = (() => {
         for(const e of refs.enemies().getChildren()) {e.setDepth(10000+e.y+e.height/2-p.y);if(e.tag)e.tag.setDepth(50000);}
         refs.hpBar.setDepth(50001);refs.label.setDepth(50000);
       }
+      if(state.startArea)state.startArea.sync();
       lastX=p.x;lastY=p.y;lastClock=now;
     }
     scene.events.on('postupdate',sync);
-    scene.events.once('shutdown',()=>{alive=false;scene.events.off('postupdate',sync);});
+    scene.events.once('shutdown',()=>{alive=false;if(state.startArea)state.startArea.destroy();scene.events.off('postupdate',sync);});
     if(window.USE_HERO_ART)loadHero();
     if(window.USE_OFFICE_ART)loadOffice();
   }
