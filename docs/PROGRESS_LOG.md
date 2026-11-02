@@ -816,3 +816,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Finished Part B: Performance Review, 30-Year Mortgage and Midlife Crisis V8, each with six walk, two wind-up, two attack and one hurt pose, plus a separate floor marker.
 - Sources, full prompts, native exports, manifests and an isolated 1x/2x animated review are saved under assets/breakables and assets/bosses. Checked at 1280x800 and 390x844 beside the real-size hero and Bill.
 - Art only, awaiting Rami. No runtime registration, game code, stats, balance or version change in this art delivery. Claude owns breaking, loot and attacks.
+- Reviewed ChatGPT Part A (breakable prop states, 8 families) and Part B (3 Midlife boss sets, 144x152 native, wind-up/attack/hurt poses, ground markers). Art only; game code untouched; my boss attacks preserved. Stage 2D rooms not pushed yet. Awaiting Rami's art approval before wiring in.
