@@ -748,3 +748,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Ben's lost-controls bug: still can't reproduce (also tried Pause > Save & Exit > Shop > Resume). The Shop B-button trap is a strong suspect if he used a controller.
 - Drafted devlog post 07 (office jokes, smarter enemies, Close Calls, playtester fixes).
 - Saved Grok's Part 3D spec (8 age-50+ run modifiers: Ghost Hour, Reading Glasses, Rent Hike, Empty Nest, Back Spasm, Reply-All Tax, Past Due, Open Enrollment). Not built yet.
+- Balance bot check on V. 1.30.3: fresh-save kite bot died at 41.7, 41.8 and 42.3 (before: 42.3 to 43.0). Not easier; slightly harder, likely furniture snagging the naive bot. Real numbers will come from the runs table.
