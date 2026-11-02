@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.40.2",
-  displayVersion: "V. 1.40.2",
+  version: "1.41.0",
+  displayVersion: "V. 1.41.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Corner Office Energy",
-  build: 104,
+  codename: "Punchline",
+  build: 105,
   changelog: [
+    {
+      ver: "V. 1.41.0", date: "Nov 2, 2026", title: "Punchline",
+      highlights: [
+        "Promoted at 55: the Executive Wing opens, with its corner office, putting mat and leather chairs. (Room built by ChatGPT.)",
+        "Dad Joke is now an attack: a punchline blast with a flash, shockwave and flying HA!s that deals double damage. Enemies only flinch now instead of freezing."
+      ]
+    },
     {
       ver: "V. 1.40.2", date: "Nov 2, 2026", title: "Corner Office Energy",
       highlights: [

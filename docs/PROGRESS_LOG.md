@@ -870,3 +870,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - ChatGPT flagged a Bill stuck behind the big desk. Root cause, and likely Derek's "they run away": directly behind something wide, "around the left" and "around the right" are equally short, their pulls cancel, and the leftover pointed straight back, away from the player. Enemies now take the single best step when the blend disagrees with it, and each has a favorite side for ties. Desk test: never arrived before, now 3.75 s.
 - Leaderboard showed "No scores yet" again while the server held 77 scores and sent all of them. Board now skips cached replies, retries once if a reply comes back empty, and shows a Retry button instead of "No scores yet."
 - Added NAV.inspect (debug helper) next to ?navdebug=1.
+
+## 2026-11-02: Promoted at 55, Dad Joke becomes an attack (V. 1.41.0)
+- Rami approved the Executive Wing: the age-55 door now opens (Wellness at 60 stays closed).
+- Rami: make Dad Joke "more of an attack weapon with a more apparent visual effect." Damage 1 to 2, freeze 0.65 s to a 0.22 s flinch, lighter stagger. New punchline blast: yellow flash, thick shockwave, 12 rays, flying "HA!"/"GROAN"/"BA-DUM-TSS", tiny screen bump.
+- Test: two blasts cleared 10 of 12 Bills circling the player, desktop and phone, no errors. Dad Joke now hits; "No." stays the personal-space tool.

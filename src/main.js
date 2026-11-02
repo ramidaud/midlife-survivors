@@ -1415,6 +1415,37 @@ function showPlayerSpeechBubble(scene, text, color = "#ffe042", holdMs = 2300) {
   scene.tweens.add({ targets: playerSpeech, scaleX: { from: 0.85, to: 1 }, scaleY: { from: 0.85, to: 1 }, duration: 140, ease: "Back.easeOut" });
 }
 
+// The Dad Joke's punchline blast (Nov 2): a quick yellow flash, a thick shockwave, rays bursting out and a few
+// "HA!"s flying off. All visual: damage is handled in fireDadJoke.
+function punchlineBlast(scene, x, y, r, J) {
+  const B = J.blast || {}, col = J.color, depth = (player.depth || 5) + 0.5;
+  const flash = scene.add.circle(x, y, r * 0.35, 0xfff3b0, 0.55).setDepth(depth - 0.2);
+  scene.tweens.add({ targets: flash, radius: r, alpha: 0, duration: 200, ease: "Quad.Out", onComplete: () => flash.destroy() });
+  const ring = scene.add.circle(x, y, 14).setStrokeStyle(9, col, 1).setDepth(depth);
+  scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 420, ease: "Cubic.Out", onComplete: () => ring.destroy() });
+  const rays = scene.add.graphics().setDepth(depth);
+  const n = B.rays || 12, off = Math.random() * Math.PI;
+  const prog = { t: 0 };
+  scene.tweens.add({ targets: prog, t: 1, duration: 280, ease: "Quad.Out",
+    onUpdate: () => {
+      rays.clear().lineStyle(5, col, 1 - prog.t * 0.8);
+      for (let i = 0; i < n; i++) {
+        const a = off + i / n * Math.PI * 2, r0 = r * (0.25 + 0.6 * prog.t), r1 = r * (0.5 + 0.55 * prog.t);
+        rays.lineBetween(x + Math.cos(a) * r0, y + Math.sin(a) * r0, x + Math.cos(a) * r1, y + Math.sin(a) * r1);
+      }
+    },
+    onComplete: () => rays.destroy() });
+  const words = B.words || ["HA!"];
+  for (let i = 0; i < (B.has || 3); i++) {
+    const a = Math.random() * Math.PI * 2, w = Phaser.Utils.Array.GetRandom(words);
+    const t = scene.add.text(x, y - 10, w, { fontFamily: "monospace", fontSize: w.length > 4 ? "13px" : "18px", fontStyle: "bold",
+      color: "#ffe042", stroke: "#3a2a00", strokeThickness: 4 }).setOrigin(0.5).setDepth(depth + 1).setAngle(Phaser.Math.Between(-18, 18));
+    scene.tweens.add({ targets: t, x: x + Math.cos(a) * r * 0.9, y: y + Math.sin(a) * r * 0.9 - 14, alpha: 0, scale: 1.25,
+      duration: 650, ease: "Quad.Out", onComplete: () => t.destroy() });
+  }
+  if (B.shake) scene.cameras.main.shake(80, B.shake);
+}
+
 function fireDadJoke(scene) {
   if (!stats.dadJoke) return;
   sfx("dadJoke");
@@ -1422,8 +1453,7 @@ function fireDadJoke(scene) {
   if (window.viewModeIdx > 0) {
     spawn3DRing(player.x, player.y, r, J.color);
   } else {
-    const ring = scene.add.circle(player.x, player.y, 12, J.color, 0.25).setStrokeStyle(3, J.color);
-    scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 380, onComplete: () => ring.destroy() });
+    punchlineBlast(scene, player.x, player.y, r, J);
   }
   // Prefer jokes for the stage you're in (office, hospital, home...), mixed with a few all-purpose ones.
   const stJ = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;

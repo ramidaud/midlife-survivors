@@ -40,7 +40,7 @@ window.UPGRADES = [
     id: "unlockJoke",
     name: "Unlock: Dad Joke",
     maxRank: 1,
-    text: "Groan-worthy cringe aura damages nearby enemies.",
+    text: "A punchline blast hits everything around you every couple of seconds.",
     when: s => !s.dadJoke,
     apply: s => { addRank(s, "unlockJoke"); s.dadJoke = true; }
   },
