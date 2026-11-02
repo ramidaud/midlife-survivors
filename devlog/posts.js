@@ -8,7 +8,7 @@ window.DEVLOG_POSTS = [
     "date": "2026-11-01",
     "title": "My office got jokes. Then my enemies got smarter.",
     "version": "V. 1.29 to 1.30.2",
-    "draft": true,
+    "draft": false,
     "cover": "img/07-around-the-desk.jpg",
     "leadAlt": "Before and after: an empty beige hallway on the left, and a break room with a booted car and a Hang in There poster on the right.",
     "teaser": "Corporate slang became furniture, the swarm learned to walk around desks, dodging got a streak meter, and real playtesters told me what was broken.",
