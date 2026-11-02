@@ -419,3 +419,12 @@ The values-wall footprint uses width 144, back 44 and front 3 after checking its
 Rami approved switching from completing the whole kit to a Lobby/Bullpen vertical slice. Both areas open at age 40; only these two district floors exist. Reception, values wall, waiting furniture, vending/lost-and-found, birthday banner, coat rack, varied desk neighborhoods and static coworkers are placed. One duck in the reception tray is visibly out of line. Floor stories are non-solid so the fighting reserves remain open.
 
 The shared connection is broad and open-plan with protected 224px routes; promotion doors remain exactly 224px across. Both age-45 gates stay closed through this slice, with the future age schedule stored as data. The subtle FILES cabinet is a clue only. Claude owns future gate opening and navigation. Other district floors, full coworker animations and map/wrapping features wait for Rami to play. Original balance numbers and Claude's Close Calls, flash banners and telemetry remain intact.
+
+
+## Combat feel direction (Nov 2, Rami, after playing Nerd Survivors)
+- **Obstacles are fine.** Nerd Survivors has plenty to walk around too. The difference: almost everything can be destroyed, and breaking things is where the good loot is.
+- **Breakable office:** small props (printers, filing cabinets, vending machines, trash cans, water coolers) smash open for loot. Walls, gates and desks stay solid so the layout still matters. Our potted plants already do this; extend it.
+- **Bigger enemies:** regular enemies roughly hero-sized. Bosses much bigger (2 to 3x the hero).
+- **Bosses feel different:** each boss gets its own telegraphed attack and visual, not just a bigger chaser.
+- **Cleaner, smoother animation:** more frames, plus hit flash, squash and stretch, knockback and death effects.
+- Also noted: big crowds early, lots of loot on the floor, persistent battle mess, build icons on screen, a clear death banner.

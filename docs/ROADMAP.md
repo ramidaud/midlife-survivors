@@ -43,6 +43,12 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] Stage 2B: 12 literal-slang/landmark families, 24 colorways. Total kit now 25 families and 55 colorways, with batch filters and native comparisons. New batch is art-only; Claude's current-office integration and navigation are preserved.
    - [x] Stage 2C and start-area slice: eight new prop families, corrected ducks, static coworkers, 35 desks in five clusters, dressed floors, modular boundaries and two closed 224px promotion doors. Total kit: 33 families, 79 colorways. V. 1.31.0.
    - [ ] Rami plays the Lobby/Bullpen before other districts are built. Remaining 39 prop families, animated coworkers and future promotion opening stay parked. Claude owns gate opening/navigation.
+5d. [ ] **Combat feel pass (Rami, Nov 2, after playing Nerd Survivors).** One at a time:
+   - [ ] **Bigger enemies:** regulars about hero-sized (now 25 to 42px vs a 56x60 hero), bosses 2 to 3x the hero.
+   - [ ] **Break things for loot:** most small office props smash open (printers, cabinets, vending machines, trash cans). The good loot hides there. Big structures (walls, desks) stay solid.
+   - [ ] **Bosses with their own attacks:** each boss gets a telegraphed attack and look (charges, shockwaves, summons). Spec from Grok, art from ChatGPT.
+   - [ ] **Smoother animation:** more walk frames from ChatGPT; in code, hit flash, squash and stretch, knockback and a death poof.
+   - Also considering: bigger early crowds, office mess that lingers (paper scraps, coffee rings), build icons on the HUD.
 5c. [x] **Enemy navigation (V. 1.29.0):** flow field so swarms walk around furniture and through doorways; spawns avoid furniture and unreachable (locked) areas. Gates hook in via `window.navExtraBlockers`.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
