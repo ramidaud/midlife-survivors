@@ -28,6 +28,11 @@ window.BossAttacks = (() => {
 
   // Returns true while the attack system is steering the boss (so the normal chase is skipped).
   function update(scene, boss, player, now) {
+    const r = step(scene, boss, player, now);
+    if (window.BossArt) BossArt.sync(scene, boss, boss._atk ? boss._atk.state : "chase", now);
+    return r;
+  }
+  function step(scene, boss, player, now) {
     const D = window.BOSS_ATTACKS && BOSS_ATTACKS[boss.kind];
     if (!D) return false;
     const a = boss._atk || (boss._atk = { state: "chase", nextAt: now + D.firstAttackDelayMs, skids: [], announced: false });
@@ -58,6 +63,10 @@ window.BossAttacks = (() => {
     if (a.state === "telegraph") {
       boss.setVelocity(0, 0);
       const k = (now - a.startedAt) / Math.max(1, a.until - a.startedAt), blink = reduceMotion ? 0.6 : 0.35 + 0.35 * Math.abs(Math.sin(now / 70));
+      if (window.BossArt) { // ChatGPT's floor decal for this attack, fading in
+        if (boss.kind === "performanceReview") BossArt.marker(scene, boss, boss.x + Math.cos(a.aim) * 190, boss.y + Math.sin(a.aim) * 190, a.aim, 1, 1, 0.35 + 0.5 * k);
+        else if (boss.kind === "mortgageRefinance") BossArt.marker(scene, boss, boss.x, boss.y + 30, 0, 1.6, 1.6, 0.3 + 0.5 * k);
+      }
       if (boss.kind === "performanceReview") {
         const ex = boss.x + Math.cos(a.aim) * D.chargeMaxDist, ey = boss.y + Math.sin(a.aim) * D.chargeMaxDist;
         g.lineStyle(D.bodyHalfW * 2 + 24, 0xef9347, 0.18 + 0.12 * k).lineBetween(boss.x, boss.y, ex, ey);
@@ -73,7 +82,7 @@ window.BossAttacks = (() => {
         g.lineStyle(3, 0xe0564f, blink).strokeCircle(a.cx, a.cy, a.R);
         g.lineStyle(D.bodyHalfW * 2, 0xe0564f, 0.12).strokeCircle(a.cx, a.cy, a.R);
       }
-      if (now >= a.until) { a.state = "attack"; a.startedAt = now; a.rings = []; a.sx = boss.x; a.sy = boss.y; boss.clearTint(); pass(boss, true); if (a.label) a.label.setVisible(boss.kind === "mortgageRefinance"); }
+      if (now >= a.until) { if (window.BossArt) BossArt.hideMarker(boss); a.state = "attack"; a.startedAt = now; a.rings = []; a.sx = boss.x; a.sy = boss.y; boss.clearTint(); pass(boss, true); if (a.label) a.label.setVisible(boss.kind === "mortgageRefinance"); }
       return true;
     }
 

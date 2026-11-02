@@ -817,3 +817,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Sources, full prompts, native exports, manifests and an isolated 1x/2x animated review are saved under assets/breakables and assets/bosses. Checked at 1280x800 and 390x844 beside the real-size hero and Bill.
 - Art only, awaiting Rami. No runtime registration, game code, stats, balance or version change in this art delivery. Claude owns breaking, loot and attacks.
 - Reviewed ChatGPT Part A (breakable prop states, 8 families) and Part B (3 Midlife boss sets, 144x152 native, wind-up/attack/hurt poses, ground markers). Art only; game code untouched; my boss attacks preserved. Stage 2D rooms not pushed yet. Awaiting Rami's art approval before wiring in.
+
+## 2026-11-02: Smash the printer (V. 1.35.0)
+- Rami approved ChatGPT's breakable and boss art. Eight prop types now crack at half health, then break into a walk-over pile with debris, loot and a Gemini joke; they rebuild after 90 s. Numbers in src/data/breakables.js.
+- Bosses use the new 144x152 art with walk, wind-up, attack and hurt poses; the Performance Review and Mortgage show ChatGPT's floor markers during the warning.
+- Tests: desktop and phone, intact to cracked to broken works, enemies can walk over rubble, boss attacks unchanged, touch fix still holds.
+- ChatGPT's Stage 2D rooms are still unsaved on the Mac; it was asked to pull, finish and push.

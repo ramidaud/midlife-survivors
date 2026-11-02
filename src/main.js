@@ -302,6 +302,8 @@ function create() {
   applyMetaAndChar();
   // 1. Build pixel-art sprites for every character, enemy, pickup, and the background floor (in src/sprites.js).
   buildSprites(this);
+  if (window.Breakables) Breakables.preload(this); // smashable prop art (assets/breakables)
+  if (window.BossArt) BossArt.preload(this);       // big boss art (assets/bosses)
   EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
   initExtraWeapons(this);
@@ -1310,6 +1312,7 @@ function hitBill(splash, bill) {
 const PLANT_REGROW_MS = 75000; // a smashed plant grows back after 75 seconds
 // Smashable Potted Office Plants ("prop_plant")! Crack them open for Leftover Pizza (+3 HP), 401(k) Coins, or Bonus Gems!
 function damagePlant(prop, amount) {
+  if (prop && prop.brk && window.Breakables) { Breakables.damage(prop.scene, prop, amount, runElapsedMs); return; } // printers, cabinets... (src/breakables.js)
   if (!prop || !prop.visible || prop.propKind !== "prop_plant") return;
   const sc = prop.scene;
   prop.hp = (prop.hp || 2) - amount;
@@ -1373,8 +1376,15 @@ function damagePlant(prop, amount) {
   }
 }
 
+// Anything you can smash: potted plants, plus printers, cabinets, vending machines... once their art has loaded.
+const isSmashable = p => window.Breakables ? Breakables.isSmashable(p) : !!(p && p.visible && p.propKind === "prop_plant");
+function smashTargets() {
+  const list = stageProps ? stageProps.slice() : [];
+  if (window.propGroup) window.propGroup.getChildren().forEach(p => { if (p.brk && !list.includes(p)) list.push(p); });
+  return list;
+}
 function hitProp(splash, prop) {
-  if (!splash.active || !prop.visible || prop.propKind !== "prop_plant") return;
+  if (!splash.active || !isSmashable(prop)) return;
   splash.destroy();
   damagePlant(prop, stats.damage);
 }
@@ -1440,9 +1450,9 @@ function fireDadJoke(scene) {
       damageBill(bill, stats.jokeDamage);
     }
   });
-  if (stageProps) {
-    stageProps.forEach(p => {
-      if (p.visible && p.propKind === "prop_plant" && Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y) <= r) {
+  if (stageProps || window.propGroup) {
+    smashTargets().forEach(p => {
+      if (isSmashable(p) && Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y) <= r) {
         damagePlant(p, stats.jokeDamage);
       }
     });
@@ -1480,9 +1490,9 @@ function fireWordNo(scene) {
       damageBill(bill, stats.noDamage);
     }
   });
-  if (stageProps) {
-    stageProps.forEach(p => {
-      if (p.visible && p.propKind === "prop_plant" && Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y) <= r) {
+  if (stageProps || window.propGroup) {
+    smashTargets().forEach(p => {
+      if (isSmashable(p) && Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y) <= r) {
         damagePlant(p, stats.noDamage);
       }
     });
@@ -1497,10 +1507,10 @@ function nearestBill() {
     if (d < bestDist) { best = bill; bestDist = d; }
   });
   if (best && bestDist <= 250) return best;
-  if (stageProps) {
+  if (stageProps || window.propGroup) {
     let bestPlant = null, plantDist = 210;
-    stageProps.forEach(p => {
-      if (p.visible && p.propKind === "prop_plant") {
+    smashTargets().forEach(p => {
+      if (isSmashable(p)) {
         const d = Phaser.Math.Distance.Between(player.x, player.y, p.x, p.y);
         if (d < plantDist) { bestPlant = p; plantDist = d; }
       }
@@ -1969,6 +1979,7 @@ function update(time, delta) {
   // Every frame, update each enemy according to its behavior (state machine).
   const now = runElapsedMs;
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
+  if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;

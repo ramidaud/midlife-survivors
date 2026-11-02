@@ -46,7 +46,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 5d. [ ] **Combat feel pass (Rami, Nov 2, after playing Nerd Survivors).** One at a time:
    - [x] **Bigger enemies (V. 1.32.0):** regulars about hero-sized (now 25 to 42px vs a 56x60 hero), bosses 2 to 3x the hero.
    - [x] **Art package ready for Rami review (Nov 2, Codex):** eight breakable families in all 18 colorways, 54 state frames / 108 debris cells, and three native Midlife bosses with 33 poses and three telegraphs. Art only; runtime features below remain pending.
-   - [ ] **Break things for loot:** most small office props smash open (printers, cabinets, vending machines, trash cans). The good loot hides there. Big structures (walls, desks) stay solid.
+   - [x] **Break things for loot (V. 1.35.0):** most small office props smash open (printers, cabinets, vending machines, trash cans). The good loot hides there. Big structures (walls, desks) stay solid.
    - [x] **Bosses with their own attacks (V. 1.34.0):** each boss gets a telegraphed attack and look (charges, shockwaves, summons). Spec from Grok, art from ChatGPT.
    - [ ] **Smoother animation:** more walk frames from ChatGPT; in code, hit flash, squash and stretch, knockback and a death poof.
    - [x] **Death and hit effects (V. 1.33.0):** pop, squash, flash and a little burst when enemies die; small dust puffs and bumps when you move or touch enemies.

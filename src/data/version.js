@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.34.0",
-  displayVersion: "V. 1.34.0",
+  version: "1.35.0",
+  displayVersion: "V. 1.35.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Boss Fight",
-  build: 93,
+  codename: "Smash the Printer",
+  build: 94,
   changelog: [
+    {
+      ver: "V. 1.35.0",
+      date: "Nov 2, 2026",
+      title: "Smash the Printer",
+      highlights: [
+        "Printers, filing cabinets, vending machines, trash cans, water coolers, the lost and found, coat racks and plants now crack and then break apart for loot. Vending machines usually have pizza; the lost and found often hides an item. They're back in one piece after 90 seconds.",
+        "The three Midlife bosses have real art: a stern clipboard, a house riding a stack of contracts, and a red convertible with too much confidence. Each one winds up before it attacks. (Art by ChatGPT, jokes by Gemini.)"
+      ]
+    },
     {
       ver: "V. 1.34.0",
       date: "Nov 2, 2026",
