@@ -729,3 +729,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Anti-cheat: you must be moving, or the enemy must have a clear path (no desk camping). XP caps at 6 per 10 seconds.
 - Caught a design gap in testing: the player's real hit box is 48x52, not 32, so the ring is now measured between the real hit boxes.
 - Saved Gemini's caption library (districts, gates, posters, coworker lines) for ChatGPT's remaining props.
+
+## 2026-11-01: Play stats, V. 1.30.1
+- Leaderboard check (named players only): Midlife had 45 runs from 14 players, Full Life 13 runs from 4 players, since Oct 31.
+- GoatCounter visit counts on the game, devlog, posts, About, Art Room and links page, plus game events (run start, died, cleared, reached 45/50/55/60/65).
+- One anonymous row per run in a new Supabase `runs` table: length, age, score, character, killer, device, version, Close Calls. The table only accepts new rows; Rami reads it in the dashboard (docs/sql/STATS_QUERIES.sql).
+- Privacy note added to the About page. Agents must test with `?nostats=1`.

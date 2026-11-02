@@ -65,6 +65,7 @@
     homeView.hidden = true;
     postView.hidden = false;
     document.title = post.title + " · Midlife Survivors Devlog";
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: "/devlog/" + slug + "/", title: post.title }); } catch (e) {} // count post views
 
     let md = "_Couldn't load this memo._";
     try {

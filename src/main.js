@@ -647,6 +647,7 @@ function create() {
     showTitleScreen(this);
   } else {
     beginFreshRunAtDecade(this);
+    if (window.Telemetry) window.Telemetry.runStarted(false);
     setMusicPlaying(true);
   }
 }
@@ -926,6 +927,7 @@ function showTitleScreen(scene) {
     scene.physics.resume();
     scene.time.paused = false;
     setMusicPlaying(true);
+    if (window.Telemetry) window.Telemetry.runStarted(true);
   };
 
   startFromTitle = () => {
@@ -937,6 +939,7 @@ function showTitleScreen(scene) {
     startFromTitle = null;
     hideTitleModal();
     beginFreshRunAtDecade(scene);
+    if (window.Telemetry) window.Telemetry.runStarted(false); // anonymous play stats (src/telemetry.js)
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
     startTime = scene.time.now;
@@ -1114,6 +1117,7 @@ function showGameOver(scene, killer, isWin) {
   if (isWin) window.achEvent("clear", { mode: runMode, age: currentAge, taxBracket: runTaxBracket });
   else window.achEvent("death", { killer });
   if (window.NearMiss) window.NearMiss.logSummary();
+  if (window.Telemetry) window.Telemetry.runEnded(isWin, killer);
   clearRunState();
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
   [40, 50, 60, 70, 80].forEach(dec => {
@@ -2003,6 +2007,7 @@ function update(time, delta) {
 
   // Close Calls: reward enemies (and pings) that nearly got you.
   if (window.NearMiss) window.NearMiss.scan(this, player, bills, pings);
+  if (window.Telemetry) window.Telemetry.tick(); // "reached age 50" style milestones for the visitor stats
 
   // Old message pings fade away.
   if (pings) pings.getChildren().slice().forEach(pg => { if (now >= pg.dieAt) pg.destroy(); });

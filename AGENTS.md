@@ -11,3 +11,4 @@
 - **Don't change the rules** in `CLAUDE.md` or the tech decisions (Phaser 3 from cdnjs, no build step) without Rami's OK.
 - **ChatGPT, Gemini and Grok** don't edit this folder. Their notes arrive in `docs/handoffs/<tool>-changes.md`.
 - **Art preview:** `art-test.html` is shown inside the devlog's Art Room (`devlog/art/`, loaded with `?embed=1`, which hides its eyebrow and nav links). Keep working in `art-test.html`; the devlog page picks up changes automatically.
+- **Play stats (V. 1.30.1):** the game sends one anonymous row per run to the Supabase `runs` table and counts visits with GoatCounter (`src/telemetry.js`). **Testing must never send real stats or scores:** open the game with `?nostats=1`, or block `supabase.co` and `goatcounter.com` / `gc.zgo.at` in your test harness. Never post test rows to the leaderboard either.

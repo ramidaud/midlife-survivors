@@ -97,6 +97,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../styles.css?v=14">
+<script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
   <header class="site-header is-compact">

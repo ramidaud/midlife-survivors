@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.30.0",
-  displayVersion: "V. 1.30.0",
+  version: "1.30.1",
+  displayVersion: "V. 1.30.1",
   lastUpdated: "Nov 1, 2026",
-  codename: "Close Call",
-  build: 79,
+  codename: "Who Clocked In",
+  build: 80,
   changelog: [
+    {
+      ver: "V. 1.30.1",
+      date: "Nov 1, 2026",
+      title: "Who Clocked In",
+      highlights: [
+        "The game now counts anonymous play stats (run length, age reached, what got you, phone or laptop) to help with balancing. No names, no tracking cookies. Details are on the devlog's About page."
+      ]
+    },
     {
       ver: "V. 1.30.0",
       date: "Nov 1, 2026",
