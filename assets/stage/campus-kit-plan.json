@@ -70,13 +70,17 @@
       "id": "reception_counter",
       "category": "furniture",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/reception_counter-v1.png"
     },
     {
       "id": "sofa",
       "category": "furniture",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/sofa-v1.png"
     },
     {
       "id": "bench",
@@ -112,7 +116,9 @@
       "id": "water_cooler",
       "category": "furniture",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/water_cooler-v1.png"
     },
     {
       "id": "kitchen_counter",
@@ -124,7 +130,9 @@
       "id": "vending_machine",
       "category": "furniture",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/vending_machine-v1.png"
     },
     {
       "id": "roundabout",
@@ -278,7 +286,9 @@
       "id": "coat_rack",
       "category": "ambient",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/coat_rack-v1.png"
     },
     {
       "id": "umbrella_bin",
@@ -290,19 +300,25 @@
       "id": "lost_found",
       "category": "ambient",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/lost_found-v1.png"
     },
     {
       "id": "birthday_banner",
       "category": "ambient",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/birthday_banner-v1.png"
     },
     {
       "id": "trash_recycle",
       "category": "ambient",
       "variants": 3,
-      "status": "planned-not-generated"
+      "status": "ready-for-stage-2c-review",
+      "manifest": "props/manifest.json",
+      "file": "props/trash_recycle-v1.png"
     },
     {
       "id": "coffee_cart",

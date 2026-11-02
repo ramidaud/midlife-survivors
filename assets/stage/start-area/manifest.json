@@ -1,126 +1,4 @@
 {
-  "water_cooler": {
-    "id": "water_cooler",
-    "frame": [
-      64,
-      104
-    ],
-    "footprint": {
-      "width": 38,
-      "back": 24,
-      "front": 3
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 3,
-    "file": "water_cooler-v1.png",
-    "caption": "The water is filtered. The gossip is not.",
-    "sha256": "ca3038a0c6d1a0d710c834fb22259c34af4622ca6a9d86acc4f43763149a34bb"
-  },
-  "desk_tidy": {
-    "id": "desk_tidy",
-    "frame": [
-      96,
-      104
-    ],
-    "footprint": {
-      "width": 80,
-      "back": 70,
-      "front": 2
-    },
-    "variants": 1,
-    "file": "../../desks/tidy-native.png",
-    "solid": true,
-    "sha256": "9f4e5a16699b4004c8657795a8f03593cb2486169ee4a45d662d6fd3b8f7e4d7"
-  },
-  "trash_recycle": {
-    "id": "trash_recycle",
-    "frame": [
-      64,
-      64
-    ],
-    "footprint": {
-      "width": 48,
-      "back": 20,
-      "front": 3
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 3,
-    "file": "trash_recycle-v1.png",
-    "caption": "Please separate the paperwork from the more optimistic paperwork.",
-    "sha256": "5846e6763368bd6c32c71d3500d9b12bd43c2fe486d08f185561014ffd2f3a30"
-  },
-  "fruit_tree": {
-    "id": "fruit_tree",
-    "frame": [
-      72,
-      104
-    ],
-    "footprint": {
-      "width": 40,
-      "back": 20,
-      "front": 4
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 2,
-    "file": "fruit_tree-v1.png",
-    "caption": "Low-hanging fruit. Finally, a deliverable within reach.",
-    "sha256": "4f491e441c56161c4ea28a892590e7dffd76708c71be315e69422da463a5dfb4"
-  },
-  "duck_row": {
-    "id": "duck_row",
-    "frame": [
-      96,
-      48
-    ],
-    "footprint": {
-      "width": 76,
-      "back": 24,
-      "front": 3
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 2,
-    "file": "duck_row-v1.png",
-    "caption": "Ducks in a row. One has concerns about the agenda.",
-    "sha256": "68efa35b414e33bd93a52b65883360afc46a50343d4c0aec754646a774ca8679"
-  },
-  "giant_logo": {
-    "id": "giant_logo",
-    "frame": [
-      160,
-      144
-    ],
-    "footprint": {
-      "width": 144,
-      "back": 44,
-      "front": 3
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 2,
-    "file": "giant_logo-v1.png",
-    "caption": "Our values: continuous improvement of the values statement.",
-    "sha256": "e8587689806e8905d4ff177d7f2b2094b480a63dc6722b9c2c79650191a001df"
-  },
-  "desk_lunch": {
-    "id": "desk_lunch",
-    "frame": [
-      96,
-      104
-    ],
-    "footprint": {
-      "width": 80,
-      "back": 70,
-      "front": 2
-    },
-    "variants": 1,
-    "file": "../../desks/lunch-native.png",
-    "solid": true,
-    "sha256": "21205e11441b82a3ac5ee30b2f69f77bb2e6c1175e496a8dd35997b045a3d27d"
-  },
   "kpi_frame": {
     "id": "kpi_frame",
     "frame": [
@@ -136,58 +14,6 @@
     "variants": 2,
     "file": "kpi_frame-v1.png",
     "sha256": "1e0613c1ae88e338fe3fac3b3c3493ed61e67c4434a9fe4969803bb9e4c12bb4"
-  },
-  "birthday_banner": {
-    "id": "birthday_banner",
-    "frame": [
-      128,
-      48
-    ],
-    "footprint": {
-      "width": 0,
-      "back": 0,
-      "front": 0
-    },
-    "solid": false,
-    "mount": "wall",
-    "variants": 3,
-    "file": "birthday_banner-v1.png",
-    "caption": "Another year somehow. The cake is in a meeting.",
-    "sha256": "d2c165cfd7c8af6814f6f36090b4f42abaee5056bf1e8589b0ceddfca1419a5d"
-  },
-  "goals_board": {
-    "id": "goals_board",
-    "frame": [
-      160,
-      136
-    ],
-    "footprint": {
-      "width": 136,
-      "back": 28,
-      "front": 4
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 2,
-    "file": "goals_board-v1.png",
-    "caption": "Q4 Goals. Every arrow leads to another arrow.",
-    "sha256": "a15a3fa24d5bbf283b8f0209d34305f7fa43ea79f032615a81f2cd18a4eb5fb5"
-  },
-  "plant": {
-    "id": "plant",
-    "frame": [
-      48,
-      64
-    ],
-    "footprint": {
-      "width": 24,
-      "back": 15,
-      "front": 3
-    },
-    "variants": 1,
-    "file": "../../office-environment/plant-native.png",
-    "solid": true,
-    "sha256": "58e9b9eae987f9b605e8adfc53fb85e49fa5011e798d7e421072d1afe5ea52e7"
   },
   "vending_machine": {
     "id": "vending_machine",
@@ -207,11 +33,29 @@
     "caption": "Emergency snacks. The emergency is the afternoon.",
     "sha256": "bb20a535b26ef96368e7c6815a59eb679cfd404fefd10e0b6ed1c9e418ab24b1"
   },
-  "gauge": {
-    "id": "gauge",
+  "fruit_tree": {
+    "id": "fruit_tree",
     "frame": [
-      112,
-      96
+      72,
+      104
+    ],
+    "footprint": {
+      "width": 40,
+      "back": 20,
+      "front": 4
+    },
+    "solid": true,
+    "mount": "floor",
+    "variants": 2,
+    "file": "fruit_tree-v1.png",
+    "caption": "Low-hanging fruit. Finally, a deliverable within reach.",
+    "sha256": "4f491e441c56161c4ea28a892590e7dffd76708c71be315e69422da463a5dfb4"
+  },
+  "birthday_banner": {
+    "id": "birthday_banner",
+    "frame": [
+      128,
+      48
     ],
     "footprint": {
       "width": 0,
@@ -220,42 +64,26 @@
     },
     "solid": false,
     "mount": "wall",
-    "variants": 2,
-    "file": "gauge-v1.png",
-    "caption": "Move the needle. The needle has requested a follow-up meeting.",
-    "sha256": "d47370d78336a93468493094c95b3a567dc1bd604786d76d473901c74da40c88"
-  },
-  "desk_family_photo": {
-    "id": "desk_family_photo",
-    "frame": [
-      96,
-      104
-    ],
-    "footprint": {
-      "width": 80,
-      "back": 70,
-      "front": 2
-    },
-    "solid": true,
     "variants": 3,
-    "file": "desk_family_photo-v1.png",
-    "sha256": "c35cb9add1cf937aa067ad7e8edb1d57e79716947841ecc33d5f32dc9a622a09"
+    "file": "birthday_banner-v1.png",
+    "caption": "Another year somehow. The cake is in a meeting.",
+    "sha256": "d2c165cfd7c8af6814f6f36090b4f42abaee5056bf1e8589b0ceddfca1419a5d"
   },
-  "desk_paperwork": {
-    "id": "desk_paperwork",
+  "cabinet": {
+    "id": "cabinet",
     "frame": [
-      96,
-      104
+      56,
+      88
     ],
     "footprint": {
-      "width": 80,
-      "back": 70,
-      "front": 2
+      "width": 38,
+      "back": 40,
+      "front": 4
     },
     "variants": 1,
-    "file": "../../desks/paperwork-native.png",
+    "file": "../../office-environment/cabinet-native.png",
     "solid": true,
-    "sha256": "67eca22a5191fa7c7a2b31ec22b12505537e68ad49076a7d3fc76cd0592e9c89"
+    "sha256": "0a2b3d8e2345287c2921a9d265cfbc6020fab30fbeec8490994ae83d50a21ccc"
   },
   "reception_counter": {
     "id": "reception_counter",
@@ -275,24 +103,6 @@
     "caption": "Please wait to be ignored. Someone will circle back shortly.",
     "sha256": "2258b313cd2c1893022faeb99a8e755484af25d9b26b6feadffc1f9311c17a81"
   },
-  "lost_found": {
-    "id": "lost_found",
-    "frame": [
-      80,
-      72
-    ],
-    "footprint": {
-      "width": 60,
-      "back": 24,
-      "front": 4
-    },
-    "solid": true,
-    "mount": "floor",
-    "variants": 3,
-    "file": "lost_found-v1.png",
-    "caption": "Lost and found. Mostly chargers, optimism and one very good scarf.",
-    "sha256": "015073fd1e80cfe835c6346b70977000d8b525e96f60c9ac42266b5399866b13"
-  },
   "roundabout": {
     "id": "roundabout",
     "frame": [
@@ -311,8 +121,26 @@
     "caption": "Circle back. This meeting has its own traffic pattern.",
     "sha256": "868da90bd7c6e3b465f06b32e80e94544336516bc0fbbd82dcc53f29c1c7ebfd"
   },
-  "desk_sticky_notes": {
-    "id": "desk_sticky_notes",
+  "gauge": {
+    "id": "gauge",
+    "frame": [
+      112,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "mount": "wall",
+    "variants": 2,
+    "file": "gauge-v1.png",
+    "caption": "Move the needle. The needle has requested a follow-up meeting.",
+    "sha256": "d47370d78336a93468493094c95b3a567dc1bd604786d76d473901c74da40c88"
+  },
+  "desk_paperwork": {
+    "id": "desk_paperwork",
     "frame": [
       96,
       104
@@ -322,29 +150,115 @@
       "back": 70,
       "front": 2
     },
+    "variants": 1,
+    "file": "../../desks/paperwork-native.png",
     "solid": true,
-    "variants": 3,
-    "file": "desk_sticky_notes-v1.png",
-    "sha256": "f1bb101fb21755251968da59994caba9577bf0ce00052ee436244a2f59b87ee4"
+    "sha256": "67eca22a5191fa7c7a2b31ec22b12505537e68ad49076a7d3fc76cd0592e9c89"
   },
-  "gate_hidden_cabinet": {
-    "id": "gate_hidden_cabinet",
+  "printer": {
+    "id": "printer",
     "frame": [
-      96,
-      112
+      80,
+      80
     ],
     "footprint": {
-      "width": 80,
-      "back": 32,
+      "width": 48,
+      "back": 26,
+      "front": 4
+    },
+    "variants": 1,
+    "file": "../../office-environment/printer-native.png",
+    "solid": true,
+    "sha256": "a95df8422564e603c7e336493bdd9ec1cf6a2eb5abd541fb3e0bb7902bba00d6"
+  },
+  "trash_recycle": {
+    "id": "trash_recycle",
+    "frame": [
+      64,
+      64
+    ],
+    "footprint": {
+      "width": 48,
+      "back": 20,
+      "front": 3
+    },
+    "solid": true,
+    "mount": "floor",
+    "variants": 3,
+    "file": "trash_recycle-v1.png",
+    "caption": "Please separate the paperwork from the more optimistic paperwork.",
+    "sha256": "5846e6763368bd6c32c71d3500d9b12bd43c2fe486d08f185561014ffd2f3a30"
+  },
+  "plant": {
+    "id": "plant",
+    "frame": [
+      48,
+      64
+    ],
+    "footprint": {
+      "width": 24,
+      "back": 15,
+      "front": 3
+    },
+    "variants": 1,
+    "file": "../../office-environment/plant-native.png",
+    "solid": true,
+    "sha256": "58e9b9eae987f9b605e8adfc53fb85e49fa5011e798d7e421072d1afe5ea52e7"
+  },
+  "lost_found": {
+    "id": "lost_found",
+    "frame": [
+      80,
+      72
+    ],
+    "footprint": {
+      "width": 60,
+      "back": 24,
       "front": 4
     },
     "solid": true,
-    "variants": 2,
-    "file": "gate_hidden_cabinet-v1.png",
-    "sha256": "27f074e76764a436d4018388396f2b0ae62daa2319eb2c19c35d90ee3d45655c"
+    "mount": "floor",
+    "variants": 3,
+    "file": "lost_found-v1.png",
+    "caption": "Lost and found. Mostly chargers, optimism and one very good scarf.",
+    "sha256": "015073fd1e80cfe835c6346b70977000d8b525e96f60c9ac42266b5399866b13"
   },
-  "desk_2009": {
-    "id": "desk_2009",
+  "desk_tidy": {
+    "id": "desk_tidy",
+    "frame": [
+      96,
+      104
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 70,
+      "front": 2
+    },
+    "variants": 1,
+    "file": "../../desks/tidy-native.png",
+    "solid": true,
+    "sha256": "9f4e5a16699b4004c8657795a8f03593cb2486169ee4a45d662d6fd3b8f7e4d7"
+  },
+  "water_cooler": {
+    "id": "water_cooler",
+    "frame": [
+      64,
+      104
+    ],
+    "footprint": {
+      "width": 38,
+      "back": 24,
+      "front": 3
+    },
+    "solid": true,
+    "mount": "floor",
+    "variants": 3,
+    "file": "water_cooler-v1.png",
+    "caption": "The water is filtered. The gossip is not.",
+    "sha256": "ca3038a0c6d1a0d710c834fb22259c34af4622ca6a9d86acc4f43763149a34bb"
+  },
+  "desk_family_photo": {
+    "id": "desk_family_photo",
     "frame": [
       96,
       104
@@ -356,8 +270,26 @@
     },
     "solid": true,
     "variants": 3,
-    "file": "desk_2009-v1.png",
-    "sha256": "2961649069ba0655db18fb47d022dbca789d5ce68d835943692ad7a2a1c2a924"
+    "file": "desk_family_photo-v1.png",
+    "sha256": "c35cb9add1cf937aa067ad7e8edb1d57e79716947841ecc33d5f32dc9a622a09"
+  },
+  "duck_row": {
+    "id": "duck_row",
+    "frame": [
+      96,
+      48
+    ],
+    "footprint": {
+      "width": 76,
+      "back": 24,
+      "front": 3
+    },
+    "solid": true,
+    "mount": "floor",
+    "variants": 2,
+    "file": "duck_row-v1.png",
+    "caption": "Ducks in a row. One has concerns about the agenda.",
+    "sha256": "68efa35b414e33bd93a52b65883360afc46a50343d4c0aec754646a774ca8679"
   },
   "coat_rack": {
     "id": "coat_rack",
@@ -377,21 +309,121 @@
     "caption": "The coat has already put in its eight hours.",
     "sha256": "f2f64ff671363f3de14aa34e013a510da34a2c6cc4c61ed7515c0579f802fd44"
   },
-  "printer": {
-    "id": "printer",
+  "desk_lunch": {
+    "id": "desk_lunch",
     "frame": [
-      80,
-      80
+      96,
+      104
     ],
     "footprint": {
-      "width": 48,
-      "back": 26,
-      "front": 4
+      "width": 80,
+      "back": 70,
+      "front": 2
     },
     "variants": 1,
-    "file": "../../office-environment/printer-native.png",
+    "file": "../../desks/lunch-native.png",
     "solid": true,
-    "sha256": "a95df8422564e603c7e336493bdd9ec1cf6a2eb5abd541fb3e0bb7902bba00d6"
+    "sha256": "21205e11441b82a3ac5ee30b2f69f77bb2e6c1175e496a8dd35997b045a3d27d"
+  },
+  "desk_2009": {
+    "id": "desk_2009",
+    "frame": [
+      96,
+      104
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 70,
+      "front": 2
+    },
+    "solid": true,
+    "variants": 3,
+    "file": "desk_2009-v1.png",
+    "sha256": "2961649069ba0655db18fb47d022dbca789d5ce68d835943692ad7a2a1c2a924"
+  },
+  "goals_board": {
+    "id": "goals_board",
+    "frame": [
+      160,
+      136
+    ],
+    "footprint": {
+      "width": 136,
+      "back": 28,
+      "front": 4
+    },
+    "solid": true,
+    "mount": "floor",
+    "variants": 2,
+    "file": "goals_board-v1.png",
+    "caption": "Q4 Goals. Every arrow leads to another arrow.",
+    "sha256": "a15a3fa24d5bbf283b8f0209d34305f7fa43ea79f032615a81f2cd18a4eb5fb5"
+  },
+  "desk_sticky_notes": {
+    "id": "desk_sticky_notes",
+    "frame": [
+      96,
+      104
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 70,
+      "front": 2
+    },
+    "solid": true,
+    "variants": 3,
+    "file": "desk_sticky_notes-v1.png",
+    "sha256": "f1bb101fb21755251968da59994caba9577bf0ce00052ee436244a2f59b87ee4"
+  },
+  "giant_logo": {
+    "id": "giant_logo",
+    "frame": [
+      160,
+      144
+    ],
+    "footprint": {
+      "width": 144,
+      "back": 44,
+      "front": 3
+    },
+    "solid": true,
+    "mount": "floor",
+    "variants": 2,
+    "file": "giant_logo-v1.png",
+    "caption": "Our values: continuous improvement of the values statement.",
+    "sha256": "e8587689806e8905d4ff177d7f2b2094b480a63dc6722b9c2c79650191a001df"
+  },
+  "gate_hidden_cabinet": {
+    "id": "gate_hidden_cabinet",
+    "frame": [
+      96,
+      112
+    ],
+    "footprint": {
+      "width": 80,
+      "back": 32,
+      "front": 4
+    },
+    "solid": true,
+    "variants": 2,
+    "file": "gate_hidden_cabinet-v1.png",
+    "sha256": "27f074e76764a436d4018388396f2b0ae62daa2319eb2c19c35d90ee3d45655c"
+  },
+  "hang_cat_high": {
+    "id": "hang_cat_high",
+    "frame": [
+      80,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "solid": false,
+    "variants": 2,
+    "file": "hang_cat_high-v1.png",
+    "sha256": "c2e326aa9a1be5f0b9cb2488318bc4df6359f3391358027fda5477a0b09f5f63"
   },
   "sofa": {
     "id": "sofa",
@@ -410,38 +442,6 @@
     "file": "sofa-v1.png",
     "caption": "Take a seat. The meeting is running a little over.",
     "sha256": "9f2bdb03c2ba0696bc6590189f3b013bae414cba3e3688ba098e63fb30e34a12"
-  },
-  "hang_cat_high": {
-    "id": "hang_cat_high",
-    "frame": [
-      80,
-      96
-    ],
-    "footprint": {
-      "width": 0,
-      "back": 0,
-      "front": 0
-    },
-    "solid": false,
-    "variants": 2,
-    "file": "hang_cat_high-v1.png",
-    "sha256": "c2e326aa9a1be5f0b9cb2488318bc4df6359f3391358027fda5477a0b09f5f63"
-  },
-  "cabinet": {
-    "id": "cabinet",
-    "frame": [
-      56,
-      88
-    ],
-    "footprint": {
-      "width": 38,
-      "back": 40,
-      "front": 4
-    },
-    "variants": 1,
-    "file": "../../office-environment/cabinet-native.png",
-    "solid": true,
-    "sha256": "0a2b3d8e2345287c2921a9d265cfbc6020fab30fbeec8490994ae83d50a21ccc"
   },
   "coworker_placeholder": {
     "id": "coworker_placeholder",

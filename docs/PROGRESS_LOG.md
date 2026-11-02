@@ -750,3 +750,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Saved Grok's Part 3D spec (8 age-50+ run modifiers: Ghost Hour, Reading Glasses, Rent Hike, Empty Nest, Back Spasm, Reply-All Tax, Past Due, Open Enrollment). Not built yet.
 - Balance bot check on V. 1.30.3: fresh-save kite bot died at 41.7, 41.8 and 42.3 (before: 42.3 to 43.0). Not easier; slightly harder, likely furniture snagging the naive bot. Real numbers will come from the runs table.
 - Published devlog post 7 ("My office got jokes. Then my enemies got smarter."). Rami: Close Calls feel good after a few runs.
+
+## 2026-11-01: Lobby/Bullpen start-area slice, V. 1.31.0 (Codex)
+- Saved the prior work on stage-2c-wip, updated main and merged cleanly. Claude's navigation, Close Calls, controller fixes, banners and telemetry were preserved.
+- Finished eight start-area prop families and three static coworker colorways. One duck is clearly out of line; reception, desk neighborhoods, hallway clutter and floor stories are now playable.
+- Lobby and Bullpen open at 40. Both age-45 doors stay closed for this slice, span the full 224px route and register navigation blockers. Future promotions remain tunable data.
+- Added bounded-floor spawn validation, footprint/connectivity checks, culling and isolated desktop/phone QA. No test scores or analytics submitted. Enemy and combat balance tables unchanged.
+- Next: Rami plays these two areas before other districts. Claude should review the saved Circle Back corner-hesitation trace and own future gate opening.

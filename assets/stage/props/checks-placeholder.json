@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "families": 1,
+  "colorways": 3,
+  "assets": [
+    {
+      "id": "coworker_placeholder",
+      "size": [
+        144,
+        56
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    }
+  ],
+  "gateClearWidth": 224,
+  "gateOpenings": 16,
+  "runtimeNavigationTouched": false,
+  "runtimePerformanceTested": false
+}

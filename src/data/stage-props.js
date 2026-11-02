@@ -27,10 +27,22 @@ window.STAGE_PROPS = {
     kiddie_pool: {file: "kiddie_pool-v1.png", frame: [112, 80], frames: 2, solid: true, footprint: {width: 88, back: 28, front: 4}},
     baseball_base: {file: "baseball_base-v1.png", frame: [48, 32], frames: 2, solid: false, flat: true},
     ocean_pot: {file: "ocean_pot-v1.png", frame: [72, 72], frames: 2, solid: true, footprint: {width: 48, back: 20, front: 4}},
-    duck_row: {file: "duck_row-v1.png", frame: [96, 48], frames: 2, solid: true, footprint: {width: 76, back: 14, front: 3}},
+    duck_row: {file: "duck_row-v1.png", frame: [96, 48], frames: 2, solid: true, footprint: {width: 76, back: 24, front: 3}},
     goal_dollies: {file: "goal_dollies-v1.png", frame: [128, 104], frames: 2, solid: true, footprint: {width: 100, back: 26, front: 4}},
     hard_stop: {file: "hard_stop-v1.png", frame: [64, 96], frames: 2, solid: true, footprint: {width: 32, back: 14, front: 3}},
-    offline_lamp: {file: "offline_lamp-v1.png", frame: [64, 88], frames: 2, solid: true, footprint: {width: 38, back: 15, front: 3}}
+    offline_lamp: {file: "offline_lamp-v1.png", frame: [64, 88], frames: 2, solid: true, footprint: {width: 38, back: 15, front: 3}},
+    // Stage 2C: the authored Lobby/Bullpen kit. No new placements in the fallback office.
+    reception_counter: {"file": "reception_counter-v1.png", "frame": [160, 112], "frames": 3, "solid": true, "footprint": {"width": 144, "back": 46, "front": 4}},
+    vending_machine: {"file": "vending_machine-v1.png", "frame": [80, 128], "frames": 3, "solid": true, "footprint": {"width": 58, "back": 36, "front": 4}},
+    sofa: {"file": "sofa-v1.png", "frame": [120, 80], "frames": 3, "solid": true, "footprint": {"width": 98, "back": 30, "front": 4}},
+    lost_found: {"file": "lost_found-v1.png", "frame": [80, 72], "frames": 3, "solid": true, "footprint": {"width": 60, "back": 24, "front": 4}},
+    water_cooler: {"file": "water_cooler-v1.png", "frame": [64, 104], "frames": 3, "solid": true, "footprint": {"width": 38, "back": 24, "front": 3}},
+    birthday_banner: {"file": "birthday_banner-v1.png", "frame": [128, 48], "frames": 3, "solid": false, "mount": "wall"},
+    trash_recycle: {"file": "trash_recycle-v1.png", "frame": [64, 64], "frames": 3, "solid": true, "footprint": {"width": 48, "back": 20, "front": 3}},
+    coat_rack: {"file": "coat_rack-v1.png", "frame": [64, 112], "frames": 3, "solid": true, "footprint": {"width": 34, "back": 20, "front": 4}},
+    coworker_placeholder: {"file": "coworker_placeholder-v1.png", "frame": [48, 56], "frames": 3, "solid": false},
+    goals_board: {"file": "goals_board-v1.png", "frame": [160, 136], "frames": 2, "solid": true, "footprint": {"width": 136, "back": 28, "front": 4}},
+    giant_logo: {"file": "giant_logo-v1.png", "frame": [160, 144], "frames": 2, "solid": true, "footprint": {"width": 144, "back": 44, "front": 3}}
   },
   captions: {
     desk_sticky_notes: 'There is a monitor under there. According to the last status meeting.',
@@ -54,7 +66,21 @@ window.STAGE_PROPS = {
     duck_row: "Ducks in a row. One has concerns about the agenda.",
     goal_dollies: "Move the goalposts. Now with locking casters.",
     hard_stop: "Hard stop. The meeting has negotiated an extension.",
-    offline_lamp: "Let's take this offline. Facilities already unplugged it."
+    offline_lamp: "Let's take this offline. Facilities already unplugged it.",
+    // Gemini Set A supplies the promotion/overheard lines. Existing joke captions stay above.
+    reception_counter: "Please wait to be ignored. Someone will circle back shortly.",
+    vending_machine: "Emergency snacks. The emergency is the afternoon.",
+    sofa: "Take a seat. The meeting is running a little over.",
+    lost_found: "Lost and found. Mostly chargers, optimism and one very good scarf.",
+    water_cooler: "The water is filtered. The gossip is not.",
+    birthday_banner: "Another year somehow. The cake is in a meeting.",
+    trash_recycle: "Please separate the paperwork from the more optimistic paperwork.",
+    coat_rack: "The coat has already put in its eight hours.",
+    coworker_placeholder: "Just resting my eyes while the big spreadsheet saves.",
+    goals_board: "Q4 Goals. Every arrow leads to another arrow.",
+    giant_logo: "Our values: continuous improvement of the values statement.",
+    gate_authorized_only: "AUTHORIZED PERSONNEL. You will need a few more birthdays on your badge before IT lets you in.",
+    gate_parking_break: "BREAK ROOM AND LOT. Congratulations on turning forty-five, you have earned a lap around the cars."
   },
   place: [
     // Accounts Payable: the printer poster, next to the paperwork skyline

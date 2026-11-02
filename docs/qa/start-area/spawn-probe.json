@@ -1,0 +1,81 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "active": true,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "body": [
+   48,
+   52
+  ],
+  "player": [
+   3456,
+   -74
+  ],
+  "props": 132,
+  "items": 159,
+  "visible": 30,
+  "peak": 30,
+  "gates": [
+   {
+    "id": "parking-access",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "break-access",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   }
+  ],
+  "families": [
+   "reception_counter",
+   "giant_logo",
+   "sofa",
+   "vending_machine",
+   "lost_found",
+   "coat_rack",
+   "trash_recycle",
+   "water_cooler",
+   "plant",
+   "gate_hidden_cabinet",
+   "birthday_banner",
+   "hang_cat_high",
+   "kpi_frame",
+   "gauge",
+   "goals_board",
+   "roundabout",
+   "fruit_tree",
+   "printer",
+   "cabinet",
+   "desk_paperwork",
+   "desk_sticky_notes",
+   "desk_2009",
+   "desk_lunch",
+   "desk_family_photo",
+   "desk_tidy",
+   "duck_row"
+  ],
+  "outside": 0,
+  "repairs": 553,
+  "fps": 99.78952446066108,
+  "age": 40,
+  "tax": 0
+ },
+ "spawnProbe": {
+  "probes": 1750,
+  "bad": 0,
+  "blockers": 2
+ }
+}

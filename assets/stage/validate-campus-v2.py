@@ -76,7 +76,7 @@ for space in P['combatSpaces']:
  assert cells<=districts[space['district']],space['id']
  assert space['decor'],space['id']
 assert len(P['production']['propFamilies'])==72
-assert all(p['variants'] in [2,3] and p['status'] in ['planned-not-generated','ready-for-stage-2a-review','ready-for-stage-2b-review'] for p in P['production']['propFamilies'])
+assert all(p['variants'] in [2,3] and p['status'] in ['planned-not-generated','ready-for-stage-2a-review','ready-for-stage-2b-review','ready-for-stage-2c-review'] for p in P['production']['propFamilies'])
 assert P['production']['maxVisibleProps']==120 and P['production']['enemyStressTarget']==350
 base=next(r for r in results if r['age']==40 and not r['achievement'])
 assert base['reachableFloorPixels']>=1280*800*4

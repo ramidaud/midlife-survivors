@@ -1,6 +1,6 @@
 # Stage 2 modular prop kit
 
-Latest: **Stage 2B adds 12 families and 24 colorways. Total: 25 families, 55 colorways.** Stage 2 remains in progress, with 47 planned families still needing completion. The gallery opens on 2B; use Batch to review 2A or all 25. Every card compares native art with the actual 56x60 hero and 36px Bill on desktop and a 390px phone.
+Latest: **Stage 2C adds eight families and 24 colorways. Total: 33 families, 79 colorways.** The start-area kit is playable; 39 planned families for later areas wait for feedback. The gallery opens on 2C; use Batch to review earlier batches or all 33. Every card compares native art with the actual 56x60 hero and 36px Bill on desktop and a 390px phone.
 
 ## Batch 2B: literal slang and landmarks
 
@@ -30,7 +30,7 @@ python3 assets/stage/props/validate-props.py
 python3 assets/stage/props/validate-props.py manifest-2b.json
 ```
 
-These are optional authoring checks, not a game build step. `checks.json` covers all 55 frames and `checks-2b.json` covers the new 24. Both also check the unchanged 224px gate contracts. The older exporter defaults to the 2A brief when no batch argument is supplied.
+These are optional authoring checks, not a game build step. `checks.json` covers all 79 frames, `checks-2b.json` covers the 24 slang frames and `checks-2c.json` covers the 24 new essentials. Both also check the unchanged 224px gate contracts. The older exporter defaults to the 2A brief when no batch argument is supplied.
 
 ## Integration ownership
 
@@ -96,3 +96,9 @@ The Archive clue is a modest FILES plate and lavender binder, with no glow or la
 `checks-2a.json` validates all 31 native frames: dimensions, palette, opacity, flat magenta margins, one-pixel navy boundary, equal masks, unique colorways and individual/sheet parity. All 16 opening contracts pass 224px width/jamb checks. Browser QA covers desktop 1280x800 and phone 390x844; evidence is in `docs/qa/stage-pass-2a/`.
 
 59 families still need completion, including preparing reusable existing assets, remaining slang, furniture, landmarks, posters and boundary kit. Floor families and district assembly remain pending. Coworker animation is Stage 3. The 120-visible-prop and 350-enemy runtime tests wait for actual world integration; no age-50 run with these props is claimed.
+
+## Stage 2C and start-area slice (V. 1.31.0, Codex)
+
+Eight new essentials (24 colorways) bring the planned kit to 33 families and 79 colorways. Reception counter, vending machine, sofa, lost-and-found, cooler, birthday banner, bins and coat rack are now placed in the playable Lobby/Bullpen. A separate 48x56 static coworker sheet has three colorways; it is not one of the 72 planned prop families. The corrected duck source has four ducks in line and a fifth clearly forward and turned toward the viewer. Source v1 remains archived.
+
+See `batch-2c.json`, `manifest-2c.json`, `batch-placeholder.json` and `../start-area/README.md`. Review defaults to 2C and still compares every new prop to the real hero and Bill at 1x. Magenta removal, shadows and captions happen at runtime. The other 39 planned families and other districts wait for Rami's slice feedback.

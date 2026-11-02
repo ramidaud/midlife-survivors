@@ -92,7 +92,7 @@
       "mount": "floor",
       "footprint": {
         "width": 76,
-        "back": 14,
+        "back": 24,
         "front": 3
       }
     },

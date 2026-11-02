@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "families": 8,
+  "colorways": 24,
+  "assets": [
+    {
+      "id": "reception_counter",
+      "size": [
+        480,
+        112
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "vending_machine",
+      "size": [
+        240,
+        128
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "sofa",
+      "size": [
+        360,
+        80
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "lost_found",
+      "size": [
+        240,
+        72
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "water_cooler",
+      "size": [
+        192,
+        104
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "birthday_banner",
+      "size": [
+        384,
+        48
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "trash_recycle",
+      "size": [
+        192,
+        64
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    },
+    {
+      "id": "coat_rack",
+      "size": [
+        192,
+        112
+      ],
+      "variants": 3,
+      "palette": true,
+      "opaque": true,
+      "flatMagentaMargins": true,
+      "navySilhouette": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true
+    }
+  ],
+  "gateClearWidth": 224,
+  "gateOpenings": 16,
+  "runtimeNavigationTouched": false,
+  "runtimePerformanceTested": false
+}

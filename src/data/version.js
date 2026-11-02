@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.30.3",
-  displayVersion: "V. 1.30.3",
+  version: "1.31.0",
+  displayVersion: "V. 1.31.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Right Now",
-  build: 82,
+  codename: "New Hire Tour",
+  build: 83,
   changelog: [
+    {
+      ver: "V. 1.31.0",
+      date: "Nov 1, 2026",
+      title: "New Hire Tour",
+      highlights: ["The playable office is now an authored Lobby and Bullpen slice with reception, varied desk clusters, static coworkers and dressed floors. Promotion doors stay closed for this playtest; one duck is clearly out of line."]
+    },
     {
       ver: "V. 1.30.3",
       date: "Nov 1, 2026",

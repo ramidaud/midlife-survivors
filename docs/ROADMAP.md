@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-01 (Codex: Stage 2B slang/landmarks ready; Claude integrated 2A)
+**Last updated:** 2026-11-01 (Codex: V. 1.31.0 Lobby/Bullpen playable slice)
 
 ---
 
@@ -41,7 +41,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] Rami approved v2. Every doorway retains a 224px clear opening; hidden Archive entrance readable but subtle. Claude owns runtime flow-field navigation and locked-area spawn filtering.
    - [x] Stage 2A first art batch: 13 prop/poster families, 31 colorways, native hero/Bill comparisons, manifest and gate-clearance study. Review in the Art Room.
    - [x] Stage 2B: 12 literal-slang/landmark families, 24 colorways. Total kit now 25 families and 55 colorways, with batch filters and native comparisons. New batch is art-only; Claude's current-office integration and navigation are preserved.
-   - [ ] Finish the remaining Stage 2 kit, reusing existing art where possible: 47 families still need completion, plus modular floor/boundary delivery and district assembly. Runtime gate animation and 350-enemy tests wait for integration.
+   - [x] Stage 2C and start-area slice: eight new prop families, corrected ducks, static coworkers, 35 desks in five clusters, dressed floors, modular boundaries and two closed 224px promotion doors. Total kit: 33 families, 79 colorways. V. 1.31.0.
+   - [ ] Rami plays the Lobby/Bullpen before other districts are built. Remaining 39 prop families, animated coworkers and future promotion opening stay parked. Claude owns gate opening/navigation.
 5c. [x] **Enemy navigation (V. 1.29.0):** flow field so swarms walk around furniture and through doorways; spawns avoid furniture and unreachable (locked) areas. Gates hook in via `window.navExtraBlockers`.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
@@ -168,6 +169,7 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### Stage Pass: authored overworld (Nov 1, Codex)
 - [x] Stage 1: illustrated nine-district campus and Parking Lot camera study in the Art Room, with a measured 7680x4320 proposal and clear routes/plazas (V. 1.28.16).
 - [ ] Rami approves district layout, landmark direction and Parking Lot concept. Stop here until approval.
-- [ ] Stage 2: native props/posters and review page.
+- [x] Start-area Stage 2 kit and review page. Remaining district props wait for feedback.
 - [ ] Stage 3: ambient coworker idle sheets and review page.
-- [ ] Stage 4: authored wrapping overworld, explored-path map and age-50 crowd/performance checks.
+- [x] Stage 4 start-area slice only: authored Lobby/Bullpen, closed gates, age-50 and crowd checks.
+- [ ] Full campus, gate opening, wrapping and explored-path map after Rami plays.

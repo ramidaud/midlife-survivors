@@ -3,7 +3,7 @@ from pathlib import Path
 import json,base64,hashlib,struct,re
 R=Path(__file__).resolve().parent
 specs=[]
-for brief in sorted(R.glob('batch-2[ab].json')):
+for brief in sorted(R.glob('batch-2[abc].json')):
  for s in json.loads(brief.read_text()):
   s['batch']=brief.stem.replace('batch-','');specs.append(s)
 kit=json.loads((R.parent/'campus-kit-plan.json').read_text())
@@ -32,8 +32,8 @@ for s in specs:
  if s['id']=='gate_hidden_cabinet':a['notes']='FILES is the short clue. Repeat as a cabinet facade; retract every door leaf fully outside the 224px opening.'
  a['integrationStatus']='registered-in-current-office' if s['id'] in registered else 'not-registered'
  assets.append(a)
-manifest=dict(batch='stage-2-props-posters',status='stage-2b-ready-for-review',families=len(assets),colorways=sum(a['variants'] for a in assets),plannedFamilies=72,remainingFamilies=72-len(assets),palette=['#'+c for c in ['171c35','303750','526078','3e7775','83a89a','a88b70','d3b78d','f2d7a1','fff0cf','874c3b','c45c4b','ef9347','e5a995','f1b5bf','bfa8cf','b97a58','70402f']],background='#FF00FF',assets=assets,productionIntegrated=False,runtimeOwner='Claude: flow-field navigation and locked-area spawn filtering',generation='built-in-imagegen',export='nearest-neighbor native sampling, palette normalization, one-pixel navy silhouette, controlled palette colorways',review='review.html')
-manifest['integration']={'registeredFamilies':[a['id'] for a in assets if a['id'] in registered],'unregisteredFamilies':[a['id'] for a in assets if a['id'] not in registered],'basis':'Current src/data/stage-props.js family registry, read only. Runtime integration belongs to Claude.'}
+manifest=dict(batch='stage-2-props-posters',status='start-area-kit-complete',families=len(assets),colorways=sum(a['variants'] for a in assets),plannedFamilies=72,remainingFamilies=72-len(assets),palette=['#'+c for c in ['171c35','303750','526078','3e7775','83a89a','a88b70','d3b78d','f2d7a1','fff0cf','874c3b','c45c4b','ef9347','e5a995','f1b5bf','bfa8cf','b97a58','70402f']],background='#FF00FF',assets=assets,productionIntegrated=True,runtimeOwner='Claude: flow-field navigation and locked-area spawn filtering',generation='built-in-imagegen',export='nearest-neighbor native sampling, palette normalization, one-pixel navy silhouette, controlled palette colorways',review='review.html')
+manifest['integration']={'registeredFamilies':[a['id'] for a in assets if a['id'] in registered],'unregisteredFamilies':[a['id'] for a in assets if a['id'] not in registered],'basis':'Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes.'}
 (R/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 second={**manifest,'batch':'stage-2b-slang-landmarks','assets':[a for a in assets if a['batch']=='2b']}
 second.update(families=len(second['assets']),colorways=sum(a['variants'] for a in second['assets']),totalReadyFamilies=len(assets),totalColorways=manifest['colorways'])
@@ -44,8 +44,18 @@ for a in second['assets']:
  if a['solid']:family['footprint']=a['footprint']
  candidate['families'][a['id']]=family;candidate['captions'][a['id']]=a['caption']
 (R/'integration-2b.json').write_text(json.dumps(candidate,indent=2)+'\n')
+third={**manifest,'batch':'stage-2c-start-area-props','assets':[a for a in assets if a['batch']=='2c']}
+third.update(families=len(third['assets']),colorways=sum(a['variants'] for a in third['assets']))
+(R/'manifest-2c.json').write_text(json.dumps(third,indent=2)+'\n')
 embedded=json.loads(json.dumps(manifest))
 for a in embedded['assets']:a['src']='data:image/png;base64,'+base64.b64encode((R/a['file']).read_bytes()).decode()
+# Static coworker is reviewed separately, outside the planned 72 prop families.
+worker=json.loads((R/'batch-placeholder.json').read_text())[0]
+worker.update(batch='placeholder',padding=2,caption='Just resting my eyes while the big spreadsheet saves.',status='static-placeholder',frameCount=worker['variants'],framePurpose='colorways-not-animation',notes='Static upper body is cropped behind desks in the slice. Final coworker animation is deferred.',size=[worker['frame'][0]*worker['variants'],worker['frame'][1]])
+worker.pop('prompt',None)
+(R/'manifest-placeholder.json').write_text(json.dumps(dict(palette=manifest['palette'],assets=[worker]),indent=2)+'\n')
+worker['src']='data:image/png;base64,'+base64.b64encode((R/worker['file']).read_bytes()).decode()
+embedded['assets'].append(worker)
 embedded['floors']={id:'data:image/png;base64,'+base64.b64encode((R.parent.parent/'office-environment'/(id+'-native.png')).read_bytes()).decode() for id in ['carpet','wood']}
 (R/'review-data.js').write_text('window.STAGE_PROPS = '+json.dumps(embedded,separators=(',',':'))+';\n')
 plan=json.loads((R.parent/'campus-layout-v2.json').read_text());gates=[]

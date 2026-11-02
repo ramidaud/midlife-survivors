@@ -414,3 +414,8 @@ New metadata distinguishes floor decor from wall decor. Touch Base stays non-sol
 Claude's V. 1.29.0 navigation and V. 1.29.1 first-batch integration are retained. New 2B art is unplaced, and 47 families remain to complete. All proposed gate openings stay 224px clear. The 7680x4320 campus replacement, remaining floor/boundary kit and new-world crowd tests remain later work.
 
 The values-wall footprint uses width 144, back 44 and front 3 after checking its angled base against the hero. Gallery contact shadows follow the lower silhouette rather than a detached rectangle; native PNGs retain no baked shadows.
+
+## Playable start area (V. 1.31.0, Nov 1, Codex)
+Rami approved switching from completing the whole kit to a Lobby/Bullpen vertical slice. Both areas open at age 40; only these two district floors exist. Reception, values wall, waiting furniture, vending/lost-and-found, birthday banner, coat rack, varied desk neighborhoods and static coworkers are placed. One duck in the reception tray is visibly out of line. Floor stories are non-solid so the fighting reserves remain open.
+
+The shared connection is broad and open-plan with protected 224px routes; promotion doors remain exactly 224px across. Both age-45 gates stay closed through this slice, with the future age schedule stored as data. The subtle FILES cabinet is a clue only. Claude owns future gate opening and navigation. Other district floors, full coworker animations and map/wrapping features wait for Rami to play. Original balance numbers and Claude's Close Calls, flash banners and telemetry remain intact.

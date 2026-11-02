@@ -31,7 +31,7 @@
  const note=document.createElement('p');note.textContent=s.notes;
  card.append(title,meta,scroll,controls,approach,note,links);$('gallery').append(card);
  }
- function applyFilter(){document.querySelectorAll('.card').forEach(c=>c.hidden=($('filter').value!=='all'&&c.dataset.category!==$('filter').value)||($('batch').value!=='all'&&c.dataset.batch!==$('batch').value));const count=[...document.querySelectorAll('.card')].filter(c=>!c.hidden).length;$('results').textContent=count?`Showing ${count} families.`:'No matching props in this batch. Choose another category or All 25 families.';}
+ function applyFilter(){document.querySelectorAll('.card').forEach(c=>c.hidden=($('filter').value!=='all'&&c.dataset.category!==$('filter').value)||($('batch').value!=='all'&&c.dataset.batch!==$('batch').value));const count=[...document.querySelectorAll('.card')].filter(c=>!c.hidden).length;$('results').textContent=count?`Showing ${count} families.`:'No matching props in this batch. Choose another category or All 33 families.';}
  $('filter').onchange=applyFilter;$('batch').onchange=()=>{$('filter').value='all';applyFilter();};applyFilter();
  $('scale').onchange=()=>document.querySelectorAll('#gallery canvas').forEach(c=>{c.style.width=320*Number($('scale').value)+'px';c.style.height=208*Number($('scale').value)+'px';});
  $('floor').onchange=redraw;$('footprints').onchange=redraw;$('gate-type').onchange=gate;$('gate-open').onchange=gate;$('reset-captions').onclick=()=>{seen.clear();$('tip').hidden=true;$('tip').textContent='Caption demo reset. Approach a prop to read its joke.';};

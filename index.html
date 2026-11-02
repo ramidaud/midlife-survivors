@@ -17,7 +17,14 @@
 <meta name="twitter:image" content="https://ramidaud.github.io/midlife-survivors/assets/share/game.jpg">
 <meta name="twitter:image:alt" content="Pixel-art office lobby at 8:59 AM: a tired office worker punches in while Bills and a spam phone press against the glass doors.">
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
-<script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>
+if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
+  var gc = document.createElement("script");
+  gc.dataset.goatcounter = "https://midlifesurvivors.goatcounter.com/count";
+  gc.async = true; gc.src = "https://gc.zgo.at/count.js";
+  document.head.appendChild(gc);
+}
+</script>
 <link rel="icon" href="favicon.png?v=clock-1" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=clock-1">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1065,7 +1072,7 @@
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=77&t=" + Date.now();
+    s.src = "src/loader.js?v=83&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

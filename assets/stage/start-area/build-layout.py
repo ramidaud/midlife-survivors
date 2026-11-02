@@ -28,7 +28,7 @@ lanes=set()
 for route in P['internalRoutes']:
  if route['district'] not in ['lobby','bullpen']:continue
  for (a,b),(c,d) in zip(route['points'],route['points'][1:]):lanes|=rectcells(dict(x=min(a,c)-112,y=min(b,d)-112,width=abs(c-a)+224,height=abs(d-b)+224))
-# The two shared-wall passages remain full 224px openings.
+# Two protected 224px routes pass through a broad, open-plan shared connection.
 for y in [2112,2624]:lanes|=rectcells(dict(x=4208,y=y-112,width=640,height=224))
 protected=reserves|lanes;placements=[];occupied=[]
 def overlap(a,b,gap=0):return a['x']<b['x']+b['width']+gap and a['x']+a['width']+gap>b['x'] and a['y']<b['y']+b['height']+gap and a['y']+a['height']+gap>b['y']
@@ -95,7 +95,7 @@ placements.append(dict(id='ducks-on-reception',prop='duck_row',x=host['x']+24,y=
 # Workers are explicit static placeholders seated at existing solid furniture.
 workers=[]
 for i,p in enumerate([p for p in placements if p['prop'].startswith('desk_') or p['prop']=='reception_counter']):
- if i%2==0:workers.append(dict(id='worker-'+str(len(workers)),host=p['id'],x=p['x']-8,y=p['y']-16,variant=len(workers)%3,cropHeight=34,depthY=p['y']+1))
+ if i%2==0:workers.append(dict(id='worker-'+str(len(workers)),host=p['id'],x=p['x']+(56 if p['prop']=='reception_counter' else -8),y=p['y']-68,variant=len(workers)%3,cropHeight=34,depthY=p['y']-1))
 # Collect outer boundary edges and merge contiguous collinear cells.
 edges={}
 for x,y in walk:
@@ -116,7 +116,7 @@ for (axis,line,side),values in edges.items():
   if v!=last+C:wall(axis,line,start,last+C,side);start=v
   last=v
  wall(axis,line,start,last+C,side)
-for a,b in [(1856,2000),(2224,2512),(2736,2816)]:walls.append(dict(id='partition-'+str(a),axis='y',side='w',x=4472,y=a,width=16,height=b-a))
+for a,b in [(1856,2000),(2736,2816)]:walls.append(dict(id='partition-'+str(a),axis='y',side='w',x=4472,y=a,width=16,height=b-a))
 gates=[dict(id='parking-access',name='Parking Lot',age=45,x=2144,y=1616,width=128,height=224,clearWidth=224,closed=True),dict(id='break-access',name='Break Room',age=45,x=2144,y=2816,width=128,height=224,clearWidth=224,closed=True)]
 # Rectangle decomposition keeps floors on shared seamless 64px tiles, not a painted map.
 floors=[]
@@ -134,7 +134,9 @@ def local(r):
  if 'y' in r:r['y']-=O[1]
  if 'depthY' in r:r['depthY']-=O[1]
  return r
-result=dict(id='lobby-bullpen-slice',version=1,origin=O,spawn=[0,2152-O[1]],bounds=dict(x=2112-O[0],y=1296-O[1],width=5280,height=2016),districts=[dict(id=d['id'],name=d['name'],polygon=[[x-O[0],y-O[1]] for x,y in d['polygon']]) for d in D],floors=list(map(local,floors)),walls=list(map(local,walls)),gates=list(map(local,gates)),placements=list(map(local,placements)),workers=list(map(local,workers)),assetSpecs={id:{k:v for k,v in specs[id].items() if k in ['id','frame','file','footprint','variants','solid','mount','caption']} for id in {p['prop'] for p in placements}},clearSpaces=[r for r in P['combatSpaces'] if r['district'] in ['lobby','bullpen']],maxVisibleProps=120,routeWidth=224,gateOwnership='Closed physical fixtures only; Claude owns opening/navigation integration. No other district floors exist in this slice.',tour={'Lobby':[0,-296],'Hallway':[2608-O[0],1984-O[1]],'Bullpen':[5400-O[0],2060-O[1]],'Goals':[6624-O[0],2400-O[1]],'Parking gate':[2420-O[0],1728-O[1]]})
+schedule=json.loads((R.parent/'campus-promotions.json').read_text());schedule['status']='embedded-schedule-gates-held-closed';schedule['slicePolicy']='Only Lobby/Bullpen are built. Gates stay closed until destination districts exist and Claude enables opening.'
+(R/'promotions.json').write_text(json.dumps(schedule,indent=2)+'\n')
+result=dict(promotions=schedule,id='lobby-bullpen-slice',version=1,origin=O,spawn=[0,2152-O[1]],bounds=dict(x=2112-O[0],y=1296-O[1],width=5280,height=2016),districts=[dict(id=d['id'],name=d['name'],polygon=[[x-O[0],y-O[1]] for x,y in d['polygon']]) for d in D],floors=list(map(local,floors)),walls=list(map(local,walls)),gates=list(map(local,gates)),placements=list(map(local,placements)),workers=list(map(local,workers)),assetSpecs={id:{k:v for k,v in specs[id].items() if k in ['id','frame','file','footprint','variants','solid','mount','caption']} for id in {p['prop'] for p in placements}},clearSpaces=[r for r in P['combatSpaces'] if r['district'] in ['lobby','bullpen']],maxVisibleProps=120,routeWidth=224,gateOwnership='Closed physical fixtures only; Claude owns opening/navigation integration. No other district floors exist in this slice.',tour={'Lobby':[0,-296],'Hallway':[2608-O[0],1984-O[1]],'Bullpen':[5400-O[0],2060-O[1]],'Goals':[6624-O[0],2400-O[1]],'Parking gate':[2420-O[0],1728-O[1]]})
 (R/'layout.json').write_text(json.dumps(result,indent=2)+'\n')
 repo=R.parents[2]
 (repo/'src/data/start-area.js').write_text('window.USE_START_AREA = true;\nwindow.START_AREA_LAYOUT = '+json.dumps(result,separators=(',',':'))+';\n')

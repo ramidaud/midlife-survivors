@@ -412,3 +412,16 @@ The sprite you see, the "size" number in a data file and the physics box that de
 
 ## Put messages where the eyes are (V. 1.30.2)
 In a fast game, players stare at their character. Anything that changes the fight (a boss, a penalty, a power-up) needs to appear close to the action, in two or three big words. Long sentences can live at the edge of the screen for anyone who wants the details. Ben's playtest proved the bottom bar alone was too far away.
+
+## Vertical slice (V. 1.31.0, Codex)
+A vertical slice finishes a small playable part of the game all the way through. Our Lobby and Bullpen combine final-sized props, floors, collision, enemies and captions so Rami can judge how they feel together. Testing those two areas catches scale and movement problems before they spread across nine districts. Reusable tiles and prop IDs let us rearrange the slice without painting a new map.
+
+```text
+64px tiles + prop IDs + floor footprints
+                    |
+        playable Lobby and Bullpen
+                    |
+       Rami plays and gives feedback
+                    |
+          build the next district
+```

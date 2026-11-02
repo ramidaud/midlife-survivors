@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "districts": 2,
+  "props": 63,
+  "desks": 35,
+  "staticWorkers": 18,
+  "solidBodies": 132,
+  "doorwayWidth": 224,
+  "closedGates": 2,
+  "reachableFloorCells": 27316,
+  "allTourPointsReachable": true,
+  "maxVisibleProps": 120
+}

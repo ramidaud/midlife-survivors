@@ -1,0 +1,379 @@
+{
+  "batch": "stage-2c-start-area-props",
+  "status": "start-area-kit-complete",
+  "families": 8,
+  "colorways": 24,
+  "plannedFamilies": 72,
+  "remainingFamilies": 39,
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "background": "#FF00FF",
+  "assets": [
+    {
+      "id": "reception_counter",
+      "name": "Please wait reception",
+      "category": "furniture",
+      "frame": [
+        160,
+        112
+      ],
+      "footprint": {
+        "width": 144,
+        "back": 46,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "lobby",
+      "variants": 3,
+      "source": "reception_counter-source-v1.png",
+      "file": "reception_counter-v1.png",
+      "caption": "Please wait to be ignored. Someone will circle back shortly.",
+      "batch": "2c",
+      "size": [
+        480,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 109
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "2258b313cd2c1893022faeb99a8e755484af25d9b26b6feadffc1f9311c17a81",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "vending_machine",
+      "name": "Emergency snacks",
+      "category": "furniture",
+      "frame": [
+        80,
+        128
+      ],
+      "footprint": {
+        "width": 58,
+        "back": 36,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "lobby",
+      "variants": 3,
+      "source": "vending_machine-source-v1.png",
+      "file": "vending_machine-v1.png",
+      "caption": "Emergency snacks. The emergency is the afternoon.",
+      "batch": "2c",
+      "size": [
+        240,
+        128
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 125
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "bb20a535b26ef96368e7c6815a59eb679cfd404fefd10e0b6ed1c9e418ab24b1",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "sofa",
+      "name": "Lobby waiting sofa",
+      "category": "furniture",
+      "frame": [
+        120,
+        80
+      ],
+      "footprint": {
+        "width": 98,
+        "back": 30,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "lobby",
+      "variants": 3,
+      "source": "sofa-source-v1.png",
+      "file": "sofa-v1.png",
+      "caption": "Take a seat. The meeting is running a little over.",
+      "batch": "2c",
+      "size": [
+        360,
+        80
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 60.0,
+        "y": 77
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "9f2bdb03c2ba0696bc6590189f3b013bae414cba3e3688ba098e63fb30e34a12",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "lost_found",
+      "name": "Lost and found bin",
+      "category": "ambient",
+      "frame": [
+        80,
+        72
+      ],
+      "footprint": {
+        "width": 60,
+        "back": 24,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "lobby",
+      "variants": 3,
+      "source": "lost_found-source-v1.png",
+      "file": "lost_found-v1.png",
+      "caption": "Lost and found. Mostly chargers, optimism and one very good scarf.",
+      "batch": "2c",
+      "size": [
+        240,
+        72
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 69
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "015073fd1e80cfe835c6346b70977000d8b525e96f60c9ac42266b5399866b13",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "water_cooler",
+      "name": "Water cooler gossip spot",
+      "category": "furniture",
+      "frame": [
+        64,
+        104
+      ],
+      "footprint": {
+        "width": 38,
+        "back": 24,
+        "front": 3
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "bullpen",
+      "variants": 3,
+      "source": "water_cooler-source-v1.png",
+      "file": "water_cooler-v1.png",
+      "caption": "The water is filtered. The gossip is not.",
+      "batch": "2c",
+      "size": [
+        192,
+        104
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 101
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "ca3038a0c6d1a0d710c834fb22259c34af4622ca6a9d86acc4f43763149a34bb",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "birthday_banner",
+      "name": "Another year somehow",
+      "category": "ambient",
+      "frame": [
+        128,
+        48
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "mount": "wall",
+      "district": "lobby",
+      "variants": 3,
+      "source": "birthday_banner-source-v1.png",
+      "file": "birthday_banner-v1.png",
+      "caption": "Another year somehow. The cake is in a meeting.",
+      "batch": "2c",
+      "size": [
+        384,
+        48
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 45
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "d2c165cfd7c8af6814f6f36090b4f42abaee5056bf1e8589b0ceddfca1419a5d",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "trash_recycle",
+      "name": "Two kinds of paperwork",
+      "category": "ambient",
+      "frame": [
+        64,
+        64
+      ],
+      "footprint": {
+        "width": 48,
+        "back": 20,
+        "front": 3
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "bullpen",
+      "variants": 3,
+      "source": "trash_recycle-source-v1.png",
+      "file": "trash_recycle-v1.png",
+      "caption": "Please separate the paperwork from the more optimistic paperwork.",
+      "batch": "2c",
+      "size": [
+        192,
+        64
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 61
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "5846e6763368bd6c32c71d3500d9b12bd43c2fe486d08f185561014ffd2f3a30",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "coat_rack",
+      "name": "Coat still at work",
+      "category": "ambient",
+      "frame": [
+        64,
+        112
+      ],
+      "footprint": {
+        "width": 34,
+        "back": 20,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "district": "lobby",
+      "variants": 3,
+      "source": "coat_rack-source-v1.png",
+      "file": "coat_rack-v1.png",
+      "caption": "The coat has already put in its eight hours.",
+      "batch": "2c",
+      "size": [
+        192,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 109
+      },
+      "status": "ready-for-stage-2c-review",
+      "sha256": "f2f64ff671363f3de14aa34e013a510da34a2c6cc4c61ed7515c0579f802fd44",
+      "shadow": "code-contact-only",
+      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "integrationStatus": "registered-in-current-office"
+    }
+  ],
+  "productionIntegrated": true,
+  "runtimeOwner": "Claude: flow-field navigation and locked-area spawn filtering",
+  "generation": "built-in-imagegen",
+  "export": "nearest-neighbor native sampling, palette normalization, one-pixel navy silhouette, controlled palette colorways",
+  "review": "review.html",
+  "integration": {
+    "registeredFamilies": [
+      "desk_sticky_notes",
+      "desk_family_photo",
+      "desk_2009",
+      "kpi_frame",
+      "car_compact",
+      "wheel_boot",
+      "gate_hidden_cabinet",
+      "hang_cat_high",
+      "hang_branch",
+      "opportunity",
+      "perseverance",
+      "sign_plate",
+      "roundabout",
+      "gauge",
+      "fruit_tree",
+      "kiddie_pool",
+      "baseball_base",
+      "ocean_pot",
+      "duck_row",
+      "goal_dollies",
+      "hard_stop",
+      "offline_lamp",
+      "goals_board",
+      "giant_logo",
+      "reception_counter",
+      "vending_machine",
+      "sofa",
+      "lost_found",
+      "water_cooler",
+      "birthday_banner",
+      "trash_recycle",
+      "coat_rack"
+    ],
+    "unregisteredFamilies": [
+      "gate_keycard"
+    ],
+    "basis": "Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes."
+  }
+}

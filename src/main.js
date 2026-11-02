@@ -1492,6 +1492,11 @@ function createEnemy(scene, kind, x, y) {
     if (!spot) return null;
     [x, y] = spot;
   }
+  if (scene.worldArt && scene.worldArt.startArea) {
+    const spot = scene.worldArt.startArea.resolveSpawn(x, y);
+    if (!spot) return null;
+    [x, y] = spot;
+  }
   if (window.firstTimeTip) window.firstTimeTip(kind);
   const E = ENEMIES[kind];
   const e = bills.create(x, y, E.tex || kind).setDepth(4);
@@ -1615,6 +1620,10 @@ function spawnBoss(scene, bossKind) {
   const P = ENEMIES[bossKind], view = scene.cameras.main.worldView;
   let x = view.right + SPAWNING.offscreenMargin, y = player.y;
   if (window.NAV) { const spot = window.NAV.fixSpawn(x, y); if (spot) [x, y] = spot; } // bosses still always arrive
+  if (scene.worldArt && scene.worldArt.startArea) {
+    const spot = scene.worldArt.startArea.resolveSpawn(x, y);
+    if (spot) [x, y] = spot;
+  }
   const boss = bills.create(x, y, P.tex || bossKind).setDepth(4);
   const isEnd = bossKind === "theReaper", m = modeCfg();
   const label = (isEnd && m.endBossLabel) || P.label, bossName = (isEnd && m.endBossName) || P.name;

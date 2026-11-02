@@ -1603,3 +1603,16 @@ Fairness rules that stop cheating:
 - The enemy has to be *moving toward you*. Running past a parked enemy doesn't count.
 - If you're standing still, the enemy needs a clear path (the flow field checks this). Hiding behind a desk while enemies circle earns nothing.
 - XP from Close Calls caps at 6 per 10 seconds, so gems are still the main way to level.
+
+## Vertical slice (V. 1.31.0, Codex)
+A vertical slice finishes a small playable part of the game all the way through. Our Lobby and Bullpen combine final-sized props, floors, collision, enemies and captions so Rami can judge how they feel together. Testing those two areas catches scale and movement problems before they spread across nine districts. Reusable tiles and prop IDs let us rearrange the slice without painting a new map.
+
+```text
+64px tiles + prop IDs + floor footprints
+                    |
+        playable Lobby and Bullpen
+                    |
+       Rami plays and gives feedback
+                    |
+          build the next district
+```

@@ -1,0 +1,54 @@
+{
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "assets": [
+    {
+      "id": "coworker_placeholder",
+      "name": "Static coworker placeholder",
+      "category": "ambient",
+      "frame": [
+        48,
+        56
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "mount": "floor",
+      "district": "bullpen",
+      "variants": 3,
+      "source": "coworker_placeholder-source-v1.png",
+      "file": "coworker_placeholder-v1.png",
+      "caption": "Just resting my eyes while the big spreadsheet saves.",
+      "batch": "placeholder",
+      "padding": 2,
+      "status": "static-placeholder",
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "notes": "Static upper body is cropped behind desks in the slice. Final coworker animation is deferred.",
+      "size": [
+        144,
+        56
+      ]
+    }
+  ]
+}
