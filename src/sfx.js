@@ -6,12 +6,19 @@ let lastSpokenAt = 0;
 
 function unlockAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if (audioCtx.state === "suspended") audioCtx.resume();
+  // iPhones use an "interrupted" state (calls, Siri, app switching), not just "suspended": wake it either way.
+  if (audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {});
+  // iOS 17+: play game audio even when the ringer switch is on silent, like other games do.
+  try { if (navigator.audioSession && navigator.audioSession.type !== "playback") navigator.audioSession.type = "playback"; } catch (e) {}
   if (window.speechSynthesis && window.speechSynthesis.getVoices) {
     window.speechSynthesis.getVoices();
   }
 }
-["keydown", "pointerdown", "touchstart"].forEach(ev => window.addEventListener(ev, unlockAudio));
+["keydown", "pointerdown", "touchstart", "touchend", "click"].forEach(ev => window.addEventListener(ev, unlockAudio));
+// Coming back to the tab (or the phone unlocking) can leave audio asleep: try to wake it.
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden && audioCtx && audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {});
+});
 
 function toggleMute() {
   muted = !muted;
@@ -29,6 +36,7 @@ function isVoiceEnabled() { return voiceEnabled; }
 
 function setMusicPlaying(on) {
   musicPlaying = on;
+  if (on && audioCtx && audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {}); // a run starting is a good moment to wake the audio
   if (!on && window.speechSynthesis) window.speechSynthesis.cancel();
 }
 

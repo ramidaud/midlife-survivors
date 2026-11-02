@@ -735,3 +735,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - GoatCounter visit counts on the game, devlog, posts, About, Art Room and links page, plus game events (run start, died, cleared, reached 45/50/55/60/65).
 - One anonymous row per run in a new Supabase `runs` table: length, age, score, character, killer, device, version, Close Calls. The table only accepts new rows; Rami reads it in the dashboard (docs/sql/STATS_QUERIES.sql).
 - Privacy note added to the About page. Agents must test with `?nostats=1`.
+
+## 2026-11-01: Playtest fixes from Ben and T.J., V. 1.30.2
+- Dad Joke buff: enemies in the circle stop to groan (0.65s) and stagger back; radius 110 to 130, every 2.3s instead of 2.6s. Bosses only take damage.
+- New center flash banner for bosses, the Comfort Zone Tax and power-ups (short words near the player); the full sentence still goes to the bottom bar.
+- Lost-controls-after-shop: couldn't reproduce in 5 paths (mouse, keyboard, buying, resume). Added a full input reset at every run start. Waiting on Ben's exact steps and browser.
+- Music: wakes iPhone "interrupted" audio, plays with the ringer on silent (iOS 17+), and retries when you return to the tab.

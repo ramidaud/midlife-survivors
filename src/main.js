@@ -156,8 +156,23 @@ function updateDynamicIntensity() {
   if (runElapsedMs >= dyn.comfortUntil && runElapsedMs > dyn.mercyUntil && runElapsedMs - Math.max(dyn.lastHitAt, D.armAfterMs - D.noHitBonusAfterMs) > D.noHitBonusAfterMs) {
     dyn.comfortUntil = runElapsedMs + D.bonusDurationMs;
     dyn.lastHitAt = runElapsedMs + D.bonusDurationMs; // the next tax needs another 45 s of no hits after this one
-    if (window.showLowerThird) window.showLowerThird("alert", "COMFORT ZONE TAX", "Too comfortable. More of everything for 20 seconds.", 4000);
+    if (window.showLowerThird) window.showLowerThird("alert", "COMFORT ZONE TAX", "Too comfortable. More of everything for 20 seconds.", 4000, "MORE ENEMIES · 20s");
   }
+}
+// Start every run with clean controls: nothing "stuck" from menus, the name box or a previous run.
+// (Playtest report: no control input after visiting the 401(k) Shop and returning to the game.)
+function resetInputState(scene) {
+  try { const a = document.activeElement; if (a && a !== document.body && a.blur) a.blur(); } catch (e) {}
+  window._heldKeys.clear();
+  window.menuHeldAtOpen = new Set();
+  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
+  mouseState.leftDown = false; mouseState.rightDown = false;
+  if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
+  if (scene && scene.input) {
+    scene.input.enabled = true;
+    if (scene.input.keyboard) { scene.input.keyboard.enabled = true; scene.input.keyboard.resetKeys(); }
+  }
+  window._activeGameScene = scene || window._activeGameScene;
 }
 const dynPackAdd = () => (runElapsedMs < dyn.comfortUntil ? ((INTENSITY.dynamic || {}).bonusPackAdd || 0) : 0);
 const dynSpawnMult = () => (runElapsedMs < dyn.mercyUntil ? ((INTENSITY.dynamic || {}).mercySpawnSlow || 1) : 1);
@@ -647,6 +662,7 @@ function create() {
     showTitleScreen(this);
   } else {
     beginFreshRunAtDecade(this);
+    resetInputState(this);
     if (window.Telemetry) window.Telemetry.runStarted(false);
     setMusicPlaying(true);
   }
@@ -820,7 +836,7 @@ let buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuum
 window.startBuff = (type, mult, durMs, label) => {
   buffs[type + "Until"] = runElapsedMs + durMs;
   buffs[type + "Mult"] = mult;
-  if (window.showLowerThird) window.showLowerThird("reward", label, `${type === "speed" ? "Faster feet" : "Extra damage"} for ${Math.round(durMs / 1000)} seconds.`, 3500);
+  if (window.showLowerThird) window.showLowerThird("reward", label, `${type === "speed" ? "Faster feet" : "Extra damage"} for ${Math.round(durMs / 1000)} seconds.`, 3500, `${type === "speed" ? "FASTER" : "MORE DAMAGE"} · ${Math.round(durMs / 1000)}s`);
 };
 
 function itemTexture(scene, kind) {
@@ -856,7 +872,7 @@ window.itemEffect = (kind, quiet) => {
     sc.cameras.main.flash(250, 120, 220, 160);
     bills.getChildren().slice().forEach(b => { if (b.active && !b.isBoss) { b.ghost = false; damageBill(b, 9999); } });
   }
-  if (!quiet && window.showLowerThird) window.showLowerThird("reward", FIELD_ITEMS[kind].name.toUpperCase(), FIELD_ITEMS[kind].text, 4000);
+  if (!quiet && window.showLowerThird) window.showLowerThird("reward", FIELD_ITEMS[kind].name.toUpperCase(), FIELD_ITEMS[kind].text, 4000, FIELD_ITEMS[kind].short || "");
 };
 
 function collectFieldItem(p, it) {
@@ -927,6 +943,7 @@ function showTitleScreen(scene) {
     scene.physics.resume();
     scene.time.paused = false;
     setMusicPlaying(true);
+    resetInputState(scene);
     if (window.Telemetry) window.Telemetry.runStarted(true);
   };
 
@@ -939,6 +956,7 @@ function showTitleScreen(scene) {
     startFromTitle = null;
     hideTitleModal();
     beginFreshRunAtDecade(scene);
+    resetInputState(scene);
     if (window.Telemetry) window.Telemetry.runStarted(false); // anonymous play stats (src/telemetry.js)
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
@@ -1361,7 +1379,14 @@ function fireDadJoke(scene) {
   }
 
   bills.getChildren().slice().forEach(bill => {
-    if (Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y) <= r) {
+    const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
+    if (d <= r) {
+      // The groan: everyone in range stops to cringe for a moment and staggers back (bosses just take the damage).
+      if (!bill.isBoss && d > 0) {
+        bill.cringeUntil = runElapsedMs + (J.cringeMs || 0);
+        const push = J.pushSpeed || 0;
+        bill.setVelocity((bill.x - player.x) / d * push, (bill.y - player.y) / d * push);
+      }
       damageBill(bill, stats.jokeDamage);
     }
   });
@@ -1607,7 +1632,7 @@ function spawnBoss(scene, bossKind) {
   if (window.pushContextEvent) {
     if (isEnd && m.endBossLabel) window.showLowerThird("win", `AGE ${Math.round(modeEndAge())}`, m.endText, 7000);
     else if (isEnd) window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);
-    else window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500);
+    else window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500, P.name.toUpperCase());
   }
 }
 
@@ -1875,6 +1900,13 @@ function update(time, delta) {
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;
     const ageMs = now - (bill.bornAt || now);
+
+    // 0. Groaning at a Dad Joke: stagger back and stand there for a moment, then carry on.
+    if (bill.cringeUntil && now < bill.cringeUntil) {
+      bill.setVelocity(bill.body.velocity.x * 0.9, bill.body.velocity.y * 0.9);
+      if (bill.tag) bill.tag.setPosition(bill.x, bill.y - ((ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24) / 2 - 6);
+      return;
+    }
 
     // 1. Unpaid Bills turn red and split into two fast Late Fees after 9 seconds!
     if (bill.kind === "bill" && ageMs > ENEMIES.bill.overdueAfterMs) {

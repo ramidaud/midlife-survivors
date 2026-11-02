@@ -270,6 +270,8 @@ function initGameUI(scene) {
     </div>
 
     <!-- CLEAN SCREEN HUD (Objective 1): XP bar, age, coins, loadout, pause/mute -->
+    <!-- Center flash: big, short notices for things that change the fight (boss, Comfort Zone Tax, buffs). -->
+    <div class="center-flash hidden" id="center-flash" aria-live="polite"><div class="cf-title"></div><div class="cf-sub"></div></div>
     <div class="vs-hud hidden" id="vs-hud">
       <div class="vs-xp"><div class="vs-xp-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
       <div class="vs-row">
@@ -643,7 +645,22 @@ setInterval(() => {
   }
 }, 100);
 
-window.showLowerThird = function(kind, badge, text, ms = 4500) {
+// Big, short notice near the middle of the screen, so players never have to look away from the fight.
+// (Playtest: the bottom bar is too far from the action to read mid-run.) The full sentence still goes to the bottom bar.
+let cfTimer = null;
+window.flashBanner = function(title, sub, kind) {
+  const el = document.getElementById("center-flash");
+  if (!el) return;
+  el.querySelector(".cf-title").textContent = title;
+  el.querySelector(".cf-sub").textContent = sub || "";
+  el.dataset.kind = kind || "alert";
+  el.classList.remove("hidden", "cf-go"); void el.offsetWidth; el.classList.add("cf-go");
+  clearTimeout(cfTimer);
+  cfTimer = setTimeout(() => el.classList.add("hidden"), 1900);
+};
+
+window.showLowerThird = function(kind, badge, text, ms = 4500, short) {
+  if ((kind === "alert" || kind === "reward") && window.flashBanner) window.flashBanner(badge, short, kind);
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
   const cur = ltState.current;
   if (!cur) return ltShowNow(msg);

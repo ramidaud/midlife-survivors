@@ -867,6 +867,16 @@
   .vs-score { font-size: 12px; color: #ffffff; font-weight: 700; text-shadow: 2px 2px 0 #000; margin-bottom: 3px; font-variant-numeric: tabular-nums; }
   .vs-timer { font-size: 22px; font-weight: 700; color: #ffffff; text-shadow: 2px 2px 0 #000; text-align: center; font-variant-numeric: tabular-nums; letter-spacing: 1px; }
   .vs-timer-final { color: #ff6b7f; }
+  /* Center flash: big short notices (boss, Comfort Zone Tax, buffs) placed just above the player */
+  .center-flash { position: fixed; left: 50%; top: 30%; transform: translate(-50%, -50%); z-index: 60; pointer-events: none; text-align: center;
+    font-family: "Silkscreen", monospace; text-shadow: 3px 3px 0 #171C35, -1px -1px 0 #171C35; }
+  .center-flash .cf-title { font-size: clamp(16px, 4.6vw, 34px); color: #EF9347; letter-spacing: 1px; line-height: 1.05; }
+  .center-flash .cf-sub { font-size: clamp(12px, 3vw, 16px); color: #FFF0CF; margin-top: 4px; letter-spacing: 1px; }
+  .center-flash[data-kind="reward"] .cf-title { color: #8ff0a8; }
+  .center-flash.cf-go { animation: cf-pop 1.9s ease-out forwards; }
+  @keyframes cf-pop { 0% { opacity: 0; transform: translate(-50%, -40%) scale(.9); } 10% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
+    18% { transform: translate(-50%, -50%) scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -56%); } }
+  @media (prefers-reduced-motion: reduce) { .center-flash.cf-go { animation: cf-fade 1.9s linear forwards; } @keyframes cf-fade { 0%,75% { opacity: 1; } 100% { opacity: 0; } } }
   /* Close Call streak meter (under the year bar) */
   .vs-combo { margin-top: 4px; font-family: "Silkscreen", monospace; font-size: 11px; letter-spacing: 1px; text-align: center;
     color: #171C35; background: #EF9347; padding: 2px 8px; box-shadow: 2px 2px 0 #000; white-space: nowrap; }

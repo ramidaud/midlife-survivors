@@ -6,6 +6,7 @@ window.FIELD_ITEMS = {
     emoji: "👝",
     glow: 0xf5c542,
     text: "Fanny Pack! Every gem and coin on screen comes to you.",
+    short: "EVERYTHING COMES TO YOU",
     weight: 5            // how often it's picked when an item drops
   },
   energyDrink: {
@@ -13,6 +14,7 @@ window.FIELD_ITEMS = {
     emoji: "🥤",
     glow: 0x6be2ff,
     text: "Energy Drink! You move 35% faster for 12 seconds.",
+    short: "35% FASTER · 12s",
     speedMult: 1.35,
     durMs: 12000,
     weight: 4
@@ -22,6 +24,7 @@ window.FIELD_ITEMS = {
     emoji: "🌴",
     glow: 0x5fd39c,
     text: "PTO Day! Out of office. Everything on screen leaves (bosses stay).",
+    short: "SCREEN CLEARED",
     weight: 2
   }
 };

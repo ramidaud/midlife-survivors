@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.30.1",
-  displayVersion: "V. 1.30.1",
+  version: "1.30.2",
+  displayVersion: "V. 1.30.2",
   lastUpdated: "Nov 1, 2026",
-  codename: "Who Clocked In",
-  build: 80,
+  codename: "Groan Zone",
+  build: 81,
   changelog: [
+    {
+      ver: "V. 1.30.2",
+      date: "Nov 1, 2026",
+      title: "Groan Zone",
+      highlights: [
+        "Dad Joke got a real job: everyone in the groan circle stops to cringe and staggers back, buying you room. Bigger circle and faster too. (Thanks, T.J.)",
+        "Big, short notices now flash near the middle of the screen for bosses, the Comfort Zone Tax and power-ups, so you don't have to look away from the fight. (Thanks, Ben.)",
+        "Controls are fully reset whenever a run starts, which should fix lost input after visiting the 401(k) Shop.",
+        "Music now wakes back up more reliably, including on iPhones after a call or app switch, and with the ringer on silent."
+      ]
+    },
     {
       ver: "V. 1.30.1",
       date: "Nov 1, 2026",

@@ -409,3 +409,6 @@ Same shape + same floor footprint
 
 ## Hit boxes vs. pictures (V. 1.30.0)
 The sprite you see, the "size" number in a data file and the physics box that decides damage can all be different. Close Calls first used the 32px size number, but the player's real hit box is 48x52, so "near misses" were actually hits. Measuring between the real hit boxes fixed it. Test against whatever actually decides the outcome.
+
+## Put messages where the eyes are (V. 1.30.2)
+In a fast game, players stare at their character. Anything that changes the fight (a boss, a penalty, a power-up) needs to appear close to the action, in two or three big words. Long sentences can live at the edge of the screen for anyone who wants the details. Ben's playtest proved the bottom bar alone was too far away.

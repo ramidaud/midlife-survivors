@@ -11,9 +11,11 @@ window.WEAPONS = {
   },
   dadJoke: {
     name: "Dad Joke",
-    fireEveryMs: 2600, // how often a cringe aura ripples out around you (gives time to read & hear the joke!)
-    radius: 110,       // size of the groan circle, in pixels
+    fireEveryMs: 2300, // how often a cringe aura ripples out around you (was 2600)
+    radius: 130,       // size of the groan circle, in pixels (was 110)
     damage: 1,         // hits EVERY Bill inside the circle
+    cringeMs: 650,     // enemies in the circle stop to groan for this long (playtest: Dad Joke felt too weak)
+    pushSpeed: 260,    // and stagger back this fast (bosses ignore both)
     bonusEveryMs: 50000, // a bonus joke is told (and spoken) at most this often; jokes are also told right after you unlock or upgrade Dad Joke
     color: 0xe6c84f,   // cheesy yellow
     // Fallback jokes for any stage. Stage-specific jokes are in linesByStage below (from Rami's design doc).
