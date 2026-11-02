@@ -1,0 +1,29 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "active": false,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "body": [
+   48,
+   52
+  ],
+  "player": [
+   0,
+   0
+  ],
+  "props": 468,
+  "gates": [],
+  "fps": 100.14167598896996,
+  "age": 40,
+  "tax": 0
+ },
+ "spawnProbe": {
+  "probes": 1750,
+  "bad": 0,
+  "blockers": 2
+ }
+}

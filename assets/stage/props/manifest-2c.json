@@ -61,7 +61,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "2258b313cd2c1893022faeb99a8e755484af25d9b26b6feadffc1f9311c17a81",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     },
     {
@@ -99,7 +99,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "bb20a535b26ef96368e7c6815a59eb679cfd404fefd10e0b6ed1c9e418ab24b1",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     },
     {
@@ -137,7 +137,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "9f2bdb03c2ba0696bc6590189f3b013bae414cba3e3688ba098e63fb30e34a12",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     },
     {
@@ -175,7 +175,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "015073fd1e80cfe835c6346b70977000d8b525e96f60c9ac42266b5399866b13",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     },
     {
@@ -213,7 +213,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "ca3038a0c6d1a0d710c834fb22259c34af4622ca6a9d86acc4f43763149a34bb",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     },
     {
@@ -289,7 +289,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "5846e6763368bd6c32c71d3500d9b12bd43c2fe486d08f185561014ffd2f3a30",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     },
     {
@@ -327,7 +327,7 @@
       "status": "ready-for-stage-2c-review",
       "sha256": "f2f64ff671363f3de14aa34e013a510da34a2c6cc4c61ed7515c0579f802fd44",
       "shadow": "code-contact-only",
-      "notes": "Floor footprint is an art proposal for later integration, shared by every colorway.",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
     }
   ],

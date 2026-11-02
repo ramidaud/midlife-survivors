@@ -1,0 +1,74 @@
+{
+  "status": "passed-with-recorded-off-route-navigation-hesitation",
+  "version": "1.31.0",
+  "build": 84,
+  "desktop": [
+    1280,
+    800
+  ],
+  "phoneLayout": [
+    390,
+    844
+  ],
+  "age50": {
+    "desktop": {
+      "x": 4134.68095094531,
+      "y": 2624.241014719638,
+      "age": 50.0027186666675,
+      "hp": 99921,
+      "dead": false,
+      "n": 120,
+      "outside": 0,
+      "fps": 100.28323299252406,
+      "running": false,
+      "guard": true,
+      "waypoint": 148,
+      "peakEnemies": 126,
+      "wallSeconds": 444.60089999997615,
+      "reached50": true
+    },
+    "phone": {
+      "x": 4734.41377934149,
+      "y": 1642.4658447778634,
+      "age": 50.00115822222304,
+      "hp": 99948,
+      "dead": false,
+      "n": 120,
+      "outside": 0,
+      "fps": 99.99735391226115,
+      "running": false,
+      "guard": true,
+      "waypoint": 157,
+      "peakEnemies": 136,
+      "wallSeconds": 451.8016999999881,
+      "reached50": true
+    }
+  },
+  "stress": {
+    "desktop": {
+      "enemies": 350,
+      "outside": 0,
+      "visible": 30,
+      "fps": {
+        "min": 97.34214334549581,
+        "average": 98.64084099618586
+      },
+      "scope": "Real physics/navigation/animation, isolated player/enemy HP guards and firing paused, six seconds."
+    },
+    "phoneLayout": {
+      "enemies": 364,
+      "outside": 0,
+      "visible": 27,
+      "fps": {
+        "min": 98.00272581470324,
+        "average": 98.55634597010125
+      },
+      "scope": "Real physics/navigation/animation, isolated player/enemy HP guards and firing paused, six seconds."
+    }
+  },
+  "analyticsRequests": 0,
+  "consoleErrors": 0,
+  "balanceTested": false,
+  "guards": "Soak: player HP. Crowd: player/enemy HP and paused firing, six seconds.",
+  "knownIssue": "Off-route Circle Back edge hesitation retained for Claude; protected through-route passed."
+}
