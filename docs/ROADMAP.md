@@ -51,7 +51,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] **Death and hit effects (V. 1.33.0):** pop, squash, flash and a little burst when enemies die; small dust puffs and bumps when you move or touch enemies.
    - [x] **Sound sliders (V. 1.33.0):** separate volume for music and effects.
    - [x] **Sound effects pass ("beautiful chaos", V. 1.33.0):** several variations per sound, random pitch, a cap on how many play at once, and layering so big fights sound rich instead of repetitive.
-   - [ ] **End-of-run summary:** achievements earned this run, what they unlocked and how that changes your next run.
+   - [x] **End-of-run summary (V. 1.33.2):** achievements earned this run, what they unlocked and how that changes your next run.
    - [x] **Track damage taken per run (V. 1.33.0)** (needs one new column in the runs table).
    - [ ] **Music by Rami's son** (guidance in GAME_DESIGN.md).
    - [x] Plants regrow (V. 1.32.2). [x] Tougher first minutes (V. 1.32.2).

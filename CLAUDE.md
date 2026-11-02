@@ -88,6 +88,7 @@ When a moment comes where this CLAUDE.md might need to change, say so clearly wi
 - **A recurring correction** from Rami (the same feedback twice means it belongs in this file).
 
 ## Guardrails
+- **Supabase (connected Nov 2):** read play stats freely (SELECT only). Ask Rami before any change: tables, columns, deleting rows, settings, projects. Never use the service_role key.
 - Never rewrite large parts of the game without asking first.
 - If something breaks, say so plainly, fix it, and explain what happened in one or two sentences.
 - Keep the project docs in the claude.ai Project ("Midlife Survivors") in sync with `docs/ROADMAP.md` and `docs/PROGRESS_LOG.md` after every finished step.

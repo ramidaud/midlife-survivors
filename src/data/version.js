@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.33.1",
-  displayVersion: "V. 1.33.1",
+  version: "1.33.2",
+  displayVersion: "V. 1.33.2",
   lastUpdated: "Nov 1, 2026",
-  codename: "Beautiful Chaos",
-  build: 91,
+  codename: "Exit Interview",
+  build: 92,
   changelog: [
+    {
+      ver: "V. 1.33.2",
+      date: "Nov 2, 2026",
+      title: "Exit Interview",
+      highlights: [
+        "The Game Over screen now sums up your run: each achievement you earned, what it means for your next run, what you can afford in the 401(k) Shop, and your next two goals.",
+        "Ten new death lines (written with Gemini)."
+      ]
+    },
     {
       ver: "V. 1.33.1",
       date: "Nov 2, 2026",

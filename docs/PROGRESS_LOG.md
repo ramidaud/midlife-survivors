@@ -802,3 +802,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New daily scheduled task "Midlife Survivors morning stats" (7:27 AM, read-only Supabase queries, push notification).
 - Next ChatGPT job written: Stage 2D Parking Lot and Break Room (docs/handoffs/chatgpt-stage-2d-rooms.md). Gemini pass 2 saved; achievement lines need a redo against the real list.
 - Grok boss-attack spec saved (charge, % rings with a gap, V8 drift with skid marks). Approved to build next session.
+- End-of-run summary on Game Over (earned achievements with Gemini's lines, shop tip, next goals) and 10 new death lines (V. 1.33.2). CLAUDE.md: Supabase read-freely / ask-before-change rule added (Rami approved).
