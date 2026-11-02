@@ -1,4 +1,4 @@
-// Authored campus slice: Lobby/Bullpen plus the closed age-45 rooms. No gate opening or navigation code lives here.
+// Authored campus slice: Lobby/Bullpen plus the closed age-50 rooms. No gate opening or navigation code lives here.
 window.StartAreaArt = (() => {
  const BASE=-1000000000,CHUNK=512;
  function within(x,y){return START_AREA_LAYOUT.floors.some(r=>x>=r.x&&x<r.x+r.width&&y>=r.y&&y<r.y+r.height);}
@@ -7,7 +7,7 @@ window.StartAreaArt = (() => {
  function sign(scene,key,text,width=128,plate=true,scale=2){if(scene.textures.exists(key))return;const lines=text.split('\n'),h=lines.length*(5*scale+2)+8,t=scene.textures.createCanvas(key,width,h),c=t.getContext();if(plate){c.fillStyle='#171c35';c.fillRect(0,0,width,h);c.fillStyle='#f2d7a1';c.fillRect(1,1,width-2,h-2);}c.fillStyle=plate?'#171c35':'#f2d7a1';lines.forEach((line,row)=>{const x0=Math.floor((width-(line.length*4*scale-scale))/2);[...line].forEach((ch,i)=>{const bits=font[ch]||'000000000000000';for(let n=0;n<15;n++)if(bits[n]==='1')c.fillRect(x0+i*4*scale+n%3*scale,4+row*(5*scale+2)+Math.floor(n/3)*scale,scale,scale);});});t.refresh();t.setFilter(Phaser.Textures.FilterMode.NEAREST);}
 
  async function build(scene,refs,H){
-  const data=START_AREA_LAYOUT,all=[],bodies=[],chunks=new Map(),items=[],captions=[],seen=new Set();let alive=true,lastMemo=-1e9,lastValid=data.spawn.slice();
+  const data=START_AREA_LAYOUT,all=[],bodies=[],chunks=new Map(),items=[],captions=[],blinkLights=[],seen=new Set();let alive=true,lastMemo=-1e9,lastValid=data.spawn.slice();
   const add=(o,bounds=null)=>{all.push({o,bounds});return o;};
   // Decode everything before replacing the fallback office.
   for(const [id,a]of Object.entries(START_AREA_IMAGES)){
@@ -18,10 +18,11 @@ window.StartAreaArt = (() => {
   if(!scene.textures.exists('slice_void'))makeCanvasTex(scene,'slice_void',64,64,c=>{c.fillStyle='#171c35';c.fillRect(0,0,64,64);});
   if(!scene.textures.exists('slice_lobby'))makeCanvasTex(scene,'slice_lobby',64,64,c=>{c.fillStyle='#d3b78d';c.fillRect(0,0,64,64);c.fillStyle='#a88b70';c.fillRect(1,31,62,1);c.fillRect(31,1,1,62);c.fillStyle='#f2d7a1';c.globalAlpha=.2;c.fillRect(2,2,28,1);c.fillRect(34,34,28,1);c.globalAlpha=1;});
   for(const name of ['asphalt','kitchen'])if(!scene.textures.exists('slice_'+name))makeCanvasTex(scene,'slice_'+name,64,64,c=>{if(name==='asphalt'){c.fillStyle='#526078';c.fillRect(0,0,64,64);c.fillStyle='#303750';c.globalAlpha=.22;c.fillRect(0,0,64,1);c.fillRect(0,0,1,64);for(let i=0;i<8;i++)c.fillRect((i*19+5)%64,(i*13+7)%64,3,1);}else{c.fillStyle='#d3b78d';c.fillRect(0,0,64,64);c.fillStyle='#a88b70';c.fillRect(0,0,32,32);c.fillRect(32,32,32,32);c.fillStyle='#f2d7a1';c.globalAlpha=.28;c.fillRect(1,1,30,1);c.fillRect(33,33,30,1);c.fillStyle='#3e7775';c.globalAlpha=.18;for(const [x,y]of [[16,16],[48,48]])c.fillRect(x,y,3,3);}c.globalAlpha=1;});
+  for(const name of ['server','conference'])if(!scene.textures.exists('slice_'+name))makeCanvasTex(scene,'slice_'+name,64,64,c=>{c.fillStyle=name==='server'?'#303750':'#3e7775';c.fillRect(0,0,64,64);c.fillStyle='#526078';if(name==='server'){c.fillRect(0,0,64,2);c.fillRect(0,0,2,64);for(const [x,y]of [[5,5],[57,57]])c.fillRect(x,y,2,2);}else{c.globalAlpha=.28;c.fillRect(0,0,32,32);c.fillRect(32,32,32,32);c.globalAlpha=1;c.fillStyle='#83a89a';for(let y=4;y<64;y+=8)c.fillRect((y*3)%64,y,3,1);}});
   function layer(x,y){const cx=Math.floor(x/CHUNK),cy=Math.floor(y/CHUNK),key=cx+','+cy;if(!chunks.has(key)){const g=add(scene.add.graphics().setDepth(BASE+3),{x:cx*CHUNK-256,y:cy*CHUNK-256,width:CHUNK+512,height:CHUNK+512});chunks.set(key,g);}return chunks.get(key);}
-  for(const r of data.floors){const key=r.material==='vinyl'?'slice_lobby':['asphalt','kitchen'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
+  for(const r of data.floors){const key=r.material==='vinyl'?'slice_lobby':['asphalt','kitchen','server','conference'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
   // Warm light pools and quieter floor stories leave every combat reserve non-solid.
-  for(const r of data.floors)for(let x=r.x+64;x<r.x+r.width-96;x+=384){const g=layer(x,r.y+28);g.fillStyle(0xf2d7a1,.07);g.fillRect(x,r.y+28,Math.min(220,r.x+r.width-x-8),Math.min(120,r.height-40));}
+  for(const r of data.floors)for(let x=r.x+64;x<r.x+r.width-96;x+=384){const g=layer(x,r.y+28);g.fillStyle(r.material==='server'?0x83a89a:0xf2d7a1,.07);g.fillRect(x,r.y+28,Math.min(220,r.x+r.width-x-8),Math.min(120,r.height-40));}
   const rug=layer(-96,-160);rug.fillStyle(0x3e7775,.8);rug.fillRect(-432,-280,640,288);rug.fillStyle(0x83a89a,.7);rug.fillRect(-424,-272,624,3);rug.fillRect(-424,-4,624,3);rug.fillStyle(0xf2d7a1,.45);rug.fillRect(-408,-252,32,2);rug.fillRect(152,-32,32,2);
   rug.fillStyle(0x83a89a,.13);for(let y=-248;y<-16;y+=12)for(let x=-400;x<176;x+=24)rug.fillRect(x,y,8,1);
   const queue=layer(-80,-384);queue.fillStyle(0x3e7775,.45);for(let y=-420;y<-312;y+=24){queue.fillRect(-144,y,8,12);queue.fillRect(96,y,8,12);}queue.fillStyle(0x874c3b,.3);for(const [x,y]of [[-220,-344],[-188,-368],[252,-360]]){queue.fillRect(x,y,12,2);queue.fillRect(x,y+8,12,2);queue.fillRect(x-2,y+2,2,6);queue.fillRect(x+12,y+2,2,6);}queue.fillStyle(0xfff0cf,.6);for(let i=0;i<6;i++)queue.fillRect(-220+i*14,-430+(i%3)*12,8,12);
@@ -31,6 +32,9 @@ window.StartAreaArt = (() => {
   // Small repeatable floor stories, authored as data, baked by the existing speed pass below.
   for(const d of data.floorDecor||[]){const {x,y,width:w,height:h}=d,g=add(scene.add.graphics().setDepth(BASE+3),{x:x-4,y:y-4,width:w+8,height:h+8});
    const rect=(a,b,c,e,color=0xf2d7a1,alpha=.5)=>{g.fillStyle(color,alpha);g.fillRect(x+a,y+b,c,e);};
+   if(d.kind==='cable-cover'){rect(0,0,w,h,0x171c35,.7);rect(1,1,w-2,2,0x526078,.8);for(let n=8;n<(w>h?w:h);n+=32)rect(w>h?n:3,w>h?3:n,w>h?4:Math.max(2,w-6),w>h?Math.max(2,h-6):4,0x83a89a,.45);}
+   if(d.kind==='circuit-tape')for(let n=0;n<w;n+=48)rect(n,2,24,3,0x83a89a,.5);
+   if(d.kind==='server-light')rect(0,0,w,h,0x83a89a,.08);
    if(d.kind==='parking-bay'){rect(0,0,2,h);rect(w-2,0,2,h);rect(0,h-2,w,2);}
    if(d.kind==='reserved-bay'){rect(2,2,w-4,h-4,0x3e7775,.2);for(let n=0;n<w;n+=20)rect(n,h-8,10,3);}
    if(d.kind==='road-dashes')for(let n=0;n<w;n+=64)rect(n,6,32,3);
@@ -48,6 +52,7 @@ window.StartAreaArt = (() => {
    items.push(o);const cap=p.caption??(window.STAGE_PROPS&&STAGE_PROPS.captions[p.prop]||a.caption);if(cap){o.caption=cap;o.sliceReadAt=p.readAt;captions.push(o);}
    if(solid){const g=p.prop==='plant'?add(scene.add.graphics().setDepth(BASE+3)):layer(p.x,p.y);OfficeEnvironment.groundObject(scene,g,key,p.x,p.y,p.prop.startsWith('desk_')?'desk':'prop');if(p.prop==='plant')o.sliceShadow=g;}
    if(p.prop.startsWith('desk_')){const g=layer(p.x,p.y);g.fillStyle(0x303750,.28);g.fillRect(p.x-42,p.y-30,76,40);g.fillStyle(0x83a89a,.18);g.fillRect(p.x-40,p.y-29,70,1);g.fillStyle(0x171c35,.3);g.fillRect(p.x+41,p.y-24,1,20);g.fillRect(p.x+36,p.y-5,6,1);}
+   if(p.blink){const key='slice_rack_leds';if(!scene.textures.exists(key))makeCanvasTex(scene,key,3,44,c=>{c.fillStyle='#83a89a';for(let y=0;y<44;y+=10)c.fillRect(0,y,2,2);});const light=add(scene.add.image(p.x+8,p.y-65,key).setOrigin(.5,1));light.sliceDepth=p.y+1;items.push(light);blinkLights.push({light,seed:blinkLights.length});}
    return o;
   }
   for(const p of data.placements)fixture(p);
@@ -56,13 +61,13 @@ window.StartAreaArt = (() => {
   for(const p of data.workers){const o=add(scene.add.image(p.x,p.y,'slice_coworker_placeholder_'+p.variant).setOrigin(.5,1).setCrop(0,0,48,p.cropHeight));o.sliceId=p.id;o.sliceDepth=p.depthY;o.isCoworkerPlaceholder=true;o.caption=STAGE_PROPS.captions.coworker_placeholder;captions.push(o);items.push(o);}
   // Reusable native structural panels, not an illustrated map texture.
   for(const r of data.walls){const w=r.width,h=r.height+(r.style==='parking'?48:112),key='slice_wall_'+(r.style||'office')+'_'+r.axis+'_'+r.width+'_'+r.height;
-   if(!scene.textures.exists(key))makeCanvasTex(scene,key,w,h,c=>{c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle=r.style==='kitchen'?'#d3b78d':r.style==='parking'?'#303750':'#3e7775';c.fillRect(2,3,w-4,h-5);c.fillStyle=r.style==='parking'?'#526078':'#83a89a';c.fillRect(2,3,Math.max(2,w-4),4);c.fillStyle='#f2d7a1';if(r.axis==='x'){c.fillRect(2,8,w-4,5);for(let x=16;x<w;x+=64){c.fillStyle='#303750';c.fillRect(x,30,Math.min(44,w-x-3),42);c.fillStyle='#526078';c.fillRect(x+2,32,Math.min(40,w-x-7),2);}}else c.fillRect(2,8,5,h-12);});
+   if(!scene.textures.exists(key))makeCanvasTex(scene,key,w,h,c=>{if(r.style==='glass'){c.fillStyle='#83a89a';c.globalAlpha=.2;c.fillRect(1,1,w-2,h-2);c.globalAlpha=1;c.fillStyle='#303750';c.fillRect(0,h-8,w,8);c.fillRect(0,0,2,h);c.fillRect(w-2,0,2,h);c.fillStyle='#83a89a';c.fillRect(1,0,w-2,2);c.fillStyle='#f2d7a1';if(r.axis==='x')for(let x=16;x<w;x+=64)c.fillRect(x,16,2,24);return;}c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle=r.style==='kitchen'?'#d3b78d':['parking','server'].includes(r.style)?'#303750':'#3e7775';c.fillRect(2,3,w-4,h-5);c.fillStyle=r.style==='parking'?'#526078':'#83a89a';c.fillRect(2,3,Math.max(2,w-4),4);c.fillStyle='#f2d7a1';if(r.axis==='x'){c.fillRect(2,8,w-4,5);for(let x=16;x<w;x+=64){c.fillStyle='#303750';c.fillRect(x,30,Math.min(44,w-x-3),42);c.fillStyle='#526078';c.fillRect(x+2,32,Math.min(40,w-x-7),2);}}else c.fillRect(2,8,5,h-12);});
    const o=add(scene.add.image(r.x+w/2,r.y+r.height,key).setOrigin(.5,1));o.sliceId=r.id;o.sliceDepth=o.y;H.body(o,{width:r.width,back:r.height,front:0},'prop_wall');bodies.push(o);items.push(o);
   }
   const gates=[];
   for(const r of data.gates){const key='slice_closed_gate';if(!scene.textures.exists(key))makeCanvasTex(scene,key,128,336,c=>{c.fillStyle='#171c35';c.fillRect(0,0,128,336);c.fillStyle='#303750';c.fillRect(3,3,122,330);c.fillStyle='#3e7775';c.fillRect(8,8,112,320);c.fillStyle='#83a89a';c.fillRect(12,12,4,312);c.fillStyle='#f2d7a1';c.fillRect(40,12,7,312);c.fillStyle='#171c35';c.fillRect(4,166,120,4);});const o=add(scene.add.image(r.x+64,r.y+224,key).setOrigin(.5,1));H.body(o,{width:128,back:224,front:0},'prop_gate');bodies.push(o);items.push(o);o.sliceId=r.id;o.sliceDepth=o.y;const record={...r,object:o,rect:{x:r.x,y:r.y,w:r.width,h:r.height}};gates.push(record);
    sign(scene,'slice_gate_'+r.id,r.sign||r.name.toUpperCase(),112);const tag=add(scene.add.image(r.x+64,r.y-68,'slice_gate_'+r.id));tag.sliceDepth=r.y+225;items.push(tag);sign(scene,'slice_age_'+r.age,'AGE '+r.age,64);const age=add(scene.add.image(r.x+64,r.y-44,'slice_age_'+r.age));age.sliceDepth=r.y+226;items.push(age);
-   o.caption=r.age===45?STAGE_PROPS.captions.gate_parking_break:(r.id==='server-return'?'SERVER ROOM. Access at fifty. Bring a sweater and a reason.':'CONFERENCE ROOMS. Access at fifty. You have been invited to the invitation.');o.sliceReadAt=[r.x+r.width/2,r.y+r.height/2];captions.push(o);
+   o.caption=r.caption??(r.age===45?STAGE_PROPS.captions.gate_parking_break:(r.id==='server-return'?'SERVER ROOM. Access at fifty. Bring a sweater and a reason.':'CONFERENCE ROOMS. Access at fifty. You have been invited to the invitation.'));o.sliceReadAt=[r.x+r.width/2,r.y+r.height/2];captions.push(o);
   }
   window.START_AREA_GATES=gates;
   const ownedBlockers=gates.map(g=>g.rect);window.navExtraBlockers=window.navExtraBlockers||[];window.navExtraBlockers.push(...ownedBlockers);
@@ -110,7 +115,7 @@ window.StartAreaArt = (() => {
    }}catch(e){}
   const state={data,gates,items,bodies,active:true,visibleProps:0,peakVisibleProps:0,spawnPadding,get repairedSpawns(){return repairedSpawns;},resolveSpawn,update,sync,destroy,contains:within};
   function update(){if(!alive)return;const x=p.x,y=p.y+p.height/2;if(!within(x,y)){p.setPosition(...[lastValid[0],lastValid[1]-p.height/2]);p.setVelocity(0,0);p.body.updateFromGameObject();}else lastValid=[x,y];}
-  function sync(){if(!alive)return;const v=scene.cameras.main.worldView,cam=scene.cameras.main.id,visible=[];
+  function sync(){if(!alive)return;for(const {light,seed}of blinkLights)if(light.active)light.setVisible((Math.floor(refs.clock()/650)+seed)%3!==0);const v=scene.cameras.main.worldView,cam=scene.cameras.main.id,visible=[];
    for(const o of items){if(!o.active)continue;o.setDepth(10000+(o.sliceDepth??o.y)-p.y);if(o.sliceShadow)o.sliceShadow.setVisible(o.visible);const shown=o.visible&&o.x+o.displayWidth/2>v.x-96&&o.x-o.displayWidth/2<v.right+96&&o.y>v.y-96&&o.y-o.displayHeight<v.bottom+96;o.cameraFilter=shown?0:cam;if(shown)visible.push(o);}
    visible.sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y));for(const o of visible.slice(data.maxVisibleProps))o.cameraFilter=cam;for(const o of items)if(o.sliceShadow)o.sliceShadow.cameraFilter=o.cameraFilter;state.visibleProps=Math.min(visible.length,data.maxVisibleProps);state.peakVisibleProps=Math.max(state.peakVisibleProps,state.visibleProps);
    for(const {o,bounds:r}of all)if(r)o.cameraFilter=(r.x+r.width>v.x-96&&r.x<v.right+96&&r.y+r.height>v.y-96&&r.y<v.bottom+96)?0:cam;

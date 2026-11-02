@@ -1,0 +1,76 @@
+{
+ "errors": [
+  "Uncaught TypeError: Cannot read properties of null (reading 'depth')"
+ ],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.38.0",
+  "build": 97,
+  "viewport": [
+   1280,
+   800
+  ],
+  "age": 50.01744192592592,
+  "openUpToAge": 45,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   0,
+   -322
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 449,
+  "visible": 7,
+  "peak": 9,
+  "navBlockers": 3,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 100.12309714072558
+ },
+ "productionCap": {
+  "age": 50.01744192592592,
+  "ceiling": 45,
+  "passed": true
+ }
+}

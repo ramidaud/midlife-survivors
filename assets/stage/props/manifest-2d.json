@@ -4,7 +4,7 @@
   "families": 8,
   "colorways": 23,
   "plannedFamilies": 72,
-  "remainingFamilies": 31,
+  "remainingFamilies": 26,
   "palette": [
     "#171c35",
     "#303750",
@@ -388,7 +388,12 @@
       "cake_slice",
       "parking_light",
       "cart_corral",
-      "parking_whiteboard"
+      "parking_whiteboard",
+      "server_rack",
+      "cable_waterfall",
+      "conference_table",
+      "roadmap_whiteboard",
+      "server_crash_cart"
     ],
     "basis": "Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes."
   }

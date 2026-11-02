@@ -1,0 +1,112 @@
+[
+  {
+    "id": "server_rack",
+    "name": "The Blue-Light Fireplace",
+    "frame": [
+      80,
+      144
+    ],
+    "footprint": {
+      "width": 64,
+      "back": 48,
+      "front": 4
+    },
+    "variants": 3,
+    "category": "furniture",
+    "solid": true,
+    "subject": "One tall navy server rack on stout feet, front and right face visible, six broad horizontal server drawers, a restrained vertical line of little teal/cream status lights, cream label tab with NO lettering, a small orange cable loop at the lower front. No dangling cables beyond its own footprint. Broad simple pixel clusters.",
+    "source": "server_rack-source-v1.png",
+    "file": "server_rack-v1.png",
+    "mount": "floor",
+    "prompt": "Use case: stylized-concept. Asset type: modular production game prop, Midlife Survivors Stage 2E. Primary request: One tall navy server rack on stout feet, front and right face visible, six broad horizontal server drawers, a restrained vertical line of little teal/cream status lights, cream label tab with NO lettering, a small orange cable loop at the lower front. No dangling cables beyond its own footprint. Broad simple pixel clusters. Style: crisp hand-placed 16-bit indie pixel art, top-down three-quarter view, front and right faces, broad flat color clusters, one logical pixel navy silhouette outline, cream upper-left highlights and deep navy shadows inside the object. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Subject design must read at native 80x144 pixels. Output one centered complete isolated prop, generous equal margins on exact flat opaque magenta #FF00FF. No background floor, NO shadow or reflection outside object. No antialiasing, gradients, blur, grain, dithering, realistic rendering, logos, watermark or lettering. Do not create a scene or multiple props or a sprite sheet.",
+    "caption": "Rows of little blue lights blinking in the chill. It is the closest thing the third floor has to a fireplace."
+  },
+  {
+    "id": "cable_waterfall",
+    "name": "Wired in 2014",
+    "frame": [
+      128,
+      160
+    ],
+    "footprint": {
+      "width": 100,
+      "back": 30,
+      "front": 4
+    },
+    "variants": 3,
+    "category": "landmarks",
+    "solid": true,
+    "subject": "One free-standing wall-height patch panel on two short navy feet, a broad waterfall of thick color-coded teal, cream, coffee-orange and muted pink cables descending from the panel and coiling neatly into a dark shallow cable tray at its base. One conspicuous cream yellow wire. Not a room or wall scene, just this self-contained wiring landmark. No lettering.",
+    "source": "cable_waterfall-source-v1.png",
+    "file": "cable_waterfall-v1.png",
+    "mount": "floor",
+    "prompt": "Use case: stylized-concept. Asset type: modular production game prop, Midlife Survivors Stage 2E. Primary request: One free-standing wall-height patch panel on two short navy feet, a broad waterfall of thick color-coded teal, cream, coffee-orange and muted pink cables descending from the panel and coiling neatly into a dark shallow cable tray at its base. One conspicuous cream yellow wire. Not a room or wall scene, just this self-contained wiring landmark. No lettering. Style: crisp hand-placed 16-bit indie pixel art, top-down three-quarter view, front and right faces, broad flat color clusters, one logical pixel navy silhouette outline, cream upper-left highlights and deep navy shadows inside the object. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Subject design must read at native 128x160 pixels. Output one centered complete isolated prop, generous equal margins on exact flat opaque magenta #FF00FF. No background floor, NO shadow or reflection outside object. No antialiasing, gradients, blur, grain, dithering, realistic rendering, logos, watermark or lettering. Do not create a scene or multiple props or a sprite sheet.",
+    "caption": "Color-coded in 2014 by an intern with a dream. Nobody has dared to unplug the yellow wire since."
+  },
+  {
+    "id": "conference_table",
+    "name": "The Nine-Hour Meeting",
+    "frame": [
+      240,
+      144
+    ],
+    "footprint": {
+      "width": 224,
+      "back": 96,
+      "front": 4
+    },
+    "variants": 3,
+    "category": "furniture",
+    "solid": true,
+    "subject": "One long horizontal oval cream/coffee wood conference table with six attached office chairs tucked closely in: three on far side and three on near side, all chair wheels and legs tucked within the table assembly. A tiny dark navy three-armed starfish-shaped speakerphone at tabletop center, three blank notepads and two cold orange coffee cups. Long axis horizontal, front and right side visible. No people. No lettering. Table and chairs form one compact prop with a clear readable silhouette.",
+    "source": "conference_table-source-v1.png",
+    "file": "conference_table-v1.png",
+    "mount": "floor",
+    "prompt": "Use case: stylized-concept. Asset type: modular production game prop, Midlife Survivors Stage 2E. Primary request: One long horizontal oval cream/coffee wood conference table with six attached office chairs tucked closely in: three on far side and three on near side, all chair wheels and legs tucked within the table assembly. A tiny dark navy three-armed starfish-shaped speakerphone at tabletop center, three blank notepads and two cold orange coffee cups. Long axis horizontal, front and right side visible. No people. No lettering. Table and chairs form one compact prop with a clear readable silhouette. Style: crisp hand-placed 16-bit indie pixel art, top-down three-quarter view, front and right faces, broad flat color clusters, one logical pixel navy silhouette outline, cream upper-left highlights and deep navy shadows inside the object. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Subject design must read at native 240x144 pixels. Output one centered complete isolated prop, generous equal margins on exact flat opaque magenta #FF00FF. No background floor, NO shadow or reflection outside object. No antialiasing, gradients, blur, grain, dithering, realistic rendering, logos, watermark or lettering. Do not create a scene or multiple props or a sprite sheet.",
+    "caption": "Hour nine of the quarterly roadmap sync. The dry-erase markers gave up around lunch."
+  },
+  {
+    "id": "roadmap_whiteboard",
+    "name": "The Half-Erased Roadmap",
+    "frame": [
+      128,
+      128
+    ],
+    "footprint": {
+      "width": 104,
+      "back": 30,
+      "front": 4
+    },
+    "variants": 3,
+    "category": "signs",
+    "solid": true,
+    "subject": "One wheeled conference whiteboard with navy/teal frame, broad cream board. A half-erased roadmap of three colored rectangular milestone boxes joined by broken arrows, faint ghost lines and one sagging sticky note, an empty dry-erase-marker tray with one tiny exhausted orange marker. Diagram only, absolutely no text or letters. Full wheels and feet visible.",
+    "source": "roadmap_whiteboard-source-v1.png",
+    "file": "roadmap_whiteboard-v1.png",
+    "mount": "floor",
+    "prompt": "Use case: stylized-concept. Asset type: modular production game prop, Midlife Survivors Stage 2E. Primary request: One wheeled conference whiteboard with navy/teal frame, broad cream board. A half-erased roadmap of three colored rectangular milestone boxes joined by broken arrows, faint ghost lines and one sagging sticky note, an empty dry-erase-marker tray with one tiny exhausted orange marker. Diagram only, absolutely no text or letters. Full wheels and feet visible. Style: crisp hand-placed 16-bit indie pixel art, top-down three-quarter view, front and right faces, broad flat color clusters, one logical pixel navy silhouette outline, cream upper-left highlights and deep navy shadows inside the object. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Subject design must read at native 128x128 pixels. Output one centered complete isolated prop, generous equal margins on exact flat opaque magenta #FF00FF. No background floor, NO shadow or reflection outside object. No antialiasing, gradients, blur, grain, dithering, realistic rendering, logos, watermark or lettering. Do not create a scene or multiple props or a sprite sheet.",
+    "caption": "Hour nine of the quarterly roadmap sync. The dry-erase markers gave up around lunch."
+  },
+  {
+    "id": "server_crash_cart",
+    "name": "The Cloud's Old Friend",
+    "frame": [
+      96,
+      112
+    ],
+    "footprint": {
+      "width": 72,
+      "back": 38,
+      "front": 4
+    },
+    "variants": 3,
+    "category": "furniture",
+    "solid": true,
+    "subject": "One squeaky teal steel computer crash cart on four tiny caster wheels, chunky old cream CRT monitor with a dark screen and a single green cursor block, cream keyboard on pullout shelf, tangled cable contained in lower cart shelf. No text, no people. A chunky affectionate 1990s office relic.",
+    "source": "server_crash_cart-source-v1.png",
+    "file": "server_crash_cart-v1.png",
+    "mount": "floor",
+    "prompt": "Use case: stylized-concept. Asset type: modular production game prop, Midlife Survivors Stage 2E. Primary request: One squeaky teal steel computer crash cart on four tiny caster wheels, chunky old cream CRT monitor with a dark screen and a single green cursor block, cream keyboard on pullout shelf, tangled cable contained in lower cart shelf. No text, no people. A chunky affectionate 1990s office relic. Style: crisp hand-placed 16-bit indie pixel art, top-down three-quarter view, front and right faces, broad flat color clusters, one logical pixel navy silhouette outline, cream upper-left highlights and deep navy shadows inside the object. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Subject design must read at native 96x112 pixels. Output one centered complete isolated prop, generous equal margins on exact flat opaque magenta #FF00FF. No background floor, NO shadow or reflection outside object. No antialiasing, gradients, blur, grain, dithering, realistic rendering, logos, watermark or lettering. Do not create a scene or multiple props or a sprite sheet.",
+    "caption": "A forty-pound monitor on a squeaky cart. When the cloud goes down, this old friend still listens."
+  }
+]

@@ -1,20 +1,42 @@
 {
   "status": "passed",
-  "districts": 4,
-  "props": 131,
+  "futureWellnessPreserved": true,
+  "districts": 6,
+  "props": 187,
   "desks": 35,
-  "staticWorkers": 20,
-  "solidBodies": 279,
+  "staticWorkers": 26,
+  "solidBodies": 449,
   "doorwayWidth": 224,
-  "closedGates": 4,
+  "closedGates": 5,
   "age45Gates": 2,
   "age50Gates": 2,
+  "age55Gates": 1,
   "closedReachableCells": 25177,
-  "testOpenedReachableCells": 47031,
+  "age45ReachableCells": 47031,
+  "testOpenedReachableCells": 67054,
   "allTourPointsReachableWhenTestOpened": true,
   "lockedRoomsExcluded": true,
-  "protectedRoutes": 35,
+  "protectedRoutes": 66,
+  "bossClearance": [
+    {
+      "room": "Server",
+      "ringRadius": 260,
+      "escapeRadius": 328,
+      "driftRadius": 130,
+      "passed": true
+    },
+    {
+      "room": "Conference",
+      "ringRadius": 260,
+      "escapeRadius": 328,
+      "driftRadius": 130,
+      "passed": true
+    }
+  ],
   "maxVisibleProps": 120,
+  "serverRacks": 19,
+  "conferencePods": 3,
+  "age50Breakables": 25,
   "parkingCars": 27,
   "breakableProps": 20
 }

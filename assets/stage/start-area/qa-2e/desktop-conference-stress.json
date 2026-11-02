@@ -1,0 +1,100 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.38.0",
+  "build": 97,
+  "viewport": [
+   1280,
+   800
+  ],
+  "age": 41.17391711111111,
+  "openUpToAge": 45,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   3616,
+   1366
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 449,
+  "visible": 15,
+  "peak": 30,
+  "navBlockers": 1,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 99.98928225355635
+ },
+ "testOnlyOpenThrough50": true,
+ "walk": {
+  "room": "Conference",
+  "running": false,
+  "passed": true,
+  "seconds": 40.0025,
+  "waypoint": 18,
+  "total": 18
+ },
+ "stressServer": {
+  "enemies": 350,
+  "outside": 0,
+  "visible": 30,
+  "initial": 350,
+  "fps": {
+   "min": 99.22536341057126,
+   "average": 99.76529231035713
+  },
+  "scope": "350 real physics/navigation/animation actors, HP guards, firing paused, six seconds."
+ },
+ "stressConference": {
+  "enemies": 350,
+  "outside": 0,
+  "visible": 30,
+  "initial": 350,
+  "fps": {
+   "min": 98.90133756231154,
+   "average": 99.50860806618874
+  },
+  "scope": "350 real physics/navigation/animation actors, HP guards, firing paused, six seconds."
+ }
+}

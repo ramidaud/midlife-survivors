@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.37.0",
-  displayVersion: "V. 1.37.0",
+  version: "1.38.0",
+  displayVersion: "V. 1.38.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Promoted",
-  build: 96,
+  codename: "Take It Offline",
+  build: 97,
   changelog: [
+    {
+      ver: "V. 1.38.0", date: "Nov 2, 2026", title: "Take It Offline",
+      highlights: [
+        "Server Room and three glass Conference Rooms are built behind the closed age-50 doors, with wide combat space and new office art.",
+        "The Executive Wing age-55 door stays closed. Existing age-45 promotions still work; age-50 access awaits review."
+      ]
+    },
     {
       ver: "V. 1.37.0",
       date: "Nov 2, 2026",

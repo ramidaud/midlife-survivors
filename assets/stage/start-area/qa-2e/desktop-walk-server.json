@@ -1,0 +1,87 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.37.0",
+  "build": 96,
+  "viewport": [
+   1280,
+   800
+  ],
+  "age": 40.58811311111111,
+  "openUpToAge": 45,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   328.0260097121667,
+   -1724.665661808873
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 433,
+  "visible": 22,
+  "peak": 32,
+  "navBlockers": 1,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 100.14041675203372
+ },
+ "spawnProbe": {
+  "probes": 1457,
+  "bad": 0,
+  "overlaps": 0,
+  "offFloor": 0,
+  "lockedRoomBirths": 0,
+  "padding": 44,
+  "passed": true
+ },
+ "testOnlyOpenThrough50": true,
+ "walk": {
+  "room": "Server",
+  "running": false,
+  "passed": true,
+  "seconds": 26.101,
+  "waypoint": 19,
+  "total": 19
+ }
+}

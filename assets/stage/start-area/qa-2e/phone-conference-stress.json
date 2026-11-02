@@ -1,0 +1,109 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.38.0",
+  "build": 97,
+  "viewport": [
+   390,
+   844
+  ],
+  "age": 42.02653133333334,
+  "openUpToAge": 45,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   3616,
+   1366
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 449,
+  "visible": 12,
+  "peak": 26,
+  "navBlockers": 1,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 99.68890567804395
+ },
+ "testOnlyOpenThrough50": true,
+ "walk": {
+  "room": "Server",
+  "running": false,
+  "passed": true,
+  "seconds": 38.00059999999404,
+  "waypoint": 19,
+  "total": 19
+ },
+ "spawnProbe": {
+  "probes": 1457,
+  "bad": 0,
+  "overlaps": 0,
+  "offFloor": 0,
+  "lockedRoomBirths": 0,
+  "padding": 44,
+  "passed": true
+ },
+ "stressServer": {
+  "enemies": 350,
+  "outside": 0,
+  "visible": 26,
+  "initial": 350,
+  "fps": {
+   "min": 98.83703231478182,
+   "average": 99.3531125863989
+  },
+  "scope": "350 real physics/navigation/animation actors, HP guards, firing paused, six seconds."
+ },
+ "stressConference": {
+  "enemies": 350,
+  "outside": 0,
+  "visible": 26,
+  "initial": 350,
+  "fps": {
+   "min": 98.68905108772432,
+   "average": 99.27079972900016
+  },
+  "scope": "350 real physics/navigation/animation actors, HP guards, firing paused, six seconds."
+ }
+}

@@ -1,0 +1,278 @@
+{
+  "batch": "stage-2e-age50-rooms",
+  "status": "start-area-kit-complete",
+  "families": 5,
+  "colorways": 15,
+  "plannedFamilies": 72,
+  "remainingFamilies": 26,
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "background": "#FF00FF",
+  "assets": [
+    {
+      "id": "server_rack",
+      "name": "The Blue-Light Fireplace",
+      "frame": [
+        80,
+        144
+      ],
+      "footprint": {
+        "width": 64,
+        "back": 48,
+        "front": 4
+      },
+      "variants": 3,
+      "category": "furniture",
+      "solid": true,
+      "subject": "One tall navy server rack on stout feet, front and right face visible, six broad horizontal server drawers, a restrained vertical line of little teal/cream status lights, cream label tab with NO lettering, a small orange cable loop at the lower front. No dangling cables beyond its own footprint. Broad simple pixel clusters.",
+      "source": "server_rack-source-v1.png",
+      "file": "server_rack-v1.png",
+      "mount": "floor",
+      "caption": "Rows of little blue lights blinking in the chill. It is the closest thing the third floor has to a fireplace.",
+      "batch": "2e",
+      "size": [
+        240,
+        144
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 141
+      },
+      "status": "ready-for-stage-2e-review",
+      "sha256": "0e90c1b12afa19291071de4177a3066ee5787fe001b5a5456b464206519c6eae",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "cable_waterfall",
+      "name": "Wired in 2014",
+      "frame": [
+        128,
+        160
+      ],
+      "footprint": {
+        "width": 100,
+        "back": 30,
+        "front": 4
+      },
+      "variants": 3,
+      "category": "landmarks",
+      "solid": true,
+      "subject": "One free-standing wall-height patch panel on two short navy feet, a broad waterfall of thick color-coded teal, cream, coffee-orange and muted pink cables descending from the panel and coiling neatly into a dark shallow cable tray at its base. One conspicuous cream yellow wire. Not a room or wall scene, just this self-contained wiring landmark. No lettering.",
+      "source": "cable_waterfall-source-v1.png",
+      "file": "cable_waterfall-v1.png",
+      "mount": "floor",
+      "caption": "Color-coded in 2014 by an intern with a dream. Nobody has dared to unplug the yellow wire since.",
+      "batch": "2e",
+      "size": [
+        384,
+        160
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 157
+      },
+      "status": "ready-for-stage-2e-review",
+      "sha256": "94a1063c412651578243b5ef388defe43b7e18c3d8b12cc37052af8c42006e81",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "conference_table",
+      "name": "The Nine-Hour Meeting",
+      "frame": [
+        240,
+        144
+      ],
+      "footprint": {
+        "width": 224,
+        "back": 96,
+        "front": 4
+      },
+      "variants": 3,
+      "category": "furniture",
+      "solid": true,
+      "subject": "One long horizontal oval cream/coffee wood conference table with six attached office chairs tucked closely in: three on far side and three on near side, all chair wheels and legs tucked within the table assembly. A tiny dark navy three-armed starfish-shaped speakerphone at tabletop center, three blank notepads and two cold orange coffee cups. Long axis horizontal, front and right side visible. No people. No lettering. Table and chairs form one compact prop with a clear readable silhouette.",
+      "source": "conference_table-source-v1.png",
+      "file": "conference_table-v1.png",
+      "mount": "floor",
+      "caption": "Hour nine of the quarterly roadmap sync. The dry-erase markers gave up around lunch.",
+      "batch": "2e",
+      "size": [
+        720,
+        144
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 120.0,
+        "y": 141
+      },
+      "status": "ready-for-stage-2e-review",
+      "sha256": "0a3ce3b8cffdd491368284042a2b262a784bc15f59dba7d5d2e2db73aa23dc22",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "roadmap_whiteboard",
+      "name": "The Half-Erased Roadmap",
+      "frame": [
+        128,
+        128
+      ],
+      "footprint": {
+        "width": 104,
+        "back": 30,
+        "front": 4
+      },
+      "variants": 3,
+      "category": "signs",
+      "solid": true,
+      "subject": "One wheeled conference whiteboard with navy/teal frame, broad cream board. A half-erased roadmap of three colored rectangular milestone boxes joined by broken arrows, faint ghost lines and one sagging sticky note, an empty dry-erase-marker tray with one tiny exhausted orange marker. Diagram only, absolutely no text or letters. Full wheels and feet visible.",
+      "source": "roadmap_whiteboard-source-v1.png",
+      "file": "roadmap_whiteboard-v1.png",
+      "mount": "floor",
+      "caption": "Hour nine of the quarterly roadmap sync. The dry-erase markers gave up around lunch.",
+      "batch": "2e",
+      "size": [
+        384,
+        128
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 125
+      },
+      "status": "ready-for-stage-2e-review",
+      "sha256": "2973d3c8eb135693544b27847218b8b71dedadcded23a55565cbf79267bcafa7",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "server_crash_cart",
+      "name": "The Cloud's Old Friend",
+      "frame": [
+        96,
+        112
+      ],
+      "footprint": {
+        "width": 72,
+        "back": 38,
+        "front": 4
+      },
+      "variants": 3,
+      "category": "furniture",
+      "solid": true,
+      "subject": "One squeaky teal steel computer crash cart on four tiny caster wheels, chunky old cream CRT monitor with a dark screen and a single green cursor block, cream keyboard on pullout shelf, tangled cable contained in lower cart shelf. No text, no people. A chunky affectionate 1990s office relic.",
+      "source": "server_crash_cart-source-v1.png",
+      "file": "server_crash_cart-v1.png",
+      "mount": "floor",
+      "caption": "A forty-pound monitor on a squeaky cart. When the cloud goes down, this old friend still listens.",
+      "batch": "2e",
+      "size": [
+        288,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 109
+      },
+      "status": "ready-for-stage-2e-review",
+      "sha256": "57daa678c2bf11ecf7eda30ce943f5063dca69f264316c7bf0ecca4c716c9d2c",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    }
+  ],
+  "productionIntegrated": true,
+  "runtimeOwner": "Claude: flow-field navigation and locked-area spawn filtering",
+  "generation": "built-in-imagegen",
+  "export": "nearest-neighbor native sampling, palette normalization, one-pixel navy silhouette, controlled palette colorways",
+  "review": "review.html",
+  "integration": {
+    "registeredFamilies": [
+      "desk_sticky_notes",
+      "desk_family_photo",
+      "desk_2009",
+      "kpi_frame",
+      "car_compact",
+      "wheel_boot",
+      "gate_hidden_cabinet",
+      "hang_cat_high",
+      "hang_branch",
+      "opportunity",
+      "perseverance",
+      "sign_plate",
+      "roundabout",
+      "gauge",
+      "fruit_tree",
+      "kiddie_pool",
+      "baseball_base",
+      "ocean_pot",
+      "duck_row",
+      "goal_dollies",
+      "hard_stop",
+      "offline_lamp",
+      "goals_board",
+      "giant_logo",
+      "reception_counter",
+      "vending_machine",
+      "sofa",
+      "lost_found",
+      "water_cooler",
+      "birthday_banner",
+      "trash_recycle",
+      "coat_rack"
+    ],
+    "unregisteredFamilies": [
+      "gate_keycard",
+      "kitchen_counter",
+      "fridge_note",
+      "coffee_cart",
+      "table_round",
+      "cake_slice",
+      "parking_light",
+      "cart_corral",
+      "parking_whiteboard",
+      "server_rack",
+      "cable_waterfall",
+      "conference_table",
+      "roadmap_whiteboard",
+      "server_crash_cart"
+    ],
+    "basis": "Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes."
+  }
+}

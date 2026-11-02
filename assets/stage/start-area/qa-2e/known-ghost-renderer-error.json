@@ -1,0 +1,79 @@
+{
+ "errors": [
+  "Uncaught TypeError: Cannot read properties of null (reading 'depth')"
+ ],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.38.0",
+  "build": 97,
+  "viewport": [
+   1280,
+   800
+  ],
+  "age": 50.008894,
+  "openUpToAge": 45,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   0,
+   -322
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 449,
+  "visible": 7,
+  "peak": 9,
+  "navBlockers": 3,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 100.48302621076226
+ },
+ "stacks": [
+  "TypeError: Cannot read properties of null (reading 'depth')\n    at initialize.sync (http://127.0.0.1:8765/src/enemy-art.js?v=97:142:29)\n    at initialize.emit (https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js:1:2036)\n    at initialize.step (https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js:1:966963)\n    at initialize.update (https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js:1:954010)\n    at initialize.step (https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js:1:76119)\n    at initialize.stepLimitFPS (https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js:1:80039)\n    at e (https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js:1:141058)"
+ ],
+ "productionCap": {
+  "age": 50.008894,
+  "ceiling": 45,
+  "passed": true
+ }
+}

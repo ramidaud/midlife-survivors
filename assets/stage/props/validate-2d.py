@@ -6,7 +6,8 @@ R=Path(__file__).resolve().parent
 sys.path.insert(0,str(R.parents[1]/'breakables'))
 from png_qa import png
 mag=(255,0,255,255)
-M=json.loads((R/'manifest-2d.json').read_text());palette={tuple(bytes.fromhex(c[1:]))+(255,) for c in M['palette']}|{mag}
+batch=sys.argv[1] if len(sys.argv)>1 else '2d'
+M=json.loads((R/('manifest-'+batch+'.json')).read_text());palette={tuple(bytes.fromhex(c[1:]))+(255,) for c in M['palette']}|{mag}
 checks=[]
 for a in M['assets']:
  w,h,rows=png(R/a['file']);fw,fh=a['frame'];assert(w,h)==(fw*a['variants'],fh)
@@ -22,4 +23,4 @@ frames=[[r[v*144:(v+1)*144] for r in new] for v in range(5)]
 assert len({str(f) for f in frames})==5
 assert all([[p!=mag for p in r] for r in f]==[[p!=mag for p in r] for r in frames[0]] for f in frames)
 report=dict(status='passed',families=checks,carFrames=5,originalThreeCarsPixelExact=True,extraCarColors=2)
-(R/'checks-2d.json').write_text(json.dumps(report,indent=2)+'\n');print('8 families / 23 colorways passed. Original three cars exact; two extra paints distinct.')
+(R/('checks-'+batch+'.json')).write_text(json.dumps(report,indent=2)+'\n');print(str(len(checks))+' families passed. Original three cars exact; two extra paints distinct.')
