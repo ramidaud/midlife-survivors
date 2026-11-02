@@ -877,3 +877,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Test: two blasts cleared 10 of 12 Bills circling the player, desktop and phone, no errors. Dad Joke now hits; "No." stays the personal-space tool.
 - Wrote ChatGPT brief for Stage 2G: Wellness Corner behind the age-60 door, the last promotion room in a Midlife run.
 - Wrote Grok brief: weapon roles and balance pass (spec only), prompted by Rami asking how Dad Joke and "No." differ.
+
+## 2026-11-02: Wellness Corner reviewed (ChatGPT V. 1.42.0)
+- ChatGPT built "HR Says Relax" behind the age-60 door: massage chair, quiet pod, lighthouse puzzle, SAD lamp, yoga mats, broken nap pod, zen fountain, MANDATORY FUN, 19 breakables. The door moved beside the Conference corridor (Rami approved); the old opening is sealed.
+- My checks: code changes stayed in ChatGPT's files. Test-open at 60 on desktop and phone: every landmark reachable, a Bill followed from Conference through the door in ~10 s. Closed: zero enemies inside before 60.
+- Awaiting Rami's approval to open it (openUpToAge 60). That completes every promotion door in a Midlife run.
