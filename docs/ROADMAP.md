@@ -46,7 +46,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] Age-45 doors open with a PROMOTED banner (V. 1.37.0).
    - [x] Stage 2E: Server Room and three glass Conference Rooms behind the age-50 doors, closed Executive door at 55. Approved; doors open at 50 in V. 1.39.0.
    - [x] Stage 2F: Executive Wing behind the age-55 door, crash cart smashable. Approved; opens at 55 in V. 1.41.0.
-   - [ ] Next room: Wellness Corner (60). Remaining prop families and animated coworkers wait.
+   - [x] Stage 2G: Wellness Corner behind the age-60 door (moved beside Conference). Approved; opens at 60 in V. 1.42.1. Every Midlife promotion now leads to a room.
+   - [ ] Later: animated coworkers, remaining prop families, Full Life (60+) districts.
 5d. [ ] **Combat feel pass (Rami, Nov 2, after playing Nerd Survivors).** One at a time:
    - [x] **Bigger enemies (V. 1.32.0):** regulars about hero-sized (now 25 to 42px vs a 56x60 hero), bosses 2 to 3x the hero.
    - [x] **Art package ready for Rami review (Nov 2, Codex):** eight breakable families in all 18 colorways, 54 state frames / 108 debris cells, and three native Midlife bosses with 33 poses and three telegraphs. Art only; runtime features below remain pending.

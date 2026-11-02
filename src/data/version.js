@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.42.0",
-  displayVersion: "V. 1.42.0",
+  version: "1.42.1",
+  displayVersion: "V. 1.42.1",
   lastUpdated: "Nov 2, 2026",
   codename: "HR Says Relax",
-  build: 106,
+  build: 107,
   changelog: [
+    {
+      ver: "V. 1.42.1", date: "Nov 2, 2026", title: "HR Says Relax",
+      highlights: [
+        "Promoted at 60: the Wellness Corner opens beside the Conference Rooms. Massage chair, quiet pod, a puzzle stuck at 80% and plenty of plants to smash. (Room built by ChatGPT.) Every promotion in a Midlife run now leads somewhere."
+      ]
+    },
     {
       ver: "V. 1.42.0", date: "Nov 2, 2026", title: "HR Says Relax",
       highlights: [

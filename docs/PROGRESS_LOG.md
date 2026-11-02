@@ -882,3 +882,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - ChatGPT built "HR Says Relax" behind the age-60 door: massage chair, quiet pod, lighthouse puzzle, SAD lamp, yoga mats, broken nap pod, zen fountain, MANDATORY FUN, 19 breakables. The door moved beside the Conference corridor (Rami approved); the old opening is sealed.
 - My checks: code changes stayed in ChatGPT's files. Test-open at 60 on desktop and phone: every landmark reachable, a Bill followed from Conference through the door in ~10 s. Closed: zero enemies inside before 60.
 - Awaiting Rami's approval to open it (openUpToAge 60). That completes every promotion door in a Midlife run.
+
+## 2026-11-02: Promoted at 60, the office is complete (V. 1.42.1)
+- Rami approved the Wellness Corner; openUpToAge is now 60. Every promotion door in a Midlife run (45, 50, 55, 60) opens into a finished room.
+- Test: door shut at 59.9, open at 60.0, desktop and phone, no errors.

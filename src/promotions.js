@@ -1,7 +1,7 @@
 // Promotion gates (Nov 2): doors that open as you age. The rooms and closed doors come from the start-area slice
 // (ChatGPT); this opens the ones whose rooms are built, with a short "promotion" message.
 // To open later doors once their rooms exist, raise PROMOTIONS.openUpToAge.
-window.PROMOTIONS = { openUpToAge: 55, rollUpMs: 450 };
+window.PROMOTIONS = { openUpToAge: 60, rollUpMs: 450 };
 
 window.Promotions = (() => {
   let nextCheck = 0, announced = {};
