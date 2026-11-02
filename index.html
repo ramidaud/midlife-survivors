@@ -942,6 +942,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .lt-strip[data-kind="tip"]     { --lt-accent: #6be2ff; }
   .lt-strip[data-kind="chapter"] { --lt-accent: #f0a24f; }
   .lt-strip[data-kind="reward"]  { --lt-accent: #8ff094; }
+  .lt-strip[data-kind="promo"]   { --lt-accent: #8ff094; }
   @media (prefers-reduced-motion: reduce) { .lt-strip { transition: opacity 0.2s; transform: translate(-50%, 0); } }
   @media (max-width: 600px) {
     .lt-text { font-size: 14px; }
@@ -1080,7 +1081,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=98&t=" + Date.now();
+    s.src = "src/loader.js?v=99&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

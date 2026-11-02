@@ -43,7 +43,9 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] Stage 2B: 12 literal-slang/landmark families, 24 colorways. Total kit now 25 families and 55 colorways, with batch filters and native comparisons. New batch is art-only; Claude's current-office integration and navigation are preserved.
    - [x] Stage 2C and start-area slice: eight new prop families, corrected ducks, static coworkers, 35 desks in five clusters, dressed floors, modular boundaries and two closed 224px promotion doors. Total kit: 33 families, 79 colorways. V. 1.31.0.
    - [x] Stage 2D: Parking Lot and Break Room built behind closed age-45 doors, eight new prop families and two car paints, 224px routes, closed age-50 doors. V. 1.36.0.
-   - [ ] Rami reviews the age-45 rooms before more districts. Remaining 31 prop families and animated coworkers wait. Claude owns gate opening/navigation.
+   - [x] Age-45 doors open with a PROMOTED banner (V. 1.37.0).
+   - [x] Stage 2E: Server Room and three glass Conference Rooms behind the age-50 doors, closed Executive door at 55. Approved; doors open at 50 in V. 1.39.0.
+   - [ ] Next rooms: Executive Wing (55) and Wellness Corner (60). Remaining prop families and animated coworkers wait.
 5d. [ ] **Combat feel pass (Rami, Nov 2, after playing Nerd Survivors).** One at a time:
    - [x] **Bigger enemies (V. 1.32.0):** regulars about hero-sized (now 25 to 42px vs a 56x60 hero), bosses 2 to 3x the hero.
    - [x] **Art package ready for Rami review (Nov 2, Codex):** eight breakable families in all 18 colorways, 54 state frames / 108 debris cells, and three native Midlife bosses with 33 poses and three telegraphs. Art only; runtime features below remain pending.

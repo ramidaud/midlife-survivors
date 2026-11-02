@@ -1,7 +1,7 @@
 // Promotion gates (Nov 2): doors that open as you age. The rooms and closed doors come from the start-area slice
 // (ChatGPT); this opens the ones whose rooms are built, with a short "promotion" message.
 // To open later doors once their rooms exist, raise PROMOTIONS.openUpToAge.
-window.PROMOTIONS = { openUpToAge: 45, rollUpMs: 450 };
+window.PROMOTIONS = { openUpToAge: 50, rollUpMs: 450 };
 
 window.Promotions = (() => {
   let nextCheck = 0, announced = {};
@@ -17,7 +17,10 @@ window.Promotions = (() => {
         announced[g.age] = true;
         const ph = phases.find(p => p.age === g.age);
         const quiet = runElapsedMs < 2000; // a resumed run past 45: open silently
-        if (!quiet && window.showLowerThird) window.showLowerThird("reward", "PROMOTED", (ph && ph.message) || "New areas unlocked.", 5000, "PROMOTED · NEW ROOMS OPEN");
+        // The big flash shows right away. The sentence uses "promo" (same priority as chapter cards), so it
+        // waits its turn behind a boss arrival (the Performance Review shows up at 45) or the AGE card instead of being dropped.
+        if (!quiet && window.flashBanner) window.flashBanner("PROMOTED", "PROMOTED · NEW ROOMS OPEN", "reward");
+        if (!quiet && window.showLowerThird) window.showLowerThird("promo", "PROMOTED", (ph && ph.message) || "New areas unlocked.", 5000);
         if (!quiet) sfx("levelUp", 0);
       }
     }

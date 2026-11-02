@@ -604,7 +604,7 @@ let activeContextOverride = null; // { badge, story, help, mood, untilMs }
 // LOWER THIRD (Oct 30): one message at a time, slides in, holds, slides out.
 // Higher priority interrupts lower. Low-priority messages are dropped if busy.
 // ============================================================================
-const LT_PRIORITY = { alert: 5, win: 4, errand: 4, tip: 3, chapter: 2, reward: 1, lore: 1, joke: 0 };
+const LT_PRIORITY = { alert: 5, win: 4, errand: 4, tip: 3, chapter: 2, promo: 2, reward: 1, lore: 1, joke: 0 };
 const ltState = { current: null, queue: [], remaining: 0, gap: 0 };
 
 function ltMenuOpen() {

@@ -843,3 +843,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Fixed a real crash ChatGPT spotted: at age 50 the first 3 AM Thought (no shadow) broke enemy drawing. It came from my own speed pass; one missing pair of braces.
 - Tests: desktop and phone at age 50 with ghosts on screen, no errors. A test-only switch to 50 opens the Server and Conference doors and keeps Executive shut; all rooms reachable.
 - Doors at 50 stay closed until Rami approves the rooms (one setting: openUpToAge 50).
+
+## 2026-11-02: Promoted again at 50 (V. 1.39.0)
+- Rami approved Stage 2E. At age 50 the Server Room and Conference doors roll up; the Executive Wing (55) stays locked.
+- Promotion messages now wait their turn instead of getting dropped when a boss or the AGE card is on screen. The big center PROMOTED flash always shows.
+- Tests: doors open on their own at 50 on desktop and phone, all new rooms reachable, no errors.

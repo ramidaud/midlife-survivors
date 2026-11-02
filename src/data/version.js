@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.38.1",
-  displayVersion: "V. 1.38.1",
+  version: "1.39.0",
+  displayVersion: "V. 1.39.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Take It Offline",
-  build: 98,
+  codename: "In the Meetings",
+  build: 99,
   changelog: [
+    {
+      ver: "V. 1.39.0", date: "Nov 2, 2026", title: "In the Meetings",
+      highlights: [
+        "At age 50 you get promoted again: the Server Room and three glass Conference Rooms open up. (Rooms built by ChatGPT.)",
+        "The Executive Wing door stays locked until its room is built."
+      ]
+    },
     {
       ver: "V. 1.38.1", date: "Nov 2, 2026", title: "Take It Offline",
       highlights: [
