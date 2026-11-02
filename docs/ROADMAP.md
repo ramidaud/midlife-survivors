@@ -50,6 +50,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [ ] **Smoother animation:** more walk frames from ChatGPT; in code, hit flash, squash and stretch, knockback and a death poof.
    - [ ] **Death and hit effects:** pop, squash, flash and a little burst when enemies die; small dust puffs and bumps when you move or touch enemies.
    - [ ] **Sound sliders:** separate volume for music and effects.
+   - [ ] **Sound effects pass ("beautiful chaos"):** several variations per sound, random pitch, a cap on how many play at once, and layering so big fights sound rich instead of repetitive.
    - [ ] **End-of-run summary:** achievements earned this run, what they unlocked and how that changes your next run.
    - [ ] **Track damage taken per run** (needs one new column in the runs table).
    - [ ] **Music by Rami's son** (guidance in GAME_DESIGN.md).
