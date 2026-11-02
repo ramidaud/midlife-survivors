@@ -28,14 +28,14 @@ window.CHARACTERS = [
   {
     id: "photographer", // internal id kept so existing saves and unlocks still work; shown as The Soccer Dad
     name: "The Soccer Dad",
-    tagline: "Starts with Dad Joke aura + 25% wider range & faster feet.",
+    tagline: "Starts with Dad Joke punchline blast, 25% wider blast, and faster feet.",
     cost: 10,
     apply: s => { s.dadJoke = true; s.jokeRadius = Math.round(s.jokeRadius * 1.25); s.speed = Math.round(s.speed * 1.12); }
   },
   {
     id: "gradStudent",
     name: "The Grad Student at 45",
-    tagline: 'Starts with "No." shockwave + huge Wisdom gem magnet.',
+    tagline: 'Starts with "No." shockwave, a huge gem magnet, and slightly faster weapons.',
     cost: 15,
     apply: s => { s.wordNo = true; s.magnetRadius = Math.round(s.magnetRadius * 1.5); s.cooldownMult *= 0.9; }
   }

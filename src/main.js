@@ -1476,7 +1476,7 @@ function fireDadJoke(scene) {
     if (d <= r) {
       // The groan: everyone in range stops to cringe for a moment and staggers back (bosses just take the damage).
       if (!bill.isBoss && d > 0) {
-        bill.cringeUntil = runElapsedMs + (J.cringeMs || 0);
+        bill.cringeUntil = runElapsedMs + ((stats.punStorm && J.cringeMsEvo) || J.cringeMs || 0);
         const push = J.pushSpeed || 0;
         bill.setVelocity((bill.x - player.x) / d * push, (bill.y - player.y) / d * push);
       }
@@ -1521,18 +1521,18 @@ function fireWordNo(scene) {
   const pt = project3DToPhaserWorld(scene, player.x, 54, player.y);
   // Healthy Boundaries heals on every OTHER pulse now (was every pulse).
   if (stats.healthyBoundaries) stats.boundariesPulse = (stats.boundariesPulse || 0) + 1;
-  const healPulse = stats.healthyBoundaries && stats.boundariesPulse % 2 === 0 && hp < stats.maxHp;
+  const healPulse = stats.healthyBoundaries && stats.boundariesPulse % (N.healthyHealEvery || 2) === 0 && hp < stats.maxHp;
   const shout = scene.add.text(pt.x, pt.y - 28, healPulse ? "NO! (+1 HP)" : (stats.healthyBoundaries ? "NO!" : "NO."), {
     fontFamily: "monospace", fontSize: "16px", color: "#6fd9c4"
   }).setOrigin(0.5).setDepth(16);
   scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
-  if (healPulse) { hp = Math.min(stats.maxHp, hp + healAmt(1)); drawHpBar(); }
+  if (healPulse) { hp = Math.min(stats.maxHp, hp + healAmt(N.healthyHealAmt || 1)); drawHpBar(); }
 
   bills.getChildren().slice().forEach(bill => {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
     if (d <= r && d > 0) {
       const dx = (bill.x - player.x) / d, dy = (bill.y - player.y) / d; // direction away from you
-      shoveEnemy(bill, dx, dy, stats.noPush);
+      shoveEnemy(bill, dx, dy, Math.min(stats.noPush, N.noPushCap || Infinity));
       const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
       bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
       damageBill(bill, stats.noDamage);

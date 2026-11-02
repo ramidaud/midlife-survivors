@@ -887,3 +887,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami approved the Wellness Corner; openUpToAge is now 60. Every promotion door in a Midlife run (45, 50, 55, 60) opens into a finished room.
 - Test: door shut at 59.9, open at 60.0, desktop and phone, no errors.
 - Grok delivered the weapon roles spec (docs/handoffs/grok-weapon-roles-spec.md). Claude checked its numbers against live code: all match. Awaiting Rami approval to build.
+
+## 2026-11-02: Weapon roles pass (V. 1.43.0)
+- Rami approved Grok's spec; built it as data changes. Dad Joke: blast every 2.2 s, softer push, Louder Groan now 8% faster per rank (radius x1.20). "No.": shove 110 (cap 520), Firm Boundaries adds damage only on ranks 2 and 4. Pun Storm flinch 320 ms. Spreadsheet spin 3.4, Remote odd ranks throw 5% sooner. Card text and character taglines rewritten.
+- Grok's acceptance math checks out in-game: max Louder 1576 ms / 269 px / 6 dmg; max Firm 3 dmg / 366 px shove; max Universal Remote 3 throws.
+- Bot playtest: 0.7% of enemies off track, no errors. Watch Pun Storm in the 60s; Grok's fallback is 0.58 to 0.64.

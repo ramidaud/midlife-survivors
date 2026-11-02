@@ -30,7 +30,7 @@ window.UPGRADES = [
     id: "longPour",
     name: "Long Pour",
     maxRank: 3,
-    text: "Coffee splashes fly 25% farther.",
+    text: "Coffee flies 25% farther. Same strength; better reach.",
     when: s => getRank(s, "longPour") < 3,
     apply: s => { addRank(s, "longPour"); s.range = Math.round(s.range * 1.25); s.coffeeUp = true; s.coffeeRank = (s.coffeeRank || 0) + 1; }
   },
@@ -48,15 +48,15 @@ window.UPGRADES = [
     id: "louderGroan",
     name: "Louder Groan",
     maxRank: 4,
-    text: "Dad Joke ring is 25% bigger and deals +1 damage.",
+    text: "Dad Joke blasts 8% sooner, hits a wider crowd, and deals +1 damage.",
     when: s => s.dadJoke && getRank(s, "louderGroan") < 4,
-    apply: s => { addRank(s, "louderGroan"); s.jokeRadius = Math.round(s.jokeRadius * 1.25); s.jokeDamage += 1; s.jokeUp = true; s.jokeRank = (s.jokeRank || 0) + 1; }
+    apply: s => { addRank(s, "louderGroan"); s.jokeRadius = Math.round(s.jokeRadius * 1.20); s.jokeEveryMs = Math.max(1000, Math.round(s.jokeEveryMs * 0.92)); s.jokeDamage += 1; s.jokeUp = true; s.jokeRank = (s.jokeRank || 0) + 1; }
   },
   {
     id: "unlockNo",
     name: 'Unlock: "No."',
     maxRank: 1,
-    text: "Teal shockwave shoves enemies back and damages them.",
+    text: "A teal shockwave that shoves enemies back. Light damage, real space.",
     when: s => !s.wordNo,
     apply: s => { addRank(s, "unlockNo"); s.wordNo = true; }
   },
@@ -64,9 +64,9 @@ window.UPGRADES = [
     id: "firmBoundaries",
     name: "Firm Boundaries",
     maxRank: 4,
-    text: '"No." reaches 22% farther, shoves harder, +1 damage.',
+    text: '"No." reaches farther and shoves harder. Ranks 2 and 4 also add +1 damage.',
     when: s => s.wordNo && getRank(s, "firmBoundaries") < 4,
-    apply: s => { addRank(s, "firmBoundaries"); s.noRadius = Math.round(s.noRadius * 1.22); s.noPush = Math.round(s.noPush * 1.3); s.noDamage += 1; s.noUp = true; s.noRank = (s.noRank || 0) + 1; }
+    apply: s => { addRank(s, "firmBoundaries"); const fr = getRank(s, "firmBoundaries"); s.noRadius = Math.round(s.noRadius * 1.22); s.noPush = Math.round(s.noPush * 1.35); if (fr === 2 || fr === 4) s.noDamage += 1; s.noUp = true; s.noRank = (s.noRank || 0) + 1; }
   },
 
   // ---- New weapon types (Objective 10) ----
@@ -82,9 +82,9 @@ window.UPGRADES = [
     id: "universalRemote",
     name: "Universal Remote",
     maxRank: 4,
-    text: "Remote deals +1 damage and flies 15% farther. Ranks 2 and 4 add another remote.",
+    text: "Remote deals +1 damage and flies 15% farther. Ranks 2 and 4 throw an extra remote. Odd ranks also throw a bit sooner.",
     when: s => s.remote && getRank(s, "universalRemote") < 4,
-    apply: s => { addRank(s, "universalRemote"); const r = getRank(s, "universalRemote"); s.remoteDamage += 1; s.remoteRange = Math.round(s.remoteRange * 1.15); if (r === 2 || r === 4) s.remoteCount += 1; s.remoteRank = r; }
+    apply: s => { addRank(s, "universalRemote"); const r = getRank(s, "universalRemote"); s.remoteDamage += 1; s.remoteRange = Math.round(s.remoteRange * 1.15); if (r === 2 || r === 4) s.remoteCount += 1; if (r === 1 || r === 3) s.remoteEveryMs = Math.round(s.remoteEveryMs * 0.95); s.remoteRank = r; }
   },
   {
     id: "unlockSheet",
@@ -106,7 +106,7 @@ window.UPGRADES = [
     id: "unlockPodcast",
     name: "Unlock: Podcast at 2x",
     maxRank: 1,
-    text: "Fires the way you're walking and passes through crowds.",
+    text: "Fires the way you are facing and passes through crowds. Keep moving to aim.",
     when: s => !s.podcast,
     apply: s => { addRank(s, "unlockPodcast"); s.podcast = true; }
   },
@@ -186,7 +186,7 @@ window.UPGRADES = [
     id: "evoPunStorm",
     name: "EVOLVE: Unhinged Pun Storm",
     maxRank: 1,
-    text: "Dad Joke Lv 2+ & Glasses: Giant rapid-fire cringe ring, +2 damage!",
+    text: "Dad Joke Lv 2+ and Glasses: huge rapid punchline blasts, +2 damage, longer flinch.",
     isEvolution: true,
     when: s => s.dadJoke && (s.jokeRank || 0) >= 2 && s.hasGlasses && !s.punStorm,
     apply: s => { addRank(s, "evoPunStorm"); s.punStorm = true; s.jokeRadius = Math.round(s.jokeRadius * 1.45); s.jokeDamage += 2; s.jokeEveryMs = Math.round(s.jokeEveryMs * 0.58); }
@@ -195,7 +195,7 @@ window.UPGRADES = [
     id: "evoBoundaries",
     name: "EVOLVE: Healthy Boundaries",
     maxRank: 1,
-    text: '"No." Lv 2+ & Shoes: Massive shockwave shoves 2x farther & heals +1 HP!',
+    text: '"No." Lv 2+ and Shoes: much bigger shove, +2 damage, and heal +1 HP on every other pulse.',
     isEvolution: true,
     when: s => s.wordNo && (s.noRank || 0) >= 2 && s.hasShoes && !s.healthyBoundaries,
     apply: s => { addRank(s, "evoBoundaries"); s.healthyBoundaries = true; s.noRadius = Math.round(s.noRadius * 1.4); s.noPush = Math.round(s.noPush * 1.75); s.noDamage += 2; }

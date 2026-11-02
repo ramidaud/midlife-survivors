@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.42.1",
-  displayVersion: "V. 1.42.1",
+  version: "1.43.0",
+  displayVersion: "V. 1.43.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "HR Says Relax",
-  build: 107,
+  codename: "Every Weapon Has a Job",
+  build: 108,
   changelog: [
+    {
+      ver: "V. 1.43.0", date: "Nov 2, 2026", title: "Every Weapon Has a Job",
+      highlights: [
+        "Weapon pass (designed by Grok): Dad Joke is the crowd blast and Louder Groan now makes it fire faster too. \"No.\" is the space-maker: it shoves harder but adds damage only on ranks 2 and 4.",
+        "Spreadsheet spins a little faster, TV Remote odd ranks throw sooner, and level-up cards now say exactly what they do."
+      ]
+    },
     {
       ver: "V. 1.42.1", date: "Nov 2, 2026", title: "HR Says Relax",
       highlights: [

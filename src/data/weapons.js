@@ -11,11 +11,12 @@ window.WEAPONS = {
   },
   dadJoke: {
     name: "Dad Joke",
-    fireEveryMs: 2300, // how often a cringe aura ripples out around you (was 2600)
+    fireEveryMs: 2200, // how often the punchline blast goes off (Grok weapon pass, Nov 2: was 2300)
     radius: 130,       // size of the groan circle, in pixels (was 110)
     damage: 2,         // hits EVERY Bill inside the circle (Nov 2, Rami: make it an attack weapon. Was 1)
-    cringeMs: 220,     // enemies in the circle flinch for this long (was 650: it was mostly a stun)
-    pushSpeed: 90,     // and stagger back this fast (was 260; bosses ignore both)
+    cringeMs: 240,     // enemies in the circle flinch for this long (was 650: it was mostly a stun)
+    cringeMsEvo: 320,  // longer flinch once it evolves into Pun Storm
+    pushSpeed: 70,     // and stagger back this fast (was 260, then 90; bosses ignore both). "No." owns real shoving
     // The punchline blast (Nov 2): flash, shockwave, rays and a few "HA!"s. Visual only.
     blast: { rays: 12, has: 3, shake: 0.0025, words: ["HA!", "HA!", "BA-DUM-TSS", "HEH", "GROAN"] },
     bonusEveryMs: 50000, // a bonus joke is told (and spoken) at most this often; jokes are also told right after you unlock or upgrade Dad Joke
@@ -109,7 +110,7 @@ window.WEAPONS = {
     count: 2,
     radius: 78,
     damage: 1,
-    spinPerSec: 3.2          // radians per second
+    spinPerSec: 3.4          // radians per second (Grok weapon pass: was 3.2)
   },
   podcast: {
     name: "Podcast at 2x",   // piercing line: fires the way you walk
@@ -124,7 +125,10 @@ window.WEAPONS = {
     fireEveryMs: 3200, // how often you put your foot down
     radius: 140,       // reach of the shockwave
     damage: 1,         // damage dealt
-    pushPx: 95,        // how far Bills get shoved backward
+    pushPx: 110,       // how far Bills get shoved backward (Grok weapon pass: was 95)
+    noPushCap: 520,    // shoves never go farther than this, even fully upgraded
+    healthyHealEvery: 2, // Healthy Boundaries heals on every Nth pulse
+    healthyHealAmt: 1,
     color: 0x6fd9c4    // calm boundary teal
   }
 };
