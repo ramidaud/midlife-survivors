@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.39.1",
-  displayVersion: "V. 1.39.1",
+  version: "1.39.2",
+  displayVersion: "V. 1.39.2",
   lastUpdated: "Nov 2, 2026",
   codename: "In the Meetings",
-  build: 100,
+  build: 101,
   changelog: [
+    {
+      ver: "V. 1.39.2", date: "Nov 2, 2026", title: "In the Meetings",
+      highlights: [
+        "Fixed enemies lining up along walls and backing away: the \"No.\" shockwave could shove Bills straight through thin walls into the dark areas. Shoves now stop at walls, and any enemy that still ends up off the floor gets put back. (Thanks Derek and T.J.)"
+      ]
+    },
     {
       ver: "V. 1.39.1", date: "Nov 2, 2026", title: "In the Meetings",
       highlights: [

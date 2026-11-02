@@ -470,3 +470,6 @@ A locked door in a game is usually two things: a wall you can't walk through, an
 
 ## Background tabs and timers (Nov 2)
 When a tab is hidden or the phone is locked, browsers don't stop JavaScript timers, they slow them down to about once a second to save battery. Our music is played by a timer that fires a note every beat, so in the background it kept firing, just slowly: a sad little plink. The fix is to listen for the page becoming hidden and put the whole audio system to sleep (`audioCtx.suspend()`), then wake it when the page is visible again.
+
+## Teleporting through walls (Nov 2)
+Physics only stops things that *move* into a wall. If code jumps an object straight to a new spot ("teleporting" it), the physics engine never sees the trip, so it can land on the far side of a thin wall. That's what the "No." shove did: it set each Bill's position 95px away in one jump. The fix is to move in small steps and check each step before taking it, stopping at the first wall. Games call the original problem "tunneling."

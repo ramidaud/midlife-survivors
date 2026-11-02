@@ -18,7 +18,7 @@ window.Juice = (() => {
     if (!player || !e.body) return;
     const dx = e.x - player.x, dy = e.y - player.y, d = Math.hypot(dx, dy) || 1;
     const k = (JUICE.knockback || 0) * (e.isBoss ? 0.33 : 1);
-    e.x += dx / d * k; e.y += dy / d * k;
+    if (window.shoveEnemy) shoveEnemy(e, dx / d, dy / d, k); // stops at walls (never through them)
   }
 
   // A kill: a white flash, a squash, then a stretch-and-pop up and away, plus a shockwave ring.

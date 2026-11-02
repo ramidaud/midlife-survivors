@@ -1647,3 +1647,12 @@ An `if` without braces covers only the next line. Indentation is just looks; the
 |---|---|
 | `if (shadow) moveShadow();`<br>`    setShadowDepth();` | only `moveShadow()`; `setShadowDepth()` always runs, and crashes when there's no shadow |
 | `if (shadow) {`<br>`  moveShadow();`<br>`  setShadowDepth();`<br>`}` | both lines, so a shadowless ghost is safe |
+
+## 2026-11-02: Teleporting through walls ("tunneling")
+Jumping an object to a new spot skips the physics check, so it can land behind a wall. Stepping checks every bit of the way.
+
+```
+Before (one jump of 95px):        After (8px steps, checked):
+ You ←  Bill |wall|  •Bill         You ←  Bill→→→|wall|
+             (lands inside)                     (stops here)
+```

@@ -140,6 +140,8 @@ let stats, spawnTimer, currentWaveIdx = 0, fireTimer, jokeTimer, noTimer, levelU
 let titleSeen = false, titleOpen = false, startFromTitle = null;
 let ltDecadeShown = null, ltLowHpWarned = false; // lower third trackers
 let nextSwarmAt = null; // when the next swarm event fires (game time)
+let strayRescues = 0;   // enemies put back on the floor after getting stuck off it (see the stray check)
+window.getStrayRescues = () => strayRescues;
 let pings = null;       // Group Chat message pings
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
 let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office", lastDividendAge = 40;
@@ -1460,6 +1462,21 @@ function fireDadJoke(scene) {
   }
 }
 
+// Shove an enemy along (dx, dy) by up to `dist` px, in small steps, stopping before a wall, furniture or
+// the edge of the floor. (Nov 2, Derek's bug: the "No." shove used to teleport Bills straight through thin
+// walls into the dark unbuilt areas, where they lined up along the wall and couldn't reach you.)
+function shoveEnemy(e, dx, dy, dist) {
+  const sa = e.scene && e.scene.worldArt && e.scene.worldArt.startArea;
+  let moved = 0;
+  while (moved < dist) {
+    const s = Math.min(8, dist - moved), nx = e.x + dx * s, ny = e.y + dy * s;
+    if ((window.NAV && !NAV.isOpen(nx, ny)) || (sa && sa.contains && !sa.contains(nx, ny))) break;
+    e.x = nx; e.y = ny; moved += s;
+  }
+  return moved;
+}
+window.shoveEnemy = shoveEnemy;
+
 // Weapon 3: The Word "No." A teal shockwave shoves nearby Bills away and damages them (and smashes plants!).
 function fireWordNo(scene) {
   if (!stats.wordNo) return;
@@ -1485,7 +1502,7 @@ function fireWordNo(scene) {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
     if (d <= r && d > 0) {
       const dx = (bill.x - player.x) / d, dy = (bill.y - player.y) / d; // direction away from you
-      bill.x += dx * stats.noPush; bill.y += dy * stats.noPush;
+      shoveEnemy(bill, dx, dy, stats.noPush);
       const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
       bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
       damageBill(bill, stats.noDamage);
@@ -1982,10 +1999,22 @@ function update(time, delta) {
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
+  const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;
     const ageMs = now - (bill.bornAt || now);
+
+    // Stray check (once a second): an enemy that ended up off the floor (behind a wall, in a dark unbuilt
+    // area) for two checks in a row gets put back on a reachable floor spot, off-screen.
+    if (startArea && now >= (bill.strayCheckAt || 0)) {
+      bill.strayCheckAt = now + 1000;
+      if (startArea.contains(bill.x, bill.y)) bill.strays = 0;
+      else if ((bill.strays = (bill.strays || 0) + 1) >= 2) {
+        const spot = startArea.resolveSpawn(bill.x, bill.y);
+        if (spot) { bill.body.reset(spot[0], spot[1]); bill.strays = 0; strayRescues++; }
+      }
+    }
 
     // Bosses with a special attack (src/boss-attacks.js) steer themselves while warning or attacking.
     if (bill.isBoss && window.BossAttacks && window.BossAttacks.update(this, bill, player, now)) {

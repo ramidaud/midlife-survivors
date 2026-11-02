@@ -217,6 +217,13 @@
     return directOk(i, x, y, px, py);
   };
 
+  // Is this spot free of furniture and walls? (True outside the field or before it's built: we can't tell.)
+  NAV.isOpen = function (x, y) {
+    if (!NAV.enabled || !ready) return true;
+    const i = cellOf(x, y);
+    return i < 0 || !blocked[i];
+  };
+
   NAV.stats = function () {
     let open = 0, reach = 0;
     for (let i = 0; i < N; i++) { if (!blocked[i]) open++; if (isFinite(dist[i])) reach++; }

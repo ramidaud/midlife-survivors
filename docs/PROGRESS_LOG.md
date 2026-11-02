@@ -853,3 +853,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: music kept plinking slowly after closing the game or locking the phone. Browsers slow hidden timers instead of stopping them, so the music loop kept going. Audio now suspends when the page is hidden and wakes on return.
 - Derek and T.J. reported odd enemy pathing (a single-file line along a wall, enemies drifting away). A bot playtest at 1280x800 didn't reproduce it: 94 to 97% of enemies chase normally. Asked for device, version and where it happened.
 - Wrote ChatGPT brief for Stage 2F: the Executive Wing behind the age-55 door (room for the V8 boss at 60), a closed age-60 Wellness door, and crash cart smash art. Pathing files are off-limits while Claude debugs.
+
+## 2026-11-02: Enemies stuck behind walls, fixed (V. 1.39.2)
+- Derek (laptop, 1.39.1, Lobby bottom right): enemies lined up along a wall and backed away when he got close.
+- Cause: the "No." shockwave teleported Bills 95px straight away from you without checking for walls, so near the dark block it popped them through the thin wall. Trapped inside, they lined up along it. Reproduced: 4 of 8 Bills stuck inside the wall, still stuck 4 seconds later.
+- Fix: shoves (the "No." and hit knockback) now move in small steps and stop at walls, furniture and floor edges. Any enemy that still ends up off the floor for 2 seconds is put back on a reachable spot. Same test after: 0 stuck.
+- Checked: age-50 test, promotion doors, bot playtests on desktop and phone, no errors.
