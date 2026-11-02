@@ -1639,3 +1639,11 @@ flowchart LR
   Break --> Gate50
   Gate50 --> Future["Future Server / Conference rooms"]
 ```
+
+## 2026-11-02: Guarding the right lines
+An `if` without braces covers only the next line. Indentation is just looks; the computer ignores it.
+
+| Code | Which lines are protected? |
+|---|---|
+| `if (shadow) moveShadow();`<br>`    setShadowDepth();` | only `moveShadow()`; `setShadowDepth()` always runs, and crashes when there's no shadow |
+| `if (shadow) {`<br>`  moveShadow();`<br>`  setShadowDepth();`<br>`}` | both lines, so a shadowless ghost is safe |

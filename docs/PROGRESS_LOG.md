@@ -837,3 +837,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Tests: desktop and phone, the player walks into the Parking Lot, and a Bill spawned in the Lobby followed through the door from about 1,000 px away to within 134 px.
 - Leaderboard scare at 6:43: data was intact the whole time (67 scores); most likely a page loaded mid-deploy.
 - Wrote ChatGPT brief for Stage 2E (Server Room + Conference Rooms behind the age-50 doors, plus a closed age-55 Executive Wing door).
+
+## 2026-11-02: Stage 2E reviewed, age-50 crash fixed (V. 1.38.1)
+- Reviewed ChatGPT's V. 1.38.0: Server Room (19 racks, cable waterfall) and three glass Conference Rooms behind the age-50 doors, closed Executive door at 55. My runtime files untouched.
+- Fixed a real crash ChatGPT spotted: at age 50 the first 3 AM Thought (no shadow) broke enemy drawing. It came from my own speed pass; one missing pair of braces.
+- Tests: desktop and phone at age 50 with ghosts on screen, no errors. A test-only switch to 50 opens the Server and Conference doors and keeps Executive shut; all rooms reachable.
+- Doors at 50 stay closed until Rami approves the rooms (one setting: openUpToAge 50).

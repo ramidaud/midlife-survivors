@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.38.0",
-  displayVersion: "V. 1.38.0",
+  version: "1.38.1",
+  displayVersion: "V. 1.38.1",
   lastUpdated: "Nov 2, 2026",
   codename: "Take It Offline",
-  build: 97,
+  build: 98,
   changelog: [
+    {
+      ver: "V. 1.38.1", date: "Nov 2, 2026", title: "Take It Offline",
+      highlights: [
+        "Fixed a crash at age 50: the first 3 AM Thought (it has no shadow) broke enemy drawing. Spotted by ChatGPT during room testing."
+      ]
+    },
     {
       ver: "V. 1.38.0", date: "Nov 2, 2026", title: "Take It Offline",
       highlights: [

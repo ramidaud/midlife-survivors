@@ -137,9 +137,10 @@ window.EnemyArt = (() => {
           visual.play(key(kind) + suffix, true);
           visual.anims.timeScale = running ? 1 : 0;
         }
-        if (record.shadow) record.shadow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.4)
-          .setAlpha(entity.alpha);
+        if (record.shadow) {
+          record.shadow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.4).setAlpha(entity.alpha);
           if (record.shadow.depth !== entity.depth - 0.1) record.shadow.setDepth(entity.depth - 0.1);
+        }
       }
     }
     scene.events.on('postupdate', sync);

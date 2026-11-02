@@ -464,3 +464,6 @@ The map and the promotion rule are separate pieces. We can finish a room's floor
 
 ## Unlocking areas (Nov 2)
 A locked door in a game is usually two things: a wall you can't walk through, and an invisible "no entry" zone for enemy pathfinding so they don't try to route through it. Opening the door removes both at once: the door's body is switched off, and its zone is taken out of the list the flow field reads. From then on, enemies can spawn in the new room and follow you there, and the map just got much bigger.
+
+## Guarding the right lines (Nov 2)
+`if (thing)` without braces only protects the very next line. The speed pass added a second line under the shadow check, but indentation made it look protected when it wasn't. The 3 AM Thought has no shadow, so that second line tried to read a shadow that didn't exist and crashed. Braces `{ }` make the guard cover every line you meant, no matter how it's indented.
