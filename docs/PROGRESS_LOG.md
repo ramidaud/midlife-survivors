@@ -768,3 +768,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Lobby and Bullpen open at 40. Both age-45 doors stay closed for this slice, span the full 224px route and register navigation blockers. Future promotions remain tunable data.
 - Added bounded-floor spawn validation, footprint/connectivity checks, culling and isolated desktop/phone QA. No test scores or analytics submitted. Enemy and combat balance tables unchanged.
 - Next: Rami plays these two areas before other districts. Claude should review the saved Circle Back corner-hesitation trace and own future gate opening.
+
+## 2026-11-02: Reviewed ChatGPT's Lobby and Bullpen (V. 1.31.0), fixed the roundabout snag (V. 1.31.1)
+- ChatGPT shipped the first real slice: Lobby and Bullpen, 35 varied desks, 18 seated coworkers, hallway jokes, two closed age-45 gates.
+- Review: merge clean, my touch/shop/zoom fixes intact, no errors on desktop or phone. The whole run now happens in these two rooms until more districts exist.
+- Fixed the "Circle Back hesitation": enemies right behind a small prop charged straight into it. Pathing now checks for a clear line, and enemies squeezed against furniture slide out. Test: 2 of 5 stuck before, 0 of 5 after.
+- Test bot dies at 41.3 to 42.3 in the new rooms (about the same as before).

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.31.0",
-  displayVersion: "V. 1.31.0",
+  version: "1.31.1",
+  displayVersion: "V. 1.31.1",
   lastUpdated: "Nov 1, 2026",
-  codename: "New Hire Tour",
-  build: 85,
+  codename: "Roundabout",
+  build: 86,
   changelog: [
+    {
+      ver: "V. 1.31.1",
+      date: "Nov 2, 2026",
+      title: "Roundabout",
+      highlights: [
+        "Smarter enemies around small furniture: a Bill right behind the Circle Back roundabout used to charge into it and get stuck. Now it walks around."
+      ]
+    },
     {
       ver: "V. 1.31.0",
       date: "Nov 1, 2026",

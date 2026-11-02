@@ -113,14 +113,54 @@
     if (NAV.debug) drawDebug(scene);
   };
 
+  // Is the straight line from (x, y) to the player free of furniture? Walks the grid in half-cell steps.
+  function lineClear(x, y) {
+    const px = ox + NAV.radius * NAV.cell + NAV.cell / 2, py = oy + NAV.radius * NAV.cell + NAV.cell / 2;
+    const steps = Math.ceil(Math.hypot(px - x, py - y) / (NAV.cell / 2));
+    for (let k = 1; k < steps; k++) {
+      const j = cellOf(x + (px - x) * k / steps, y + (py - y) * k / steps);
+      if (j >= 0 && blocked[j]) return false;
+    }
+    return true;
+  }
+  // Nearly-straight path AND nothing actually in the way. (The old test only compared path length,
+  // so an enemy right behind a small prop like the Circle Back roundabout would charge into it.)
+  function directOk(i, x, y, px, py) {
+    if (dist[i] <= 2) return true;
+    const straight = Math.hypot(px - x, py - y) / NAV.cell;
+    return dist[i] <= straight * 1.12 + 1.5 && lineClear(x, y);
+  }
+  // An enemy squeezed against furniture can sit in a "blocked" cell (inside the padding). Point it at the
+  // best open neighbor so it slides out and around instead of pushing straight into the prop.
+  function escapeCell(i) {
+    const cx = i % SIZE, cy = (i / SIZE) | 0;
+    let best = -1, bd = Infinity;
+    for (let r = 1; r <= 2 && best < 0; r++) {
+      for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++) {
+        if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue;
+        const nx = cx + dx, ny = cy + dy;
+        if (nx < 0 || ny < 0 || nx >= SIZE || ny >= SIZE) continue;
+        const j = ny * SIZE + nx;
+        if (dist[j] < bd) { bd = dist[j]; best = j; }
+      }
+    }
+    return best;
+  }
+
   // Steer one enemy toward the player at `speed`. Falls back to a straight chase when the
   // field can't help (not built yet, enemy outside it, or nothing in the way).
   NAV.steer = function (scene, e, player, speed) {
     if (!NAV.enabled || !ready) return scene.physics.moveToObject(e, player, speed);
     const i = cellOf(e.x, e.y);
-    if (i < 0 || !isFinite(dist[i])) return scene.physics.moveToObject(e, player, speed);
-    const straight = Math.hypot(player.x - e.x, player.y - e.y) / NAV.cell;
-    if (dist[i] <= 2 || dist[i] <= straight * 1.12 + 1.5) return scene.physics.moveToObject(e, player, speed); // clear line: chase directly
+    if (i < 0) return scene.physics.moveToObject(e, player, speed);
+    if (!isFinite(dist[i])) {
+      const j = blocked[i] ? escapeCell(i) : -1;
+      if (j < 0) return scene.physics.moveToObject(e, player, speed);
+      const tx = ox + (j % SIZE) * NAV.cell + NAV.cell / 2, ty = oy + ((j / SIZE) | 0) * NAV.cell + NAV.cell / 2;
+      const l = Math.hypot(tx - e.x, ty - e.y) || 1;
+      return e.setVelocity((tx - e.x) / l * speed, (ty - e.y) / l * speed);
+    }
+    if (directOk(i, e.x, e.y, player.x, player.y)) return scene.physics.moveToObject(e, player, speed); // clear line: chase directly
     // Blend every downhill neighbor, weighted by how much closer it gets you. Smoother than picking one.
     const cx = i % SIZE, cy = (i / SIZE) | 0, d = dist[i];
     let vx = 0, vy = 0;
@@ -174,8 +214,7 @@
     const i = cellOf(x, y);
     if (i < 0 || !isFinite(dist[i])) return true;
     const px = ox + NAV.radius * NAV.cell + NAV.cell / 2, py = oy + NAV.radius * NAV.cell + NAV.cell / 2;
-    const straight = Math.hypot(px - x, py - y) / NAV.cell;
-    return dist[i] <= 2 || dist[i] <= straight * 1.12 + 1.5;
+    return directOk(i, x, y, px, py);
   };
 
   NAV.stats = function () {
