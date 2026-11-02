@@ -1727,7 +1727,7 @@ function update(time, delta) {
 
   // Check if we progressed into a new Life Stage / Environment (Office -> Hospital -> Home -> Social -> Resort)!
   if (typeof getActiveStage === "function") {
-    const activeStage = getActiveStage(currentAge, meta);
+    const activeStage = this.worldArt && this.worldArt.startArea ? STAGES[0] : getActiveStage(currentAge, meta);
     if (activeStage && activeStage.id !== currentStageId) {
       const prevId = currentStageId;
       currentStageId = activeStage.id;

@@ -178,5 +178,5 @@ window.OfficeEnvironment = (() => {
       link.href=canvas.toDataURL('image/png');link.download=id+'-native.png';
     }
   }
-  return {props,createTiles,build,downloads};
+  return {props,createTiles,build,downloads,groundObject};
 })();

@@ -59,7 +59,8 @@ for s in specs {
     if v==1 {c=[6:3,7:4,8:7][base] ?? base}
     if v==2 {c=[6:9,7:10,8:6][base] ?? base}
    }
-   if ["kiddie_pool","ocean_pot"].contains(s.id) && v==1 {c=[3:2,7:6,8:7][base] ?? base}
+   if ["kiddie_pool","ocean_pot","water_cooler"].contains(s.id) && v==1 {c=[3:2,7:6,8:7][base] ?? base}
+   if s.id=="water_cooler" && v==2 {c=base;if y>=h*45/100 {c=[3:9,7:6,8:7][base] ?? base}}
    if s.id=="fruit_tree" && v==1 {c=base;if y>=h*68/100 {c=[5:2,6:14,7:8][base] ?? base}}
    if s.id=="roundabout" && v==1 {c=[7:6,8:7][base] ?? base}
    if s.id=="hard_stop" && v==1 {c=[10:9,7:6,8:7][base] ?? c}
