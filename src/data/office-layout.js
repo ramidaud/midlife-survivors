@@ -15,7 +15,7 @@ window.OFFICE_LAYOUT = {
   ],
   environmentProps: [
     {id:'cabinet',x:-1040,y:-640},{id:'plant',x:-430,y:-640},
-    {id:'cabinet',x:-1408,y:-176},{id:'cabinet',x:-1408,y:16},{id:'cabinet',x:-1408,y:208},
+    {id:'cabinet',x:-1408,y:-176},{id:'cabinet',x:-1408,y:16},
     {id:'plant',x:1408,y:-208},{id:'plant',x:1408,y:208},
     {id:'plant',x:464,y:624},{id:'plant',x:960,y:288},
     {id:'plant',x:-160,y:-128},{id:'plant',x:160,y:128}
@@ -26,11 +26,11 @@ window.OFFICE_LAYOUT = {
       desks:[],prop:'prop_plant',propAt:[176,-128],tour:[0,38] },
     { id: 'accounts', name: 'ACCOUNTS PAYABLE', shortName:'Accounts', x:-704,y:-448,width:640,height:448,color:0x526078,
       landmark: 'The paperwork skyline', joke: 'Every pile has been marked urgent since 2009.',
-      desks:[[-928,-544,'tidy'],[-768,-544,'paperwork'],[-608,-544,'lunch'],[-928,-352,'paperwork'],[-768,-352,'tidy'],[-608,-352,'paperwork']],
+      desks:[[-928,-544,'tidy'],[-768,-544,'paperwork'],[-608,-544,'lunch'],[-928,-352,'y2009_1'],[-768,-352,'tidy'],[-608,-352,'y2009_0']],
       prop:'prop_copier',propAt:[-960,-656],tour:[-704,-448] },
     { id: 'quiet', name: 'THE QUIET ZONE', shortName:'Quiet zone', x:704,y:-448,width:640,height:448,color:0x3e7775,
       landmark: 'The loudest printer in the building', joke: 'Quiet hours begin as soon as this finishes printing.',
-      desks:[[512,-544,'tidy'],[672,-544,'tidy'],[832,-544,'paperwork'],[512,-352,'tidy'],[672,-352,'paperwork'],[832,-352,'tidy']],
+      desks:[[512,-544,'sticky_0'],[672,-544,'tidy'],[832,-544,'paperwork'],[512,-352,'tidy'],[672,-352,'paperwork'],[832,-352,'sticky_1']],
       prop:'prop_copier',propAt:[960,-608],tour:[704,-448] },
     { id: 'breakroom', name: 'THE BREAKROOM', shortName:'Breakroom', x:-704,y:448,width:640,height:448,color:0xa88b70,
       landmark: 'Friday leftovers', joke: 'The pizza is communal. The mug absolutely is not.',
@@ -38,14 +38,14 @@ window.OFFICE_LAYOUT = {
       prop:'prop_cooler',propAt:[-960,448],tour:[-704,448] },
     { id: 'wellness', name: 'WELLNESS CORNER', shortName:'Wellness', x:704,y:448,width:640,height:448,color:0x83a89a,
       landmark: 'The emotional-support fern', joke: 'The plant has also declined the optional wellness seminar.',
-      desks:[[512,336,'tidy'],[896,336,'tidy'],[512,592,'tidy'],[896,592,'paperwork']],
+      desks:[[512,336,'family_0'],[896,336,'tidy'],[512,592,'tidy'],[896,592,'family_1']],
       prop:'prop_plant',propAt:[960,480],tour:[704,448] },
     { id:'archives',name:'RECORDS ANNEX',shortName:'Files',x:-1312,y:0,width:320,height:576,color:0x526078,
       landmark:'The permanent archive',joke:'Filed under: we might need this someday.',
       desks:[],prop:'prop_copier',propAt:[-1280,-192],tour:[-1312,96] },
     { id:'meeting',name:'MEETING WING',shortName:'Meet',x:1312,y:0,width:320,height:576,color:0x3e7775,
       landmark:'Room 404',joke:'The meeting has moved. The invite has not.',
-      desks:[[1312,-176,'tidy'],[1312,224,'paperwork']],prop:'prop_plant',propAt:[1280,-240],tour:[1408,0] }
+      desks:[[1312,-176,'sticky_2'],[1312,224,'paperwork']],prop:'prop_plant',propAt:[1280,-240],tour:[1408,0] }
   ],
   discoveries: [
     { id: 'coupon', name: 'The ancient coupon', x:-960,y:-448,glyph:'%',

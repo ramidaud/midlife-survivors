@@ -34,7 +34,7 @@ window.WorldArt = (() => {
   }
   function init(scene,refs) {
     let alive=true,hero=null,shadow=null,facing='down',walked=0,lastX=refs.player.x,lastY=refs.player.y,lastClock=-1;
-    const chunks=[],heroReady=new Set(),pendingProps=[];
+    const chunks=[],heroReady=new Set(),pendingProps=[],decor=[],captioned=[],captionsShown=new Set();let lastCaptionAt=-1e9;
     const state={active:false,update};scene.worldArt=state;
     function body(object,footprint,kind) {
       if(!object.body)scene.physics.add.existing(object);
@@ -59,6 +59,25 @@ window.WorldArt = (() => {
         const props=await Promise.all(OfficeEnvironment.props.map(async def=>[def,await image(window.ENVIRONMENT_IMAGES[def.id])]));
         if(!alive)return;
         for(const [id,img]of desks)propTexture(scene,img,'desk_'+id,96,104);
+        // Stage 2A props (ChatGPT). Optional: if they fail to load, the office still works without them.
+        const SP=window.USE_STAGE_PROPS&&window.STAGE_PROPS;
+        if(SP) {
+          try {
+            for(const [id,f]of Object.entries(SP.families)) {
+              const img=await image('assets/stage/props/'+f.file);if(!alive)return;
+              for(let k=0;k<f.frames;k++) {
+                const cut=document.createElement('canvas');cut.width=f.frame[0];cut.height=f.frame[1];
+                cut.getContext('2d').drawImage(img,k*f.frame[0],0,f.frame[0],f.frame[1],0,0,f.frame[0],f.frame[1]);
+                propTexture(scene,cut,f.desk?`desk_${f.desk}_${k}`:`stage_${id}_${k}`,f.frame[0],f.frame[1]);
+              }
+            }
+          } catch(error){console.warn('Stage props fallback: '+error.message);}
+        }
+        const deskCaption=variant=>{
+          if(!SP)return null;
+          const fam=Object.entries(SP.families).find(([,f])=>f.desk&&variant.startsWith(f.desk+'_'));
+          return fam?SP.captions[fam[0]]:null;
+        };
         for(const [def,img]of props)propTexture(scene,img,def.key,def.width,def.height);
         OfficeEnvironment.createTiles(scene);
         beforeChildren=new Set(scene.children.list);
@@ -69,7 +88,9 @@ window.WorldArt = (() => {
           const desks=[],landmarks=[],all=[];
           for(const d of layout.departments) {
             for(const [x,y,variant]of d.desks) {
-              const desk=scene.add.image(x,y,'desk_'+variant).setOrigin(.5,1);desk.variant=variant;
+              const key=scene.textures.exists('desk_'+variant)?'desk_'+variant:'desk_tidy';
+              const desk=scene.add.image(x,y,key).setOrigin(.5,1);desk.variant=variant;
+              const cap=key==='desk_'+variant&&deskCaption(variant);if(cap){desk.caption=cap;captioned.push(desk);}
               body(desk,{width:80,back:70,front:2},'prop_desk');desks.push(desk);all.push(desk);
             }
             const type=d.prop==='prop_copier'?'printer':d.prop==='prop_plant'?'plant':null;
@@ -78,6 +99,14 @@ window.WorldArt = (() => {
             landmark.environmentType=type;landmark.originalTexture=d.prop;
             body(landmark,def?def.footprint:{width:26,back:24,front:4},type==='plant'?'prop_plant':'prop_cooler');
             landmarks.push(landmark);all.push(landmark);
+          }
+          if(SP)for(const [x,y,id,k]of SP.place) {
+            const f=SP.families[id],key=`stage_${id}_${k||0}`;
+            if(!f||!scene.textures.exists(key))continue;
+            const o=scene.add.image(x,y,key).setOrigin(.5,1);o.stageId=id;
+            if(f.solid)body(o,f.footprint,'prop_desk');else decor.push(o);
+            if(SP.captions[id]){o.caption=SP.captions[id];captioned.push(o);}
+            all.push(o);
           }
           const environment=OfficeEnvironment.build(scene,layout,desks,landmarks);
           for(const p of environment.blockers)body(p,p.footprint,p.texture.key==='env_plant'?'prop_plant':'prop_desk');
@@ -138,6 +167,12 @@ window.WorldArt = (() => {
           // Fade only the foreground furniture currently concealing the hero.
           const behind=prop.visible&&py<prop.y&&py>prop.y-prop.height&&Math.abs(px-prop.x)<prop.width/2+10;
           prop.setAlpha(behind?.48:1);
+        }
+        for(const d of decor)d.setDepth(10000+d.y-p.y);
+        // "Read on approach": the full joke shows once per run in the lower third when you walk up to it.
+        if(now-lastCaptionAt>6000&&window.showLowerThird)for(const o of captioned) {
+          if(!o.visible||captionsShown.has(o.caption))continue;
+          if(Math.abs(o.x-px)<110&&Math.abs(o.y-py)<110){captionsShown.add(o.caption);lastCaptionAt=now;window.showLowerThird('lore','MEMO',o.caption,4500);break;}
         }
         for(const e of refs.enemies().getChildren()) {e.setDepth(10000+e.y+e.height/2-p.y);if(e.tag)e.tag.setDepth(50000);}
         refs.hpBar.setDepth(50001);refs.label.setDepth(50000);

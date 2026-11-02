@@ -709,3 +709,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Test: 12 donuts behind a desk reached the player 0 times with the old chase, and most arrived within 2 seconds with the new one. 350 enemies steer in about 0.2ms per frame.
 - Enemies no longer spawn inside furniture, and areas that can't reach the player (future locked promotion gates) are skipped.
 - ChatGPT started Stage 2: the first 13 prop families and posters, with full-width gate doorways.
+
+## 2026-11-01: First joke props in the office, V. 1.29.1
+- ChatGPT's first 13 prop families now appear in the current office: sticky-note, 2009 and family-photo desks, Hang in There posters, the KPI sign, OPPORTUNITY and PERSEVERANCE posters, two parked cars (one REBRAND, one booted "Dave's idea"), and the FILES cabinet by the lost binder.
+- New "read on approach" captions: walking up to a joke shows the full line as a MEMO in the lower third, once per run.
+- Positions and captions live in `src/data/stage-props.js`, so they're easy to move or rewrite.

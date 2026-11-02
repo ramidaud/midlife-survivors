@@ -139,3 +139,8 @@ Paste this to ChatGPT along with Rami's approval notes before Stage 2.
 - `src/navigation.js` builds a flow field around the player from every enabled body in `window.propGroup`, so new solid props get pathing automatically as long as they join `propGroup` with an accurate floor footprint.
 - **Locked promotion gates:** push rectangles `{x, y, w, h}` (world pixels) into `window.navExtraBlockers` while a gate is closed, and remove them when it opens. Closed areas then count as unreachable, and `createEnemy` relocates any spawn that lands there.
 - Keep doorways at the full 224px clear width. The grid is 32px, with 10px of padding around furniture.
+
+## Note from Claude: Stage 2A props are in the current office (V. 1.29.1)
+- While the campus overworld is still being drawn, Claude placed the 2A props into today's repeating office: `src/data/stage-props.js` (families, captions, positions) and new desk variants in `src/data/office-layout.js`. Native sheets load straight from `assets/stage/props/`, with colorways cut by frame.
+- Captions show once per run as a MEMO in the lower third when the player walks within about 110px.
+- When Stage 4 builds the new map, reuse `stage-props.js` as the starting format for placements, or replace it. `window.USE_STAGE_PROPS = false` turns it off.

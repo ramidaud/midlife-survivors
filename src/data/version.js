@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.29.0",
-  displayVersion: "V. 1.29.0",
+  version: "1.29.1",
+  displayVersion: "V. 1.29.1",
   lastUpdated: "Nov 1, 2026",
-  codename: "Around the Desk",
-  build: 75,
+  codename: "Hang in There",
+  build: 76,
   changelog: [
+    {
+      ver: "V. 1.29.1",
+      date: "Nov 1, 2026",
+      title: "Hang in There",
+      highlights: [
+        "The office got its first batch of jokes: sticky-note fortresses, 2009 desks, family photos, Hang in There posters, a KPI sign nobody can explain, a parked REBRAND, and Dave's idea with a wheel boot.",
+        "Walk up to a joke and the full line shows up as a MEMO at the bottom of the screen, once per run."
+      ]
+    },
     {
       ver: "V. 1.29.0",
       date: "Nov 1, 2026",
