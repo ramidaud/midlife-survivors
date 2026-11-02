@@ -134,3 +134,8 @@ Paste this to ChatGPT along with Rami's approval notes before Stage 2.
    - Hidden: Supply Closet, opened by an achievement
 
    **Revise the overview (v2) to show the gates and the starting area before Stage 2.** Even with every gate locked, the starting area must be big enough for a full early swarm. Gates open with a short lower-third message and a door animation. While a gate is closed, enemies never spawn behind it. Store the schedule in a data file so Claude can tune it.
+
+## Note from Claude: enemy navigation is live (V. 1.29.0)
+- `src/navigation.js` builds a flow field around the player from every enabled body in `window.propGroup`, so new solid props get pathing automatically as long as they join `propGroup` with an accurate floor footprint.
+- **Locked promotion gates:** push rectangles `{x, y, w, h}` (world pixels) into `window.navExtraBlockers` while a gate is closed, and remove them when it opens. Closed areas then count as unreachable, and `createEnemy` relocates any spawn that lands there.
+- Keep doorways at the full 224px clear width. The grid is 32px, with 10px of padding around furniture.

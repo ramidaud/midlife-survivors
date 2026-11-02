@@ -1531,3 +1531,36 @@ A gate's picture can be wider than its usable doorway. We measure the doorway se
 ```
 
 The manifest carries native image size, foot-point origin and proposed footprint as separate data. Runtime collision and enemy navigation still belong to implementation and testing.
+
+
+## Chapter: Flow fields, or how a swarm finds the door (V. 1.29.0)
+Until now every enemy did the simplest thing possible: point at you and walk. That works on an empty floor. Put a desk in the way and they walk straight into it and stay there, while you stand on the other side, perfectly safe.
+
+A **flow field** fixes this for hundreds of enemies at once. Instead of every enemy solving its own maze, the game solves the maze **once, from your point of view**, and writes the answer on the floor.
+
+```text
+Step 1: lay a grid of 32px cells around the player
+Step 2: mark cells under furniture as blocked  (##)
+Step 3: flood outward from the player, counting steps
+
+   5  4  3  3  3  4  5          The numbers are "steps to reach you".
+   4  3  2  2  2  3  4          Every enemy just walks toward a
+   4 ## ## ## ##  3  4          neighbor with a SMALLER number.
+   5 ## ## ## ##  4  5
+   6  7  7  7  6  5  6   <- enemy here (7) heads right (6, 5...)
+   7  8  8  8  7  6  7      and goes AROUND the desk to reach you.
+           P = 0 (you, above the desk)
+```
+
+Three things make it cheap:
+- **One flood serves everyone.** 350 enemies all read the same numbers. Steering all of them takes about 0.2 milliseconds.
+- **It only rebuilds a few times a second**, and only for the area around you (about 1,000 pixels in each direction).
+- **Open space falls back to the old straight chase.** If an enemy's step count matches the straight-line distance, nothing is in the way, so it just heads right at you.
+
+The same numbers answer a second question for free: **"can anything reach the player from here?"** A cell with no number is either inside furniture or sealed off, like a wing behind a locked promotion gate. Spawning checks this, so enemies never appear inside a desk or behind a door you haven't unlocked.
+
+| | Before (straight line) | After (flow field) |
+|---|---|---|
+| 12 donuts behind a desk, 8 seconds | 0 reach you | most reach you within 2 seconds |
+| Spawn inside furniture | possible | moved to the nearest open spot |
+| Locked room | n/a | counted as unreachable |

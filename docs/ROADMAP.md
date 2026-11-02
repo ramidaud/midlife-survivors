@@ -41,6 +41,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] Rami approved v2. Every doorway retains a 224px clear opening; hidden Archive entrance readable but subtle. Claude owns runtime flow-field navigation and locked-area spawn filtering.
    - [x] Stage 2A first art batch: 13 prop/poster families, 31 colorways, native hero/Bill comparisons, manifest and gate-clearance study. Review in the Art Room.
    - [ ] Finish the remaining Stage 2 kit, reusing existing art where possible: 59 families still need completion, plus modular floor/boundary delivery and district assembly. Runtime gate animation and 350-enemy tests wait for integration.
+5c. [x] **Enemy navigation (V. 1.29.0):** flow field so swarms walk around furniture and through doorways; spawns avoid furniture and unreachable (locked) areas. Gates hook in via `window.navExtraBlockers`.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
 7. [ ] **Accounts / cloud saves**
 8. [ ] Errands, Daily Challenge, gallery

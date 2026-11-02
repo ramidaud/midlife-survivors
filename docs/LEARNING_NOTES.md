@@ -391,3 +391,6 @@ A gate's picture can be wider than its usable doorway. We measure the doorway se
 ```
 
 The manifest carries native image size, foot-point origin and proposed footprint as separate data. Runtime collision and enemy navigation still belong to implementation and testing.
+
+## Flow field (V. 1.29.0)
+Instead of every enemy solving its own maze, the game floods outward from the player once and writes "steps to reach you" on every floor cell. Each enemy walks toward a neighbor with a smaller number, so whole swarms pour around desks and through doorways. It rebuilds a few times a second and costs almost nothing per enemy. Bonus: a cell with no number can't reach you, which is how spawning avoids desks and locked rooms.

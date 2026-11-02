@@ -1447,6 +1447,11 @@ function currentWave() {
 
 // Create one enemy of the given kind at (x, y), scaling HP, speed, and Life Stage labels with your Age!
 function createEnemy(scene, kind, x, y) {
+  if (window.NAV) { // never spawn inside a desk or somewhere that can't reach you (like behind a locked door)
+    const spot = window.NAV.fixSpawn(x, y);
+    if (!spot) return null;
+    [x, y] = spot;
+  }
   if (window.firstTimeTip) window.firstTimeTip(kind);
   const E = ENEMIES[kind];
   const e = bills.create(x, y, E.tex || kind).setDepth(4);
@@ -1568,7 +1573,8 @@ function spawnBoss(scene, bossKind) {
   sfx("bossSpawn");
   scene.cameras.main.shake(180, 0.01); // rumble the screen when a Decade Boss arrives!
   const P = ENEMIES[bossKind], view = scene.cameras.main.worldView;
-  const x = view.right + SPAWNING.offscreenMargin, y = player.y;
+  let x = view.right + SPAWNING.offscreenMargin, y = player.y;
+  if (window.NAV) { const spot = window.NAV.fixSpawn(x, y); if (spot) [x, y] = spot; } // bosses still always arrive
   const boss = bills.create(x, y, P.tex || bossKind).setDepth(4);
   const isEnd = bossKind === "theReaper", m = modeCfg();
   const label = (isEnd && m.endBossLabel) || P.label, bossName = (isEnd && m.endBossName) || P.name;
@@ -1851,6 +1857,8 @@ function update(time, delta) {
 
   // Every frame, update each enemy according to its behavior (state machine).
   const now = runElapsedMs;
+  if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
+  const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;
     const ageMs = now - (bill.bornAt || now);
@@ -1917,7 +1925,7 @@ function update(time, delta) {
         bill.setAlpha(ghost ? 0.25 : 1);
         bill.tag.setAlpha(ghost ? 0.3 : 1);
       }
-      this.physics.moveToObject(bill, player, ghost ? T.ghostSpeed : bill.speed);
+      chase(bill, ghost ? T.ghostSpeed : bill.speed);
       bill.tag.setPosition(bill.x, bill.y - T.size / 2 - 6);
       return;
     }
@@ -1939,7 +1947,7 @@ function update(time, delta) {
       const G = ENEMIES.groupChat;
       const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
       const a = Phaser.Math.Angle.Between(player.x, player.y, bill.x, bill.y);
-      if (d > G.keepDistance + 40) this.physics.moveToObject(bill, player, bill.speed);
+      if (d > G.keepDistance + 40) chase(bill, bill.speed);
       else if (d < G.keepDistance - 40) bill.setVelocity(Math.cos(a) * bill.speed, Math.sin(a) * bill.speed); // back away
       else bill.setVelocity(-Math.sin(a) * bill.speed * 0.8, Math.cos(a) * bill.speed * 0.8);                // circle you
       if (!bill.nextPing) bill.nextPing = now + G.fireEveryMs * (0.5 + Math.random() * 0.5);
@@ -1977,8 +1985,8 @@ function update(time, delta) {
       return;
     }
 
-    // Default behavior (Bills, Late Fees, Snacks, Twinge lunge, Elites, Bosses): steer directly toward you.
-    this.physics.moveToObject(bill, player, bill.speed || ENEMIES.bill.speed);
+    // Default behavior (Bills, Late Fees, Snacks, Twinge lunge, Elites, Bosses): head for you, walking around furniture.
+    chase(bill, bill.speed || ENEMIES.bill.speed);
     bill.setFlipX(player.x < bill.x);
     const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
     bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);

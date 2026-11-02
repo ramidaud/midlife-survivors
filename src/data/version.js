@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.28.18",
-  displayVersion: "V. 1.28.18",
+  version: "1.29.0",
+  displayVersion: "V. 1.29.0",
   lastUpdated: "Nov 1, 2026",
-  codename: "Sticky Business",
-  build: 74,
+  codename: "Around the Desk",
+  build: 75,
   changelog: [
+    {
+      ver: "V. 1.29.0",
+      date: "Nov 1, 2026",
+      title: "Around the Desk",
+      highlights: [
+        "Enemies now walk around furniture and through doorways instead of piling up against desks. No more hiding behind a cubicle.",
+        "Enemies never spawn inside furniture, and the game is ready for locked areas in the bigger office coming soon."
+      ]
+    },
     {
       ver: "V. 1.28.18",
       date: "Nov 1, 2026",

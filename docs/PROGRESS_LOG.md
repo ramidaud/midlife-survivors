@@ -703,3 +703,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added an isolated review with real 56x60 hero and 36px Bill comparisons, palette/footprint controls, once-only caption demo and open/closed gate studies. Sources, full prompts, manifest and optional native exporter are saved under assets/stage/props.
 - Native checks passed palette, opacity, margins, one-pixel outlines, unique variants and matching masks; 16 gate contracts keep 224px spans. Desktop and 390px phone review passed, including contained zoom and all 13 native canvas widths. No runtime world, pathing, balance, saves, leaderboard or posts changed.
 - Stage 2 remains in progress. Next batch: remaining slang props and district landmarks, reusing existing furniture. No new-world age-50 or 350-enemy run is claimed before integration.
+
+## 2026-11-01: Enemies walk around furniture, V. 1.29.0
+- New flow-field navigation: swarms route around desks and through doorways instead of sticking to walls.
+- Test: 12 donuts behind a desk reached the player 0 times with the old chase, and most arrived within 2 seconds with the new one. 350 enemies steer in about 0.2ms per frame.
+- Enemies no longer spawn inside furniture, and areas that can't reach the player (future locked promotion gates) are skipped.
+- ChatGPT started Stage 2: the first 13 prop families and posters, with full-width gate doorways.
