@@ -173,7 +173,25 @@
       const w = (d - dn) / cost;
       vx += dx / cost * w; vy += dy / cost * w;
     }
-    const len = Math.hypot(vx, vy);
+    let len = Math.hypot(vx, vy);
+    // Behind something wide (Nov 2: Derek's "they run away", the Executive desk) the way around on the left and
+    // on the right are equally short. Their pulls cancel and what's left points straight BACK, away from you, so
+    // the enemy walks backward up the middle. Fix: if the blend disagrees with the single best step by more than
+    // ~60 degrees, take the best step instead. Each enemy keeps a favorite side to break exact ties.
+    if (!e.navSide) e.navSide = Math.random() < 0.5 ? -1 : 1;
+    let best = -1, bw = 0;
+    for (let k = 0; k < NB.length; k++) {
+      const [dx, dy, cost] = NB[k], nx = cx + dx, ny = cy + dy;
+      if (nx < 0 || ny < 0 || nx >= SIZE || ny >= SIZE) continue;
+      const dn = dist[ny * SIZE + nx];
+      if (!(dn < d)) continue;
+      const w = (d - dn) / cost + (dx === e.navSide ? 0.001 : 0);
+      if (w > bw) { bw = w; best = k; }
+    }
+    if (best >= 0) {
+      const bx = NB[best][0] / NB[best][2], by = NB[best][1] / NB[best][2], bl = Math.hypot(bx, by);
+      if (!len || (vx * bx + vy * by) / (len * bl) < 0.5) { vx = bx; vy = by; len = bl; }
+    }
     if (!len) return scene.physics.moveToObject(e, player, speed);
     e.setVelocity(vx / len * speed, vy / len * speed);
   };
@@ -223,6 +241,16 @@
     if (!NAV.enabled || !ready) return true;
     const i = cellOf(x, y);
     return i < 0 || !blocked[i];
+  };
+
+  // Debug: the route-map values in a 5x5 patch around (x, y). "#" = solid, "-" = can't reach you.
+  NAV.inspect = function (x, y) {
+    const i = cellOf(x, y); if (i < 0) return "outside field";
+    const cx = i % SIZE, cy = (i / SIZE) | 0, rows = [];
+    for (let dy = -2; dy <= 2; dy++) { const r = [];
+      for (let dx = -2; dx <= 2; dx++) { const j = (cy + dy) * SIZE + cx + dx; r.push(blocked[j] ? "#" : isFinite(dist[j]) ? dist[j].toFixed(1) : "-"); }
+      rows.push(r.join(" ")); }
+    return rows.join("\n");
   };
 
   NAV.stats = function () {

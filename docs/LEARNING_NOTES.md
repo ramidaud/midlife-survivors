@@ -473,3 +473,6 @@ When a tab is hidden or the phone is locked, browsers don't stop JavaScript time
 
 ## Teleporting through walls (Nov 2)
 Physics only stops things that *move* into a wall. If code jumps an object straight to a new spot ("teleporting" it), the physics engine never sees the trip, so it can land on the far side of a thin wall. That's what the "No." shove did: it set each Bill's position 95px away in one jump. The fix is to move in small steps and check each step before taking it, stopping at the first wall. Games call the original problem "tunneling."
+
+## When two good routes cancel out (Nov 2)
+Our enemies blend all the "downhill" directions on the route map so they move smoothly. Directly behind a wide desk, the way around the left and the way around the right are equally good, so those two pulls cancel. The only pulls left were the small diagonal ones pointing back up behind the desk, so the enemy walked *away* from you. The fix: compare the blend with the single best step, and if they disagree a lot, trust the best step. Each enemy also picks a favorite side, so a crowd splits around the desk instead of freezing.

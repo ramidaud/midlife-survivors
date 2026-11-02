@@ -69,10 +69,20 @@ async function lbFetchTop() {
   const L = window.LEADERBOARD || {};
   const n = L.fetchLimit || 1000; // grab plenty, then keep each player's best (no top-10 cap)
   if (lbConfigured()) {
-    try {
-      const res = await fetch(`${L.supabaseUrl}/rest/v1/${lbTable()}?select=name,score,age,character,version,created_at&order=score.desc&limit=${n}`, { headers: lbHeaders() });
-      if (res.ok) return { online: true, rows: lbBestPerName(await res.json()) };
-    } catch (e) {}
+    // Nov 2: Rami twice saw "No scores yet" while the server held 70+ scores and logged full replies.
+    // So: never use a cached reply, and if a reply comes back empty, ask once more before believing it.
+    const url = `${L.supabaseUrl}/rest/v1/${lbTable()}?select=name,score,age,character,version,created_at&order=score.desc&limit=${n}`;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const res = await fetch(url + (attempt ? `&_r=${Date.now()}` : ""), { headers: lbHeaders(), cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length) return { online: true, rows: lbBestPerName(data) };
+          if (attempt) return { online: true, rows: [], empty: true };
+        }
+      } catch (e) {}
+      await new Promise(r => setTimeout(r, 1200));
+    }
   }
   return { online: false, rows: lbBestPerName(lbLocalScores()) };
 }
@@ -95,7 +105,7 @@ function lbEscape(s) {
 async function lbRenderInto(el, mine) {
   if (!el) return;
   el.innerHTML = `<div class="lb-status">Loading scores…</div>`;
-  const { online, rows } = await lbFetchTop();
+  const { online, rows, empty } = await lbFetchTop();
   const charName = id => {
     const c = (window.CHARACTERS || []).find(x => x.id === id);
     return c ? c.name.replace(/^The /, "") : "";
@@ -103,13 +113,17 @@ async function lbRenderInto(el, mine) {
   const body = rows.length ? rows.map((r, i) => {
     const me = mine && r.name === mine.name && Number(r.score) === Number(mine.score);
     return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
-  }).join("") : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`;
+  }).join("") : (empty
+    ? `<tr><td colspan="5" class="lb-empty">Couldn't load the scores just now. <button class="lb-retry" type="button">↻ RETRY</button></td></tr>`
+    : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`);
   el.innerHTML = `
     <div class="lb-status">${lbMode() === "full" ? "FULL LIFE" : "MIDLIFE"} BOARD · ${online ? "🌐 Online leaderboard" : (lbConfigured() ? "📴 Offline: showing scores from this device" : "📱 Scores on this device (online board not set up yet)")}</div>
     <div class="lb-wrap"><table class="lb-table">
       <thead><tr><th>#</th><th>NAME</th><th>SCORE</th><th>AGE</th><th>AS</th></tr></thead>
       <tbody>${body}</tbody>
     </table></div>`;
+  const retry = el.querySelector(".lb-retry");
+  if (retry) retry.addEventListener("click", () => lbRenderInto(el, mine));
 }
 
 window.computeRunScore = computeRunScore;

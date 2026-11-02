@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.40.1",
-  displayVersion: "V. 1.40.1",
+  version: "1.40.2",
+  displayVersion: "V. 1.40.2",
   lastUpdated: "Nov 2, 2026",
   codename: "Corner Office Energy",
-  build: 103,
+  build: 104,
   changelog: [
+    {
+      ver: "V. 1.40.2", date: "Nov 2, 2026", title: "Corner Office Energy",
+      highlights: [
+        "Fixed enemies walking AWAY from you when they were directly behind a desk or other wide furniture. They now pick a side and go around. (Thanks Derek, T.J. and ChatGPT's room tests.)",
+        "Leaderboard: if the scores don't load, it tries again and shows a Retry button instead of \"No scores yet.\""
+      ]
+    },
     {
       ver: "V. 1.40.1", date: "Nov 2, 2026", title: "Corner Office Energy",
       highlights: [

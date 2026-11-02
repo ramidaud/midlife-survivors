@@ -1656,3 +1656,14 @@ Before (one jump of 95px):        After (8px steps, checked):
  You ←  Bill |wall|  •Bill         You ←  Bill→→→|wall|
              (lands inside)                     (stops here)
 ```
+
+## 2026-11-02: When two good routes cancel out
+```
+        ↑  leftover pull (away from you!)
+   ←  [Bill]  →     left and right pulls cancel
+  ┌────────────┐
+  │    DESK    │
+  └────────────┘
+       You
+Fix: if the blend points somewhere strange, take the single best step (left OR right).
+```

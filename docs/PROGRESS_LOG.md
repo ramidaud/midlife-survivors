@@ -864,3 +864,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami's 10-second recording (1.39.1, level 1, Lobby under the "Hang in there" poster): Bills and Late Fees bunch in a column about 250px away, facing him but not arriving.
 - Couldn't reproduce on 1.39.1 or 1.39.2 at his exact spot and screen size, with any starting character, standing still or walking. No solid object is there.
 - Added a playtester switch: put ?navdebug=1 on the game link to see the spots enemies treat as solid (red), so the next recording shows what's blocking them.
+
+## 2026-11-02: Executive Wing reviewed, "running away" fixed, leaderboard retry (V. 1.40.2)
+- Reviewed ChatGPT's Stage 2F (V. 1.40.0): Executive Wing behind the age-55 door (wood panels, leather chairs, corner office, putting mat, awards case), closed age-60 Wellness door, crash cart now smashable. Code changes stayed in its own files. Doors still closed until Rami approves.
+- ChatGPT flagged a Bill stuck behind the big desk. Root cause, and likely Derek's "they run away": directly behind something wide, "around the left" and "around the right" are equally short, their pulls cancel, and the leftover pointed straight back, away from the player. Enemies now take the single best step when the blend disagrees with it, and each has a favorite side for ties. Desk test: never arrived before, now 3.75 s.
+- Leaderboard showed "No scores yet" again while the server held 77 scores and sent all of them. Board now skips cached replies, retries once if a reply comes back empty, and shows a Retry button instead of "No scores yet."
+- Added NAV.inspect (debug helper) next to ?navdebug=1.
