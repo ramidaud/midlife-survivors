@@ -1,0 +1,132 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.34.0",
+  "build": 93,
+  "viewport": [
+   1280,
+   800
+  ],
+  "zoom": 1.25,
+  "navBlockers": 2,
+  "active": true,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "body": [
+   48,
+   52
+  ],
+  "player": [
+   -2016,
+   -1450
+  ],
+  "props": 281,
+  "items": 321,
+  "visible": 14,
+  "peak": 14,
+  "gates": [
+   {
+    "id": "parking-access",
+    "closed": false,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "break-access",
+    "closed": false,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "server-return",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "conference-return",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   }
+  ],
+  "families": [
+   "reception_counter",
+   "giant_logo",
+   "sofa",
+   "vending_machine",
+   "lost_found",
+   "coat_rack",
+   "trash_recycle",
+   "water_cooler",
+   "plant",
+   "gate_hidden_cabinet",
+   "birthday_banner",
+   "hang_cat_high",
+   "kpi_frame",
+   "gauge",
+   "goals_board",
+   "roundabout",
+   "fruit_tree",
+   "printer",
+   "cabinet",
+   "desk_paperwork",
+   "desk_sticky_notes",
+   "desk_2009",
+   "desk_lunch",
+   "desk_family_photo",
+   "desk_tidy",
+   "duck_row",
+   "car_compact_campus",
+   "wheel_boot",
+   "cart_corral",
+   "parking_light",
+   "parking_whiteboard",
+   "kitchen_counter",
+   "coffee_cart",
+   "fridge_note",
+   "table_round",
+   "cake_slice"
+  ],
+  "outside": 0,
+  "repairs": 930,
+  "fps": 100.1065938981964,
+  "age": 40.14194725925926,
+  "tax": 0
+ },
+ "spawnProbe": {
+  "probes": 1012,
+  "bad": 0,
+  "overlaps": 0,
+  "offFloor": 0,
+  "lockedRoomBirths": 0,
+  "padding": 44
+ },
+ "testOnlyOpen": true,
+ "stressParking": {
+  "enemies": 350,
+  "outside": 0,
+  "visible": 14,
+  "initial": 350,
+  "fps": {
+   "min": 94.23215627670288,
+   "average": 97.23275769805974
+  },
+  "scope": "350 real physics/navigation/animation actors, HP guards, firing paused, six seconds."
+ }
+}

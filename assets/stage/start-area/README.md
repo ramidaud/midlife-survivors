@@ -1,16 +1,17 @@
-# Lobby and Bullpen vertical slice, V. 1.31.0
+# Stage 2D: Lobby, Bullpen, Parking Lot and Break Room
 
-This is the playable start area, not the whole campus. Lobby and Bullpen are open at age 40. Other districts wait for Rami to play this slice.
+The original 63 fixtures, 35 desks and 18 coworkers are unchanged. Stage 2D adds 68 prop placements and two static coworkers across the age-45 rooms. All four promotion doors ship closed. Claude owns opening and navigation integration.
 
-- `layout.json` is the editable assembly: 63 prop instances, 35 desks in five neighborhoods, 18 static coworker placeholders, modular boundaries, non-solid floor stories and two closed promotion gates. Coordinates are local to campus origin (3168,2448).
-- `promotions.json` records the future age 40/45/50/55/60 schedule and hidden Archive proposal. Its slice policy holds both age-45 doors closed, even after 45, until destination floors and opening behavior are enabled by Claude.
-- `src/data/start-area.js` is the embedded layout and comparison switch. Set `USE_START_AREA=false` and reload for the existing repeating office. Existing stage-props captions and fallback placements remain intact.
-- `art-data.js` embeds 28 native prop families for file-safe loading. No source paintings are loaded. Colorway frames are static variants, not animation poses.
-- `src/start-area.js` reuses 64px floor tiles, generates modular wall panels, dresses combat floor without collision, adds fitted contact shadows and culls to at most 120 visible fixtures. Every solid joins propGroup with its floor footprint.
-- Both promotion gates span the full 224px route and own one navExtraBlockers rectangle each. Shutdown removes only this slice's blockers. Claude owns future opening, door animation and pathing changes.
-- The shared Lobby/Bullpen connection is broad and open-plan, with two protected 224px routes. A trial middle partition was removed after an enemy corner-snag test. No navigation algorithm was changed. A separate off-route chase toward the Circle Back island can still hesitate against its edge; see the saved QA trace and handoff for Claude. Protected through-routes remain clear.
-- The Archive clue is an ordinary FILES cabinet and lavender binder. It does not open in this slice.
-- Coworkers are cropped upper-body static placeholders behind desks, not a Stage 3 animation delivery. Player physics remain 48x52; player art remains 56x60.
+- Parking Lot: 27 cars in five paints, broad driving lanes, cart corrals, light poles and three tree islands. Read-on-approach jokes explain the 2014 reserved spot, Honda sticker, parked whiteboard and Dave's boot.
+- Break Room: kitchenette/microwave, communal fridge, coffee landmark, two round tables, last cake slice, cat poster and birthday corner. Twenty small-prop placements are ready for Claude's breakable/loot pass. This slice adds no loot rules.
+- Doorways and 35 protected route sections retain 224px clear spans. The two age-50 doors lead toward future Server/Conference rooms; those destination floors are not built.
+- Floor stories are non-solid and baked into the existing 1024px images. Every solid uses an accurate floor footprint in propGroup. Four owned navExtraBlockers are cleaned up on scene shutdown. Visible fixtures are capped at 120.
+- Birth candidates stay inside the current navigation field, clear of solid bodies and floor edges. This avoids NAV's intentionally permissive out-of-field fallback without changing its algorithm.
+- Editable assembly: layout.json plus room_data.py/build-layout.py; embedded copy: src/data/start-area.js. The schedule is promotions.json. Native art embeds 38 used families including coworkers and gate jambs. Sources are never loaded at runtime.
+
+## Review and validation
+
+Open `review.html?nostats=1`. This isolated harness blocks Supabase/analytics before game loading and uses in-memory saves. **Open 45 (test only)** disables just the two age-45 blockers in that iframe. It does not modify production or open age-50 doors. Tour buttons jump to landmarks; Explore (no swarms) resumes movement in the isolated iframe; 350-enemy tests use HP guards and paused firing. Restart restores all four closed doors.
 
 Optional authoring tools, no game build step:
 
@@ -18,10 +19,8 @@ Optional authoring tools, no game build step:
 python3 assets/stage/start-area/build-layout.py
 python3 assets/stage/start-area/build-art-data.py
 python3 assets/stage/start-area/validate-layout.py
+python3 assets/stage/props/build-review-data.py
+python3 assets/stage/props/validate-2d.py
 ```
 
-Edit the Python authoring data if regenerating. Direct JSON changes must also be copied to the embedded JavaScript. Art export instructions live in ../props/README.md. The independent validator checks floor containment, clear openings and connected tour points with padded fixture footprints.
-
-The slice checks births after NAV.fixSpawn because the local flow field cannot validate distant points outside its bounds. Off-floor births relocate to cached reachable floor cells, preferably offscreen, with original spawn timing, enemy stats and attack values preserved.
-
-Test through `tests/start-area-playtest.html?nostats=1`. It disables telemetry before game loading, blocks analytics and Supabase, and uses in-memory saves. The age-50 soak uses a test-only HP guard; the separate 350-enemy test uses HP guards and paused firing to keep all 350 alive. These are rendering/navigation checks, not a balance verdict. Production balance tables are untouched.
+The offline flood check verifies locked rooms remain excluded and every tour point becomes reachable when either age-45 gate is test-opened. The staff corridor links the new rooms behind the gates. QA artifacts live in qa/. The shared prop review compares the 56x60 hero and current 50px Bill at native scale. Set USE_START_AREA=false for the repeating-office fallback.

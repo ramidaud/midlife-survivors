@@ -823,3 +823,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Bosses use the new 144x152 art with walk, wind-up, attack and hurt poses; the Performance Review and Mortgage show ChatGPT's floor markers during the warning.
 - Tests: desktop and phone, intact to cracked to broken works, enemies can walk over rubble, boss attacks unchanged, touch fix still holds.
 - ChatGPT's Stage 2D rooms are still unsaved on the Mac; it was asked to pull, finish and push.
+
+
+## 2026-11-02: Parking Lot and Break Room (Codex, V. 1.36.0)
+- Built both age-45 rooms with wide parking lanes, 27 cars, tree islands, coffee/kitchen landmarks, birthday corner and twenty small breakable-prop placements.
+- Eight new prop families, 23 colorways and two extra car paints. Original Lobby/Bullpen fixtures and coworkers stay unchanged; longer jokes use approach captions.
+- All four gates ship closed, including the far age-50 doors. Routes retain 224px clearance. Claude's new breakable/boss integration was pulled and preserved before delivery.
+- Desktop and 390x844 game-frame checks cover closed-room births, doorway routing, native scale and 350-enemy stress. Isolated review blocks analytics and Supabase. See assets/stage/start-area/qa for scope and evidence.

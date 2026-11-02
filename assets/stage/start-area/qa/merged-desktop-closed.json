@@ -1,0 +1,120 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.36.0",
+  "build": 95,
+  "viewport": [
+   1280,
+   800
+  ],
+  "zoom": 1.25,
+  "navBlockers": 4,
+  "active": true,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "body": [
+   48,
+   52
+  ],
+  "player": [
+   0,
+   -322
+  ],
+  "props": 281,
+  "items": 321,
+  "visible": 7,
+  "peak": 9,
+  "gates": [
+   {
+    "id": "parking-access",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "break-access",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "server-return",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "conference-return",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   }
+  ],
+  "families": [
+   "reception_counter",
+   "giant_logo",
+   "sofa",
+   "vending_machine",
+   "lost_found",
+   "coat_rack",
+   "trash_recycle",
+   "water_cooler",
+   "plant",
+   "gate_hidden_cabinet",
+   "birthday_banner",
+   "hang_cat_high",
+   "kpi_frame",
+   "gauge",
+   "goals_board",
+   "roundabout",
+   "fruit_tree",
+   "printer",
+   "cabinet",
+   "desk_paperwork",
+   "desk_sticky_notes",
+   "desk_2009",
+   "desk_lunch",
+   "desk_family_photo",
+   "desk_tidy",
+   "duck_row",
+   "car_compact_campus",
+   "wheel_boot",
+   "cart_corral",
+   "parking_light",
+   "parking_whiteboard",
+   "kitchen_counter",
+   "coffee_cart",
+   "fridge_note",
+   "table_round",
+   "cake_slice"
+  ],
+  "outside": 0,
+  "repairs": 930,
+  "fps": 100.00643394840499,
+  "age": 40,
+  "tax": 0
+ },
+ "spawnProbe": {
+  "probes": 1012,
+  "bad": 0,
+  "overlaps": 0,
+  "offFloor": 0,
+  "lockedRoomBirths": 0,
+  "padding": 44
+ }
+}

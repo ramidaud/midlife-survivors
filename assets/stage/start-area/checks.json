@@ -1,13 +1,20 @@
 {
   "status": "passed",
-  "districts": 2,
-  "props": 63,
+  "districts": 4,
+  "props": 131,
   "desks": 35,
-  "staticWorkers": 18,
-  "solidBodies": 132,
+  "staticWorkers": 20,
+  "solidBodies": 279,
   "doorwayWidth": 224,
-  "closedGates": 2,
-  "reachableFloorCells": 27316,
-  "allTourPointsReachable": true,
-  "maxVisibleProps": 120
+  "closedGates": 4,
+  "age45Gates": 2,
+  "age50Gates": 2,
+  "closedReachableCells": 25177,
+  "testOpenedReachableCells": 47031,
+  "allTourPointsReachableWhenTestOpened": true,
+  "lockedRoomsExcluded": true,
+  "protectedRoutes": 35,
+  "maxVisibleProps": 120,
+  "parkingCars": 27,
+  "breakableProps": 20
 }

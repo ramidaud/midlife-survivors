@@ -3,7 +3,7 @@ from pathlib import Path
 import json,base64,hashlib,struct,re
 R=Path(__file__).resolve().parent
 specs=[]
-for brief in sorted(R.glob('batch-2[abc].json')):
+for brief in sorted(R.glob('batch-2[abcd].json')):
  for s in json.loads(brief.read_text()):
   s['batch']=brief.stem.replace('batch-','');specs.append(s)
 kit=json.loads((R.parent/'campus-kit-plan.json').read_text())
@@ -27,7 +27,7 @@ for s in specs:
  file=R/s['file']
  if not file.exists():continue
  data=file.read_bytes();w,h=s['frame'];foot=s['footprint'];a={k:v for k,v in s.items() if k!='prompt'}
- a.update(size=list(struct.unpack('>II',data[16:24])),frameCount=s['variants'],framePurpose='colorways-not-animation',padding=2,anchor=dict(x=w/2,y=h-3),caption=s.get('caption',captions.get(s['id'],extra.get(s['id'],s['name']))),status='ready-for-stage-'+s['batch']+'-review',sha256=hashlib.sha256(data).hexdigest(),shadow='code-contact-only' if s['solid'] else 'none',notes=(('Floor decor, non-solid. Full caption supplies the joke.' if s.get('mount')=='floor' else 'Wall art, non-solid. Full caption supplies the longer joke.') if not s['solid'] else 'Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.'))
+ a.update(size=list(struct.unpack('>II',data[16:24])),frameCount=s['variants'],framePurpose='colorways-not-animation',padding=2,anchor=dict(x=w/2,y=h-3),caption=s.get('caption',captions.get(s['id'],extra.get(s['id'],s['name']))),status='ready-for-stage-'+s['batch']+'-review',sha256=hashlib.sha256(data).hexdigest(),shadow='code-contact-only' if s['solid'] else 'none',notes=(('Floor decor, non-solid. Full caption supplies the joke.' if s.get('mount')=='floor' else 'Tabletop detail, non-solid. Place above its host table.' if s.get('mount')=='tabletop' else 'Wall art, non-solid. Full caption supplies the longer joke.') if not s['solid'] else 'Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.'))
  if s['id']=='gate_keycard':a['notes']='Modular side jamb. Place entirely outside the 224px clear opening. No runtime gate behavior supplied.'
  if s['id']=='gate_hidden_cabinet':a['notes']='FILES is the short clue. Repeat as a cabinet facade; retract every door leaf fully outside the 224px opening.'
  a['integrationStatus']='registered-in-current-office' if s['id'] in registered else 'not-registered'
@@ -47,8 +47,15 @@ for a in second['assets']:
 third={**manifest,'batch':'stage-2c-start-area-props','assets':[a for a in assets if a['batch']=='2c']}
 third.update(families=len(third['assets']),colorways=sum(a['variants'] for a in third['assets']))
 (R/'manifest-2c.json').write_text(json.dumps(third,indent=2)+'\n')
+fourth={**manifest,'batch':'stage-2d-age45-rooms','assets':[a for a in assets if a['batch']=='2d']}
+fourth.update(families=len(fourth['assets']),colorways=sum(a['variants'] for a in fourth['assets']))
+(R/'manifest-2d.json').write_text(json.dumps(fourth,indent=2)+'\n')
 embedded=json.loads(json.dumps(manifest))
 for a in embedded['assets']:a['src']='data:image/png;base64,'+base64.b64encode((R/a['file']).read_bytes()).decode()
+# Two additional paints reuse the existing car family, so do not inflate kit counts.
+car=next(a for a in assets if a['id']=='car_compact').copy()
+car.update(id='car_compact_extra',name='Two extra campus car paints',file='car_compact-extra-v2.png',batch='2d',variants=2,frameCount=2,size=[288,112],notes='Existing car silhouette and footprint. Original three paints are preserved in the five-frame campus sheet.',src='data:image/png;base64,'+base64.b64encode((R/'car_compact-extra-v2.png').read_bytes()).decode())
+embedded['assets'].append(car)
 # Static coworker is reviewed separately, outside the planned 72 prop families.
 worker=json.loads((R/'batch-placeholder.json').read_text())[0]
 worker.update(batch='placeholder',padding=2,caption='Just resting my eyes while the big spreadsheet saves.',status='static-placeholder',frameCount=worker['variants'],framePurpose='colorways-not-animation',notes='Static upper body is cropped behind desks in the slice. Final coworker animation is deferred.',size=[worker['frame'][0]*worker['variants'],worker['frame'][1]])

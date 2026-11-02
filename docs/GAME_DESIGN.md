@@ -456,3 +456,7 @@ The shared connection is broad and open-plan with protected 224px routes; promot
 Eight small prop families now have candidate intact/cracked/broken states and independent debris. Intact pixels remain unchanged; rubble keeps the full frame/origin and occupies at most one third of the standing height. Big structural props remain outside this art batch. Breaking and loot behavior are still Claude's work.
 
 The three Midlife bosses have candidate native 144x152 art, with six walk/drive poses, two anticipation poses, two attack poses and one hurt pose each. Charge lanes, interest rings and drift tracks are separate centered floor decals. Native art already represents the large boss appearance and should not receive another 2.3x visual multiplier. These assets are awaiting Rami's review and are not integrated into combat.
+
+
+## Age-45 room slice, Nov 2, 2026 (Codex)
+Parking Lot supplies broad fighting lanes and an open center, with car rows, cart bays, curb trees and parked office jokes around them. Break Room is cozier: kitchenette, coffee landmark, fridge notes, communal tables and twenty small-prop placements for the existing loot system. A staff corridor connects the rooms behind the Lobby's age-45 doors. Both age-45 gates and the far age-50 Server/Conference doors remain closed in production; Claude owns promotion opening. Every main route remains at least 224px clear. The next districts wait for Rami's review. No balance settings changed.

@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-01 (Codex: V. 1.31.0 Lobby/Bullpen playable slice)
+**Last updated:** 2026-11-02 (Codex: V. 1.36.0 age-45 room slice)
 
 ---
 
@@ -42,7 +42,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] Stage 2A first art batch: 13 prop/poster families, 31 colorways, native hero/Bill comparisons, manifest and gate-clearance study. Review in the Art Room.
    - [x] Stage 2B: 12 literal-slang/landmark families, 24 colorways. Total kit now 25 families and 55 colorways, with batch filters and native comparisons. New batch is art-only; Claude's current-office integration and navigation are preserved.
    - [x] Stage 2C and start-area slice: eight new prop families, corrected ducks, static coworkers, 35 desks in five clusters, dressed floors, modular boundaries and two closed 224px promotion doors. Total kit: 33 families, 79 colorways. V. 1.31.0.
-   - [ ] Rami plays the Lobby/Bullpen before other districts are built. Remaining 39 prop families, animated coworkers and future promotion opening stay parked. Claude owns gate opening/navigation.
+   - [x] Stage 2D: Parking Lot and Break Room built behind closed age-45 doors, eight new prop families and two car paints, 224px routes, closed age-50 doors. V. 1.36.0.
+   - [ ] Rami reviews the age-45 rooms before more districts. Remaining 31 prop families and animated coworkers wait. Claude owns gate opening/navigation.
 5d. [ ] **Combat feel pass (Rami, Nov 2, after playing Nerd Survivors).** One at a time:
    - [x] **Bigger enemies (V. 1.32.0):** regulars about hero-sized (now 25 to 42px vs a 56x60 hero), bosses 2 to 3x the hero.
    - [x] **Art package ready for Rami review (Nov 2, Codex):** eight breakable families in all 18 colorways, 54 state frames / 108 debris cells, and three native Midlife bosses with 33 poses and three telegraphs. Art only; runtime features below remain pending.

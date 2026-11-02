@@ -71,5 +71,5 @@
     ],
     "smallSignMinWidth": 64
   },
-  "slicePolicy": "Only Lobby/Bullpen are built. Gates stay closed until destination districts exist and Claude enables opening."
+  "slicePolicy": "Lobby/Bullpen start open. Parking Lot and Break Room are built behind closed age-45 gates. Far age-50 doors remain closed; Claude owns promotion opening."
 }

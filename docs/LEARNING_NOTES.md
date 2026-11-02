@@ -455,3 +455,9 @@ walk / drive  ->  wind-up  ->  attack  ->  recover
                      |
               time to move away
 ```
+
+
+## 2026-11-02: A room can be built before its door opens (Codex)
+The map and the promotion rule are separate pieces. We can finish a room's floor, furniture and captions while its doorway stays solid. The review page temporarily removes that doorway inside an isolated test game so we can check traffic. The shipped game keeps it closed until Claude connects the age rule.
+
+`Lobby → closed age-45 door → finished room → closed age-50 door → future room`

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.35.0",
-  displayVersion: "V. 1.35.0",
-  lastUpdated: "Nov 1, 2026",
-  codename: "Smash the Printer",
-  build: 94,
+  version: "1.36.0",
+  displayVersion: "V. 1.36.0",
+  lastUpdated: "Nov 2, 2026",
+  codename: "Coffee Break Campus",
+  build: 95,
   changelog: [
+    {
+      ver: "V. 1.36.0",
+      date: "Nov 2, 2026",
+      title: "Coffee Break Campus",
+      highlights: [
+        "Parking Lot and Break Room are built behind the closed age-45 doors, ready for promotion access wiring.",
+        "Wide parking lanes, five car paints and a cozy coffee-and-cake corner add room to explore; the next age-50 doors stay closed."
+      ]
+    },
     {
       ver: "V. 1.35.0",
       date: "Nov 2, 2026",

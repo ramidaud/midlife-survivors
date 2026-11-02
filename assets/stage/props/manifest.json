@@ -1,10 +1,10 @@
 {
   "batch": "stage-2-props-posters",
   "status": "start-area-kit-complete",
-  "families": 33,
-  "colorways": 79,
+  "families": 41,
+  "colorways": 102,
   "plannedFamilies": 72,
-  "remainingFamilies": 39,
+  "remainingFamilies": 31,
   "palette": [
     "#171c35",
     "#303750",
@@ -1266,6 +1266,318 @@
       "shadow": "code-contact-only",
       "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
       "integrationStatus": "registered-in-current-office"
+    },
+    {
+      "id": "kitchen_counter",
+      "name": "The One-Minute Microwave",
+      "category": "furniture",
+      "frame": [
+        192,
+        112
+      ],
+      "footprint": {
+        "width": 172,
+        "back": 42,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "The microwave says one minute. The queue says otherwise.",
+      "subject": "One long break-room kitchenette counter, warm cream top and teal cabinet doors with navy feet, a small sink at LEFT with a single tired plate, one chunky cream microwave at RIGHT with dark navy glass and a tiny orange timer dot, a folded towel and two cups between them. Microwave must read clearly as part of this counter, no queue or people in this isolated asset. No lettering, no wall.",
+      "source": "kitchen_counter-source-v1.png",
+      "file": "kitchen_counter-v1.png",
+      "district": "breakroom",
+      "batch": "2d",
+      "size": [
+        576,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 96.0,
+        "y": 109
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "3b95da975056e3fc43ee72d08e5b6f8915d238970c9e7e368a65c5b01f8d6866",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "fridge_note",
+      "name": "The Communal Fridge",
+      "category": "furniture",
+      "frame": [
+        80,
+        128
+      ],
+      "footprint": {
+        "width": 56,
+        "back": 34,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "PLEASE LABEL YOUR FOOD. The fridge has started referring to us as a community.",
+      "subject": "One tall office fridge, cream front and teal side panel, navy handles, a pale lavender sticky note and one crooked tiny cream food-policy note on the upper door. Note text ONLY \"LABEL FOOD\", bold block pixel letters in two short lines. A little taped corner and one fridge magnet. No food visible, no scene or wall.",
+      "source": "fridge_note-source-v1.png",
+      "file": "fridge_note-v1.png",
+      "district": "breakroom",
+      "batch": "2d",
+      "size": [
+        240,
+        128
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 125
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "f0034e2a018290f09a52a1e6c00509cc02c9c360c8d16f7837418473301f3d5b",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "coffee_cart",
+      "name": "The Coffee Landmark",
+      "category": "furniture",
+      "frame": [
+        128,
+        128
+      ],
+      "footprint": {
+        "width": 100,
+        "back": 40,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "This coffee machine is the closest thing the department has to a meeting chair.",
+      "subject": "One broad teal break-room coffee cart with cream worktop and four small navy feet/casters, a big unmistakable cream commercial coffee machine on top, warm coffee-orange glass pot, two orange mugs, a small stack of cream cups and one folded filter packet. Main front plaque text ONLY \"COFFEE\" in large chunky navy pixel letters. This is the room landmark. Keep the machine chunky and readable, no people or baked steam on the background.",
+      "source": "coffee_cart-source-v1.png",
+      "file": "coffee_cart-v1.png",
+      "district": "breakroom",
+      "batch": "2d",
+      "size": [
+        384,
+        128
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 125
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "d4ef7df36fa4895a27c29fde7ae23b41990cbfbe4caff0a96bc1011b6ef61088",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "table_round",
+      "name": "The Unbookable Meeting",
+      "category": "furniture",
+      "frame": [
+        112,
+        96
+      ],
+      "footprint": {
+        "width": 88,
+        "back": 46,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "An unbookable table. Somehow still occupied by a meeting.",
+      "subject": "One round break-room table, broad teal-painted circular top seen as an oval in top-down 3/4, thin warm cream rim, four brown legs with navy undersides. EMPTY tabletop so a separate cake can be placed on it later. No chairs, cups, people or objects. Chunky stable furniture, not a cafe logo.",
+      "source": "table_round-source-v1.png",
+      "file": "table_round-v1.png",
+      "district": "breakroom",
+      "batch": "2d",
+      "size": [
+        336,
+        96
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 56.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "6528c0fc9598dd734e60b813abeda1a680fb77208dd7cb8a5b24ce682b61ac79",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "cake_slice",
+      "name": "One Professionally Polite Slice",
+      "category": "ambient",
+      "frame": [
+        48,
+        40
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "solid": false,
+      "mount": "tabletop",
+      "variants": 2,
+      "caption": "One slice left. Everyone is being professionally polite about it.",
+      "subject": "A single remaining triangular birthday-cake slice on a cream paper plate with a TEAL rim. Warm cream sponge, pink frosting, one slightly bent unlit candle and a few crumbs ON the plate. No face. Small affectionate sad-party joke. Teal plate rim must be broad enough to survive at native size and later recoloring. Nothing outside the plate, no text.",
+      "source": "cake_slice-source-v1.png",
+      "file": "cake_slice-v1.png",
+      "district": "breakroom",
+      "batch": "2d",
+      "size": [
+        96,
+        40
+      ],
+      "frameCount": 2,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 24.0,
+        "y": 37
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "fac8489ca98320790000d4c37ce740f492eefa0b49cf4a1747819756d6540305",
+      "shadow": "none",
+      "notes": "Tabletop detail, non-solid. Place above its host table.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "parking_light",
+      "name": "Fluorescent Evening",
+      "category": "furniture",
+      "frame": [
+        64,
+        160
+      ],
+      "footprint": {
+        "width": 20,
+        "back": 16,
+        "front": 3
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "The parking lights have stayed late again. Nobody has offered them PTO.",
+      "subject": "One tall covered-parking light pole, narrow deep navy shaft with broad teal/sage highlights, square weighted navy base, a short horizontal top arm holding TWO warm cream rectangular fluorescent lamp heads. Native target is slender 64x160: keep every part within that aspect, no huge halos, shadows, wires leaving frame or surrounding curb.",
+      "source": "parking_light-source-v1.png",
+      "file": "parking_light-v1.png",
+      "district": "parking",
+      "batch": "2d",
+      "size": [
+        192,
+        160
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 157
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "3a25173b882dd80c5b580578193bfa73638ea27a790fb1bf2d54a6ff13cc13ae",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "cart_corral",
+      "name": "Retired Shopping Carts",
+      "category": "furniture",
+      "frame": [
+        128,
+        96
+      ],
+      "footprint": {
+        "width": 104,
+        "back": 42,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "These carts have gathered for a quick stand-up. It is running over.",
+      "subject": "One compact parking cart corral, chunky teal metal rail enclosure and exactly two nested empty navy-and-cream shopping carts with warm cream handles and tiny dark wheels. Simple broad 3-to-4-native-pixel metal tubes, not thin realistic wire mesh. No signs, words, floor slab, people or background.",
+      "source": "cart_corral-source-v1.png",
+      "file": "cart_corral-v1.png",
+      "district": "parking",
+      "batch": "2d",
+      "size": [
+        384,
+        96
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "cd7f03928f3e67582038b5280fc0410a108040c1802a9fc0947ddc91a812c3dc",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "parking_whiteboard",
+      "name": "Literally in the Parking Lot",
+      "category": "landmarks",
+      "frame": [
+        128,
+        120
+      ],
+      "footprint": {
+        "width": 104,
+        "back": 30,
+        "front": 4
+      },
+      "solid": true,
+      "mount": "floor",
+      "variants": 3,
+      "caption": "Let's put that in the PARKING LOT. Someone wheeled the whiteboard all the way out here.",
+      "subject": "One wheeled office whiteboard physically rolled into a parking lot, cream board with teal frame on a navy two-legged stand and four little casters, tiny warm orange marker in tray. Large top heading text ONLY \"PARKING LOT\", in TWO bold lines, at least a third of the board height. Under the heading, three abstract teal sticky-note squares and one coffee-orange arrow. No other text, no environment or cars.",
+      "source": "parking_whiteboard-source-v1.png",
+      "file": "parking_whiteboard-v1.png",
+      "district": "parking",
+      "batch": "2d",
+      "size": [
+        384,
+        120
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 117
+      },
+      "status": "ready-for-stage-2d-review",
+      "sha256": "fe160a09a3e8ffb4c8981871ba77dd61e797076b6bbd2e2c36664bd9ae2f42dc",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
     }
   ],
   "productionIntegrated": true,
@@ -1309,7 +1621,15 @@
       "coat_rack"
     ],
     "unregisteredFamilies": [
-      "gate_keycard"
+      "gate_keycard",
+      "kitchen_counter",
+      "fridge_note",
+      "coffee_cart",
+      "table_round",
+      "cake_slice",
+      "parking_light",
+      "cart_corral",
+      "parking_whiteboard"
     ],
     "basis": "Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes."
   }

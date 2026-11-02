@@ -1625,3 +1625,17 @@ walk / drive  ->  wind-up  ->  attack  ->  recover
                      |
               time to move away
 ```
+
+
+## 2026-11-02: Built space and unlocked space (Codex)
+A promotion gate separates the room assembly from the rule that grants access. The room data stores floors and furniture; the door supplies a solid footprint until promotion logic removes it. Review-only controls can open it for testing without changing the shipped state.
+
+```mermaid
+flowchart LR
+  Lobby --> Gate45["Age 45 gate: closed"]
+  Gate45 --> Parking["Finished Parking Lot"]
+  Gate45 --> Break["Finished Break Room"]
+  Parking --> Gate50["Age 50 gate: closed"]
+  Break --> Gate50
+  Gate50 --> Future["Future Server / Conference rooms"]
+```
