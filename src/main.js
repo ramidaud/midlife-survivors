@@ -161,7 +161,26 @@ function updateDynamicIntensity() {
 }
 // Start every run with clean controls: nothing "stuck" from menus, the name box or a previous run.
 // (Playtest report: no control input after visiting the 401(k) Shop and returning to the game.)
+// iPhone bug (Ben M, iPhone 13 Safari): tapping a menu button that gets replaced (Shop, Back) sends the finger-lift
+// to the removed button, so Phaser never hears it and keeps that touch "held" forever. With its touch slots full,
+// the game ignores every new touch. This frees any Phaser touch slot whose finger isn't really on the glass.
+function releaseStaleTouches(liveIds) {
+  const mgr = window.game && window.game.input;
+  if (!mgr || !mgr.pointers) return;
+  for (const ptr of mgr.pointers) {
+    if (ptr.id === 0 || !ptr.active) continue; // slot 0 is the mouse
+    if (liveIds && liveIds.has(ptr.identifier)) continue;
+    ptr.active = false; ptr.isDown = false; ptr.primaryDown = false; ptr.buttons = 0; ptr.identifier = 0;
+  }
+}
+// Every new touch: anything Phaser thinks is held that the browser doesn't list as touching is stale.
+window.addEventListener("touchstart", e => {
+  const live = new Set();
+  for (const t of e.touches) if (!Array.from(e.changedTouches).some(c => c.identifier === t.identifier)) live.add(t.identifier);
+  releaseStaleTouches(live);
+}, { capture: true, passive: true });
 function resetInputState(scene) {
+  releaseStaleTouches(null);
   try { const a = document.activeElement; if (a && a !== document.body && a.blur) a.blur(); } catch (e) {}
   window._heldKeys.clear();
   window.menuHeldAtOpen = new Set();

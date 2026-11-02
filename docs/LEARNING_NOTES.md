@@ -413,6 +413,9 @@ The sprite you see, the "size" number in a data file and the physics box that de
 ## Put messages where the eyes are (V. 1.30.2)
 In a fast game, players stare at their character. Anything that changes the fight (a boss, a penalty, a power-up) needs to appear close to the action, in two or three big words. Long sentences can live at the edge of the screen for anyone who wants the details. Ben's playtest proved the bottom bar alone was too far away.
 
+## Stuck touches (Nov 1)
+A game engine tracks each finger as a "pointer" with a slot. It frees the slot when it hears the finger lift. On iPhone, if the button you tapped disappears mid-tap, the lift message goes to the vanished button and the engine never hears it. The slot stays "held," and once the slots are full, new touches are ignored. Ben guessed it almost exactly: an input layer that wasn't clearing when the store closed.
+
 ## Vertical slice (V. 1.31.0, Codex)
 A vertical slice finishes a small playable part of the game all the way through. Our Lobby and Bullpen combine final-sized props, floors, collision, enemies and captions so Rami can judge how they feel together. Testing those two areas catches scale and movement problems before they spread across nine districts. Reusable tiles and prop IDs let us rearrange the slice without painting a new map.
 

@@ -751,6 +751,11 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Balance bot check on V. 1.30.3: fresh-save kite bot died at 41.7, 41.8 and 42.3 (before: 42.3 to 43.0). Not easier; slightly harder, likely furniture snagging the naive bot. Real numbers will come from the runs table.
 - Published devlog post 7 ("My office got jokes. Then my enemies got smarter."). Rami: Close Calls feel good after a few runs.
 
+## 2026-11-01 (late): Ben's iPhone touch bug fixed (V. 1.30.4)
+- Ben: iPhone 13, Safari. Touch steering died after the 401(k) Shop.
+- Cause: on iPhone, the finger-lift goes to the menu button that just got replaced, so Phaser never hears it and thinks a finger is still down. Its touch slots fill up and new touches get ignored.
+- Fix: every new touch frees any "held" slot the browser says isn't really touching. Reproduced in a test before the fix (moved 0) and after (moved 226).
+
 ## 2026-11-01: Lobby/Bullpen start-area slice, V. 1.31.0 (Codex)
 - Saved the prior work on stage-2c-wip, updated main and merged cleanly. Claude's navigation, Close Calls, controller fixes, banners and telemetry were preserved.
 - Finished eight start-area prop families and three static coworker colorways. One duck is clearly out of line; reception, desk neighborhoods, hallway clutter and floor stories are now playable.

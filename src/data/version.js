@@ -6,13 +6,21 @@ const GAME_VERSION = {
   displayVersion: "V. 1.31.0",
   lastUpdated: "Nov 1, 2026",
   codename: "New Hire Tour",
-  build: 83,
+  build: 84,
   changelog: [
     {
       ver: "V. 1.31.0",
       date: "Nov 1, 2026",
       title: "New Hire Tour",
       highlights: ["The playable office is now an authored Lobby and Bullpen slice with reception, varied desk clusters, static coworkers and dressed floors. Promotion doors stay closed for this playtest; one duck is clearly out of line."]
+    },
+    {
+      ver: "V. 1.30.4",
+      date: "Nov 1, 2026",
+      title: "Let Go",
+      highlights: [
+        "iPhone fix: after visiting the 401(k) Shop, touch steering could stop working completely. Tapping a menu button that disappears left the game thinking your finger was still down. It now lets go. (Thanks, Ben, for the detective work.)"
+      ]
     },
     {
       ver: "V. 1.30.3",
