@@ -2206,6 +2206,24 @@ function hideTitleModal() {
   if (modal) modal.classList.add("hidden");
 }
 
+// End-of-run summary (Nov 2): what you earned this run, what it means for the next one, and what to chase next.
+function runSummaryHtml() {
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const fresh = (window.getNewAchievements && window.getNewAchievements()) || [];
+  const lines = window.ACH_END_LINES || {};
+  const got = (meta && meta.achievements && meta.achievements.unlocked) || {};
+  const next = (window.ACHIEVEMENTS || []).filter(a => !got[a.id]).slice(0, 2);
+  const shop = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: it.baseCost * (r + 1) }; })
+    .filter(x => x.r < x.it.maxRank && meta.coins >= x.cost).sort((a, b) => a.cost - b.cost)[0];
+  if (!fresh.length && !next.length && !shop) return "";
+  return `<div class="run-summary">
+    ${fresh.length ? `<div class="rs-head">🏅 EARNED THIS RUN</div>${fresh.map(a => `
+      <div class="rs-ach"><div class="rs-name">${a.icon} ${esc(a.name)} <span class="rs-coins">+${a.reward}k</span></div>
+      <div class="rs-line">${esc(lines[a.id] || a.desc)}</div></div>`).join("")}` : ""}
+    ${shop ? `<div class="rs-tip">🪙 You can afford <b>${esc(shop.it.name)}</b> (${shop.cost}k) in the 401(k) Shop: ${esc(shop.it.desc)}.</div>` : ""}
+    ${next.length ? `<div class="rs-next"><b>NEXT GOALS:</b> ${next.map(a => `${a.icon} ${esc(a.desc)} <span class="rs-coins">+${a.reward}k</span>`).join(" · ")}</div>` : ""}
+  </div>`;
+}
 function renderGameOverModal(scene, cause, isWin) {
   const modal = document.getElementById("gameover-modal");
   if (!modal) return;
@@ -2228,6 +2246,7 @@ function renderGameOverModal(scene, cause, isWin) {
         <div class="stat-pill"><span>SENIORITY</span><b>Level ${level}</b></div>
         <div class="stat-pill"><span>401(k) SAVED</span><b>+${runCoins}k (Bank: ${meta.coins}k)</b></div>
       </div>
+      ${runSummaryHtml()}
       <div class="score-panel">
         <div class="score-big">SCORE <b>${runScore.toLocaleString()}</b></div>
         <div class="score-break">${Math.max(0, currentAge - runStartAge).toFixed(1)} years · ${runKills} beaten · ${runCoins}k saved${window.getRunTaxBracket && window.getRunTaxBracket() ? ` · Tax Bracket ${window.getRunTaxBracket()}` : ""}</div>
@@ -2238,7 +2257,6 @@ function renderGameOverModal(scene, cause, isWin) {
         <div class="score-msg" id="score-msg"></div>
         <div id="go-leaderboard"></div>
       </div>
-      ${(window.getNewAchievements && window.getNewAchievements().length) ? `<div class="go-ach"><b>🏅 NEW THIS RUN:</b> ${window.getNewAchievements().map(a => `${a.icon} ${a.name} (+${a.reward}k)`).join(" · ")}</div>` : ""}
       <div class="gameover-actions">
         <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>

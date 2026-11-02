@@ -802,6 +802,14 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New daily scheduled task "Midlife Survivors morning stats" (7:27 AM, read-only Supabase queries, push notification).
 - Next ChatGPT job written: Stage 2D Parking Lot and Break Room (docs/handoffs/chatgpt-stage-2d-rooms.md). Gemini pass 2 saved; achievement lines need a redo against the real list.
 - Grok boss-attack spec saved (charge, % rings with a gap, V8 drift with skid marks). Approved to build next session.
+- End-of-run summary on Game Over (earned achievements with Gemini's lines, shop tip, next goals) and 10 new death lines (V. 1.33.2). CLAUDE.md: Supabase read-freely / ask-before-change rule added (Rami approved).
+
+## 2026-11-02: Boss attacks (V. 1.34.0)
+- Built Grok's spec: Performance Review charge (orange lane), Mortgage % rings with a safe gap, V8 drift loop with skid marks. Data in src/data/bosses.js, logic in src/boss-attacks.js.
+- Warnings never drop under 0.55 s (0.65 s for rings); attacks pass through furniture; all hits use the normal safe window.
+- Tests (desktop and phone): each boss cycles warning, attack, recovery, chase. Standing still gets hit; sidestepping the charge, using the gap and leaving the loop avoid it.
+- Not built yet from the spec: off-screen edge arrows (bosses only attack once on screen instead), Close Call credit for grazing attacks.
+
 
 ## 2026-11-02: Breakable props and big boss art ready for review (Codex)
 - Finished Part A first: eight prop families, every existing colorway, unchanged intact pixels, cracked/broken states and six debris pieces per color. Total: 54 state frames and 108 debris cells.

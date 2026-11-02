@@ -7,7 +7,8 @@ window.DEATHS = {
     "Died of autopay failure.",
     "Paper-cut to death by a water bill.",
     "Overwhelmed by a surprise HOA fee.",
-    "Read the itemized hospital bill. Didn't recover."
+    "Read the itemized hospital bill. Didn't recover.",
+    "You gave it a solid eight hours, plus a working lunch. The spreadsheets will still be here when you get back."
   ],
   lateFee: [
     "Nickeled and dimed to death by a $35 Late Fee.",
@@ -22,17 +23,22 @@ window.DEATHS = {
   snackAttack: [
     "Ate four glazed donuts at 11:30 PM and entered a food coma.",
     "Succumbed to a late-night kitchen raid.",
-    "Defeated by carbs after 40."
+    "Defeated by carbs after 40.",
+    "The breakroom decaf pot was mislabeled again. Go home, put your feet up, and start fresh at nine."
   ],
   backTwinge: [
     "Sneezes once at 44. Threw out entire lower back.",
     "Slept on the wrong pillow and never stood up straight again.",
-    "Bent over to pick up a sock. Fatal mistake."
+    "Bent over to pick up a sock. Fatal mistake.",
+    "You pulled something reaching for a dropped pen. Take the rest of the afternoon to ice it.",
+    "You stood up a little too fast and the third floor won this round. Drink some water before your next run.",
+    "Your lower back filed a formal grievance with HR. Grab a heating pad and we will circle back tomorrow."
   ],
   officeGossip: [
     "Accidentally hit 'Reply All' to the entire company.",
     "Dragged into a 47-message passive-aggressive email thread.",
-    "CC'd on drama that wasn't even in your department."
+    "CC'd on drama that wasn't even in your department.",
+    "You accidentally clicked Reply All and decided it was best to simply go home."
   ],
   performanceReview: [
     "Did not meet expectations in Q3.",
@@ -68,17 +74,21 @@ window.DEATHS = {
   threeAmThought: [
     "Lay awake replaying something you said in 2009.",
     "Remembered every unanswered email at once.",
-    "Wondered if the stove was off. Forever."
+    "Wondered if the stove was off. Forever.",
+    "Your reading glasses were on top of your head the entire time. Rest your eyes and try again tomorrow."
   ],
   calendarInvite: [
     "Double-booked, then triple-booked, then flattened.",
     "Ran over by a meeting that could have been an email.",
-    "Accepted a recurring 7 AM sync. No end date."
+    "Accepted a recurring 7 AM sync. No end date.",
+    "A calendar invite with no agenda finally caught up to you. Clock out and go get a sandwich.",
+    "That five-minute quick sync turned into a two-hour workshop. Nobody blames you for lying down."
   ],
   groupChat: [
     "Muted the group chat. It found you anyway.",
     "Buried under 412 thumbs-up reactions.",
-    "Someone asked 'who's bringing ice?' and you never recovered."
+    "Someone asked 'who's bringing ice?' and you never recovered.",
+    "Your password expired mid-battle and required a special character you have never seen before."
   ],
   mathWorksheet: [
     "Couldn't explain long division the 'new way.'",

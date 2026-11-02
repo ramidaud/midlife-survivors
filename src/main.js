@@ -1974,6 +1974,12 @@ function update(time, delta) {
     if (!bill.active) return;
     const ageMs = now - (bill.bornAt || now);
 
+    // Bosses with a special attack (src/boss-attacks.js) steer themselves while warning or attacking.
+    if (bill.isBoss && window.BossAttacks && window.BossAttacks.update(this, bill, player, now)) {
+      if (bill.tag) bill.tag.setPosition(bill.x, bill.y - ((ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24) / 2 - 8);
+      return;
+    }
+
     // 0. Groaning at a Dad Joke: stagger back and stand there for a moment, then carry on.
     if (bill.cringeUntil && now < bill.cringeUntil) {
       bill.setVelocity(bill.body.velocity.x * 0.9, bill.body.velocity.y * 0.9);

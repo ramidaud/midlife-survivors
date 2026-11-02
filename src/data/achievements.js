@@ -36,3 +36,39 @@ window.ACHIEVEMENTS = [
   { id: "fullAudit",     icon: "🏛️", name: "Full Audit",                desc: "Reach retirement in Midlife at Tax Bracket 5.",  reward: 40, on: "clear", test: d => d.mode === "midlife" && d.taxBracket >= 5 },
   { id: "shopRat",       icon: "💼", name: "Maxed The Match",           desc: "Max out Employer Match in the shop.",     reward: 5,  on: "shopMax", test: d => d.id === "compoundInterest" }
 ];
+
+// What each achievement means for your next run, shown on the Game Over screen (Gemini, Nov 2).
+window.ACH_END_LINES = {
+  firstCoffee: "You paid off 50 bills in a single run. Enjoy 3k in 401(k) coins to spend in the shop before your next shift.",
+  overduePro: "You let 10 bills go overdue and split without panicking. Take 2k in 401(k) coins for the shop and call it cash-flow management.",
+  sugarSidestep: "You shook off a glazed donut slow with a hot slice of pizza. Put that 2k in 401(k) coins toward a nice shop upgrade.",
+  sockRisk: "A rogue back twinge ended your run while you were just living your life. HR added 2k in 401(k) coins to your account for a shop upgrade.",
+  replyAll: "You survived a full Reply-All Chain with your dignity intact. Spend your 4k in 401(k) coins in the shop before the thread restarts.",
+  solidAdvice: "You stared down a 3 AM Thought and went right back to sleep. Wake up to 3k in 401(k) coins ready for the shop.",
+  declineMeeting: "You cleared 20 Calendar Invites that definitely could have been emails. Reward yourself in the shop with 3k in 401(k) coins.",
+  muteFailed: "You silenced a runaway Group Chat once and for all. Take 3k in 401(k) coins into the shop for your next run.",
+  showYourWork: "You solved Math Homework using the new way they teach it now. Bank 4k in 401(k) coins for permanent shop upgrades.",
+  q3Met: "You beat your Performance Review and exceeded every expectation. Management deposited 5k in 401(k) coins for your next trip to the shop.",
+  escrowHero: "You signed the last page and conquered the 30-Year Mortgage. Celebrate out of escrow with 6k in 401(k) coins for the shop.",
+  keepTheSedan: "You outran the Midlife Crisis V8 and kept the sensible four-door. Put the 8k in 401(k) coins you saved straight into the shop.",
+  retired: "You made it to your Retirement Party in Midlife. You get 10k in 401(k) coins for the shop, and Full Life mode (ages 40 to 100) is now unlocked.",
+  grassLegal: "You defeated the HOA Board President with two-tenths of an inch to spare. Take 8k in 401(k) coins to the shop with zero lawn citations.",
+  vested: "You reached age 80 and are officially fully vested. Collect 10k in 401(k) coins to spend on permanent upgrades in the shop.",
+  kitchenDink: "You dethroned the 6 AM Pickleball Champion without stepping in the kitchen. Ice your knees and spend 12k in 401(k) coins in the shop.",
+  centenarian: "You reached 100 and shook Father Time by the hand. Enjoy a legendary 25k in 401(k) coins to max out your favorite shop upgrades.",
+  coldBrewed: "You evolved Cold Brew Concentrate and can now hear colors. Channel that energy into the shop with 5k in 401(k) coins.",
+  punStorm: "You evolved the Unhinged Pun Storm and made the whole floor groan. Collect 5k in 401(k) coins for the shop as a polite thank-you.",
+  boundaries: "You evolved Healthy Boundaries and left work right at five. Invest your well-earned 5k in 401(k) coins in the shop.",
+  smartTv: "You evolved the Smart TV without even finding the original remote. Settle in with 5k in 401(k) coins for your next shop visit.",
+  pivot: "You evolved the Pivot Table of Doom and bent the spreadsheet to your will. Accounting credited you 5k in 401(k) coins for the shop.",
+  binge: "You evolved Binge Mode and stayed up for just one more episode. Spend your 5k in 401(k) coins in the shop before autoplay hits.",
+  allEvos: "You evolved all nine evolutions across your career. Take a massive 20k in 401(k) coins to the shop as a fully evolved adult.",
+  soccerDad: "You reached age 50 as The Soccer Dad without forgetting the orange slices. Folding-chair mastery pays 5k in 401(k) coins for the shop.",
+  nightOwl: "You reached age 50 as The Grad Student on instant ramen and sheer willpower. Your stipend adds 5k in 401(k) coins for the shop.",
+  taxSeason: "You survived a full Tax Season swarm with all your receipts in a shoebox. Claim your 3k refund in 401(k) coins for the shop.",
+  plantDad: "You smashed 25 potted plants looking for breakroom snacks. Facilities is billing nobody, and you get 4k in 401(k) coins for the shop.",
+  auditSurvivor: "You reached retirement in Midlife at Tax Bracket 1 or higher. Your clean books earn 10k in 401(k) coins for the shop.",
+  auditTrail: "You reached retirement in Midlife at Tax Bracket 3 or higher with every binder labeled. Take 20k in 401(k) coins straight to the shop.",
+  fullAudit: "You reached retirement in Midlife at Tax Bracket 5 and didn't even blink. Enjoy a 40k windfall in 401(k) coins for the shop.",
+  shopRat: "You maxed out Employer Match and never left free money on the table. Enjoy an extra 5k in 401(k) coins to spend in the shop."
+};

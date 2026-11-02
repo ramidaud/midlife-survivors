@@ -40,7 +40,7 @@ Short lower-third or floating text lines when the player breaks a prop. Multiple
 
 Printer
 
-⚬ "PC Load Letter, my ass. Oh look, a warm bagel."
+⚬ "PC Load Letter, my foot. Oh look, a warm bagel."
 ⚬ "That was for Tuesday. And also for every Tuesday since 2016."
 ⚬ "The magenta cartridge was full the whole time. You knew it."
 

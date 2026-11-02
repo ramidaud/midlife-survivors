@@ -47,12 +47,12 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - [x] **Bigger enemies (V. 1.32.0):** regulars about hero-sized (now 25 to 42px vs a 56x60 hero), bosses 2 to 3x the hero.
    - [x] **Art package ready for Rami review (Nov 2, Codex):** eight breakable families in all 18 colorways, 54 state frames / 108 debris cells, and three native Midlife bosses with 33 poses and three telegraphs. Art only; runtime features below remain pending.
    - [ ] **Break things for loot:** most small office props smash open (printers, cabinets, vending machines, trash cans). The good loot hides there. Big structures (walls, desks) stay solid.
-   - [ ] **Bosses with their own attacks:** each boss gets a telegraphed attack and look (charges, shockwaves, summons). Spec from Grok, art from ChatGPT.
+   - [x] **Bosses with their own attacks (V. 1.34.0):** each boss gets a telegraphed attack and look (charges, shockwaves, summons). Spec from Grok, art from ChatGPT.
    - [ ] **Smoother animation:** more walk frames from ChatGPT; in code, hit flash, squash and stretch, knockback and a death poof.
    - [x] **Death and hit effects (V. 1.33.0):** pop, squash, flash and a little burst when enemies die; small dust puffs and bumps when you move or touch enemies.
    - [x] **Sound sliders (V. 1.33.0):** separate volume for music and effects.
    - [x] **Sound effects pass ("beautiful chaos", V. 1.33.0):** several variations per sound, random pitch, a cap on how many play at once, and layering so big fights sound rich instead of repetitive.
-   - [ ] **End-of-run summary:** achievements earned this run, what they unlocked and how that changes your next run.
+   - [x] **End-of-run summary (V. 1.33.2):** achievements earned this run, what they unlocked and how that changes your next run.
    - [x] **Track damage taken per run (V. 1.33.0)** (needs one new column in the runs table).
    - [ ] **Music by Rami's son** (guidance in GAME_DESIGN.md).
    - [x] Plants regrow (V. 1.32.2). [x] Tougher first minutes (V. 1.32.2).
