@@ -755,3 +755,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Ben: iPhone 13, Safari. Touch steering died after the 401(k) Shop.
 - Cause: on iPhone, the finger-lift goes to the menu button that just got replaced, so Phaser never hears it and thinks a finger is still down. Its touch slots fill up and new touches get ignored.
 - Fix: every new touch frees any "held" slot the browser says isn't really touching. Reproduced in a test before the fix (moved 0) and after (moved 226).
+
+## 2026-11-01 (late): Shop refund and big-screen zoom (V. 1.30.5)
+- 401(k) Shop: REFUND ALL returns every coin spent so players can try a different build (two taps to confirm).
+- Big screens zoom the camera in (720p laptop 1x to 1.25x, 1080p 1.5x, 1440p 2.25x, 4K 3.25x). Phones unchanged.
+- Side effect to watch: on big monitors enemies now appear closer, so desktop is a bit harder than before (closer to phone).
+- Rami: still a little too easy for him, but OK with it for now.

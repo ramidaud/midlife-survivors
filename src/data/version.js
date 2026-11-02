@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.30.4",
-  displayVersion: "V. 1.30.4",
+  version: "1.30.5",
+  displayVersion: "V. 1.30.5",
   lastUpdated: "Nov 1, 2026",
-  codename: "Let Go",
-  build: 83,
+  codename: "Rebalance",
+  build: 84,
   changelog: [
+    {
+      ver: "V. 1.30.5",
+      date: "Nov 1, 2026",
+      title: "Rebalance",
+      highlights: [
+        "401(k) Shop: REFUND ALL gives back every coin you've spent, so you can try a different build. Tap twice to confirm.",
+        "Big screens zoom in automatically, so the office isn't tiny on a large monitor. Phones and small laptops look the same as before."
+      ]
+    },
     {
       ver: "V. 1.30.4",
       date: "Nov 1, 2026",

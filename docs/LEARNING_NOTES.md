@@ -415,3 +415,6 @@ In a fast game, players stare at their character. Anything that changes the figh
 
 ## Stuck touches (Nov 1)
 A game engine tracks each finger as a "pointer" with a slot. It frees the slot when it hears the finger lift. On iPhone, if the button you tapped disappears mid-tap, the lift message goes to the vanished button and the engine never hears it. The slot stays "held," and once the slots are full, new touches are ignored. Ben guessed it almost exactly: an input layer that wasn't clearing when the store closed.
+
+## Camera zoom (Nov 1)
+The game draws the world one pixel per screen pixel, so a bigger monitor just shows more office, with everything tiny. Now the camera zooms in based on screen size, aiming to show about the same amount of office everywhere (roughly 640 pixels across the short side). Zooming in also means you see less around you, so enemies show up closer. Screen size quietly changes difficulty.

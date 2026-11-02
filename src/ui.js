@@ -1846,6 +1846,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
       `;
     }).join("");
 
+  // Coins spent so far in the 401(k) Shop (rank r of an item cost baseCost x (1 + 2 + ... + r)).
+  const shopSpent = META_SHOP.reduce((sum, item) => { const r = meta.ranks[item.id] || 0; return sum + item.baseCost * r * (r + 1) / 2; }, 0);
   const shopRowsHtml = META_SHOP.map(item => {
     const rank = meta.ranks[item.id] || 0;
     const maxed = rank >= item.maxRank;
@@ -1910,7 +1912,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
     bodyHtml = `
       <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
       <div class="shop-list">${shopRowsHtml}</div>
-      <div class="title-secondary">${backBtn}</div>`;
+      ${shopSpent > 0 ? `<div class="shop-refund-note">Changed your mind? Get back every coin you've spent (${shopSpent}k) and buy different upgrades.</div>` : ""}
+      <div class="title-secondary">${shopSpent > 0 ? `<button class="t-style-btn shop-refund-btn" id="shop-refund-btn">↺ REFUND ALL (${shopSpent}k)</button>` : ""}${backBtn}</div>`;
   } else if (view === "leaders") {
     bodyHtml = `
       <div class="title-subhead">🏆 LEADERBOARD</div>
@@ -2015,6 +2018,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.location.href = "devlog/"; }); // same tab: the devlog's Play button brings you right back
   const artTestBtn = document.getElementById("title-art-test-btn");
   if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "devlog/art/"; });
+  const refundBtn = document.getElementById("shop-refund-btn");
+  if (refundBtn) bindNavItem(refundBtn, 98, () => {
+    if (!refundBtn.dataset.armed) { refundBtn.dataset.armed = "1"; refundBtn.textContent = `TAP AGAIN TO REFUND ${shopSpent}k`; sfx("move"); return; }
+    meta.coins += shopSpent;
+    META_SHOP.forEach(item => { meta.ranks[item.id] = 0; });
+    saveMeta(meta); sfx("billPaid");
+    renderTitleModal(scene, ".shop-row"); updateHUD();
+  });
   const backEl = document.getElementById("title-back-btn");
   if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" || view === "achievements" ? "extras" : "main"), view !== "main");
 
