@@ -892,3 +892,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami approved Grok's spec; built it as data changes. Dad Joke: blast every 2.2 s, softer push, Louder Groan now 8% faster per rank (radius x1.20). "No.": shove 110 (cap 520), Firm Boundaries adds damage only on ranks 2 and 4. Pun Storm flinch 320 ms. Spreadsheet spin 3.4, Remote odd ranks throw 5% sooner. Card text and character taglines rewritten.
 - Grok's acceptance math checks out in-game: max Louder 1576 ms / 269 px / 6 dmg; max Firm 3 dmg / 366 px shove; max Universal Remote 3 throws.
 - Bot playtest: 0.7% of enemies off track, no errors. Watch Pun Storm in the 60s; Grok's fallback is 0.58 to 0.64.
+- Wrote ChatGPT brief: 8-frame v2 enemy sheets for smoother animation (art only; Claude wires them in after Rami approves).
