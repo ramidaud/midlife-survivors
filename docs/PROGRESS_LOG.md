@@ -798,3 +798,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Pause menu: separate Music and Effects volume (saved per browser).
 - Play stats now log hits and damage taken per run. Device and smoothness fields are ready but switched off until docs/sql/RUNS_DEVICE.sql is run.
 - Device details and smoothness (avg fps, slow frames) now recorded per run (V. 1.33.1).
+- Supabase connector linked. First live read: 22 runs from 9 players in the last day, average 4.6 minutes, average age 46.1, nobody has retired yet. Top killers: Bills, Spam Likely, Late Fees.
+- New daily scheduled task "Midlife Survivors morning stats" (7:27 AM, read-only Supabase queries, push notification).
+- Next ChatGPT job written: Stage 2D Parking Lot and Break Room (docs/handoffs/chatgpt-stage-2d-rooms.md). Gemini pass 2 saved; achievement lines need a redo against the real list.
