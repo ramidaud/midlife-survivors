@@ -17,3 +17,7 @@ Desktop viewport 1280x800; phone layout viewport 390x844. Screenshots show nativ
 Final geometry: `age-50-final-desktop.json` and `age-50-final-phone.json` both reached 50 at Tax Bracket 0, with zero off-floor enemies, console errors or analytics requests. These tests ran at production age speed with HP guards. Peak natural crowds were 126 desktop and 136 phone-layout. The six-second phone-layout crowd test started at 350 and ended at 364 after an existing event; minimum 98.0 / average 98.6 FPS in this desktop browser. `normal-health-smoke.json` adds a 47-second merged-build run with real 12 HP and no guard.
 
 Both endurance runs began before the concurrent iPhone fix was merged; no slice geometry or combat behavior changed after they began. The merged build received an additional normal-health smoke, restart/fallback and door collision check.
+
+A second concurrent merge preserved ef569b4 (shop refunds and automatic large-screen zoom). Final release is build 85. Age-50 evidence precedes that merge; the combined release received fresh desktop/phone smoke checks. No navigation or balance values were changed during either merge.
+
+Combined build 85 crowd rechecks retained all 350 enemies at both sizes: minimum 98.6 / average 99.3 FPS desktop, minimum 98.5 / average 99.2 FPS phone layout, zero off-floor enemies or console/analytics errors. See `merged-build-85-stress-desktop.json` and `merged-build-85-stress-phone.json`. These remain desktop-browser viewport tests with the documented HP guards.

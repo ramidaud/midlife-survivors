@@ -6,13 +6,22 @@ const GAME_VERSION = {
   displayVersion: "V. 1.31.0",
   lastUpdated: "Nov 1, 2026",
   codename: "New Hire Tour",
-  build: 84,
+  build: 85,
   changelog: [
     {
       ver: "V. 1.31.0",
       date: "Nov 1, 2026",
       title: "New Hire Tour",
       highlights: ["The playable office is now an authored Lobby and Bullpen slice with reception, varied desk clusters, static coworkers and dressed floors. Promotion doors stay closed for this playtest; one duck is clearly out of line."]
+    },
+    {
+      ver: "V. 1.30.5",
+      date: "Nov 1, 2026",
+      title: "Rebalance",
+      highlights: [
+        "401(k) Shop: REFUND ALL gives back every coin you've spent, so you can try a different build. Tap twice to confirm.",
+        "Big screens zoom in automatically, so the office isn't tiny on a large monitor. Phones and small laptops look the same as before."
+      ]
     },
     {
       ver: "V. 1.30.4",

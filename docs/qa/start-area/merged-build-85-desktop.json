@@ -1,0 +1,99 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.31.0",
+  "build": 85,
+  "viewport": [
+   1280,
+   800
+  ],
+  "zoom": 1.25,
+  "navBlockers": 2,
+  "active": true,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "body": [
+   48,
+   52
+  ],
+  "player": [
+   2089.831273367525,
+   557.1399175925316
+  ],
+  "props": 132,
+  "items": 159,
+  "visible": 21,
+  "peak": 33,
+  "gates": [
+   {
+    "id": "parking-access",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   },
+   {
+    "id": "break-access",
+    "closed": true,
+    "width": 224,
+    "body": [
+     128,
+     224
+    ]
+   }
+  ],
+  "families": [
+   "reception_counter",
+   "giant_logo",
+   "sofa",
+   "vending_machine",
+   "lost_found",
+   "coat_rack",
+   "trash_recycle",
+   "water_cooler",
+   "plant",
+   "gate_hidden_cabinet",
+   "birthday_banner",
+   "hang_cat_high",
+   "kpi_frame",
+   "gauge",
+   "goals_board",
+   "roundabout",
+   "fruit_tree",
+   "printer",
+   "cabinet",
+   "desk_paperwork",
+   "desk_sticky_notes",
+   "desk_2009",
+   "desk_lunch",
+   "desk_family_photo",
+   "desk_tidy",
+   "duck_row"
+  ],
+  "outside": 0,
+  "repairs": 16,
+  "fps": 100.00324877916803,
+  "age": 40.79102555555556,
+  "tax": 0
+ },
+ "soak": {
+  "x": 5208.009611894407,
+  "y": 3030.061419020795,
+  "age": 40.79568933333333,
+  "hp": 10,
+  "dead": false,
+  "n": 27,
+  "outside": 0,
+  "fps": 100.00324877916803,
+  "running": true,
+  "guard": false,
+  "waypoint": 11,
+  "peakEnemies": 28,
+  "wallSeconds": 35.80189999997616
+ }
+}

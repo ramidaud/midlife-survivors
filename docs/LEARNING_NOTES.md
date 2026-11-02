@@ -416,6 +416,9 @@ In a fast game, players stare at their character. Anything that changes the figh
 ## Stuck touches (Nov 1)
 A game engine tracks each finger as a "pointer" with a slot. It frees the slot when it hears the finger lift. On iPhone, if the button you tapped disappears mid-tap, the lift message goes to the vanished button and the engine never hears it. The slot stays "held," and once the slots are full, new touches are ignored. Ben guessed it almost exactly: an input layer that wasn't clearing when the store closed.
 
+## Camera zoom (Nov 1)
+The game draws the world one pixel per screen pixel, so a bigger monitor just shows more office, with everything tiny. Now the camera zooms in based on screen size, aiming to show about the same amount of office everywhere (roughly 640 pixels across the short side). Zooming in also means you see less around you, so enemies show up closer. Screen size quietly changes difficulty.
+
 ## Vertical slice (V. 1.31.0, Codex)
 A vertical slice finishes a small playable part of the game all the way through. Our Lobby and Bullpen combine final-sized props, floors, collision, enemies and captions so Rami can judge how they feel together. Testing those two areas catches scale and movement problems before they spread across nine districts. Reusable tiles and prop IDs let us rearrange the slice without painting a new map.
 

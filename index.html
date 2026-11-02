@@ -656,6 +656,8 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .shop-name { font-weight: 700; color: var(--text-main); }
   .shop-pips { color: var(--accent); letter-spacing: 1px; font-size: 11px; }
   .shop-desc { color: var(--text-muted); }
+  .shop-refund-note { margin-top: 8px; font-size: 11px; color: var(--text-muted); text-align: center; }
+  .shop-refund-btn { border-color: rgba(255,255,255,0.3); }
   .shop-buy-btn {
     background: var(--border-col); color: #12152a; border: none; border-radius: 3px;
     font-family: var(--font-body); font-size: 11px; font-weight: 700; padding: 4px 10px; cursor: pointer;
@@ -1072,7 +1074,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=84&t=" + Date.now();
+    s.src = "src/loader.js?v=85&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

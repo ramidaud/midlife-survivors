@@ -756,8 +756,14 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Cause: on iPhone, the finger-lift goes to the menu button that just got replaced, so Phaser never hears it and thinks a finger is still down. Its touch slots fill up and new touches get ignored.
 - Fix: every new touch frees any "held" slot the browser says isn't really touching. Reproduced in a test before the fix (moved 0) and after (moved 226).
 
+## 2026-11-01 (late): Shop refund and big-screen zoom (V. 1.30.5)
+- 401(k) Shop: REFUND ALL returns every coin spent so players can try a different build (two taps to confirm).
+- Big screens zoom the camera in (720p laptop 1x to 1.25x, 1080p 1.5x, 1440p 2.25x, 4K 3.25x). Phones unchanged.
+- Side effect to watch: on big monitors enemies now appear closer, so desktop is a bit harder than before (closer to phone).
+- Rami: still a little too easy for him, but OK with it for now.
+
 ## 2026-11-01: Lobby/Bullpen start-area slice, V. 1.31.0 (Codex)
-- Saved the prior work on stage-2c-wip, updated main and merged cleanly. Claude's navigation, Close Calls, controller fixes, banners and telemetry were preserved.
+- Saved the prior work on stage-2c-wip, updated main and merged cleanly. Claude's navigation, Close Calls, controller fixes, banners and telemetry were preserved, including the concurrent iPhone touch, shop-refund and camera-zoom fixes.
 - Finished eight start-area prop families and three static coworker colorways. One duck is clearly out of line; reception, desk neighborhoods, hallway clutter and floor stories are now playable.
 - Lobby and Bullpen open at 40. Both age-45 doors stay closed for this slice, span the full 224px route and register navigation blockers. Future promotions remain tunable data.
 - Added bounded-floor spawn validation, footprint/connectivity checks, culling and isolated desktop/phone QA. No test scores or analytics submitted. Enemy and combat balance tables unchanged.

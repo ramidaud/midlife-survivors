@@ -179,6 +179,14 @@ window.addEventListener("touchstart", e => {
   for (const t of e.touches) if (!Array.from(e.changedTouches).some(c => c.identifier === t.identifier)) live.add(t.identifier);
   releaseStaleTouches(live);
 }, { capture: true, passive: true });
+// How far to zoom the camera: aim to show about VIEW.targetShortSide pixels of office across the short side of the
+// screen, in quarter steps, never below 1x. 720p laptop = 1x, 1080p = 1.5x, 1440p = 2.25x, 4K = 3.25x.
+const VIEW = { targetShortSide: 640, maxZoom: 4 };
+function viewZoomFor(w, h) {
+  const z = Math.floor((Math.min(w, h) / VIEW.targetShortSide) * 4) / 4;
+  return Math.max(1, Math.min(VIEW.maxZoom, z));
+}
+window.viewZoomFor = viewZoomFor;
 function resetInputState(scene) {
   releaseStaleTouches(null);
   try { const a = document.activeElement; if (a && a !== document.body && a.blur) a.blur(); } catch (e) {}
@@ -348,6 +356,12 @@ function create() {
 
   // 4. The camera follows the player, like a photographer tracking a subject.
   this.cameras.main.startFollow(player, true, 0.12, 0.12);
+  // Big screens zoom in so the office and sprites aren't tiny (Rami on a 4K monitor). Phones and laptops stay at 1x.
+  // Zooming the browser shrinks the page, so this adjusts itself instead of doubling up.
+  const fitZoom = () => this.cameras.main.setZoom(viewZoomFor(this.scale.width, this.scale.height));
+  fitZoom();
+  this.scale.on("resize", fitZoom);
+  this.events.once("shutdown", () => this.scale.off("resize", fitZoom));
 
   // 5. Initialize the Chameleon + Corporate Satire HTML/CSS UI overlay (in src/ui.js).
   initGameUI(this);
