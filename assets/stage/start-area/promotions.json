@@ -1,5 +1,5 @@
 {
-  "status": "embedded-schedule-age55-60-held-closed",
+  "status": "embedded-schedule-age60-held-closed",
   "phases": [
     {
       "age": 40,
@@ -71,5 +71,5 @@
     ],
     "smallSignMinWidth": 64
   },
-  "slicePolicy": "Lobby/Bullpen start open; age45 and50 promotions remain live. Executive is built behind its closed age55 door. Wellness age60 remains closed. PROMOTIONS.openUpToAge stays50; Claude raises it to55 after review."
+  "slicePolicy": "Lobby/Bullpen start open; promotions through55 remain live. Wellness is built behind its closed age60 door beside Conference. PROMOTIONS.openUpToAge stays55; Claude raises it to60 after review."
 }

@@ -1,10 +1,10 @@
 {
   "batch": "stage-2-props-posters",
   "status": "start-area-kit-complete",
-  "families": 53,
-  "colorways": 138,
+  "families": 61,
+  "colorways": 162,
   "plannedFamilies": 72,
-  "remainingFamilies": 19,
+  "remainingFamilies": 11,
   "palette": [
     "#171c35",
     "#303750",
@@ -2034,6 +2034,318 @@
       "shadow": "none",
       "notes": "Tabletop detail, non-solid. Place above its host table.",
       "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_massage_chair",
+      "name": "The Fifteen-Minute Benefit",
+      "frame": [
+        96,
+        128
+      ],
+      "footprint": {
+        "width": 72,
+        "back": 52,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One chunky friendly robotic massage recliner, padded pale sage and lavender upholstery, deep navy side shells, foot-massage wells, a tiny orange timer button, empty and inviting. Front-facing three-quarter view, broad pixel clusters, no cables extending outside footprint.",
+      "captionKey": "wellness_massage_chair",
+      "source": "wellness_massage_chair-source-v1.png",
+      "file": "wellness_massage_chair-v1.png",
+      "caption": "Sounds like a bag of walnuts in a dryer. Still the best fifteen minutes on the third floor.",
+      "batch": "2g",
+      "size": [
+        288,
+        128
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 48.0,
+        "y": 125
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "a2246665e87661a5e5b43cf4c4af0f573aa29e7142b4340622b5c6f1707f4fef",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_zen_fountain",
+      "name": "The Copier Masker",
+      "frame": [
+        80,
+        88
+      ],
+      "footprint": {
+        "width": 60,
+        "back": 32,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One compact tabletop-height zen fountain on a squat teal stand, three stacked smooth river-stone basins, a thin stepped cream water trickle and shallow turquoise pool. Clearly game-pixel water, warm stone, sage rim, no spray beyond the object.",
+      "captionKey": "wellness_zen_fountain",
+      "source": "wellness_zen_fountain-source-v1.png",
+      "file": "wellness_zen_fountain-v1.png",
+      "caption": "Trickles over river pebbles to mask the hum of the copier. Top it off before the pump starts slurping.",
+      "batch": "2g",
+      "size": [
+        240,
+        88
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 40.0,
+        "y": 85
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "898f0a9e2d1280c04bfcc7d770acb74a34b75c5d1160381c9776a9ab5b6880f5",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_sad_lamp",
+      "name": "Simulated July",
+      "frame": [
+        48,
+        96
+      ],
+      "footprint": {
+        "width": 28,
+        "back": 20,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One SAD daylight therapy lamp on a short weighted pale sage pedestal, oversized square warm-cream light panel tilted toward a seated person, small lavender timer dial, no cast light or halo outside the lamp. No lettering.",
+      "captionKey": "wellness_sad_lamp",
+      "source": "wellness_sad_lamp-source-v1.png",
+      "file": "wellness_sad_lamp-v1.png",
+      "caption": "Ten thousand lumens of simulated July. Sit here for ten minutes and pretend you hear seagulls.",
+      "batch": "2g",
+      "size": [
+        144,
+        96
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 24.0,
+        "y": 93
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "a54b9ccb6b4b6582391f04b47e6d08da09a0817f03d3417a05a9a29bb613dfb3",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_yoga_mat",
+      "name": "A Gesture for Your Back",
+      "frame": [
+        64,
+        80
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "variants": 3,
+      "solid": false,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One thin pale lavender yoga mat lying flat, top-down three-quarter perspective with rounded blocky corners and a slightly curled far edge. Two simple sage alignment stripes, a small orange rolled towel on one corner, no equipment around it. Very thin, no hovering, no cast shadow.",
+      "captionKey": "wellness_sad_yoga_mat",
+      "source": "wellness_yoga_mat-source-v1.png",
+      "file": "wellness_yoga_mat-v1.png",
+      "caption": "One thin purple yoga mat rolled out on the linoleum. Your lower back appreciates the gesture.",
+      "batch": "2g",
+      "size": [
+        192,
+        80
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 32.0,
+        "y": 77
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "1f4f5b770e1908a0b9229089aa7b28090a1a016614e9101bae07892d48f0eeb4",
+      "shadow": "none",
+      "notes": "Floor decor, non-solid. Full caption supplies the joke.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_puzzle_table",
+      "name": "Eighty Percent Since February",
+      "frame": [
+        160,
+        112
+      ],
+      "footprint": {
+        "width": 136,
+        "back": 64,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One broad rectangular low warm-wood puzzle table with stout legs and pale sage edging, a partly completed lighthouse jigsaw at eighty percent, a clear unfinished dark navy patch of sky, a shallow tray of cream and lavender pieces and an orange tea cup. No chairs or people. Chunky large readable shapes, no tiny texture noise.",
+      "captionKey": "wellness_puzzle_table",
+      "source": "wellness_puzzle_table-source-v1.png",
+      "file": "wellness_puzzle_table-v1.png",
+      "caption": "A thousand-piece lighthouse that has been at eighty percent since February. Snap in a piece of sky for a quick win.",
+      "batch": "2g",
+      "size": [
+        480,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 109
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "8e682b92ded33eb6f1946babed9165682b555d376fb8ded3c521b422f7c74c22",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_quiet_pod",
+      "name": "Felt, Not Heard",
+      "frame": [
+        128,
+        152
+      ],
+      "footprint": {
+        "width": 104,
+        "back": 72,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One cozy rounded freestanding acoustic quiet booth, pale sage felt shell, deep navy interior, open front, lavender upholstered bench and tiny cream reading lamp within. Chunky dark feet touch bottom, one simple orange occupancy indicator. Empty, soft friendly form with crisp squared pixel stair-steps, no lettering.",
+      "captionKey": "wellness_quiet_pod",
+      "source": "wellness_quiet_pod-source-v1.png",
+      "file": "wellness_quiet_pod-v1.png",
+      "caption": "Felt walls that swallow the sound of notifications. Step inside and breathe like nobody is scheduling you.",
+      "batch": "2g",
+      "size": [
+        384,
+        152
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 64.0,
+        "y": 149
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "2792adc09dc625f2c543d82dd1f936ba8feecc121ccd43fb1d2a3b65d4d65aef",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_nap_pod",
+      "name": "Out of Order, In Spirit",
+      "frame": [
+        160,
+        112
+      ],
+      "footprint": {
+        "width": 136,
+        "back": 60,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "category": "landmarks",
+      "mount": "floor",
+      "subject": "One comically out-of-order horizontal nap capsule on short stout feet, pale sage shell, lavender mattress, open curved canopy stuck half raised, small unplugged orange cord coiled entirely on the capsule base. A blank cream maintenance card clipped to the front. No text, no separate floor or loose accessories.",
+      "captionKey": "wellness_nap_pod_broken",
+      "source": "wellness_nap_pod-source-v1.png",
+      "file": "wellness_nap_pod-v1.png",
+      "caption": "NAP POD: OUT OF ORDER. You are still welcome to sit next to it and close your eyes.",
+      "batch": "2g",
+      "size": [
+        480,
+        112
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 80.0,
+        "y": 109
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "53f42c003a37a7219515dddaf8512005de6267e174d4db3085282fba4f6b3ae2",
+      "shadow": "code-contact-only",
+      "notes": "Shared floor footprint for every colorway; actual authored placements live in start-area/layout.json.",
+      "integrationStatus": "not-registered"
+    },
+    {
+      "id": "wellness_fun_banner",
+      "name": "High Hopes, Masking Tape",
+      "frame": [
+        192,
+        64
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "variants": 3,
+      "solid": false,
+      "category": "signs",
+      "mount": "wall",
+      "subject": "One shallow wide blank pale sage cloth celebration banner with gently sagging lower edge, two visible cream masking-tape tabs at its top corners and a short strand of lavender and coffee-orange triangular pennants underneath. Large empty central cloth reserved for code-drawn lettering. No writing at all, no poles, no wall or floor.",
+      "captionKey": "wellness_mandatory_fun",
+      "source": "wellness_fun_banner-source-v1.png",
+      "file": "wellness_fun_banner-v1.png",
+      "caption": "MANDATORY FUN. The banner is held up with masking tape and very high hopes.",
+      "batch": "2g",
+      "size": [
+        576,
+        64
+      ],
+      "frameCount": 3,
+      "framePurpose": "colorways-not-animation",
+      "padding": 2,
+      "anchor": {
+        "x": 96.0,
+        "y": 61
+      },
+      "status": "ready-for-stage-2g-review",
+      "sha256": "e67957f4569a31fd03303bf026f00239948167bcb2b181621915366969ce9fbd",
+      "shadow": "none",
+      "notes": "Wall art, non-solid. Full caption supplies the longer joke.",
+      "integrationStatus": "not-registered"
     }
   ],
   "productionIntegrated": true,
@@ -2097,7 +2409,15 @@
       "skyline_window",
       "founder_portrait",
       "visitor_chair",
-      "award_trophy"
+      "award_trophy",
+      "wellness_massage_chair",
+      "wellness_zen_fountain",
+      "wellness_sad_lamp",
+      "wellness_yoga_mat",
+      "wellness_puzzle_table",
+      "wellness_quiet_pod",
+      "wellness_nap_pod",
+      "wellness_fun_banner"
     ],
     "basis": "Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes."
   }

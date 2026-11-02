@@ -1,11 +1,12 @@
 {
   "status": "passed",
-  "futureWellnessPreserved": true,
-  "districts": 7,
-  "props": 217,
+  "conferenceCorridor224": true,
+  "oldExecutiveOpeningSealed": true,
+  "districts": 8,
+  "props": 248,
   "desks": 35,
   "staticWorkers": 26,
-  "solidBodies": 509,
+  "solidBodies": 558,
   "doorwayWidth": 224,
   "closedGates": 6,
   "age45Gates": 2,
@@ -14,11 +15,12 @@
   "age60Gates": 1,
   "closedReachableCells": 25177,
   "age45ReachableCells": 47031,
-  "age50ReachableCells": 67054,
-  "testOpenedReachableCells": 74528,
+  "age50ReachableCells": 67064,
+  "age55ReachableCells": 74618,
+  "testOpenedReachableCells": 78761,
   "allTourPointsReachableWhenTestOpened": true,
   "lockedRoomsExcluded": true,
-  "protectedRoutes": 76,
+  "protectedRoutes": 84,
   "bossClearance": [
     {
       "room": "Server",
@@ -41,9 +43,18 @@
       "driftRadius": 130,
       "escapeRadius": 220,
       "passed": true
+    },
+    {
+      "room": "Wellness",
+      "chargeLane": 600,
+      "openLane": 896,
+      "driftRadius": 130,
+      "escapeRadius": 220,
+      "passed": true
     }
   ],
   "maxVisibleProps": 120,
+  "wellnessBreakables": 19,
   "executiveBreakables": 17,
   "serverRacks": 19,
   "conferencePods": 3,

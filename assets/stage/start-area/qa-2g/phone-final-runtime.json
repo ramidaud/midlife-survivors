@@ -1,0 +1,89 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.42.0",
+  "build": 106,
+  "viewport": [
+   390,
+   844
+  ],
+  "age": 40.14185059259259,
+  "openUpToAge": 55,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   752,
+   1334
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 558,
+  "bakedYogaMats": 4,
+  "visible": 18,
+  "peak": 18,
+  "navBlockers": 0,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "wellness-conference",
+    "age": 60,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 119.2972454240662
+ },
+ "testOnlyOpenThrough60": true,
+ "stress": {
+  "enemies": 350,
+  "outside": 0,
+  "visible": 18,
+  "initial": 350,
+  "fps": {
+   "min": 117.03859800100327,
+   "average": 118.55655468971236
+  },
+  "scope": "350 real physics/navigation/animation actors, HP guards, firing paused, six seconds."
+ }
+}

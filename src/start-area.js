@@ -1,4 +1,4 @@
-// Authored campus slice: seven districts through the closed age-55 Executive Wing. No gate opening or navigation code lives here.
+// Authored campus slice: eight districts through the closed age-60 Wellness Corner. No gate opening or navigation code lives here.
 window.StartAreaArt = (() => {
  const BASE=-1000000000,CHUNK=512;
  function within(x,y){return START_AREA_LAYOUT.floors.some(r=>x>=r.x&&x<r.x+r.width&&y>=r.y&&y<r.y+r.height);}
@@ -20,8 +20,9 @@ window.StartAreaArt = (() => {
   for(const name of ['asphalt','kitchen'])if(!scene.textures.exists('slice_'+name))makeCanvasTex(scene,'slice_'+name,64,64,c=>{if(name==='asphalt'){c.fillStyle='#526078';c.fillRect(0,0,64,64);c.fillStyle='#303750';c.globalAlpha=.22;c.fillRect(0,0,64,1);c.fillRect(0,0,1,64);for(let i=0;i<8;i++)c.fillRect((i*19+5)%64,(i*13+7)%64,3,1);}else{c.fillStyle='#d3b78d';c.fillRect(0,0,64,64);c.fillStyle='#a88b70';c.fillRect(0,0,32,32);c.fillRect(32,32,32,32);c.fillStyle='#f2d7a1';c.globalAlpha=.28;c.fillRect(1,1,30,1);c.fillRect(33,33,30,1);c.fillStyle='#3e7775';c.globalAlpha=.18;for(const [x,y]of [[16,16],[48,48]])c.fillRect(x,y,3,3);}c.globalAlpha=1;});
   for(const name of ['server','conference'])if(!scene.textures.exists('slice_'+name))makeCanvasTex(scene,'slice_'+name,64,64,c=>{c.fillStyle=name==='server'?'#303750':'#3e7775';c.fillRect(0,0,64,64);c.fillStyle='#526078';if(name==='server'){c.fillRect(0,0,64,2);c.fillRect(0,0,2,64);for(const [x,y]of [[5,5],[57,57]])c.fillRect(x,y,2,2);}else{c.globalAlpha=.28;c.fillRect(0,0,32,32);c.fillRect(32,32,32,32);c.globalAlpha=1;c.fillStyle='#83a89a';for(let y=4;y<64;y+=8)c.fillRect((y*3)%64,y,3,1);}});
   if(!scene.textures.exists('slice_executive'))makeCanvasTex(scene,'slice_executive',64,64,c=>{c.fillStyle='#303750';c.fillRect(0,0,64,64);c.fillStyle='#526078';c.globalAlpha=.28;for(let y=4;y<64;y+=8)for(let x=4;x<64;x+=8)c.fillRect(x+(y%16?2:0),y,3,1);c.globalAlpha=1;c.fillStyle='#3e7775';c.fillRect(0,31,64,1);});
+  if(!scene.textures.exists('slice_wellness'))makeCanvasTex(scene,'slice_wellness',64,64,c=>{c.fillStyle='#d3b78d';c.fillRect(0,0,64,64);for(let y=2;y<64;y+=8)for(let x=2;x<64;x+=8){c.fillStyle=(x+y)%16?'#a88b70':'#f2d7a1';c.globalAlpha=.35;c.fillRect((x+(y%16?3:0))%64,y,2,1);}c.globalAlpha=1;});
   function layer(x,y){const cx=Math.floor(x/CHUNK),cy=Math.floor(y/CHUNK),key=cx+','+cy;if(!chunks.has(key)){const g=add(scene.add.graphics().setDepth(BASE+3),{x:cx*CHUNK-256,y:cy*CHUNK-256,width:CHUNK+512,height:CHUNK+512});chunks.set(key,g);}return chunks.get(key);}
-  for(const r of data.floors){const key=r.material==='vinyl'?'slice_lobby':['asphalt','kitchen','server','conference','executive'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
+  for(const r of data.floors){const key=r.material==='vinyl'?'slice_lobby':['asphalt','kitchen','server','conference','executive','wellness'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
   // Warm light pools and quieter floor stories leave every combat reserve non-solid.
   for(const r of data.floors)for(let x=r.x+64;x<r.x+r.width-96;x+=384){const g=layer(x,r.y+28);g.fillStyle(r.material==='server'?0x83a89a:0xf2d7a1,.07);g.fillRect(x,r.y+28,Math.min(220,r.x+r.width-x-8),Math.min(120,r.height-40));}
   const rug=layer(-96,-160);rug.fillStyle(0x3e7775,.8);rug.fillRect(-432,-280,640,288);rug.fillStyle(0x83a89a,.7);rug.fillRect(-424,-272,624,3);rug.fillRect(-424,-4,624,3);rug.fillStyle(0xf2d7a1,.45);rug.fillRect(-408,-252,32,2);rug.fillRect(152,-32,32,2);
@@ -42,12 +43,14 @@ window.StartAreaArt = (() => {
    if(d.kind==='lane-arrow'){const block=(a,b,c,e)=>rect(d.direction==='left'?w-a-c:a,b,c,e,0xf2d7a1,.42);block(8,32,64,16);block(72,16,8,48);block(80,24,8,32);block(88,32,8,16);}
    if(d.kind==='crosswalk')for(let n=0;n<h;n+=40)rect(8,n,w-16,16,0xf2d7a1,.4);
    if(d.kind==='light-pool'){rect(0,0,w,h,0xf2d7a1,.055);rect(32,24,w-64,h-48,0xf2d7a1,.04);}
+   if(d.kind==='wellness-island'){rect(48,0,w-96,24,0xbfa8cf,.26);rect(16,24,w-32,40,0xbfa8cf,.26);rect(0,64,w,h-128,0xbfa8cf,.26);rect(16,h-64,w-32,40,0xbfa8cf,.26);rect(48,h-24,w-96,24,0xbfa8cf,.26);for(let n=96;n<w-96;n+=64)rect(n,24,16,2,0xfff0cf,.45);}
    if(d.kind==='rug'){g.fillStyle(0x171c35,.28);g.fillPoints([{x:x+8,y},{x:x+w,y:y+8},{x:x+w-8,y:y+h},{x,y:y+h-8}],true);rect(8,8,w-16,h-16,0x3e7775,.7);rect(16,16,w-32,2,0x83a89a,.65);rect(16,h-18,w-32,2,0x83a89a,.65);for(let n=24;n<w-24;n+=48)rect(n,24,16,2,0xf2d7a1,.18);}
    if(['microwave-queue','staff-tape'].includes(d.kind))for(let n=8;n<h-8;n+=24){rect(8,n,4,12,0x83a89a,.65);rect(w-12,n,4,12,0x83a89a,.65);}
    if(['mess','confetti'].includes(d.kind)){let seed=d.seed||45;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};for(let n=0;n<d.count;n++){const a=Math.floor(random()*(w-16))+4,b=Math.floor(random()*(h-16))+4;if(!within(x+a,y+b))continue;if(d.kind==='confetti'){rect(a,b,2,3,[0xf2d7a1,0xbfa8cf,0x83a89a,0xc45c4b][n%4],.5);}else if(n%7===0){rect(a,b,12,2,0x874c3b,.25);rect(a,b+8,12,2,0x874c3b,.25);rect(a-2,b+2,2,6,0x874c3b,.25);rect(a+12,b+2,2,6,0x874c3b,.25);}else{rect(a,b,6,8,n%3===0?0xbfa8cf:0xfff0cf,.5);rect(a+1,b+3,4,1,0x526078,.45);}}}
   }
   for(const r of data.structures||[]){const w=r.width,h=r.height+12,key='slice_curb_'+w+'_'+h;if(!scene.textures.exists(key))makeCanvasTex(scene,key,w,h,c=>{c.fillStyle='#171c35';c.fillRect(0,8,w,h-8);c.fillStyle='#f2d7a1';c.fillRect(2,8,w-4,h-12);c.fillStyle='#3e7775';c.fillRect(8,12,w-16,h-24);c.fillStyle='#83a89a';c.fillRect(8,12,w-16,2);});const o=add(scene.add.image(r.x+w/2,r.y+r.height,key).setOrigin(.5,1));o.sliceId=r.id;o.sliceDepth=o.y;H.body(o,{width:w,back:r.height,front:0},'prop_wall');bodies.push(o);items.push(o);OfficeEnvironment.groundObject(scene,layer(o.x,o.y),key,o.x,o.y,'prop');}
   function fixture(p){const a=START_AREA_IMAGES[p.prop],key='slice_'+p.prop+'_'+(p.variant||0),o=add(scene.add.image(p.x,p.y,key).setOrigin(.5,1));o.sliceId=p.id;o.sliceDepth=p.depthY??p.y;o.sliceMeta=p;
+   if(p.prop==='wellness_yoga_mat'){o.sliceBakeFloor=true;o.setDepth(BASE+4);all[all.length-1].bounds={x:p.x-a.frame[0]/2,y:p.y-a.frame[1],width:a.frame[0],height:a.frame[1]};}
    if(p.prop==='server_crash_cart')o.sliceMeta={...p,prop:'crash_cart',artProp:p.prop};
    const solid=p.solid!==false&&a.solid;
    if(solid){H.body(o,a.footprint,p.prop==='plant'?'prop_plant':'prop_desk');bodies.push(o);o.cellKey='start:'+p.id;}
@@ -63,7 +66,7 @@ window.StartAreaArt = (() => {
   for(const p of data.workers){const o=add(scene.add.image(p.x,p.y,'slice_coworker_placeholder_'+p.variant).setOrigin(.5,1).setCrop(0,0,48,p.cropHeight));o.sliceId=p.id;o.sliceDepth=p.depthY;o.isCoworkerPlaceholder=true;o.caption=STAGE_PROPS.captions.coworker_placeholder;captions.push(o);items.push(o);}
   // Reusable native structural panels, not an illustrated map texture.
   for(const r of data.walls){const w=r.width,h=r.height+(r.style==='parking'?48:112),key='slice_wall_'+(r.style||'office')+'_'+r.axis+'_'+r.width+'_'+r.height;
-   if(!scene.textures.exists(key))makeCanvasTex(scene,key,w,h,c=>{if(r.style==='executive'){c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle='#874c3b';c.fillRect(2,2,w-4,h-4);c.fillStyle='#b97a58';c.fillRect(2,2,w-4,3);c.fillStyle='#70402f';for(let x=14;x<w-2;x+=32)c.fillRect(x,8,2,h-14);c.fillStyle='#d3b78d';c.fillRect(2,h-10,w-4,2);return;}if(r.style==='glass'){c.fillStyle='#83a89a';c.globalAlpha=.2;c.fillRect(1,1,w-2,h-2);c.globalAlpha=1;c.fillStyle='#303750';c.fillRect(0,h-8,w,8);c.fillRect(0,0,2,h);c.fillRect(w-2,0,2,h);c.fillStyle='#83a89a';c.fillRect(1,0,w-2,2);c.fillStyle='#f2d7a1';if(r.axis==='x')for(let x=16;x<w;x+=64)c.fillRect(x,16,2,24);return;}c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle=r.style==='kitchen'?'#d3b78d':['parking','server'].includes(r.style)?'#303750':'#3e7775';c.fillRect(2,3,w-4,h-5);c.fillStyle=r.style==='parking'?'#526078':'#83a89a';c.fillRect(2,3,Math.max(2,w-4),4);c.fillStyle='#f2d7a1';if(r.axis==='x'){c.fillRect(2,8,w-4,5);for(let x=16;x<w;x+=64){c.fillStyle='#303750';c.fillRect(x,30,Math.min(44,w-x-3),42);c.fillStyle='#526078';c.fillRect(x+2,32,Math.min(40,w-x-7),2);}}else c.fillRect(2,8,5,h-12);});
+   if(!scene.textures.exists(key))makeCanvasTex(scene,key,w,h,c=>{if(r.style==='wellness'){c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle='#83a89a';c.fillRect(2,2,w-4,h-4);c.fillStyle='#fff0cf';c.fillRect(2,3,w-4,4);c.fillStyle='#3e7775';for(let x=16;x<w;x+=48)c.fillRect(x,12,2,h-20);c.fillStyle='#bfa8cf';c.fillRect(2,h-10,w-4,3);return;}if(r.style==='executive'){c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle='#874c3b';c.fillRect(2,2,w-4,h-4);c.fillStyle='#b97a58';c.fillRect(2,2,w-4,3);c.fillStyle='#70402f';for(let x=14;x<w-2;x+=32)c.fillRect(x,8,2,h-14);c.fillStyle='#d3b78d';c.fillRect(2,h-10,w-4,2);return;}if(r.style==='glass'){c.fillStyle='#83a89a';c.globalAlpha=.2;c.fillRect(1,1,w-2,h-2);c.globalAlpha=1;c.fillStyle='#303750';c.fillRect(0,h-8,w,8);c.fillRect(0,0,2,h);c.fillRect(w-2,0,2,h);c.fillStyle='#83a89a';c.fillRect(1,0,w-2,2);c.fillStyle='#f2d7a1';if(r.axis==='x')for(let x=16;x<w;x+=64)c.fillRect(x,16,2,24);return;}c.fillStyle='#171c35';c.fillRect(0,0,w,h);c.fillStyle=r.style==='kitchen'?'#d3b78d':['parking','server'].includes(r.style)?'#303750':'#3e7775';c.fillRect(2,3,w-4,h-5);c.fillStyle=r.style==='parking'?'#526078':'#83a89a';c.fillRect(2,3,Math.max(2,w-4),4);c.fillStyle='#f2d7a1';if(r.axis==='x'){c.fillRect(2,8,w-4,5);for(let x=16;x<w;x+=64){c.fillStyle='#303750';c.fillRect(x,30,Math.min(44,w-x-3),42);c.fillStyle='#526078';c.fillRect(x+2,32,Math.min(40,w-x-7),2);}}else c.fillRect(2,8,5,h-12);});
    const o=add(scene.add.image(r.x+w/2,r.y+r.height,key).setOrigin(.5,1));o.sliceId=r.id;o.sliceDepth=o.y;H.body(o,{width:r.width,back:r.height,front:0},'prop_wall');bodies.push(o);items.push(o);
   }
   const gates=[];
@@ -102,18 +105,18 @@ window.StartAreaArt = (() => {
   }
   // Speed (Nov 2): floor-shadow Graphics are redrawn from scratch every frame in WebGL. They never change, so
   // paint all of them once into 1024px tiles covering the map, and show the tiles as plain images instead.
-  try{const chunkG=all.filter(e=>e.bounds&&e.o&&e.o.type==='Graphics'&&e.o.active);
+  try{const chunkG=all.filter(e=>e.bounds&&e.o&&(e.o.type==='Graphics'||e.o.sliceBakeFloor)&&e.o.active).sort((a,b)=>a.o.depth-b.o.depth);
    if(chunkG.length&&scene.make.renderTexture){const B=data.bounds,T=1024;let n=0;
     for(let ty=B.y;ty<B.y+B.height;ty+=T)for(let tx=B.x;tx<B.x+B.width;tx+=T){
      const w=Math.min(T,B.x+B.width-tx),h=Math.min(T,B.y+B.height-ty),key='slice_bake_'+(n++);
      if(!data.floors.some(r=>r.x+r.width>tx&&r.x<tx+w&&r.y+r.height>ty&&r.y<ty+h))continue;
      if(scene.textures.exists(key))scene.textures.remove(key);
      const rt=scene.make.renderTexture({x:0,y:0,width:w,height:h},false);
-     for(const e of chunkG){const r=e.bounds;if(r.x+r.width>tx&&r.x<tx+w&&r.y+r.height>ty&&r.y<ty+h)rt.draw(e.o,-tx,-ty);}
+     for(const e of chunkG){const r=e.bounds;if(r.x+r.width>tx&&r.x<tx+w&&r.y+r.height>ty&&r.y<ty+h)rt.draw(e.o,e.o.sliceBakeFloor?e.o.x-tx:-tx,e.o.sliceBakeFloor?e.o.y-ty:-ty);}
      rt.saveTexture(key);
      all.push({o:scene.add.image(tx,ty,key).setOrigin(0).setDepth(chunkG[0].o.depth),bounds:{x:tx,y:ty,width:w,height:h},rt});
     }
-    for(const e of chunkG){e.o.destroy();all.splice(all.indexOf(e),1);}
+    for(const e of chunkG){if(e.o.sliceBakeFloor){const i=captions.indexOf(e.o);if(i>=0)captions[i]={x:e.o.x,y:e.o.y,visible:true,caption:e.o.caption,sliceReadAt:e.o.sliceReadAt};}e.o.destroy();all.splice(all.indexOf(e),1);}
    }}catch(e){}
   const state={data,gates,items,bodies,active:true,visibleProps:0,peakVisibleProps:0,spawnPadding,get repairedSpawns(){return repairedSpawns;},resolveSpawn,update,sync,destroy,contains:within};
   function update(){if(!alive)return;const x=p.x,y=p.y+p.height/2;if(!within(x,y)){p.setPosition(...[lastValid[0],lastValid[1]-p.height/2]);p.setVelocity(0,0);p.body.updateFromGameObject();}else lastValid=[x,y];}

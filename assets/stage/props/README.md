@@ -1,10 +1,17 @@
 # Stage 2 modular prop kit
 
-Latest: **Stage 2F adds seven Executive Wing families and 21 colorways. Total: 53 families, 138 colorways**, plus two extra car paints and the separate coworker placeholder. The gallery defaults to 2F and compares every prop with the native 56x60 hero and Bill at 50px. Wide cards scroll at 1x on a 390px phone. Nineteen of the planned 72 families remain.
+Latest: **Stage 2G adds eight Wellness families and 24 colorways. Total 61 families,162 colorways**, plus two extra car paints and the separate coworker placeholder. The gallery defaults to 2G and compares every prop with the native 56x60 hero and Bill at 50px. Eleven of the planned 72 families remain.
+
+## Batch 2G: HR Says Relax
+
+Massage chair 96x128, zen fountain 80x88, SAD lamp 48x96, yoga mat 64x80, puzzle table 160x112, felt quiet pod 128x152, broken nap pod 160x112 and blank cloth banner 192x64. Each has three colorways. Mats and banner are non-solid. All other families have measured floor footprints. The room overlays MANDATORY FUN and OUT OF ORDER using the existing chunky bitmap font; native PNGs contain no tiny lettering.
+
+Built-in imagegen supplied each selected source. Full prompts, captions, native sizes and source paths are in `batch-2g.json`; native sheets and three individual colorways per family are saved beside it. Export uses nearest-neighbor sampling, the shared 17-color palette, opaque exact#FF 00FF, equal margins and navy silhouette edges. `validate-2d.py 2g` checks grids, palette, margins, masks and distinct colors. The full Wellness assembly and safe review are in `../start-area/`.
+
 
 ## Batch 2F: Corner Office Energy
 
-Oversized desk 208x136, credenza160x96, putting mat192x96, skyline window256x128, founder portrait80x112, visitor chair64x80 and trophy48x48. Each has three colorways. Desk, credenza and chair have floor footprints; mat, window, portrait and tabletop trophy are non-solid. Full built-in imagegen prompts and selected sources are in `batch-2f.json`. Native sheets use exact opaque magenta and the shared 17-color palette. `validate-2d.py 2f` checks margins, grids, outlines, masks and distinct colorways. The playable assembly and isolated review are in `../start-area/`.
+Oversized desk 208x136, credenza 160x96, putting mat 192x96, skyline window 256x128, founder portrait 80x112, visitor chair 64x80 and trophy 48x48. Each has three colorways. Desk, credenza and chair have floor footprints; mat, window, portrait and tabletop trophy are non-solid. Full built-in imagegen prompts and selected sources are in `batch-2f.json`. Native sheets use exact opaque magenta and the shared 17-color palette. `validate-2d.py 2f` checks margins, grids, outlines, masks and distinct colorways. The playable assembly and isolated review are in `../start-area/`.
 
 ## Batch 2B: literal slang and landmarks
 
@@ -23,15 +30,15 @@ Oversized desk 208x136, credenza160x96, putting mat192x96, skyline window256x128
 | goals_board | 160x136 | solid footprint |
 | giant_logo | 160x144 | solid footprint |
 
-Each has two colorways on an even horizontal grid, plus individual frame PNGs. Colorways are not animations. Root kit IDs remain unchanged, so future map instances can reuse them. The company-values wall is a fictional employer's landmark, not a replacement game logo. Its source v2 removes attached plants so they can be assembled separately from the reusable library.
+Each has two colorways on an even horizontal grid, plus individual frame PNGs. Colorways are not animations. Root kit IDs remain unchanged, so future map instances can reuse them. The company-values wall is a fictional employer's landmark, not a replacement game logo. Its source v 2 removes attached plants so they can be assembled separately from the reusable library.
 
-`manifest.json` indexes both batches. `manifest-2b.json` describes this batch; historical `manifest-2a.json` is retained. Full built-in-imagegen prompts are in `batch-2b.json`, with the focused wall edit in `wall-refinement-prompt.txt`. Sources are versioned, native art has opaque #FF00FF and hard shared-palette edges. Selected paint/container surfaces vary while water and foliage keep their material colors.
+`manifest.json` indexes both batches. `manifest-2b.json` describes this batch; historical `manifest-2a.json` is retained. Full built-in-imagegen prompts are in `batch-2b.json`, with the focused wall edit in `wall-refinement-prompt.txt`. Sources are versioned, native art has opaque #FF 00FF and hard shared-palette edges. Selected paint/container surfaces vary while water and foliage keep their material colors.
 
 ```sh
 swift -module-cache-path /private/tmp/midlife-bio-swift-cache assets/stage/props/export-native.swift "$PWD/assets/stage/props" batch-2b.json
-python3 assets/stage/props/build-review-data.py
-python3 assets/stage/props/validate-props.py
-python3 assets/stage/props/validate-props.py manifest-2b.json
+python 3 assets/stage/props/build-review-data.py
+python 3 assets/stage/props/validate-props.py
+python 3 assets/stage/props/validate-props.py manifest-2b.json
 ```
 
 These are optional authoring checks, not a game build step. `checks.json` covers all 79 frames, `checks-2b.json` covers the 24 slang frames and `checks-2c.json` covers the 24 new essentials. Both also check the unchanged 224px gate contracts. The older exporter defaults to the 2A brief when no batch argument is supplied.
@@ -51,7 +58,7 @@ The values-wall footprint uses width 144, back 44 and front 3 after checking its
 
 ### First batch
 
-Rami approved campus v2 on Nov 1. This starts Stage 2 with **13 of the planned 72 families**, delivered in **31 colorways**. Stage 2 as a whole is still in progress. Existing tidy, paperwork and lunch desks remain reusable; they were not regenerated.
+Rami approved campus v 2 on Nov 1. This starts Stage 2 with **13 of the planned 72 families**, delivered in **31 colorways**. Stage 2 as a whole is still in progress. Existing tidy, paperwork and lunch desks remain reusable; they were not regenerated.
 
 Open `review.html`, also linked from the Art Room. It works directly from disk or through a local server. Each card puts the actual native prop beside the 56x60 hero and the Bill at its 36px game display size. Controls: category, colorway, 1x/2x/4x pixel scale, carpet/wood/navy, footprint guide and once-only caption preview. Phone zoom stays inside each canvas scroller. Canvas labels and scene layers are review UI, not pixels baked into the PNG.
 
@@ -73,18 +80,18 @@ Open `review.html`, also linked from the Art Room. It works directly from disk o
 | perseverance | 80x96 | 2 | Paper-jammed printer |
 | sign_plate | 80x48 | 2 | REBRAND? parking label |
 
-For each family, `<id>-v1.png` is an equal-cell horizontal colorway sheet. Frames are **not animation poses**. Individual `<id>-variant-N-v1.png` exports match the sheet cells exactly. Sources remain in `*-source-v*.png`. Use native exports for integration, not sources. `manifest-2a.json` documents sizes, origin, proposed floor footprint, solid/decor status, district, frame count, caption, shadows and hash. The root campus manifest points to it.
+For each family, `<id>-v 1.png` is an equal-cell horizontal colorway sheet. Frames are **not animation poses**. Individual `<id>-variant-N-v 1.png` exports match the sheet cells exactly. Sources remain in `*-source-v*.png`. Use native exports for integration, not sources. `manifest-2a.json` documents sizes, origin, proposed floor footprint, solid/decor status, district, frame count, caption, shadows and hash. The root campus manifest points to it.
 
 ## Generation and native preparation
 
-Built-in imagegen generated one object per image using the approved Parking Lot and existing desk as style references. `batch-2a.json` records every full prompt. `car-refinement-prompt.txt` records the targeted flat-color cleanup; its v2 source is selected, v1 retained. Native preparation uses nearest-neighbor sampling, the shared 17-color production palette, opaque exact #FF00FF, a one-pixel navy silhouette and controlled palette substitutions for 2 or 3 colorways. No floor or background shadow is baked into the exports.
+Built-in imagegen generated one object per image using the approved Parking Lot and existing desk as style references. `batch-2a.json` records every full prompt. `car-refinement-prompt.txt` records the targeted flat-color cleanup; its v 2 source is selected, v 1 retained. Native preparation uses nearest-neighbor sampling, the shared 17-color production palette, opaque exact #FF 00FF, a one-pixel navy silhouette and controlled palette substitutions for 2 or 3 colorways. No floor or background shadow is baked into the exports.
 
 Optional authoring commands, not a required game build:
 
 ```sh
 swift -module-cache-path /private/tmp/midlife-bio-swift-cache assets/stage/props/export-native.swift "$PWD/assets/stage/props"
-python3 assets/stage/props/build-review-data.py
-python3 assets/stage/props/validate-props.py
+python 3 assets/stage/props/build-review-data.py
+python 3 assets/stage/props/validate-props.py
 ```
 
 After editing the root plan, run its authoring/check scripts as documented in the parent README. The gallery embeds native art for file-safe use. Existing floor textures and native hero/enemy references are reused unchanged.
@@ -103,13 +110,13 @@ The Archive clue is a modest FILES plate and lavender binder, with no glow or la
 
 ## Stage 2C and start-area slice (V. 1.31.0, Codex)
 
-Eight new essentials (24 colorways) bring the planned kit to 33 families and 79 colorways. Reception counter, vending machine, sofa, lost-and-found, cooler, birthday banner, bins and coat rack are now placed in the playable Lobby/Bullpen. A separate 48x56 static coworker sheet has three colorways; it is not one of the 72 planned prop families. The corrected duck source has four ducks in line and a fifth clearly forward and turned toward the viewer. Source v1 remains archived.
+Eight new essentials (24 colorways) bring the planned kit to 33 families and 79 colorways. Reception counter, vending machine, sofa, lost-and-found, cooler, birthday banner, bins and coat rack are now placed in the playable Lobby/Bullpen. A separate 48x56 static coworker sheet has three colorways; it is not one of the 72 planned prop families. The corrected duck source has four ducks in line and a fifth clearly forward and turned toward the viewer. Source v 1 remains archived.
 
 See `batch-2c.json`, `manifest-2c.json`, `batch-placeholder.json` and `../start-area/README.md`. Review defaults to 2C and still compares every new prop to the real hero and Bill at 1x. Magenta removal, shadows and captions happen at runtime. The other 39 planned families and other districts wait for Rami's slice feedback.
 
 
 ## Stage 2D, age-45 rooms (Nov 2, Codex)
-Eight new families / 23 colorways: kitchenette 192x112, fridge 80x128, coffee cart 128x128, table 112x96, cake 48x40, parking light 64x160, cart corral 128x96 and wheeled whiteboard 128x120. Full imagegen prompts and selected sources are recorded in batch-2d.json. The existing car family gets two additional paints, not two new families. `car_compact-campus-v2.png` is five 144x112 frames: first three pixel-exact original paints, then navy/teal and coffee orange. `car_compact-extra-v2.png` reviews just the additions. Native export uses the existing Swift exporter and controlled palette mappings; no shadow is painted onto magenta.
+Eight new families / 23 colorways: kitchenette 192x112, fridge 80x128, coffee cart 128x128, table 112x96, cake 48x40, parking light 64x160, cart corral 128x96 and wheeled whiteboard 128x120. Full imagegen prompts and selected sources are recorded in batch-2d.json. The existing car family gets two additional paints, not two new families. `car_compact-campus-v 2.png` is five 144x112 frames: first three pixel-exact original paints, then navy/teal and coffee orange. `car_compact-extra-v 2.png` reviews just the additions. Native export uses the existing Swift exporter and controlled palette mappings; no shadow is painted onto magenta.
 
 Total kit: 41 families / 102 prop colorways, plus two extra car paints and the separate coworker placeholder. The room slice embeds its new captions directly, without editing Claude's stage-props registry. Future integrations can read manifest-2d.json. Native comparisons use the 56x60 hero and current 50px Bill. Run validate-2d.py for palette, opaque magenta margins, silhouette parity and preserved-car checks.
 

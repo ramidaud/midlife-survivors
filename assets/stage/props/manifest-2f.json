@@ -4,7 +4,7 @@
   "families": 7,
   "colorways": 21,
   "plannedFamilies": 72,
-  "remainingFamilies": 19,
+  "remainingFamilies": 11,
   "palette": [
     "#171c35",
     "#303750",
@@ -354,7 +354,15 @@
       "skyline_window",
       "founder_portrait",
       "visitor_chair",
-      "award_trophy"
+      "award_trophy",
+      "wellness_massage_chair",
+      "wellness_zen_fountain",
+      "wellness_sad_lamp",
+      "wellness_yoga_mat",
+      "wellness_puzzle_table",
+      "wellness_quiet_pod",
+      "wellness_nap_pod",
+      "wellness_fun_banner"
     ],
     "basis": "Current src/data/stage-props.js family registry, read only. Authored Lobby/Bullpen placements use this registry. Claude owns future gate opening and navigation changes."
   }

@@ -1,0 +1,86 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.42.0",
+  "build": 106,
+  "viewport": [
+   390,
+   844
+  ],
+  "age": 40.155936518518516,
+  "openUpToAge": 55,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   752,
+   1334
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 558,
+  "bakedYogaMats": 4,
+  "visible": 18,
+  "peak": 18,
+  "navBlockers": 0,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "wellness-conference",
+    "age": 60,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 118.07058957995312
+ },
+ "testOnlyOpenThrough60": true,
+ "bakedMatCaption": {
+  "passed": true,
+  "lines": [
+   "Three foam mats and a bottle of lavender spray. Your lower back will thank you by three o'clock.",
+   "Bills chase you. Pay them off fast or they split into Late Fees.",
+   "Your weapons fire on their own. Just keep moving."
+  ]
+ }
+}

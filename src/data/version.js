@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.41.0",
-  displayVersion: "V. 1.41.0",
+  version: "1.42.0",
+  displayVersion: "V. 1.42.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Punchline",
-  build: 105,
+  codename: "HR Says Relax",
+  build: 106,
   changelog: [
+    {
+      ver: "V. 1.42.0", date: "Nov 2, 2026", title: "HR Says Relax",
+      highlights: [
+        "The Wellness Corner is built: massage chair, quiet pod, unfinished puzzle and mandatory fun. Its age-60 door stays closed for room review.",
+        "Wellness access now sits beside Conference; the old Executive opening is sealed and the public corridor stays full width."
+      ]
+    },
     {
       ver: "V. 1.41.0", date: "Nov 2, 2026", title: "Punchline",
       highlights: [

@@ -910,6 +910,150 @@
     "caption": "The water is filtered. The gossip is not.",
     "sha256": "ca3038a0c6d1a0d710c834fb22259c34af4622ca6a9d86acc4f43763149a34bb"
   },
+  "wellness_fun_banner": {
+    "id": "wellness_fun_banner",
+    "frame": [
+      192,
+      64
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "wall",
+    "file": "wellness_fun_banner-v1.png",
+    "caption": "MANDATORY FUN. The banner is held up with masking tape and very high hopes.",
+    "sha256": "e67957f4569a31fd03303bf026f00239948167bcb2b181621915366969ce9fbd"
+  },
+  "wellness_massage_chair": {
+    "id": "wellness_massage_chair",
+    "frame": [
+      96,
+      128
+    ],
+    "footprint": {
+      "width": 72,
+      "back": 52,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "wellness_massage_chair-v1.png",
+    "caption": "Sounds like a bag of walnuts in a dryer. Still the best fifteen minutes on the third floor.",
+    "sha256": "a2246665e87661a5e5b43cf4c4af0f573aa29e7142b4340622b5c6f1707f4fef"
+  },
+  "wellness_nap_pod": {
+    "id": "wellness_nap_pod",
+    "frame": [
+      160,
+      112
+    ],
+    "footprint": {
+      "width": 136,
+      "back": 60,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "wellness_nap_pod-v1.png",
+    "caption": "NAP POD: OUT OF ORDER. You are still welcome to sit next to it and close your eyes.",
+    "sha256": "53f42c003a37a7219515dddaf8512005de6267e174d4db3085282fba4f6b3ae2"
+  },
+  "wellness_puzzle_table": {
+    "id": "wellness_puzzle_table",
+    "frame": [
+      160,
+      112
+    ],
+    "footprint": {
+      "width": 136,
+      "back": 64,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "wellness_puzzle_table-v1.png",
+    "caption": "A thousand-piece lighthouse that has been at eighty percent since February. Snap in a piece of sky for a quick win.",
+    "sha256": "8e682b92ded33eb6f1946babed9165682b555d376fb8ded3c521b422f7c74c22"
+  },
+  "wellness_quiet_pod": {
+    "id": "wellness_quiet_pod",
+    "frame": [
+      128,
+      152
+    ],
+    "footprint": {
+      "width": 104,
+      "back": 72,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "wellness_quiet_pod-v1.png",
+    "caption": "Felt walls that swallow the sound of notifications. Step inside and breathe like nobody is scheduling you.",
+    "sha256": "2792adc09dc625f2c543d82dd1f936ba8feecc121ccd43fb1d2a3b65d4d65aef"
+  },
+  "wellness_sad_lamp": {
+    "id": "wellness_sad_lamp",
+    "frame": [
+      48,
+      96
+    ],
+    "footprint": {
+      "width": 28,
+      "back": 20,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "wellness_sad_lamp-v1.png",
+    "caption": "Ten thousand lumens of simulated July. Sit here for ten minutes and pretend you hear seagulls.",
+    "sha256": "a54b9ccb6b4b6582391f04b47e6d08da09a0817f03d3417a05a9a29bb613dfb3"
+  },
+  "wellness_yoga_mat": {
+    "id": "wellness_yoga_mat",
+    "frame": [
+      64,
+      80
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "floor",
+    "file": "wellness_yoga_mat-v1.png",
+    "caption": "One thin purple yoga mat rolled out on the linoleum. Your lower back appreciates the gesture.",
+    "sha256": "1f4f5b770e1908a0b9229089aa7b28090a1a016614e9101bae07892d48f0eeb4"
+  },
+  "wellness_zen_fountain": {
+    "id": "wellness_zen_fountain",
+    "frame": [
+      80,
+      88
+    ],
+    "footprint": {
+      "width": 60,
+      "back": 32,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "wellness_zen_fountain-v1.png",
+    "caption": "Trickles over river pebbles to mask the hum of the copier. Top it off before the pump starts slurping.",
+    "sha256": "898f0a9e2d1280c04bfcc7d770acb74a34b75c5d1160381c9776a9ab5b6880f5"
+  },
   "wheel_boot": {
     "id": "wheel_boot",
     "frame": [
