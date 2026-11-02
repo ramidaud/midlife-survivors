@@ -750,3 +750,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Saved Grok's Part 3D spec (8 age-50+ run modifiers: Ghost Hour, Reading Glasses, Rent Hike, Empty Nest, Back Spasm, Reply-All Tax, Past Due, Open Enrollment). Not built yet.
 - Balance bot check on V. 1.30.3: fresh-save kite bot died at 41.7, 41.8 and 42.3 (before: 42.3 to 43.0). Not easier; slightly harder, likely furniture snagging the naive bot. Real numbers will come from the runs table.
 - Published devlog post 7 ("My office got jokes. Then my enemies got smarter."). Rami: Close Calls feel good after a few runs.
+
+## 2026-11-01 (late): Ben's iPhone touch bug fixed (V. 1.30.4)
+- Ben: iPhone 13, Safari. Touch steering died after the 401(k) Shop.
+- Cause: on iPhone, the finger-lift goes to the menu button that just got replaced, so Phaser never hears it and thinks a finger is still down. Its touch slots fill up and new touches get ignored.
+- Fix: every new touch frees any "held" slot the browser says isn't really touching. Reproduced in a test before the fix (moved 0) and after (moved 226).

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.30.3",
-  displayVersion: "V. 1.30.3",
+  version: "1.30.4",
+  displayVersion: "V. 1.30.4",
   lastUpdated: "Nov 1, 2026",
-  codename: "Right Now",
-  build: 82,
+  codename: "Let Go",
+  build: 83,
   changelog: [
+    {
+      ver: "V. 1.30.4",
+      date: "Nov 1, 2026",
+      title: "Let Go",
+      highlights: [
+        "iPhone fix: after visiting the 401(k) Shop, touch steering could stop working completely. Tapping a menu button that disappears left the game thinking your finger was still down. It now lets go. (Thanks, Ben, for the detective work.)"
+      ]
+    },
     {
       ver: "V. 1.30.3",
       date: "Nov 1, 2026",
