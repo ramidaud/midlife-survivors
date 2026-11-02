@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.30.2",
-  displayVersion: "V. 1.30.2",
+  version: "1.30.3",
+  displayVersion: "V. 1.30.3",
   lastUpdated: "Nov 1, 2026",
-  codename: "Groan Zone",
-  build: 81,
+  codename: "Right Now",
+  build: 82,
   changelog: [
+    {
+      ver: "V. 1.30.3",
+      date: "Nov 1, 2026",
+      title: "Right Now",
+      highlights: [
+        "Pausing now shows a RIGHT NOW box: everything currently affecting your run (Comfort Zone Tax, power-ups, a sugar crash, your Close Call streak) with time left.",
+        "Controller fix: B (or Escape on a keyboard) now backs out of the 401(k) Shop, Extras, Leaderboard and other title pages. Before, controller players could get stuck in the Shop."
+      ]
+    },
     {
       ver: "V. 1.30.2",
       date: "Nov 1, 2026",

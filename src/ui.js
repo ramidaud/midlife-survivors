@@ -1069,6 +1069,27 @@ function setPauseModalVisible(vis) {
   }
 }
 
+// "Right now": everything temporarily changing the run, readable at your own pace while paused.
+// (Playtest: the mid-run notices go by too fast to read.)
+function activeEffectsHtml() {
+  if (typeof runElapsedMs === "undefined") return "";
+  const t = runElapsedMs, left = until => `${Math.max(1, Math.ceil((until - t) / 1000))}s left`;
+  const rows = [];
+  if (typeof dyn !== "undefined" && dyn.comfortUntil > t) rows.push(["😤", "Comfort Zone Tax", "More enemies, because you got comfortable", left(dyn.comfortUntil)]);
+  if (typeof dyn !== "undefined" && dyn.mercyUntil > t) rows.push(["🫶", "Breather", "Fewer enemies while your HP is low", left(dyn.mercyUntil)]);
+  if (typeof buffs !== "undefined" && buffs.speedUntil > t) rows.push(["🥤", "Faster feet", `${Math.round((buffs.speedMult - 1) * 100)}% faster`, left(buffs.speedUntil)]);
+  if (typeof buffs !== "undefined" && buffs.damageUntil > t) rows.push(["💪", "Extra damage", `${Math.round((buffs.damageMult - 1) * 100)}% more damage`, left(buffs.damageUntil)]);
+  if (typeof slowUntil !== "undefined" && slowUntil > t) rows.push(["🍩", "Sugar crash", "You're slower for a bit", left(slowUntil)]);
+  const nm = window.NearMiss && window.NearMiss.hud();
+  if (nm && nm.tier >= 0) rows.push(["⚡", "Close Call streak", nm.text, "dodge to keep it"]);
+  const tb = typeof runTaxBracket !== "undefined" ? runTaxBracket : 0;
+  if (tb > 0) rows.push(["📈", `Tax Bracket ${tb}`, ((window.TAX_BRACKET && TAX_BRACKET.labels && TAX_BRACKET.labels[tb]) || "") + ": tougher enemies, bigger rewards", "all run"]);
+  const body = rows.length
+    ? rows.map(([i, name, what, time]) => `<li><span class="ae-ico">${i}</span><span class="ae-txt"><b>${name}</b> ${what}</span><span class="ae-time">${time}</span></li>`).join("")
+    : `<li class="ae-none">Nothing special. Just regular midlife.</li>`;
+  return `<div class="active-effects"><div class="ae-head">RIGHT NOW</div><ul>${body}</ul></div>`;
+}
+
 function renderPauseModal(scene, keepRowIdx) {
   const modal = document.getElementById("pause-modal");
   if (!modal) return;
@@ -1082,6 +1103,7 @@ function renderPauseModal(scene, keepRowIdx) {
       <div class="modal-kicker">✓ AUTO-SAVED // ${verInfo.displayVersion} • LAST UPDATED ON: ${verInfo.lastUpdated.toUpperCase()}</div>
       <h2 class="modal-title">PAUSE & OPTIONS</h2>
       <p class="modal-sub">Age ${currentAge.toFixed(1)} | Level ${level} | HP ${Math.max(0, hp)}/${stats ? stats.maxHp : 12} | 401(k): ${meta ? meta.coins : 0}k</p>
+      ${activeEffectsHtml()}
       <div class="options-list">
         <button class="opt-btn primary-opt" id="pause-resume-btn">▶ RESUME SHIFT (Space / Esc / A)</button>
         <button class="opt-btn" id="pause-controls-btn">

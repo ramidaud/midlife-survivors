@@ -741,3 +741,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New center flash banner for bosses, the Comfort Zone Tax and power-ups (short words near the player); the full sentence still goes to the bottom bar.
 - Lost-controls-after-shop: couldn't reproduce in 5 paths (mouse, keyboard, buying, resume). Added a full input reset at every run start. Waiting on Ben's exact steps and browser.
 - Music: wakes iPhone "interrupted" audio, plays with the ringer on silent (iOS 17+), and retries when you return to the tab.
+
+## 2026-11-01: Controller pass and pause "Right now", V. 1.30.3
+- Drove the whole game with a simulated controller: title, pause, level-up, Game Over, Shop and back all work. Found and fixed one gap: B (and Escape) didn't back out of title sub-pages like the Shop.
+- Pause menu now lists what's affecting the run right now, with time left.
+- Ben's lost-controls bug: still can't reproduce (also tried Pause > Save & Exit > Shop > Resume). The Shop B-button trap is a strong suspect if he used a controller.
+- Drafted devlog post 07 (office jokes, smarter enemies, Close Calls, playtester fixes).

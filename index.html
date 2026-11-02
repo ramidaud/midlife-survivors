@@ -877,6 +877,16 @@
   @keyframes cf-pop { 0% { opacity: 0; transform: translate(-50%, -40%) scale(.9); } 10% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
     18% { transform: translate(-50%, -50%) scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -56%); } }
   @media (prefers-reduced-motion: reduce) { .center-flash.cf-go { animation: cf-fade 1.9s linear forwards; } @keyframes cf-fade { 0%,75% { opacity: 1; } 100% { opacity: 0; } } }
+  /* Pause menu: "Right now" active effects */
+  .active-effects { margin: 4px 0 10px; border: 2px solid #3E7775; background: rgba(23,28,53,.6); padding: 6px 10px; text-align: left; }
+  .active-effects .ae-head { font-family: "Silkscreen", monospace; font-size: 11px; color: #EF9347; letter-spacing: 1px; margin-bottom: 4px; }
+  .active-effects ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .active-effects li { display: flex; gap: 8px; align-items: baseline; font-size: 13px; color: #FFF0CF; }
+  .active-effects .ae-ico { flex: none; }
+  .active-effects .ae-txt { flex: 1; min-width: 0; }
+  .active-effects .ae-txt b { color: #F2D7A1; }
+  .active-effects .ae-time { flex: none; font-size: 11px; color: #83A89A; white-space: nowrap; }
+  .active-effects .ae-none { color: #83A89A; font-style: italic; }
   /* Close Call streak meter (under the year bar) */
   .vs-combo { margin-top: 4px; font-family: "Silkscreen", monospace; font-size: 11px; letter-spacing: 1px; text-align: center;
     color: #171C35; background: #EF9347; padding: 2px 8px; box-shadow: 2px 2px 0 #000; white-space: nowrap; }

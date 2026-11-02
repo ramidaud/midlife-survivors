@@ -503,6 +503,8 @@ function create() {
             closeControlsModal(sc);
           } else if (paused) {
             togglePause(sc);
+          } else if (titleBackAvailable()) {
+            titleBack(); // Shop, Extras, Leaderboard...: Escape goes back to the main title
           }
           return;
         }
@@ -1637,6 +1639,13 @@ function spawnBoss(scene, bossKind) {
 }
 
 // update() runs about 60 TIMES PER SECOND: this is the game loop.
+// Title sub-pages (Shop, Extras, Leaderboard, Credits...) have a Back button. B / Escape press it for you.
+function titleBackAvailable() { return titleOpen && !window.controlsModalOpen && !!document.getElementById("title-back-btn"); }
+function titleBack() {
+  const bb = document.getElementById("title-back-btn");
+  if (bb) bb.dispatchEvent(new Event("nav-activate", { bubbles: true }));
+}
+
 function update(time, delta) {
   readPad(this);
   if (padJust("yBtn")) {
@@ -1671,6 +1680,8 @@ function update(time, delta) {
       closeControlsModal(this);
     } else if (paused && (padJust("b") || padJust("start"))) {
       togglePause(this);
+    } else if (titleBackAvailable() && padJust("b")) {
+      titleBack(); // controller B backs out of the Shop, Extras, Leaderboard and other title pages
     }
   } else {
     // Active gameplay controller shortcuts: Start or B opens Pause & Options
