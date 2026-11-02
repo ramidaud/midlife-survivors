@@ -875,3 +875,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami approved the Executive Wing: the age-55 door now opens (Wellness at 60 stays closed).
 - Rami: make Dad Joke "more of an attack weapon with a more apparent visual effect." Damage 1 to 2, freeze 0.65 s to a 0.22 s flinch, lighter stagger. New punchline blast: yellow flash, thick shockwave, 12 rays, flying "HA!"/"GROAN"/"BA-DUM-TSS", tiny screen bump.
 - Test: two blasts cleared 10 of 12 Bills circling the player, desktop and phone, no errors. Dad Joke now hits; "No." stays the personal-space tool.
+- Wrote ChatGPT brief for Stage 2G: Wellness Corner behind the age-60 door, the last promotion room in a Midlife run.
