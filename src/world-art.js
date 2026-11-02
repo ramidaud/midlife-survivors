@@ -104,7 +104,7 @@ window.WorldArt = (() => {
             const f=SP.families[id],key=`stage_${id}_${k||0}`;
             if(!f||!scene.textures.exists(key))continue;
             const o=scene.add.image(x,y,key).setOrigin(.5,1);o.stageId=id;
-            if(f.solid)body(o,f.footprint,'prop_desk');else decor.push(o);
+            if(f.solid)body(o,f.footprint,'prop_desk');else if(f.flat)o.setDepth(-999999950);else decor.push(o);
             if(SP.captions[id]){o.caption=SP.captions[id];captioned.push(o);}
             all.push(o);
           }

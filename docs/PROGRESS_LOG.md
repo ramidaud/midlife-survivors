@@ -722,3 +722,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Pulled Claude's V. 1.29.0 navigation and V. 1.29.1 first-batch integration before release. Preserved all existing native PNGs and runtime logic. New family/caption candidate is asset data only, with placements still empty.
 - Native checks pass all 55 frames and unchanged 224px gate contracts. Desktop/phone review checks are recorded under QA. No new-world performance result is claimed before integration.
 - Stage 2 remains in progress: 47 planned families still need completion, including existing-art preparation. Next: break-room furniture, ambient clutter and the remaining posters.
+- Placed 10 of ChatGPT's Stage 2B slang props in the current office: roundabout, MEH gauge, fruit tree, kiddie pool, ocean pot, ducks, goalposts, STOP sign, offline lamp, and Touch Base at the start. The Q4 Goals board and values wall are saved for the new Bullpen and Lobby.

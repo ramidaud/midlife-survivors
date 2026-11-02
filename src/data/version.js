@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.29.2",
-  displayVersion: "V. 1.29.2",
+  version: "1.29.3",
+  displayVersion: "V. 1.29.3",
   lastUpdated: "Nov 1, 2026",
   codename: "Circle Back",
-  build: 77,
+  build: 78,
   changelog: [
+    {
+      ver: "V. 1.29.3",
+      date: "Nov 1, 2026",
+      title: "Circle Back",
+      highlights: [
+        "Ten pieces of corporate slang, taken literally, are now in the office: a Circle Back roundabout, a Move the Needle gauge stuck on MEH, low-hanging fruit, a deep-dive kiddie pool, a pot boiling the ocean, ducks in a row, movable goalposts, a hard stop and a lamp that's been taken offline.",
+        "Look for the Touch Base right where every run starts."
+      ]
+    },
     {
       ver: "V. 1.29.2",
       date: "Nov 1, 2026",
