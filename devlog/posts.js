@@ -4,6 +4,19 @@
 // Optional fields: cover, teaser, changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "07-around-the-desk",
+    "date": "2026-11-01",
+    "title": "My office got jokes. Then my enemies got smarter.",
+    "version": "V. 1.29 to 1.30.2",
+    "draft": true,
+    "cover": "img/07-around-the-desk.jpg",
+    "leadAlt": "Before and after: an empty beige hallway on the left, and a break room with a booted car and a Hang in There poster on the right.",
+    "teaser": "Corporate slang became furniture, the swarm learned to walk around desks, dodging got a streak meter, and real playtesters told me what was broken.",
+    "changes": ["Office props: corporate slang taken literally, with jokes on approach", "Enemies walk around furniture (flow field)", "Close Calls: rewards and a streak meter for near misses", "Playtest fixes: center flash banners, a stronger Dad Joke", "Anonymous play stats"],
+    "nextUp": "The new Lobby and Bullpen, with doors that unlock as you age.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "06-the-office-got-bigger",
     "date": "2026-11-01",
     "title": "The office got bigger. Somebody lost a binder.",
