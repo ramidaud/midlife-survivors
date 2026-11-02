@@ -1,0 +1,13 @@
+[
+  {
+    "id": "crash_cart",
+    "frame": [
+      96,
+      112
+    ],
+    "variants": 3,
+    "intact": "../stage/props/server_crash_cart-v1.png",
+    "source": "sources/crash_cart-damage-source-v1.png",
+    "prompt": "Use case: precise-object-edit. Image 1 is the exact intact teal crash cart, a cream CRT and keyboard on a wheeled teal stand. Preserve camera, materials and recognizable design. Create production damage states plus debris for Midlife Survivors. Crisp 16-bit hand-placed pixel clusters, navy outline, upper-left cream highlight. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Flat opaque #FF00FF background, no floor plane or shadow on background, no blur, antialiasing, noise, gradients, text, logos or labels. One LANDSCAPE source sheet. STRICT layout: top 72 percent has TWO equal-width cells. LEFT: cracked cart at original full height, cream CRT case split, dark screen with a hard zigzag crack, bent teal shelf, one loose key; keep all wheels attached and no floating particles. RIGHT: broken cart, a LOW collapsed pile only one third of intact height, cream CRT shell on its side, bent teal lower frame and detached keyboard lying flat, contained together. Both have same low baseline at 67 percent image height. No intact cell. Bottom 28 percent has SIX equal cells left-to-right, each ONE separate 8-to-16-logical-pixel particle: cream CRT corner fragment, dark screen chip, teal metal strut, caster wheel, cream keyboard key, short bent orange cable plug. Six distinct isolated pieces, generous magenta separation, no cell lines. Native prop is96x112, particles16x16. Do not draw a scene or extra fragments in the two upper cells."
+  }
+]

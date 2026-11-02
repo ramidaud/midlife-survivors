@@ -43,5 +43,5 @@ for s in brief:
   debrisMasks.append(colorMasks)
  assert all(m==debrisMasks[0] for m in debrisMasks),(s['id'],'debris variant silhouette')
  reports.append(dict(id=s['id'],frame=s['frame'],colorways=v,intactPixelExact=True,sharedDamageMasks=True,palette=True,legacyIntactColors=[list(c) for c in sorted(legacy)],baseline=True,brokenHeightAtMostOneThird=True,debris=6*v))
-report=dict(status='passed',families=len(reports),colorways=sum(s['variants'] for s in brief),stateFrames=3*sum(s['variants'] for s in brief),debrisFrames=6*sum(s['variants'] for s in brief),gameCodeChanged=False,assets=reports)
+report=dict(status='passed',families=len(reports),colorways=sum(s['variants'] for s in brief),stateFrames=3*sum(s['variants'] for s in brief),debrisFrames=6*sum(s['variants'] for s in brief),validationScope='PNG invariants only',assets=reports)
 (R/'checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='assets'}))

@@ -1,0 +1,81 @@
+{
+ "errors": [],
+ "warnings": [],
+ "leaderboardRequests": 0,
+ "ready": true,
+ "slice": {
+  "version": "1.40.0",
+  "build": 102,
+  "viewport": [
+   1280,
+   800
+  ],
+  "age": 55,
+  "openUpToAge": 50,
+  "statsDisabled": true,
+  "analyticsResources": 0,
+  "player": [
+   0,
+   -322
+  ],
+  "body": [
+   48,
+   52
+  ],
+  "props": 509,
+  "visible": 7,
+  "peak": 9,
+  "navBlockers": 2,
+  "gates": [
+   {
+    "id": "parking-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "break-access",
+    "age": 45,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "server-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "conference-return",
+    "age": 50,
+    "closed": false,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "executive-return",
+    "age": 55,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   },
+   {
+    "id": "wellness-executive",
+    "age": 60,
+    "closed": true,
+    "width": 224,
+    "sameBlocker": true
+   }
+  ],
+  "outside": 0,
+  "fps": 99.54922841815278
+ },
+ "productionCap": {
+  "age": 55,
+  "ceiling": 50,
+  "passed": true
+ }
+}

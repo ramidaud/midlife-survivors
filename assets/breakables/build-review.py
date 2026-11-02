@@ -8,7 +8,7 @@ assets=[]
 for s in brief:
  a={k:v for k,v in s.items() if k not in ['prompt','ref']};a.update(file=s['id']+'-states-v1.png',source=s.get('source','sources/'+s['id']+'-damage-source-v1.png'),debris=s['id']+'-debris-v1.png',columns=3,rows=s['variants'],stateOrder=['intact','cracked','broken'],frameOrigin=[.5,1],debrisFrame=[16,16],debrisColumns=6,debrisRows=s['variants'],debrisOrigin=[.5,.5],background='#FF00FF',intact='unchanged pixels from '+s['intact'],brokenCollision='non-solid proposal; Claude owns implementation',sha256=hashlib.sha256((R/(s['id']+'-states-v1.png')).read_bytes()).hexdigest())
  assets.append(a)
-manifest=dict(status='art-only-awaiting-rami-review',generation='built-in imagegen',palette=palette,families=8,colorways=18,stateFrames=54,debrisFrames=108,assets=assets,gameCodeChanged=False)
+manifest=dict(status='production-art-including-crash-cart',generation='built-in imagegen',palette=palette,families=len(assets),colorways=sum(a['variants'] for a in assets),stateFrames=3*sum(a['variants'] for a in assets),debrisFrames=6*sum(a['variants'] for a in assets),assets=assets,gameCodeChanged=True)
 (R/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 def data(path):return 'data:image/png;base64,'+base64.b64encode(path.read_bytes()).decode()
 embedded=json.loads(json.dumps(manifest))
@@ -22,4 +22,4 @@ if (B/'manifest.json').exists():
   if not (B/a['file']).exists():continue
   a['src']=data(B/a['file']);a['markerSrc']=data(B/a['marker']['file']);embedded['bosses'].append(a)
 (R/'review-data.js').write_text('window.COMBAT_ART_REVIEW='+json.dumps(embedded,separators=(',',':'))+';\n')
-print('Packaged art-only review:',len(assets),'props;',len(embedded['bosses']),'bosses')
+print('Packaged isolated art review:',len(assets),'props;',len(embedded['bosses']),'bosses')

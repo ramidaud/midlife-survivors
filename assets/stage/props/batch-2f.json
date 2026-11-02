@@ -1,0 +1,156 @@
+[
+  {
+    "id": "executive_desk",
+    "name": "The Standing Invitation",
+    "frame": [
+      208,
+      136
+    ],
+    "footprint": {
+      "width": 184,
+      "back": 64,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "category": "furniture",
+    "mount": "floor",
+    "subject": "One oversized mahogany executive desk, long horizontal dark warm wood surface, chunky cream writing pad, a single orange coffee cup and a small dark monitor on a comically tall adjustable stand. Brass-colored details, full wooden modesty panel and stout feet. An empty chair tucked behind it, entirely within the desk assembly. Nobody is standing. No text.",
+    "source": "executive_desk-source-v1.png",
+    "file": "executive_desk-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 208x136. Subject: One oversized mahogany executive desk, long horizontal dark warm wood surface, chunky cream writing pad, a single orange coffee cup and a small dark monitor on a comically tall adjustable stand. Brass-colored details, full wooden modesty panel and stout feet. An empty chair tucked behind it, entirely within the desk assembly. Nobody is standing. No text.",
+    "caption": "The standing desk has been seated since the procurement meeting."
+  },
+  {
+    "id": "exec_credenza",
+    "name": "The Good Mints",
+    "frame": [
+      160,
+      96
+    ],
+    "footprint": {
+      "width": 136,
+      "back": 36,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "category": "furniture",
+    "mount": "floor",
+    "subject": "One polished coffee-brown executive credenza on short feet, three small faceted cream/teal acrylic triangle awards on top and a tiny bowl of good mints. Broad dark wood doors, teal inset panel so the palette can be recolored, warm cream top edge. No shiny photographic reflections, no words.",
+    "source": "exec_credenza-source-v1.png",
+    "file": "exec_credenza-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 160x96. Subject: One polished coffee-brown executive credenza on short feet, three small faceted cream/teal acrylic triangle awards on top and a tiny bowl of good mints. Broad dark wood doors, teal inset panel so the palette can be recolored, warm cream top edge. No shiny photographic reflections, no words.",
+    "caption": "Polished to a mirror shine every Thursday. Holds three crystal triangles and a bowl of good mints."
+  },
+  {
+    "id": "putting_mat",
+    "name": "Quarter Four's Short Game",
+    "frame": [
+      192,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "category": "landmarks",
+    "mount": "floor",
+    "subject": "One flat private-office miniature putting mat: long horizontal rounded green/teal carpet strip seen from top-down three-quarter angle, cream edging, one little cream practice cup and low automatic ball-return backstop at its right end, one small cream golf ball at left. Keep it FLAT, no flagpole or large upright elements. No outside ground or shadow, no lettering.",
+    "source": "putting_mat-source-v1.png",
+    "file": "putting_mat-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 192x96. Subject: One flat private-office miniature putting mat: long horizontal rounded green/teal carpet strip seen from top-down three-quarter angle, cream edging, one little cream practice cup and low automatic ball-return backstop at its right end, one small cream golf ball at left. Keep it FLAT, no flagpole or large upright elements. No outside ground or shadow, no lettering.",
+    "caption": "The plastic cup returns the ball with a polite whirr. Quarter four is all about the short game."
+  },
+  {
+    "id": "skyline_window",
+    "name": "Corner Office View",
+    "frame": [
+      256,
+      128
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "category": "landmarks",
+    "mount": "wall",
+    "subject": "One wide wall-mounted office skyline window in a rich coffee wood and deep navy frame, divided into three panes. Inside the frame only, a simplified navy city skyline of big block buildings and tiny cream square windows against muted teal flat sky. Warm cream frame highlights. No sun rays, gradients or scene outside the window frame. No lettering.",
+    "source": "skyline_window-source-v1.png",
+    "file": "skyline_window-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 256x128. Subject: One wide wall-mounted office skyline window in a rich coffee wood and deep navy frame, divided into three panes. Inside the frame only, a simplified navy city skyline of big block buildings and tiny cream square windows against muted teal flat sky. Warm cream frame highlights. No sun rays, gradients or scene outside the window frame. No lettering.",
+    "caption": "Corner office energy. The view has better work-life balance than anyone in the room."
+  },
+  {
+    "id": "founder_portrait",
+    "name": "Before Two-Factor",
+    "frame": [
+      80,
+      112
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "category": "posters",
+    "mount": "wall",
+    "subject": "One fictional company founder portrait in a thick coffee-and-cream frame: kindly older mustached gentleman in an old-fashioned suit, very simple broad pixel face, teal painted backdrop, earnest proud expression. Anonymous fictional founder, not a real person. No plaque, names or text.",
+    "source": "founder_portrait-source-v1.png",
+    "file": "founder_portrait-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 80x112. Subject: One fictional company founder portrait in a thick coffee-and-cream frame: kindly older mustached gentleman in an old-fashioned suit, very simple broad pixel face, teal painted backdrop, earnest proud expression. Anonymous fictional founder, not a real person. No plaque, names or text.",
+    "caption": "Painted before two-factor authentication was invented. He looks very proud of us anyway."
+  },
+  {
+    "id": "visitor_chair",
+    "name": "The Low Seat",
+    "frame": [
+      64,
+      80
+    ],
+    "footprint": {
+      "width": 44,
+      "back": 28,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "category": "furniture",
+    "mount": "floor",
+    "subject": "One low plush executive visitor armchair with warm brown leather cushions, broad arms, a dark teal inset back, two stout front feet and subtle cream piping. Front/right faces visible. Welcoming, slightly too soft to get out of. One chair only, no sitter or text.",
+    "source": "visitor_chair-source-v1.png",
+    "file": "visitor_chair-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 64x80. Subject: One low plush executive visitor armchair with warm brown leather cushions, broad arms, a dark teal inset back, two stout front feet and subtle cream piping. Front/right faces visible. Welcoming, slightly too soft to get out of. One chair only, no sitter or text.",
+    "caption": "Real leather that sinks three inches lower than you expect. Standing back up is a team-building exercise."
+  },
+  {
+    "id": "award_trophy",
+    "name": "Synergy, Apparently",
+    "frame": [
+      48,
+      48
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "category": "landmarks",
+    "mount": "tabletop",
+    "subject": "One chunky cream acrylic star-shaped award on a thick TEAL plinth, small warm orange facet accent. The entire object fits a tiny office trophy silhouette, no lettering on the plinth. Broad simple pixels, no glass transparency, no sparkles or shadow.",
+    "source": "award_trophy-source-v1.png",
+    "file": "award_trophy-v1.png",
+    "prompt": "Use case: stylized-concept. Asset type: one modular production prop for Midlife Survivors. Crisp hand-placed 16-bit indie pixel art, top-down three-quarter view with front and right faces, broad flat color clusters, one logical pixel deep navy silhouette, warm upper-left cream fluorescent highlights. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. One centered complete isolated object, generous equal magenta margins. Exact flat opaque #FF00FF background. No floor outside the object, NO shadow/reflection on background, blur, antialiasing, gradients, dithering, texture noise, realistic rendering, watermark, lettering or logo. One prop only, never a room or sheet. Design for the native pixel target then enlarge square pixels. Native target 48x48. Subject: One chunky cream acrylic star-shaped award on a thick TEAL plinth, small warm orange facet accent. The entire object fits a tiny office trophy silhouette, no lettering on the plinth. Broad simple pixels, no glass transparency, no sparkles or shadow.",
+    "caption": "Heavy acrylic stars for synergies nobody quite remembers. They catch the afternoon light nicely."
+  }
+]

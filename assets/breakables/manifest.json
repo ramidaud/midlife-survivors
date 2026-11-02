@@ -1,5 +1,5 @@
 {
-  "status": "art-only-awaiting-rami-review",
+  "status": "production-art-including-crash-cart",
   "generation": "built-in imagegen",
   "palette": [
     "#171c35",
@@ -20,10 +20,10 @@
     "#b97a58",
     "#70402f"
   ],
-  "families": 8,
-  "colorways": 18,
-  "stateFrames": 54,
-  "debrisFrames": 108,
+  "families": 9,
+  "colorways": 21,
+  "stateFrames": 63,
+  "debrisFrames": 126,
   "assets": [
     {
       "id": "printer",
@@ -320,7 +320,43 @@
       "background": "#FF00FF",
       "brokenCollision": "non-solid proposal; Claude owns implementation",
       "sha256": "584dadbe607ffd304638cb3f750cb5b32006b1660d2b36550da447c31d28098a"
+    },
+    {
+      "id": "crash_cart",
+      "frame": [
+        96,
+        112
+      ],
+      "variants": 3,
+      "intact": "unchanged pixels from ../stage/props/server_crash_cart-v1.png",
+      "source": "sources/crash_cart-damage-source-v1.png",
+      "file": "crash_cart-states-v1.png",
+      "debris": "crash_cart-debris-v1.png",
+      "columns": 3,
+      "rows": 3,
+      "stateOrder": [
+        "intact",
+        "cracked",
+        "broken"
+      ],
+      "frameOrigin": [
+        0.5,
+        1
+      ],
+      "debrisFrame": [
+        16,
+        16
+      ],
+      "debrisColumns": 6,
+      "debrisRows": 3,
+      "debrisOrigin": [
+        0.5,
+        0.5
+      ],
+      "background": "#FF00FF",
+      "brokenCollision": "non-solid proposal; Claude owns implementation",
+      "sha256": "0f46ec95d42368c91af0499fd3a1d245ff63a8ba65d4ec25374b619eea32e856"
     }
   ],
-  "gameCodeChanged": false
+  "gameCodeChanged": true
 }

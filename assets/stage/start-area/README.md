@@ -1,30 +1,29 @@
-# Stage 2E: Server Room and Conference Rooms
+# Stage 2F: Corner Office Energy
 
-The six-district slice now includes Server Room behind `server-return` and three glass Conference pods behind `conference-return`. The original four districts retain their exact 131 props, twenty workers and four gate records. Stage 2E adds 56 placements and six seated placeholders, with 25 placements from the existing smashable families.
+Seven districts now include the Executive Wing behind `executive-return`. Original 187 fixtures, 26 workers and five gate records are unchanged. The wing adds a wide reception, visitor chairs, wood-panelled walls, glass corner office, skyline window, oversized desk, putting mat, credenza, portrait and award display. Seventeen placements use existing breakable families. Floors have runners, rugs, papers and coffee rings; the open V8 reserve is non-solid.
 
-- Server: nineteen racks with blinking blue/teal status lamps, cable waterfall, offline rack and lamp, ocean pot, crash cart and seven existing breakable props. The center has a 768x672 clear reserve.
-- Conference: Synergy, Bandwidth and Alignment have native long tables with starfish speakerphones, 224px glass door gaps, and at least 224px on both sides of every table. The approach wraps south of the reserved Wellness plot. A broad shared hallway and 736x704 combat reserve accommodate the Mortgage rings and V8 drift. Eighteen smashable fixtures dress the approach and room bays.
-- Five gate records preserve rectangle object identity. The age-45 promotion system is unchanged. `PROMOTIONS.openUpToAge` stays **45**, so age-50 and age-55 doors remain closed. After room approval Claude can set it to **50**, keeping Executive access at 55 closed.
-- The new `executive-return` uses the existing 128x224 closed-door format at the Server far side. Its sign and approach caption explain age 55. Future Executive floor is not built.
-- Shared floors repeat at 64px; paint, cable covers, rugs and floor litter are non-solid and baked by the existing 1024px floor-image pass. Glass walls and every solid fixture join propGroup with floor footprints. Visible props remain capped at 120. The camera includes extra top margin so tall north-wall racks remain visible.
-- The crash cart is new art and currently structural. Claude's breakable scan already recognizes all 25 placements from existing families; cart damage art/registration is a later task. No breaking, loot or boss-attack rules changed.
+Production `PROMOTIONS.openUpToAge` remains **50**. Age-55 Executive and age-60 Wellness doors ship closed. After Rami approves, Claude can raise the cap to **55**. Wellness is not built. Its far-side gate is `wellness-executive`, in the southwest exit of Executive, campus x5152/y1088, 128x224. Each opening remains 224px clear. The reserved Wellness floor and the Conference corridor's 16px separation remain unchanged.
 
-## Review
+The full assembly has 217 fixtures, 26 workers, 297 wall modules, three curbs and six gates, for 509 physical bodies. Seventy-six protected sections remain at least 224px wide. Executive has an 832x448 combat reserve, a 600px straight charge lane, a 130px drift loop and a clear 220px escape envelope. Floor detail uses the existing 1024px bake and visible fixtures stay capped at 120.
 
-Open `review-2e.html?nostats=1`. Use **Open through 50 (test only)**, choose a room, then **Explore (no swarms)**. Executive remains closed. These controls affect only the isolated review iframe. **Check shipped age-50 cap** tests the unchanged real promotion system from a fresh scene, without test-opening doors first. Restart restores the scene.
+## Isolated review
 
-The harness blocks Supabase/analytics before game loading and uses in-memory saves. `?desktop=1` fixes the game frame at 1280x800; `?phone=1` fixes it at 390x844. Walking tests use real movement along validated routes. Stress tests use 350 real physics/navigation actors with HP guards and firing paused. Evidence lives in `qa-2e/`.
+Open `review-2f.html?nostats=1`. **Open through 55 (test only)** opens the earlier rooms and Executive in this iframe only. Wellness stays closed. Tour buttons show reception, corner office, putting mat, awards and Wellness door. **Explore (no swarms)** enables movement. **Check shipped age-55 cap** uses the real promotion component, from a fresh page before test-opening, to confirm the cap remains 50. Cart buttons exercise automatic registration, cracking and destruction. Reload restores the shipped state.
 
-## Data and native art
+The harness disables telemetry before loading, blocks Supabase/GoatCounter and uses in-memory saves. `&desktop=1` uses a 1280x800 game frame; `&phone=1` uses 390x844. These are viewport checks, not physical-device benchmarks. Evidence and pathing caveats are in `qa-2f/`. Navigation and spawn algorithms are unchanged; Claude owns their follow-up.
 
-`layout.json`, `room_data_2e.py` and `build-layout.py` author the assembly; `src/data/start-area.js` embeds it for the no-build game. `art-data.js` embeds 48 used native families, never generated source paintings. The five new art families and full built-in imagegen prompts are `../props/batch-2e.json`; the gallery is `../props/review.html`. Longer jokes use Gemini Set A; Alignment's chair count was generalized to match the six-chair prop.
+## Authoring
+
+`room_data_2f.py` extends the existing modular assembly. `build-layout.py` writes layout.json and embeds it in src/data/start-area.js; `build-art-data.py` embeds native images. The seven new families, sources and full built-in imagegen prompts are in `../props/batch-2f.json`. The existing crash cart now has three damage states and six debris cells per colorway in `../../breakables/`; its render family remains server_crash_cart and only scan metadata aliases it to crash_cart.
 
 ```sh
 python3 assets/stage/start-area/build-layout.py
 python3 assets/stage/start-area/build-art-data.py
 python3 assets/stage/start-area/validate-layout.py
 python3 assets/stage/props/build-review-data.py
-python3 assets/stage/props/validate-2d.py 2e
+python3 assets/stage/props/validate-2d.py 2f
+python3 assets/breakables/build-review.py
+python3 assets/breakables/validate.py
 ```
 
-The validator checks all 66 protected route sections, exact locked/open connectivity, furniture footprints and a full 328px escape circle in both boss spaces. This includes ring radius260, half-thickness16, hero half-body26 and its outer extent26. It also authors `qa-paths-2e.js` for the review only. Optional authoring tools do not add a game build step. `USE_START_AREA=false` retains the repeating-office fallback. Earlier Stage 2D evidence stays in `qa/`.
+The offline validator checks floor footprints, closed/open reachability, protected routes, boss clearances and future Wellness exclusion. It writes qa-paths-2f.js for review controls only. Earlier QA and room authoring files remain available. Optional tools add no runtime build step; USE_START_AREA=false retains the fallback office.

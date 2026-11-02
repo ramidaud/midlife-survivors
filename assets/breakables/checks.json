@@ -1,10 +1,10 @@
 {
   "status": "passed",
-  "families": 8,
-  "colorways": 18,
-  "stateFrames": 54,
-  "debrisFrames": 108,
-  "gameCodeChanged": false,
+  "families": 9,
+  "colorways": 21,
+  "stateFrames": 63,
+  "debrisFrames": 126,
+  "validationScope": "PNG invariants only",
   "assets": [
     {
       "id": "printer",
@@ -125,6 +125,21 @@
       "baseline": true,
       "brokenHeightAtMostOneThird": true,
       "debris": 6
+    },
+    {
+      "id": "crash_cart",
+      "frame": [
+        96,
+        112
+      ],
+      "colorways": 3,
+      "intactPixelExact": true,
+      "sharedDamageMasks": true,
+      "palette": true,
+      "legacyIntactColors": [],
+      "baseline": true,
+      "brokenHeightAtMostOneThird": true,
+      "debris": 18
     }
   ]
 }

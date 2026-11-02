@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "families": [
+    {
+      "id": "executive_desk",
+      "frame": [
+        208,
+        136
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    },
+    {
+      "id": "exec_credenza",
+      "frame": [
+        160,
+        96
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    },
+    {
+      "id": "putting_mat",
+      "frame": [
+        192,
+        96
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    },
+    {
+      "id": "skyline_window",
+      "frame": [
+        256,
+        128
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    },
+    {
+      "id": "founder_portrait",
+      "frame": [
+        80,
+        112
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    },
+    {
+      "id": "visitor_chair",
+      "frame": [
+        64,
+        80
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    },
+    {
+      "id": "award_trophy",
+      "frame": [
+        48,
+        48
+      ],
+      "colorways": 3,
+      "palette": true,
+      "magentaMargins": true,
+      "sharedSilhouette": true
+    }
+  ],
+  "carFrames": 5,
+  "originalThreeCarsPixelExact": true,
+  "extraCarColors": 2
+}

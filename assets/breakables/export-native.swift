@@ -5,7 +5,7 @@ import ImageIO
 import UniformTypeIdentifiers
 struct Spec:Decodable {let id:String;let frame:[Int];let variants:Int;let intact:String;let source:String?}
 let root=CommandLine.arguments[1]
-let specs=try JSONDecoder().decode([Spec].self,from:Data(contentsOf:URL(fileURLWithPath:root+"/brief.json")))
+let specs=try JSONDecoder().decode([Spec].self,from:Data(contentsOf:URL(fileURLWithPath:root+"/"+(CommandLine.arguments.count>2 ? CommandLine.arguments[2] : "brief.json"))))
 let hex=["171c35","303750","526078","3e7775","83a89a","a88b70","d3b78d","f2d7a1","fff0cf","874c3b","c45c4b","ef9347","e5a995","f1b5bf","bfa8cf","b97a58","70402f"]
 let colors=hex.map{v->[UInt8] in let n=Int(v,radix:16)!;return [UInt8((n>>16)&255),UInt8((n>>8)&255),UInt8(n&255),255]}
 let magenta:[UInt8]=[255,0,255,255],cs=CGColorSpaceCreateDeviceRGB(),flags=CGBitmapInfo.byteOrder32Big.rawValue|CGImageAlphaInfo.premultipliedLast.rawValue

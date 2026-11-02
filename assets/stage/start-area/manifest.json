@@ -1,4 +1,22 @@
 {
+  "award_trophy": {
+    "id": "award_trophy",
+    "frame": [
+      48,
+      48
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "tabletop",
+    "file": "award_trophy-v1.png",
+    "caption": "Heavy acrylic stars for synergies nobody quite remembers. They catch the afternoon light nicely.",
+    "sha256": "c33845f942df95e94895761a442cdbae69bb2eeb65f66a6d2ff6c2a7019fa3e7"
+  },
   "baseball_base": {
     "id": "baseball_base",
     "frame": [
@@ -289,6 +307,60 @@
     "file": "duck_row-v1.png",
     "caption": "Ducks in a row. One has concerns about the agenda.",
     "sha256": "68efa35b414e33bd93a52b65883360afc46a50343d4c0aec754646a774ca8679"
+  },
+  "exec_credenza": {
+    "id": "exec_credenza",
+    "frame": [
+      160,
+      96
+    ],
+    "footprint": {
+      "width": 136,
+      "back": 36,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "exec_credenza-v1.png",
+    "caption": "Polished to a mirror shine every Thursday. Holds three crystal triangles and a bowl of good mints.",
+    "sha256": "d6ee873a58b8639759ff2e5e2f6083c4c5ff406aebe4941dd89714a029425118"
+  },
+  "executive_desk": {
+    "id": "executive_desk",
+    "frame": [
+      208,
+      136
+    ],
+    "footprint": {
+      "width": 184,
+      "back": 64,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "executive_desk-v1.png",
+    "caption": "The standing desk has been seated since the procurement meeting.",
+    "sha256": "b538a500a5043be7d85bcc1418059f55b51d1e129e6b0d64121deffced4cfbbd"
+  },
+  "founder_portrait": {
+    "id": "founder_portrait",
+    "frame": [
+      80,
+      112
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "wall",
+    "file": "founder_portrait-v1.png",
+    "caption": "Painted before two-factor authentication was invented. He looks very proud of us anyway.",
+    "sha256": "7daa3c3ad9c6ffb0786157392bc279dc7e81f7a263253f466aade0f2d7c4fb76"
   },
   "fridge_note": {
     "id": "fridge_note",
@@ -604,6 +676,24 @@
     "solid": true,
     "sha256": "a95df8422564e603c7e336493bdd9ec1cf6a2eb5abd541fb3e0bb7902bba00d6"
   },
+  "putting_mat": {
+    "id": "putting_mat",
+    "frame": [
+      192,
+      96
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "floor",
+    "file": "putting_mat-v1.png",
+    "caption": "The plastic cup returns the ball with a polite whirr. Quarter four is all about the short game.",
+    "sha256": "ac9558b099492f1a8a14e2576f6b4978638618e39bb1c5d5b55cebdc7bc25ebc"
+  },
   "reception_counter": {
     "id": "reception_counter",
     "frame": [
@@ -694,6 +784,24 @@
     "caption": "Rows of little blue lights blinking in the chill. It is the closest thing the third floor has to a fireplace.",
     "sha256": "0e90c1b12afa19291071de4177a3066ee5787fe001b5a5456b464206519c6eae"
   },
+  "skyline_window": {
+    "id": "skyline_window",
+    "frame": [
+      256,
+      128
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "wall",
+    "file": "skyline_window-v1.png",
+    "caption": "Corner office energy. The view has better work-life balance than anyone in the room.",
+    "sha256": "fb5d74d4e9c9be4ad2767d4f6589546471d3f1878f758ff4a27a15082857859a"
+  },
   "sofa": {
     "id": "sofa",
     "frame": [
@@ -765,6 +873,24 @@
     "file": "vending_machine-v1.png",
     "caption": "Emergency snacks. The emergency is the afternoon.",
     "sha256": "bb20a535b26ef96368e7c6815a59eb679cfd404fefd10e0b6ed1c9e418ab24b1"
+  },
+  "visitor_chair": {
+    "id": "visitor_chair",
+    "frame": [
+      64,
+      80
+    ],
+    "footprint": {
+      "width": 44,
+      "back": 28,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "visitor_chair-v1.png",
+    "caption": "Real leather that sinks three inches lower than you expect. Standing back up is a team-building exercise.",
+    "sha256": "3fa4ba217f0007fec476de0048106e8aa2d7601f4f5d257e6c15a33ef120f507"
   },
   "water_cooler": {
     "id": "water_cooler",

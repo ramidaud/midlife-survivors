@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.39.2",
-  displayVersion: "V. 1.39.2",
+  version: "1.40.0",
+  displayVersion: "V. 1.40.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "In the Meetings",
-  build: 101,
+  codename: "Corner Office Energy",
+  build: 102,
   changelog: [
+    {
+      ver: "V. 1.40.0", date: "Nov 2, 2026", title: "Corner Office Energy",
+      highlights: [
+        "The Executive Wing is built behind the closed age-55 door, with a skyline office, putting mat and a clear V8 lane; Wellness access at 60 stays closed.",
+        "The server crash cart now cracks, collapses into rubble and drops loot."
+      ]
+    },
     {
       ver: "V. 1.39.2", date: "Nov 2, 2026", title: "In the Meetings",
       highlights: [

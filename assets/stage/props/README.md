@@ -1,6 +1,10 @@
 # Stage 2 modular prop kit
 
-Latest: **Stage 2C adds eight families and 24 colorways. Total: 33 families, 79 colorways.** The start-area kit is playable; 39 planned families for later areas wait for feedback. The gallery opens on 2C; use Batch to review earlier batches or all 33. Every card compares native art with the actual 56x60 hero and 36px Bill on desktop and a 390px phone.
+Latest: **Stage 2F adds seven Executive Wing families and 21 colorways. Total: 53 families, 138 colorways**, plus two extra car paints and the separate coworker placeholder. The gallery defaults to 2F and compares every prop with the native 56x60 hero and Bill at 50px. Wide cards scroll at 1x on a 390px phone. Nineteen of the planned 72 families remain.
+
+## Batch 2F: Corner Office Energy
+
+Oversized desk 208x136, credenza160x96, putting mat192x96, skyline window256x128, founder portrait80x112, visitor chair64x80 and trophy48x48. Each has three colorways. Desk, credenza and chair have floor footprints; mat, window, portrait and tabletop trophy are non-solid. Full built-in imagegen prompts and selected sources are in `batch-2f.json`. Native sheets use exact opaque magenta and the shared 17-color palette. `validate-2d.py 2f` checks margins, grids, outlines, masks and distinct colorways. The playable assembly and isolated review are in `../start-area/`.
 
 ## Batch 2B: literal slang and landmarks
 

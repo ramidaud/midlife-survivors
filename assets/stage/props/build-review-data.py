@@ -3,7 +3,7 @@ from pathlib import Path
 import json,base64,hashlib,struct,re
 R=Path(__file__).resolve().parent
 specs=[]
-for brief in sorted(R.glob('batch-2[abcde].json')):
+for brief in sorted(R.glob('batch-2[abcdef].json')):
  for s in json.loads(brief.read_text()):
   s['batch']=brief.stem.replace('batch-','');specs.append(s)
 kit=json.loads((R.parent/'campus-kit-plan.json').read_text())
@@ -53,6 +53,9 @@ fourth.update(families=len(fourth['assets']),colorways=sum(a['variants'] for a i
 fifth={**manifest,'batch':'stage-2e-age50-rooms','assets':[a for a in assets if a['batch']=='2e']}
 fifth.update(families=len(fifth['assets']),colorways=sum(a['variants'] for a in fifth['assets']))
 (R/'manifest-2e.json').write_text(json.dumps(fifth,indent=2)+'\n')
+sixth={**manifest,'batch':'stage-2f-executive','assets':[a for a in assets if a['batch']=='2f']}
+sixth.update(families=len(sixth['assets']),colorways=sum(a['variants'] for a in sixth['assets']))
+(R/'manifest-2f.json').write_text(json.dumps(sixth,indent=2)+'\n')
 embedded=json.loads(json.dumps(manifest))
 for a in embedded['assets']:a['src']='data:image/png;base64,'+base64.b64encode((R/a['file']).read_bytes()).decode()
 # Two additional paints reuse the existing car family, so do not inflate kit counts.
