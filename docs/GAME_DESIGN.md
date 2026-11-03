@@ -481,3 +481,8 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
   - **New content later:** a character sheet with stats, a starting weapon and one quirk per hero; run modifiers (Grok's age 50+ spec, plus Hurry and Hyper style toggles); a "Life Lessons" card deck in the spirit of Arcanas.
 - **Decided Nov 3: the Required Reading reward is a character unlock: "The Cold War Cowboy,"** based on Rami's friend Ben. It unlocks by finishing 10 devlog memos. The look, starting kit and jokes are still to come, from Rami's description of Ben, then a ChatGPT 8-frame hero sheet.
 - **Decided Nov 3: elites are a keeper** ("it's so good"), V. 1.49.0.
+
+## Ideas queued Nov 3 (morning)
+- **Spotlight cards (Rami):** a bigger lower third that animates in at key moments (boss arrival, new character, room unlocked, key tips) with a sprite and a line or tip. Two mockups: A "Memo Slide" (card slides in bottom left) and B "Spotlight" (dimmed screen, band, big sprite rising, speech bubble). Not decided yet.
+- **More ways to heal (TJ):** heal a chunk at life milestones and add a rare healthy-food drop (a salad) so long runs can stretch. Spec to come from Grok.
+- **Dev console (TJ):** a testing panel behind a URL switch (god mode, give items, jump to an age). Runs with it on never post scores.

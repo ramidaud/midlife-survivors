@@ -1006,6 +1006,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - About page redesign: poster hero with the pixel portrait, live dev and playtest stats (from the devlog stats file), and link tiles to ramidaud.com, Substack, Discord and Ko-fi.
 - ChatGPT delivered the On Break portrait sheets for all three heroes (next: wire them into the pause tile).
 - V. 1.58.1: ChatGPT's On Break portraits now play on the pause screen (breathe, then the hero's signature break or a back stretch). About tagline now reads "exploring midlife."
-- V. 1.59.0: lighting pass 2 (glowing props light themselves, per-room moods, a sputtering meeting-room panel); phone Shop layout fix (no overlap, no overflow); iPhone audio wake-up. About page got Instagram, Threads, LinkedIn and Rami's live leaderboard record (#2 at 87,293).
+- V. 1.59.0: lighting pass 2 (glowing props light themselves, per-room moods, a sputtering meeting-room panel); phone Shop layout fix (no overlap, no overflow); iPhone audio wake-up. About page got Instagram, Threads, LinkedIn and Rami's live leaderboard record (#4 at 87,293).
 - V. 1.59.1: iPhone audio mixes with your music or podcast by default (new Your music setting on the pause screen: Keep playing or Game only).
 - V. 1.59.2: fixed TJ's "force field" bug. The enemy route map kept the last run's clock, so on a second run without a refresh it froze where you died and enemies steered away. Same fix for smashable-prop tagging and dust puffs. Unit test confirms the map rebuilds around you in run 2.
+- TJ playtest notes (Nov 3 morning): likes the unified design and the "last run" tile. Asked for easier ways to heal (milestone heals, a salad-type drop) and a dev/cheat console for testing. Both queued.
+- Rami idea: big "Spotlight" lower thirds (sprite + line or tip) for bosses, new characters and room unlocks. Two mockup styles made for him to pick from.
