@@ -1225,6 +1225,7 @@ function renderPauseModal(scene, keepRowIdx) {
             <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1"><span>🔊 Sound</span><span class="opt-val">◀ ${muted ? "MUTED" : "ON"} ▶</span></button>
             <button class="opt-btn" id="pause-music-vol-btn" data-opt-cycle="1"><span>🎵 Music</span><span class="opt-val">◀ ${volBar(getVolume("music"))} ▶</span></button>
             <button class="opt-btn" id="pause-sfx-vol-btn" data-opt-cycle="1"><span>💥 Effects</span><span class="opt-val">◀ ${volBar(getVolume("sfx"))} ▶</span></button>
+            ${typeof hasAudioSession === "function" && hasAudioSession() ? `<button class="opt-btn" id="pause-mix-btn" data-opt-cycle="1"><span>📱 Your music</span><span class="opt-val">◀ ${getAudioMix() === "mix" ? "KEEP PLAYING" : "GAME ONLY"} ▶</span></button>` : ""}
             <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1"><span>🗣️ Dad Joke voice</span><span class="opt-val">◀ ${voiced ? "SPOKEN" : "TEXT"} ▶</span></button>
           </div>
         </section>
@@ -1280,6 +1281,12 @@ function renderPauseModal(scene, keepRowIdx) {
     sfx("pick");
     renderPauseModal(scene, 4);
   }, keepRowIdx === 4);
+
+  const mixBtn = document.getElementById("pause-mix-btn");
+  if (mixBtn) bindNavItem(mixBtn, 3.9, () => {
+    toggleAudioMix(); sfx("pick");
+    renderPauseModal(scene, 3.9);
+  }, keepRowIdx === 3.9);
 
   bindNavItem(document.getElementById("pause-lore-btn"), 5, () => {
     sfx("pick");

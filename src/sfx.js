@@ -31,6 +31,21 @@ function setVolume(which, v) {
   applyVolumes();
 }
 
+// iPhone audio mode (Nov 3, Rami: "the game audio shouldn't end other audio playing").
+//   "mix":  the game plays on top of your podcast or music (iOS calls this "ambient"; the ringer switch can silence it)
+//   "solo": the game takes over the speaker and plays even with the ringer on silent ("playback")
+let audioMix = (() => { try { return localStorage.getItem("ms-audio-mix") || "mix"; } catch (e) { return "mix"; } })();
+function applyAudioSession() {
+  try { const want = audioMix === "solo" ? "playback" : "ambient"; if (navigator.audioSession && navigator.audioSession.type !== want) navigator.audioSession.type = want; } catch (e) {}
+}
+function hasAudioSession() { return !!navigator.audioSession; }
+function getAudioMix() { return audioMix; }
+function toggleAudioMix() {
+  audioMix = audioMix === "mix" ? "solo" : "mix";
+  try { localStorage.setItem("ms-audio-mix", audioMix); } catch (e) {}
+  applyAudioSession();
+}
+applyAudioSession();
 function unlockAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   setupBuses();
@@ -40,8 +55,7 @@ function unlockAudio() {
     // Old iPhone trick: starting a tiny silent sound inside the tap is what really wakes Safari's audio.
     try { const b = audioCtx.createBuffer(1, 1, 22050), s = audioCtx.createBufferSource(); s.buffer = b; s.connect(audioCtx.destination); s.start(0); } catch (e) {}
   }
-  // iOS 17+: play game audio even when the ringer switch is on silent, like other games do.
-  try { if (navigator.audioSession && navigator.audioSession.type !== "playback") navigator.audioSession.type = "playback"; } catch (e) {}
+  applyAudioSession();
   if (window.speechSynthesis && window.speechSynthesis.getVoices) {
     window.speechSynthesis.getVoices();
   }

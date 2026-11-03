@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.59.0",
-  displayVersion: "V. 1.59.0",
+  version: "1.59.1",
+  displayVersion: "V. 1.59.1",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 138,
+  build: 139,
   changelog: [
+    {
+      ver: "V. 1.59.1", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "iPhone: the game no longer stops your music or podcast. It plays on top by default. Want the game louder than everything, even on silent? Pause and set Your music to Game only."
+      ]
+    },
     {
       ver: "V. 1.59.0", date: "Nov 3, 2026", title: "After Hours",
       highlights: [
