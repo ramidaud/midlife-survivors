@@ -3,8 +3,8 @@
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 
-**Current phase:** Fun Pass (one objective at a time; feature freeze on new content)
-**Last updated:** 2026-11-02 (Codex: V. 1.36.0 age-45 room slice)
+**Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
+**Last updated:** 2026-11-03 (V. 1.61.1 Birthday Cake)
 
 ---
 
@@ -25,6 +25,15 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 12. [ ] **Art direction + bigger world:** Rami's mood board, then a larger, detailed pixel-art office full of funny details, and restyled sprites and UI (including the lower third)
 
 ---
+
+## Now (Nov 3)
+- [x] Bonus chests, elites, poster title, one look, lighting, dev console (V. 1.48 to 1.60)
+- [x] **Healing 1:** birthday cake every 5 years and the Desk Salad (V. 1.61.0), freeze safety net (V. 1.61.1)
+- [ ] **Healing 2:** interns (TJ, Derek) bring coffee, snacks and buffs (Grok spec section 8.1)
+- [ ] **Healing 3:** the Lounge counter in the Break Room (Grok spec section 8.2)
+- [ ] **Retirement screen** with ChatGPT's art
+- [ ] **Age 50+ run modifiers** (docs/handoffs/grok-modifiers.md)
+- [ ] **Spotlight cards, Style B** (copy from Gemini: docs/handoffs/gemini-spotlight-cards.md)
 
 ## Next up (planned Oct 31, usage-light: one session per item)
 1. [x] **Playtest fix pack (V. 1.20.0):** Retry touch bug, tap-to-confirm perks, joke wrapping + quieter jokes, Start over Resume, plain rarity labels, coin economy fix, softer first minutes, leaderboard shows personal bests only with no top-10 cap

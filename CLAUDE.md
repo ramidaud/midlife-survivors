@@ -22,6 +22,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 ## How a work session goes
 1. **Recap** where we are (one short paragraph, from ROADMAP + PROGRESS_LOG).
    - Read any new entries in `docs/handoffs/*-changes.md` (notes from ChatGPT, Gemini and Grok) and fold approved items into the game. Mark them **[done]**.
+   - **Muse** (Meta's agent) reviews Rami's Facebook and Instagram posts; it doesn't write posts or touch the game (setup: `docs/handoffs/muse-social-feedback.md`).
 2. **Propose one small step** with what Rami will see when it works.
 3. **Build it.** Keep changes small and focused.
 4. **Make it playable.** Test it first (headless browser at laptop and phone sizes), bump `src/data/version.js` and `BUILD` in `src/loader.js` (new code files go in its file list, not in `index.html`), then push to GitHub so the official playtest at https://ramidaud.github.io/midlife-survivors/ updates. If a push isn't possible from here, tell Rami exactly what to run.
