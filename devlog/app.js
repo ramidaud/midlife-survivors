@@ -27,7 +27,38 @@
     return p.cover || "img/office-key-art-hero-960.jpg";
   }
 
+  // Reading order (Nov 3): "new" = newest first (get caught up), "old" = from the start (follow along).
+  // Remembered per reader. Read memos get a check mark.
+  const SORT_KEY = "devlog-sort", READ_KEY = "devlog-read";
+  let sortMode = "new";
+  try { sortMode = localStorage.getItem(SORT_KEY) === "old" ? "old" : "new"; } catch (e) {}
+  let readSet = new Set();
+  try { readSet = new Set(JSON.parse(localStorage.getItem(READ_KEY) || "[]")); } catch (e) {}
+  function markRead(slug) {
+    readSet.add(slug);
+    try { localStorage.setItem(READ_KEY, JSON.stringify([...readSet])); } catch (e) {}
+  }
+  const memoNo = p => { const m = /^(\d+)/.exec(p.slug); return m ? +m[1] : posts.length - posts.indexOf(p); };
+  const two = n => String(n).padStart(2, "0");
+  const ordered = () => sortMode === "old" ? posts.slice().reverse() : posts.slice();
+  const readMark = p => readSet.has(p.slug) ? `<span class="read-mark" title="You read this one">✓ Read</span>` : "";
+  function sortToggle() {
+    return `<div class="sort-toggle" role="group" aria-label="Reading order">
+      <button type="button" data-sort="new" aria-pressed="${sortMode === "new"}">Newest first</button>
+      <button type="button" data-sort="old" aria-pressed="${sortMode === "old"}">From the start</button>
+    </div>`;
+  }
+  let currentSlug = null;
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-sort]");
+    if (!b) return;
+    sortMode = b.dataset.sort === "old" ? "old" : "new";
+    try { localStorage.setItem(SORT_KEY, sortMode); } catch (e2) {}
+    if (currentSlug) renderSeries(currentSlug); else renderList();
+  });
+
   function renderList() {
+    currentSlug = null;
     header.classList.remove("is-compact");
     homeView.hidden = false;
     postView.hidden = true;
@@ -36,36 +67,49 @@
       listMain.innerHTML = `<p class="empty">No filed memos yet. Pass <code>?drafts=1</code> to preview drafts.</p>`;
       return;
     }
-    // Newest memo gets the spotlight; the rest are compact cards. Times come from home.js (git history).
-    const [latest, ...rest] = posts;
-    const changes = (latest.changes || []).slice(0, 4).map(c => `<li>${esc(c)}</li>`).join("");
+    // The first memo in reading order gets the spotlight: the newest one, or memo 01 when reading from the start.
+    const fromStart = sortMode === "old";
+    const [lead, ...rest] = ordered();
+    const changes = (lead.changes || []).slice(0, 4).map(c => `<li>${esc(c)}</li>`).join("");
+    const unread = posts.filter(p => !readSet.has(p.slug)).length;
     listMain.innerHTML = `
-      <a class="feature" href="?post=${esc(latest.slug)}${draftQ}">
-        <div class="feature-cover" style="background-image:url('${esc(coverUrl(latest))}')" role="img" aria-label="${esc(latest.leadAlt || "")}">
-          <span class="feature-badge">NEW MEMO</span>
+      <div class="list-head">
+        <div class="section-label">${fromStart ? "Start here" : "Latest memo"}</div>
+        ${sortToggle()}
+      </div>
+      <p class="sort-hint">${fromStart
+        ? `Reading the whole story in order, ${posts.length} memos. Switch to <b>Newest first</b> to get caught up.`
+        : `Just here for the latest? Start below. Want the whole story? Switch to <b>From the start</b>.`}
+        ${readSet.size ? ` <span class="read-count">${posts.length - unread} of ${posts.length} read.</span>` : ""}</p>
+      <a class="feature" href="?post=${esc(lead.slug)}${draftQ}">
+        <div class="feature-cover" style="background-image:url('${esc(coverUrl(lead))}')" role="img" aria-label="${esc(lead.leadAlt || "")}">
+          <span class="feature-badge">${fromStart ? "MEMO 01 · START HERE" : "NEW MEMO"}</span>
         </div>
         <div class="feature-body">
           <div class="card-meta">
-            <time class="stamp" data-slug="${esc(latest.slug)}" datetime="${esc(latest.date)}">${fmt(latest.date)}</time>
-            ${latest.version ? `<span class="pill">${esc(latest.version)}</span>` : ""}
-            ${latest.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+            <span class="memo-num">MEMO ${two(memoNo(lead))}</span>
+            <time class="stamp" data-slug="${esc(lead.slug)}" datetime="${esc(lead.date)}">${fmt(lead.date)}</time>
+            ${lead.version ? `<span class="pill">${esc(lead.version)}</span>` : ""}
+            ${lead.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+            ${readMark(lead)}
           </div>
-          <h2 class="feature-title">${esc(latest.title)}</h2>
-          <p class="card-teaser">${esc(latest.teaser || "")}</p>
+          <h2 class="feature-title">${esc(lead.title)}</h2>
+          <p class="card-teaser">${esc(lead.teaser || "")}</p>
           ${changes ? `<ul class="feature-changes">${changes}</ul>` : ""}
-          <span class="btn btn-primary feature-cta">Read the memo →</span>
+          <span class="btn btn-primary feature-cta">${fromStart ? "Start the story →" : "Read the memo →"}</span>
         </div>
       </a>
-      ${rest.length ? `<div class="section-label earlier-label">Filed earlier</div>` : ""}
+      ${rest.length ? `<div class="section-label earlier-label">${fromStart ? "Then, in order" : "Filed earlier"}</div>` : ""}
       <ul class="card-list">${rest.map(p => `
       <li>
-        <a class="card" href="?post=${esc(p.slug)}${draftQ}">
-          <div class="card-cover" style="background-image:url('${esc(coverUrl(p))}')" role="img" aria-label=""></div>
+        <a class="card${readSet.has(p.slug) ? " is-read" : ""}" href="?post=${esc(p.slug)}${draftQ}">
+          <div class="card-cover" style="background-image:url('${esc(coverUrl(p))}')" role="img" aria-label=""><span class="card-num">${two(memoNo(p))}</span></div>
           <div class="card-body">
             <div class="card-meta">
               <time class="stamp" data-slug="${esc(p.slug)}" datetime="${esc(p.date)}">${fmt(p.date)}</time>
               ${p.version ? `<span class="pill">${esc(p.version)}</span>` : ""}
               ${p.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+              ${readMark(p)}
             </div>
             <h2 class="card-title">${esc(p.title)}</h2>
             <p class="card-teaser">${esc(p.teaser || "Open memo for the full debrief.")}</p>
@@ -75,14 +119,80 @@
     if (window.DevlogHome) window.DevlogHome.stampPosts();
   }
 
+  // Post sidebar: every memo in reading order, with "you are here" and check marks.
+  function renderSeries(slug) {
+    const el = document.getElementById("post-series");
+    if (!el) return;
+    const readN = posts.filter(p => readSet.has(p.slug)).length;
+    el.innerHTML = `
+      <div class="side-eyebrow">The whole story · ${posts.length} memos</div>
+      ${sortToggle()}
+      <div class="series-progress" aria-label="${readN} of ${posts.length} read"><span style="width:${Math.round(readN / posts.length * 100)}%"></span></div>
+      <div class="series-count">${readN} of ${posts.length} read</div>
+      <ol class="series">${ordered().map(p => {
+        const here = p.slug === slug, read = readSet.has(p.slug);
+        return `<li class="${here ? "here" : ""}${read ? " read" : ""}">
+          <a href="?post=${esc(p.slug)}${draftQ}"${here ? ` aria-current="page"` : ""}>
+            <span class="s-no">${two(memoNo(p))}</span>
+            <span class="s-title">${esc(p.title)}${here ? `<em>You are here</em>` : ""}</span>
+            <span class="s-mark" aria-hidden="true">${read && !here ? "✓" : ""}</span>
+          </a></li>`;
+      }).join("")}</ol>`;
+  }
+
   function neighbors(slug) {
     const i = posts.findIndex(p => p.slug === slug);
     return { prev: i < posts.length - 1 ? posts[i + 1] : null, next: i > 0 ? posts[i - 1] : null, i };
   }
 
+  // "What happened before" and "What's next" cards at the end of every memo.
+  function sequel(post, prev, next) {
+    const card = (p, dir) => `
+      <a class="sequel-card ${dir}" href="?post=${esc(p.slug)}${draftQ}">
+        <span class="sequel-eyebrow">${dir === "prev" ? "← What happened before" : "What's next →"} · Memo ${two(memoNo(p))}</span>
+        <span class="sequel-cover" style="background-image:url('${esc(coverUrl(p))}')" aria-hidden="true"></span>
+        <span class="sequel-title">${esc(p.title)}</span>
+        <span class="sequel-teaser">${esc(p.teaser || "")}</span>
+        ${readMark(p)}
+      </a>`;
+    const start = `
+      <div class="sequel-card prev is-start">
+        <span class="sequel-eyebrow">Where it started</span>
+        <span class="sequel-title">This is memo 01. Nothing before it but a photographer and a blank folder.</span>
+        <a class="btn btn-ghost" href="${draftOnly}">See all memos</a>
+      </div>`;
+    const soon = `
+      <div class="sequel-card next is-soon">
+        <span class="sequel-eyebrow">What's next · Memo ${two(memoNo(post) + 1)} <b class="pill">IN PROGRESS</b></span>
+        <span class="sequel-title">${esc(post.nextUp || "The next memo is being built right now.")}</span>
+        <span class="sequel-teaser">You're all caught up. Get the next one when it's filed:</span>
+        <span class="todos">
+          <a class="todo" href="https://ramidaud.substack.com" rel="noopener">Substack (email)</a>
+          <a class="todo" href="feed.xml">RSS</a>
+          <a class="todo" href="https://discord.gg/E6N9j5tZe" rel="noopener">Discord</a>
+        </span>
+      </div>`;
+    return `<nav class="sequel" aria-label="Previous and next memos">${prev ? card(prev, "prev") : start}${next ? card(next, "next") : soon}</nav>`;
+  }
+
+  // Thin orange bar across the top showing how far into the memo you are.
+  const progressBar = document.querySelector("#read-progress span");
+  function updateProgress() {
+    if (!progressBar || postView.hidden) return;
+    const art = postMain.querySelector("article.post");
+    if (!art) return;
+    const r = art.getBoundingClientRect();
+    const total = r.height - window.innerHeight * 0.6;
+    const pct = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
+    progressBar.style.width = (pct * 100).toFixed(1) + "%";
+  }
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
+
   async function renderPost(slug) {
     const post = posts.find(p => p.slug === slug);
     if (!post) { renderList(); return; }
+    currentSlug = slug;
     header.classList.add("is-compact");
     homeView.hidden = true;
     postView.hidden = false;
@@ -142,7 +252,9 @@
       <div class="post-header">
         <h1>${esc(post.title)}</h1>
         <div class="post-meta">
-          <time datetime="${esc(post.date)}">${fmt(post.date)}</time>
+          <span class="memo-num">MEMO ${two(memoNo(post))} <i>of ${two(posts.length)}</i></span>
+          <time class="stamp" data-slug="${esc(post.slug)}" datetime="${esc(post.date)}">${fmt(post.date)}</time>
+          ${!next ? `<span class="pill new">LATEST</span>` : ""}
           ${post.version ? `<span class="pill">${esc(post.version)}</span>` : ""}
           ${post.draft ? `<span class="pill draft">DRAFT</span>` : ""}
         </div>
@@ -160,17 +272,18 @@
           Survived to ${esc(post.version || "the next build")}. Screenshots are from the real game at the time.
         </div>
       </article>
-      <nav class="post-nav" aria-label="Adjacent memos">
-        ${prev ? `<a href="?post=${esc(prev.slug)}${draftQ}"><span>← Older</span>${esc(prev.title)}</a>` : `<span></span>`}
-        ${next ? `<a href="?post=${esc(next.slug)}${draftQ}" style="text-align:right"><span>Newer →</span>${esc(next.title)}</a>` : `<span></span>`}
-      </nav>`;
+      ${sequel(post, prev, next)}`;
     // Respect "reduce motion": clips stay paused until the reader presses play.
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
+    markRead(post.slug);
+    renderSeries(post.slug);
+    if (window.DevlogHome) { window.DevlogHome.stampPosts(); window.DevlogHome.postBuilds(post.slug); }
     if (window.initSidenotes) initSidenotes(postMain);
     if (window.initCodeCards) initCodeCards(postMain);
     window.scrollTo(0, 0);
+    updateProgress();
   }
 
   /* —— Key-art hotspots —— */

@@ -22,7 +22,7 @@
 <link rel="icon" href="../favicon.png?v=clock-1" type="image/png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="styles.css?v=15">
+<link rel="stylesheet" href="styles.css?v=16">
 <link rel="alternate" type="application/rss+xml" title="Midlife Survivors Devlog" href="feed.xml">
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -67,7 +67,6 @@
 
     <div class="wrap home-grid" id="memos">
       <div class="home-main">
-        <div class="section-label">Latest memo</div>
         <main id="list-main"></main>
         <a class="art-banner" href="art/" aria-label="Enter the Art Room: walk the new art before it reaches the game">
           <span class="art-banner-img" aria-hidden="true"></span>
@@ -105,15 +104,27 @@
   </div>
 
   <div id="post-view" hidden>
-    <div class="wrap">
+    <div class="read-progress" id="read-progress" aria-hidden="true"><span></span></div>
+    <div class="wrap post-grid">
       <main id="post-main"></main>
-      <aside class="follow" aria-label="Follow">
-        <div class="silk">Stay in the loop</div>
-        <div class="todos">
-          <a class="todo" href="feed.xml">RSS feed</a>
-          <a class="todo" href="https://ramidaud.substack.com" rel="noopener">Substack (email)</a>
-          <a class="todo" href="https://discord.gg/E6N9j5tZe" rel="noopener">Join the Discord</a>
-        </div>
+      <aside class="post-side" aria-label="The whole story, build stats and leaderboard">
+        <section class="side-card" id="post-series" aria-label="All memos"></section>
+        <section class="side-card" id="post-builds" aria-label="Builds behind this memo">
+          <div class="side-eyebrow">Behind this memo</div>
+          <p class="side-loading">Counting builds…</p>
+        </section>
+        <section class="side-card" id="post-board" aria-label="Leaderboard">
+          <div class="side-eyebrow">Leaderboard · Midlife run</div>
+          <p class="side-loading">Checking the standings…</p>
+        </section>
+        <section class="side-card follow" aria-label="Follow">
+          <div class="side-eyebrow">Stay in the loop</div>
+          <div class="todos">
+            <a class="todo" href="https://ramidaud.substack.com" rel="noopener">Substack (email)</a>
+            <a class="todo" href="feed.xml">RSS feed</a>
+            <a class="todo" href="https://discord.gg/E6N9j5tZe" rel="noopener">Join the Discord</a>
+          </div>
+        </section>
       </aside>
     </div>
   </div>
@@ -132,7 +143,7 @@
   <script src="sidenotes.js?v=1"></script>
   <script src="code.js?v=2"></script>
   <script src="../src/data/leaderboard.js?v=2"></script>
-  <script src="app.js?v=9"></script>
-  <script src="home.js?v=1"></script>
+  <script src="app.js?v=10"></script>
+  <script src="home.js?v=2"></script>
 </body>
 </html>
