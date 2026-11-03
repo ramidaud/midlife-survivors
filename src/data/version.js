@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.68.3",
-  displayVersion: "V. 1.68.3",
+  version: "1.68.4",
+  displayVersion: "V. 1.68.4",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 159,
+  build: 160,
   changelog: [
+    {
+      ver: "V. 1.68.4", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Derek has his own lines now. Yes, he will call you Unc.",
+      highlights: [
+        "Derek's lines are his own: \"Hey man, here's your coffee\", \"I love my manager\", \"Do you want a bundt cake?\", \"Unc\" and \"Hey you don't want to take damage\"."
+      ]
+    },
     {
       ver: "V. 1.68.3", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "The coworkers who announce new rooms now go by their real names: Art, Sam, Eli, Nora, June and Mina.",

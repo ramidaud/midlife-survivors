@@ -11,5 +11,9 @@ Rami's friends play themselves as office interns (not playable). They roam the o
 - "I love my job!"
 - "For my Manager!!!"
 
-## Derek
-- (waiting on his lines)
+## Derek (Derek Galperin)
+- "Hey man, here's your coffee"
+- "I love my manager"
+- "Do you want a bundt cake?"
+- "Unc"
+- "Hey you don't want to take damage"
