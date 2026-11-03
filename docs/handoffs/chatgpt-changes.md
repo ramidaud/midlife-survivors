@@ -257,3 +257,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files.** assets/ui/kill-screen/README.md links all sheets, banners, the check image and 21 GIFs. Used built-in imagegen with the existing hero, enemy and title art references, then cleaned the sprite sheets to native pixels.
 - **For Claude.** Hero cells are 96×112 at y111. Play row 0 once at 120 ms, loop the first six cells of row 1 at 220 ms, and play row 2 once at 140 ms on retry. Killer cells are 96×96 in a single four-frame row at 200 ms. Banners are 1200×360 and 800×400.
 - [done] Claude built the HR Exit Interview scene into the death screen in V. 1.72.0 (Nov 3): defeated hero (slump, idle, shake-off on Retry), killer mugshot (boss art for bosses), banner per screen size.
+
+## 2026-11-03: The Gold Watch boss art (Codex)
+- **What.** Drew the pocket watch boss, sweeping hands, loose gear, clock floor telegraph, smug mugshot and stopped retirement keepsake. Frame 11 and the keepsake show five o'clock.
+- **Files.** assets/bosses/README-gold-watch-v1.md links the native assets, five GIFs and the 1×/2× size check beside the V8 and the 9-to-5er.
+- **For Claude.** The boss is 576×456 with 144×152 cells, magenta key and foot point (72,148). Frames 0–5 float, 6–7 wind up, 8–9 attack, 10 is hurt and 11 stops. Both hand textures rotate from bottom center, and the decal opens at 12. The mugshot uses four 96×96 cells at 200 ms.
