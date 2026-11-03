@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.50.1",
-  displayVersion: "V. 1.50.1",
+  version: "1.50.2",
+  displayVersion: "V. 1.50.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 118,
+  build: 119,
   changelog: [
+    {
+      ver: "V. 1.50.2", date: "Nov 3, 2026", title: "One Look",
+      highlights: [
+        "New chunky progress bars, the same as the devlog's reading bar: XP across the top, the year bar under your age and the health bar under your hero. They get thicker on bigger screens.",
+        "The HUD and the message strip at the bottom use the devlog's fonts and colors, with bigger text on iPad."
+      ]
+    },
     {
       ver: "V. 1.50.1", date: "Nov 3, 2026", title: "One Look",
       highlights: [

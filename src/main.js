@@ -336,11 +336,23 @@ function create() {
     const vsHud = document.getElementById("vs-hud");
     if (vsHud) vsHud.classList.toggle("hidden", !!(titleOpen || gameOver)); // no HUD peeking behind title or Game Over
     if (!player || !stats || titleOpen) return;
-    const w = 44, h = 6;
-    const x = player.x - w / 2, y = player.y + player.displayHeight / 2 + 4;
+    // Health bar under the hero, drawn like the shared ms-bar (navy frame, teal ring, bevel, pixel segments).
+    const w = 52, h = 8;
+    const x = Math.round(player.x - w / 2), y = Math.round(player.y + player.displayHeight / 2 + 4);
     const pct = Phaser.Math.Clamp(hp / stats.maxHp, 0, 1);
-    hpBar.fillStyle(0x0a0c18, 0.9).fillRect(x - 1, y - 1, w + 2, h + 2);
-    hpBar.fillStyle(pct > 0.35 ? 0xd9383a : 0xff2d2d, 1).fillRect(x, y, w * pct, h);
+    const low = pct <= 0.35, pulse = low ? 0.55 + 0.45 * Math.sin(runElapsedMs / 110) : 1;
+    hpBar.fillStyle(0x3E7775, 0.95).fillRect(x - 3, y - 3, w + 6, h + 6);   // teal ring
+    hpBar.fillStyle(0x171C35, 1).fillRect(x - 2, y - 2, w + 4, h + 4);      // navy frame
+    hpBar.fillStyle(0x0d1124, 1).fillRect(x, y, w, h);                      // track
+    const fw = Math.round(w * pct);
+    if (fw > 0) {
+      hpBar.fillStyle(0xC45C4B, pulse).fillRect(x, y, fw, h);                // fill
+      hpBar.fillStyle(0xEF9347, pulse).fillRect(x + Math.max(0, fw - Math.min(fw, 10)), y, Math.min(fw, 10), h); // warm leading edge
+      hpBar.fillStyle(0xFFF0CF, 0.45 * pulse).fillRect(x, y, fw, 2);         // bevel highlight
+      hpBar.fillStyle(0x000000, 0.2).fillRect(x, y + h - 2, fw, 2);          // bevel shade
+    }
+    hpBar.fillStyle(0x171C35, 0.6);
+    for (let sx = x + 10; sx < x + w; sx += 10) hpBar.fillRect(sx, y, 2, h);  // pixel segments
     // Lower third triggers (cheap checks, every frame)
     if (!gameOver && window.showLowerThird) {
       if (runElapsedMs > 1500) window.firstTimeTip("start");

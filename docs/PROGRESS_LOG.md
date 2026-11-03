@@ -970,3 +970,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Started making the whole game match the devlog. Audited every screen on desktop, iPad portrait and landscape, and iPhone.
 - Fixed: phone level-up cards (text was squeezed and the button ran off screen), off-palette blue card borders and typewriter names, the chest card's Courier font, and tiny menus on iPad. The level-up hint is now short and device-aware.
 - Next in the pass: HUD, pause menu, game over, title, shop and the lower-third messages.
+
+## 2026-11-03: Brand pass 2, one progress bar everywhere (V. 1.50.2)
+- New shared bar component, `assets/ui/ms-bar.css`, loaded by both the devlog and the game: a navy frame, teal ring, bevel, pixel segments and a glowing fill. It's about 10px on phones, 13px on iPad and 16px on desktop.
+- The devlog reading bar is now that fat bar, docked right under the sticky navigation on every device.
+- In the game, the XP, year and hero health bars use the same look (health is drawn to match, red to coffee, and pulses when low).
+- HUD and lower-third messages moved to Silkscreen and Atkinson in palette colors, with larger text and buttons on iPad.

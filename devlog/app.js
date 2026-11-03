@@ -252,6 +252,9 @@
     if (!progressBar || postView.hidden) return;
     const art = postMain.querySelector("article.post");
     if (!art) return;
+    // Dock the bar right under the sticky header, whatever height the header is on this device.
+    const hb = header.getBoundingClientRect().bottom;
+    document.documentElement.style.setProperty("--hdr-h", Math.max(0, Math.round(hb)) + "px");
     const r = art.getBoundingClientRect();
     const total = r.height - window.innerHeight * 0.6;
     const pct = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;

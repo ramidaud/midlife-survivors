@@ -31,6 +31,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Chakra Petch', sans-serif; }
@@ -1110,6 +1111,40 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     #ui-layer .perk-key { grid-area: key; margin-top: 4px; white-space: nowrap; }
     #ui-layer .perk-card:hover, #ui-layer .perk-card.selected { transform: none; }
   }
+  /* ===== Brand pass 2 (Nov 3): HUD + lower third match the devlog ===== */
+  .vs-hud { font-family: 'Silkscreen', monospace; color: var(--ms-white); }
+  .vs-hud .ms-bar { background: #0d1124; border: 2px solid #171C35; box-shadow: 0 0 0 1px rgba(62,119,117,0.9), 0 3px 0 rgba(0,0,0,0.35); }
+  .vs-hud .vs-xp.ms-bar { height: calc(var(--msbar-h) * 1.45); border-radius: 0 0 4px 4px; }
+  .vs-hud .vs-xp-fill { background: linear-gradient(90deg, #3E7775, #EF9347); }
+  .vs-hud .vs-year.ms-bar { height: var(--msbar-h); }
+  .vs-hud .vs-year-fill { background: linear-gradient(90deg, #83A89A, #F2D7A1); }
+  .vs-hud .vs-lv { font-family: 'Silkscreen', monospace; font-size: clamp(10px, calc(var(--msbar-h) * 0.8), 13px); color: var(--ms-white);
+    text-shadow: 1px 1px 0 var(--ms-navy), -1px -1px 0 var(--ms-navy); z-index: 1; }
+  .vs-hud .vs-year.ms-bar { width: clamp(110px, 18vw, 200px); }
+  .vs-hud .vs-score { font-family: 'Silkscreen', monospace; font-weight: 400; color: var(--ms-white); text-shadow: 2px 2px 0 var(--ms-navy); }
+  .vs-hud .vs-coins { font-family: 'Silkscreen', monospace; color: var(--ms-cream); text-shadow: 2px 2px 0 var(--ms-navy); }
+  .vs-hud .vs-timer { font-family: 'Silkscreen', monospace; font-weight: 700; color: var(--ms-white); text-shadow: 3px 3px 0 var(--ms-navy); }
+  .vs-hud .vs-timer-final { color: var(--ms-red); }
+  .vs-hud .vs-age { font-family: 'Silkscreen', monospace; color: var(--ms-coffee); text-shadow: 2px 2px 0 var(--ms-navy); }
+  .vs-hud .vs-loadout span { background: rgba(23,28,53,0.85); border: 1px solid rgba(62,119,117,0.8); border-radius: 4px; }
+  .vs-hud .vs-btn { border-color: var(--ms-teal); background: rgba(23,28,53,0.85); color: var(--ms-white); box-shadow: 2px 2px 0 #0b0e1d; }
+  .vs-hud .vs-btn:focus-visible { outline-color: var(--ms-cream); }
+  .lt-strip { background: rgba(23,28,53,0.95); box-shadow: 0 0 0 2px var(--ms-teal), 6px 6px 0 #0b0e1d; border-radius: 2px; }
+  .lt-badge { font-family: 'Silkscreen', monospace; font-size: 11px; color: var(--ms-navy); }
+  .lt-text { font-family: 'Atkinson Hyperlegible', system-ui, sans-serif; color: var(--ms-white); }
+  .lt-strip[data-kind="alert"]   { --lt-accent: #C45C4B; }
+  .lt-strip[data-kind="win"]     { --lt-accent: #EF9347; }
+  .lt-strip[data-kind="tip"]     { --lt-accent: #83A89A; }
+  .lt-strip[data-kind="chapter"] { --lt-accent: #F2D7A1; }
+  .lt-strip[data-kind="reward"], .lt-strip[data-kind="promo"] { --lt-accent: #83A89A; }
+  .center-flash[data-kind="reward"] .cf-title { color: #83A89A; }
+  /* iPad: bigger HUD text at arm's length */
+  @media (min-width: 700px) and (pointer: coarse) {
+    .vs-hud .vs-timer { font-size: 28px; } .vs-hud .vs-age { font-size: 24px; }
+    .vs-hud .vs-score, .vs-hud .vs-coins { font-size: 14px; }
+    .vs-hud .vs-btn { width: 48px; height: 48px; font-size: 20px; }
+    .lt-text { font-size: 19px; } .lt-badge { font-size: 13px; }
+  }
   #ui-layer[data-theme="0"] .title-links a { color: var(--ms-cream); text-decoration: underline; text-underline-offset: 3px; pointer-events: auto; }
 </style>
 <div id="game"></div>
@@ -1120,7 +1155,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=118&t=" + Date.now();
+    s.src = "src/loader.js?v=119&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

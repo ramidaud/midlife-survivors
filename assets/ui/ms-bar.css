@@ -1,0 +1,32 @@
+/* Midlife Survivors progress bar (Nov 3). One component for the devlog AND the game:
+   the devlog reading bar, XP, the year bar and anything else that fills up.
+   Thickness follows the screen: about 10px on phones, 13px on iPad, 16px on desktop.
+   Markup: <div class="ms-bar [year|hp]"><div class="ms-fill" style="width:40%"></div></div> */
+:root { --msbar-h: clamp(10px, calc(0.55vw + 8px), 16px); }
+.ms-bar {
+  position: relative; height: var(--msbar-h); overflow: hidden; border-radius: 3px;
+  background: #0d1124; border: 2px solid #171C35;
+  box-shadow: 0 0 0 1px rgba(62, 119, 117, 0.9), 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+.ms-bar > .ms-fill {
+  position: relative; display: block; height: 100%; width: 0;
+  background: linear-gradient(90deg, #3E7775, #EF9347);
+  box-shadow: 0 0 12px rgba(239, 147, 71, 0.55);
+  transition: width 0.15s linear;
+}
+/* a pixel bevel: light top edge, darker bottom edge */
+.ms-bar > .ms-fill::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255, 240, 207, 0.45) 0 24%, transparent 24% 72%, rgba(0, 0, 0, 0.2) 72%);
+}
+/* segment ticks across the whole track, so it reads as pixel art */
+.ms-bar::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(var(--msbar-h) * 1.25),
+    rgba(23, 28, 53, 0.55) calc(var(--msbar-h) * 1.25) calc(var(--msbar-h) * 1.25 + 2px));
+}
+.ms-bar.year > .ms-fill { background: linear-gradient(90deg, #83A89A, #F2D7A1); box-shadow: 0 0 10px rgba(242, 215, 161, 0.45); }
+.ms-bar.hp > .ms-fill { background: linear-gradient(90deg, #874C3B, #C45C4B 55%, #EF9347); box-shadow: 0 0 10px rgba(196, 92, 75, 0.6); }
+.ms-bar.low > .ms-fill { animation: msBarLow 0.6s ease-in-out infinite alternate; }
+@keyframes msBarLow { to { filter: brightness(1.6); } }
+@media (prefers-reduced-motion: reduce) { .ms-bar > .ms-fill { transition: none; } .ms-bar.low > .ms-fill { animation: none; } }

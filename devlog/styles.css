@@ -646,8 +646,9 @@ time.stamp { font-family: var(--display); font-size: 12px; color: var(--cream); 
 .post-side .follow { margin: 0; }
 @media (max-width: 1000px) { .wrap.post-grid { grid-template-columns: 1fr; } }
 
-.read-progress { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 60; background: transparent; pointer-events: none; }
-.read-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--teal), var(--orange)); box-shadow: 0 0 8px rgba(239,147,71,.6); transition: width .1s linear; }
+/* Reading bar: the shared ms-bar (../assets/ui/ms-bar.css), docked right under the sticky header (top set by app.js) */
+.read-progress.ms-bar { position: fixed; top: var(--hdr-h, 0px); left: 0; right: 0; z-index: 39; pointer-events: none;
+  border-radius: 0; border-left: 0; border-right: 0; box-shadow: 0 1px 0 rgba(62,119,117,.9), 0 4px 10px rgba(0,0,0,.35); }
 
 .memo-num { font-family: var(--display); font-size: 12px; color: var(--orange); letter-spacing: .04em; }
 .memo-num i { font-style: normal; color: var(--muted); }

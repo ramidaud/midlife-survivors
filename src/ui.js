@@ -286,7 +286,7 @@ function initGameUI(scene) {
     <!-- Center flash: big, short notices for things that change the fight (boss, Comfort Zone Tax, buffs). -->
     <div class="center-flash hidden" id="center-flash" aria-live="polite"><div class="cf-title"></div><div class="cf-sub"></div></div>
     <div class="vs-hud hidden" id="vs-hud">
-      <div class="vs-xp"><div class="vs-xp-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
+      <div class="vs-xp ms-bar"><div class="vs-xp-fill ms-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
       <div class="vs-row">
         <div class="vs-left">
           <div class="vs-score" id="vs-score">SCORE 0</div>
@@ -296,7 +296,7 @@ function initGameUI(scene) {
         <div class="vs-center">
           <div class="vs-timer" id="vs-timer">00:00</div>
           <div class="vs-age" id="vs-age">AGE 40</div>
-          <div class="vs-year" title="Progress through this year"><div class="vs-year-fill" id="vs-year-fill"></div></div>
+          <div class="vs-year ms-bar year" title="Progress through this year"><div class="vs-year-fill ms-fill" id="vs-year-fill"></div></div>
           <div class="vs-combo hidden" id="vs-combo" aria-live="off"></div>
         </div>
         <div class="vs-right">
