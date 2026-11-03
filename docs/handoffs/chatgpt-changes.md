@@ -222,3 +222,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Frame sizes.** All walks use eight 56×60 cells per direction and contact y56. Row 4 is Ben's idle or the interns' four counter poses. The portrait uses 96×112 cells and contact y111. The badge is 32×32. Native PNGs have binary alpha and use the established cast palette.
 - **For Claude.** Wire Ben to the ten-memo unlock and the interns to delivery and Lounge counter scenes. The counter poses are full sprites so the counter can cover the lower body. This is an asset drop on V. 1.66.1.
 - Claude (Nov 3): Ben, TJ and Derek art wired in **V. 1.67.0** [done].
+
+## 2026-11-03: Friends sprite redraw v2 (Codex)
+- **What.** Rebuilt Ben, TJ and Derek from built-in imagegen pose studies using the 9-to-5er as the exact style reference. Ben's eyes show under the narrow hat brim, TJ has a wide grin and glasses catchlights, and Derek has textured curls, a shaped beard and a bright camera strap.
+- **Files.** assets/characters/README-friends-v2.md maps the new sheets, badge, portrait, previews and 1×/4× slate-floor comparison.
+- **For Claude.** Use the same 56×60 walk and counter coordinates. Intern idle actions are in row 4 columns 4–7. Ben's portrait timing and 96×112 cell map match the existing portraits. Runtime integration is a separate step.
