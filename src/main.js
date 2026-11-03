@@ -2262,6 +2262,24 @@ function update(time, delta) {
     });
   }
 
+  // Boss chests (Nov 3, Derek: "I can't pick up the mortgage chest"): they slide to you once you're close,
+  // and touching one opens it even if the physics overlap missed. If something blocks it, log why (play stats).
+  chests.getChildren().slice().forEach(ch => {
+    if (!ch.active) return;
+    const d = Phaser.Math.Distance.Between(player.x, player.y, ch.x, ch.y);
+    if (d < Math.max(magR, 150)) this.physics.moveToObject(ch, player, W.magnetSpeed * 0.8); else ch.setVelocity(0, 0);
+    if (ch.tag) ch.tag.setPosition(ch.x, ch.y);
+    if (d < 44) {
+      const blocked = levelUpOpen || (window.BonusChest && BonusChest.isOpen());
+      if (!blocked) collectChest(player, ch);
+      else if (!ch.blockLogged && (ch.blockedSince = ch.blockedSince || runElapsedMs) && runElapsedMs - ch.blockedSince > 4000) {
+        ch.blockLogged = true;
+        const flags = [levelUpOpen && "lvl", window.BonusChest && BonusChest.isOpen() && "chest", ch.bossKind].filter(Boolean).join("-");
+        if (window.Telemetry && Telemetry.event) Telemetry.event("chest-blocked-" + flags);
+      }
+    }
+  });
+
   // Every frame, update each enemy according to its behavior (state machine).
   const now = runElapsedMs;
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second

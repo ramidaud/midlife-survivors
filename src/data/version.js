@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.68.1",
-  displayVersion: "V. 1.68.1",
+  version: "1.68.2",
+  displayVersion: "V. 1.68.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 157,
+  build: 158,
   changelog: [
+    {
+      ver: "V. 1.68.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Boss chests now slide over to you when you get close, so none get left behind.",
+      highlights: [
+        "Boss chests slide toward you once you're close, and touching one always opens it (Derek couldn't pick up the Mortgage chest)."
+      ]
+    },
     {
       ver: "V. 1.68.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "The Lounge card now shows TJ and Derek's big new portraits: TJ raises his coffee, Derek snaps a photo.",

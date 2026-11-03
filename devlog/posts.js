@@ -8,7 +8,7 @@ window.DEVLOG_POSTS = [
     "date": "2026-11-03",
     "title": "My friends work here now.",
     "version": "V. 1.48 to 1.67",
-    "draft": true,
+    "draft": false,
     "cover": "img/09-cowboy-spotlight.jpg",
     "leadVideo": "img/09-cowboy-spotlight.mp4",
     "leadAlt": "A Spotlight card in the game: a spotlight opens, the band wipes in, the Cold War Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, \"Back in my day, a gig was a gig. Now hand me that disk.\"",

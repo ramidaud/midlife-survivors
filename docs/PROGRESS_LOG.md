@@ -1049,3 +1049,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Devlog clips now play like GIFs: no video player bar. Tap the clip or the small pause button to stop it. People who turn on "reduce motion" see it paused.
 - V. 1.68.1: the Lounge card shows ChatGPT's new On Break portraits (TJ raises his coffee, Derek snaps a photo). On phones, long names on Spotlight cards now wrap beside the sprite instead of covering it. Checked all 16 cards on desktop and phone.
 - Memo 09's title before/after images were remade at true proportions with the real fonts (the phone one was squished).
+- Memo 09 published.
+- V. 1.68.2: Derek couldn't pick up the Mortgage chest (1.68.0, several runs). Couldn't reproduce here, so chests now slide to you when you're close and open on touch, and the game logs a "chest-blocked" stat if something still stops one.
+- Next ChatGPT job: standing Spotlight portraits for the six room coworkers (docs/handoffs/chatgpt-coworker-portraits.md).
