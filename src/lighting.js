@@ -1,7 +1,26 @@
 // Lighting (Nov 3): darkness overlay with light pools cut out of it, plus additive colored glows.
 // Settings: src/data/lighting.js. Light anchors: START_AREA_LAYOUT.lights (src/data/start-area.js).
 window.Lighting = (() => {
-  let scene = null, refs = null, rt = null, brush = null, lights = [], tick = 0;
+  let scene = null, refs = null, rt = null, brush = null, lights = [], tick = 0, floors = [], mood = 1, nextSputter = 0;
+  const kindOf = (L, k) => (L.extraKinds || {})[k] || {};
+  const strengthOf = (L, k) => (L.lightStrength || {})[k] || kindOf(L, k).strength || 0.8;
+  const glowOf = (L, k) => (L.glow || {})[k] || kindOf(L, k).glow || 0.2;
+  const flickerOf = (L, k) => (L.flicker || {})[k] || kindOf(L, k).flicker || 0;
+  // Hand-placed anchors plus a light for every glowing prop (lamps, vending machines, street lights...)
+  function allAnchors(L) {
+    const out = (START_AREA_LAYOUT.lights || []).slice(), skip = L.propLightSkip || 70, map = L.propLights || {};
+    (START_AREA_LAYOUT.placements || []).forEach(p => {
+      const d = map[p.prop]; if (!d) return;
+      const x = p.x, y = p.y + (d.dy || 0);
+      if (out.some(l => Math.abs(l.x - x) < skip && Math.abs(l.y - y) < skip)) return;
+      out.push({ x, y, r: d.r, color: d.color, kind: d.kind });
+    });
+    return out;
+  }
+  function roomAt(x, y) {
+    for (const f of floors) if (x >= f.x && x <= f.x + f.width && y >= f.y && y <= f.y + f.height) return f.district;
+    return null;
+  }
   const C = () => window.LIGHTING || {};
   function curve(t, age) {
     if (!t || !t.length) return 0;
@@ -22,12 +41,14 @@ window.Lighting = (() => {
     const L = C(); if (!L.enabled || !window.START_AREA_LAYOUT) return;
     scene = sc; refs = r; makeTexture(sc);
     const glowDepth = 3.5; // above the floor and rugs, under people and enemies
-    lights = (START_AREA_LAYOUT.lights || []).map(l => {
+    lights = allAnchors(L).map(l => {
       const size = l.r * 2 * (L.radiusMult || 1.6);
       const glow = sc.add.image(l.x, l.y, "ms_light").setBlendMode(Phaser.BlendModes.ADD).setTint(l.color)
-        .setAlpha((L.glow || {})[l.kind] || 0.2).setDisplaySize(size, size * 0.85).setDepth(glowDepth);
-      return { x: l.x, y: l.y, size, kind: l.kind, glow, base: glow.alpha, seed: Math.random() * 6.28 };
+        .setAlpha(glowOf(L, l.kind)).setDisplaySize(size, size * 0.85).setDepth(glowDepth);
+      return { x: l.x, y: l.y, size, kind: l.kind, glow, base: glow.alpha, seed: Math.random() * 6.28, sputter: 0 };
     });
+    floors = (START_AREA_LAYOUT.floors || []).filter(f => f.district);
+    mood = 1; nextSputter = 0;
     const cam = sc.cameras.main;
     rt = sc.add.renderTexture(0, 0, Math.max(2, Math.ceil(cam.worldView.width || cam.width)), Math.max(2, Math.ceil(cam.worldView.height || cam.height)))
       .setOrigin(0, 0).setDepth(49000);  // over the whole world (props sort up to ~13000), under screen flashes (50000)
@@ -47,18 +68,30 @@ window.Lighting = (() => {
     if (rt.width !== w || rt.height !== h) rt.resize(w, h);
     rt.setPosition(v.x - 1, v.y - 1);
     rt.clear();
-    rt.fill(L.darkness || 0x0a0e20, curve(L.darkByAge, refs.age()));
+    const p = refs.player;
+    const room = p && p.active ? roomAt(p.x, p.y) : null;
+    const want = (room && L.roomMood && L.roomMood[room]) || 1;
+    mood += (want - mood) * (L.moodEase || 0.04);
+    rt.fill(L.darkness || 0x0a0e20, Math.min(0.92, curve(L.darkByAge, refs.age()) * mood));
+    // A meeting-room panel sputters now and then
+    const sp = L.ceilingSputter;
+    if (sp && time > nextSputter) {
+      if (nextSputter) { const c = lights.filter(l => l.kind === "ceiling" && l.x > v.x && l.x < v.right && l.y > v.y && l.y < v.bottom); if (c.length) c[Math.floor(Math.random() * c.length)].sputter = time + sp.length; }
+      nextSputter = time + sp.every[0] + Math.random() * (sp.every[1] - sp.every[0]);
+    }
     const ox = v.x - 1, oy = v.y - 1, pad = 220;
     tick++;
     for (const l of lights) {
       if (l.x < v.x - pad || l.x > v.right + pad || l.y < v.y - pad || l.y > v.bottom + pad) continue;
-      cut(l.x - ox, l.y - oy, l.size, (L.lightStrength || {})[l.kind] || 0.8);
-      const fl = (L.flicker || {})[l.kind];
-      if (fl && tick % 6 === 0) l.glow.setAlpha(Math.max(0, l.base + Math.sin(time / 140 + l.seed) * fl));
+      let k = 1;
+      if (l.sputter > time) { k = Math.sin(time / 23) > 0.2 ? 0.25 : 1; l.glow.setAlpha(l.base * k); }
+      else if (l.sputter) { l.sputter = 0; l.glow.setAlpha(l.base); }
+      cut(l.x - ox, l.y - oy, l.size, strengthOf(L, l.kind) * k);
+      const fl = flickerOf(L, l.kind);
+      if (fl && k === 1 && tick % 6 === 0) l.glow.setAlpha(Math.max(0, l.base + Math.sin(time / 140 + l.seed) * fl));
     }
     const ch = refs.chests && refs.chests();
     if (ch && ch.countActive()) ch.getChildren().forEach(c => { if (c.active) cut(c.x - ox, c.y - oy, L.chestRadius * 2, 0.9); });
-    const p = refs.player;
     if (p && p.active) cut(p.x - ox, p.y - oy, L.playerRadius * 2, L.playerStrength);
   }
   function destroy() {
@@ -68,5 +101,5 @@ window.Lighting = (() => {
     if (brush) brush.destroy(); brush = null;
     scene = null; refs = null;
   }
-  return { init, destroy };
+  return { init, destroy, count: () => lights.length, room: () => { const p = refs && refs.player; return p ? roomAt(p.x, p.y) : null; }, mood: () => mood };
 })();

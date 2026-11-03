@@ -35,7 +35,11 @@ function unlockAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   setupBuses();
   // iPhones use an "interrupted" state (calls, Siri, app switching), not just "suspended": wake it either way.
-  if (audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {});
+  if (audioCtx.state !== "running" && audioCtx.state !== "closed") {
+    audioCtx.resume().catch(() => {});
+    // Old iPhone trick: starting a tiny silent sound inside the tap is what really wakes Safari's audio.
+    try { const b = audioCtx.createBuffer(1, 1, 22050), s = audioCtx.createBufferSource(); s.buffer = b; s.connect(audioCtx.destination); s.start(0); } catch (e) {}
+  }
   // iOS 17+: play game audio even when the ringer switch is on silent, like other games do.
   try { if (navigator.audioSession && navigator.audioSession.type !== "playback") navigator.audioSession.type = "playback"; } catch (e) {}
   if (window.speechSynthesis && window.speechSynthesis.getVoices) {

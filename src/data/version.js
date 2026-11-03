@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.58.1",
-  displayVersion: "V. 1.58.1",
+  version: "1.59.0",
+  displayVersion: "V. 1.59.0",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 137,
+  build: 138,
   changelog: [
+    {
+      ver: "V. 1.59.0", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "Every room has its own light now: orange street lamps in the Parking Lot, the SAD lamp in Wellness, fluorescent panels over the meeting tables (one sputters now and then), the banker's lamp in the Executive Wing, vending machines, coolers and the break room counter.",
+        "Each room has a mood. The Lobby and Wellness Corner feel brighter, the Server Room and the Parking Lot at night feel darker, and it eases as you walk between them.",
+        "Phone fix: the Shop no longer slides under the menu buttons or runs off the right edge. One card per row on phones.",
+        "Phone fix: a stronger audio wake-up for iPhones."
+      ]
+    },
     {
       ver: "V. 1.58.1", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

@@ -1411,6 +1411,9 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #ui-layer .ctrl-section { border-radius: 8px; border: 2px solid rgba(62,119,117,0.6); background: rgba(48,55,80,0.45); }
   #ui-layer .ctrl-sec-title { font-family: 'Silkscreen', monospace; color: var(--ms-sage); font-weight: 400; }
   @media (max-width: 600px) { .title-clean .shop-list, .title-clean[data-view="achievements"] .ach-grid { grid-template-columns: 1fr 1fr; } }
+  /* Phones: one shop card per row so the text and buy buttons fit (Rami, Nov 3: cards ran off the right edge) */
+  .title-clean .shop-row, .title-clean .shop-info { min-width: 0; }
+  @media (max-width: 520px) { #ui-layer .title-clean .shop-list { grid-template-columns: 1fr !important; } #ui-layer .title-clean .shop-row { grid-template-columns: 52px minmax(0, 1fr) !important; } #ui-layer .title-clean .shop-row .shop-art { width: 52px !important; height: 52px !important; font-size: 28px !important; } }
   /* Title panels above the tiles (Nov 3): Shop, Extras, Leaderboard... open as a tile over the art, tiles stay below */
   .title-poster.sub-view { grid-template-rows: minmax(0, 1fr) auto; }
   .title-poster.sub-view .tp-panel { justify-self: center; align-self: start; margin: 6px 0 0; box-shadow: 0 0 0 2px var(--ms-teal), 8px 8px 0 rgba(0,0,0,0.45); }
@@ -1430,7 +1433,11 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   /* Nov 3 (3 AM pass): tiles stick to the bottom, panels breathe (no inner scroll), shop art + mystery tiles */
   .title-poster[data-view="main"] > .tp-band-wrap { grid-row: 3; align-self: end; }
   .title-poster.sub-view > .tp-band-wrap { grid-row: 2; align-self: end; }
-  .title-poster { min-height: 100dvh; box-sizing: border-box; }
+  /* The panel row grows with its content, so a tall Shop pushes the buttons down instead of sliding over them */
+  .title-poster.sub-view { grid-template-rows: auto 1fr !important; }
+  .title-poster { min-height: 100dvh; box-sizing: border-box; grid-template-columns: minmax(0, 1fr); }
+  .title-poster > * { min-width: 0; max-width: 100%; }
+  .tp-band .tp-links { flex-wrap: wrap; }
   #title-modal:not([data-view="main"]) .title-clean { max-height: none !important; overflow: visible !important; }
   .title-clean .lb-wrap, #title-leaderboard .lb-wrap { max-height: none; overflow-y: visible; }
   body:has(#title-modal:not(.hidden)) #controls-modal { overflow-y: auto; }
@@ -1532,7 +1539,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=137&t=" + Date.now();
+    s.src = "src/loader.js?v=138&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

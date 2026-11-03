@@ -1006,3 +1006,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - About page redesign: poster hero with the pixel portrait, live dev and playtest stats (from the devlog stats file), and link tiles to ramidaud.com, Substack, Discord and Ko-fi.
 - ChatGPT delivered the On Break portrait sheets for all three heroes (next: wire them into the pause tile).
 - V. 1.58.1: ChatGPT's On Break portraits now play on the pause screen (breathe, then the hero's signature break or a back stretch). About tagline now reads "exploring midlife."
+- V. 1.59.0: lighting pass 2 (glowing props light themselves, per-room moods, a sputtering meeting-room panel); phone Shop layout fix (no overlap, no overflow); iPhone audio wake-up. About page got Instagram, Threads, LinkedIn and Rami's live leaderboard record (#2 at 87,293).
