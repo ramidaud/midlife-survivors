@@ -230,7 +230,8 @@ def main():
         (out_dir / "index.html").write_text(page)
         print("wrote", out_dir / "index.html")
 
-        # Full post for RSS readers and Substack's importer (Nov 2: Substack only showed the teaser).
+        # Full post for RSS readers and Substack's importer (Nov 2: Substack only showed the teaser, so the full
+        # post goes in BOTH <description> and <content:encoded>; Substack's importer appears to read <description>).
         # Plain HTML: code cards become <pre>, margin notes become italic asides, images get full URLs.
         fcode = []
         def _fcode(m):
@@ -257,7 +258,7 @@ def main():
       <link>{site}/{slug}/</link>
       <guid>{site}/{slug}/</guid>
       <pubDate>{datetime.date.fromisoformat(date).strftime('%a, %d %b %Y')} 12:00:00 GMT</pubDate>
-      <description>{html.escape(desc)}</description>
+      <description><![CDATA[{full}]]></description>
       <content:encoded><![CDATA[{full}]]></content:encoded>
     </item>""")
 

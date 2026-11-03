@@ -10,7 +10,44 @@
       <link>https://ramidaud.github.io/midlife-survivors/devlog/07-around-the-desk/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/07-around-the-desk/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
-      <description>Corporate slang became furniture, the swarm learned to walk around desks, dodging got a streak meter, and real playtesters told me what was broken.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-around-the-desk.jpg" alt="Before and after: an empty beige hallway on the left, and a break room with a booted car and a Hang in There poster on the right."></p><p>A week ago my office was a hallway. A long, beige, very professional hallway, with a couple of desks and the same three plants on a loop. It looked like a place where nothing has ever happened.</p>
+<p>Now there's a car parked in the break room with a wheel boot on it. The sign says it's Dave's idea.</p>
+<h2>The office got jokes</h2>
+<p>I sent ChatGPT my list of things that are funny about office life (KPIs, "let's put that in the parking lot," motivational posters that have given up) and asked for them to become actual objects. Corporate slang, taken literally.</p>
+<p><img alt="A grid of six spots around the office: a Touch Base on the floor, the Circle Back roundabout, a pot boiling the ocean, a kiddie pool for deep dives, goalposts on casters and a STOP sign." src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-slang-props.jpg" /></p>
+<p>There's a traffic roundabout in the hallway that says CIRCLE BACK. A gauge on the wall stuck on MEH. A kiddie pool with a diving board for deep dives. A pot on a hot plate that is, yes, boiling a tiny ocean. And a framed sign that says KPIs, with a sticky note underneath: "What the hell is a KPI again?" <em>(The full joke pops up at the bottom of the screen the first time you walk past each one. Once per run, so you aren't reading the same memo every lap.)</em></p>
+<h2>Then the enemies got smarter</h2>
+<p>All that furniture created a problem I didn't see coming. My enemies only knew one move: walk straight at you. Put a desk in the way and they'd walk into it and just... stay there. Like a Roomba that has accepted its fate.</p>
+<p><img alt="Twelve donuts stuck in a clump on the far side of a desk while the player stands safely below it." src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-stuck-behind-desk.jpg" /></p>
+<p>I could stand behind a cubicle and the entire swarm would politely wait on the other side. That's not a game. That's a waiting room.</p>
+<p>The fix is something called a <strong>flow field</strong>, and it's one of my favorite things I've learned so far. Instead of every enemy figuring out its own route, the game figures it out once, from where <em>you</em> are standing, and writes "steps to reach you" on every square of the floor. Each enemy just walks toward a smaller number.</p>
+<pre><code>// Flood outward from the player, one step at a time.
+// Every open floor cell gets a number: how many steps to reach you.
+while (n &gt; 0) {
+  const i = pop(), d = dist[i];
+  for (const [dx, dy, cost] of NEIGHBORS) {
+    const j = neighborOf(i, dx, dy);
+    if (blocked[j]) continue;          // desks, cars, the kiddie pool
+    if (d + cost &lt; dist[j]) { dist[j] = d + cost; push(j, d + cost); }
+  }
+}
+</code></pre>
+<p>One flood, a few times a second, and three hundred enemies all know how to get around the desk. In my test, a group of donuts behind a desk reached me zero times with the old code. With the flow field, they were on me in two seconds. <em>(It also means enemies can't spawn inside furniture anymore, which was happening. Bills were being born inside filing cabinets. Honestly, relatable.)</em></p>
+<p><img alt="The same donuts, now routed around the desk and surrounding the player." src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-around-the-desk-nav.jpg" /></p>
+<h2>Close Calls</h2>
+<p>Once the enemies were smart, I wanted dodging them to feel good. Grok designed a whole system for it (seriously, its spec was 500 lines), and I built it: when something heading right at you misses by a hair, you get a <strong>Close Call</strong>. A little XP, a quick burst of speed, and a streak meter that climbs from CLOSE CALL to SIDE-STEP to OUT OF OFFICE to PERFORMANCE EXCEEDED.</p>
+<p><img alt="A line of calendar invites skimming past the player, with &quot;CLOSE CALL ×5&quot; on the meter and a popup above the hero." src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-close-call.jpg" /></p>
+<p>The popups are my favorite part: "Not today, autopay." "Left it on read." "HR saw nothing."</p>
+<p>And there was a lesson in building it. The design measured "close" using the player's size, 32 pixels. But the box the game actually uses to decide if you got hit is bigger, 48 by 52. So every "near miss" was secretly a hit. The test caught it on the first try. What you see isn't always what collides.</p>
+<h2>Real people played it</h2>
+<p>This is the part that got me. People actually played this week and told me what was wrong.</p>
+<p>Ben said the game moves so fast he couldn't read the messages at the bottom of the screen. He was right. Now the important stuff (a boss showing up, the Comfort Zone Tax, power-ups) flashes in big letters right above your character.</p>
+<p><img alt="COMFORT ZONE TAX · MORE ENEMIES · 20s flashing just above the player." src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-flash-banner.jpg" /></p>
+<p>T.J. said Dad Joke was useless, because you basically had to let enemies hug you for it to work. Also right. Now everything inside the groan circle stops to cringe and staggers backward. It buys you room instead of costing you health. Which, as any dad will tell you, is what a good joke is supposed to do.</p>
+<p>I also started counting (anonymously) how long runs last and how far people get, so I can balance with real numbers instead of my own thumbs. So far, more than a dozen people have put their names on the leaderboard, and plenty more have played without one. <em>(No names, no tracking cookies. Just run length, age reached and what got you. There's a note on the About page if you want the details.)</em></p>
+<h2>Next up</h2>
+<p>ChatGPT is building the first piece of the new office: a real Lobby and Bullpen, with doors that unlock as you get older, like promotions. The Executive Wing opens at 55. Of course it does.</p>
+<p>If you played this week, thank you. If you haven't, go see if you can make it to OUT OF OFFICE. And come tell me about it in the <a href="https://discord.gg/E6N9j5tZe">Discord</a>.</p><h3>What changed</h3><ul><li>Office props: corporate slang taken literally, with jokes on approach</li><li>Enemies walk around furniture (flow field)</li><li>Close Calls: rewards and a streak meter for near misses</li><li>Playtest fixes: center flash banners, a stronger Dad Joke</li><li>Anonymous play stats</li></ul><p><strong>Next up:</strong> The new Lobby and Bullpen, with doors that unlock as you age.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.29 to 1.30.2)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/07-around-the-desk.jpg" alt="Before and after: an empty beige hallway on the left, and a break room with a booted car and a Hang in There poster on the right."></p><p>A week ago my office was a hallway. A long, beige, very professional hallway, with a couple of desks and the same three plants on a loop. It looked like a place where nothing has ever happened.</p>
 <p>Now there's a car parked in the break room with a wheel boot on it. The sign says it's Dave's idea.</p>
 <h2>The office got jokes</h2>
@@ -55,7 +92,10 @@ while (n &gt; 0) {
       <link>https://ramidaud.github.io/midlife-survivors/devlog/06-the-office-got-bigger/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/06-the-office-got-bigger/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
-      <description>The art preview grows an atrium, side wings and a records annex with a lost binder. The map fills in as you walk.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-long-way-cover-v1.jpg" alt="Pixel-art cover illustration: the 9-to-5er takes the long way to coffee through the office, with Bills, a spam phone and a donut trailing him."></p><p>The office was starting to look like an office, but it still felt like a little room. I wanted somewhere I could wander.</p>
+<p>The art preview now has an atrium, longer paths, and side wings. The map fills in as you walk. There is a records annex with a lost binder, which feels like the right thing to find in a place like this.</p>
+<p>The floor got some attention too: brighter carpet, worn chair mats, coffee rings, and a printer paper trail. Enough history to feel used, with room left to see whatever is chasing me.</p>
+<p>This is still the separate art preview. Next we need to see what happens when a crowd tries to get around those desks.</p><h3>What changed</h3><ul><li>Atrium, longer paths and side wings in the Campus preview</li><li>Map reveals as you explore</li><li>Brighter carpet, chair mats, coffee rings and a printer paper trail</li></ul><p><strong>Next up:</strong> See what happens when a crowd tries to get around those desks.</p><p><a href="https://ramidaud.github.io/midlife-survivors/devlog/art/">Play Midlife Survivors free in your browser</a> (V. 1.27.1)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-long-way-cover-v1.jpg" alt="Pixel-art cover illustration: the 9-to-5er takes the long way to coffee through the office, with Bills, a spam phone and a donut trailing him."></p><p>The office was starting to look like an office, but it still felt like a little room. I wanted somewhere I could wander.</p>
 <p>The art preview now has an atrium, longer paths, and side wings. The map fills in as you walk. There is a records annex with a lost binder, which feels like the right thing to find in a place like this.</p>
 <p>The floor got some attention too: brighter carpet, worn chair mats, coffee rings, and a printer paper trail. Enough history to feel used, with room left to see whatever is chasing me.</p>
@@ -66,7 +106,37 @@ while (n &gt; 0) {
       <link>https://ramidaud.github.io/midlife-survivors/devlog/05-buy-the-dev-a-coffee/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/05-buy-the-dev-a-coffee/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
-      <description>Asking for money feels weird, so here is exactly where it goes: more AI time to finish this game. Also, I am looking for people who want to help build it.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/05-buy-the-dev-a-coffee.jpg" alt="The Midlife Survivors main menu, with a cream Buy the Dev a Coffee button next to Devlog."></p><p>There's a new button on the main menu. It's cream colored, it sits right next to Devlog, and it says <strong>BUY THE DEV A COFFEE</strong>.</p>
+<p>I went back and forth on that button for a while, because asking for money feels weird. I've been a photographer for twenty-some years. I know how to send an invoice for work somebody hired me to do. Putting out a tip jar for a game nobody asked for uses a totally different muscle, and mine is out of shape.</p>
+<p>So I want to be upfront about where the money goes.</p>
+<h2>The coffee is mostly AI</h2>
+<p>This game is being built by one photographer and a handful of AI tools. Claude writes most of the code. ChatGPT draws the art. Gemini and Grok review the design and push back on it. I bring the vision, the jokes and the "no, that doesn't feel right yet."</p>
+<p>Those tools aren't free, and they aren't unlimited. Right now I'm at my weekly limit with Claude. I burned through a whole month of Gemini in one day. <em>(Some of that is my own fault. Every session ends with updated docs, a progress log, a textbook chapter and a devlog post. That paperwork eats usage. It's also the whole point: I want people to see how this thing actually gets made, mistakes included.)</em></p>
+<p>So any early tips go to <strong>more AI time to get this game finished.</strong> Higher plans, more sessions, more art passes. If there's ever more than that, I'll tell you here first. <em>(It goes through Ko-fi, which keeps 0% of one-time tips. PayPal or Stripe still take a small processing cut.)</em></p>
+<h2>Why now</h2>
+<p>Four days ago, my wife and I had twins.</p>
+<p><img alt="Pixel-art version of a photo of newborn twins side by side in striped hospital hats, one awake and looking over, one asleep." src="https://ramidaud.github.io/midlife-survivors/devlog/img/05-twins-pixel-v2.png" /></p>
+<p>I'm not going to pretend that doesn't matter. Two new humans is real financial pressure, and like everybody, I wish I made a little more. But that's not what this button is for. Holding a newborn at 3 a.m. just made it clear to me that I want to finish the things I start, and to let my kids see me make things I care about. <em>(In this house the 3 AM Thought is basically a documentary now.)</em></p>
+<p>So I'm throwing my net out. Not for a payday. For people.</p>
+<h2>Looking for my crew</h2>
+<p>What I'd really love is to find a small group of people who want to see this game get made, and maybe help make it.</p>
+<ul>
+<li><strong>Play it and tell me what's wrong.</strong> Too easy, too hard, not funny, funny in the wrong place. Playtest notes are gold.</li>
+<li><strong>Bring a skill.</strong> Pixel art, sound, music, game design, code, writing jokes about the DMV. If any of that is you, I'd love to talk.</li>
+<li><strong>Share it</strong> with a friend who just turned 40. They'll get it.</li>
+<li><strong>Buy a coffee</strong> if you want to and can. It keeps the AI running.</li>
+<li><strong>Join the <a href="https://discord.gg/E6N9j5tZe">Discord</a>.</strong> That's where playtests, art previews and the crew live.</li>
+</ul>
+<p>The button itself is about the smallest piece of code in the whole game:</p>
+<pre><code>// Ko-fi tip jar: opens in a new tab so your run stays put
+bindNavItem(coffeeBtn, 10, () =&gt; {
+  window.open("https://ko-fi.com/ramidaud", "_blank", "noopener");
+});
+</code></pre>
+<p>That <code>"_blank"</code> means it opens in a new tab. I asked for that on purpose. If you're nice enough to buy me a coffee, the least I can do is not lose your game.</p>
+<h2>No coffee required</h2>
+<p>Everybody's budget is spoken for, mine included. Playing, sharing, or telling me the Donut is too strong helps this project just as much. If you want to get involved, come say hi in the <a href="https://discord.gg/E6N9j5tZe">Midlife Survivors Discord</a>. There's a #want-to-help channel waiting for you.</p>
+<p>Now go survive a few years. I'll be over here, running on very little sleep and whatever AI time I have left this week.</p><h3>What changed</h3><ul><li>Buy the Dev a Coffee on the main menu and Game Over screen</li><li>Ko-fi links in the devlog header, footer and About page</li><li>Early tips go to AI usage to finish the game</li></ul><p><strong>Next up:</strong> Reviewing the first batch of real enemy art from ChatGPT.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.28.7)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/05-buy-the-dev-a-coffee.jpg" alt="The Midlife Survivors main menu, with a cream Buy the Dev a Coffee button next to Devlog."></p><p>There's a new button on the main menu. It's cream colored, it sits right next to Devlog, and it says <strong>BUY THE DEV A COFFEE</strong>.</p>
 <p>I went back and forth on that button for a while, because asking for money feels weird. I've been a photographer for twenty-some years. I know how to send an invoice for work somebody hired me to do. Putting out a tip jar for a game nobody asked for uses a totally different muscle, and mine is out of shape.</p>
 <p>So I want to be upfront about where the money goes.</p>
@@ -104,7 +174,31 @@ bindNavItem(coffeeBtn, 10, () =&gt; {
       <link>https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
-      <description>Four minutes in, I could put the controller down. A test bot, a Grok review and a Comfort Zone Tax fixed that.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-midlife-is-hard.jpg" alt="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in."></p><p>Here's an embarrassing thing to admit about your own game: four minutes in, I could put the controller down.</p>
+<p>My weapons were doing so much damage that I could stand in one spot and let midlife come to me. Bills, robocalls, donuts, all of it melting before it got close. Nineteen minutes felt like the right length for a run. The run itself just wasn't a fight.</p>
+<p>That's backwards. In Vampire Survivors you die a lot early on, buy a few upgrades, and come back a little stronger. A first-time player should not get anywhere near the end.</p>
+<h2>So Claude hired a robot</h2>
+<p>I didn't know how to measure "too easy," so Claude built a little bot that plays the game. <em>(It's not a smart bot. A real person lasts about three to four times longer than it does, so its numbers are a floor, not a forecast.)</em> It dodges enemies, walks toward gems and picks perks at random. Then it ran three bots at the same time on a fast-forwarded clock: a brand-new player, a half-upgraded one and a fully upgraded one.</p>
+<p>The numbers were rough. A fully upgraded bot standing completely still lasted 13 minutes. One run banked over 5 million coins, which buys the entire shop in one go. My weapons were killing enemies faster than the game could spawn them.</p>
+<h2>The fix: the game grows with you</h2>
+<p>Now enemies get tougher and more numerous every time you level up. Bosses scale with your level and your age. Hits hurt more after 48. Coins come in slowly, so the 401(k) Shop is something you work toward over a lot of runs.</p>
+<p>Leveling up keeps you even. Permanent upgrades are how you get ahead. Here's what that looks like in the actual file. Every one of these numbers is a dial I can turn:</p>
+<pre><code>hpPerLevel: 0.10,     // enemies get 10% tougher for every level YOU gain
+packPerLevel: 0.35,   // ...and show up in bigger groups
+bossHpPerYear: 0.10,  // bosses get 10% tougher for every year past 40
+hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 55 and 62
+</code></pre>
+<h2>Then I got a second opinion</h2>
+<p>I asked Grok to review the difficulty too. <em>(Grok's notes came back as a document I handed straight to Claude. Two AIs passing notes through me, like a group project where I'm the only one who shows up to meetings.)</em> It came back with a full handoff document: bugs (one perk claimed to boost "all weapons" and quietly skipped three of them), tuning numbers, and some new ideas. Claude worked through it in order.</p>
+<p>Two of those ideas made it in. <strong>Tax Bracket</strong> is an optional difficulty you can crank from "Standard Deduction" up to "Full Audit" for bigger rewards. And my favorite, the <strong>Comfort Zone Tax</strong>: go 45 seconds without getting hit and the game sends extra enemies for 20 seconds.</p>
+<pre><code>dynamic: {
+  armAfterMs: 90000,        // off for the first 90 seconds of a run
+  noHitBonusAfterMs: 45000, // go 45 s without getting hit...
+  bonusPackAdd: 2,          // ...and every group gets 2 extra enemies
+  bonusDurationMs: 20000,   // for 20 seconds. That's the Comfort Zone Tax.
+}
+</code></pre>
+<p>I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.</p><h3>What changed</h3><ul><li>Enemies and bosses scale with your level</li><li>Coins come in slowly; the 401(k) Shop is the long game</li><li>Tax Bracket: optional difficulty with bigger rewards</li><li>Comfort Zone Tax: 45 seconds without a hit brings more enemies</li></ul><p><strong>Next up:</strong> Near-miss rewards for dodging, then the art pass.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.24 to 1.27)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-midlife-is-hard.jpg" alt="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in."></p><p>Here's an embarrassing thing to admit about your own game: four minutes in, I could put the controller down.</p>
 <p>My weapons were doing so much damage that I could stand in one spot and let midlife come to me. Bills, robocalls, donuts, all of it melting before it got close. Nineteen minutes felt like the right length for a run. The run itself just wasn't a fight.</p>
 <p>That's backwards. In Vampire Survivors you die a lot early on, buy a few upgrades, and come back a little stronger. A first-time player should not get anywhere near the end.</p>
@@ -136,7 +230,17 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
       <link>https://ramidaud.github.io/midlife-survivors/devlog/03-office-with-some-history/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/03-office-with-some-history/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
-      <description>Accounts Payable gets desks with personality, a jammed printer, and a plant that needs PTO.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/03-office-with-some-history.jpg" alt="The first detailed office section in the separate Campus preview."></p><p>The characters can walk now, so I wanted the office around them to feel more like a place.</p>
+<p>The first environment pass is Accounts Payable. It has the three desk personalities, a printer with a paper jam, an overstuffed filing cabinet and a plant that could use a day off. <em>(It's no coincidence that PTO Day is also a pickup in the game. It clears the whole screen. The plant would like one too.)</em> The floors have carpet and wood patterns now, with warmer lighting and a few scattered signs of office life.</p>
+<p>One thing I'm learning: background detail has to stay quieter than the action. <em>(Photographers know this one. If the background is as busy as the subject, nobody knows where to look. Same rule in a game, except the subject is being chased by donuts.)</em> The floor can have texture without competing with the person trying to survive on it. The furniture also needs to block the right amount of floor space so walking around it feels believable.</p>
+<p>Even the jokes live in a data file. Each department gets a landmark and a line you see when you walk in:</p>
+<pre><code>{ id: 'accounts', name: 'ACCOUNTS PAYABLE',
+  landmark: 'The paperwork skyline',
+  joke: 'Every pile has been marked urgent since 2009.',
+  // three desk personalities, placed on the 32-pixel grid
+  desks: [[-928, -544, 'tidy'], [-768, -544, 'paperwork'], [-608, -544, 'lunch']] }
+</code></pre>
+<p>This is still the separate art test. Next is deciding how much detail feels right before extending the look to the other departments and environments.</p><h3>What changed</h3><ul><li>Three desk personalities in the Campus art test</li><li>Carpet and wood floor patterns, warmer lighting</li><li>Printer jam, filing cabinet, breakroom plant props</li></ul><p><strong>Next up:</strong> Decide how much detail survives before the other departments get the same look.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.24.1)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/03-office-with-some-history.jpg" alt="The first detailed office section in the separate Campus preview."></p><p>The characters can walk now, so I wanted the office around them to feel more like a place.</p>
 <p>The first environment pass is Accounts Payable. It has the three desk personalities, a printer with a paper jam, an overstuffed filing cabinet and a plant that could use a day off. <em>(It's no coincidence that PTO Day is also a pickup in the game. It clears the whole screen. The plant would like one too.)</em> The floors have carpet and wood patterns now, with warmer lighting and a few scattered signs of office life.</p>
 <p>One thing I'm learning: background detail has to stay quieter than the action. <em>(Photographers know this one. If the background is as busy as the subject, nobody knows where to look. Same rule in a game, except the subject is being chased by donuts.)</em> The floor can have texture without competing with the person trying to survive on it. The furniture also needs to block the right amount of floor space so walking around it feels believable.</p>
@@ -154,7 +258,17 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
       <link>https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/</guid>
       <pubDate>Sat, 31 Oct 2026 12:00:00 GMT</pubDate>
-      <description>Walking sheets for the 9-to-5er, Soccer Dad, and Grad Student. Four directions, feet that stop when you do.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."></p><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets <em>(A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.)</em> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
+<p>They each have four directions and four walking poses per direction. You can switch between them in the separate art test and walk around the same desks. There's also a side-by-side preview so I can compare their movement before replacing the main game's art.</p>
+<p>One useful detail: the walking animation follows distance traveled. <em>(Most games loop the walk on a timer, so a character pushing into a wall moonwalks in place. Counting steps by distance fixes that.)</em> If you push into a desk and stop moving, your feet stop too. Small thing, but it helps the character feel connected to the room. This is the whole trick:</p>
+<pre><code>// Each frame, add up how far the character actually moved.
+walked += distanceWalked;
+
+// Pick the walking pose from distance, not time: a new step every 17 pixels.
+// Pushing into a desk means no distance, so the feet stop too.
+currentFrame = CharacterArt.frame(facing, moving ? Math.floor(walked / 17) : 1);
+</code></pre>
+<p>These are the first walking sheets. The costumes and rhythm still need a look, then we can add idle and combat reactions.</p><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul><p><strong>Next up:</strong> Judge the costumes and rhythm, then idle and combat poses.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.23.4)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."></p><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets <em>(A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.)</em> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
 <p>They each have four directions and four walking poses per direction. You can switch between them in the separate art test and walk around the same desks. There's also a side-by-side preview so I can compare their movement before replacing the main game's art.</p>
 <p>One useful detail: the walking animation follows distance traveled. <em>(Most games loop the walk on a timer, so a character pushing into a wall moonwalks in place. Counting steps by distance fixes that.)</em> If you push into a desk and stop moving, your feet stop too. Small thing, but it helps the character feel connected to the room. This is the whole trick:</p>
@@ -172,7 +286,46 @@ currentFrame = CharacterArt.frame(facing, moving ? Math.floor(walked / 17) : 1);
       <link>https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/</guid>
       <pubDate>Fri, 30 Oct 2026 12:00:00 GMT</pubDate>
-      <description>A photographer, Vampire Survivors, and the moment midlife became a bullet hell.</description>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/01-never-made-a-game.jpg" alt="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square."></p><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
+<p>But I've played a lot of Vampire Survivors. If you haven't: you walk around, your weapons fire on their own, and an absurd number of monsters try to touch you. That's it. It's the most relaxing stressful thing I own. <em>(Vampire Survivors came out in 2022 from a tiny studio called poncle, and it started life as a browser game. That's part of why mine runs in a browser too.)</em></p>
+<p>Somewhere around my forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.</p>
+<p>So that's the game. <strong>Midlife Survivors.</strong> You start at 40. You survive.</p>
+<h2>The vision part (that's my job)</h2>
+<p>Before any code, I wrote down my Top 10 midlife annoyances. Bills. Phone calls. Diabetes. Fat. Work drama. Sleep. Aches and pains. Kids' math homework. Errands. Death.</p>
+<p>That list turned into the enemies. A Bill chases you, and if you don't pay it off fast it splits into Late Fees. "Spam Likely" rings before it charges. Donuts slow you down if you touch them. Death shows up at the end and can't be beaten, because, well. <em>(He got a promotion since this was written. In the main game, the ending at 65 is your Retirement Party. Death still waits at 100 in Full Life mode.)</em></p>
+<h2>The AI part (that's Claude's job)</h2>
+<p>I'm building this with Claude as my co-developer. I describe what I want to see and feel, and it writes the code and explains what it did in plain English. It's like working with a patient engineer who never gets tired of "wait, what's a game loop?" <em>(A game loop is the bit of code that runs about 60 times a second: move everything, check what's touching, redraw the screen. Every single thing in the game happens inside it.)</em></p>
+<p>The first thing we built was a square. You could move it with the arrow keys or by dragging on your phone. That's the whole game at that point: a square on an endless carpet.</p>
+<p>Here's the code that moved it, from the very first build. The lines in green are Claude explaining itself, which is how I learned to read code at all.</p>
+<pre><code>// Read the keys: left/right and up/down each add or subtract 1.
+let x = 0, y = 0;
+if (cursors.left.isDown || keys.A.isDown) x -= 1;
+if (cursors.right.isDown || keys.D.isDown) x += 1;
+if (cursors.up.isDown || keys.W.isDown) y -= 1;
+if (cursors.down.isDown || keys.S.isDown) y += 1;
+
+// Normalize so moving diagonally isn't faster than moving straight.
+const len = Math.hypot(x, y);
+if (len &gt; 0) { x /= len; y /= len; }
+
+player.setVelocity(x * moveSpd, y * moveSpd);
+</code></pre>
+<p>That "normalize" bit was my first real lesson: without it, holding up and right at the same time makes you about 40% faster. Every game has to fix that.</p>
+<p>Then a green dollar sign showed up and started chasing it. I laughed way harder than I should have.</p>
+<!-- SCREENSHOT: first build, the square and the first Bill -->
+
+<h2>The learning part (that's the point)</h2>
+<p>Every session ends with one new idea I actually understand. One of the first: the numbers don't live in the code. They live in small data files I can edit myself.</p>
+<pre><code>window.PLAYER = {
+  startingAge: 40,
+  speed: 220,        // pixels per second. Try 120 (tired) or 400 (too much coffee)
+  maxHp: 10,         // your health. Each Bill touch costs 1
+  hurtCooldownMs: 700, // after a hit, you're safe for this long
+};
+</code></pre>
+<p>Another: a game redraws the screen about 60 times a second, and everything you see happens inside that loop. Move the player, move the enemies, check if they're touching, draw it all again. Sixty times. Every second.</p>
+<p>That one blew my mind a little.</p>
+<p>Next up: a coffee splash that fires on its own, and the first time I got hit by a Bill and died.</p><h3>What changed</h3><ul><li>First playable square with touch and keyboard movement</li><li>First Bill (green $) chase</li><li>Top 10 midlife annoyances became the enemy roster</li></ul><p><strong>Next up:</strong> Coffee Splash that fires on its own, and the first real Game Over.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 0.1 to 1.8)</p>]]></description>
       <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/01-never-made-a-game.jpg" alt="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square."></p><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
 <p>But I've played a lot of Vampire Survivors. If you haven't: you walk around, your weapons fire on their own, and an absurd number of monsters try to touch you. That's it. It's the most relaxing stressful thing I own. <em>(Vampire Survivors came out in 2022 from a tiny studio called poncle, and it started life as a browser game. That's part of why mine runs in a browser too.)</em></p>
 <p>Somewhere around my forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.</p>
