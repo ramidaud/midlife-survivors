@@ -485,3 +485,12 @@ A good swarm mixes **fodder** (enemies that die in one hit, so mowing them down 
 
 ## Lighting with a "cut-out" layer (Nov 3)
 Game lighting is mostly a trick. We lay one sheet of dark navy over the whole office, then **erase soft holes** in it wherever light comes from: lamps, windows, vending machines, server racks, screens and the hero. Colored **glows** on top, blended to "add" light, give lamps their warm yellow and screens their cool blue. The sheet gets a little darker every year you age, so a run starts bright and ends after hours. One gotcha: the dark sheet has to be drawn **on top of everything in the world** (we sort props by height, so desks sit at depths around 12,000), but under the numbers and flashes you need to read.
+
+## State machine (Nov 3, the Lounge)
+The Lounge is always in exactly one state: CLOSED, OPEN or BROWSING. Each frame the game checks a few rules to decide whether to move to another state (a promotion opens it, walking up starts browsing, the timer or a boss closes it). Writing it this way keeps the rules simple and stops weird combinations, like shopping while the counter is closed.
+
+```
+CLOSED --promotion + Break Room open--> OPEN --you walk up, no crowd--> BROWSING
+  ^                                      |                                 |
+  +-----timer ends / boss / tax----------+<-----------BACK TO WORK---------+
+```
