@@ -4,6 +4,19 @@
 // Optional fields: cover, teaser, changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "09-my-friends-work-here-now",
+    "date": "2026-11-03",
+    "title": "My friends work here now.",
+    "version": "V. 1.48 to 1.67",
+    "draft": true,
+    "cover": "img/09-cowboy-spotlight.jpg",
+    "leadAlt": "A Spotlight card in the game: the Cold War Cowboy in his tan hat rises from the bottom of the screen and says, \"Back in my day, a gig was a gig. Now hand me that disk.\"",
+    "teaser": "TJ found a bug, Derek and TJ became interns with their own Lounge, Ben became the Cold War Cowboy, and the game and the devlog finally feel like one thing.",
+    "changes": ["Fixed the second-run force field TJ found", "Birthday cake, the Desk Salad and interns who bring you coffee", "The Lounge: a counter shop in the Break Room after every promotion", "New hero: the Cold War Cowboy (read 10 memos)", "Spotlight cards for bosses, rooms and new hires", "Lighting, age 50+ surprises and a retirement party"],
+    "nextUp": "Derek's own intern lines, Ben's jokes, and more playtesting with the crew.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "08-promoted-four-times",
     "date": "2026-11-02",
     "title": "I got promoted four times before lunch.",
