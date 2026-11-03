@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.63.1",
-  displayVersion: "V. 1.63.1",
+  version: "1.64.0",
+  displayVersion: "V. 1.64.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "The Lounge",
-  build: 147,
+  codename: "Happy Retirement",
+  build: 148,
   changelog: [
+    {
+      ver: "V. 1.64.0", date: "Nov 3, 2026", title: "Happy Retirement",
+      teaser: "Make it to 65 and the office throws you a retirement party: streamers, cake, confetti and a gold watch.",
+      highlights: [
+        "Retiring at 65 now gets a real party on the win screen: a HAPPY RETIREMENT banner, streamers, falling confetti, a sheet cake and a swinging gold watch. Art by ChatGPT.",
+        "What's new is now a proper pop-up (corner card on big screens, a pill on phones) instead of loose text under the title. Tap the version chip to see it again.",
+        "Fixed: the pause menu said Start Fresh at age 50 in Midlife. It always restarts at 40, and now says so."
+      ]
+    },
     {
       ver: "V. 1.63.1", date: "Nov 3, 2026", title: "The Lounge",
       teaser: "The Lounge is open! After each promotion, an intern runs the Break Room counter. Walk up to shop for snacks and boosts.",

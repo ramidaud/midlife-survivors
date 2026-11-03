@@ -1158,18 +1158,27 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     text-shadow: 4px 4px 0 var(--ms-navy), -2px -2px 0 var(--ms-navy), 0 0 34px rgba(239,147,71,0.35) !important; }
   .tp-logo span:last-child { color: var(--ms-cream); }
   .tp-brand .game-tagline { font-size: clamp(14px, 1.5vw, 19px); color: var(--ms-white); text-shadow: 2px 2px 0 var(--ms-navy); margin: 0 0 4px; }
+  /* Retirement party on the win screen (Nov 3, ChatGPT's art) */
+  .rt-party { position: relative; margin: -4px -4px 6px; overflow: hidden; display: grid; justify-items: center; gap: 6px; padding-bottom: 4px; }
+  .rt-streamer { width: 100%; height: 24px; background-repeat: repeat-x; background-size: 128px 24px; image-rendering: pixelated; animation: rtSway 2.4s ease-in-out infinite alternate; }
+  .rt-row { display: flex; align-items: flex-end; justify-content: center; gap: clamp(6px, 2vw, 16px); max-width: 100%; }
+  .rt-title { width: min(420px, 56vw); min-width: 0; flex: 0 1 auto; height: auto; image-rendering: pixelated; animation: rtPop .6s cubic-bezier(.2,1.5,.4,1) both; }
+  .rt-cake { width: clamp(64px, 9vw, 96px); height: auto; image-rendering: pixelated; animation: rtPop .6s .15s cubic-bezier(.2,1.5,.4,1) both; }
+  .rt-watch { width: clamp(40px, 6vw, 64px); height: auto; image-rendering: pixelated; animation: rtPop .6s .3s cubic-bezier(.2,1.5,.4,1) both, rtSwing 1.8s 1s ease-in-out infinite alternate; transform-origin: 50% 0; }
+  .rt-confetti { position: absolute; inset: 0; pointer-events: none; }
+  .rt-confetti i { position: absolute; top: -10px; left: var(--x); width: 6px; height: 10px; background: var(--c); animation: rtFall 3.2s var(--d) linear infinite; }
+  .rt-gifts { margin: 0 0 8px; text-align: center; font: 600 14px/1.4 "Atkinson Hyperlegible", sans-serif; color: var(--ms-cream, #F2D7A1); }
+  @keyframes rtPop { from { opacity: 0; transform: translateY(14px) scale(.7); } to { opacity: 1; transform: none; } }
+  @keyframes rtSway { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
+  @keyframes rtSwing { from { transform: rotate(-8deg); } to { transform: rotate(8deg); } }
+  @keyframes rtFall { 0% { transform: translateY(0) rotate(0); opacity: 1; } 100% { transform: translateY(160px) rotate(540deg); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .rt-streamer, .rt-title, .rt-cake, .rt-watch, .rt-confetti i { animation: none; } .rt-confetti { display: none; } }
   /* Version line + what's new bubble under the title (Nov 3) */
   .tp-ver { display: flex; flex-direction: column; align-items: center; margin-inline: auto !important; gap: 6px; margin: 2px 0 6px; max-width: min(460px, 100%); position: relative; z-index: 3; }
   #ui-layer .tp-ver-btn { font-family: Silkscreen, monospace; font-size: clamp(11px, 1.1vw, 13px); letter-spacing: .04em; color: var(--ms-cream); background: rgba(23,28,53,0.88); border: 2px solid var(--ms-teal); border-radius: 4px; padding: 6px 10px; min-height: 36px; cursor: pointer; text-shadow: none; }
   #ui-layer .tp-ver-btn b { color: var(--ms-orange, #EF9347); font-weight: 700; }
   #ui-layer .tp-ver-btn .tp-ver-new { color: var(--ms-sage, #83A89A); margin-left: 4px; }
   #ui-layer .tp-ver-btn:hover, #ui-layer .tp-ver-btn.nav-focused { border-color: var(--ms-cream); }
-  .tp-new { position: relative; display: flex; gap: 8px; align-items: flex-start; text-align: left; background: var(--ms-cream); color: var(--ms-navy); border: 2px solid var(--ms-navy); border-radius: 6px; padding: 8px 34px 8px 10px; box-shadow: 4px 4px 0 rgba(23,28,53,.6); font: 600 13px/1.35 "Atkinson Hyperlegible", sans-serif; animation: tpNewIn .35s cubic-bezier(.2,1.4,.4,1) both; }
-  .tp-new::before { content: ""; position: absolute; top: -9px; left: 24px; border: 8px solid transparent; border-top: 0; border-bottom-color: var(--ms-navy); }
-  .tp-new-k { flex: none; font: 11px Silkscreen, monospace; background: var(--ms-teal); color: var(--ms-cream); padding: 2px 6px; border-radius: 3px; margin-top: 1px; }
-  #ui-layer .tp-new-x { position: absolute; top: 2px; right: 2px; width: 30px; height: 30px; border: 0; background: transparent; color: var(--ms-navy); font: 700 18px/1 sans-serif; cursor: pointer; }
-  @keyframes tpNewIn { from { opacity: 0; transform: translateY(-6px) scale(.96); } to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .tp-new { animation: none; } }
   .tp-brand .title-meta-line { font-size: 13px; color: var(--ms-cream); text-shadow: 1px 1px 0 var(--ms-navy); }
   /* Punch In: right next to the time clock in the art */
   .tp-punch { align-self: center; justify-self: start; margin-left: clamp(150px, 19vw, 400px); width: min(330px, 86vw);
@@ -1553,7 +1562,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=147&t=" + Date.now();
+    s.src = "src/loader.js?v=148&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

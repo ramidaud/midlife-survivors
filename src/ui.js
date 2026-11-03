@@ -688,9 +688,39 @@ function titleVersionHtml(verInfo) {
   const open = titleNewVisible() && teaser;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   return `<div class="tp-ver">
-      <button type="button" class="tp-ver-btn" id="title-ver-btn" aria-expanded="${open ? "true" : "false"}" aria-controls="title-new">You're playing <b>${esc(verInfo.displayVersion || V.displayVersion || "")}</b> <span class="tp-ver-new">${open ? "▲" : "WHAT'S NEW ▼"}</span></button>
-      ${open ? `<div class="tp-new" id="title-new" role="status"><span class="tp-new-k">NEW</span><span class="tp-new-t">${esc(teaser)}</span><button type="button" class="tp-new-x" id="title-new-x" aria-label="Close what's new">×</button></div>` : ""}
+      <button type="button" class="tp-ver-btn" id="title-ver-btn" aria-expanded="${open ? "true" : "false"}" aria-controls="tp-new-pop">You're playing <b>${esc(verInfo.displayVersion || V.displayVersion || "")}</b> <span class="tp-ver-new">✨ WHAT'S NEW</span></button>
     </div>`;
+}
+
+// "What's new" pop-up (Nov 3, Rami): same family as the poll pop-up. Corner card on wide screens,
+// a pill that opens into a bottom sheet on phones. Shows once per version; the version chip reopens it.
+// Its few extra styles are injected here so they arrive with the code even if the page's CSS is cached.
+function titleNewPop() {
+  const V = window.GAME_VERSION || {}, latest = (V.changelog || [])[0] || {};
+  const teaser = latest.teaser || (latest.highlights || [])[0] || "";
+  if (!teaser || !titleNewVisible()) return "";
+  if (!document.getElementById("tp-new-css")) {
+    const css = document.createElement("style"); css.id = "tp-new-css";
+    css.textContent = `
+      .tp-new-pop { border-color: var(--ms-teal, #3E7775) !important; }
+      .tp-new-pop .tp-new-head { font: 11px Silkscreen, monospace; letter-spacing: .06em; color: #171C35; background: #F2D7A1; display: inline-block; padding: 3px 8px; border-radius: 3px; margin: 0 26px 8px 0; }
+      .tp-new-pop .tp-new-body { font: 600 14px/1.4 "Atkinson Hyperlegible", system-ui, sans-serif; color: #FFF0CF; margin: 0 0 10px; }
+      .tp-new-pop .tp-new-all { font: 12px Silkscreen, monospace; background: transparent; color: #83A89A; border: 2px solid #3E7775; border-radius: 4px; padding: 6px 10px; min-height: 36px; cursor: pointer; }
+      .tp-new-pop .tp-new-all:hover { border-color: #F2D7A1; color: #F2D7A1; }
+      @media (orientation: portrait), (max-width: 760px) { .tp-new-pop:not(.open) { background: #3E7775 !important; } .tp-new-pop:not(.open) .tp-poll-pill { color: #FFF0CF !important; } }
+      #ui-layer .tp-ver-btn { font-family: Silkscreen, monospace; font-size: 12px; letter-spacing: .04em; color: #F2D7A1; background: rgba(23,28,53,0.88); border: 2px solid #3E7775; border-radius: 4px; padding: 6px 10px; min-height: 36px; cursor: pointer; }
+      #ui-layer .tp-ver-btn b { color: #EF9347; }
+      #ui-layer .tp-ver-btn .tp-ver-new { color: #83A89A; margin-left: 4px; }`;
+    document.head.appendChild(css);
+  }
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  return `<aside class="tp-poll-pop tp-new-pop${window.titleNewOpen === true ? " open" : ""}" id="tp-new-pop" aria-label="What's new">
+    <button type="button" class="tp-poll-x" id="tp-new-x" aria-label="Close what's new">×</button>
+    <button type="button" class="tp-poll-pill">✨ New in ${esc(V.displayVersion || "")}</button>
+    <div class="tp-new-head">NEW IN ${esc(V.displayVersion || "")}</div>
+    <p class="tp-new-body">${esc(teaser)}</p>
+    <button type="button" class="tp-new-all" id="tp-new-all">SEE ALL CHANGES</button>
+  </aside>`;
 }
 
 window.showLowerThird = function(kind, badge, text, ms = 4500, short) {
@@ -1210,7 +1240,7 @@ function renderPauseModal(scene, keepRowIdx) {
       <div class="pause-actions">
         <button class="opt-btn primary-opt pa-resume" id="pause-resume-btn">▶ RESUME SHIFT</button>
         <button class="opt-btn pa-small" id="pause-savequit-btn"><span>💾 SAVE & EXIT</span><span class="opt-val">RESUME LATER</span></button>
-        <button class="opt-btn pa-small" id="pause-restart-btn"><span>🔄 START FRESH</span><span class="opt-val">AGE ${meta ? (meta.startDecade || 40) : 40}</span></button>
+        <button class="opt-btn pa-small" id="pause-restart-btn"><span>🔄 START FRESH</span><span class="opt-val">AGE ${typeof modeStartAge === "function" ? modeStartAge() : 40}</span></button>
       </div>
       <div class="pause-grid ${pauseHeroHtml() ? "with-hero" : ""}">
         ${pauseHeroHtml() ? `<section class="pause-tile pt-hero">
@@ -2165,7 +2195,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
 
   modal.dataset.view = view;
   modal.innerHTML = view === "main" ? `
-    <div class="title-poster" data-view="main">${bodyHtml}${titlePollPop()}</div>
+    <div class="title-poster" data-view="main">${bodyHtml}${titleNewPop() || titlePollPop()}</div>
   ` : `
     <div class="title-poster sub-view" data-view="${view}">
     <div class="modal-card title-box title-clean tp-panel" data-view="${view}">
@@ -2188,8 +2218,12 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Version line + "what's new" bubble (Nov 3, Rami): shows once per version, tap the line to see it again.
   const verBtn = document.getElementById("title-ver-btn");
   if (verBtn) bindNavItem(verBtn, 7, () => { window.titleNewOpen = !titleNewVisible(); if (!window.titleNewOpen) markVersionSeen(); sfx("pick"); renderTitleModal(scene, "#title-ver-btn"); });
-  const newX = document.getElementById("title-new-x");
-  if (newX) newX.addEventListener("click", e => { e.stopPropagation(); window.titleNewOpen = false; markVersionSeen(); sfx("pick"); renderTitleModal(scene); });
+  const newPop = document.getElementById("tp-new-pop");
+  if (newPop) {
+    newPop.querySelector(".tp-poll-pill").addEventListener("click", () => newPop.classList.add("open"));
+    document.getElementById("tp-new-x").addEventListener("click", e => { e.stopPropagation(); window.titleNewOpen = false; markVersionSeen(); sfx("pick"); renderTitleModal(scene); });
+    document.getElementById("tp-new-all").addEventListener("click", e => { e.stopPropagation(); window.titleNewOpen = false; markVersionSeen(); sfx("pick"); renderTitleModal(scene); openChangelogModal(scene); });
+  }
   const settingsBtn = document.getElementById("title-settings-btn");
   if (settingsBtn) bindNavItem(settingsBtn, 9.5, () => { window.titleSettingsOpen = !window.titleSettingsOpen; sfx("pick"); renderTitleModal(scene, "#title-settings-btn"); });
 
@@ -2585,6 +2619,24 @@ function runSummaryHtml() {
     ${next.length ? `<div class="rs-next"><b>NEXT GOALS:</b> ${next.map(a => `${a.icon} ${esc(a.desc)} <span class="rs-coins">+${a.reward}k</span>`).join(" · ")}</div>` : ""}
   </div>`;
 }
+// The retirement party (Nov 3): ChatGPT's art (assets/ui/bonus) across the top of the win screen.
+function retirementPartyHtml(isCentennial) {
+  const A = "assets/ui/bonus/";
+  const bits = Array.from({ length: 18 }, (_, i) => `<i style="--x:${(i * 37) % 100}%;--d:${(i % 6) * 0.35}s;--c:${["#EF9347", "#F2D7A1", "#83A89A", "#BFA8CF", "#C45C4B"][i % 5]}"></i>`).join("");
+  return `<div class="rt-party" aria-hidden="true">
+      <div class="rt-streamer" style="background-image:url(${A}retirement-streamer-v1.png)"></div>
+      <div class="rt-confetti">${bits}</div>
+      <div class="rt-row">
+        <img class="rt-cake" src="${A}retirement-cake-v1.png" alt="">
+        <img class="rt-title" src="${A}retirement-title-v1.png" alt="">
+        <img class="rt-watch" src="${A}retirement-watch-v1.png" alt="">
+      </div>
+    </div>
+    <p class="rt-gifts">${isCentennial
+      ? "A hundred candles. The fire marshal has questions. The gold watch is now an heirloom."
+      : "From everyone at the office: a sheet cake, a gold watch, and a card that Accounting signed twice."}</p>`;
+}
+
 function renderGameOverModal(scene, cause, isWin) {
   const modal = document.getElementById("gameover-modal");
   if (!modal) return;
@@ -2599,6 +2651,7 @@ function renderGameOverModal(scene, cause, isWin) {
 
   modal.innerHTML = `
     <div class="modal-card gameover-box ${isWin ? "win-box" : "loss-box"}">
+      ${isWin ? retirementPartyHtml(isCentennial) : ""}
       <div class="modal-kicker">${isWin ? "OFFICIAL RETIREMENT & PENSION CERTIFICATE" : "HR EXIT INTERVIEW // PROGRESS SAVED"}</div>
       <h2 class="modal-title">${headline}</h2>
       <p class="gameover-cause">"${cause}"</p>
