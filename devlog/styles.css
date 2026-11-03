@@ -449,6 +449,16 @@ a, button, [role="button"], summary, .hotspot, .card { cursor: url("img/cursor-h
   border: 3px solid var(--navy); box-shadow: 0 0 0 2px var(--teal);
   image-rendering: pixelated;
 }
+/* Lead clips play like a GIF: no player controls. Tap the clip or the small button to pause. */
+.lead-loop { position: relative; }
+.lead-loop video { cursor: inherit; }
+.lead-loop video::-webkit-media-controls { display: none !important; }
+.loop-btn {
+  position: absolute; right: 10px; bottom: 10px; width: 34px; height: 30px; padding: 0;
+  font: 12px/1 Silkscreen, monospace; color: var(--cream, #FFF0CF); background: rgba(23,28,53,.78);
+  border: 2px solid var(--teal, #3E7775); border-radius: 4px; opacity: .55; transition: opacity .2s;
+}
+.lead-loop:hover .loop-btn, .loop-btn:focus-visible { opacity: 1; }
 .post-lead figcaption { font-size: 13px; color: var(--muted, #a3a8c7); margin-top: 8px; }
 
 /* Play button on the hero memo: the devlog leads straight into the game. */

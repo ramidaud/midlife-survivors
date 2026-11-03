@@ -97,7 +97,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=2">
-<link rel="stylesheet" href="../styles.css?v=17">
+<link rel="stylesheet" href="../styles.css?v=18">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -208,7 +208,8 @@ def main():
             note_html = re.sub(r"^<p>|</p>$", "", note_html).replace('href="art/', 'href="../art/')
         cap = (f"<figcaption>{alt}" + (f'<br><span class="lead-note"><b>How this image was made:</b> {note_html}</span>' if note_html else "") + "</figcaption>") if (p.get("leadAlt") or note_html) else ""
         if p.get("leadVideo"):
-            lead = f'<figure class="post-lead"><video src="../{html.escape(p["leadVideo"])}" poster="../{html.escape(p.get("cover", ""))}" autoplay muted loop playsinline controls aria-label="{alt}"></video>{cap}</figure>'
+            lead = (f"""<figure class="post-lead"><div class="lead-loop"><video src="../{html.escape(p["leadVideo"])}" poster="../{html.escape(p.get("cover", ""))}" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="{alt}" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div>{cap}</figure>"""
+                    + "<script>(function(v){if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();v.nextElementSibling.textContent='▶';v.nextElementSibling.setAttribute('aria-label','Play animation');}})(document.currentScript.previousElementSibling.querySelector('video'))</script>")
         elif p.get("cover"):
             lead = f'<figure class="post-lead"><img src="../{html.escape(p["cover"])}" alt="{alt}">{cap}</figure>'
         else:

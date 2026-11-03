@@ -11,7 +11,7 @@ window.DEVLOG_POSTS = [
     "draft": true,
     "cover": "img/09-cowboy-spotlight.jpg",
     "leadVideo": "img/09-cowboy-spotlight.mp4",
-    "leadAlt": "A Spotlight card in the game: a slanted band sweeps in, the Cold War Cowboy in his tan hat rises from the bottom of the screen and says, \"Back in my day, a gig was a gig. Now hand me that disk.\"",
+    "leadAlt": "A Spotlight card in the game: a spotlight opens, the band wipes in, the Cold War Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, \"Back in my day, a gig was a gig. Now hand me that disk.\"",
     "teaser": "TJ found a bug, Derek and TJ became interns with their own Lounge, Ben became the Cold War Cowboy, and the game and the devlog finally feel like one thing.",
     "changes": ["Fixed the second-run force field TJ found", "Birthday cake, the Desk Salad and interns who bring you coffee", "The Lounge: a counter shop in the Break Room after every promotion", "New hero: the Cold War Cowboy (read 10 memos)", "Spotlight cards for bosses, rooms and new hires", "Lighting, age 50+ surprises and a retirement party"],
     "nextUp": "Derek's own intern lines, Ben's jokes, and more playtesting with the crew.",

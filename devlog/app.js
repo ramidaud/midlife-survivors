@@ -333,7 +333,7 @@
     // Every memo opens with a strong visual: a looping gameplay clip if there is one, otherwise the cover.
     const leadSrc = post.leadVideo || post.cover || "";
     const lead = post.leadVideo
-      ? `<figure class="post-lead"><video src="${esc(post.leadVideo)}" poster="${esc(post.cover || "")}" autoplay muted loop playsinline controls aria-label="${esc(post.leadAlt || post.title)}"></video>${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>`
+      ? `<figure class="post-lead"><div class="lead-loop"><video src="${esc(post.leadVideo)}" poster="${esc(post.cover || "")}" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="${esc(post.leadAlt || post.title)}" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div>${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>`
       : (post.cover ? `<figure class="post-lead"><img src="${esc(post.cover)}" alt="${esc(post.leadAlt || post.title)}">${post.leadAlt || post.leadNote ? `<figcaption>${esc(post.leadAlt || "")}${leadNote}</figcaption>` : ""}</figure>` : "");
     const nextUp = post.nextUp
       ? `<div class="next-up"><strong>Next up</strong>${esc(post.nextUp)}</div>`
@@ -369,6 +369,9 @@
         </div>
       </article>
       ${sequel(post, prev, next)}`;
+    // Lead clips play like a GIF; respect reduced motion by starting paused.
+    const lv = postMain.querySelector(".lead-loop video");
+    if (lv && matchMedia("(prefers-reduced-motion: reduce)").matches) { lv.removeAttribute("autoplay"); lv.pause(); lv.nextElementSibling.textContent = "▶"; lv.nextElementSibling.setAttribute("aria-label", "Play animation"); }
     // Respect "reduce motion": clips stay paused until the reader presses play.
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });

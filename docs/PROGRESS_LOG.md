@@ -1046,3 +1046,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami said "ship it": every Spotlight card now uses the new animation (beam, wipe, hop and puff, letter drop, typed line, proper exit). Boss cards get a red beam. Checked boss and room cards at desktop, iPad and phone.
 - Memo 09: the lead clip is now the new smooth Ben recording, and the crew-badges and Lounge screenshots were retaken with the new friend art.
 - Next for ChatGPT: big On Break portraits for TJ and Derek so the Lounge card matches the heroes (docs/handoffs/chatgpt-intern-portraits.md).
+- Devlog clips now play like GIFs: no video player bar. Tap the clip or the small pause button to stop it. People who turn on "reduce motion" see it paused.
