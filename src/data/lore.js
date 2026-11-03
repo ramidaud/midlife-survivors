@@ -13,8 +13,8 @@ const GAME_LORE = {
         body: "At 12:00 AM on your 40th birthday, every human is quietly enrolled in Form W-40, known inside the Bureau of Actuarial Survival as 'The Great Compounding.' Every minor adult responsibility you postponed in your twenties and thirties (the electric bill on the kitchen counter, sleeping on a saggy mattress, 'we should totally get dinner soon!' texts, and adjustable-rate paperwork) achieves physical sentient form and begins walking toward you at a brisk, determined pace."
       },
       {
-        heading: "2. The Five Bureaus of Adulthood",
-        body: "Once enrolled, ordinary geography dissolves into The Actuarial Labyrinth: five shifting arenas of adult life. You clock in at The Open-Plan Office (Age 40), rush into St. Deductible Hospital's 3:00 AM Maternity & Triage Wing (Age 44), buy a fixer-upper in the Suburban Home & LEGO Minefield (Age 50), navigate flaky adult friendships in The Social Courtyard (Age 60), and finally fight for early-bird glory at Sunset Palms Senior Resort (Ages 80 to 100)."
+        heading: "2. Life Follows You to Work",
+        body: "You never actually leave the office. On a Midlife run (Ages 40 to 65) the whole journey happens on one corporate campus: every promotion rolls up a new door (the Break Room and Parking Lot at 45, the Server Room and Conference Rooms at 50, the Executive Wing at 55, the Wellness Corner at 60), and the rest of your life follows you in. Hospital co-pays find you by the vending machine. Your kid's tuition and the carpool schedule wander into the server racks. The group chat RSVPs to the Wellness Corner, then cancels at 6:45 PM. The five arenas of adult life (the Office, St. Deductible Hospital, the Suburban Home, the Social Courtyard and Sunset Palms) are the chapters you'll live through on a Full Life run, all the way to 100."
       },
       {
         heading: "3. The Relics of Resilience",
@@ -75,11 +75,11 @@ const GAME_LORE = {
         "🍩 [DONUT] Pink-Frosted Breakroom Traps: Coat your shoes in sugar glaze, slowing movement by 32%.",
         "📨 [RE:RE:] 40-Person Reply-All Chains (Elite): Tanky inbox threads that drop 3 Gems + 2 Coins."
       ],
-      survivalTip: "Climb the 6-step Mezzanine stairs for +25% High-Ground Damage & Range, and crack open Potted Plants for Pizza (+3 HP) and 401(k) Coins!"
+      survivalTip: "Smash printers, vending machines and potted plants for Pizza (+3 HP), Wisdom Gems and 401(k) Coins. They grow back."
     },
     {
       id: "hospital",
-      code: "SCENARIO II // AGES 44 TO 49",
+      code: "SCENARIO II // AGES 44 TO 49 · FOLLOWS YOU TO THE BREAK ROOM",
       name: "🏥 St. Deductible Hospital",
       subtitle: "The 3:00 AM Maternity & Triage Wing",
       lore: "The chapter of birth, growing families, and sudden midlife checkups! The terrazzo floor gleams under cyan emergency triage stripes while itemized out-of-network co-pays roll down the corridor. Between 2:00 AM and 5:00 AM, time loses all meaning as nursery monitors chime and cafeteria Jell-O slows your stride.",
@@ -93,7 +93,7 @@ const GAME_LORE = {
     },
     {
       id: "home",
-      code: "SCENARIO III // AGES 50 TO 59",
+      code: "SCENARIO III // AGES 50 TO 59 · FOLLOWS YOU TO THE SERVER ROOM",
       name: "🏡 Suburban Home & Yard",
       subtitle: "The Cul-de-Sac Crucible & LEGO Minefield",
       lore: "You finally bought the house! Unfortunately, the oak living room rug is a tactical minefield of barefoot LEGO bricks, the water heater just started making an expensive rhythmic knocking sound, and Common Core fractions homework is waiting at the dining table while the minivan carpool honks outside.",
@@ -106,7 +106,7 @@ const GAME_LORE = {
     },
     {
       id: "social",
-      code: "SCENARIO IV // AGES 60 TO 79",
+      code: "SCENARIO IV // AGES 60 TO 79 · FOLLOWS YOU TO THE WELLNESS CORNER",
       name: "🍻 The Social Courtyard",
       subtitle: "Adult Friendships & The 6:45 PM Cancellation",
       lore: "Navigating adult friendships in your sixties: it took eleven weeks and three group-chat polls to schedule one patio dinner with four friends, and three of them just texted 'So sorry, crazy week, raincheck??' at 6:45 PM. Meanwhile, the one acquaintance who ordered artisanal truffle tapas wants to split the check evenly.",
@@ -119,7 +119,7 @@ const GAME_LORE = {
     },
     {
       id: "senior",
-      code: "SCENARIO V // AGES 80 TO 100 (BONUS ERA)",
+      code: "SCENARIO V // AGES 80 TO 100 (FULL LIFE BONUS ERA)",
       name: "🌴 Sunset Palms Resort",
       subtitle: "The Golden Lanai & 6:00 AM Pickleball Arena",
       lore: "Congratulations on reaching Age 80 Full Retirement! Those who decline the quiet rocking chair enter the 20 Bonus Senior Rounds (Ages 80 to 100): a sun-drenched terracotta resort where custom golf carts drift around corners, the 3:00 PM Early-Bird Buffet triggers stampedes, and the 6:00 AM Pickleball League takes no prisoners.",
@@ -136,20 +136,20 @@ const GAME_LORE = {
     {
       age: "AGE 45",
       name: "📋 The Annual Performance Review",
-      stage: "🏢 The Open-Plan Office",
+      stage: "🏢 The Lobby & Bullpen",
       lore: "A 30-HP sentient crimson HR binder that corners you between cubicles and demands you justify your Q3 synergy metrics. Drops a gold Tax-Free Bonus Chest on defeat."
     },
     {
       age: "AGE 52",
       name: "🏦 The 30-Year Adjustable Mortgage",
-      stage: "🏡 Suburban Home & Yard",
+      stage: "🏡 Home life, fought in the Conference Rooms",
       lore: "A 70-HP monument of escrow clauses, closing costs, and surprise roof repairs. Slow and relentless, it tests whether you evolved your primary weapon."
     },
     {
       age: "AGE 60",
       name: "🏎️ The Midlife Crisis V8",
-      stage: "🍻 The Social Courtyard",
-      lore: "A cherry-red two-seater convertible temptation with 130 HP and 118 top speed. It roars across the patio trying to convince you that you definitely need a leather jacket."
+      stage: "🏎️ Executive Wing & Wellness Corner",
+      lore: "A cherry-red two-seater convertible temptation with 130 HP and 118 top speed. It drifts across the good carpet trying to convince you that you definitely need a leather jacket."
     },
     {
       age: "AGE 70",

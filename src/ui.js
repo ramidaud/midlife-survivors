@@ -604,8 +604,9 @@ let activeContextOverride = null; // { badge, story, help, mood, untilMs }
 // LOWER THIRD (Oct 30): one message at a time, slides in, holds, slides out.
 // Higher priority interrupts lower. Low-priority messages are dropped if busy.
 // ============================================================================
-const LT_PRIORITY = { alert: 5, win: 4, errand: 4, tip: 3, chapter: 2, promo: 2, reward: 1, lore: 1, joke: 0 };
+const LT_PRIORITY = { alert: 5, win: 4, errand: 4, tip: 3, chapter: 2, promo: 3, reward: 1, lore: 1, joke: 0 };
 const ltState = { current: null, queue: [], remaining: 0, gap: 0 };
+window._ltState = ltState; // for tests
 
 function ltMenuOpen() {
   return (typeof titleOpen !== "undefined" && titleOpen) || (typeof paused !== "undefined" && paused) ||
@@ -665,11 +666,18 @@ window.showLowerThird = function(kind, badge, text, ms = 4500, short) {
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
   const cur = ltState.current;
   if (!cur) return ltShowNow(msg);
-  if (msg.p > cur.p) return ltShowNow(msg);          // more urgent: take over
+  if (msg.p > cur.p) {                               // more urgent: take over...
+    if (cur.p >= 2 && !cur.requeued) {                // ...and put the interrupted message back in line (Nov 2: promotions got lost)
+      ltState.queue.unshift(Object.assign({}, cur, { requeued: true, ms: Math.max(2500, ltState.remaining) }));
+      ltState.queue.sort((a, b) => b.p - a.p);
+      if (ltState.queue.length > 5) ltState.queue.length = 5;
+    }
+    return ltShowNow(msg);
+  }
   if (msg.p <= 1) return;                              // rewards and lore: skip if busy
   ltState.queue.push(msg);
   ltState.queue.sort((a, b) => b.p - a.p);
-  if (ltState.queue.length > 3) ltState.queue.length = 3;
+  if (ltState.queue.length > 5) ltState.queue.length = 5; // room for a promotion + its LIFE line during busy moments
 };
 
 // First-time tips: shown once ever, remembered in this browser.

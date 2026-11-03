@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.43.0",
-  displayVersion: "V. 1.43.0",
+  version: "1.43.1",
+  displayVersion: "V. 1.43.1",
   lastUpdated: "Nov 2, 2026",
   codename: "Every Weapon Has a Job",
-  build: 108,
+  build: 109,
   changelog: [
+    {
+      ver: "V. 1.43.1", date: "Nov 2, 2026", title: "Life Follows You to Work",
+      highlights: [
+        "Each promotion now tells you what followed you to work: hospital co-pays at 45, tuition and carpool at 50, your knees at 55, the group chat at 60.",
+        "The lore now says it plainly: a Midlife run never leaves the office. The hospital, home and resort are Full Life chapters.",
+        "Important messages no longer get lost when a swarm alert or tip interrupts them."
+      ]
+    },
     {
       ver: "V. 1.43.0", date: "Nov 2, 2026", title: "Every Weapon Has a Job",
       highlights: [

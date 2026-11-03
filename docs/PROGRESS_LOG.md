@@ -896,3 +896,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Devlog RSS feed now includes each full post (text, images, What changed, Next up, play link) so Substack imports the whole post instead of just the teaser.
 - Saved Grok's art coherence review (docs/handoffs/grok-art-coherence-review.md).
 - Rami agreed: in a Midlife run the office is the whole journey (stages belong to Full Life). Wrote ChatGPT finish-pass brief (pixel floor decor, denser Bullpen, pixel UI icon sheet), queued after the 8-frame enemies. Claude to do the lore/chapter-line rewrite.
+
+## 2026-11-02: Life follows you to work (V. 1.43.1)
+- Rami agreed with the direction from Grok's art review: in a Midlife run the office is the whole journey. Lore chapter 2 rewritten to say so; the five arenas are now Full Life chapters. Scenario codes say which room each life chapter "follows you to"; bosses list the room you actually fight them in. Removed a stale Mezzanine tip from the 3D era.
+- Each promotion now adds a LIFE line (45 hospital co-pays, 50 tuition and carpool, 55 retirement calculator and knees, 60 the group chat).
+- Found while testing: interrupted messages were thrown away and the queue only held 3. Now interrupted messages go back in line, the queue holds 5, and promotions rank with tips.

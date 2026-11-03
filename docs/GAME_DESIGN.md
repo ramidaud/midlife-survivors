@@ -460,3 +460,7 @@ The three Midlife bosses have candidate native 144x152 art, with six walk/drive 
 
 ## Age-45 room slice, Nov 2, 2026 (Codex)
 Parking Lot supplies broad fighting lanes and an open center, with car rows, cart bays, curb trees and parked office jokes around them. Break Room is cozier: kitchenette, coffee landmark, fridge notes, communal tables and twenty small-prop placements for the existing loot system. A staff corridor connects the rooms behind the Lobby's age-45 doors. Both age-45 gates and the far age-50 Server/Conference doors remain closed in production; Claude owns promotion opening. Every main route remains at least 224px clear. The next districts wait for Rami's review. No balance settings changed.
+
+## Decided Nov 2: the office is the Midlife journey
+- A Midlife run (40 to 65) never leaves the corporate campus. Promotions (45, 50, 55, 60) are the chapters; the rest of life "follows you to work" through enemy labels and a LIFE line at each promotion.
+- The five arenas (Office, Hospital, Home, Social Courtyard, Sunset Palms) belong to Full Life (40 to 100), to be built later with the same campus pipeline.
