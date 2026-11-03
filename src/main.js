@@ -331,6 +331,7 @@ function create() {
   //     redrawn after every frame. The top HUD (age, XP) also refreshes here about 10x a second.
   const hpBar = this.add.graphics().setDepth(7);
   WorldArt.init(this, {player, floor, props:stageProps, label, hpBar, clock:()=>runElapsedMs, enemies:()=>bills});
+  if (window.Lighting) Lighting.init(this, { player, chests: () => chests, age: () => currentAge }); // src/lighting.js
   ltDecadeShown = null; ltLowHpWarned = false; nextSwarmAt = null;
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {
@@ -1313,7 +1314,7 @@ function popDamageNumber(sc, x, y, amount) {
   const txt = sc.add.text(pt.x + Phaser.Math.Between(-8, 8), pt.y - 14, `-${amount}`, {
     fontFamily: "monospace", fontSize: big ? "16px" : "13px", fontStyle: "bold",
     color: big ? "#ffe042" : "#ffffff", stroke: "#12152a", strokeThickness: 3
-  }).setOrigin(0.5).setDepth(15);
+  }).setOrigin(0.5).setDepth(49500); // above the lighting layer so numbers stay readable in the dark
   sc.tweens.add({
     targets: txt, y: txt.y - 26, alpha: 0, scale: big ? 1.25 : 1,
     duration: 460, ease: "Cubic.easeOut", onComplete: () => txt.destroy()

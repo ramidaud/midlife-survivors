@@ -482,3 +482,6 @@ A big moment like the chest opening is really a **timeline**: a list of small ev
 
 ## Fodder and heavies (Nov 3)
 A good swarm mixes **fodder** (enemies that die in one hit, so mowing them down feels powerful) with **heavies** (elites that take many hits and force you to move). If everything is fodder, the crowd stops being a threat. If everything is a heavy, it's a slog. A trick to keep heavies heavy: set their health from the *player's* current damage ("at least 5 hits"), so upgrades still make fodder melt but never trivialize the elites.
+
+## Lighting with a "cut-out" layer (Nov 3)
+Game lighting is mostly a trick. We lay one sheet of dark navy over the whole office, then **erase soft holes** in it wherever light comes from: lamps, windows, vending machines, server racks, screens and the hero. Colored **glows** on top, blended to "add" light, give lamps their warm yellow and screens their cool blue. The sheet gets a little darker every year you age, so a run starts bright and ends after hours. One gotcha: the dark sheet has to be drawn **on top of everything in the world** (we sort props by height, so desks sit at depths around 12,000), but under the numbers and flashes you need to read.

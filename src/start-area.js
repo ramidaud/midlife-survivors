@@ -266,8 +266,9 @@ window.StartAreaArt = (() => {
   function layer(x,y){const cx=Math.floor(x/CHUNK),cy=Math.floor(y/CHUNK),key=cx+','+cy;if(!chunks.has(key)){const g=add(scene.add.graphics().setDepth(BASE+3),{x:cx*CHUNK-256,y:cy*CHUNK-256,width:CHUNK+512,height:CHUNK+512});chunks.set(key,g);}return chunks.get(key);}
   for(const r of data.floors){const key=r.material==='vinyl'?(decor.vinyl_muted?'finish_vinyl_muted':'slice_lobby'):r.material==='carpet'&&r.district==='bullpen'&&decor.carpet_muted?'finish_carpet_muted':['asphalt','kitchen','server','conference','executive','wellness'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
   // Later rooms retain their original pool stamps. The Courtyard uses baked tread and window shapes.
+  const lit=window.LIGHTING&&LIGHTING.enabled&&LIGHTING.replaceFloorMarks; // real lighting replaces painted light marks (Claude, Nov 3)
   for(const r of data.floors){
-   if(r.district==='lobby'||r.district==='bullpen')continue;
+   if(lit||r.district==='lobby'||r.district==='bullpen')continue;
    for(let x=r.x+64;x<r.x+r.width-96;x+=384)floorPatch(r.material==='server'?'light_cool':'light_warm',x,r.y+28,Math.min(220,r.x+r.width-x-8),Math.min(120,r.height-40),.11);
   }
   for(const [x,y,w,h] of data.officeLoop?.bands||[]){
@@ -286,6 +287,7 @@ window.StartAreaArt = (() => {
     continue;
    }
    if(d.kind==='welcome-rug'){floorPatch('rug_teal',x,y,w,h,.93,BASE+3);continue;}
+   if(lit&&d.kind==='window-shape')continue;
    if(d.kind==='team-rug'||d.kind==='window-shape'){
     const g=add(scene.add.graphics().setDepth(d.kind==='team-rug'?BASE+1.5:BASE+3),{x,y,width:w,height:h});
     if(d.kind==='team-rug'){
@@ -308,6 +310,7 @@ window.StartAreaArt = (() => {
     continue;
    }
    const patch={rug:'rug_sage','wellness-island':'rug_lavender','light-pool':'light_warm','server-light':'light_cool'}[d.kind];
+   if(lit&&(d.kind==='light-pool'||d.kind==='server-light'))continue;
    if(patch){const light=patch.startsWith('light');floorPatch(patch,x,y,w,h,light ? .13 : .72,light?BASE+2:BASE+3);continue;}
    const g=add(scene.add.graphics().setDepth(BASE+3),{x:x-4,y:y-4,width:w+8,height:h+8});
    const rect=(a,b,c,e,color=0xf2d7a1,alpha=.5)=>{g.fillStyle(color,alpha);g.fillRect(x+a,y+b,c,e);};

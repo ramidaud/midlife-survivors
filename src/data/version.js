@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.56.0",
-  displayVersion: "V. 1.56.0",
+  version: "1.57.0",
+  displayVersion: "V. 1.57.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Smooth Operator",
-  build: 131,
+  codename: "After Hours",
+  build: 132,
   changelog: [
+    {
+      ver: "V. 1.57.0", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "Lighting! The office is dim now, with warm pools under desk lamps and the vending machines, cool glows from screens and server racks, and a light that follows you. It gets darker every year you age, so your 60s feel like working late.",
+        "Boss chests glow through the dark, and damage numbers stay bright on top."
+      ]
+    },
     {
       ver: "V. 1.56.0", date: "Nov 3, 2026", title: "Smooth Operator",
       highlights: [
