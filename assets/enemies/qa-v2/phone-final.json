@@ -1,0 +1,134 @@
+{
+  "ready": true,
+  "viewport": [
+    390,
+    844
+  ],
+  "pageWidth": 390,
+  "externalResources": 0,
+  "gameLoaded": false,
+  "loadedSheets": 22,
+  "families": 11,
+  "totalFrames": 84,
+  "playing": true,
+  "zoom": 1,
+  "floor": "carpet",
+  "crowdEnemy": "bill",
+  "crowdEach": 30,
+  "crowdMode": "0",
+  "v1DelayMs": 180,
+  "v2DelayMs": 90,
+  "canvasWidths": [
+    320,
+    320
+  ],
+  "visitedV2": {
+    "bill": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "late-fee": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "spam-likely": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "late-night-donut": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "back-twinge": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "reply-all": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "3am-thought": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "calendar-invite": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "group-chat": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "math-homework": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "group-chat-ping": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "errors": []
+}

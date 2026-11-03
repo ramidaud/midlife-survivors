@@ -1,0 +1,17 @@
+[
+  {
+    "enemy": "Spam Likely",
+    "mode": "Ring",
+    "pose": "V2 · atlas pose 4"
+  },
+  {
+    "enemy": "Back Twinge",
+    "mode": "Rest / twitch",
+    "pose": "V2 · atlas pose 5"
+  },
+  {
+    "enemy": "3 AM Thought",
+    "mode": "Ghost",
+    "pose": "V2 · atlas pose 7"
+  }
+]

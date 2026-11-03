@@ -1,0 +1,79 @@
+[
+  {
+    "count": 30,
+    "enemy": "bill",
+    "errors": [],
+    "v1Ms": 180,
+    "v2Ms": 90
+  },
+  {
+    "count": 30,
+    "enemy": "late-fee",
+    "errors": [],
+    "v1Ms": 100,
+    "v2Ms": 50
+  },
+  {
+    "count": 30,
+    "enemy": "spam-likely",
+    "errors": [],
+    "v1Ms": 160,
+    "v2Ms": 80
+  },
+  {
+    "count": 30,
+    "enemy": "late-night-donut",
+    "errors": [],
+    "v1Ms": 150,
+    "v2Ms": 75
+  },
+  {
+    "count": 30,
+    "enemy": "back-twinge",
+    "errors": [],
+    "v1Ms": 140,
+    "v2Ms": 70
+  },
+  {
+    "count": 30,
+    "enemy": "reply-all",
+    "errors": [],
+    "v1Ms": 220,
+    "v2Ms": 110
+  },
+  {
+    "count": 30,
+    "enemy": "3am-thought",
+    "errors": [],
+    "v1Ms": 230,
+    "v2Ms": 115
+  },
+  {
+    "count": 30,
+    "enemy": "calendar-invite",
+    "errors": [],
+    "v1Ms": 120,
+    "v2Ms": 60
+  },
+  {
+    "count": 30,
+    "enemy": "group-chat",
+    "errors": [],
+    "v1Ms": 200,
+    "v2Ms": 100
+  },
+  {
+    "count": 30,
+    "enemy": "math-homework",
+    "errors": [],
+    "v1Ms": 170,
+    "v2Ms": 85
+  },
+  {
+    "count": 30,
+    "enemy": "group-chat-ping",
+    "errors": [],
+    "v1Ms": 160,
+    "v2Ms": 80
+  }
+]

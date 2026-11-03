@@ -1,0 +1,1212 @@
+{
+  "status": "art-only-awaiting-Rami-review",
+  "versionBump": false,
+  "runtimeChanged": false,
+  "v1Untouched": true,
+  "generation": "built-in-imagegen; anchor-constrained native cleanup",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF"
+  ],
+  "background": "#FF00FF",
+  "families": 11,
+  "frames": 84,
+  "assets": [
+    {
+      "id": "bill",
+      "name": "Bill",
+      "size": 48,
+      "anchor": "feet",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 180,
+      "v2DelayMs": 90.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-bill-v2.png",
+      "v1File": "enemy-bill-v1.png",
+      "preview": "enemy-bill-preview-v2.gif",
+      "source": "enemy-bill-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          6,
+          5,
+          41,
+          45
+        ],
+        [
+          8,
+          5,
+          40,
+          45
+        ],
+        [
+          8,
+          4,
+          39,
+          45
+        ],
+        [
+          8,
+          6,
+          40,
+          45
+        ],
+        [
+          6,
+          5,
+          41,
+          45
+        ],
+        [
+          7,
+          6,
+          41,
+          45
+        ],
+        [
+          7,
+          5,
+          40,
+          45
+        ],
+        [
+          7,
+          5,
+          41,
+          45
+        ]
+      ]
+    },
+    {
+      "id": "late-fee",
+      "name": "Late Fee",
+      "size": 32,
+      "anchor": "feet",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 100,
+      "v2DelayMs": 50.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-late-fee-v2.png",
+      "v1File": "enemy-late-fee-v1.png",
+      "preview": "enemy-late-fee-preview-v2.gif",
+      "source": "enemy-late-fee-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          5,
+          4,
+          26,
+          29
+        ],
+        [
+          6,
+          5,
+          25,
+          29
+        ],
+        [
+          6,
+          6,
+          25,
+          29
+        ],
+        [
+          6,
+          6,
+          26,
+          29
+        ],
+        [
+          5,
+          5,
+          26,
+          29
+        ],
+        [
+          5,
+          5,
+          26,
+          29
+        ],
+        [
+          5,
+          5,
+          26,
+          29
+        ],
+        [
+          5,
+          5,
+          26,
+          29
+        ]
+      ]
+    },
+    {
+      "id": "spam-likely",
+      "name": "Spam Likely",
+      "size": 48,
+      "anchor": "feet",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 160,
+      "v2DelayMs": 80.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "Ring",
+          "v1": [
+            2,
+            3
+          ],
+          "v2": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "Full atlas",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-spam-likely-v2.png",
+      "v1File": "enemy-spam-likely-v1.png",
+      "preview": "enemy-spam-likely-preview-v2.gif",
+      "source": "enemy-spam-likely-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          7,
+          4,
+          40,
+          45
+        ],
+        [
+          8,
+          4,
+          40,
+          45
+        ],
+        [
+          8,
+          4,
+          39,
+          45
+        ],
+        [
+          8,
+          4,
+          39,
+          45
+        ],
+        [
+          6,
+          5,
+          41,
+          45
+        ],
+        [
+          6,
+          5,
+          41,
+          45
+        ],
+        [
+          6,
+          5,
+          41,
+          45
+        ],
+        [
+          6,
+          5,
+          41,
+          45
+        ]
+      ]
+    },
+    {
+      "id": "late-night-donut",
+      "name": "Late-Night Donut",
+      "size": 48,
+      "anchor": "feet",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 150,
+      "v2DelayMs": 75.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-late-night-donut-v2.png",
+      "v1File": "enemy-late-night-donut-v1.png",
+      "preview": "enemy-late-night-donut-preview-v2.gif",
+      "source": "enemy-late-night-donut-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          3,
+          8,
+          44,
+          45
+        ],
+        [
+          5,
+          8,
+          43,
+          44
+        ],
+        [
+          6,
+          7,
+          41,
+          43
+        ],
+        [
+          5,
+          8,
+          43,
+          44
+        ],
+        [
+          3,
+          8,
+          44,
+          45
+        ],
+        [
+          4,
+          7,
+          43,
+          44
+        ],
+        [
+          5,
+          6,
+          42,
+          43
+        ],
+        [
+          4,
+          7,
+          43,
+          44
+        ]
+      ]
+    },
+    {
+      "id": "back-twinge",
+      "name": "Back Twinge",
+      "size": 48,
+      "anchor": "center",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 140,
+      "v2DelayMs": 70.0,
+      "groups": [
+        {
+          "name": "Lunge",
+          "v1": [
+            1,
+            2
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "Rest / twitch",
+          "v1": [
+            0,
+            3
+          ],
+          "v2": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "Full atlas",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-back-twinge-v2.png",
+      "v1File": "enemy-back-twinge-v1.png",
+      "preview": "enemy-back-twinge-preview-v2.gif",
+      "source": "enemy-back-twinge-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 1
+        },
+        {
+          "v2": 2,
+          "v1": 2
+        },
+        {
+          "v2": 4,
+          "v1": 0
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          7,
+          10,
+          38,
+          40
+        ],
+        [
+          7,
+          9,
+          41,
+          40
+        ],
+        [
+          6,
+          5,
+          44,
+          42
+        ],
+        [
+          9,
+          8,
+          41,
+          40
+        ],
+        [
+          11,
+          11,
+          38,
+          38
+        ],
+        [
+          11,
+          11,
+          37,
+          38
+        ],
+        [
+          3,
+          11,
+          38,
+          42
+        ],
+        [
+          11,
+          11,
+          37,
+          38
+        ]
+      ]
+    },
+    {
+      "id": "reply-all",
+      "name": "Reply All",
+      "size": 48,
+      "anchor": "center",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 220,
+      "v2DelayMs": 110.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-reply-all-v2.png",
+      "v1File": "enemy-reply-all-v1.png",
+      "preview": "enemy-reply-all-preview-v2.gif",
+      "source": "enemy-reply-all-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          7,
+          3,
+          40,
+          44
+        ],
+        [
+          7,
+          5,
+          39,
+          44
+        ],
+        [
+          7,
+          5,
+          37,
+          44
+        ],
+        [
+          7,
+          5,
+          38,
+          44
+        ],
+        [
+          7,
+          4,
+          39,
+          44
+        ],
+        [
+          7,
+          4,
+          38,
+          44
+        ],
+        [
+          7,
+          4,
+          37,
+          44
+        ],
+        [
+          7,
+          4,
+          39,
+          44
+        ]
+      ]
+    },
+    {
+      "id": "3am-thought",
+      "name": "3 AM Thought",
+      "size": 48,
+      "anchor": "center",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 230,
+      "v2DelayMs": 115.0,
+      "groups": [
+        {
+          "name": "Solid float",
+          "v1": [
+            0,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "Fade out",
+          "v1": [
+            1
+          ],
+          "v2": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "Ghost",
+          "v1": [
+            2
+          ],
+          "v2": [
+            6,
+            7
+          ]
+        },
+        {
+          "name": "Full atlas",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-3am-thought-v2.png",
+      "v1File": "enemy-3am-thought-v1.png",
+      "preview": "enemy-3am-thought-preview-v2.gif",
+      "source": "enemy-3am-thought-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 3
+        },
+        {
+          "v2": 4,
+          "v1": 1
+        }
+      ],
+      "bounds": [
+        [
+          4,
+          3,
+          44,
+          44
+        ],
+        [
+          4,
+          4,
+          44,
+          44
+        ],
+        [
+          4,
+          3,
+          44,
+          44
+        ],
+        [
+          4,
+          4,
+          44,
+          44
+        ],
+        [
+          3,
+          4,
+          44,
+          43
+        ],
+        [
+          5,
+          4,
+          44,
+          43
+        ],
+        [
+          4,
+          4,
+          43,
+          43
+        ],
+        [
+          5,
+          4,
+          42,
+          40
+        ]
+      ]
+    },
+    {
+      "id": "calendar-invite",
+      "name": "Calendar Invite",
+      "size": 48,
+      "anchor": "feet",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 120,
+      "v2DelayMs": 60.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-calendar-invite-v2.png",
+      "v1File": "enemy-calendar-invite-v1.png",
+      "preview": "enemy-calendar-invite-preview-v2.gif",
+      "source": "enemy-calendar-invite-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          3,
+          9,
+          44,
+          45
+        ],
+        [
+          4,
+          10,
+          43,
+          45
+        ],
+        [
+          4,
+          11,
+          43,
+          45
+        ],
+        [
+          4,
+          11,
+          43,
+          45
+        ],
+        [
+          4,
+          9,
+          44,
+          45
+        ],
+        [
+          4,
+          11,
+          43,
+          45
+        ],
+        [
+          4,
+          11,
+          43,
+          45
+        ],
+        [
+          4,
+          11,
+          43,
+          45
+        ]
+      ]
+    },
+    {
+      "id": "group-chat",
+      "name": "Group Chat",
+      "size": 48,
+      "anchor": "center",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 200,
+      "v2DelayMs": 100.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-group-chat-v2.png",
+      "v1File": "enemy-group-chat-v1.png",
+      "preview": "enemy-group-chat-preview-v2.gif",
+      "source": "enemy-group-chat-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          3,
+          4,
+          44,
+          43
+        ],
+        [
+          3,
+          5,
+          44,
+          43
+        ],
+        [
+          3,
+          4,
+          44,
+          43
+        ],
+        [
+          3,
+          3,
+          44,
+          43
+        ],
+        [
+          3,
+          4,
+          44,
+          43
+        ],
+        [
+          3,
+          5,
+          44,
+          43
+        ],
+        [
+          3,
+          4,
+          44,
+          43
+        ],
+        [
+          3,
+          3,
+          44,
+          43
+        ]
+      ]
+    },
+    {
+      "id": "math-homework",
+      "name": "Math Homework",
+      "size": 48,
+      "anchor": "center",
+      "frames": 8,
+      "v1Frames": 4,
+      "v1DelayMs": 170,
+      "v2DelayMs": 85.0,
+      "groups": [
+        {
+          "name": "Walk",
+          "v1": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "file": "enemy-math-homework-v2.png",
+      "v1File": "enemy-math-homework-v1.png",
+      "preview": "enemy-math-homework-preview-v2.gif",
+      "source": "enemy-math-homework-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        },
+        {
+          "v2": 4,
+          "v1": 2
+        },
+        {
+          "v2": 6,
+          "v1": 3
+        }
+      ],
+      "bounds": [
+        [
+          6,
+          4,
+          43,
+          43
+        ],
+        [
+          8,
+          4,
+          43,
+          44
+        ],
+        [
+          8,
+          3,
+          42,
+          44
+        ],
+        [
+          6,
+          4,
+          41,
+          44
+        ],
+        [
+          4,
+          5,
+          40,
+          44
+        ],
+        [
+          5,
+          4,
+          41,
+          44
+        ],
+        [
+          5,
+          3,
+          41,
+          44
+        ],
+        [
+          6,
+          4,
+          42,
+          44
+        ]
+      ]
+    },
+    {
+      "id": "group-chat-ping",
+      "name": "Group Chat ping",
+      "size": 16,
+      "anchor": "center",
+      "frames": 4,
+      "v1Frames": 2,
+      "v1DelayMs": 160,
+      "v2DelayMs": 80.0,
+      "groups": [
+        {
+          "name": "Pulse",
+          "v1": [
+            0,
+            1
+          ],
+          "v2": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "file": "enemy-group-chat-ping-v2.png",
+      "v1File": "enemy-group-chat-ping-v1.png",
+      "preview": "enemy-group-chat-ping-preview-v2.gif",
+      "source": "enemy-group-chat-ping-source-v2.png",
+      "keyPoses": [
+        {
+          "v2": 0,
+          "v1": 0
+        },
+        {
+          "v2": 2,
+          "v1": 1
+        }
+      ],
+      "bounds": [
+        [
+          3,
+          3,
+          12,
+          11
+        ],
+        [
+          4,
+          3,
+          13,
+          12
+        ],
+        [
+          2,
+          2,
+          13,
+          13
+        ],
+        [
+          3,
+          3,
+          13,
+          12
+        ]
+      ]
+    }
+  ],
+  "notes": [
+    "Use native one-row PNGs, not source studies.",
+    "Source drawings are 4x2 pose studies; production sheets flatten to one row.",
+    "PNG ghost see-through is exact-magenta pixel omission, not partial alpha.",
+    "Review uses exact halved frame delays. GIF delays alternate centiseconds where needed to preserve total loop duration.",
+    "Claude owns integration, attack states and invulnerability timing."
+  ]
+}

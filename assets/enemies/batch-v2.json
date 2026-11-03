@@ -1,0 +1,209 @@
+[
+  {
+    "id": "bill",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Warm cream invoice with angry eyebrows, crumpled top edge, tiny navy arms and stubby loafers.",
+    "poses": "Eight chronological walk poses: left contact, squash down passing, push off, rise, right contact, squash down passing, opposite push off, rise into left contact. Alternate its little legs and flex paper corners by one native pixel. Keep paper markings exactly as sparse tiny ink strokes.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-bill-source-v2.png",
+    "file": "enemy-bill-v2.png",
+    "reference": "enemy-bill-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Warm cream invoice with angry eyebrows, crumpled top edge, tiny navy arms and stubby loafers. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Eight chronological walk poses: left contact, squash down passing, push off, rise, right contact, squash down passing, opposite push off, rise into left contact. Alternate its little legs and flex paper corners by one native pixel. Keep paper markings exactly as sparse tiny ink strokes. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "late-fee",
+    "size": 32,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Tiny folded cream overdue slip with a little orange stamp and furious face, tiny navy legs.",
+    "poses": "Eight fast scurry poses in one full stride: contact, compressed pass, push, airborne rise, opposite contact, compressed pass, opposite push, settle. Same tiny pointed top fold and stamp, no new text.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-late-fee-source-v2.png",
+    "file": "enemy-late-fee-v2.png",
+    "reference": "enemy-late-fee-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Tiny folded cream overdue slip with a little orange stamp and furious face, tiny navy legs. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 32x32. MOTION: Eight fast scurry poses in one full stride: contact, compressed pass, push, airborne rise, opposite contact, compressed pass, opposite push, settle. Same tiny pointed top fold and stamp, no new text. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "spam-likely",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Purple/slate phone with a dark screen, pale annoyed eyes, orange call icon, tiny navy legs.",
+    "poses": "Frames 0-3: four walking poses, alternating feet, minimal sway. Frames 4-7: four RINGING poses, alternating small left/right tilts and raised hands. Keep the phone body and screen details identical. No external ring lines, props or letters.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-spam-likely-source-v2.png",
+    "file": "enemy-spam-likely-v2.png",
+    "reference": "enemy-spam-likely-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Purple/slate phone with a dark screen, pale annoyed eyes, orange call icon, tiny navy legs. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Frames 0-3: four walking poses, alternating feet, minimal sway. Frames 4-7: four RINGING poses, alternating small left/right tilts and raised hands. Keep the phone body and screen details identical. No external ring lines, props or letters. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "late-night-donut",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Warm orange doughnut ring with pink icing, a few teal/cream sprinkles, angry eyes and tiny navy legs.",
+    "poses": "Eight roll-and-bounce poses, light squash on contacts, tiny side rolls of icing and hole, two-pixel maximum airborne lift. Left contact, compress, rise, highest bounce, opposite contact, compress, rise, settle. Same sprinkle locations rotate with icing, no changing character.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-late-night-donut-source-v2.png",
+    "file": "enemy-late-night-donut-v2.png",
+    "reference": "enemy-late-night-donut-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Warm orange doughnut ring with pink icing, a few teal/cream sprinkles, angry eyes and tiny navy legs. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Eight roll-and-bounce poses, light squash on contacts, tiny side rolls of icing and hole, two-pixel maximum airborne lift. Left contact, compress, rise, highest bounce, opposite contact, compress, rise, settle. Same sprinkle locations rotate with icing, no changing character. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "back-twinge",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Angular coffee-orange lightning bolt with a small angry face, cream highlights and navy outlines.",
+    "poses": "Frames 0-3 are a lunge sequence: coiled-forward anticipation, forward push, fully stretched zigzag lunge, contracting return. Frames 4-7 are rest/twitch: original upright coil, slight tense compression, tiny side twitch, settle. Only the bolt flexes, no new effects or symbols.",
+    "keyV1": [
+      1,
+      2,
+      0,
+      3
+    ],
+    "source": "enemy-back-twinge-source-v2.png",
+    "file": "enemy-back-twinge-v2.png",
+    "reference": "enemy-back-twinge-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Angular coffee-orange lightning bolt with a small angry face, cream highlights and navy outlines. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Frames 0-3 are a lunge sequence: coiled-forward anticipation, forward push, fully stretched zigzag lunge, contracting return. Frames 4-7 are rest/twitch: original upright coil, slight tense compression, tiny side twitch, settle. Only the bolt flexes, no new effects or symbols. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "reply-all",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Small tumbling cluster of cream envelopes with orange accents, little angry faces and navy arms/legs.",
+    "poses": "Eight chronological scamper poses: gently bob the linked envelope cluster, alternating little legs, envelopes flutter at corners by one native pixel. The exact same number of envelopes, same faces and same arrangement as reference. No extra papers or flying debris.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-reply-all-source-v2.png",
+    "file": "enemy-reply-all-v2.png",
+    "reference": "enemy-reply-all-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Small tumbling cluster of cream envelopes with orange accents, little angry faces and navy arms/legs. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Eight chronological scamper poses: gently bob the linked envelope cluster, alternating little legs, envelopes flutter at corners by one native pixel. The exact same number of envelopes, same faces and same arrangement as reference. No extra papers or flying debris. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "3am-thought",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Lavender-gray anxious cloud with worried face, crescent-like curled thought wisp, ragged floating lower lobes.",
+    "poses": "Frames 0-3: four SOLID floating poses with a one-native-pixel soft bob and drifting lower lobes. Frames 4-5: two progressively FADING poses with large hard magenta cutouts. Frames 6-7: two GHOST poses, pale low-contrast broken contours and sparse disconnected lavender/cream clusters, visibly see-through. Exact opaque magenta holes, not alpha or smooth transparency. Do not outline each internal hole; preserve worried eyes.",
+    "keyV1": [
+      0,
+      3,
+      1,
+      2
+    ],
+    "source": "enemy-3am-thought-source-v2.png",
+    "file": "enemy-3am-thought-v2.png",
+    "reference": "enemy-3am-thought-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Lavender-gray anxious cloud with worried face, crescent-like curled thought wisp, ragged floating lower lobes. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Frames 0-3: four SOLID floating poses with a one-native-pixel soft bob and drifting lower lobes. Frames 4-5: two progressively FADING poses with large hard magenta cutouts. Frames 6-7: two GHOST poses, pale low-contrast broken contours and sparse disconnected lavender/cream clusters, visibly see-through. Exact opaque magenta holes, not alpha or smooth transparency. Do not outline each internal hole; preserve worried eyes. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "calendar-invite",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Cream page-calendar with twin dark binder rings, orange tabs, angry face and navy feet.",
+    "poses": "Eight chronological marching poses: alternating little feet, a tiny binder bounce and page-edge squash on contact, keeping the calendar rings fixed to the same page. Reference marks only, no new numbers, type or icons.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-calendar-invite-source-v2.png",
+    "file": "enemy-calendar-invite-v2.png",
+    "reference": "enemy-calendar-invite-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Cream page-calendar with twin dark binder rings, orange tabs, angry face and navy feet. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Eight chronological marching poses: alternating little feet, a tiny binder bounce and page-edge squash on contact, keeping the calendar rings fixed to the same page. Reference marks only, no new numbers, type or icons. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "group-chat",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "One rounded sage-teal chat bubble with annoyed eyes, orange typing dots, curled speech tail and tiny navy legs.",
+    "poses": "Eight chronological plodding walk poses with one-pixel squash and bob, alternate feet and tiny speech-tail swing. Three typing dots brighten in sequence while preserving same bubble shape and face. Do not add new bubbles, letters or icons.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-group-chat-source-v2.png",
+    "file": "enemy-group-chat-v2.png",
+    "reference": "enemy-group-chat-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: One rounded sage-teal chat bubble with annoyed eyes, orange typing dots, curled speech tail and tiny navy legs. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Eight chronological plodding walk poses with one-pixel squash and bob, alternate feet and tiny speech-tail swing. Three typing dots brighten in sequence while preserving same bubble shape and face. Do not add new bubbles, letters or icons. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "math-homework",
+    "size": 48,
+    "frames": 8,
+    "sourceColumns": 4,
+    "sourceRows": 2,
+    "subject": "Crumpled cream worksheet with tiny navy math-like ink marks, orange pencil clipped along the side and grumpy face, stubby navy legs.",
+    "poses": "Eight chronological walk/flap poses: left contact, compress, pass, flip toward back, back-view contact, twist return, pass, settle. Preserve the reference pencil and markings and recognizable folded page. Use sparse abstract ink, never introduce readable equations or new props.",
+    "keyV1": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "source": "enemy-math-homework-source-v2.png",
+    "file": "enemy-math-homework-v2.png",
+    "reference": "enemy-math-homework-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Crumpled cream worksheet with tiny navy math-like ink marks, orange pencil clipped along the side and grumpy face, stubby navy legs. SOURCE LAYOUT: exactly EIGHT equal square cells, FOUR columns by TWO rows, read left to right across top row then bottom row. Enlarge logical pixels for a wide landscape 1536x768 working sheet. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 48x48. MOTION: Eight chronological walk/flap poses: left contact, compress, pass, flip toward back, back-view contact, twist return, pass, settle. Preserve the reference pencil and markings and recognizable folded page. Use sparse abstract ink, never introduce readable equations or new props. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  },
+  {
+    "id": "group-chat-ping",
+    "size": 16,
+    "frames": 4,
+    "sourceColumns": 4,
+    "sourceRows": 1,
+    "subject": "Tiny bright cream/orange notification spark on a navy outline.",
+    "poses": "FOUR pulse poses, in a four-column single row: small reference spark, slightly wider intermediate spark, large reference spark, contracting intermediate spark. Same centered tiny symbol, no new spokes or icons. Keep native 16x16 readability.",
+    "keyV1": [
+      0,
+      1
+    ],
+    "source": "enemy-group-chat-ping-source-v2.png",
+    "file": "enemy-group-chat-ping-v2.png",
+    "reference": "enemy-group-chat-ping-v1.png",
+    "prompt": "Use case: stylized-concept. Edit target / exact character reference: the attached approved Midlife Survivors v1 native sprite sheet. Draw animation in-betweens for this SAME character. Do not redesign, enlarge, add detail or change materials. Match its crisp 16-bit top-down 3/4 pixels, broad flat clusters, one-native-pixel #171C35 silhouette and warm upper-left highlight. Colors only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF. Flat opaque exact #FF00FF background throughout, including holes. No floor shadows, blur, antialiasing, gradients, realistic texture, text, labels, cell dividers, watermarks. SUBJECT: Tiny bright cream/orange notification spark on a navy outline. SOURCE LAYOUT: exactly FOUR equal square cells in ONE row. Each cell contains one complete pose, at exactly the same scale and center, with generous equal magenta padding. Preserve a common foot/contact line and silhouette center. Native final cell 16x16. MOTION: FOUR pulse poses, in a four-column single row: small reference spark, slightly wider intermediate spark, large reference spark, contracting intermediate spark. Same centered tiny symbol, no new spokes or icons. Keep native 16x16 readability. Original v1 poses are the visual anchors, draw subtle one-pixel-scale movements between them. Every pose must be distinct."
+  }
+]
