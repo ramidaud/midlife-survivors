@@ -1016,3 +1016,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Muse (Meta's agent) joins as the social feedback reader for Facebook and Instagram posts.
 - V. 1.60.1: dev mode shows a "DEV MODE · SCORES OFF" badge on every screen. Dev runs were already blocked from the leaderboard.
 - New idea from TJ and Rami: **the Interns**, playtesters as office interns who bring heals and buffs and later run a pop-up shop. Added to the Grok healing brief.
+- Grok's healing spec landed (birthdays, Desk Salad, Interns, the Lounge). Building it in three steps.
+- V. 1.61.0 "Birthday Cake", step 1: at 45, 50, 55, 60 and 65 you get cake (18 to 25% of max health) with the dividend. Elites drop a Desk Salad 45% of the time (guaranteed every 3rd), worth 22% of max health, and it wilts after 14 s. Old pizza and level-up tips corrected. Dev console has a DROP SALAD button.
+- TJ sent his intern lines (saved in docs/handoffs/intern-lines.md). Derek's are still coming.

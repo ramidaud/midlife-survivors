@@ -36,9 +36,19 @@ window.PICKUPS = {
   },
   pizza: {
     name: "Leftover Breakroom Pizza",
-    heal: 2,          // restores +2 HP when you smash a potted office plant!
+    heal: 2,          // +2 HP; drops from smashed plants, printers, vending machines and coolers
     size: 20,
     color: 0xff6b4a
+  },
+  // Desk Salad (Nov 3, Grok's healing spec): the rare "I packed lunch" drop from elites.
+  salad: {
+    name: "Desk Salad",
+    healFrac: 0.22,          // 22% of max health...
+    healMin: 3,              // ...and never less than 3
+    lifeMs: 14000,           // wilts after 14 s (fades for the last 3 s)
+    fadeMs: 3000,
+    magnetSpeedMult: 1.15,   // pulled in a little faster than pizza
+    maxOnGround: 2           // extras turn into a gem instead
   }
 };
 

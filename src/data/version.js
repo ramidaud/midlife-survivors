@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.60.1",
-  displayVersion: "V. 1.60.1",
+  version: "1.61.0",
+  displayVersion: "V. 1.61.0",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 142,
+  build: 143,
   changelog: [
+    {
+      ver: "V. 1.61.0", date: "Nov 3, 2026", title: "Birthday Cake",
+      highlights: [
+        "Birthdays heal now: at 45, 50, 55, 60 and 65 the break room springs for cake and you get back a share of your max health, along with your 401(k) dividend.",
+        "New drop: the Desk Salad. Elites sometimes leave one behind (never more than 3 in a row without one). It heals more than pizza, but it wilts after 14 seconds, so go get it.",
+        "Fixed old tips that said pizza heals 3 and level ups heal 2. It's 2 and 1."
+      ]
+    },
     {
       ver: "V. 1.60.1", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

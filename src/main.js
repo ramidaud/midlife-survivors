@@ -145,6 +145,7 @@ let strayRescues = 0;   // enemies put back on the floor after getting stuck off
 window.getStrayRescues = () => strayRescues;
 let pings = null;       // Group Chat message pings
 let hp, lastHurt = -Infinity, hpBar, gameOver = false, startTime = 0;
+let saladDry = 0;
 let runElapsedMs = 0, runStartAge = 40, lastAutoSave = 0, retire80Open = false, retire80Prompted = false, currentStageId = "office", lastDividendAge = 40;
 let touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
 let mouseState = { leftDown: false, rightDown: false, x: 0, y: 0, activeCursor: false, overUI: false };
@@ -274,6 +275,7 @@ function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now;
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
+  saladDry = 0; // elites since the last Desk Salad (pity counter)
   meta = loadMeta();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
@@ -853,7 +855,7 @@ function collectCoin(p, coin) {
   p.scene.tweens.add({ targets: txt, y: txt.y - 22, alpha: 0, duration: 520, onComplete: () => txt.destroy() });
 }
 
-// You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +3 HP!
+// You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +2 HP!
 // Coins: only part of a coin's face value reaches the bank (PICKUPS.coin401k.bankMult), boosted by Side Hustle.
 // Fractions add up over the run instead of being lost.
 let coinFrac = 0, xpFrac = 0;
@@ -945,8 +947,47 @@ function collectFieldItem(p, it) {
   window.itemEffect(kind, false);
 }
 
+// Desk Salad (Nov 3): elites sometimes drop one. It heals a share of your max health and wilts after a while.
+function maybeDropSalad(sc, x, y, EL) {
+  const S = PICKUPS.salad; if (!S || !window.pizzas || !EL.saladChance) return;
+  saladDry++;
+  if (!(Math.random() < EL.saladChance || saladDry >= (EL.saladPityEvery || 3))) return;
+  saladDry = 0;
+  const onGround = window.pizzas.getChildren().filter(o => o.active && o.isSalad).length;
+  if (onGround >= (S.maxOnGround || 2)) { gems.create(x, y, "gem").setDepth(3); return; }
+  const s = window.pizzas.create(x, y, "salad").setDepth(3);
+  s.isSalad = true; s.dieAt = runElapsedMs + (S.lifeMs || 14000);
+}
+function saladHealAmount() {
+  const S = PICKUPS.salad;
+  return Math.max(S.healMin || 3, Math.floor(stats.maxHp * (S.healFrac || 0.22)));
+}
+
+// Birthday cake (Nov 3): every 5 years from 45, a heal that scales with your max health.
+function milestoneHealAmount(age) {
+  const M = window.HEALING && HEALING.milestones;
+  if (!M || age < M.firstAge || age % M.everyYears) return 0;
+  if (age === M.endAge) return Math.max(M.minDecade, Math.floor(stats.maxHp * M.fracEnd));
+  if (age % 10 === 0) return Math.max(M.minDecade, Math.floor(stats.maxHp * M.fracDecade));
+  return Math.max(M.minNormal, Math.floor(stats.maxHp * M.fracNormal));
+}
+
 function collectPizza(p, pz) {
   if (!pz.active) return;
+  if (pz.isSalad) {
+    pz.destroy();
+    sfx("levelUp");
+    const sHeal = healAmt(saladHealAmount());
+    hp = Math.min(stats.maxHp, hp + sHeal);
+    updateHUD(); if (typeof drawHpBar === "function") drawHpBar();
+    const sp = project3DToPhaserWorld(p.scene, p.x, 42, p.y);
+    const st = p.scene.add.text(sp.x, sp.y - 18, `+${sHeal} HP (SALAD!)`, {
+      fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#83A89A", stroke: "#12152a", strokeThickness: 3
+    }).setOrigin(0.5).setDepth(16);
+    p.scene.tweens.add({ targets: st, y: st.y - 24, alpha: 0, duration: 700, onComplete: () => st.destroy() });
+    if (sHeal >= 6 && window.showLowerThird) window.showLowerThird("reward", "DESK SALAD", `Actual vegetables. +${sHeal} HP.`, 3200);
+    return;
+  }
   if (slowUntil > 0 && runElapsedMs - slowUntil < 8000) window.achEvent("pizzaAfterSlow"); // donut, then pizza
   pz.destroy();
   sfx("levelUp");
@@ -1370,6 +1411,7 @@ function damageBill(bill, amount) {
       burstConfetti(sc, bill.x, bill.y, 0xff7a5c, 14);
       for (let i = 0; i < EL.gems; i++) gems.create(bill.x + Phaser.Math.Between(-18, 18), bill.y + Phaser.Math.Between(-14, 14), "gem").setDepth(3);
       for (let i = 0; i < EL.coins; i++) spawnCoin(bill.x + (i - 0.5) * 14, bill.y + 12, 1);
+      maybeDropSalad(sc, bill.x, bill.y - 10, EL);
     }
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
@@ -1418,7 +1460,7 @@ function hitBill(splash, bill) {
 }
 
 const PLANT_REGROW_MS = 75000; // a smashed plant grows back after 75 seconds
-// Smashable Potted Office Plants ("prop_plant")! Crack them open for Leftover Pizza (+3 HP), 401(k) Coins, or Bonus Gems!
+// Smashable Potted Office Plants ("prop_plant")! Crack them open for Leftover Pizza (+2 HP), 401(k) Coins, or Bonus Gems!
 function damagePlant(prop, amount) {
   if (prop && prop.brk && window.Breakables) { Breakables.damage(prop.scene, prop, amount, runElapsedMs); return; } // printers, cabinets... (src/breakables.js)
   if (!prop || !prop.visible || prop.propKind !== "prop_plant") return;
@@ -1449,7 +1491,7 @@ function damagePlant(prop, amount) {
     sc.time.delayedCall(PLANT_REGROW_MS, regrow);
 
     if (Math.random() < ITEM_DROPS.fromPlant) spawnFieldItem(sc, prop.x, prop.y + 14);
-    // Roll plant loot reward: 45% Leftover Pizza (+3 HP) + 1 Coin, 35% 2x 401(k) Coins, 20% 3x Coins + 1 Gem Jackpot!
+    // Roll plant loot reward: 45% Leftover Pizza (+2 HP) + 1 Coin, 35% 2x 401(k) Coins, 20% 3x Coins + 1 Gem Jackpot!
     const roll = Math.random();
     let popupTxt = "🪙 +401(k)!";
     if (roll < 0.45) {
@@ -1955,7 +1997,22 @@ function update(time, delta) {
       padding: { x: 8, y: 4 }, stroke: "#090b14", strokeThickness: 3
     }).setOrigin(0.5).setDepth(20);
     this.tweens.add({ targets: dMsg, y: dMsg.y - 28, alpha: 0, duration: 1500, onComplete: () => dMsg.destroy() });
-    if (window.pushContextEvent) {
+    // Birthday cake rides along with the dividend (Nov 3). One card for both, so neither gets skipped.
+    const cake = milestoneHealAmount(lastDividendAge);
+    let cakeHeal = 0;
+    if (cake && hp < stats.maxHp) {
+      cakeHeal = Math.min(stats.maxHp - hp, healAmt(cake));
+      hp += cakeHeal; if (typeof drawHpBar === "function") drawHpBar();
+      const ck = this.add.text(pt.x, pt.y - 48, `🎂 +${cakeHeal} HP`, {
+        fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#83A89A", stroke: "#12152a", strokeThickness: 3
+      }).setOrigin(0.5).setDepth(20);
+      this.tweens.add({ targets: ck, y: ck.y - 28, alpha: 0, duration: 1600, onComplete: () => ck.destroy() });
+    }
+    if (cake && window.showLowerThird) {
+      const M = HEALING.milestones;
+      const line = cakeHeal ? (lastDividendAge % 10 === 0 ? M.bannerDecade : M.bannerNormal).replace("{n}", cakeHeal) : M.bannerFull;
+      window.showLowerThird("reward", M.bannerBadge, `${line} Plus a +${divBonus}k dividend.`, 4200);
+    } else if (window.pushContextEvent) {
       window.showLowerThird("reward", "401(k)", `Age ${lastDividendAge} dividend: +${divBonus}k deposited.`, 3800);
     }
   }
@@ -2137,8 +2194,13 @@ function update(time, delta) {
   });
   if (window.pizzas) {
     window.pizzas.getChildren().forEach(pz => {
+      if (pz.isSalad && pz.dieAt) { // Desk Salad wilts: fades for the last few seconds, then it's gone
+        const left = pz.dieAt - runElapsedMs, fade = (PICKUPS.salad && PICKUPS.salad.fadeMs) || 3000;
+        if (left <= 0) { pz.destroy(); return; }
+        pz.setAlpha(left < fade ? 0.35 + 0.65 * (Math.floor(left / 150) % 2) : 1);
+      }
       if (Phaser.Math.Distance.Between(player.x, player.y, pz.x, pz.y) < stats.magnetRadius) {
-        this.physics.moveToObject(pz, player, W.magnetSpeed);
+        this.physics.moveToObject(pz, player, W.magnetSpeed * (pz.isSalad ? ((PICKUPS.salad && PICKUPS.salad.magnetSpeedMult) || 1) : 1));
       }
     });
   }

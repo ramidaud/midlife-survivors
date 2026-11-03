@@ -33,6 +33,8 @@ window.INTENSITY = {
     speedMult: 0.85,   // a little slower, so you can see them coming
     damageAdd: 1,      // hits a bit harder
     gems: 4, coins: 2, // the jackpot when one goes down
+    saladChance: 0.45, // Desk Salad drop chance (Nov 3, Grok)...
+    saladPityEvery: 3, // ...guaranteed if 3 elites in a row dropped none
     names: { bill: "FINAL NOTICE", spamCall: "SCAM LIKELY", snackAttack: "THE DOZEN", backTwinge: "SCIATICA",
              calendarInvite: "ALL-HANDS", groupChat: "FAMILY CHAT", officeGossip: "REPLY ALL", mathWorksheet: "FINAL EXAM" }
   }

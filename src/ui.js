@@ -318,7 +318,7 @@ function initGameUI(scene) {
           <span class="ctx-badge" id="ctx-badge">📖 CHAPTER 1 // OFFICE</span>
           <span class="ctx-story" id="ctx-story">"40.0 and caffeinated: the fluorescent lights hum as the Q1 bills start drifting toward your desk."</span>
         </div>
-        <div class="ctx-help" id="ctx-help">💡 TIP: Weapons fire automatically! Steer around furniture and crack open green Potted Plants for Pizza (+3 HP) & 401(k) Coins.</div>
+        <div class="ctx-help" id="ctx-help">💡 TIP: Weapons fire automatically! Steer around furniture and crack open green Potted Plants for Pizza (+2 HP) & 401(k) Coins.</div>
       </div>
 
       <!-- Main Lower-Third 3-Module Console -->
@@ -735,7 +735,7 @@ const STAGE_NARRATIVES = {
     {
       badge: "📖 CORPORATE SURVIVAL",
       story: '"Someone left half a box of breakroom donuts by the printer, and your inbox just hit 412 unread."',
-      help: "💡 TIP: Shoot green Potted Plants to crack them open for Leftover Pizza (+3 HP) and 401(k) Gold Coins!"
+      help: "💡 TIP: Shoot green Potted Plants to crack them open for Leftover Pizza (+2 HP) and 401(k) Gold Coins!"
     },
     {
       badge: "📖 SYNERGY & EVOLUTIONS",
@@ -881,7 +881,7 @@ function updateContextAndRadar() {
       chosen = {
         badge: "🩺 VITALITY LOW",
         story: `"HP is down to ${Math.max(0, hp)}/${stats.maxHp}! Your lower back is barking and your energy is fading fast."`,
-        help: "💡 HELP: Crack open green Potted Plants for Leftover Pizza (+3 HP) or collect blue Gems to level up (+2 HP)!",
+        help: "💡 HELP: Crack open green Potted Plants for Leftover Pizza (+2 HP) or collect blue Gems to level up (+1 HP)!",
         mood: "urgent"
       };
     } else if (activeBoss) {
@@ -903,7 +903,7 @@ function updateContextAndRadar() {
       chosen = {
         badge: "🍕 PIZZA ON FLOOR",
         story: '"Someone left a warm slice of breakroom pepperoni pizza out in the open!"',
-        help: "💡 HELP: Walk near the Pizza slice to magnetize it and heal +3 HP immediately!",
+        help: "💡 HELP: Walk near the Pizza slice to magnetize it and heal +2 HP immediately!",
         mood: "loot"
       };
     } else if (typeof slowUntil !== "undefined" && typeof runElapsedMs !== "undefined" && runElapsedMs < slowUntil) {

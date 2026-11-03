@@ -794,6 +794,17 @@ function buildSprites(scene) {
     ctx.fillRect(64, 121, 146, 2.5);
   });
 
+  // DESK SALAD ("salad", 24x24, Nov 3): a cream takeout bowl of greens with a cherry tomato. Drops from elites.
+  makeCanvasTex(scene, "salad", 24, 24, (ctx) => {
+    const px = (c, x, y, w, h) => { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); };
+    px("rgba(0,0,0,0.35)", 4, 19, 17, 3);                       // shadow
+    px("#171C35", 2, 11, 20, 2); px("#171C35", 3, 13, 18, 5); px("#171C35", 5, 18, 14, 2); // outline
+    px("#F2D7A1", 4, 12, 16, 5); px("#FFF0CF", 4, 12, 16, 1); px("#D3B78D", 6, 17, 12, 1); // bowl
+    px("#3E7775", 4, 9, 4, 3); px("#83A89A", 7, 7, 5, 4); px("#3E7775", 11, 6, 4, 5); px("#83A89A", 14, 8, 5, 3); px("#a8c9b6", 9, 8, 2, 2); // greens
+    px("#C45C4B", 16, 6, 3, 3); px("#EF9347", 16, 6, 1, 1);      // tomato
+    px("#FFF0CF", 6, 9, 2, 1);                                   // a crouton of light
+  });
+
   // 18. LEFTOVER BREAKROOM PIZZA ("pizza", 24x24): Melty cheese slice with pepperoni & golden crust!
   makeCanvasTex(scene, "pizza", 24, 24, (ctx) => {
     ctx.fillStyle = "rgba(0,0,0,0.35)";

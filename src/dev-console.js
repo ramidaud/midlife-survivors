@@ -41,6 +41,11 @@
       bills.getChildren().slice().forEach(b => { if (b.active && !b.isBoss) { damageBill(b, 99999); n++; } });
       say("Cleared " + n + " enemies");
     }),
+    salad: need(() => {
+      const s = window.pizzas.create(player.x + 90, player.y, "salad").setDepth(3);
+      s.isSalad = true; s.dieAt = runElapsedMs + ((PICKUPS.salad && PICKUPS.salad.lifeMs) || 14000);
+      say("Desk Salad dropped");
+    }),
     nav: () => { if (window.NAV) { NAV.debug = !NAV.debug; render(); say(NAV.debug ? "Route arrows ON" : "Route arrows OFF"); } }
   };
   const jumpTo = (age) => need(() => {
@@ -103,7 +108,8 @@
           <button id="dev-god" type="button" aria-pressed="false" data-a="god">GOD MODE</button>
           <button type="button" data-a="heal">FULL HP</button>
           <button type="button" data-a="hp5">+5 MAX HP</button>
-          <button type="button" data-a="level">LEVEL UP</button></div></section>
+          <button type="button" data-a="level">LEVEL UP</button>
+          <button type="button" data-a="salad">DROP SALAD</button></div></section>
         <section><div class="lbl">GIVE</div><div class="row">
           <select id="dev-up" aria-label="Upgrade to give"></select>
           <button type="button" data-a="give">GIVE</button></div></section>
