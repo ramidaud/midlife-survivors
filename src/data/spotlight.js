@@ -11,12 +11,12 @@ window.SPOTLIGHT = {
     midlifeCrisis:     { kicker: "TEST DRIVE", name: "MIDLIFE CRISIS V8", line: "Forget the minivan, we are buying t-tops and leather!",
                          tip: "Dodge its wide skid laps and avoid the tire tracks.", art: "assets/bosses/boss-midlife-crisis-v8-v1.png", edge: "#C45C4B", band: "#874C3B" }
   },
-  // Your hero's card at the start of every run. bio = who they are, style = how they play (placeholders by Claude; Gemini is polishing).
+  // Your hero's card at the start of every run. bio = who they are, style = how they play (copy by Gemini, Nov 3).
   hires: {
-    officeWorker: { bio: "Twenty years at the same desk. Knows which stapler actually works.", style: "Balanced all-rounder. Starts with Coffee Splash.", kicker: "NOW ONBOARDING", name: "THE 9-TO-5ER", line: "Clocking in at nine sharp and not a minute earlier.", tip: "Balanced all-rounder built for a steady workday." },
-    photographer: { bio: "Coaches the under-10s on Saturdays. Brings the chairs and the pep talks.", style: "Fast feet and a wide Dad Joke blast for crowd control.", kicker: "SIDELINE CAPTAIN", name: "THE SOCCER DAD", line: "I brought orange slices and a trunk full of chairs!", tip: "High-stamina hero with strong crowd-control energy." },
-    gradStudent:  { bio: "Went back for a master's at 45. Sleeps between office hours.", style: "Huge gem magnet and quicker weapons. Levels up fast.", kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." },
-    coldWarCowboy: { bio: "In IT since 2002, back when the journalism school ran on floppies. He kept a box.", style: "Floppy Disk boomerang and +2 health. Once a run, he reboots everything.", kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
+    officeWorker: { bio: "Two decades in the bullpen. Can spot a Reply-All storm from a mile away.", style: "Balanced all-rounder who starts every shift with a hot Coffee Splash.", kicker: "NOW ONBOARDING", name: "THE 9-TO-5ER", line: "Clocking in at nine sharp and not a minute earlier.", tip: "Balanced all-rounder built for a steady workday." },
+    photographer: { bio: "Coaches the under-10s on Saturdays. Trunk is full of folding chairs.", style: "Fast feet and a wide Dad Joke blast built for crowd control.", kicker: "SIDELINE CAPTAIN", name: "THE SOCCER DAD", line: "I brought orange slices and a trunk full of chairs!", tip: "High-stamina hero with strong crowd-control energy." },
+    gradStudent:  { bio: "Started grad school at 45. Writes citations between afternoon naps.", style: "Huge gem magnet and faster cooldowns to level up in a hurry.", kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." },
+    coldWarCowboy: { bio: "Started in Kent State J-school IT in 2002. Still kept a box of floppies.", style: "Floppy Disk boomerang, +2 health, and one full system reboot per run.", kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
   },
   // Promotions: a coworker announces the new room. cast = which coworker sprite (START_AREA_COWORKERS).
   // Names match the sprites' own names from ChatGPT's cast sheet (Nov 3), with Gemini's departments.
@@ -30,14 +30,50 @@ window.SPOTLIGHT = {
   },
   // First-time tips, once ever. The hero you're playing says it (a line per hero, falling back to "any").
   tips: {
+    // Lines per hero by Gemini (Nov 3, docs/handoffs/gemini-tip-lines.md); Claude picked the funniest of two and
+    // smoothed contractions. "any" is the fallback for heroes without a line.
     elite:     { kicker: "URGENT MEMO", tip: "Red-glowing elites hit harder and drop bonus loot.",
-                 lines: { any: "Why is that one glowing red? Nobody put that on my cal.", photographer: "That big red one means business. Keep your knees bent!" } },
+                 lines: { any: "Why is that one glowing red? Nobody put that on my cal.",
+                          officeWorker: "That one's glowing red, so I'm billing overtime.",
+                          photographer: "Keep your knees bent, that glowing red one has hustle!",
+                          gradStudent: "Great, a peer reviewer with a red pen and an attitude.",
+                          coldWarCowboy: "Whoa, somebody overclocked that guy way past factory." } },
     chest:     { kicker: "BONUS APPROVED", tip: "Walk over the boss chest to claim upgrades and coins.",
-                 lines: { any: "Wait, accounting actually signed off on a spot bonus?", gradStudent: "Actual funding! I am buying groceries with brand names!" } },
-    evolution: { kicker: "SKILL EVOLVED", tip: "Evolved weapons clear swarms much faster than normal.",
-                 lines: { any: "Finally, a workflow upgrade that actually saves time.", photographer: "Now we are cooking with gas! Look at that thing go!" } },
+                 lines: { any: "Wait, accounting actually signed off on a spot bonus?",
+                          officeWorker: "A real bonus, and it's not even a pizza party.",
+                          photographer: "Look at that chest, the whole sideline earned this one!",
+                          gradStudent: "Actual funding, and I didn't even have to write a paper!",
+                          coldWarCowboy: "Jackpot. Better than finding twenty bucks in an old PC." } },
+    evolution: { kicker: "PEAK SYNERGY", tip: "Evolved weapons clear swarms much faster than normal.",
+                 lines: { any: "Finally, a workflow upgrade that actually saves time.",
+                          officeWorker: "Now that's what I call cross-functional synergy.",
+                          photographer: "That's varsity-level gear right there. Great hustle!",
+                          gradStudent: "Consider that weapon officially defended and published.",
+                          coldWarCowboy: "That's like jumping from dial-up straight to a T1 line." } },
     lowHp:     { kicker: "PTO NEEDED", tip: "Health is low. Smash office props to find healing food.",
-                 lines: { any: "My lower back is barking. Is there pizza in the kitchen?", gradStudent: "I am running on fumes and lukewarm vending machine tea." } }
+                 lines: { any: "My lower back is barking. Is there pizza in the kitchen?",
+                          officeWorker: "I'm one minor inconvenience away from using sick leave.",
+                          photographer: "Calling a quick timeout, somebody pass the orange slices!",
+                          gradStudent: "If I don't find a free bagel soon, I'm dropping this class.",
+                          coldWarCowboy: "Running low on RAM. Let's go check the breakroom." } },
+    intern:    { kicker: "SPECIAL DELIVERY", tip: "Meet interns halfway before the swarm scares them.",
+                 lines: { any: "Bless the interns, they remembered my afternoon coffee.",
+                          officeWorker: "Bless the interns, they remembered my afternoon coffee.",
+                          photographer: "Great pass from the bench, let's go grab that handoff!",
+                          gradStudent: "An undergrad with free coffee is my favorite sight on earth.",
+                          coldWarCowboy: "Hey, the student worker brought snacks. Let's go say hi." } },
+    salad:     { kicker: "FRESH GREENS", tip: "Desk Salads heal more than pizza but wilt in 14 seconds.",
+                 lines: { any: "A crisp desk salad, and nobody stole it from the fridge.",
+                          officeWorker: "A crisp desk salad, and nobody stole it from the fridge.",
+                          photographer: "Doctor said more fiber, let's hustle before it wilts!",
+                          gradStudent: "Fresh vegetables on my budget? I need to sprint for that!",
+                          coldWarCowboy: "A real lunch that didn't come out of a coil machine. Nice." } },
+    modifier:  { kicker: "LIFE HAPPENS", tip: "Surprises pass in a few years. The top chip says which.",
+                 lines: { any: "I'll just squint at the top bar until this blows over.",
+                          officeWorker: "I'll just squint at the top bar until this blows over.",
+                          photographer: "Curveball from the ref. Adjust your stance and play on!",
+                          gradStudent: "Another surprise fee, and financial aid is already closed.",
+                          coldWarCowboy: "System threw a weird pop-up. Give it a minute to clear." } }
   },
   heroNames: { officeWorker: "THE 9-TO-5ER", photographer: "THE SOCCER DAD", gradStudent: "THE GRAD STUDENT", coldWarCowboy: "THE COLD WAR COWBOY" },
   heroSheets: { officeWorker: "office-worker-on-break-v1", photographer: "soccer-dad-on-break-v1", gradStudent: "grad-student-on-break-v1", coldWarCowboy: "cold-war-cowboy-on-break-v3" }

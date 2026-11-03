@@ -84,6 +84,7 @@ window.Interns = (() => {
   function spawn(scene) {
     const roster = C().roster || []; if (!roster.length) return;
     const r = roster[rosterIdx++ % roster.length];
+    if (window.Spotlight) Spotlight.tip("intern"); // first delivery ever
     const key = texture(scene, r);
     const view = scene.cameras.main.worldView;
     const side = Math.floor(Math.random() * 4), m = 60;

@@ -963,6 +963,7 @@ function maybeDropSalad(sc, x, y, EL) {
   if (onGround >= (S.maxOnGround || 2)) { gems.create(x, y, "gem").setDepth(3); return; }
   const s = window.pizzas.create(x, y, "salad").setDepth(3);
   s.isSalad = true; s.dieAt = runElapsedMs + (S.lifeMs || 14000);
+  if (window.Spotlight) Spotlight.tip("salad"); // first Desk Salad ever
 }
 function saladHealAmount() {
   const S = PICKUPS.salad;

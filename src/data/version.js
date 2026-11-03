@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.70.1",
-  displayVersion: "V. 1.70.1",
+  version: "1.71.0",
+  displayVersion: "V. 1.71.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 165,
+  build: 166,
   changelog: [
+    {
+      ver: "V. 1.71.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Every hero has their own voice now: new bios, play styles and first-time tip lines, written by Gemini.",
+      highlights: [
+        "Every hero now has a line for every first-time tip, including the Cold War Cowboy (\"That's like jumping from dial-up straight to a T1 line.\").",
+        "Three new first-time tips: your first intern delivery, your first Desk Salad and your first age-50+ surprise.",
+        "New bios and play styles on the hero cards at the start of each run. Copy by Gemini."
+      ]
+    },
     {
       ver: "V. 1.70.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Every run now opens with your hero's card, with a short bio and how they play. Spotlight cards spread out more.",

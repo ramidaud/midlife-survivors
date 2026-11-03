@@ -63,6 +63,7 @@ window.Modifiers = (() => {
     st.stats.hits++; st.stats.byId[def.id] = (st.stats.byId[def.id] || 0) + 1;
     if (window.flashBanner) window.flashBanner(def.title, def.sub, def.kind);
     if (window.showLowerThird) window.showLowerThird(def.kind === "reward" ? "reward" : "alert", def.title, def.sub, 4000, def.sub);
+    if (window.Spotlight) setTimeout(() => Spotlight.tip("modifier"), 4500); // first surprise ever, after its own banner
     if (typeof sfx === "function") sfx("pick");
     setChip(def);
   }
