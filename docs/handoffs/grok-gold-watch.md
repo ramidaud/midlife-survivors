@@ -18,11 +18,11 @@ Phases by health: **Ticking** (100–60%: minute hand + gears), **Overtime** (60
 
 | Boss | Age | HP | Speed | Contact dmg | Attack timing |
 |---|---|---|---|---|---|
-| Performance Review | 45 | (see enemies.js) | | 2 | charge, telegraph and cooldown in bosses.js |
+| Performance Review | 45 | 45 | 68 | 2 | straight charge; timing in bosses.js |
 | 30-Year Mortgage | 52 | 110 | 64 | 2 | 2 rings, telegraph 850 ms, cooldown 5200 ms, rings expand 135 px/s to 260 px, gap 70° |
 | Midlife Crisis V8 | 60 | 200 | 118 | 3 | drift loop, telegraph 750 ms, cooldown 4800 ms, first attack after 2200 ms |
 
-Player health and weapon damage at 63 depend on the build. A typical run reaching 60 is about level 20–25 (avg level at death after healing was 12.9 across all ages). Contact damage gets +3 from age 62 (`hitDamageByAge`). The Tax Bracket (0–5) adds difficulty on top.
+Player health and weapon damage at 63 depend on the build. The average level at death after healing was 12.9 across all ages; runs that reach 60 are higher, but we don't have a clean number yet. Contact damage gets +3 from age 62 (`hitDamageByAge`). The Tax Bracket (0–5) adds difficulty on top.
 
 Current numbers (public repo): enemies https://github.com/ramidaud/midlife-survivors/blob/main/src/data/enemies.js · boss attacks https://github.com/ramidaud/midlife-survivors/blob/main/src/data/bosses.js · healing https://github.com/ramidaud/midlife-survivors/blob/main/src/data/healing.js · Tax Bracket https://github.com/ramidaud/midlife-survivors/blob/main/src/data/heat.js · waves https://github.com/ramidaud/midlife-survivors/blob/main/src/data/swarms.js
 
