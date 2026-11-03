@@ -1158,6 +1158,18 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     text-shadow: 4px 4px 0 var(--ms-navy), -2px -2px 0 var(--ms-navy), 0 0 34px rgba(239,147,71,0.35) !important; }
   .tp-logo span:last-child { color: var(--ms-cream); }
   .tp-brand .game-tagline { font-size: clamp(14px, 1.5vw, 19px); color: var(--ms-white); text-shadow: 2px 2px 0 var(--ms-navy); margin: 0 0 4px; }
+  /* Version line + what's new bubble under the title (Nov 3) */
+  .tp-ver { display: flex; flex-direction: column; align-items: center; margin-inline: auto !important; gap: 6px; margin: 2px 0 6px; max-width: min(460px, 100%); position: relative; z-index: 3; }
+  #ui-layer .tp-ver-btn { font-family: Silkscreen, monospace; font-size: clamp(11px, 1.1vw, 13px); letter-spacing: .04em; color: var(--ms-cream); background: rgba(23,28,53,0.88); border: 2px solid var(--ms-teal); border-radius: 4px; padding: 6px 10px; min-height: 36px; cursor: pointer; text-shadow: none; }
+  #ui-layer .tp-ver-btn b { color: var(--ms-orange, #EF9347); font-weight: 700; }
+  #ui-layer .tp-ver-btn .tp-ver-new { color: var(--ms-sage, #83A89A); margin-left: 4px; }
+  #ui-layer .tp-ver-btn:hover, #ui-layer .tp-ver-btn.nav-focused { border-color: var(--ms-cream); }
+  .tp-new { position: relative; display: flex; gap: 8px; align-items: flex-start; text-align: left; background: var(--ms-cream); color: var(--ms-navy); border: 2px solid var(--ms-navy); border-radius: 6px; padding: 8px 34px 8px 10px; box-shadow: 4px 4px 0 rgba(23,28,53,.6); font: 600 13px/1.35 "Atkinson Hyperlegible", sans-serif; animation: tpNewIn .35s cubic-bezier(.2,1.4,.4,1) both; }
+  .tp-new::before { content: ""; position: absolute; top: -9px; left: 24px; border: 8px solid transparent; border-top: 0; border-bottom-color: var(--ms-navy); }
+  .tp-new-k { flex: none; font: 11px Silkscreen, monospace; background: var(--ms-teal); color: var(--ms-cream); padding: 2px 6px; border-radius: 3px; margin-top: 1px; }
+  #ui-layer .tp-new-x { position: absolute; top: 2px; right: 2px; width: 30px; height: 30px; border: 0; background: transparent; color: var(--ms-navy); font: 700 18px/1 sans-serif; cursor: pointer; }
+  @keyframes tpNewIn { from { opacity: 0; transform: translateY(-6px) scale(.96); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .tp-new { animation: none; } }
   .tp-brand .title-meta-line { font-size: 13px; color: var(--ms-cream); text-shadow: 1px 1px 0 var(--ms-navy); }
   /* Punch In: right next to the time clock in the art */
   .tp-punch { align-self: center; justify-self: start; margin-left: clamp(150px, 19vw, 400px); width: min(330px, 86vw);
@@ -1495,6 +1507,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     .ts-slide.ultra .ts-img { top: -6vh; bottom: 6vh; }
     .title-poster .tp-brand { justify-self: start; text-align: left; max-width: 46vw; }
     .title-poster .tp-logo { align-items: flex-start; font-size: clamp(30px, 4.2vw, 64px); }
+    .title-poster .tp-ver { align-items: flex-start; margin-inline: 0 !important; }
     .title-poster .tp-brand .game-tagline { font-size: clamp(13px, 1.2vw, 17px); }
   }
   /* With the slideshow behind it, the main title keeps only the scanlines and a soft vignette */
@@ -1540,7 +1553,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=145&t=" + Date.now();
+    s.src = "src/loader.js?v=146&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

@@ -277,6 +277,7 @@ function create() {
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
+  if (window.Lounge) Lounge.reset();   // the Break Room counter (src/lounge.js)
   meta = loadMeta();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
@@ -1128,7 +1129,7 @@ function collectChest(p, chest) {
 // Stuck-pause watchdog (Nov 3, Derek: "game froze after getting the chest post HR boss").
 // If the run is paused but no menu is showing for 2 checks in a row, put the menu back or unpause.
 // It also records which flags were stuck (as an anonymous "stuck-..." play-stats event) so we can find the cause.
-const PAUSE_MENUS = ["levelup-modal", "bonus-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
+const PAUSE_MENUS = ["levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
 let stuckChecks = 0;
 setInterval(() => {
   const sc = window._activeGameScene;
@@ -2238,6 +2239,7 @@ function update(time, delta) {
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
+  if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {

@@ -95,7 +95,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["lore-modal", "changelog-modal", "controls-modal", "bonus-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["lore-modal", "changelog-modal", "controls-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -673,6 +673,25 @@ window.flashBanner = function(title, sub, kind) {
   clearTimeout(cfTimer);
   cfTimer = setTimeout(() => el.classList.add("hidden"), 1900);
 };
+
+// Title screen version line and the "what's new" bubble (Nov 3).
+// The bubble shows the newest changelog entry's teaser (or its first highlight) once per version.
+function seenVersion() { try { return localStorage.getItem("ms-seen-version") || ""; } catch (e) { return ""; } }
+function markVersionSeen() { try { localStorage.setItem("ms-seen-version", (window.GAME_VERSION || {}).version || ""); } catch (e) {} }
+function titleNewVisible() {
+  if (window.titleNewOpen !== undefined) return !!window.titleNewOpen;
+  return seenVersion() !== ((window.GAME_VERSION || {}).version || "");
+}
+function titleVersionHtml(verInfo) {
+  const V = window.GAME_VERSION || {}, latest = (V.changelog || [])[0] || {};
+  const teaser = latest.teaser || (latest.highlights || [])[0] || "";
+  const open = titleNewVisible() && teaser;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  return `<div class="tp-ver">
+      <button type="button" class="tp-ver-btn" id="title-ver-btn" aria-expanded="${open ? "true" : "false"}" aria-controls="title-new">You're playing <b>${esc(verInfo.displayVersion || V.displayVersion || "")}</b> <span class="tp-ver-new">${open ? "▲" : "WHAT'S NEW ▼"}</span></button>
+      ${open ? `<div class="tp-new" id="title-new" role="status"><span class="tp-new-k">NEW</span><span class="tp-new-t">${esc(teaser)}</span><button type="button" class="tp-new-x" id="title-new-x" aria-label="Close what's new">×</button></div>` : ""}
+    </div>`;
+}
 
 window.showLowerThird = function(kind, badge, text, ms = 4500, short) {
   if ((kind === "alert" || kind === "reward") && window.flashBanner) window.flashBanner(badge, short, kind);
@@ -2133,6 +2152,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${curMode === "full" ? "Surviving 40 to 100" : "Surviving 40 to 65"}</strong></div>
         <h1 class="game-logo tp-logo"><span>MIDLIFE</span><span>SURVIVORS</span></h1>
         <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
+        ${titleVersionHtml(verInfo)}
       </div>
       <div class="tp-punch">
         <button class="cta-btn clock-in-btn" id="title-clockin-btn"><span class="tp-punch-ico" aria-hidden="true">⏱</span> PUNCH IN${startAge !== 40 ? ` AT ${startAge}` : ""}</button>
@@ -2165,6 +2185,11 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const bandToggle = document.getElementById("tp-band-toggle");
   if (bandToggle) bindNavItem(bandToggle, 98, () => { window.titleBandFolded = !window.titleBandFolded; sfx("pick"); renderTitleModal(scene, "#tp-band-toggle"); });
   requestAnimationFrame(() => { const bw = modal.querySelector(".tp-band-wrap"); document.documentElement.style.setProperty("--tp-band-h", (bw ? bw.offsetHeight : 0) + "px"); });
+  // Version line + "what's new" bubble (Nov 3, Rami): shows once per version, tap the line to see it again.
+  const verBtn = document.getElementById("title-ver-btn");
+  if (verBtn) bindNavItem(verBtn, 7, () => { window.titleNewOpen = !titleNewVisible(); if (!window.titleNewOpen) markVersionSeen(); sfx("pick"); renderTitleModal(scene, "#title-ver-btn"); });
+  const newX = document.getElementById("title-new-x");
+  if (newX) newX.addEventListener("click", e => { e.stopPropagation(); window.titleNewOpen = false; markVersionSeen(); sfx("pick"); renderTitleModal(scene); });
   const settingsBtn = document.getElementById("title-settings-btn");
   if (settingsBtn) bindNavItem(settingsBtn, 9.5, () => { window.titleSettingsOpen = !window.titleSettingsOpen; sfx("pick"); renderTitleModal(scene, "#title-settings-btn"); });
 

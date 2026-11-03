@@ -47,6 +47,7 @@
       say("Desk Salad dropped");
     }),
     intern: need(() => { if (window.Interns) { Interns.forceSpawn(scene()); say("Intern on the way"); } }),
+    lounge: need(() => { if (window.Lounge) { Lounge.forceOpen(scene()); const s = Lounge.spot(); player.body.reset(s.x, s.y + 140); say("Lounge open, you're next to it"); } }),
     nav: () => { if (window.NAV) { NAV.debug = !NAV.debug; render(); say(NAV.debug ? "Route arrows ON" : "Route arrows OFF"); } }
   };
   const jumpTo = (age) => need(() => {
@@ -111,7 +112,8 @@
           <button type="button" data-a="hp5">+5 MAX HP</button>
           <button type="button" data-a="level">LEVEL UP</button>
           <button type="button" data-a="salad">DROP SALAD</button>
-          <button type="button" data-a="intern">SEND INTERN</button></div></section>
+          <button type="button" data-a="intern">SEND INTERN</button>
+          <button type="button" data-a="lounge">OPEN LOUNGE</button></div></section>
         <section><div class="lbl">GIVE</div><div class="row">
           <select id="dev-up" aria-label="Upgrade to give"></select>
           <button type="button" data-a="give">GIVE</button></div></section>

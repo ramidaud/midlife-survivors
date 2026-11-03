@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.62.0",
-  displayVersion: "V. 1.62.0",
+  version: "1.63.0",
+  displayVersion: "V. 1.63.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "The Interns",
-  build: 145,
+  codename: "The Lounge",
+  build: 146,
   changelog: [
+    {
+      ver: "V. 1.63.0", date: "Nov 3, 2026", title: "The Lounge",
+      teaser: "The Lounge is open! After each promotion, an intern runs the Break Room counter. Walk up to shop for snacks and boosts.",
+      highlights: [
+        "The Lounge: after each promotion (45, 50, 55, 60) an intern opens the Break Room counter for about 35 seconds. Walk up to it and the game pauses while you shop. Prices come out of your 401(k).",
+        "On the menu: Stale Pastry, Desk Salad Box, Cold Brew Cup, Loaner Badge, Quiet Hour Pass and a once-per-run Band-Aid Kit.",
+        "No hiding: crowds close the register, enemies still walk in, and hanging around the Break Room while it's closed brings company.",
+        "The title screen now shows the version you're playing, with a quick note about what's new."
+      ]
+    },
     {
       ver: "V. 1.62.0", date: "Nov 3, 2026", title: "The Interns",
       highlights: [
