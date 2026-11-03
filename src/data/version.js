@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.57.1",
-  displayVersion: "V. 1.57.1",
+  version: "1.57.2",
+  displayVersion: "V. 1.57.2",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 133,
+  build: 135,
   changelog: [
+    {
+      ver: "V. 1.57.2", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "You can post your score with a controller now: press up to Post Score, then pick a name badge if you haven't typed one.",
+        "Quick poll: would you sign up for an account so your progress follows you to every device? Vote in Extras or on the devlog."
+      ]
+    },
     {
       ver: "V. 1.57.1", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

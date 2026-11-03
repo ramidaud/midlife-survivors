@@ -2069,6 +2069,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   } else if (view === "extras") {
     bodyHtml = `
       <div class="title-subhead">✨ EXTRAS</div>
+      <div class="title-poll-tile" data-ms-poll="accounts-v1"></div>
       <div class="title-style-switcher"><span>START AT (FULL LIFE):</span>${decadeBtnsHtml}</div>
       <div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>
       <div class="title-secondary">
@@ -2117,6 +2118,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     </div>
   `;
   fillTitleMemo();
+  if (window.MSPoll) MSPoll.mountAll(modal);
   if (view === "main") placeTitlePunch();
   if (window.TitleSlides) TitleSlides.start(); // the art keeps playing behind every title panel
   const bandToggle = document.getElementById("tp-band-toggle");
@@ -2329,6 +2331,8 @@ function titleNudge(returning) {
   if (read < 10) out.push(`📚 <b>${read} of 10</b> devlog memos read toward <b>Required Reading</b>. <a href="devlog/" class="tp-nudge-link">Open the devlog</a>`);
   if ((meta.bestAge || 40) >= 50) out.push(`🏆 <b>Age ${Math.floor(meta.bestAge)} is worth bragging about.</b> Post it in the <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> and see who beats it.`);
   else out.push(`💬 <b>Stuck before 50?</b> The <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> has tips from people who made it.`);
+  let voted = null; try { voted = localStorage.getItem("ms-poll-accounts-v1"); } catch (e) {}
+  if (!voted) out.push(`🗳 <b>Quick poll:</b> should progress follow you across devices with an account? Vote in <b>✨ Extras</b>.`);
   const DC = (window.TITLE_COPY && TITLE_COPY.discord) || [];
   if (DC.length) out.push(`💬 ${DC[Math.floor(Math.random() * DC.length)]} <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Join the Discord</a>`);
   return `<div class="tp-nudge">${out[Math.floor(Math.random() * out.length)]}</div>`;
@@ -2534,6 +2538,7 @@ function renderGameOverModal(scene, cause, isWin) {
           <input id="score-name" maxlength="16" placeholder="Your name" value="${(window.lbSavedName ? window.lbSavedName() : "").replace(/"/g, "")}" aria-label="Your name for the leaderboard">
           <button type="submit" class="cta-btn score-post-btn" id="score-post-btn">🏆 POST SCORE</button>
         </form>
+        <div class="score-names hidden" id="score-names" aria-label="Pick a name"></div>
         <div class="score-msg" id="score-msg"></div>
         <div id="go-leaderboard"></div>
       </div>
@@ -2574,6 +2579,27 @@ function renderGameOverModal(scene, cause, isWin) {
   });
   document.getElementById("score-post-btn").addEventListener("pointerdown", e => e.stopPropagation());
   window.lbRenderInto(document.getElementById("go-leaderboard"), null);
+
+  // Controllers can't type, so Post Score is part of the D-pad menu (Nov 3, Rami). With no name saved,
+  // it offers office-name badges to pick from. Keyboard players can still type their own.
+  const postBtn = document.getElementById("score-post-btn"), namesEl = document.getElementById("score-names");
+  const submitScore = () => { if (scoreForm.requestSubmit) scoreForm.requestSubmit(); else scoreForm.dispatchEvent(new Event("submit", { cancelable: true })); };
+  bindNavItem(postBtn, -1, e => {
+    if (e && e.pointerType === "mouse") return; // a mouse click submits the form by itself
+    if (posted) return;
+    if (window.lbCleanName(nameInput.value)) { submitScore(); return; }
+    const pool = ["Dave from IT", "Deb in HR", "Regional Mgr", "Coffee Ninja", "Gary 2.0", "Night Shift", "Reply All", "PTO Pat", "Spreadsheet Sue", "Cubicle King"];
+    const pick = Phaser.Utils.Array.Shuffle(pool.slice()).slice(0, 4).map(n => `${n} ${Phaser.Math.Between(10, 99)}`);
+    namesEl.innerHTML = `<div class="score-names-head">Pick a name badge (or type one with a keyboard):</div>` +
+      pick.map(n => `<button type="button" class="t-style-btn score-name-chip" data-name="${n}">🪪 ${n}</button>`).join("");
+    namesEl.classList.remove("hidden");
+    namesEl.querySelectorAll(".score-name-chip").forEach((chip, i) => bindNavItem(chip, -2, () => {
+      nameInput.value = chip.dataset.name; namesEl.classList.add("hidden"); sfx("pick"); submitScore();
+      window.menuNav.refresh("#go-retry-btn");
+    }, i === 0));
+    sfx("move");
+    window.menuNav.refresh(".score-name-chip");
+  }, false);
 
   bindNavItem(document.getElementById("go-retry-btn"), 0, () => {
     sfx("pick");

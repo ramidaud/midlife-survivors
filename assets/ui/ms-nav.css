@@ -56,3 +56,19 @@ html.ms-playing .ms-nav, html.ms-playing .ms-nav-tab { display: none !important;
 html, body, canvas { cursor: url("cursors/cursor-arrow.png") 0 0, auto; }
 a, button, [role="button"], summary, label, select, .nav-item, .perk-card, .dossier-char, .shop-row, .opt-btn, .t-style-btn, .ctrl-btn,
 .ms-nav-btn, .ms-nav-tab, .ms-nav-brand, .hotspot, .card, .sequel-card, .feature { cursor: url("cursors/cursor-hand.png") 8 0, pointer !important; }
+
+/* Quick poll (assets/ui/ms-poll.js), shared by the devlog and the game (Nov 3) */
+.ms-poll { text-align: left; font-family: "Atkinson Hyperlegible", system-ui, sans-serif; color: #FFF0CF; }
+.ms-poll-tag { font-family: "Silkscreen", monospace; font-size: 11px; letter-spacing: .05em; color: #EF9347; margin-bottom: 6px; }
+.ms-poll-q { font-weight: 700; font-size: 15px; line-height: 1.3; margin-bottom: 10px; }
+.ms-poll-opts { display: flex; flex-direction: column; gap: 6px; }
+.ms-poll-opt { text-align: left; font: 600 13.5px "Atkinson Hyperlegible", system-ui, sans-serif; color: #FFF0CF; background: rgba(48,55,80,.75);
+  border: 1px solid #3E7775; border-radius: 6px; padding: 9px 11px; transition: border-color .15s, background .15s; }
+.ms-poll-opt:hover, .ms-poll-opt:focus-visible { border-color: #EF9347; background: rgba(239,147,71,.14); outline: none; }
+.ms-poll-opt.picked { border-color: #F2D7A1; background: rgba(242,215,161,.2); }
+.ms-poll-opt:disabled { opacity: .7; }
+.ms-poll-row { display: grid; grid-template-columns: 1fr 44px; grid-template-areas: "lbl lbl" "bar n"; gap: 4px 8px; align-items: center; margin-bottom: 8px; }
+.ms-poll-lbl { grid-area: lbl; font-size: 13px; color: #B8C0D4; } .ms-poll-row.mine .ms-poll-lbl { color: #FFF0CF; }
+.ms-poll-lbl b { color: #EF9347; font-weight: 700; }
+.ms-poll-row .ms-bar { grid-area: bar; } .ms-poll-n { grid-area: n; font-family: "Silkscreen", monospace; font-size: 12px; text-align: right; color: #F2D7A1; }
+.ms-poll-foot { margin-top: 8px; font-size: 12px; color: #83A89A; }

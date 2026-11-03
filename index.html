@@ -1417,6 +1417,12 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   /* Options (controls) opened from the title docks above the tiles too */
   body:has(#title-modal:not(.hidden)) #controls-modal { align-items: flex-start; padding-top: calc(var(--ms-nav-h, 0px) + 6px); background: rgba(8,10,22,0.35); }
   body:has(#title-modal:not(.hidden)) #controls-modal .controls-box { max-height: calc(100dvh - var(--ms-nav-h, 0px) - 24px); }
+  .title-poll-tile { background: rgba(48,55,80,0.55); border: 2px solid var(--ms-coffee); border-radius: 8px; padding: 12px 14px; }
+  /* Game over: controller-friendly name badges for posting a score */
+  .score-names { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 8px 0 4px; }
+  .score-names.hidden { display: none; }
+  .score-names-head { width: 100%; text-align: center; font-size: 12px; color: var(--ms-muted); }
+  .score-name-chip { font-size: 12px !important; }
   /* Title slideshow (src/data/title-art.js): crossfade + slow push-in behind the poster */
   #title-slides { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
   #title-slides[hidden] { display: none; }
@@ -1489,7 +1495,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=133&t=" + Date.now();
+    s.src = "src/loader.js?v=135&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
