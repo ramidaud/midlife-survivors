@@ -470,3 +470,12 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
 - Zoned floors, one landmark per screen, density gradient (Lobby open, Bullpen denser toward the back), open arenas for swarm fights, 224 px routes.
 - Coworkers sit in their chairs at hero scale; a few standing scenes and an ambient walker; all visual only.
 - Process: layout plan (two options) approved by Rami before any build.
+
+## Decided Nov 3: big moments, lighting and what comes after the freeze
+- **Office layout:** Option B's loop (open commons with pods at the turns) dressed in Option A's look (worn avenue carpet, pods on rugs, seated coworkers). ChatGPT builds it.
+- **Feature freeze lifted.** Inspired by Rami's Vampire Survivors session:
+  - **Polish, in order:** the Bonus Chest moment, then the Retirement screen, then lighting, then damage numbers.
+  - **Bonus Chest moment:** the game pauses on a "BONUS APPROVED" card with an OPEN button. Light beams, a slot-reel spin of item icons, a 401(k) coin fountain, a ticking counter and a gold flash follow. Tiers: Performance Review 1 beam, 30-Year Mortgage 3, Midlife Crisis V8 5.
+  - **Retirement screen at 65:** "HAPPY RETIREMENT" in gold, with an itemized payout (Pension, Unused PTO cashed out, Gold watch). Buttons: "Clock Out" and "Come Back as a Consultant" (endless overtime).
+  - **Lighting:** a dim office with warm pools under lamps, the vending machine, windows and server racks. A soft light follows the player, pickups glow, and the room gets darker with age.
+  - **New content later:** a character sheet with stats, a starting weapon and one quirk per hero; run modifiers (Grok's age 50+ spec, plus Hurry and Hyper style toggles); a "Life Lessons" card deck in the spirit of Arcanas.

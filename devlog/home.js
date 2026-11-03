@@ -118,7 +118,7 @@ window.DevlogHome = (() => {
     let rows = null;
     for (let i = 0; i < 2 && !(rows && rows.length); i++) {
       try {
-        const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age&order=score.desc&limit=200&_=${Date.now()}`, { headers, cache: "no-store" });
+        const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age&order=score.desc&limit=200`, { headers, cache: "no-store" });
         if (r.ok) rows = await r.json();
       } catch (e) {}
     }
