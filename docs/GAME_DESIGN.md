@@ -479,3 +479,5 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
   - **Retirement screen at 65:** "HAPPY RETIREMENT" in gold, with an itemized payout (Pension, Unused PTO cashed out, Gold watch). Buttons: "Clock Out" and "Come Back as a Consultant" (endless overtime).
   - **Lighting:** a dim office with warm pools under lamps, the vending machine, windows and server racks. A soft light follows the player, pickups glow, and the room gets darker with age.
   - **New content later:** a character sheet with stats, a starting weapon and one quirk per hero; run modifiers (Grok's age 50+ spec, plus Hurry and Hyper style toggles); a "Life Lessons" card deck in the spirit of Arcanas.
+- **Decided Nov 3: the Required Reading reward is a character unlock: "The Cold War Cowboy,"** based on Rami's friend Ben. It unlocks by finishing 10 devlog memos. The look, starting kit and jokes are still to come, from Rami's description of Ben, then a ChatGPT 8-frame hero sheet.
+- **Decided Nov 3: elites are a keeper** ("it's so good"), V. 1.49.0.
