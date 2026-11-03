@@ -894,3 +894,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Bot playtest: 0.7% of enemies off track, no errors. Watch Pun Storm in the 60s; Grok's fallback is 0.58 to 0.64.
 - Wrote ChatGPT brief: 8-frame v2 enemy sheets for smoother animation (art only; Claude wires them in after Rami approves).
 - Devlog RSS feed now includes each full post (text, images, What changed, Next up, play link) so Substack imports the whole post instead of just the teaser.
+- Saved Grok's art coherence review (docs/handoffs/grok-art-coherence-review.md).

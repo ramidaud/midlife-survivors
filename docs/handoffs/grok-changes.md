@@ -37,3 +37,8 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - File: `docs/handoffs/grok-weapon-roles-spec.md` (answers `docs/handoffs/grok-weapon-roles.md`).
 - For Claude/Codex: tune `src/data/weapons.js` / `upgrades.js` / `meta.js` per the tables (Joke cadence and softer push, Louder Groan cadence scaling, Firm Boundaries damage only on ranks 2 and 4, "No." push up with a cap, Pun Storm evo flinch key). Keep changes data-driven. Do not revert Joke to a long freeze.
 - Pending after Rami approval, implementation, and playtest: mark [done] with version.
+
+## 2026-11-02: Art coherence review (Grok)
+- What: review only. Strong office look; main gaps are stage identity (hospital/home/social/senior are data, not places), mixed rendering finish (flat rugs, emoji UI vs pixel cast), sparse campus vs dense key art.
+- File: `docs/handoffs/grok-art-coherence-review.md` (screenshots stayed on Grok's side).
+- Claude note: in the Midlife run the office IS the whole journey by design (promotions are the chapters); stages matter for Full Life. Quick wins queued for Rami to pick.
