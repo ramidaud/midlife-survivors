@@ -111,7 +111,7 @@ PAGE = """<!doctype html>
       <a class="btn btn-primary" href="{play}">▶ Play this build</a>
     </div>
   </header>
-  <script src="../../assets/ui/ms-nav.js?v=2"></script>
+  <script src="../../assets/ui/ms-nav.js?v=3"></script>
   <div class="wrap">
     <a class="back" href="../">← All memos</a>
     <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>{title}</strong></div>

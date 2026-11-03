@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.57.2",
-  displayVersion: "V. 1.57.2",
+  version: "1.58.0",
+  displayVersion: "V. 1.58.0",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 135,
+  build: 136,
   changelog: [
+    {
+      ver: "V. 1.58.0", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "The 401(k) Shop has a picture for every perk, plus four Classified Benefits still pending HR approval.",
+        "Shop, Leaderboard and Options open at full length with no little scroll boxes. Your tiles fold into buttons underneath.",
+        "On the title screen your tiles sit at the bottom again, and a small quick poll pops up until you vote or close it.",
+        "The menu bar's Play button now says Title Screen."
+      ]
+    },
     {
       ver: "V. 1.57.2", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

@@ -1942,6 +1942,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     const canBuy = !maxed && meta.coins >= cost;
     return `
       <div class="shop-row ${maxed ? "maxed" : ""} ${canBuy ? "affordable" : ""}" data-shop="${item.id}">
+        <div class="shop-art" aria-hidden="true">${item.icon || "🪙"}</div>
         <div class="shop-info">
           <span class="shop-name">${item.name}</span>
           <span class="shop-pips">${"■".repeat(rank)}${"□".repeat(item.maxRank - rank)}</span>
@@ -1999,7 +2000,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const selChAll = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
   if (window.titleBandFolded == null || window._titleBandView !== view) {
     window._titleBandView = view;
-    window.titleBandFolded = view !== "main" && window.innerHeight < 900;
+    window.titleBandFolded = view !== "main"; // panels get the room: the tiles fold into buttons (Rami, Nov 3)
   }
   const bandFold = view !== "main" && window.titleBandFolded;
   const bandHtml = `<div class="tp-band-wrap${bandFold ? " folded" : ""}">
@@ -2032,7 +2033,12 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (view === "shop") {
     bodyHtml = `
       <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
-      <div class="shop-list">${shopRowsHtml}</div>
+      <div class="shop-list">${shopRowsHtml}${(window.SHOP_COMING_SOON || []).map(c => `
+        <div class="shop-row shop-mystery" aria-label="Coming soon">
+          <div class="shop-art" aria-hidden="true">?</div>
+          <div class="shop-info"><span class="shop-name">Classified Benefit</span><span class="shop-pips">COMING SOON</span><span class="shop-desc">${c.hint}</span></div>
+          <button class="shop-buy-btn" tabindex="-1" disabled>🔒 LOCKED</button>
+        </div>`).join("")}</div>
       ${shopSpent > 0 ? `<div class="shop-refund-note">Changed your mind? Get back every coin you've spent (${shopSpent}k) and buy different upgrades.</div>` : ""}
       <div class="title-secondary">${shopSpent > 0 ? `<button class="t-style-btn shop-refund-btn" id="shop-refund-btn">↺ REFUND ALL (${shopSpent}k)</button>` : ""}${backBtn}</div>`;
   } else if (view === "leaders") {
@@ -2104,7 +2110,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
 
   modal.dataset.view = view;
   modal.innerHTML = view === "main" ? `
-    <div class="title-poster" data-view="main">${bodyHtml}</div>
+    <div class="title-poster" data-view="main">${bodyHtml}${titlePollPop()}</div>
   ` : `
     <div class="title-poster sub-view" data-view="${view}">
     <div class="modal-card title-box title-clean tp-panel" data-view="${view}">
@@ -2236,7 +2242,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   });
 
   // Rows 3..6: 401(k) Shop Upgrades
-  modal.querySelectorAll(".shop-row").forEach((el, idx) => {
+  modal.querySelectorAll(".shop-row:not(.shop-mystery)").forEach((el, idx) => {
     const shopId = el.dataset.shop;
     bindNavItem(el, 3 + idx, () => {
       const item = META_SHOP.find(it => it.id === shopId);
@@ -2348,6 +2354,17 @@ function placeTitlePunch() {
   poster.classList.toggle("punch-in-tile", wide);
 }
 window.addEventListener("resize", () => { if (document.querySelector(".tp-punch")) placeTitlePunch(); });
+
+// The quick poll as a small pop-up on the main title, until you vote or close it for this visit.
+function titlePollPop() {
+  let voted = null, closed = null;
+  try { voted = localStorage.getItem("ms-poll-accounts-v1"); closed = sessionStorage.getItem("ms-poll-pop-closed"); } catch (e) {}
+  if (voted || closed || !window.MSPoll) return "";
+  return `<aside class="tp-poll-pop" id="tp-poll-pop" aria-label="Quick poll">
+    <button type="button" class="tp-poll-x" aria-label="Close the poll" onclick="try{sessionStorage.setItem('ms-poll-pop-closed','1')}catch(e){};this.parentElement.remove()">×</button>
+    <button type="button" class="tp-poll-pill" onclick="this.parentElement.classList.add('open')">📊 One quick question</button>
+    <div data-ms-poll="accounts-v1"></div></aside>`;
+}
 
 // "Your file" tile on the title screen: welcome (back) message + your numbers.
 function titleFileTile() {

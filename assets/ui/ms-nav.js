@@ -12,7 +12,7 @@
   const inGame = section === "play";
 
   const links = [
-    { id: "play",  label: "▶ Play",  href: u("./"), cls: "primary" },
+    { id: "play",  label: "▶ Title Screen", href: u("./"), cls: "primary" },
     { id: "memos", label: "📝 Devlog", href: u("devlog/") },
     { id: "art",   label: "Art Room", href: u("devlog/art/") },
     { id: "about", label: "About",   href: u("devlog/about/") },
