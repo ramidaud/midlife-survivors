@@ -202,3 +202,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **For the game.** All marks draw under actors and pickups and flatten into the existing 1024px floor bake. No bodies, runtime animation or glow. Floor polygons, solids, gates, spawn selection and all 63 lighting anchors match V. 1.54.2.
 - **Checks.** Matched desktop and phone views with ?nostats=1 had no console errors. All 350 enemies stayed on floor. Mean FPS was 116.7 to 118.5 at 1280×800 and 118.5 to 118.9 at 390×844 on the same machine. The hero, Bill and gem read clearly over the inlay.
 - **Review.** assets/stage/start-area/review-floor.html and qa-floor contain the Lobby, commons and aisle comparisons and the readability checks. The decals are ready for Rami's review ahead of the lighting pass.
+
+## 2026-11-03: On Break hero portraits (Codex, art only)
+- **What.** The 9-to-5er sips coffee and adjusts his glasses, the Soccer Dad checks the group chat, and the Grad Student turns a notebook page and taps her pen. All three also breathe, blink, and stretch.
+- **Files.** assets/characters/portraits/ contains three native sheets, preview GIFs, built-in imagegen pose studies and prompts, and the frame map.
+- **Sizes and timing.** Each transparent 768×336 sheet has 96×112 cells. Row 0 uses columns 0–5 at 220 ms with a blink at column 3. Rows 1 and 2 use all eight columns at 140 ms and 150 ms. The stretch puff appears at column 4. The shoes share y111 across every pose.
+- **Checks.** All 66 occupied cells use the approved hero palettes, retain transparent padding, and have distinct poses within their animation rows. Each GIF plays the two breathe cycles, action and stretch at 2×. Claude wires the art in after Rami's review.
