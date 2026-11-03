@@ -901,3 +901,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami agreed with the direction from Grok's art review: in a Midlife run the office is the whole journey. Lore chapter 2 rewritten to say so; the five arenas are now Full Life chapters. Scenario codes say which room each life chapter "follows you to"; bosses list the room you actually fight them in. Removed a stale Mezzanine tip from the 3D era.
 - Each promotion now adds a LIFE line (45 hospital co-pays, 50 tuition and carpool, 55 retirement calculator and knees, 60 the group chat).
 - Found while testing: interrupted messages were thrown away and the queue only held 3. Now interrupted messages go back in line, the queue holds 5, and promotions rank with tips.
+
+## 2026-11-02: Reviewed ChatGPT's 8-frame enemies and office finish (V. 1.44.0)
+- 8-frame enemy sheets: all 11 are the right size; special layouts correct (Spam Likely walk then ring, Back Twinge lunge then rest, 3 AM Thought fade to see-through ghost). Not wired in yet.
+- Office finish (live in 1.44.0): stitched WELCOME rug, softer floor, Bullpen filled with CRT cubicle rows and paper drifts. My checks: bot playtest 1.5% off track, Bullpen spots 0 to 1% walking away, age-50 test clean on desktop and phone.
+- Pixel icon atlas: 31 cards + 3 characters + fallback; every level-up card has an icon. Not wired in yet.
