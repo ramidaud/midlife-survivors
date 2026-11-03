@@ -913,3 +913,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Tests: desktop and phone, no errors, v2 frames in use, all three cards and the avatar show pixel icons.
 - Wrote ChatGPT brief: 8-frame hero walk + idle sheets for all three characters (art only; Claude wires in after Rami approves).
 - Reviewed ChatGPT's 8-frame hero sheets (1878c5d): all three 448x300, v1 files untouched, one foot line per character (walk and idle), on-model in all directions; idle fidgets: glasses push, neck rub, notebook check. Awaiting Rami's approval to wire in.
+
+## 2026-11-02: 8-frame heroes wired in (V. 1.46.0)
+- Rami approved. world-art.js loads the v2 sheets: 8-frame walks (a step every 8.5 px), breathing loop when standing, a fidget every 7 s. HERO_ART_VERSION = 1 switches back; tuning in window.HERO_ANIM.
+- Test: all three characters use all 8 walk frames plus breathing and fidget frames, no errors.

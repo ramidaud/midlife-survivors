@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.45.0",
-  displayVersion: "V. 1.45.0",
+  version: "1.46.0",
+  displayVersion: "V. 1.46.0",
   lastUpdated: "Nov 2, 2026",
   codename: "Smooth Operators",
-  build: 111,
+  build: 112,
   changelog: [
+    {
+      ver: "V. 1.46.0", date: "Nov 2, 2026", title: "Smooth Operators",
+      highlights: [
+        "All three heroes now walk on 8 frames, and they breathe when you stand still. Wait a few seconds: the 9-to-5er pushes up his glasses, the Soccer Dad rubs his neck and the Grad Student checks her notebook. (Art by ChatGPT.)"
+      ]
+    },
     {
       ver: "V. 1.45.0", date: "Nov 2, 2026", title: "Smooth Operators",
       highlights: [

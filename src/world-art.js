@@ -1,5 +1,8 @@
 // Approved hero and Corporate Campus art. Change a flag and reload to compare.
 window.USE_HERO_ART = true;
+// Nov 2: 8-frame hero sheets with an idle row (ChatGPT). Set to 1 and reload for the 4-frame v1 walk.
+window.HERO_ART_VERSION = 2;
+window.HERO_ANIM = { stepPx: 8.5, breathMs: 320, fidgetEveryMs: 7000, fidgetFrameMs: 170 };
 window.USE_OFFICE_ART = true;
 window.WorldArt = (() => {
   const palette = '171c35 303750 526078 3e7775 83a89a a88b70 d3b78d f2d7a1 fff0cf 874c3b c45c4b ef9347 e5a995 f1b5bf bfa8cf b97a58 70402f'.split(' ').map(hex => [0,2,4].map(i => parseInt(hex.slice(i,i+2),16)));
@@ -34,7 +37,7 @@ window.WorldArt = (() => {
   }
   function init(scene,refs) {
     let alive=true,hero=null,shadow=null,facing='down',walked=0,lastX=refs.player.x,lastY=refs.player.y,lastClock=-1;
-    const chunks=[],heroReady=new Set(),pendingProps=[],decor=[],captioned=[],captionsShown=new Set();let lastCaptionAt=-1e9;
+    const chunks=[],heroReady=new Set(),heroV2=new Set(),pendingProps=[],decor=[],captioned=[],captionsShown=new Set();let lastCaptionAt=-1e9;
     const state={active:false,update};scene.worldArt=state;
     function body(object,footprint,kind) {
       if(!object.body)scene.physics.add.existing(object);
@@ -50,7 +53,31 @@ window.WorldArt = (() => {
           if(!scene.textures.exists('walk_'+character.id))CharacterArt.importSheet(scene,img,character.id,palette);
           heroReady.add(character.id);
         } catch(error){console.warn('Hero art fallback: '+error.message);}
+        if(window.HERO_ART_VERSION===2) loadHeroV2(character.id);
       }
+    }
+    // v2: 448x300 sheet, 8 columns x 5 rows of 56x60 (rows: down, up, left, right walks, then idle). Exact magenta = clear.
+    const HERO_FILES={officeWorker:'office-worker',photographer:'soccer-dad',gradStudent:'grad-student'};
+    function loadHeroV2(id) {
+      const img=new Image();
+      img.onload=()=>{
+        if(!alive||img.width!==448||img.height!==300){if(alive)console.warn('Hero v2 art fallback: wrong size for '+id);return;}
+        const c=document.createElement('canvas');c.width=448;c.height=300;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0);
+        const d=x.getImageData(0,0,448,300);for(let i=0;i<d.data.length;i+=4)if(d.data[i]===255&&d.data[i+1]===0&&d.data[i+2]===255)d.data[i+3]=0;
+        x.putImageData(d,0,0);
+        if(!scene.textures.exists('walk2_'+id)){scene.textures.addSpriteSheet('walk2_'+id,c,{frameWidth:56,frameHeight:60});scene.textures.get('walk2_'+id).setFilter(Phaser.Textures.FilterMode.NEAREST);}
+        heroV2.add(id);
+      };
+      img.onerror=()=>{};
+      img.src='assets/characters/'+HERO_FILES[id]+'-walk-56x60-v2.png?v='+window.BUILD;
+    }
+    let stillSince=0,nextFidget=0;
+    function heroFrame(id,moving,now) {
+      const H=window.HERO_ANIM,dirs=['down','up','left','right'];
+      if(moving){stillSince=now;nextFidget=now+H.fidgetEveryMs;return dirs.indexOf(facing)*8+Math.floor(walked/H.stepPx)%8;}
+      if(facing!=='down'&&now-stillSince<600) return dirs.indexOf(facing)*8; // brief stand in the direction you stopped
+      if(now>=nextFidget){const k=Math.floor((now-nextFidget)/H.fidgetFrameMs);if(k<4)return 32+4+k;nextFidget=now+H.fidgetEveryMs;}
+      return 32+Math.floor(now/H.breathMs)%4; // breathing / coffee-sip loop
     }
     async function loadOffice() {
       if(window.USE_START_AREA && window.StartAreaArt) {
@@ -162,7 +189,8 @@ window.WorldArt = (() => {
         if(!hero){hero=scene.add.sprite(p.x,feet,'walk_'+meta.selectedChar).setOrigin(.5,1);shadow=scene.add.image(p.x,feet-2,'enemy-art-contact').setDisplaySize(26,9);}
         const dx=p.x-lastX,dy=p.y-lastY;
         if(moving&&now!==lastClock){facing=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');walked+=Math.hypot(dx,dy);}
-        hero.setTexture('walk_'+meta.selectedChar,CharacterArt.frame(facing,moving?Math.floor(walked/17):1));
+        if(heroV2.has(meta.selectedChar))hero.setTexture('walk2_'+meta.selectedChar,heroFrame(meta.selectedChar,moving,now));
+        else hero.setTexture('walk_'+meta.selectedChar,CharacterArt.frame(facing,moving?Math.floor(walked/17):1));
         p.setVisible(false);hero.setPosition(Math.round(p.x),Math.round(feet)).setAlpha(p.alpha).setDepth(state.active?10000+feet-p.y:5);
         if(p.isTinted){if(p.tintFill)hero.setTintFill(p.tintTopLeft);else hero.setTint(p.tintTopLeft);}else hero.clearTint();
         shadow.setPosition(p.x,feet-2).setDepth(state.active?10000+feet-p.y-.1:4.9);
