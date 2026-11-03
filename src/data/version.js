@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.68.0",
-  displayVersion: "V. 1.68.0",
+  version: "1.68.1",
+  displayVersion: "V. 1.68.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 156,
+  build: 157,
   changelog: [
+    {
+      ver: "V. 1.68.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "The Lounge card now shows TJ and Derek's big new portraits: TJ raises his coffee, Derek snaps a photo.",
+      highlights: [
+        "When the Lounge opens, its Spotlight card shows a big On Break portrait of TJ (raising his coffee with a grin) or Derek (snapping a photo, flash and all). Art by ChatGPT.",
+        "On phones, long names on Spotlight cards wrap next to the sprite instead of covering it."
+      ]
+    },
     {
       ver: "V. 1.68.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Spotlight cards got a glow-up: a real spotlight, a hop-in landing, names that drop in letter by letter, and lines that type themselves.",

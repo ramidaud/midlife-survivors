@@ -43,7 +43,7 @@ He throws a floppy disk that comes back to him. And once a run, when things get 
 
 The part I'm proudest of today is how it all feels together. The game, this devlog and the About page share one look now: the same fonts, the same memo strips, the same progress bar. Your stats follow you from the title screen to the devlog. The title tells you what version you're playing and what's new.
 
-![The title screen before and after. Top, V. 1.47: one centered box of buttons over the key art. Bottom, V. 1.67: a poster title with the key art up front, your employee file, today's shift with Punch In, and the newest devlog memo pinned on the right.](img/09-title-before-after.jpg)
+![The title screen before and after. Top, V. 1.47: one centered box of buttons over the key art. Bottom, V. 1.68: a poster title with the key art up front, your employee file, today's shift with Punch In, and the newest devlog memo pinned on the right.](img/09-title-before-after.jpg)
 
 On a phone, it went from a wall of buttons to a poster you scroll.
 

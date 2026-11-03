@@ -55,7 +55,7 @@ window.Spotlight = (() => {
 #spotlight.out .sp-dim,#spotlight.out .sp-beam,#spotlight.out .sp-glow,#spotlight.out .sp-bar,#spotlight.out .sp-puff{animation:spGone .3s ease-in both}
 @media (orientation:portrait),(max-width:760px){
  #spotlight{--s:.62;--lift:86px}
- #spotlight .sp-text{left:var(--L);right:max(12px,4vw);text-align:right;align-items:flex-end}
+ #spotlight .sp-text{left:calc(var(--L) + var(--aw) * .72);right:max(12px,4vw);text-align:right;align-items:flex-end}
  #spotlight .sp-kick{align-self:flex-end}
  #spotlight .sp-tip{left:var(--L);right:max(12px,4vw);justify-content:flex-end}
  #spotlight .sp-say{left:auto;right:max(12px,4vw);max-width:62vw;bottom:calc(250px * var(--s) + var(--lift))}
@@ -171,7 +171,7 @@ window.Spotlight = (() => {
     return fallback;
   }
   // Warm up the hero portrait sheets so the sprite rises with the card instead of popping in late.
-  setTimeout(() => Object.values(S().heroSheets || {}).forEach(slug => { const im = new Image(); im.src = `assets/characters/portraits/${slug}.png`; }), 3000);
+  setTimeout(() => { Object.values(S().heroSheets || {}).forEach(slug => { const im = new Image(); im.src = `assets/characters/portraits/${slug}.png`; }); ((window.INTERNS || {}).roster || []).forEach(r => { if (r.portrait) { const im = new Image(); im.src = r.portrait; } }); }, 3000);
   const heroId = () => (typeof meta !== "undefined" && meta && meta.selectedChar) || "officeWorker";
   const heroArt = id => `assets/characters/portraits/${(S().heroSheets || {})[id] || "office-worker-on-break-v1"}.png`;
 
@@ -190,7 +190,8 @@ window.Spotlight = (() => {
     lounge(r) {
       const line = (r.lines || [])[Math.floor(Math.random() * (r.lines || []).length)] || "Cash only.";
       show({ kicker: "NOW OPEN", name: "THE LOUNGE", line: r.name + ": " + line, tip: "Follow the arrow to the Break Room counter.",
-             art: (window._activeGameScene && _activeGameScene.textures.exists("intern2_" + r.id)) ? r.sheet : null, artType: "intern", edge: "#EF9347", band: "#3E7775", ms: 5000 });
+             // On Break portrait (same 96x112 format as the heroes, by ChatGPT); falls back to the counter sprite.
+             art: r.portrait || ((window._activeGameScene && _activeGameScene.textures.exists("intern2_" + r.id)) ? r.sheet : null), artType: r.portrait ? "hero" : "intern", edge: "#EF9347", band: "#3E7775", ms: 5000 });
       return true;
     },
     hire(id) {

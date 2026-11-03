@@ -237,3 +237,5 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Made TJ's grinning coffee toast and Derek's camera shot and nod, plus breathing and stretch loops for both. Used the v2 intern sheets and Ben's v3 portrait as imagegen references.
 - **Files.** assets/characters/portraits/README-interns-v1.md links the two native sheets, all six row GIFs and the 1×/4× comparison with Ben and the 9-to-5er.
 - **For Claude.** The sheets are 768×336 with 96×112 cells and shoe line y111. Play row 1 at 140 ms for the Lounge Spotlight. Derek flashes once in column 2, indexed from zero. The remaining rows follow the hero portrait timing.
+
+- [done] Claude wired TJ and Derek's On Break portraits into the Lounge Spotlight card in V. 1.68.1 (Nov 3).
