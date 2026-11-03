@@ -32,7 +32,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
-<link rel="stylesheet" href="assets/ui/ms-nav.css?v=1">
+<link rel="stylesheet" href="assets/ui/ms-nav.css?v=2">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Chakra Petch', sans-serif; }
@@ -1239,7 +1239,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   /* Universal nav (assets/ui/ms-nav.*): menus leave room for it; it disappears during a run */
   .title-poster { padding-top: calc(var(--ms-nav-h, 0px) + max(16px, env(safe-area-inset-top))) !important; }
   .ui-modal:not(#title-modal) { padding-top: calc(var(--ms-nav-h, 0px) + 10px); }
-  #title-modal:not([data-view="main"]) { padding-top: calc(var(--ms-nav-h, 0px) + 10px); }
+  #title-modal { align-items: stretch !important; justify-content: stretch !important; padding: 0 !important; overflow-y: auto; }
   .tp-nudge { font-size: 12.5px; line-height: 1.4; color: var(--ms-navy); background: var(--ms-cream); border-left: 4px solid var(--ms-coffee); padding: 7px 9px; border-radius: 2px; }
   .tp-nudge b { color: #874C3B; }
   .tp-nudge-link { color: var(--ms-teal); font-weight: 700; text-decoration: underline; pointer-events: auto; }
@@ -1272,6 +1272,65 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   @media (max-width: 600px) { .pause-hero { width: 84px; height: 90px; background-size: 672px 450px; background-position: 0 -360px; animation-name: pauseIdleSm; } }
   @keyframes pauseIdleSm { from { background-position: 0 -360px; } to { background-position: -672px -360px; } }
   @media (prefers-reduced-motion: reduce) { .pause-hero { animation: none; } }
+  /* Pause hero in its own tile (Nov 3): 3x size, real timing (slow breathing, then one fidget), like in the game */
+  .pause-grid.with-hero { grid-template-columns: minmax(170px, 0.62fr) minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .pt-hero { align-items: center; justify-content: flex-end; text-align: center; background: linear-gradient(180deg, rgba(23,28,53,0.9), rgba(62,119,117,0.25)); }
+  .pt-hero .pause-hero { width: 168px; height: 180px; background-size: 1344px 900px; background-position: 0 -720px;
+    animation: pauseIdle3 5800ms step-end infinite; margin: auto 0 0; }
+  .pt-hero .pt-hero-name { font-weight: 700; color: var(--ms-white); font-size: 14px; }
+  .pt-hero .pt-hero-note { font-size: 12px; color: var(--ms-muted); }
+  @keyframes pauseIdle3 {
+    0.000% { background-position: 0px -720px; }
+    5.517% { background-position: -168px -720px; }
+    11.034% { background-position: -336px -720px; }
+    16.552% { background-position: -504px -720px; }
+    22.069% { background-position: 0px -720px; }
+    27.586% { background-position: -168px -720px; }
+    33.103% { background-position: -336px -720px; }
+    38.621% { background-position: -504px -720px; }
+    44.138% { background-position: 0px -720px; }
+    49.655% { background-position: -168px -720px; }
+    55.172% { background-position: -336px -720px; }
+    60.690% { background-position: -504px -720px; }
+    66.207% { background-position: 0px -720px; }
+    71.724% { background-position: -168px -720px; }
+    77.241% { background-position: -336px -720px; }
+    82.759% { background-position: -504px -720px; }
+    88.276% { background-position: -672px -720px; }
+    91.207% { background-position: -840px -720px; }
+    94.138% { background-position: -1008px -720px; }
+    97.069% { background-position: -1176px -720px; }
+    100% { background-position: 0px -720px; }
+  }
+  @keyframes pauseIdle2 {
+    0.000% { background-position: 0px -480px; }
+    5.517% { background-position: -112px -480px; }
+    11.034% { background-position: -224px -480px; }
+    16.552% { background-position: -336px -480px; }
+    22.069% { background-position: 0px -480px; }
+    27.586% { background-position: -112px -480px; }
+    33.103% { background-position: -224px -480px; }
+    38.621% { background-position: -336px -480px; }
+    44.138% { background-position: 0px -480px; }
+    49.655% { background-position: -112px -480px; }
+    55.172% { background-position: -224px -480px; }
+    60.690% { background-position: -336px -480px; }
+    66.207% { background-position: 0px -480px; }
+    71.724% { background-position: -112px -480px; }
+    77.241% { background-position: -224px -480px; }
+    82.759% { background-position: -336px -480px; }
+    88.276% { background-position: -448px -480px; }
+    91.207% { background-position: -560px -480px; }
+    94.138% { background-position: -672px -480px; }
+    97.069% { background-position: -784px -480px; }
+    100% { background-position: 0px -480px; }
+  }
+  @media (max-width: 900px), (orientation: portrait) {
+    .pause-grid.with-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .pt-hero { flex-direction: row; justify-content: flex-start; text-align: left; }
+    .pt-hero .pause-hero { width: 112px; height: 120px; background-size: 896px 600px; background-position: 0 -480px; animation-name: pauseIdle2; margin: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pt-hero .pause-hero { animation: none; } }
   .pause-actions { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; margin: 12px 0; }
   .pause-actions .opt-btn { margin: 0; min-height: 56px; }
   #ui-layer .pause-actions .pa-resume { justify-content: center; font-size: clamp(16px, 1.5vw, 20px); letter-spacing: 0.06em; box-shadow: 0 0 0 2px var(--ms-navy), 0 0 0 4px var(--ms-cream), 0 0 22px rgba(239,147,71,0.5); }
@@ -1311,7 +1370,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   }
   @media (pointer: coarse) { .pause-tiles .nav-hint-bar { display: none; } }
   /* Title sub-views + Options as tile panels (Nov 3): Shop, Extras, Leaderboard, Achievements, Credits */
-  #title-modal:not([data-view="main"]) .title-clean { width: min(1100px, 94vw); max-width: none; max-height: calc(100dvh - var(--ms-nav-h, 0px) - 24px); overflow-y: auto;
+  #title-modal:not([data-view="main"]) .title-clean { width: min(1100px, 94vw); max-width: none; max-height: calc(100dvh - var(--ms-nav-h, 0px) - var(--tp-band-h, 0px) - 40px); overflow-y: auto;
     background: rgba(23,28,53,0.95); text-align: left; }
   #title-modal:not([data-view="main"]) .title-clean > .memo-strip, #title-modal:not([data-view="main"]) .title-clean > .game-logo,
   #title-modal:not([data-view="main"]) .title-clean > .game-tagline { align-self: center; text-align: center; }
@@ -1348,6 +1407,16 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #ui-layer .ctrl-section { border-radius: 8px; border: 2px solid rgba(62,119,117,0.6); background: rgba(48,55,80,0.45); }
   #ui-layer .ctrl-sec-title { font-family: 'Silkscreen', monospace; color: var(--ms-sage); font-weight: 400; }
   @media (max-width: 600px) { .title-clean .shop-list, .title-clean[data-view="achievements"] .ach-grid { grid-template-columns: 1fr 1fr; } }
+  /* Title panels above the tiles (Nov 3): Shop, Extras, Leaderboard... open as a tile over the art, tiles stay below */
+  .title-poster.sub-view { grid-template-rows: minmax(0, 1fr) auto; }
+  .title-poster.sub-view .tp-panel { justify-self: center; align-self: start; margin: 6px 0 0; box-shadow: 0 0 0 2px var(--ms-teal), 8px 8px 0 rgba(0,0,0,0.45); }
+  .tp-band-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .tp-band-toggle { align-self: center; font-size: 10px !important; padding: 6px 12px !important; background: rgba(23,28,53,0.9) !important; }
+  .tp-band-wrap.folded .tp-band { padding-top: 8px; }
+  .tp-band-wrap.folded .tp-band > .tp-tile, .tp-band-wrap.folded .tp-band > .tp-memo { display: none; }
+  /* Options (controls) opened from the title docks above the tiles too */
+  body:has(#title-modal:not(.hidden)) #controls-modal { align-items: flex-start; padding-top: calc(var(--ms-nav-h, 0px) + 6px); background: rgba(8,10,22,0.35); }
+  body:has(#title-modal:not(.hidden)) #controls-modal .controls-box { max-height: calc(100dvh - var(--ms-nav-h, 0px) - 24px); }
   /* Title slideshow (src/data/title-art.js): crossfade + slow push-in behind the poster */
   #title-slides { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
   #title-slides[hidden] { display: none; }
@@ -1420,7 +1489,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=132&t=" + Date.now();
+    s.src = "src/loader.js?v=133&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

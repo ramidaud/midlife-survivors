@@ -996,3 +996,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Additive colored glows: warm lamps, cool screens and servers, with a tiny shimmer on screens.
 - It darkens with age: 40% at 40, 55% at 55, 63% at 65 (tuned after the first pass was too faint to see).
 - The old gray window marks and light-pool patches are switched off (`replaceFloorMarks`). Damage numbers sit above the dark so they stay readable.
+- V. 1.57.1: title sub-views (Shop, Extras, Leaderboard, Achievements, Credits) open as a panel above the employee file, shift and devlog tiles, with the slideshow running behind. The tiles fold (auto on screens under 900px tall). Options docks at the top. The pause hero got its own tile at 3x with the game's real idle timing (slow breathing, then one fidget) instead of a constant fidget. The pixel cursors moved into the shared nav stylesheet, so they work in the game, gameplay and the devlog.

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.57.0",
-  displayVersion: "V. 1.57.0",
+  version: "1.57.1",
+  displayVersion: "V. 1.57.1",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 132,
+  build: 133,
   changelog: [
+    {
+      ver: "V. 1.57.1", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "The Shop, Extras, Leaderboard, Achievements and Options now open as a panel above your tiles, with the key art still playing behind. Fold the tiles away when you need the room.",
+        "Your hero has their own On Break tile on the pause screen, breathing slowly with the occasional fidget, just like in the game.",
+        "The 8-bit cursor now works everywhere: the game, every menu, gameplay and the devlog."
+      ]
+    },
     {
       ver: "V. 1.57.0", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

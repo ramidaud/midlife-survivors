@@ -51,3 +51,8 @@ html.ms-playing .ms-nav, html.ms-playing .ms-nav-tab { display: none !important;
   .ms-nav-btn { padding: 9px 10px; font-size: 10px; }
 }
 @media (min-width: 700px) and (pointer: coarse) { .ms-nav-btn { padding: 11px 14px; font-size: 12px; } }
+
+/* 8-bit cursors everywhere: game, menus, gameplay and every devlog page (Nov 3) */
+html, body, canvas { cursor: url("cursors/cursor-arrow.png") 0 0, auto; }
+a, button, [role="button"], summary, label, select, .nav-item, .perk-card, .dossier-char, .shop-row, .opt-btn, .t-style-btn, .ctrl-btn,
+.ms-nav-btn, .ms-nav-tab, .ms-nav-brand, .hotspot, .card, .sequel-card, .feature { cursor: url("cursors/cursor-hand.png") 8 0, pointer !important; }

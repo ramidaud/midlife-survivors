@@ -1158,19 +1158,20 @@ function renderPauseModal(scene, keepRowIdx) {
   modal.innerHTML = `
     <div class="modal-card pause-box pause-tiles">
       <div class="modal-kicker">✓ AUTO-SAVED · ${verInfo.displayVersion}</div>
-      <div class="pause-head">
-        ${pauseHeroHtml()}
-        <div>
-          <h2 class="modal-title">ON BREAK</h2>
-          <p class="modal-sub">${(CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0]).name} is on break. The swarm will wait. It always does.</p>
-        </div>
-      </div>
+      <h2 class="modal-title">ON BREAK</h2>
+      <p class="modal-sub">The swarm will wait. It always does.</p>
       <div class="pause-actions">
         <button class="opt-btn primary-opt pa-resume" id="pause-resume-btn">▶ RESUME SHIFT</button>
         <button class="opt-btn pa-small" id="pause-savequit-btn"><span>💾 SAVE & EXIT</span><span class="opt-val">RESUME LATER</span></button>
         <button class="opt-btn pa-small" id="pause-restart-btn"><span>🔄 START FRESH</span><span class="opt-val">AGE ${meta ? (meta.startDecade || 40) : 40}</span></button>
       </div>
-      <div class="pause-grid">
+      <div class="pause-grid ${pauseHeroHtml() ? "with-hero" : ""}">
+        ${pauseHeroHtml() ? `<section class="pause-tile pt-hero">
+          <div class="pt-tag">ON BREAK</div>
+          ${pauseHeroHtml()}
+          <div><div class="pt-hero-name">${(CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0]).name}</div>
+          <div class="pt-hero-note">Stretching. Checking the 401(k). Not checking email.</div></div>
+        </section>` : ""}
         <section class="pause-tile pt-shift">
           <div class="pt-tag">THIS SHIFT</div>
           <div class="pt-big"><b>${currentAge.toFixed(1)}</b><span>years old · level ${level}</span></div>
@@ -1993,6 +1994,40 @@ function renderTitleModal(scene, preserveFocusSelector) {
       </div>
       <div class="title-mode-blurb">${tb > 0 ? `Enemies +${Math.round(tb * TB.perLevel.enemyHpMult * 100)}% HP, hit harder, heals weaker. Coins +${Math.round(tb * TB.perLevel.coinMult * 100)}%, XP +${Math.round(tb * TB.perLevel.xpMult * 100)}%, score +${Math.round(tb * TB.perLevel.scoreMult * 100)}%.` : "Optional: raise it for harder runs and bigger rewards."}</div>`;
   const backBtn = `<button class="t-style-btn title-back-btn" id="title-back-btn">◀ BACK</button>`;
+  // The bottom tiles (your file, today's shift, devlog memo) show on every title view. In the shop, extras and
+  // other panels they can fold away (auto-folded when the screen is short). The panel opens above them.
+  const selChAll = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
+  if (window.titleBandFolded == null || window._titleBandView !== view) {
+    window._titleBandView = view;
+    window.titleBandFolded = view !== "main" && window.innerHeight < 900;
+  }
+  const bandFold = view !== "main" && window.titleBandFolded;
+  const bandHtml = `<div class="tp-band-wrap${bandFold ? " folded" : ""}">
+      ${view !== "main" ? `<button class="t-style-btn tp-band-toggle" id="tp-band-toggle" aria-expanded="${!bandFold}">${bandFold ? "▴ SHOW YOUR TILES" : "▾ FOLD YOUR TILES"}</button>` : ""}
+      <div class="tp-band">
+        ${titleFileTile()}
+        <section class="tp-tile tp-crew" aria-label="Today's shift: pick your employee and punch in">
+          <div class="tp-tile-tag tp-shift-tag">TODAY'S SHIFT</div>
+          <div class="tp-label">Today's employee <b>${selChAll.name}</b> <span>${selChAll.tagline}</span></div>
+          <div class="dossier-chars-grid tp-badges">${charCardsHtml}</div>
+          <div class="tp-punch-slot"></div>
+        </section>
+        <aside class="tp-memo" id="title-memo" aria-label="Latest from the devlog">
+          <div class="tp-memo-tag">DEVLOG · NEW MEMO</div>
+          <div class="tp-memo-body"><div class="tp-memo-title">Build notes from the dev.</div></div>
+          <button class="t-style-btn tp-memo-btn" id="title-devlog-btn">📝 READ THE DEVLOG</button>
+          <div class="tp-memo-foot" id="title-memo-foot">${verInfo.displayVersion}</div>
+        </aside>
+        <div class="title-secondary tp-links">
+          <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
+          <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
+          <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
+          <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
+          <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
+        </div>
+      </div>
+`;
+  const bandTail = `</div>`;
   let bodyHtml = "";
   if (view === "shop") {
     bodyHtml = `
@@ -2063,44 +2098,30 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>
         ${settingsOpen ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
       </div>
-      <div class="tp-band">
-        ${titleFileTile()}
-        <section class="tp-tile tp-crew" aria-label="Today's shift: pick your employee and punch in">
-          <div class="tp-tile-tag tp-shift-tag">TODAY'S SHIFT</div>
-          <div class="tp-label">Today's employee <b>${selCh.name}</b> <span>${selCh.tagline}</span></div>
-          <div class="dossier-chars-grid tp-badges">${charCardsHtml}</div>
-          <div class="tp-punch-slot"></div>
-        </section>
-        <aside class="tp-memo" id="title-memo" aria-label="Latest from the devlog">
-          <div class="tp-memo-tag">DEVLOG · NEW MEMO</div>
-          <div class="tp-memo-body"><div class="tp-memo-title">Build notes from the dev.</div></div>
-          <button class="t-style-btn tp-memo-btn" id="title-devlog-btn">📝 READ THE DEVLOG</button>
-          <div class="tp-memo-foot" id="title-memo-foot">${verInfo.displayVersion}</div>
-        </aside>
-        <div class="title-secondary tp-links">
-          <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
-          <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
-          <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
-          <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
-          <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
-        </div>
-      </div>`;
+      ${bandHtml}${bandTail}`;
   }
 
   modal.dataset.view = view;
   modal.innerHTML = view === "main" ? `
     <div class="title-poster" data-view="main">${bodyHtml}</div>
   ` : `
-    <div class="modal-card title-box title-clean" data-view="${view}">
+    <div class="title-poster sub-view" data-view="${view}">
+    <div class="modal-card title-box title-clean tp-panel" data-view="${view}">
       <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${({ main: "Surviving 40 to 65", shop: "Your 401(k)", extras: "Extras", achievements: "Performance record", leaders: "Leaderboard", credits: "Credits" })[view] || "Surviving 40 to 65"}</strong></div>
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
       <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
       ${bodyHtml}
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
+    ${bandHtml}${bandTail}
+    </div>
   `;
-  if (view === "main") { fillTitleMemo(); placeTitlePunch(); if (window.TitleSlides) TitleSlides.start(); }
-  else if (window.TitleSlides) TitleSlides.stop();
+  fillTitleMemo();
+  if (view === "main") placeTitlePunch();
+  if (window.TitleSlides) TitleSlides.start(); // the art keeps playing behind every title panel
+  const bandToggle = document.getElementById("tp-band-toggle");
+  if (bandToggle) bindNavItem(bandToggle, 98, () => { window.titleBandFolded = !window.titleBandFolded; sfx("pick"); renderTitleModal(scene, "#tp-band-toggle"); });
+  requestAnimationFrame(() => { const bw = modal.querySelector(".tp-band-wrap"); document.documentElement.style.setProperty("--tp-band-h", (bw ? bw.offsetHeight : 0) + "px"); });
   const settingsBtn = document.getElementById("title-settings-btn");
   if (settingsBtn) bindNavItem(settingsBtn, 9.5, () => { window.titleSettingsOpen = !window.titleSettingsOpen; sfx("pick"); renderTitleModal(scene, "#title-settings-btn"); });
 
