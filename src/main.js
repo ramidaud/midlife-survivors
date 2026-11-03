@@ -276,6 +276,7 @@ function create() {
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now;
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
+  if (window.Interns) Interns.reset(); // interns start fresh each run
   meta = loadMeta();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
@@ -974,6 +975,7 @@ function milestoneHealAmount(age) {
 
 function collectPizza(p, pz) {
   if (!pz.active) return;
+  if (pz.isParcel) { if (window.Interns) Interns.collectParcel(p.scene, pz); else pz.destroy(); return; } // an intern left it for you
   if (pz.isSalad) {
     pz.destroy();
     sfx("levelUp");
@@ -2219,7 +2221,7 @@ function update(time, delta) {
   });
   if (window.pizzas) {
     window.pizzas.getChildren().forEach(pz => {
-      if (pz.isSalad && pz.dieAt) { // Desk Salad wilts: fades for the last few seconds, then it's gone
+      if (pz.dieAt) { // Desk Salad wilts (and intern parcels go stale): fades for the last few seconds, then it's gone
         const left = pz.dieAt - runElapsedMs, fade = (PICKUPS.salad && PICKUPS.salad.fadeMs) || 3000;
         if (left <= 0) { pz.destroy(); return; }
         pz.setAlpha(left < fade ? 0.35 + 0.65 * (Math.floor(left / 150) % 2) : 1);
@@ -2235,6 +2237,7 @@ function update(time, delta) {
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
+  if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {

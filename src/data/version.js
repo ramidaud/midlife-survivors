@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.61.1",
-  displayVersion: "V. 1.61.1",
+  version: "1.62.0",
+  displayVersion: "V. 1.62.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "After Hours",
-  build: 144,
+  codename: "The Interns",
+  build: 145,
   changelog: [
+    {
+      ver: "V. 1.62.0", date: "Nov 3, 2026", title: "The Interns",
+      highlights: [
+        "Meet the interns: TJ and Derek, two of our playtesters, now work at the office. Every minute or so one walks over with a snack (heals), a coffee (faster), a focus boost (more damage) or a gem run.",
+        "They get busier as you age, so deliveries get rarer late in a run. Bills scare them off, and if you're mobbed they leave it on the floor for you.",
+        "Placeholder art for now. Their real pixel portraits are coming."
+      ]
+    },
     {
       ver: "V. 1.61.1", date: "Nov 3, 2026", title: "Birthday Cake",
       highlights: [

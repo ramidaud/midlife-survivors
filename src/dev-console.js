@@ -46,6 +46,7 @@
       s.isSalad = true; s.dieAt = runElapsedMs + ((PICKUPS.salad && PICKUPS.salad.lifeMs) || 14000);
       say("Desk Salad dropped");
     }),
+    intern: need(() => { if (window.Interns) { Interns.forceSpawn(scene()); say("Intern on the way"); } }),
     nav: () => { if (window.NAV) { NAV.debug = !NAV.debug; render(); say(NAV.debug ? "Route arrows ON" : "Route arrows OFF"); } }
   };
   const jumpTo = (age) => need(() => {
@@ -109,7 +110,8 @@
           <button type="button" data-a="heal">FULL HP</button>
           <button type="button" data-a="hp5">+5 MAX HP</button>
           <button type="button" data-a="level">LEVEL UP</button>
-          <button type="button" data-a="salad">DROP SALAD</button></div></section>
+          <button type="button" data-a="salad">DROP SALAD</button>
+          <button type="button" data-a="intern">SEND INTERN</button></div></section>
         <section><div class="lbl">GIVE</div><div class="row">
           <select id="dev-up" aria-label="Upgrade to give"></select>
           <button type="button" data-a="give">GIVE</button></div></section>
