@@ -27,3 +27,9 @@ Playtester TJ (maxed the 401(k) shop): "easier ways to regain health... maybe at
 - Keep it data-driven: new numbers go in `src/data/*.js`, not in game logic.
 - Warm, recognizable humor, never mean.
 - Return one Markdown handoff (`docs/handoffs/grok-healing-spec.md`) plus a short change-log block for `docs/handoffs/grok-changes.md`.
+
+## Addendum (Nov 3, 9 AM): the Interns
+Rami and TJ want **interns** (playtesters as office interns, not playable) who roam the map and bring the player things. Please include them in the spec:
+- **Deliveries:** an intern walks over with coffee or a snack (heal) or a short buff. How often, how much, and do they get scarcer with age?
+- **Pop-up shop:** after enough levels, an intern can sell special items mid-run for coins, like the Merchant in Vampire Survivors. What's for sale, prices, and when it unlocks.
+- How this works alongside milestone heals and the salad drop, so the healing total stays fair.

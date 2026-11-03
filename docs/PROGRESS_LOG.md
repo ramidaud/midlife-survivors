@@ -1014,3 +1014,5 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - V. 1.60.0: dev console for playtesters (TJ's idea). Add ?dev=1 once, then tap DEV or press `: god mode, full HP, any upgrade, jump to an age, call a boss, clear the screen, route arrows. Dev runs never post scores or stats, and achievements stay locked. ?dev=0 turns it off.
 - Rami picked **Style B (Spotlight)** for the big lower thirds. Copy brief out to Gemini; build after the copy lands.
 - Muse (Meta's agent) joins as the social feedback reader for Facebook and Instagram posts.
+- V. 1.60.1: dev mode shows a "DEV MODE · SCORES OFF" badge on every screen. Dev runs were already blocked from the leaderboard.
+- New idea from TJ and Rami: **the Interns**, playtesters as office interns who bring heals and buffs and later run a pop-up shop. Added to the Grok healing brief.

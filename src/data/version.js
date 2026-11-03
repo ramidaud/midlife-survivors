@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.60.0",
-  displayVersion: "V. 1.60.0",
+  version: "1.60.1",
+  displayVersion: "V. 1.60.1",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 141,
+  build: 142,
   changelog: [
+    {
+      ver: "V. 1.60.1", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "Dev mode now shows a DEV MODE · SCORES OFF badge on every screen, so nobody forgets it's on before a real run."
+      ]
+    },
     {
       ver: "V. 1.60.0", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

@@ -96,7 +96,7 @@
     document.head.appendChild(css);
     const wrap = document.createElement("div");
     wrap.innerHTML = `
-      <button id="dev-chip" type="button" aria-expanded="false" aria-controls="dev-panel">DEV</button>
+      <button id="dev-chip" type="button" aria-expanded="false" aria-controls="dev-panel">DEV MODE <span style="opacity:.85">· SCORES OFF</span></button>
       <div id="dev-panel" role="dialog" aria-label="Dev console">
         <h2><span>DEV CONSOLE</span><span>\` to close</span></h2>
         <section><div class="lbl">PLAYER</div><div class="row">
