@@ -22,7 +22,7 @@
 <link rel="icon" href="../favicon.png?v=clock-1" type="image/png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 <link rel="alternate" type="application/rss+xml" title="Midlife Survivors Devlog" href="feed.xml">
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -65,25 +65,41 @@
 
     <div class="hotspot-strip" id="hotspot-strip" aria-label="Characters in the key art"></div>
 
-    <div class="wrap" id="memos">
-      <a class="art-banner" href="art/" aria-label="Enter the Art Room: walk the new art before it reaches the game">
-        <span class="art-banner-img" aria-hidden="true"></span>
-        <span class="art-banner-text">
-          <span class="art-banner-eyebrow">MEMO · RE: The Art Room</span>
-          <span class="art-banner-title">Walk the new office before it reaches the game.</span>
-          <span class="btn btn-primary art-banner-cta">Enter the Art Room →</span>
-        </span>
-      </a>
-      <div class="section-label">Filed memos</div>
-      <main id="list-main"></main>
+    <div class="wrap home-grid" id="memos">
+      <div class="home-main">
+        <div class="section-label">Latest memo</div>
+        <main id="list-main"></main>
+        <a class="art-banner" href="art/" aria-label="Enter the Art Room: walk the new art before it reaches the game">
+          <span class="art-banner-img" aria-hidden="true"></span>
+          <span class="art-banner-text">
+            <span class="art-banner-eyebrow">MEMO · RE: The Art Room</span>
+            <span class="art-banner-title">Walk the new office before it reaches the game.</span>
+            <span class="btn btn-primary art-banner-cta">Enter the Art Room →</span>
+          </span>
+        </a>
+      </div>
 
-      <aside class="follow" aria-label="Follow">
-        <div class="silk">Stay in the loop</div>
-        <div class="todos">
-          <a class="todo" href="feed.xml">RSS feed</a>
-          <span class="todo">Email list · coming soon</span>
-          <a class="todo" href="https://discord.gg/E6N9j5tZe" rel="noopener">Join the Discord</a>
-        </div>
+      <aside class="home-side" aria-label="Build clock, play stats and leaderboard">
+        <section class="side-card" id="build-clock" aria-label="Build clock">
+          <div class="side-eyebrow">Build clock</div>
+          <p class="side-loading">Counting builds…</p>
+        </section>
+        <section class="side-card" id="play-stats" aria-label="Play stats">
+          <div class="side-eyebrow">From the playtest floor</div>
+          <p class="side-loading">Reading the timesheets…</p>
+        </section>
+        <section class="side-card" id="side-board" aria-label="Leaderboard">
+          <div class="side-eyebrow">Leaderboard · Midlife run</div>
+          <p class="side-loading">Checking the standings…</p>
+        </section>
+        <section class="side-card follow" aria-label="Follow">
+          <div class="side-eyebrow">Stay in the loop</div>
+          <div class="todos">
+            <a class="todo" href="https://ramidaud.substack.com" rel="noopener">Substack (email)</a>
+            <a class="todo" href="feed.xml">RSS feed</a>
+            <a class="todo" href="https://discord.gg/E6N9j5tZe" rel="noopener">Join the Discord</a>
+          </div>
+        </section>
       </aside>
     </div>
   </div>
@@ -95,7 +111,7 @@
         <div class="silk">Stay in the loop</div>
         <div class="todos">
           <a class="todo" href="feed.xml">RSS feed</a>
-          <span class="todo">Email list · coming soon</span>
+          <a class="todo" href="https://ramidaud.substack.com" rel="noopener">Substack (email)</a>
           <a class="todo" href="https://discord.gg/E6N9j5tZe" rel="noopener">Join the Discord</a>
         </div>
       </aside>
@@ -115,6 +131,8 @@
 </script>
   <script src="sidenotes.js?v=1"></script>
   <script src="code.js?v=2"></script>
-  <script src="app.js?v=8"></script>
+  <script src="../src/data/leaderboard.js?v=2"></script>
+  <script src="app.js?v=9"></script>
+  <script src="home.js?v=1"></script>
 </body>
 </html>

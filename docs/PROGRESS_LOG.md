@@ -935,3 +935,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Published devlog post 08 (Rami: publish now, not Sunday). It is first in the feed for a same-day Substack import.
 - Post 08 cover is now the new key art (PROMOTED door, made in ChatGPT image gen by Rami). Single-post feed-08.xml rebuilt with it for the Substack import.
 - Substack flagged post 08 as fully AI-written. Decided: disclose with a "How I make this" statement (no detector dodging), and from post 09 build posts from Rami's voice memo + a short interview so his words lead. Added to CLAUDE.md and devlog/README.md.
+
+## 2026-11-03: Devlog home redesign
+- Newest memo is a big featured card; older memos are compact cards. Every card shows the exact filing time from git history.
+- New sidebar (stacks under the posts on phones): a build clock (95 builds in 3 days 12 h, builds per day, last 8 versions with times), anonymous play stats, the live Midlife leaderboard and follow links (now including Substack).
+- Data comes from devlog/data/stats.json (devlog/scripts/build_stats.py). Lead images can carry an ART margin note (tool + prompt) via leadNote in posts.js.
+- Post 08 opening changed to "Last night my game was two rooms and a locked door."

@@ -1,0 +1,22 @@
+{
+  "title": "Midlife Survivors: Promoted Four Times Before Lunch",
+  "use": "Devlog post 08 cover and share image",
+  "format": { "aspect_ratio": "1200x630 (1.91:1)", "orientation": "landscape" },
+  "style": {
+    "medium": "16-bit pixel art, crisp hard pixels, no anti-aliased blur",
+    "match": "the existing Midlife Survivors office key art and title screen",
+    "palette": { "navy": "#171C35", "teal": "#3E7775", "cream": "#F2D7A1", "coffee_orange": "#EF9347" },
+    "outline": "1px navy outline on characters and props",
+    "lighting": "warm light from upper left, soft stepped shadows to the lower right",
+    "tone": "warm, funny, a little exhausted, never mean"
+  },
+  "scene": {
+    "concept": "A corporate promotion as a heroic moment. The hero stands in a hallway as a big garage-style office door rolls up behind him, revealing a glowing new wing of the office. Above the door, a cheap banner reads PROMOTED.",
+    "foreground": { "hero": { "name": "The 9-to-5er", "build": "average build, slightly rounded posture, early 40s", "hair": "messy brown hair with a little grey at the temples", "face": "rectangular black glasses, tired but proud half-smile", "clothes": "white short-sleeve dress shirt, loose red tie, khaki slacks, brown shoes", "prop": "raising an orange coffee mug like a trophy, with a little steam curl", "pose": "three-quarter view, walking toward the camera, chin up" } },
+    "midground": { "door": "a roll-up office door halfway open, with AGE 50 on a small sign beside it", "through_the_door": "a preview of the new rooms in layers: blinking blue server racks with a cable waterfall, a glass conference room with a long table and a half-erased roadmap whiteboard, and far back, the warm wood of an executive corner office" },
+    "background_and_edges": { "left_edge": "the Bullpen behind him: CRT monitors on cubicle desks, paper drifts, a coworker peeking over a partition and giving a tired thumbs-up", "right_edge": "a small crowd of the enemies chasing him, cute and silly: a paper Bill with a red band, a purple Spam Likely phone, a pink-frosted donut, a calendar invite", "far_right_hint": "a cherry-red sports car's headlight glowing in the dark, the Midlife Crisis V8 waiting" },
+    "details": ["a little confetti falling from the PROMOTED banner", "a single party horn on the floor", "a sticky note on the door frame that says 'congrats?? -HR'"]
+  },
+  "text_in_image": "Only the words PROMOTED, AGE 50 and the sticky note. No logo, no title text (the devlog adds its own).",
+  "avoid": ["photorealism", "3D render look", "smooth vector gradients", "real company logos", "any real person's likeness", "em dashes in any text"]
+}

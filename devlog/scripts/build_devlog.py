@@ -200,7 +200,11 @@ def main():
 
         version_pill = f'<span class="pill">{html.escape(version)}</span>' if version else ""
         alt = html.escape(p.get("leadAlt") or title)
-        cap = f"<figcaption>{alt}</figcaption>" if p.get("leadAlt") else ""
+        note_html = ""
+        if p.get("leadNote"):
+            note_html = md_to_html(p["leadNote"]).strip()
+            note_html = re.sub(r"^<p>|</p>$", "", note_html).replace('href="art/', 'href="../art/')
+        cap = (f"<figcaption>{alt}" + (f'<br><span class="lead-note"><b>How this image was made:</b> {note_html}</span>' if note_html else "") + "</figcaption>") if (p.get("leadAlt") or note_html) else ""
         if p.get("leadVideo"):
             lead = f'<figure class="post-lead"><video src="../{html.escape(p["leadVideo"])}" poster="../{html.escape(p.get("cover", ""))}" autoplay muted loop playsinline controls aria-label="{alt}"></video>{cap}</figure>'
         elif p.get("cover"):
@@ -245,6 +249,8 @@ def main():
         flead = ""
         if p.get("cover"):
             flead = f'<p><img src="{site}/{html.escape(p["cover"])}" alt="{alt}"></p>'
+            if note_html:
+                flead += "<p><em>How this image was made: " + re.sub(r'href="(?:\.\./)?(?!https?:)', f'href="{site}/', note_html) + "</em></p>"
         fchanges = ""
         if p.get("changes"):
             fchanges = "<h3>What changed</h3><ul>" + "".join(f"<li>{html.escape(c)}</li>" for c in p["changes"]) + "</ul>"

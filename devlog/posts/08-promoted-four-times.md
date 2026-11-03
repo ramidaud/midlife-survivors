@@ -1,4 +1,4 @@
-Last week my game was two rooms and a locked door. Today you can get promoted four times before lunch.
+Last night my game was two rooms and a locked door. Today you can get promoted four times before lunch.
 
 That's the big one. Every five years you get promoted, a door rolls up like a garage, and the office gets bigger. You start in the Lobby and the Bullpen. At 45 the Parking Lot and Break Room open. At 50, the Server Room and three glass Conference Rooms. At 55, the Executive Wing. At 60, the Wellness Corner, which HR built so you'd stop asking about raises.^[Each promotion also tells you what followed you to work. At 50 it's tuition, carpool and the kids' new math. Life doesn't stay home just because you went to the office.]
 

@@ -1,0 +1,625 @@
+{
+ "generated": "2026-11-03T05:15:47+00:00",
+ "firstCommit": "2026-10-30T12:00:07-04:00",
+ "builds": [
+  {
+   "v": "1.8.19",
+   "at": "2026-10-30T15:10:41-04:00",
+   "title": "Broadcast Edition",
+   "note": "Added live Version & Last Updated stamp ('V. 1.8.19 // Last updated on: Oct 30, 2026') on the Title Dossier, Pause Screen, and Lower-Third H"
+  },
+  {
+   "v": "1.8.20",
+   "at": "2026-10-30T15:17:44-04:00",
+   "title": "Mythos & Lore Edition",
+   "note": "Created the official Midlife Survivors Mythos ('Form W-40: The Great Compounding'), Subject Dossiers (The 9-to-5er, The Senior Photographer,"
+  },
+  {
+   "v": "1.8.21",
+   "at": "2026-10-30T15:23:16-04:00",
+   "title": "Compound Yield Edition",
+   "note": "Added 6 Compound Interest Yield Tiers (1x Match -> 2x Vested -> 3x Seniority -> 4x Executive -> 5x Compound -> 6x Golden): the longer you su"
+  },
+  {
+   "v": "1.8.22",
+   "at": "2026-10-30T15:27:29-04:00",
+   "title": "Mobile Responsive Edition",
+   "note": "Added <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover'> and iOS/An"
+  },
+  {
+   "v": "1.9.0",
+   "at": "2026-10-30T19:47:50+00:00",
+   "title": "Clean Screen",
+   "note": "Replaced the bottom console with a minimal Vampire Survivors-style HUD: XP bar across the top, age in the middle, coins and loadout top-left"
+  },
+  {
+   "v": "1.10.0",
+   "at": "2026-10-30T20:01:04+00:00",
+   "title": "Lower Third",
+   "note": "New broadcast-style strip at the bottom that appears only when there's something to say: boss alerts, low HP, first-time tips, decade chapte"
+  },
+  {
+   "v": "1.11.0",
+   "at": "2026-10-30T20:24:39+00:00",
+   "title": "Title Screen",
+   "note": "The title screen is now: pick a character, press Start."
+  },
+  {
+   "v": "1.12.0",
+   "at": "2026-10-30T16:39:22-04:00",
+   "title": "Tips Switch",
+   "note": "New Pause menu option: GAME TIPS on or off, for experienced players. Remembered between visits."
+  },
+  {
+   "v": "1.13.0",
+   "at": "2026-10-30T17:50:01-04:00",
+   "title": "Menu Fixes",
+   "note": "Options, Lore and Patch Notes now open on top of the title screen instead of behind it."
+  },
+  {
+   "v": "1.14.0",
+   "at": "2026-10-30T17:57:22-04:00",
+   "title": "Credits",
+   "note": "New Credits screen in Title > Extras."
+  },
+  {
+   "v": "1.14.1",
+   "at": "2026-10-30T18:01:15-04:00",
+   "title": "Steady Furniture",
+   "note": "Fixed desks, plants and watercoolers flickering and jumping around while you walk."
+  },
+  {
+   "v": "1.15.0",
+   "at": "2026-10-30T18:15:31-04:00",
+   "title": "A Full Life",
+   "note": "1 real minute = 1 year. A full run from 40 to 100 takes about an hour (Save & Exit keeps your place)."
+  },
+  {
+   "v": "1.16.0",
+   "at": "2026-10-30T18:21:32-04:00",
+   "title": "Swarms",
+   "note": "Enemies now arrive in packs that grow each decade (1 at 40, up to 6 in your 90s), and the spawn rate ramps smoothly every year."
+  },
+  {
+   "v": "1.16.1",
+   "at": "2026-10-30T18:36:14-04:00",
+   "title": "Fight Back",
+   "note": "Bills take 2 hits. Enemies spawn about 25-40% faster at every age, and packs grow sooner."
+  },
+  {
+   "v": "1.17.0",
+   "at": "2026-10-30T18:54:29-04:00",
+   "title": "New Faces",
+   "note": "3 AM Thought (age 50+): fades into a ghost you can't hit, then turns solid again."
+  },
+  {
+   "v": "1.18.0",
+   "at": "2026-10-30T18:58:56-04:00",
+   "title": "Arsenal",
+   "note": "The TV Remote: a boomerang thrown at the nearest enemy that hits both ways."
+  },
+  {
+   "v": "1.19.0",
+   "at": "2026-10-30T19:05:15-04:00",
+   "title": "High Scores",
+   "note": "Every run ends with a score: years survived, enemies beaten and 401(k) coins earned."
+  },
+  {
+   "v": "1.19.1",
+   "at": "2026-10-30T19:22:14-04:00",
+   "title": "Online Board",
+   "note": "Scores now post to one shared online leaderboard for everyone who plays."
+  },
+  {
+   "v": "1.20.0",
+   "at": "2026-10-31T20:48:41-04:00",
+   "title": "Playtest Fixes",
+   "note": "Phones: steering works again after Retry. Perks need a second tap to confirm, so no more accidental picks."
+  },
+  {
+   "v": "1.19.2",
+   "at": "2026-10-31T20:50:02-04:00",
+   "title": "Office Art Study",
+   "note": "Extras > Art Test opens a small office art preview with the new hero, Bill and workstation."
+  },
+  {
+   "v": "1.21.0",
+   "at": "2026-10-31T21:04:17-04:00",
+   "title": "Midlife Mode",
+   "note": "New main mode: Midlife, ages 40 to 65 in about 19 minutes. Three bosses, then your Retirement Party. Walk up and clock out to win."
+  },
+  {
+   "v": "1.20.1",
+   "at": "2026-10-31T21:04:52-04:00",
+   "title": "Office Scale and Depth",
+   "note": "The new hero is about 15% larger in the art test."
+  },
+  {
+   "v": "1.21.1",
+   "at": "2026-10-31T21:12:42-04:00",
+   "title": "Midlife Mode",
+   "note": "Fixed controls sometimes not working until a second reload right after an update."
+  },
+  {
+   "v": "1.22.0",
+   "at": "2026-10-31T21:36:51-04:00",
+   "title": "Lost and Found",
+   "note": "Items on the floor: Fanny Pack (pulls in every gem and coin), Energy Drink (faster for 12 seconds) and PTO Day (clears the screen). Smash pl"
+  },
+  {
+   "v": "1.23.0",
+   "at": "2026-10-31T21:40:44-04:00",
+   "title": "Achievements",
+   "note": "29 achievements with midlife names, like Per My Last Email, The Sock Incident and Keep The Sedan. Each pays 401(k) coins."
+  },
+  {
+   "v": "1.23.1",
+   "at": "2026-10-31T22:40:02-04:00",
+   "title": "Campus Exploration Study",
+   "note": "Extras > Art Test now opens Corporate Campus: four departments, a revealing map and three optional discoveries."
+  },
+  {
+   "v": "1.23.2",
+   "at": "2026-10-31T22:41:42-04:00",
+   "title": "Timer and Score",
+   "note": "A run timer sits at the top center, above your age. It turns red in the last minute before your Retirement Party."
+  },
+  {
+   "v": "1.23.3",
+   "at": "2026-10-31T22:51:47-04:00",
+   "title": "Three Ways Through Tuesday",
+   "note": "The Campus art test now has tidy, paperwork-covered and working-lunch desks together in Accounts Payable."
+  },
+  {
+   "v": "1.23.4",
+   "at": "2026-10-31T23:03:40-04:00",
+   "title": "Three Different Strides",
+   "note": "The art test now lets you walk as the 9-to-5er, Soccer Dad or Grad Student, with four-direction animation."
+  },
+  {
+   "v": "1.24.0",
+   "at": "2026-10-31T23:19:24-04:00",
+   "title": "Midlife Is Hard",
+   "note": "Much harder. Enemies get tougher and more numerous as YOU level up, bosses scale with you, and hits hurt more after 52. Standing still no lo"
+  },
+  {
+   "v": "1.24.1",
+   "at": "2026-11-01T00:29:20-04:00",
+   "title": "Office Details",
+   "note": "The Campus art test has new office floors, warm lighting accents, a jammed printer, filing cabinet and drooping plant."
+  },
+  {
+   "v": "1.25.0",
+   "at": "2026-11-01T00:39:30-04:00",
+   "title": "Tax Season Prep",
+   "note": "Harder mid-game: enemies thicken faster as you level, hits start hurting more at 48, and the safe window after a hit is shorter."
+  },
+  {
+   "v": "1.26.0",
+   "at": "2026-11-01T00:49:45-04:00",
+   "title": "Tax Bracket",
+   "note": "New on the title screen: Tax Bracket, an optional difficulty from 0 to 5 (Standard Deduction to Full Audit)."
+  },
+  {
+   "v": "1.27.0",
+   "at": "2026-11-01T00:58:48-04:00",
+   "title": "Comfort Zone Tax",
+   "note": "Go 45 seconds without getting hit and the Comfort Zone Tax kicks in: bigger crowds for 20 seconds."
+  },
+  {
+   "v": "1.27.1",
+   "at": "2026-11-01T01:26:21-04:00",
+   "title": "The Long Way to Coffee",
+   "note": "The separate Campus art preview is now 3072 by 2048 pixels, about 5.5 times its previous area, with seven areas, looping routes and five opt"
+  },
+  {
+   "v": "1.27.2",
+   "at": "2026-11-01T01:33:48-04:00",
+   "title": "Feet on the Floor",
+   "note": "Campus furniture now has contact shadows fitted to each sprite's base, including printers, plants and cabinets. Chair mats, wheel wear and s"
+  },
+  {
+   "v": "1.27.3",
+   "at": "2026-11-01T01:53:56-04:00",
+   "title": "The Long Way, Illustrated",
+   "note": "Prepared a 1536x1024 illustrated cover for the draft office-exploration devlog, with calm space on the left for a future title overlay. The "
+  },
+  {
+   "v": "1.28.0",
+   "at": "2026-11-01T01:06:23-05:00",
+   "title": "One Office",
+   "note": "The game and the devlog now share one look: the same palette, fonts and cream HR-memo headers."
+  },
+  {
+   "v": "1.28.1",
+   "at": "2026-11-01T01:18:09-05:00",
+   "title": "One Office",
+   "note": "Extras > Art Room now opens the art preview inside the devlog, with the devlog's header and links."
+  },
+  {
+   "v": "1.28.2",
+   "at": "2026-11-01T01:22:16-05:00",
+   "title": "One Office",
+   "note": "New title screen art: you clocking in at 8:59 while the whole swarm presses against the lobby glass."
+  },
+  {
+   "v": "1.28.3",
+   "at": "2026-11-01T01:43:59-05:00",
+   "title": "The Bill Has Legs",
+   "note": "Prepared the first Batch 1 enemy-art review asset: Bill, with four 48x48 walking frames, a looping preview and complete generation prompts. "
+  },
+  {
+   "v": "1.28.4",
+   "at": "2026-11-01T01:51:40-05:00",
+   "title": "In the Studio",
+   "note": "The devlog About page now features a new pixel-art portrait of Rami at his studio desk, based on his supplied photo. Updated the page's soci"
+  },
+  {
+   "v": "1.28.5",
+   "at": "2026-11-01T01:56:03-05:00",
+   "title": "One Office",
+   "note": "The game is free. If you'd like to support it, there's now a Ko-fi tip link in Extras and on the Game Over screen."
+  },
+  {
+   "v": "1.28.6",
+   "at": "2026-11-01T01:58:20-05:00",
+   "title": "Drawn Into the Game",
+   "note": "Reworked the About portrait with chunkier game-art shapes, simpler shading, stronger navy outlines and the office key art's warm cream-and-t"
+  },
+  {
+   "v": "1.28.7",
+   "at": "2026-11-01T02:00:20-05:00",
+   "title": "Coffee on the Menu",
+   "note": "The Buy the Dev a Coffee button moved out of Extras and onto the main menu, next to Devlog."
+  },
+  {
+   "v": "1.28.8",
+   "at": "2026-11-01T02:05:19-05:00",
+   "title": "Back to the Studio",
+   "note": "Restored the previous studio bio portrait and its share image at Rami's request. Both portrait revisions remain saved."
+  },
+  {
+   "v": "1.28.9",
+   "at": "2026-11-01T02:25:04-05:00",
+   "title": "Clocking Out",
+   "note": "New Clocking Out brand mark: a cream clock with a teal rim and orange accent replaces the boxed MS initials across the devlog. Matching game"
+  },
+  {
+   "v": "1.28.10",
+   "at": "2026-11-01T09:56:50-05:00",
+   "title": "A Whole Inbox of Trouble",
+   "note": "All ten Batch 1 enemy species and the Group Chat projectile now have animated native sprite sheets: 11 sheets, 42 frames, with magenta backg"
+  },
+  {
+   "v": "1.28.11",
+   "at": "2026-11-01T10:01:53-05:00",
+   "title": "Link Previews",
+   "note": "Sharing any Midlife Survivors link (the game, devlog, posts, About, Art Room or the enemy review) now shows a proper preview card with art a"
+  },
+  {
+   "v": "1.28.12",
+   "at": "2026-11-01T10:42:26-05:00",
+   "title": "The Inbox Moves",
+   "note": "All ten regular enemies and chat pings now use animated pixel art with grounded shadows, original-art fallback and unchanged combat rules."
+  },
+  {
+   "v": "1.28.13",
+   "at": "2026-11-01T11:09:10-05:00",
+   "title": "Out of the Art Room",
+   "note": "All three animated heroes and the detailed Corporate Campus now appear in the main game, with looping office sections, grounded furniture an"
+  },
+  {
+   "v": "1.28.14",
+   "at": "2026-11-01T11:20:20-05:00",
+   "title": "Join the Crew",
+   "note": "There's a Midlife Survivors Discord now. Find it in Extras, or in the devlog. Come share playtest notes, see art early, or help build the ga"
+  },
+  {
+   "v": "1.28.15",
+   "at": "2026-11-01T11:25:43-05:00",
+   "title": "Two New Humans",
+   "note": "The coffee devlog now includes the simplified pixel-art twins portrait in its Why now section."
+  },
+  {
+   "v": "1.28.16",
+   "at": "2026-11-01T17:51:24-05:00",
+   "title": "Parked Ideas",
+   "note": "The Art Room has a nine-district campus proposal, measured route/plaza plan and literal idea Parking Lot concept for review. The playable wo"
+  },
+  {
+   "v": "1.28.17",
+   "at": "2026-11-01T18:24:10-05:00",
+   "title": "Promotion Plan",
+   "note": "Campus overview v2 adds irregular wings, starting-area and age-gate previews, plus a modular production plan in the Art Room. The playable w"
+  },
+  {
+   "v": "1.28.18",
+   "at": "2026-11-01T18:53:00-05:00",
+   "title": "Sticky Business",
+   "note": "The Art Room has 13 new prop/poster families in 31 colorways, native hero comparisons and a 224px gate-clearance study. Stage 2 art is under"
+  },
+  {
+   "v": "1.29.0",
+   "at": "2026-11-01T19:04:08-05:00",
+   "title": "Around the Desk",
+   "note": "Enemies now walk around furniture and through doorways instead of piling up against desks. No more hiding behind a cubicle."
+  },
+  {
+   "v": "1.29.1",
+   "at": "2026-11-01T19:20:01-05:00",
+   "title": "Hang in There",
+   "note": "The office got its first batch of jokes: sticky-note fortresses, 2009 desks, family photos, Hang in There posters, a KPI sign nobody can exp"
+  },
+  {
+   "v": "1.29.2",
+   "at": "2026-11-01T19:42:26-05:00",
+   "title": "Circle Back",
+   "note": "The Art Room adds 12 literal office-slang props and landmarks, bringing the modular kit to 25 families and 55 colorways. New art is ready fo"
+  },
+  {
+   "v": "1.29.3",
+   "at": "2026-11-01T19:50:05-05:00",
+   "title": "Circle Back",
+   "note": "Ten pieces of corporate slang, taken literally, are now in the office: a Circle Back roundabout, a Move the Needle gauge stuck on MEH, low-h"
+  },
+  {
+   "v": "1.30.0",
+   "at": "2026-11-01T21:16:54-05:00",
+   "title": "Close Call",
+   "note": "Dodging pays now. When an enemy nearly gets you and misses, you earn a Close Call: a little XP, a quick speed blip and a few points."
+  },
+  {
+   "v": "1.30.1",
+   "at": "2026-11-01T21:39:31-05:00",
+   "title": "Who Clocked In",
+   "note": "The game now counts anonymous play stats (run length, age reached, what got you, phone or laptop) to help with balancing. No names, no track"
+  },
+  {
+   "v": "1.30.2",
+   "at": "2026-11-01T22:02:44-05:00",
+   "title": "Groan Zone",
+   "note": "Dad Joke got a real job: everyone in the groan circle stops to cringe and staggers back, buying you room. Bigger circle and faster too. (Tha"
+  },
+  {
+   "v": "1.30.3",
+   "at": "2026-11-01T22:11:07-05:00",
+   "title": "Right Now",
+   "note": "Pausing now shows a RIGHT NOW box: everything currently affecting your run (Comfort Zone Tax, power-ups, a sugar crash, your Close Call stre"
+  },
+  {
+   "v": "1.30.4",
+   "at": "2026-11-01T22:31:59-05:00",
+   "title": "Let Go",
+   "note": "iPhone fix: after visiting the 401(k) Shop, touch steering could stop working completely. Tapping a menu button that disappears left the gam"
+  },
+  {
+   "v": "1.31.0",
+   "at": "2026-11-01T23:03:21-05:00",
+   "title": "New Hire Tour",
+   "note": "The playable office is now an authored Lobby and Bullpen slice with reception, varied desk clusters, static coworkers and dressed floors. Pr"
+  },
+  {
+   "v": "1.30.5",
+   "at": "2026-11-01T23:07:47-05:00",
+   "title": "Rebalance",
+   "note": "401(k) Shop: REFUND ALL gives back every coin you've spent, so you can try a different build. Tap twice to confirm."
+  },
+  {
+   "v": "1.31.1",
+   "at": "2026-11-02T00:03:00-05:00",
+   "title": "Roundabout",
+   "note": "Smarter enemies around small furniture: a Bill right behind the Circle Back roundabout used to charge into it and get stuck. Now it walks ar"
+  },
+  {
+   "v": "1.32.0",
+   "at": "2026-11-02T00:16:07-05:00",
+   "title": "Supersized",
+   "note": "Enemies are 40% bigger, closer to your own size, and their hit boxes grew with them."
+  },
+  {
+   "v": "1.32.1",
+   "at": "2026-11-02T00:37:44-05:00",
+   "title": "Tune-Up",
+   "note": "Speed pass for iPads and phones: floor shadows are painted once instead of every frame, 120 Hz screens no longer run the game twice as often"
+  },
+  {
+   "v": "1.32.2",
+   "at": "2026-11-02T00:45:02-05:00",
+   "title": "Second Helping",
+   "note": "A little tougher up front: Bills take 3 hits instead of 2, and donuts start showing up at 42 instead of 45."
+  },
+  {
+   "v": "1.33.0",
+   "at": "2026-11-02T00:56:37-05:00",
+   "title": "Beautiful Chaos",
+   "note": "Enemies now flash, squash and pop with a little shockwave when you pay them off, and get shoved back when hit."
+  },
+  {
+   "v": "1.33.1",
+   "at": "2026-11-02T00:58:45-05:00",
+   "title": "Beautiful Chaos",
+   "note": "Play stats now note the kind of device (phone, tablet or desktop, system, browser, rough screen size) and how smoothly the game ran, so we c"
+  },
+  {
+   "v": "1.33.2",
+   "at": "2026-11-02T01:13:03-05:00",
+   "title": "Exit Interview",
+   "note": "The Game Over screen now sums up your run: each achievement you earned, what it means for your next run, what you can afford in the 401(k) S"
+  },
+  {
+   "v": "1.34.0",
+   "at": "2026-11-02T01:20:16-05:00",
+   "title": "Boss Fight",
+   "note": "The Performance Review now charges in a straight line after an orange warning lane. Step sideways."
+  },
+  {
+   "v": "1.35.0",
+   "at": "2026-11-02T06:17:44-05:00",
+   "title": "Smash the Printer",
+   "note": "Printers, filing cabinets, vending machines, trash cans, water coolers, the lost and found, coat racks and plants now crack and then break a"
+  },
+  {
+   "v": "1.36.0",
+   "at": "2026-11-02T06:34:20-05:00",
+   "title": "Coffee Break Campus",
+   "note": "Parking Lot and Break Room are built behind the closed age-45 doors, ready for promotion access wiring."
+  },
+  {
+   "v": "1.37.0",
+   "at": "2026-11-02T06:55:00-05:00",
+   "title": "Promoted",
+   "note": "At age 45 you get promoted: the Parking Lot and Break Room doors roll up, giving you a lot more room to roam. Enemies follow you in. (Rooms "
+  },
+  {
+   "v": "1.38.0",
+   "at": "2026-11-02T08:07:50-05:00",
+   "title": "Take It Offline",
+   "note": "Server Room and three glass Conference Rooms are built behind the closed age-50 doors, with wide combat space and new office art."
+  },
+  {
+   "v": "1.38.1",
+   "at": "2026-11-02T12:22:46-05:00",
+   "title": "Take It Offline",
+   "note": "Fixed a crash at age 50: the first 3 AM Thought (it has no shadow) broke enemy drawing. Spotted by ChatGPT during room testing."
+  },
+  {
+   "v": "1.39.0",
+   "at": "2026-11-02T12:59:42-05:00",
+   "title": "In the Meetings",
+   "note": "At age 50 you get promoted again: the Server Room and three glass Conference Rooms open up. (Rooms built by ChatGPT.)"
+  },
+  {
+   "v": "1.39.1",
+   "at": "2026-11-02T13:45:10-05:00",
+   "title": "In the Meetings",
+   "note": "The music now stops when you switch apps, close the tab or lock your phone, and comes back when you return. (It used to keep plinking slowly"
+  },
+  {
+   "v": "1.39.2",
+   "at": "2026-11-02T14:23:17-05:00",
+   "title": "In the Meetings",
+   "note": "Fixed enemies lining up along walls and backing away: the \"No.\" shockwave could shove Bills straight through thin walls into the dark areas."
+  },
+  {
+   "v": "1.40.0",
+   "at": "2026-11-02T14:36:16-05:00",
+   "title": "Corner Office Energy",
+   "note": "The Executive Wing is built behind the closed age-55 door, with a skyline office, putting mat and a clear V8 lane; Wellness access at 60 sta"
+  },
+  {
+   "v": "1.40.1",
+   "at": "2026-11-02T14:58:03-05:00",
+   "title": "Corner Office Energy",
+   "note": "Playtesters: add ?navdebug=1 to the game link to see the spots enemies treat as solid (red squares). Handy for recording pathing bugs."
+  },
+  {
+   "v": "1.40.2",
+   "at": "2026-11-02T16:49:32-05:00",
+   "title": "Corner Office Energy",
+   "note": "Fixed enemies walking AWAY from you when they were directly behind a desk or other wide furniture. They now pick a side and go around. (Than"
+  },
+  {
+   "v": "1.41.0",
+   "at": "2026-11-02T17:22:10-05:00",
+   "title": "Punchline",
+   "note": "Promoted at 55: the Executive Wing opens, with its corner office, putting mat and leather chairs. (Room built by ChatGPT.)"
+  },
+  {
+   "v": "1.42.0",
+   "at": "2026-11-02T17:58:38-05:00",
+   "title": "HR Says Relax",
+   "note": "The Wellness Corner is built: massage chair, quiet pod, unfinished puzzle and mandatory fun. Its age-60 door stays closed for room review."
+  },
+  {
+   "v": "1.42.1",
+   "at": "2026-11-02T18:15:48-05:00",
+   "title": "HR Says Relax",
+   "note": "Promoted at 60: the Wellness Corner opens beside the Conference Rooms. Massage chair, quiet pod, a puzzle stuck at 80% and plenty of plants "
+  },
+  {
+   "v": "1.43.0",
+   "at": "2026-11-02T18:45:14-05:00",
+   "title": "Every Weapon Has a Job",
+   "note": "Weapon pass (designed by Grok): Dad Joke is the crowd blast and Louder Groan now makes it fire faster too. \"No.\" is the space-maker: it shov"
+  },
+  {
+   "v": "1.43.1",
+   "at": "2026-11-02T19:55:02-05:00",
+   "title": "Every Weapon Has a Job",
+   "note": "Each promotion now tells you what followed you to work: hospital co-pays at 45, tuition and carpool at 50, your knees at 55, the group chat "
+  },
+  {
+   "v": "1.44.0",
+   "at": "2026-11-02T21:23:34-05:00",
+   "title": "Office Finish",
+   "note": "The Lobby gets stitched rugs and softer light, and the Bullpen gets more cubicles, CRTs, and a printer that will not stop printing."
+  },
+  {
+   "v": "1.45.0",
+   "at": "2026-11-02T21:47:15-05:00",
+   "title": "Smooth Operators",
+   "note": "Every enemy now animates on 8 frames instead of 4, so the swarm moves smoothly. Spam Likely shakes when it rings, Back Twinge lunges and res"
+  },
+  {
+   "v": "1.46.0",
+   "at": "2026-11-02T22:20:42-05:00",
+   "title": "Smooth Operators",
+   "note": "All three heroes now walk on 8 frames, and they breathe when you stand still. Wait a few seconds: the 9-to-5er pushes up his glasses, the So"
+  },
+  {
+   "v": "1.47.0",
+   "at": "2026-11-02T22:34:15-05:00",
+   "title": "Still on Mute",
+   "note": "Six coworkers bring the office to life with small desk routines, reactions when you pass, and their own office memos."
+  }
+ ],
+ "posts": {
+  "01-never-made-a-game": "2026-10-31T20:48:41-04:00",
+  "02-three-different-strides": "2026-10-31T23:03:40-04:00",
+  "03-office-with-some-history": "2026-11-01T00:29:20-04:00",
+  "04-midlife-is-hard": "2026-11-01T01:12:09-04:00",
+  "05-buy-the-dev-a-coffee": "2026-11-01T10:01:53-05:00",
+  "06-the-office-got-bigger": "2026-11-01T10:48:38-05:00",
+  "07-around-the-desk": "2026-11-01T22:06:26-05:00",
+  "08-promoted-four-times": "2026-11-02T23:23:09-05:00"
+ },
+ "play": {
+  "asOf": "2026-11-03T05:15:00Z",
+  "runs": 161,
+  "players": 35,
+  "avgMinutes": 3.9,
+  "bestAge": 63.6,
+  "avgAge": 45.4,
+  "enemiesDefeated": 357363,
+  "closeCalls": 945,
+  "topKillers": [
+   [
+    "Bill",
+    39
+   ],
+   [
+    "Late Fee",
+    23
+   ],
+   [
+    "Spam Likely",
+    13
+   ]
+  ],
+  "devices": [
+   [
+    "Desktop",
+    68
+   ],
+   [
+    "Tablet",
+    36
+   ],
+   [
+    "Phone",
+    28
+   ]
+  ],
+  "firstRun": "2026-11-02T02:50:02Z"
+ }
+}

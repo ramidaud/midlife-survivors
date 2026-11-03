@@ -16,6 +16,7 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 3. Preview at `devlog/?drafts=1`. When Rami approves, set `"draft": false`.
 4. Rebuild the share pages and RSS feed, then commit everything:
    `python3 scripts/build_devlog.py --root . --site-url https://ramidaud.github.io/midlife-survivors/devlog`
+5. Refresh the home sidebar data (build clock + post timestamps from git): `python3 devlog/scripts/build_stats.py` from the repo root. Play stats come from `data/play-stats.json` (Claude refreshes the anonymous totals from Supabase).
 
 ## Files
 - `index.html`, `styles.css`, `app.js`: the page (list, post view, key-art hotspots)

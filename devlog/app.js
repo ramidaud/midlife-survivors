@@ -36,13 +36,34 @@
       listMain.innerHTML = `<p class="empty">No filed memos yet. Pass <code>?drafts=1</code> to preview drafts.</p>`;
       return;
     }
-    listMain.innerHTML = `<ul class="card-list">${posts.map(p => `
+    // Newest memo gets the spotlight; the rest are compact cards. Times come from home.js (git history).
+    const [latest, ...rest] = posts;
+    const changes = (latest.changes || []).slice(0, 4).map(c => `<li>${esc(c)}</li>`).join("");
+    listMain.innerHTML = `
+      <a class="feature" href="?post=${esc(latest.slug)}${draftQ}">
+        <div class="feature-cover" style="background-image:url('${esc(coverUrl(latest))}')" role="img" aria-label="${esc(latest.leadAlt || "")}">
+          <span class="feature-badge">NEW MEMO</span>
+        </div>
+        <div class="feature-body">
+          <div class="card-meta">
+            <time class="stamp" data-slug="${esc(latest.slug)}" datetime="${esc(latest.date)}">${fmt(latest.date)}</time>
+            ${latest.version ? `<span class="pill">${esc(latest.version)}</span>` : ""}
+            ${latest.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+          </div>
+          <h2 class="feature-title">${esc(latest.title)}</h2>
+          <p class="card-teaser">${esc(latest.teaser || "")}</p>
+          ${changes ? `<ul class="feature-changes">${changes}</ul>` : ""}
+          <span class="btn btn-primary feature-cta">Read the memo →</span>
+        </div>
+      </a>
+      ${rest.length ? `<div class="section-label earlier-label">Filed earlier</div>` : ""}
+      <ul class="card-list">${rest.map(p => `
       <li>
         <a class="card" href="?post=${esc(p.slug)}${draftQ}">
           <div class="card-cover" style="background-image:url('${esc(coverUrl(p))}')" role="img" aria-label=""></div>
           <div class="card-body">
             <div class="card-meta">
-              <time datetime="${esc(p.date)}">${fmt(p.date)}</time>
+              <time class="stamp" data-slug="${esc(p.slug)}" datetime="${esc(p.date)}">${fmt(p.date)}</time>
               ${p.version ? `<span class="pill">${esc(p.version)}</span>` : ""}
               ${p.draft ? `<span class="pill draft">DRAFT</span>` : ""}
             </div>
@@ -51,6 +72,7 @@
           </div>
         </a>
       </li>`).join("")}</ul>`;
+    if (window.DevlogHome) window.DevlogHome.stampPosts();
   }
 
   function neighbors(slug) {
@@ -98,11 +120,15 @@
     const changes = Array.isArray(post.changes) && post.changes.length
       ? `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`
       : "";
+    // Optional leadNote (markdown): how the lead image was made (tool + prompt). Shows as a margin note marker.
+    const leadNote = post.leadNote
+      ? `<button class="sn-ref sn-art" type="button" aria-expanded="false" aria-controls="sn-lead" aria-label="How this image was made">ART</button><span class="sn" id="sn-lead" role="note"><span class="sn-head"><b>ART</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">${window.marked ? marked.parseInline(post.leadNote) : esc(post.leadNote)}</span></span>`
+      : "";
     // Every memo opens with a strong visual: a looping gameplay clip if there is one, otherwise the cover.
     const leadSrc = post.leadVideo || post.cover || "";
     const lead = post.leadVideo
       ? `<figure class="post-lead"><video src="${esc(post.leadVideo)}" poster="${esc(post.cover || "")}" autoplay muted loop playsinline controls aria-label="${esc(post.leadAlt || post.title)}"></video>${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>`
-      : (post.cover ? `<figure class="post-lead"><img src="${esc(post.cover)}" alt="${esc(post.leadAlt || post.title)}">${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>` : "");
+      : (post.cover ? `<figure class="post-lead"><img src="${esc(post.cover)}" alt="${esc(post.leadAlt || post.title)}">${post.leadAlt || post.leadNote ? `<figcaption>${esc(post.leadAlt || "")}${leadNote}</figcaption>` : ""}</figure>` : "");
     const nextUp = post.nextUp
       ? `<div class="next-up"><strong>Next up</strong>${esc(post.nextUp)}</div>`
       : "";
