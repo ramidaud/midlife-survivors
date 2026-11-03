@@ -976,3 +976,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The devlog reading bar is now that fat bar, docked right under the sticky navigation on every device.
 - In the game, the XP, year and hero health bars use the same look (health is drawn to match, red to coffee, and pulses when low).
 - HUD and lower-third messages moved to Silkscreen and Atkinson in palette colors, with larger text and buttons on iPad.
+
+## 2026-11-03: Poster title screen (V. 1.51.0) + bigger devlog reading bar
+- New title screen built around the key art. The logo sits over the ceiling, and a glowing PUNCH IN points at the time clock the 9-to-5er is using, with the swarm visible at the glass doors.
+- Character pick is a row of ID badges. Mode and Tax Bracket live in a small settings chip.
+- The latest devlog memo is pinned on the title screen (cover, title, link), with the build count and "updated X ago". It reads the devlog's own files, so new posts appear automatically.
+- Layouts for desktop, iPad (both orientations) and phone. Keyboard focus starts on Punch In.
+- Devlog reading bar: now tracks the whole page from the first scroll, is twice as thick, and celebrates at the end (a shine sweep plus "✓ MEMO FINISHED").

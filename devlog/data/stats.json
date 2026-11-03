@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T06:17:39+00:00",
+ "generated": "2026-11-03T06:58:46+00:00",
  "firstCommit": "2026-10-30T12:00:07-04:00",
  "builds": [
   {
@@ -577,6 +577,42 @@
    "at": "2026-11-03T01:09:27-05:00",
    "title": "Bonus Approved",
    "note": "Boss chests are a real moment now. The game pauses on a BONUS APPROVED card. Press OPEN and the chest shakes, light beams shoot up, rewards "
+  },
+  {
+   "v": "1.48.1",
+   "at": "2026-11-03T01:17:40-05:00",
+   "title": "Bonus Approved",
+   "note": "New achievement: Required Reading (+10k). Finish 10 memos on the devlog (scroll to the end of each), then clock in. The devlog now shows you"
+  },
+  {
+   "v": "1.49.0",
+   "at": "2026-11-03T01:23:23-05:00",
+   "title": "Final Notice",
+   "note": "Crowds have heavies now. Some enemies spawn as elites: bigger, standing in a red glow, with names like FINAL NOTICE, SCAM LIKELY and THE DOZ"
+  },
+  {
+   "v": "1.50.0",
+   "at": "2026-11-03T01:28:27-05:00",
+   "title": "The Courtyard Loop",
+   "note": "The Lobby has a proper reception and waiting area. The Bullpen has four team pods, an open commons and coworkers who finally sit in their ch"
+  },
+  {
+   "v": "1.50.1",
+   "at": "2026-11-03T01:42:05-05:00",
+   "title": "The Courtyard Loop",
+   "note": "Level-up cards fit on phones now: icon on the left and the full description on the right, with nothing cut off the edge."
+  },
+  {
+   "v": "1.50.2",
+   "at": "2026-11-03T01:50:32-05:00",
+   "title": "The Courtyard Loop",
+   "note": "New chunky progress bars, the same as the devlog's reading bar: XP across the top, the year bar under your age and the health bar under your"
+  },
+  {
+   "v": "1.51.0",
+   "at": "2026-11-03T01:57:54-05:00",
+   "title": "The Courtyard Loop",
+   "note": "A new title screen built around the key art. Start the game with a glowing PUNCH IN button next to the time clock while the swarm presses on"
   }
  ],
  "posts": {

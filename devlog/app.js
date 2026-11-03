@@ -255,10 +255,13 @@
     // Dock the bar right under the sticky header, whatever height the header is on this device.
     const hb = header.getBoundingClientRect().bottom;
     document.documentElement.style.setProperty("--hdr-h", Math.max(0, Math.round(hb)) + "px");
-    const r = art.getBoundingClientRect();
-    const total = r.height - window.innerHeight * 0.6;
-    const pct = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
+    // Whole page, from the very first scroll (Rami, Nov 3), not just the article body.
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = total > 0 ? Math.min(1, Math.max(0, window.scrollY / total)) : 1;
     progressBar.style.width = (pct * 100).toFixed(1) + "%";
+    const bar = progressBar.parentElement, isDone = pct >= 0.995;
+    if (isDone && !bar.classList.contains("done")) { bar.classList.remove("celebrate"); void bar.offsetWidth; bar.classList.add("celebrate"); }
+    bar.classList.toggle("done", isDone);
     // Reaching the end of a memo counts it as read (feeds the Required Reading bonus in the game).
     if (pct >= 0.97 && currentSlug && !readSet.has(currentSlug)) {
       markRead(currentSlug);
