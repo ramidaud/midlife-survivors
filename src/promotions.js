@@ -28,10 +28,15 @@ window.Promotions = (() => {
         const quiet = runElapsedMs < 2000; // a resumed run past 45: open silently
         // The big flash shows right away. The sentence uses "promo" (same priority as tips), so it
         // waits its turn behind a boss arrival (the Performance Review shows up at 45) or the AGE card instead of being dropped.
-        if (!quiet && window.flashBanner) window.flashBanner("PROMOTED", "PROMOTED · NEW ROOMS OPEN", "reward");
-        if (!quiet && window.showLowerThird) window.showLowerThird("promo", "PROMOTED", (ph && ph.message) || "New areas unlocked.", 5000);
+        // Spotlight card (Nov 3): a coworker announces the first new room. Falls back to the old banner + lower third.
+        const spot = !quiet && window.Spotlight && ph && ph.areas && Spotlight.room(ph.areas[0]);
+        if (!quiet && !spot && window.flashBanner) window.flashBanner("PROMOTED", "PROMOTED · NEW ROOMS OPEN", "reward");
+        if (!quiet && window.showLowerThird) {
+          if (spot) setTimeout(() => window.showLowerThird("promo", "PROMOTED", (ph && ph.message) || "New areas unlocked.", 5000), 6500);
+          else window.showLowerThird("promo", "PROMOTED", (ph && ph.message) || "New areas unlocked.", 5000);
+        }
         const life = PROMOTIONS.lifeLines && PROMOTIONS.lifeLines[g.age];
-        if (!quiet && life && window.showLowerThird) window.showLowerThird("promo", "LIFE", life, 5500);
+        if (!quiet && life && window.showLowerThird) setTimeout(() => window.showLowerThird("promo", "LIFE", life, 5500), spot ? 12000 : 0);
         if (!quiet) sfx("levelUp", 0);
       }
     }

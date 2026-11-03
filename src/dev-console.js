@@ -50,6 +50,9 @@
     lounge: need(() => { if (window.Lounge) { Lounge.forceOpen(scene()); const s = Lounge.spot(); player.body.reset(s.x, s.y + 140); say("Lounge open, you're next to it"); } }),
     modGo: need(() => { const v = (document.getElementById("dev-mod") || {}).value; if (window.Modifiers) { Modifiers.forceStart(v); say("Modifier: " + v); } }),
     modStop: need(() => { if (window.Modifiers) { Modifiers.stop(); say("Modifier stopped"); } }),
+    spBoss: () => { if (window.Spotlight) Spotlight.boss(["performanceReview", "mortgageRefinance", "midlifeCrisis"][Math.floor(Math.random() * 3)]); },
+    spRoom: () => { if (window.Spotlight) Spotlight.room(["breakroom", "parking", "server", "conference", "executive", "wellness"][Math.floor(Math.random() * 6)]); },
+    spTip: () => { if (window.Spotlight) { Spotlight.resetSeen(); Spotlight.tip(["elite", "chest", "evolution", "lowHp"][Math.floor(Math.random() * 4)]); } },
     nav: () => { if (window.NAV) { NAV.debug = !NAV.debug; render(); say(NAV.debug ? "Route arrows ON" : "Route arrows OFF"); } }
   };
   const jumpTo = (age) => need(() => {
@@ -130,6 +133,10 @@
           <select id="dev-mod" aria-label="Modifier to start"></select>
           <button type="button" data-a="modGo">START</button>
           <button type="button" data-a="modStop">STOP</button></div></section>
+        <section><div class="lbl">SPOTLIGHT CARDS</div><div class="row">
+          <button type="button" data-a="spBoss">BOSS</button>
+          <button type="button" data-a="spRoom">ROOM</button>
+          <button type="button" data-a="spTip">TIP</button></div></section>
         <section><div class="lbl">PATHING</div><div class="row">
           <button id="dev-nav" type="button" aria-pressed="false" data-a="nav">ROUTE ARROWS</button></div></section>
         <div class="note">Dev mode: scores don't post, stats aren't sent, achievements stay locked. Add ?dev=0 to the address to turn it off.</div>

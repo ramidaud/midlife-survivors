@@ -376,7 +376,7 @@ function create() {
         if (line) window.showLowerThird("chapter", `AGE ${decade}`, line, 5000);
       }
       const hpPct = hp / stats.maxHp;
-      if (hpPct <= 0.3 && !ltLowHpWarned) { ltLowHpWarned = true; window.showLowerThird("alert", "LOW HP", (window.ALERTS && window.ALERTS.lowHp) || "Low health!", 4000); }
+      if (hpPct <= 0.3 && !ltLowHpWarned) { ltLowHpWarned = true; if (!(window.Spotlight && Spotlight.tip("lowHp"))) window.showLowerThird("alert", "LOW HP", (window.ALERTS && window.ALERTS.lowHp) || "Low health!", 4000); }
       if (hpPct > 0.6) ltLowHpWarned = false;
     }
     hudTick += dt;
@@ -1063,6 +1063,7 @@ function showTitleScreen(scene) {
     startFromTitle = null;
     hideTitleModal();
     beginFreshRunAtDecade(scene);
+    if (window.Spotlight) setTimeout(() => Spotlight.hire(meta.selectedChar), 1500); // first shift as this hero: a NEW HIRE card
     resetInputState(scene);
     if (window.Telemetry) window.Telemetry.runStarted(false); // anonymous play stats (src/telemetry.js)
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
@@ -1199,7 +1200,7 @@ function rollChestRewards(n) {
 function applyUpgrade(up) {
   const jokeBefore = [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join();
   up.apply(stats);
-  if (up.isEvolution) window.achEvent("evolve", { name: up.name });
+  if (up.isEvolution) { window.achEvent("evolve", { name: up.name }); if (window.Spotlight) Spotlight.tip("evolution"); }
   if (stats.dadJoke && jokeBefore !== [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join()) stats.jokeAnnounce = true;
   if (stats.heal) { hp = Math.min(stats.maxHp, hp + healAmt(stats.heal)); stats.heal = 0; }
   const cd = stats.cooldownMult;
@@ -1447,6 +1448,7 @@ function damageBill(bill, amount) {
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
+      if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
       }).setOrigin(0.5).setDepth(4);
@@ -1813,6 +1815,7 @@ function createEnemy(scene, kind, x, y) {
 // Turn a fresh enemy into an elite: bigger, tougher (always several hits), slower, labeled in red.
 function makeElite(e, E, EL) {
   e.elite = true;
+  if (window.Spotlight) Spotlight.tip("elite"); // first elite ever
   e.eliteScale = EL.scale;
   e.setScale((E.scale || 1) * EL.scale);
   e.hp = Math.max(Math.round(e.hp * EL.hpMult * (window.modFx ? modFx("eliteHpMult", 1) : 1)), Math.ceil((stats.damage || 1) * EL.minHits));
@@ -1947,8 +1950,9 @@ function spawnBoss(scene, bossKind) {
     fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
   }).setOrigin(0.5).setDepth(5);
 
-  showBossToastUI(bossName);
-  if (window.pushContextEvent) {
+  const spot = !isEnd && window.Spotlight && Spotlight.boss(bossKind); // big Spotlight card replaces the toast + lower third
+  if (!spot) showBossToastUI(bossName);
+  if (window.pushContextEvent && !spot) {
     if (isEnd && m.endBossLabel) window.showLowerThird("win", `AGE ${Math.round(modeEndAge())}`, m.endText, 7000);
     else if (isEnd) window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);
     else window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500, P.name.toUpperCase());

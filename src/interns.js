@@ -18,7 +18,7 @@ window.Interns = (() => {
       const step = f ? 1 : 0;
       px("rgba(0,0,0,0.3)", 6, 33, 12, 2);                                   // shadow
       px("#171C35", 7, 26, 4, 8 - step); px("#171C35", 13, 26, 4, 7 + step);  // legs (outline)
-      px("#303750", 8, 26, 2, 6 - step); px("#303750", 14, 26, 2, 5 + step);  // pants
+      px(r.pants || "#303750", 8, 26, 2, 6 - step); px(r.pants || "#303750", 14, 26, 2, 5 + step);  // pants
       px("#171C35", 5, 13, 14, 14);                                         // torso outline
       px(r.shirt, 6, 14, 12, 12);                                           // shirt
       px("#F2D7A1", 11, 14, 2, 8); px("#FFF0CF", 10, 21, 4, 3);             // lanyard + badge
@@ -26,6 +26,9 @@ window.Interns = (() => {
       px(r.skin, 8, 4, 8, 9);                                               // face
       px(r.hair, 7, 1, 10, 4); px(r.hair, 7, 4, 2, 3);                      // hair
       px("#171C35", 10, 8, 1, 1); px("#171C35", 13, 8, 1, 1);               // eyes
+      if (r.beanie) { px(r.hair, 7, 0, 10, 5); px("#FFF0CF", 10, 3, 4, 1); }  // beanie with a little patch
+      if (r.glasses) { px("#171C35", 9, 7, 3, 1); px("#171C35", 12, 7, 3, 1); px("#171C35", 9, 8, 1, 1); px("#171C35", 14, 8, 1, 1); }
+      if (r.beard) { px(r.hair, 8, 10, 8, 3); px(r.skin, 10, 10, 4, 1); }
       px("#171C35", 18, 15, 5, 7); px("#FFF0CF", 19, 16, 3, 5); px("#EF9347", 19, 16, 3, 1); // coffee cup
       px(r.skin, 17, 18, 2, 2);                                             // hand
       t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);

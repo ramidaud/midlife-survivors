@@ -4,10 +4,11 @@
 window.INTERNS = {
   enabled: true,
   roster: [
-    { id: "tj", name: "TJ", title: "Coffee Runner", shirt: "#3E7775", skin: "#8a5a3c", hair: "#1b1410",
+    // Placeholder colors from Rami's photos (Nov 3): TJ in a gray beanie, glasses, black parka; Derek with dark curly hair, beard, glasses.
+    { id: "tj", name: "TJ", title: "Coffee Runner", shirt: "#22263d", skin: "#5c3a26", hair: "#4a4f5c", glasses: true, beanie: true, pants: "#b0844f",
       lines: ["You're old enough to be my dad!", "Do you want Chipotle for lunch?", "What were the dinosaurs like?",
               "Oh big coffee guy huh?", "Another coffee today?", "I love my job!", "For my Manager!!!"] },
-    { id: "derek", name: "Derek", title: "Snack Scout", shirt: "#874C3B", skin: "#e5a995", hair: "#5a3a22",
+    { id: "derek", name: "Derek", title: "Snack Scout", shirt: "#22263d", skin: "#e0a98c", hair: "#2a1d15", glasses: true, beard: true,
       // Placeholder lines until Derek sends his own.
       lines: ["Got you something, boss.", "Is this part of the internship?", "They told me to bring you this.", "Don't tell HR I ran."] }
   ],

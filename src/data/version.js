@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.65.0",
-  displayVersion: "V. 1.65.0",
+  version: "1.66.0",
+  displayVersion: "V. 1.66.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Life Happens",
-  build: 149,
+  codename: "Spotlight",
+  build: 150,
   changelog: [
+    {
+      ver: "V. 1.66.0", date: "Nov 3, 2026", title: "Spotlight",
+      teaser: "Spotlight cards: bosses, coworkers and new hires now make an entrance, with a big sprite and a line of their own.",
+      highlights: [
+        "Spotlight cards: big animated moments when a boss walks in, a coworker announces a new room, you play a hero for the first time, or you see something new (your first elite, chest, evolution, low health). A slanted band, a big sprite, one line and a tip. Lines by Gemini.",
+        "They don't pause the game, they wait for menus to close, and you can tap the speech bubble to dismiss one."
+      ]
+    },
     {
       ver: "V. 1.65.0", date: "Nov 3, 2026", title: "Life Happens",
       teaser: "After 50, life happens: Ghost Hour, Reading Glasses, Rent Hike, Past Due and more roll in for a couple of years at a time.",
