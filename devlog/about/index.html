@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Rami Daud · Midlife Survivors Devlog</title>
+<title>About Midlife Survivors and Rami Daud · Midlife Survivors Devlog</title>
 <meta name="description" content="A photographer making his first video game, Midlife Survivors.">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Midlife Survivors">
@@ -22,8 +22,8 @@
 <link rel="icon" href="../../favicon.png?v=clock-1" type="image/png">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=2">
-<link rel="stylesheet" href="../styles.css?v=21">
+<link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=4">
+<link rel="stylesheet" href="../styles.css?v=22">
 <style>
   .about-wrap { max-width: 980px; }
   .ab-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; align-items: center; margin: 14px 0 26px; }
@@ -51,6 +51,19 @@
   .ab-link em { display: block; font-style: normal; font-size: 13px; color: var(--muted); line-height: 1.35; }
   .ab-link.coffee { border-color: var(--cream); }
   @media (max-width: 760px) { .ab-hero { grid-template-columns: 1fr; } }
+  .ab-game { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; align-items: center; margin: 14px 0 22px; }
+  .ab-game-art { margin: 0; border: 2px solid var(--teal); border-radius: 8px; overflow: hidden; box-shadow: 8px 8px 0 rgba(0,0,0,.4); }
+  .ab-game-art img { display: block; width: 100%; height: auto; }
+  .ab-game-title { font: 700 clamp(30px, 5vw, 48px)/1 var(--display); color: var(--orange); margin: 8px 0 12px; text-shadow: 4px 4px 0 var(--russet); }
+  .ab-game-copy p { margin: 0 0 12px; color: var(--warm-white); font-size: 16px; line-height: 1.55; }
+  .ab-game-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .ab-me-head { margin-top: 34px; }
+  .ab-bio { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, 1fr); gap: 22px; align-items: start; margin-bottom: 22px; }
+  .ab-bio-copy { margin: 0; }
+  .ab-bio-links { margin: 0; }
+  .ab-links-col { grid-template-columns: 1fr !important; }
+  @media (max-width: 860px) { .ab-game, .ab-bio { grid-template-columns: 1fr; } }
+
 </style>
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -69,23 +82,23 @@
   </header>
   <script src="../../assets/ui/ms-nav.js?v=3"></script>
   <div class="wrap about-wrap">
-    <div class="memo-strip"><span class="re">PERSONNEL FILE · RE:</span> <strong>Rami Daud</strong></div>
-
-    <section class="ab-hero">
-      <figure class="ab-portrait"><img src="../../assets/bio/rami-studio-pixel-v1.png" alt="Pixel-art portrait of Rami at his computer in a warmly lit studio, surrounded by artwork, books and creative equipment" width="1536" height="1024"></figure>
-      <div class="ab-id">
-        <div class="ab-eyebrow">Employee of the month (self-nominated)</div>
-        <h1>Rami Daud</h1>
-        <p class="ab-tag">Photographer. Grad student. First-time game dev, exploring midlife.</p>
+    <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>About Midlife Survivors</strong></div>
+    <section class="ab-game">
+      <figure class="ab-game-art"><img src="../../assets/title-screen/slides/08-group-photo-desktop.jpg" alt="Pixel art: Derek crouches with a camera and the flash pops as the four heroes and TJ pose for an office group photo" width="1920" height="1080"></figure>
+      <div class="ab-game-copy">
+        <div class="ab-eyebrow">About the game</div>
+        <h1 class="ab-game-title">Midlife Survivors</h1>
+        <p>A free browser game about getting from 40 to 65 in one piece. You only move. Your coffee, your dad jokes and a firm "No." fire on their own while bills, spam calls, group chats and calendar invites swarm the office.</p>
+        <p>Get promoted to open new rooms, survive the Performance Review, the 30-Year Mortgage and the Midlife Crisis V8, and make it to your retirement party. Midlife is hard. It's also kind of great.</p>
         <ul class="ab-chips">
-          <li>📷 20+ years behind the camera</li>
-          <li>🚀 NASA Glenn alum</li>
-          <li>🎓 Kent State · EMAT</li>
-          <li>🕹️ Game #1: Midlife Survivors</li>
+          <li>⏱️ About 19 minutes a run</li>
+          <li>🧑‍💼 Four heroes</li>
+          <li>📱 Phone, laptop or controller</li>
+          <li>🆓 Free, no account</li>
         </ul>
+        <div class="ab-game-btns"><a class="btn btn-primary" href="../../">▶ Play now</a><a class="btn btn-ghost" href="../">Read the devlog</a><a class="btn btn-ghost" href="../art/">See the Art Room</a></div>
       </div>
     </section>
-
     <section class="ab-block">
       <div class="ab-head"><span>Live stats</span><small id="ab-asof">Updating…</small></div>
       <div class="ab-stats" id="ab-stats">
@@ -101,9 +114,34 @@
       <p class="ab-foot">Counted from the build history and anonymous play stats. Refreshed every time a memo goes out.</p>
     </section>
 
-    <section class="ab-block">
-      <div class="ab-head"><span>Find Rami elsewhere</span></div>
-      <div class="ab-links">
+    <div class="ab-me-head"><div class="memo-strip"><span class="re">PERSONNEL FILE · RE:</span> <strong>Rami Daud</strong></div></div>
+    <section class="ab-hero">
+      <figure class="ab-portrait"><img src="../../assets/bio/rami-studio-pixel-v1.png" alt="Pixel-art portrait of Rami at his computer in a warmly lit studio, surrounded by artwork, books and creative equipment" width="1536" height="1024"></figure>
+      <div class="ab-id">
+        <div class="ab-eyebrow">Employee of the month (self-nominated)</div>
+        <h1>Rami Daud</h1>
+        <p class="ab-tag">Photographer. Grad student. First-time game dev, exploring midlife.</p>
+        <ul class="ab-chips">
+          <li>📷 20+ years behind the camera</li>
+          <li>🚀 NASA Glenn alum</li>
+          <li>🎓 Kent State · EMAT</li>
+          <li>🕹️ Game #1: Midlife Survivors</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ab-bio">
+      <article class="post ab-bio-copy">
+        <div class="prose">
+        <p>Rami Daud is a photographer who decided, somewhere in his forties, to make a video game.</p>
+        <p>He has spent more than 20 years behind the camera: freelancing for the Associated Press, AFP and Cleveland Magazine, four years as a digital imaging specialist at NASA Glenn Research Center on the Artemis and Commercial Crew programs, and since 2019 as Senior Photographer at Kent State University.</p>
+        <p>He is also a grad student in Kent State's Emerging Media and Technology program, and he writes <strong>Framing the Cosmos</strong>, about how iconic space photographs shape the way we see the universe.</p>
+        <p><strong>Midlife Survivors</strong> is his first game. He brings the vision and the jokes; Claude, ChatGPT, Gemini and Grok help him build it. This devlog is the record of him learning how.</p>
+      </div>
+      </article>
+      <aside class="ab-block ab-bio-links">
+        <div class="ab-head"><span>Find Rami elsewhere</span></div>
+      <div class="ab-links ab-links-col">
         <a class="ab-link" href="https://ramidaud.com" rel="noopener"><b>📷</b><span><strong>ramidaud.com</strong><em>Photography and portfolio</em></span></a>
         <a class="ab-link" href="https://open.substack.com/pub/ramidaud" rel="noopener"><b>🔭</b><span><strong>Framing the Cosmos</strong><em>Substack: how iconic space photos shape how we see the universe</em></span></a>
         <a class="ab-link" href="https://discord.gg/E6N9j5tZe" rel="noopener"><b>💬</b><span><strong>Midlife Survivors Discord</strong><em>Playtest notes, art previews, #want-to-help</em></span></a>
@@ -114,15 +152,9 @@
         <a class="ab-link" href="../../"><b>▶</b><span><strong>Play Midlife Survivors</strong><em>Free, in your browser, on any device</em></span></a>
         <a class="ab-link" href="../"><b>📝</b><span><strong>Read the devlog</strong><em>Every memo, in order</em></span></a>
       </div>
+      </aside>
     </section>
-
     <article class="post">
-      <div class="prose">
-        <p>Rami Daud is a photographer who decided, somewhere in his forties, to make a video game.</p>
-        <p>He has spent more than 20 years behind the camera: freelancing for the Associated Press, AFP and Cleveland Magazine, four years as a digital imaging specialist at NASA Glenn Research Center on the Artemis and Commercial Crew programs, and since 2019 as Senior Photographer at Kent State University.</p>
-        <p>He is also a grad student in Kent State's Emerging Media and Technology program, and he writes <strong>Framing the Cosmos</strong>, about how iconic space photographs shape the way we see the universe.</p>
-        <p><strong>Midlife Survivors</strong> is his first game. He brings the vision and the jokes; Claude, ChatGPT, Gemini and Grok help him build it. This devlog is the record of him learning how.</p>
-      </div>
       <div class="changes-box">
         <h3>Play stats and privacy</h3>
         <p>The game counts anonymous play stats so I can balance it: how long a run lasts, how far you get, what got you, and whether you're on a phone or a laptop. The site counts visits with GoatCounter. No names, no tracking cookies, nothing sold or shared. Your leaderboard name is separate and only saved if you choose to enter one. Add <code>?nostats=1</code> to the game's address to send nothing at all.</p>
@@ -142,7 +174,7 @@
       const el = document.getElementById("ab-me"), L = window.LEADERBOARD;
       if (!L || !L.supabaseUrl) { el.innerHTML = tile("–", "best score"); return; }
       const h = { apikey: L.supabaseAnonKey }; if (!String(L.supabaseAnonKey).startsWith("sb_")) h.Authorization = "Bearer " + L.supabaseAnonKey;
-      const chars = { officeWorker: "The 9-to-5er", photographer: "The Soccer Dad", gradStudent: "The Grad Student" };
+      const chars = { officeWorker: "The 9-to-5er", photographer: "The Soccer Dad", gradStudent: "The Grad Student", coldWarCowboy: "The Cold War Cowboy" };
       try {
         const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age,character&order=score.desc&limit=500`, { headers: h, cache: "no-store" });
         const rows = r.ok ? await r.json() : [];

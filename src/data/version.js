@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.72.1",
-  displayVersion: "V. 1.72.1",
+  version: "1.72.2",
+  displayVersion: "V. 1.72.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 169,
+  build: 170,
   changelog: [
+    {
+      ver: "V. 1.72.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "A brand-new Art Room: the whole office animated, a live Spotlight demo and before-and-after sliders. The About page now starts with the game.",
+      highlights: [
+        "New Art Room: every hero, intern, coworker, boss and enemy animated from the real game art, a live Spotlight card demo, and drag sliders comparing first drafts with today's art. The old page lives on as the Workshop.",
+        "The About page now opens with what the game is, and Rami's links sit beside his bio.",
+        "The menu bar is the same height on every page."
+      ]
+    },
     {
       ver: "V. 1.72.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "The HR Exit Interview: when a run ends, your hero slumps in a chair while whatever got you gloats. Phones also see more of the office.",

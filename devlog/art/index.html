@@ -3,153 +3,307 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Art Room · Midlife Survivors Devlog</title>
-<meta name="description" content="Walk around the newest Midlife Survivors art before it reaches the game.">
+<title>The Art Room · Midlife Survivors</title>
+<meta name="description" content="Every character, boss and scene in Midlife Survivors, animated. Made with ChatGPT, Gemini and Grok from Rami Daud's direction.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Midlife Survivors">
 <meta property="og:title" content="The Art Room · Midlife Survivors">
-<meta property="og:description" content="Walk around the newest Midlife Survivors art before it reaches the game.">
+<meta property="og:description" content="Every character, boss and scene in Midlife Survivors, animated.">
 <meta property="og:url" content="https://ramidaud.github.io/midlife-survivors/devlog/art/">
 <meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/assets/share/art-room.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Pixel-art panorama of a whole life: office, waiting room, family kitchen and a beach retirement.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Art Room · Midlife Survivors">
-<meta name="twitter:description" content="Walk around the newest Midlife Survivors art before it reaches the game.">
 <meta name="twitter:image" content="https://ramidaud.github.io/midlife-survivors/assets/share/art-room.jpg">
-<meta name="twitter:image:alt" content="Pixel-art panorama of a whole life: office, waiting room, family kitchen and a beach retirement.">
 <link rel="icon" href="../../favicon.png?v=clock-1" type="image/png">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=2">
-<link rel="stylesheet" href="../styles.css?v=17">
+<link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=4">
+<link rel="stylesheet" href="../styles.css?v=22">
 <style>
-  .art-frame { width: 100%; border: 0; display: block; min-height: 70vh; background: #171C35;
-    border-radius: 8px; box-shadow: 0 0 0 2px var(--teal, #3E7775); }
-  .art-intro { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 4px 0 16px; }
-  .art-wrap { max-width: 1180px; }
-  .stage-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:16px 0 24px; }
-  .stage-card { display:block; color:var(--warm-white,#FFF0CF); text-decoration:none; background:#242b43; border:2px solid #3E7775; border-radius:6px; overflow:hidden; }
-  .stage-card img { display:block; width:100%; aspect-ratio:16/10; object-fit:contain; image-rendering:pixelated; background:#171C35; }
-  .stage-card span { display:block; padding:12px; font-size:14px; }
-  .stage-card strong { display:block; margin-bottom:5px; }
-  .stage-card:focus-visible { outline:3px solid #F2D7A1; outline-offset:4px; }
-  .stage-status { color:#EF9347; font-size:13px; }
-  @media(max-width:640px) { .stage-grid { grid-template-columns:1fr; } }
-  .gallery { margin: 8px 0 34px; }
-  .gallery-h { font-size: 22px; margin: 26px 0 4px; color: var(--warm-white, #FFF0CF); }
-  .gallery-sub { margin: 0 0 14px; color: var(--muted, #a3a8c7); font-size: 15px; }
-  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
-  .g-item { display: flex; flex-direction: column; text-align: left; padding: 0; border: 0; border-radius: 8px; overflow: hidden;
-    background: var(--surface, #1f2640); box-shadow: 0 0 0 2px var(--teal, #3E7775); color: var(--cream, #F2D7A1);
-    cursor: url("../img/cursor-hand.png") 8 0, pointer; transition: transform .15s, box-shadow .15s; }
-  .g-item:hover, .g-item:focus-visible { transform: translateY(-3px); box-shadow: 0 0 0 2px var(--cream, #F2D7A1), 0 10px 22px rgba(0,0,0,.35); outline: none; }
-  .g-item img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; image-rendering: pixelated; }
-  .g-cap { display: block; padding: 10px 12px 12px; font-size: 13px; line-height: 1.45; color: var(--muted, #a3a8c7); }
-  .g-cap b { display: block; font-size: 15px; color: var(--warm-white, #FFF0CF); margin-bottom: 2px; }
-  .lightbox { border: 0; padding: 0; background: transparent; max-width: min(1400px, 96vw); width: 96vw; color: var(--warm-white, #FFF0CF); }
-  .lightbox::backdrop { background: rgba(10, 12, 26, 0.92); }
-  .lightbox[open] { display: flex; align-items: center; gap: 10px; animation: lbIn .18s ease-out; }
-  @keyframes lbIn { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
-  .lightbox figure { margin: 0; flex: 1; }
-  .lightbox img { width: 100%; max-height: 82vh; object-fit: contain; display: block; image-rendering: pixelated; border: 3px solid var(--navy, #171C35); box-shadow: 0 0 0 2px var(--teal, #3E7775); }
-  .lightbox figcaption { margin-top: 10px; font-size: 15px; color: var(--muted, #a3a8c7); }
-  .lightbox figcaption b { color: var(--warm-white, #FFF0CF); margin-right: 6px; }
-  .lb-close { position: fixed; top: 14px; right: 18px; font-size: 34px; }
-  .lb-close, .lb-nav { background: none; border: 0; color: var(--orange, #EF9347); cursor: url("../img/cursor-hand.png") 8 0, pointer; line-height: 1; }
-  .lb-nav { font-size: 56px; padding: 0 6px; }
-  .lb-close:hover, .lb-nav:hover { color: var(--cream, #F2D7A1); }
-  @media (max-width: 560px) { .lb-nav { position: fixed; bottom: 18px; font-size: 44px; } .lb-prev { left: 18px; } .lb-next { right: 18px; } }
-  @media (prefers-reduced-motion: reduce) { .lightbox[open] { animation: none; } .g-item { transition: none; } }
+  /* The Art Room v2 (Nov 3, Rami: "more dynamic and interesting"). Everything animates from the real game sheets. */
+  .ar-wrap { max-width: 1180px; }
+  .ar-h { font: 700 22px/1.2 var(--display); color: var(--warm-white); margin: 40px 0 4px; letter-spacing: .02em; }
+  .ar-sub { margin: 0 0 16px; color: var(--muted); font-size: 15px; max-width: 70ch; }
+  .ar-tag { display: inline-block; font: 11px var(--display); letter-spacing: .06em; color: var(--navy); background: var(--cream); padding: 3px 8px; border-radius: 3px; }
+
+  /* 1. Key art stage */
+  .ka { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: var(--navy); box-shadow: 0 0 0 2px var(--teal), 0 18px 40px rgba(0,0,0,.4); margin-top: 18px; }
+  .ka-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.4s ease; image-rendering: auto; }
+  .ka-slide.on { opacity: 1; animation: kaPush 9s linear both; }
+  @keyframes kaPush { from { transform: scale(1); } to { transform: scale(1.06); } }
+  .ka-cap { position: absolute; left: 16px; bottom: 16px; right: 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; pointer-events: none; }
+  .ka-name { font: 700 clamp(18px, 3vw, 30px)/1 var(--display); color: var(--warm-white); text-shadow: 3px 3px 0 var(--navy); }
+  .ka-dots { display: flex; gap: 6px; pointer-events: auto; }
+  .ka-dots button { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--cream); background: transparent; padding: 0; cursor: pointer; }
+  .ka-dots button[aria-current="true"] { background: var(--orange); border-color: var(--orange); }
+  .ka::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(23,28,53,.75)); pointer-events: none; }
+  .ka-cap { z-index: 1; }
+  @media (orientation: portrait), (max-width: 700px) { .ka { aspect-ratio: 9 / 13; } }
+
+  /* 2. The cast */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 16px; }
+  .chip { font: 12px var(--display); letter-spacing: .05em; color: var(--sage); background: var(--surface); border: 2px solid var(--teal); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: var(--navy); }
+  .cast { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+  .cc { position: relative; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 2px solid rgba(62,119,117,.8); border-radius: 10px; padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 8px; transition: transform .18s, border-color .18s; overflow: hidden; }
+  .cc:hover, .cc:focus-within { transform: translateY(-4px); border-color: var(--cream); }
+  .cc-stage { position: relative; height: 210px; display: flex; align-items: flex-end; justify-content: center; border-radius: 6px;
+    background: radial-gradient(ellipse 60% 40% at 50% 88%, rgba(255,240,207,.18), transparent 70%), repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 12px, transparent 12px 24px), #1a2038; }
+  .cc canvas { image-rendering: pixelated; display: block; max-width: 100%; max-height: 200px; }
+  .cc-kick { font: 10px var(--display); letter-spacing: .06em; color: var(--orange); }
+  .cc-name { font: 700 15px/1.2 var(--display); color: var(--warm-white); }
+  .cc-line { margin: 0; font-size: 14px; line-height: 1.4; color: var(--muted); }
+  .cc-line q { color: var(--cream); }
+  .cc-moves { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .cc-moves button { font: 10px var(--display); letter-spacing: .04em; color: var(--muted); background: transparent; border: 1px solid rgba(131,168,154,.5); border-radius: 4px; padding: 5px 8px; cursor: pointer; }
+  .cc-moves button[aria-pressed="true"] { color: var(--navy); background: var(--sage); border-color: var(--sage); }
+  .cc-by { position: absolute; top: 10px; right: 10px; font: 9px var(--display); color: var(--muted-blue); }
+
+  /* 3. Spotlight demo */
+  .demo { display: grid; grid-template-columns: 1.1fr 1fr; gap: 18px; align-items: center; background: var(--surface); border: 2px solid var(--teal); border-radius: 10px; padding: 18px; }
+  .demo p { margin: 0 0 12px; color: var(--muted); }
+  .demo-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+  @media (max-width: 760px) { .demo { grid-template-columns: 1fr; } }
+
+  /* 4. Glow-ups (before/after slider) */
+  .glow { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .ba { position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 2px solid var(--teal); background: #1a2038; touch-action: pan-y; user-select: none; }
+  .ba canvas { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); image-rendering: pixelated; }
+  .ba .after { clip-path: inset(0 0 0 var(--cut, 50%)); }
+  .ba-pane { position: absolute; inset: 0; }
+  .ba-pane.after { background: #222a48; }
+  .ba-handle { position: absolute; top: 0; bottom: 0; left: var(--cut, 50%); width: 3px; background: var(--cream); box-shadow: 0 0 0 1px var(--navy); }
+  .ba-handle::after { content: "◀ ▶"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font: 11px var(--display); color: var(--navy); background: var(--cream); padding: 6px 8px; border-radius: 4px; white-space: nowrap; }
+  .ba-lab { position: absolute; top: 10px; font: 10px var(--display); letter-spacing: .06em; padding: 3px 7px; border-radius: 3px; z-index: 2; }
+  .ba-lab.l { left: 10px; background: var(--slate); color: var(--muted); } .ba-lab.r { right: 10px; background: var(--orange); color: var(--navy); }
+  .ba-cap { margin: 8px 2px 0; font-size: 14px; color: var(--muted); }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 3; }
+
+  /* 5. Workshop */
+  .shop { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .shop a { display: block; text-decoration: none; color: var(--warm-white); background: var(--surface); border: 2px solid rgba(62,119,117,.6); border-radius: 8px; padding: 14px; transition: border-color .15s, transform .15s; }
+  .shop a:hover { border-color: var(--cream); transform: translateY(-2px); }
+  .shop b { display: block; font-size: 16px; margin-bottom: 4px; } .shop span { color: var(--muted); font-size: 14px; }
+  @media (prefers-reduced-motion: reduce) { .ka-slide.on { animation: none; } .cc, .shop a { transition: none; } }
 </style>
-<!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-  <header class="site-header is-compact">
-    <a class="brand" href="../">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span><span class="brand-title">Midlife Survivors</span></span>
-    </a>
-    <div class="actions">
-      <a class="btn btn-ghost" href="../">Memos</a>
-      <a class="btn btn-coffee" href="https://ko-fi.com/ramidaud" rel="noopener">☕ <span class="coffee-long">Buy Rami a </span>Coffee</a>
-      <a class="btn btn-primary" href="../../">▶ Play</a>
-    </div>
-  </header>
+  <header class="site-header is-compact"></header>
   <script src="../../assets/ui/ms-nav.js?v=3"></script>
-  <div class="wrap art-wrap">
-    <a class="back" href="../">← All memos</a>
+  <div class="wrap ar-wrap">
     <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>The Art Room</strong></div>
     <div class="post-header">
       <h1>The Art Room</h1>
-      <div class="post-meta">New art lives here before it reaches the game. Walk around, swap characters, and compare it with the current look.</div>
+      <div class="post-meta">Everyone in the office, alive. Every sprite here is the real art from the game, animated the same way it moves on screen. Drawn by ChatGPT, written by Gemini, tuned by Grok, all from Rami's direction.</div>
     </div>
-    <div class="art-intro">
-      <a class="btn btn-ghost" href="../../art-test.html">Open full screen</a>
-      <a class="btn btn-ghost" href="../../assets/enemies/review.html">Review animated enemies</a>
-      <a class="btn btn-ghost" href="../">Read the build memos</a>
-    </div>
-    <section aria-labelledby="stage-pass-h">
-      <h2 class="gallery-h" id="stage-pass-h">Stage Pass: an office worth getting lost in</h2>
-      <p class="stage-status">LOBBY + BULLPEN PLAYABLE · STAGE 2C READY</p>
-      <p class="gallery-sub">Unequal wings, promotion gates and dressed fighting spaces, plus the approved Parking Lot target. The playable office stays as it is while we review this direction.</p>
-      <a class="btn btn-primary" href="../../assets/stage/props/review.html?v=2c-1">Review 33 prop families and the static coworker</a>
-      <a class="btn btn-ghost" href="stage-pass-v2.html">Review v2 and promotion gates</a>
-      <div class="stage-grid">
-        <a class="stage-card" href="stage-pass-v2.html#overview"><img src="../../assets/stage/campus-overview-v2.png" width="1671" height="941" alt="Nine-district Corporate Campus illustrated proposal"><span><strong>The whole campus</strong>Irregular districts and a larger starting area. Change ages in the measured plan to inspect gates.</span></a>
-        <a class="stage-card" href="stage-pass-v2.html#parking"><img src="../../assets/stage/parking-lot-closeup-v1.png" width="1280" height="800" alt="Parking Lot concept with parked idea cars, a wheel clamp and a clear central route"><span><strong>Let’s put that in the parking lot</strong>Rebrand, Blockchain, Casual Fridays and Dave’s Idea. Approved density, scale and joke target.</span></a>
+
+    <!-- 1. Key art -->
+    <section aria-labelledby="ka-h">
+      <div class="ka" id="ka" aria-roledescription="slideshow">
+        <div class="ka-cap"><div><span class="ar-tag">TITLE SCREEN ART</span><div class="ka-name" id="ka-name" aria-live="polite"></div></div><div class="ka-dots" id="ka-dots"></div></div>
+      </div>
+      <h2 class="ar-h" id="ka-h" style="margin-top:14px">Key art</h2>
+      <p class="ar-sub">The five scenes on the title screen right now. Each one has a wide version and a separately drawn tall version for phones, composed around the menus.</p>
+    </section>
+
+    <!-- 2. The cast -->
+    <section aria-labelledby="cast-h">
+      <h2 class="ar-h" id="cast-h">Meet the office</h2>
+      <p class="ar-sub">Tap a card's buttons to see their other moves. Hover to see their signature move.</p>
+      <div class="chips" id="chips" role="group" aria-label="Filter the cast"></div>
+      <div class="cast" id="cast"></div>
+    </section>
+
+    <!-- 3. Spotlight demo -->
+    <section aria-labelledby="demo-h">
+      <h2 class="ar-h" id="demo-h">Spotlight cards</h2>
+      <div class="demo">
+        <div>
+          <p>When a boss walks in, a coworker opens a new room or a run starts, a big card hops into the game. This is the real thing, running on this page.</p>
+          <div class="demo-btns">
+            <button class="btn btn-primary" data-demo="boss">Boss walks in</button>
+            <button class="btn btn-ghost" data-demo="hire">New hire</button>
+            <button class="btn btn-ghost" data-demo="room">Room opens</button>
+            <button class="btn btn-ghost" data-demo="lounge">Lounge opens</button>
+          </div>
+        </div>
+        <p style="margin:0">The animation: a light beam opens, the band wipes in, the character hops up and lands in a puff of dust, their name drops in letter by letter and their line types itself out. Bosses get a red beam and cut in line; everyone else waits their turn.</p>
       </div>
     </section>
-    <section class="gallery" aria-labelledby="gallery-h">
-      <h2 class="gallery-h" id="gallery-h">Key art</h2>
-      <p class="gallery-sub">Illustrations made with ChatGPT and Codex from Rami's briefs, used for covers and menus. Concept art, not gameplay.</p>
-      <div class="gallery-grid" id="gallery-grid"></div>
+
+    <!-- 4. Glow-ups -->
+    <section aria-labelledby="glow-h">
+      <h2 class="ar-h" id="glow-h">Glow-ups</h2>
+      <p class="ar-sub">Drag across each picture to compare the first draft with what's in the game now.</p>
+      <div class="glow" id="glow"></div>
     </section>
-    <h2 class="gallery-h">Walk it yourself</h2>
-    <p class="gallery-sub">The newest in-game art, before it reaches the main game. Use the arrow keys or drag to walk.</p>
-    <iframe class="art-frame" id="art-frame" src="../../art-test.html?embed=1" title="Midlife Survivors art preview: Corporate Campus"></iframe>
+
+    <!-- 5. Workshop -->
+    <section aria-labelledby="shop-h">
+      <h2 class="ar-h" id="shop-h">The Workshop</h2>
+      <p class="ar-sub">Older tools, studies and room proposals, kept for the record.</p>
+      <div class="shop">
+        <a href="workshop.html"><b>The old Art Room</b><span>Key art concepts, the first office tiles, desks and the walkable Corporate Campus.</span></a>
+        <a href="../../art-test.html"><b>Walk the office</b><span>The full-screen art preview with every hero.</span></a>
+        <a href="stage-pass-v2.html"><b>Stage Pass</b><span>The campus plan, promotion gates and the Parking Lot.</span></a>
+        <a href="../../assets/enemies/review.html"><b>Enemy review</b><span>Every enemy's walk cycle side by side.</span></a>
+      </div>
+    </section>
   </div>
-  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script>
-  // Grow the frame to fit the art preview so the page scrolls as one piece.
-  const f = document.getElementById("art-frame");
-  function fit() { try { const h = f.contentDocument.documentElement.scrollHeight; if (h) f.style.height = h + "px"; } catch (e) {} }
-  f.addEventListener("load", () => { fit(); try { new ResizeObserver(fit).observe(f.contentDocument.body); } catch (e) { setInterval(fit, 1000); } });
-</script>
-<dialog class="lightbox" id="lightbox" aria-label="Key art viewer">
-  <button class="lb-close" type="button" aria-label="Close">×</button>
-  <button class="lb-nav lb-prev" type="button" aria-label="Previous">‹</button>
-  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
-  <button class="lb-nav lb-next" type="button" aria-label="Next">›</button>
-</dialog>
-<script>
-  // Key art gallery. Add a piece: drop a full-size and a -thumb JPG in ../img/gallery/ and add a line here.
-  const GALLERY = [
-    { img: "office-key-art", title: "Office key art", note: "The first approved art direction. It set the palette, the light and the hero." },
-    { img: "title-lobby", title: "Title screen: 8:59 AM", note: "Clocking in while the swarm waits at the glass. Now the game's title screen." },
-    { img: "title-swarm", title: "Title concept: The Ring", note: "The whole swarm closing in. Saved for a loading or victory screen." },
-    { img: "title-panorama", title: "Title concept: One Life", note: "Office, hospital, home and resort in one walk. Used for the Art Room banner." },
-    { img: "cover-long-way", title: "Cover: The long way to coffee", note: "Devlog cover for the Corporate Campus memo." }
-  ];
-  const grid = document.getElementById("gallery-grid"), lb = document.getElementById("lightbox");
-  const lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap");
-  let cur = 0;
-  grid.innerHTML = GALLERY.map((g, i) => `<button class="g-item" type="button" data-i="${i}">
-    <img src="../img/gallery/${g.img}-thumb.jpg" alt="${g.title}" loading="lazy">
-    <span class="g-cap"><b>${g.title}</b>${g.note}</span></button>`).join("");
-  function show(i) {
-    cur = (i + GALLERY.length) % GALLERY.length; const g = GALLERY[cur];
-    lbImg.src = `../img/gallery/${g.img}.jpg`; lbImg.alt = g.title;
-    lbCap.innerHTML = `<b>${g.title}</b> ${g.note}`;
-  }
-  grid.addEventListener("click", e => { const b = e.target.closest(".g-item"); if (!b) return; show(+b.dataset.i); lb.showModal(); });
-  lb.querySelector(".lb-close").onclick = () => lb.close();
-  lb.querySelector(".lb-prev").onclick = () => show(cur - 1);
-  lb.querySelector(".lb-next").onclick = () => show(cur + 1);
-  lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
-  lb.addEventListener("keydown", e => { if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
-</script>
+  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
+
+  <!-- The game's own data files, so names and lines always match the game -->
+  <script>window.SPOTLIGHT_ROOT = "../../";</script>
+  <script src="../../src/data/title-art.js"></script>
+  <script src="../../src/data/spotlight.js"></script>
+  <script src="../../src/data/interns.js"></script>
+  <script src="../../src/data/enemies.js"></script>
+  <script src="../../src/data/deaths.js"></script>
+  <script src="../../src/spotlight.js"></script>
+  <script>
+  (function () {
+    const R = "../../";
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const tall = () => matchMedia("(orientation: portrait), (max-width: 700px)").matches;
+    const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+    // ---------- 1. Key art slideshow ----------
+    const slides = (window.TITLE_ART && TITLE_ART.slides) || [];
+    const ka = document.getElementById("ka"), dots = document.getElementById("ka-dots"), kaName = document.getElementById("ka-name");
+    let ki = 0, kTimer = 0;
+    const els = slides.map((s, i) => { const d = document.createElement("div"); d.className = "ka-slide"; ka.insertBefore(d, ka.firstChild); return d; });
+    slides.forEach((s, i) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Show " + s.name); b.onclick = () => { show(i); restart(); }; dots.appendChild(b); });
+    function show(i) {
+      ki = i; const s = slides[i];
+      els.forEach((e, j) => { if (j === i) { e.style.backgroundImage = `url("${R}${tall() && s.srcPortrait ? s.srcPortrait : s.src}")`; e.style.backgroundPosition = (tall() && s.focusPortrait) || s.focus || "50% 50%"; e.classList.remove("on"); void e.offsetWidth; e.classList.add("on"); } else e.classList.remove("on"); });
+      [...dots.children].forEach((d, j) => d.setAttribute("aria-current", j === i ? "true" : "false"));
+      kaName.textContent = s.name;
+    }
+    function restart() { clearInterval(kTimer); if (!reduce) kTimer = setInterval(() => show((ki + 1) % slides.length), 6500); }
+    if (slides.length) { show(0); restart(); }
+
+    // ---------- Sprite animator (draws real sheets into canvases) ----------
+    // Boss sheets use a magenta key color; turn it transparent once.
+    const keyed = {};
+    function loadImg(src, key) {
+      if (keyed[src]) return keyed[src];
+      return keyed[src] = new Promise(res => {
+        const im = new Image(); im.onload = () => {
+          if (!key) return res(im);
+          const c = document.createElement("canvas"); c.width = im.width; c.height = im.height;
+          const x = c.getContext("2d"); x.drawImage(im, 0, 0);
+          const d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+          for (let i = 0; i < p.length; i += 4) if (p[i] > 230 && p[i + 1] < 40 && p[i + 2] > 230) p[i + 3] = 0;
+          x.putImageData(d, 0, 0); res(c);
+        };
+        im.onerror = () => res(null); im.src = src;
+      });
+    }
+    // Frame layouts by sheet type: [cellW, cellH, cols, moves{name: [frames, ms]}]
+    const portrait = { w: 96, h: 112, cols: 8, moves: { "On break": [[0,1,2,3,4,5], 220], "Signature": [[8,9,10,11,12,13,14,15], 140], "Stretch": [[16,17,18,19,20,21,22,23], 150] } };
+    const defeated = { w: 96, h: 112, cols: 8, moves: { "Defeated": [[0,1,2,3,4,5,6,7,7,7,7,7,7,8,9,10,11,12,13,8,9,10,11,12,13], 160], "Shake it off": [[16,17,18,19,20,21,22,23,23,23], 150] } };
+    const bossT = { w: 144, h: 152, cols: 4, moves: { "Walk": [[0,1,2,3,4,5], 140], "Wind-up": [[6,7,6,7,6,7], 200], "Attack": [[8,9,8,9,8,9], 140], "Hurt": [[10,10,0], 300] } };
+    const mugT = { w: 96, h: 96, cols: 4, moves: { "Gloat": [[0,1,2,3], 200] } };
+    const anims = [];
+    function animate(canvas, layout, sources, scale) {
+      const st = { canvas, layout, sources, move: Object.keys(layout.moves)[0], f: 0, t: 0, hover: false };
+      canvas.width = layout.w * scale; canvas.height = layout.h * scale;
+      st.ctx = canvas.getContext("2d"); st.ctx.imageSmoothingEnabled = false; st.scale = scale;
+      anims.push(st); return st;
+    }
+    let last = performance.now();
+    function tick(now) {
+      const dt = now - last; last = now;
+      anims.forEach(a => {
+        const mv = a.sources[a.move]; if (!mv || !mv.img) return;
+        const [frames, ms] = mv.lay.moves[a.move];
+        a.t += reduce ? 0 : dt; if (a.t >= ms) { a.t = 0; a.f = (a.f + 1) % frames.length; }
+        const fr = frames[a.f % frames.length], L = mv.lay, sx = (fr % L.cols) * L.w, sy = Math.floor(fr / L.cols) * L.h;
+        a.ctx.clearRect(0, 0, a.canvas.width, a.canvas.height);
+        a.ctx.drawImage(mv.img, sx, sy, L.w, L.h, (a.canvas.width - L.w * a.scale) / 2, a.canvas.height - L.h * a.scale, L.w * a.scale, L.h * a.scale);
+      });
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    // ---------- 2. The cast ----------
+    const SP = window.SPOTLIGHT || {}, H = SP.hires || {}, ROOMS = SP.rooms || {}, B = SP.bosses || {};
+    const P = R + "assets/characters/portraits/";
+    const heroSlug = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" };
+    const heroBreak = (SP.heroSheets || {});
+    const cast = [];
+    Object.keys(heroSlug).forEach(id => {
+      const h = H[id] || {};
+      cast.push({ group: "Heroes", kicker: h.kicker, name: h.name, line: h.bio, quote: h.line, sheets: [[P + (heroBreak[id] || heroSlug[id] + "-on-break-v1") + ".png", portrait], [P + heroSlug[id] + "-defeated-v1.png", defeated]], scale: 1.75 });
+    });
+    ((window.INTERNS || {}).roster || []).forEach(r => cast.push({ group: "Interns", kicker: "INTERN · " + (r.title || "").toUpperCase(), name: r.name, line: "Runs the Lounge counter and brings you snacks mid-run.", quote: (r.lines || [])[0], sheets: [[R + r.portrait, portrait]], scale: 1.75 }));
+    Object.values(ROOMS).forEach(rm => cast.push({ group: "Coworkers", kicker: rm.kicker, name: rm.name, line: "Opens a new room when you get promoted.", quote: rm.line, sheets: [[R + `assets/stage/coworkers/portraits/coworker-${rm.cast}-on-break-v1.png`, portrait]], scale: 1.75 }));
+    Object.keys(B).forEach(k => { const b = B[k]; cast.push({ group: "Bosses", kicker: b.kicker, name: b.name, line: b.tip, quote: b.line, sheets: [[R + b.art, bossT, true]], scale: 1.25 }); });
+    const MUG = { bill: "bill", groupChat: "group-chat", lateFee: "late-fee", spamCall: "spam-likely", snackAttack: "late-night-donut", threeAmThought: "3am-thought", officeGossip: "reply-all", calendarInvite: "calendar-invite", backTwinge: "back-twinge" };
+    Object.keys(MUG).forEach(k => { const e = (window.ENEMIES || {})[k] || {}; const d = ((window.DEATHS || {})[k] || [])[0]; cast.push({ group: "Rogues", kicker: "PERSON OF INTEREST", name: (e.name || k).toUpperCase(), line: "On the death screen when it gets you:", quote: d, sheets: [[R + `assets/enemies/mugshots/${MUG[k]}-mugshot-v1.png`, mugT]], scale: 2 }); });
+
+    const groups = ["Everyone", "Heroes", "Interns", "Coworkers", "Bosses", "Rogues"];
+    const chips = document.getElementById("chips"), grid = document.getElementById("cast");
+    groups.forEach(g => { const b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.textContent = g === "Rogues" ? "Rogues' gallery" : g; b.setAttribute("aria-pressed", g === "Everyone" ? "true" : "false"); b.onclick = () => filter(g); chips.appendChild(b); });
+    function filter(g) { [...chips.children].forEach((c, i) => c.setAttribute("aria-pressed", groups[i] === g ? "true" : "false")); [...grid.children].forEach(c => c.hidden = g !== "Everyone" && c.dataset.group !== g); }
+
+    cast.forEach(c => {
+      const card = document.createElement("article"); card.className = "cc"; card.dataset.group = c.group;
+      card.innerHTML = `<div class="cc-stage"><canvas aria-label="${esc(c.name)}" role="img"></canvas></div>
+        <div class="cc-kick">${esc(c.kicker || c.group.toUpperCase())}</div><div class="cc-name">${esc(c.name)}</div>
+        <p class="cc-line">${esc(c.line || "")}${c.quote ? `<br><q>${esc(c.quote)}</q>` : ""}</p><div class="cc-moves"></div>`;
+      grid.appendChild(card);
+      const sources = {}; let first = null;
+      c.sheets.forEach(([src, lay, key]) => {
+        const holder = { lay, img: null };
+        Object.keys(lay.moves).forEach(m => { sources[m] = holder; if (!first) first = m; });
+        loadImg(src, key).then(img => { holder.img = img; });
+      });
+      const a = animate(card.querySelector("canvas"), c.sheets[0][1], sources, c.scale);
+      a.move = first;
+      const moves = Object.keys(sources), box = card.querySelector(".cc-moves");
+      if (moves.length > 1) moves.forEach(m => { const b = document.createElement("button"); b.type = "button"; b.textContent = m; b.setAttribute("aria-pressed", m === first ? "true" : "false");
+        b.onclick = () => { a.move = m; a.f = 0; a.pinned = true; [...box.children].forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false")); }; box.appendChild(b); });
+      const sig = moves.find(m => m === "Signature" || m === "Attack" || m === "Gloat");
+      card.addEventListener("mouseenter", () => { if (!a.pinned && sig) { a.prev = a.move; a.move = sig; a.f = 0; } });
+      card.addEventListener("mouseleave", () => { if (!a.pinned && a.prev) { a.move = a.prev; a.f = 0; } });
+    });
+
+    // ---------- 3. Spotlight demo (the real component) ----------
+    // Boss sheets here aren't cleaned by the game, so hand the Spotlight a keyed copy.
+    Object.keys(B).forEach(k => loadImg(R + B[k].art, true).then(c => { if (c && c.toDataURL) B[k].art = c.toDataURL(); }));
+    const demoHeroes = Object.keys(heroSlug), demoRooms = Object.keys(ROOMS), demoBoss = Object.keys(B);
+    let dn = 0;
+    document.querySelectorAll("[data-demo]").forEach(b => b.addEventListener("click", () => {
+      if (!window.Spotlight) return; Spotlight.reset(); if (Spotlight.newRun) Spotlight.newRun();
+      const k = b.dataset.demo; dn++;
+      if (k === "boss") Spotlight.boss(demoBoss[dn % demoBoss.length]);
+      if (k === "hire") { window.meta = { selectedChar: demoHeroes[dn % demoHeroes.length] }; Spotlight.hire(meta.selectedChar); }
+      if (k === "room") Spotlight.room(demoRooms[dn % demoRooms.length]);
+      if (k === "lounge") { const r = ((window.INTERNS || {}).roster || [])[dn % 2]; if (r) Spotlight.lounge(r); }
+    }));
+
+    // ---------- 4. Glow-ups ----------
+    const glows = [
+      { name: "The Cold War Cowboy", cap: "Ben's On Break portrait, first draft vs. v3. He got a face.", a: [P + "cold-war-cowboy-on-break-v1.png", portrait], b: [P + "cold-war-cowboy-on-break-v3.png", portrait], scale: 2 },
+      { name: "Derek, intern", cap: "Derek's walk sheet, v1 vs. v2: readable face, real stride, a camera strap.", a: [R + "assets/characters/intern-derek-v1.png", { w: 56, h: 60, cols: 8, moves: { "Walk": [[0,1,2,3,4,5,6,7], 120] } }], b: [R + "assets/characters/intern-derek-v2.png", { w: 56, h: 60, cols: 8, moves: { "Walk": [[0,1,2,3,4,5,6,7], 120] } }], scale: 3.5 },
+      { name: "TJ, intern", cap: "TJ's walk sheet, v1 vs. v2. The grin made it in.", a: [R + "assets/characters/intern-tj-v1.png", { w: 56, h: 60, cols: 8, moves: { "Walk": [[0,1,2,3,4,5,6,7], 120] } }], b: [R + "assets/characters/intern-tj-v2.png", { w: 56, h: 60, cols: 8, moves: { "Walk": [[0,1,2,3,4,5,6,7], 120] } }], scale: 3.5 }
+    ];
+    const gw = document.getElementById("glow");
+    glows.forEach(g => {
+      const wrap = document.createElement("figure"); wrap.style.margin = "0";
+      wrap.innerHTML = `<div class="ba" style="--cut:50%"><div class="ba-pane before"><canvas></canvas></div><div class="ba-pane after"><canvas></canvas></div>
+        <span class="ba-lab l">BEFORE</span><span class="ba-lab r">NOW</span><div class="ba-handle"></div>
+        <input type="range" min="0" max="100" value="50" aria-label="Compare before and after: ${esc(g.name)}"></div><figcaption class="ba-cap"><b>${esc(g.name)}.</b> ${esc(g.cap)}</figcaption>`;
+      gw.appendChild(wrap);
+      const ba = wrap.querySelector(".ba"), cv = wrap.querySelectorAll("canvas");
+      [g.a, g.b].forEach(([src, lay], i) => { const holder = { lay, img: null }; const m = Object.keys(lay.moves)[1] || Object.keys(lay.moves)[0]; const st = animate(cv[i], lay, { [m]: holder }, g.scale); st.move = m; loadImg(src).then(img => holder.img = img); });
+      wrap.querySelector("input").addEventListener("input", e => ba.style.setProperty("--cut", e.target.value + "%"));
+    });
+  })();
+  </script>
 </body>
 </html>

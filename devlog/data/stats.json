@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T07:03:57+00:00",
+ "generated": "2026-11-03T23:49:33+00:00",
  "firstCommit": "2026-10-30T12:00:07-04:00",
  "builds": [
   {
@@ -613,6 +613,282 @@
    "at": "2026-11-03T01:57:54-05:00",
    "title": "The Courtyard Loop",
    "note": "A new title screen built around the key art. Start the game with a glowing PUNCH IN button next to the time clock while the swarm presses on"
+  },
+  {
+   "v": "1.51.1",
+   "at": "2026-11-03T02:03:57-05:00",
+   "title": "The Courtyard Loop",
+   "note": "The title screen cycles through the game's key art (the 8:59 lobby, the swarm, the whole-life panorama, the long way to coffee and PROMOTED)"
+  },
+  {
+   "v": "1.52.0",
+   "at": "2026-11-03T02:06:59-05:00",
+   "title": "The Courtyard Loop",
+   "note": "Title screen tiles: your employee file welcomes you back, says how your last shift went and shows your oldest age, best score, 401(k) and ac"
+  },
+  {
+   "v": "1.52.1",
+   "at": "2026-11-03T02:09:57-05:00",
+   "title": "The Courtyard Loop",
+   "note": "One menu bar for the game and the whole devlog: Play, Memos, Art Room, About, Discord and Coffee. Tap \u25b2 to tuck it away (the MENU tab brings"
+  },
+  {
+   "v": "1.53.0",
+   "at": "2026-11-03T02:11:33-05:00",
+   "title": "The Courtyard Loop",
+   "note": "Three new achievements for playing everywhere: Hybrid Schedule (two kinds of devices, +5k), Remote Worker (phone, tablet and computer, +10k)"
+  },
+  {
+   "v": "1.54.0",
+   "at": "2026-11-03T02:20:58-05:00",
+   "title": "The Courtyard Loop",
+   "note": "Real Bonus Chest art: an Employee Appreciation gift box, an office safe and the executive bonus chest, with pixel light beams, spinning gold"
+  },
+  {
+   "v": "1.54.1",
+   "at": "2026-11-03T02:23:15-05:00",
+   "title": "The Courtyard Loop",
+   "note": "A new pause screen built from tiles: a big Resume up top, then This Shift (age, health and XP bars, time, enemies paid off, 401(k)), Your Lo"
+  },
+  {
+   "v": "1.54.2",
+   "at": "2026-11-03T02:24:19-05:00",
+   "title": "The Courtyard Loop",
+   "note": "Each title slide now moves around its subject: some start tight on the hero and pull back to reveal the scene, others drift slowly toward hi"
+  },
+  {
+   "v": "1.55.0",
+   "at": "2026-11-03T02:35:03-05:00",
+   "title": "Office Footprints",
+   "note": "The Courtyard Loop has worn paths, coffee stains, taped cables and a Lobby runner. Someone left a pizza box in the commons."
+  },
+  {
+   "v": "1.56.0",
+   "at": "2026-11-03T02:37:53-05:00",
+   "title": "Smooth Operator",
+   "note": "Smoother title slideshow: softer crossfades, no snapping, and gentler motion. On wide screens the logo moves to the top-left and the art lif"
+  },
+  {
+   "v": "1.57.0",
+   "at": "2026-11-03T02:47:39-05:00",
+   "title": "After Hours",
+   "note": "Lighting! The office is dim now, with warm pools under desk lamps and the vending machines, cool glows from screens and server racks, and a "
+  },
+  {
+   "v": "1.57.1",
+   "at": "2026-11-03T02:56:08-05:00",
+   "title": "After Hours",
+   "note": "The Shop, Extras, Leaderboard, Achievements and Options now open as a panel above your tiles, with the key art still playing behind. Fold th"
+  },
+  {
+   "v": "1.57.2",
+   "at": "2026-11-03T03:03:47-05:00",
+   "title": "After Hours",
+   "note": "You can post your score with a controller now: press up to Post Score, then pick a name badge if you haven't typed one."
+  },
+  {
+   "v": "1.58.0",
+   "at": "2026-11-03T03:16:45-05:00",
+   "title": "After Hours",
+   "note": "The 401(k) Shop has a picture for every perk, plus four Classified Benefits still pending HR approval."
+  },
+  {
+   "v": "1.58.1",
+   "at": "2026-11-03T03:41:50-05:00",
+   "title": "After Hours",
+   "note": "New On Break portraits by ChatGPT on the pause screen. Your hero breathes for a bit, then takes a real break: the 9-to-5er sips his coffee, "
+  },
+  {
+   "v": "1.59.0",
+   "at": "2026-11-03T04:09:35-05:00",
+   "title": "After Hours",
+   "note": "Every room has its own light now: orange street lamps in the Parking Lot, the SAD lamp in Wellness, fluorescent panels over the meeting tabl"
+  },
+  {
+   "v": "1.59.1",
+   "at": "2026-11-03T04:21:28-05:00",
+   "title": "After Hours",
+   "note": "iPhone: the game no longer stops your music or podcast. It plays on top by default. Want the game louder than everything, even on silent? Pa"
+  },
+  {
+   "v": "1.59.2",
+   "at": "2026-11-03T08:02:19-05:00",
+   "title": "After Hours",
+   "note": "Fixed the force field: on your second run without a refresh, enemies could steer away from you because their route map was stuck where your "
+  },
+  {
+   "v": "1.60.0",
+   "at": "2026-11-03T08:17:06-05:00",
+   "title": "After Hours",
+   "note": "New for playtesters: a dev console. Add ?dev=1 to the address, then tap DEV (or press the ` key) for god mode, full health, any upgrade, jum"
+  },
+  {
+   "v": "1.60.1",
+   "at": "2026-11-03T09:07:37-05:00",
+   "title": "After Hours",
+   "note": "Dev mode now shows a DEV MODE \u00b7 SCORES OFF badge on every screen, so nobody forgets it's on before a real run."
+  },
+  {
+   "v": "1.61.0",
+   "at": "2026-11-03T09:37:14-05:00",
+   "title": "After Hours",
+   "note": "Birthdays heal now: at 45, 50, 55, 60 and 65 the break room springs for cake and you get back a share of your max health, along with your 40"
+  },
+  {
+   "v": "1.61.1",
+   "at": "2026-11-03T10:29:02-05:00",
+   "title": "After Hours",
+   "note": "Freeze safety net: if the game ever stays paused with no menu on screen, it brings the menu back or unpauses within 2 seconds. Reported by D"
+  },
+  {
+   "v": "1.62.0",
+   "at": "2026-11-03T11:00:06-05:00",
+   "title": "The Interns",
+   "note": "Meet the interns: TJ and Derek, two of our playtesters, now work at the office. Every minute or so one walks over with a snack (heals), a co"
+  },
+  {
+   "v": "1.63.0",
+   "at": "2026-11-03T11:22:33-05:00",
+   "title": "The Lounge",
+   "note": "The Lounge: after each promotion (45, 50, 55, 60) an intern opens the Break Room counter for about 35 seconds. Walk up to it and the game pa"
+  },
+  {
+   "v": "1.63.1",
+   "at": "2026-11-03T11:24:10-05:00",
+   "title": "The Lounge",
+   "note": "Credits updated: the whole AI crew, our playtesters and the office interns."
+  },
+  {
+   "v": "1.64.0",
+   "at": "2026-11-03T11:40:03-05:00",
+   "title": "Happy Retirement",
+   "note": "Retiring at 65 now gets a real party on the win screen: a HAPPY RETIREMENT banner, streamers, falling confetti, a sheet cake and a swinging "
+  },
+  {
+   "v": "1.65.0",
+   "at": "2026-11-03T11:45:38-05:00",
+   "title": "Life Happens",
+   "note": "Age 50+ modifiers: short \"life happens\" weather after 50. Ghost Hour, Reading Glasses, Rent Hike, Empty Nest, Back Spasm, Reply-All Tax, Pas"
+  },
+  {
+   "v": "1.66.0",
+   "at": "2026-11-03T12:17:33-05:00",
+   "title": "Spotlight",
+   "note": "Spotlight cards: big animated moments when a boss walks in, a coworker announces a new room, you play a hero for the first time, or you see "
+  },
+  {
+   "v": "1.66.1",
+   "at": "2026-11-03T12:22:22-05:00",
+   "title": "Spotlight",
+   "note": "More lights from ChatGPT: glowing exit signs, Lobby elevator lights, the OUR VALUES sign, headlights and a dome light in the Parking Lot, th"
+  },
+  {
+   "v": "1.67.0",
+   "at": "2026-11-03T13:10:30-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "New hero: The Cold War Cowboy, based on Rami's friend Ben (they met working IT at Kent State in 2002). Unlock him by finishing 10 devlog mem"
+  },
+  {
+   "v": "1.67.1",
+   "at": "2026-11-03T13:26:01-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Spotlight cards load the hero art ahead of time, so the sprite rises with the card instead of popping in late."
+  },
+  {
+   "v": "1.67.2",
+   "at": "2026-11-03T13:37:27-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "The Lounge is easier to find (TJ couldn't): a Spotlight card when it opens, an arrow pointing to it the whole time it's open, 50 seconds ins"
+  },
+  {
+   "v": "1.67.3",
+   "at": "2026-11-03T13:57:44-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "New art for the Cold War Cowboy (v3 by ChatGPT): you can see his face under the hat, he strides with the floppy disk, blows on it when idle,"
+  },
+  {
+   "v": "1.68.0",
+   "at": "2026-11-03T14:30:53-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "New Spotlight animation for every card: a light beam opens, the band wipes in, the character hops up and lands in a puff, the name drops in "
+  },
+  {
+   "v": "1.68.1",
+   "at": "2026-11-03T15:07:36-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "When the Lounge opens, its Spotlight card shows a big On Break portrait of TJ (raising his coffee with a grin) or Derek (snapping a photo, f"
+  },
+  {
+   "v": "1.68.2",
+   "at": "2026-11-03T15:25:43-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Boss chests slide toward you once you're close, and touching one always opens it (Derek couldn't pick up the Mortgage chest)."
+  },
+  {
+   "v": "1.68.3",
+   "at": "2026-11-03T15:38:14-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Room cards now use each coworker's own name, so the person on the card matches the name: Art from Payroll, Sam at the Front Desk, Eli from I"
+  },
+  {
+   "v": "1.68.4",
+   "at": "2026-11-03T15:42:32-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Derek's lines are his own: \"Hey man, here's your coffee\", \"I love my manager\", \"Do you want a bundt cake?\", \"Unc\" and \"Hey you don't want to"
+  },
+  {
+   "v": "1.69.0",
+   "at": "2026-11-03T15:47:03-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "The six coworkers who announce new rooms (Art, Sam, Eli, Nora, June and Mina) now appear as big standing portraits on their Spotlight cards,"
+  },
+  {
+   "v": "1.69.1",
+   "at": "2026-11-03T16:14:48-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "The pinned devlog note on the title screen shows a one-line summary of the newest memo."
+  },
+  {
+   "v": "1.69.2",
+   "at": "2026-11-03T16:22:37-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Spotlight cards no longer pile up back to back (Rami): there's a 12-second breather between cards, a boss cuts in right away, cards that wai"
+  },
+  {
+   "v": "1.70.0",
+   "at": "2026-11-03T17:08:25-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "New title screen art by ChatGPT: Group Photo, Off and On Again, The Lounge, Coffee Run and Happy 50th, starring the heroes, TJ, Derek and th"
+  },
+  {
+   "v": "1.70.1",
+   "at": "2026-11-03T17:29:46-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Your hero's Spotlight card plays at the start of every run, not just the first, and now shows a one-line bio and their play style."
+  },
+  {
+   "v": "1.71.0",
+   "at": "2026-11-03T17:52:09-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Every hero now has a line for every first-time tip, including the Cold War Cowboy (\"That's like jumping from dial-up straight to a T1 line.\""
+  },
+  {
+   "v": "1.71.1",
+   "at": "2026-11-03T18:10:44-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "The age 60 wall, smoothed (numbers by Grok): a few Group Chats now show up from age 50 so you learn their pings before the V8 arrives, and t"
+  },
+  {
+   "v": "1.72.0",
+   "at": "2026-11-03T18:23:30-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "New death screen art by ChatGPT: your hero slumps into a chair in an empty HR office while the thing that got you looks very pleased with it"
+  },
+  {
+   "v": "1.72.1",
+   "at": "2026-11-03T18:32:16-05:00",
+   "title": "The Cold War Cowboy",
+   "note": "Anonymous play stats now also note screen zoom, touch layout, whether a boss was in the room when you went down, and Group Chat pings, so we"
   }
  ],
  "posts": {
@@ -623,43 +899,44 @@
   "05-buy-the-dev-a-coffee": "2026-11-01T10:01:53-05:00",
   "06-the-office-got-bigger": "2026-11-01T10:48:38-05:00",
   "07-around-the-desk": "2026-11-01T22:06:26-05:00",
-  "08-promoted-four-times": "2026-11-02T23:23:09-05:00"
+  "08-promoted-four-times": "2026-11-02T23:23:09-05:00",
+  "09-my-friends-work-here-now": "2026-11-03T13:14:40-05:00"
  },
  "play": {
-  "asOf": "2026-11-03T05:15:00Z",
-  "runs": 161,
-  "players": 35,
-  "avgMinutes": 3.9,
-  "bestAge": 63.6,
-  "avgAge": 45.4,
-  "enemiesDefeated": 357363,
-  "closeCalls": 945,
+  "asOf": "2026-11-03T23:49:00Z",
+  "runs": 274,
+  "players": 44,
+  "avgMinutes": 4.5,
+  "bestAge": 81.5,
+  "avgAge": 46.3,
+  "enemiesDefeated": 750939,
+  "closeCalls": 2131,
   "topKillers": [
    [
     "Bill",
-    39
+    60
    ],
    [
     "Late Fee",
-    23
+    28
    ],
    [
-    "Spam Likely",
-    13
+    "Late-Night Donut",
+    23
    ]
   ],
   "devices": [
    [
     "Desktop",
-    68
-   ],
-   [
-    "Tablet",
-    36
+    143
    ],
    [
     "Phone",
-    28
+    89
+   ],
+   [
+    "Tablet",
+    42
    ]
   ],
   "firstRun": "2026-11-02T02:50:02Z"

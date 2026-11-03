@@ -1,13 +1,39 @@
 {
- "asOf": "2026-11-03T05:15:00Z",
- "runs": 161,
- "players": 35,
- "avgMinutes": 3.9,
- "bestAge": 63.6,
- "avgAge": 45.4,
- "enemiesDefeated": 357363,
- "closeCalls": 945,
- "topKillers": [["Bill", 39], ["Late Fee", 23], ["Spam Likely", 13]],
- "devices": [["Desktop", 68], ["Tablet", 36], ["Phone", 28]],
+ "asOf": "2026-11-03T23:49:00Z",
+ "runs": 274,
+ "players": 44,
+ "avgMinutes": 4.5,
+ "bestAge": 81.5,
+ "avgAge": 46.3,
+ "enemiesDefeated": 750939,
+ "closeCalls": 2131,
+ "topKillers": [
+  [
+   "Bill",
+   60
+  ],
+  [
+   "Late Fee",
+   28
+  ],
+  [
+   "Late-Night Donut",
+   23
+  ]
+ ],
+ "devices": [
+  [
+   "Desktop",
+   143
+  ],
+  [
+   "Phone",
+   89
+  ],
+  [
+   "Tablet",
+   42
+  ]
+ ],
  "firstRun": "2026-11-02T02:50:02Z"
 }
