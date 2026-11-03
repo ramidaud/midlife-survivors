@@ -922,3 +922,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-02: Animated coworkers reviewed (ChatGPT V. 1.47.0)
 - Six seated coworkers (dozer, email, intern, mute, retiring, salad), two colorways each, fill the 30 seats with staggered idle loops, a 4-frame "noticed you" reaction within 120 px (6 s cooldown) and their own captions.
 - My checks: only ChatGPT's room files changed, spawn code untouched; idle and reaction frames play on desktop and phone, no errors. Bot run: no enemies walking away; the "unreachable" count was enemies pressed against the closed Parking door next to the player.
+
+## 2026-11-02: Office layout redo, step 1 (plan)
+- Rami: animated coworkers look "slapped on", office "very repetitive and poorly laid out." Claude's zoomed-out captures: coworkers float behind partitions at head size with empty chairs in front; one desk module stamped ~40 times on a flat navy floor; no pods, zones or landmarks; Lobby mostly empty.
+- Agreed approach: plan first, then build. Wrote ChatGPT brief for two layout options (A/B) with plan images, a mood frame each and a README; pods with team identities, personal desks, zoned floors, one landmark per screen, coworkers seated in chairs at hero scale plus a few standing scenes.

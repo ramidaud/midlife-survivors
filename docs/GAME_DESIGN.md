@@ -464,3 +464,9 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
 ## Decided Nov 2: the office is the Midlife journey
 - A Midlife run (40 to 65) never leaves the corporate campus. Promotions (45, 50, 55, 60) are the chapters; the rest of life "follows you to work" through enemy labels and a LIFE line at each promotion.
 - The five arenas (Office, Hospital, Home, Social Courtyard, Sunset Palms) belong to Full Life (40 to 100), to be built later with the same campus pipeline.
+
+## Decided Nov 2: office layout principles
+- Pods, not rows: team pods of 4 to 6 desks with shared partitions and an identity (Accounting, IT, Marketing, HR...). No two neighboring desks identical.
+- Zoned floors, one landmark per screen, density gradient (Lobby open, Bullpen denser toward the back), open arenas for swarm fights, 224 px routes.
+- Coworkers sit in their chairs at hero scale; a few standing scenes and an ambient walker; all visual only.
+- Process: layout plan (two options) approved by Rami before any build.
