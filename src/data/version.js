@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.52.0",
-  displayVersion: "V. 1.52.0",
+  version: "1.52.1",
+  displayVersion: "V. 1.52.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 122,
+  build: 123,
   changelog: [
+    {
+      ver: "V. 1.52.1", date: "Nov 3, 2026", title: "One Look",
+      highlights: ["One menu bar for the game and the whole devlog: Play, Memos, Art Room, About, Discord and Coffee. Tap ▲ to tuck it away (the MENU tab brings it back). It disappears while you're actually playing."]
+    },
     {
       ver: "V. 1.52.0", date: "Nov 3, 2026", title: "Punch In",
       highlights: [

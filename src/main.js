@@ -335,6 +335,8 @@ function create() {
     hpBar.clear();
     const vsHud = document.getElementById("vs-hud");
     if (vsHud) vsHud.classList.toggle("hidden", !!(titleOpen || gameOver)); // no HUD peeking behind title or Game Over
+    { const playing = !titleOpen && !gameOver && !paused && !levelUpOpen; // the universal nav hides during actual play
+      if (playing !== window._msPlaying) { window._msPlaying = playing; document.documentElement.classList.toggle("ms-playing", playing); } }
     if (!player || !stats || titleOpen) return;
     // Health bar under the hero, drawn like the shared ms-bar (navy frame, teal ring, bevel, pixel segments).
     const w = 52, h = 8;

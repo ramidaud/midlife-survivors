@@ -96,6 +96,7 @@ PAGE = """<!doctype html>
 <link rel="icon" href="../../favicon.png?v=clock-1" type="image/png">
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=1">
 <link rel="stylesheet" href="../styles.css?v=17">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -110,6 +111,7 @@ PAGE = """<!doctype html>
       <a class="btn btn-primary" href="{play}">▶ Play this build</a>
     </div>
   </header>
+  <script src="../../assets/ui/ms-nav.js?v=1"></script>
   <div class="wrap">
     <a class="back" href="../">← All memos</a>
     <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>{title}</strong></div>

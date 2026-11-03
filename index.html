@@ -32,6 +32,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
+<link rel="stylesheet" href="assets/ui/ms-nav.css?v=1">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Chakra Petch', sans-serif; }
@@ -1235,6 +1236,10 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     #ui-layer .tp-crew .tp-badges .char-badge { justify-self: center; }
     .tp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+  /* Universal nav (assets/ui/ms-nav.*): menus leave room for it; it disappears during a run */
+  .title-poster { padding-top: calc(var(--ms-nav-h, 0px) + max(16px, env(safe-area-inset-top))) !important; }
+  .ui-modal:not(#title-modal) { padding-top: calc(var(--ms-nav-h, 0px) + 10px); }
+  #title-modal:not([data-view="main"]) { padding-top: calc(var(--ms-nav-h, 0px) + 10px); }
   /* Title slideshow (src/data/title-art.js): crossfade + slow push-in behind the poster */
   #title-slides { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
   #title-slides[hidden] { display: none; }
@@ -1287,13 +1292,14 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 </style>
 <div id="game"></div>
 <div id="ui-layer" data-theme="0"></div>
+<script src="assets/ui/ms-nav.js?v=1"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=122&t=" + Date.now();
+    s.src = "src/loader.js?v=123&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
