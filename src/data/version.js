@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.72.0",
-  displayVersion: "V. 1.72.0",
+  version: "1.72.1",
+  displayVersion: "V. 1.72.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 168,
+  build: 169,
   changelog: [
+    {
+      ver: "V. 1.72.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "The HR Exit Interview: when a run ends, your hero slumps in a chair while whatever got you gloats. Phones also see more of the office.",
+      highlights: [
+        "Anonymous play stats now also note screen zoom, touch layout, whether a boss was in the room when you went down, and Group Chat pings, so we can tune the late game with real numbers."
+      ]
+    },
     {
       ver: "V. 1.72.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "The HR Exit Interview: when a run ends, your hero slumps in a chair while whatever got you gloats. Phones also see more of the office.",

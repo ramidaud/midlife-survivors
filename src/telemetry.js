@@ -24,7 +24,7 @@ window.Telemetry = (() => {
   const DEVICE_DETAIL = true; // columns added by docs/sql/RUNS_DEVICE.sql (Rami ran it Nov 2)
   // Grok's difficulty fields (Nov 3). Stays false until docs/sql/RUNS_DIFFICULTY.sql has been run in Supabase,
   // because sending columns the table doesn't have would make every run row fail.
-  const DIFFICULTY_DETAIL = false;
+  const DIFFICULTY_DETAIL = true; // Rami ran docs/sql/RUNS_DIFFICULTY.sql on Nov 3
   function deviceDetail() {
     const ua = navigator.userAgent || "", touch = navigator.maxTouchPoints > 1;
     const os = /iPhone|iPod/.test(ua) ? "iOS" : (/iPad/.test(ua) || (/Macintosh/.test(ua) && touch)) ? "iPadOS" : /Android/.test(ua) ? "Android"
