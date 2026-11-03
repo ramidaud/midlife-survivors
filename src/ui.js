@@ -2067,7 +2067,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
   `;
-  if (view === "main") fillTitleMemo();
+  if (view === "main") { fillTitleMemo(); if (window.TitleSlides) TitleSlides.start(); }
+  else if (window.TitleSlides) TitleSlides.stop();
   const settingsBtn = document.getElementById("title-settings-btn");
   if (settingsBtn) bindNavItem(settingsBtn, 9.5, () => { window.titleSettingsOpen = !window.titleSettingsOpen; sfx("pick"); renderTitleModal(scene, "#title-settings-btn"); });
 
@@ -2288,7 +2289,59 @@ function fillTitleMemo() {
   }
 }
 
+// Title slideshow (src/data/title-art.js): crossfading key art with a slow push-in, behind the poster title.
+// It sits outside the title menu so re-rendering the menu (picking a hero, opening settings) never restarts it.
+window.TitleSlides = (() => {
+  let root = null, idx = 0, timer = null, running = false;
+  const phone = () => window.matchMedia && matchMedia("(orientation: portrait), (max-width: 760px)").matches;
+  const still = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function build() {
+    const A = window.TITLE_ART; if (!A || !A.slides.length) return null;
+    const host = document.getElementById("title-modal"); if (!host || !host.parentNode) return null;
+    root = document.createElement("div");
+    root.id = "title-slides"; root.setAttribute("aria-hidden", "true");
+    root.style.setProperty("--ts-fade", A.fadeMs + "ms");
+    root.style.setProperty("--ts-run", (A.holdMs + A.fadeMs * 2) + "ms");
+    root.style.setProperty("--ts-zoom", A.zoom);
+    root.innerHTML = A.slides.map((sl, i) => `<div class="ts-slide" data-i="${i}" data-drift="${sl.drift || "in"}"></div>`).join("");
+    host.parentNode.insertBefore(root, host);
+    return root;
+  }
+  function paint(i) {
+    const A = window.TITLE_ART, sl = A.slides[i], el = root.children[i];
+    if (!el.style.backgroundImage) el.style.backgroundImage = `url("${sl.src}")`;
+    el.style.backgroundPosition = phone() ? (sl.phonePos || sl.pos) : sl.pos;
+    // Punch In only points at the time clock when the time clock is in the picture.
+    const modal = document.getElementById("title-modal");
+    if (modal) modal.dataset.pointer = sl.pointer ? "1" : "0";
+    return el;
+  }
+  function show(i) {
+    [...root.children].forEach(c => c.classList.remove("on"));
+    const el = paint(i);
+    el.classList.remove("on"); void el.offsetWidth; el.classList.add("on");
+    // warm up the next picture so the fade never shows a blank
+    const n = (i + 1) % root.children.length, nx = window.TITLE_ART.slides[n];
+    if (!root.children[n].style.backgroundImage) { const im = new Image(); im.src = nx.src; }
+  }
+  function start() {
+    if (!root && !build()) return;
+    root.hidden = false;
+    if (running) return;
+    running = true;
+    show(idx);
+    const A = window.TITLE_ART;
+    if (A.slides.length > 1) timer = setInterval(() => { idx = (idx + 1) % A.slides.length; show(idx); }, A.holdMs + A.fadeMs);
+  }
+  function stop() {
+    if (timer) clearInterval(timer); timer = null; running = false;
+    if (root) root.hidden = true;
+  }
+  return { start, stop, still };
+})();
+
 function hideTitleModal() {
+  if (window.TitleSlides) TitleSlides.stop();
   window.titleView = "main";
   const modal = document.getElementById("title-modal");
   if (modal) modal.classList.add("hidden");

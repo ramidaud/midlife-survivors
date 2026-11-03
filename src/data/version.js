@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.51.0",
-  displayVersion: "V. 1.51.0",
+  version: "1.51.1",
+  displayVersion: "V. 1.51.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 120,
+  build: 121,
   changelog: [
+    {
+      ver: "V. 1.51.1", date: "Nov 3, 2026", title: "Punch In",
+      highlights: ["The title screen cycles through the game's key art (the 8:59 lobby, the swarm, the whole-life panorama, the long way to coffee and PROMOTED), each with a slow push-in and a soft crossfade."]
+    },
     {
       ver: "V. 1.51.0", date: "Nov 3, 2026", title: "Punch In",
       highlights: [

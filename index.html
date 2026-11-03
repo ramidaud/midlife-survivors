@@ -1201,6 +1201,29 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #ui-layer .tp-memo .tp-memo-btn { width: 100%; background: var(--ms-teal) !important; color: var(--ms-white) !important; border-color: var(--ms-navy) !important; font-size: 11px; }
   .tp-memo-foot { margin-top: 8px; font-size: 11px; color: var(--ms-slate); font-family: 'Atkinson Hyperlegible', sans-serif; }
   .tp-memo-foot b { color: #874C3B; }
+  /* Title slideshow (src/data/title-art.js): crossfade + slow push-in behind the poster */
+  #title-slides { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
+  #title-slides[hidden] { display: none; }
+  .ts-slide { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; opacity: 0;
+    transition: opacity var(--ts-fade, 1800ms) ease-in-out; image-rendering: pixelated; will-change: opacity, transform; }
+  .ts-slide.on { opacity: 1; animation: tsDrift var(--ts-run, 12600ms) linear forwards; }
+  .ts-slide[data-drift="left"].on  { animation-name: tsLeft; }
+  .ts-slide[data-drift="right"].on { animation-name: tsRight; }
+  .ts-slide[data-drift="up"].on    { animation-name: tsUp; }
+  .ts-slide[data-drift="down"].on  { animation-name: tsDown; }
+  @keyframes tsDrift { from { transform: scale(1.0); } to { transform: scale(var(--ts-zoom, 1.07)); } }
+  @keyframes tsLeft  { from { transform: scale(var(--ts-zoom, 1.07)) translateX(1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateX(-1.5%); } }
+  @keyframes tsRight { from { transform: scale(var(--ts-zoom, 1.07)) translateX(-1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateX(1.5%); } }
+  @keyframes tsUp    { from { transform: scale(var(--ts-zoom, 1.07)) translateY(1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateY(-1.5%); } }
+  @keyframes tsDown  { from { transform: scale(var(--ts-zoom, 1.07)) translateY(-1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateY(1.5%); } }
+  @media (prefers-reduced-motion: reduce) { .ts-slide.on { animation: none !important; } }
+  /* With the slideshow behind it, the main title keeps only the scanlines and a soft vignette */
+  #ui-layer[data-theme="0"] #title-modal[data-view="main"] {
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px),
+      radial-gradient(ellipse at center, rgba(23,28,53,0.25) 0%, rgba(23,28,53,0.20) 55%, rgba(23,28,53,0.55) 100%) !important;
+    animation: none !important; }
+  #title-modal[data-pointer="0"] .tp-punch .clock-in-btn::before { opacity: 0; }
+  .tp-punch .clock-in-btn::before { transition: opacity 0.6s; }
   /* Phones and iPad portrait: art on top (centered on the hero at the time clock), everything stacks below */
   @media (orientation: portrait), (max-width: 760px) {
     #ui-layer[data-theme="0"] #title-modal[data-view="main"] { animation: none; background-position: 0 0, center, 14% 50%; }
@@ -1236,7 +1259,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=120&t=" + Date.now();
+    s.src = "src/loader.js?v=121&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

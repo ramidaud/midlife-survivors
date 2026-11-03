@@ -1,7 +1,7 @@
 // Loads the game's code files in order, all tagged with the same BUILD number.
 // index.html fetches this file fresh on every visit, so the browser can't mix an old page with new code
 // (that mismatch broke controls until a second reload). Bump BUILD after every change; it replaces the old ?v= tags.
-window.BUILD = 120;
+window.BUILD = 121;
 window.GAME_FILES = [
   "src/data/version.js",
   "src/data/lore.js",
@@ -52,6 +52,7 @@ window.GAME_FILES = [
   "src/view3d.js",
   "src/leaderboard.js",
   "src/data/ui-icons.js",
+  "src/data/title-art.js",
   "src/ui.js",
   "src/bonus-chest.js",
   "src/main.js"

@@ -983,3 +983,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The latest devlog memo is pinned on the title screen (cover, title, link), with the build count and "updated X ago". It reads the devlog's own files, so new posts appear automatically.
 - Layouts for desktop, iPad (both orientations) and phone. Keyboard focus starts on Punch In.
 - Devlog reading bar: now tracks the whole page from the first scroll, is twice as thick, and celebrates at the end (a shine sweep plus "✓ MEMO FINISHED").
+- Title slideshow (V. 1.51.1): five key art pieces crossfade with a slow push-in, about 9 s each. The Punch In pointer only shows on the lobby slide (the one with the time clock). Slides, crops and timing live in `src/data/title-art.js`. Images were converted to light JPGs.
