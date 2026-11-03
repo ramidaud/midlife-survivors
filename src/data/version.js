@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.63.0",
-  displayVersion: "V. 1.63.0",
+  version: "1.63.1",
+  displayVersion: "V. 1.63.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Lounge",
-  build: 146,
+  build: 147,
   changelog: [
+    {
+      ver: "V. 1.63.1", date: "Nov 3, 2026", title: "The Lounge",
+      teaser: "The Lounge is open! After each promotion, an intern runs the Break Room counter. Walk up to shop for snacks and boosts.",
+      highlights: [
+        "Credits updated: the whole AI crew, our playtesters and the office interns."
+      ]
+    },
     {
       ver: "V. 1.63.0", date: "Nov 3, 2026", title: "The Lounge",
       teaser: "The Lounge is open! After each promotion, an intern runs the Break Room counter. Walk up to shop for snacks and boosts.",
