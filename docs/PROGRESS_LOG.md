@@ -941,3 +941,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New sidebar (stacks under the posts on phones): a build clock (95 builds in 3 days 12 h, builds per day, last 8 versions with times), anonymous play stats, the live Midlife leaderboard and follow links (now including Substack).
 - Data comes from devlog/data/stats.json (devlog/scripts/build_stats.py). Lead images can carry an ART margin note (tool + prompt) via leadNote in posts.js.
 - Post 08 opening changed to "Last night my game was two rooms and a locked door."
+- ChatGPT layout plans in (ecf2bd8): A "Main Avenue" (straight route, printer apron, east arena) and B "Courtyard Loop" (loop around an open commons, pods at the turns). Claude recommends B's loop layout with A's look. Waiting on Rami.
