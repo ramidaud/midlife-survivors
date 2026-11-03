@@ -14,7 +14,7 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 ## Files
 - `index.html`, `styles.css`, `app.js`: the page (list, post view, key-art hotspots)
 - `posts.js`: the post list plus `DEVLOG_HOTSPOTS` for the hero
-- `<slug>/index.html`, `feed.xml`: generated share pages and RSS (committed so GitHub Pages serves them)
+- `<slug>/index.html`, `feed.xml`: generated share pages and RSS (committed so GitHub Pages serves them). The feed carries each full post (`content:encoded`) so Substack's importer brings in the whole post, not just the teaser.
 
 ## Video clips
 - Put an MP4 (H.264, under ~3 MB, 10-20 s, no audio) in `img/` and add it to the post's markdown:

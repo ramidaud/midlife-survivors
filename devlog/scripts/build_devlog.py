@@ -155,6 +155,7 @@ def main():
         slug = p["slug"]
         md_path = root / "posts" / f"{slug}.md"
         body_md = md_path.read_text() if md_path.exists() else "_Missing memo._"
+        raw_md = body_md  # untouched copy for the RSS full-text version (Substack import)
         # Code snippets: ```js src/file.js ... ``` -> code card (same markup as app.js; colors added by code.js)
         cards = []
         def _code(m):
@@ -229,6 +230,27 @@ def main():
         (out_dir / "index.html").write_text(page)
         print("wrote", out_dir / "index.html")
 
+        # Full post for RSS readers and Substack's importer (Nov 2: Substack only showed the teaser).
+        # Plain HTML: code cards become <pre>, margin notes become italic asides, images get full URLs.
+        fcode = []
+        def _fcode(m):
+            fcode.append(m.group(3))
+            return f"\n\nFEEDCODE{len(fcode) - 1}\n\n"
+        fmd = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _fcode, raw_md, flags=re.M)
+        fmd = re.sub(r"\^\[([^\]]+)\]", lambda m: f" *({m.group(1)})*", fmd)
+        fbody = md_to_html(fmd)
+        fbody = re.sub(r"<p>FEEDCODE(\d+)</p>", lambda m: f"<pre><code>{html.escape(fcode[int(m.group(1))], quote=False)}</code></pre>", fbody)
+        fbody = re.sub(r'(src|href)="(?!https?:|mailto:|#)(?:\.\./)?', lambda m: f'{m.group(1)}="{site}/', fbody)
+        flead = ""
+        if p.get("cover"):
+            flead = f'<p><img src="{site}/{html.escape(p["cover"])}" alt="{alt}"></p>'
+        fchanges = ""
+        if p.get("changes"):
+            fchanges = "<h3>What changed</h3><ul>" + "".join(f"<li>{html.escape(c)}</li>" for c in p["changes"]) + "</ul>"
+        fnext = f"<p><strong>Next up:</strong> {html.escape(p['nextUp'])}</p>" if p.get("nextUp") else ""
+        fplay = f'<p><a href="{html.escape(play)}">Play Midlife Survivors free in your browser</a>' + (f" ({html.escape(version)})" if version else "") + "</p>"
+        full = (flead + fbody + fchanges + fnext + fplay).replace("]]>", "]]&gt;")
+
         items_rss.append(f"""
     <item>
       <title>{html.escape(title)}</title>
@@ -236,10 +258,11 @@ def main():
       <guid>{site}/{slug}/</guid>
       <pubDate>{datetime.date.fromisoformat(date).strftime('%a, %d %b %Y')} 12:00:00 GMT</pubDate>
       <description>{html.escape(desc)}</description>
+      <content:encoded><![CDATA[{full}]]></content:encoded>
     </item>""")
 
     feed = f"""<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Midlife Survivors Devlog</title>
     <link>{site}/</link>
