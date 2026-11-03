@@ -918,3 +918,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami approved. world-art.js loads the v2 sheets: 8-frame walks (a step every 8.5 px), breathing loop when standing, a fidget every 7 s. HERO_ART_VERSION = 1 switches back; tuning in window.HERO_ANIM.
 - Test: all three characters use all 8 walk frames plus breathing and fidget frames, no errors.
 - Wrote ChatGPT brief: animated coworkers (6-8 seated characters, idle loops, "noticed you" reactions, own captions); ChatGPT may wire this one itself since it is room art in its files.
+
+## 2026-11-02: Animated coworkers reviewed (ChatGPT V. 1.47.0)
+- Six seated coworkers (dozer, email, intern, mute, retiring, salad), two colorways each, fill the 30 seats with staggered idle loops, a 4-frame "noticed you" reaction within 120 px (6 s cooldown) and their own captions.
+- My checks: only ChatGPT's room files changed, spawn code untouched; idle and reaction frames play on desktop and phone, no errors. Bot run: no enemies walking away; the "unreachable" count was enemies pressed against the closed Parking door next to the player.
