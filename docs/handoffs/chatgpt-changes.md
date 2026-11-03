@@ -244,3 +244,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Made standing Spotlight portraits for salad, retiring, intern, email, dozer and mute. Each has its own signature action plus breathing and stretch loops.
 - **Files.** assets/stage/coworkers/portraits/README.md maps six PNGs, 18 row GIFs and a 1×/4× comparison with TJ and the 9-to-5er.
 - **For Claude.** Bind by stable sheet ID. Sheets are 768×336 with 96×112 cells and local shoe line y111. Play row 1 at 140 ms on the room card. Rows 0 and 2 use standard hero portrait timing.
+- [done] Claude wired the six standing coworker portraits into the room Spotlight cards in V. 1.69.0 (Nov 3).

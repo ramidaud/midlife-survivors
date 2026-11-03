@@ -171,7 +171,7 @@ window.Spotlight = (() => {
     return fallback;
   }
   // Warm up the hero portrait sheets so the sprite rises with the card instead of popping in late.
-  setTimeout(() => { Object.values(S().heroSheets || {}).forEach(slug => { const im = new Image(); im.src = `assets/characters/portraits/${slug}.png`; }); ((window.INTERNS || {}).roster || []).forEach(r => { if (r.portrait) { const im = new Image(); im.src = r.portrait; } }); }, 3000);
+  setTimeout(() => { Object.values(S().heroSheets || {}).forEach(slug => { const im = new Image(); im.src = `assets/characters/portraits/${slug}.png`; }); ((window.INTERNS || {}).roster || []).forEach(r => { if (r.portrait) { const im = new Image(); im.src = r.portrait; } }); Object.values(S().rooms || {}).forEach(R => { if (R.cast) { const im = new Image(); im.src = `assets/stage/coworkers/portraits/coworker-${R.cast}-on-break-v1.png`; } }); }, 3000);
   const heroId = () => (typeof meta !== "undefined" && meta && meta.selectedChar) || "officeWorker";
   const heroArt = id => `assets/characters/portraits/${(S().heroSheets || {})[id] || "office-worker-on-break-v1"}.png`;
 
@@ -184,7 +184,9 @@ window.Spotlight = (() => {
     room(area) {
       const R = (S().rooms || {})[area]; if (!R) return false;
       const cw = (window.START_AREA_COWORKERS || {})[R.cast];
-      show({ kicker: R.kicker, name: R.name, line: R.line, tip: R.tip, art: texUrl("slice_coworker_" + R.cast, cw && cw.src), artType: "cast", edge: "#83A89A", band: "#3E7775" });
+      // Standing On Break portrait (ChatGPT, Nov 3; same 96x112 format as the heroes). Falls back to the desk sprite.
+      const portrait = R.cast ? `assets/stage/coworkers/portraits/coworker-${R.cast}-on-break-v1.png` : null;
+      show({ kicker: R.kicker, name: R.name, line: R.line, tip: R.tip, art: portrait || texUrl("slice_coworker_" + R.cast, cw && cw.src), artType: portrait ? "hero" : "cast", edge: "#83A89A", band: "#3E7775" });
       return true;
     },
     lounge(r) {

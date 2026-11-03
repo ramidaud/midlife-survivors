@@ -1054,3 +1054,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Next ChatGPT job: standing Spotlight portraits for the six room coworkers (docs/handoffs/chatgpt-coworker-portraits.md).
 - V. 1.68.3: room cards now use the coworkers' own names from ChatGPT's cast sheet (Art, Sam, Eli, Nora, June, Mina) with Gemini's departments, so the name matches the person on the card.
 - V. 1.68.4: Derek's own intern lines replace the placeholders ("Unc" included).
+- V. 1.69.0: the six room coworkers appear as ChatGPT's big standing portraits on their Spotlight cards. Every Spotlight card now has a full-size animated portrait. Checked all six on desktop and phone.

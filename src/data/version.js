@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.68.4",
-  displayVersion: "V. 1.68.4",
+  version: "1.69.0",
+  displayVersion: "V. 1.69.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 160,
+  build: 161,
   changelog: [
+    {
+      ver: "V. 1.69.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Every Spotlight card now has a big animated portrait: the six coworkers who open new rooms got redrawn standing up.",
+      highlights: [
+        "The six coworkers who announce new rooms (Art, Sam, Eli, Nora, June and Mina) now appear as big standing portraits on their Spotlight cards, each with their own move. Art by ChatGPT.",
+        "That makes every Spotlight card a full-size animated portrait: bosses, heroes, interns and coworkers."
+      ]
+    },
     {
       ver: "V. 1.68.4", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Derek has his own lines now. Yes, he will call you Unc.",
