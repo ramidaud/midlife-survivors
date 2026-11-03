@@ -156,7 +156,10 @@ function loadMeta() {
         taxBracket: Math.max(0, Math.min(5, parsed.taxBracket | 0)), // opt-in difficulty (src/data/heat.js)
         achievements: Object.assign({ unlocked: {}, life: { splits: 0, plants: 0, evos: {} } }, parsed.achievements || {}),
         controls: Object.assign({}, window.DEFAULT_CONTROLS, parsed.controls || {}),
-        accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {})
+        accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {}),
+        runsPlayed: parsed.runsPlayed || 0,   // for the title screen's welcome-back tile (Nov 3)
+        bestScore: parsed.bestScore || 0,
+        lastRun: parsed.lastRun || null
       };
     }
   } catch (e) {}

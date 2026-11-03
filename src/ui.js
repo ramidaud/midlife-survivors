@@ -2026,7 +2026,6 @@ function renderTitleModal(scene, preserveFocusSelector) {
         <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${curMode === "full" ? "Surviving 40 to 100" : "Surviving 40 to 65"}</strong></div>
         <h1 class="game-logo tp-logo"><span>MIDLIFE</span><span>SURVIVORS</span></h1>
         <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
-        <div class="title-meta-line">🏅 Best: age ${Math.floor(meta.bestAge || 40)} &nbsp;·&nbsp; 🪙 ${meta.coins}k saved</div>
       </div>
       <div class="tp-punch">
         <button class="cta-btn clock-in-btn" id="title-clockin-btn"><span class="tp-punch-ico" aria-hidden="true">⏱</span> PUNCH IN${startAge !== 40 ? ` AT ${startAge}` : ""}</button>
@@ -2035,23 +2034,24 @@ function renderTitleModal(scene, preserveFocusSelector) {
         ${settingsOpen ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
       </div>
       <div class="tp-band">
-        <div class="tp-crew">
+        ${titleFileTile()}
+        <section class="tp-tile tp-crew" aria-label="Pick your employee">
           <div class="tp-label">Today's employee <b>${selCh.name}</b> <span>${selCh.tagline}</span></div>
           <div class="dossier-chars-grid tp-badges">${charCardsHtml}</div>
-          <div class="title-secondary tp-links">
-            <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
-            <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
-            <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
-            <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
-            <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
-          </div>
-        </div>
+        </section>
         <aside class="tp-memo" id="title-memo" aria-label="Latest from the devlog">
           <div class="tp-memo-tag">DEVLOG · NEW MEMO</div>
           <div class="tp-memo-body"><div class="tp-memo-title">Build notes from the dev.</div></div>
           <button class="t-style-btn tp-memo-btn" id="title-devlog-btn">📝 READ THE DEVLOG</button>
           <div class="tp-memo-foot" id="title-memo-foot">${verInfo.displayVersion}</div>
         </aside>
+        <div class="title-secondary tp-links">
+          <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
+          <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
+          <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
+          <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
+          <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
+        </div>
       </div>`;
   }
 
@@ -2249,6 +2249,35 @@ function renderTitleModal(scene, preserveFocusSelector) {
   }, view === "main");
 
   window.menuNav.refresh(preserveFocusSelector);
+}
+
+// "Your file" tile on the title screen: welcome (back) message + your numbers.
+function titleFileTile() {
+  const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  let name = ""; try { name = localStorage.getItem("ms-player-name") || ""; } catch (e) {}
+  const runs = meta.runsPlayed || 0, last = meta.lastRun;
+  const returning = runs > 0 || (meta.bestAge || 40) > 40.5 || meta.coins > 0;
+  let localBest = 0; try { localBest = Math.max(0, ...JSON.parse(localStorage.getItem("ms-local-scores-v1") || "[]").map(r => r.score || 0)); } catch (e) {}
+  const best = Math.max(meta.bestScore || 0, localBest);
+  const got = Object.keys((meta.achievements && meta.achievements.unlocked) || {}).length, all = (window.ACHIEVEMENTS || []).length;
+  const ago = last && last.at ? (() => { const m = Math.round((Date.now() - last.at) / 60000); return m < 60 ? `${Math.max(1, m)} min ago` : m < 2880 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} days ago`; })() : "";
+  const head = returning ? `Welcome back${name ? `, ${esc(name)}` : ""}.` : "Welcome, new hire.";
+  const line = !returning ? "Your first shift starts at 8:59. You only move. Everything else is automatic."
+    : last ? (last.win ? `Last shift (${ago}): you made it to retirement at ${last.age}. Show-off.` : `Last shift (${ago}): you reached ${last.age} before ${esc(last.killer || "life")} got you.`)
+    : "Good to see you again. The Bills missed you.";
+  return `
+        <section class="tp-tile tp-file" aria-label="Your employee file">
+          <div class="tp-tile-tag">YOUR EMPLOYEE FILE</div>
+          <div class="tp-welcome">${head}</div>
+          <p class="tp-welcome-sub">${line}</p>
+          <div class="tp-stats">
+            <div><b>${Math.floor(meta.bestAge || 40)}</b><span>oldest age</span></div>
+            <div><b>${best ? best.toLocaleString("en-US") : "–"}</b><span>best score</span></div>
+            <div><b>${(meta.coins || 0).toLocaleString("en-US")}k</b><span>401(k)</span></div>
+            <div><b>${got}/${all}</b><span>achievements</span></div>
+          </div>
+          ${runs ? `<div class="tp-file-foot">${runs} shift${runs === 1 ? "" : "s"} worked</div>` : ""}
+        </section>`;
 }
 
 // The pinned devlog memo on the title screen: latest post + build clock, read from the devlog's own files.

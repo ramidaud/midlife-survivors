@@ -1255,6 +1255,13 @@ function showGameOver(scene, killer, isWin) {
   if (window.NearMiss) window.NearMiss.logSummary();
   if (window.Telemetry) window.Telemetry.runEnded(isWin, killer);
   clearRunState();
+  // Remember the last shift for the title screen's welcome-back tile.
+  try {
+    const sc = window.computeRunScore ? window.computeRunScore(currentAge, runStartAge, runKills, runCoins, isWin) : 0;
+    meta.runsPlayed = (meta.runsPlayed || 0) + 1;
+    meta.bestScore = Math.max(meta.bestScore || 0, sc);
+    meta.lastRun = { age: +currentAge.toFixed(1), score: sc, killer: isWin ? null : ((ENEMIES[killer] && ENEMIES[killer].name) || killer), win: !!isWin, char: meta.selectedChar, at: Date.now() };
+  } catch (e) {}
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
   [40, 50, 60, 70, 80].forEach(dec => {
     if (currentAge >= dec && !meta.unlockedDecades.includes(dec)) {

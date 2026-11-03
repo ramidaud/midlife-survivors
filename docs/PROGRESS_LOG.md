@@ -984,3 +984,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Layouts for desktop, iPad (both orientations) and phone. Keyboard focus starts on Punch In.
 - Devlog reading bar: now tracks the whole page from the first scroll, is twice as thick, and celebrates at the end (a shine sweep plus "✓ MEMO FINISHED").
 - Title slideshow (V. 1.51.1): five key art pieces crossfade with a slow push-in, about 9 s each. The Punch In pointer only shows on the lobby slide (the one with the time clock). Slides, crops and timing live in `src/data/title-art.js`. Images were converted to light JPGs.
+- Title tiles (V. 1.52.0): the bottom of the title is a bento row on desktop and iPad landscape. "Your employee file" (welcome or welcome back, the last shift, oldest age, best score, 401(k), achievements, shifts worked) sits beside the crew badges and the devlog memo. The phone layout keeps its stack. The save now records `runsPlayed`, `bestScore` and `lastRun`.

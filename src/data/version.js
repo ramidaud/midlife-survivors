@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.51.1",
-  displayVersion: "V. 1.51.1",
+  version: "1.52.0",
+  displayVersion: "V. 1.52.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 121,
+  build: 122,
   changelog: [
+    {
+      ver: "V. 1.52.0", date: "Nov 3, 2026", title: "Punch In",
+      highlights: [
+        "Title screen tiles: your employee file welcomes you back, says how your last shift went and shows your oldest age, best score, 401(k) and achievements. It sits beside your crew and the latest devlog memo, filling the width on desktop and iPad.",
+        "The game now remembers how many shifts you've worked and your last run."
+      ]
+    },
     {
       ver: "V. 1.51.1", date: "Nov 3, 2026", title: "Punch In",
       highlights: ["The title screen cycles through the game's key art (the 8:59 lobby, the swarm, the whole-life panorama, the long way to coffee and PROMOTED), each with a slow push-in and a soft crossfade."]

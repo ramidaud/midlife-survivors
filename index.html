@@ -1201,6 +1201,40 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #ui-layer .tp-memo .tp-memo-btn { width: 100%; background: var(--ms-teal) !important; color: var(--ms-white) !important; border-color: var(--ms-navy) !important; font-size: 11px; }
   .tp-memo-foot { margin-top: 8px; font-size: 11px; color: var(--ms-slate); font-family: 'Atkinson Hyperlegible', sans-serif; }
   .tp-memo-foot b { color: #874C3B; }
+  /* Title tiles (Nov 3): a bento row that fills the width on desktop and iPad landscape */
+  .tp-band { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 0.95fr) !important;
+    grid-template-areas: "file crew memo" "links links links"; align-items: stretch !important; row-gap: 10px !important; }
+  .tp-file { grid-area: file; } .tp-crew { grid-area: crew; } .tp-memo { grid-area: memo; } .tp-band .tp-links { grid-area: links; }
+  .tp-tile { min-width: 0; background: rgba(23,28,53,0.84); border: 2px solid rgba(62,119,117,0.75); border-radius: 8px; padding: 14px 14px 12px;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.35); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); text-align: left; display: flex; flex-direction: column; gap: 8px; }
+  .tp-tile-tag { font-family: 'Silkscreen', monospace; font-size: 10px; letter-spacing: 0.06em; color: var(--ms-sage); }
+  .tp-welcome { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; font-size: clamp(17px, 1.5vw, 22px); color: var(--ms-white); line-height: 1.15; }
+  .tp-welcome-sub { margin: 0; font-size: 13px; line-height: 1.4; color: var(--ms-muted); }
+  .tp-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: auto; }
+  .tp-stats div { background: rgba(48,55,80,0.8); border-radius: 5px; padding: 7px 6px; display: flex; flex-direction: column; gap: 2px; }
+  .tp-stats b { font-family: 'Silkscreen', monospace; font-weight: 400; font-size: clamp(13px, 1.25vw, 18px); color: var(--ms-cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tp-stats span { font-size: 10.5px; color: var(--ms-muted); }
+  .tp-file-foot { font-size: 11px; color: var(--ms-sage); }
+  .tp-crew .tp-badges { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .tp-crew .tp-label { line-height: 1.5; }
+  .tp-band .tp-memo { transform: rotate(-0.8deg); display: flex; flex-direction: column; }
+  .tp-band .tp-memo-cover { max-height: 118px; }
+  .tp-band .tp-memo-btn { margin-top: auto; }
+  .tp-band .tp-links { justify-content: center !important; }
+  @media (orientation: portrait), (max-width: 760px) {
+    .tp-band { grid-template-columns: 1fr !important; grid-template-areas: "crew" "file" "memo" "links"; }
+    .tp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .tp-band .tp-memo { transform: none; }
+  }
+  @media (orientation: portrait) and (min-width: 700px) {
+    .tp-band { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; grid-template-areas: "crew crew" "file memo" "links links"; }
+    .tp-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  @media (orientation: landscape) and (max-width: 1199px) {
+    #ui-layer .tp-crew .tp-badges .dossier-char { grid-template-columns: 1fr; grid-template-areas: "ic" "nm" "st"; justify-items: center; text-align: center; padding: 14px 6px 8px; }
+    #ui-layer .tp-crew .tp-badges .char-badge { justify-self: center; }
+    .tp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   /* Title slideshow (src/data/title-art.js): crossfade + slow push-in behind the poster */
   #title-slides { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
   #title-slides[hidden] { display: none; }
@@ -1259,7 +1293,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=121&t=" + Date.now();
+    s.src = "src/loader.js?v=122&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
