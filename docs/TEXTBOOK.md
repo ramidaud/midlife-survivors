@@ -1667,3 +1667,24 @@ Before (one jump of 95px):        After (8px steps, checked):
        You
 Fix: if the blend points somewhere strange, take the single best step (left OR right).
 ```
+
+## Chapter: The priority queue (Spotlight pacing, Nov 3)
+
+At age 45, four cards used to fire within seconds: a promotion, a boss, the Lounge and a tip. Now they wait in line.
+
+```
+time ──────────────────────────────────────────────▶
+ 0s   ART FROM PAYROLL   (room, rank 1)
+ 2s   ── boss arrives, cuts in ──▶ PERFORMANCE REVIEW (rank 3)
+ 9s   card leaves → 12 s breather
+ 21s  next card in line, if it isn't stale yet
+      Lounge card: skipped (a room card just ran; the arrow still shows the way)
+      Chest tip: too old → skipped, shows next time instead
+```
+
+| Card | Rank | Waits at most |
+|---|---|---|
+| Boss | 3 (cuts in) | 15 s |
+| New hire | 2 | 20 s |
+| Room, Lounge | 1 | 25 s / 15 s |
+| Tip | 0 | 20 s |
