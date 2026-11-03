@@ -29,6 +29,7 @@ function readPad(scene) {
     for (let i = 0; i < list.length; i++) {
       if (list[i] && list[i].connected) { gp = list[i]; break; }
     }
+    if (gp && !window._padUsedThisRun && ((gp.buttons || []).some(b => b && b.pressed) || (gp.axes || []).some(a => Math.abs(a) > 0.5))) window._padUsedThisRun = true; // counts toward Plugged In
   }
   if (!gp) {
     const pPad = scene && scene.input && scene.input.gamepad && scene.input.gamepad.total
@@ -288,6 +289,7 @@ function create() {
   runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
+  window._padUsedThisRun = false;
   // Devlog memos finished in this browser (the devlog saves them under "devlog-read"): Required Reading achievement.
   try { const readN = JSON.parse(localStorage.getItem("devlog-read") || "[]").length; if (readN) setTimeout(() => window.achEvent("devlog", { read: readN }), 1500); } catch (e) {}
   dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
@@ -1262,7 +1264,14 @@ function showGameOver(scene, killer, isWin) {
     const sc = window.computeRunScore ? window.computeRunScore(currentAge, runStartAge, runKills, runCoins, isWin) : 0;
     meta.runsPlayed = (meta.runsPlayed || 0) + 1;
     meta.bestScore = Math.max(meta.bestScore || 0, sc);
-    meta.lastRun = { age: +currentAge.toFixed(1), score: sc, killer: isWin ? null : ((ENEMIES[killer] && ENEMIES[killer].name) || killer), win: !!isWin, char: meta.selectedChar, at: Date.now() };
+    // Which kind of device and input this run used (title-screen nudges + Hybrid Schedule achievements)
+    const touchDev = navigator.maxTouchPoints > 1, shortSide = Math.min(screen.width, screen.height);
+    const form = !touchDev ? "desktop" : shortSide >= 700 ? "tablet" : "phone";
+    meta.played = meta.played || {};
+    meta.played[form] = (meta.played[form] || 0) + 1;
+    if (window._padUsedThisRun) meta.played.controller = (meta.played.controller || 0) + 1;
+    meta.lastRun = { age: +currentAge.toFixed(1), score: sc, killer: isWin ? null : ((ENEMIES[killer] && ENEMIES[killer].name) || killer), win: !!isWin, char: meta.selectedChar, at: Date.now(), form };
+    window.achEvent("devices", Object.assign({}, meta.played)); // a copy: achEvent tags its data with the hero
   } catch (e) {}
   meta.bestAge = Math.max(meta.bestAge || 40, currentAge);
   [40, 50, 60, 70, 80].forEach(dec => {

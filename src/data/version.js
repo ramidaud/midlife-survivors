@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.52.1",
-  displayVersion: "V. 1.52.1",
+  version: "1.53.0",
+  displayVersion: "V. 1.53.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 123,
+  build: 124,
   changelog: [
+    {
+      ver: "V. 1.53.0", date: "Nov 3, 2026", title: "Hybrid Schedule",
+      highlights: [
+        "Three new achievements for playing everywhere: Hybrid Schedule (two kinds of devices, +5k), Remote Worker (phone, tablet and computer, +10k) and Plugged In (a run with a game controller, +5k).",
+        "Your employee file on the title screen now has a tip just for you: try a bigger screen, plug in a controller, read the devlog or brag in the Discord."
+      ]
+    },
     {
       ver: "V. 1.52.1", date: "Nov 3, 2026", title: "One Look",
       highlights: ["One menu bar for the game and the whole devlog: Play, Memos, Art Room, About, Discord and Coffee. Tap ▲ to tuck it away (the MENU tab brings it back). It disappears while you're actually playing."]

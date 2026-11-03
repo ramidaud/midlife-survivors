@@ -2251,6 +2251,33 @@ function renderTitleModal(scene, preserveFocusSelector) {
   window.menuNav.refresh(preserveFocusSelector);
 }
 
+// A nudge that fits YOUR history: try another device, plug in a controller, read the devlog, join the Discord.
+// Picks one at random from the ones that apply, so it changes from visit to visit.
+function titleNudge(returning) {
+  if (!returning) return "";
+  const P = meta.played || {}, got = (meta.achievements && meta.achievements.unlocked) || {};
+  const touchDev = navigator.maxTouchPoints > 1, shortSide = Math.min(screen.width, screen.height);
+  const here = !touchDev ? "desktop" : shortSide >= 700 ? "tablet" : "phone";
+  const forms = ["phone", "tablet", "desktop"].filter(k => P[k]);
+  const name = { phone: "your phone", tablet: "a tablet", desktop: "a laptop or desktop" };
+  let read = 0; try { read = JSON.parse(localStorage.getItem("devlog-read") || "[]").length; } catch (e) {}
+  const out = [];
+  if (!got.hybridSchedule && forms.length === 1) {
+    out.push(forms[0] === "phone" ? `🖥 <b>Big screen, bigger swarms.</b> Play a run on ${name.desktop} to unlock <b>Hybrid Schedule</b> (+5k).`
+      : forms[0] === "desktop" ? `📱 <b>Take the office with you.</b> Finish a run on your phone for <b>Hybrid Schedule</b> (+5k).`
+      : `💻 <b>Try it at a desk.</b> A run on a computer unlocks <b>Hybrid Schedule</b> (+5k).`);
+  }
+  if (!got.remoteWorker && forms.length === 2) {
+    const missing = ["phone", "tablet", "desktop"].find(k => !P[k]);
+    out.push(`🌐 <b>Remote Worker:</b> one more to go. Finish a run on ${name[missing]} (+10k).`);
+  }
+  if (!got.pluggedIn && here !== "phone") out.push(`🎮 <b>Got a controller?</b> Xbox, PlayStation and Switch pads all work. One run unlocks <b>Plugged In</b> (+5k).`);
+  if (read < 10) out.push(`📚 <b>${read} of 10</b> devlog memos read toward <b>Required Reading</b>. <a href="devlog/" class="tp-nudge-link">Open the devlog</a>`);
+  if ((meta.bestAge || 40) >= 50) out.push(`🏆 <b>Age ${Math.floor(meta.bestAge)} is worth bragging about.</b> Post it in the <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> and see who beats it.`);
+  else out.push(`💬 <b>Stuck before 50?</b> The <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> has tips from people who made it.`);
+  return `<div class="tp-nudge">${out[Math.floor(Math.random() * out.length)]}</div>`;
+}
+
 // "Your file" tile on the title screen: welcome (back) message + your numbers.
 function titleFileTile() {
   const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -2270,6 +2297,7 @@ function titleFileTile() {
           <div class="tp-tile-tag">YOUR EMPLOYEE FILE</div>
           <div class="tp-welcome">${head}</div>
           <p class="tp-welcome-sub">${line}</p>
+          ${titleNudge(returning)}
           <div class="tp-stats">
             <div><b>${Math.floor(meta.bestAge || 40)}</b><span>oldest age</span></div>
             <div><b>${best ? best.toLocaleString("en-US") : "–"}</b><span>best score</span></div>

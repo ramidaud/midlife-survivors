@@ -159,7 +159,8 @@ function loadMeta() {
         accessibility: Object.assign({}, window.DEFAULT_ACCESSIBILITY, parsed.accessibility || {}),
         runsPlayed: parsed.runsPlayed || 0,   // for the title screen's welcome-back tile (Nov 3)
         bestScore: parsed.bestScore || 0,
-        lastRun: parsed.lastRun || null
+        lastRun: parsed.lastRun || null,
+        played: parsed.played || {}         // runs per device type + controller runs (Hybrid Schedule achievements)
       };
     }
   } catch (e) {}
