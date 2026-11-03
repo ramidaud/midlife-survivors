@@ -1,0 +1,32 @@
+{
+  "tool": "built-in imagegen",
+  "references": [
+    "docs/handoffs/img/title-zones-desktop.png",
+    "assets/characters/portraits/intern-tj-on-break-v1.png",
+    "assets/characters/portraits/intern-derek-on-break-v1.png",
+    "assets/characters/portraits/office-worker-on-break-v1.png",
+    "assets/characters/portraits/grad-student-on-break-v1.png"
+  ],
+  "brief": {
+    "scene": "The Break Room counter with a small striped awning. TJ works the register with a huge grin, holding up a coffee. Derek restocks a shelf of snacks behind him. The 9-to-5er and the Grad Student wait in line, coins in hand. Outside the window, the swarm presses its angry paper faces against the glass, waiting.",
+    "focus": "the counter, TJ and the line",
+    "mood": "a cozy break in the middle of a bad day",
+    "quiet_areas": "fridge, coffee cart, tables and the window wall",
+    "lighting": "warm pendant light over the counter, cooler window light",
+    "canvas": "1920x1080 wide 16:9",
+    "composition": "Put the whole cast/action and all visible faces entirely within x=51–94%, y=13–40%, an upper RIGHT vignette. Keep figures modest sized. The entire left 50% and bottom 60% are quiet continuous architecture and floor.",
+    "style": "Midlife Survivors handmade crisp 16-bit pixel art. Three-quarter top down, 1px navy outlines, broad hard pixel clusters, contact shadows. cream #F2D7A1, navy #171C35, slate #303750, muted blue #526078, teal #3E7775, sage #83A89A, khaki #D3B78D, orange #EF9347, warm white #FFF0CF, tie red #C45C4B, lavender #BFA8CF, donut pink #F1B5BF.",
+    "avoid": [
+      "text",
+      "letters",
+      "numbers",
+      "logos",
+      "UI",
+      "guide boxes",
+      "gradients",
+      "blur",
+      "realistic rendering"
+    ]
+  },
+  "prompt": "Generate ONE finished game title-screen illustration. Reference image 1 is a UI placement diagram ONLY. Match relative placement of the green box; the screenshot, annotations, UI, lettering, overlays and green box must not appear in the output. Other reference images are the actual cast designs only, not sprite grids to reproduce. {\"scene\":\"The Break Room counter with a small striped awning. TJ works the register with a huge grin, holding up a coffee. Derek restocks a shelf of snacks behind him. The 9-to-5er and the Grad Student wait in line, coins in hand. Outside the window, the swarm presses its angry paper faces against the glass, waiting.\",\"focus\":\"the counter, TJ and the line\",\"mood\":\"a cozy break in the middle of a bad day\",\"quiet_areas\":\"fridge, coffee cart, tables and the window wall\",\"lighting\":\"warm pendant light over the counter, cooler window light\",\"canvas\":\"1920x1080 wide 16:9\",\"composition\":\"Put the whole cast/action and all visible faces entirely within x=51–94%, y=13–40%, an upper RIGHT vignette. Keep figures modest sized. The entire left 50% and bottom 60% are quiet continuous architecture and floor.\",\"style\":\"Midlife Survivors handmade crisp 16-bit pixel art. Three-quarter top down, 1px navy outlines, broad hard pixel clusters, contact shadows. cream #F2D7A1, navy #171C35, slate #303750, muted blue #526078, teal #3E7775, sage #83A89A, khaki #D3B78D, orange #EF9347, warm white #FFF0CF, tie red #C45C4B, lavender #BFA8CF, donut pink #F1B5BF.\",\"avoid\":[\"text\",\"letters\",\"numbers\",\"logos\",\"UI\",\"guide boxes\",\"gradients\",\"blur\",\"realistic rendering\"]} Strict: all people AND enemies, including incidental ones, stay in the focus band. No character outside. Make the other areas clearly environmental and low contrast. No readable writing anywhere, including props."
+}

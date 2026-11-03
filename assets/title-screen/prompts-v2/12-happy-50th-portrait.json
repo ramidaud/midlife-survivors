@@ -1,0 +1,17 @@
+{
+  "tool": "built-in imagegen",
+  "references": [
+    "docs/handoffs/img/title-zones-phone.png",
+    "assets/title-screen/prompts-v2/cast-happy-50th.png"
+  ],
+  "brief": {
+    "scene": "A surprise office birthday. The coworkers Art, Sam, Eli, Nora, June and Mina gather around a sheet cake with a big cream frosting swirl and lit candles, wearing party hats and cheering. The 9-to-5er looks shocked and touched, mug in hand. Through the window behind them, the Midlife Crisis V8 revs in the parking lot, headlights on, waiting its turn.",
+    "focus": "the coworkers, the cake and the hero",
+    "mood": "warm and funny: midlife is hard and also kind of great",
+    "quiet_areas": "conference table, streamers and balloons, the parking lot through the window",
+    "lighting": "candle glow on faces, headlight glare through the window",
+    "canvas": "1080×1920 portrait",
+    "composition": "x8–92%, y32–44%"
+  },
+  "prompt": "One finished full-bleed Midlife Survivors title illustration, 1080×1920 portrait. The FIRST reference is composition placement ONLY. The SECOND is a lineup of the exact cast. Do not render either reference background or reproduce the interface. Draw a continuous office interior across the canvas. The entire scene's human silhouettes head to toe (and every enemy) MUST fit wholly within x8–92%, y32–44%, a TINY compact vignette in a LARGE room. The cast occupy NO MORE THAN 12 percent of the canvas HEIGHT. Compose using a wide pulled-back three-quarter overhead view like a pixel game map. {\"scene\":\"A surprise office birthday. The coworkers Art, Sam, Eli, Nora, June and Mina gather around a sheet cake with a big cream frosting swirl and lit candles, wearing party hats and cheering. The 9-to-5er looks shocked and touched, mug in hand. Through the window behind them, the Midlife Crisis V8 revs in the parking lot, headlights on, waiting its turn.\",\"focus\":\"the coworkers, the cake and the hero\",\"mood\":\"warm and funny: midlife is hard and also kind of great\",\"quiet_areas\":\"conference table, streamers and balloons, the parking lot through the window\",\"lighting\":\"candle glow on faces, headlight glare through the window\",\"canvas\":\"1080×1920 portrait\",\"composition\":\"x8–92%, y32–44%\"}. Outside that window absolutely no creatures or people, only quieter continuous walls and floor, desks and architecture. Handmade chunky 16-bit pixel clusters, navy outlines, warm cream and coffee-orange fluorescent highlights, sage and muted teal, lavender, slate. No letters, numbers, logos, UI, captions, border or guide lines."
+}

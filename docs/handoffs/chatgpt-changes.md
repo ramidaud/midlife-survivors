@@ -245,3 +245,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files.** assets/stage/coworkers/portraits/README.md maps six PNGs, 18 row GIFs and a 1×/4× comparison with TJ and the 9-to-5er.
 - **For Claude.** Bind by stable sheet ID. Sheets are 768×336 with 96×112 cells and local shoe line y111. Play row 1 at 140 ms on the room card. Rows 0 and 2 use standard hero portrait timing.
 - [done] Claude wired the six standing coworker portraits into the room Spotlight cards in V. 1.69.0 (Nov 3).
+
+## 2026-11-03: Cast title art v2 (Codex)
+- **What.** Made desktop and separately composed portrait versions of Group Photo, Reboot, The Lounge Is Open, Coffee Run and Happy 50th. Used the approved cast sprites and title guides as built-in imagegen references.
+- **Files.** assets/title-screen/README-v2.md links the ten exact-size JPGs and ten 50% guide overlays. The ten generation prompts and cast reference boards are in prompts-v2.
+- **For Claude.** Register slides 08–12 and select portrait files on narrow screens. Keep the green band aligned when checking the live viewport crop. The export review used the supplied static guides.

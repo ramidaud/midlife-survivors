@@ -1,0 +1,17 @@
+{
+  "tool": "built-in imagegen",
+  "references": [
+    "docs/handoffs/img/title-zones-phone.png",
+    "assets/title-screen/prompts-v2/cast-group-photo.png"
+  ],
+  "brief": {
+    "scene": "Office group photo in the bullpen. Derek crouches in the foreground with his camera raised, and the flash pops in one bright cream starburst. The four heroes pose together: the 9-to-5er raising his mug, the Soccer Dad with the ball on his hip, the Grad Student holding up her notebook, and the Cold War Cowboy tipping his hat. TJ squeezes in at the edge with a coffee tray. One angry paper Bill photobombs from behind a cubicle wall.",
+    "focus": "the posed group and the flash",
+    "mood": "proud, a little chaotic, the calm before the swarm",
+    "quiet_areas": "desk islands and carpet outside the hero zone; a few tiny Bills peeking in at the far edges",
+    "lighting": "warm fluorescent from the upper left, flash glow on faces",
+    "canvas": "1080×1920 portrait",
+    "composition": "x8–92%, y32–44%"
+  },
+  "prompt": "One finished full-bleed Midlife Survivors title illustration, 1080×1920 portrait. The FIRST reference is composition placement ONLY. The SECOND is a lineup of the exact cast. Do not render either reference background or reproduce the interface. Draw a continuous office interior across the canvas. The entire scene's human silhouettes head to toe (and every enemy) MUST fit wholly within x8–92%, y32–44%, a TINY compact vignette in a LARGE room. The cast occupy NO MORE THAN 12 percent of the canvas HEIGHT. Compose using a wide pulled-back three-quarter overhead view like a pixel game map. {\"scene\":\"Office group photo in the bullpen. Derek crouches in the foreground with his camera raised, and the flash pops in one bright cream starburst. The four heroes pose together: the 9-to-5er raising his mug, the Soccer Dad with the ball on his hip, the Grad Student holding up her notebook, and the Cold War Cowboy tipping his hat. TJ squeezes in at the edge with a coffee tray. One angry paper Bill photobombs from behind a cubicle wall.\",\"focus\":\"the posed group and the flash\",\"mood\":\"proud, a little chaotic, the calm before the swarm\",\"quiet_areas\":\"desk islands and carpet outside the hero zone; a few tiny Bills peeking in at the far edges\",\"lighting\":\"warm fluorescent from the upper left, flash glow on faces\",\"canvas\":\"1080×1920 portrait\",\"composition\":\"x8–92%, y32–44%\"}. Outside that window absolutely no creatures or people, only quieter continuous walls and floor, desks and architecture. Handmade chunky 16-bit pixel clusters, navy outlines, warm cream and coffee-orange fluorescent highlights, sage and muted teal, lavender, slate. No letters, numbers, logos, UI, captions, border or guide lines."
+}
