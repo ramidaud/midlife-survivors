@@ -36,6 +36,13 @@ window.Interns = (() => {
     return key;
   }
 
+  // Real art (ChatGPT, Nov 3): 448x300 sheets of 56x60 cells. Rows 0-3 walk down/up/left/right (8 frames),
+  // row 4 columns 0-3 the counter pose. Feet sit at y56. Until they load, the placeholder above is used.
+  function preload(scene) {
+    (C().roster || []).forEach(r => { if (r.sheet && window.ArtSheets) ArtSheets.load(scene, "intern2_" + r.id, r.sheet, 56, 60); });
+  }
+  const hasSheet = (scene, r) => scene.textures.exists("intern2_" + r.id);
+
   function cadence(age) {
     const rows = D().cadenceByAge || [[40, 60000]];
     let ms = rows[0][1];
@@ -83,13 +90,16 @@ window.Interns = (() => {
     let x = side === 0 ? view.x - m : side === 1 ? view.right + m : player.x + Phaser.Math.Between(-200, 200);
     let y = side === 2 ? view.y - m : side === 3 ? view.bottom + m : player.y + Phaser.Math.Between(-150, 150);
     if (window.NAV && NAV.fixSpawn) { const s = NAV.fixSpawn(x, y); if (!s) return; [x, y] = s; }
-    const o = scene.physics.add.sprite(x, y, key + "_0").setScale(SCALE).setOrigin(0.5, 1).setDepth(4.6);
-    o.body.setSize(14, 10).setOffset(5, 26);
+    const real = hasSheet(scene, r);
+    const o = real
+      ? scene.physics.add.sprite(x, y, "intern2_" + r.id, 0).setOrigin(0.5, 56 / 60).setDepth(4.6)
+      : scene.physics.add.sprite(x, y, key + "_0").setScale(SCALE).setOrigin(0.5, 1).setDepth(4.6);
+    if (real) o.body.setSize(16, 10).setOffset(20, 46); else o.body.setSize(14, 10).setOffset(5, 26);
     if (window.propGroup) o.propCollider = scene.physics.add.collider(o, window.propGroup);
     const tag = scene.add.text(x, y, r.name.toUpperCase() + " · INTERN", {
       fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 }
     }).setOrigin(0.5, 1).setDepth(21);
-    intern = { o, tag, r, key, state: "walk", born: runElapsedMs, waitStart: 0, payload: pickPayload(), frameAt: 0, frame: 0 };
+    intern = { o, tag, r, key, real, walked: 0, lastX: x, lastY: y, state: "walk", born: runElapsedMs, waitStart: 0, payload: pickPayload(), frameAt: 0, frame: 0 };
     if (window.showLowerThird && !(window.__internIntroShown)) {
       window.__internIntroShown = true;
       window.showLowerThird("tip", "INTERN", `${r.name} is on the way with something for you. Meet them halfway.`, 3800);
@@ -138,7 +148,7 @@ window.Interns = (() => {
     if (!intern) return;
     const it = intern;
     it.state = "leaving"; it.leaveAt = runElapsedMs;
-    if (line) bubble(scene, it.o.x, it.o.y - SPRITE_H * SCALE - 14, line);
+    if (line) bubble(scene, it.o.x, it.o.y - (it.real ? 74 : SPRITE_H * SCALE + 14), line);
     const ang = Math.atan2(it.o.y - player.y, it.o.x - player.x);
     it.o.setVelocity(Math.cos(ang) * (fast ? 260 : 120), Math.sin(ang) * (fast ? 260 : 120));
     scene.tweens.add({ targets: [it.o, it.tag], alpha: 0, delay: fast ? 300 : 1400, duration: 500, onComplete: () => { if (intern === it) despawn(); } });
@@ -162,9 +172,17 @@ window.Interns = (() => {
     if (intern) {
       const it = intern, o = it.o;
       if (!o.active) { intern = null; return; }
-      it.tag.setPosition(o.x, o.y - SPRITE_H * SCALE - 2);
-      if (now - it.frameAt > 160 && o.body.velocity.length() > 5) { it.frameAt = now; it.frame ^= 1; o.setTexture(it.key + "_" + it.frame); }
-      o.setFlipX(o.body.velocity.x < -5);
+      it.tag.setPosition(o.x, o.y - (it.real ? 62 : SPRITE_H * SCALE + 2));
+      if (it.real) {
+        const vx = o.body.velocity.x, vy = o.body.velocity.y, moving = Math.hypot(vx, vy) > 5;
+        it.walked += Math.hypot(o.x - it.lastX, o.y - it.lastY); it.lastX = o.x; it.lastY = o.y;
+        const row = Math.abs(vx) > Math.abs(vy) ? (vx < 0 ? 2 : 3) : (vy < 0 ? 1 : 0);
+        if (moving) { it.row = row; o.setFrame(row * 8 + Math.floor(it.walked / 8.5) % 8); }
+        else o.setFrame((it.row || 0) * 8);
+      } else {
+        if (now - it.frameAt > 160 && o.body.velocity.length() > 5) { it.frameAt = now; it.frame ^= 1; o.setTexture(it.key + "_" + it.frame); }
+        o.setFlipX(o.body.velocity.x < -5);
+      }
       if (it.state === "leaving") return;
       if (typeof levelUpOpen !== "undefined" && levelUpOpen) { o.setVelocity(0, 0); return; }
       // A Bill bumped into them: they run.
@@ -200,5 +218,5 @@ window.Interns = (() => {
   // A parcel left on the floor was picked up (called from collectPizza).
   function collectParcel(scene, p) { const id = p.payload; p.destroy(); give(scene, id); }
 
-  return { reset, update, give, collectParcel, forceSpawn: (scene) => { if (!intern) spawn(scene); }, active: () => intern };
+  return { preload, reset, update, give, collectParcel, forceSpawn: (scene) => { if (!intern) spawn(scene); }, active: () => intern };
 })();

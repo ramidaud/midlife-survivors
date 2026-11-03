@@ -49,7 +49,10 @@ window.Lounge = (() => {
     const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE · OPEN", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 2 } }).setOrigin(0.5).setDepth(21);
     scene.tweens.add({ targets: rug, alpha: { from: 0.6, to: 1 }, scale: { from: 0.96, to: 1.04 }, duration: 700, yoyo: true, repeat: -1 });
     const key = "intern_" + r.id + "_0";
-    const staff = scene.textures.exists(key) ? scene.add.image(s.x + 58, s.y - 6, key).setScale(1.6).setOrigin(0.5, 1).setDepth(4.5) : null;
+    const real = scene.textures.exists("intern2_" + r.id); // ChatGPT's counter pose: row 4, columns 0-3
+    const staff = real ? scene.add.sprite(s.x + 58, s.y - 6, "intern2_" + r.id, 32).setOrigin(0.5, 56 / 60).setDepth(4.5)
+      : scene.textures.exists(key) ? scene.add.image(s.x + 58, s.y - 6, key).setScale(1.6).setOrigin(0.5, 1).setDepth(4.5) : null;
+    st.staffReal = real;
     const tag = scene.add.text(s.x + 58, s.y - 70, r.name.toUpperCase() + " · REGISTER", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 } }).setOrigin(0.5, 1).setDepth(21);
     const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(23).setScrollFactor(0);
     st.objs = [rug, sign, staff, tag, arrow]; st.arrow = arrow;
@@ -197,6 +200,7 @@ window.Lounge = (() => {
     // Arm a window at each promotion age once the Break Room is open.
     (L.promotionAges || []).forEach(age => { if (!st.done[age] && currentAge >= age) { st.done[age] = true; st.pendingAge = age; } });
     if (st.state === "closed" && st.pendingAge && gateOpen() && !bossAlive() && !taxOn()) { st.pendingAge = 0; open(scene); }
+    if (st.staffReal && st.objs[2] && st.objs[2].active) st.objs[2].setFrame(32 + Math.floor(now / 185) % 4); // counter wave / register tap
     if (st.state === "open") {
       if (now > st.openUntil || bossAlive() || taxOn()) return shutter(scene, (L.lines && L.lines.shutter) || "Break's over.");
       updateArrow(scene);

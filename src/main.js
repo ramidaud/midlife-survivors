@@ -317,6 +317,7 @@ function create() {
   buildSprites(this);
   if (window.Breakables) Breakables.preload(this); // smashable prop art (assets/breakables)
   if (window.BossArt) BossArt.preload(this);       // big boss art (assets/bosses)
+  if (window.Interns && Interns.preload) Interns.preload(this); // TJ and Derek (assets/characters/intern-*.png)
   EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
   initExtraWeapons(this);
@@ -890,6 +891,7 @@ window.achEvent = (on, d = {}) => {
     if (!ok) return;
     A.unlocked[def.id] = Date.now();
     meta.coins += def.reward; changed = true;
+      if (def.id === "requiredReading") { meta.unlockedChars = meta.unlockedChars || {}; meta.unlockedChars.coldWarCowboy = true; if (window.showLowerThird) window.showLowerThird("win", "NEW HIRE", "The Cold War Cowboy is unlocked. Pick him on the title screen.", 6000); }
     runAch.newly.push(def);
     sfx("levelUp");
     if (window.showLowerThird) window.showLowerThird("win", "ACHIEVED", `${def.icon} ${def.name}: ${def.desc} +${def.reward}k`, 4500);
@@ -1191,7 +1193,7 @@ function rollChestRewards(n) {
     const info = (typeof UPGRADE_META !== "undefined" && UPGRADE_META[up.name]) || {};
     const plain = up.isEvolution || info.rarity === "evo" ? "EVOLUTION" : up.name.startsWith("Unlock:") ? "NEW WEAPON" : info.rarity === "passive" ? "PASSIVE" : "UPGRADE";
     applyUpgrade(up);
-    out.push({ name: up.name, label: plain, text: up.text || "", icon: chestIcon(up), evo: plain === "EVOLUTION" });
+    out.push({ name: window.heroWord ? heroWord(up.name) : up.name, label: plain, text: window.heroWord ? heroWord(up.text || "") : (up.text || ""), icon: chestIcon(up), evo: plain === "EVOLUTION" });
   }
   return out;
 }
@@ -1316,6 +1318,17 @@ function hurtPlayer(p, bill) {
   drawHpBar();
   p.setTintFill(0xe0564f); // flash red
   scene.time.delayedCall(100, () => p.clearTint());
+  // Ben's quirk (Nov 3): once a run, when health drops to a quarter, he power-cycles everything.
+  if (stats.reboot && hp > 0 && hp <= stats.maxHp * 0.25) {
+    stats.reboot = false;
+    hp = Math.min(stats.maxHp, hp + healAmt(Math.ceil(stats.maxHp * 0.4))); drawHpBar(); lastHurt = now + 1200;
+    scene.cameras.main.flash(300, 230, 230, 255);
+    bills.getChildren().slice().forEach(b => { if (b.active && !b.isBoss && !b.elite && Phaser.Math.Distance.Between(b.x, b.y, p.x, p.y) < 320) { b.ghost = false; damageBill(b, 99999); } });
+    if (window.flashBanner) window.flashBanner("REBOOTED", "HAVE YOU TRIED TURNING IT OFF AND ON AGAIN?", "reward");
+    if (window.showLowerThird) window.showLowerThird("win", "IT SUPPORT", "Have you tried turning it off and on again? Screen cleared, 40% health back. Once per run.", 4500);
+    sfx("levelUp");
+    return;
+  }
   if (hp <= 0 && stats.revives > 0) { // Second Opinion (401k shop): get back up once
     stats.revives--; hp = Math.max(1, healAmt(Math.ceil(stats.maxHp / 2))); drawHpBar(); lastHurt = now + 1500;
     if (window.itemEffect) window.itemEffect("ptoDay", true);

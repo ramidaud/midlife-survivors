@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.66.1",
-  displayVersion: "V. 1.66.1",
+  version: "1.67.0",
+  displayVersion: "V. 1.67.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Spotlight",
-  build: 151,
+  codename: "The Cold War Cowboy",
+  build: 152,
   changelog: [
+    {
+      ver: "V. 1.67.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "New hero: The Cold War Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
+      highlights: [
+        "New hero: The Cold War Cowboy, based on Rami's friend Ben (they met working IT at Kent State in 2002). Unlock him by finishing 10 devlog memos.",
+        "He starts with the Floppy Disk (a boomerang that evolves into the Zip Drive) and +2 max health. Once a run, at a quarter health: \"Have you tried turning it off and on again?\" The screen clears and he gets 40% back.",
+        "TJ and Derek have real pixel art now, walking, carrying coffee and snacks, and working the Lounge counter. Art by ChatGPT."
+      ]
+    },
     {
       ver: "V. 1.66.1", date: "Nov 3, 2026", title: "Spotlight",
       teaser: "Spotlight cards: bosses, coworkers and new hires now make an entrance, with a big sprite and a line of their own.",

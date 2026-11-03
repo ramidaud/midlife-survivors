@@ -39,6 +39,7 @@ const UPGRADE_META = {
 // Pixel icon from the ChatGPT atlas (src/data/ui-icons.js), or the emoji if there isn't one.
 // size: displayed pixels (the atlas is 32px per icon; whole-number multiples stay crisp).
 function pixelIcon(kind, id, emoji, size) {
+  if (kind === "char" && id === "coldWarCowboy") { const s = size || 32; return `<img class="px-icon" src="assets/characters/cold-war-cowboy-badge-v1.png?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; }
   const I = window.UI_ICONS;
   if (!window.USE_PIXEL_ICONS || !I) return emoji;
   const idx = kind === "char" ? I.characters[id] : (I.cards[id] ?? (emoji ? undefined : I.fallback));
@@ -49,10 +50,19 @@ function pixelIcon(kind, id, emoji, size) {
 }
 window.pixelIcon = pixelIcon;
 
+// Ben's boomerang is a Floppy Disk, so the Remote's cards are renamed while you play him (Nov 3).
+function heroWord(t) {
+  if (!t || typeof stats === "undefined" || !stats || !stats.floppy) return t;
+  return String(t).replace(/The TV Remote/g, "The Floppy Disk").replace(/TV Remote/g, "Floppy Disk").replace(/Smart TV/g, "Zip Drive")
+    .replace(/Universal Remote/g, "Double Density").replace(/remotes/g, "disks").replace(/Remote/g, "Floppy").replace(/remote/g, "disk");
+}
+window.heroWord = heroWord;
+
 const CHAR_ICONS = {
   officeWorker: "☕",
   photographer: "⚽", // The Soccer Dad
-  gradStudent: "🎓"
+  gradStudent: "🎓",
+  coldWarCowboy: "🤠"
 };
 
 const THEME_LABELS = [
@@ -1114,7 +1124,7 @@ function updateCleanHUD() {
   const icons = [stats.coldBrew ? "⚡" : "☕"];
   if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
   if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");
-  if (stats.remote) icons.push(stats.smartTv ? "📡" : "📺");
+  if (stats.remote) icons.push(stats.floppy ? "💾" : stats.smartTv ? "📡" : "📺");
   if (stats.sheet) icons.push(stats.pivotTable ? "🧮" : "📊");
   if (stats.podcast) icons.push(stats.bingeMode ? "🍿" : "🎧");
   if (stats.hasShoes) icons.push("👟");
@@ -1174,7 +1184,7 @@ function volBar(v) { const n = Math.round(v * 10); return `${"■".repeat(n)}${"
 // The selected hero, idling on the pause screen (breathing, then a fidget): row 5 of the 8x5 hero sheet.
 // On Break portraits (ChatGPT, Nov 3): 96x112 cells. Row 0 breathes (6 frames), row 1 is the hero's
 // signature break, row 2 is a stretch. We breathe a few times, then play one of the other two, and repeat.
-const BREAK_SHEETS = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student" };
+const BREAK_SHEETS = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" };
 function pauseHeroHtml() {
   const id = meta && meta.selectedChar, slug = BREAK_SHEETS[id];
   if (slug) {
@@ -1931,8 +1941,8 @@ function renderLevelUpModal(choices, customTitle, onPick) {
     card.innerHTML = `
       <div class="perk-ribbon">${rankLabel}</div>
       <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
-      <div class="perk-name">${up.name}</div>
-      <div class="perk-desc">${up.text}</div>
+      <div class="perk-name">${heroWord(up.name)}</div>
+      <div class="perk-desc">${heroWord(up.text)}</div>
       <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `PRESS [${i + 1}] / SPACE`}</div>
     `;
     bindNavItem(card, 0, e => {
@@ -1982,7 +1992,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const charCardsHtml = CHARACTERS.map(ch => {
     const owned = !!meta.unlockedChars[ch.id];
     const sel = meta.selectedChar === ch.id;
-    const status = sel ? "✓ ACTIVE" : (owned ? "SELECT" : `🔒 ${ch.cost}k`);
+    const status = sel ? "✓ ACTIVE" : (owned ? "SELECT" : ch.unlock ? `🔒 ${ch.lockedLabel || "LOCKED"}` : `🔒 ${ch.cost}k`);
     return `
       <div class="dossier-char ${sel ? "selected" : ""} ${owned ? "owned" : "locked"}" data-char="${ch.id}">
         <div class="char-emoji">${pixelIcon("char", ch.id, CHAR_ICONS[ch.id] || "☕", 64)}</div>
@@ -2276,6 +2286,9 @@ function renderTitleModal(scene, preserveFocusSelector) {
       if (meta.unlockedChars[ch.id]) {
         meta.selectedChar = ch.id; saveMeta(meta); sfx("pick");
         renderTitleModal(scene, `[data-char="${chId}"]`); updateHUD();
+      } else if (ch.unlock) {
+        sfx("hurt"); // achievement unlock only (Ben: finish 10 devlog memos)
+        if (window.showLowerThird) window.showLowerThird("tip", "LOCKED", "Finish 10 devlog memos to unlock The Cold War Cowboy.", 3500);
       } else if (meta.coins >= ch.cost) {
         meta.coins -= ch.cost; meta.unlockedChars[ch.id] = true; meta.selectedChar = ch.id;
         saveMeta(meta); sfx("levelUp");

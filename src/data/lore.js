@@ -59,6 +59,18 @@ const GAME_LORE = {
       relic: '🛑 The Word "No." + ☕ Coffee (Evolves with 👟 Comfortable Shoes -> 🛡️🛑 Healthy Boundaries)',
       edge: 'Starts with the "No." repulsor shockwave, 10% faster ability cooldowns, and +50% Wisdom Gem magnet range.',
       quote: '"I have a paper due at midnight and a staff meeting at eight. Your calendar invite has been declined."'
+    },
+    coldWarCowboy: {
+      id: "coldWarCowboy",
+      code: "SUBJECT #04 // DEPT: IT, BASEMENT LEVEL",
+      name: "The Cold War Cowboy",
+      realName: "Ben (inspired by a real IT friend of the developer, since 2002)",
+      icon: "🤠",
+      archetype: "Help Desk Legend & Keeper of the Spare Parts Closet",
+      backstory: "Has worked IT since the floppy disk was cutting edge, and never fully moved on. Keeps a drawer of cables nobody else can name, a pager that still buzzes, and a cowboy hat that has outlasted three CIOs.",
+      relic: "💾 Floppy Disk (a boomerang; evolves into the Zip Drive)",
+      edge: "Starts with the Floppy Disk and +2 max health. Once a run, at a quarter health, he turns it off and on again: clears the area and gets 40% back.",
+      quote: '"Have you tried turning it off and on again? No? Then I will."'
     }
   },
 

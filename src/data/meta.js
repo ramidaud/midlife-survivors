@@ -46,6 +46,17 @@ window.CHARACTERS = [
     tagline: 'Starts with "No." shockwave, a huge gem magnet, and slightly faster weapons.',
     cost: 15,
     apply: s => { s.wordNo = true; s.magnetRadius = Math.round(s.magnetRadius * 1.5); s.cooldownMult *= 0.9; }
+  },
+  {
+    // Ben (Nov 3): Rami's friend since 2002, when they both worked IT for Kent State's journalism school.
+    // Unlocked by the Required Reading achievement (finish 10 devlog memos). Art by ChatGPT.
+    id: "coldWarCowboy",
+    name: "The Cold War Cowboy",
+    tagline: 'IT since 2002. Starts with the Floppy Disk. Once a run: "Have you tried turning it off and on again?"',
+    cost: 0,
+    unlock: "requiredReading",
+    lockedLabel: "READ 10 MEMOS",
+    apply: s => { s.remote = true; s.floppy = true; s.maxHp += 2; s.reboot = true; }
   }
 ];
 
@@ -152,7 +163,8 @@ function loadMeta() {
       return {
         coins: parsed.coins || 0,
         ranks: parsed.ranks || {},
-        unlockedChars: parsed.unlockedChars || { officeWorker: true },
+        // Ben unlocks with Required Reading; players who already earned it get him on load (Nov 3).
+        unlockedChars: Object.assign({}, parsed.unlockedChars || { officeWorker: true }, parsed.achievements && parsed.achievements.unlocked && parsed.achievements.unlocked.requiredReading ? { coldWarCowboy: true } : {}),
         selectedChar: parsed.selectedChar || "officeWorker",
         bestAge: parsed.bestAge || 40.0,
         unlockedDecades: parsed.unlockedDecades || [40],

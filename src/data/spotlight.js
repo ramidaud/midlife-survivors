@@ -15,7 +15,8 @@ window.SPOTLIGHT = {
   hires: {
     officeWorker: { kicker: "NOW ONBOARDING", name: "THE 9-TO-5ER", line: "Clocking in at nine sharp and not a minute earlier.", tip: "Balanced all-rounder built for a steady workday." },
     photographer: { kicker: "SIDELINE CAPTAIN", name: "THE SOCCER DAD", line: "I brought orange slices and a trunk full of chairs!", tip: "High-stamina hero with strong crowd-control energy." },
-    gradStudent:  { kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." }
+    gradStudent:  { kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." },
+    coldWarCowboy: { kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
   },
   // Promotions: a coworker announces the new room. cast = which coworker sprite (START_AREA_COWORKERS).
   rooms: {
@@ -37,6 +38,6 @@ window.SPOTLIGHT = {
     lowHp:     { kicker: "PTO NEEDED", tip: "Health is low. Smash office props to find healing food.",
                  lines: { any: "My lower back is barking. Is there pizza in the kitchen?", gradStudent: "I am running on fumes and lukewarm vending machine tea." } }
   },
-  heroNames: { officeWorker: "THE 9-TO-5ER", photographer: "THE SOCCER DAD", gradStudent: "THE GRAD STUDENT" },
-  heroSheets: { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student" }
+  heroNames: { officeWorker: "THE 9-TO-5ER", photographer: "THE SOCCER DAD", gradStudent: "THE GRAD STUDENT", coldWarCowboy: "THE COLD WAR COWBOY" },
+  heroSheets: { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" }
 };

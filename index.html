@@ -1201,7 +1201,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .tp-label { font-family: 'Silkscreen', monospace; font-size: 11px; color: var(--ms-sage); letter-spacing: 0.05em; text-align: left; }
   .tp-label b { color: var(--ms-cream); font-weight: 400; margin: 0 6px; }
   .tp-label span { font-family: 'Atkinson Hyperlegible', sans-serif; letter-spacing: 0; color: var(--ms-muted); font-size: 13px; }
-  .tp-badges { grid-template-columns: repeat(3, minmax(0, 190px)) !important; justify-content: start; gap: 10px !important; }
+  .tp-badges { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; justify-content: stretch; gap: 10px !important; }
   #ui-layer .tp-badges .dossier-char { position: relative; display: grid; grid-template-columns: 48px 1fr; grid-template-areas: "ic nm" "ic st";
     align-items: center; column-gap: 8px; text-align: left; padding: 14px 10px 8px; border-radius: 6px;
     background: rgba(23,28,53,0.92); border: 2px solid rgba(131,168,154,0.45); }
@@ -1238,7 +1238,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .tp-stats b { font-family: 'Silkscreen', monospace; font-weight: 400; font-size: clamp(13px, 1.25vw, 18px); color: var(--ms-cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .tp-stats span { font-size: 10.5px; color: var(--ms-muted); }
   .tp-file-foot { font-size: 11px; color: var(--ms-sage); }
-  .tp-crew .tp-badges { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+  .tp-crew .tp-badges { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
   .tp-crew .tp-label { line-height: 1.5; }
   .tp-band .tp-memo { transform: rotate(-0.8deg); display: flex; flex-direction: column; }
   .tp-band .tp-memo-cover { max-height: 118px; }
@@ -1534,7 +1534,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     .tp-punch { justify-self: center; margin: 18vh 0 0; width: min(380px, 90vw); }
     .tp-punch .clock-in-btn::before { display: none; }
     .tp-band { grid-template-columns: 1fr; padding-top: 30px; }
-    .tp-badges { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .tp-badges { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     #ui-layer .tp-badges .dossier-char { grid-template-columns: 1fr; grid-template-areas: "ic" "nm" "st"; justify-items: center; text-align: center; padding: 14px 6px 8px; }
     #ui-layer .tp-badges .char-badge { justify-self: center; }
     .tp-label { text-align: center; } .tp-links { justify-content: center !important; }
@@ -1562,7 +1562,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=151&t=" + Date.now();
+    s.src = "src/loader.js?v=152&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

@@ -221,3 +221,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files.** assets/characters/README-friends-v1.md links all sheets and GIFs and maps the frames. Ben also has a title card badge and an On Break portrait where he blows dust off a floppy disk.
 - **Frame sizes.** All walks use eight 56×60 cells per direction and contact y56. Row 4 is Ben's idle or the interns' four counter poses. The portrait uses 96×112 cells and contact y111. The badge is 32×32. Native PNGs have binary alpha and use the established cast palette.
 - **For Claude.** Wire Ben to the ten-memo unlock and the interns to delivery and Lounge counter scenes. The counter poses are full sprites so the counter can cover the lower body. This is an asset drop on V. 1.66.1.
+- Claude (Nov 3): Ben, TJ and Derek art wired in **V. 1.67.0** [done].

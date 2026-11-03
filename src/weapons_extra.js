@@ -15,6 +15,13 @@ function buildWeaponSprites(scene) {
     for (let r = 0; r < 4; r++) for (let c = 0; c < 3; c++) ctx.fillRect(2.5 + c * 3.3, 10 + r * 3.6, 2.2, 2.2);
     ctx.fillStyle = "#6be2ff"; ctx.fillRect(4, 24, 6, 1.5);
   });
+  // FLOPPY DISK (16x16, Nov 3): Ben's take on the boomerang. Navy 3.5-inch disk, silver shutter, cream label.
+  makeCanvasTex(scene, "w_floppy", 16, 16, ctx => {
+    const px = (c, x, y, w, h) => { ctx.fillStyle = c; ctx.fillRect(x, y, w, h); };
+    px("#171C35", 0, 0, 16, 16); px("#303750", 1, 1, 14, 14);
+    px("#B8C0D4", 4, 1, 8, 5); px("#526078", 9, 2, 2, 3);
+    px("#F2D7A1", 3, 8, 10, 7); px("#EF9347", 3, 8, 10, 1); px("#874C3B", 5, 11, 6, 1); px("#874C3B", 5, 13, 4, 1);
+  });
   // SPREADSHEET CELL (22x16): a green cell with gridlines and "=SUM"
   makeCanvasTex(scene, "w_cell", 22, 16, ctx => {
     ctx.fillStyle = "#0b3d1f"; ctx.fillRect(0, 0, 22, 16);
@@ -77,7 +84,7 @@ function updateExtraWeapons(scene, delta) {
       const n = stats.remoteCount;
       for (let i = 0; i < n; i++) {
         const a = base + (i - (n - 1) / 2) * 0.35;
-        const s = scene.add.image(player.x, player.y, "w_remote").setDepth(6).setScale(stats.smartTv ? 1.4 : 1);
+        const s = scene.add.image(player.x, player.y, stats.floppy ? "w_floppy" : "w_remote").setDepth(6).setScale((stats.floppy ? 1.5 : 1) * (stats.smartTv ? 1.4 : 1));
         s.uid = "r" + (projUid++); s.ang = a; s.dist = 0; s.out = true;
         extraW.remotes.push(s);
       }

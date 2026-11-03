@@ -55,9 +55,10 @@ window.WorldArt = (() => {
         } catch(error){console.warn('Hero art fallback: '+error.message);}
         if(window.HERO_ART_VERSION===2) loadHeroV2(character.id);
       }
+      if(window.HERO_ART_VERSION===2) loadHeroV2('coldWarCowboy'); // Ben has v2 art only (Nov 3)
     }
     // v2: 448x300 sheet, 8 columns x 5 rows of 56x60 (rows: down, up, left, right walks, then idle). Exact magenta = clear.
-    const HERO_FILES={officeWorker:'office-worker',photographer:'soccer-dad',gradStudent:'grad-student'};
+    const HERO_FILES={officeWorker:'office-worker-walk-56x60-v2',photographer:'soccer-dad-walk-56x60-v2',gradStudent:'grad-student-walk-56x60-v2',coldWarCowboy:'cold-war-cowboy-walk-56x60-v1'};
     function loadHeroV2(id) {
       const img=new Image();
       img.onload=()=>{
@@ -69,7 +70,7 @@ window.WorldArt = (() => {
         heroV2.add(id);
       };
       img.onerror=()=>{};
-      img.src='assets/characters/'+HERO_FILES[id]+'-walk-56x60-v2.png?v='+window.BUILD;
+      img.src='assets/characters/'+HERO_FILES[id]+'.png?v='+window.BUILD;
     }
     let stillSince=0,nextFidget=0;
     function heroFrame(id,moving,now) {
@@ -185,8 +186,8 @@ window.WorldArt = (() => {
       if(!alive)return;
       const p=refs.player,now=refs.clock(),moving=Math.hypot(p.x-lastX,p.y-lastY)>.05;
       const feet=p.y+p.height/2;
-      if(window.USE_HERO_ART&&heroReady.has(meta.selectedChar)) {
-        if(!hero){hero=scene.add.sprite(p.x,feet,'walk_'+meta.selectedChar).setOrigin(.5,1);shadow=scene.add.image(p.x,feet-2,'enemy-art-contact').setDisplaySize(26,9);}
+      if(window.USE_HERO_ART&&(heroReady.has(meta.selectedChar)||heroV2.has(meta.selectedChar))) {
+        if(!hero){hero=scene.add.sprite(p.x,feet,heroV2.has(meta.selectedChar)?'walk2_'+meta.selectedChar:'walk_'+meta.selectedChar).setOrigin(.5,1);shadow=scene.add.image(p.x,feet-2,'enemy-art-contact').setDisplaySize(26,9);}
         const dx=p.x-lastX,dy=p.y-lastY;
         if(moving&&now!==lastClock){facing=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');walked+=Math.hypot(dx,dy);}
         if(heroV2.has(meta.selectedChar))hero.setTexture('walk2_'+meta.selectedChar,heroFrame(meta.selectedChar,moving,now));
