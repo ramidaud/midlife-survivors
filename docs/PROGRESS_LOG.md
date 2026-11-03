@@ -933,3 +933,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Draft only: not in the RSS feed, so the Sunday Substack task won't pick it up until Rami approves.
 - CLAUDE.md: added the Substack line to the Devlog section (Rami said yes).
 - Published devlog post 08 (Rami: publish now, not Sunday). It is first in the feed for a same-day Substack import.
+- Post 08 cover is now the new key art (PROMOTED door, made in ChatGPT image gen by Rami). Single-post feed-08.xml rebuilt with it for the Substack import.
