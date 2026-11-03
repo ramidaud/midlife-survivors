@@ -53,7 +53,7 @@ window.NearMiss = (() => {
     const C = N();
     if (runElapsedMs > combo.expireAt) combo.streak = 0;
     combo.streak++;
-    combo.expireAt = runElapsedMs + (C.comboDecayMs || 2500);
+    combo.expireAt = runElapsedMs + (window.modFx ? modFx("comboDecayMs", C.comboDecayMs || 2500) : (C.comboDecayMs || 2500));
     const prevTier = combo.tier;
     combo.tier = tierFor(combo.streak);
     nmStats.credits++; if (isPing) nmStats.pingCredits++; if (t.isBoss) nmStats.bossCredits++;
@@ -62,7 +62,7 @@ window.NearMiss = (() => {
     // XP (same multipliers as gems), a short speed blip, and a few score points
     const statXp = (typeof stats !== "undefined" && stats && stats.xpMult) || 1; // Continuing Ed (the game's player stats)
     const taxXp = typeof tax === "function" ? 1 + tax("xpMult") : 1;
-    const xpGain = Math.min(C.xpPerCreditMax || 0.85, (C.xpBase || 0.4) * ((C.comboXpMult || [])[combo.tier] || 1) * statXp * taxXp);
+    const xpGain = Math.min(C.xpPerCreditMax || 0.85, (window.modFx ? modFx("nearMissXpBase", C.xpBase || 0.4) : (C.xpBase || 0.4)) * ((C.comboXpMult || [])[combo.tier] || 1) * statXp * taxXp);
     grantXp(scene, xpGain);
     burstUntil = runElapsedMs + (C.speedBurstMs || 350) + (combo.tier >= 2 && prevTier < 2 ? 100 : 0);
     burstMult = C.speedBurstMult || 1.1;
@@ -100,7 +100,7 @@ window.NearMiss = (() => {
     const tcx = tb ? tb.center.x : t.x, tcy = tb ? tb.center.y : t.y;
     const dx = pcx - tcx, dy = pcy - tcy, d = Math.hypot(dx, dy);
     const gap = Math.max(Math.abs(dx) - (pw + tw) / 2, Math.abs(dy) - (ph + th) / 2); // <= 0 means touching
-    const band = C.bandPx || 14;
+    const band = (C.bandPx || 14) + (window.modFx ? modFx("nearMissBandAdd", 0) : 0);
     if (gap > band + 60) { if (t._nm) t._nm.inBand = false; return; } // far away: nothing to track
     const st = t._nm || (t._nm = { prev: null, inBand: false, closing: false, spoiled: false, lastCreditAt: -1e9 });
     if (gap <= 0) { st.spoiled = true; st.inBand = false; st.closing = false; } // it touched you: damage wins
@@ -145,7 +145,7 @@ window.NearMiss = (() => {
   function drawDebug(scene, player) {
     if (!gfx) gfx = scene.add.graphics().setDepth(60001);
     gfx.clear();
-    const b = player.body, band = N().bandPx || 14;
+    const b = player.body, band = (N().bandPx || 14) + (window.modFx ? modFx("nearMissBandAdd", 0) : 0);
     if (!b) return;
     gfx.lineStyle(1, 0x171c35, 0.8).strokeRect(b.x, b.y, b.width, b.height);
     gfx.lineStyle(2, 0xef9347, 0.35).strokeRect(b.x - band, b.y - band, b.width + band * 2, b.height + band * 2);

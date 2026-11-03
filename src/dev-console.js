@@ -48,6 +48,8 @@
     }),
     intern: need(() => { if (window.Interns) { Interns.forceSpawn(scene()); say("Intern on the way"); } }),
     lounge: need(() => { if (window.Lounge) { Lounge.forceOpen(scene()); const s = Lounge.spot(); player.body.reset(s.x, s.y + 140); say("Lounge open, you're next to it"); } }),
+    modGo: need(() => { const v = (document.getElementById("dev-mod") || {}).value; if (window.Modifiers) { Modifiers.forceStart(v); say("Modifier: " + v); } }),
+    modStop: need(() => { if (window.Modifiers) { Modifiers.stop(); say("Modifier stopped"); } }),
     nav: () => { if (window.NAV) { NAV.debug = !NAV.debug; render(); say(NAV.debug ? "Route arrows ON" : "Route arrows OFF"); } }
   };
   const jumpTo = (age) => need(() => {
@@ -124,6 +126,10 @@
           <button type="button" data-boss="mortgageRefinance">MORTGAGE</button>
           <button type="button" data-boss="midlifeCrisis">V8</button>
           <button type="button" data-a="clear">CLEAR SCREEN</button></div></section>
+        <section><div class="lbl">AGE 50+ MODIFIER</div><div class="row">
+          <select id="dev-mod" aria-label="Modifier to start"></select>
+          <button type="button" data-a="modGo">START</button>
+          <button type="button" data-a="modStop">STOP</button></div></section>
         <section><div class="lbl">PATHING</div><div class="row">
           <button id="dev-nav" type="button" aria-pressed="false" data-a="nav">ROUTE ARROWS</button></div></section>
         <div class="note">Dev mode: scores don't post, stats aren't sent, achievements stay locked. Add ?dev=0 to the address to turn it off.</div>
@@ -134,7 +140,7 @@
     const toggle = () => {
       const open = panel.classList.toggle("open");
       chip.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open) { fillUpgrades(); render(); }
+      if (open) { fillUpgrades(); render(); const ms = document.getElementById("dev-mod"); if (ms && !ms.options.length) ms.innerHTML = (window.RUN_MODIFIER_DEFS || []).map(m => `<option value="${m.id}">${m.title}</option>`).join(""); }
     };
     chip.addEventListener("click", toggle);
     panel.addEventListener("click", (e) => {

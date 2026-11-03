@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.64.0",
-  displayVersion: "V. 1.64.0",
+  version: "1.65.0",
+  displayVersion: "V. 1.65.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Happy Retirement",
-  build: 148,
+  codename: "Life Happens",
+  build: 149,
   changelog: [
+    {
+      ver: "V. 1.65.0", date: "Nov 3, 2026", title: "Life Happens",
+      teaser: "After 50, life happens: Ghost Hour, Reading Glasses, Rent Hike, Past Due and more roll in for a couple of years at a time.",
+      highlights: [
+        "Age 50+ modifiers: short \"life happens\" weather after 50. Ghost Hour, Reading Glasses, Rent Hike, Empty Nest, Back Spasm, Reply-All Tax, Past Due and Open Enrollment. One at a time, about two or three per run, each announced with a banner and a chip at the top of the screen.",
+        "Some are pure trouble, some are double-edged (Empty Nest gives more XP, Open Enrollment gives better snacks). They never stack with the Comfort Zone Tax, and they never start during a boss fight."
+      ]
+    },
     {
       ver: "V. 1.64.0", date: "Nov 3, 2026", title: "Happy Retirement",
       teaser: "Make it to 65 and the office throws you a retirement party: streamers, cake, confetti and a gold watch.",

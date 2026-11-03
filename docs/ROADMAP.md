@@ -31,8 +31,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 - [x] **Healing 1:** birthday cake every 5 years and the Desk Salad (V. 1.61.0), freeze safety net (V. 1.61.1)
 - [x] **Healing 2:** interns (TJ, Derek) bring coffee, snacks and buffs (V. 1.62.0)
 - [x] **Healing 3:** the Lounge counter in the Break Room (V. 1.63.0); title version line and credits (V. 1.63.1)
-- [ ] **Retirement screen** with ChatGPT's art
-- [ ] **Age 50+ run modifiers** (docs/handoffs/grok-modifiers.md)
+- [x] **Retirement screen** with ChatGPT's art (V. 1.64.0)
+- [x] **Age 50+ run modifiers** (V. 1.65.0)
 - [ ] **Spotlight cards, Style B** (copy from Gemini: docs/handoffs/gemini-spotlight-cards.md)
 
 ## Next up (planned Oct 31, usage-light: one session per item)
@@ -41,7 +41,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 3. [x] **Content drop + items (V. 1.22.0):** new jokes and death lines, Annual Checkup replacements, discoverable items (magnet, energy drink, more)
 4. [x] **Achievements (V. 1.23.0)** (one unlocks Full Life)
 4b. [x] **Grok difficulty handoff, Parts 1 and 2 (V. 1.25.0)**
-4c. [ ] **Grok Part 3, one at a time:** ~~Tax Bracket (V. 1.26.0)~~ done, ~~dynamic intensity (V. 1.27.0)~~ done, ~~near-miss rewards (V. 1.30.0)~~ built, awaiting playtest, age-50+ run modifiers (spec ready: docs/handoffs/grok-modifiers.md)
+4c. [ ] **Grok Part 3, one at a time:** ~~Tax Bracket (V. 1.26.0)~~ done, ~~dynamic intensity (V. 1.27.0)~~ done, ~~near-miss rewards (V. 1.30.0)~~ built, awaiting playtest, ~~age-50+ run modifiers~~ built V. 1.65.0
 5. [ ] **Art pass** with GPT Image assets Rami prepares in parallel. Campus study now includes three desk variants and walking sheets for all three playable characters. Explore As switches characters; the gallery compares four directions and exports native grids. Approved walking sheets now run in the main game (V. 1.28.13); extra idle/combat poses remain pending.
    - Batch 1 enemy generation complete: ten enemy species plus Group Chat ping, 11 native sheets and 42 frames. Review animated enemies from the Art Room, with pause, pose, scale and floor controls. Approved Batch 1 is integrated in V. 1.28.12 with independent canvas fallback; bosses remain a separate batch.
    - Office environment study: detailed Accounts Payable with seamless carpet/wood, fluorescent lighting accents, native printer/cabinet/plant props and floor-level stories. Visit Accounts opens it directly. Expanded ground pass now adds brighter carpet, welcome rug, chair mats, floor wear, paper trails and cream lighting. Rami approved the larger exploration scale. Furniture now has fitted contact shadows, visible chair mats and nearby floor wear; grounded room art and repeating campus now run in the main game (V. 1.28.13), with crowd-pressure QA completed.

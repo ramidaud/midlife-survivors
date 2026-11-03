@@ -158,6 +158,7 @@ function updateDynamicIntensity() {
   const D = window.INTENSITY && INTENSITY.dynamic;
   if (!D || runElapsedMs < D.armAfterMs || !stats) return;
   if (hp / stats.maxHp < D.mercyHpFrac) { dyn.mercyUntil = runElapsedMs + D.mercyDurationMs; dyn.comfortUntil = 0; return; }
+  if (window.Modifiers && Modifiers.active()) return; // a modifier is already making life interesting: no Comfort Zone Tax on top
   if (runElapsedMs >= dyn.comfortUntil && runElapsedMs > dyn.mercyUntil && runElapsedMs - Math.max(dyn.lastHitAt, D.armAfterMs - D.noHitBonusAfterMs) > D.noHitBonusAfterMs) {
     dyn.comfortUntil = runElapsedMs + D.bonusDurationMs;
     dyn.lastHitAt = runElapsedMs + D.bonusDurationMs; // the next tax needs another 45 s of no hits after this one
@@ -278,6 +279,7 @@ function create() {
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
   if (window.Lounge) Lounge.reset();   // the Break Room counter (src/lounge.js)
+  if (window.Modifiers) Modifiers.reset(); // age 50+ run modifiers (src/modifiers.js)
   meta = loadMeta();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
@@ -994,7 +996,7 @@ function collectPizza(p, pz) {
   if (slowUntil > 0 && runElapsedMs - slowUntil < 8000) window.achEvent("pizzaAfterSlow"); // donut, then pizza
   pz.destroy();
   sfx("levelUp");
-  const pzHeal = healAmt(PICKUPS.pizza.heal);
+  const pzHeal = healAmt(Math.max(1, Math.round((PICKUPS.pizza.heal + (window.modFx ? modFx("pizzaHealAdd", 0) : 0)) * (window.modFx ? modFx("pizzaHealMult", 1) : 1))));
   hp = Math.min(stats.maxHp, hp + pzHeal);
   updateHUD();
   const pt = project3DToPhaserWorld(p.scene, p.x, 42, p.y);
@@ -1215,7 +1217,7 @@ function collectGem(p, gem) {
   if (!gem.active) return;
   gem.destroy();
   sfx("gem");
-  addXp(p.scene, PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult"))); // Continuing Ed + Tax Bracket add to every gem
+  addXp(p.scene, PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")) * (window.modFx ? modFx("gemXpMult", 1) : 1)); // Continuing Ed + Tax Bracket (+ Empty Nest) add to every gem
 }
 
 // Add XP (fractions carry over) and open the level-up screen if you earned one. Gems and Close Calls both use this.
@@ -1518,7 +1520,7 @@ function damagePlant(prop, amount) {
     };
     sc.time.delayedCall(PLANT_REGROW_MS, regrow);
 
-    if (Math.random() < ITEM_DROPS.fromPlant) spawnFieldItem(sc, prop.x, prop.y + 14);
+    if (Math.random() < ITEM_DROPS.fromPlant * (window.modFx ? modFx("plantItemMult", 1) : 1)) spawnFieldItem(sc, prop.x, prop.y + 14);
     // Roll plant loot reward: 45% Leftover Pizza (+2 HP) + 1 Coin, 35% 2x 401(k) Coins, 20% 3x Coins + 1 Gem Jackpot!
     const roll = Math.random();
     let popupTxt = "🪙 +401(k)!";
@@ -1624,7 +1626,7 @@ function punchlineBlast(scene, x, y, r, J) {
 function fireDadJoke(scene) {
   if (!stats.dadJoke) return;
   sfx("dadJoke");
-  const J = WEAPONS.dadJoke, r = stats.jokeRadius;
+  const J = WEAPONS.dadJoke, r = stats.jokeRadius * (window.modFx ? modFx("jokeRadiusMult", 1) : 1); // Reply-All Tax gives the groan more reach
   if (window.viewModeIdx > 0) {
     spawn3DRing(player.x, player.y, r, J.color);
   } else {
@@ -1652,7 +1654,7 @@ function fireDadJoke(scene) {
       // The groan: everyone in range stops to cringe for a moment and staggers back (bosses just take the damage).
       if (!bill.isBoss && d > 0) {
         bill.cringeUntil = runElapsedMs + ((stats.punStorm && J.cringeMsEvo) || J.cringeMs || 0);
-        const push = J.pushSpeed || 0;
+        const push = (J.pushSpeed || 0) * (window.modFx ? modFx("pushSpeedMult", 1) : 1);
         bill.setVelocity((bill.x - player.x) / d * push, (bill.y - player.y) / d * push);
       }
       damageBill(bill, stats.jokeDamage);
@@ -1790,7 +1792,11 @@ function createEnemy(scene, kind, x, y) {
   e.kind = kind;
   e.hp = Math.max(1, Math.round(E.hp * hpScale * (1 + tax("enemyHpMult"))));
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
-  e.damage = E.damage; // age bonus comes only from INTENSITY.hitDamageByAge (in hurtPlayer), so it can't stack twice
+  if (window.modFx) { // age 50+ modifiers: Rent Hike (Bills), Reply-All Tax (Gossip)
+    if (kind === "bill") e.hp = Math.ceil(e.hp * modFx("billHpMult", 1));
+    if (kind === "officeGossip") e.hp = Math.ceil(e.hp * modFx("gossipHpMult", 1));
+  }
+  e.damage = E.damage + (kind === "officeGossip" && window.modFx ? modFx("gossipDamageAdd", 0) : 0); // age bonus comes only from INTENSITY.hitDamageByAge (in hurtPlayer), so it can't stack twice
   e.bornAt = runElapsedMs;
   const st = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
   const lbl = (currentAge >= 80 && E.seniorLabel)
@@ -1809,7 +1815,7 @@ function makeElite(e, E, EL) {
   e.elite = true;
   e.eliteScale = EL.scale;
   e.setScale((E.scale || 1) * EL.scale);
-  e.hp = Math.max(Math.round(e.hp * EL.hpMult), Math.ceil((stats.damage || 1) * EL.minHits));
+  e.hp = Math.max(Math.round(e.hp * EL.hpMult * (window.modFx ? modFx("eliteHpMult", 1) : 1)), Math.ceil((stats.damage || 1) * EL.minHits));
   e.maxHp = e.hp;
   e.speed = Math.round(e.speed * EL.speedMult);
   e.damage = (e.damage || 1) + (EL.damageAdd || 0);
@@ -1831,9 +1837,12 @@ function ageCurve(table, age) {
 // Pick an enemy type from the current wave's raffle tickets.
 function rollWaveKind() {
   const wave = currentWave();
-  const totalWeight = wave.mix.reduce((sum, [, w]) => sum + w, 0);
-  let roll = Math.random() * totalWeight, kind = wave.mix[0][0];
-  for (const [k, w] of wave.mix) {
+  // Age 50+ modifiers can tilt the everyday mix (src/modifiers.js), e.g. Ghost Hour adds more 3 AM Thoughts.
+  const bias = window.modFx ? modFx("waveBias", null) : null;
+  const mix = bias ? wave.mix.map(([k, w]) => [k, w + (bias[k] || 0)]).concat(Object.keys(bias).filter(k => !wave.mix.some(([m]) => m === k) && ENEMIES[k]).map(k => [k, bias[k]])) : wave.mix;
+  const totalWeight = mix.reduce((sum, [, w]) => sum + w, 0);
+  let roll = Math.random() * totalWeight, kind = mix[0][0];
+  for (const [k, w] of mix) {
     if ((roll -= w) <= 0) { kind = k; break; }
   }
   return kind;
@@ -1853,7 +1862,7 @@ function spawnBill(scene) {
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
-  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")) + dynPackAdd(); // stronger you = bigger crowds
+  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")) + dynPackAdd() + (window.modFx ? modFx("packAdd", 0) : 0); // stronger you = bigger crowds
   for (let i = 0; i < pack && bills.countActive() < cap; i++) {
     createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
   }
@@ -2098,7 +2107,7 @@ function update(time, delta) {
   const blend = nextW === curW ? 0 : Phaser.Math.Clamp((currentAge - curW.minAge) / span, 0, 1);
   const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0) - tax("spawnFaster"));
   updateDynamicIntensity();
-  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed * dynSpawnMult());
+  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed * dynSpawnMult() * (window.modFx ? modFx("spawnDelayMult", 1) : 1));
   if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;
     spawnTimer.reset({ delay: wantDelay, loop: true, callback: spawnTimer.callback });
@@ -2175,7 +2184,8 @@ function update(time, delta) {
   if (len > 0) { x /= len; y /= len; }
 
   const buffSpd = Math.max(runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1, window.NearMiss ? window.NearMiss.speedMult() : 1); // Energy Drink / Standing Desk, or a Close Call blip (never both stacked)
-  const moveSpd = (runElapsedMs < slowUntil ? stats.speed * ENEMIES.snackAttack.slowFactor : stats.speed) * buffSpd;
+  const baseSpd = stats.speed * (window.modFx ? modFx("speedMult", 1) : 1); // Back Spasm slows the base, drinks still help
+  const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd;
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   player.setAngle((x !== 0 || y !== 0) ? Math.sin(this.time.now / 55) * 7 : 0); // jaunty walk wobble
@@ -2206,8 +2216,10 @@ function update(time, delta) {
 
   // Magnet: gems and 401(k) coins close to you fly toward you.
   const W = PICKUPS.wisdomGem;
+  const magM = window.modFx ? modFx("magnetMult", 1) : 1; // Reading Glasses: shorter pull, never under 70 px
+  const magR = magM < 1 ? Math.max(70, stats.magnetRadius * magM) : stats.magnetRadius;
   gems.getChildren().forEach(gem => {
-    if (Phaser.Math.Distance.Between(player.x, player.y, gem.x, gem.y) < stats.magnetRadius) {
+    if (Phaser.Math.Distance.Between(player.x, player.y, gem.x, gem.y) < magR) {
       this.physics.moveToObject(gem, player, W.magnetSpeed);
     }
   });
@@ -2216,7 +2228,7 @@ function update(time, delta) {
   // Items on the floor expire after a while.
   if (window.fieldItems) window.fieldItems.getChildren().slice().forEach(it => { if (runElapsedMs > it.expireAt) { if (it.glowRing) it.glowRing.destroy(); it.destroy(); } else if (it.glowRing) it.glowRing.setPosition(it.x, it.y); });
   coins.getChildren().forEach(c => {
-    if (vacuum || Phaser.Math.Distance.Between(player.x, player.y, c.x, c.y) < stats.magnetRadius) {
+    if (vacuum || Phaser.Math.Distance.Between(player.x, player.y, c.x, c.y) < magR) {
       this.physics.moveToObject(c, player, W.magnetSpeed);
     }
   });
@@ -2227,7 +2239,7 @@ function update(time, delta) {
         if (left <= 0) { pz.destroy(); return; }
         pz.setAlpha(left < fade ? 0.35 + 0.65 * (Math.floor(left / 150) % 2) : 1);
       }
-      if (Phaser.Math.Distance.Between(player.x, player.y, pz.x, pz.y) < stats.magnetRadius) {
+      if (Phaser.Math.Distance.Between(player.x, player.y, pz.x, pz.y) < magR) {
         this.physics.moveToObject(pz, player, W.magnetSpeed * (pz.isSalad ? ((PICKUPS.salad && PICKUPS.salad.magnetSpeedMult) || 1) : 1));
       }
     });
@@ -2240,6 +2252,7 @@ function update(time, delta) {
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
+  if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   bills.getChildren().slice().forEach(bill => {
@@ -2271,13 +2284,14 @@ function update(time, delta) {
     }
 
     // 1. Unpaid Bills turn red and split into two fast Late Fees after 9 seconds!
-    if (bill.kind === "bill" && ageMs > ENEMIES.bill.overdueAfterMs) {
+    if (bill.kind === "bill" && ageMs > (window.modFx ? modFx("overdueAfterMs", ENEMIES.bill.overdueAfterMs) : ENEMIES.bill.overdueAfterMs)) {
       sfx("overdue");
       const bx = bill.x, by = bill.y;
       bill.tag.destroy(); bill.destroy();
       window.achEvent("split");
       createEnemy(this, "lateFee", bx - 14, by - 10);
       createEnemy(this, "lateFee", bx + 14, by + 10);
+      if (window.modFx && modFx("lateFeeCount", 2) > 2) { createEnemy(this, "lateFee", bx - 14, by + 14); createEnemy(this, "lateFee", bx + 14, by - 14); } // Past Due
       if (window.pushContextEvent) {
         /* first Late Fee triggers a one-time tip via createEnemy */
       }
@@ -2325,7 +2339,7 @@ function update(time, delta) {
 
     // 4. 3 AM Thought: solid for a bit, then fades into a ghost that can't hurt you or be hit, and sneaks closer.
     if (bill.kind === "threeAmThought") {
-      const T = ENEMIES.threeAmThought, cyc = T.solidMs + T.ghostMs;
+      const T = ENEMIES.threeAmThought, cyc = T.solidMs + T.ghostMs * (window.modFx ? modFx("threeAmGhostMsMult", 1) : 1);
       const ghost = (ageMs % cyc) >= T.solidMs;
       if (ghost !== !!bill.ghost) {
         bill.ghost = ghost;
@@ -2408,7 +2422,7 @@ function update(time, delta) {
 
   // Splashes that flew past their range evaporate (we delete them so they don't pile up).
   splashes.getChildren().slice().forEach(s => {
-    if (Phaser.Math.Distance.Between(s.startX, s.startY, s.x, s.y) > stats.range) s.destroy();
+    if (Phaser.Math.Distance.Between(s.startX, s.startY, s.x, s.y) > stats.range * (window.modFx ? modFx("rangeMult", 1) : 1)) s.destroy();
   });
 
   // Render the active 3D / Diablo 3/4 view (or restore 2D sprites when in 2D 16-Bit mode)
