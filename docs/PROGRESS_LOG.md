@@ -998,3 +998,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The old gray window marks and light-pool patches are switched off (`replaceFloorMarks`). Damage numbers sit above the dark so they stay readable.
 - V. 1.57.1: title sub-views (Shop, Extras, Leaderboard, Achievements, Credits) open as a panel above the employee file, shift and devlog tiles, with the slideshow running behind. The tiles fold (auto on screens under 900px tall). Options docks at the top. The pause hero got its own tile at 3x with the game's real idle timing (slow breathing, then one fidget) instead of a constant fidget. The pixel cursors moved into the shared nav stylesheet, so they work in the game, gameplay and the devlog.
 - V. 1.57.2: Post Score works with a controller. It's in the D-pad menu above Quick Retry, and with no saved name it offers office-name badges ("Dave from IT 42"). New **quick poll** on accounts (email magic link, Apple, Google, or no thanks) on the devlog home and post sidebars and in the game's Extras, plus a title nudge. One vote per browser, live totals. Rami approved a new Supabase table `poll_votes` (insert-only for the public key) and view `poll_results` (totals only). The anon role sees 0 individual rows.
+
+## Nov 3, 2026 (3 AM): V. 1.58.0 and a new About page
+- Shop perks each have a picture now, plus four greyed "Classified Benefit" mystery slots.
+- Shop, Leaderboard and Options open at full length (no inner scroll); the tiles fold into buttons under them. On the main title the tiles sit at the bottom again.
+- The accounts poll pops up on the title screen (corner card on desktop, a "One quick question" pill on phones) until you vote or close it. The nav's Play button now says Title Screen.
+- About page redesign: poster hero with the pixel portrait, live dev and playtest stats (from the devlog stats file), and link tiles to ramidaud.com, Substack, Discord and Ko-fi.
+- ChatGPT delivered the On Break portrait sheets for all three heroes (next: wire them into the pause tile).

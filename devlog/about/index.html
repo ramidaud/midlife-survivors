@@ -23,7 +23,35 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=2">
-<link rel="stylesheet" href="../styles.css?v=17">
+<link rel="stylesheet" href="../styles.css?v=21">
+<style>
+  .about-wrap { max-width: 980px; }
+  .ab-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; align-items: center; margin: 14px 0 26px; }
+  .ab-portrait { margin: 0; border: 2px solid var(--teal); border-radius: 8px; overflow: hidden; box-shadow: 8px 8px 0 rgba(0,0,0,.4); }
+  .ab-portrait img { display: block; width: 100%; height: auto; image-rendering: pixelated; }
+  .ab-eyebrow { font: 11px var(--display); letter-spacing: .06em; color: var(--sage); text-transform: uppercase; }
+  .ab-id h1 { font: 700 clamp(36px, 6vw, 60px)/1 var(--display); color: var(--orange); margin: 8px 0 10px; text-shadow: 4px 4px 0 var(--russet); }
+  .ab-tag { font-size: 18px; color: var(--warm-white); margin: 0 0 14px; }
+  .ab-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .ab-chips li { font-size: 14px; background: var(--surface-2); border: 1px solid var(--teal); border-radius: 999px; padding: 5px 12px; color: var(--cream); }
+  .ab-block { background: var(--surface); border: 1px solid var(--teal); border-radius: 8px; padding: 18px; margin-bottom: 22px; }
+  .ab-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font: 13px var(--display); color: var(--orange); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 12px; }
+  .ab-head.sub { color: var(--sage); margin-top: 18px; }
+  .ab-head small { font: 13px var(--body); color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .ab-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .ab-stats div { background: var(--surface-2); border-radius: 6px; padding: 12px; display: flex; flex-direction: column; gap: 2px; }
+  .ab-stats strong { font: 24px var(--display); color: var(--cream); overflow-wrap: anywhere; }
+  .ab-stats span { font-size: 13px; color: var(--muted); }
+  .ab-foot { font-size: 13px; color: var(--sage); margin: 12px 0 0; }
+  .ab-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+  .ab-link { display: flex; gap: 12px; align-items: center; text-decoration: none; background: var(--surface-2); border: 1px solid var(--slate); border-radius: 6px; padding: 12px 14px; transition: border-color .15s, transform .15s; }
+  .ab-link:hover, .ab-link:focus-visible { border-color: var(--orange); transform: translateY(-2px); }
+  .ab-link b { font-size: 26px; width: 36px; text-align: center; flex: 0 0 36px; }
+  .ab-link strong { display: block; color: var(--warm-white); }
+  .ab-link em { display: block; font-style: normal; font-size: 13px; color: var(--muted); line-height: 1.35; }
+  .ab-link.coffee { border-color: var(--cream); }
+  @media (max-width: 760px) { .ab-hero { grid-template-columns: 1fr; } }
+</style>
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -40,11 +68,49 @@
     </div>
   </header>
   <script src="../../assets/ui/ms-nav.js?v=3"></script>
-  <div class="wrap">
-    <a class="back" href="../">← All memos</a>
+  <div class="wrap about-wrap">
     <div class="memo-strip"><span class="re">PERSONNEL FILE · RE:</span> <strong>Rami Daud</strong></div>
-    <div class="post-header"><h1>About Rami</h1></div>
-    <figure class="post-lead"><img src="../../assets/bio/rami-studio-pixel-v1.png" alt="Pixel-art portrait of Rami at his computer in a warmly lit studio, surrounded by artwork, books and creative equipment" width="1536" height="1024"></figure>
+
+    <section class="ab-hero">
+      <figure class="ab-portrait"><img src="../../assets/bio/rami-studio-pixel-v1.png" alt="Pixel-art portrait of Rami at his computer in a warmly lit studio, surrounded by artwork, books and creative equipment" width="1536" height="1024"></figure>
+      <div class="ab-id">
+        <div class="ab-eyebrow">Employee of the month (self-nominated)</div>
+        <h1>Rami Daud</h1>
+        <p class="ab-tag">Photographer. Grad student. First-time game dev, somewhere in his forties.</p>
+        <ul class="ab-chips">
+          <li>📷 20+ years behind the camera</li>
+          <li>🚀 NASA Glenn alum</li>
+          <li>🎓 Kent State · EMAT</li>
+          <li>🕹️ Game #1: Midlife Survivors</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ab-block">
+      <div class="ab-head"><span>Live stats</span><small id="ab-asof">Updating…</small></div>
+      <div class="ab-stats" id="ab-stats">
+        <div><strong>…</strong><span>builds shipped</span></div>
+        <div><strong>…</strong><span>days in development</span></div>
+        <div><strong>…</strong><span>devlog memos</span></div>
+        <div><strong>…</strong><span>current version</span></div>
+      </div>
+      <div class="ab-head sub"><span>The playtest so far</span></div>
+      <div class="ab-stats" id="ab-play"></div>
+      <p class="ab-foot">Counted from the build history and anonymous play stats. Refreshed every time a memo goes out.</p>
+    </section>
+
+    <section class="ab-block">
+      <div class="ab-head"><span>Find Rami elsewhere</span></div>
+      <div class="ab-links">
+        <a class="ab-link" href="https://ramidaud.com" rel="noopener"><b>📷</b><span><strong>ramidaud.com</strong><em>Photography and portfolio</em></span></a>
+        <a class="ab-link" href="https://substack.com/@ramidaud" rel="noopener"><b>🔭</b><span><strong>Framing the Cosmos</strong><em>Substack: how iconic space photos shape how we see the universe</em></span></a>
+        <a class="ab-link" href="https://discord.gg/E6N9j5tZe" rel="noopener"><b>💬</b><span><strong>Midlife Survivors Discord</strong><em>Playtest notes, art previews, #want-to-help</em></span></a>
+        <a class="ab-link coffee" href="https://ko-fi.com/ramidaud" rel="noopener"><b>☕</b><span><strong>Buy Rami a coffee</strong><em>The game is free. Tips keep the builds coming</em></span></a>
+        <a class="ab-link" href="../../"><b>▶</b><span><strong>Play Midlife Survivors</strong><em>Free, in your browser, on any device</em></span></a>
+        <a class="ab-link" href="../"><b>📝</b><span><strong>Read the devlog</strong><em>Every memo, in order</em></span></a>
+      </div>
+    </section>
+
     <article class="post">
       <div class="prose">
         <p>Rami Daud is a photographer who decided, somewhere in his forties, to make a video game.</p>
@@ -53,23 +119,31 @@
         <p><strong>Midlife Survivors</strong> is his first game. He brings the vision and the jokes; Claude, ChatGPT, Gemini and Grok help him build it. This devlog is the record of him learning how.</p>
       </div>
       <div class="changes-box">
-        <h3>Find Rami elsewhere</h3>
-        <ul>
-          <li><a href="https://substack.com/@ramidaud" rel="noopener">Framing the Cosmos on Substack</a></li>
-          <li><a href="https://ramidaud.com" rel="noopener">ramidaud.com</a>: photography and portfolio</li>
-          <li><a href="https://discord.gg/E6N9j5tZe" rel="noopener">Join the Midlife Survivors Discord</a>: playtest notes, art previews, and a #want-to-help channel if you'd like to build it with me</li>
-          <li><a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee on Ko-fi</a>: the game is free, and tips keep the builds (and the coffee) coming</li>
-          <li><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors</a></li>
-          <li><a href="../">Read the devlog</a></li>
-        </ul>
-      </div>
-      <div class="changes-box">
         <h3>Play stats and privacy</h3>
         <p>The game counts anonymous play stats so I can balance it: how long a run lasts, how far you get, what got you, and whether you're on a phone or a laptop. The site counts visits with GoatCounter. No names, no tracking cookies, nothing sold or shared. Your leaderboard name is separate and only saved if you choose to enter one. Add <code>?nostats=1</code> to the game's address to send nothing at all.</p>
       </div>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Still surviving. Still shipping builds.</div>
     </article>
   </div>
+  <script src="../../src/data/version.js"></script>
+  <script>
+  (function () {
+    const n = v => Number(v || 0).toLocaleString("en-US");
+    const ago = t => { const h = (Date.now() - new Date(t)) / 36e5; return h < 1 ? "just now" : h < 24 ? Math.round(h) + "h ago" : Math.round(h / 24) + "d ago"; };
+    const tile = (big, small) => `<div><strong>${big}</strong><span>${small}</span></div>`;
+    fetch("../data/stats.json", { cache: "no-store" }).then(r => r.json()).then(d => {
+      const builds = Array.isArray(d.builds) ? d.builds : [];
+      const days = Math.max(1, Math.ceil((Date.now() - new Date(d.firstCommit)) / 864e5));
+      const memos = d.posts ? Object.keys(d.posts).length : 0;
+      const ver = (typeof GAME_VERSION !== "undefined" && GAME_VERSION.displayVersion) || (builds.length ? "V. " + builds[builds.length - 1].v : "–");
+      document.getElementById("ab-stats").innerHTML = tile(n(builds.length), "builds shipped") + tile(n(days), "days in development") + tile(n(memos), "devlog memos") + tile(ver.replace("V. ", "v"), "current version");
+      const p = d.play || {};
+      const killer = p.topKillers && p.topKillers[0] ? p.topKillers[0][0] : "–";
+      document.getElementById("ab-play").innerHTML = tile(n(p.runs), "runs played") + tile(n(p.players), "players") + tile(n(p.enemiesDefeated), "enemies defeated") + tile(p.bestAge ? Number(p.bestAge).toFixed(1) : "–", "oldest anyone has lived") + tile(p.avgMinutes ? p.avgMinutes + " min" : "–", "average run") + tile(killer, "top cause of death");
+      document.getElementById("ab-asof").textContent = "Updated " + ago(d.generated);
+    }).catch(() => { document.getElementById("ab-asof").textContent = "Stats are taking a coffee break"; });
+  })();
+  </script>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="./">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
 </body>
 </html>
