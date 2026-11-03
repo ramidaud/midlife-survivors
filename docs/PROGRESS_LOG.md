@@ -911,3 +911,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami approved. enemy-art.js now loads the v2 sheets (8 frames at half the time each, same overall speed); Spam Likely walk 0-3 / ring 4-7, Back Twinge lunge 0-3 / rest 4-7, 3 AM Thought solid 0-3 / fade 4-5 / ghost 6-7. ENEMY_ART_VERSION = 1 switches back.
 - Pixel icons on level-up cards (64px), HUD avatar and character picker, from a transparent copy of ChatGPT's atlas (src/data/ui-icons.js). USE_PIXEL_ICONS = false switches back to emoji.
 - Tests: desktop and phone, no errors, v2 frames in use, all three cards and the avatar show pixel icons.
+- Wrote ChatGPT brief: 8-frame hero walk + idle sheets for all three characters (art only; Claude wires in after Rami approves).
