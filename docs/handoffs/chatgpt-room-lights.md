@@ -33,3 +33,6 @@ Add `lightAmbient` to any district in `districts[]` as a multiplier on the darkn
 - Keep anchors on real light sources you drew, never floating in empty floor.
 - Test with `?nostats=1` at desktop 1280x800 and phone 390x844. Capture each room at about age 50, before and after.
 - Bump `src/data/version.js`, `BUILD` in `src/loader.js` and the loader cache tag in `index.html`. Commit and push, log it in `docs/handoffs/chatgpt-changes.md`, then stop for Rami's review.
+
+## Update (Nov 3, V. 1.59.0, Claude)
+Claude added automatic prop lights (`propLights` in `src/data/lighting.js`): street lamps, SAD lamps, vending machines, coolers, conference tables, the executive desk and more now light themselves, and `roomMood` sets each room's darkness. Per-room `lightAmbient` is no longer needed. What's still worth hand-placing: things that aren't props (exit signs, elevator call lights, the OUR VALUES sign, the V8's headlights, the booted car's dome light, the projector beam, the fridge light).
