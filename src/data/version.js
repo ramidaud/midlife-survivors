@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.58.0",
-  displayVersion: "V. 1.58.0",
+  version: "1.58.1",
+  displayVersion: "V. 1.58.1",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 136,
+  build: 137,
   changelog: [
+    {
+      ver: "V. 1.58.1", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "New On Break portraits by ChatGPT on the pause screen. Your hero breathes for a bit, then takes a real break: the 9-to-5er sips his coffee, the Soccer Dad winces at the group chat, the Grad Student turns a page. Then everyone stretches their lower back."
+      ]
+    },
     {
       ver: "V. 1.58.0", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

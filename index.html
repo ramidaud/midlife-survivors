@@ -1331,6 +1331,10 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     .pt-hero .pause-hero { width: 112px; height: 120px; background-size: 896px 600px; background-position: 0 -480px; animation-name: pauseIdle2; margin: 0; }
   }
   @media (prefers-reduced-motion: reduce) { .pt-hero .pause-hero { animation: none; } }
+  /* ChatGPT's On Break portraits: drawn on a 96x112 canvas, scaled up in whole pixels */
+  .pt-hero canvas.break-portrait, canvas.break-portrait { width: 192px; height: 224px; background: none; animation: none; image-rendering: pixelated; }
+  @media (max-width: 900px), (orientation: portrait) { .pt-hero canvas.break-portrait { width: 96px; height: 112px; } }
+  @media (max-width: 900px) and (min-width: 600px) { .pt-hero canvas.break-portrait { width: 144px; height: 168px; } }
   .pause-actions { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; margin: 12px 0; }
   .pause-actions .opt-btn { margin: 0; min-height: 56px; }
   #ui-layer .pause-actions .pa-resume { justify-content: center; font-size: clamp(16px, 1.5vw, 20px); letter-spacing: 0.06em; box-shadow: 0 0 0 2px var(--ms-navy), 0 0 0 4px var(--ms-cream), 0 0 22px rgba(239,147,71,0.5); }
@@ -1528,7 +1532,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=136&t=" + Date.now();
+    s.src = "src/loader.js?v=137&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

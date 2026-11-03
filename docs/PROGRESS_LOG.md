@@ -1005,3 +1005,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The accounts poll pops up on the title screen (corner card on desktop, a "One quick question" pill on phones) until you vote or close it. The nav's Play button now says Title Screen.
 - About page redesign: poster hero with the pixel portrait, live dev and playtest stats (from the devlog stats file), and link tiles to ramidaud.com, Substack, Discord and Ko-fi.
 - ChatGPT delivered the On Break portrait sheets for all three heroes (next: wire them into the pause tile).
+- V. 1.58.1: ChatGPT's On Break portraits now play on the pause screen (breathe, then the hero's signature break or a back stretch). About tagline now reads "exploring midlife."

@@ -1123,14 +1123,42 @@ function activeEffectsHtml() {
 // A little 10-block volume meter, e.g. ■■■■■■■□□□ 70%
 function volBar(v) { const n = Math.round(v * 10); return `${"■".repeat(n)}${"□".repeat(10 - n)} ${Math.round(v * 100)}%`; }
 // The selected hero, idling on the pause screen (breathing, then a fidget): row 5 of the 8x5 hero sheet.
+// On Break portraits (ChatGPT, Nov 3): 96x112 cells. Row 0 breathes (6 frames), row 1 is the hero's
+// signature break, row 2 is a stretch. We breathe a few times, then play one of the other two, and repeat.
+const BREAK_SHEETS = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student" };
 function pauseHeroHtml() {
-  try {
-    const id = meta.selectedChar, sc = window.game && game.scene.scenes[0], key = "walk2_" + id;
+  const id = meta && meta.selectedChar, slug = BREAK_SHEETS[id];
+  if (slug) {
+    setTimeout(startBreakPortraits, 0);
+    return `<canvas class="pause-hero break-portrait" width="96" height="112" data-sheet="assets/characters/portraits/${slug}-on-break-v1.png" aria-hidden="true"></canvas>`;
+  }
+  try { // older fallback: the walk sheet's idle row
+    const sc = window.game && game.scene.scenes[0], key = "walk2_" + id;
     window._heroSheetUrls = window._heroSheetUrls || {};
     if (!window._heroSheetUrls[id] && sc && sc.textures.exists(key)) window._heroSheetUrls[id] = sc.textures.get(key).getSourceImage().toDataURL("image/png");
     const url = window._heroSheetUrls[id];
     return url ? `<div class="pause-hero" style="background-image:url(${url})" aria-hidden="true"></div>` : "";
   } catch (e) { return ""; }
+}
+function startBreakPortraits() {
+  document.querySelectorAll("canvas.break-portrait:not([data-on])").forEach(cv => {
+    cv.dataset.on = "1";
+    const img = new Image(), ctx = cv.getContext("2d");
+    const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const ROWS = [{ n: 6, ms: 220 }, { n: 8, ms: 140 }, { n: 8, ms: 150 }];
+    let queue = [], next = 1;
+    const plan = () => { queue = []; for (let b = 0; b < 3; b++) for (let f = 0; f < 6; f++) queue.push([0, f]);
+      for (let f = 0; f < ROWS[next].n; f++) queue.push([next, f]); next = next === 1 ? 2 : 1; };
+    const draw = (r, f) => { ctx.clearRect(0, 0, 96, 112); ctx.imageSmoothingEnabled = false; ctx.drawImage(img, f * 96, r * 112, 96, 112, 0, 0, 96, 112); };
+    const tick = () => {
+      if (!cv.isConnected) return;
+      if (!queue.length) plan();
+      const [r, f] = queue.shift(); draw(r, f);
+      setTimeout(tick, ROWS[r].ms);
+    };
+    img.onload = () => { if (still) draw(0, 0); else tick(); };
+    img.src = cv.dataset.sheet;
+  });
 }
 
 function renderPauseModal(scene, keepRowIdx) {
