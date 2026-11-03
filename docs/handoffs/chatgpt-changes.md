@@ -251,3 +251,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files.** assets/title-screen/README-v2.md links the ten exact-size JPGs and ten 50% guide overlays. The ten generation prompts and cast reference boards are in prompts-v2.
 - **For Claude.** Register slides 08–12 and select portrait files on narrow screens. Keep the green band aligned when checking the live viewport crop. The export review used the supplied static guides.
 - [done] Claude added the five v2 title scenes (desktop + portrait) to the title slideshow in V. 1.70.0 and retired the v1 slides (kept in title-art.js under retired). (Nov 3)
+
+## 2026-11-03: HR Exit Interview art (Codex)
+- **What.** Made defeated portraits for all four heroes, nine smug killer mugshots, and an empty HR office banner in desktop and phone compositions. Heroes slump, breathe and get back up. The 2× navy comparison shows all nine killers beside seated heroes.
+- **Files.** assets/ui/kill-screen/README.md links all sheets, banners, the check image and 21 GIFs. Used built-in imagegen with the existing hero, enemy and title art references, then cleaned the sprite sheets to native pixels.
+- **For Claude.** Hero cells are 96×112 at y111. Play row 0 once at 120 ms, loop the first six cells of row 1 at 220 ms, and play row 2 once at 140 ms on retry. Killer cells are 96×96 in a single four-frame row at 200 ms. Banners are 1200×360 and 800×400.
