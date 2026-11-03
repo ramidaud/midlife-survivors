@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.54.1",
-  displayVersion: "V. 1.54.1",
+  version: "1.54.2",
+  displayVersion: "V. 1.54.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 127,
+  build: 128,
   changelog: [
+    {
+      ver: "V. 1.54.2", date: "Nov 3, 2026", title: "On Break",
+      highlights: ["Each title slide now moves around its subject: some start tight on the hero and pull back to reveal the scene, others drift slowly toward him. Phones crop on the same spot, so the hero stays in frame."]
+    },
     {
       ver: "V. 1.54.1", date: "Nov 3, 2026", title: "On Break",
       highlights: ["A new pause screen built from tiles: a big Resume up top, then This Shift (age, health and XP bars, time, enemies paid off, 401(k)), Your Loadout (every weapon and perk with its level) and Settings."]

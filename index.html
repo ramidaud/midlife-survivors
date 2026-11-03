@@ -1305,16 +1305,11 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #title-slides[hidden] { display: none; }
   .ts-slide { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; opacity: 0;
     transition: opacity var(--ts-fade, 1800ms) ease-in-out; image-rendering: pixelated; will-change: opacity, transform; }
-  .ts-slide.on { opacity: 1; animation: tsDrift var(--ts-run, 12600ms) linear forwards; }
-  .ts-slide[data-drift="left"].on  { animation-name: tsLeft; }
-  .ts-slide[data-drift="right"].on { animation-name: tsRight; }
-  .ts-slide[data-drift="up"].on    { animation-name: tsUp; }
-  .ts-slide[data-drift="down"].on  { animation-name: tsDown; }
-  @keyframes tsDrift { from { transform: scale(1.0); } to { transform: scale(var(--ts-zoom, 1.07)); } }
-  @keyframes tsLeft  { from { transform: scale(var(--ts-zoom, 1.07)) translateX(1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateX(-1.5%); } }
-  @keyframes tsRight { from { transform: scale(var(--ts-zoom, 1.07)) translateX(-1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateX(1.5%); } }
-  @keyframes tsUp    { from { transform: scale(var(--ts-zoom, 1.07)) translateY(1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateY(-1.5%); } }
-  @keyframes tsDown  { from { transform: scale(var(--ts-zoom, 1.07)) translateY(-1.5%); } to { transform: scale(var(--ts-zoom, 1.07)) translateY(1.5%); } }
+  .ts-slide.on { opacity: 1; animation: tsPush var(--ts-run, 12600ms) ease-out forwards; }
+  .ts-slide[data-move="reveal"].on { animation-name: tsReveal; }
+  /* push: drift slowly in toward the focus point. reveal: start tight on it and pull back to show the scene */
+  @keyframes tsPush   { from { transform: scale(1.0); } to { transform: scale(var(--ts-zoom, 1.12)); } }
+  @keyframes tsReveal { from { transform: scale(var(--ts-zoom, 1.12)); } to { transform: scale(1.0); } }
   @media (prefers-reduced-motion: reduce) { .ts-slide.on { animation: none !important; } }
   /* With the slideshow behind it, the main title keeps only the scanlines and a soft vignette */
   #ui-layer[data-theme="0"] #title-modal[data-view="main"] {
@@ -1359,7 +1354,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=127&t=" + Date.now();
+    s.src = "src/loader.js?v=128&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

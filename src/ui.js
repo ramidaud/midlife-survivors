@@ -2392,14 +2392,16 @@ window.TitleSlides = (() => {
     root.style.setProperty("--ts-fade", A.fadeMs + "ms");
     root.style.setProperty("--ts-run", (A.holdMs + A.fadeMs * 2) + "ms");
     root.style.setProperty("--ts-zoom", A.zoom);
-    root.innerHTML = A.slides.map((sl, i) => `<div class="ts-slide" data-i="${i}" data-drift="${sl.drift || "in"}"></div>`).join("");
+    root.innerHTML = A.slides.map((sl, i) => `<div class="ts-slide" data-i="${i}" data-move="${sl.move || "push"}"></div>`).join("");
     host.parentNode.insertBefore(root, host);
     return root;
   }
   function paint(i) {
     const A = window.TITLE_ART, sl = A.slides[i], el = root.children[i];
     if (!el.style.backgroundImage) el.style.backgroundImage = `url("${sl.src}")`;
-    el.style.backgroundPosition = phone() ? (sl.phonePos || sl.pos) : sl.pos;
+    const focus = sl.focus || (phone() ? (sl.phonePos || sl.pos) : sl.pos) || "50% 50%";
+    el.style.backgroundPosition = focus;   // keep the subject in the crop on every screen
+    el.style.transformOrigin = focus;      // and grow the motion out of that same point
     // Punch In only points at the time clock when the time clock is in the picture.
     const modal = document.getElementById("title-modal");
     if (modal) modal.dataset.pointer = sl.pointer ? "1" : "0";
