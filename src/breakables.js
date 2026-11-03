@@ -15,6 +15,7 @@ window.Breakables = (() => {
 
   // Find start-area props that can break and tag them (runs now and then, since the room builds in the background).
   function scan(scene, now) {
+    if (scanAt - now > 1000) { scanAt = 0; lastLine = -1e9; } // new run: the run clock went back to 0
     if (now < scanAt || !window.propGroup) return; scanAt = now + 1000;
     propGroup.getChildren().forEach(o => {
       if (o.brk !== undefined || !o.sliceMeta) return;

@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.59.1",
-  displayVersion: "V. 1.59.1",
+  version: "1.59.2",
+  displayVersion: "V. 1.59.2",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 139,
+  build: 140,
   changelog: [
+    {
+      ver: "V. 1.59.2", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "Fixed the force field: on your second run without a refresh, enemies could steer away from you because their route map was stuck where your last run ended. Found by TJ."
+      ]
+    },
     {
       ver: "V. 1.59.1", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

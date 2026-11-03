@@ -106,6 +106,10 @@
   // Called once per frame from main.js; rebuilds the field when it's stale.
   NAV.update = function (scene, player, now) {
     if (!NAV.enabled || !player) return;
+    // A new run restarts the run clock at 0. Without this, lastBuild kept the old run's time,
+    // so the field froze around the spot where you died and enemies steered away from you
+    // (the "force field" TJ found on his second run, Nov 3).
+    if (now < lastBuild) { lastBuild = -1e9; lastPc = -1; ready = false; }
     const pc = Math.floor(player.x / NAV.cell) * 100003 + Math.floor(player.y / NAV.cell);
     if (now - lastBuild < NAV.refreshMs && pc === lastPc) return;
     if (now - lastBuild < NAV.refreshMs / 3) return; // moving fast: still cap the rebuild rate

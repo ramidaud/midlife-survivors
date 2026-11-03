@@ -52,6 +52,7 @@ window.Juice = (() => {
 
   // Dust puffs at your feet while you walk.
   function step(scene, player, moving, now, hero) {
+    if (now < lastDust) lastDust = 0; // new run
     if (!JUICE.dust || !moving || now - lastDust < JUICE.dustEveryMs) return;
     lastDust = now;
     const feetY = player.y + (player.height || 52) / 2 - 2;
