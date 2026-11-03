@@ -1,6 +1,6 @@
 // Achievements (from Rami's design doc). Each one listens for a game event and unlocks once, forever.
 // Rewards are 401(k) coins (in thousands). Rename them, change rewards, or add new ones freely.
-//   on:    which event it listens for (kill, bossKill, split, evolve, plant, pizzaAfterSlow, death, clear, age, shopMax, swarmSurvived)
+//   on:    which event it listens for (kill, bossKill, split, evolve, plant, pizzaAfterSlow, death, clear, age, shopMax, swarmSurvived, devlog)
 //   test:  (data, run, life) => true when earned. run = this run's counters, life = lifetime counters.
 window.ACHIEVEMENTS = [
   { id: "firstCoffee",   icon: "📧", name: "Per My Last Email",         desc: "Pay off 50 Bills in one run.",            reward: 3,  on: "kill", test: (d, run) => run.bills >= 50 },
@@ -15,6 +15,7 @@ window.ACHIEVEMENTS = [
   { id: "q3Met",         icon: "📈", name: "Exceeds Expectations",      desc: "Beat the Performance Review.",            reward: 5,  on: "bossKill", test: d => d.kind === "performanceReview" },
   { id: "escrowHero",    icon: "🏠", name: "Initial Here",              desc: "Beat the 30-Year Mortgage.",              reward: 6,  on: "bossKill", test: d => d.kind === "mortgageRefinance" },
   { id: "keepTheSedan",  icon: "🚗", name: "Keep The Sedan",            desc: "Beat the Midlife Crisis V8.",             reward: 8,  on: "bossKill", test: d => d.kind === "midlifeCrisis" },
+  { id: "requiredReading", icon: "📚", name: "Required Reading",       desc: "Finish 10 devlog memos (scroll to the end of each).", reward: 10, on: "devlog", test: d => d.read >= 10 },
   { id: "retired",       icon: "🎂", name: "Retirement Plan",           desc: "Reach your Retirement Party in Midlife. Unlocks Full Life.", reward: 10, on: "clear", test: d => d.mode === "midlife" },
   { id: "grassLegal",    icon: "📏", name: "0.2 Inches Legal",          desc: "Beat the HOA Board President.",           reward: 8,  on: "bossKill", test: d => d.kind === "hoaPresident" },
   { id: "vested",        icon: "🪙", name: "Fully Vested",              desc: "Reach age 80.",                           reward: 10, on: "age", test: d => d.age >= 80 },

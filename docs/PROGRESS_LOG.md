@@ -954,3 +954,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rewards apply automatically instead of opening a pick-one menu. The first beam prefers an evolution or a new weapon. Placeholder chest art until ChatGPT's sheets land.
 - Devlog: screened key-art background with a soft pixel texture, a pop-up hint bubble on the reading-order toggle, a real header for the memo list ("The whole story, in order." / "What just shipped.") with a short technical subhead, and the nav now says "Memos".
 - Fixed the devlog leaderboard: an extra `_` in the request address made the database reject every request.
+
+## 2026-11-03: Your employee file + Required Reading (V. 1.48.1)
+- The devlog has a "Your employee file" card on the home page and every post: best Midlife score, oldest age, 401(k) balance and achievements, read from the game's save in the same browser. Nothing is sent anywhere.
+- A memo counts as read only when you scroll to the end, and a small toast says "Memo finished, 3 of 10."
+- Finish 10 memos, then clock in: the **Required Reading** achievement unlocks (+10k 401(k)). Only 8 memos are out, so the first unlock lands with memo 10.

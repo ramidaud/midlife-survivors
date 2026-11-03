@@ -288,6 +288,8 @@ function create() {
   runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
+  // Devlog memos finished in this browser (the devlog saves them under "devlog-read"): Required Reading achievement.
+  try { const readN = JSON.parse(localStorage.getItem("devlog-read") || "[]").length; if (readN) setTimeout(() => window.achEvent("devlog", { read: readN }), 1500); } catch (e) {}
   dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
   coinFrac = 0; xpFrac = 0;
   if (window.NearMiss) window.NearMiss.reset(); // Close Call streak starts fresh every run

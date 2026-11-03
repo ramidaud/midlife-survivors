@@ -72,6 +72,42 @@
     document.querySelectorAll(".sort-wrap").forEach(w => { w.classList.remove("tip-show"); w.classList.add("tip-off"); });
   });
   let currentSlug = null;
+
+  // "Your employee file": this reader's own numbers. The game and the devlog share one web address,
+  // so we can read the game's save in this browser. Nothing is sent anywhere.
+  const READ_GOAL = 10;
+  function readJSON(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function renderStats() {
+    const els = document.querySelectorAll(".your-file");
+    if (!els.length) return;
+    const meta = readJSON("midlife_survivors_save_v1", null);
+    const scores = readJSON("ms-local-scores-v1", []).filter(r => (r.mode || "full") === "midlife");
+    let name = ""; try { name = localStorage.getItem("ms-player-name") || ""; } catch (e) {}
+    const best = scores.length ? Math.max(...scores.map(r => r.score || 0)) : 0;
+    const bestAge = meta && meta.bestAge && meta.bestAge > 40 ? Number(meta.bestAge).toFixed(1) : "";
+    const ach = meta && meta.achievements && meta.achievements.unlocked ? Object.keys(meta.achievements.unlocked).length : 0;
+    const coins = meta ? Math.round(meta.coins || 0) : 0;
+    const readN = readSet.size, pct = Math.min(100, Math.round(readN / READ_GOAL * 100));
+    const unlocked = meta && meta.achievements && meta.achievements.unlocked && meta.achievements.unlocked.requiredReading;
+    const played = !!(meta && (bestAge || best || coins));
+    const goalLine = unlocked ? `<b>Required Reading</b> is yours. Thanks for reading the fine print.`
+      : readN >= READ_GOAL ? `<b>Unlocked!</b> Clock in to claim <b>Required Reading</b> (+10k 401(k)).`
+      : `Finish ${READ_GOAL} memos to unlock <b>Required Reading</b> in the game.${posts.length < READ_GOAL ? ` ${posts.length} are out so far, more on the way.` : ""}`;
+    const html = `
+      <div class="side-eyebrow">Your employee file</div>
+      <div class="file-name">${played ? esc(name || "Unnamed employee") : "New hire"}<span>${played ? "Personnel record, this browser" : "No runs on file yet"}</span></div>
+      ${played ? `<div class="stat-grid">
+        <div><strong>${best ? best.toLocaleString("en-US") : "–"}</strong><span>best score${best ? "" : " (submit one!)"}</span></div>
+        <div><strong>${bestAge || "40"}</strong><span>oldest age</span></div>
+        <div><strong>${coins.toLocaleString("en-US")}k</strong><span>401(k) balance</span></div>
+        <div><strong>${ach}</strong><span>achievements</span></div>
+      </div>` : `<a class="btn btn-primary side-play" href="../">▶ Clock in for your first run</a>`}
+      <div class="mini-head">Memos finished · ${readN} of ${READ_GOAL}</div>
+      <div class="series-progress goal"><span style="width:${pct}%"></span></div>
+      <p class="file-goal">${goalLine}</p>
+      <p class="side-foot">Saved in this browser only. A memo counts when you scroll to the end.</p>`;
+    els.forEach(el => { el.innerHTML = html; });
+  }
   document.addEventListener("click", e => {
     const b = e.target.closest("[data-sort]");
     if (!b) return;
@@ -151,6 +187,7 @@
       </li>`).join("")}</ul>`;
     if (window.DevlogHome) window.DevlogHome.stampPosts();
     popSortTip(listMain);
+    renderStats();
   }
 
   // Post sidebar: every memo in reading order, with "you are here" and check marks.
@@ -219,6 +256,25 @@
     const total = r.height - window.innerHeight * 0.6;
     const pct = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
     progressBar.style.width = (pct * 100).toFixed(1) + "%";
+    // Reaching the end of a memo counts it as read (feeds the Required Reading bonus in the game).
+    if (pct >= 0.97 && currentSlug && !readSet.has(currentSlug)) {
+      markRead(currentSlug);
+      renderSeries(currentSlug);
+      renderStats();
+      finishedToast();
+    }
+  }
+  function finishedToast() {
+    const n = readSet.size, goal = READ_GOAL;
+    const t = document.createElement("div");
+    t.className = "read-toast";
+    t.setAttribute("role", "status");
+    t.innerHTML = n >= goal
+      ? `<b>✓ Memo finished.</b> ${n} read. <em>Required Reading unlocked:</em> clock in to claim it.`
+      : `<b>✓ Memo finished.</b> ${n} of ${goal} toward <em>Required Reading</em>.`;
+    document.body.appendChild(t);
+    requestAnimationFrame(() => t.classList.add("show"));
+    setTimeout(() => { t.classList.remove("show"); setTimeout(() => t.remove(), 400); }, 4200);
   }
   window.addEventListener("scroll", updateProgress, { passive: true });
   window.addEventListener("resize", updateProgress);
@@ -311,8 +367,8 @@
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
-    markRead(post.slug);
     renderSeries(post.slug);
+    renderStats();
     if (window.DevlogHome) { window.DevlogHome.stampPosts(); window.DevlogHome.postBuilds(post.slug); }
     if (window.initSidenotes) initSidenotes(postMain);
     if (window.initCodeCards) initCodeCards(postMain);

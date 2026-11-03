@@ -752,3 +752,18 @@ body::after {
 .sort-wrap.tip-show .sort-tip { opacity: 1; transform: none; pointer-events: auto; }
 @media (hover: hover) { .sort-wrap:not(.tip-off):hover .sort-tip { opacity: 1; transform: none; pointer-events: auto; } }
 @media (prefers-reduced-motion: reduce) { .sort-tip { transition: none; } }
+
+/* Your employee file + memo-finished toast (Nov 3) */
+.your-file { border-color: var(--teal); background: linear-gradient(160deg, rgba(62,119,117,.16), var(--surface) 55%); }
+.file-name { font-weight: 700; font-size: 20px; color: var(--warm-white); margin-bottom: 10px; line-height: 1.2; }
+.file-name span { display: block; font-weight: 400; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.series-progress.goal span { background: linear-gradient(90deg, var(--sage), var(--orange)); }
+.file-goal { margin: 8px 0 0; font-size: 13px; color: var(--fg); line-height: 1.4; }
+.file-goal b { color: var(--orange); }
+.read-toast { position: fixed; left: 50%; bottom: 20px; z-index: 70; transform: translate(-50%, 20px); opacity: 0;
+  max-width: min(440px, calc(100vw - 32px)); background: var(--warm-white); color: var(--navy); font-size: 14px; line-height: 1.4;
+  padding: 10px 14px; border-radius: 8px; border: 2px solid var(--navy); box-shadow: 0 0 0 2px var(--sage), 0 12px 28px rgba(0,0,0,.5);
+  transition: opacity .25s, transform .25s; }
+.read-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.read-toast b { color: var(--teal); } .read-toast em { font-style: normal; font-weight: 700; color: var(--russet); }
+@media (prefers-reduced-motion: reduce) { .read-toast { transition: none; } }

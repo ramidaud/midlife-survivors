@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.48.0",
-  displayVersion: "V. 1.48.0",
+  version: "1.48.1",
+  displayVersion: "V. 1.48.1",
   lastUpdated: "Nov 3, 2026",
   codename: "Bonus Approved",
-  build: 114,
+  build: 115,
   changelog: [
+    {
+      ver: "V. 1.48.1", date: "Nov 3, 2026", title: "Required Reading",
+      highlights: ["New achievement: Required Reading (+10k). Finish 10 memos on the devlog (scroll to the end of each), then clock in. The devlog now shows your own employee file too: best score, oldest age, 401(k) balance and achievements."]
+    },
     {
       ver: "V. 1.48.0", date: "Nov 3, 2026", title: "Bonus Approved",
       highlights: [

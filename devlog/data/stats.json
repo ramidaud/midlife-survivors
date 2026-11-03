@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T05:15:47+00:00",
+ "generated": "2026-11-03T06:17:39+00:00",
  "firstCommit": "2026-10-30T12:00:07-04:00",
  "builds": [
   {
@@ -571,6 +571,12 @@
    "at": "2026-11-02T22:34:15-05:00",
    "title": "Still on Mute",
    "note": "Six coworkers bring the office to life with small desk routines, reactions when you pass, and their own office memos."
+  },
+  {
+   "v": "1.48.0",
+   "at": "2026-11-03T01:09:27-05:00",
+   "title": "Bonus Approved",
+   "note": "Boss chests are a real moment now. The game pauses on a BONUS APPROVED card. Press OPEN and the chest shakes, light beams shoot up, rewards "
   }
  ],
  "posts": {
