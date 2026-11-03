@@ -33,7 +33,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 - [x] **Healing 3:** the Lounge counter in the Break Room (V. 1.63.0); title version line and credits (V. 1.63.1)
 - [x] **Retirement screen** with ChatGPT's art (V. 1.64.0)
 - [x] **Age 50+ run modifiers** (V. 1.65.0)
-- [ ] **Spotlight cards, Style B** (copy from Gemini: docs/handoffs/gemini-spotlight-cards.md)
+- [x] **Spotlight cards, Style B** (V. 1.66.0) (copy from Gemini: docs/handoffs/gemini-spotlight-cards.md)
 
 ## Next up (planned Oct 31, usage-light: one session per item)
 1. [x] **Playtest fix pack (V. 1.20.0):** Retry touch bug, tap-to-confirm perks, joke wrapping + quieter jokes, Start over Resume, plain rarity labels, coin economy fix, softer first minutes, leaderboard shows personal bests only with no top-10 cap

@@ -84,7 +84,7 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
   <section class="clock" aria-label="Progress through the phases">
     <div class="bar" id="bar"></div>
     <div class="ages"><span>Sprint</span><span>Fun Pass</span><span>Next up</span><span>Share</span><span>Steam</span><span>Later</span></div>
-    <p class="now-line">You are here: <b>Next up · Spotlight cards</b> <span id="count"></span></p>
+    <p class="now-line">You are here: <b>Next up · friends' pixel art</b> <span id="count"></span></p>
   </section>
 
   <section class="next">
@@ -95,7 +95,8 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
       <li>Get Derek's intern lines.</li>
       <li>Done: interns with coffee (1.62), the Lounge (1.63), version line on the title, updated credits.</li>
       <li>Done: Retirement party (1.64) and age 50+ modifiers (1.65).</li>
-      <li>Next: Spotlight cards with Gemini's copy.</li>
+      <li>Done: Spotlight cards (1.66).</li>
+      <li>Next: paste the sprite brief for Ben, TJ and Derek into ChatGPT with their photos.</li>
       <li>After that: Spotlight cards with Gemini's copy.</li>
     </ol>
   </section>
@@ -124,7 +125,7 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
     </div>
   </section>
 
-  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: ramidaud.github.io/midlife-survivors. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Nov 3, 2026 (Life Happens, V. 1.65.0).</p>
+  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: ramidaud.github.io/midlife-survivors. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Nov 3, 2026 (Spotlight, V. 1.66.0).</p>
 </div>
 
 <script>
@@ -135,7 +136,7 @@ const PHASES = [
     ["Clean screen HUD (V. 1.9.0)",1],["Lower third: on-demand alerts and tips (V. 1.10.0)",1],["Title screen: pick a character, then start (V. 1.11.0)",1],["Game Tips switch in the Pause menu (V. 1.12.0)",1],["Menu fixes from the UI test run (V. 1.13.0)",1],["Credits, not cameo (V. 1.14.0)",1],
     ["Run length: 1 minute per year, Death at 100 (V. 1.15.0)",1],["Intensity curve + swarm events (V. 1.16.0)",1],["Enemy variety (V. 1.17.0)",1],["More weapons (V. 1.18.0)",1],["Scores + leaderboard (V. 1.19.0)",1],["First twist: Errands",0],["Art direction + bigger, funnier pixel-art world",0]]},
   {n:"Next up: from playtest to real game", w:"Now", learn:"Press vs. release, economy tuning, personal bests", t:[
-    ["Playtest fix pack (V. 1.20.0)",1],["Core 19-minute run: ages 40 to 65 (V. 1.21.0)",1],["Content drop + discoverable items (V. 1.22.0)",1],["Achievements (V. 1.23.0)",1],["Art pass: heroes, enemies, office in the game (V. 1.28.13)",1],["Stage art pass: funnier, more props and inside jokes",0],["Enemy navigation: swarms walk around furniture (V. 1.29.0)",1],["Close Calls: near-miss rewards and streak meter (V. 1.30.0)",1],["Bosses, chests and elites (V. 1.34 to 1.49)",1],["Poster title screen and one look everywhere (V. 1.50 to 1.58)",1],["Office lighting (V. 1.57 to 1.59)",1],["Dev console for playtesters (V. 1.60.0)",1],["Healing 1: birthday cake and Desk Salad (V. 1.61.0)",1],["Healing 2: interns bring coffee (V. 1.62.0)",1],["Healing 3: the Lounge (V. 1.63.0)",1],["Retirement screen (V. 1.64.0)",1],["Age 50+ run modifiers (V. 1.65.0)",1],["Spotlight cards (Style B)",0],["Discoverable map + bigger world",0],["Accounts / cloud saves",0],["Errands, Daily Challenge, gallery",0],["Version archive + devlog posts (6 posts live)",1],["AI layer proof of concept",0]]},
+    ["Playtest fix pack (V. 1.20.0)",1],["Core 19-minute run: ages 40 to 65 (V. 1.21.0)",1],["Content drop + discoverable items (V. 1.22.0)",1],["Achievements (V. 1.23.0)",1],["Art pass: heroes, enemies, office in the game (V. 1.28.13)",1],["Stage art pass: funnier, more props and inside jokes",0],["Enemy navigation: swarms walk around furniture (V. 1.29.0)",1],["Close Calls: near-miss rewards and streak meter (V. 1.30.0)",1],["Bosses, chests and elites (V. 1.34 to 1.49)",1],["Poster title screen and one look everywhere (V. 1.50 to 1.58)",1],["Office lighting (V. 1.57 to 1.59)",1],["Dev console for playtesters (V. 1.60.0)",1],["Healing 1: birthday cake and Desk Salad (V. 1.61.0)",1],["Healing 2: interns bring coffee (V. 1.62.0)",1],["Healing 3: the Lounge (V. 1.63.0)",1],["Retirement screen (V. 1.64.0)",1],["Age 50+ run modifiers (V. 1.65.0)",1],["Spotlight cards (V. 1.66.0)",1],["Ben, TJ and Derek pixel art (ChatGPT)",0],["Discoverable map + bigger world",0],["Accounts / cloud saves",0],["Errands, Daily Challenge, gallery",0],["Version archive + devlog posts (6 posts live)",1],["AI layer proof of concept",0]]},
   {n:"Phase 6: Share it", w:"Started Nov 1", learn:"Playtesting with real people", t:[
     ["Ko-fi tip jar, Discord and link previews",1],["Playtest with friends (TJ, Derek and crew)",1],["Platform goal: Steam, then consoles",1],["Optional: an EMAT write-up about the process",0]]},
   {n:"Platforms: Steam, then PlayStation and Xbox", w:"After the browser game", learn:"Desktop wrappers, Steamworks, console porting", t:[
