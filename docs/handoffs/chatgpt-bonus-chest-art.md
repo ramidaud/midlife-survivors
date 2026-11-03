@@ -1,6 +1,6 @@
 # ChatGPT brief: Bonus Chest and payout art (queued after the office layout, Nov 3, 2026)
 
-**Do this after the Lobby and Bullpen build is approved.** Claude is building the Bonus Chest *moment* now, using placeholder art. This brief is the real art that slots into it. Art only, no game logic.
+**Go (Nov 3): the Courtyard Loop is approved.** The Bonus Chest *moment* is live in V. 1.48.0+ with placeholder art (see `src/bonus-chest.js`). Play it once before you draw. This brief is the real art that slots into it. Art only, no game logic.
 
 ## The moment (so the art fits)
 When you beat a boss and walk over its chest:
@@ -31,6 +31,9 @@ Rami's reference is the Vampire Survivors chest opening (he sent screenshots). T
 - 1 px navy outlines, warm light from upper left, crisp pixels, transparent backgrounds.
 - It should match the approved hero and enemy sheets.
 
+## Also in this job: one icon fix
+- `Reading Glasses` in `assets/ui-icons/` is navy on our navy cards and nearly disappears. Give it a cream or teal frame highlight so it reads on #171C35. Keep the 1 px outline style.
+
 ## Rules
-- **Your files:** `assets/ui/bonus/` only. Don't edit `src/`, `index.html` or `CLAUDE.md`.
+- **Your files:** `assets/ui/bonus/` and the one icon in `assets/ui-icons/`. Don't edit `src/`, `index.html` or `CLAUDE.md`.
 - No version bump. Commit and push, log it in `docs/handoffs/chatgpt-changes.md`, then stop. Claude wires it in.
