@@ -912,3 +912,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Pixel icons on level-up cards (64px), HUD avatar and character picker, from a transparent copy of ChatGPT's atlas (src/data/ui-icons.js). USE_PIXEL_ICONS = false switches back to emoji.
 - Tests: desktop and phone, no errors, v2 frames in use, all three cards and the avatar show pixel icons.
 - Wrote ChatGPT brief: 8-frame hero walk + idle sheets for all three characters (art only; Claude wires in after Rami approves).
+- Reviewed ChatGPT's 8-frame hero sheets (1878c5d): all three 448x300, v1 files untouched, one foot line per character (walk and idle), on-model in all directions; idle fidgets: glasses push, neck rub, notebook check. Awaiting Rami's approval to wire in.
