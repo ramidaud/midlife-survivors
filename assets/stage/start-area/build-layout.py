@@ -203,7 +203,9 @@ for i,worker in enumerate(result['workers']):
  worker['cast']=cast[i%len(cast)]
  worker['colorway']=i//len(cast)%2
  worker['phase']=(i*197+i//len(cast)*71)%1120
+from room_data_layout import apply_layout
+apply_layout(result,R)
 (R/'layout.json').write_text(json.dumps(result,indent=2)+'\n')
 repo=R.parents[2]
 (repo/'src/data/start-area.js').write_text('window.USE_START_AREA = true;\nwindow.START_AREA_LAYOUT = '+json.dumps(result,separators=(',',':'))+';\n')
-print(f"Slice authored: {len(placements)} props, {len(workers)} coworker seats, {len(walls)} boundary/partition pieces, six 224px gates; age60 closed.")
+print(f"Slice authored: {len(result['placements'])} prop placements, {len(result['workers'])} coworker seats, {len(walls)} boundary pieces and six 224px gates.")

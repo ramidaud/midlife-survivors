@@ -1,0 +1,83 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Courtyard Loop review</title><style>html,body{margin:0;width:100%;height:100%;background:#171c35}iframe{border:0;width:100%;height:100%;display:block}aside{position:fixed;right:4px;bottom:4px;max-width:340px;background:#171c35ed;color:#fff0cf;padding:8px;font:11px monospace;z-index:99999}button{margin:2px}pre{white-space:pre-wrap;max-height:180px;overflow:auto}</style><iframe id="game" title="Isolated start-area game"></iframe><aside><strong>COURTYARD LOOP · isolated review</strong><br><button id="check">Check</button><button id="lobby">Lobby arrival</button><button id="commons">Commons</button><button id="apron">South apron</button><button id="overview">Overview</button><button id="seats">Seated coworkers</button><button id="explore">Explore</button><button id="cw">Chase clockwise</button><button id="ccw">Chase counterclockwise</button><button id="stress">350 enemies</button><button id="hide">Hide checks</button><pre id="report">Loading. In-memory saves; stats blocked.</pre></aside><button id="show" hidden style="position:fixed;right:8px;bottom:8px;z-index:99999">Show review controls</button><script>
+
+
+if(new URLSearchParams(location.search).has('desktop')){document.querySelector('iframe').style.cssText='width:1280px;height:800px';document.body.style.minHeight='800px';}
+if(new URLSearchParams(location.search).has('phone')){document.querySelector('iframe').style.cssText='width:390px;height:844px';document.body.style.minHeight='844px';}
+document.querySelectorAll('aside button').forEach(b=>b.disabled=true);
+const phase=new URLSearchParams(location.search).get('phase')||'after';const f=document.querySelector('iframe'),out=document.querySelector('#report'),R={phase,errors:[],warnings:[],leaderboardRequests:0};let w,timer;
+const say=()=>out.textContent=JSON.stringify(R,null,1),run=s=>w.eval(s),wait=ms=>new Promise(r=>setTimeout(r,ms));
+addEventListener('message',e=>{if(e.source!==f.contentWindow)return;for(const key of ['error','warning'])if(e.data[key])R[key+'s'].push(e.data[key]);if(e.data.stack)(R.stacks||(R.stacks=[])).push(e.data.stack);if(e.data.leaderboard)R.leaderboardRequests++;say();});
+(async()=>{const html=await(await fetch('../../../index.html?nostats=1')).text(),base=new URL('../../../',location.href);let safeHtml=html.replace(/<script[^>]*src="https:\/\/gc\.zgo\.at[^>]*><\/script>/g,'');if(phase==='before')safeHtml=safeHtml.replace('src/loader.js?v=','assets/stage/start-area/qa-courtyard/before-loader.js?v=');const setup=`<base href="${base}"><script>window.TELEMETRY_OFF=true;window.goatcounter={count:()=>{}};const memory=new Map();Object.defineProperty(window,'localStorage',{value:{getItem:k=>memory.get(k)||null,setItem:(k,v)=>memory.set(k,String(v)),removeItem:k=>memory.delete(k),clear:()=>memory.clear()}});const oldFetch=fetch.bind(window);window.fetch=(input,opt)=>/supabase\.co|goatcounter\.com|gc\.zgo\.at/.test(String(input))?(parent.postMessage({leaderboard:true},'*'),Promise.resolve(new Response('[]',{status:200,headers:{'Content-Type':'application/json'}}))):oldFetch(input,opt);addEventListener('error',e=>parent.postMessage({error:e.message,stack:e.error&&e.error.stack},'*'));addEventListener('unhandledrejection',e=>parent.postMessage({error:String(e.reason)},'*'));const warn=console.warn;console.warn=(...a)=>{parent.postMessage({warning:a.join(' ')},'*');warn(...a);};<\/script>`;f.srcdoc=setup+safeHtml;const poll=setInterval(()=>{w=f.contentWindow;if(!w._activeGameScene||!w._activeGameScene.worldArt||!w._activeGameScene.worldArt.startArea)return;clearInterval(poll);run('muted=true;voiceEnabled=false;unlockAudio=()=>{};');R.ready=true;document.querySelectorAll('aside button').forEach(b=>b.disabled=false);check();},100);})();
+function start(){run('if(titleOpen&&startFromTitle)startFromTitle();paused=false;_activeGameScene.physics.resume();_activeGameScene.time.paused=false;spawnTimer.paused=true;fireTimer.paused=true;hp=stats.maxHp=100000;');}
+function pause(){run('paused=true;_activeGameScene.physics.pause();touch.active=false;_heldKeys.clear();');}
+function clean(){run('window.qaBill?.destroy();window.qaBill=null;const cam=_activeGameScene.cameras.main;if(window.qaZoom){cam.setZoom(window.qaZoom);window.qaZoom=0;}bills.getChildren().slice().forEach(e=>{if(e.tag)e.tag.destroy();e.destroy();});pings.clear(true,true);');}
+function tour(name){clearInterval(timer);start();pause();clean();run(`const point=START_AREA_LAYOUT.tour[${JSON.stringify(name)}];player.setPosition(point[0],point[1]-player.height/2);player.body.updateFromGameObject();_activeGameScene.cameras.main.centerOn(player.x,player.y);`);}
+function check(){R.slice=run(`(()=>{const a=_activeGameScene.worldArt.startArea, seats=a.data.workers.filter(w=>w.seated);
+const sceneActors=(a.data.officeLoop?.scenes||[]).map(w=>a.items.find(o=>o.sliceId===w.id));
+const chairOrder=seats.every(w=>{const chair=a.items.find(o=>o.sliceId==='chair-'+w.host),person=a.items.find(o=>o.sliceId===w.id),desk=a.items.find(o=>o.sliceId===w.host);return chair?.body&&person&&!person.body&&desk?.body&&chair.sliceDepth<person.sliceDepth&&person.sliceDepth<desk.sliceDepth});
+return {seats:seats.length,chairOrder,standing:sceneActors.length,standingNonSolid:sceneActors.every(o=>o&&!o.body),lights:a.data.lights?.length||0,version:GAME_VERSION.version,build:window.BUILD,viewport:[innerWidth,innerHeight],age:currentAge,openUpToAge:PROMOTIONS.openUpToAge,statsDisabled:!!window.TELEMETRY_OFF,analyticsResources:performance.getEntriesByType('resource').filter(e=>/supabase\.co|goatcounter\.com|gc\.zgo\.at/.test(e.name)).length,player:[player.x,player.y],body:[player.body.width,player.body.height],props:stageProps.length,nativeFloorDecor:!!window.FINISH_DECOR,deskCount:a.data.officeLoop?.workstations.length??a.data.placements.filter(p=>p.prop.startsWith('desk_')).length,visible:a.visibleProps,peak:a.peakVisibleProps,navBlockers:navExtraBlockers.length,gates:START_AREA_GATES.map(g=>({id:g.id,age:g.age,closed:g.closed,width:g.clearWidth,sameBlocker:g.closed?navExtraBlockers.includes(g.rect):!navExtraBlockers.includes(g.rect)})),outside:bills.getChildren().filter(e=>!a.contains(e.x,e.y)).length,fps:game.loop.actualFps};})()`);say();}
+document.querySelector('#check').onclick=check;
+document.querySelector('#explore').onclick=()=>{start();clean();f.contentWindow.focus();check();};
+const courtyardPoints = {lobby:[0,-296], commons:[2672,-218], apron:[2640,560], seats:[1854,-463], overview:[1584,-128]};
+function courtyardTour(id){
+ clearInterval(timer);start();pause();clean();
+ const [x,y]=courtyardPoints[id];
+ // The overview is a capture camera. Play views retain the normal cull cap.
+ run(`START_AREA_LAYOUT.maxVisibleProps=${id==='overview'?1200:120};`);
+ run(`player.setPosition(${x},${y}-player.height/2);player.body.updateFromGameObject();const cam=_activeGameScene.cameras.main;cam.setZoom(${id==='overview'?.235:1.25});cam.centerOn(player.x,player.y);`);
+ check();
+}
+for(const id of Object.keys(courtyardPoints))document.querySelector('#'+id).onclick=()=>courtyardTour(id);
+
+function trackLoop(reverse){
+ clearInterval(timer);start();clean();
+ const loop=[[2672,-720],[3904,-720],[3904,224],[2640,224],[2640,432],[1744,432],[1744,224],[1504,224],[1504,-720],[2672,-720]];
+ const path=reverse?loop.slice().reverse():loop;
+ run(`stats.speed=185;player.setPosition(${path[0][0]},${path[0][1]}-player.height/2);player.body.updateFromGameObject();`);
+ let i=1, lastSpawn=-1, before=performance.now(), nextCheck=0, stopped=0, outside=0, walkedAway=0, tracked=0;
+ const last=new Map();
+ const label=reverse?'counterclockwise':'clockwise';
+ R.loop??={};
+ const track=()=>run(`bills.getChildren().filter(e=>e.active).map(e=>[(e.qaChaseId??=++window.qaNextEnemy),e.x,e.y,Math.hypot(e.x-player.x,e.y-player.y),_activeGameScene.worldArt.startArea.contains(e.x,e.y),NAV.hasClearApproach(e.x,e.y),player.x,player.y])`);
+ timer=setInterval(()=>{
+  const p=run('[player.x,player.y+player.height/2]'),q=path[i],elapsed=performance.now()-before;
+  if(elapsed>78000){
+   clearInterval(timer);pause();R.loop[label]={passed:false,waypoints:i,total:path.length,elapsed,tracked,stopped,outside,walkedAway};check();return;
+  }
+  if(lastSpawn!==i){
+   lastSpawn=i;
+   const [x,y]=path[i-1];
+   run(`window.qaNextEnemy??=0;bills.getChildren().filter(e=>e.active&&Math.hypot(e.x-player.x,e.y-player.y)>620).forEach(e=>{if(e.tag)e.tag.destroy();e.destroy();});
+   for(let n=0;n<4;n++){const e=createEnemy(_activeGameScene,'bill',${x}-44+n*27,${y}+65);if(e){e.qaChaseId=++window.qaNextEnemy;e.hp=100000;}}`);
+  }
+  if(elapsed>=nextCheck){
+   nextCheck=elapsed+550;
+   for(const [id,x,y,d,inside,direct,px,py] of track()){
+    const prior=last.get(id),still=prior&&Math.hypot(x-prior.x,y-prior.y)<3&&d>100&&d<520;
+    const n=still?prior.n+1:0;
+    if(n===4)stopped++;
+    if(!inside)outside++;
+    const away=prior&&direct&&d>100&&d<520&&(x-prior.x)*(px-x)+(y-prior.y)*(py-y)<-8*d;
+    const retreat=away?prior.retreat+1:0;
+    if(retreat===4)walkedAway++;
+    if(prior)tracked++;
+    last.set(id,{x,y,n,retreat});
+   }
+  }
+  if(Math.hypot(q[0]-p[0],q[1]-p[1])<19){
+   i++;
+   if(i===path.length){
+    clearInterval(timer);pause();R.loop[label]={passed:stopped===0&&outside===0&&walkedAway===0,waypoints:i,total:path.length,seconds:elapsed/1000,tracked,stopped,outsideSamples:outside,walkedAway};check();return;
+   }
+  }
+  const next=path[i];
+  run(`touch={active:true,startX:0,startY:0,dx:${100*(next[0]-p[0])},dy:${100*(next[1]-p[1])},isTouch:true,curX:0,curY:0};`);
+  R.loop[label]={running:true,waypoints:i,total:path.length,seconds:elapsed/1000,position:p};
+  say();
+ },35);
+}
+document.querySelector('#cw').onclick=()=>trackLoop(false);
+document.querySelector('#ccw').onclick=()=>trackLoop(true);
+document.querySelector('#stress').onclick=async()=>{courtyardTour('commons');start();run('player.setPosition(2232,-414);player.body.updateFromGameObject();');await wait(350);clean();run(`for(let i=0;i<350;i++)createEnemy(_activeGameScene,['bill','lateFee','snackAttack','officeGossip'][i%4],5104-3168+(i%20)*28,1904-2448+Math.floor(i/20)*20);bills.getChildren().forEach(e=>e.hp=100000);`);const initial=run('bills.countActive()'),fps=[];for(let i=0;i<26;i++){await wait(300);fps.push(run('game.loop.actualFps'));}R.stress=run('({enemies:bills.countActive(),outside:bills.getChildren().filter(e=>!_activeGameScene.worldArt.startArea.contains(e.x,e.y)).length,visible:_activeGameScene.worldArt.startArea.peakVisibleProps})');Object.assign(R.stress,{initial,fps:{min:Math.min(...fps.slice(5)),average:fps.slice(5).reduce((a,b)=>a+b,0)/(fps.length-5)},scope:'350 real physics/navigation/animation actors in the same Bullpen reserve; HP guards, paused firing, about eight seconds, before Bills split.'});pause();check();};
+document.querySelector('#hide').onclick=()=>{document.querySelector('aside').hidden=true;document.querySelector('#show').hidden=false;};document.querySelector('#show').onclick=()=>{document.querySelector('aside').hidden=false;document.querySelector('#show').hidden=true;};
+</script>

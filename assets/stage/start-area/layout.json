@@ -3884,94 +3884,6 @@
   ],
   "placements": [
     {
-      "id": "reception_counter-0",
-      "prop": "reception_counter",
-      "x": -48,
-      "y": -480,
-      "variant": 0,
-      "group": "Reception"
-    },
-    {
-      "id": "giant_logo-1",
-      "prop": "giant_logo",
-      "x": -318,
-      "y": -456,
-      "variant": 0,
-      "group": "Reception"
-    },
-    {
-      "id": "sofa-2",
-      "prop": "sofa",
-      "x": 332,
-      "y": -464,
-      "variant": 0,
-      "group": "Waiting"
-    },
-    {
-      "id": "sofa-3",
-      "prop": "sofa",
-      "x": 332,
-      "y": -376,
-      "variant": 1,
-      "group": "Waiting"
-    },
-    {
-      "id": "vending_machine-4",
-      "prop": "vending_machine",
-      "x": -712,
-      "y": -488,
-      "variant": 0,
-      "group": "Hallway"
-    },
-    {
-      "id": "lost_found-5",
-      "prop": "lost_found",
-      "x": -712,
-      "y": -376,
-      "variant": 0,
-      "group": "Hallway"
-    },
-    {
-      "id": "coat_rack-6",
-      "prop": "coat_rack",
-      "x": -708,
-      "y": -148,
-      "variant": 0,
-      "group": "Hallway"
-    },
-    {
-      "id": "trash_recycle-7",
-      "prop": "trash_recycle",
-      "x": -708,
-      "y": 12,
-      "variant": 0,
-      "group": "Hallway"
-    },
-    {
-      "id": "water_cooler-8",
-      "prop": "water_cooler",
-      "x": 768,
-      "y": -128,
-      "variant": 0,
-      "group": "Lobby service bay"
-    },
-    {
-      "id": "plant-9",
-      "prop": "plant",
-      "x": 800,
-      "y": 16,
-      "variant": 0,
-      "group": "Lobby service bay"
-    },
-    {
-      "id": "plant-10",
-      "prop": "plant",
-      "x": 240,
-      "y": -464,
-      "variant": 0,
-      "group": "Waiting"
-    },
-    {
       "id": "gate_hidden_cabinet-11",
       "prop": "gate_hidden_cabinet",
       "x": -708,
@@ -4018,386 +3930,6 @@
       "group": "Bullpen north wall",
       "mount": "wall",
       "depthY": -1036
-    },
-    {
-      "id": "goals_board-16",
-      "prop": "goals_board",
-      "x": 3056,
-      "y": -384,
-      "variant": 0,
-      "group": "Q4 Goals"
-    },
-    {
-      "id": "roundabout-17",
-      "prop": "roundabout",
-      "x": 1360,
-      "y": -56,
-      "variant": 0,
-      "group": "Connector joke"
-    },
-    {
-      "id": "fruit_tree-18",
-      "prop": "fruit_tree",
-      "x": 2976,
-      "y": 48,
-      "variant": 0,
-      "group": "Low hanging fruit"
-    },
-    {
-      "id": "printer-19",
-      "prop": "printer",
-      "x": 2880,
-      "y": 144,
-      "variant": 0,
-      "group": "Print queue",
-      "caption": "PC LOAD LETTER. It has been expressing itself since the last driver update."
-    },
-    {
-      "id": "cabinet-20",
-      "prop": "cabinet",
-      "x": 2992,
-      "y": 432,
-      "variant": 0,
-      "group": "Print queue"
-    },
-    {
-      "id": "water_cooler-21",
-      "prop": "water_cooler",
-      "x": 3712,
-      "y": -416,
-      "variant": 1,
-      "group": "Gossip"
-    },
-    {
-      "id": "trash_recycle-22",
-      "prop": "trash_recycle",
-      "x": 3792,
-      "y": -416,
-      "variant": 0,
-      "group": "Gossip"
-    },
-    {
-      "id": "plant-23",
-      "prop": "plant",
-      "x": 4128,
-      "y": -96,
-      "variant": 0,
-      "group": "East wall"
-    },
-    {
-      "id": "printer-24",
-      "prop": "printer",
-      "x": 2032,
-      "y": 784,
-      "variant": 0,
-      "group": "South cove",
-      "caption": "PC LOAD LETTER. It has been expressing itself since the last driver update."
-    },
-    {
-      "id": "desk_paperwork-25",
-      "prop": "desk_paperwork",
-      "x": 1888,
-      "y": -928,
-      "variant": 0,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_sticky_notes-26",
-      "prop": "desk_sticky_notes",
-      "x": 1728,
-      "y": -928,
-      "variant": 1,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_2009-27",
-      "prop": "desk_2009",
-      "x": 2048,
-      "y": -928,
-      "variant": 2,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_paperwork-28",
-      "prop": "desk_paperwork",
-      "x": 2208,
-      "y": -928,
-      "variant": 0,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_sticky_notes-29",
-      "prop": "desk_sticky_notes",
-      "x": 1568,
-      "y": -960,
-      "variant": 1,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_2009-30",
-      "prop": "desk_2009",
-      "x": 1408,
-      "y": -896,
-      "variant": 2,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_paperwork-31",
-      "prop": "desk_paperwork",
-      "x": 2368,
-      "y": -960,
-      "variant": 0,
-      "group": "Inbox Harbor"
-    },
-    {
-      "id": "desk_lunch-32",
-      "prop": "desk_lunch",
-      "x": 2848,
-      "y": -512,
-      "variant": 0,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_family_photo-33",
-      "prop": "desk_family_photo",
-      "x": 2784,
-      "y": -352,
-      "variant": 1,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_tidy-34",
-      "prop": "desk_tidy",
-      "x": 2944,
-      "y": -288,
-      "variant": 0,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_lunch-35",
-      "prop": "desk_lunch",
-      "x": 2784,
-      "y": -192,
-      "variant": 0,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_family_photo-36",
-      "prop": "desk_family_photo",
-      "x": 3104,
-      "y": -288,
-      "variant": 1,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_tidy-37",
-      "prop": "desk_tidy",
-      "x": 2944,
-      "y": -128,
-      "variant": 0,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_lunch-38",
-      "prop": "desk_lunch",
-      "x": 2784,
-      "y": -928,
-      "variant": 0,
-      "group": "Sticky Note Bay"
-    },
-    {
-      "id": "desk_sticky_notes-39",
-      "prop": "desk_sticky_notes",
-      "x": 2848,
-      "y": 64,
-      "variant": 0,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_2009-40",
-      "prop": "desk_2009",
-      "x": 2688,
-      "y": -32,
-      "variant": 1,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_paperwork-41",
-      "prop": "desk_paperwork",
-      "x": 2688,
-      "y": 128,
-      "variant": 0,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_sticky_notes-42",
-      "prop": "desk_sticky_notes",
-      "x": 2528,
-      "y": -32,
-      "variant": 0,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_2009-43",
-      "prop": "desk_2009",
-      "x": 2528,
-      "y": 128,
-      "variant": 1,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_paperwork-44",
-      "prop": "desk_paperwork",
-      "x": 3264,
-      "y": -288,
-      "variant": 0,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_sticky_notes-45",
-      "prop": "desk_sticky_notes",
-      "x": 2880,
-      "y": 480,
-      "variant": 0,
-      "group": "Project 2009"
-    },
-    {
-      "id": "desk_family_photo-46",
-      "prop": "desk_family_photo",
-      "x": 2400,
-      "y": 800,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_tidy-47",
-      "prop": "desk_tidy",
-      "x": 2240,
-      "y": 768,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_lunch-48",
-      "prop": "desk_lunch",
-      "x": 2560,
-      "y": 800,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_family_photo-49",
-      "prop": "desk_family_photo",
-      "x": 2400,
-      "y": 448,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_tidy-50",
-      "prop": "desk_tidy",
-      "x": 2720,
-      "y": 768,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_lunch-51",
-      "prop": "desk_lunch",
-      "x": 2240,
-      "y": 448,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_family_photo-52",
-      "prop": "desk_family_photo",
-      "x": 2080,
-      "y": 448,
-      "variant": 0,
-      "group": "South Cove"
-    },
-    {
-      "id": "desk_2009-53",
-      "prop": "desk_2009",
-      "x": 4096,
-      "y": 192,
-      "variant": 0,
-      "group": "East Desks"
-    },
-    {
-      "id": "desk_paperwork-54",
-      "prop": "desk_paperwork",
-      "x": 4128,
-      "y": 32,
-      "variant": 0,
-      "group": "East Desks"
-    },
-    {
-      "id": "desk_sticky_notes-55",
-      "prop": "desk_sticky_notes",
-      "x": 4096,
-      "y": 352,
-      "variant": 2,
-      "group": "East Desks"
-    },
-    {
-      "id": "desk_2009-56",
-      "prop": "desk_2009",
-      "x": 4096,
-      "y": -160,
-      "variant": 0,
-      "group": "East Desks"
-    },
-    {
-      "id": "desk_paperwork-57",
-      "prop": "desk_paperwork",
-      "x": 4128,
-      "y": 512,
-      "variant": 0,
-      "group": "East Desks"
-    },
-    {
-      "id": "desk_sticky_notes-58",
-      "prop": "desk_sticky_notes",
-      "x": 3936,
-      "y": 480,
-      "variant": 2,
-      "group": "East Desks"
-    },
-    {
-      "id": "desk_2009-59",
-      "prop": "desk_2009",
-      "x": 3776,
-      "y": 480,
-      "variant": 0,
-      "group": "East Desks"
-    },
-    {
-      "id": "plant-60",
-      "prop": "plant",
-      "x": 2632,
-      "y": 752,
-      "variant": 0,
-      "group": "Cluster dressing"
-    },
-    {
-      "id": "plant-61",
-      "prop": "plant",
-      "x": 4162,
-      "y": -638,
-      "variant": 0,
-      "group": "Cluster dressing"
-    },
-    {
-      "id": "ducks-on-reception",
-      "prop": "duck_row",
-      "x": -24,
-      "y": -544,
-      "variant": 0,
-      "group": "Reception",
-      "solid": false,
-      "depthY": -478
     },
     {
       "id": "car_compact_campus-63",
@@ -6214,793 +5746,6 @@
       "caption": "A spare yoga block. The label says ergonomic seating."
     },
     {
-      "id": "desk_paperwork-248",
-      "prop": "desk_paperwork",
-      "x": 2688,
-      "y": -592,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_sticky_notes-249",
-      "prop": "desk_sticky_notes",
-      "x": 1728,
-      "y": -592,
-      "variant": 1,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_2009-250",
-      "prop": "desk_2009",
-      "x": 1728,
-      "y": -64,
-      "variant": 2,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_family_photo-251",
-      "prop": "desk_family_photo",
-      "x": 1888,
-      "y": -64,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_lunch-252",
-      "prop": "desk_lunch",
-      "x": 1728,
-      "y": -272,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_tidy-253",
-      "prop": "desk_tidy",
-      "x": 2048,
-      "y": -64,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_paperwork-254",
-      "prop": "desk_paperwork",
-      "x": 2368,
-      "y": -64,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_sticky_notes-255",
-      "prop": "desk_sticky_notes",
-      "x": 2528,
-      "y": -944,
-      "variant": 1,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_2009-256",
-      "prop": "desk_2009",
-      "x": 2208,
-      "y": -64,
-      "variant": 2,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_family_photo-257",
-      "prop": "desk_family_photo",
-      "x": 3008,
-      "y": -944,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_lunch-258",
-      "prop": "desk_lunch",
-      "x": 3168,
-      "y": -944,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_tidy-259",
-      "prop": "desk_tidy",
-      "x": 3488,
-      "y": -272,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "desk_paperwork-260",
-      "prop": "desk_paperwork",
-      "x": 3648,
-      "y": -272,
-      "variant": 0,
-      "group": "Bullpen / finish desk bank",
-      "district": "bullpen"
-    },
-    {
-      "id": "finish-panel-0",
-      "prop": "cubicle_panel",
-      "x": 2688,
-      "y": -656,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-248"
-    },
-    {
-      "id": "finish-panel-1",
-      "prop": "cubicle_panel",
-      "x": 1888,
-      "y": -128,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_family_photo-251"
-    },
-    {
-      "id": "finish-panel-2",
-      "prop": "cubicle_panel",
-      "x": 2048,
-      "y": -128,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_tidy-253"
-    },
-    {
-      "id": "finish-panel-3",
-      "prop": "cubicle_panel",
-      "x": 2368,
-      "y": -128,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-254"
-    },
-    {
-      "id": "finish-panel-4",
-      "prop": "cubicle_panel",
-      "x": 2528,
-      "y": -1008,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_sticky_notes-255"
-    },
-    {
-      "id": "finish-panel-5",
-      "prop": "cubicle_panel",
-      "x": 2208,
-      "y": -128,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_2009-256"
-    },
-    {
-      "id": "finish-panel-6",
-      "prop": "cubicle_panel",
-      "x": 3008,
-      "y": -1008,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_family_photo-257"
-    },
-    {
-      "id": "finish-panel-7",
-      "prop": "cubicle_panel",
-      "x": 3168,
-      "y": -1008,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_lunch-258"
-    },
-    {
-      "id": "finish-panel-8",
-      "prop": "cubicle_panel",
-      "x": 3488,
-      "y": -336,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_tidy-259"
-    },
-    {
-      "id": "finish-panel-9",
-      "prop": "cubicle_panel",
-      "x": 3648,
-      "y": -336,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-260"
-    },
-    {
-      "id": "finish-panel-10",
-      "prop": "cubicle_panel",
-      "x": 1888,
-      "y": -992,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-25"
-    },
-    {
-      "id": "finish-panel-11",
-      "prop": "cubicle_panel",
-      "x": 1728,
-      "y": -992,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_sticky_notes-26"
-    },
-    {
-      "id": "finish-panel-12",
-      "prop": "cubicle_panel",
-      "x": 2048,
-      "y": -992,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_2009-27"
-    },
-    {
-      "id": "finish-panel-13",
-      "prop": "cubicle_panel",
-      "x": 2208,
-      "y": -992,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-28"
-    },
-    {
-      "id": "finish-panel-14",
-      "prop": "cubicle_panel",
-      "x": 1568,
-      "y": -1024,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_sticky_notes-29"
-    },
-    {
-      "id": "finish-panel-15",
-      "prop": "cubicle_panel",
-      "x": 1408,
-      "y": -960,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_2009-30"
-    },
-    {
-      "id": "finish-panel-16",
-      "prop": "cubicle_panel",
-      "x": 2368,
-      "y": -1024,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-31"
-    },
-    {
-      "id": "finish-panel-17",
-      "prop": "cubicle_panel",
-      "x": 2848,
-      "y": -576,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_lunch-32"
-    },
-    {
-      "id": "finish-panel-18",
-      "prop": "cubicle_panel",
-      "x": 2784,
-      "y": -416,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_family_photo-33"
-    },
-    {
-      "id": "finish-panel-19",
-      "prop": "cubicle_panel",
-      "x": 2944,
-      "y": -352,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_tidy-34"
-    },
-    {
-      "id": "finish-panel-20",
-      "prop": "cubicle_panel",
-      "x": 2784,
-      "y": -256,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_lunch-35"
-    },
-    {
-      "id": "finish-panel-21",
-      "prop": "cubicle_panel",
-      "x": 3104,
-      "y": -352,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_family_photo-36"
-    },
-    {
-      "id": "finish-panel-22",
-      "prop": "cubicle_panel",
-      "x": 2944,
-      "y": -192,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_tidy-37"
-    },
-    {
-      "id": "finish-panel-23",
-      "prop": "cubicle_panel",
-      "x": 2784,
-      "y": -992,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_lunch-38"
-    },
-    {
-      "id": "finish-panel-24",
-      "prop": "cubicle_panel",
-      "x": 2848,
-      "y": 0,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_sticky_notes-39"
-    },
-    {
-      "id": "finish-panel-25",
-      "prop": "cubicle_panel",
-      "x": 2688,
-      "y": -96,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_2009-40"
-    },
-    {
-      "id": "finish-panel-26",
-      "prop": "cubicle_panel",
-      "x": 2688,
-      "y": 64,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-41"
-    },
-    {
-      "id": "finish-panel-27",
-      "prop": "cubicle_panel",
-      "x": 2528,
-      "y": -96,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_sticky_notes-42"
-    },
-    {
-      "id": "finish-panel-28",
-      "prop": "cubicle_panel",
-      "x": 2528,
-      "y": 64,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_2009-43"
-    },
-    {
-      "id": "finish-panel-29",
-      "prop": "cubicle_panel",
-      "x": 3264,
-      "y": -352,
-      "variant": 2,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_paperwork-44"
-    },
-    {
-      "id": "finish-panel-30",
-      "prop": "cubicle_panel",
-      "x": 2880,
-      "y": 416,
-      "variant": 0,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_sticky_notes-45"
-    },
-    {
-      "id": "finish-panel-31",
-      "prop": "cubicle_panel",
-      "x": 2400,
-      "y": 736,
-      "variant": 1,
-      "district": "bullpen",
-      "group": "Bullpen / cubicle canyons",
-      "host": "desk_family_photo-46"
-    },
-    {
-      "id": "finish-crt-0",
-      "prop": "crt_stack",
-      "x": 2704,
-      "y": -644,
-      "variant": 0,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -589,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_paperwork-248"
-    },
-    {
-      "id": "finish-crt-1",
-      "prop": "crt_stack",
-      "x": 1744,
-      "y": -116,
-      "variant": 1,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -61,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_2009-250"
-    },
-    {
-      "id": "finish-crt-2",
-      "prop": "crt_stack",
-      "x": 1904,
-      "y": -116,
-      "variant": 2,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -61,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_family_photo-251"
-    },
-    {
-      "id": "finish-crt-3",
-      "prop": "crt_stack",
-      "x": 2064,
-      "y": -116,
-      "variant": 0,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -61,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_tidy-253"
-    },
-    {
-      "id": "finish-crt-4",
-      "prop": "crt_stack",
-      "x": 2384,
-      "y": -116,
-      "variant": 1,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -61,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_paperwork-254"
-    },
-    {
-      "id": "finish-crt-5",
-      "prop": "crt_stack",
-      "x": 2224,
-      "y": -116,
-      "variant": 2,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -61,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_2009-256"
-    },
-    {
-      "id": "finish-crt-6",
-      "prop": "crt_stack",
-      "x": 3024,
-      "y": -996,
-      "variant": 0,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -941,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_family_photo-257"
-    },
-    {
-      "id": "finish-crt-7",
-      "prop": "crt_stack",
-      "x": 3504,
-      "y": -324,
-      "variant": 1,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -269,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_tidy-259"
-    },
-    {
-      "id": "finish-crt-8",
-      "prop": "crt_stack",
-      "x": 3664,
-      "y": -324,
-      "variant": 2,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -269,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_paperwork-260"
-    },
-    {
-      "id": "finish-crt-9",
-      "prop": "crt_stack",
-      "x": 1904,
-      "y": -980,
-      "variant": 0,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -925,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_paperwork-25"
-    },
-    {
-      "id": "finish-crt-10",
-      "prop": "crt_stack",
-      "x": 2064,
-      "y": -980,
-      "variant": 1,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -925,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_2009-27"
-    },
-    {
-      "id": "finish-crt-11",
-      "prop": "crt_stack",
-      "x": 1584,
-      "y": -1012,
-      "variant": 2,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -957,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_sticky_notes-29"
-    },
-    {
-      "id": "finish-crt-12",
-      "prop": "crt_stack",
-      "x": 2384,
-      "y": -1012,
-      "variant": 0,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -957,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_paperwork-31"
-    },
-    {
-      "id": "finish-crt-13",
-      "prop": "crt_stack",
-      "x": 2800,
-      "y": -404,
-      "variant": 1,
-      "solid": false,
-      "mount": "tabletop",
-      "depthY": -349,
-      "district": "bullpen",
-      "group": "Bullpen / monitor escalation",
-      "host": "desk_family_photo-33"
-    },
-    {
-      "id": "finish-paper-0",
-      "prop": "paper_drift",
-      "x": 1864,
-      "y": -464,
-      "variant": 0,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-1",
-      "prop": "paper_drift",
-      "x": 2344,
-      "y": -240,
-      "variant": 1,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-2",
-      "prop": "paper_drift",
-      "x": 2544,
-      "y": -528,
-      "variant": 2,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-3",
-      "prop": "paper_drift",
-      "x": 2160,
-      "y": -160,
-      "variant": 0,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-4",
-      "prop": "paper_drift",
-      "x": 1968,
-      "y": -336,
-      "variant": 1,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-5",
-      "prop": "paper_drift",
-      "x": 2592,
-      "y": 32,
-      "variant": 2,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-6",
-      "prop": "paper_drift",
-      "x": 3288,
-      "y": -128,
-      "variant": 0,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-7",
-      "prop": "paper_drift",
-      "x": 3568,
-      "y": 112,
-      "variant": 1,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-8",
-      "prop": "paper_drift",
-      "x": 3808,
-      "y": -288,
-      "variant": 2,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-9",
-      "prop": "paper_drift",
-      "x": 2912,
-      "y": 208,
-      "variant": 0,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-10",
-      "prop": "paper_drift",
-      "x": 1744,
-      "y": 416,
-      "variant": 1,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-11",
-      "prop": "paper_drift",
-      "x": 2480,
-      "y": 512,
-      "variant": 2,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-12",
-      "prop": "paper_drift",
-      "x": 2880,
-      "y": 168,
-      "variant": 0,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
-      "id": "finish-paper-13",
-      "prop": "paper_drift",
-      "x": 2904,
-      "y": 184,
-      "variant": 1,
-      "solid": false,
-      "depthY": -1000002444,
-      "district": "bullpen",
-      "group": "Bullpen / paper drift",
-      "alpha": 0.54
-    },
-    {
       "id": "finish-paper-14",
       "prop": "paper_drift",
       "x": 2032,
@@ -7011,225 +5756,143 @@
       "district": "bullpen",
       "group": "Bullpen / paper drift",
       "alpha": 0.54
+    },
+    {
+      "id": "loop-giant_logo-191",
+      "prop": "giant_logo",
+      "x": 385,
+      "y": -590,
+      "variant": 0,
+      "solid": false,
+      "caption": "OUR VALUES. They go around and around."
+    },
+    {
+      "id": "loop-sofa-192",
+      "prop": "sofa",
+      "x": -294,
+      "y": -446,
+      "variant": 0
+    },
+    {
+      "id": "loop-sofa-193",
+      "prop": "sofa",
+      "x": -134,
+      "y": -368,
+      "variant": 1
+    },
+    {
+      "id": "loop-table_round-194",
+      "prop": "table_round",
+      "x": -282,
+      "y": -343,
+      "variant": 0
+    },
+    {
+      "id": "loop-plant-195",
+      "prop": "plant",
+      "x": -744,
+      "y": -550,
+      "variant": 0
+    },
+    {
+      "id": "loop-plant-196",
+      "prop": "plant",
+      "x": -744,
+      "y": 352,
+      "variant": 1
+    },
+    {
+      "id": "loop-plant-197",
+      "prop": "plant",
+      "x": 1228,
+      "y": -488,
+      "variant": 2
+    },
+    {
+      "id": "loop-plant-198",
+      "prop": "plant",
+      "x": 1230,
+      "y": 344,
+      "variant": 0
+    },
+    {
+      "id": "loop-water_cooler-199",
+      "prop": "water_cooler",
+      "x": 990,
+      "y": -495,
+      "variant": 0,
+      "caption": "Two paper cups. One very good catch-up."
+    },
+    {
+      "id": "loop-vending_machine-200",
+      "prop": "vending_machine",
+      "x": 770,
+      "y": -753,
+      "variant": 0,
+      "caption": "The pretzels are still deciding."
+    },
+    {
+      "id": "loop-printer-201",
+      "prop": "printer",
+      "x": 2318,
+      "y": -934,
+      "variant": 0,
+      "caption": "PC LOAD LETTER. The printer needs a minute."
+    },
+    {
+      "id": "loop-paper_drift-202",
+      "prop": "paper_drift",
+      "x": 2338,
+      "y": -907,
+      "variant": 0,
+      "solid": false,
+      "alpha": 0.48
+    },
+    {
+      "id": "loop-paper_drift-203",
+      "prop": "paper_drift",
+      "x": 2378,
+      "y": -887,
+      "variant": 1,
+      "solid": false,
+      "alpha": 0.48
+    },
+    {
+      "id": "loop-paper_drift-204",
+      "prop": "paper_drift",
+      "x": 2416,
+      "y": -861,
+      "variant": 2,
+      "solid": false,
+      "alpha": 0.48
+    },
+    {
+      "id": "loop-fruit_tree-205",
+      "prop": "fruit_tree",
+      "x": 3090,
+      "y": -352,
+      "variant": 0,
+      "caption": "LOW HANGING FRUIT. One leaf left."
+    },
+    {
+      "id": "loop-kitchen_counter-206",
+      "prop": "kitchen_counter",
+      "x": 3110,
+      "y": 470,
+      "variant": 0,
+      "caption": "One microwave. Eleven soups."
+    },
+    {
+      "id": "loop-roadmap_whiteboard-207",
+      "prop": "roadmap_whiteboard",
+      "x": 4100,
+      "y": -480,
+      "variant": 0,
+      "solid": false,
+      "caption": "The parking lot for ideas is also full."
     }
   ],
   "workers": [
-    {
-      "id": "worker-0",
-      "host": "reception_counter-0",
-      "x": 8,
-      "y": -548,
-      "variant": 0,
-      "cropHeight": 34,
-      "depthY": -481,
-      "cast": "mute",
-      "colorway": 0,
-      "phase": 0
-    },
-    {
-      "id": "worker-1",
-      "host": "desk_sticky_notes-26",
-      "x": 1720,
-      "y": -996,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -929,
-      "cast": "salad",
-      "colorway": 0,
-      "phase": 197
-    },
-    {
-      "id": "worker-2",
-      "host": "desk_paperwork-28",
-      "x": 2200,
-      "y": -996,
-      "variant": 2,
-      "cropHeight": 34,
-      "depthY": -929,
-      "cast": "dozer",
-      "colorway": 0,
-      "phase": 394
-    },
-    {
-      "id": "worker-3",
-      "host": "desk_2009-30",
-      "x": 1400,
-      "y": -964,
-      "variant": 0,
-      "cropHeight": 34,
-      "depthY": -897,
-      "cast": "intern",
-      "colorway": 0,
-      "phase": 591
-    },
-    {
-      "id": "worker-4",
-      "host": "desk_lunch-32",
-      "x": 2840,
-      "y": -580,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -513,
-      "cast": "retiring",
-      "colorway": 0,
-      "phase": 788
-    },
-    {
-      "id": "worker-5",
-      "host": "desk_tidy-34",
-      "x": 2936,
-      "y": -356,
-      "variant": 2,
-      "cropHeight": 34,
-      "depthY": -289,
-      "cast": "email",
-      "colorway": 0,
-      "phase": 985
-    },
-    {
-      "id": "worker-6",
-      "host": "desk_family_photo-36",
-      "x": 3096,
-      "y": -356,
-      "variant": 0,
-      "cropHeight": 34,
-      "depthY": -289,
-      "cast": "mute",
-      "colorway": 1,
-      "phase": 133
-    },
-    {
-      "id": "worker-7",
-      "host": "desk_lunch-38",
-      "x": 2776,
-      "y": -996,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -929,
-      "cast": "salad",
-      "colorway": 1,
-      "phase": 330
-    },
-    {
-      "id": "worker-8",
-      "host": "desk_2009-40",
-      "x": 2680,
-      "y": -100,
-      "variant": 2,
-      "cropHeight": 34,
-      "depthY": -33,
-      "cast": "dozer",
-      "colorway": 1,
-      "phase": 527
-    },
-    {
-      "id": "worker-9",
-      "host": "desk_sticky_notes-42",
-      "x": 2520,
-      "y": -100,
-      "variant": 0,
-      "cropHeight": 34,
-      "depthY": -33,
-      "cast": "intern",
-      "colorway": 1,
-      "phase": 724
-    },
-    {
-      "id": "worker-10",
-      "host": "desk_paperwork-44",
-      "x": 3256,
-      "y": -356,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -289,
-      "cast": "retiring",
-      "colorway": 1,
-      "phase": 921
-    },
-    {
-      "id": "worker-11",
-      "host": "desk_family_photo-46",
-      "x": 2392,
-      "y": 732,
-      "variant": 2,
-      "cropHeight": 34,
-      "depthY": 799,
-      "cast": "email",
-      "colorway": 1,
-      "phase": 1118
-    },
-    {
-      "id": "worker-12",
-      "host": "desk_lunch-48",
-      "x": 2552,
-      "y": 732,
-      "variant": 0,
-      "cropHeight": 34,
-      "depthY": 799,
-      "cast": "mute",
-      "colorway": 0,
-      "phase": 266
-    },
-    {
-      "id": "worker-13",
-      "host": "desk_tidy-50",
-      "x": 2712,
-      "y": 700,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": 767,
-      "cast": "salad",
-      "colorway": 0,
-      "phase": 463
-    },
-    {
-      "id": "worker-14",
-      "host": "desk_family_photo-52",
-      "x": 2072,
-      "y": 380,
-      "variant": 2,
-      "cropHeight": 34,
-      "depthY": 447,
-      "cast": "dozer",
-      "colorway": 0,
-      "phase": 660
-    },
-    {
-      "id": "worker-15",
-      "host": "desk_paperwork-54",
-      "x": 4120,
-      "y": -36,
-      "variant": 0,
-      "cropHeight": 34,
-      "depthY": 31,
-      "cast": "intern",
-      "colorway": 0,
-      "phase": 857
-    },
-    {
-      "id": "worker-16",
-      "host": "desk_2009-56",
-      "x": 4088,
-      "y": -228,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -161,
-      "cast": "retiring",
-      "colorway": 0,
-      "phase": 1054
-    },
-    {
-      "id": "worker-17",
-      "host": "desk_sticky_notes-58",
-      "x": 3928,
-      "y": 412,
-      "variant": 2,
-      "cropHeight": 34,
-      "depthY": 479,
-      "cast": "email",
-      "colorway": 0,
-      "phase": 131
-    },
     {
       "id": "break-worker-0",
       "host": "table_round-104",
@@ -7327,52 +5990,199 @@
       "phase": 729
     },
     {
-      "id": "finish-worker-1",
-      "host": "desk_sticky_notes-249",
-      "x": 1720,
-      "y": -660,
+      "id": "seat-accounting0",
+      "host": "accounting0",
+      "x": 1784,
+      "y": -496,
+      "depthY": -457,
+      "variant": 2,
+      "cropHeight": 56,
+      "cast": "dozer",
+      "colorway": 1,
+      "phase": 456,
+      "seated": true
+    },
+    {
+      "id": "seat-accounting1",
+      "host": "accounting1",
+      "x": 1924,
+      "y": -496,
+      "depthY": -457,
+      "variant": 0,
+      "cropHeight": 56,
+      "cast": "intern",
+      "colorway": 1,
+      "phase": 653,
+      "seated": true
+    },
+    {
+      "id": "seat-accounting3",
+      "host": "accounting3",
+      "x": 1784,
+      "y": -358,
+      "depthY": -319,
       "variant": 1,
-      "cropHeight": 34,
-      "depthY": -593,
+      "cropHeight": 56,
+      "cast": "retiring",
+      "colorway": 1,
+      "phase": 850,
+      "seated": true
+    },
+    {
+      "id": "seat-hr0",
+      "host": "hr0",
+      "x": 1848,
+      "y": -112,
+      "depthY": -73,
+      "variant": 2,
+      "cropHeight": 56,
+      "cast": "email",
+      "colorway": 1,
+      "phase": 1047,
+      "seated": true
+    },
+    {
+      "id": "seat-hr2",
+      "host": "hr2",
+      "x": 2128,
+      "y": -112,
+      "depthY": -73,
+      "variant": 0,
+      "cropHeight": 56,
+      "cast": "mute",
+      "colorway": 0,
+      "phase": 124,
+      "seated": true
+    },
+    {
+      "id": "seat-hr3",
+      "host": "hr3",
+      "x": 1848,
+      "y": 34,
+      "depthY": 73,
+      "variant": 1,
+      "cropHeight": 56,
+      "cast": "salad",
+      "colorway": 0,
+      "phase": 321,
+      "seated": true
+    },
+    {
+      "id": "seat-it0",
+      "host": "it0",
+      "x": 3400,
+      "y": -500,
+      "depthY": -461,
+      "variant": 2,
+      "cropHeight": 56,
       "cast": "dozer",
       "colorway": 0,
-      "phase": 926
+      "phase": 518,
+      "seated": true
     },
     {
-      "id": "finish-worker-4",
-      "host": "desk_lunch-252",
-      "x": 1720,
-      "y": -340,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -273,
+      "id": "seat-it1",
+      "host": "it1",
+      "x": 3540,
+      "y": -500,
+      "depthY": -461,
+      "variant": 0,
+      "cropHeight": 56,
       "cast": "intern",
       "colorway": 0,
-      "phase": 3
+      "phase": 715,
+      "seated": true
     },
     {
-      "id": "finish-worker-7",
-      "host": "desk_sticky_notes-255",
-      "x": 2520,
-      "y": -1012,
+      "id": "seat-it2",
+      "host": "it2",
+      "x": 3680,
+      "y": -500,
+      "depthY": -461,
       "variant": 1,
-      "cropHeight": 34,
-      "depthY": -945,
+      "cropHeight": 56,
       "cast": "retiring",
       "colorway": 0,
-      "phase": 200
+      "phase": 912,
+      "seated": true
     },
     {
-      "id": "finish-worker-10",
-      "host": "desk_lunch-258",
-      "x": 3160,
-      "y": -1012,
-      "variant": 1,
-      "cropHeight": 34,
-      "depthY": -945,
+      "id": "seat-it4",
+      "host": "it4",
+      "x": 3540,
+      "y": -338,
+      "depthY": -299,
+      "variant": 2,
+      "cropHeight": 56,
       "cast": "email",
       "colorway": 0,
-      "phase": 397
+      "phase": 1109,
+      "seated": true
+    },
+    {
+      "id": "seat-marketing0",
+      "host": "marketing0",
+      "x": 3160,
+      "y": -104,
+      "depthY": -65,
+      "variant": 0,
+      "cropHeight": 56,
+      "cast": "mute",
+      "colorway": 1,
+      "phase": 186,
+      "seated": true
+    },
+    {
+      "id": "seat-marketing1",
+      "host": "marketing1",
+      "x": 3300,
+      "y": -104,
+      "depthY": -65,
+      "variant": 1,
+      "cropHeight": 56,
+      "cast": "salad",
+      "colorway": 1,
+      "phase": 383,
+      "seated": true
+    },
+    {
+      "id": "seat-marketing4",
+      "host": "marketing4",
+      "x": 3300,
+      "y": 30,
+      "depthY": 69,
+      "variant": 2,
+      "cropHeight": 56,
+      "cast": "dozer",
+      "colorway": 1,
+      "phase": 580,
+      "seated": true
+    },
+    {
+      "id": "seat-manager",
+      "host": "manager",
+      "x": 2194,
+      "y": 678,
+      "depthY": 725,
+      "variant": 0,
+      "cropHeight": 56,
+      "cast": "intern",
+      "colorway": 1,
+      "phase": 777,
+      "seated": true
+    },
+    {
+      "id": "seat-reception",
+      "host": "reception",
+      "x": 392,
+      "y": -518,
+      "depthY": -463,
+      "variant": 1,
+      "cropHeight": 56,
+      "cast": "retiring",
+      "colorway": 1,
+      "phase": 974,
+      "seated": true
     }
   ],
   "assetSpecs": {
@@ -8440,76 +7250,6 @@
   },
   "clearSpaces": [
     {
-      "id": "lobby-queue",
-      "district": "lobby",
-      "shape": {
-        "type": "polygon",
-        "points": [
-          [
-            2720,
-            2112
-          ],
-          [
-            3584,
-            2112
-          ],
-          [
-            3584,
-            2528
-          ],
-          [
-            3328,
-            2528
-          ],
-          [
-            3328,
-            2944
-          ],
-          [
-            2720,
-            2944
-          ]
-        ]
-      },
-      "decor": [
-        "reception queue tape",
-        "abstract company rug",
-        "PLEASE WAIT floor arrows"
-      ]
-    },
-    {
-      "id": "bullpen-runway",
-      "district": "bullpen",
-      "shape": {
-        "type": "rect",
-        "x": 5056,
-        "y": 1856,
-        "width": 640,
-        "height": 448
-      },
-      "decor": [
-        "project runway tape",
-        "paper trail",
-        "coffee-ring floor clusters"
-      ]
-    },
-    {
-      "id": "bullpen-lunch",
-      "district": "bullpen",
-      "shape": {
-        "type": "rect",
-        "x": 6336,
-        "y": 2240,
-        "width": 640,
-        "height": 448
-      },
-      "decor": [
-        "chair-mat wear",
-        "crumb trail",
-        "CIRCLE BACK floor decal"
-      ]
-    },
-    {
       "id": "parking-cross",
       "district": "parking",
       "shape": {
@@ -8646,6 +7386,39 @@
         "footprint decals",
         "sad confetti"
       ]
+    },
+    {
+      "id": "lobby-court",
+      "district": "lobby",
+      "shape": {
+        "type": "rect",
+        "x": 2884,
+        "y": 2464,
+        "width": 688,
+        "height": 320
+      }
+    },
+    {
+      "id": "commons",
+      "district": "bullpen",
+      "shape": {
+        "type": "rect",
+        "x": 5488,
+        "y": 1888,
+        "width": 704,
+        "height": 656
+      }
+    },
+    {
+      "id": "south-apron",
+      "district": "bullpen",
+      "shape": {
+        "type": "rect",
+        "x": 5616,
+        "y": 2800,
+        "width": 400,
+        "height": 416
+      }
     }
   ],
   "maxVisibleProps": 120,
@@ -8661,12 +7434,12 @@
       -464
     ],
     "Bullpen": [
-      2232,
-      -388
+      2672,
+      -218
     ],
     "Goals": [
-      3456,
-      -48
+      3904,
+      -480
     ],
     "Parking gate": [
       -748,
@@ -8807,6 +7580,22 @@
     "Sealed Executive exit": [
       2240,
       -1248
+    ],
+    "Commons": [
+      2672,
+      -218
+    ],
+    "South apron": [
+      2640,
+      560
+    ],
+    "Lobby arrival": [
+      0,
+      -296
+    ],
+    "Seated desks": [
+      1664,
+      -424
     ]
   },
   "labels": [
@@ -9129,6 +7918,99 @@
         1536,
         1232
       ]
+    },
+    {
+      "id": "loop-accounting",
+      "text": "ACCOUNTING",
+      "x": 1928,
+      "y": -534,
+      "width": 104
+    },
+    {
+      "id": "loop-hr",
+      "text": "HR",
+      "x": 2032,
+      "y": -150,
+      "width": 104
+    },
+    {
+      "id": "loop-it",
+      "text": "IT",
+      "x": 3552,
+      "y": -538,
+      "width": 104
+    },
+    {
+      "id": "loop-marketing",
+      "text": "MARKETING",
+      "x": 3352,
+      "y": -142,
+      "width": 104
+    },
+    {
+      "id": "loop-glass",
+      "text": "MANAGER",
+      "x": 2200,
+      "y": 608,
+      "width": 112
+    },
+    {
+      "id": "loop-lifts",
+      "text": "LIFTS",
+      "x": -48,
+      "y": -818,
+      "width": 100
+    },
+    {
+      "id": "loop-welcome",
+      "text": "WELCOME",
+      "x": 302,
+      "y": -212,
+      "width": 96,
+      "plate": false,
+      "floor": true,
+      "alpha": 0.85
+    },
+    {
+      "id": "loop-ideas",
+      "text": "IDEA PARKING",
+      "x": 4100,
+      "y": -494,
+      "width": 88
+    },
+    {
+      "id": "loop-q3",
+      "text": "Q3",
+      "x": 1880,
+      "y": -558,
+      "width": 72
+    },
+    {
+      "id": "loop-wellness-weds",
+      "text": "WELLNESS WEDS",
+      "x": 2038,
+      "y": -172,
+      "width": 104
+    },
+    {
+      "id": "loop-circle-back",
+      "text": "CIRCLE BACK",
+      "x": 2672,
+      "y": -168,
+      "width": 116,
+      "plate": false,
+      "floor": true,
+      "alpha": 0.46
+    },
+    {
+      "id": "loop-apron",
+      "text": "MIND THE GAP",
+      "x": 2640,
+      "y": 586,
+      "width": 116,
+      "plate": false,
+      "floor": true,
+      "alpha": 0.4
     }
   ],
   "floorDecor": [
@@ -9663,6 +8545,133 @@
       "y": 1232,
       "width": 64,
       "height": 128
+    },
+    {
+      "kind": "team-rug",
+      "x": 1712,
+      "y": -576,
+      "width": 432,
+      "height": 296,
+      "color": 11045744
+    },
+    {
+      "kind": "team-rug",
+      "x": 1776,
+      "y": -192,
+      "width": 512,
+      "height": 304,
+      "color": 6719092
+    },
+    {
+      "kind": "team-rug",
+      "x": 3328,
+      "y": -580,
+      "width": 448,
+      "height": 320,
+      "color": 4093813
+    },
+    {
+      "kind": "team-rug",
+      "x": 3088,
+      "y": -184,
+      "width": 528,
+      "height": 292,
+      "color": 7693442
+    },
+    {
+      "kind": "team-rug",
+      "x": 1968,
+      "y": 548,
+      "width": 464,
+      "height": 252,
+      "color": 5336432
+    },
+    {
+      "kind": "team-rug",
+      "x": -368,
+      "y": -548,
+      "width": 336,
+      "height": 276,
+      "color": 11045744
+    },
+    {
+      "kind": "welcome-rug",
+      "x": 32,
+      "y": -440,
+      "width": 540,
+      "height": 240
+    },
+    {
+      "kind": "window-shape",
+      "x": -380,
+      "y": -748,
+      "width": 192,
+      "height": 96
+    },
+    {
+      "kind": "window-shape",
+      "x": 1760,
+      "y": -920,
+      "width": 224,
+      "height": 80
+    },
+    {
+      "kind": "window-shape",
+      "x": 2784,
+      "y": -958,
+      "width": 256,
+      "height": 88
+    },
+    {
+      "kind": "window-shape",
+      "x": 3650,
+      "y": -818,
+      "width": 192,
+      "height": 88
+    },
+    {
+      "kind": "team-rug",
+      "x": 2320,
+      "y": -560,
+      "width": 704,
+      "height": 656,
+      "color": 5401447
+    },
+    {
+      "kind": "team-rug",
+      "x": 2448,
+      "y": 352,
+      "width": 400,
+      "height": 416,
+      "color": 5596788
+    },
+    {
+      "kind": "office-scuffs",
+      "x": 2552,
+      "y": -302,
+      "width": 112,
+      "height": 52
+    },
+    {
+      "kind": "office-scuffs",
+      "x": 2850,
+      "y": -425,
+      "width": 112,
+      "height": 52
+    },
+    {
+      "kind": "office-scuffs",
+      "x": 2470,
+      "y": 617,
+      "width": 112,
+      "height": 52
+    },
+    {
+      "kind": "office-scuffs",
+      "x": 2808,
+      "y": 685,
+      "width": 112,
+      "height": 52
     }
   ],
   "structures": [
@@ -9915,101 +8924,135 @@
       "y": 1408,
       "width": 224,
       "height": 400
+    },
+    {
+      "id": "courtyard-aisle-0",
+      "x": -640,
+      "y": -832,
+      "width": 224,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-1",
+      "x": -640,
+      "y": 368,
+      "width": 224,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-2",
+      "x": -1024,
+      "y": -832,
+      "width": 496,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-3",
+      "x": -640,
+      "y": -720,
+      "width": 224,
+      "height": 1200
+    },
+    {
+      "id": "courtyard-aisle-4",
+      "x": -1024,
+      "y": 368,
+      "width": 496,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-5",
+      "x": -528,
+      "y": -240,
+      "width": 1840,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-6",
+      "x": 1040,
+      "y": -448,
+      "width": 640,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-7",
+      "x": 1040,
+      "y": 64,
+      "width": 640,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-8",
+      "x": 1312,
+      "y": -240,
+      "width": 192,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-9",
+      "x": 3792,
+      "y": -832,
+      "width": 224,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-10",
+      "x": 3792,
+      "y": 112,
+      "width": 224,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-11",
+      "x": 1392,
+      "y": 112,
+      "width": 224,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-12",
+      "x": 1504,
+      "y": -832,
+      "width": 2400,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-13",
+      "x": 3792,
+      "y": -720,
+      "width": 224,
+      "height": 944
+    },
+    {
+      "id": "courtyard-aisle-14",
+      "x": 1504,
+      "y": 112,
+      "width": 2400,
+      "height": 224
+    },
+    {
+      "id": "courtyard-aisle-15",
+      "x": 1392,
+      "y": -720,
+      "width": 224,
+      "height": 944
+    },
+    {
+      "id": "courtyard-aisle-16",
+      "x": 2560,
+      "y": -720,
+      "width": 224,
+      "height": 944
+    },
+    {
+      "id": "courtyard-glass-rear",
+      "x": 1744,
+      "y": 320,
+      "width": 896,
+      "height": 224
     }
   ],
   "internalRoutes": [
-    {
-      "district": "lobby",
-      "width": 224,
-      "points": [
-        [
-          -544,
-          -656
-        ],
-        [
-          576,
-          -656
-        ],
-        [
-          576,
-          -336
-        ],
-        [
-          1040,
-          -336
-        ],
-        [
-          1040,
-          144
-        ],
-        [
-          224,
-          144
-        ],
-        [
-          224,
-          496
-        ],
-        [
-          -544,
-          496
-        ],
-        [
-          -544,
-          -656
-        ]
-      ]
-    },
-    {
-      "district": "bullpen",
-      "width": 224,
-      "points": [
-        [
-          1568,
-          -784
-        ],
-        [
-          3104,
-          -784
-        ],
-        [
-          3104,
-          -592
-        ],
-        [
-          3936,
-          -592
-        ],
-        [
-          3936,
-          272
-        ],
-        [
-          2592,
-          272
-        ],
-        [
-          2592,
-          576
-        ],
-        [
-          1760,
-          576
-        ],
-        [
-          1760,
-          272
-        ],
-        [
-          1568,
-          272
-        ],
-        [
-          1568,
-          -784
-        ]
-      ]
-    },
     {
       "district": "parking",
       "width": 224,
@@ -10223,5 +9266,1002 @@
     "age50Breakables": 26,
     "parkingCars": 27,
     "breakableProps": 20
-  }
+  },
+  "officeLoop": {
+    "pods": [
+      {
+        "name": "Accounting",
+        "x": 1712,
+        "y": -576,
+        "w": 432,
+        "h": 296,
+        "color": 11045744
+      },
+      {
+        "name": "HR",
+        "x": 1776,
+        "y": -192,
+        "w": 512,
+        "h": 304,
+        "color": 6719092
+      },
+      {
+        "name": "IT",
+        "x": 3328,
+        "y": -580,
+        "w": 448,
+        "h": 320,
+        "color": 4093813
+      },
+      {
+        "name": "Marketing",
+        "x": 3088,
+        "y": -184,
+        "w": 528,
+        "h": 292,
+        "color": 7693442
+      }
+    ],
+    "workstations": [
+      {
+        "id": "accounting0",
+        "x": 1742,
+        "y": -512,
+        "w": 84,
+        "h": 56,
+        "kind": "L",
+        "accent": "adding",
+        "color": 11045744
+      },
+      {
+        "id": "accounting1",
+        "x": 1882,
+        "y": -512,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "binders",
+        "color": 11045744
+      },
+      {
+        "id": "accounting2",
+        "x": 2022,
+        "y": -512,
+        "w": 84,
+        "h": 56,
+        "kind": "S",
+        "accent": "calendar",
+        "color": 11045744
+      },
+      {
+        "id": "accounting3",
+        "x": 1742,
+        "y": -374,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "photo",
+        "color": 11045744
+      },
+      {
+        "id": "hr0",
+        "x": 1806,
+        "y": -128,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "candy",
+        "color": 6719092
+      },
+      {
+        "id": "hr1",
+        "x": 1946,
+        "y": -128,
+        "w": 84,
+        "h": 56,
+        "kind": "S",
+        "accent": "plant",
+        "color": 6719092
+      },
+      {
+        "id": "hr2",
+        "x": 2086,
+        "y": -128,
+        "w": 84,
+        "h": 56,
+        "kind": "L",
+        "accent": "flyers",
+        "color": 6719092
+      },
+      {
+        "id": "hr3",
+        "x": 1806,
+        "y": 18,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "mugs",
+        "color": 6719092
+      },
+      {
+        "id": "it0",
+        "x": 3358,
+        "y": -516,
+        "w": 84,
+        "h": 56,
+        "kind": "L",
+        "accent": "duck",
+        "color": 4093813
+      },
+      {
+        "id": "it1",
+        "x": 3498,
+        "y": -516,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "cables",
+        "color": 4093813
+      },
+      {
+        "id": "it2",
+        "x": 3638,
+        "y": -516,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "tower",
+        "color": 4093813
+      },
+      {
+        "id": "it3",
+        "x": 3358,
+        "y": -354,
+        "w": 84,
+        "h": 56,
+        "kind": "S",
+        "accent": "tools",
+        "color": 4093813
+      },
+      {
+        "id": "it4",
+        "x": 3498,
+        "y": -354,
+        "w": 84,
+        "h": 56,
+        "kind": "L",
+        "accent": "stickers",
+        "color": 4093813
+      },
+      {
+        "id": "marketing0",
+        "x": 3118,
+        "y": -120,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "board",
+        "color": 7693442
+      },
+      {
+        "id": "marketing1",
+        "x": 3258,
+        "y": -120,
+        "w": 84,
+        "h": 56,
+        "kind": "L",
+        "accent": "neon",
+        "color": 7693442
+      },
+      {
+        "id": "marketing2",
+        "x": 3398,
+        "y": -120,
+        "w": 84,
+        "h": 56,
+        "kind": "E",
+        "accent": "box",
+        "color": 7693442
+      },
+      {
+        "id": "marketing3",
+        "x": 3118,
+        "y": 14,
+        "w": 84,
+        "h": 56,
+        "kind": "S",
+        "accent": "tape",
+        "color": 7693442
+      },
+      {
+        "id": "marketing4",
+        "x": 3258,
+        "y": 14,
+        "w": 84,
+        "h": 56,
+        "kind": "C",
+        "accent": "beanbag",
+        "color": 7693442
+      },
+      {
+        "id": "manager",
+        "x": 2128,
+        "y": 662,
+        "w": 132,
+        "h": 64,
+        "kind": "L",
+        "accent": "photo",
+        "color": 4093813
+      },
+      {
+        "id": "reception",
+        "x": 224,
+        "y": -534,
+        "w": 336,
+        "h": 72,
+        "kind": "R",
+        "accent": "reception",
+        "color": 4093813
+      }
+    ],
+    "partitions": [
+      {
+        "id": "partition-Accounting",
+        "x": 1728,
+        "y": -436,
+        "w": 400,
+        "h": 16,
+        "color": 11045744
+      },
+      {
+        "id": "partition-Accounting-west",
+        "x": 1728,
+        "y": -482,
+        "w": 12,
+        "h": 46,
+        "color": 11045744
+      },
+      {
+        "id": "partition-Accounting-east",
+        "x": 2116,
+        "y": -482,
+        "w": 12,
+        "h": 46,
+        "color": 11045744
+      },
+      {
+        "id": "partition-HR",
+        "x": 1792,
+        "y": -48,
+        "w": 480,
+        "h": 16,
+        "color": 6719092
+      },
+      {
+        "id": "partition-HR-west",
+        "x": 1792,
+        "y": -94,
+        "w": 12,
+        "h": 46,
+        "color": 6719092
+      },
+      {
+        "id": "partition-HR-east",
+        "x": 2260,
+        "y": -94,
+        "w": 12,
+        "h": 46,
+        "color": 6719092
+      },
+      {
+        "id": "partition-IT",
+        "x": 3344,
+        "y": -428,
+        "w": 416,
+        "h": 16,
+        "color": 4093813
+      },
+      {
+        "id": "partition-IT-west",
+        "x": 3344,
+        "y": -474,
+        "w": 12,
+        "h": 46,
+        "color": 4093813
+      },
+      {
+        "id": "partition-IT-east",
+        "x": 3748,
+        "y": -474,
+        "w": 12,
+        "h": 46,
+        "color": 4093813
+      },
+      {
+        "id": "partition-Marketing",
+        "x": 3104,
+        "y": -46,
+        "w": 496,
+        "h": 16,
+        "color": 7693442
+      },
+      {
+        "id": "partition-Marketing-west",
+        "x": 3104,
+        "y": -92,
+        "w": 12,
+        "h": 46,
+        "color": 7693442
+      },
+      {
+        "id": "partition-Marketing-east",
+        "x": 3588,
+        "y": -92,
+        "w": 12,
+        "h": 46,
+        "color": 7693442
+      },
+      {
+        "id": "glass-north",
+        "x": 1968,
+        "y": 548,
+        "w": 464,
+        "h": 16,
+        "color": 8628378,
+        "glass": true
+      },
+      {
+        "id": "glass-west",
+        "x": 1968,
+        "y": 564,
+        "w": 16,
+        "h": 220,
+        "color": 8628378,
+        "glass": true
+      },
+      {
+        "id": "glass-east",
+        "x": 2416,
+        "y": 564,
+        "w": 16,
+        "h": 220,
+        "color": 8628378,
+        "glass": true
+      },
+      {
+        "id": "glass-front-left",
+        "x": 1968,
+        "y": 784,
+        "w": 112,
+        "h": 16,
+        "color": 8628378,
+        "glass": true
+      },
+      {
+        "id": "glass-front-right",
+        "x": 2320,
+        "y": 784,
+        "w": 112,
+        "h": 16,
+        "color": 8628378,
+        "glass": true
+      },
+      {
+        "id": "elevators",
+        "x": -288,
+        "y": -816,
+        "w": 480,
+        "h": 32,
+        "color": 5398648,
+        "lift": true
+      }
+    ],
+    "scenes": [
+      {
+        "id": "cooler-mina",
+        "cast": "mute",
+        "x": 1054,
+        "y": -515,
+        "phase": 0
+      },
+      {
+        "id": "cooler-art",
+        "cast": "salad",
+        "x": 1096,
+        "y": -491,
+        "phase": 480,
+        "flip": true
+      },
+      {
+        "id": "printer-nora",
+        "cast": "email",
+        "x": 2412,
+        "y": -907,
+        "phase": 260
+      },
+      {
+        "id": "phone-eli",
+        "cast": "intern",
+        "x": 3636,
+        "y": 428,
+        "phase": 440,
+        "walk": [
+          [
+            3586,
+            428
+          ],
+          [
+            3690,
+            428
+          ]
+        ],
+        "speed": 26
+      },
+      {
+        "id": "mug-sam",
+        "cast": "retiring",
+        "x": 2672,
+        "y": 224,
+        "phase": 720,
+        "walk": [
+          [
+            2672,
+            224
+          ],
+          [
+            3136,
+            224
+          ]
+        ],
+        "speed": 32
+      }
+    ],
+    "bands": [
+      [
+        -640,
+        -832,
+        224,
+        224
+      ],
+      [
+        -640,
+        368,
+        224,
+        224
+      ],
+      [
+        -640,
+        -720,
+        224,
+        1200
+      ],
+      [
+        -528,
+        -240,
+        1840,
+        224
+      ],
+      [
+        1040,
+        -448,
+        272,
+        224
+      ],
+      [
+        1312,
+        -448,
+        368,
+        224
+      ],
+      [
+        1040,
+        64,
+        272,
+        224
+      ],
+      [
+        1312,
+        64,
+        368,
+        224
+      ],
+      [
+        1312,
+        -240,
+        192,
+        224
+      ],
+      [
+        3792,
+        -832,
+        224,
+        224
+      ],
+      [
+        3792,
+        112,
+        224,
+        224
+      ],
+      [
+        1392,
+        112,
+        224,
+        224
+      ],
+      [
+        1504,
+        -832,
+        2400,
+        224
+      ],
+      [
+        3792,
+        -720,
+        224,
+        944
+      ],
+      [
+        1504,
+        112,
+        2400,
+        224
+      ],
+      [
+        1392,
+        -720,
+        224,
+        944
+      ],
+      [
+        2560,
+        -720,
+        224,
+        944
+      ]
+    ]
+  },
+  "lights": [
+    {
+      "x": 1784,
+      "y": -500,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 1760,
+      "y": -494,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 1924,
+      "y": -500,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 2064,
+      "y": -500,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 1784,
+      "y": -362,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 1760,
+      "y": -356,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 1848,
+      "y": -116,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 1824,
+      "y": -110,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 1988,
+      "y": -116,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 2128,
+      "y": -116,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 1848,
+      "y": 30,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3400,
+      "y": -504,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3376,
+      "y": -498,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 3540,
+      "y": -504,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3680,
+      "y": -504,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3400,
+      "y": -342,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3540,
+      "y": -342,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3136,
+      "y": -102,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 3300,
+      "y": -108,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 3160,
+      "y": 26,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 2194,
+      "y": 674,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 2146,
+      "y": 680,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 392,
+      "y": -522,
+      "r": 66,
+      "color": 10475775,
+      "kind": "screen"
+    },
+    {
+      "x": 242,
+      "y": -516,
+      "r": 96,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 770,
+      "y": -800,
+      "r": 106,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -284,
+      "y": -700,
+      "r": 96,
+      "color": 16767392,
+      "kind": "window"
+    },
+    {
+      "x": 1872,
+      "y": -880,
+      "r": 112,
+      "color": 16767392,
+      "kind": "window"
+    },
+    {
+      "x": 2912,
+      "y": -914,
+      "r": 128,
+      "color": 16767392,
+      "kind": "window"
+    },
+    {
+      "x": 3746,
+      "y": -774,
+      "r": 96,
+      "color": 16767392,
+      "kind": "window"
+    },
+    {
+      "x": -2704,
+      "y": 240,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -2704,
+      "y": 640,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -2704,
+      "y": 1216,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -1200,
+      "y": 240,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -1104,
+      "y": 1040,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -816,
+      "y": 1040,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": -32,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 160,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 352,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 544,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 736,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 928,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1120,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1312,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1504,
+      "y": -2192,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1312,
+      "y": -1840,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1504,
+      "y": -1840,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": -456,
+      "y": -1680,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": -456,
+      "y": -1456,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": -32,
+      "y": -1344,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 160,
+      "y": -1344,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 352,
+      "y": -1344,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 544,
+      "y": -1344,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 736,
+      "y": -1344,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1168,
+      "y": -1616,
+      "r": 100,
+      "color": 10475775,
+      "kind": "server"
+    },
+    {
+      "x": 1168,
+      "y": -1728,
+      "r": 100,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 2312,
+      "y": 1664,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": 32,
+      "y": 2224,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": 3984,
+      "y": -2296,
+      "r": 100,
+      "color": 16767392,
+      "kind": "window"
+    },
+    {
+      "x": 3544,
+      "y": -1888,
+      "r": 100,
+      "color": 10475775,
+      "kind": "vending"
+    },
+    {
+      "x": 3544,
+      "y": -1376,
+      "r": 100,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 2816,
+      "y": -1200,
+      "r": 100,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 160,
+      "y": 1068,
+      "r": 100,
+      "color": 16767392,
+      "kind": "lamp"
+    },
+    {
+      "x": 888,
+      "y": 1056,
+      "r": 100,
+      "color": 16767392,
+      "kind": "lamp"
+    }
+  ]
 }

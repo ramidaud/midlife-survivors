@@ -1,13 +1,17 @@
 """Validate room footprints, 224px lanes and locked/open reachability offline."""
 from pathlib import Path
 from collections import deque
-import json,math
+import json,math,runpy
 R=Path(__file__).resolve().parent
 D=json.loads((R/'layout.json').read_text());C=16
 inside=lambda x,y:any(r['x']<=x<r['x']+r['width'] and r['y']<=y<r['y']+r['height'] for r in D['floors'])
 assert {d['id'] for d in D['districts']}=={'lobby','bullpen','parking','breakroom','server','conference','executive','wellness'}
-assert len(D['workers'])==26+D['finishStats']['newWorkers'] and all(p['cropHeight']==34 for p in D['workers'])
-assert sum(p['prop'].startswith('desk_') for p in D['placements'])==35+D['finishStats']['newDesks']
+office=D.get('officeLoop')
+if office:
+ assert all(p['cropHeight']==(56 if p.get('seated') else 34) for p in D['workers'])
+else:
+ assert len(D['workers'])==26+D['finishStats']['newWorkers'] and all(p['cropHeight']==34 for p in D['workers'])
+ assert sum(p['prop'].startswith('desk_') for p in D['placements'])==35+D['finishStats']['newDesks']
 assert D['routeWidth']==224 and D['maxVisibleProps']==120
 rects=[]
 for p in D['placements']:
@@ -16,6 +20,11 @@ for p in D['placements']:
  f=s['footprint'];x=p['x']-f['width']/2;y=p['y']-f['back'];w=f['width'];h=f['back']+f['front']
  assert all(inside(a,b) for a in [x+.1,x+w-.1] for b in [y+.1,y+h-.1]),p['id']
  rects.append((x,y,w,h,p['id']))
+if office:
+ validated=runpy.run_path(str(R/'validate-courtyard.py'))
+ for id in validated['early']:
+  if id not in {p['id'] for p in D['placements']}:
+   rects.append((*validated['fixtures'][id],id))
 for r in D['walls']+D['structures']:rects.append((r['x'],r['y'],r['width'],r['height'],r['id']))
 for g in D['gates']:assert g['closed'] and g['age'] in [45,50,55,60] and g['height']==g['clearWidth']==224
 assert len(D['gates'])==6
@@ -36,6 +45,7 @@ def flood(open_ids):
    if q in free and q not in seen:seen.add(q);todo.append(q)
  return seen
 old=['Lobby','Hallway','Bullpen','Goals','Parking gate']
+if office:old+=['Commons','South apron','Lobby arrival','Seated desks']
 late=['Server','Rack aisle','Cable waterfall','Conference','Synergy','Bandwidth','Alignment','Executive gate','Meeting approach','Crash cart','Wellness door']
 age45ids={'parking-access','break-access'};age50ids=age45ids|{'server-return','conference-return'};age55ids=age50ids|{'executive-return'}
 closed=flood(set());age45=flood(age45ids);age50=flood(age50ids);age55=flood(age55ids);opened=flood(age55ids|{'wellness-conference'})
@@ -57,7 +67,7 @@ for name,x,y in [('Server',3488,752),('Conference',6784,3840)]:
   assert inside(px,py) and not any(rx<=px<=rx+w and ry<=py<=ry+h for rx,ry,w,h,id in rects),('Boss escape blocked',name,i)
  clearance.append(dict(room=name,ringRadius=260,escapeRadius=328,driftRadius=130,passed=True))
 # V8 drift envelopes and 600px straight charge lanes stay clear in both final rooms.
-for name,cx,cy,lane in [('Executive',6176,784,832),('Wellness',3920,3808,896),('Bullpen',5376,2080,640)]:
+for name,cx,cy,lane in [('Executive',6176,784,832),('Wellness',3920,3808,896),('Bullpen',5840,2216,704) if office else ('Bullpen',5376,2080,640)]:
  x=cx-D['origin'][0];y=cy-D['origin'][1]
  for i in range(128):
   a=math.tau*i/128;px=x+220*math.cos(a);py=y+220*math.sin(a)
@@ -91,5 +101,8 @@ for x,y,w,h,id in rects:
 oldx=5152-D['origin'][0];oldy=1088-D['origin'][1]
 assert all(any(x<=oldx<=x+w and y<=py<y+h for x,y,w,h,id in rects if id.startswith('wall-')) for py in range(oldy,oldy+224)), 'Old Executive opening not sealed'
 g=next(g for g in D['gates'] if g['age']==60);assert g['id']=='wellness-conference' and g['fromDistrict']=='conference' and g['closed'] and g['width']==128 and g['height']==224
-report=dict(status='passed',conferenceCorridor224=True,oldExecutiveOpeningSealed=True,districts=8,props=len(D['placements']),desks=35+D['finishStats']['newDesks'],staticWorkers=len(D['workers']),solidBodies=len(rects)+6,doorwayWidth=224,closedGates=6,age45Gates=2,age50Gates=2,age55Gates=1,age60Gates=1,closedReachableCells=len(closed),age45ReachableCells=len(age45),age50ReachableCells=len(age50),age55ReachableCells=len(age55),testOpenedReachableCells=len(opened),allTourPointsReachableWhenTestOpened=True,lockedRoomsExcluded=True,protectedRoutes=len(routes),bossClearance=clearance,maxVisibleProps=120,**D['roomStats'],finish=D['finishStats'])
+report=dict(status='passed',conferenceCorridor224=True,oldExecutiveOpeningSealed=True,districts=8,props=len(D['placements']),desks=len(office['workstations']) if office else 35+D['finishStats']['newDesks'],workers=len(D['workers']),solidBodies=len(rects)+6,doorwayWidth=224,closedGates=6,age45Gates=2,age50Gates=2,age55Gates=1,age60Gates=1,closedReachableCells=len(closed),age45ReachableCells=len(age45),age50ReachableCells=len(age50),age55ReachableCells=len(age55),testOpenedReachableCells=len(opened),allTourPointsReachableWhenTestOpened=True,lockedRoomsExcluded=True,protectedRoutes=len(routes),bossClearance=clearance,maxVisibleProps=120,**D['roomStats'])
+if office:
+ report['courtyard']=dict(pods=len(office['pods']),workstations=len(office['workstations']),seated=sum(bool(p.get('seated')) for p in D['workers']),standing=len(office['scenes']),lights=len(D['lights']))
+else:report['finish']=D['finishStats']
 (R/'checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

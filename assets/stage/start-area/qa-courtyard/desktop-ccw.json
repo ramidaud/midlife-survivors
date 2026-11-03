@@ -1,0 +1,97 @@
+{
+  "phase": "after",
+  "errors": [],
+  "warnings": [],
+  "leaderboardRequests": 0,
+  "ready": true,
+  "slice": {
+    "seats": 15,
+    "chairOrder": true,
+    "standing": 5,
+    "standingNonSolid": true,
+    "lights": 63,
+    "version": "1.48.0",
+    "build": 114,
+    "viewport": [
+      1280,
+      800
+    ],
+    "age": 40.83961659259259,
+    "openUpToAge": 60,
+    "statsDisabled": true,
+    "analyticsResources": 0,
+    "player": [
+      2688.7077483015055,
+      -745.8230283603275
+    ],
+    "body": [
+      48,
+      52
+    ],
+    "props": 566,
+    "nativeFloorDecor": true,
+    "deskCount": 0,
+    "visible": 18,
+    "peak": 38,
+    "navBlockers": 6,
+    "gates": [
+      {
+        "id": "parking-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "break-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "server-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "conference-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "executive-return",
+        "age": 55,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "wellness-conference",
+        "age": 60,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      }
+    ],
+    "outside": 0,
+    "fps": 120.43581015001581
+  },
+  "loop": {
+    "counterclockwise": {
+      "passed": true,
+      "waypoints": 10,
+      "total": 10,
+      "seconds": 37.8005,
+      "tracked": 875,
+      "stopped": 0,
+      "outsideSamples": 0,
+      "walkedAway": 0
+    }
+  },
+  "consoleErrors": []
+}

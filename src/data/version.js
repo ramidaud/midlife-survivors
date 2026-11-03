@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.49.0",
-  displayVersion: "V. 1.49.0",
+  version: "1.50.0",
+  displayVersion: "V. 1.50.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Final Notice",
-  build: 116,
+  codename: "The Courtyard Loop",
+  build: 117,
   changelog: [
+    {
+      ver: "V. 1.50.0", date: "Nov 3, 2026", title: "The Courtyard Loop",
+      highlights: ["The Lobby has a proper reception and waiting area. The Bullpen has four team pods, an open commons and coworkers who finally sit in their chairs."]
+    },
     {
       ver: "V. 1.49.0", date: "Nov 3, 2026", title: "Final Notice",
       highlights: [
