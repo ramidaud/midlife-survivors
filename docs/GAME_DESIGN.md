@@ -483,6 +483,6 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
 - **Decided Nov 3: elites are a keeper** ("it's so good"), V. 1.49.0.
 
 ## Ideas queued Nov 3 (morning)
-- **Spotlight cards (Rami):** a bigger lower third that animates in at key moments (boss arrival, new character, room unlocked, key tips) with a sprite and a line or tip. Two mockups: A "Memo Slide" (card slides in bottom left) and B "Spotlight" (dimmed screen, band, big sprite rising, speech bubble). Not decided yet.
+- **Spotlight cards (Rami):** a bigger lower third that animates in at key moments (boss arrival, new character, room unlocked, key tips) with a sprite and a line or tip. Two mockups: A "Memo Slide" (card slides in bottom left) and B "Spotlight" (dimmed screen, band, big sprite rising, speech bubble). **Decided Nov 3: Style B** (Rami). Build after Gemini's copy.
 - **More ways to heal (TJ):** heal a chunk at life milestones and add a rare healthy-food drop (a salad) so long runs can stretch. Spec to come from Grok.
 - **Dev console (TJ):** a testing panel behind a URL switch (god mode, give items, jump to an age). Runs with it on never post scores.

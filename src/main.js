@@ -867,6 +867,7 @@ let runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
 window.getNewAchievements = () => runAch.newly;
 window.achEvent = (on, d = {}) => {
   if (!meta || !window.ACHIEVEMENTS) return;
+  if (window.DEV && window.DEV.on) return; // dev console: no achievements while testing
   const A = meta.achievements || (meta.achievements = { unlocked: {}, life: {} });
   const life = A.life || (A.life = {});
   life.evos = life.evos || {};
@@ -1221,6 +1222,7 @@ function showLevelUp(scene, customTitle, preferWeapons) {
 function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
   if (gameOver) return;
+  if (window.DEV && DEV.god && bill.kind !== "theReaper") return; // dev console god mode
   if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 100 = CENTENARIAN VICTORY!
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window

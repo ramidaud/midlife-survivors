@@ -50,6 +50,7 @@ function lbHeaders() {
 
 // Post a score. Always saved on this device too. Resolves to { online: true|false }.
 async function lbSubmit(entry) {
+  if (window.DEV && window.DEV.on) return { online: false, reason: "dev" }; // dev console runs never post
   lbAddLocal(entry);
   if (!lbConfigured()) return { online: false, reason: "not-set-up" };
   const L = window.LEADERBOARD;

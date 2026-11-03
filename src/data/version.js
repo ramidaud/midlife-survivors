@@ -2,12 +2,18 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.59.2",
-  displayVersion: "V. 1.59.2",
+  version: "1.60.0",
+  displayVersion: "V. 1.60.0",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 140,
+  build: 141,
   changelog: [
+    {
+      ver: "V. 1.60.0", date: "Nov 3, 2026", title: "After Hours",
+      highlights: [
+        "New for playtesters: a dev console. Add ?dev=1 to the address, then tap DEV (or press the ` key) for god mode, full health, any upgrade, jumping to an age, calling a boss, clearing the screen and route arrows. Dev runs never post scores. Add ?dev=0 to turn it off. TJ's idea."
+      ]
+    },
     {
       ver: "V. 1.59.2", date: "Nov 3, 2026", title: "After Hours",
       highlights: [

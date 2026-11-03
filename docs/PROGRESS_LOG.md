@@ -1011,3 +1011,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - V. 1.59.2: fixed TJ's "force field" bug. The enemy route map kept the last run's clock, so on a second run without a refresh it froze where you died and enemies steered away. Same fix for smashable-prop tagging and dust puffs. Unit test confirms the map rebuilds around you in run 2.
 - TJ playtest notes (Nov 3 morning): likes the unified design and the "last run" tile. Asked for easier ways to heal (milestone heals, a salad-type drop) and a dev/cheat console for testing. Both queued.
 - Rami idea: big "Spotlight" lower thirds (sprite + line or tip) for bosses, new characters and room unlocks. Two mockup styles made for him to pick from.
+- V. 1.60.0: dev console for playtesters (TJ's idea). Add ?dev=1 once, then tap DEV or press `: god mode, full HP, any upgrade, jump to an age, call a boss, clear the screen, route arrows. Dev runs never post scores or stats, and achievements stay locked. ?dev=0 turns it off.
+- Rami picked **Style B (Spotlight)** for the big lower thirds. Copy brief out to Gemini; build after the copy lands.
+- Muse (Meta's agent) joins as the social feedback reader for Facebook and Instagram posts.
