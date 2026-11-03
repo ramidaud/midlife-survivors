@@ -942,3 +942,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Data comes from devlog/data/stats.json (devlog/scripts/build_stats.py). Lead images can carry an ART margin note (tool + prompt) via leadNote in posts.js.
 - Post 08 opening changed to "Last night my game was two rooms and a locked door."
 - ChatGPT layout plans in (ecf2bd8): A "Main Avenue" (straight route, printer apron, east arena) and B "Courtyard Loop" (loop around an open commons, pods at the turns). Claude recommends B's loop layout with A's look. Waiting on Rami.
+
+## 2026-11-03: Devlog post pages v2
+- Post pages match the new home: a sidebar with every memo in order ("You are here", check marks for memos you've read, a read-progress bar), "Behind this memo" build stats (builds in this memo, builds since) and the live leaderboard.
+- Each post shows its memo number and exact filing time, plus a thin reading-progress bar along the top.
+- The end of every post has "What happened before" and "What's next" cards. The latest memo's "What's next" shows the nextUp line and follow links.
+- New reading-order toggle on the home page and every post: **Newest first** (catch up) or **From the start** (memo 01 gets the spotlight). It remembers each reader's choice.
