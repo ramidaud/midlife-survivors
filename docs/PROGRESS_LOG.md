@@ -1033,3 +1033,5 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Devlog Memo 09 "My friends work here now." drafted from Rami's interview answers (draft, not public yet): TJ's bug, the interns and the Lounge, Ben as the Cold War Cowboy, Spotlight cards, and one unified experience. Four new screenshots.
 - Memo 09 now opens with a clip of Ben's Spotlight card (still a draft; Rami is happy with the writing). V. 1.67.1 preloads hero portraits so Spotlight sprites don't pop in late.
 - Rami isn't happy with the v1 sprites for Ben, TJ and Derek ("they don't match the quality"). Redo brief with a side-by-side comparison: docs/handoffs/chatgpt-friends-sprites-v2.md.
+- V. 1.67.2: TJ couldn't find the Lounge. Now a Spotlight card announces it, the arrow stays up the whole time it's open, it stays open 50 s instead of 35, and the Break Room counter has a "THE LOUNGE · OPENS AFTER PROMOTIONS" sign while it's closed.
+- Plan (Rami): Memo 10 announces **V. 2** with the full before and after set (title, pause, HUD, level-up, devlog). "Before" shots come from the V. 1.47 build (commit abbcdd9^), run locally.

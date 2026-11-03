@@ -12,6 +12,7 @@ window.Lounge = (() => {
 
   function reset() {
     if (st && st.objs) st.objs.forEach(o => o && o.destroy && o.destroy());
+    if (st && st.closedSign) st.closedSign.forEach(o => o.destroy());
     st = { state: "closed", done: {}, pendingAge: 0, openUntil: 0, objs: [], arrowUntil: 0, needExit: false,
            bought: {}, ramp: {}, stock: {}, loiterSince: 0, loiterWarned: 0, staff: null };
     hideModal();
@@ -39,7 +40,7 @@ window.Lounge = (() => {
   function open(scene) {
     const L = C(), s = spot();
     st.state = "open"; st.spot = s; st.openUntil = runElapsedMs + (L.openMsPromotion || 35000);
-    st.arrowUntil = runElapsedMs + (L.showArrowMs || 6000); st.needExit = false; st.bubbleUsed = false;
+    st.arrowUntil = st.openUntil; // the arrow stays up the whole time it's open (TJ couldn't find it, Nov 3) st.needExit = false; st.bubbleUsed = false;
     (L.catalog || []).forEach(it => { st.stock[it.id] = it.stock; });
     const roster = (window.INTERNS && INTERNS.roster) || [];
     const r = roster[Math.floor(Math.random() * roster.length)] || { name: "The intern", id: "tj" };
@@ -56,7 +57,9 @@ window.Lounge = (() => {
     const tag = scene.add.text(s.x + 58, s.y - 70, r.name.toUpperCase() + " · REGISTER", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 } }).setOrigin(0.5, 1).setDepth(21);
     const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(23).setScrollFactor(0);
     st.objs = [rug, sign, staff, tag, arrow]; st.arrow = arrow;
+    if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
     const line = (L.lines && L.lines.open || "{name} is on the Lounge register.").replace("{name}", r.name);
+    if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r);
     if (window.showLowerThird) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
     sfx("coin");
   }
@@ -194,8 +197,18 @@ window.Lounge = (() => {
     st.arrow.setText("THE LOUNGE " + arrows[idx]);
   }
 
+  // While it's closed, a dim sign marks the counter so you know where to go next time.
+  function closedSign(scene) {
+    if (st.closedSign || st.state !== "closed" || !gateOpen()) return;
+    const s = spot();
+    const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE · OPENS AFTER PROMOTIONS", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 5, y: 2 } }).setOrigin(0.5).setDepth(21).setAlpha(0.75);
+    const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.08).setStrokeStyle(2, 0xF2D7A1, 0.4).setDepth(2.5);
+    st.closedSign = [sign, rug];
+  }
+
   function update(scene, now) {
     if (!st || typeof player === "undefined" || !player || !player.scene) return;
+    closedSign(scene);
     const L = C(), S = L.safety || {};
     // Arm a window at each promotion age once the Break Room is open.
     (L.promotionAges || []).forEach(age => { if (!st.done[age] && currentAge >= age) { st.done[age] = true; st.pendingAge = age; } });

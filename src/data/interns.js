@@ -37,7 +37,7 @@ window.INTERNS = {
     districtId: "breakroom",
     displayName: "The Lounge",
     browseRadius: 56,
-    openMsPromotion: 35000,
+    openMsPromotion: 50000,     // was 35 s; TJ couldn't find it in time (Nov 3)
     promotionAges: [45, 50, 55, 60],
     showArrowMs: 6000,
     bubblePushRadius: 160,

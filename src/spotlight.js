@@ -24,6 +24,8 @@ window.Spotlight = (() => {
 #spotlight .sp-art.boss{width:calc(144px * var(--a));height:calc(152px * var(--a));background-size:calc(576px * var(--a)) calc(456px * var(--a));background-position:0 0;animation:spRise .55s .25s cubic-bezier(.2,1.5,.4,1) both,spBob 1.6s 1s ease-in-out infinite}
 #spotlight .sp-art.hero{width:calc(96px * var(--a));height:calc(112px * var(--a));background-size:calc(768px * var(--a)) calc(336px * var(--a));background-position:0 calc(-112px * var(--a));animation:spRise .55s .25s cubic-bezier(.2,1.5,.4,1) both,spHero 1.12s steps(8) infinite}
 #spotlight .sp-art.cast{width:calc(48px * var(--a));height:calc(56px * var(--a));background-size:calc(192px * var(--a)) calc(224px * var(--a));background-position:0 0;animation:spRise .55s .25s cubic-bezier(.2,1.5,.4,1) both,spCast .9s steps(4) infinite}
+#spotlight .sp-art.intern{width:calc(56px * var(--a));height:calc(60px * var(--a));background-size:calc(448px * var(--a)) calc(300px * var(--a));background-position:0 calc(-240px * var(--a));animation:spRise .55s .25s cubic-bezier(.2,1.5,.4,1) both,spIntern .74s steps(4) infinite}
+@keyframes spIntern{from{background-position-x:0}to{background-position-x:calc(-224px * var(--a))}}
 #spotlight .sp-text{position:absolute;left:calc(max(12px,4vw) + var(--artw) + 18px);right:max(16px,4vw);bottom:calc(98px * var(--s));display:flex;flex-direction:column;gap:6px;animation:spName .45s .4s cubic-bezier(.2,1.3,.4,1) both}
 #spotlight .sp-kick{align-self:flex-start;font:calc(13px * var(--s)) Silkscreen,monospace;letter-spacing:.1em;color:#171C35;background:#F2D7A1;padding:3px 9px}
 #spotlight .sp-name{font:700 calc(44px * var(--s))/1 Silkscreen,monospace;color:#FFF0CF;text-shadow:4px 4px 0 #171C35;overflow-wrap:anywhere}
@@ -71,8 +73,8 @@ window.Spotlight = (() => {
     if (!root) { root = document.createElement("div"); root.id = "spotlight"; root.setAttribute("role", "status"); root.setAttribute("aria-live", "polite"); document.body.appendChild(root); }
     const portrait = matchMedia("(orientation:portrait),(max-width:760px)").matches;
     const big = portrait && innerWidth >= 600;
-    const a = c.artType === "boss" ? (big ? 1.6 : portrait ? 1.15 : 1.9) : c.artType === "hero" ? (big ? 2.1 : portrait ? 1.5 : 2.5) : (big ? 3.8 : portrait ? 2.8 : 4.6);
-    const artW = c.artType === "boss" ? 144 * a : c.artType === "hero" ? 96 * a : 48 * a;
+    const a = c.artType === "intern" ? (big ? 3.4 : portrait ? 2.5 : 4) : c.artType === "boss" ? (big ? 1.6 : portrait ? 1.15 : 1.9) : c.artType === "hero" ? (big ? 2.1 : portrait ? 1.5 : 2.5) : (big ? 3.8 : portrait ? 2.8 : 4.6);
+    const artW = c.artType === "intern" ? 56 * a : c.artType === "boss" ? 144 * a : c.artType === "hero" ? 96 * a : 48 * a;
     root.className = "";
     root.style.setProperty("--a", a);
     root.style.setProperty("--artw", (portrait ? 0 : artW) + "px");
@@ -144,6 +146,12 @@ window.Spotlight = (() => {
       const R = (S().rooms || {})[area]; if (!R) return false;
       const cw = (window.START_AREA_COWORKERS || {})[R.cast];
       show({ kicker: R.kicker, name: R.name, line: R.line, tip: R.tip, art: texUrl("slice_coworker_" + R.cast, cw && cw.src), artType: "cast", edge: "#83A89A", band: "#3E7775" });
+      return true;
+    },
+    lounge(r) {
+      const line = (r.lines || [])[Math.floor(Math.random() * (r.lines || []).length)] || "Cash only.";
+      show({ kicker: "NOW OPEN", name: "THE LOUNGE", line: r.name + ": " + line, tip: "Follow the arrow to the Break Room counter.",
+             art: (window._activeGameScene && _activeGameScene.textures.exists("intern2_" + r.id)) ? r.sheet : null, artType: "intern", edge: "#EF9347", band: "#3E7775", ms: 5000 });
       return true;
     },
     hire(id) {

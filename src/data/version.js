@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.67.1",
-  displayVersion: "V. 1.67.1",
+  version: "1.67.2",
+  displayVersion: "V. 1.67.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 153,
+  build: 154,
   changelog: [
+    {
+      ver: "V. 1.67.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Easier to find the Lounge: a big card when it opens, an arrow the whole time, and a sign on the counter when it's closed.",
+      highlights: [
+        "The Lounge is easier to find (TJ couldn't): a Spotlight card when it opens, an arrow pointing to it the whole time it's open, 50 seconds instead of 35, and a sign on the Break Room counter when it's closed."
+      ]
+    },
     {
       ver: "V. 1.67.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "New hero: The Cold War Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
