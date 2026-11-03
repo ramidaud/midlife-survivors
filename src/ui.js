@@ -36,6 +36,19 @@ const UPGRADE_META = {
   "HR Appreciation Snacks":        { icon: "🥨", tag: "BOOST", rarity: "boost" }
 };
 
+// Pixel icon from the ChatGPT atlas (src/data/ui-icons.js), or the emoji if there isn't one.
+// size: displayed pixels (the atlas is 32px per icon; whole-number multiples stay crisp).
+function pixelIcon(kind, id, emoji, size) {
+  const I = window.UI_ICONS;
+  if (!window.USE_PIXEL_ICONS || !I) return emoji;
+  const idx = kind === "char" ? I.characters[id] : (I.cards[id] ?? (emoji ? undefined : I.fallback));
+  if (idx === undefined) return emoji;
+  const s = size || 32, k = s / I.cell, col = idx % I.columns, row = Math.floor(idx / I.columns);
+  return `<span class="px-icon" style="width:${s}px;height:${s}px;background-image:url(${I.image}?v=${window.BUILD || 1});` +
+    `background-size:${I.columns * s}px ${I.rows * s}px;background-position:-${col * s}px -${row * s}px" role="img" aria-label=""></span>`;
+}
+window.pixelIcon = pixelIcon;
+
 const CHAR_ICONS = {
   officeWorker: "☕",
   photographer: "⚽", // The Soccer Dad
@@ -971,7 +984,7 @@ function updateHUDNow() {
   if (!hpFill || !stats || !meta) return;
 
   const ch = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
-  document.getElementById("hud-avatar").textContent = CHAR_ICONS[ch.id] || "☕";
+  document.getElementById("hud-avatar").innerHTML = pixelIcon("char", ch.id, CHAR_ICONS[ch.id] || "☕", 24);
   document.getElementById("hud-charname").textContent = ch.name;
   document.getElementById("hud-lv").textContent = `LV ${level}`;
 
@@ -1802,7 +1815,7 @@ function renderLevelUpModal(choices, customTitle, onPick) {
     card.className = `perk-card rarity-${info.rarity}`;
     card.innerHTML = `
       <div class="perk-ribbon">${rankLabel}</div>
-      <div class="perk-icon">${info.icon}</div>
+      <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
       <div class="perk-name">${up.name}</div>
       <div class="perk-desc">${up.text}</div>
       <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `PRESS [${i + 1}] / SPACE`}</div>
@@ -1854,7 +1867,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     const status = sel ? "✓ ACTIVE" : (owned ? "SELECT" : `🔒 ${ch.cost}k`);
     return `
       <div class="dossier-char ${sel ? "selected" : ""} ${owned ? "owned" : "locked"}" data-char="${ch.id}">
-        <div class="char-emoji">${CHAR_ICONS[ch.id] || "☕"}</div>
+        <div class="char-emoji">${pixelIcon("char", ch.id, CHAR_ICONS[ch.id] || "☕", 64)}</div>
         <div class="char-title">${ch.name}</div>
         <div class="char-desc">${ch.tagline}</div>
         <div class="char-badge">${status}</div>

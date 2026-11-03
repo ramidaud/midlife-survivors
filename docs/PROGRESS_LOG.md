@@ -906,3 +906,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - 8-frame enemy sheets: all 11 are the right size; special layouts correct (Spam Likely walk then ring, Back Twinge lunge then rest, 3 AM Thought fade to see-through ghost). Not wired in yet.
 - Office finish (live in 1.44.0): stitched WELCOME rug, softer floor, Bullpen filled with CRT cubicle rows and paper drifts. My checks: bot playtest 1.5% off track, Bullpen spots 0 to 1% walking away, age-50 test clean on desktop and phone.
 - Pixel icon atlas: 31 cards + 3 characters + fallback; every level-up card has an icon. Not wired in yet.
+
+## 2026-11-02: 8-frame enemies and pixel icons wired in (V. 1.45.0)
+- Rami approved. enemy-art.js now loads the v2 sheets (8 frames at half the time each, same overall speed); Spam Likely walk 0-3 / ring 4-7, Back Twinge lunge 0-3 / rest 4-7, 3 AM Thought solid 0-3 / fade 4-5 / ghost 6-7. ENEMY_ART_VERSION = 1 switches back.
+- Pixel icons on level-up cards (64px), HUD avatar and character picker, from a transparent copy of ChatGPT's atlas (src/data/ui-icons.js). USE_PIXEL_ICONS = false switches back to emoji.
+- Tests: desktop and phone, no errors, v2 frames in use, all three cards and the avatar show pixel icons.

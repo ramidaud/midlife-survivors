@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.44.0",
-  displayVersion: "V. 1.44.0",
+  version: "1.45.0",
+  displayVersion: "V. 1.45.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Office Finish",
-  build: 110,
+  codename: "Smooth Operators",
+  build: 111,
   changelog: [
+    {
+      ver: "V. 1.45.0", date: "Nov 2, 2026", title: "Smooth Operators",
+      highlights: [
+        "Every enemy now animates on 8 frames instead of 4, so the swarm moves smoothly. Spam Likely shakes when it rings, Back Twinge lunges and rests, and 3 AM Thought fades into a see-through ghost. (Art by ChatGPT.)",
+        "Level-up cards, the HUD and the character picker use new pixel icons instead of phone emoji."
+      ]
+    },
     {
       ver: "V. 1.44.0", date: "Nov 2, 2026", title: "Office Finish",
       highlights: ["The Lobby gets stitched rugs and softer light, and the Bullpen gets more cubicles, CRTs, and a printer that will not stop printing."]

@@ -1,5 +1,7 @@
 // Looks only. Set false and reload to compare with the original canvas art.
 window.USE_ENEMY_ART = true;
+// Nov 2: 8-frame v2 sheets (ChatGPT) for smoother animation. Set to 1 and reload to compare with the 4-frame v1 art.
+window.ENEMY_ART_VERSION = 2;
 window.EnemyArt = (() => {
   const specs = {
     bill: ['bill', 48, 4, 180, 36],
@@ -15,16 +17,21 @@ window.EnemyArt = (() => {
     ping: ['group-chat-ping', 16, 2, 160, 14]
   };
   const key = kind => 'enemy-art-' + kind;
+  // Frames per sheet and ms per frame for the art version in use. v2 has twice the frames at half the time each,
+  // so every enemy moves at the same overall speed, just smoother.
+  const V2 = () => window.ENEMY_ART_VERSION === 2;
+  const frameCount = kind => V2() ? specs[kind][2] * 2 : specs[kind][2];
+  const frameMs = kind => V2() ? specs[kind][3] / 2 : specs[kind][3];
   function animation(scene, kind, suffix, frames) {
     const name = key(kind) + suffix;
     if (!scene.anims.exists(name)) scene.anims.create({
       key: name, frames: frames.map(frame => ({ key: key(kind), frame })),
-      frameRate: 1000 / specs[kind][3], repeat: -1
+      frameRate: 1000 / frameMs(kind), repeat: -1
     });
     return name;
   }
   function importSheet(scene, image, kind) {
-    const [, size, frames] = specs[kind];
+    const size = specs[kind][1], frames = frameCount(kind);
     if (image.width !== size * frames || image.height !== size) throw new Error('Wrong native dimensions');
     const canvas = document.createElement('canvas');
     canvas.width = image.width; canvas.height = image.height;
@@ -41,8 +48,8 @@ window.EnemyArt = (() => {
     }
     animation(scene, kind, '', Array.from({ length: frames }, (_, i) => i));
     if (kind === 'spamCall') {
-      animation(scene, kind, '-walk', [0, 1]);
-      animation(scene, kind, '-ring', [2, 3]);
+      animation(scene, kind, '-walk', V2() ? [0, 1, 2, 3] : [0, 1]);
+      animation(scene, kind, '-ring', V2() ? [4, 5, 6, 7] : [2, 3]);
     }
   }
   function init(scene, clock) {
@@ -65,7 +72,7 @@ window.EnemyArt = (() => {
         catch (error) { console.warn('Enemy art fallback for ' + kind + ': ' + error.message); }
       };
       image.onerror = () => { /* Keep the original canvas sprite for this species. */ };
-      image.src = 'assets/enemies/enemy-' + specs[kind][0] + '-v1.png?v=' + window.BUILD;
+      image.src = 'assets/enemies/enemy-' + specs[kind][0] + (V2() ? '-v2' : '-v1') + '.png?v=' + window.BUILD;
     }
     function attach(entity, kind) {
       if (!specs[kind]) return; // bosses never enter the art layer
@@ -121,16 +128,23 @@ window.EnemyArt = (() => {
         const age = Math.max(0, now - (entity.bornAt || now));
         if (kind === 'backTwinge') {
           const bt = ENEMIES.backTwinge, phase = age % (bt.lungeMs + bt.restMs);
-          const frame = phase <= bt.lungeMs ? (phase < bt.lungeMs / 2 ? 1 : 2)
-            : (phase < bt.lungeMs + bt.restMs / 2 ? 3 : 0);
+          const frame = V2()
+            ? (phase <= bt.lungeMs ? Math.min(3, Math.floor(phase / bt.lungeMs * 4))           // v2: 0-3 lunge
+              : 4 + Math.min(3, Math.floor((phase - bt.lungeMs) / bt.restMs * 4)))             //     4-7 rest
+            : (phase <= bt.lungeMs ? (phase < bt.lungeMs / 2 ? 1 : 2)
+              : (phase < bt.lungeMs + bt.restMs / 2 ? 3 : 0));
           visual.anims.stop(); visual.setFrame(frame);
         } else if (kind === 'threeAmThought') {
           // Draw the fade inside the existing ghost window. Never derive
           // collision or vulnerability from an animation frame.
           const thought = ENEMIES.threeAmThought;
           const phase = age % (thought.solidMs + thought.ghostMs) - thought.solidMs;
-          const frame = entity.ghost ? (phase < 230 || phase > thought.ghostMs - 230 ? 1 : 2)
-            : (Math.floor(age / specs[kind][3]) % 2 ? 3 : 0);
+          const frame = V2()
+            ? (entity.ghost ? (phase < 230 || phase > thought.ghostMs - 230 ? (phase < 115 || phase > thought.ghostMs - 115 ? 4 : 5)
+                : 6 + Math.floor(age / frameMs(kind)) % 2)                                       // v2: 4-5 fading, 6-7 ghost
+              : Math.floor(age / frameMs(kind)) % 4)                                              //     0-3 solid float
+            : (entity.ghost ? (phase < 230 || phase > thought.ghostMs - 230 ? 1 : 2)
+              : (Math.floor(age / specs[kind][3]) % 2 ? 3 : 0));
           visual.anims.stop(); visual.setFrame(frame);
         } else {
           const suffix = kind === 'spamCall' ? (entity.state === 'ringing' ? '-ring' : '-walk') : '';
