@@ -250,3 +250,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Made desktop and separately composed portrait versions of Group Photo, Reboot, The Lounge Is Open, Coffee Run and Happy 50th. Used the approved cast sprites and title guides as built-in imagegen references.
 - **Files.** assets/title-screen/README-v2.md links the ten exact-size JPGs and ten 50% guide overlays. The ten generation prompts and cast reference boards are in prompts-v2.
 - **For Claude.** Register slides 08–12 and select portrait files on narrow screens. Keep the green band aligned when checking the live viewport crop. The export review used the supplied static guides.
+- [done] Claude added the five v2 title scenes (desktop + portrait) to the title slideshow in V. 1.70.0 and retired the v1 slides (kept in title-art.js under retired). (Nov 3)

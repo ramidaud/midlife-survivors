@@ -2579,8 +2579,10 @@ window.TitleSlides = (() => {
   }
   function paint(i) {
     const A = window.TITLE_ART, sl = A.slides[i], el = root.children[i], img = el.firstElementChild;
-    if (!img.style.backgroundImage) { el.style.setProperty("--ts-src", `url("${sl.src}")`); img.style.backgroundImage = `url("${sl.src}")`; }
-    const focus = sl.focus || "50% 50%";
+    // Phones and portrait tablets get the tall version of the scene when there is one (key art v2).
+    const tall = phone() && sl.srcPortrait, src = tall ? sl.srcPortrait : sl.src;
+    if (el.dataset.src !== src) { el.dataset.src = src; el.style.setProperty("--ts-src", `url("${src}")`); img.style.backgroundImage = `url("${src}")`; }
+    const focus = (tall && sl.focusPortrait) || sl.focus || "50% 50%";
     // Screens wider than the art show the whole picture, with a soft blurred copy filling the sides.
     const ultra = window.innerWidth / window.innerHeight > 1.9;
     el.classList.toggle("ultra", ultra);
@@ -2605,7 +2607,7 @@ window.TitleSlides = (() => {
     void el.offsetWidth; el.classList.add("on");
     // warm up the next picture so the fade never shows a blank
     const n = (i + 1) % root.children.length, nx = window.TITLE_ART.slides[n];
-    if (!root.children[n].style.backgroundImage) { const im = new Image(); im.src = nx.src; }
+    if (!root.children[n].dataset.src) { const im = new Image(); im.src = (phone() && nx.srcPortrait) || nx.src; }
   }
   function start() {
     if (!root && !build()) return;

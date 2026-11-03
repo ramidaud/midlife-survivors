@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.69.2",
-  displayVersion: "V. 1.69.2",
+  version: "1.70.0",
+  displayVersion: "V. 1.70.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 163,
+  build: 164,
   changelog: [
+    {
+      ver: "V. 1.70.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Five new title screen scenes starring the whole crew, drawn to fit around the menus, with their own tall versions for phones.",
+      highlights: [
+        "New title screen art by ChatGPT: Group Photo, Off and On Again, The Lounge, Coffee Run and Happy 50th, starring the heroes, TJ, Derek and the coworkers.",
+        "Each scene is drawn so the cast sits where the menus leave room, and phones get a separately drawn tall version instead of a thin slice of the wide one."
+      ]
+    },
     {
       ver: "V. 1.69.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Spotlight cards take turns now: a breather between cards, bosses cut in, and the Lounge card shows once a run.",
