@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.46.0",
-  displayVersion: "V. 1.46.0",
+  version: "1.47.0",
+  displayVersion: "V. 1.47.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Smooth Operators",
-  build: 112,
+  codename: "Still on Mute",
+  build: 113,
   changelog: [
+    {
+      ver: "V. 1.47.0", date: "Nov 2, 2026", title: "Still on Mute",
+      highlights: ["Six coworkers bring the office to life with small desk routines, reactions when you pass, and their own office memos."]
+    },
     {
       ver: "V. 1.46.0", date: "Nov 2, 2026", title: "Smooth Operators",
       highlights: [

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Midlife Survivors | Coworker review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171c35;color:#fff0cf;font:16px/1.5 system-ui}main{max-width:1050px;margin:auto;padding:clamp(14px,4vw,42px)}h1{font-size:clamp(30px,5vw,56px);line-height:1.1;margin:0}header p{color:#f2d7a1}a{color:#ef9347}button{font:inherit;background:#3e7775;color:#fff0cf;border:1px solid #83a89a;border-radius:4px;padding:.35rem .6rem}button[aria-pressed=true]{background:#526078}#cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}article{background:#252c45;border:1px solid #526078;padding:12px}h2{margin:0}blockquote{margin:.65rem 0;min-height:3em;color:#f2d7a1}.seats{display:flex;gap:8px;justify-content:space-evenly;background:#d3b78d;padding:8px}figure{margin:0;color:#171c35;text-align:center;font-size:.8rem}canvas{display:block;image-rendering:pixelated}.actions{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.6rem}#status{font-size:.9rem}
+</style>
+<main>
+<header><p>MIDLIFE SURVIVORS / OFFICE CAST</p><h1>Meet the coworkers</h1><p>Both colorways play at their in-game pace. Walk past a desk to see its reaction.</p></header>
+<button id="one" aria-pressed="false">1×</button>
+<button id="two" aria-pressed="true">2×</button>
+<p id="status" role="status">Loading the cast…</p>
+<div id="cast"></div>
+</main>
+<script>
+const width = 48, height = 56, crop = 34;
+const gallery = document.querySelector('#cast');
+const status = document.querySelector('#status');
+let scale = 2;
+const entries = [];
+function zoom(next) {
+  scale = next;
+  document.querySelector('#one').setAttribute('aria-pressed', String(next === 1));
+  document.querySelector('#two').setAttribute('aria-pressed', String(next === 2));
+  for (const canvas of gallery.querySelectorAll('canvas')) {
+    canvas.style.width = width * scale + 'px';
+    canvas.style.height = (crop + 8) * scale + 'px';
+  }
+}
+async function add(entry, i) {
+  const path = 'coworker-' + entry.id + '-v1.png';
+  const img = new Image();
+  img.src = path;
+  await img.decode();
+  const sheet = document.createElement('canvas');
+  sheet.width = img.width;
+  sheet.height = img.height;
+  const ctx = sheet.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+  const data = ctx.getImageData(0, 0, sheet.width, sheet.height);
+  for (let i = 0; i < data.data.length; i += 4) {
+    if (data.data[i] === 255 && data.data[i + 1] === 0 && data.data[i + 2] === 255) data.data[i + 3] = 0;
+  }
+  ctx.putImageData(data, 0, 0);
+  const article = document.createElement('article');
+  article.innerHTML = '<h2></h2><blockquote></blockquote><div class="seats"></div><div class="actions"><button>Walk past</button><a>Sheet</a><a>GIF</a></div><p class="activity"></p>';
+  article.querySelector('h2').textContent = entry.name;
+  article.querySelector('blockquote').textContent = entry.caption;
+  article.querySelector('a').href = path;
+  article.querySelector('a:last-of-type').href = 'coworker-' + entry.id + '-preview-v1.gif';
+  const seats = article.querySelector('.seats');
+  const contexts = [1, 2].map(number => {
+    const figure = document.createElement('figure');
+    const canvas = document.createElement('canvas');
+    const label = document.createElement('figcaption');
+    canvas.width = width;
+    canvas.height = crop + 8;
+    label.textContent = 'Colorway ' + number;
+    figure.append(canvas, label);
+    seats.append(figure);
+    return canvas.getContext('2d');
+  });
+  const button = article.querySelector('button');
+  const worker = { ...entry, sheet, contexts, article, button, last: -Infinity, phase: i * 197 };
+  button.onclick = () => { worker.last = performance.now(); };
+  return worker;
+}
+function draw(now) {
+  for (const w of entries) {
+    const elapsed = now - w.last;
+    const reaction = elapsed < w.reactionMs * 4;
+    const pose = reaction ? Math.floor(elapsed / w.reactionMs) : Math.floor((now + w.phase) / w.idleMs) % 4;
+    const label = reaction ? w.reaction : w.idle;
+    const activity = w.article.querySelector('.activity');
+    if (activity.textContent !== label) activity.textContent = label;
+    const locked = elapsed < 6000;
+    if (w.button.disabled !== locked) w.button.disabled = locked;
+    w.contexts.forEach((ctx, variant) => {
+      ctx.clearRect(0, 0, width, crop + 8);
+      ctx.drawImage(w.sheet, pose * width, (variant * 2 + Number(reaction)) * height, width, crop, 0, 0, width, crop);
+      ctx.fillStyle = '#171c35';
+      ctx.fillRect(1, crop - 1, width - 2, 9);
+      ctx.fillStyle = '#a88b70';
+      ctx.fillRect(2, crop, width - 4, 6);
+      ctx.fillStyle = '#f2d7a1';
+      ctx.fillRect(2, crop, width - 4, 1);
+    });
+  }
+  requestAnimationFrame(draw);
+}
+document.querySelector('#one').onclick = () => zoom(1);
+document.querySelector('#two').onclick = () => zoom(2);
+fetch('cast-v1.json').then(r => {
+  if (!r.ok) throw new Error('Could not load cast metadata');
+  return r.json();
+}).then(cast => Promise.all(cast.map(add))).then(workers => {
+  entries.push(...workers);
+  gallery.append(...entries.map(worker => worker.article));
+  zoom(scale);
+  status.textContent = 'Six coworkers loaded. Reactions have a six-second cooldown.';
+  requestAnimationFrame(draw);
+}).catch(error => { status.textContent = error.message; });
+</script>
+</html>

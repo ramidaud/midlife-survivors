@@ -1,0 +1,113 @@
+{
+  "phase": "after",
+  "errors": [],
+  "warnings": [],
+  "leaderboardRequests": 0,
+  "ready": true,
+  "slice": {
+    "version": "1.47.0",
+    "build": 113,
+    "viewport": [
+      1280,
+      800
+    ],
+    "age": 40.30889748148148,
+    "openUpToAge": 60,
+    "statsDisabled": true,
+    "analyticsResources": 0,
+    "player": [
+      1720,
+      -291
+    ],
+    "body": [
+      48,
+      52
+    ],
+    "props": 603,
+    "nativeFloorDecor": true,
+    "deskCount": 48,
+    "visible": 22,
+    "peak": 43,
+    "navBlockers": 6,
+    "gates": [
+      {
+        "id": "parking-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "break-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "server-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "conference-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "executive-return",
+        "age": 55,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "wellness-conference",
+        "age": 60,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      }
+    ],
+    "outside": 0,
+    "fps": 120.55896914288442
+  },
+  "stress": {
+    "enemies": 350,
+    "outside": 0,
+    "visible": 39,
+    "initial": 350,
+    "fps": {
+      "min": 75.375,
+      "average": 97.38351619944854
+    },
+    "scope": "350 real physics/navigation/animation actors in the same Bullpen reserve; HP guards, paused firing, six seconds."
+  },
+  "reaction": {
+    "old": 1,
+    "idle": 1,
+    "frames": [
+      4,
+      5,
+      5,
+      6,
+      7,
+      7,
+      2,
+      3,
+      0,
+      0
+    ],
+    "cooldown": 2,
+    "reentry": 4,
+    "hasBody": false,
+    "crop": 34,
+    "caption": "Eli brought three energy drinks and an actual question about your weekend.",
+    "passed": true
+  },
+  "consoleErrors": []
+}

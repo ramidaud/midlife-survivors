@@ -197,7 +197,13 @@ result['tour'].update({name:[x-O[0],y-O[1]] for name,(x,y) in {'Server':(3488,75
 result['tour'].update({name:[x-O[0],y-O[1]] for name,(x,y) in {'Executive':(6176,784),'Crash cart':(4768,624),'Executive reception':(5920,416),'Corner office':(7152,640),'Skyline':(7152,352),'Putting mat':(7152,992),'Executive awards':(6960,672),'Wellness door':(5408,1200)}.items()})
 result['tour'].update({name:[x-O[0],y-O[1]] for name,(x,y) in {'Wellness':(3920,3808),'Massage chair':(3232,3696),'Quiet pod':(3520,3696),'Puzzle':(3824,3696),'Nap pod':(4312,3696),'Zen fountain':(4592,3696),'Yoga annex':(3744,4136),'Wellness entry':(4864,3744),'Sealed Executive exit':(5408,1200)}.items()})
 result['tour']['Wellness door']=[5248-O[0],3744-O[1]]
+# Keep the positions and crop from the original seat placements.
+cast=[entry['id'] for entry in json.loads((R.parent/'coworkers/cast-v1.json').read_text())]
+for i,worker in enumerate(result['workers']):
+ worker['cast']=cast[i%len(cast)]
+ worker['colorway']=i//len(cast)%2
+ worker['phase']=(i*197+i//len(cast)*71)%1120
 (R/'layout.json').write_text(json.dumps(result,indent=2)+'\n')
 repo=R.parents[2]
 (repo/'src/data/start-area.js').write_text('window.USE_START_AREA = true;\nwindow.START_AREA_LAYOUT = '+json.dumps(result,separators=(',',':'))+';\n')
-print(f"Slice authored: {len(placements)} props, {len(workers)} static coworkers, {len(walls)} boundary/partition pieces, six 224px gates; age60 closed.")
+print(f"Slice authored: {len(placements)} props, {len(workers)} coworker seats, {len(walls)} boundary/partition pieces, six 224px gates; age60 closed.")

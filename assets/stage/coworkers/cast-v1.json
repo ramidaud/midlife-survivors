@@ -1,0 +1,8 @@
+[
+  {"id":"mute","name":"Mina","idle":"Headset nod","reaction":"Checks the mute button","idleMs":220,"reactionMs":155,"caption":"Mina has been muted for twenty minutes. She still nods at all the right parts."},
+  {"id":"salad","name":"Art","idle":"Desk salad","reaction":"Fork salute","idleMs":265,"reactionMs":165,"caption":"Art packed a salad. The croutons are doing most of the morale work."},
+  {"id":"dozer","name":"June","idle":"Slow blink","reaction":"Perks up","idleMs":330,"reactionMs":175,"caption":"June calls this a screen break. The screen is still on."},
+  {"id":"intern","name":"Eli","idle":"Energy drink sip","reaction":"Quick wave","idleMs":155,"reactionMs":145,"caption":"Eli brought three energy drinks and an actual question about your weekend."},
+  {"id":"retiring","name":"Sam","idle":"Coffee sip","reaction":"Thumbs-up","idleMs":305,"reactionMs":175,"caption":"Sam has nineteen Fridays left. He is counting the good ones, too."},
+  {"id":"email","name":"Nora","idle":"Typing","reaction":"Quick question","idleMs":180,"reactionMs":150,"caption":"Nora typed ‘per my last email’ and deleted it. That counts as personal growth."}
+]

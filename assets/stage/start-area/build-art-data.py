@@ -13,3 +13,12 @@ for a in json.loads((R.parent/'decor/brief-v1.json').read_text()):
  file=R.parent/'decor'/a['file']
  decor[a['id']]={'frame':a['frame'],'src':'data:image/png;base64,'+base64.b64encode(file.read_bytes()).decode()}
 with (R/'art-data.js').open('a') as f:f.write('window.FINISH_DECOR = '+json.dumps(decor,separators=(',',':'))+';\n')
+
+# Native coworker sheets share the direct-from-disk room art loader.
+coworker_dir=R.parent/'coworkers'
+coworkers={}
+for entry in json.loads((coworker_dir/'cast-v1.json').read_text()):
+ id=entry['id'];file=coworker_dir/f'coworker-{id}-v1.png'
+ coworkers[id]={**entry,'src':'data:image/png;base64,'+base64.b64encode(file.read_bytes()).decode()}
+with (R/'art-data.js').open('a') as f:
+ f.write('window.START_AREA_COWORKERS = '+json.dumps(coworkers,separators=(',',':'))+';\n')
