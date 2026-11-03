@@ -1055,3 +1055,5 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - V. 1.68.3: room cards now use the coworkers' own names from ChatGPT's cast sheet (Art, Sam, Eli, Nora, June, Mina) with Gemini's departments, so the name matches the person on the card.
 - V. 1.68.4: Derek's own intern lines replace the placeholders ("Unc" included).
 - V. 1.69.0: the six room coworkers appear as ChatGPT's big standing portraits on their Spotlight cards. Every Spotlight card now has a full-size animated portrait. Checked all six on desktop and phone.
+- V. 1.69.1: the title screen's devlog note shows a one-line summary of the newest memo (new optional `blurb` field in posts.js), and the "What's new" pop-up appears right away instead of after a 1.2-second pause that restarted on every redraw.
+- Wrote ChatGPT's key art v2 brief: five new title scenes with the new cast, each in a desktop and a portrait version composed around where the title screen's UI sits (docs/handoffs/chatgpt-key-art-v2.md, with zone guides).

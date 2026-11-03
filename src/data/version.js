@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.69.0",
-  displayVersion: "V. 1.69.0",
+  version: "1.69.1",
+  displayVersion: "V. 1.69.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 161,
+  build: 162,
   changelog: [
+    {
+      ver: "V. 1.69.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "The devlog note on the title screen now says what the newest memo is about, and this pop-up shows up right away.",
+      highlights: [
+        "The pinned devlog note on the title screen shows a one-line summary of the newest memo.",
+        "The \"What's new\" pop-up appears right away instead of after a pause, and opens instantly from the version button."
+      ]
+    },
     {
       ver: "V. 1.69.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Every Spotlight card now has a big animated portrait: the six coworkers who open new rooms got redrawn standing up.",

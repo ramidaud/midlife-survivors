@@ -1,7 +1,7 @@
 // The devlog's table of contents. Newest first.
 // Keep this array in JSON style (quoted keys, no trailing commas): scripts/build_devlog.py reads it directly.
 // draft: true hides a post until Rami approves it (preview drafts with devlog/?drafts=1).
-// Optional fields: cover, teaser, changes[], nextUp, playUrl.
+// Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
     "slug": "09-my-friends-work-here-now",
@@ -12,6 +12,7 @@ window.DEVLOG_POSTS = [
     "cover": "img/09-cowboy-spotlight.jpg",
     "leadVideo": "img/09-cowboy-spotlight.mp4",
     "leadAlt": "A Spotlight card in the game: a spotlight opens, the band wipes in, the Cold War Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, \"Back in my day, a gig was a gig. Now hand me that disk.\"",
+    "blurb": "Two of my student photographers became interns with their own Lounge, my friend Ben became a hero, and every big moment now gets a Spotlight card.",
     "teaser": "TJ found a bug, Derek and TJ became interns with their own Lounge, Ben became the Cold War Cowboy, and the game and the devlog finally feel like one thing.",
     "changes": ["Fixed the second-run force field TJ found", "Birthday cake, the Desk Salad and interns who bring you coffee", "The Lounge: a counter shop in the Break Room after every promotion", "New hero: the Cold War Cowboy (read 10 memos)", "Spotlight cards for bosses, rooms and new hires", "Lighting, age 50+ surprises and a retirement party"],
     "nextUp": "Derek's own intern lines, Ben's jokes, and more playtesting with the crew.",

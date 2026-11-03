@@ -713,6 +713,9 @@ function titleNewPop() {
     const css = document.createElement("style"); css.id = "tp-new-css";
     css.textContent = `
       .tp-new-pop { border-color: var(--ms-teal, #3E7775) !important; }
+      .tp-new-pop { animation-delay: .35s !important; }
+      .tp-new-pop.shown:not(.open) { animation: none !important; }
+      .tp-new-pop.shown.open { animation-delay: 0s !important; animation-duration: .25s !important; }
       .tp-new-pop .tp-new-head { font: 11px Silkscreen, monospace; letter-spacing: .06em; color: #171C35; background: #F2D7A1; display: inline-block; padding: 3px 8px; border-radius: 3px; margin: 0 26px 8px 0; }
       .tp-new-pop .tp-new-body { font: 600 14px/1.4 "Atkinson Hyperlegible", system-ui, sans-serif; color: #FFF0CF; margin: 0 0 10px; }
       .tp-new-pop .tp-new-all { font: 12px Silkscreen, monospace; background: transparent; color: #83A89A; border: 2px solid #3E7775; border-radius: 4px; padding: 6px 10px; min-height: 36px; cursor: pointer; }
@@ -724,7 +727,11 @@ function titleNewPop() {
     document.head.appendChild(css);
   }
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-  return `<aside class="tp-poll-pop tp-new-pop${window.titleNewOpen === true ? " open" : ""}" id="tp-new-pop" aria-label="What's new">
+  // It used to wait 1.2 s before sliding in, and every title redraw (like tapping the version chip) restarted that wait.
+  // Now: a short wait the first time, and no replay after that (Rami, Nov 3: "very slow to pop up").
+  const popAnim = window._newPopShown ? " shown" : "";
+  window._newPopShown = true;
+  return `<aside class="tp-poll-pop tp-new-pop${window.titleNewOpen === true ? " open" : ""}${popAnim}" id="tp-new-pop" aria-label="What's new">
     <button type="button" class="tp-poll-x" id="tp-new-x" aria-label="Close what's new">×</button>
     <button type="button" class="tp-poll-pill">✨ New in ${esc(V.displayVersion || "")}</button>
     <div class="tp-new-head">NEW IN ${esc(V.displayVersion || "")}</div>
@@ -2519,7 +2526,15 @@ function fillTitleMemo() {
     if (body) body.innerHTML = `
       ${p.cover ? `<img class="tp-memo-cover" src="devlog/${esc(p.cover)}" alt="">` : ""}
       <div class="tp-memo-no">MEMO ${String(no).padStart(2, "0")} · ${esc(p.version || "")}</div>
-      <div class="tp-memo-title">${esc(p.title)}</div>`;
+      <div class="tp-memo-title">${esc(p.title)}</div>
+      ${(p.blurb || p.teaser) ? `<p class="tp-memo-sum">${esc(p.blurb || p.teaser)}</p>` : ""}`;
+    // A short summary under the title fills the note (Rami, Nov 3). Styled here so it arrives even if index.html is cached.
+    if (!document.getElementById("tp-memo-css")) {
+      const st = document.createElement("style"); st.id = "tp-memo-css";
+      st.textContent = `.tp-memo-title{margin-bottom:6px!important}.tp-memo-sum{margin:0 0 12px;font:500 13.5px/1.45 "Atkinson Hyperlegible",system-ui,sans-serif;color:#303750}
+        .tp-memo{display:flex;flex-direction:column}.tp-memo-body{flex:1}`;
+      document.head.appendChild(st);
+    }
     const btn = document.getElementById("title-devlog-btn");
     if (btn) btn.onclickTarget = `devlog/?post=${p.slug}`;
   };
