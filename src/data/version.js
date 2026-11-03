@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.53.0",
-  displayVersion: "V. 1.53.0",
+  version: "1.54.0",
+  displayVersion: "V. 1.54.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 124,
+  build: 126,
   changelog: [
+    {
+      ver: "V. 1.54.0", date: "Nov 3, 2026", title: "Bonus Approved II",
+      highlights: [
+        "Real Bonus Chest art: an Employee Appreciation gift box, an office safe and the executive bonus chest, with pixel light beams, spinning gold and silver coins, fluttering bonus checks and an APPROVED stamp. (Art by ChatGPT.)",
+        "On wide screens, Punch In now lives in the Today's Shift tile with your crew, front and center.",
+        "Two new title slides, 11:58 PM and Happy Retirement (art by Grok), plus new welcome-back lines and tips (written by Gemini).",
+        "Reading Glasses has a brighter icon."
+      ]
+    },
     {
       ver: "V. 1.53.0", date: "Nov 3, 2026", title: "Hybrid Schedule",
       highlights: [

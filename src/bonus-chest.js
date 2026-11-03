@@ -83,6 +83,26 @@ window.BonusChest = (() => {
       .bonus-flash { position: fixed; inset: 0; z-index: 40; pointer-events: none; background: radial-gradient(circle, #fff8d0, #f5c542 60%, rgba(245,197,66,.6));
         opacity: 0; transition: opacity .5s ease-out; }
       .bonus-flash.on { opacity: .85; transition: none; }
+      /* ChatGPT's Bonus Approved art pack (assets/ui/bonus/, Nov 3) */
+      .bonus-card.art { background: #171C35; border: 24px solid transparent; padding: 0 6px 6px;
+        border-image: url(assets/ui/bonus/card-9slice-v1.png) 12 fill / 24px / 0 stretch; image-rendering: pixelated; box-shadow: 6px 6px 0 rgba(0,0,0,.45); }
+      .bonus-card.art .bonus-memo { margin: -6px -6px 10px; }
+      .bonus-stamp { position: absolute; top: 34px; right: 4px; width: 124px; height: 44px; background: url(assets/ui/bonus/approved-stamp-v1.png) center/contain no-repeat;
+        image-rendering: pixelated; transform: rotate(8deg) scale(0); transition: transform .35s cubic-bezier(.3,1.7,.5,1); z-index: 4; }
+      .bonus-card.stamped .bonus-stamp { transform: rotate(8deg) scale(1); }
+      .bonus-chest.sheet { width: 144px; height: 144px; margin-left: -72px; bottom: -8px; background-repeat: no-repeat; background-size: 400% 100%;
+        background-position: 0% 0; image-rendering: pixelated; }
+      .bonus-chest.sheet.shake { animation: bonusShakeSheet .18s steps(1) infinite; }
+      @keyframes bonusShakeSheet { 0% { background-position: 33.333% 0; } 50% { background-position: 66.667% 0; } }
+      .bonus-chest.sheet.open { background-position: 100% 0; animation: bonusPop .35s ease-out forwards; filter: drop-shadow(0 0 16px #ffd84a); }
+      .bonus-beam.art { width: 64px; left: -32px; border-radius: 0; box-shadow: none;
+        background: url(assets/ui/bonus/beam-gold-v1.png) center bottom / 64px auto repeat-y; image-rendering: pixelated; }
+      .bonus-beam.art.evo { background-image: url(assets/ui/bonus/beam-lavender-v1.png); }
+      .bonus-coin.sheet { width: 24px; height: 24px; margin-left: -12px; background-size: 800% 100% !important; background-repeat: no-repeat; image-rendering: pixelated;
+        animation: bonusCoin var(--t, 1s) cubic-bezier(.2,.6,.4,1) forwards, bonusSpin .5s steps(8) infinite; }
+      .bonus-coin.check { width: 48px; height: 24px; margin-left: -24px; background-size: 400% 100% !important; animation: bonusCoin var(--t, 1s) cubic-bezier(.2,.6,.4,1) forwards, bonusFlutter .4s steps(4) infinite; }
+      @keyframes bonusSpin { from { background-position-x: 0%; } to { background-position-x: 114.29%; } }
+      @keyframes bonusFlutter { from { background-position-x: 0%; } to { background-position-x: 133.33%; } }
       @media (min-width: 700px) and (pointer: coarse) { .bonus-card { width: min(560px, 80vw); } .bonus-stage { height: min(360px, 36dvh); } .bonus-list { font-size: 16px; } }
       @media (prefers-reduced-motion: reduce) {
         .bonus-chest, .bonus-chest.shake, .bonus-reel.spin { animation: none; }
@@ -93,7 +113,7 @@ window.BonusChest = (() => {
     modal.className = "ui-modal hidden";
     modal.id = "bonus-modal";
     modal.innerHTML = `
-      <div class="bonus-card" role="dialog" aria-labelledby="bonus-title">
+      <div class="bonus-card art" role="dialog" aria-labelledby="bonus-title"><div class="bonus-stamp" aria-hidden="true"></div>
         <div class="bonus-memo"><span>FORM 401-K</span><b id="bonus-tier">TIER 1</b></div>
         <div class="bonus-title" id="bonus-title">BONUS APPROVED</div>
         <div class="bonus-sub" id="bonus-sub"></div>
@@ -133,9 +153,9 @@ window.BonusChest = (() => {
     const tot = $("bonus-total"); tot.hidden = true; tot.classList.remove("done"); tot.firstChild.textContent = "0";
     const chest = $("bonus-chest");
     chest.className = "bonus-chest";
-    const url = texUrl(scene, "chest");
-    if (url) { chest.style.backgroundImage = `url(${url})`; chest.textContent = ""; }
-    else { chest.classList.add("emoji"); chest.textContent = "🎁"; }
+    const sheet = `ASSETchest-tier-${tier >= 5 ? 5 : tier >= 3 ? 3 : 1}-v1.png`.replace("ASSET", "assets/ui/bonus/");
+    chest.classList.add("sheet"); chest.style.backgroundImage = `url(${sheet})`; chest.textContent = "";
+    modal.querySelector(".bonus-card").classList.remove("stamped");
     const btn = window.BonusChest._btn;
     btn.textContent = "OPEN"; btn.className = "bonus-btn";
     modal.classList.remove("hidden");
@@ -180,7 +200,7 @@ window.BonusChest = (() => {
     beams.innerHTML = rewards.map((r, i) => {
       const ang = (i - (n - 1) / 2) * spread;
       const filler = Array.from({ length: 8 }, (_, k) => `<div class="ri">${state.reelIcons[(i * 3 + k) % Math.max(1, state.reelIcons.length)] || "⭐"}</div>`).join("");
-      return `<div class="bonus-beam${r.evo ? " evo" : ""}" style="transform: rotate(${ang}deg)"><div class="bonus-reel spin">${filler}${filler}</div><div class="bonus-land" style="transform-origin:center">${r.icon}</div></div>`;
+      return `<div class="bonus-beam art${r.evo ? " evo" : ""}" style="transform: rotate(${ang}deg)"><div class="bonus-reel spin">${filler}${filler}</div><div class="bonus-land" style="transform-origin:center">${r.icon}</div></div>`;
     }).join("");
     // counter-rotate the landed icons so they sit upright
     beams.querySelectorAll(".bonus-beam").forEach((b, i) => {
@@ -229,6 +249,8 @@ window.BonusChest = (() => {
     if (!state || state.phase === "done") return;
     state.phase = "done";
     $("bonus-total").classList.add("done");
+    modal.querySelector(".bonus-card").classList.add("stamped"); // APPROVED stamp thunks down
+    sfx("wordNo");
     if (state.tier >= 5) flash(0.7);
     setBtn("CASH IT IN", false);
     if (window.menuNav) window.menuNav.focus(window.BonusChest._btn, false);
@@ -249,18 +271,19 @@ window.BonusChest = (() => {
   function fountain(count) {
     if (state.fast) return;
     const stage = $("bonus-stage");
-    const url = texUrl(state.scene, "coin401k");
     for (let i = 0; i < count; i++) {
       later(i * 28, () => {
         const c = document.createElement("div");
-        c.className = "bonus-coin";
-        if (url) c.style.backgroundImage = `url(${url})`;
-        else { c.style.background = "#f5c542"; c.style.borderRadius = "50%"; }
+        const roll = Math.random(); // mostly gold 401(k) coins, some silver, the odd fluttering bonus check
+        const kind = roll < 0.12 ? "check" : roll < 0.32 ? "silver" : "gold";
+        c.className = "bonus-coin sheet" + (kind === "check" ? " check" : "");
+        c.style.backgroundImage = `url(assets/ui/bonus/${kind === "check" ? "bonus-check-v1.png" : kind === "silver" ? "coin-silver-v1.png" : "coin-gold-v1.png"})`;
+        c.style.animationDelay = `0s, ${-Math.random() * 0.5}s`;
         const dx = (Math.random() * 2 - 1) * 190, dy = -(90 + Math.random() * 170);
         c.style.setProperty("--dx", dx + "px"); c.style.setProperty("--dy", dy + "px");
         c.style.setProperty("--t", (0.9 + Math.random() * 0.6) + "s");
         stage.appendChild(c);
-        c.addEventListener("animationend", () => c.remove());
+        c.addEventListener("animationend", e => { if (e.animationName === "bonusCoin") c.remove(); });
         if (i % 4 === 0) sfx("coin");
       });
     }

@@ -2035,9 +2035,11 @@ function renderTitleModal(scene, preserveFocusSelector) {
       </div>
       <div class="tp-band">
         ${titleFileTile()}
-        <section class="tp-tile tp-crew" aria-label="Pick your employee">
+        <section class="tp-tile tp-crew" aria-label="Today's shift: pick your employee and punch in">
+          <div class="tp-tile-tag tp-shift-tag">TODAY'S SHIFT</div>
           <div class="tp-label">Today's employee <b>${selCh.name}</b> <span>${selCh.tagline}</span></div>
           <div class="dossier-chars-grid tp-badges">${charCardsHtml}</div>
+          <div class="tp-punch-slot"></div>
         </section>
         <aside class="tp-memo" id="title-memo" aria-label="Latest from the devlog">
           <div class="tp-memo-tag">DEVLOG · NEW MEMO</div>
@@ -2067,7 +2069,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
   `;
-  if (view === "main") { fillTitleMemo(); if (window.TitleSlides) TitleSlides.start(); }
+  if (view === "main") { fillTitleMemo(); placeTitlePunch(); if (window.TitleSlides) TitleSlides.start(); }
   else if (window.TitleSlides) TitleSlides.stop();
   const settingsBtn = document.getElementById("title-settings-btn");
   if (settingsBtn) bindNavItem(settingsBtn, 9.5, () => { window.titleSettingsOpen = !window.titleSettingsOpen; sfx("pick"); renderTitleModal(scene, "#title-settings-btn"); });
@@ -2263,20 +2265,34 @@ function titleNudge(returning) {
   let read = 0; try { read = JSON.parse(localStorage.getItem("devlog-read") || "[]").length; } catch (e) {}
   const out = [];
   if (!got.hybridSchedule && forms.length === 1) {
-    out.push(forms[0] === "phone" ? `🖥 <b>Big screen, bigger swarms.</b> Play a run on ${name.desktop} to unlock <b>Hybrid Schedule</b> (+5k).`
-      : forms[0] === "desktop" ? `📱 <b>Take the office with you.</b> Finish a run on your phone for <b>Hybrid Schedule</b> (+5k).`
-      : `💻 <b>Try it at a desk.</b> A run on a computer unlocks <b>Hybrid Schedule</b> (+5k).`);
+    const D = (window.TITLE_COPY && TITLE_COPY.device) || {}, pk = a => a && a.length ? a[Math.floor(Math.random() * a.length)] : "";
+    out.push(forms[0] === "desktop" ? `📱 ${pk(D.tryPhone) || "Take the office with you. Finish a run on your phone."} <b>Hybrid Schedule</b> (+5k).`
+      : `🖥 ${pk(D.tryBigScreen) || "Big screen, bigger swarms. Play a run on a computer."} <b>Hybrid Schedule</b> (+5k).`);
   }
   if (!got.remoteWorker && forms.length === 2) {
     const missing = ["phone", "tablet", "desktop"].find(k => !P[k]);
     out.push(`🌐 <b>Remote Worker:</b> one more to go. Finish a run on ${name[missing]} (+10k).`);
   }
-  if (!got.pluggedIn && here !== "phone") out.push(`🎮 <b>Got a controller?</b> Xbox, PlayStation and Switch pads all work. One run unlocks <b>Plugged In</b> (+5k).`);
+  if (!got.pluggedIn && here !== "phone") { const D = (window.TITLE_COPY && TITLE_COPY.device) || {}; const l = (D.tryController || [])[Math.floor(Math.random() * ((D.tryController || []).length || 1))];
+    out.push(`🎮 ${l || "Got a controller? Xbox, PlayStation and Switch pads all work."} One run unlocks <b>Plugged In</b> (+5k).`); }
   if (read < 10) out.push(`📚 <b>${read} of 10</b> devlog memos read toward <b>Required Reading</b>. <a href="devlog/" class="tp-nudge-link">Open the devlog</a>`);
   if ((meta.bestAge || 40) >= 50) out.push(`🏆 <b>Age ${Math.floor(meta.bestAge)} is worth bragging about.</b> Post it in the <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> and see who beats it.`);
   else out.push(`💬 <b>Stuck before 50?</b> The <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> has tips from people who made it.`);
+  const DC = (window.TITLE_COPY && TITLE_COPY.discord) || [];
+  if (DC.length) out.push(`💬 ${DC[Math.floor(Math.random() * DC.length)]} <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Join the Discord</a>`);
   return `<div class="tp-nudge">${out[Math.floor(Math.random() * out.length)]}</div>`;
 }
+
+// On wide screens, Punch In lives in the "Today's shift" tile, front and center. On phones it floats over the art.
+function placeTitlePunch() {
+  const punch = document.querySelector(".tp-punch"), slot = document.querySelector(".tp-punch-slot"), poster = document.querySelector(".title-poster");
+  if (!punch || !slot || !poster) return;
+  const wide = window.matchMedia && matchMedia("(orientation: landscape) and (min-width: 761px)").matches;
+  if (wide && punch.parentElement !== slot) slot.appendChild(punch);
+  else if (!wide && punch.parentElement === slot) poster.insertBefore(punch, poster.querySelector(".tp-band"));
+  poster.classList.toggle("punch-in-tile", wide);
+}
+window.addEventListener("resize", () => { if (document.querySelector(".tp-punch")) placeTitlePunch(); });
 
 // "Your file" tile on the title screen: welcome (back) message + your numbers.
 function titleFileTile() {
@@ -2289,14 +2305,16 @@ function titleFileTile() {
   const got = Object.keys((meta.achievements && meta.achievements.unlocked) || {}).length, all = (window.ACHIEVEMENTS || []).length;
   const ago = last && last.at ? (() => { const m = Math.round((Date.now() - last.at) / 60000); return m < 60 ? `${Math.max(1, m)} min ago` : m < 2880 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} days ago`; })() : "";
   const head = returning ? `Welcome back${name ? `, ${esc(name)}` : ""}.` : "Welcome, new hire.";
+  const C = window.TITLE_COPY || {}, pick = a => a && a.length ? a[Math.floor(Math.random() * a.length)] : "";
   const line = !returning ? "Your first shift starts at 8:59. You only move. Everything else is automatic."
-    : last ? (last.win ? `Last shift (${ago}): you made it to retirement at ${last.age}. Show-off.` : `Last shift (${ago}): you reached ${last.age} before ${esc(last.killer || "life")} got you.`)
-    : "Good to see you again. The Bills missed you.";
+    : (pick(C.welcomeBack) || "Good to see you again. The Bills missed you.");
+  const lastLine = returning && last ? (last.win ? `Last shift (${ago}): retired at ${last.age}. Show-off.` : `Last shift (${ago}): reached ${last.age} before ${esc(last.killer || "life")} got you.`) : "";
   return `
         <section class="tp-tile tp-file" aria-label="Your employee file">
           <div class="tp-tile-tag">YOUR EMPLOYEE FILE</div>
           <div class="tp-welcome">${head}</div>
-          <p class="tp-welcome-sub">${line}</p>
+          <p class="tp-welcome-sub">${esc(line)}</p>
+          ${lastLine ? `<p class="tp-last">${lastLine}</p>` : ""}
           ${titleNudge(returning)}
           <div class="tp-stats">
             <div><b>${Math.floor(meta.bestAge || 40)}</b><span>oldest age</span></div>
