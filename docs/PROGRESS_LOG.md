@@ -917,3 +917,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-02: 8-frame heroes wired in (V. 1.46.0)
 - Rami approved. world-art.js loads the v2 sheets: 8-frame walks (a step every 8.5 px), breathing loop when standing, a fidget every 7 s. HERO_ART_VERSION = 1 switches back; tuning in window.HERO_ANIM.
 - Test: all three characters use all 8 walk frames plus breathing and fidget frames, no errors.
+- Wrote ChatGPT brief: animated coworkers (6-8 seated characters, idle loops, "noticed you" reactions, own captions); ChatGPT may wire this one itself since it is room art in its files.
