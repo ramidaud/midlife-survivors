@@ -1052,3 +1052,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Memo 09 published.
 - V. 1.68.2: Derek couldn't pick up the Mortgage chest (1.68.0, several runs). Couldn't reproduce here, so chests now slide to you when you're close and open on touch, and the game logs a "chest-blocked" stat if something still stops one.
 - Next ChatGPT job: standing Spotlight portraits for the six room coworkers (docs/handoffs/chatgpt-coworker-portraits.md).
+- V. 1.68.3: room cards now use the coworkers' own names from ChatGPT's cast sheet (Art, Sam, Eli, Nora, June, Mina) with Gemini's departments, so the name matches the person on the card.

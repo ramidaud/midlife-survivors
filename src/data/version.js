@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.68.2",
-  displayVersion: "V. 1.68.2",
+  version: "1.68.3",
+  displayVersion: "V. 1.68.3",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 158,
+  build: 159,
   changelog: [
+    {
+      ver: "V. 1.68.3", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "The coworkers who announce new rooms now go by their real names: Art, Sam, Eli, Nora, June and Mina.",
+      highlights: [
+        "Room cards now use each coworker's own name, so the person on the card matches the name: Art from Payroll, Sam at the Front Desk, Eli from IT, Nora in Marketing, June from Legal and Mina in Benefits."
+      ]
+    },
     {
       ver: "V. 1.68.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Boss chests now slide over to you when you get close, so none get left behind.",

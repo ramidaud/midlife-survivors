@@ -11,14 +11,14 @@ Use each one's existing sheet in `assets/stage/coworkers/` as the identity refer
 
 | Sheet id | Room card shows | Signature move (row 1) |
 |---|---|---|
-| `salad` | Breakroom card | Fork salute over the desk salad |
-| `retiring` | Parking card | Coffee sip, then a thumbs-up |
-| `intern` | Server Room card | Energy drink sip and a quick wave |
-| `email` | Conference card | Types, stops, raises a finger: "quick question" |
-| `dozer` | Executive card | A slow blink, then perks up |
-| `mute` | Wellness card | Headset nod, then taps the mute button |
+| `salad` | Art from Payroll (Breakroom) | Fork salute over the desk salad |
+| `retiring` | Sam at the Front Desk (Parking) | Coffee sip, then a thumbs-up |
+| `intern` | Eli from IT (Server Room) | Energy drink sip and a quick wave |
+| `email` | Nora in Marketing (Conference) | Types, stops, raises a finger: "quick question" |
+| `dozer` | June from Legal (Executive) | A slow blink, then perks up |
+| `mute` | Mina in Benefits (Wellness) | Headset nod, then taps the mute button |
 
-Note for Rami: the room cards use Gemini's names (Pam from Payroll, Brenda at Reception and so on), while the desk sprites' notes use other names (Art, Sam, Eli...). Claude will flag this so Rami can pick one set. **Don't put names in the art.**
+Names (Nov 3): the cards now use the sprites' own names from your cast sheet. **Don't put names in the art.**
 
 ## Format (same as the hero, Ben and intern portraits)
 - `assets/stage/coworkers/portraits/coworker-<id>-on-break-v1.png`, one sheet per coworker.

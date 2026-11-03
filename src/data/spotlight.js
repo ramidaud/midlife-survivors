@@ -19,13 +19,14 @@ window.SPOTLIGHT = {
     coldWarCowboy: { kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
   },
   // Promotions: a coworker announces the new room. cast = which coworker sprite (START_AREA_COWORKERS).
+  // Names match the sprites' own names from ChatGPT's cast sheet (Nov 3), with Gemini's departments.
   rooms: {
-    breakroom:  { kicker: "PROMOTED", name: "PAM FROM PAYROLL", cast: "salad", line: "The decaf pot is fresh and someone brought bagels.", tip: "The Lounge counter opens here after promotions." },
-    parking:    { kicker: "GATE OPENED", name: "BRENDA AT RECEPTION", cast: "retiring", line: "Careful around row B, Dave's idea still has a boot.", tip: "The Parking Lot is open with wide lanes for kiting." },
-    server:     { kicker: "PROMOTED", name: "DAVE FROM IT", cast: "intern", line: "Please do not unplug the rack with the yellow note.", tip: "The Server Room is now open. Watch the narrow aisles." },
-    conference: { kicker: "MEETING INVITE", name: "GREG IN MARKETING", cast: "email", line: "We have been in Alignment since Tuesday. Grab a pen.", tip: "Conference Rooms are open. Use the side doors to loop." },
-    executive:  { kicker: "KEYCARD UPGRADED", name: "DIANE FROM LEGAL", cast: "dozer", line: "Help yourself to a butterscotch from the credenza.", tip: "Explore the Executive Wing for high-value props." },
-    wellness:   { kicker: "MANDATORY FUN", name: "JANET IN BENEFITS", cast: "mute", line: "The nap pod is broken, but the herbal tea is free.", tip: "The Wellness Corner is open for a peaceful breather." }
+    breakroom:  { kicker: "PROMOTED", name: "ART FROM PAYROLL", cast: "salad", line: "The decaf pot is fresh and someone brought bagels.", tip: "The Lounge counter opens here after promotions." },
+    parking:    { kicker: "GATE OPENED", name: "SAM AT THE FRONT DESK", cast: "retiring", line: "Careful around row B, Dave's idea still has a boot.", tip: "The Parking Lot is open with wide lanes for kiting." },
+    server:     { kicker: "PROMOTED", name: "ELI FROM IT", cast: "intern", line: "Please do not unplug the rack with the yellow note.", tip: "The Server Room is now open. Watch the narrow aisles." },
+    conference: { kicker: "MEETING INVITE", name: "NORA IN MARKETING", cast: "email", line: "We have been in Alignment since Tuesday. Grab a pen.", tip: "Conference Rooms are open. Use the side doors to loop." },
+    executive:  { kicker: "KEYCARD UPGRADED", name: "JUNE FROM LEGAL", cast: "dozer", line: "Help yourself to a butterscotch from the credenza.", tip: "Explore the Executive Wing for high-value props." },
+    wellness:   { kicker: "MANDATORY FUN", name: "MINA IN BENEFITS", cast: "mute", line: "The nap pod is broken, but the herbal tea is free.", tip: "The Wellness Corner is open for a peaceful breather." }
   },
   // First-time tips, once ever. The hero you're playing says it (a line per hero, falling back to "any").
   tips: {
