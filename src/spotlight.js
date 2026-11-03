@@ -129,6 +129,8 @@ window.Spotlight = (() => {
     } catch (e) {}
     return fallback;
   }
+  // Warm up the hero portrait sheets so the sprite rises with the card instead of popping in late.
+  setTimeout(() => Object.values(S().heroSheets || {}).forEach(slug => { const im = new Image(); im.src = `assets/characters/portraits/${slug}-on-break-v1.png`; }), 3000);
   const heroId = () => (typeof meta !== "undefined" && meta && meta.selectedChar) || "officeWorker";
   const heroArt = id => `assets/characters/portraits/${(S().heroSheets || {})[id] || "office-worker"}-on-break-v1.png`;
 

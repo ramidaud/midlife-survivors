@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.67.0",
-  displayVersion: "V. 1.67.0",
+  version: "1.67.1",
+  displayVersion: "V. 1.67.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 152,
+  build: 153,
   changelog: [
+    {
+      ver: "V. 1.67.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "New hero: The Cold War Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
+      highlights: [
+        "Spotlight cards load the hero art ahead of time, so the sprite rises with the card instead of popping in late."
+      ]
+    },
     {
       ver: "V. 1.67.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "New hero: The Cold War Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
