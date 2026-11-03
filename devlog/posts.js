@@ -8,7 +8,7 @@ window.DEVLOG_POSTS = [
     "date": "2026-11-02",
     "title": "I got promoted four times before lunch.",
     "version": "V. 1.31 to 1.47",
-    "draft": true,
+    "draft": false,
     "cover": "img/08-conference-cover.jpg",
     "leadAlt": "The Synergy conference room: a long table, a roadmap whiteboard and a swarm of Bills, behind glass walls.",
     "teaser": "Promotions open six new rooms, almost everything breaks, bosses fight back, a sneaky bug made enemies run away, every weapon got a job, and the whole office moves smoother.",

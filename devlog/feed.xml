@@ -6,6 +6,76 @@
     <description>HR memos from building Midlife Survivors.</description>
     
     <item>
+      <title>I got promoted four times before lunch.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/08-promoted-four-times/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/08-promoted-four-times/</guid>
+      <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-conference-cover.jpg" alt="The Synergy conference room: a long table, a roadmap whiteboard and a swarm of Bills, behind glass walls."></p><p>Last week my game was two rooms and a locked door. Today you can get promoted four times before lunch.</p>
+<p>That's the big one. Every five years you get promoted, a door rolls up like a garage, and the office gets bigger. You start in the Lobby and the Bullpen. At 45 the Parking Lot and Break Room open. At 50, the Server Room and three glass Conference Rooms. At 55, the Executive Wing. At 60, the Wellness Corner, which HR built so you'd stop asking about raises. <em>(Each promotion also tells you what followed you to work. At 50 it's tuition, carpool and the kids' new math. Life doesn't stay home just because you went to the office.)</em></p>
+<p>ChatGPT built all six rooms in one day. I'd write a brief, it would build the room, I'd test it, and Claude would wire the door. Then we'd do the next one. It felt less like making a game and more like running a very fast, very strange construction crew.</p>
+<p><img alt="The Wellness Corner: a massage chair, a SAD lamp, a felt quiet pod and a lighthouse puzzle stuck at 80 percent." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-wellness-corner.jpg" /></p>
+<h2>Everything breaks now</h2>
+<p>I played a game called Nerd Survivors and noticed that almost everything in it is breakable. So now almost everything in my office is too. Printers, vending machines, filing cabinets, water coolers, even the lost and found. Smash them for pizza, coins and XP. The printer has a message when it goes down: "PC Load Letter, my foot."</p>
+<p>The bosses got bigger, and they finally fight back. The Performance Review charges at you. The 30-Year Mortgage sends out rings of interest. And the Midlife Crisis V8 does donuts in the parking lot and leaves skid marks you really don't want to stand in.</p>
+<p><img alt="The Midlife Crisis V8 winding up a drift loop: &quot;V8 BURNOUT. Drift loop incoming. Skip the skids.&quot;" src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-v8-burnout.jpg" /></p>
+<h2>"They ran away if I got close"</h2>
+<p>My friends Derek and T.J. both sent me the same bug on the same day. Enemies were lining up along a wall, and when Derek walked toward them, they backed away. He sent a screenshot. Claude couldn't make it happen. Then I sent a screen recording. Still couldn't make it happen.</p>
+<p>It turned out to be two bugs wearing the same trench coat.</p>
+<p>The first one: my "No." weapon shoves enemies 95 pixels away from you. It did that by teleporting them. Physics only stops things that <em>walk</em> into a wall, so a teleported Bill could land on the other side of a thin wall and get stuck there, lining up along it forever. Games call this <strong>tunneling</strong>. The fix was to move them in small steps and stop at the first wall.</p>
+<pre><code>// Shove an enemy in small steps, stopping before a wall or the edge of the floor.
+while (moved &lt; dist) {
+  const nx = e.x + dx * 8, ny = e.y + dy * 8;
+  if (!NAV.isOpen(nx, ny) || !startArea.contains(nx, ny)) break;
+  e.x = nx; e.y = ny; moved += 8;
+}
+</code></pre>
+<p>The second one was sneakier. If an enemy stood directly behind something wide, like the big desk in the Executive Wing, "go around the left" and "go around the right" were exactly as good as each other. The two choices cancelled out, and what was left over pointed straight <em>back</em>. So the enemy walked away from you, down the middle, until it hit a wall. ChatGPT actually caught this one while testing its room and left a note instead of fixing it. Now every enemy has a favorite side and just picks it. <em>(My favorite kind of bug: the code was doing exactly what I told it to. I just hadn't told it what to do when both answers are right.)</em></p>
+<h2>Every weapon has a job</h2>
+<p>I asked a simple question: is Dad Joke supposed to be offensive or defensive? Nobody could answer, including me. It and the word "No." were basically the same weapon, two small circles that pushed things.</p>
+<p>So Dad Joke became an attack. It's a punchline blast now, with a flash, a shockwave and little "HA!"s flying off, and it hits for double damage. "No." stayed the personal-space tool. Then Grok went through all six weapons and gave each one a job, so every level-up card is an honest choice.</p>
+<p><img alt="The punchline blast going off in a ring of Bills: a yellow flash, -2 on every Bill, and HA! and GROAN flying out." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-punchline-blast.jpg" /></p>
+<h2>It all moves smoother now</h2>
+<p>Every enemy used to walk on four frames. Now it's eight. Same speed, just smoother. The heroes got eight frames too, plus something I didn't know I wanted: if you stand still, they breathe. Wait a few seconds and the 9-to-5er pushes his glasses up his nose.</p>
+<p><img alt="A Bill's old four-frame walk on top, and the new eight-frame walk below." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-bill-4-vs-8-frames.jpg" /></p>
+<p>The office got a pass too. The Bullpen went from an empty floor to rows of CRT monitors and paper drifts. Small icons replaced the phone emoji on every level-up card. And the coworkers finally move. They type, they nap, they look up when you walk by.</p>
+<p><img alt="The Bullpen before and after: an empty blue floor on the left, rows of cubicles with CRTs and paper drifts on the right." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-bullpen-before-after.jpg" /></p>
+<h2>Next up</h2>
+<p>Honestly? I don't love the office yet. It still looks like one desk copied forty times, and the coworkers float behind their cubicle walls instead of sitting in their chairs. So before anything else gets built, ChatGPT is drawing two layout plans for me to pick from: team pods with their own personalities, a landmark on every screen, people at the water cooler. My photographer brain is very excited about this part.</p>
+<p>If you played this week, thank you, especially Derek, T.J., Ben, Jon, Mike and Rich, who found the bugs I couldn't. If you haven't, see if you can make it to the Wellness Corner. And come tell me about it in the <a href="https://discord.gg/E6N9j5tZe">Discord</a>.</p><h3>What changed</h3><ul><li>Promotions at 45, 50, 55 and 60 open the Parking Lot, Break Room, Server Room, Conference Rooms, Executive Wing and Wellness Corner</li><li>Breakable printers, vending machines and more, with loot</li><li>Bigger bosses with real attacks</li><li>Fixed enemies walking through walls and backing away</li><li>Dad Joke is now an attack; every weapon has a role</li><li>8-frame enemies and heroes, idle fidgets, animated coworkers, pixel icons</li></ul><p><strong>Next up:</strong> Two layout plans for a less repetitive office, with team pods, landmarks and coworkers who actually sit in their chairs.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.31 to 1.47)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-conference-cover.jpg" alt="The Synergy conference room: a long table, a roadmap whiteboard and a swarm of Bills, behind glass walls."></p><p>Last week my game was two rooms and a locked door. Today you can get promoted four times before lunch.</p>
+<p>That's the big one. Every five years you get promoted, a door rolls up like a garage, and the office gets bigger. You start in the Lobby and the Bullpen. At 45 the Parking Lot and Break Room open. At 50, the Server Room and three glass Conference Rooms. At 55, the Executive Wing. At 60, the Wellness Corner, which HR built so you'd stop asking about raises. <em>(Each promotion also tells you what followed you to work. At 50 it's tuition, carpool and the kids' new math. Life doesn't stay home just because you went to the office.)</em></p>
+<p>ChatGPT built all six rooms in one day. I'd write a brief, it would build the room, I'd test it, and Claude would wire the door. Then we'd do the next one. It felt less like making a game and more like running a very fast, very strange construction crew.</p>
+<p><img alt="The Wellness Corner: a massage chair, a SAD lamp, a felt quiet pod and a lighthouse puzzle stuck at 80 percent." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-wellness-corner.jpg" /></p>
+<h2>Everything breaks now</h2>
+<p>I played a game called Nerd Survivors and noticed that almost everything in it is breakable. So now almost everything in my office is too. Printers, vending machines, filing cabinets, water coolers, even the lost and found. Smash them for pizza, coins and XP. The printer has a message when it goes down: "PC Load Letter, my foot."</p>
+<p>The bosses got bigger, and they finally fight back. The Performance Review charges at you. The 30-Year Mortgage sends out rings of interest. And the Midlife Crisis V8 does donuts in the parking lot and leaves skid marks you really don't want to stand in.</p>
+<p><img alt="The Midlife Crisis V8 winding up a drift loop: &quot;V8 BURNOUT. Drift loop incoming. Skip the skids.&quot;" src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-v8-burnout.jpg" /></p>
+<h2>"They ran away if I got close"</h2>
+<p>My friends Derek and T.J. both sent me the same bug on the same day. Enemies were lining up along a wall, and when Derek walked toward them, they backed away. He sent a screenshot. Claude couldn't make it happen. Then I sent a screen recording. Still couldn't make it happen.</p>
+<p>It turned out to be two bugs wearing the same trench coat.</p>
+<p>The first one: my "No." weapon shoves enemies 95 pixels away from you. It did that by teleporting them. Physics only stops things that <em>walk</em> into a wall, so a teleported Bill could land on the other side of a thin wall and get stuck there, lining up along it forever. Games call this <strong>tunneling</strong>. The fix was to move them in small steps and stop at the first wall.</p>
+<pre><code>// Shove an enemy in small steps, stopping before a wall or the edge of the floor.
+while (moved &lt; dist) {
+  const nx = e.x + dx * 8, ny = e.y + dy * 8;
+  if (!NAV.isOpen(nx, ny) || !startArea.contains(nx, ny)) break;
+  e.x = nx; e.y = ny; moved += 8;
+}
+</code></pre>
+<p>The second one was sneakier. If an enemy stood directly behind something wide, like the big desk in the Executive Wing, "go around the left" and "go around the right" were exactly as good as each other. The two choices cancelled out, and what was left over pointed straight <em>back</em>. So the enemy walked away from you, down the middle, until it hit a wall. ChatGPT actually caught this one while testing its room and left a note instead of fixing it. Now every enemy has a favorite side and just picks it. <em>(My favorite kind of bug: the code was doing exactly what I told it to. I just hadn't told it what to do when both answers are right.)</em></p>
+<h2>Every weapon has a job</h2>
+<p>I asked a simple question: is Dad Joke supposed to be offensive or defensive? Nobody could answer, including me. It and the word "No." were basically the same weapon, two small circles that pushed things.</p>
+<p>So Dad Joke became an attack. It's a punchline blast now, with a flash, a shockwave and little "HA!"s flying off, and it hits for double damage. "No." stayed the personal-space tool. Then Grok went through all six weapons and gave each one a job, so every level-up card is an honest choice.</p>
+<p><img alt="The punchline blast going off in a ring of Bills: a yellow flash, -2 on every Bill, and HA! and GROAN flying out." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-punchline-blast.jpg" /></p>
+<h2>It all moves smoother now</h2>
+<p>Every enemy used to walk on four frames. Now it's eight. Same speed, just smoother. The heroes got eight frames too, plus something I didn't know I wanted: if you stand still, they breathe. Wait a few seconds and the 9-to-5er pushes his glasses up his nose.</p>
+<p><img alt="A Bill's old four-frame walk on top, and the new eight-frame walk below." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-bill-4-vs-8-frames.jpg" /></p>
+<p>The office got a pass too. The Bullpen went from an empty floor to rows of CRT monitors and paper drifts. Small icons replaced the phone emoji on every level-up card. And the coworkers finally move. They type, they nap, they look up when you walk by.</p>
+<p><img alt="The Bullpen before and after: an empty blue floor on the left, rows of cubicles with CRTs and paper drifts on the right." src="https://ramidaud.github.io/midlife-survivors/devlog/img/08-bullpen-before-after.jpg" /></p>
+<h2>Next up</h2>
+<p>Honestly? I don't love the office yet. It still looks like one desk copied forty times, and the coworkers float behind their cubicle walls instead of sitting in their chairs. So before anything else gets built, ChatGPT is drawing two layout plans for me to pick from: team pods with their own personalities, a landmark on every screen, people at the water cooler. My photographer brain is very excited about this part.</p>
+<p>If you played this week, thank you, especially Derek, T.J., Ben, Jon, Mike and Rich, who found the bugs I couldn't. If you haven't, see if you can make it to the Wellness Corner. And come tell me about it in the <a href="https://discord.gg/E6N9j5tZe">Discord</a>.</p><h3>What changed</h3><ul><li>Promotions at 45, 50, 55 and 60 open the Parking Lot, Break Room, Server Room, Conference Rooms, Executive Wing and Wellness Corner</li><li>Breakable printers, vending machines and more, with loot</li><li>Bigger bosses with real attacks</li><li>Fixed enemies walking through walls and backing away</li><li>Dad Joke is now an attack; every weapon has a role</li><li>8-frame enemies and heroes, idle fidgets, animated coworkers, pixel icons</li></ul><p><strong>Next up:</strong> Two layout plans for a less repetitive office, with team pods, landmarks and coworkers who actually sit in their chairs.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.31 to 1.47)</p>]]></content:encoded>
+    </item>
+    <item>
       <title>My office got jokes. Then my enemies got smarter.</title>
       <link>https://ramidaud.github.io/midlife-survivors/devlog/07-around-the-desk/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/07-around-the-desk/</guid>

@@ -932,3 +932,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - "I got promoted four times before lunch." (draft): promotions and six new rooms, breakables and boss attacks, Derek and T.J.'s "they ran away" bug (tunneling + cancel-out), weapon roles, 8-frame animation and coworkers, next up the layout plan. Six screenshots from today's tests.
 - Draft only: not in the RSS feed, so the Sunday Substack task won't pick it up until Rami approves.
 - CLAUDE.md: added the Substack line to the Devlog section (Rami said yes).
+- Published devlog post 08 (Rami: publish now, not Sunday). It is first in the feed for a same-day Substack import.
