@@ -22,6 +22,9 @@ window.Telemetry = (() => {
   // Coarse device details (no fingerprinting): phone/tablet/desktop, OS family, browser family, screen size
   // rounded to 100 px, and how smooth the game ran. Only sent once the runs table has these columns.
   const DEVICE_DETAIL = true; // columns added by docs/sql/RUNS_DEVICE.sql (Rami ran it Nov 2)
+  // Grok's difficulty fields (Nov 3). Stays false until docs/sql/RUNS_DIFFICULTY.sql has been run in Supabase,
+  // because sending columns the table doesn't have would make every run row fail.
+  const DIFFICULTY_DETAIL = false;
   function deviceDetail() {
     const ua = navigator.userAgent || "", touch = navigator.maxTouchPoints > 1;
     const os = /iPhone|iPod/.test(ua) ? "iOS" : (/iPad/.test(ua) || (/Macintosh/.test(ua) && touch)) ? "iPadOS" : /Android/.test(ua) ? "Android"
@@ -74,6 +77,21 @@ window.Telemetry = (() => {
       resumed: !!run.resumed,
       version: String((window.GAME_VERSION && GAME_VERSION.displayVersion) || "").slice(0, 24)
     };
+    if (DIFFICULTY_DETAIL) {
+      let boss = null, ranks = 0, zoom = null;
+      try { const b = bills.getChildren().find(x => x.active && x.isBoss); boss = b ? String(b.kind).slice(0, 32) : null; } catch (e) {}
+      try { ranks = Object.values((meta && meta.ranks) || {}).reduce((a, v) => a + (+v || 0), 0); } catch (e) {}
+      try { zoom = Math.round(window._activeGameScene.cameras.main.zoom * 100) / 100; } catch (e) {}
+      Object.assign(row, {
+        view_zoom: zoom,
+        view_short_px: Math.round(Math.min(window.innerWidth || 0, window.innerHeight || 0)),
+        touch_mode: String((meta && meta.controls && meta.controls.touchMode) || "").slice(0, 16) || null,
+        boss_alive_at_death: outcome === "died" ? boss : null,
+        age_at_first_group_chat: run.firstGroupChat != null ? Math.round(run.firstGroupChat * 10) / 10 : null,
+        pings_hit: run.pingsHit || 0,
+        meta_shop_ranks: ranks
+      });
+    }
     if (DEVICE_DETAIL) Object.assign(row, deviceDetail(), {
       avg_fps: fpsTime ? Math.round(1000 * fpsFrames / fpsTime) : null,
       slow_frame_pct: fpsFrames ? Math.round(100 * fpsSlow / fpsFrames) : null
@@ -115,5 +133,13 @@ window.Telemetry = (() => {
     if (run && !run.reported && typeof gameOver !== "undefined" && !gameOver) send("quit");
   });
 
-  return { runStarted, runEnded, tick, event };
+  // Small counters for the difficulty fields: Telemetry.note("ping") when a Group Chat ping hits you,
+  // Telemetry.note("groupChat") when the first Group Chat shows up.
+  function note(what) {
+    if (!run) return;
+    if (what === "ping") run.pingsHit = (run.pingsHit || 0) + 1;
+    if (what === "groupChat" && run.firstGroupChat == null && typeof currentAge !== "undefined") run.firstGroupChat = currentAge;
+  }
+
+  return { runStarted, runEnded, tick, event, note };
 })();

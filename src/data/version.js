@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.71.1",
-  displayVersion: "V. 1.71.1",
+  version: "1.72.0",
+  displayVersion: "V. 1.72.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 167,
+  build: 168,
   changelog: [
+    {
+      ver: "V. 1.72.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "The HR Exit Interview: when a run ends, your hero slumps in a chair while whatever got you gloats. Phones also see more of the office.",
+      highlights: [
+        "New death screen art by ChatGPT: your hero slumps into a chair in an empty HR office while the thing that got you looks very pleased with itself. Hit Retry and they get back up and dust off.",
+        "Phones zoom out a bit so you can see more of the office and spot Group Chats before they ping you (Grok's suggestion).",
+        "The first minute is a little gentler: Bills arrive a bit less often at age 40."
+      ]
+    },
     {
       ver: "V. 1.71.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Age 60 is less of a wall: Group Chats show up a little at 50 so you learn them early, and the V8 gives you a breath.",

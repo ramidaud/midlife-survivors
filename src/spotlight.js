@@ -249,6 +249,6 @@ window.Spotlight = (() => {
       show({ seenKey: "tip_" + key, kind: "tip", kicker: T.kicker, name: (S().heroNames || {})[id] || "YOU", line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", edge: "#EF9347", band: "#303750", ms: 5000 });
       return true;
     },
-    hide, isShowing: () => !!showing, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
+    hide, texUrl, isShowing: () => !!showing, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
   };
 })();

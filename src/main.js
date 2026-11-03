@@ -186,11 +186,13 @@ window.addEventListener("touchstart", e => {
   releaseStaleTouches(live);
 }, { capture: true, passive: true });
 // How far to zoom the camera: aim to show about VIEW.targetShortSide pixels of office across the short side of the
-// screen, in quarter steps, never below 1x. 720p laptop = 1x, 1080p = 1.5x, 1440p = 2.25x, 4K = 3.25x.
-const VIEW = { targetShortSide: 640, maxZoom: 4 };
+// screen, in quarter steps. 720p laptop = 1x, 1080p = 1.5x, 1440p = 2.25x, 4K = 3.25x.
+// Phones may zoom out to minZoom so they see more of the office (Grok, Nov 3: phone runs ended ~10 years earlier;
+// at 1x a phone only showed about 390 px of floor). If things look too tiny, raise minZoom to 0.85.
+const VIEW = { targetShortSide: 640, maxZoom: 4, minZoom: 0.75 };
 function viewZoomFor(w, h) {
   const z = Math.floor((Math.min(w, h) / VIEW.targetShortSide) * 4) / 4;
-  return Math.max(1, Math.min(VIEW.maxZoom, z));
+  return Math.max(VIEW.minZoom, Math.min(VIEW.maxZoom, z));
 }
 window.viewZoomFor = viewZoomFor;
 function resetInputState(scene) {
@@ -697,7 +699,7 @@ function create() {
   this.physics.add.overlap(player, pings, (p, ping) => {
     if (!ping.active) return;
     ping.destroy();
-    hurtPlayer(p, { kind: "groupChat", damage: ping.damage || 1 });
+    hurtPlayer(p, { kind: "groupChat", damage: ping.damage || 1 }); if (window.Telemetry && Telemetry.note) Telemetry.note("ping");
   });
   if (window.propGroup) {
     this.physics.add.overlap(splashes, window.propGroup, hitProp);
@@ -1392,7 +1394,7 @@ function showGameOver(scene, killer, isWin) {
     ? Phaser.Utils.Array.GetRandom(runMode === "midlife" ? winLinesRetire : (currentAge >= 99.5 ? winLines100 : winLines80))
     : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.fallback);
 
-  renderGameOverModal(scene, cause, isWin);
+  renderGameOverModal(scene, cause, isWin, killer);
 }
 
 // Pop a floating damage number above an enemy that drifts up and fades out.
@@ -1786,6 +1788,7 @@ function currentWave() {
 
 // Create one enemy of the given kind at (x, y), scaling HP, speed, and Life Stage labels with your Age!
 function createEnemy(scene, kind, x, y) {
+  if (kind === "groupChat" && window.Telemetry && Telemetry.note) Telemetry.note("groupChat");
   if (window.NAV) { // never spawn inside a desk or somewhere that can't reach you (like behind a locked door)
     const spot = window.NAV.fixSpawn(x, y);
     if (!spot) return null;

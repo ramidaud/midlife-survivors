@@ -225,7 +225,7 @@ window.SPAWNING = {
   maxOnScreen: 75,
   offscreenMargin: 70,
   waves: [
-    { minAge: 40, everyMs: 1150, mix: [["bill", 10]] }, // still gentle (Ben: "brutal"), but not empty (Rami, Nov 2: "too easy up front")
+    { minAge: 40, everyMs: 1400, mix: [["bill", 10]] }, // was 1150 (Grok, Nov 3: a gentler first minute for new players; Rami OK) // still gentle (Ben: "brutal"), but not empty (Rami, Nov 2: "too easy up front")
     { minAge: 42, everyMs: 820,  mix: [["bill", 7], ["spamCall", 3], ["snackAttack", 1]] }, // donuts show up earlier
     { minAge: 43.5, everyMs: 700, mix: [["bill", 6], ["spamCall", 3], ["snackAttack", 2]] },
     { minAge: 45, everyMs: 520,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2], ["calendarInvite", 2]] },

@@ -2674,7 +2674,52 @@ function retirementPartyHtml(isCentennial) {
       : "From everyone at the office: a sheet cake, a gold watch, and a card that Accounting signed twice."}</p>`;
 }
 
-function renderGameOverModal(scene, cause, isWin) {
+// The HR Exit Interview scene (Nov 3, art by ChatGPT): your hero slumps in a chair on the left, whatever got you
+// gloats on the right, over an empty HR office. Retry plays the hero's shake-off before the restart.
+const KO_HERO = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" };
+const KO_MUG = { bill: "bill", groupChat: "group-chat", groupChatPing: "group-chat", lateFee: "late-fee", spamCall: "spam-likely", snackAttack: "late-night-donut",
+  threeAmThought: "3am-thought", officeGossip: "reply-all", calendarInvite: "calendar-invite", backTwinge: "back-twinge" };
+function koSceneHtml(killer) {
+  if (!document.getElementById("ko-css")) {
+    const st = document.createElement("style"); st.id = "ko-css";
+    st.textContent = `
+      .ko-scene { position: relative; margin: -4px -4px 12px; height: clamp(200px, 26vw, 300px); border: 2px solid #171C35; border-radius: 6px; overflow: hidden;
+        background: #303750 var(--ko-banner) center / cover no-repeat; image-rendering: pixelated; box-shadow: inset 0 -60px 60px -30px rgba(23,28,53,.85); }
+      .ko-hero, .ko-mug { position: absolute; bottom: 30px; image-rendering: pixelated; background-repeat: no-repeat; }
+      .ko-hero { left: 10%; width: calc(96px * var(--k)); height: calc(112px * var(--k)); background-size: calc(768px * var(--k)) calc(336px * var(--k));
+        animation: koSlump .96s steps(7) forwards, koIdle 1.32s steps(6) 1.1s infinite; }
+      .ko-hero.up { animation: koUp 1.12s steps(7) forwards; }
+      .ko-mug { right: 10%; width: calc(96px * var(--k)); height: calc(96px * var(--k)); background-size: calc(384px * var(--k)) calc(96px * var(--k));
+        animation: koIn .45s .5s cubic-bezier(.2,1.5,.4,1) both, koMug .8s steps(4) infinite; }
+      .ko-mug.boss { width: calc(144px * var(--k) * .8); height: calc(152px * var(--k) * .8); background-size: calc(576px * var(--k) * .8) calc(456px * var(--k) * .8); animation: koIn .45s .5s cubic-bezier(.2,1.5,.4,1) both; }
+      .ko-cap { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font: 700 15px/1.2 "Atkinson Hyperlegible", system-ui, sans-serif; color: #FFF0CF; text-shadow: 0 2px 0 #171C35; }
+      .ko-cap b { color: #EF9347; }
+      @keyframes koSlump { from { background-position: 0 0; } to { background-position: calc(-672px * var(--k)) 0; } }
+      @keyframes koIdle { from { background-position: 0 calc(-112px * var(--k)); } to { background-position: calc(-576px * var(--k)) calc(-112px * var(--k)); } }
+      @keyframes koUp { from { background-position: 0 calc(-224px * var(--k)); } to { background-position: calc(-672px * var(--k)) calc(-224px * var(--k)); } }
+      @keyframes koMug { from { background-position-x: 0; } to { background-position-x: calc(-384px * var(--k)); } }
+      @keyframes koIn { from { opacity: 0; transform: translateY(20px) scale(.7); } to { opacity: 1; transform: none; } }
+      @media (orientation: portrait), (max-width: 760px) { .ko-scene { height: 200px; } .ko-hero { left: 6%; } .ko-mug { right: 6%; } .ko-cap { font-size: 13px; } }
+      @media (prefers-reduced-motion: reduce) { .ko-hero { animation: none; background-position: calc(-672px * var(--k)) 0; } .ko-mug { animation: none; } }`;
+    document.head.appendChild(st);
+  }
+  const phone = matchMedia("(orientation: portrait), (max-width: 760px)").matches;
+  const k = phone ? 1.35 : (innerWidth > 1100 ? 2 : 1.6);
+  const hero = KO_HERO[meta.selectedChar] || "office-worker";
+  const E = (typeof ENEMIES !== "undefined" && ENEMIES[killer]) || null;
+  const who = E ? E.name : "the daily grind";
+  const isBoss = !!(E && window.BossArt && ["performanceReview", "mortgageRefinance", "midlifeCrisis"].includes(killer));
+  const mug = KO_MUG[killer] ? `<div class="ko-mug" style="background-image:url(assets/enemies/mugshots/${KO_MUG[killer]}-mugshot-v1.png)"></div>`
+    : isBoss ? `<div class="ko-mug boss" style="background-image:url(${window.Spotlight && Spotlight.texUrl ? Spotlight.texUrl("bossart_" + killer, "") : ""})"></div>` : "";
+  const banner = `assets/ui/kill-screen/exit-interview-banner-${phone ? "phone" : "desktop"}-v1.png`;
+  return `<div class="ko-scene" style="--k:${k};--ko-banner:url(${banner})" aria-hidden="true">
+      <div class="ko-hero" id="ko-hero" style="background-image:url(assets/characters/portraits/${hero}-defeated-v1.png)"></div>
+      ${mug}
+      <div class="ko-cap">Taken out by <b>${who}</b> at ${currentAge.toFixed(1)}</div>
+    </div>`;
+}
+
+function renderGameOverModal(scene, cause, isWin, killer) {
   const modal = document.getElementById("gameover-modal");
   if (!modal) return;
   modal.classList.remove("hidden");
@@ -2688,7 +2733,7 @@ function renderGameOverModal(scene, cause, isWin) {
 
   modal.innerHTML = `
     <div class="modal-card gameover-box ${isWin ? "win-box" : "loss-box"}">
-      ${isWin ? retirementPartyHtml(isCentennial) : ""}
+      ${isWin ? retirementPartyHtml(isCentennial) : koSceneHtml(killer)}
       <div class="modal-kicker">${isWin ? "OFFICIAL RETIREMENT & PENSION CERTIFICATE" : "HR EXIT INTERVIEW // PROGRESS SAVED"}</div>
       <h2 class="modal-title">${headline}</h2>
       <p class="gameover-cause">"${cause}"</p>
@@ -2768,10 +2813,15 @@ function renderGameOverModal(scene, cause, isWin) {
     window.menuNav.refresh(".score-name-chip");
   }, false);
 
+  let retrying = false;
   bindNavItem(document.getElementById("go-retry-btn"), 0, () => {
+    if (retrying) return;
     sfx("pick");
-    modal.classList.add("hidden");
-    scene.scene.restart();
+    // The hero gets back up and dusts off first (0.7 s), unless reduced motion is on.
+    const hero = document.getElementById("ko-hero");
+    const go = () => { modal.classList.add("hidden"); scene.scene.restart(); };
+    if (hero && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) { retrying = true; hero.classList.add("up"); setTimeout(go, 700); }
+    else go();
   }, true);
 
   bindNavItem(document.getElementById("go-shop-btn"), 0, () => {

@@ -57,4 +57,4 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - Targets: Tax 0 new-ish reach 50 / 55 / 65 about 55 to 65% / 30 to 40% / 8 to 12%; overall about 70 to 80% / 45 to 55% / 15 to 20%. Watch 60 to 61 death share fall under ~25%.
 - For Claude/Codex: data-only in `enemies.js` / `bosses.js` / VIEW data; do not retune HEALING, salad, interns, Tax Bracket, Bill HP, or V8 spawnAge this pass.
 - Pending after Rami approval, implementation, and a fresh stats slice: mark [done] with version.
-- [partly done] Claude shipped A, B and E in V. 1.71.1 (Nov 3). C (slower age-40 drip) and D (phone zoom-out) wait for Rami's call; the telemetry columns need his OK for a Supabase change.
+- [done] A, B and E in V. 1.71.1; C and D in V. 1.72.0 (Rami OK, Nov 3). Telemetry fields are coded behind DIFFICULTY_DETAIL in src/telemetry.js; they switch on once Rami runs docs/sql/RUNS_DIFFICULTY.sql.
