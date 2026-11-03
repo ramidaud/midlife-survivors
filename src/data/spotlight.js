@@ -11,12 +11,12 @@ window.SPOTLIGHT = {
     midlifeCrisis:     { kicker: "TEST DRIVE", name: "MIDLIFE CRISIS V8", line: "Forget the minivan, we are buying t-tops and leather!",
                          tip: "Dodge its wide skid laps and avoid the tire tracks.", art: "assets/bosses/boss-midlife-crisis-v8-v1.png", edge: "#C45C4B", band: "#874C3B" }
   },
-  // Shown the first time you play each hero.
+  // Your hero's card at the start of every run. bio = who they are, style = how they play (placeholders by Claude; Gemini is polishing).
   hires: {
-    officeWorker: { kicker: "NOW ONBOARDING", name: "THE 9-TO-5ER", line: "Clocking in at nine sharp and not a minute earlier.", tip: "Balanced all-rounder built for a steady workday." },
-    photographer: { kicker: "SIDELINE CAPTAIN", name: "THE SOCCER DAD", line: "I brought orange slices and a trunk full of chairs!", tip: "High-stamina hero with strong crowd-control energy." },
-    gradStudent:  { kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." },
-    coldWarCowboy: { kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
+    officeWorker: { bio: "Twenty years at the same desk. Knows which stapler actually works.", style: "Balanced all-rounder. Starts with Coffee Splash.", kicker: "NOW ONBOARDING", name: "THE 9-TO-5ER", line: "Clocking in at nine sharp and not a minute earlier.", tip: "Balanced all-rounder built for a steady workday." },
+    photographer: { bio: "Coaches the under-10s on Saturdays. Brings the chairs and the pep talks.", style: "Fast feet and a wide Dad Joke blast for crowd control.", kicker: "SIDELINE CAPTAIN", name: "THE SOCCER DAD", line: "I brought orange slices and a trunk full of chairs!", tip: "High-stamina hero with strong crowd-control energy." },
+    gradStudent:  { bio: "Went back for a master's at 45. Sleeps between office hours.", style: "Huge gem magnet and quicker weapons. Levels up fast.", kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." },
+    coldWarCowboy: { bio: "In IT since 2002, back when the journalism school ran on floppies. He kept a box.", style: "Floppy Disk boomerang and +2 health. Once a run, he reboots everything.", kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
   },
   // Promotions: a coworker announces the new room. cast = which coworker sprite (START_AREA_COWORKERS).
   // Names match the sprites' own names from ChatGPT's cast sheet (Nov 3), with Gemini's departments.

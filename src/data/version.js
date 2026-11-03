@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.70.0",
-  displayVersion: "V. 1.70.0",
+  version: "1.70.1",
+  displayVersion: "V. 1.70.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 164,
+  build: 165,
   changelog: [
+    {
+      ver: "V. 1.70.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Every run now opens with your hero's card, with a short bio and how they play. Spotlight cards spread out more.",
+      highlights: [
+        "Your hero's Spotlight card plays at the start of every run, not just the first, and now shows a one-line bio and their play style.",
+        "More spacing between Spotlight cards: 15 seconds between cards, a boss goes before a promotion card that lands at the same moment, and the Lounge card never follows a room card."
+      ]
+    },
     {
       ver: "V. 1.70.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Five new title screen scenes starring the whole crew, drawn to fit around the menus, with their own tall versions for phones.",

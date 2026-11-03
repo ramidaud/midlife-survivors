@@ -29,6 +29,10 @@ Right now most tips only have a generic line plus one hero's line, and the newes
 | `salad` | First Desk Salad drop (elites drop it) | It heals more than pizza but wilts in 14 seconds, so go get it. |
 | `modifier` | First age-50+ "life happens" surprise (Rent Hike, Reading Glasses...) | Surprises last a couple of years, then pass. The chip at the top says which one is active. |
 
+**C. A short bio and a play-style line for each hero** (they now show on the hero's card at the start of every run). Claude's placeholders are in `src/data/spotlight.js` under `hires` (`bio` and `style`). Improve them:
+- **bio:** one sentence, 75 characters max: who they are, with one specific, funny detail. Ben's has to stay true: he started in IT at Kent State's journalism school in 2002 (that's where he met Rami) and loves old tech. Don't claim more than that.
+- **style:** one sentence, 70 characters max: how they play, in plain words (what they start with, what they're good at).
+
 ## Rules
 - **Line:** 60 characters max, spoken by the hero, one sentence, no em dashes.
 - **Kicker:** 2–3 words in caps style, like the existing ones ("URGENT MEMO", "BONUS APPROVED", "PTO NEEDED").

@@ -740,7 +740,13 @@ function titleNewPop() {
   </aside>`;
 }
 
-window.showLowerThird = function(kind, badge, text, ms = 4500, short) {
+window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
+  // While a Spotlight card is up, ordinary messages wait their turn instead of stacking under it (Nov 3, Rami:
+  // "the cards still show up in pairs"). Alerts still go out right away. Gives up after ~15 s.
+  if (kind !== "alert" && window.Spotlight && Spotlight.isShowing && Spotlight.isShowing() && (_waited || 0) < 15000) {
+    setTimeout(() => window.showLowerThird(kind, badge, text, ms, short, (_waited || 0) + 500), 500);
+    return;
+  }
   if ((kind === "alert" || kind === "reward") && window.flashBanner) window.flashBanner(badge, short, kind);
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
   const cur = ltState.current;

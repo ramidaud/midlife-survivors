@@ -43,6 +43,7 @@ window.Spotlight = (() => {
 #spotlight .sp-name{font:700 calc(44px * var(--s))/1 Silkscreen,monospace;color:#FFF0CF;text-shadow:4px 4px 0 #171C35}
 #spotlight .sp-name .w{display:inline-block;white-space:nowrap}
 #spotlight .sp-name i{font-style:normal;display:inline-block;animation:spDrop .42s calc(.46s + var(--i) * 28ms) cubic-bezier(.3,1.6,.5,1) both}
+#spotlight .sp-bio{font:600 calc(16px * var(--s))/1.3 "Atkinson Hyperlegible",system-ui,sans-serif;color:#E9DCC0;max-width:46em;animation:spUp .4s calc(var(--sayAt) - .1s) cubic-bezier(.16,1,.3,1) both}
 #spotlight .sp-say{position:absolute;left:calc(var(--L) + var(--artw) * .6);bottom:calc(232px * var(--s) + var(--lift));max-width:min(560px,calc(100vw - 32px));background:#FFF0CF;color:#171C35;border:4px solid #171C35;border-radius:10px;padding:12px 16px;box-shadow:6px 6px 0 rgba(23,28,53,.6);font:700 calc(20px * var(--s))/1.3 "Atkinson Hyperlegible",system-ui,sans-serif;transform-origin:0 100%;animation:spSay .36s var(--sayAt) cubic-bezier(.2,1.5,.4,1) both;pointer-events:auto;cursor:pointer}
 #spotlight .sp-say::after{content:"";position:absolute;left:22px;bottom:-14px;border:10px solid transparent;border-top:12px solid #171C35;border-bottom:0}
 #spotlight .sp-say i{font-style:normal;animation:spType .01s calc(var(--sayAt) + .18s + var(--c) * 22ms) both}
@@ -60,8 +61,14 @@ window.Spotlight = (() => {
  #spotlight .sp-tip{left:var(--L);right:max(12px,4vw);justify-content:flex-end}
  #spotlight .sp-say{left:auto;right:max(12px,4vw);max-width:62vw;bottom:calc(250px * var(--s) + var(--lift))}
  #spotlight .sp-name{font-size:24px}
+ #spotlight .sp-bio{font-size:12px;max-width:none}
+ #spotlight.has-bio .sp-band{bottom:calc(96px * var(--s) + var(--lift));height:calc(210px * var(--s))}
+ #spotlight.has-bio .sp-text{bottom:calc(122px * var(--s) + var(--lift))}
+ #spotlight.has-bio .sp-say{bottom:calc(350px * var(--s) + var(--lift))}
+ #spotlight.has-bio .sp-artwrap,#spotlight.has-bio .sp-puff{bottom:calc(86px * var(--s) + var(--lift))}
+ #spotlight.has-bio .sp-tip{bottom:calc(20px * var(--s) + var(--lift))}
 }
-@media (orientation:portrait) and (min-width:600px){#spotlight{--s:.9;--lift:96px}#spotlight .sp-name{font-size:36px}}
+@media (orientation:portrait) and (min-width:600px){#spotlight{--s:.9;--lift:96px}#spotlight .sp-name{font-size:36px}#spotlight .sp-bio{font-size:16px}#spotlight .sp-text{left:calc(var(--L) + var(--aw) * .9)}}
 @keyframes spFade{from{opacity:0}to{opacity:1}}
 @keyframes spGone{to{opacity:0}}
 @keyframes spBarT{from{transform:translateY(-100%)}to{transform:none}}
@@ -102,7 +109,7 @@ window.Spotlight = (() => {
     const big = portrait && innerWidth >= 600;
     const a = c.artType === "intern" ? (big ? 3.4 : portrait ? 2.5 : 4) : c.artType === "boss" ? (big ? 1.6 : portrait ? 1.15 : 1.9) : c.artType === "hero" ? (big ? 2.1 : portrait ? 1.5 : 2.5) : (big ? 3.8 : portrait ? 2.8 : 4.6);
     const artW = c.artType === "intern" ? 56 * a : c.artType === "boss" ? 144 * a : c.artType === "hero" ? 96 * a : 48 * a;
-    root.className = c.boss ? "boss" : "";
+    root.className = (c.boss ? "boss" : "") + (c.bio ? " has-bio" : "");
     root.style.setProperty("--a", a);
     root.style.setProperty("--aw", artW + "px");
     root.style.setProperty("--artw", (portrait ? 0 : artW) + "px");
@@ -126,8 +133,8 @@ window.Spotlight = (() => {
       <div class="sp-band"><div class="sp-edgebar"></div><div class="sp-glint"></div></div>
       ${c.art ? `<div class="sp-artwrap"><div class="sp-art ${c.artType}" style="${artStyle}"></div></div><div class="sp-puff">${puff}</div>` : ""}
       <div class="sp-say" title="Tap to dismiss" aria-label="${esc(c.line)}"><span aria-hidden="true">${sayHtml}</span></div>
-      <div class="sp-text"><span class="sp-kick">${esc(c.kicker)}</span><span class="sp-name" aria-label="${esc(c.name)}"><span aria-hidden="true">${nameHtml}</span></span></div>
-      ${c.tip ? `<div class="sp-tip"><span>TIP</span><span>${esc(c.tip)}</span></div>` : ""}`;
+      <div class="sp-text"><span class="sp-kick">${esc(c.kicker)}</span><span class="sp-name" aria-label="${esc(c.name)}"><span aria-hidden="true">${nameHtml}</span></span>${c.bio ? `<span class="sp-bio">${esc(c.bio)}</span>` : ""}</div>
+      ${c.tip ? `<div class="sp-tip"><span>${esc(c.tipLabel || "TIP")}</span><span>${esc(c.tip)}</span></div>` : ""}`;
     root.querySelector(".sp-say").addEventListener("pointerdown", e => { e.stopPropagation(); hide(); });
     if (typeof sfx === "function") sfx(c.boss ? "bossSpawn" : "pick");
   }
@@ -139,7 +146,7 @@ window.Spotlight = (() => {
   //   - each card waits only so long (maxWaitMs); if it's stale by then it's skipped
   //   - the Lounge card shows once per run, and not right after a room card (that card's tip already points there)
   const PRI = { boss: 3, hire: 2, room: 1, lounge: 1, tip: 0 };
-  const PACE = { gapMs: 12000, maxWaitMs: { hire: 20000, room: 25000, lounge: 15000, tip: 20000, boss: 15000 } };
+  const PACE = { gapMs: 15000, maxWaitMs: { hire: 20000, room: 40000, lounge: 15000, tip: 20000, boss: 15000 } };
   let lastHiddenAt = -1e9, lastShownKind = null, run = { lounge: false, lastRoomAt: -1e9 };
 
   function hide() {
@@ -155,8 +162,12 @@ window.Spotlight = (() => {
   function show(card) {
     card.at = performance.now();
     card.kind = card.kind || "tip";
+    // A promotion and a boss often land in the same second (age 45). The room card waits a beat, so if a boss is
+    // coming, the boss goes first and the room card follows after the breather instead of being cut off.
+    if (card.kind === "room") card.notBefore = card.at + 2500;
     if (card.kind === "lounge") {
-      if (run.lounge || card.at - run.lastRoomAt < 30000) return; // once a run, and not on top of a room card
+      const roomNear = card.at - run.lastRoomAt < 45000 || queue.some(c => c.kind === "room") || (showing && showing.kind === "room");
+      if (run.lounge || roomNear) return; // once a run, and never next to a room card
       run.lounge = true;
     }
     queue = queue.filter(c => c.kind !== card.kind || card.kind === "boss"); // newest of each kind wins
@@ -169,14 +180,15 @@ window.Spotlight = (() => {
     const now = performance.now();
     if (showing && menuOpen()) { hide(); return; }
     queue = queue.filter(c => now - c.at < (PACE.maxWaitMs[c.kind] || 20000)); // stale cards are skipped
-    if (!queue.length || menuOpen()) return;
-    const next = queue[0];
+    const ready = queue.filter(c => !c.notBefore || c.notBefore <= now);
+    if (!ready.length || menuOpen()) return;
+    const next = ready[0];
     if (showing) {
       if (next.kind === "boss" && showing.kind !== "boss") { hide(); } // a boss cuts in
       return;
     }
     if (next.kind !== "boss" && now - lastHiddenAt < PACE.gapMs) return; // breather between cards
-    showing = queue.shift();
+    showing = next; queue = queue.filter(c => c !== next);
     if (showing.seenKey) remember(showing.seenKey); // once-ever cards count as seen only when they actually show
     if (showing.kind === "room") run.lastRoomAt = now;
     render(showing);
@@ -225,8 +237,9 @@ window.Spotlight = (() => {
       return true;
     },
     hire(id) {
-      const H = (S().hires || {})[id]; if (!H || seen["hire_" + id]) return false;
-      show({ seenKey: "hire_" + id, kind: "hire", kicker: H.kicker, name: H.name, line: H.line, tip: H.tip, art: heroArt(id), artType: "hero", edge: "#BFA8CF", band: "#303750", ms: 5000 });
+      // Every run opens with your hero's card (Rami, Nov 3): who they are and how they play.
+      const H = (S().hires || {})[id]; if (!H) return false;
+      show({ kind: "hire", kicker: H.kicker, name: H.name, bio: H.bio, line: H.line, tip: H.style || H.tip, tipLabel: H.style ? "PLAY STYLE" : "TIP", art: heroArt(id), artType: "hero", edge: "#BFA8CF", band: "#303750", ms: H.bio ? 7500 : 5000 });
       return true;
     },
     tip(key) {
@@ -236,6 +249,6 @@ window.Spotlight = (() => {
       show({ seenKey: "tip_" + key, kind: "tip", kicker: T.kicker, name: (S().heroNames || {})[id] || "YOU", line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", edge: "#EF9347", band: "#303750", ms: 5000 });
       return true;
     },
-    hide, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
+    hide, isShowing: () => !!showing, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
   };
 })();

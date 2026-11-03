@@ -50,7 +50,7 @@ Group Chat 9 (avg age 63.4) · Bill 5 (42.8) · Spam Call 3 (50.8) · Snack Atta
 - `src/data/enemies.js`: enemy stats. The Group Chat: speed 80, 4 HP, 1 damage, keeps 260 px away, fires a message ping every 2.6 s after a 0.65 s "typing..." warning.
 - `src/data/healing.js`: birthday cake 18% at 45 and 55, 25% at 50 and 60, 22% at 65.
 - `src/data/pickups.js`: pizza and the Desk Salad.
-- `src/data/swarms.js` and `src/data/waves.js`: spawn pacing by age.
+- `src/data/swarms.js` and `src/data/modes.js`: spawn pacing by age; `src/data/heat.js`: the Tax Bracket.
 - `src/data/interns.js`: delivery cadence and payloads.
 - `src/data/bosses.js`: boss attacks.
 
