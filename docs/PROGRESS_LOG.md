@@ -1035,3 +1035,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami isn't happy with the v1 sprites for Ben, TJ and Derek ("they don't match the quality"). Redo brief with a side-by-side comparison: docs/handoffs/chatgpt-friends-sprites-v2.md.
 - V. 1.67.2: TJ couldn't find the Lounge. Now a Spotlight card announces it, the arrow stays up the whole time it's open, it stays open 50 s instead of 35, and the Break Room counter has a "THE LOUNGE · OPENS AFTER PROMOTIONS" sign while it's closed.
 - Plan (Rami): Memo 10 announces **V. 2** with the full before and after set (title, pause, HUD, level-up, devlog). "Before" shots come from the V. 1.47 build (commit abbcdd9^), run locally.
+
+### Nov 3 (afternoon): new friend art in, Spotlight animation v2 drafted
+- V. 1.67.3 is live: ChatGPT's redrawn Ben (v3) and TJ and Derek (v2) are in the game. Checked all four walk directions, idle, badge, On Break portrait, Spotlight and the interns on desktop and phone.
+- Drafted a smoother, punchier Spotlight animation: a light beam opens, the band wipes in behind a bright edge, the sprite hops up and lands in a puff, the name drops in letter by letter, the line types itself, and a shine sweeps the band. Proper exit too.
+- New recording method: the browser's animations and the game are frozen and stepped 1/30 of a second at a time, so clips come out perfectly smooth.
+- Waiting on Rami's OK before the new animation ships (it's shared code, so it changes every card at once).
