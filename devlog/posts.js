@@ -10,6 +10,7 @@ window.DEVLOG_POSTS = [
     "version": "V. 1.31 to 1.47",
     "draft": false,
     "cover": "img/08-promoted-key-art.jpg",
+    "leadNote": "**Made with Grok** (image generation), from a prompt Claude wrote and Rami directed: 16-bit pixel art in the game's palette, the 9-to-5er raising his coffee under a PROMOTED banner as a garage door rolls up and golden light pours out. [Read the full prompt](art/prompts/08-key-art-grok.txt).",
     "leadAlt": "Pixel-art key art: the 9-to-5er strides out of a rolled-up office door under a PROMOTED banner, coffee mug raised, with golden light, server racks and a conference room behind him, a coworker's thumbs-up on the left and a Bill, a Spam Likely phone and a donut chasing him on the right.",
     "teaser": "Promotions open six new rooms, almost everything breaks, bosses fight back, a sneaky bug made enemies run away, every weapon got a job, and the whole office moves smoother.",
     "changes": ["Promotions at 45, 50, 55 and 60 open the Parking Lot, Break Room, Server Room, Conference Rooms, Executive Wing and Wellness Corner", "Breakable printers, vending machines and more, with loot", "Bigger bosses with real attacks", "Fixed enemies walking through walls and backing away", "Dad Joke is now an attack; every weapon has a role", "8-frame enemies and heroes, idle fidgets, animated coworkers, pixel icons"],
