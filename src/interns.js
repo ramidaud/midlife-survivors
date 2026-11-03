@@ -178,7 +178,7 @@ window.Interns = (() => {
         it.walked += Math.hypot(o.x - it.lastX, o.y - it.lastY); it.lastX = o.x; it.lastY = o.y;
         const row = Math.abs(vx) > Math.abs(vy) ? (vx < 0 ? 2 : 3) : (vy < 0 ? 1 : 0);
         if (moving) { it.row = row; o.setFrame(row * 8 + Math.floor(it.walked / 8.5) % 8); }
-        else o.setFrame((it.row || 0) * 8);
+        else o.setFrame(36 + Math.floor(now / 185) % 4); // v2 art: TJ sips, Derek raises his camera
       } else {
         if (now - it.frameAt > 160 && o.body.velocity.length() > 5) { it.frameAt = now; it.frame ^= 1; o.setTexture(it.key + "_" + it.frame); }
         o.setFlipX(o.body.velocity.x < -5);

@@ -39,7 +39,7 @@ const UPGRADE_META = {
 // Pixel icon from the ChatGPT atlas (src/data/ui-icons.js), or the emoji if there isn't one.
 // size: displayed pixels (the atlas is 32px per icon; whole-number multiples stay crisp).
 function pixelIcon(kind, id, emoji, size) {
-  if (kind === "char" && id === "coldWarCowboy") { const s = size || 32; return `<img class="px-icon" src="assets/characters/cold-war-cowboy-badge-v1.png?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; }
+  if (kind === "char" && id === "coldWarCowboy") { const s = size || 32; return `<img class="px-icon" src="assets/characters/cold-war-cowboy-badge-v3.png?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; }
   const I = window.UI_ICONS;
   if (!window.USE_PIXEL_ICONS || !I) return emoji;
   const idx = kind === "char" ? I.characters[id] : (I.cards[id] ?? (emoji ? undefined : I.fallback));
@@ -1184,12 +1184,13 @@ function volBar(v) { const n = Math.round(v * 10); return `${"■".repeat(n)}${"
 // The selected hero, idling on the pause screen (breathing, then a fidget): row 5 of the 8x5 hero sheet.
 // On Break portraits (ChatGPT, Nov 3): 96x112 cells. Row 0 breathes (6 frames), row 1 is the hero's
 // signature break, row 2 is a stretch. We breathe a few times, then play one of the other two, and repeat.
-const BREAK_SHEETS = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" };
+// Full file names (without .png). Ben uses his v3 art (Nov 3).
+const BREAK_SHEETS = { officeWorker: "office-worker-on-break-v1", photographer: "soccer-dad-on-break-v1", gradStudent: "grad-student-on-break-v1", coldWarCowboy: "cold-war-cowboy-on-break-v3" };
 function pauseHeroHtml() {
   const id = meta && meta.selectedChar, slug = BREAK_SHEETS[id];
   if (slug) {
     setTimeout(startBreakPortraits, 0);
-    return `<canvas class="pause-hero break-portrait" width="96" height="112" data-sheet="assets/characters/portraits/${slug}-on-break-v1.png" aria-hidden="true"></canvas>`;
+    return `<canvas class="pause-hero break-portrait" width="96" height="112" data-sheet="assets/characters/portraits/${slug}.png" aria-hidden="true"></canvas>`;
   }
   try { // older fallback: the walk sheet's idle row
     const sc = window.game && game.scene.scenes[0], key = "walk2_" + id;

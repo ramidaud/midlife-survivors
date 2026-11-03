@@ -227,3 +227,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Rebuilt Ben, TJ and Derek from built-in imagegen pose studies using the 9-to-5er as the exact style reference. Ben's eyes show under the narrow hat brim, TJ has a wide grin and glasses catchlights, and Derek has textured curls, a shaped beard and a bright camera strap.
 - **Files.** assets/characters/README-friends-v2.md maps the new sheets, badge, portrait, previews and 1×/4× slate-floor comparison.
 - **For Claude.** Use the same 56×60 walk and counter coordinates. Intern idle actions are in row 4 columns 4–7. Ben's portrait timing and 96×112 cell map match the existing portraits. Runtime integration is a separate step.
+
+## 2026-11-03: Cold War Cowboy v3 art (Codex)
+- **What.** Carried Rami's approved chestnut hair, mature jaw and checked-out expression across Ben's walk, idle, On Break portrait and title badge. Built-in pose studies used the approved concept and existing frame layouts.
+- **Checks.** Verified 40 walk and idle cells, 22 portrait cells, original foot lines and cast palette. The 4× comparison shows the 9-to-5er, Ben v2 and Ben v3.
+- **For Claude.** See assets, frame map and integration prompt in docs/handoffs/chatgpt-cold-war-cowboy-v3.md.

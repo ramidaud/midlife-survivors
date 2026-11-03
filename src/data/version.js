@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.67.2",
-  displayVersion: "V. 1.67.2",
+  version: "1.67.3",
+  displayVersion: "V. 1.67.3",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 154,
+  build: 155,
   changelog: [
+    {
+      ver: "V. 1.67.3", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Ben, TJ and Derek got redrawn: real faces, a proper walk, and they finally stand out on the office floor.",
+      highlights: [
+        "New art for the Cold War Cowboy (v3 by ChatGPT): you can see his face under the hat, he strides with the floppy disk, blows on it when idle, and has a new On Break portrait and badge.",
+        "TJ and Derek's intern sprites were redrawn to match the heroes. TJ sips his coffee while he waits, and Derek raises his camera."
+      ]
+    },
     {
       ver: "V. 1.67.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Easier to find the Lounge: a big card when it opens, an arrow the whole time, and a sign on the counter when it's closed.",

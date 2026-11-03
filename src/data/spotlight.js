@@ -39,5 +39,5 @@ window.SPOTLIGHT = {
                  lines: { any: "My lower back is barking. Is there pizza in the kitchen?", gradStudent: "I am running on fumes and lukewarm vending machine tea." } }
   },
   heroNames: { officeWorker: "THE 9-TO-5ER", photographer: "THE SOCCER DAD", gradStudent: "THE GRAD STUDENT", coldWarCowboy: "THE COLD WAR COWBOY" },
-  heroSheets: { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" }
+  heroSheets: { officeWorker: "office-worker-on-break-v1", photographer: "soccer-dad-on-break-v1", gradStudent: "grad-student-on-break-v1", coldWarCowboy: "cold-war-cowboy-on-break-v3" }
 };
