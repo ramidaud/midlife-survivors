@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Midlife Survivors | Hero animation review</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#171c35;color:#fff0cf;font:16px/1.45 system-ui,sans-serif}
+main{max-width:900px;margin:auto;padding:clamp(12px,4vw,38px)}
+header p{margin:.25rem 0 1rem;color:#f2d7a1}
+h1{font-size:clamp(1.75rem,5vw,3rem);margin:0}
+.controls{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:end}
+label{display:grid;gap:.25rem}
+select,button{font:inherit;color:#fff0cf;background:#303750;border:1px solid #83a89a;border-radius:3px;padding:.3rem .55rem}
+button[aria-pressed=true]{background:#3e7775}
+a{color:#f2d7a1}
+#comparison{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}
+section{border:1px solid #526078;background:#252c45;padding:8px 10px}
+h2{margin:0 0 .25rem;font-size:1rem}
+.pair{display:flex;gap:8px;justify-content:space-around;background:#d3b78d;padding:4px}
+figure{margin:0;text-align:center;color:#171c35;min-width:0}
+canvas{display:block;image-rendering:pixelated}
+figcaption{font-size:.8rem}
+</style>
+<main>
+<header>
+<p>MIDLIFE SURVIVORS / CHARACTER ART</p>
+<h1>Hero animation review</h1>
+<p>Compare the full stride at game speed, then switch the idle row between breathing and the character’s fidget.</p>
+</header>
+<div class="controls">
+<label>Character<select id="character">
+<option value="office-worker">The 9-to-5er</option>
+<option value="soccer-dad">The Soccer Dad</option>
+<option value="grad-student">The Grad Student at 45</option>
+</select></label>
+<label>Idle action<select id="idle"><option value="0">Breathing</option><option value="4">Fidget</option></select></label>
+<div aria-label="Zoom"><button id="one" aria-pressed="true">1×</button> <button id="two" aria-pressed="false">2×</button></div>
+<div><button id="pause" aria-pressed="false">Pause</button> <button id="step">Step</button></div>
+</div>
+<p id="status" role="status">Loading sprites…</p>
+<p><a id="sheet">Native sheet</a> · <a id="gif">Preview GIF</a></p>
+<div id="comparison" aria-label="Animation comparison"></div>
+</main>
+<script>
+const width = 56, height = 60;
+const ids = ['office-worker', 'soccer-dad', 'grad-student'];
+const fidgets = ['Glasses push', 'Neck rub', 'Notebook check'];
+const byId = id => document.getElementById(id);
+const compare = byId('comparison');
+const panels = ['Down', 'Up', 'Left', 'Right', 'Idle'].map(title => {
+  const section = document.createElement('section');
+  const heading = document.createElement('h2');
+  heading.textContent = title;
+  const pair = document.createElement('div');
+  pair.className = 'pair';
+  const contexts = ['v1', 'v2'].map(label => {
+    const figure = document.createElement('figure');
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    canvas.setAttribute('aria-label', title + ' ' + label);
+    const caption = document.createElement('figcaption');
+    caption.textContent = label;
+    figure.append(canvas, caption);
+    pair.append(figure);
+    return canvas.getContext('2d');
+  });
+  section.append(heading, pair);
+  compare.append(section);
+  return { heading, contexts };
+});
+
+async function keyedSheet(path) {
+  const image = new Image();
+  image.src = path;
+  await image.decode();
+  const canvas = document.createElement('canvas');
+  canvas.width = image.width;
+  canvas.height = image.height;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(image, 0, 0);
+  const rgba = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < rgba.data.length; i += 4) {
+    if (rgba.data[i] === 255 && rgba.data[i + 1] === 0 && rgba.data[i + 2] === 255) rgba.data[i + 3] = 0;
+  }
+  ctx.putImageData(rgba, 0, 0);
+  return canvas;
+}
+const paths = id => [id + '-walk-56x60.png', id + '-walk-56x60-v2.png'];
+let sheets, elapsed = 0, previous, paused = false;
+const v1Step = 1000 * 17 / 230;
+const idleStep = 185;
+
+function draw() {
+  if (!sheets) return;
+  const step = Math.floor(elapsed / (v1Step / 2));
+  const idleStart = Number(byId('idle').value);
+  panels.forEach(({contexts}, row) => {
+    const idle = row === 4;
+    const cells = idle
+      ? [1, idleStart + Math.floor(elapsed / idleStep) % 4]
+      : [Math.floor(step / 2) % 4, step % 8];
+    contexts.forEach((ctx, version) => {
+      ctx.clearRect(0, 0, width, height);
+      ctx.drawImage(sheets[version], cells[version] * width, (idle && version === 0 ? 0 : row) * height,
+        width, height, 0, 0, width, height);
+    });
+  });
+}
+function tick(now) {
+  if (!paused && previous !== undefined) elapsed += Math.min(now - previous, 100);
+  previous = now;
+  if (!paused) draw();
+  requestAnimationFrame(tick);
+}
+function updateCharacter() {
+  const id = byId('character').value;
+  sheets = library.get(id);
+  byId('sheet').href = paths(id)[1];
+  byId('gif').href = id + '-preview-v2.gif';
+  updateIdle();
+}
+function updateIdle() {
+  panels[4].heading.textContent = Number(byId('idle').value)
+    ? 'Idle · ' + fidgets[ids.indexOf(byId('character').value)]
+    : 'Idle · Breathing';
+  elapsed = 0;
+  draw();
+}
+function zoom(scale) {
+  byId('one').setAttribute('aria-pressed', String(scale === 1));
+  byId('two').setAttribute('aria-pressed', String(scale === 2));
+  for (const canvas of compare.querySelectorAll('canvas')) {
+    canvas.style.width = width * scale + 'px';
+    canvas.style.height = height * scale + 'px';
+  }
+}
+function setPaused(value) {
+  paused = value;
+  byId('pause').textContent = paused ? 'Resume' : 'Pause';
+  byId('pause').setAttribute('aria-pressed', String(paused));
+}
+const library = new Map();
+byId('character').onchange = updateCharacter;
+byId('idle').onchange = updateIdle;
+byId('one').onclick = () => zoom(1);
+byId('two').onclick = () => zoom(2);
+byId('pause').onclick = () => setPaused(!paused);
+byId('step').onclick = () => {
+  setPaused(true);
+  elapsed += v1Step / 2 + .001;
+  draw();
+};
+Promise.all(ids.map(async id => library.set(id, await Promise.all(paths(id).map(keyedSheet)))))
+  .then(() => {
+    byId('status').textContent = 'All three heroes loaded. Walk loops take about 296 ms at base speed.';
+    updateCharacter();
+    requestAnimationFrame(tick);
+  })
+  .catch(error => { byId('status').textContent = 'Sprite load failed. ' + error.message; });
+</script>
+</html>
