@@ -1041,3 +1041,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Drafted a smoother, punchier Spotlight animation: a light beam opens, the band wipes in behind a bright edge, the sprite hops up and lands in a puff, the name drops in letter by letter, the line types itself, and a shine sweeps the band. Proper exit too.
 - New recording method: the browser's animations and the game are frozen and stepped 1/30 of a second at a time, so clips come out perfectly smooth.
 - Waiting on Rami's OK before the new animation ships (it's shared code, so it changes every card at once).
+
+### Nov 3 (afternoon, cont.): Spotlight v2 shipped (V. 1.68.0)
+- Rami said "ship it": every Spotlight card now uses the new animation (beam, wipe, hop and puff, letter drop, typed line, proper exit). Boss cards get a red beam. Checked boss and room cards at desktop, iPad and phone.
+- Memo 09: the lead clip is now the new smooth Ben recording, and the crew-badges and Lounge screenshots were retaken with the new friend art.
+- Next for ChatGPT: big On Break portraits for TJ and Derek so the Lounge card matches the heroes (docs/handoffs/chatgpt-intern-portraits.md).

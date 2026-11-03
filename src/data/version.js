@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.67.3",
-  displayVersion: "V. 1.67.3",
+  version: "1.68.0",
+  displayVersion: "V. 1.68.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 155,
+  build: 156,
   changelog: [
+    {
+      ver: "V. 1.68.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Spotlight cards got a glow-up: a real spotlight, a hop-in landing, names that drop in letter by letter, and lines that type themselves.",
+      highlights: [
+        "New Spotlight animation for every card: a light beam opens, the band wipes in, the character hops up and lands in a puff, the name drops in letter by letter, and the line types itself out.",
+        "Boss cards get a red spotlight. Cards also leave properly now: the sprite sinks and the band wipes away."
+      ]
+    },
     {
       ver: "V. 1.67.3", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Ben, TJ and Derek got redrawn: real faces, a proper walk, and they finally stand out on the office floor.",
