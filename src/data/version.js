@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.71.0",
-  displayVersion: "V. 1.71.0",
+  version: "1.71.1",
+  displayVersion: "V. 1.71.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 166,
+  build: 167,
   changelog: [
+    {
+      ver: "V. 1.71.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Age 60 is less of a wall: Group Chats show up a little at 50 so you learn them early, and the V8 gives you a breath.",
+      highlights: [
+        "The age 60 wall, smoothed (numbers by Grok): a few Group Chats now show up from age 50 so you learn their pings before the V8 arrives, and there are fewer of them once it does.",
+        "Group Chat pings are easier to read: \"typing...\" shows a bit longer and the ping flies a bit slower.",
+        "The Midlife Crisis V8 waits a moment longer before its first skid and warns a little longer before each one."
+      ]
+    },
     {
       ver: "V. 1.71.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "Every hero has their own voice now: new bios, play styles and first-time tip lines, written by Gemini.",

@@ -50,3 +50,11 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - Pending after Rami approval, implementation, and TJ playtest: mark [done] with version.
 
 - Nov 3: Age 50+ run modifiers (Part 3D) **[done: V. 1.65.0]**. Built as specced: 8 modifiers in src/data/modifiers.js, runtime in src/modifiers.js. Small differences: no vignette or HUD icon art yet (banner + chip only); Rent Hike intensity is 1.25 x (1 + 0.05 per Tax Bracket).
+## 2026-11-03: Difficulty curve check after healing (Grok) [spec only]
+- What: Rami's post-healing play stats (V. 1.61 to 1.69, n=32) show longer runs (median age ~43 to ~48, minutes ~4 to ~9) but a hard wall at 60 to 61 (11 of 23 deaths), with Group Chat as top last-hit killer. Spec checks the reading against code: Group Chat + Math Homework + Midlife Crisis V8 all debut at age 60; GC avg killer age ~63.4 is mostly eight deaths at 61 plus one overtime at 81; V8 only gets 1 attributed kill (ping last-hits during the boss). Healing looks about right; do not nerf it. Hero and phone gaps are real but confounded with veterans / Grad Student / desktop.
+- File: `docs/handoffs/grok-difficulty-curve-spec.md`.
+- Proposed (5 small reversible knobs): (A) soft-intro `groupChat` weight 1 at wave minAge 50, cut weight 2 to 1 at 60; (B) V8 `firstAttackDelayMs` 1400 to 2200 and `telegraphMs` 650 to 750; (C) age-40 wave `everyMs` 1150 to 1400; (D) `VIEW.minZoom` 0.75 so phones can zoom out (move VIEW into data); (E) GC `typingMs` 650 to 850, `pingSpeed` 210 to 190. Plus telemetry fields: view_zoom, view_short_px, touch_mode, boss_alive_at_death, pings_hit, age_at_first_group_chat, meta_shop_ranks.
+- Targets: Tax 0 new-ish reach 50 / 55 / 65 about 55 to 65% / 30 to 40% / 8 to 12%; overall about 70 to 80% / 45 to 55% / 15 to 20%. Watch 60 to 61 death share fall under ~25%.
+- For Claude/Codex: data-only in `enemies.js` / `bosses.js` / VIEW data; do not retune HEALING, salad, interns, Tax Bracket, Bill HP, or V8 spawnAge this pass.
+- Pending after Rami approval, implementation, and a fresh stats slice: mark [done] with version.
+- [partly done] Claude shipped A, B and E in V. 1.71.1 (Nov 3). C (slower age-40 drip) and D (phone zoom-out) wait for Rami's call; the telemetry columns need his OK for a Supabase change.

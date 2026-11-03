@@ -27,7 +27,7 @@ window.BOSS_ATTACKS = {
   },
   midlifeCrisis: {
     bannerTitle: "V8 BURNOUT", bannerSub: "Drift loop incoming. Skip the skids.",
-    telegraphMs: 650, cooldownMs: 4800, firstAttackDelayMs: 1400, recoverMs: 300,
+    telegraphMs: 750, cooldownMs: 4800, firstAttackDelayMs: 2200, recoverMs: 300, // was 650 / 1400 (Grok, Nov 3: a breath before the first burnout)
     driftSpeed: 340, loopRadius: 130, loopRevs: 1.25,
     skidHalfW: 18, skidHalfL: 26, skidEveryPx: 28, skidLifeMs: 2800, skidDamage: 1,
     bodyHalfW: 24, bodyHalfH: 18, damage: 3

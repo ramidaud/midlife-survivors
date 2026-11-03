@@ -109,8 +109,8 @@ window.ENEMIES = {
     color: 0x6fd98c,
     keepDistance: 260, // hangs back this far away
     fireEveryMs: 2600, // sends a message ping this often
-    typingMs: 650,     // shows "typing..." this long before each ping (your warning)
-    pingSpeed: 210,
+    typingMs: 850,     // shows "typing..." this long before each ping (your warning). Was 650 (Grok, Nov 3)
+    pingSpeed: 190,    // was 210 (Grok, Nov 3)
     pingLifeMs: 3200
   },
   mathWorksheet: {
@@ -229,8 +229,8 @@ window.SPAWNING = {
     { minAge: 42, everyMs: 820,  mix: [["bill", 7], ["spamCall", 3], ["snackAttack", 1]] }, // donuts show up earlier
     { minAge: 43.5, everyMs: 700, mix: [["bill", 6], ["spamCall", 3], ["snackAttack", 2]] },
     { minAge: 45, everyMs: 520,  mix: [["bill", 5], ["spamCall", 3], ["snackAttack", 2], ["calendarInvite", 2]] },
-    { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1], ["calendarInvite", 2], ["threeAmThought", 2]] },
-    { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2], ["calendarInvite", 2], ["threeAmThought", 2], ["groupChat", 2], ["mathWorksheet", 1]] },
+    { minAge: 50, everyMs: 380,  mix: [["bill", 4], ["spamCall", 2], ["snackAttack", 2], ["backTwinge", 2], ["officeGossip", 1], ["calendarInvite", 2], ["threeAmThought", 2], ["groupChat", 1]] }, // Group Chat soft intro (Grok, Nov 3)
+    { minAge: 60, everyMs: 320,  mix: [["bill", 3], ["spamCall", 3], ["snackAttack", 2], ["backTwinge", 3], ["officeGossip", 2], ["calendarInvite", 2], ["threeAmThought", 2], ["groupChat", 1], ["mathWorksheet", 1]] }, // fewer chats while the V8 is in (Grok, Nov 3: the 60-61 wall)
     { minAge: 70, everyMs: 280,  mix: [["bill", 2], ["spamCall", 3], ["snackAttack", 3], ["backTwinge", 4], ["officeGossip", 3], ["calendarInvite", 2], ["threeAmThought", 3], ["groupChat", 2], ["mathWorksheet", 2]] },
     // BONUS 20 SENIOR ROUNDS (Age 80 to 100): Fast, chaotic Golden Years!
     { minAge: 80, everyMs: 240,  mix: [["bill", 2], ["spamCall", 4], ["snackAttack", 3], ["backTwinge", 5], ["officeGossip", 4], ["calendarInvite", 2], ["threeAmThought", 4], ["groupChat", 3], ["mathWorksheet", 2]] },
