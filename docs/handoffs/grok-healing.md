@@ -33,3 +33,4 @@ Rami and TJ want **interns** (playtesters as office interns, not playable) who r
 - **Deliveries:** an intern walks over with coffee or a snack (heal) or a short buff. How often, how much, and do they get scarcer with age?
 - **Pop-up shop:** after enough levels, an intern can sell special items mid-run for coins, like the Merchant in Vampire Survivors. What's for sale, prices, and when it unlocks.
 - How this works alongside milestone heals and the salad drop, so the healing total stays fair.
+- **TJ's add:** the shop is a real place, the **Lounge** (likely the Break Room), staffed by an intern. You walk up to the counter to shop (one input: move). Suggest: does the game pause while you browse, how often you can visit (once per promotion?), and how to stop it becoming a safe room to hide in.
