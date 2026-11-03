@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-03 (V. 1.61.1 Birthday Cake)
+**Last updated:** 2026-11-03 (V. 1.63.1 The Lounge)
 
 ---
 
@@ -29,8 +29,8 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 ## Now (Nov 3)
 - [x] Bonus chests, elites, poster title, one look, lighting, dev console (V. 1.48 to 1.60)
 - [x] **Healing 1:** birthday cake every 5 years and the Desk Salad (V. 1.61.0), freeze safety net (V. 1.61.1)
-- [ ] **Healing 2:** interns (TJ, Derek) bring coffee, snacks and buffs (Grok spec section 8.1)
-- [ ] **Healing 3:** the Lounge counter in the Break Room (Grok spec section 8.2)
+- [x] **Healing 2:** interns (TJ, Derek) bring coffee, snacks and buffs (V. 1.62.0)
+- [x] **Healing 3:** the Lounge counter in the Break Room (V. 1.63.0); title version line and credits (V. 1.63.1)
 - [ ] **Retirement screen** with ChatGPT's art
 - [ ] **Age 50+ run modifiers** (docs/handoffs/grok-modifiers.md)
 - [ ] **Spotlight cards, Style B** (copy from Gemini: docs/handoffs/gemini-spotlight-cards.md)
