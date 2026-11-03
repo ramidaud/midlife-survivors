@@ -959,3 +959,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The devlog has a "Your employee file" card on the home page and every post: best Midlife score, oldest age, 401(k) balance and achievements, read from the game's save in the same browser. Nothing is sent anywhere.
 - A memo counts as read only when you scroll to the end, and a small toast says "Memo finished, 3 of 10."
 - Finish 10 memos, then clock in: the **Required Reading** achievement unlocks (+10k 401(k)). Only 8 memos are out, so the first unlock lands with memo 10.
+
+## 2026-11-03: Elite enemies (V. 1.49.0)
+- Rami: "every enemy is basically the same strength," so crowds melt in one hit. Added elites: a share of spawns comes in bigger, slower, in a red glow, with names (FINAL NOTICE, SCAM LIKELY, THE DOZEN, SCIATICA, ALL-HANDS, FAMILY CHAT, REPLY ALL, FINAL EXAM).
+- Elite HP is 5x normal and never fewer than 5 hits of your coffee, so they stay tough as you power up. Each drops 4 gems and 2 coins.
+- The elite share grows with age (2% at 40, 8% at 48, 11% at 55, 14% at 65). All tunable in `INTENSITY.elites` in `src/data/swarms.js`.

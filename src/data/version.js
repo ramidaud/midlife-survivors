@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.48.1",
-  displayVersion: "V. 1.48.1",
+  version: "1.49.0",
+  displayVersion: "V. 1.49.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Bonus Approved",
-  build: 115,
+  codename: "Final Notice",
+  build: 116,
   changelog: [
+    {
+      ver: "V. 1.49.0", date: "Nov 3, 2026", title: "Final Notice",
+      highlights: [
+        "Crowds have heavies now. Some enemies spawn as elites: bigger, standing in a red glow, with names like FINAL NOTICE, SCAM LIKELY and THE DOZEN. They always take at least 5 hits, however strong you get, and drop a jackpot of gems and coins.",
+        "More elites show up as you age: about 1 in 20 early, about 1 in 9 by 55."
+      ]
+    },
     {
       ver: "V. 1.48.1", date: "Nov 3, 2026", title: "Required Reading",
       highlights: ["New achievement: Required Reading (+10k). Finish 10 memos on the devlog (scroll to the end of each), then clock in. The devlog now shows your own employee file too: best score, oldest age, 401(k) balance and achievements."]

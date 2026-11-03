@@ -479,3 +479,6 @@ Our enemies blend all the "downhill" directions on the route map so they move sm
 
 ## Choreographing a "moment" (Nov 3)
 A big moment like the chest opening is really a **timeline**: a list of small events, each scheduled a beat after the last (shake at 0 s, burst at 0.7 s, first beam lands at 1.6 s, the next 0.4 s later, then the counter). The game is **paused** underneath, so the show runs on the clock in the browser, not the game clock. A **SKIP** button just cancels the remaining timers and jumps every piece to its final state. Vampire Survivors does the same thing: the reward is decided the instant you touch the chest. Everything after that is theater.
+
+## Fodder and heavies (Nov 3)
+A good swarm mixes **fodder** (enemies that die in one hit, so mowing them down feels powerful) with **heavies** (elites that take many hits and force you to move). If everything is fodder, the crowd stops being a threat. If everything is a heavy, it's a slog. A trick to keep heavies heavy: set their health from the *player's* current damage ("at least 5 hits"), so upgrades still make fodder melt but never trivialize the elites.

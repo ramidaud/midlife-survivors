@@ -82,6 +82,7 @@ window.EnemyArt = (() => {
       entity.once('destroy', () => {
         if (record.visual) record.visual.destroy();
         if (record.shadow) record.shadow.destroy();
+        if (record.glow) record.glow.destroy();
         entities.delete(record);
       });
     }
@@ -100,14 +101,19 @@ window.EnemyArt = (() => {
           record.shown = false;
           if (record.visual) { record.visual.setVisible(false); record.visual.anims.timeScale = 0; }
           if (record.shadow) record.shadow.setVisible(false);
+          if (record.glow) record.glow.setVisible(false);
           continue;
         }
         const [, size, , , baseDisplay] = specs[kind];
-        const displaySize = baseDisplay * ((ENEMIES[kind] && ENEMIES[kind].scale) || 1); // ENEMY_SCALE in src/data/enemies.js
+        const displaySize = baseDisplay * ((ENEMIES[kind] && ENEMIES[kind].scale) || 1) * (entity.eliteScale || 1); // ENEMY_SCALE in src/data/enemies.js; elites are bigger
         if (!record.visual) {
           record.visual = scene.add.sprite(entity.x, entity.y, key(kind)).setScale(displaySize / size);
           if (kind !== 'threeAmThought' && kind !== 'ping') {
             record.shadow = scene.add.image(entity.x, entity.y, shadowKey).setDisplaySize(displaySize * 0.65, 7);
+          }
+          if (entity.elite) { // elites stand in a pulsing red glow
+            record.glow = scene.add.ellipse(entity.x, entity.y, displaySize * 1.05, displaySize * 0.42, 0xff4a2e, 0.38);
+            record.glow.setBlendMode(Phaser.BlendModes.ADD);
           }
         }
         const visual = record.visual;
@@ -154,6 +160,11 @@ window.EnemyArt = (() => {
         if (record.shadow) {
           record.shadow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.4).setAlpha(entity.alpha);
           if (record.shadow.depth !== entity.depth - 0.1) record.shadow.setDepth(entity.depth - 0.1);
+        }
+        if (record.glow) {
+          record.glow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.38)
+            .setAlpha((0.26 + 0.16 * Math.sin(now / 160)) * entity.alpha);
+          if (record.glow.depth !== entity.depth - 0.2) record.glow.setDepth(entity.depth - 0.2);
         }
       }
     }

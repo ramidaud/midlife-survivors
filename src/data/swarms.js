@@ -22,7 +22,20 @@ window.INTENSITY = {
     mercyDurationMs: 8000       // for at least 8 seconds
   },
   hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // extra damage every enemy deals on contact as you age
-  eventEveryMsByAge: [[40, 80000], [60, 60000], [80, 45000], [100, 35000]] // time between swarm events
+  eventEveryMsByAge: [[40, 80000], [60, 60000], [80, 45000], [100, 35000]], // time between swarm events
+  // Elites (Nov 3, Rami: "every enemy is basically the same strength"). A share of each crowd spawns big, tough and labeled,
+  // so crowds have fodder you mow down plus heavies that push through. Their HP keeps up with YOUR damage.
+  elites: {
+    chanceByAge: [[40, 0.02], [43, 0.05], [48, 0.08], [55, 0.11], [65, 0.14], [80, 0.18]], // share of spawns that are elite
+    hpMult: 5,         // 5x a normal one's health...
+    minHits: 5,        // ...and never fewer than 5 hits of your main weapon (coffee), however strong you get
+    scale: 1.45,       // bigger body and hit box
+    speedMult: 0.85,   // a little slower, so you can see them coming
+    damageAdd: 1,      // hits a bit harder
+    gems: 4, coins: 2, // the jackpot when one goes down
+    names: { bill: "FINAL NOTICE", spamCall: "SCAM LIKELY", snackAttack: "THE DOZEN", backTwinge: "SCIATICA",
+             calendarInvite: "ALL-HANDS", groupChat: "FAMILY CHAT", officeGossip: "REPLY ALL", mathWorksheet: "FINAL EXAM" }
+  }
 };
 
 // Swarm events: set pieces announced in the lower third.

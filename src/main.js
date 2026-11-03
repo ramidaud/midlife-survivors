@@ -1331,6 +1331,13 @@ function damageBill(bill, amount) {
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
     if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
     burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 8);
+    if (bill.elite) { // the jackpot
+      const EL = INTENSITY.elites;
+      sc.cameras.main.shake(90, 0.004);
+      burstConfetti(sc, bill.x, bill.y, 0xff7a5c, 14);
+      for (let i = 0; i < EL.gems; i++) gems.create(bill.x + Phaser.Math.Between(-18, 18), bill.y + Phaser.Math.Between(-14, 14), "gem").setDepth(3);
+      for (let i = 0; i < EL.coins; i++) spawnCoin(bill.x + (i - 0.5) * 14, bill.y + 12, 1);
+    }
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
@@ -1689,7 +1696,21 @@ function createEnemy(scene, kind, x, y) {
   e.tag = scene.add.text(x, y - E.size / 2 - 6, lbl, {
     fontFamily: "monospace", fontSize: "10px", color: currentAge >= 80 ? "#f5c542" : "#e8e9f3"
   }).setOrigin(0.5).setDepth(5);
+  const EL = window.INTENSITY && INTENSITY.elites;
+  if (EL && EL.names[kind] && Math.random() < ageCurve(EL.chanceByAge, currentAge)) makeElite(e, E, EL);
   return e;
+}
+
+// Turn a fresh enemy into an elite: bigger, tougher (always several hits), slower, labeled in red.
+function makeElite(e, E, EL) {
+  e.elite = true;
+  e.eliteScale = EL.scale;
+  e.setScale((E.scale || 1) * EL.scale);
+  e.hp = Math.max(Math.round(e.hp * EL.hpMult), Math.ceil((stats.damage || 1) * EL.minHits));
+  e.maxHp = e.hp;
+  e.speed = Math.round(e.speed * EL.speedMult);
+  e.damage = (e.damage || 1) + (EL.damageAdd || 0);
+  if (e.tag) e.tag.setText(EL.names[e.kind]).setColor("#ff8a6b").setFontStyle("bold").setFontSize(11).setStroke("#2a0d0d", 3);
 }
 
 // Put one enemy just outside the visible screen, on a random edge, based on the current Age wave.
