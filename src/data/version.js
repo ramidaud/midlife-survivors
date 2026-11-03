@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.50.0",
-  displayVersion: "V. 1.50.0",
+  version: "1.50.1",
+  displayVersion: "V. 1.50.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 117,
+  build: 118,
   changelog: [
+    {
+      ver: "V. 1.50.1", date: "Nov 3, 2026", title: "One Look",
+      highlights: [
+        "Level-up cards fit on phones now: icon on the left and the full description on the right, with nothing cut off the edge.",
+        "On iPad, menus use the big screen with larger cards and type.",
+        "Level-up cards and the Bonus Chest card use the devlog's colors and fonts. No more off-palette blue."
+      ]
+    },
     {
       ver: "V. 1.50.0", date: "Nov 3, 2026", title: "The Courtyard Loop",
       highlights: ["The Lobby has a proper reception and waiting area. The Bullpen has four team pods, an open commons and coworkers who finally sit in their chairs."]

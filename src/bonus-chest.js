@@ -18,13 +18,13 @@ window.BonusChest = (() => {
     style.textContent = `
       #bonus-modal { z-index: 34; background: rgba(8,10,22,.82); }
       .bonus-card { position: relative; width: min(460px, 94vw); max-height: 94dvh; overflow-x: hidden; overflow-y: auto;
-        background: #232c52; border: 3px solid #f5c542; border-radius: 10px; padding: 14px 14px 16px;
-        box-shadow: 0 0 0 3px #171C35, 0 0 40px rgba(245,197,66,.35); text-align: center; color: #FFF0CF;
-        font-family: "Courier New", monospace; }
-      .bonus-memo { background: #F2D7A1; color: #171C35; margin: -14px -14px 10px; padding: 8px 12px;
-        font-size: 11px; letter-spacing: .08em; font-weight: 700; display: flex; justify-content: space-between; gap: 8px; }
+        background: #171C35; border: 3px solid #EF9347; border-radius: 10px; padding: 14px 14px 16px;
+        box-shadow: 0 0 0 2px #3E7775, 6px 6px 0 #0b0e1d, 0 0 40px rgba(239,147,71,.3); text-align: center; color: #FFF0CF;
+        font-family: "Atkinson Hyperlegible", system-ui, sans-serif; }
+      .bonus-memo { background: #F2D7A1; color: #171C35; margin: -14px -14px 10px; padding: 8px 12px; border-left: 4px solid #EF9347;
+        font-family: "Silkscreen", monospace; font-size: 10px; letter-spacing: .06em; font-weight: 400; display: flex; justify-content: space-between; gap: 8px; }
       .bonus-memo b { color: #874C3B; }
-      .bonus-title { font-size: clamp(22px, 6vw, 30px); font-weight: 900; color: #f5c542; letter-spacing: .04em;
+      .bonus-title { font-family: "Silkscreen", monospace; font-size: clamp(22px, 6vw, 30px); font-weight: 700; color: #f5c542; letter-spacing: .04em;
         text-shadow: 2px 2px 0 #171C35, 0 0 14px rgba(245,197,66,.6); margin: 2px 0 2px; }
       .bonus-sub { font-size: 13px; color: #B8C0D4; min-height: 18px; }
       .bonus-stage { position: relative; height: min(300px, 40dvh); margin: 8px 0 4px; }
@@ -64,7 +64,7 @@ window.BonusChest = (() => {
         0% { transform: translate(0,0) rotate(0); opacity: 1; }
         45% { transform: translate(calc(var(--dx) * .6), var(--dy)) rotate(200deg); opacity: 1; }
         100% { transform: translate(var(--dx), 140px) rotate(420deg); opacity: 0; } }
-      .bonus-total { font-size: clamp(26px, 7vw, 38px); font-weight: 900; color: #FFF0CF; letter-spacing: .02em; margin: 2px 0; }
+      .bonus-total { font-family: "Silkscreen", monospace; font-size: clamp(26px, 7vw, 38px); font-weight: 700; color: #FFF0CF; letter-spacing: .02em; margin: 2px 0; }
       .bonus-total small { font-size: 14px; color: #f5c542; margin-left: 4px; }
       .bonus-total.done { color: #f5c542; text-shadow: 0 0 12px rgba(245,197,66,.7); }
       .bonus-list { list-style: none; margin: 6px 0 10px; padding: 0; text-align: left; font-family: system-ui, sans-serif; font-size: 13px; }
@@ -76,13 +76,14 @@ window.BonusChest = (() => {
       .bonus-land > * { max-width: 40px; max-height: 40px; }
       .bonus-list li b { color: #FFF0CF; } .bonus-list li span { color: #83A89A; font-size: 11px; letter-spacing: .05em; margin-left: 6px; }
       .bonus-list li.evo span { color: #BFA8CF; }
-      .bonus-btn { font: 900 18px "Courier New", monospace; letter-spacing: .08em; padding: 12px 28px; min-width: 180px; border-radius: 8px;
+      .bonus-btn { font: 400 16px "Silkscreen", monospace; letter-spacing: .08em; padding: 12px 28px; min-width: 180px; border-radius: 8px;
         border: 3px solid #171C35; background: #EF9347; color: #171C35; cursor: pointer; box-shadow: 0 4px 0 #874C3B; }
       .bonus-btn.nav-focused, .bonus-btn:hover { background: #f5c542; outline: 3px solid #FFF0CF; outline-offset: 2px; }
       .bonus-btn.skip { background: #303750; color: #B8C0D4; box-shadow: none; font-size: 13px; padding: 8px 18px; min-width: 0; }
       .bonus-flash { position: fixed; inset: 0; z-index: 40; pointer-events: none; background: radial-gradient(circle, #fff8d0, #f5c542 60%, rgba(245,197,66,.6));
         opacity: 0; transition: opacity .5s ease-out; }
       .bonus-flash.on { opacity: .85; transition: none; }
+      @media (min-width: 700px) and (pointer: coarse) { .bonus-card { width: min(560px, 80vw); } .bonus-stage { height: min(360px, 36dvh); } .bonus-list { font-size: 16px; } }
       @media (prefers-reduced-motion: reduce) {
         .bonus-chest, .bonus-chest.shake, .bonus-reel.spin { animation: none; }
         .bonus-coin { display: none; }
@@ -93,7 +94,7 @@ window.BonusChest = (() => {
     modal.id = "bonus-modal";
     modal.innerHTML = `
       <div class="bonus-card" role="dialog" aria-labelledby="bonus-title">
-        <div class="bonus-memo"><span>EXECUTIVE BONUS // FORM 401-K</span><b id="bonus-tier">TIER 1</b></div>
+        <div class="bonus-memo"><span>FORM 401-K</span><b id="bonus-tier">TIER 1</b></div>
         <div class="bonus-title" id="bonus-title">BONUS APPROVED</div>
         <div class="bonus-sub" id="bonus-sub"></div>
         <div class="bonus-stage" id="bonus-stage">
@@ -123,7 +124,7 @@ window.BonusChest = (() => {
     ensureDom();
     const { scene, tier, rewards, coins, bossName, reelIcons } = opts;
     state = { phase: "closed", rewards, coins, tier, onDone, timers: [], fast: reduceMotion(), scene, reelIcons: reelIcons || [] };
-    $("bonus-tier").textContent = `TIER ${tier} · ${rewards.length} LINE ITEM${rewards.length === 1 ? "" : "S"}`;
+    $("bonus-tier").textContent = `TIER ${tier} · ${rewards.length} ITEM${rewards.length === 1 ? "" : "S"}`;
     $("bonus-title").textContent = "BONUS APPROVED";
     $("bonus-sub").textContent = bossName ? `You outlasted ${bossName}. HR signed off on it.` : "HR signed off on it.";
     $("bonus-beams").innerHTML = "";

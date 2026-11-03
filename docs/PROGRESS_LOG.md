@@ -964,3 +964,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: "every enemy is basically the same strength," so crowds melt in one hit. Added elites: a share of spawns comes in bigger, slower, in a red glow, with names (FINAL NOTICE, SCAM LIKELY, THE DOZEN, SCIATICA, ALL-HANDS, FAMILY CHAT, REPLY ALL, FINAL EXAM).
 - Elite HP is 5x normal and never fewer than 5 hits of your coffee, so they stay tough as you power up. Each drops 4 gems and 2 coins.
 - The elite share grows with age (2% at 40, 8% at 48, 11% at 55, 14% at 65). All tunable in `INTENSITY.elites` in `src/data/swarms.js`.
+
+## 2026-11-03: Courtyard Loop approved, brand + device pass 1 (V. 1.50.1)
+- Rami approved ChatGPT's Courtyard Loop (V. 1.50.0). Notes for later: the gray window marks read as boxes (lighting replaces them), and the open floors need non-solid dressing.
+- Started making the whole game match the devlog. Audited every screen on desktop, iPad portrait and landscape, and iPhone.
+- Fixed: phone level-up cards (text was squeezed and the button ran off screen), off-palette blue card borders and typewriter names, the chest card's Courier font, and tiny menus on iPad. The level-up hint is now short and device-aware.
+- Next in the pass: HUD, pause menu, game over, title, shop and the lower-third messages.

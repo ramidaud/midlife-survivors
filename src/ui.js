@@ -1844,6 +1844,9 @@ function renderLevelUpModal(choices, customTitle, onPick) {
     if (target) window.menuNav.focus(target, false);
   }
 
+  // Short, device-appropriate hint instead of listing every input method.
+  const sub = modal.querySelector(".modal-sub");
+  if (sub) sub.innerHTML = isTouchUI ? "Tap a card, then tap again to pick it." : "Pick with <b>1 2 3</b>, arrows + <b>Space</b>, the mouse, or a controller.";
   modal.classList.remove("hidden");
   window.menuNav.refresh();
 

@@ -1074,6 +1074,42 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .go-coffee { margin-top: 12px; font-size: 13px; color: var(--ms-muted); }
   #ui-layer[data-theme="0"] .go-coffee a { color: var(--ms-cream); text-decoration: underline; text-underline-offset: 3px; }
   #ui-layer[data-theme="0"] .title-links { display: flex; justify-content: center; gap: 14px; font-size: 12px; }
+  /* Level-up cards (Nov 3 brand pass): palette borders instead of off-brand blue, readable names */
+  #ui-layer[data-theme="0"] .perk-card { border-color: rgba(131,168,154,0.35); background: rgba(23,28,53,0.96); }
+  #ui-layer[data-theme="0"] .perk-card.rarity-unlock { border-color: var(--ms-teal); }
+  #ui-layer[data-theme="0"] .perk-card.rarity-boost { border-color: var(--ms-sage); }
+  #ui-layer[data-theme="0"] .perk-card.rarity-evo { border-color: var(--ms-coffee); background: linear-gradient(180deg, rgba(135,76,59,0.55), rgba(23,28,53,0.96)); }
+  #ui-layer[data-theme="0"] .perk-card:hover, #ui-layer[data-theme="0"] .perk-card.selected {
+    border-color: var(--ms-cream); background: rgba(48,55,80,0.98); box-shadow: 0 8px 22px rgba(239,147,71,0.30); }
+  #ui-layer[data-theme="0"] .perk-card.armed { outline-color: var(--ms-cream); }
+  #ui-layer[data-theme="0"] .perk-card.armed .perk-key { background: var(--ms-cream); color: var(--ms-navy); }
+  #ui-layer[data-theme="0"] .perk-ribbon { font-family: var(--font-head); font-weight: 400; font-size: 9px; letter-spacing: 0.05em; color: var(--ms-cream); background: rgba(62,119,117,0.35); }
+  #ui-layer[data-theme="0"] .perk-name { font-family: var(--font-body); font-weight: 700; font-size: 15px; color: var(--ms-white); }
+  #ui-layer[data-theme="0"] .perk-desc { font-size: 13px; color: var(--ms-muted); }
+  #ui-layer[data-theme="0"] .perk-key { font-family: var(--font-head); font-weight: 400; font-size: 9px; letter-spacing: 0.04em; color: var(--ms-navy); background: var(--ms-coffee); }
+  /* Tablets (iPad): use the big screen. Larger cards and type for touch at arm's length */
+  @media (min-width: 700px) and (pointer: coarse) {
+    #ui-layer .levelup-box { width: min(1040px, 94vw); max-width: none; }
+    #ui-layer .perk-card { min-height: 300px; padding: 20px 16px 18px; }
+    #ui-layer .perk-icon { transform: scale(1.35); margin: 18px 0 16px; }
+    #ui-layer[data-theme="0"] .perk-name { font-size: 20px; }
+    #ui-layer[data-theme="0"] .perk-desc { font-size: 16px; }
+    #ui-layer[data-theme="0"] .perk-ribbon, #ui-layer[data-theme="0"] .perk-key { font-size: 11px; padding: 5px 10px; }
+    #ui-layer .modal-title { font-size: 30px; }
+    #ui-layer .modal-sub { font-size: 15px; }
+    #ui-layer[data-theme="0"] .modal-kicker { font-size: 12px; }
+  }
+  /* Phones: icon on the left, words on the right, so descriptions get the full width */
+  @media (max-width: 640px) {
+    #ui-layer .perk-card { display: grid !important; grid-template-columns: 52px minmax(0, 1fr); grid-template-areas: "icon ribbon" "icon name" "icon desc" "icon key";
+      column-gap: 12px; row-gap: 3px; align-items: start; justify-items: start; text-align: left; padding: 10px 12px; }
+    #ui-layer .perk-icon { grid-area: icon; align-self: center; margin: 0; }
+    #ui-layer .perk-ribbon { grid-area: ribbon; }
+    #ui-layer .perk-name { grid-area: name; margin: 2px 0 0; }
+    #ui-layer .perk-desc { grid-area: desc; }
+    #ui-layer .perk-key { grid-area: key; margin-top: 4px; white-space: nowrap; }
+    #ui-layer .perk-card:hover, #ui-layer .perk-card.selected { transform: none; }
+  }
   #ui-layer[data-theme="0"] .title-links a { color: var(--ms-cream); text-decoration: underline; text-underline-offset: 3px; pointer-events: auto; }
 </style>
 <div id="game"></div>
@@ -1084,7 +1120,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=117&t=" + Date.now();
+    s.src = "src/loader.js?v=118&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
