@@ -927,3 +927,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: animated coworkers look "slapped on", office "very repetitive and poorly laid out." Claude's zoomed-out captures: coworkers float behind partitions at head size with empty chairs in front; one desk module stamped ~40 times on a flat navy floor; no pods, zones or landmarks; Lobby mostly empty.
 - Agreed approach: plan first, then build. Wrote ChatGPT brief for two layout options (A/B) with plan images, a mood frame each and a README; pods with team identities, personal desks, zoned floors, one landmark per screen, coworkers seated in chairs at hero scale plus a few standing scenes.
 - Substack (set up in another chat): "Midlife Survivors Devlog" is its own Substack section (sender "Midlife Survivors"), 7 imported posts, a "Play Midlife Survivors" nav link. A weekly Sunday 6:38 pm task drafts a devlog post as a Gmail draft, using the GitHub Pages devlog and its RSS feed as the source (first run Nov 8). Keep feed.xml full-text.
+
+## 2026-11-02: Devlog post 08 drafted
+- "I got promoted four times before lunch." (draft): promotions and six new rooms, breakables and boss attacks, Derek and T.J.'s "they ran away" bug (tunneling + cancel-out), weapon roles, 8-frame animation and coworkers, next up the layout plan. Six screenshots from today's tests.
+- Draft only: not in the RSS feed, so the Sunday Substack task won't pick it up until Rami approves.
+- CLAUDE.md: added the Substack line to the Devlog section (Rami said yes).

@@ -4,6 +4,19 @@
 // Optional fields: cover, teaser, changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "08-promoted-four-times",
+    "date": "2026-11-02",
+    "title": "I got promoted four times before lunch.",
+    "version": "V. 1.31 to 1.47",
+    "draft": true,
+    "cover": "img/08-conference-cover.jpg",
+    "leadAlt": "The Synergy conference room: a long table, a roadmap whiteboard and a swarm of Bills, behind glass walls.",
+    "teaser": "Promotions open six new rooms, almost everything breaks, bosses fight back, a sneaky bug made enemies run away, every weapon got a job, and the whole office moves smoother.",
+    "changes": ["Promotions at 45, 50, 55 and 60 open the Parking Lot, Break Room, Server Room, Conference Rooms, Executive Wing and Wellness Corner", "Breakable printers, vending machines and more, with loot", "Bigger bosses with real attacks", "Fixed enemies walking through walls and backing away", "Dad Joke is now an attack; every weapon has a role", "8-frame enemies and heroes, idle fidgets, animated coworkers, pixel icons"],
+    "nextUp": "Two layout plans for a less repetitive office, with team pods, landmarks and coworkers who actually sit in their chairs.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "07-around-the-desk",
     "date": "2026-11-01",
     "title": "My office got jokes. Then my enemies got smarter.",
