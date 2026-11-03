@@ -2017,33 +2017,59 @@ function renderTitleModal(scene, preserveFocusSelector) {
         ${backBtn}
       </div>`;
   } else {
+    // Poster title (Nov 3): the key art is the hero. Punch In sits by the time clock, the swarm stays visible,
+    // the character pick is a row of ID badges, and a pinned memo makes this the front door to the devlog.
+    const selCh = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
+    const settingsOpen = !!window.titleSettingsOpen;
     bodyHtml = `
-      <div class="title-meta-line">🏅 Best: age ${Math.floor(meta.bestAge || 40)} &nbsp;·&nbsp; 🪙 ${meta.coins}k saved</div>
-      <div class="dossier-chars-grid">${charCardsHtml}</div>
-      ${modeRowHtml}
-      <div class="title-footer">
-        <button class="cta-btn clock-in-btn" id="title-clockin-btn">☕ START${startAge !== 40 ? ` AT AGE ${startAge}` : ""}</button>
-        ${resumeBannerHtml}
+      <div class="tp-brand">
+        <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${curMode === "full" ? "Surviving 40 to 100" : "Surviving 40 to 65"}</strong></div>
+        <h1 class="game-logo tp-logo"><span>MIDLIFE</span><span>SURVIVORS</span></h1>
+        <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
+        <div class="title-meta-line">🏅 Best: age ${Math.floor(meta.bestAge || 40)} &nbsp;·&nbsp; 🪙 ${meta.coins}k saved</div>
       </div>
-      <div class="title-secondary">
-        <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
-        <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
-        <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
-        <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
-        <button class="t-style-btn" id="title-devlog-btn">📝 DEVLOG</button>
-        <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
+      <div class="tp-punch">
+        <button class="cta-btn clock-in-btn" id="title-clockin-btn"><span class="tp-punch-ico" aria-hidden="true">⏱</span> PUNCH IN${startAge !== 40 ? ` AT ${startAge}` : ""}</button>
+        ${resumeBannerHtml}
+        <button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>
+        ${settingsOpen ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
+      </div>
+      <div class="tp-band">
+        <div class="tp-crew">
+          <div class="tp-label">Today's employee <b>${selCh.name}</b> <span>${selCh.tagline}</span></div>
+          <div class="dossier-chars-grid tp-badges">${charCardsHtml}</div>
+          <div class="title-secondary tp-links">
+            <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
+            <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
+            <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
+            <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
+            <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
+          </div>
+        </div>
+        <aside class="tp-memo" id="title-memo" aria-label="Latest from the devlog">
+          <div class="tp-memo-tag">DEVLOG · NEW MEMO</div>
+          <div class="tp-memo-body"><div class="tp-memo-title">Build notes from the dev.</div></div>
+          <button class="t-style-btn tp-memo-btn" id="title-devlog-btn">📝 READ THE DEVLOG</button>
+          <div class="tp-memo-foot" id="title-memo-foot">${verInfo.displayVersion}</div>
+        </aside>
       </div>`;
   }
 
-  modal.innerHTML = `
+  modal.dataset.view = view;
+  modal.innerHTML = view === "main" ? `
+    <div class="title-poster" data-view="main">${bodyHtml}</div>
+  ` : `
     <div class="modal-card title-box title-clean" data-view="${view}">
-      <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${({ main: "Surviving 40 to 65", shop: "Your 401(k)", extras: "Extras", achievements: "Performance record", leaders: "Leaderboard", credits: "Credits" })[view] || "Midlife Survivors"}</strong></div>
+      <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${({ main: "Surviving 40 to 65", shop: "Your 401(k)", extras: "Extras", achievements: "Performance record", leaders: "Leaderboard", credits: "Credits" })[view] || "Surviving 40 to 65"}</strong></div>
       <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
       <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
       ${bodyHtml}
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
   `;
+  if (view === "main") fillTitleMemo();
+  const settingsBtn = document.getElementById("title-settings-btn");
+  if (settingsBtn) bindNavItem(settingsBtn, 9.5, () => { window.titleSettingsOpen = !window.titleSettingsOpen; sfx("pick"); renderTitleModal(scene, "#title-settings-btn"); });
 
   const goView = v => { window.titleView = v; sfx("pick"); renderTitleModal(scene); };
   const shopBtn = document.getElementById("title-shop-btn");
@@ -2071,7 +2097,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     location.reload();
   });
   const devlogBtn = document.getElementById("title-devlog-btn");
-  if (devlogBtn) bindNavItem(devlogBtn, 10, () => { window.location.href = "devlog/"; }); // same tab: the devlog's Play button brings you right back
+  if (devlogBtn) bindNavItem(devlogBtn, 12, () => { window.location.href = devlogBtn.onclickTarget || "devlog/"; }); // same tab: the devlog's Play button brings you right back
   const artTestBtn = document.getElementById("title-art-test-btn");
   if (artTestBtn) bindNavItem(artTestBtn, 10, () => { window.location.href = "devlog/art/"; });
   const refundBtn = document.getElementById("shop-refund-btn");
@@ -2088,7 +2114,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {
     const chId = el.dataset.char;
-    bindNavItem(el, 0, () => {
+    bindNavItem(el, 11, () => {
       const ch = CHARACTERS.find(c => c.id === chId);
       if (!ch) return;
       if (meta.unlockedChars[ch.id]) {
@@ -2107,7 +2133,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Row 7: Tax Bracket − / +
   modal.querySelectorAll("[data-tax]").forEach(btn => {
     if (btn.disabled) return;
-    bindNavItem(btn, 7, () => {
+    bindNavItem(btn, 9.7, () => {
       meta.taxBracket = Math.max(0, Math.min(TAX_BRACKET.maxLevel, (meta.taxBracket || 0) + Number(btn.dataset.tax)));
       saveMeta(meta); sfx("pick");
       renderTitleModal(scene, `[data-tax="${btn.dataset.tax}"]`);
@@ -2117,7 +2143,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   // Row 6: Mode picker (Midlife or Full Life)
   modal.querySelectorAll("[data-mode]").forEach(btn => {
     if (btn.disabled) return;
-    bindNavItem(btn, 6, () => {
+    bindNavItem(btn, 9.6, () => {
       meta.runMode = btn.dataset.mode;
       saveMeta(meta);
       if (window.refreshRunMode) window.refreshRunMode();
@@ -2222,6 +2248,44 @@ function renderTitleModal(scene, preserveFocusSelector) {
   }, view === "main");
 
   window.menuNav.refresh(preserveFocusSelector);
+}
+
+// The pinned devlog memo on the title screen: latest post + build clock, read from the devlog's own files.
+function fillTitleMemo() {
+  const draw = () => {
+    const el = document.getElementById("title-memo");
+    const posts = (window.DEVLOG_POSTS || []).filter(p => !p.draft);
+    if (!el || !posts.length) return;
+    const p = posts[0];
+    const esc = t => String(t || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const no = (/^(\d+)/.exec(p.slug) || [])[1] || posts.length;
+    const body = el.querySelector(".tp-memo-body");
+    if (body) body.innerHTML = `
+      ${p.cover ? `<img class="tp-memo-cover" src="devlog/${esc(p.cover)}" alt="">` : ""}
+      <div class="tp-memo-no">MEMO ${String(no).padStart(2, "0")} · ${esc(p.version || "")}</div>
+      <div class="tp-memo-title">${esc(p.title)}</div>`;
+    const btn = document.getElementById("title-devlog-btn");
+    if (btn) btn.onclickTarget = `devlog/?post=${p.slug}`;
+  };
+  if (window.DEVLOG_POSTS) draw();
+  else if (!window._devlogPostsLoading) {
+    window._devlogPostsLoading = true;
+    const sc = document.createElement("script");
+    sc.src = "devlog/posts.js?t=" + Date.now();
+    sc.onload = draw;
+    document.head.appendChild(sc);
+  }
+  // Build clock: how many playable builds, and how fresh the latest is.
+  if (!window._devlogStats) {
+    fetch("devlog/data/stats.json?t=" + Date.now(), { cache: "no-store" }).then(r => r.ok ? r.json() : null).then(d => { window._devlogStats = d; footer(); }).catch(() => {});
+  } else footer();
+  function footer() {
+    const f = document.getElementById("title-memo-foot"), d = window._devlogStats;
+    if (!f || !d || !d.builds || !d.builds.length) return;
+    const last = new Date(d.builds[d.builds.length - 1].at), mins = Math.max(1, Math.round((Date.now() - last) / 60000));
+    const ago = mins < 60 ? `${mins} min ago` : mins < 2880 ? `${Math.round(mins / 60)} h ago` : `${Math.round(mins / 1440)} days ago`;
+    f.innerHTML = `${getVersionInfo().displayVersion} · <b>${d.builds.length}</b> builds · updated ${ago}`;
+  }
 }
 
 function hideTitleModal() {

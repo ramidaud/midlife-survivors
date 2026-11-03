@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.50.2",
-  displayVersion: "V. 1.50.2",
+  version: "1.51.0",
+  displayVersion: "V. 1.51.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Courtyard Loop",
-  build: 119,
+  build: 120,
   changelog: [
+    {
+      ver: "V. 1.51.0", date: "Nov 3, 2026", title: "Punch In",
+      highlights: [
+        "A new title screen built around the key art. Start the game with a glowing PUNCH IN button next to the time clock while the swarm presses on the glass.",
+        "Pick your hero from a row of ID badges. Run mode and Tax Bracket now sit in a small settings chip.",
+        "The latest devlog memo is pinned on the title screen, with the build count and how recently the game was updated."
+      ]
+    },
     {
       ver: "V. 1.50.2", date: "Nov 3, 2026", title: "One Look",
       highlights: [
