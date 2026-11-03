@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.66.0",
-  displayVersion: "V. 1.66.0",
+  version: "1.66.1",
+  displayVersion: "V. 1.66.1",
   lastUpdated: "Nov 3, 2026",
   codename: "Spotlight",
-  build: 150,
+  build: 151,
   changelog: [
+    {
+      ver: "V. 1.66.1", date: "Nov 3, 2026", title: "Spotlight",
+      teaser: "Spotlight cards: bosses, coworkers and new hires now make an entrance, with a big sprite and a line of their own.",
+      highlights: [
+        "More lights from ChatGPT: glowing exit signs, Lobby elevator lights, the OUR VALUES sign, headlights and a dome light in the Parking Lot, the Synergy whiteboard projector and the Break Room fridge."
+      ]
+    },
     {
       ver: "V. 1.66.0", date: "Nov 3, 2026", title: "Spotlight",
       teaser: "Spotlight cards: bosses, coworkers and new hires now make an entrance, with a big sprite and a line of their own.",
