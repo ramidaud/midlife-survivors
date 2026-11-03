@@ -3,21 +3,21 @@
   "conferenceCorridor224": true,
   "oldExecutiveOpeningSealed": true,
   "districts": 8,
-  "props": 248,
-  "desks": 35,
-  "staticWorkers": 26,
-  "solidBodies": 558,
+  "props": 322,
+  "desks": 48,
+  "staticWorkers": 30,
+  "solidBodies": 603,
   "doorwayWidth": 224,
   "closedGates": 6,
   "age45Gates": 2,
   "age50Gates": 2,
   "age55Gates": 1,
   "age60Gates": 1,
-  "closedReachableCells": 25177,
-  "age45ReachableCells": 47031,
-  "age50ReachableCells": 67064,
-  "age55ReachableCells": 74618,
-  "testOpenedReachableCells": 78761,
+  "closedReachableCells": 24174,
+  "age45ReachableCells": 46028,
+  "age50ReachableCells": 66061,
+  "age55ReachableCells": 73615,
+  "testOpenedReachableCells": 77758,
   "allTourPointsReachableWhenTestOpened": true,
   "lockedRoomsExcluded": true,
   "protectedRoutes": 84,
@@ -51,6 +51,14 @@
       "driftRadius": 130,
       "escapeRadius": 220,
       "passed": true
+    },
+    {
+      "room": "Bullpen",
+      "chargeLane": 600,
+      "openLane": 640,
+      "driftRadius": 130,
+      "escapeRadius": 220,
+      "passed": true
     }
   ],
   "maxVisibleProps": 120,
@@ -60,5 +68,13 @@
   "conferencePods": 3,
   "age50Breakables": 26,
   "parkingCars": 27,
-  "breakableProps": 20
+  "breakableProps": 20,
+  "finish": {
+    "newDesks": 13,
+    "newWorkers": 4,
+    "cubiclePanels": 32,
+    "monitorStacks": 14,
+    "paperDrifts": 15,
+    "newProps": 74
+  }
 }

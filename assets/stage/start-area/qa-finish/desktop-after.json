@@ -1,0 +1,107 @@
+{
+  "phase": "after",
+  "errors": [],
+  "warnings": [],
+  "leaderboardRequests": 0,
+  "ready": true,
+  "slice": {
+    "version": "1.44.0",
+    "build": 110,
+    "viewport": [
+      1280,
+      800
+    ],
+    "age": 40.388969555555555,
+    "openUpToAge": 60,
+    "statsDisabled": true,
+    "analyticsResources": 0,
+    "player": [
+      2231.714460375259,
+      -410.2310347873985
+    ],
+    "body": [
+      48,
+      52
+    ],
+    "props": 603,
+    "nativeFloorDecor": true,
+    "deskCount": 48,
+    "visible": 41,
+    "peak": 41,
+    "navBlockers": 6,
+    "gates": [
+      {
+        "id": "parking-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "break-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "server-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "conference-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "executive-return",
+        "age": 55,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "wellness-conference",
+        "age": 60,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      }
+    ],
+    "outside": 0,
+    "fps": 100.0522011619006
+  },
+  "stress": {
+    "enemies": 350,
+    "outside": 0,
+    "visible": 39,
+    "initial": 350,
+    "fps": {
+      "min": 67.75,
+      "average": 84.115966796875
+    },
+    "scope": "350 real physics/navigation/animation actors in the same Bullpen reserve; HP guards, paused firing, six seconds."
+  },
+  "spawnProbe": {
+    "probes": 1504,
+    "bad": 0,
+    "overlaps": 0,
+    "offFloor": 0,
+    "lockedRoomBirths": 0,
+    "padding": 44,
+    "passed": true
+  },
+  "walk": {
+    "room": "Bullpen",
+    "running": false,
+    "passed": true,
+    "seconds": 10.0815,
+    "waypoint": 5,
+    "total": 5
+  }
+}

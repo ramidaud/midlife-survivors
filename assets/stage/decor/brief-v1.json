@@ -1,0 +1,98 @@
+[
+  {
+    "id": "rug_teal",
+    "frame": [
+      96,
+      96
+    ],
+    "source": "rug_teal-source-v1.png",
+    "file": "rug_teal-v1.png",
+    "kind": "rug",
+    "subject": "One square worn office rug, muted teal woven surface, deep navy ONE-native-pixel outline, pale sage stitched border, a few cream stitch repairs, very short sparse khaki fringe on top and bottom. Perfectly square orthographic top-down floor view, not a raised object. Tiny deliberate checker dithering on the fabric, no noisy texture. Center third must be a seamless repeatable uniform woven patch; side thirds are straight repeatable borders and corners. No text.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 96x96 then enlarge square pixels for packaging. One square worn office rug, muted teal woven surface, deep navy ONE-native-pixel outline, pale sage stitched border, a few cream stitch repairs, very short sparse khaki fringe on top and bottom. Perfectly square orthographic top-down floor view, not a raised object. Tiny deliberate checker dithering on the fabric, no noisy texture. Center third must be a seamless repeatable uniform woven patch; side thirds are straight repeatable borders and corners. No text. Exact opaque flat #FF00FF background, no shadow on background, one centered complete object with equal margin."
+  },
+  {
+    "id": "rug_sage",
+    "frame": [
+      96,
+      96
+    ],
+    "source": "rug_sage-source-v1.png",
+    "file": "rug_sage-v1.png",
+    "kind": "rug",
+    "subject": "One square office runner rug in muted sage and slate, ONE-native-pixel navy outside contour, thin khaki border stitches, very short cream fringe. Orthographic top-down flat floor decor. Deliberate sparse ordered checker dithering, no noisy grain. Center third repeatable woven patch, straight repeatable borders. No lettering.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 96x96 then enlarge square pixels for packaging. One square office runner rug in muted sage and slate, ONE-native-pixel navy outside contour, thin khaki border stitches, very short cream fringe. Orthographic top-down flat floor decor. Deliberate sparse ordered checker dithering, no noisy grain. Center third repeatable woven patch, straight repeatable borders. No lettering. Exact opaque flat #FF00FF background, no shadow on background, one centered complete object with equal margin."
+  },
+  {
+    "id": "rug_lavender",
+    "frame": [
+      96,
+      96
+    ],
+    "source": "rug_lavender-source-v1.png",
+    "file": "rug_lavender-v1.png",
+    "kind": "rug",
+    "subject": "One square soft wellness floor mat, muted lavender and warm khaki textile with ONE-native-pixel navy silhouette, pale cream stitching, short tidy fringe. Orthographic top-down flat floor view. Sparse ordered checker dithering. Center third seamless repeatable weave, straight side borders and corner joins. No symbols or text.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 96x96 then enlarge square pixels for packaging. One square soft wellness floor mat, muted lavender and warm khaki textile with ONE-native-pixel navy silhouette, pale cream stitching, short tidy fringe. Orthographic top-down flat floor view. Sparse ordered checker dithering. Center third seamless repeatable weave, straight side borders and corner joins. No symbols or text. Exact opaque flat #FF00FF background, no shadow on background, one centered complete object with equal margin."
+  },
+  {
+    "id": "chair_mat",
+    "frame": [
+      96,
+      96
+    ],
+    "source": "chair_mat-source-v1.png",
+    "file": "chair_mat-v1.png",
+    "kind": "rug",
+    "subject": "One square charcoal and blue-slate office chair mat, one-native-pixel navy rim, small pale sage scuff stitches and a faint cream caster-wear crescent. Completely flat orthographic top-down. Repeatable center-third textured rubber with very sparse ordered dithering; straight side thirds and rounded stepped corners, no chair or furniture. No lettering.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 96x96 then enlarge square pixels for packaging. One square charcoal and blue-slate office chair mat, one-native-pixel navy rim, small pale sage scuff stitches and a faint cream caster-wear crescent. Completely flat orthographic top-down. Repeatable center-third textured rubber with very sparse ordered dithering; straight side thirds and rounded stepped corners, no chair or furniture. No lettering. Exact opaque flat #FF00FF background, no shadow on background, one centered complete object with equal margin."
+  },
+  {
+    "id": "light_warm",
+    "frame": [
+      96,
+      96
+    ],
+    "source": "light_warm-source-v1.png",
+    "file": "light_warm-v1.png",
+    "kind": "light",
+    "subject": "One square patch of warm cream fluorescent illumination, seen orthographically from above. Only LIGHT, no lamp or floor. Soft rounded rectangular pixel pool, SEVEN discrete hard-edged stepped bands from a warm white center through cream and khaki to sparse cream checker pixels and exact magenta holes at the outer edge. This is a literal pixel-gradient requested for light: no smooth gradient, blur, antialiasing, glow bloom, noise or navy outline. Center third is a repeatable uniform light patch; side thirds carry stepped falloff, corners form pixel-rounded corners. Equal generous magenta outside margin.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 96x96 then enlarge square pixels for packaging. One square patch of warm cream fluorescent illumination, seen orthographically from above. Only LIGHT, no lamp or floor. Soft rounded rectangular pixel pool, SEVEN discrete hard-edged stepped bands from a warm white center through cream and khaki to sparse cream checker pixels and exact magenta holes at the outer edge. This is a literal pixel-gradient requested for light: no smooth gradient, blur, antialiasing, glow bloom, noise or navy outline. Center third is a repeatable uniform light patch; side thirds carry stepped falloff, corners form pixel-rounded corners. Equal generous magenta outside margin. Exact opaque flat #FF00FF background, no shadow on background, one centered complete object with equal margin."
+  },
+  {
+    "id": "light_cool",
+    "frame": [
+      96,
+      96
+    ],
+    "source": "light_cool-source-v1.png",
+    "file": "light_cool-v1.png",
+    "kind": "light",
+    "subject": "One square patch of sage-teal server-room illumination, orthographic top-down. Only LIGHT, no lamp or floor. A rounded rectangle formed by SEVEN crisp stepped pixel bands, sage center through teal to sparse sage checker pixels and exact magenta holes at the edge. Explicit hard pixel-gradient, never a smooth gradient, blur, antialiasing, bloom, noise or dark outline. Center third repeatable uniform light patch; side thirds stepped falloff, corners pixel-rounded. Equal magenta outside margin.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 96x96 then enlarge square pixels for packaging. One square patch of sage-teal server-room illumination, orthographic top-down. Only LIGHT, no lamp or floor. A rounded rectangle formed by SEVEN crisp stepped pixel bands, sage center through teal to sparse sage checker pixels and exact magenta holes at the edge. Explicit hard pixel-gradient, never a smooth gradient, blur, antialiasing, bloom, noise or dark outline. Center third repeatable uniform light patch; side thirds stepped falloff, corners pixel-rounded. Equal magenta outside margin. Exact opaque flat #FF00FF background, no shadow on background, one centered complete object with equal margin."
+  },
+  {
+    "id": "carpet_muted",
+    "frame": [
+      64,
+      64
+    ],
+    "source": "carpet_muted-source-v1.png",
+    "file": "carpet_muted-v1.png",
+    "kind": "tile",
+    "subject": "One seamless wall-to-wall office CARPET FLOOR TILE filling the entire canvas edge to edge, no object and NO magenta in this tile. Restrained warm khaki #D3B78D mixed subtly with #A88B70 and a few #83A89A threads. Darker and less cream-dominant than a bright beige floor. Fine low-contrast woven clusters and very sparse ordered 1px dithering. No borders, seams, grout, shadows, light pools, props or perspective. All four sides must tile seamlessly.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 64x64 then enlarge square pixels for packaging. One seamless wall-to-wall office CARPET FLOOR TILE filling the entire canvas edge to edge, no object and NO magenta in this tile. Restrained warm khaki #D3B78D mixed subtly with #A88B70 and a few #83A89A threads. Darker and less cream-dominant than a bright beige floor. Fine low-contrast woven clusters and very sparse ordered 1px dithering. No borders, seams, grout, shadows, light pools, props or perspective. All four sides must tile seamlessly."
+  },
+  {
+    "id": "vinyl_muted",
+    "frame": [
+      64,
+      64
+    ],
+    "source": "vinyl_muted-source-v1.png",
+    "file": "vinyl_muted-v1.png",
+    "kind": "tile",
+    "subject": "One seamless flat OFFICE VINYL FLOOR TILE filling the entire image, NO magenta within the tile. Quiet khaki #D3B78D with muted #A88B70 secondary areas, soft sage hint, low-contrast square tile joins with sparse ordered pixel dithering. Slightly dimmer and less yellow than fluorescent cream. No bright white highlights, no dark grid, no border, no shadows or props, no perspective. Four edges tile seamlessly.",
+    "prompt": "Use case: stylized-concept. Native production pixel floor decor for Midlife Survivors, limited palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Crisp 16-bit broad pixel clusters, no anti-aliasing, photorealism, text or watermark. Draw at a logical 64x64 then enlarge square pixels for packaging. One seamless flat OFFICE VINYL FLOOR TILE filling the entire image, NO magenta within the tile. Quiet khaki #D3B78D with muted #A88B70 secondary areas, soft sage hint, low-contrast square tile joins with sparse ordered pixel dithering. Slightly dimmer and less yellow than fluorescent cream. No bright white highlights, no dark grid, no border, no shadows or props, no perspective. Four edges tile seamlessly."
+  }
+]

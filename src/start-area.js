@@ -14,6 +14,24 @@ window.StartAreaArt = (() => {
    const img=await H.image(a.src);if(!H.isAlive())return null;
    for(let v=0;v<a.variants;v++){const c=document.createElement('canvas');c.width=a.frame[0];c.height=a.frame[1];c.getContext('2d').drawImage(img,v*c.width,0,c.width,c.height,0,0,c.width,c.height);H.propTexture(scene,c,'slice_'+id+'_'+v,...a.frame);}
   }
+  const decor=window.FINISH_DECOR||{};
+  for(const [id,a] of Object.entries(decor)){
+   if(scene.textures.exists('finish_'+id))continue;
+   const img=await H.image(a.src);if(!H.isAlive())return null;
+   const c=document.createElement('canvas');[c.width,c.height]=a.frame;c.getContext('2d').drawImage(img,0,0);
+   H.propTexture(scene,c,'finish_'+id,...a.frame);
+  }
+  // Repeat native pixels through the center and edges; keep the authored corners intact.
+  function floorPatch(id,x,y,w,h,alpha=1,depth=BASE+2){
+   if(!decor[id]||w<64||h<64)return;
+   const key='finish_patch_'+id+'_'+w+'_'+h;
+   if(!scene.textures.exists(key)){
+    const source=scene.textures.get('finish_'+id).getSourceImage();
+    const spans=n=>{const a=[[0,0,32]];for(let i=32;i<n-32;i+=32)a.push([32,i,Math.min(32,n-32-i)]);a.push([64,n-32,32]);return a;};
+    makeCanvasTex(scene,key,w,h,c=>{c.imageSmoothingEnabled=false;for(const [sx,dx,sw] of spans(w))for(const [sy,dy,sh] of spans(h))c.drawImage(source,sx,sy,sw,sh,dx,dy,sw,sh);});
+   }
+   const o=add(scene.add.image(x,y,key).setOrigin(0).setAlpha(alpha).setDepth(depth),{x,y,width:w,height:h});o.sliceBakeFloor=true;
+  }
   OfficeEnvironment.createTiles(scene);
   if(!scene.textures.exists('slice_void'))makeCanvasTex(scene,'slice_void',64,64,c=>{c.fillStyle='#171c35';c.fillRect(0,0,64,64);});
   if(!scene.textures.exists('slice_lobby'))makeCanvasTex(scene,'slice_lobby',64,64,c=>{c.fillStyle='#d3b78d';c.fillRect(0,0,64,64);c.fillStyle='#a88b70';c.fillRect(1,31,62,1);c.fillRect(31,1,1,62);c.fillStyle='#f2d7a1';c.globalAlpha=.2;c.fillRect(2,2,28,1);c.fillRect(34,34,28,1);c.globalAlpha=1;});
@@ -22,41 +40,38 @@ window.StartAreaArt = (() => {
   if(!scene.textures.exists('slice_executive'))makeCanvasTex(scene,'slice_executive',64,64,c=>{c.fillStyle='#303750';c.fillRect(0,0,64,64);c.fillStyle='#526078';c.globalAlpha=.28;for(let y=4;y<64;y+=8)for(let x=4;x<64;x+=8)c.fillRect(x+(y%16?2:0),y,3,1);c.globalAlpha=1;c.fillStyle='#3e7775';c.fillRect(0,31,64,1);});
   if(!scene.textures.exists('slice_wellness'))makeCanvasTex(scene,'slice_wellness',64,64,c=>{c.fillStyle='#d3b78d';c.fillRect(0,0,64,64);for(let y=2;y<64;y+=8)for(let x=2;x<64;x+=8){c.fillStyle=(x+y)%16?'#a88b70':'#f2d7a1';c.globalAlpha=.35;c.fillRect((x+(y%16?3:0))%64,y,2,1);}c.globalAlpha=1;});
   function layer(x,y){const cx=Math.floor(x/CHUNK),cy=Math.floor(y/CHUNK),key=cx+','+cy;if(!chunks.has(key)){const g=add(scene.add.graphics().setDepth(BASE+3),{x:cx*CHUNK-256,y:cy*CHUNK-256,width:CHUNK+512,height:CHUNK+512});chunks.set(key,g);}return chunks.get(key);}
-  for(const r of data.floors){const key=r.material==='vinyl'?'slice_lobby':['asphalt','kitchen','server','conference','executive','wellness'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
+  for(const r of data.floors){const key=r.material==='vinyl'?(decor.vinyl_muted?'finish_vinyl_muted':'slice_lobby'):r.material==='carpet'&&r.district==='bullpen'&&decor.carpet_muted?'finish_carpet_muted':['asphalt','kitchen','server','conference','executive','wellness'].includes(r.material)?'slice_'+r.material:'env_'+r.material;const t=add(scene.add.tileSprite(r.x,r.y,r.width,r.height,key).setOrigin(0).setDepth(BASE+1),r);t.tilePositionX=r.x;t.tilePositionY=r.y;}
   // Warm light pools and quieter floor stories leave every combat reserve non-solid.
-  for(const r of data.floors)for(let x=r.x+64;x<r.x+r.width-96;x+=384){const g=layer(x,r.y+28);g.fillStyle(r.material==='server'?0x83a89a:0xf2d7a1,.07);g.fillRect(x,r.y+28,Math.min(220,r.x+r.width-x-8),Math.min(120,r.height-40));}
-  const rug=layer(-96,-160);rug.fillStyle(0x3e7775,.8);rug.fillRect(-432,-280,640,288);rug.fillStyle(0x83a89a,.7);rug.fillRect(-424,-272,624,3);rug.fillRect(-424,-4,624,3);rug.fillStyle(0xf2d7a1,.45);rug.fillRect(-408,-252,32,2);rug.fillRect(152,-32,32,2);
-  rug.fillStyle(0x83a89a,.13);for(let y=-248;y<-16;y+=12)for(let x=-400;x<176;x+=24)rug.fillRect(x,y,8,1);
+  for(const r of data.floors)for(let x=r.x+64;x<r.x+r.width-96;x+=384)floorPatch(r.material==='server'?'light_cool':'light_warm',x,r.y+28,Math.min(220,r.x+r.width-x-8),Math.min(120,r.height-40),.11);
+  floorPatch('rug_teal',-432,-280,640,288,.9,BASE+3);
   const queue=layer(-80,-384);queue.fillStyle(0x3e7775,.45);for(let y=-420;y<-312;y+=24){queue.fillRect(-144,y,8,12);queue.fillRect(96,y,8,12);}queue.fillStyle(0x874c3b,.3);for(const [x,y]of [[-220,-344],[-188,-368],[252,-360]]){queue.fillRect(x,y,12,2);queue.fillRect(x,y+8,12,2);queue.fillRect(x-2,y+2,2,6);queue.fillRect(x+12,y+2,2,6);}queue.fillStyle(0xfff0cf,.6);for(let i=0;i<6;i++)queue.fillRect(-220+i*14,-430+(i%3)*12,8,12);
   sign(scene,'slice_welcome','WELCOME',96,false);add(scene.add.image(-112,-130,'slice_welcome').setAlpha(.65).setDepth(BASE+4),{x:-160,y:-140,width:96,height:20});
-  for(let n=0;n<90;n++){const x=1450+(n*137%2450),y=-720+(n*83%1390);if(!within(x,y))continue;const g=layer(x,y);g.fillStyle(n%4===0?0xbfa8cf:0xf2d7a1,.52);g.fillRect(x,y,9,12);g.fillStyle(0x526078,.5);g.fillRect(x+2,y+3,5,1);}
   for(const [x,y,w,h]of [[1696,-560,960,24],[3104,-160,760,24],[2200,440,360,16]]){const g=layer(x,y);g.fillStyle(0xf2d7a1,.35);for(let a=0;a<w;a+=64)g.fillRect(x+a,y,32,h/8);}
   // Small repeatable floor stories, authored as data, baked by the existing speed pass below.
-  for(const d of data.floorDecor||[]){const {x,y,width:w,height:h}=d,g=add(scene.add.graphics().setDepth(BASE+3),{x:x-4,y:y-4,width:w+8,height:h+8});
+  for(const d of data.floorDecor||[]){const {x,y,width:w,height:h}=d;
+   const patch={rug:'rug_sage','wellness-island':'rug_lavender','light-pool':'light_warm','server-light':'light_cool'}[d.kind];
+   if(patch){const light=patch.startsWith('light');floorPatch(patch,x,y,w,h,light ? .13 : .72,light?BASE+2:BASE+3);continue;}
+   const g=add(scene.add.graphics().setDepth(BASE+3),{x:x-4,y:y-4,width:w+8,height:h+8});
    const rect=(a,b,c,e,color=0xf2d7a1,alpha=.5)=>{g.fillStyle(color,alpha);g.fillRect(x+a,y+b,c,e);};
    if(d.kind==='cable-cover'){rect(0,0,w,h,0x171c35,.7);rect(1,1,w-2,2,0x526078,.8);for(let n=8;n<(w>h?w:h);n+=32)rect(w>h?n:3,w>h?3:n,w>h?4:Math.max(2,w-6),w>h?Math.max(2,h-6):4,0x83a89a,.45);}
    if(d.kind==='circuit-tape')for(let n=0;n<w;n+=48)rect(n,2,24,3,0x83a89a,.5);
-   if(d.kind==='server-light')rect(0,0,w,h,0x83a89a,.08);
    if(d.kind==='parking-bay'){rect(0,0,2,h);rect(w-2,0,2,h);rect(0,h-2,w,2);}
    if(d.kind==='reserved-bay'){rect(2,2,w-4,h-4,0x3e7775,.2);for(let n=0;n<w;n+=20)rect(n,h-8,10,3);}
    if(d.kind==='road-dashes')for(let n=0;n<w;n+=64)rect(n,6,32,3);
    if(d.kind==='lane-arrow'){const block=(a,b,c,e)=>rect(d.direction==='left'?w-a-c:a,b,c,e,0xf2d7a1,.42);block(8,32,64,16);block(72,16,8,48);block(80,24,8,32);block(88,32,8,16);}
    if(d.kind==='crosswalk')for(let n=0;n<h;n+=40)rect(8,n,w-16,16,0xf2d7a1,.4);
-   if(d.kind==='light-pool'){rect(0,0,w,h,0xf2d7a1,.055);rect(32,24,w-64,h-48,0xf2d7a1,.04);}
-   if(d.kind==='wellness-island'){rect(48,0,w-96,24,0xbfa8cf,.26);rect(16,24,w-32,40,0xbfa8cf,.26);rect(0,64,w,h-128,0xbfa8cf,.26);rect(16,h-64,w-32,40,0xbfa8cf,.26);rect(48,h-24,w-96,24,0xbfa8cf,.26);for(let n=96;n<w-96;n+=64)rect(n,24,16,2,0xfff0cf,.45);}
-   if(d.kind==='rug'){g.fillStyle(0x171c35,.28);g.fillPoints([{x:x+8,y},{x:x+w,y:y+8},{x:x+w-8,y:y+h},{x,y:y+h-8}],true);rect(8,8,w-16,h-16,0x3e7775,.7);rect(16,16,w-32,2,0x83a89a,.65);rect(16,h-18,w-32,2,0x83a89a,.65);for(let n=24;n<w-24;n+=48)rect(n,24,16,2,0xf2d7a1,.18);}
    if(['microwave-queue','staff-tape'].includes(d.kind))for(let n=8;n<h-8;n+=24){rect(8,n,4,12,0x83a89a,.65);rect(w-12,n,4,12,0x83a89a,.65);}
    if(['mess','confetti'].includes(d.kind)){let seed=d.seed||45;const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};for(let n=0;n<d.count;n++){const a=Math.floor(random()*(w-16))+4,b=Math.floor(random()*(h-16))+4;if(!within(x+a,y+b))continue;if(d.kind==='confetti'){rect(a,b,2,3,[0xf2d7a1,0xbfa8cf,0x83a89a,0xc45c4b][n%4],.5);}else if(n%7===0){rect(a,b,12,2,0x874c3b,.25);rect(a,b+8,12,2,0x874c3b,.25);rect(a-2,b+2,2,6,0x874c3b,.25);rect(a+12,b+2,2,6,0x874c3b,.25);}else{rect(a,b,6,8,n%3===0?0xbfa8cf:0xfff0cf,.5);rect(a+1,b+3,4,1,0x526078,.45);}}}
   }
   for(const r of data.structures||[]){const w=r.width,h=r.height+12,key='slice_curb_'+w+'_'+h;if(!scene.textures.exists(key))makeCanvasTex(scene,key,w,h,c=>{c.fillStyle='#171c35';c.fillRect(0,8,w,h-8);c.fillStyle='#f2d7a1';c.fillRect(2,8,w-4,h-12);c.fillStyle='#3e7775';c.fillRect(8,12,w-16,h-24);c.fillStyle='#83a89a';c.fillRect(8,12,w-16,2);});const o=add(scene.add.image(r.x+w/2,r.y+r.height,key).setOrigin(.5,1));o.sliceId=r.id;o.sliceDepth=o.y;H.body(o,{width:w,back:r.height,front:0},'prop_wall');bodies.push(o);items.push(o);OfficeEnvironment.groundObject(scene,layer(o.x,o.y),key,o.x,o.y,'prop');}
   function fixture(p){const a=START_AREA_IMAGES[p.prop],key='slice_'+p.prop+'_'+(p.variant||0),o=add(scene.add.image(p.x,p.y,key).setOrigin(.5,1));o.sliceId=p.id;o.sliceDepth=p.depthY??p.y;o.sliceMeta=p;
-   if(p.prop==='wellness_yoga_mat'){o.sliceBakeFloor=true;o.setDepth(BASE+4);all[all.length-1].bounds={x:p.x-a.frame[0]/2,y:p.y-a.frame[1],width:a.frame[0],height:a.frame[1]};}
+   if(['wellness_yoga_mat','paper_drift'].includes(p.prop)){o.sliceBakeFloor=true;o.setDepth(BASE+4).setAlpha(p.alpha??1);all[all.length-1].bounds={x:p.x-a.frame[0]/2,y:p.y-a.frame[1],width:a.frame[0],height:a.frame[1]};}
    if(p.prop==='server_crash_cart')o.sliceMeta={...p,prop:'crash_cart',artProp:p.prop};
    const solid=p.solid!==false&&a.solid;
    if(solid){H.body(o,a.footprint,p.prop==='plant'?'prop_plant':'prop_desk');bodies.push(o);o.cellKey='start:'+p.id;}
    items.push(o);const cap=p.caption??(window.STAGE_PROPS&&STAGE_PROPS.captions[p.prop]||a.caption);if(cap){o.caption=cap;o.sliceReadAt=p.readAt;captions.push(o);}
    if(solid){const g=p.prop==='plant'?add(scene.add.graphics().setDepth(BASE+3)):layer(p.x,p.y);OfficeEnvironment.groundObject(scene,g,key,p.x,p.y,p.prop.startsWith('desk_')?'desk':'prop');if(p.prop==='plant')o.sliceShadow=g;}
-   if(p.prop.startsWith('desk_')){const g=layer(p.x,p.y);g.fillStyle(0x303750,.28);g.fillRect(p.x-42,p.y-30,76,40);g.fillStyle(0x83a89a,.18);g.fillRect(p.x-40,p.y-29,70,1);g.fillStyle(0x171c35,.3);g.fillRect(p.x+41,p.y-24,1,20);g.fillRect(p.x+36,p.y-5,6,1);}
+   if(p.prop.startsWith('desk_'))floorPatch('chair_mat',p.x-44,p.y-42,88,64,.76);
    if(p.blink){const key='slice_rack_leds';if(!scene.textures.exists(key))makeCanvasTex(scene,key,3,44,c=>{c.fillStyle='#83a89a';for(let y=0;y<44;y+=10)c.fillRect(0,y,2,2);});const light=add(scene.add.image(p.x+8,p.y-65,key).setOrigin(.5,1));light.sliceDepth=p.y+1;items.push(light);blinkLights.push({light,seed:blinkLights.length});}
    return o;
   }

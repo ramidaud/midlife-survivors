@@ -1,0 +1,90 @@
+{
+  "phase": "before",
+  "errors": [],
+  "warnings": [],
+  "leaderboardRequests": 0,
+  "ready": true,
+  "slice": {
+    "version": "1.43.0",
+    "build": 108,
+    "viewport": [
+      390,
+      844
+    ],
+    "age": 40.117477703703706,
+    "openUpToAge": 60,
+    "statsDisabled": true,
+    "analyticsResources": 0,
+    "player": [
+      2232,
+      -414
+    ],
+    "body": [
+      48,
+      52
+    ],
+    "props": 558,
+    "nativeFloorDecor": false,
+    "deskCount": 35,
+    "visible": 5,
+    "peak": 7,
+    "navBlockers": 6,
+    "gates": [
+      {
+        "id": "parking-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "break-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "server-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "conference-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "executive-return",
+        "age": 55,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "wellness-conference",
+        "age": 60,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      }
+    ],
+    "outside": 0,
+    "fps": 61.63798587639177
+  },
+  "stress": {
+    "enemies": 350,
+    "outside": 0,
+    "visible": 7,
+    "initial": 350,
+    "fps": {
+      "min": 61.63798587639177,
+      "average": 70.60887551911641
+    },
+    "scope": "350 real physics/navigation/animation actors in the same Bullpen reserve; HP guards, paused firing, six seconds."
+  }
+}

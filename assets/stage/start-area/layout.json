@@ -4049,7 +4049,8 @@
       "x": 2880,
       "y": 144,
       "variant": 0,
-      "group": "Print queue"
+      "group": "Print queue",
+      "caption": "PC LOAD LETTER. It has been expressing itself since the last driver update."
     },
     {
       "id": "cabinet-20",
@@ -4089,7 +4090,8 @@
       "x": 2032,
       "y": 784,
       "variant": 0,
-      "group": "South cove"
+      "group": "South cove",
+      "caption": "PC LOAD LETTER. It has been expressing itself since the last driver update."
     },
     {
       "id": "desk_paperwork-25",
@@ -6210,6 +6212,805 @@
       "group": "Wellness / lost_found",
       "district": "wellness",
       "caption": "A spare yoga block. The label says ergonomic seating."
+    },
+    {
+      "id": "desk_paperwork-248",
+      "prop": "desk_paperwork",
+      "x": 2688,
+      "y": -592,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_sticky_notes-249",
+      "prop": "desk_sticky_notes",
+      "x": 1728,
+      "y": -592,
+      "variant": 1,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_2009-250",
+      "prop": "desk_2009",
+      "x": 1728,
+      "y": -64,
+      "variant": 2,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_family_photo-251",
+      "prop": "desk_family_photo",
+      "x": 1888,
+      "y": -64,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_lunch-252",
+      "prop": "desk_lunch",
+      "x": 1728,
+      "y": -272,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_tidy-253",
+      "prop": "desk_tidy",
+      "x": 2048,
+      "y": -64,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_paperwork-254",
+      "prop": "desk_paperwork",
+      "x": 2368,
+      "y": -64,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_sticky_notes-255",
+      "prop": "desk_sticky_notes",
+      "x": 2528,
+      "y": -944,
+      "variant": 1,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_2009-256",
+      "prop": "desk_2009",
+      "x": 2208,
+      "y": -64,
+      "variant": 2,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_family_photo-257",
+      "prop": "desk_family_photo",
+      "x": 3008,
+      "y": -944,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_lunch-258",
+      "prop": "desk_lunch",
+      "x": 3168,
+      "y": -944,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_tidy-259",
+      "prop": "desk_tidy",
+      "x": 3488,
+      "y": -272,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "desk_paperwork-260",
+      "prop": "desk_paperwork",
+      "x": 3648,
+      "y": -272,
+      "variant": 0,
+      "group": "Bullpen / finish desk bank",
+      "district": "bullpen"
+    },
+    {
+      "id": "finish-panel-0",
+      "prop": "cubicle_panel",
+      "x": 2688,
+      "y": -656,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-248"
+    },
+    {
+      "id": "finish-panel-1",
+      "prop": "cubicle_panel",
+      "x": 1888,
+      "y": -128,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_family_photo-251"
+    },
+    {
+      "id": "finish-panel-2",
+      "prop": "cubicle_panel",
+      "x": 2048,
+      "y": -128,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_tidy-253"
+    },
+    {
+      "id": "finish-panel-3",
+      "prop": "cubicle_panel",
+      "x": 2368,
+      "y": -128,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-254"
+    },
+    {
+      "id": "finish-panel-4",
+      "prop": "cubicle_panel",
+      "x": 2528,
+      "y": -1008,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_sticky_notes-255"
+    },
+    {
+      "id": "finish-panel-5",
+      "prop": "cubicle_panel",
+      "x": 2208,
+      "y": -128,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_2009-256"
+    },
+    {
+      "id": "finish-panel-6",
+      "prop": "cubicle_panel",
+      "x": 3008,
+      "y": -1008,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_family_photo-257"
+    },
+    {
+      "id": "finish-panel-7",
+      "prop": "cubicle_panel",
+      "x": 3168,
+      "y": -1008,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_lunch-258"
+    },
+    {
+      "id": "finish-panel-8",
+      "prop": "cubicle_panel",
+      "x": 3488,
+      "y": -336,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_tidy-259"
+    },
+    {
+      "id": "finish-panel-9",
+      "prop": "cubicle_panel",
+      "x": 3648,
+      "y": -336,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-260"
+    },
+    {
+      "id": "finish-panel-10",
+      "prop": "cubicle_panel",
+      "x": 1888,
+      "y": -992,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-25"
+    },
+    {
+      "id": "finish-panel-11",
+      "prop": "cubicle_panel",
+      "x": 1728,
+      "y": -992,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_sticky_notes-26"
+    },
+    {
+      "id": "finish-panel-12",
+      "prop": "cubicle_panel",
+      "x": 2048,
+      "y": -992,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_2009-27"
+    },
+    {
+      "id": "finish-panel-13",
+      "prop": "cubicle_panel",
+      "x": 2208,
+      "y": -992,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-28"
+    },
+    {
+      "id": "finish-panel-14",
+      "prop": "cubicle_panel",
+      "x": 1568,
+      "y": -1024,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_sticky_notes-29"
+    },
+    {
+      "id": "finish-panel-15",
+      "prop": "cubicle_panel",
+      "x": 1408,
+      "y": -960,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_2009-30"
+    },
+    {
+      "id": "finish-panel-16",
+      "prop": "cubicle_panel",
+      "x": 2368,
+      "y": -1024,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-31"
+    },
+    {
+      "id": "finish-panel-17",
+      "prop": "cubicle_panel",
+      "x": 2848,
+      "y": -576,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_lunch-32"
+    },
+    {
+      "id": "finish-panel-18",
+      "prop": "cubicle_panel",
+      "x": 2784,
+      "y": -416,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_family_photo-33"
+    },
+    {
+      "id": "finish-panel-19",
+      "prop": "cubicle_panel",
+      "x": 2944,
+      "y": -352,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_tidy-34"
+    },
+    {
+      "id": "finish-panel-20",
+      "prop": "cubicle_panel",
+      "x": 2784,
+      "y": -256,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_lunch-35"
+    },
+    {
+      "id": "finish-panel-21",
+      "prop": "cubicle_panel",
+      "x": 3104,
+      "y": -352,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_family_photo-36"
+    },
+    {
+      "id": "finish-panel-22",
+      "prop": "cubicle_panel",
+      "x": 2944,
+      "y": -192,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_tidy-37"
+    },
+    {
+      "id": "finish-panel-23",
+      "prop": "cubicle_panel",
+      "x": 2784,
+      "y": -992,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_lunch-38"
+    },
+    {
+      "id": "finish-panel-24",
+      "prop": "cubicle_panel",
+      "x": 2848,
+      "y": 0,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_sticky_notes-39"
+    },
+    {
+      "id": "finish-panel-25",
+      "prop": "cubicle_panel",
+      "x": 2688,
+      "y": -96,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_2009-40"
+    },
+    {
+      "id": "finish-panel-26",
+      "prop": "cubicle_panel",
+      "x": 2688,
+      "y": 64,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-41"
+    },
+    {
+      "id": "finish-panel-27",
+      "prop": "cubicle_panel",
+      "x": 2528,
+      "y": -96,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_sticky_notes-42"
+    },
+    {
+      "id": "finish-panel-28",
+      "prop": "cubicle_panel",
+      "x": 2528,
+      "y": 64,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_2009-43"
+    },
+    {
+      "id": "finish-panel-29",
+      "prop": "cubicle_panel",
+      "x": 3264,
+      "y": -352,
+      "variant": 2,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_paperwork-44"
+    },
+    {
+      "id": "finish-panel-30",
+      "prop": "cubicle_panel",
+      "x": 2880,
+      "y": 416,
+      "variant": 0,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_sticky_notes-45"
+    },
+    {
+      "id": "finish-panel-31",
+      "prop": "cubicle_panel",
+      "x": 2400,
+      "y": 736,
+      "variant": 1,
+      "district": "bullpen",
+      "group": "Bullpen / cubicle canyons",
+      "host": "desk_family_photo-46"
+    },
+    {
+      "id": "finish-crt-0",
+      "prop": "crt_stack",
+      "x": 2704,
+      "y": -644,
+      "variant": 0,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -589,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_paperwork-248"
+    },
+    {
+      "id": "finish-crt-1",
+      "prop": "crt_stack",
+      "x": 1744,
+      "y": -116,
+      "variant": 1,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -61,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_2009-250"
+    },
+    {
+      "id": "finish-crt-2",
+      "prop": "crt_stack",
+      "x": 1904,
+      "y": -116,
+      "variant": 2,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -61,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_family_photo-251"
+    },
+    {
+      "id": "finish-crt-3",
+      "prop": "crt_stack",
+      "x": 2064,
+      "y": -116,
+      "variant": 0,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -61,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_tidy-253"
+    },
+    {
+      "id": "finish-crt-4",
+      "prop": "crt_stack",
+      "x": 2384,
+      "y": -116,
+      "variant": 1,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -61,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_paperwork-254"
+    },
+    {
+      "id": "finish-crt-5",
+      "prop": "crt_stack",
+      "x": 2224,
+      "y": -116,
+      "variant": 2,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -61,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_2009-256"
+    },
+    {
+      "id": "finish-crt-6",
+      "prop": "crt_stack",
+      "x": 3024,
+      "y": -996,
+      "variant": 0,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -941,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_family_photo-257"
+    },
+    {
+      "id": "finish-crt-7",
+      "prop": "crt_stack",
+      "x": 3504,
+      "y": -324,
+      "variant": 1,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -269,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_tidy-259"
+    },
+    {
+      "id": "finish-crt-8",
+      "prop": "crt_stack",
+      "x": 3664,
+      "y": -324,
+      "variant": 2,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -269,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_paperwork-260"
+    },
+    {
+      "id": "finish-crt-9",
+      "prop": "crt_stack",
+      "x": 1904,
+      "y": -980,
+      "variant": 0,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -925,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_paperwork-25"
+    },
+    {
+      "id": "finish-crt-10",
+      "prop": "crt_stack",
+      "x": 2064,
+      "y": -980,
+      "variant": 1,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -925,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_2009-27"
+    },
+    {
+      "id": "finish-crt-11",
+      "prop": "crt_stack",
+      "x": 1584,
+      "y": -1012,
+      "variant": 2,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -957,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_sticky_notes-29"
+    },
+    {
+      "id": "finish-crt-12",
+      "prop": "crt_stack",
+      "x": 2384,
+      "y": -1012,
+      "variant": 0,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -957,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_paperwork-31"
+    },
+    {
+      "id": "finish-crt-13",
+      "prop": "crt_stack",
+      "x": 2800,
+      "y": -404,
+      "variant": 1,
+      "solid": false,
+      "mount": "tabletop",
+      "depthY": -349,
+      "district": "bullpen",
+      "group": "Bullpen / monitor escalation",
+      "host": "desk_family_photo-33"
+    },
+    {
+      "id": "finish-paper-0",
+      "prop": "paper_drift",
+      "x": 1864,
+      "y": -464,
+      "variant": 0,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-1",
+      "prop": "paper_drift",
+      "x": 2344,
+      "y": -240,
+      "variant": 1,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-2",
+      "prop": "paper_drift",
+      "x": 2544,
+      "y": -528,
+      "variant": 2,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-3",
+      "prop": "paper_drift",
+      "x": 2160,
+      "y": -160,
+      "variant": 0,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-4",
+      "prop": "paper_drift",
+      "x": 1968,
+      "y": -336,
+      "variant": 1,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-5",
+      "prop": "paper_drift",
+      "x": 2592,
+      "y": 32,
+      "variant": 2,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-6",
+      "prop": "paper_drift",
+      "x": 3288,
+      "y": -128,
+      "variant": 0,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-7",
+      "prop": "paper_drift",
+      "x": 3568,
+      "y": 112,
+      "variant": 1,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-8",
+      "prop": "paper_drift",
+      "x": 3808,
+      "y": -288,
+      "variant": 2,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-9",
+      "prop": "paper_drift",
+      "x": 2912,
+      "y": 208,
+      "variant": 0,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-10",
+      "prop": "paper_drift",
+      "x": 1744,
+      "y": 416,
+      "variant": 1,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-11",
+      "prop": "paper_drift",
+      "x": 2480,
+      "y": 512,
+      "variant": 2,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-12",
+      "prop": "paper_drift",
+      "x": 2880,
+      "y": 168,
+      "variant": 0,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-13",
+      "prop": "paper_drift",
+      "x": 2904,
+      "y": 184,
+      "variant": 1,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
+    },
+    {
+      "id": "finish-paper-14",
+      "prop": "paper_drift",
+      "x": 2032,
+      "y": 832,
+      "variant": 2,
+      "solid": false,
+      "depthY": -1000002444,
+      "district": "bullpen",
+      "group": "Bullpen / paper drift",
+      "alpha": 0.54
     }
   ],
   "workers": [
@@ -6446,6 +7247,42 @@
       "variant": 0,
       "cropHeight": 34,
       "depthY": 2223
+    },
+    {
+      "id": "finish-worker-1",
+      "host": "desk_sticky_notes-249",
+      "x": 1720,
+      "y": -660,
+      "variant": 1,
+      "cropHeight": 34,
+      "depthY": -593
+    },
+    {
+      "id": "finish-worker-4",
+      "host": "desk_lunch-252",
+      "x": 1720,
+      "y": -340,
+      "variant": 1,
+      "cropHeight": 34,
+      "depthY": -273
+    },
+    {
+      "id": "finish-worker-7",
+      "host": "desk_sticky_notes-255",
+      "x": 2520,
+      "y": -1012,
+      "variant": 1,
+      "cropHeight": 34,
+      "depthY": -945
+    },
+    {
+      "id": "finish-worker-10",
+      "host": "desk_lunch-258",
+      "x": 3160,
+      "y": -1012,
+      "variant": 1,
+      "cropHeight": 34,
+      "depthY": -945
     }
   ],
   "assetSpecs": {
@@ -6632,6 +7469,40 @@
       "file": "conference_table-v1.png",
       "mount": "floor",
       "caption": "Hour nine of the quarterly roadmap sync. The dry-erase markers gave up around lunch."
+    },
+    "crt_stack": {
+      "id": "crt_stack",
+      "frame": [
+        64,
+        88
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "variants": 3,
+      "solid": false,
+      "mount": "tabletop",
+      "file": "crt_stack-v1.png",
+      "caption": "The monitor stack has been promoted twice. The person using it is still waiting."
+    },
+    "cubicle_panel": {
+      "id": "cubicle_panel",
+      "frame": [
+        128,
+        80
+      ],
+      "footprint": {
+        "width": 120,
+        "back": 6,
+        "front": 4
+      },
+      "variants": 3,
+      "solid": true,
+      "mount": "floor",
+      "file": "cubicle_panel-v1.png",
+      "caption": "Your own little corner of the open-plan dream."
     },
     "desk_2009": {
       "id": "desk_2009",
@@ -7022,6 +7893,23 @@
       "variants": 2,
       "file": "offline_lamp-v1.png",
       "caption": "Let's take this offline. Facilities already unplugged it."
+    },
+    "paper_drift": {
+      "id": "paper_drift",
+      "frame": [
+        96,
+        64
+      ],
+      "footprint": {
+        "width": 0,
+        "back": 0,
+        "front": 0
+      },
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "file": "paper_drift-v1.png",
+      "caption": "The printer is expressing itself. IT has asked it to use its words."
     },
     "parking_light": {
       "id": "parking_light",
@@ -7504,10 +8392,10 @@
       "district": "bullpen",
       "shape": {
         "type": "rect",
-        "x": 4864,
-        "y": 1760,
-        "width": 1024,
-        "height": 576
+        "x": 5056,
+        "y": 1856,
+        "width": 640,
+        "height": 448
       },
       "decor": [
         "project runway tape",
@@ -7520,10 +8408,10 @@
       "district": "bullpen",
       "shape": {
         "type": "rect",
-        "x": 6240,
-        "y": 2176,
-        "width": 832,
-        "height": 576
+        "x": 6336,
+        "y": 2240,
+        "width": 640,
+        "height": 448
       },
       "decor": [
         "chair-mat wear",
@@ -9229,6 +10117,14 @@
       ]
     }
   ],
+  "finishStats": {
+    "newDesks": 13,
+    "newWorkers": 4,
+    "cubiclePanels": 32,
+    "monitorStacks": 14,
+    "paperDrifts": 15,
+    "newProps": 74
+  },
   "roomStats": {
     "wellnessBreakables": 19,
     "executiveBreakables": 17,

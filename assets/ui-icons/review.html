@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midlife Survivors | Pixel icon review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#171c35;color:#fff0cf;font:16px/1.5 system-ui}main{max-width:1100px;margin:auto;padding:clamp(16px,4vw,48px)}h1,h2,p{margin:0 0 12px}h1{line-height:1.12;font-size:clamp(34px,6vw,62px);letter-spacing:-.04em}h2{margin-top:30px}small{color:#f2d7a1}a,.eyebrow{color:#ef9347}nav{display:flex;gap:16px;flex-wrap:wrap}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr));gap:10px}.card{border:1px solid #526078;background:#252c45;padding:12px}.card strong{display:block;margin-bottom:8px}.sizes{display:flex;align-items:end;gap:14px}.sample{display:grid;justify-items:center;gap:3px}.pad{display:grid;place-items:center;background:#414c61;padding:4px;min-height:72px;min-width:28px}canvas{image-rendering:pixelated}
+</style>
+<main>
+<p class="eyebrow">MIDLIFE SURVIVORS / ART REVIEW</p>
+<h1>Pixel icons</h1>
+<p>31 upgrade cards, three character portraits and one fallback. Compare each at 16 px, native size and double size.</p>
+<nav aria-label="Source files"><a href="icons-v1.png">PNG atlas</a><a href="icons-v1.json">JSON index</a><a href="../stage/start-area/review-finish.html?nostats=1">Office finish review</a></nav>
+<p id="status" role="status">Loading atlas…</p>
+<h2>Characters</h2><section id="characters"></section>
+<h2>Upgrade cards</h2><section id="cards"></section>
+<h2>Fallback</h2><section id="fallback"></section>
+</main>
+<script>
+(async()=>{
+ const status=document.querySelector('#status');
+ try{
+  const [map,atlas]=await Promise.all([fetch('icons-v1.json').then(r=>{if(!r.ok)throw Error('Could not load map');return r.json()}),new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=()=>reject(Error('Could not load atlas'));i.src='icons-v1.png'})]);
+  const keyed=document.createElement('canvas');keyed.width=atlas.width;keyed.height=atlas.height;const ctx=keyed.getContext('2d');ctx.drawImage(atlas,0,0);const im=ctx.getImageData(0,0,keyed.width,keyed.height);
+  for(let i=0;i<im.data.length;i+=4)if(im.data[i]===255&&im.data[i+1]===0&&im.data[i+2]===255)im.data[i+3]=0;
+  ctx.putImageData(im,0,0);
+  const names={officeWorker:'The 9-to-5er',photographer:'The Soccer Dad',gradStudent:'The Grad Student at 45'};
+  function card(group,name,index){
+   const el=document.createElement('article');el.className='card';const title=document.createElement('strong');title.textContent=name;el.append(title);const row=document.createElement('div');row.className='sizes';el.append(row);
+   for(const size of [16,32,64]){
+    const sample=document.createElement('div');sample.className='sample';const pad=document.createElement('div');pad.className='pad';const c=document.createElement('canvas');c.width=c.height=size;c.setAttribute('aria-hidden','true');const g=c.getContext('2d');g.imageSmoothingEnabled=false;const n=map.cellSize;g.drawImage(keyed,index%map.columns*n,Math.floor(index/map.columns)*n,n,n,0,0,size,size);
+    const label=document.createElement('small');label.textContent=size+' px';pad.append(c);sample.append(pad,label);row.append(sample);
+   }
+   document.getElementById(group).append(el);
+  }
+  for(const [key,i] of Object.entries(map.characters))card('characters',names[key]||key,i);
+  for(const [name,i] of Object.entries(map.cards))card('cards',name,i);
+  card('fallback','Unmapped card',map.fallback);
+  status.textContent='35 icons loaded.';
+ }catch(err){status.textContent=err.message;}
+})();
+</script>
+</html>

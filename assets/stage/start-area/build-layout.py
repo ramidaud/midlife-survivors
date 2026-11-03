@@ -6,8 +6,9 @@ from room_data import place_rooms
 from room_data_2e import place_age50
 from room_data_2f import place_executive
 from room_data_2g import place_wellness
+from room_data_finish import place_finish
 R=Path(__file__).resolve().parent;P=json.loads((R.parent/'campus-layout-v2.json').read_text());O=[3168,2448];C=16
-specs={s['id']:s for f in ['batch-2a.json','batch-2b.json','batch-2c.json','batch-2d.json','batch-2e.json','batch-2f.json','batch-2g.json'] for s in json.loads((R.parent/'props'/f).read_text())}
+specs={s['id']:s for f in ['batch-2a.json','batch-2b.json','batch-2c.json','batch-2d.json','batch-2e.json','batch-2f.json','batch-2g.json','batch-finish.json'] for s in json.loads((R.parent/'props'/f).read_text())}
 for id in ['tidy','paperwork','lunch']:specs['desk_'+id]=dict(id='desk_'+id,frame=[96,104],footprint=dict(width=80,back=70,front=2),variants=1,file='../../desks/'+id+'-native.png',solid=True)
 for id,frame,foot in [('printer',[80,80],[48,26,4]),('cabinet',[56,88],[38,40,4]),('plant',[48,64],[24,15,3])]:specs[id]=dict(id=id,frame=frame,footprint=dict(zip(['width','back','front'],foot)),variants=1,file='../../office-environment/'+id+'-native.png',solid=True)
 for s in specs.values():
@@ -122,6 +123,17 @@ executive=place_executive(put,placements,workers)
 for key in ['labels','floorDecor','protectedRoutes']:room[key]+=executive[key]
 wellness=place_wellness(put,placements,workers)
 for key in ['labels','floorDecor','protectedRoutes']:room[key]+=wellness[key]
+# Original placements are finished before shrinking the soft Bullpen art reserve.
+for reserve in P['combatSpaces']:
+ if reserve['id']=='bullpen-runway':reserve['shape']=dict(type='rect',x=5056,y=1856,width=640,height=448)
+ if reserve['id']=='bullpen-lunch':reserve['shape']=dict(type='rect',x=6336,y=2240,width=640,height=448)
+reserves=set()
+for r in P['combatSpaces']:
+ if r['district'] not in [d['id'] for d in D]:continue
+ sh=r['shape']
+ reserves|=rectcells(sh) if sh['type']=='rect' else {(x,y) for x,y in walk if inside(x*C+8,y*C+8,sh['points'])}
+protected=reserves|lanes
+finish=place_finish(put,placements,workers,specs,occupied,valid,foot,overlap,rectcells,walk,protected)
 # Collect outer boundary edges and merge contiguous collinear cells.
 edges={}
 for x,y in walk:
@@ -178,6 +190,7 @@ schedule=json.loads((R.parent/'campus-promotions.json').read_text());schedule['s
 result=dict(promotions=schedule,id='campus-age60-slice',version=5,origin=O,spawn=[0,2152-O[1]],bounds=dict(x=96-O[0],y=0-O[1],width=7456,height=5024),districts=[dict(id=d['id'],name=d['name'],polygon=[[x-O[0],y-O[1]] for x,y in d['polygon']]) for d in D],floors=list(map(local,floors)),walls=list(map(local,walls)),gates=list(map(local,gates)),placements=list(map(local,placements)),workers=list(map(local,workers)),assetSpecs={id:{k:v for k,v in specs[id].items() if k in ['id','frame','file','footprint','variants','solid','mount','caption']} for id in sorted({p['prop'] for p in placements})},clearSpaces=[r for r in P['combatSpaces'] if r['district'] in ['lobby','bullpen','parking','breakroom','server','conference','executive','wellness']],maxVisibleProps=120,routeWidth=224,gateOwnership='Six gate records preserve blocker identity. Existing promotions through55 remain live; age60 is held closed. Claude owns opening/navigation.',tour={'Lobby':[0,-296],'Hallway':[2608-O[0],1984-O[1]],'Bullpen':[5400-O[0],2060-O[1]],'Goals':[6624-O[0],2400-O[1]],'Parking gate':[2420-O[0],1728-O[1]]})
 result.update({k:list(map(local,room[k])) for k in ['labels','floorDecor','structures','protectedRoutes']})
 result['internalRoutes']=[dict(district=r['district'],width=r['width'],points=[[x-O[0],y-O[1]] for x,y in r['points']]) for r in P['internalRoutes'] if r['district'] in ['lobby','bullpen','parking','breakroom','server','conference','executive','wellness']]
+result['finishStats']=finish
 result['roomStats']=dict(wellnessBreakables=sum(p.get('district')=='wellness' and p['prop'] in ['plant','water_cooler','trash_recycle','lost_found'] for p in placements),executiveBreakables=sum(p.get('district')=='executive' and p['prop'] in ['plant','cabinet','water_cooler','coat_rack','vending_machine'] for p in placements),serverRacks=late['racks'],conferencePods=3,age50Breakables=sum(p.get('district') in ['server','conference'] and p['prop'] in ['printer','cabinet','vending_machine','trash_recycle','water_cooler','lost_found','coat_rack','plant','server_crash_cart'] for p in placements),parkingCars=room['cars'],breakableProps=sum(p['prop'] in ['plant','vending_machine','trash_recycle','water_cooler','lost_found','printer','cabinet','coat_rack'] and p.get('district')=='breakroom' for p in placements))
 result['tour'].update({name:[x-O[0],y-O[1]] for name,(x,y) in {'Parking':(1152,1248),'Break Room':(1376,2528),'Kitchen':(800,2528),'Birthday':(1376,3504),'Loot Bay':(2224,3680),'Server gate':(2256,544),'Conference gate':(2672,3744),'Staff hall':(1024,2120)}.items()})
 result['tour'].update({name:[x-O[0],y-O[1]] for name,(x,y) in {'Server':(3488,752),'Rack aisle':(3520,416),'Cable waterfall':(4816,368),'Conference':(6784,3840),'Synergy':(5728,4400),'Bandwidth':(6440,4400),'Alignment':(7168,4400),'Executive gate':(4992,416),'Meeting approach':(4208,4464)}.items()})

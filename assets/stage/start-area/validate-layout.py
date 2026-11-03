@@ -6,8 +6,8 @@ R=Path(__file__).resolve().parent
 D=json.loads((R/'layout.json').read_text());C=16
 inside=lambda x,y:any(r['x']<=x<r['x']+r['width'] and r['y']<=y<r['y']+r['height'] for r in D['floors'])
 assert {d['id'] for d in D['districts']}=={'lobby','bullpen','parking','breakroom','server','conference','executive','wellness'}
-assert len(D['workers'])==26 and all(p['cropHeight']==34 for p in D['workers'])
-assert sum(p['prop'].startswith('desk_') for p in D['placements'])==35
+assert len(D['workers'])==26+D['finishStats']['newWorkers'] and all(p['cropHeight']==34 for p in D['workers'])
+assert sum(p['prop'].startswith('desk_') for p in D['placements'])==35+D['finishStats']['newDesks']
 assert D['routeWidth']==224 and D['maxVisibleProps']==120
 rects=[]
 for p in D['placements']:
@@ -57,7 +57,7 @@ for name,x,y in [('Server',3488,752),('Conference',6784,3840)]:
   assert inside(px,py) and not any(rx<=px<=rx+w and ry<=py<=ry+h for rx,ry,w,h,id in rects),('Boss escape blocked',name,i)
  clearance.append(dict(room=name,ringRadius=260,escapeRadius=328,driftRadius=130,passed=True))
 # V8 drift envelopes and 600px straight charge lanes stay clear in both final rooms.
-for name,cx,cy,lane in [('Executive',6176,784,832),('Wellness',3920,3808,896)]:
+for name,cx,cy,lane in [('Executive',6176,784,832),('Wellness',3920,3808,896),('Bullpen',5376,2080,640)]:
  x=cx-D['origin'][0];y=cy-D['origin'][1]
  for i in range(128):
   a=math.tau*i/128;px=x+220*math.cos(a);py=y+220*math.sin(a)
@@ -74,7 +74,7 @@ def paths():
   for q in [(x+1,y),(x-1,y),(x,y+1),(x,y-1)]:
    if q in free and q not in parent:parent[q]=(x,y);todo.append(q)
  result={}
- for name in ['Wellness','Massage chair','Quiet pod','Yoga annex','Executive']:
+ for name in ['Bullpen','Wellness','Massage chair','Quiet pod','Yoga annex','Executive']:
   p=D['tour'][name];q=(math.floor(p[0]/C),math.floor((p[1]-26)/C));assert q in parent,name
   path=[]
   while q is not None:path.append(q);q=parent[q]
@@ -83,7 +83,7 @@ def paths():
    if (path[i][0]-path[i-1][0],path[i][1]-path[i-1][1])!=(path[i+1][0]-path[i][0],path[i+1][1]-path[i][1]):turns.append(path[i])
   turns.append(path[-1]);result[name]=[[x*C+8,y*C+8] for x,y in turns]
  return result
-(R/'qa-paths-2g.js').write_text('window.STAGE_2G_QA_PATHS='+json.dumps(paths(),separators=(',',':'))+';\n')
+(R/'qa-finish-paths.js').write_text('window.FINISH_QA_PATHS='+json.dumps(paths(),separators=(',',':'))+';\n')
 # Wellness's west wall stays inside its plot; the public Conference corridor is all 224px.
 corridor=dict(x=2800-D['origin'][0],y=3856-D['origin'][1],width=224,height=400)
 for x,y,w,h,id in rects:
@@ -91,5 +91,5 @@ for x,y,w,h,id in rects:
 oldx=5152-D['origin'][0];oldy=1088-D['origin'][1]
 assert all(any(x<=oldx<=x+w and y<=py<y+h for x,y,w,h,id in rects if id.startswith('wall-')) for py in range(oldy,oldy+224)), 'Old Executive opening not sealed'
 g=next(g for g in D['gates'] if g['age']==60);assert g['id']=='wellness-conference' and g['fromDistrict']=='conference' and g['closed'] and g['width']==128 and g['height']==224
-report=dict(status='passed',conferenceCorridor224=True,oldExecutiveOpeningSealed=True,districts=8,props=len(D['placements']),desks=35,staticWorkers=26,solidBodies=len(rects)+6,doorwayWidth=224,closedGates=6,age45Gates=2,age50Gates=2,age55Gates=1,age60Gates=1,closedReachableCells=len(closed),age45ReachableCells=len(age45),age50ReachableCells=len(age50),age55ReachableCells=len(age55),testOpenedReachableCells=len(opened),allTourPointsReachableWhenTestOpened=True,lockedRoomsExcluded=True,protectedRoutes=len(routes),bossClearance=clearance,maxVisibleProps=120,**D['roomStats'])
+report=dict(status='passed',conferenceCorridor224=True,oldExecutiveOpeningSealed=True,districts=8,props=len(D['placements']),desks=35+D['finishStats']['newDesks'],staticWorkers=len(D['workers']),solidBodies=len(rects)+6,doorwayWidth=224,closedGates=6,age45Gates=2,age50Gates=2,age55Gates=1,age60Gates=1,closedReachableCells=len(closed),age45ReachableCells=len(age45),age50ReachableCells=len(age50),age55ReachableCells=len(age55),testOpenedReachableCells=len(opened),allTourPointsReachableWhenTestOpened=True,lockedRoomsExcluded=True,protectedRoutes=len(routes),bossClearance=clearance,maxVisibleProps=120,**D['roomStats'],finish=D['finishStats'])
 (R/'checks.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

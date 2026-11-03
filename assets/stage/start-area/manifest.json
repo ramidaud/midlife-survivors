@@ -194,6 +194,42 @@
     "caption": "Hour nine of the quarterly roadmap sync. The dry-erase markers gave up around lunch.",
     "sha256": "0a3ce3b8cffdd491368284042a2b262a784bc15f59dba7d5d2e2db73aa23dc22"
   },
+  "crt_stack": {
+    "id": "crt_stack",
+    "frame": [
+      64,
+      88
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "tabletop",
+    "file": "crt_stack-v1.png",
+    "caption": "The monitor stack has been promoted twice. The person using it is still waiting.",
+    "sha256": "482555e39c6b6ea81e89961c9a4330b5c06e9d54d1b4e5cbdde931b00e199873"
+  },
+  "cubicle_panel": {
+    "id": "cubicle_panel",
+    "frame": [
+      128,
+      80
+    ],
+    "footprint": {
+      "width": 120,
+      "back": 6,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "file": "cubicle_panel-v1.png",
+    "caption": "Your own little corner of the open-plan dream.",
+    "sha256": "83dc1a4c02c951ac3d75c6c7fa913f4e0127bca4858260434268e352810a0b5e"
+  },
   "desk_2009": {
     "id": "desk_2009",
     "frame": [
@@ -607,6 +643,24 @@
     "file": "offline_lamp-v1.png",
     "caption": "Let's take this offline. Facilities already unplugged it.",
     "sha256": "2a55affd3008ab4a84a43af50d86305700c67b171805846ff33afe956e85f032"
+  },
+  "paper_drift": {
+    "id": "paper_drift",
+    "frame": [
+      96,
+      64
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "floor",
+    "file": "paper_drift-v1.png",
+    "caption": "The printer is expressing itself. IT has asked it to use its words.",
+    "sha256": "b38a4f8db64440916b1e8fae4422ff8fe587321237cdd66c935ddffa8b1aff90"
   },
   "parking_light": {
     "id": "parking_light",

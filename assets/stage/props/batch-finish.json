@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cubicle_panel",
+    "name": "Navy cubicle panel",
+    "frame": [
+      128,
+      80
+    ],
+    "footprint": {
+      "width": 120,
+      "back": 6,
+      "front": 4
+    },
+    "variants": 3,
+    "solid": true,
+    "mount": "floor",
+    "category": "furniture",
+    "source": "cubicle_panel-source-v1.png",
+    "file": "cubicle_panel-v1.png",
+    "caption": "Your own little corner of the open-plan dream.",
+    "prompt": "Use case: stylized-concept. One native modular game prop for Midlife Survivors. Crisp 16-bit top-down 3/4, 1px navy silhouette, upper-left warm cream highlights, deliberate sparse checker dithering only. Palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Native target 128x80, enlarged square pixels. One centered object, equal magenta margins, flat opaque #FF00FF background, no background shadow, blur, antialiasing, continuous gradients, photorealism, text or logo. One modular horizontal cubicle BACK PANEL, dark navy and slate upholstered fabric, thin muted teal top rail, two short khaki feet, sparse ordered checker pixel shading. Straight rectangular panel, no desk, chair, person or floor. Top-down three-quarter angle matching the office desk family, broad clean clusters. No letters."
+  },
+  {
+    "id": "crt_stack",
+    "name": "Monitor escalation",
+    "frame": [
+      64,
+      88
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "tabletop",
+    "category": "furniture",
+    "source": "crt_stack-source-v1.png",
+    "file": "crt_stack-v1.png",
+    "caption": "The monitor stack has been promoted twice. The person using it is still waiting.",
+    "prompt": "Use case: stylized-concept. One native modular game prop for Midlife Survivors. Crisp 16-bit top-down 3/4, 1px navy silhouette, upper-left warm cream highlights, deliberate sparse checker dithering only. Palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Native target 64x88, enlarged square pixels. One centered object, equal magenta margins, flat opaque #FF00FF background, no background shadow, blur, antialiasing, continuous gradients, photorealism, text or logo. A precarious but believable stack of TWO old cream CRT computer monitors, one broad lower CRT and a smaller one offset slightly on top, deep navy empty screens with a tiny teal status glow and one coffee-orange indicator. On an invisible desk, no base floor or extra objects. Top-down 3/4; stout square shapes, hard 1px outline. No letters."
+  },
+  {
+    "id": "paper_drift",
+    "name": "Printer confetti",
+    "frame": [
+      96,
+      64
+    ],
+    "footprint": {
+      "width": 0,
+      "back": 0,
+      "front": 0
+    },
+    "variants": 3,
+    "solid": false,
+    "mount": "floor",
+    "category": "furniture",
+    "source": "paper_drift-source-v1.png",
+    "file": "paper_drift-v1.png",
+    "caption": "The printer is expressing itself. IT has asked it to use its words.",
+    "prompt": "Use case: stylized-concept. One native modular game prop for Midlife Survivors. Crisp 16-bit top-down 3/4, 1px navy silhouette, upper-left warm cream highlights, deliberate sparse checker dithering only. Palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Native target 96x64, enlarged square pixels. One centered object, equal magenta margins, flat opaque #FF00FF background, no background shadow, blur, antialiasing, continuous gradients, photorealism, text or logo. A flat floor-level drift of seven crumpled cream office pages, one short accordion paper tail, a few navy abstract ink strokes and one sage sticky note. Low top-down 3/4, thin papers touching a common floor, overlapping by corners, one-pixel navy contour, sparse ordered pixel dithering in folds. No printer, shadows on background, text or letters."
+  }
+]

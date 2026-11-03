@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.43.1",
-  displayVersion: "V. 1.43.1",
+  version: "1.44.0",
+  displayVersion: "V. 1.44.0",
   lastUpdated: "Nov 2, 2026",
-  codename: "Every Weapon Has a Job",
-  build: 109,
+  codename: "Office Finish",
+  build: 110,
   changelog: [
+    {
+      ver: "V. 1.44.0", date: "Nov 2, 2026", title: "Office Finish",
+      highlights: ["The Lobby gets stitched rugs and softer light, and the Bullpen gets more cubicles, CRTs, and a printer that will not stop printing."]
+    },
     {
       ver: "V. 1.43.1", date: "Nov 2, 2026", title: "Life Follows You to Work",
       highlights: [

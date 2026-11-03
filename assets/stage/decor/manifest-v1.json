@@ -1,0 +1,100 @@
+{
+  "background": "#FF00FF",
+  "patchSize": 32,
+  "decorAtlas": {
+    "image": "decor-v1.png",
+    "columns": 3,
+    "rows": 2,
+    "order": [
+      "rug_teal",
+      "rug_sage",
+      "rug_lavender",
+      "chair_mat",
+      "light_warm",
+      "light_cool"
+    ]
+  },
+  "floorAtlas": {
+    "image": "floors-v1.png",
+    "columns": 2,
+    "rows": 1,
+    "order": [
+      "carpet_muted",
+      "vinyl_muted"
+    ]
+  },
+  "assets": [
+    {
+      "id": "rug_teal",
+      "file": "rug_teal-v1.png",
+      "kind": "rug",
+      "frame": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "rug_sage",
+      "file": "rug_sage-v1.png",
+      "kind": "rug",
+      "frame": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "rug_lavender",
+      "file": "rug_lavender-v1.png",
+      "kind": "rug",
+      "frame": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "chair_mat",
+      "file": "chair_mat-v1.png",
+      "kind": "rug",
+      "frame": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "light_warm",
+      "file": "light_warm-v1.png",
+      "kind": "light",
+      "frame": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "light_cool",
+      "file": "light_cool-v1.png",
+      "kind": "light",
+      "frame": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "carpet_muted",
+      "file": "carpet_muted-v1.png",
+      "kind": "tile",
+      "frame": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "vinyl_muted",
+      "file": "vinyl_muted-v1.png",
+      "kind": "tile",
+      "frame": [
+        64,
+        64
+      ]
+    }
+  ]
+}
