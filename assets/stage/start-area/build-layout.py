@@ -205,6 +205,8 @@ for i,worker in enumerate(result['workers']):
  worker['phase']=(i*197+i//len(cast)*71)%1120
 from room_data_layout import apply_layout
 apply_layout(result,R)
+from room_data_floor import dress_courtyard
+dress_courtyard(result)
 (R/'layout.json').write_text(json.dumps(result,indent=2)+'\n')
 repo=R.parents[2]
 (repo/'src/data/start-area.js').write_text('window.USE_START_AREA = true;\nwindow.START_AREA_LAYOUT = '+json.dumps(result,separators=(',',':'))+';\n')

@@ -110,6 +110,124 @@ window.StartAreaArt = (() => {
   }
  }
 
+ // Native floor marks are authored once and included in the existing chunk bake.
+ function drawCourtyardDecal(g,d){
+  const {x,y,width:w,height:h,style}=d;
+  const navy=0x171c35, slate=0x303750, dust=0xa88b70, cream=0xf2d7a1, teal=0x83a89a;
+  const block=(dx,dy,width,height,color,alpha)=>{
+   g.fillStyle(color,alpha);
+   g.fillRect(x+(d.mirror?w-dx-width:dx),y+dy,width,height);
+  };
+  const poly=(vertices,color,alpha)=>{
+   g.fillStyle(color,alpha);
+   g.fillPoints(vertices.map(([a,b])=>({x:x+(d.mirror?w-a:a),y:y+b})),true);
+  };
+  const ring=(dx,dy,size,color,alpha)=>{
+   const q=Math.floor(size/4);
+   block(dx+q,dy,size-2*q,2,color,alpha);
+   block(dx+q,dy+size-2,size-2*q,2,color,alpha);
+   block(dx,dy+q,2,size-2*q,color,alpha);
+   block(dx+size-2,dy+q,2,size-2*q,color,alpha);
+   for(const [a,b] of [[q-2,q-2],[size-q,q-2],[q-2,size-q],[size-q,size-q]])block(dx+a,dy+b,2,2,color,alpha);
+  };
+  if(style==='wear'){
+   const horizontal=w>h,long=horizontal?w:h,short=horizontal?h:w;
+   const stamp=(a,b,c,e,color,alpha)=>horizontal?block(a,b,c,e,color,alpha):block(b,a,e,c,color,alpha);
+   // Broad tread fades in short, uneven steps rather than a bright strip.
+   stamp(0,Math.floor(short*.25),long,Math.floor(short*.5),cream,.068);
+   for(let a=0;a<long-11;a+=13){
+    const n=(a*17+x*7+y*11)&255;
+    const off=4+n%Math.max(1,short-12);
+    stamp(a,off,6+n%6,1,n%5?cream:navy,n%5?.14:.13);
+    if(n%3===0)stamp(a+2,off+3,4+n%5,1,teal,.13);
+   }
+  }else if(style==='inlay'){
+   // Eight flat wedges and a broken ring, woven into the existing carpet.
+   const c=w/2;
+   for(let i=0;i<8;i++){
+    const angle=i*Math.PI/4;
+    const at=(a,r)=>[Math.round(c+Math.cos(a)*r),Math.round(c+Math.sin(a)*r)];
+    const point=at(angle,i%2?68:89), left=at(angle-.28,31),right=at(angle+.28,31);
+    poly([[c,c],left,point],i%2?teal:cream,i%2?.18:.23);
+    poly([[c,c],point,right],navy,.30);
+    for(let j=0;j<6;j++){
+     const [a,b]=at(angle+j*Math.PI/24,100);
+     block(a-2,b-2,4,4,teal,.24);
+    }
+   }
+   ring(c-12,c-12,24,cream,.28);
+  }else if(style==='rings'){
+   ring(4,3,17,dust,.52);ring(21,14,12,navy,.23);
+   block(3,25,9,1,dust,.33);
+  }else if(style==='spill'){
+   poly([[5,15],[21,9],[34,11],[49,4],[69,11],[87,9],[103,22],[102,36],[86,44],[58,52],[44,45],[21,47],[8,37]],0x412e35,.49);
+   poly([[16,19],[40,12],[63,17],[80,15],[94,25],[81,39],[53,44],[33,35],[17,37]],0x624843,.29);
+   for(const [a,b] of [[3,5],[99,46],[90,50],[12,49],[106,15]])block(a,b,4,2,dust,.42);
+  }else if(style==='curl'){
+   poly([[1,19],[8,3],[25,5],[24,21]],navy,.42);
+   poly([[1,19],[10,6],[24,5],[15,17]],teal,.55);
+   poly([[15,17],[24,5],[24,20]],cream,.28);
+   block(13,20,12,1,slate,.36);
+  }else if(style==='papers'){
+   const n=d.seed||0;
+   for(const [a,b] of [[4+n,5],[18,14+n],[31,5+n]]){
+    poly([[a,b+3],[a+11,b],[a+15,b+9],[a+4,b+12]],cream,.36);
+    block(a+4,b+4,5,1,slate,.31);block(a+5,b+6,5,1,slate,.26);
+   }
+  }else if(style==='sticky'){
+   poly([[1,4],[10,2],[12,11],[3,12]],0xc6ad76,.44);
+   block(4,6,4,1,slate,.31);
+  }else if(style==='pen-cup'){
+   poly([[3,17],[12,7],[22,10],[25,17],[16,25],[5,23]],slate,.50);
+   block(7,17,11,4,teal,.38);block(15,8,7,7,navy,.44);
+   for(const [a,b] of [[26,9],[31,18],[29,25]]){block(a,b,10,2,slate,.60);block(a+7,b,3,1,dust,.56);}
+  }else if(style==='cables'){
+   const y1=9,y2=h-13,turn=Math.floor(w*.59);
+   block(2,y1,turn,3,navy,.48);
+   block(turn,y1,3,y2-y1+3,navy,.48);
+   block(turn+3,y2,w-turn-6,3,navy,.48);
+   block(2,y1+4,turn-3,1,teal,.36);block(turn-3,y1+4,1,y2-y1+3,teal,.36);
+   for(const a of [18,52,88,turn+18,w-20]){
+    const b=a<turn?y1:y2;
+    block(a,b-3,7,9,dust,.54);block(a+1,b-3,5,1,cream,.27);
+   }
+  }else if(style==='chair'){
+   // A pulled-out seat is a shallow floor illustration, with soft value separation.
+   poly([[7,10],[24,9],[31,17],[31,26],[13,29],[5,22]],navy,.29);
+   poly([[7,4],[20,3],[24,10],[20,16],[8,15],[4,11]],slate,.51);
+   poly([[8,14],[22,13],[28,21],[23,24],[12,23]],teal,.32);
+   block(17,22,3,10,navy,.47);block(9,29,20,2,navy,.44);
+   block(8,30,4,3,navy,.48);block(27,30,4,3,navy,.48);
+  }else if(style==='pizza'){
+   poly([[5,9],[33,3],[43,11],[43,25],[17,29],[5,21]],dust,.66);
+   poly([[5,9],[33,3],[43,11],[17,19]],cream,.36);
+   block(16,20,23,2,navy,.29);
+   block(21,10,8,2,0x874c3b,.34);block(24,13,5,1,0x874c3b,.32);
+  }else if(style==='old-printer'){
+   for(let a=0;a<w-8;a+=13){block(a,1,8,2,dust,.53);block(a,h-2,8,2,dust,.53);}
+   for(let b=2;b<h-7;b+=11){block(1,b,2,6,dust,.53);block(w-3,b,2,6,dust,.53);}
+  }else if(style==='note'){
+   poly([[1,5],[w-6,2],[w-1,h-5],[7,h-1]],dust,.40);
+   block(w-15,3,11,5,navy,.28);
+  }else if(style==='footsteps'){
+   const sideways=w>h;
+   for(let i=0;i<d.steps;i++){
+    const fade=.37-i*.019;
+    const a=sideways?5+i*(w-18)/d.steps:18+i%2*12+Math.floor(i/4)*4;
+    const b=sideways?13+i%2*8:5+i*(h-20)/d.steps;
+    block(Math.round(a),Math.round(b),sideways?8:5,sideways?5:8,slate,fade);
+    block(Math.round(a)+(sideways?-3:0),Math.round(b)+(sideways?0:8),4,3,slate,fade*.8);
+   }
+  }else if(style==='badge'){
+   poly([[4,4],[27,2],[30,14],[6,17]],cream,.40);
+   block(9,6,6,7,slate,.43);block(18,6,8,2,teal,.51);block(18,10,7,1,slate,.32);
+  }else if(style==='umbrella'){
+   poly([[6,12],[40,5],[52,8],[40,12],[8,16]],slate,.55);
+   block(45,8,11,2,navy,.52);block(54,7,3,6,navy,.52);block(50,11,6,2,navy,.52);
+   block(22,9,8,3,dust,.48);
+  }
+ }
+
  async function build(scene,refs,H){
   const data=START_AREA_LAYOUT,all=[],bodies=[],chunks=new Map(),items=[],captions=[],blinkLights=[],animatedWorkers=[],standingPeople=[],seen=new Set();let alive=true,lastMemo=-1e9,lastValid=data.spawn.slice();
   const add=(o,bounds=null)=>{all.push({o,bounds});return o;};
@@ -162,6 +280,11 @@ window.StartAreaArt = (() => {
   }
   // Small repeatable floor stories, authored as data, baked by the existing speed pass below.
   for(const d of data.floorDecor||[]){const {x,y,width:w,height:h}=d;
+   if(d.kind==='courtyard-decal'){
+    const g=add(scene.add.graphics().setDepth(BASE+3),{x,y,width:w,height:h});
+    drawCourtyardDecal(g,d);
+    continue;
+   }
    if(d.kind==='welcome-rug'){floorPatch('rug_teal',x,y,w,h,.93,BASE+3);continue;}
    if(d.kind==='team-rug'||d.kind==='window-shape'){
     const g=add(scene.add.graphics().setDepth(d.kind==='team-rug'?BASE+1.5:BASE+3),{x,y,width:w,height:h});

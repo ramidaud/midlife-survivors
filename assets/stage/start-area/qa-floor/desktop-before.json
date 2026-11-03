@@ -1,0 +1,96 @@
+{
+  "phase": "before",
+  "errors": [],
+  "warnings": [],
+  "leaderboardRequests": 0,
+  "ready": true,
+  "slice": {
+    "seats": 15,
+    "chairOrder": true,
+    "standing": 5,
+    "standingNonSolid": true,
+    "lights": 63,
+    "version": "1.54.2",
+    "build": 128,
+    "viewport": [
+      1280,
+      800
+    ],
+    "age": 40.17796140740741,
+    "openUpToAge": 60,
+    "statsDisabled": true,
+    "analyticsResources": 0,
+    "player": [
+      2232,
+      -414
+    ],
+    "body": [
+      48,
+      52
+    ],
+    "props": 566,
+    "nativeFloorDecor": true,
+    "deskCount": 20,
+    "visible": 30,
+    "peak": 30,
+    "navBlockers": 6,
+    "gates": [
+      {
+        "id": "parking-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "break-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "server-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "conference-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "executive-return",
+        "age": 55,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "wellness-conference",
+        "age": 60,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      }
+    ],
+    "outside": 0,
+    "fps": 119.26473328600783
+  },
+  "stress": {
+    "enemies": 350,
+    "outside": 0,
+    "visible": 30,
+    "initial": 350,
+    "fps": {
+      "min": 113.4106276261839,
+      "average": 116.73810986590118
+    },
+    "scope": "350 real physics/navigation/animation actors in the same Bullpen reserve; HP guards, paused firing, about eight seconds, before Bills split."
+  },
+  "consoleErrors": []
+}

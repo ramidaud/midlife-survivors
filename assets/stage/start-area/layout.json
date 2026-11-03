@@ -7964,8 +7964,8 @@
     {
       "id": "loop-welcome",
       "text": "WELCOME",
-      "x": 302,
-      "y": -212,
+      "x": 388,
+      "y": -326,
       "width": 96,
       "plate": false,
       "floor": true,
@@ -8011,6 +8011,39 @@
       "plate": false,
       "floor": true,
       "alpha": 0.4
+    },
+    {
+      "id": "loop-floor-wet",
+      "text": "CAUTION\nWET FLOOR",
+      "x": 2819,
+      "y": -55,
+      "width": 104,
+      "floor": true,
+      "plate": false,
+      "alpha": 0.56,
+      "scale": 2
+    },
+    {
+      "id": "loop-floor-printer",
+      "text": "PRINTER\nWAS HERE",
+      "x": 2540,
+      "y": -826,
+      "width": 105,
+      "floor": true,
+      "plate": false,
+      "alpha": 0.52,
+      "scale": 2
+    },
+    {
+      "id": "loop-floor-move",
+      "text": "MOVE YOUR CAR\nHR",
+      "x": 2296,
+      "y": -610,
+      "width": 116,
+      "floor": true,
+      "plate": false,
+      "alpha": 0.64,
+      "scale": 2
     }
   ],
   "floorDecor": [
@@ -8597,9 +8630,9 @@
     {
       "kind": "welcome-rug",
       "x": 32,
-      "y": -440,
+      "y": -430,
       "width": 540,
-      "height": 240
+      "height": 128
     },
     {
       "kind": "window-shape",
@@ -8672,6 +8705,384 @@
       "y": 685,
       "width": 112,
       "height": 52
+    },
+    {
+      "kind": "welcome-rug",
+      "x": -80,
+      "y": -766,
+      "width": 112,
+      "height": 464
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": -768,
+      "y": -745,
+      "width": 242,
+      "height": 56
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": -768,
+      "y": 450,
+      "width": 242,
+      "height": 56
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": -558,
+      "y": -709,
+      "width": 62,
+      "height": 1200
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 1012,
+      "y": -521,
+      "width": 68,
+      "height": 210
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 224,
+      "y": -436,
+      "width": 260,
+      "height": 66
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 1498,
+      "y": -756,
+      "width": 2412,
+      "height": 68
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 3869,
+      "y": -722,
+      "width": 65,
+      "height": 952
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 1498,
+      "y": 191,
+      "width": 2412,
+      "height": 60
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 1471,
+      "y": -720,
+      "width": 61,
+      "height": 945
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 2644,
+      "y": -722,
+      "width": 58,
+      "height": 935
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "wear",
+      "x": 2296,
+      "y": -928,
+      "width": 58,
+      "height": 210
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "inlay",
+      "x": 2576,
+      "y": -418,
+      "width": 224,
+      "height": 224
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "spill",
+      "x": 2765,
+      "y": -115,
+      "width": 110,
+      "height": 57
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "curl",
+      "x": 545,
+      "y": -325,
+      "width": 27,
+      "height": 23
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "chair",
+      "x": 2338,
+      "y": -520,
+      "width": 35,
+      "height": 37,
+      "mirror": true
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "chair",
+      "x": 2972,
+      "y": -150,
+      "width": 35,
+      "height": 37
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "chair",
+      "x": 2365,
+      "y": 40,
+      "width": 35,
+      "height": 37
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "chair",
+      "x": 1906,
+      "y": -681,
+      "width": 35,
+      "height": 37,
+      "mirror": true
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "pizza",
+      "x": 2924,
+      "y": 24,
+      "width": 47,
+      "height": 34
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "pen-cup",
+      "x": 2196,
+      "y": -487,
+      "width": 45,
+      "height": 31
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "papers",
+      "x": 2511,
+      "y": -676,
+      "width": 49,
+      "height": 33,
+      "seed": 1
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "papers",
+      "x": 2425,
+      "y": -837,
+      "width": 49,
+      "height": 33,
+      "seed": 6
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "papers",
+      "x": 2394,
+      "y": -796,
+      "width": 49,
+      "height": 33,
+      "seed": 2
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "papers",
+      "x": 2348,
+      "y": -731,
+      "width": 49,
+      "height": 33,
+      "seed": 0
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "papers",
+      "x": 2448,
+      "y": 265,
+      "width": 49,
+      "height": 33,
+      "seed": 4
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "papers",
+      "x": 3696,
+      "y": -570,
+      "width": 49,
+      "height": 33,
+      "seed": 4
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "sticky",
+      "x": 2200,
+      "y": -678,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "sticky",
+      "x": 2257,
+      "y": -659,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "sticky",
+      "x": 2312,
+      "y": -643,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "sticky",
+      "x": 2380,
+      "y": -608,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "sticky",
+      "x": 3020,
+      "y": -176,
+      "width": 14,
+      "height": 14
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "rings",
+      "x": 2832,
+      "y": -469,
+      "width": 37,
+      "height": 28
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "rings",
+      "x": 2551,
+      "y": -211,
+      "width": 37,
+      "height": 28
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "rings",
+      "x": 2778,
+      "y": 112,
+      "width": 37,
+      "height": 28
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "rings",
+      "x": 2018,
+      "y": -655,
+      "width": 37,
+      "height": 28
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "rings",
+      "x": 1212,
+      "y": -351,
+      "width": 37,
+      "height": 28
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "rings",
+      "x": 462,
+      "y": -368,
+      "width": 37,
+      "height": 28
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "cables",
+      "x": 3212,
+      "y": -655,
+      "width": 219,
+      "height": 47
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "cables",
+      "x": 2191,
+      "y": -190,
+      "width": 126,
+      "height": 48,
+      "mirror": true
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "old-printer",
+      "x": 2481,
+      "y": -889,
+      "width": 118,
+      "height": 67
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "note",
+      "x": 2238,
+      "y": -644,
+      "width": 116,
+      "height": 36
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "footsteps",
+      "x": -47,
+      "y": -714,
+      "width": 66,
+      "height": 329,
+      "steps": 12
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "footsteps",
+      "x": -752,
+      "y": -741,
+      "width": 202,
+      "height": 45,
+      "steps": 8
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "badge",
+      "x": 130,
+      "y": -376,
+      "width": 34,
+      "height": 19
+    },
+    {
+      "kind": "courtyard-decal",
+      "style": "umbrella",
+      "x": -99,
+      "y": -315,
+      "width": 63,
+      "height": 21
     }
   ],
   "structures": [

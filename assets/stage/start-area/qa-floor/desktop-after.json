@@ -1,0 +1,98 @@
+{
+  "phase": "after",
+  "errors": [],
+  "warnings": [],
+  "leaderboardRequests": 0,
+  "ready": true,
+  "slice": {
+    "decals": 45,
+    "bakedFloors": 38,
+    "seats": 15,
+    "chairOrder": true,
+    "standing": 5,
+    "standingNonSolid": true,
+    "lights": 63,
+    "version": "1.55.0",
+    "build": 129,
+    "viewport": [
+      1280,
+      800
+    ],
+    "age": 40.181842296296296,
+    "openUpToAge": 60,
+    "statsDisabled": true,
+    "analyticsResources": 0,
+    "player": [
+      2232,
+      -414
+    ],
+    "body": [
+      48,
+      52
+    ],
+    "props": 566,
+    "nativeFloorDecor": true,
+    "deskCount": 20,
+    "visible": 30,
+    "peak": 30,
+    "navBlockers": 6,
+    "gates": [
+      {
+        "id": "parking-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "break-access",
+        "age": 45,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "server-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "conference-return",
+        "age": 50,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "executive-return",
+        "age": 55,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      },
+      {
+        "id": "wellness-conference",
+        "age": 60,
+        "closed": true,
+        "width": 224,
+        "sameBlocker": true
+      }
+    ],
+    "outside": 0,
+    "fps": 119.554664694969
+  },
+  "stress": {
+    "enemies": 350,
+    "outside": 0,
+    "visible": 30,
+    "initial": 350,
+    "fps": {
+      "min": 116.90522166062146,
+      "average": 118.45945511044383
+    },
+    "scope": "350 real physics/navigation/animation actors in the same Bullpen reserve; HP guards, paused firing, about eight seconds, before Bills split."
+  },
+  "consoleErrors": []
+}

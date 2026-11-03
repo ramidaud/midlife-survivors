@@ -2,12 +2,16 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.54.2",
-  displayVersion: "V. 1.54.2",
+  version: "1.55.0",
+  displayVersion: "V. 1.55.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "The Courtyard Loop",
-  build: 128,
+  codename: "Office Footprints",
+  build: 129,
   changelog: [
+    {
+      ver: "V. 1.55.0", date: "Nov 3, 2026", title: "Office Footprints",
+      highlights: ["The Courtyard Loop has worn paths, coffee stains, taped cables and a Lobby runner. Someone left a pizza box in the commons."]
+    },
     {
       ver: "V. 1.54.2", date: "Nov 3, 2026", title: "On Break",
       highlights: ["Each title slide now moves around its subject: some start tight on the hero and pull back to reveal the scene, others drift slowly toward him. Phones crop on the same spot, so the hero stays in frame."]
