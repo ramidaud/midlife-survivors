@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.47.0",
-  displayVersion: "V. 1.47.0",
-  lastUpdated: "Nov 2, 2026",
-  codename: "Still on Mute",
-  build: 113,
+  version: "1.48.0",
+  displayVersion: "V. 1.48.0",
+  lastUpdated: "Nov 3, 2026",
+  codename: "Bonus Approved",
+  build: 114,
   changelog: [
+    {
+      ver: "V. 1.48.0", date: "Nov 3, 2026", title: "Bonus Approved",
+      highlights: [
+        "Boss chests are a real moment now. The game pauses on a BONUS APPROVED card. Press OPEN and the chest shakes, light beams shoot up, rewards spin like a slot reel and land, and 401(k) coins fountain out while the counter ticks up.",
+        "Bigger bosses pay bigger: the Performance Review pays 1 reward, the 30-Year Mortgage 3, and the Midlife Crisis V8 5, with a gold flash. Press SKIP if you're in a hurry."
+      ]
+    },
     {
       ver: "V. 1.47.0", date: "Nov 2, 2026", title: "Still on Mute",
       highlights: ["Six coworkers bring the office to life with small desk routines, reactions when you pass, and their own office memos."]

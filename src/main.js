@@ -1033,18 +1033,89 @@ function togglePause(scene) {
   }
 }
 
-// You walked over a gold Boss Chest: free weapon or upgrade choice + Executive Bonus 401(k) Dividend!
+// You walked over a gold Boss Chest: the Bonus Chest moment (src/bonus-chest.js).
+// The chest pays 1, 3 or 5 rewards depending on the boss, applied right away, plus a 401(k) payout.
 function collectChest(p, chest) {
   if (!chest.active) return;
   if (chest.tag) chest.tag.destroy();
+  const scene = p.scene;
+  const C = PICKUPS.bossChest;
+  const tier = (C.tiers && C.tiers[chest.bossKind]) || C.defaultTier || 3;
+  const bossName = (ENEMIES[chest.bossKind] && ENEMIES[chest.bossKind].name) || "";
   chest.destroy();
-  const execBonus = window.getCoinYieldInfo().value * 4;
-  runCoins += execBonus;
-  meta.coins += execBonus;
+  const payout = window.getCoinYieldInfo().value * ((C.coinMultPerTier && C.coinMultPerTier[tier]) || tier * 4);
+  runCoins += payout;
+  meta.coins += payout;
   saveMeta(meta);
+  const rewards = rollChestRewards(tier);
   updateHUD();
-  pendingLevels++;
-  if (!levelUpOpen) showLevelUp(p.scene, `EXECUTIVE BONUS CHEST! (+${execBonus}k 401k)`, true);
+  if (!window.BonusChest) { pendingLevels++; if (!levelUpOpen) showLevelUp(scene, `EXECUTIVE BONUS CHEST! (+${payout}k 401k)`, true); return; }
+  pauseForMenu(scene);
+  const reelIcons = Phaser.Utils.Array.Shuffle(UPGRADES.slice()).slice(0, 12).map(u => chestIcon(u));
+  window.BonusChest.open({ scene, tier, rewards, coins: payout, bossName, reelIcons }, () => {
+    levelUpOpen = false;
+    touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+    scene.physics.resume();
+    scene.time.paused = false;
+    if (pendingLevels > 0) showLevelUp(scene);
+  });
+}
+
+// Pause the run for a menu the same way the level-up screen does.
+function pauseForMenu(scene) {
+  levelUpOpen = true;
+  window.menuInputGateUntil = performance.now() + 250;
+  window.menuHeldAtOpen = new Set(window._heldKeys || []);
+  touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
+  if (window.updateTouchJoystickUI) window.updateTouchJoystickUI(touch);
+  scene.physics.pause();
+  scene.time.paused = true;
+  player.setVelocity(0, 0);
+}
+
+function chestIcon(up) {
+  const info = (typeof UPGRADE_META !== "undefined" && UPGRADE_META[up.name]) || { icon: "⭐" };
+  return window.pixelIcon ? pixelIcon("card", up.name, info.icon, 40) : info.icon;
+}
+
+// Pick and apply this chest's rewards one at a time (so ranks and evolutions update between picks).
+// First beam: an evolution if one is ready, else a new weapon, else anything. Fallback when everything is maxed: a cash bonus.
+function rollChestRewards(n) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const pool = UPGRADES.filter(u => !u.isConsumable && (!u.when || u.when(stats)));
+    const evos = pool.filter(u => u.isEvolution);
+    const unlocks = pool.filter(u => u.name.startsWith("Unlock:"));
+    let up = null;
+    if (evos.length) up = Phaser.Utils.Array.GetRandom(evos);
+    else if (i === 0 && unlocks.length) up = Phaser.Utils.Array.GetRandom(unlocks);
+    else if (pool.length) up = Phaser.Utils.Array.GetRandom(pool.filter(u => !u.name.startsWith("Unlock:")).length ? pool.filter(u => !u.name.startsWith("Unlock:")) : pool);
+    if (!up) {
+      const bonus = window.getCoinYieldInfo().value * 3;
+      runCoins += bonus; meta.coins += bonus; saveMeta(meta);
+      out.push({ name: `Signing Bonus +${bonus}k`, label: "EVERYTHING'S MAXED", text: "", icon: "💰", evo: false });
+      continue;
+    }
+    const info = (typeof UPGRADE_META !== "undefined" && UPGRADE_META[up.name]) || {};
+    const plain = up.isEvolution || info.rarity === "evo" ? "EVOLUTION" : up.name.startsWith("Unlock:") ? "NEW WEAPON" : info.rarity === "passive" ? "PASSIVE" : "UPGRADE";
+    applyUpgrade(up);
+    out.push({ name: up.name, label: plain, text: up.text || "", icon: chestIcon(up), evo: plain === "EVOLUTION" });
+  }
+  return out;
+}
+
+// Apply one upgrade card and restart the weapon timers (shared by level-ups and chests).
+function applyUpgrade(up) {
+  const jokeBefore = [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join();
+  up.apply(stats);
+  if (up.isEvolution) window.achEvent("evolve", { name: up.name });
+  if (stats.dadJoke && jokeBefore !== [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join()) stats.jokeAnnounce = true;
+  if (stats.heal) { hp = Math.min(stats.maxHp, hp + healAmt(stats.heal)); stats.heal = 0; }
+  const cd = stats.cooldownMult;
+  fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
+  jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
+  noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
+  updateHUD();
 }
 
 function drawXpBar() { updateHUD(); }
@@ -1105,16 +1176,7 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     if (levelMenu && levelMenu.close) levelMenu.close();
     levelMenu = null;
     window.levelMenu = null;
-    const jokeBefore = [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join();
-    up.apply(stats);
-    if (up.isEvolution) window.achEvent("evolve", { name: up.name });
-    if (stats.dadJoke && jokeBefore !== [stats.dadJoke, stats.jokeRadius, stats.jokeDamage, stats.jokeEveryMs].join()) stats.jokeAnnounce = true;
-    if (stats.heal) { hp = Math.min(stats.maxHp, hp + healAmt(stats.heal)); stats.heal = 0; }
-    const cd = stats.cooldownMult;
-    fireTimer.reset({ delay: Math.round(stats.fireEveryMs * cd), loop: true, callback: fireTimer.callback });
-    jokeTimer.reset({ delay: Math.round(stats.jokeEveryMs * cd), loop: true, callback: jokeTimer.callback });
-    noTimer.reset({   delay: Math.round(stats.noEveryMs   * cd), loop: true, callback: noTimer.callback });
-    updateHUD();
+    applyUpgrade(up);
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
     pendingLevels--;
     levelUpOpen = false;
@@ -1270,6 +1332,7 @@ function damageBill(bill, amount) {
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
+      ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
       }).setOrigin(0.5).setDepth(4);

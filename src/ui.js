@@ -95,7 +95,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["lore-modal", "changelog-modal", "controls-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["lore-modal", "changelog-modal", "controls-modal", "bonus-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
