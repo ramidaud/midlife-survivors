@@ -476,3 +476,6 @@ Physics only stops things that *move* into a wall. If code jumps an object strai
 
 ## When two good routes cancel out (Nov 2)
 Our enemies blend all the "downhill" directions on the route map so they move smoothly. Directly behind a wide desk, the way around the left and the way around the right are equally good, so those two pulls cancel. The only pulls left were the small diagonal ones pointing back up behind the desk, so the enemy walked *away* from you. The fix: compare the blend with the single best step, and if they disagree a lot, trust the best step. Each enemy also picks a favorite side, so a crowd splits around the desk instead of freezing.
+
+## Choreographing a "moment" (Nov 3)
+A big moment like the chest opening is really a **timeline**: a list of small events, each scheduled a beat after the last (shake at 0 s, burst at 0.7 s, first beam lands at 1.6 s, the next 0.4 s later, then the counter). The game is **paused** underneath, so the show runs on the clock in the browser, not the game clock. A **SKIP** button just cancels the remaining timers and jumps every piece to its final state. Vampire Survivors does the same thing: the reward is decided the instant you touch the chest. Everything after that is theater.

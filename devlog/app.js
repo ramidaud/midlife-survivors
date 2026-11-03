@@ -72,15 +72,26 @@
     const [lead, ...rest] = ordered();
     const changes = (lead.changes || []).slice(0, 4).map(c => `<li>${esc(c)}</li>`).join("");
     const unread = posts.filter(p => !readSet.has(p.slug)).length;
+    // Version range across the series, e.g. "V. 0.1" to "1.47", from each memo's version label.
+    const verParts = v => String(v || "").replace(/^V\.\s*/, "").split(/\s+to\s+/);
+    const firstVer = "V. " + (verParts(posts[posts.length - 1].version)[0] || "0.1");
+    const lastVer = (verParts(posts[0].version).slice(-1)[0] || "");
     listMain.innerHTML = `
-      <div class="list-head">
-        <div class="section-label">${fromStart ? "Start here" : "Latest memo"}</div>
-        ${sortToggle()}
-      </div>
-      <p class="sort-hint">${fromStart
-        ? `Reading the whole story in order, ${posts.length} memos. Switch to <b>Newest first</b> to get caught up.`
-        : `Just here for the latest? Start below. Want the whole story? Switch to <b>From the start</b>.`}
-        ${readSet.size ? ` <span class="read-count">${posts.length - unread} of ${posts.length} read.</span>` : ""}</p>
+      <header class="list-intro">
+        <div class="list-intro-top">
+          <span class="list-intro-eyebrow">${fromStart ? "Start here" : "Latest memo"}</span>
+          ${sortToggle()}
+        </div>
+        <h2 class="list-intro-title">${fromStart ? "The whole story, in order." : "What just shipped."}</h2>
+        <p class="list-intro-sub">${fromStart
+          ? `Memo 01 to ${two(posts.length)}, ${esc(firstVer)} to ${esc(lastVer)}. A first game in Phaser 3, built in public with AI, one playable build at a time.`
+          : `${esc(lead.version || "")}. Each memo is a playable build, with the code, art and bugs behind it.`}</p>
+        <div class="list-intro-meta">
+          <span>${posts.length} memos</span>
+          ${readSet.size ? `<span class="read-count">${posts.length - unread} of ${posts.length} read</span>` : ""}
+          <span>${fromStart ? `Catching up? Switch to <b>Newest first</b>.` : `New here? Switch to <b>From the start</b>.`}</span>
+        </div>
+      </header>
       <a class="feature" href="?post=${esc(lead.slug)}${draftQ}">
         <div class="feature-cover" style="background-image:url('${esc(coverUrl(lead))}')" role="img" aria-label="${esc(lead.leadAlt || "")}">
           <span class="feature-badge">${fromStart ? "MEMO 01 · START HERE" : "NEW MEMO"}</span>
@@ -99,7 +110,7 @@
           <span class="btn btn-primary feature-cta">${fromStart ? "Start the story →" : "Read the memo →"}</span>
         </div>
       </a>
-      ${rest.length ? `<div class="section-label earlier-label">${fromStart ? "Then, in order" : "Filed earlier"}</div>` : ""}
+      ${rest.length ? `<div class="section-label earlier-label">${fromStart ? "Then, in order" : "Earlier memos"}</div>` : ""}
       <ul class="card-list">${rest.map(p => `
       <li>
         <a class="card${readSet.has(p.slug) ? " is-read" : ""}" href="?post=${esc(p.slug)}${draftQ}">
