@@ -232,3 +232,8 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Carried Rami's approved chestnut hair, mature jaw and checked-out expression across Ben's walk, idle, On Break portrait and title badge. Built-in pose studies used the approved concept and existing frame layouts.
 - **Checks.** Verified 40 walk and idle cells, 22 portrait cells, original foot lines and cast palette. The 4× comparison shows the 9-to-5er, Ben v2 and Ben v3.
 - **For Claude.** See assets, frame map and integration prompt in docs/handoffs/chatgpt-cold-war-cowboy-v3.md.
+
+## 2026-11-03: Intern On Break portraits (Codex)
+- **What.** Made TJ's grinning coffee toast and Derek's camera shot and nod, plus breathing and stretch loops for both. Used the v2 intern sheets and Ben's v3 portrait as imagegen references.
+- **Files.** assets/characters/portraits/README-interns-v1.md links the two native sheets, all six row GIFs and the 1×/4× comparison with Ben and the 9-to-5er.
+- **For Claude.** The sheets are 768×336 with 96×112 cells and shoe line y111. Play row 1 at 140 ms for the Lounge Spotlight. Derek flashes once in column 2, indexed from zero. The remaining rows follow the hero portrait timing.
