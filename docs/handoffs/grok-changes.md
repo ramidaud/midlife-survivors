@@ -48,3 +48,5 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - File: `docs/handoffs/grok-healing-spec.md` (answers `docs/handoffs/grok-healing.md`; Interns + Lounge in §8).
 - For Claude/Codex: add `src/data/healing.js` and `src/data/interns.js`; extend `PICKUPS.salad` and `INTENSITY.elites.salad*`; hook milestone heal beside the 5-year dividend; elite salad drops; intern delivery AI; Lounge state machine pinned to `START_AREA_LAYOUT` district `breakroom` (not `stages.js`). Do not buff plant pizza to 100%, do not bypass `healAmt`, do not seal Break Room from NAV, do not retune spawns or Tax Bracket in this pass. Roster names stay data-only placeholders until Rami supplies playtester nicknames.
 - Pending after Rami approval, implementation, and TJ playtest: mark [done] with version.
+
+- Nov 3: Age 50+ run modifiers (Part 3D) **[done: V. 1.65.0]**. Built as specced: 8 modifiers in src/data/modifiers.js, runtime in src/modifiers.js. Small differences: no vignette or HUD icon art yet (banner + chip only); Rent Hike intensity is 1.25 x (1 + 0.05 per Tax Bracket).
