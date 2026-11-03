@@ -15,6 +15,7 @@ window.SOUNDS = {
   levelUp:  [[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.18, "square"]],
   pick:     [[784, 0.06, "triangle"], [1047, 0.10, "triangle"]],
   move:     [[600, 0.03, "triangle"]],                                 // moving between menu choices
+  uiHover:  [[1320, 0.018, "sine"]],                                   // the softest tick: hovering a menu option (Nov 3)
   ring:     [[980, 0.05, "square"], [1240, 0.05, "square"]],           // Spam Likely phone ring
   overdue:  [[300, 0.06, "sawtooth"], [420, 0.08, "sawtooth"]],        // Bill splits into Late Fees
   bossSpawn:[[220, 0.14, "sawtooth"], [165, 0.24, "sawtooth"]],        // ominous HR arrival
@@ -51,5 +52,6 @@ window.SOUND_VARY = {
   bossSpawn:{ vary: 0, important: true, noise: [0.4, 200, 0.7, "lowpass"] },
   bossDefeat:{ vary: 0, important: true, noise: [0.3, 1500, 0.5, "bandpass"] },
   pick:     { vary: 0, important: true },
-  move:     { vary: 0, important: true }
+  move:     { vary: 0, important: true, gain: 0.55 },
+  uiHover:  { vary: 0.04, gain: 0.22 }
 };

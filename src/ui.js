@@ -220,7 +220,7 @@ function bindNavItem(el, row, onActivate, isDefault = false) {
   el.dataset.navRow = String(row);
   if (isDefault) el.classList.add("nav-default");
   el.addEventListener("pointermove", e => {
-    if (e.pointerType === "mouse" && window.menuNav.focusedEl !== el) window.menuNav.focus(el, false);
+    if (e.pointerType === "mouse" && window.menuNav.focusedEl !== el) { window.menuNav.focus(el, false); try { sfx("uiHover"); } catch (err) {} }
   });
   // Mouse clicks act right away. Touch taps act when the finger LIFTS (pointerup), so a restart
   // never happens mid-touch (that broke touch steering after Retry) and a stray touch can slide off to cancel.
@@ -1122,6 +1122,17 @@ function activeEffectsHtml() {
 
 // A little 10-block volume meter, e.g. ■■■■■■■□□□ 70%
 function volBar(v) { const n = Math.round(v * 10); return `${"■".repeat(n)}${"□".repeat(10 - n)} ${Math.round(v * 100)}%`; }
+// The selected hero, idling on the pause screen (breathing, then a fidget): row 5 of the 8x5 hero sheet.
+function pauseHeroHtml() {
+  try {
+    const id = meta.selectedChar, sc = window.game && game.scene.scenes[0], key = "walk2_" + id;
+    window._heroSheetUrls = window._heroSheetUrls || {};
+    if (!window._heroSheetUrls[id] && sc && sc.textures.exists(key)) window._heroSheetUrls[id] = sc.textures.get(key).getSourceImage().toDataURL("image/png");
+    const url = window._heroSheetUrls[id];
+    return url ? `<div class="pause-hero" style="background-image:url(${url})" aria-hidden="true"></div>` : "";
+  } catch (e) { return ""; }
+}
+
 function renderPauseModal(scene, keepRowIdx) {
   const modal = document.getElementById("pause-modal");
   if (!modal) return;
@@ -1147,8 +1158,13 @@ function renderPauseModal(scene, keepRowIdx) {
   modal.innerHTML = `
     <div class="modal-card pause-box pause-tiles">
       <div class="modal-kicker">✓ AUTO-SAVED · ${verInfo.displayVersion}</div>
-      <h2 class="modal-title">ON BREAK</h2>
-      <p class="modal-sub">The swarm will wait. It always does.</p>
+      <div class="pause-head">
+        ${pauseHeroHtml()}
+        <div>
+          <h2 class="modal-title">ON BREAK</h2>
+          <p class="modal-sub">${(CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0]).name} is on break. The swarm will wait. It always does.</p>
+        </div>
+      </div>
       <div class="pause-actions">
         <button class="opt-btn primary-opt pa-resume" id="pause-resume-btn">▶ RESUME SHIFT</button>
         <button class="opt-btn pa-small" id="pause-savequit-btn"><span>💾 SAVE & EXIT</span><span class="opt-val">RESUME LATER</span></button>
@@ -2392,25 +2408,36 @@ window.TitleSlides = (() => {
     root.style.setProperty("--ts-fade", A.fadeMs + "ms");
     root.style.setProperty("--ts-run", (A.holdMs + A.fadeMs * 2) + "ms");
     root.style.setProperty("--ts-zoom", A.zoom);
-    root.innerHTML = A.slides.map((sl, i) => `<div class="ts-slide" data-i="${i}" data-move="${sl.move || "push"}"></div>`).join("");
+    root.innerHTML = A.slides.map((sl, i) => `<div class="ts-slide" data-i="${i}" data-move="${sl.move || "push"}"><div class="ts-img"></div></div>`).join("");
     host.parentNode.insertBefore(root, host);
     return root;
   }
   function paint(i) {
-    const A = window.TITLE_ART, sl = A.slides[i], el = root.children[i];
-    if (!el.style.backgroundImage) el.style.backgroundImage = `url("${sl.src}")`;
-    const focus = sl.focus || (phone() ? (sl.phonePos || sl.pos) : sl.pos) || "50% 50%";
-    el.style.backgroundPosition = focus;   // keep the subject in the crop on every screen
-    el.style.transformOrigin = focus;      // and grow the motion out of that same point
+    const A = window.TITLE_ART, sl = A.slides[i], el = root.children[i], img = el.firstElementChild;
+    if (!img.style.backgroundImage) { el.style.setProperty("--ts-src", `url("${sl.src}")`); img.style.backgroundImage = `url("${sl.src}")`; }
+    const focus = sl.focus || "50% 50%";
+    // Screens wider than the art show the whole picture, with a soft blurred copy filling the sides.
+    const ultra = window.innerWidth / window.innerHeight > 1.9;
+    el.classList.toggle("ultra", ultra);
+    img.style.backgroundPosition = ultra ? "50% 50%" : focus;  // keep the subject in the crop on every screen
+    img.style.transformOrigin = focus;                          // and grow the motion out of that same point
     // Punch In only points at the time clock when the time clock is in the picture.
     const modal = document.getElementById("title-modal");
     if (modal) modal.dataset.pointer = sl.pointer ? "1" : "0";
     return el;
   }
   function show(i) {
-    [...root.children].forEach(c => c.classList.remove("on"));
+    // The slide on its way out keeps its current framing while it fades, so nothing snaps.
+    [...root.children].forEach(c => {
+      if (!c.classList.contains("on")) return;
+      const im = c.firstElementChild;
+      im.style.transform = getComputedStyle(im).transform;
+      c.classList.remove("on"); c.classList.add("leaving");
+      setTimeout(() => { c.classList.remove("leaving"); im.style.transform = ""; }, (window.TITLE_ART.fadeMs || 1800) + 80);
+    });
     const el = paint(i);
-    el.classList.remove("on"); void el.offsetWidth; el.classList.add("on");
+    el.classList.remove("leaving"); el.firstElementChild.style.transform = "";
+    void el.offsetWidth; el.classList.add("on");
     // warm up the next picture so the fade never shows a blank
     const n = (i + 1) % root.children.length, nx = window.TITLE_ART.slides[n];
     if (!root.children[n].style.backgroundImage) { const im = new Image(); im.src = nx.src; }

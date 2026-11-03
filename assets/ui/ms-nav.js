@@ -13,7 +13,7 @@
 
   const links = [
     { id: "play",  label: "▶ Play",  href: u("./"), cls: "primary" },
-    { id: "memos", label: "Memos",   href: u("devlog/") },
+    { id: "memos", label: "📝 Devlog", href: u("devlog/") },
     { id: "art",   label: "Art Room", href: u("devlog/art/") },
     { id: "about", label: "About",   href: u("devlog/about/") },
     { id: "discord", label: "💬 Discord", href: "https://discord.gg/E6N9j5tZe", ext: true },
@@ -50,6 +50,12 @@
     measure();
     window.dispatchEvent(new Event("ms-nav-change"));
   }
+  // Soft menu sounds in the game (the devlog stays silent)
+  const tick = n => { try { if (inGame && typeof window.sfx === "function") window.sfx(n); } catch (e) {} };
+  header.querySelectorAll(".ms-nav-btn, .ms-nav-brand").forEach(a => {
+    a.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") tick("uiHover"); });
+    a.addEventListener("click", () => tick("pick"));
+  });
   header.querySelector(".hide").addEventListener("click", () => setHidden(true, true));
   tab.addEventListener("click", () => setHidden(false, true));
   // Taps in the bar shouldn't reach the game underneath (steering, menus)

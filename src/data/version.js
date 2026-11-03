@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.55.0",
-  displayVersion: "V. 1.55.0",
+  version: "1.56.0",
+  displayVersion: "V. 1.56.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "Office Footprints",
-  build: 129,
+  codename: "Smooth Operator",
+  build: 131,
   changelog: [
+    {
+      ver: "V. 1.56.0", date: "Nov 3, 2026", title: "Smooth Operator",
+      highlights: [
+        "Smoother title slideshow: softer crossfades, no snapping, and gentler motion. On wide screens the logo moves to the top-left and the art lifts above the tiles. Ultra-wide screens show the whole picture.",
+        "Your hero now idles beside the On Break title on the pause screen.",
+        "The Shop, Extras, Leaderboard, Achievements and Options screens match the new tile layout.",
+        "Soft menu sounds when you hover or move between options.",
+        "The menu bar says Devlog instead of Memos."
+      ]
+    },
     {
       ver: "V. 1.55.0", date: "Nov 3, 2026", title: "Office Footprints",
       highlights: ["The Courtyard Loop has worn paths, coffee stains, taped cables and a Lobby runner. Someone left a pizza box in the commons."]

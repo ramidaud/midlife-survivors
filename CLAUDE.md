@@ -64,6 +64,13 @@ assets/                 art and sound (later)
 - Published devlog posts also reach the Substack "Midlife Survivors Devlog" section through the RSS feed (a weekly Sunday task drafts them). Keep `feed.xml` full-text.
 - **Rami's words first (Nov 3).** Each post is built from a **voice memo** (a transcript Rami sends) plus a short **interview**: Claude asks 4-5 questions, Rami answers in rough lines. Keep his sentences and his stories; Claude organizes, fixes facts and fills in the build details. Never write posts to evade AI detectors. Posts are openly AI-assisted, and Substack carries a "How I make this" statement.
 
+## One look (Nov 3, Rami's OK)
+The game and the devlog are one product.
+- **Fonts:** Silkscreen for short labels and headings, Atkinson Hyperlegible for anything you read.
+- **Colors:** the devlog palette only (navy, slate, teal, sage, cream, coffee orange, russet). No off-palette blues or yellows.
+- **Building blocks:** cream "MEMO · RE:" strips, tiles with teal borders, the shared progress bar (`assets/ui/ms-bar.css`) and the universal nav (`assets/ui/ms-nav.*`).
+- **Every screen is checked** at phone, iPad (both orientations) and desktop sizes before it ships.
+
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
 

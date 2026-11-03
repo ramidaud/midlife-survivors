@@ -6,8 +6,8 @@
 //   pointer: true only for art with the time clock on the left (Punch In points at it)
 window.TITLE_ART = {
   holdMs: 9000,   // how long each slide stays up
-  fadeMs: 1800,   // crossfade length
-  zoom: 1.12,     // how far the motion travels (1 = none)
+  fadeMs: 2400,   // crossfade length
+  zoom: 1.08,     // how far the motion travels (1 = none). Small and slow reads smoothest
   slides: [
     { src: "assets/title-screen/slides/01-lobby.jpg",       name: "8:59 AM",          focus: "9% 42%",  move: "reveal", pointer: true },
     { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", move: "reveal", pointer: false },
