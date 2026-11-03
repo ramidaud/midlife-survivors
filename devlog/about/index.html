@@ -94,6 +94,8 @@
         <div><strong>…</strong><span>devlog memos</span></div>
         <div><strong>…</strong><span>current version</span></div>
       </div>
+      <div class="ab-head sub"><span>Rami's own record</span><small>Leaderboard name: rami</small></div>
+      <div class="ab-stats" id="ab-me"><div><strong>…</strong><span>best score</span></div></div>
       <div class="ab-head sub"><span>The playtest so far</span></div>
       <div class="ab-stats" id="ab-play"></div>
       <p class="ab-foot">Counted from the build history and anonymous play stats. Refreshed every time a memo goes out.</p>
@@ -103,8 +105,11 @@
       <div class="ab-head"><span>Find Rami elsewhere</span></div>
       <div class="ab-links">
         <a class="ab-link" href="https://ramidaud.com" rel="noopener"><b>📷</b><span><strong>ramidaud.com</strong><em>Photography and portfolio</em></span></a>
-        <a class="ab-link" href="https://substack.com/@ramidaud" rel="noopener"><b>🔭</b><span><strong>Framing the Cosmos</strong><em>Substack: how iconic space photos shape how we see the universe</em></span></a>
+        <a class="ab-link" href="https://open.substack.com/pub/ramidaud" rel="noopener"><b>🔭</b><span><strong>Framing the Cosmos</strong><em>Substack: how iconic space photos shape how we see the universe</em></span></a>
         <a class="ab-link" href="https://discord.gg/E6N9j5tZe" rel="noopener"><b>💬</b><span><strong>Midlife Survivors Discord</strong><em>Playtest notes, art previews, #want-to-help</em></span></a>
+        <a class="ab-link" href="https://www.instagram.com/ramidaud/" rel="noopener"><b>📸</b><span><strong>Instagram</strong><em>@ramidaud</em></span></a>
+        <a class="ab-link" href="https://www.threads.com/@ramidaud" rel="noopener"><b>🧵</b><span><strong>Threads</strong><em>@ramidaud</em></span></a>
+        <a class="ab-link" href="https://www.linkedin.com/in/ramidaudphoto" rel="noopener"><b>💼</b><span><strong>LinkedIn</strong><em>ramidaudphoto</em></span></a>
         <a class="ab-link coffee" href="https://ko-fi.com/ramidaud" rel="noopener"><b>☕</b><span><strong>Buy Rami a coffee</strong><em>The game is free. Tips keep the builds coming</em></span></a>
         <a class="ab-link" href="../../"><b>▶</b><span><strong>Play Midlife Survivors</strong><em>Free, in your browser, on any device</em></span></a>
         <a class="ab-link" href="../"><b>📝</b><span><strong>Read the devlog</strong><em>Every memo, in order</em></span></a>
@@ -126,11 +131,27 @@
     </article>
   </div>
   <script src="../../src/data/version.js"></script>
+  <script src="../../src/data/leaderboard.js"></script>
   <script>
   (function () {
     const n = v => Number(v || 0).toLocaleString("en-US");
     const ago = t => { const h = (Date.now() - new Date(t)) / 36e5; return h < 1 ? "just now" : h < 24 ? Math.round(h) + "h ago" : Math.round(h / 24) + "d ago"; };
     const tile = (big, small) => `<div><strong>${big}</strong><span>${small}</span></div>`;
+    // Rami's best Midlife score, live from the leaderboard (read only)
+    (async () => {
+      const el = document.getElementById("ab-me"), L = window.LEADERBOARD;
+      if (!L || !L.supabaseUrl) { el.innerHTML = tile("–", "best score"); return; }
+      const h = { apikey: L.supabaseAnonKey }; if (!String(L.supabaseAnonKey).startsWith("sb_")) h.Authorization = "Bearer " + L.supabaseAnonKey;
+      const chars = { officeWorker: "The 9-to-5er", photographer: "The Soccer Dad", gradStudent: "The Grad Student" };
+      try {
+        const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age,character&order=score.desc&limit=500`, { headers: h, cache: "no-store" });
+        const rows = r.ok ? await r.json() : [];
+        const i = rows.findIndex(x => String(x.name || "").trim().toLowerCase() === "rami");
+        if (i < 0) { el.innerHTML = tile("–", "no score posted yet"); return; }
+        const me = rows[i], runs = rows.filter(x => String(x.name || "").trim().toLowerCase() === "rami").length;
+        el.innerHTML = tile(n(me.score), "best score") + tile("#" + (i + 1), "on the leaderboard") + tile(Number(me.age).toFixed(1), "age reached") + tile(chars[me.character] || "–", "played as") + tile(n(runs), "scores posted");
+      } catch (e) { el.innerHTML = tile("–", "leaderboard is on break"); }
+    })();
     fetch("../data/stats.json", { cache: "no-store" }).then(r => r.json()).then(d => {
       const builds = Array.isArray(d.builds) ? d.builds : [];
       const days = Math.max(1, Math.ceil((Date.now() - new Date(d.firstCommit)) / 864e5));
