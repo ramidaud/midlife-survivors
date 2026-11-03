@@ -132,6 +132,16 @@ window.Spotlight = (() => {
     if (typeof sfx === "function") sfx(c.boss ? "bossSpawn" : "pick");
   }
 
+  // Pacing (Nov 3, Rami: "they come in real hot one after another"). Age 45 used to stack a boss, a promotion,
+  // the Lounge and a tip back to back. Now:
+  //   - cards keep a breather between them (gapMs), except a boss, which cuts in right away
+  //   - a boss bumps whatever lower card is up, and the bumped card is dropped, not replayed
+  //   - each card waits only so long (maxWaitMs); if it's stale by then it's skipped
+  //   - the Lounge card shows once per run, and not right after a room card (that card's tip already points there)
+  const PRI = { boss: 3, hire: 2, room: 1, lounge: 1, tip: 0 };
+  const PACE = { gapMs: 12000, maxWaitMs: { hire: 20000, room: 25000, lounge: 15000, tip: 20000, boss: 15000 } };
+  let lastHiddenAt = -1e9, lastShownKind = null, run = { lounge: false, lastRoomAt: -1e9 };
+
   function hide() {
     clearTimeout(hideTimer);
     if (!root || !showing) return;
@@ -139,18 +149,36 @@ window.Spotlight = (() => {
     const r = root;
     setTimeout(() => { if (!showing) { r.innerHTML = ""; r.className = ""; } }, 380);
     showing = null;
+    lastHiddenAt = performance.now();
   }
 
   function show(card) {
+    card.at = performance.now();
+    card.kind = card.kind || "tip";
+    if (card.kind === "lounge") {
+      if (run.lounge || card.at - run.lastRoomAt < 30000) return; // once a run, and not on top of a room card
+      run.lounge = true;
+    }
+    queue = queue.filter(c => c.kind !== card.kind || card.kind === "boss"); // newest of each kind wins
     queue.push(card);
-    if (queue.length > 3) queue.splice(1, queue.length - 3); // keep it short during busy moments
+    queue.sort((a, b) => (PRI[b.kind] || 0) - (PRI[a.kind] || 0) || a.at - b.at);
   }
 
-  // Check every 250 ms: show the next card when no menu is up; a menu opening hides the current one.
+  // Check every 250 ms. A menu opening hides the current card.
   setInterval(() => {
+    const now = performance.now();
     if (showing && menuOpen()) { hide(); return; }
-    if (showing || !queue.length || menuOpen()) return;
+    queue = queue.filter(c => now - c.at < (PACE.maxWaitMs[c.kind] || 20000)); // stale cards are skipped
+    if (!queue.length || menuOpen()) return;
+    const next = queue[0];
+    if (showing) {
+      if (next.kind === "boss" && showing.kind !== "boss") { hide(); } // a boss cuts in
+      return;
+    }
+    if (next.kind !== "boss" && now - lastHiddenAt < PACE.gapMs) return; // breather between cards
     showing = queue.shift();
+    if (showing.seenKey) remember(showing.seenKey); // once-ever cards count as seen only when they actually show
+    if (showing.kind === "room") run.lastRoomAt = now;
     render(showing);
     hideTimer = setTimeout(hide, showing.ms || S().durationMs || 6000);
   }, 250);
@@ -178,7 +206,7 @@ window.Spotlight = (() => {
   return {
     boss(kind) {
       const B = (S().bosses || {})[kind]; if (!B) return false;
-      show({ boss: true, kicker: B.kicker, name: B.name, line: B.line, tip: B.tip, art: texUrl("bossart_" + kind, B.art), artType: "boss", edge: B.edge, band: B.band });
+      show({ kind: "boss", boss: true, kicker: B.kicker, name: B.name, line: B.line, tip: B.tip, art: texUrl("bossart_" + kind, B.art), artType: "boss", edge: B.edge, band: B.band });
       return true;
     },
     room(area) {
@@ -186,30 +214,28 @@ window.Spotlight = (() => {
       const cw = (window.START_AREA_COWORKERS || {})[R.cast];
       // Standing On Break portrait (ChatGPT, Nov 3; same 96x112 format as the heroes). Falls back to the desk sprite.
       const portrait = R.cast ? `assets/stage/coworkers/portraits/coworker-${R.cast}-on-break-v1.png` : null;
-      show({ kicker: R.kicker, name: R.name, line: R.line, tip: R.tip, art: portrait || texUrl("slice_coworker_" + R.cast, cw && cw.src), artType: portrait ? "hero" : "cast", edge: "#83A89A", band: "#3E7775" });
+      show({ kind: "room", kicker: R.kicker, name: R.name, line: R.line, tip: R.tip, art: portrait || texUrl("slice_coworker_" + R.cast, cw && cw.src), artType: portrait ? "hero" : "cast", edge: "#83A89A", band: "#3E7775" });
       return true;
     },
     lounge(r) {
       const line = (r.lines || [])[Math.floor(Math.random() * (r.lines || []).length)] || "Cash only.";
-      show({ kicker: "NOW OPEN", name: "THE LOUNGE", line: r.name + ": " + line, tip: "Follow the arrow to the Break Room counter.",
+      show({ kind: "lounge", kicker: "NOW OPEN", name: "THE LOUNGE", line: r.name + ": " + line, tip: "Follow the arrow to the Break Room counter.",
              // On Break portrait (same 96x112 format as the heroes, by ChatGPT); falls back to the counter sprite.
              art: r.portrait || ((window._activeGameScene && _activeGameScene.textures.exists("intern2_" + r.id)) ? r.sheet : null), artType: r.portrait ? "hero" : "intern", edge: "#EF9347", band: "#3E7775", ms: 5000 });
       return true;
     },
     hire(id) {
       const H = (S().hires || {})[id]; if (!H || seen["hire_" + id]) return false;
-      remember("hire_" + id);
-      show({ kicker: H.kicker, name: H.name, line: H.line, tip: H.tip, art: heroArt(id), artType: "hero", edge: "#BFA8CF", band: "#303750", ms: 5000 });
+      show({ seenKey: "hire_" + id, kind: "hire", kicker: H.kicker, name: H.name, line: H.line, tip: H.tip, art: heroArt(id), artType: "hero", edge: "#BFA8CF", band: "#303750", ms: 5000 });
       return true;
     },
     tip(key) {
       const T = (S().tips || {})[key]; if (!T || seen["tip_" + key]) return false;
       if (window.tipsEnabled && !window.tipsEnabled()) return false;
-      remember("tip_" + key);
       const id = heroId();
-      show({ kicker: T.kicker, name: (S().heroNames || {})[id] || "YOU", line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", edge: "#EF9347", band: "#303750", ms: 5000 });
+      show({ seenKey: "tip_" + key, kind: "tip", kicker: T.kicker, name: (S().heroNames || {})[id] || "YOU", line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", edge: "#EF9347", band: "#303750", ms: 5000 });
       return true;
     },
-    hide, reset: () => { queue = []; hide(); }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
+    hide, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
   };
 })();

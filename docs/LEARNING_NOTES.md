@@ -494,3 +494,6 @@ CLOSED --promotion + Break Room open--> OPEN --you walk up, no crowd--> BROWSING
   ^                                      |                                 |
   +-----timer ends / boss / tax----------+<-----------BACK TO WORK---------+
 ```
+
+## Priority queue (Nov 3)
+When several things want the same spot on screen, a **priority queue** decides who goes next. Each Spotlight card gets a rank (boss highest, tips lowest) and a time stamp. The game always shows the highest-ranked card first, waits a few seconds between cards so they don't pile up, and throws away cards that have waited too long to still make sense. It's the same idea as a dispatcher at a busy desk: urgent calls jump the line, and stale messages get tossed.

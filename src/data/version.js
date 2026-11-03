@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.69.1",
-  displayVersion: "V. 1.69.1",
+  version: "1.69.2",
+  displayVersion: "V. 1.69.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Cold War Cowboy",
-  build: 162,
+  build: 163,
   changelog: [
+    {
+      ver: "V. 1.69.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      teaser: "Spotlight cards take turns now: a breather between cards, bosses cut in, and the Lounge card shows once a run.",
+      highlights: [
+        "Spotlight cards no longer pile up back to back (Rami): there's a 12-second breather between cards, a boss cuts in right away, cards that wait too long are skipped, and the Lounge card shows once a run instead of right after the promotion card."
+      ]
+    },
     {
       ver: "V. 1.69.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "The devlog note on the title screen now says what the newest memo is about, and this pop-up shows up right away.",

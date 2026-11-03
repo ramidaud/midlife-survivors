@@ -1065,7 +1065,7 @@ function showTitleScreen(scene) {
     startFromTitle = null;
     hideTitleModal();
     beginFreshRunAtDecade(scene);
-    if (window.Spotlight) setTimeout(() => Spotlight.hire(meta.selectedChar), 1500); // first shift as this hero: a NEW HIRE card
+    if (window.Spotlight) { if (Spotlight.newRun) Spotlight.newRun(); setTimeout(() => Spotlight.hire(meta.selectedChar), 1500); } // first shift as this hero: a NEW HIRE card
     resetInputState(scene);
     if (window.Telemetry) window.Telemetry.runStarted(false); // anonymous play stats (src/telemetry.js)
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
