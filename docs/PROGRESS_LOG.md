@@ -934,3 +934,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - CLAUDE.md: added the Substack line to the Devlog section (Rami said yes).
 - Published devlog post 08 (Rami: publish now, not Sunday). It is first in the feed for a same-day Substack import.
 - Post 08 cover is now the new key art (PROMOTED door, made in ChatGPT image gen by Rami). Single-post feed-08.xml rebuilt with it for the Substack import.
+- Substack flagged post 08 as fully AI-written. Decided: disclose with a "How I make this" statement (no detector dodging), and from post 09 build posts from Rami's voice memo + a short interview so his words lead. Added to CLAUDE.md and devlog/README.md.

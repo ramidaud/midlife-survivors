@@ -2,6 +2,12 @@
 
 The build diary at `/devlog/`, styled as HR memos over the office key art.
 
+## How a post gets written (Nov 3)
+1. Rami records a 5-minute **voice memo** after a session (what annoyed him, what made him laugh, what a playtester said) and sends the transcript (Granola works).
+2. Claude sends a short **interview**: 4-5 questions about the week. Rami answers in rough lines.
+3. Claude builds the post around his sentences and stories, adds the build details, screenshots and code card, and Rami approves.
+4. Posts are openly AI-assisted. The Substack section carries a "How I make this" statement.
+
 ## Add a post
 1. Write `posts/<slug>.md` (casual, Rami's voice). Screenshots go in `img/` and are linked as `img/<file>.jpg`.
 2. Add an entry at the top of `posts.js` with `"draft": true`. Keep the JSON style (quoted keys, no trailing commas).

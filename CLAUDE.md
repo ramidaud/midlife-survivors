@@ -62,6 +62,7 @@ assets/                 art and sound (later)
 - `devlog/` is Rami's public build diary. At each milestone, draft a short casual post in his voice (`devlog/posts/`, listed in `devlog/posts.js` with `draft: true`) plus screenshots in `devlog/img/`. Rami approves before it goes public.
 - After any post change, run `devlog/scripts/build_devlog.py` (see `devlog/README.md`) so the share pages and RSS feed stay current.
 - Published devlog posts also reach the Substack "Midlife Survivors Devlog" section through the RSS feed (a weekly Sunday task drafts them). Keep `feed.xml` full-text.
+- **Rami's words first (Nov 3).** Each post is built from a **voice memo** (a transcript Rami sends) plus a short **interview**: Claude asks 4-5 questions, Rami answers in rough lines. Keep his sentences and his stories; Claude organizes, fixes facts and fills in the build details. Never write posts to evade AI detectors. Posts are openly AI-assisted, and Substack carries a "How I make this" statement.
 
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
