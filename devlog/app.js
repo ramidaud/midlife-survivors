@@ -42,12 +42,35 @@
   const two = n => String(n).padStart(2, "0");
   const ordered = () => sortMode === "old" ? posts.slice().reverse() : posts.slice();
   const readMark = p => readSet.has(p.slug) ? `<span class="read-mark" title="You read this one">✓ Read</span>` : "";
+  // The toggle carries its own hint bubble, pointing at the button you're NOT on.
+  const TIP_KEY = "devlog-sort-tip-off";
   function sortToggle() {
-    return `<div class="sort-toggle" role="group" aria-label="Reading order">
-      <button type="button" data-sort="new" aria-pressed="${sortMode === "new"}">Newest first</button>
-      <button type="button" data-sort="old" aria-pressed="${sortMode === "old"}">From the start</button>
+    const tip = sortMode === "old"
+      ? `<b>Catching up?</b> Switch to Newest first.`
+      : `<b>New here?</b> Start from the beginning.`;
+    return `<div class="sort-wrap">
+      <div class="sort-toggle" role="group" aria-label="Reading order">
+        <button type="button" data-sort="new" aria-pressed="${sortMode === "new"}">Newest first</button>
+        <button type="button" data-sort="old" aria-pressed="${sortMode === "old"}">From the start</button>
+      </div>
+      <div class="sort-tip ${sortMode === "old" ? "point-left" : "point-right"}" role="note">${tip}<button type="button" class="sort-tip-x" aria-label="Hide this tip">×</button></div>
     </div>`;
   }
+  // Pop the bubble for a few seconds after the list renders, unless the reader closed it before.
+  function popSortTip(root) {
+    let off = false;
+    try { off = localStorage.getItem(TIP_KEY) === "1"; } catch (e) {}
+    root.querySelectorAll(".sort-wrap").forEach(w => {
+      if (off) { w.classList.add("tip-off"); return; }
+      setTimeout(() => w.classList.add("tip-show"), 500);
+      setTimeout(() => w.classList.remove("tip-show"), 6500);
+    });
+  }
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".sort-tip-x")) return;
+    try { localStorage.setItem(TIP_KEY, "1"); } catch (e2) {}
+    document.querySelectorAll(".sort-wrap").forEach(w => { w.classList.remove("tip-show"); w.classList.add("tip-off"); });
+  });
   let currentSlug = null;
   document.addEventListener("click", e => {
     const b = e.target.closest("[data-sort]");
@@ -89,7 +112,6 @@
         <div class="list-intro-meta">
           <span>${posts.length} memos</span>
           ${readSet.size ? `<span class="read-count">${posts.length - unread} of ${posts.length} read</span>` : ""}
-          <span>${fromStart ? `Catching up? Switch to <b>Newest first</b>.` : `New here? Switch to <b>From the start</b>.`}</span>
         </div>
       </header>
       <a class="feature" href="?post=${esc(lead.slug)}${draftQ}">
@@ -128,6 +150,7 @@
         </a>
       </li>`).join("")}</ul>`;
     if (window.DevlogHome) window.DevlogHome.stampPosts();
+    popSortTip(listMain);
   }
 
   // Post sidebar: every memo in reading order, with "you are here" and check marks.

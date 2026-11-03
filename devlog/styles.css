@@ -731,3 +731,24 @@ body::after {
     repeating-linear-gradient(0deg, rgba(255,240,207,.025) 0 1px, transparent 1px 4px),
     repeating-linear-gradient(90deg, rgba(255,240,207,.02) 0 1px, transparent 1px 4px);
 }
+
+/* Sort hint bubble (Nov 3): pops up pointing at the other reading order */
+.sort-wrap { position: relative; display: inline-block; }
+#post-series .sort-wrap { display: block; }
+.sort-tip {
+  position: absolute; top: calc(100% + 10px); z-index: 20; width: max-content; max-width: 240px;
+  background: var(--warm-white); color: var(--navy); font-size: 13px; line-height: 1.35;
+  padding: 8px 30px 8px 11px; border-radius: 8px; border: 2px solid var(--navy);
+  box-shadow: 0 0 0 2px var(--orange), 0 10px 24px rgba(0,0,0,.45);
+  opacity: 0; transform: translateY(-4px); pointer-events: none; transition: opacity .2s, transform .2s;
+}
+.sort-tip b { color: var(--russet); }
+.sort-tip::before { content: ""; position: absolute; top: -9px; width: 14px; height: 14px; background: var(--warm-white);
+  border-left: 2px solid var(--navy); border-top: 2px solid var(--navy); transform: rotate(45deg); }
+.sort-tip.point-left { left: 0; } .sort-tip.point-left::before { left: 22%; }
+.sort-tip.point-right { right: 0; } .sort-tip.point-right::before { right: 22%; }
+.sort-tip-x { position: absolute; top: 3px; right: 5px; border: 0; background: none; font-size: 16px; line-height: 1; color: var(--slate); cursor: pointer; padding: 2px 4px; }
+.sort-tip-x:hover { color: var(--tie); }
+.sort-wrap.tip-show .sort-tip { opacity: 1; transform: none; pointer-events: auto; }
+@media (hover: hover) { .sort-wrap:not(.tip-off):hover .sort-tip { opacity: 1; transform: none; pointer-events: auto; } }
+@media (prefers-reduced-motion: reduce) { .sort-tip { transition: none; } }

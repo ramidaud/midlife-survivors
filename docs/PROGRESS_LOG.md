@@ -952,5 +952,5 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-03: Bonus Chest moment (V. 1.48.0) and devlog polish
 - Boss chests are a real moment now: a BONUS APPROVED card, then OPEN, beams, slot-reel rewards, a coin fountain, a ticking counter and a gold flash. They pay 1, 3 or 5 rewards by boss (Performance Review, Mortgage, V8). SKIP jumps to the end.
 - Rewards apply automatically instead of opening a pick-one menu. The first beam prefers an evolution or a new weapon. Placeholder chest art until ChatGPT's sheets land.
-- Devlog: screened key-art background with a soft pixel texture, a real header for the memo list ("The whole story, in order." / "What just shipped.") with a short technical subhead, and the nav now says "Memos".
+- Devlog: screened key-art background with a soft pixel texture, a pop-up hint bubble on the reading-order toggle, a real header for the memo list ("The whole story, in order." / "What just shipped.") with a short technical subhead, and the nav now says "Memos".
 - Fixed the devlog leaderboard: an extra `_` in the request address made the database reject every request.
