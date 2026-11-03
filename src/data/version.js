@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.61.0",
-  displayVersion: "V. 1.61.0",
+  version: "1.61.1",
+  displayVersion: "V. 1.61.1",
   lastUpdated: "Nov 3, 2026",
   codename: "After Hours",
-  build: 143,
+  build: 144,
   changelog: [
+    {
+      ver: "V. 1.61.1", date: "Nov 3, 2026", title: "Birthday Cake",
+      highlights: [
+        "Freeze safety net: if the game ever stays paused with no menu on screen, it brings the menu back or unpauses within 2 seconds. Reported by Derek after a boss chest.",
+        "A boss chest you walk over while a level-up is open now waits on the floor until you're done.",
+        "Title screen: the settings chip (Midlife · Tax) no longer goes blank when you open it. Also spotted by Derek."
+      ]
+    },
     {
       ver: "V. 1.61.0", date: "Nov 3, 2026", title: "Birthday Cake",
       highlights: [

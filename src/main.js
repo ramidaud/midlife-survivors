@@ -1098,6 +1098,7 @@ function togglePause(scene) {
 // The chest pays 1, 3 or 5 rewards depending on the boss, applied right away, plus a 401(k) payout.
 function collectChest(p, chest) {
   if (!chest.active) return;
+  if (levelUpOpen || (window.BonusChest && BonusChest.isOpen())) return; // another menu is up: the chest waits on the floor
   if (chest.tag) chest.tag.destroy();
   const scene = p.scene;
   const C = PICKUPS.bossChest;
@@ -1121,6 +1122,30 @@ function collectChest(p, chest) {
     if (pendingLevels > 0) showLevelUp(scene);
   });
 }
+
+// Stuck-pause watchdog (Nov 3, Derek: "game froze after getting the chest post HR boss").
+// If the run is paused but no menu is showing for 2 checks in a row, put the menu back or unpause.
+// It also records which flags were stuck (as an anonymous "stuck-..." play-stats event) so we can find the cause.
+const PAUSE_MENUS = ["levelup-modal", "bonus-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
+let stuckChecks = 0;
+setInterval(() => {
+  const sc = window._activeGameScene;
+  if (!sc || !sc.physics || !sc.physics.world || typeof player === "undefined" || !player || !player.scene) return;
+  if (titleOpen || gameOver || paused || retire80Open || document.hidden) { stuckChecks = 0; return; }
+  const frozen = sc.physics.world.isPaused || sc.time.paused || levelUpOpen;
+  const menuUp = PAUSE_MENUS.some(id => { const el = document.getElementById(id); return el && !el.classList.contains("hidden"); });
+  if (!frozen || menuUp) { stuckChecks = 0; return; }
+  if (++stuckChecks < 2) return;
+  stuckChecks = 0;
+  const flags = [levelUpOpen && "lvl", sc.physics.world.isPaused && "phys", sc.time.paused && "time", window.BonusChest && BonusChest.isOpen() && "chest", pendingLevels > 0 && "pend"].filter(Boolean).join("-");
+  if (window.Telemetry && Telemetry.event) Telemetry.event("stuck-" + (flags || "none"));
+  console.warn("[watchdog] run was paused with no menu showing:", flags);
+  if (window.BonusChest && BonusChest.isOpen()) { const m = document.getElementById("bonus-modal"); if (m) { m.classList.remove("hidden"); return; } }
+  if (pendingLevels > 0) { levelUpOpen = false; showLevelUp(sc); return; }
+  levelUpOpen = false;
+  sc.physics.resume();
+  sc.time.paused = false;
+}, 1000);
 
 // Pause the run for a menu the same way the level-up screen does.
 function pauseForMenu(scene) {
