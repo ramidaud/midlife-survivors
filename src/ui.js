@@ -1130,51 +1130,65 @@ function renderPauseModal(scene, keepRowIdx) {
   const voiced = typeof isVoiceEnabled === "function" ? isVoiceEnabled() : true;
   const verInfo = getVersionInfo();
 
+  // Tiles layout (Nov 3): actions first, then This shift / Your loadout / Settings.
+  const maxHp = stats ? stats.maxHp : 12, hpNow = Math.max(0, hp);
+  const hpPct = Math.round(Math.min(1, hpNow / maxHp) * 100), xpPct = xpNeeded ? Math.round(Math.min(1, xp / xpNeeded) * 100) : 0;
+  const mins = Math.floor((runElapsedMs || 0) / 60000), secs = Math.floor(((runElapsedMs || 0) % 60000) / 1000);
+  const ranks = (stats && stats.perkRanks) || {};
+  const loadout = Object.keys(ranks).map(id => {
+    const u = (window.UPGRADES || []).find(x => x.id === id);
+    if (!u || u.isConsumable) return "";
+    const info = (typeof UPGRADE_META !== "undefined" && UPGRADE_META[u.name]) || { icon: "⭐" };
+    const icon = window.pixelIcon ? pixelIcon("card", u.name, info.icon, 32) : info.icon;
+    const max = u.maxRank && u.maxRank < 50 ? u.maxRank : 0;
+    const evo = u.isEvolution || info.rarity === "evo";
+    return `<li class="${evo ? "evo" : ""}"><span class="pl-ic">${icon}</span><span class="pl-nm">${u.name.replace(/^Unlock: /, "")}</span><span class="pl-rk">${evo ? "EVO" : max ? `${ranks[id]}/${max}` : `×${ranks[id]}`}</span></li>`;
+  }).join("");
   modal.innerHTML = `
-    <div class="modal-card pause-box">
-      <div class="modal-kicker">✓ AUTO-SAVED // ${verInfo.displayVersion} • LAST UPDATED ON: ${verInfo.lastUpdated.toUpperCase()}</div>
-      <h2 class="modal-title">PAUSE & OPTIONS</h2>
-      <p class="modal-sub">Age ${currentAge.toFixed(1)} | Level ${level} | HP ${Math.max(0, hp)}/${stats ? stats.maxHp : 12} | 401(k): ${meta ? meta.coins : 0}k</p>
-      ${activeEffectsHtml()}
-      <div class="options-list">
-        <button class="opt-btn primary-opt" id="pause-resume-btn">▶ RESUME SHIFT (Space / Esc / A)</button>
-        <button class="opt-btn" id="pause-controls-btn">
-          <span>🎮 INPUT & CONTROLS CONFIG</span>
-          <span class="opt-val">KEYS / MOUSE / TOUCH / PAD ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-style-btn" data-opt-cycle="1">
-          <span>💡 GAME TIPS</span>
-          <span class="opt-val">◀ ${window.tipsEnabled() ? "ON" : "OFF"} ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1">
-          <span>🔊 SOUND & MUSIC</span>
-          <span class="opt-val">◀ ${muted ? "MUTED 🔇" : "ON 🔊"} ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-music-vol-btn" data-opt-cycle="1">
-          <span>🎵 MUSIC VOLUME</span>
-          <span class="opt-val">◀ ${volBar(getVolume("music"))} ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-sfx-vol-btn" data-opt-cycle="1">
-          <span>💥 EFFECTS VOLUME</span>
-          <span class="opt-val">◀ ${volBar(getVolume("sfx"))} ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1">
-          <span>🗣️ DAD JOKE VOICE</span>
-          <span class="opt-val">◀ ${voiced ? "SPOKEN 🗣️" : "TEXT ONLY 💬"} ▶</span>
-        </button>
-        <button class="opt-btn" id="pause-savequit-btn">
-          <span>💾 SAVE & EXIT TO TITLE</span>
-          <span class="opt-val">RESUME LATER</span>
-        </button>
-        <button class="opt-btn" id="pause-restart-btn">
-          <span>🔄 START FRESH RUN</span>
-          <span class="opt-val">AGE ${meta ? (meta.startDecade || 40) : 40}</span>
-        </button>
+    <div class="modal-card pause-box pause-tiles">
+      <div class="modal-kicker">✓ AUTO-SAVED · ${verInfo.displayVersion}</div>
+      <h2 class="modal-title">ON BREAK</h2>
+      <p class="modal-sub">The swarm will wait. It always does.</p>
+      <div class="pause-actions">
+        <button class="opt-btn primary-opt pa-resume" id="pause-resume-btn">▶ RESUME SHIFT</button>
+        <button class="opt-btn pa-small" id="pause-savequit-btn"><span>💾 SAVE & EXIT</span><span class="opt-val">RESUME LATER</span></button>
+        <button class="opt-btn pa-small" id="pause-restart-btn"><span>🔄 START FRESH</span><span class="opt-val">AGE ${meta ? (meta.startDecade || 40) : 40}</span></button>
+      </div>
+      <div class="pause-grid">
+        <section class="pause-tile pt-shift">
+          <div class="pt-tag">THIS SHIFT</div>
+          <div class="pt-big"><b>${currentAge.toFixed(1)}</b><span>years old · level ${level}</span></div>
+          <div class="pt-bar-row"><span>Health</span><div class="ms-bar hp${hpPct <= 35 ? " low" : ""}"><div class="ms-fill" style="width:${hpPct}%"></div></div><b>${hpNow}/${maxHp}</b></div>
+          <div class="pt-bar-row"><span>Next level</span><div class="ms-bar"><div class="ms-fill" style="width:${xpPct}%"></div></div><b>${xpPct}%</b></div>
+          <div class="pt-stats">
+            <div><b>${mins}:${String(secs).padStart(2, "0")}</b><span>on the clock</span></div>
+            <div><b>${(typeof runKills !== "undefined" ? runKills : 0).toLocaleString("en-US")}</b><span>paid off</span></div>
+            <div><b>${typeof runCoins !== "undefined" ? runCoins : 0}k</b><span>401(k) this run</span></div>
+            <div><b>${meta ? meta.coins : 0}k</b><span>banked</span></div>
+          </div>
+          ${activeEffectsHtml()}
+        </section>
+        <section class="pause-tile pt-loadout">
+          <div class="pt-tag">YOUR LOADOUT</div>
+          ${loadout ? `<ul class="pause-loadout">${loadout}</ul>` : `<p class="pt-empty">Just you and your coffee so far. Level up to pick perks.</p>`}
+        </section>
+        <section class="pause-tile pt-settings">
+          <div class="pt-tag">SETTINGS</div>
+          <div class="options-list">
+            <button class="opt-btn" id="pause-controls-btn"><span>🎮 Controls</span><span class="opt-val">KEYS · TOUCH · PAD ▶</span></button>
+            <button class="opt-btn" id="pause-style-btn" data-opt-cycle="1"><span>💡 Game tips</span><span class="opt-val">◀ ${window.tipsEnabled() ? "ON" : "OFF"} ▶</span></button>
+            <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1"><span>🔊 Sound</span><span class="opt-val">◀ ${muted ? "MUTED" : "ON"} ▶</span></button>
+            <button class="opt-btn" id="pause-music-vol-btn" data-opt-cycle="1"><span>🎵 Music</span><span class="opt-val">◀ ${volBar(getVolume("music"))} ▶</span></button>
+            <button class="opt-btn" id="pause-sfx-vol-btn" data-opt-cycle="1"><span>💥 Effects</span><span class="opt-val">◀ ${volBar(getVolume("sfx"))} ▶</span></button>
+            <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1"><span>🗣️ Dad Joke voice</span><span class="opt-val">◀ ${voiced ? "SPOKEN" : "TEXT"} ▶</span></button>
+          </div>
+        </section>
       </div>
       <div class="nav-hint-bar">
-        <span><b>▲▼</b> Arrow / D-Pad / Mouse: Navigate</span>
-        <span><b>◀▶ / Space / Enter / A</b>: Select or Toggle</span>
-        <span><b>Esc / B / Start</b>: Resume</span>
+        <span><b>Arrows / D-Pad</b> move</span>
+        <span><b>◀▶</b> change a setting</span>
+        <span><b>Space / Enter / A</b> select</span>
+        <span><b>Esc / B / Start</b> resume</span>
       </div>
     </div>
   `;
@@ -1232,22 +1246,22 @@ function renderPauseModal(scene, keepRowIdx) {
     openChangelogModal(scene);
   }, keepRowIdx === 6);
 
-  bindNavItem(document.getElementById("pause-savequit-btn"), 7, () => {
+  bindNavItem(document.getElementById("pause-savequit-btn"), 0, () => {
     sfx("pick");
     if (window.persistActiveRun) window.persistActiveRun();
     setPauseModalVisible(false);
     paused = false;
     titleSeen = false;
     scene.scene.restart();
-  }, keepRowIdx === 7);
+  }, false);
 
-  bindNavItem(document.getElementById("pause-restart-btn"), 8, () => {
+  bindNavItem(document.getElementById("pause-restart-btn"), 0, () => {
     sfx("pick");
     clearRunState();
     setPauseModalVisible(false);
     paused = false;
     scene.scene.restart();
-  }, keepRowIdx === 8);
+  }, false);
 
   window.menuNav.refresh();
 }
