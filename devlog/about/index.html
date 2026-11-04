@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=5">
-<link rel="stylesheet" href="../styles.css?v=22">
+<link rel="stylesheet" href="../styles.css?v=24">
 <style>
   .about-wrap { max-width: 980px; }
   .ab-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 24px; align-items: center; margin: 14px 0 26px; }
@@ -64,6 +64,53 @@
   .ab-links-col { grid-template-columns: 1fr !important; }
   @media (max-width: 860px) { .ab-game, .ab-bio { grid-template-columns: 1fr; } }
 
+  /* Nov 4 redesign (Rami: "the live stats should feel like a sub dashboard"). Order: the game, a compact live
+     dashboard attached to it, then the personnel file (portrait + bio + links), then a privacy footnote. */
+  .ab-dash { background: var(--surface); border: 1px solid var(--teal); border-radius: 8px; padding: 12px 14px 14px; margin: -6px 0 34px; }
+  .ab-dash-top { display: flex; align-items: center; gap: 10px; font: 11px var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
+  .ab-dash-top .live { color: var(--orange); display: inline-flex; align-items: center; gap: 6px; }
+  .ab-dash-top .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 0 rgba(239,147,71,.6); animation: abPulse 2s infinite; }
+  @keyframes abPulse { 0% { box-shadow: 0 0 0 0 rgba(239,147,71,.55); } 70% { box-shadow: 0 0 0 7px rgba(239,147,71,0); } 100% { box-shadow: 0 0 0 0 rgba(239,147,71,0); } }
+  @media (prefers-reduced-motion: reduce) { .ab-dash-top .live::before { animation: none; } }
+  .ab-dash-top small { margin-left: auto; font: 12px var(--body); letter-spacing: 0; text-transform: none; color: var(--muted); }
+  .ab-panels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .ab-panel { background: var(--surface-2); border-radius: 6px; border-left: 3px solid var(--teal); padding: 10px 12px; min-width: 0; }
+  .ab-panel h3 { font: 11px var(--display); letter-spacing: .06em; color: var(--cream); margin: 0 0 8px; text-transform: uppercase; }
+  .ab-panel.rec { border-left-color: var(--orange); }
+  .ab-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; }
+  .ab-mini div { min-width: 0; }
+  .ab-mini strong { display: block; font: 17px var(--display); color: var(--warm-white); line-height: 1.15; overflow-wrap: anywhere; }
+  .ab-mini span { display: block; font-size: 12px; color: var(--muted); line-height: 1.25; }
+  .ab-spark { margin-top: 10px; }
+  .ab-spark svg { display: block; width: 100%; height: 34px; }
+  .ab-spark p, .ab-split p, .ab-kill { margin: 4px 0 0; font-size: 11.5px; color: var(--muted); }
+  .ab-split { margin-top: 10px; }
+  .ab-split .ab-devbar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--slate); }
+  .ab-split .ab-devbar .ab-seg { display: block; height: 100%; flex: none; margin: 0; padding: 0; border: 0; }
+  .ab-kill b { color: var(--cream); font-weight: 700; }
+  .ab-dash-foot { margin: 10px 0 0; font-size: 12px; color: var(--muted); }
+  @media (max-width: 860px) { .ab-panels { grid-template-columns: 1fr 1fr; } .ab-panel.build { grid-column: 1 / -1; } .ab-panel.build .ab-mini { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 560px) {
+    .ab-panels { grid-template-columns: 1fr; gap: 8px; }
+    .ab-panel { padding: 9px 11px; }
+    .ab-panel.build .ab-mini { grid-template-columns: 1fr 1fr; }
+    .ab-mini { gap: 6px 10px; } .ab-mini strong { font-size: 15px; } .ab-mini span { font-size: 11.5px; }
+    .ab-spark svg { height: 24px; } .ab-spark, .ab-split { margin-top: 8px; }
+    .ab-dash-foot { font-size: 11.5px; }
+  }
+
+  .ab-file { display: grid; grid-template-columns: minmax(220px, .9fr) minmax(0, 1.6fr); gap: 24px; align-items: start; margin: 14px 0 18px; }
+  .ab-file .ab-portrait { position: sticky; top: 76px; }
+  .ab-file .ab-id h1 { margin-top: 6px; }
+  .ab-file .prose p { margin: 0 0 12px; }
+  .ab-elsewhere { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+  .ab-elsewhere a { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; background: var(--surface-2); border: 1px solid var(--slate); border-radius: 999px; padding: 7px 13px; color: var(--warm-white); font-size: 14px; transition: border-color .15s, color .15s; }
+  .ab-elsewhere a:hover, .ab-elsewhere a:focus-visible { border-color: var(--orange); color: var(--orange); }
+  .ab-elsewhere a.coffee { border-color: var(--cream); }
+  @media (pointer: coarse) { .ab-elsewhere a { min-height: 40px; } }
+  .ab-privacy { font-size: 13px; color: var(--muted); border-top: 1px solid var(--slate); padding-top: 14px; margin: 26px 0 8px; line-height: 1.5; }
+  .ab-privacy b { color: var(--sage); font-weight: 700; }
+  @media (max-width: 760px) { .ab-file { grid-template-columns: 1fr; } .ab-file .ab-portrait { position: static; } }
 </style>
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -99,68 +146,60 @@
         <div class="ab-game-btns"><a class="btn btn-primary" href="../../">▶ Play now</a><a class="btn btn-ghost" href="../">Read the devlog</a><a class="btn btn-ghost" href="../art/">See the Art Room</a></div>
       </div>
     </section>
-    <section class="ab-block">
-      <div class="ab-head"><span>Live stats</span><small id="ab-asof">Updating…</small></div>
-      <div class="ab-stats" id="ab-stats">
-        <div><strong>…</strong><span>builds shipped</span></div>
-        <div><strong>…</strong><span>days in development</span></div>
-        <div><strong>…</strong><span>devlog memos</span></div>
-        <div><strong>…</strong><span>current version</span></div>
+    <section class="ab-dash" aria-label="Live dashboard">
+      <div class="ab-dash-top"><span class="live">Live</span><span>Dev dashboard</span><small id="ab-asof">Updating…</small></div>
+      <div class="ab-panels">
+        <div class="ab-panel build"><h3>The build</h3>
+          <div class="ab-mini" id="ab-stats"><div><strong>…</strong><span>current version</span></div><div><strong>…</strong><span>builds shipped</span></div><div><strong>…</strong><span>days in development</span></div><div><strong>…</strong><span>devlog memos</span></div></div>
+          <div class="ab-spark" id="ab-spark"></div>
+        </div>
+        <div class="ab-panel"><h3>The playtest</h3>
+          <div class="ab-mini" id="ab-play"><div><strong>…</strong><span>runs played</span></div><div><strong>…</strong><span>players</span></div></div>
+          <div class="ab-split" id="ab-split"></div>
+          <p class="ab-kill" id="ab-kill"></p>
+        </div>
+        <div class="ab-panel rec"><h3>Rami's own record</h3>
+          <div class="ab-mini" id="ab-me"><div><strong>…</strong><span>best score</span></div></div>
+        </div>
       </div>
-      <div class="ab-head sub"><span>Rami's own record</span><small>Leaderboard name: rami</small></div>
-      <div class="ab-stats" id="ab-me"><div><strong>…</strong><span>best score</span></div></div>
-      <div class="ab-head sub"><span>The playtest so far</span></div>
-      <div class="ab-stats" id="ab-play"></div>
-      <p class="ab-foot">Counted from the build history and anonymous play stats. Refreshed every time a memo goes out.</p>
+      <p class="ab-dash-foot">From the build history and anonymous play stats. Refreshed every time a memo goes out.</p>
     </section>
 
-    <div class="ab-me-head"><div class="memo-strip"><span class="re">PERSONNEL FILE · RE:</span> <strong>Rami Daud</strong></div></div>
-    <section class="ab-hero">
+    <div class="memo-strip"><span class="re">PERSONNEL FILE · RE:</span> <strong>Rami Daud</strong></div>
+    <section class="ab-file">
       <figure class="ab-portrait"><img src="../../assets/bio/rami-studio-pixel-v1.png" alt="Pixel-art portrait of Rami at his computer in a warmly lit studio, surrounded by artwork, books and creative equipment" width="1536" height="1024"></figure>
-      <div class="ab-id">
-        <div class="ab-eyebrow">Employee of the month (self-nominated)</div>
-        <h1>Rami Daud</h1>
-        <p class="ab-tag">Photographer. Grad student. First-time game dev, exploring midlife.</p>
-        <ul class="ab-chips">
-          <li>📷 20+ years behind the camera</li>
-          <li>🚀 NASA Glenn alum</li>
-          <li>🎓 Kent State · EMAT</li>
-          <li>🕹️ Game #1: Midlife Survivors</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="ab-bio">
-      <article class="post ab-bio-copy">
-        <div class="prose">
+      <div>
+        <div class="ab-id">
+          <div class="ab-eyebrow">Employee of the month (self-nominated)</div>
+          <h1>Rami Daud</h1>
+          <p class="ab-tag">Photographer. Grad student. First-time game dev, exploring midlife.</p>
+          <ul class="ab-chips">
+            <li>📷 20+ years behind the camera</li>
+            <li>🚀 NASA Glenn alum</li>
+            <li>🎓 Kent State · EMAT</li>
+            <li>🕹️ Game #1: Midlife Survivors</li>
+          </ul>
+        </div>
+        <article class="post"><div class="prose" style="margin-top:18px">
         <p>Rami Daud is a photographer who decided, somewhere in his forties, to make a video game.</p>
         <p>He has spent more than 20 years behind the camera: freelancing for the Associated Press, AFP and Cleveland Magazine, four years as a digital imaging specialist at NASA Glenn Research Center on the Artemis and Commercial Crew programs, and since 2019 as Senior Photographer at Kent State University.</p>
         <p>He is also a grad student in Kent State's Emerging Media and Technology program, and he writes <strong>Framing the Cosmos</strong>, about how iconic space photographs shape the way we see the universe.</p>
         <p><strong>Midlife Survivors</strong> is his first game. He brings the vision and the jokes; Claude, ChatGPT, Gemini and Grok help him build it. This devlog is the record of him learning how.</p>
+        </div></article>
+        <ul class="ab-elsewhere" aria-label="Find Rami elsewhere">
+          <li><a href="https://ramidaud.com" rel="noopener">📷 ramidaud.com</a></li>
+          <li><a href="https://open.substack.com/pub/ramidaud" rel="noopener">🔭 Framing the Cosmos</a></li>
+          <li><a href="https://discord.gg/E6N9j5tZe" rel="noopener">💬 Discord</a></li>
+          <li><a href="https://www.instagram.com/ramidaud/" rel="noopener">📸 Instagram</a></li>
+          <li><a href="https://www.threads.com/@ramidaud" rel="noopener">🧵 Threads</a></li>
+          <li><a href="https://www.linkedin.com/in/ramidaudphoto" rel="noopener">💼 LinkedIn</a></li>
+          <li><a class="coffee" href="https://ko-fi.com/ramidaud" rel="noopener">☕ Buy Rami a coffee</a></li>
+        </ul>
       </div>
-      </article>
-      <aside class="ab-block ab-bio-links">
-        <div class="ab-head"><span>Find Rami elsewhere</span></div>
-      <div class="ab-links ab-links-col">
-        <a class="ab-link" href="https://ramidaud.com" rel="noopener"><b>📷</b><span><strong>ramidaud.com</strong><em>Photography and portfolio</em></span></a>
-        <a class="ab-link" href="https://open.substack.com/pub/ramidaud" rel="noopener"><b>🔭</b><span><strong>Framing the Cosmos</strong><em>Substack: how iconic space photos shape how we see the universe</em></span></a>
-        <a class="ab-link" href="https://discord.gg/E6N9j5tZe" rel="noopener"><b>💬</b><span><strong>Midlife Survivors Discord</strong><em>Playtest notes, art previews, #want-to-help</em></span></a>
-        <a class="ab-link" href="https://www.instagram.com/ramidaud/" rel="noopener"><b>📸</b><span><strong>Instagram</strong><em>@ramidaud</em></span></a>
-        <a class="ab-link" href="https://www.threads.com/@ramidaud" rel="noopener"><b>🧵</b><span><strong>Threads</strong><em>@ramidaud</em></span></a>
-        <a class="ab-link" href="https://www.linkedin.com/in/ramidaudphoto" rel="noopener"><b>💼</b><span><strong>LinkedIn</strong><em>ramidaudphoto</em></span></a>
-        <a class="ab-link coffee" href="https://ko-fi.com/ramidaud" rel="noopener"><b>☕</b><span><strong>Buy Rami a coffee</strong><em>The game is free. Tips keep the builds coming</em></span></a>
-        <a class="ab-link" href="../../"><b>▶</b><span><strong>Play Midlife Survivors</strong><em>Free, in your browser, on any device</em></span></a>
-        <a class="ab-link" href="../"><b>📝</b><span><strong>Read the devlog</strong><em>Every memo, in order</em></span></a>
-      </div>
-      </aside>
     </section>
-    <article class="post">
-      <div class="changes-box">
-        <h3>Play stats and privacy</h3>
-        <p>The game counts anonymous play stats so I can balance it: how long a run lasts, how far you get, what got you, and whether you're on a phone or a laptop. The site counts visits with GoatCounter. No names, no tracking cookies, nothing sold or shared. Your leaderboard name is separate and only saved if you choose to enter one. Add <code>?nostats=1</code> to the game's address to send nothing at all.</p>
-      </div>
-      <div class="signoff"><div class="silk">Filed by Rami.</div>Still surviving. Still shipping builds.</div>
-    </article>
+
+    <p class="ab-privacy"><b>Play stats and privacy.</b> The game counts anonymous play stats so I can balance it: how long a run lasts, how far you get, what got you, and whether you're on a phone or a laptop. The site counts visits with GoatCounter. No names, no tracking cookies, nothing sold or shared.</p>
+    <div class="signoff"><div class="silk">Filed by Rami.</div>Still surviving. Still shipping builds.</div>
   </div>
   <script src="../../src/data/version.js"></script>
   <script src="../../src/data/leaderboard.js"></script>
@@ -181,7 +220,7 @@
         const i = rows.findIndex(x => String(x.name || "").trim().toLowerCase() === "rami");
         if (i < 0) { el.innerHTML = tile("–", "no score posted yet"); return; }
         const me = rows[i], runs = rows.filter(x => String(x.name || "").trim().toLowerCase() === "rami").length;
-        el.innerHTML = tile(n(me.score), "best score") + tile("#" + (i + 1), "on the leaderboard") + tile(Number(me.age).toFixed(1), "age reached") + tile(chars[me.character] || "–", "played as") + tile(n(runs), "scores posted");
+        el.innerHTML = tile(n(me.score), "best score") + tile("#" + (i + 1), "on the leaderboard") + tile(Number(me.age).toFixed(1), "age reached") + tile(chars[me.character] || "–", "played as");
       } catch (e) { el.innerHTML = tile("–", "leaderboard is on break"); }
     })();
     fetch("../data/stats.json", { cache: "no-store" }).then(r => r.json()).then(d => {
@@ -189,10 +228,21 @@
       const days = Math.max(1, Math.ceil((Date.now() - new Date(d.firstCommit)) / 864e5));
       const memos = d.posts ? Object.keys(d.posts).length : 0;
       const ver = (typeof GAME_VERSION !== "undefined" && GAME_VERSION.displayVersion) || (builds.length ? "V. " + builds[builds.length - 1].v : "–");
-      document.getElementById("ab-stats").innerHTML = tile(n(builds.length), "builds shipped") + tile(n(days), "days in development") + tile(n(memos), "devlog memos") + tile(ver.replace("V. ", "v"), "current version");
+      document.getElementById("ab-stats").innerHTML = tile(ver.replace("V. ", "v"), "current version") + tile(n(builds.length), "builds shipped") + tile(n(days), "days in development") + tile(n(memos), "devlog memos");
+      // Builds per day, last 10 days: a tiny bar chart
+      const dayKey = t => new Date(t).toISOString().slice(0, 10), counts = {};
+      builds.forEach(b => { const k = b.at && dayKey(b.at); if (k) counts[k] = (counts[k] || 0) + 1; });
+      const daysList = [...Array(10)].map((_, i) => dayKey(Date.now() - (9 - i) * 864e5)), vals = daysList.map(k => counts[k] || 0), mx = Math.max(1, ...vals);
+      const bw = 100 / vals.length;
+      document.getElementById("ab-spark").innerHTML = `<svg viewBox="0 0 100 34" preserveAspectRatio="none" role="img" aria-label="Builds per day over the last 10 days: ${vals.join(", ")}">${vals.map((v, i) => `<rect x="${(i * bw + bw * .15).toFixed(2)}" y="${(34 - Math.max(1.5, v / mx * 32)).toFixed(2)}" width="${(bw * .7).toFixed(2)}" height="${Math.max(1.5, v / mx * 32).toFixed(2)}" rx="1" fill="${i === vals.length - 1 ? "#EF9347" : "#3E7775"}"/>`).join("")}</svg><p>Builds per day, last 10 days · ${vals[vals.length - 1]} today</p>`;
       const p = d.play || {};
       const killer = p.topKillers && p.topKillers[0] ? p.topKillers[0][0] : "–";
-      document.getElementById("ab-play").innerHTML = tile(n(p.runs), "runs played") + tile(n(p.players), "players") + tile(n(p.enemiesDefeated), "enemies defeated") + tile(p.bestAge ? Number(p.bestAge).toFixed(1) : "–", "oldest anyone has lived") + tile(p.avgMinutes ? p.avgMinutes + " min" : "–", "average run") + tile(killer, "top cause of death");
+      document.getElementById("ab-play").innerHTML = tile(n(p.runs), "runs played") + tile(n(p.players), "players") + tile(n(p.enemiesDefeated), "enemies defeated") + tile(p.bestAge ? Number(p.bestAge).toFixed(1) : "–", "oldest anyone has lived");
+      // Where people play: one stacked bar
+      const dev = Array.isArray(p.devices) ? p.devices : [], tot = dev.reduce((a, d) => a + d[1], 0), col = ["#3E7775", "#EF9347", "#BFA8CF", "#83A89A"];
+      if (tot) document.getElementById("ab-split").innerHTML = `<div class="ab-devbar" role="img" aria-label="${dev.map(d => d[0] + " " + Math.round(d[1] / tot * 100) + "%").join(", ")}">${dev.map((d, i) => `<span class="ab-seg" style="width:${(d[1] / tot * 100).toFixed(1)}%;background:${col[i % col.length]}"></span>`).join("")}</div><p>${dev.map((d, i) => `<span style="color:${col[i % col.length]}">■</span> ${d[0]} ${Math.round(d[1] / tot * 100)}%`).join(" · ")}</p>`;
+      const tk = Array.isArray(p.topKillers) ? p.topKillers.slice(0, 3) : [];
+      if (tk.length) document.getElementById("ab-kill").innerHTML = "Top causes of death: " + tk.map(k => `<b>${k[0]}</b>`).join(", ") + (p.avgMinutes ? ` · average run ${p.avgMinutes} min` : "");
       document.getElementById("ab-asof").textContent = "Updated " + ago(d.generated);
     }).catch(() => { document.getElementById("ab-asof").textContent = "Stats are taking a coffee break"; });
   })();

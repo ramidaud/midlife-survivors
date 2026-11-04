@@ -1131,3 +1131,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The rack with the yellow note (src/yellow-note.js): trip its cable in the Server Room for a blackout, red emergency light, enemies on screen freeze while they "reboot", and Eli's card. Once per run, new achievement.
 - Bug found along the way: one-off Spotlight cards (FIVE O'CLOCK at 65) counted as tips and could be dropped after two tips. Now they're "event" cards that always show.
 - Derek's 579,444 run was rejected by an old 500,000 cap on the leaderboard table. SQL to raise it (and add his score) is in docs/sql/SCORES_CAP_5M.sql, waiting on Rami.
+
+## 2026-11-04: About page redesign
+- New order: the game, then a compact live dashboard attached to it, then the personnel file, then a one-line privacy note.
+- The dashboard has three small panels (the build, the playtest, Rami's record), a builds-per-day mini chart, a phone/desktop/tablet split bar and the top causes of death. On desktop it's about 280 px tall, down from a full block.
+- Personnel file: portrait beside the name, chips and bio, with the links as one row of pills (duplicate Play/Devlog links removed).
+- Also confirmed: the leaderboard cap is now 5,000,000 and Derek's 579,444 is on the board.
