@@ -536,10 +536,9 @@ function syncMuteButtons() {
   const mKey = fmt(c.keyMute || "KeyM");
   const hb = document.getElementById("hud-mute-btn");
   const mb = document.getElementById("mob-mute-btn");
-  if (hb) hb.textContent = muted ? `🔇 [${mKey}]` : `🔊 [${mKey}]`;
-  if (mb) mb.textContent = muted ? "🔇" : "🔊";
-  const vb = document.getElementById("vs-mute-btn");
-  if (vb) vb.textContent = muted ? "🔇" : "🔊";
+  hudSetText("hud-mute-btn", muted ? `🔇 [${mKey}]` : `🔊 [${mKey}]`); // runs every frame with the HUD: only writes on change
+  hudSetText("mob-mute-btn", muted ? "🔇" : "🔊");
+  hudSetText("vs-mute-btn", muted ? "🔇" : "🔊");
 }
 
 window.setGamepadConnectedUI = function(connected) {
@@ -1055,42 +1054,51 @@ function updateHUD() {
   hudQueued = true;
   requestAnimationFrame(() => { hudQueued = false; updateHUDNow(); });
 }
+// The HUD refreshes every frame (timer, score, year bar), but most values don't change from one frame to the next.
+// These only touch the page when the value is new, so a quiet frame writes nothing (Fable review #6).
+function hudSetText(id, v) { const el = document.getElementById(id); if (el && el._hv !== v) { el.textContent = v; el._hv = v; } }
+function hudSetWidth(id, v) {
+  if (typeof v === "number") v = v + "%";
+  v = v.replace(/^(-?\d+\.\d)\d*%$/, "$1%"); // a tenth of a percent is plenty
+  const el = document.getElementById(id); if (el && el._hw !== v) { el.style.width = v; el._hw = v; }
+}
 function updateHUDNow() {
   const hpFill = document.getElementById("hud-hp-fill");
   if (!hpFill || !stats || !meta) return;
 
   const ch = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
-  document.getElementById("hud-avatar").innerHTML = pixelIcon("char", ch.id, CHAR_ICONS[ch.id] || "☕", 24);
-  document.getElementById("hud-charname").textContent = ch.name;
-  document.getElementById("hud-lv").textContent = `LV ${level}`;
+  const av = document.getElementById("hud-avatar");
+  if (av && av._hv !== ch.id) { av.innerHTML = pixelIcon("char", ch.id, CHAR_ICONS[ch.id] || "☕", 24); av._hv = ch.id; } // only when the hero changes
+  hudSetText("hud-charname", ch.name);
+  hudSetText("hud-lv", `LV ${level}`);
 
   const hpPct = Math.max(0, Math.min(100, (hp / stats.maxHp) * 100));
-  hpFill.style.width = `${hpPct}%`;
-  document.getElementById("hud-hp-text").textContent = `${Math.max(0, hp)} / ${stats.maxHp} HP`;
+  hudSetWidth("hud-hp-fill", `${hpPct}%`);
+  hudSetText("hud-hp-text", `${Math.max(0, hp)} / ${stats.maxHp} HP`);
 
   const xpPct = Math.max(0, Math.min(100, (xp / xpNeeded) * 100));
-  document.getElementById("hud-xp-fill").style.width = `${xpPct}%`;
-  document.getElementById("hud-xp-text").textContent = `${xp} / ${xpNeeded} XP`;
+  hudSetWidth("hud-xp-fill", `${xpPct}%`);
+  hudSetText("hud-xp-text", `${xp} / ${xpNeeded} XP`);
 
-  document.getElementById("hud-age").textContent = `AGE ${currentAge.toFixed(1)}`;
+  hudSetText("hud-age", `AGE ${currentAge.toFixed(1)}`);
   const tlTitle = document.getElementById("hud-timeline-title");
   const curStage = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
   const stagePrefix = curStage ? `${curStage.name.toUpperCase()} // ` : "";
   if (currentAge < 80) {
-    tlTitle.textContent = `${stagePrefix}${curStage ? curStage.chapter : "GOAL: AGE 80"}`;
+    hudSetText("hud-timeline-title", `${stagePrefix}${curStage ? curStage.chapter : "GOAL: AGE 80"}`);
     const agePct = Math.max(0, Math.min(100, ((currentAge - 40) / 40) * 100));
-    document.getElementById("hud-age-fill").style.width = `${agePct}%`;
+    hudSetWidth("hud-age-fill", `${agePct}%`);
   } else {
-    tlTitle.textContent = `🌴 SUNSET PALMS // 🔥 SENIOR BONUS (80 -> 100!)`;
+    hudSetText("hud-timeline-title", `🌴 SUNSET PALMS // 🔥 SENIOR BONUS (80 -> 100!)`);
     const senPct = Math.max(0, Math.min(100, ((currentAge - 80) / 20) * 100));
-    document.getElementById("hud-age-fill").style.width = `${senPct}%`;
+    hudSetWidth("hud-age-fill", `${senPct}%`);
   }
 
-  document.getElementById("hud-coins").textContent = `${meta.coins}k`;
+  hudSetText("hud-coins", `${meta.coins}k`);
   const yieldEl = document.getElementById("hud-yield-pill");
   if (yieldEl && typeof window.getCoinYieldInfo === "function") {
     const yld = window.getCoinYieldInfo();
-    yieldEl.textContent = `📈 ${yld.label} (+${yld.value}k/🪙)`;
+    hudSetText("hud-yield-pill", `📈 ${yld.label} (+${yld.value}k/🪙)`);
   }
   syncMuteButtons();
 
@@ -1117,27 +1125,28 @@ function updateCleanHUD() {
   if (!hudEl || !stats || !meta) return;
   hudEl.classList.toggle("hidden", !!(titleOpen || gameOver));
   const xpPct = Math.max(0, Math.min(100, (xp / xpNeeded) * 100));
-  document.getElementById("vs-xp-fill").style.width = `${xpPct}%`;
-  document.getElementById("vs-lv").textContent = `LV ${level}`;
-  document.getElementById("vs-age").textContent = `AGE ${Math.floor(currentAge)}`;
+  hudSetWidth("vs-xp-fill", `${xpPct}%`);
+  hudSetText("vs-lv", `LV ${level}`);
+  hudSetText("vs-age", `AGE ${Math.floor(currentAge)}`);
   const yearPct = Math.max(0, Math.min(100, (currentAge - Math.floor(currentAge)) * 100));
-  document.getElementById("vs-year-fill").style.width = `${yearPct}%`;
-  document.getElementById("vs-coins").textContent = `🪙 ${meta.coins}k`;
+  hudSetWidth("vs-year-fill", `${yearPct}%`);
+  hudSetText("vs-coins", `🪙 ${meta.coins}k`);
   // Run timer (game time, so it stops while paused) and the live score.
   const mmss = ms => { const t = Math.max(0, Math.floor(ms / 1000)); return `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`; };
   const timerEl = document.getElementById("vs-timer");
   const endMs = window.getRunEndMs ? window.getRunEndMs() : 0;
-  timerEl.textContent = mmss(runElapsedMs);
-  timerEl.title = endMs ? `${mmss(endMs - runElapsedMs)} until the end of this life` : "";
+  hudSetText("vs-timer", mmss(runElapsedMs));
+  const ttl = endMs ? `${mmss(endMs - runElapsedMs)} until the end of this life` : "";
+  if (timerEl.title !== ttl) timerEl.title = ttl;
   timerEl.classList.toggle("vs-timer-final", !!endMs && endMs - runElapsedMs < 60000);
   const comboEl = document.getElementById("vs-combo"); // Close Call streak meter
   if (comboEl && window.NearMiss) {
     const c = window.NearMiss.hud();
     comboEl.classList.toggle("hidden", !c);
-    if (c) { comboEl.textContent = c.text; comboEl.dataset.tier = c.tier; }
+    if (c) { hudSetText("vs-combo", c.text); if (comboEl.dataset.tier !== String(c.tier)) comboEl.dataset.tier = c.tier; }
   }
   const tbNow = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
-  if (window.computeRunScore) document.getElementById("vs-score").textContent = `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}${tbNow ? ` · TAX×${tbNow}` : ""}`;
+  if (window.computeRunScore) hudSetText("vs-score", `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}${tbNow ? ` · TAX×${tbNow}` : ""}`);
   const icons = [stats.coldBrew ? "⚡" : "☕"];
   if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
   if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");

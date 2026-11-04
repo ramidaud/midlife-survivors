@@ -8,3 +8,4 @@ Newest at the bottom. Fable's review notes land here. Claude reads this at the s
 - Full review in `docs/handoffs/fable-review.md`: 3-line summary, a top 10 with S/M/L effort labels, then Performance, Art and animation, UX/UI, and a bug list. Review only; no game code changed.
 - Rami picks the items; the other session fixes them one at a time.
 - [done] Batch A shipped in V. 1.74.0 (Nov 3): #1 Retry pinned on phones, #4 instant title art, #10 no first-visit pop-ups, retirement label and message stacking. Next: Batch B (#5, #6, #3, resize leak, Spotlight.newRun on retry).
+- [done] Batch B shipped in V. 1.75.0 (Nov 3): #5 three.js off + opaque canvas, #6 HUD writes only on change, #3 gem cap/merge + coin and pizza lifetime, resize-listener leak, Spotlight.newRun on every run. Note: #9 (office re-bake on Retry) shows as ~2 s of the old placeholder room after Quick Retry.

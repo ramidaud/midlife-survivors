@@ -55,6 +55,17 @@ window.PICKUPS = {
 // Leveling: how much XP each level needs.
 // Scales smoothly across the 40->80 playthrough (`xpNeeded = Math.round(xpNeeded * growth + stepXp)`)
 // so you get 20-60 seconds of uninterrupted gameplay between level-up screens!
+// How much loot can sit on the floor (Fable review #3, Nov 3). Hundreds of untouched gems and coins
+// were each a live physics object checked every frame, which slowed older phones late in a run.
+window.FLOOR_LIMITS = {
+  gemCap: 150,          // more gems than this on the floor and the farthest ones merge...
+  gemMergeBatch: 25,    // ...all at once (plus this many extra for headroom), into one big red gem worth all of them (the Vampire Survivors trick)
+  bigGemScale: 1.7,     // how big the big gem looks
+  coinLifeMs: 60000,    // a 401(k) coin nobody picks up disappears after a minute
+  pizzaLifeMs: 60000,   // same for leftover pizza (Desk Salad keeps its own 14 s wilt)
+  blinkMs: 4000         // they blink for the last few seconds so you can still grab them
+};
+
 window.LEVELING = {
   firstLevelXp: 8,    // 8 gems for Level 2 (lets you play ~15s before the first menu)
   growth: 1.35,       // 35% compound scaling per level

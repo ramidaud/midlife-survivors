@@ -6,7 +6,7 @@ const WORLD_SIZE = 4000; // no longer a wall: the floor is endless now (kept for
 const config = {
   type: Phaser.AUTO,
   parent: "game",
-  transparent: true, // allows the underlying Three.js 3D / Diablo canvas to show through in 3D modes!
+  transparent: !!window.ENABLE_3D_VIEWS, // see-through only for the parked 3D overlay; an opaque canvas is cheaper to composite (Fable review #5)
   scale: { mode: Phaser.Scale.RESIZE, width: window.innerWidth, height: window.innerHeight },
   physics: { default: "arcade" },
   fps: { limit: 70 }, // 120 Hz iPads and monitors would run all game logic twice as often; this caps them near 60. (70, not 60, so 60 Hz screens never skip a frame.) Nov 2
@@ -264,6 +264,7 @@ function spawnCoin(x, y, bonusMult = 1) {
   if (!coins) return null;
   const c = coins.create(x, y, "coin401k").setDepth(3);
   c.bonusMult = bonusMult;
+  c.dieAt = runElapsedMs + ((window.FLOOR_LIMITS && FLOOR_LIMITS.coinLifeMs) || 60000);
   const yld = window.getCoinYieldInfo().value * bonusMult;
   if (bonusMult >= 2 || yld >= 4) {
     c.setScale(1.22);
@@ -288,6 +289,7 @@ function create() {
   runTaxBracket = meta.taxBracket || 0;
   runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
+  if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
   bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
@@ -329,7 +331,9 @@ function create() {
   // 2. The stage: an open-plan office floor (carpet, wood hallway, breakroom rug) plus scattered office props!
   floor = this.add.tileSprite(0, 0, this.scale.width, this.scale.height, "floor")
     .setOrigin(0).setScrollFactor(0);
-  this.scale.on("resize", size => floor.setSize(size.width, size.height));
+  const fitFloor = size => floor.setSize(size.width, size.height);
+  this.scale.on("resize", fitFloor);
+  this.events.once("shutdown", () => this.scale.off("resize", fitFloor)); // one listener per run, not one more per Retry (Fable review)
   stageProps = spawnStageProps(this);
 
   // 3. The player. No walls anymore: the world goes on forever.
@@ -1221,11 +1225,28 @@ function drawXpBar() { updateHUD(); }
 function drawHpBar() { updateHUD(); }
 
 // You touched a gem: bank the XP, and level up if the bar is full.
+// Too many gems on the floor: fold the farthest ones into one big red gem worth all of them (Fable review #3).
+let gemCapNextAt = 0;
+function capFloorGems(scene) {
+  const L = window.FLOOR_LIMITS; if (!L || !gems || !player) return;
+  const list = gems.getChildren().filter(g => g.active);
+  if (list.length <= L.gemCap) return;
+  const far = g => (g.x - player.x) * (g.x - player.x) + (g.y - player.y) * (g.y - player.y);
+  let big = list.find(g => g.isBig);
+  const pool = list.filter(g => g !== big).sort((a, b) => far(b) - far(a)).slice(0, list.length - L.gemCap + L.gemMergeBatch); // everything over the cap, plus some headroom
+  if (!pool.length) return;
+  if (!big) {
+    big = gems.create(pool[0].x, pool[0].y, "gem").setDepth(3).setScale(L.bigGemScale || 1.7).setTint(0xC45C4B);
+    big.isBig = true; big.worth = 0;
+  }
+  pool.forEach(g => { big.worth += g.worth || 1; g.destroy(); });
+}
 function collectGem(p, gem) {
   if (!gem.active) return;
+  const worth = gem.worth || 1; // a merged big gem counts as every gem that went into it
   gem.destroy();
   sfx("gem");
-  addXp(p.scene, PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")) * (window.modFx ? modFx("gemXpMult", 1) : 1)); // Continuing Ed + Tax Bracket (+ Empty Nest) add to every gem
+  addXp(p.scene, worth * PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")) * (window.modFx ? modFx("gemXpMult", 1) : 1)); // Continuing Ed + Tax Bracket (+ Empty Nest) add to every gem
 }
 
 // Add XP (fractions carry over) and open the level-up screen if you earned one. Gems and Close Calls both use this.
@@ -1548,7 +1569,7 @@ function damagePlant(prop, amount) {
     const roll = Math.random();
     let popupTxt = "🪙 +401(k)!";
     if (roll < 0.45) {
-      window.pizzas.create(prop.x - 6, prop.y, "pizza").setDepth(3);
+      { const pz = window.pizzas.create(prop.x - 6, prop.y, "pizza").setDepth(3); pz.dieAt = runElapsedMs + ((window.FLOOR_LIMITS && FLOOR_LIMITS.pizzaLifeMs) || 60000); }
       spawnCoin(prop.x + 10, prop.y, 1);
       popupTxt = "🍕 PIZZA + 🪙!";
       if (window.pushContextEvent) {
@@ -2261,6 +2282,8 @@ function update(time, delta) {
   floor.tilePositionY = this.cameras.main.scrollY;
   updateStageProps(this, stageProps);
 
+  // Floor limits (src/data/pickups.js FLOOR_LIMITS): once a second, merge the farthest gems if there are too many.
+  if (runElapsedMs >= gemCapNextAt || runElapsedMs < gemCapNextAt - 2000) { gemCapNextAt = runElapsedMs + 1000; capFloorGems(this); }
   // Magnet: gems and 401(k) coins close to you fly toward you.
   const W = PICKUPS.wisdomGem;
   const magM = window.modFx ? modFx("magnetMult", 1) : 1; // Reading Glasses: shorter pull, never under 70 px
@@ -2274,7 +2297,12 @@ function update(time, delta) {
   if (vacuum) gems.getChildren().forEach(g => this.physics.moveToObject(g, player, W.magnetSpeed * 1.6));
   // Items on the floor expire after a while.
   if (window.fieldItems) window.fieldItems.getChildren().slice().forEach(it => { if (runElapsedMs > it.expireAt) { if (it.glowRing) it.glowRing.destroy(); it.destroy(); } else if (it.glowRing) it.glowRing.setPosition(it.x, it.y); });
-  coins.getChildren().forEach(c => {
+  coins.getChildren().slice().forEach(c => {
+    if (c.dieAt) { // unclaimed coins blink, then disappear (FLOOR_LIMITS)
+      const left = c.dieAt - runElapsedMs, blink = (window.FLOOR_LIMITS && FLOOR_LIMITS.blinkMs) || 4000;
+      if (left <= 0) { c.destroy(); return; }
+      if (left < blink) c.setAlpha(0.35 + 0.65 * (Math.floor(left / 150) % 2)); else if (c.alpha !== 1) c.setAlpha(1);
+    }
     if (vacuum || Phaser.Math.Distance.Between(player.x, player.y, c.x, c.y) < magR) {
       this.physics.moveToObject(c, player, W.magnetSpeed);
     }

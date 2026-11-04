@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.74.0",
-  displayVersion: "V. 1.74.0",
+  version: "1.75.0",
+  displayVersion: "V. 1.75.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 175,
+  build: 176,
   changelog: [
+    {
+      ver: "V. 1.75.0", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "Lighter on phones: no hidden 3D engine, a calmer HUD, and too many gems on the floor merge into one big red gem.",
+      highlights: [
+        "The game no longer downloads or starts the parked 3D engine (600 KB less, and one less graphics context on phones).",
+        "The HUD only redraws what changed, instead of about 20 pieces every frame.",
+        "More than 150 gems on the floor? The farthest ones merge into a big red gem worth all of them. Unclaimed 401(k) coins and leftover pizza blink out after a minute.",
+        "Quick Retry no longer carries Spotlight cards or a resize listener over from the last run."
+      ]
+    },
     {
       ver: "V. 1.74.0", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "Quick Retry is right there on phones now, the title art shows up instantly, and clocking out at 65 is one clean moment.",

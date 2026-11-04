@@ -1086,3 +1086,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Phones: Quick Retry and Shop are pinned to the bottom of the exit interview, above the leaderboard.
 - Title art paints at first load (a static copy of slide 1 in the page, no fade). The hidden lobby image behind the slideshow is gone (-360 KB).
 - First-time players skip What's New and the poll. At 65 the finish line reads CLOCK OUT HERE, can't be hit, and alerts wait for the Five O'Clock card (only LOW HP cuts in).
+
+## 2026-11-03 (night): V. 1.75.0, Fable review Batch B (speed)
+- three.js (the parked 3D engine) no longer downloads or starts, and the game canvas is opaque now: 600 KB less and one less graphics context on phones.
+- The HUD only writes what changed (about 11 writes a second instead of ~20 every frame). Gems over 150 merge into a big red gem; unclaimed coins and pizza blink out after a minute (`FLOOR_LIMITS` in src/data/pickups.js).
+- Fixed two Retry leaks (resize listener, leftover Spotlight cards).
+- Found while testing: after Quick Retry the old placeholder room shows for ~2 s while the office rebuilds. It was already in the live build; it's Fable #9.

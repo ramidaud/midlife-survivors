@@ -586,7 +586,8 @@ window.ENABLE_3D_VIEWS = false; // Parked Oct 30: 2D only until the game is fun.
 
 function applyViewMode(scene) {
   if (!window.ENABLE_3D_VIEWS) window.viewModeIdx = 0;
-  initThreeOverlay();
+  // While 3D is parked, never build the hidden three.js canvas (a second WebGL context on every phone; Fable review #5).
+  if (window.ENABLE_3D_VIEWS) initThreeOverlay();
   const is3D = window.viewModeIdx > 0;
   if (threeState) {
     threeState.canvas.style.display = is3D ? "block" : "none";
