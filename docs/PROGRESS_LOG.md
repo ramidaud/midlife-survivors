@@ -1261,6 +1261,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - #changelog: one roundup each evening. #devlog: a post when a memo is published, skipping any with [RAMI: ...] placeholders. #stats: a totals-only summary each morning.
 - The morning stats task now saves that summary to the repo, and GitHub posts it. The full report still comes to Rami in Claude.
 - Tested against a fake Discord, then live. The first stats post and three test posts ran successfully.
+
 ## Nov 4, 2026: Title screen scroll fix (V. 1.91.1)
 - In a short Safari window, scrolling up on the title snapped back down. Each wheel or trackpad tick was also moving the menu highlight, and the highlight pulled the page back to itself.
 - Now the wheel just scrolls when a menu is taller than the window, and hovering with the mouse never scrolls the page.
