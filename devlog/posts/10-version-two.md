@@ -36,6 +36,18 @@ When you die now, HR sits you down for an exit interview, and whatever got you s
 
 And at 63.5 the Gold Watch shows up. You can't kill it. Every hit just winds the clock back a little, and all you can do is buy time until you clock out at 65. The idea came from the Grim Reaper in Vampire Survivors. Just a little less dark. Kinda.
 
+## GOTCHA!
+
+![Catching Derek: the GOTCHA! card stamps in with his portrait and a treat.](img/10-gotcha.jpg)
+
+The interns don't just walk up anymore. TJ and Derek show up with a coffee, a burrito or a bundt cake, and you have to chase them down. Catch one and the game slows for a beat, a GOTCHA! card stamps in with their portrait, and a little reel spins to land on your treat: a heal, a shield and a bonus. The coworkers at their desks got real bodies too, with chairs, legs and their own little habits.
+
+## Clock in anywhere
+
+![The Badge Office asks if you want to save your file, with Continue with Google.](img/10-save-your-file.jpg)
+
+Your employee file can follow you now. Sign in with Google once, and your coins, unlocks, achievements and even a run in progress move between your phone, tablet and laptop. It's optional. Your file still saves on your device either way, and there are new Privacy and Terms pages in plain words.
+
 ## Who helped
 
 Derek, TJ and Ben have really been into this project. Their playthroughs and thoughtful feedback helped earn them spots in the game. My oldest son, Abdel, is working on music for the game, too. This isn't just an AI project. It's becoming a truly collaborative experience.

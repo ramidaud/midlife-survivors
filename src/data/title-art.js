@@ -17,16 +17,17 @@ window.TITLE_ART = {
     { src: "assets/title-screen/slides/09-reboot-desktop.jpg",      srcPortrait: "assets/title-screen/slides/09-reboot-portrait-v3.jpg",      name: "Off and On Again", focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false },
     { src: "assets/title-screen/slides/10-lounge-desktop.jpg",      srcPortrait: "assets/title-screen/slides/10-lounge-portrait-v3.jpg",      name: "The Lounge",      focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false },
     { src: "assets/title-screen/slides/11-coffee-run-desktop.jpg",  srcPortrait: "assets/title-screen/slides/11-coffee-run-portrait-v3.jpg",  name: "Coffee Run",      focus: "74% 28%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false },
-    { src: "assets/title-screen/slides/12-happy-50th-desktop.jpg",  srcPortrait: "assets/title-screen/slides/12-happy-50th-portrait-v3.jpg",  name: "Happy 50th",      focus: "74% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false }
+    { src: "assets/title-screen/slides/12-happy-50th-desktop.jpg",  srcPortrait: "assets/title-screen/slides/12-happy-50th-portrait-v3.jpg",  name: "Happy 50th",      focus: "74% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false },
+    // Rami's favorites, back by request (Nov 4). Desktop art only, so phones show a crop around focusPortrait.
+    { src: "assets/title-screen/slides/05-promoted.jpg",    name: "Promoted",         focus: "50% 56%", focusPortrait: "45% 55%", move: "reveal", pointer: false },
+    { src: "assets/title-screen/slides/06-late-night.jpg",  name: "11:58 PM",         focus: "27% 60%", focusPortrait: "24% 62%", move: "push",   pointer: false, art: "Grok" },
+    { src: "assets/title-screen/slides/04-chase.jpg",       name: "The Long Way",     focus: "50% 58%", focusPortrait: "50% 55%", move: "push",   pointer: false },
+    { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", focusPortrait: "50% 62%", move: "reveal", pointer: false }
   ],
-  // V1 slides, retired Nov 3 because the title UI covers their main characters. Move any back into slides[] to reuse it.
+  // V1 slides still retired (Nov 3: the title UI covers their main characters). Move any back into slides[] to reuse it.
   retired: [
     { src: "assets/title-screen/slides/01-lobby.jpg",       name: "8:59 AM",          focus: "9% 42%",  move: "reveal", pointer: true },
-    { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", move: "reveal", pointer: false },
     { src: "assets/title-screen/slides/03-panorama.jpg",    name: "Forty to Forever", focus: "19% 66%", move: "push",   pointer: false },
-    { src: "assets/title-screen/slides/04-chase.jpg",       name: "The Long Way",     focus: "50% 58%", move: "push",   pointer: false },
-    { src: "assets/title-screen/slides/05-promoted.jpg",    name: "Promoted",         focus: "50% 56%", move: "reveal", pointer: false },
-    { src: "assets/title-screen/slides/06-late-night.jpg",  name: "11:58 PM",         focus: "27% 60%", move: "push",   pointer: false, art: "Grok" },
     { src: "assets/title-screen/slides/07-retirement.jpg",  name: "Happy Retirement", focus: "22% 52%", move: "reveal", pointer: false, art: "Grok" }
   ]
 };

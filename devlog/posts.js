@@ -7,7 +7,7 @@ window.DEVLOG_POSTS = [
     "slug": "10-version-two",
     "date": "2026-11-05",
     "title": "This is starting to feel real.",
-    "version": "V. 1.68 to 1.80",
+    "version": "V. 1.68 to 1.91",
     "draft": true,
     "cover": "img/10-title-after.jpg",
     "leadAlt": "The V2 title screen: the poster title over the office group photo, your employee file, today's shift with Punch In, and the newest devlog memo.",
@@ -21,6 +21,9 @@ window.DEVLOG_POSTS = [
       "Five new title scenes with the whole cast, drawn for phones too",
       "The Coldwar Cowboy, TJ and Derek, and a rack with a yellow note",
       "Faster on phones: lighter loading, smoother late game, instant Quick Retry",
+      "GOTCHA!: chase down TJ and Derek for a heal, a shield and a treat",
+      "Clock in with Google: your employee file follows you to any device",
+      "Coworkers with real bodies, and twice the gear with a 6 and 6 loadout",
       "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
     ],
     "nextUp": "More playtesters (join the Discord), Abdel's music, a redone Lounge, and bosses for the Full Life years.",

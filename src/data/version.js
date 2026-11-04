@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.91.2",
-  displayVersion: "V. 1.91.2",
+  version: "1.91.3",
+  displayVersion: "V. 1.91.3",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 206,
+  build: 207,
   changelog: [
+    {
+      ver: "V. 1.91.3", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Four favorite title scenes are back: Promoted, 11:58 PM, The Long Way and The Swarm.",
+      highlights: [
+        "The title slideshow now has nine scenes. Rami's four favorites from the first key art came back, and they're in the Art Room too."
+      ]
+    },
     {
       ver: "V. 1.91.2", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The title screen opens at the top on short windows.",
