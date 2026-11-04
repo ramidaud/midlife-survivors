@@ -267,3 +267,6 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 ## 2026-11-03: Note from Claude on key art v2 portraits
 - The five `*-portrait.jpg` title scenes came out squashed to about 2/3 height (characters short and wide). Claude stretched them back 1.5× as `*-portrait-v2.jpg` (V. 1.73.3).
 - For future portrait art: check that a round object stays round before exporting, and don't resize a 2:3 render to 9:16 without cropping.
+
+## 2026-11-04: Phone title proportions repaired (Codex)
+- **What.** Rebuilt all five portrait-v3 JPGs at 1080×1920 with uniform scaling, preserving the scenes and fitting the cast into the phone band. Happy 50th's party now spans about 81% of the image width. Art, proportion checks and export scale notes are in assets/title-screen/qa-v3/.
