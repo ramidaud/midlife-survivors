@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.86.0",
-  displayVersion: "V. 1.86.0",
+  version: "1.87.0",
+  displayVersion: "V. 1.87.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 196,
+  build: 197,
   changelog: [
+    {
+      ver: "V. 1.87.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Your coworkers got real bodies: chairs, legs, and their own little habits.",
+      highlights: [
+        "Art, Sam, Eli, Nora, June and Mina now sit in proper office chairs and work: typing, sipping, sighing, checking their phones.",
+        "Every so often (and when you walk by) they do their bit: Art eats his salad, Sam packs his box, Eli untangles a cable, Nora hits reply-all and winces, June dozes off, Mina talks on mute.",
+        "The water-cooler crowd stands and walks on real legs now, facing the way they walk."
+      ]
+    },
     {
       ver: "V. 1.86.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Retirement at 65 is a party now, not a reaper.",

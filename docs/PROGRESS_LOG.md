@@ -1210,3 +1210,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - ChatGPT's retirement punch clock replaces the reaper in Midlife mode. It appears near you, stands still with balloons bobbing, and plays its punch-the-card animation when you walk in.
 - You can't be hurt while clocking out; the retirement certificate follows. Father Time stays for Full Life at 100.
 - Rami's new studio portrait is on the About page and its share card.
+
+## Nov 4, 2026 (morning): Coworkers with real bodies (V. 1.87.0)
+- Swapped ChatGPT's native coworker sheets in for the old cropped-portrait sprites: proper chairs, legs and shoes.
+- Seated coworkers loop their work poses and do their personal bit every 12 to 22 seconds or when you walk by.
+- Water-cooler and counter people stand and walk with direction-facing strides. Checked on laptop and phone.
+- Next: the wall dresser (its own session).

@@ -31,6 +31,23 @@ window.StartAreaArt = (() => {
   return cast;
  }
 
+ // Native world poses (ChatGPT, Nov 4): real chairs and legs instead of cropped portraits with drawn-on legs.
+ // Seated 72x64 (row 0 working at 180 ms, row 1 their personal bit at 160 ms), standing 56x60 (walk down/up/left/right, then idle).
+ const WORLD_POSE={seated:[72,64],standing:[56,60]};
+ const poseKey=(kind,id)=>'cw_'+kind+'_'+id;
+ async function loadWorldPoses(scene,H,cast){
+  for(const id of Object.keys(cast))for(const [kind,[w,h]] of Object.entries(WORLD_POSE)){
+   const key=poseKey(kind,id);
+   if(scene.textures.exists(key))continue;
+   try{
+    const img=await H.image(`assets/stage/coworkers/world/coworker-${id}-${kind}-v1.png`);
+    if(!H.isAlive())return;
+    scene.textures.addSpriteSheet(key,img,{frameWidth:w,frameHeight:h});
+    scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
+   }catch(error){console.warn('Coworker world pose missing for '+id+' ('+kind+'), using the old art');}
+  }
+ }
+
  function updateCoworkers(workers,now,x,y){
   for(const worker of workers){
    const o=worker.object;
@@ -42,6 +59,16 @@ window.StartAreaArt = (() => {
    const near=dx*dx+dy*dy<=NOTICE_RADIUS*NOTICE_RADIUS;
    if(near&&!worker.near&&now-worker.noticedAt>=NOTICE_COOLDOWN)worker.noticedAt=now;
    worker.near=near;
+   if(worker.native){ // new sheets: work loop, plus their personal bit when you walk by and every so often
+    let frame;
+    if(worker.native==='seated'){
+     if(now>=worker.nextBit&&now-worker.noticedAt>2000){worker.noticedAt=now;worker.nextBit=now+12000+Math.random()*10000;}
+     const bit=Math.floor((now-worker.noticedAt)/160);
+     frame=bit<8?8+bit:Math.floor((now+worker.phase)/180)%8;
+    }else frame=32+Math.floor((now+worker.phase)/240)%8; // standing at a counter: signature fidget
+    if(o.frame.name!==frame)o.setFrame(frame);
+    continue;
+   }
    const reactionPose=Math.floor((now-worker.noticedAt)/worker.art.reactionMs);
    const pose=reactionPose<WORKER_POSES
     ? WORKER_POSES+reactionPose
@@ -95,6 +122,7 @@ window.StartAreaArt = (() => {
  function updateStanding(scenes,now){
   for(const {object:o,art,scene:person} of scenes){
    if(!o.active)continue;
+   let dir=null;
    if(person.walk){
     const [[ax,ay],[bx,by]]=person.walk;
     const length=Math.hypot(bx-ax,by-ay);
@@ -102,9 +130,15 @@ window.StartAreaArt = (() => {
     const along=t<=1?t:2-t;
     o.setPosition(ax+(bx-ax)*along,ay+(by-ay)*along);
     o.sliceDepth=o.y;
-    o.setFlipX(t>1);
+    if(o.nativeStand){const s=t<=1?1:-1,dx=(bx-ax)*s,dy=(by-ay)*s;dir=Math.abs(dx)>Math.abs(dy)?(dx<0?2:3):(dy<0?1:0);}
+    else o.setFlipX(t>1);
    }
    if(o.cameraFilter)continue;
+   if(o.nativeStand){ // walk rows by direction, idle fidget when standing still
+    const frame=dir!==null?dir*8+Math.floor((now+person.phase)/120)%8:32+Math.floor((now+person.phase)/240)%8;
+    if(o.frame.name!==frame)o.setFrame(frame);
+    continue;
+   }
    const frame=Math.floor((now+person.phase)/(person.walk?180:art.idleMs))%WORKER_POSES;
    if(o.frame.name!==frame)o.setFrame(frame);
   }
@@ -247,6 +281,8 @@ window.StartAreaArt = (() => {
    H.propTexture(scene,c,'finish_'+id,...a.frame);
   }
   const cast=await loadCoworkers(scene,H);
+  if(!H.isAlive())return null;
+  await loadWorldPoses(scene,H,cast);
   if(!H.isAlive())return null;
   // Repeat native pixels through the center and edges; keep the authored corners intact.
   function floorPatch(id,x,y,w,h,alpha=1,depth=BASE+2){
@@ -472,29 +508,34 @@ window.StartAreaArt = (() => {
    const firstFrame=(seat.colorway||0)*WORKER_POSES*2;
    const phase=seat.phase||0;
    const idleFrame=animated?firstFrame+Math.floor(phase/art.idleMs)%WORKER_POSES:undefined;
+   const nativeKind=seat.seated?'seated':'standing', nativeKey=poseKey(nativeKind,seat.cast), native=!!art&&scene.textures.exists(nativeKey);
    if(seat.seated){
-    officePiece('chair-'+seat.host,seat.x-18,seat.y-37,36,37,c=>{
+    officePiece('chair-'+seat.host+(native?'-native':''),seat.x-18,seat.y-37,36,37,native?()=>{}:c=>{ // the native sheet draws its own chair; keep the footprint
      const b=(color,x,y,w,h)=>{c.fillStyle=color;c.fillRect(x,y,w,h);};
      b('#171c35',2,3,28,21);b('#3e7775',4,5,24,16);b('#83a89a',4,5,24,2);
      b('#171c35',4,22,31,6);b('#526078',6,22,26,3);
      b('#171c35',15,27,5,7);b('#171c35',5,33,25,3);b('#526078',6,33,23,1);
     },{width:28,back:18,front:0},seat.depthY-1);
    }
-   const o=add(scene.add.image(seat.x,seat.y,
+   const o=native
+    ? add(scene.add.image(seat.x,seat.y,nativeKey,seat.seated?0:32).setOrigin(.5,seat.seated?63/64:59/60))
+    : add(scene.add.image(seat.x,seat.y,
     animated?key:'slice_coworker_placeholder_'+seat.variant,idleFrame)
     .setOrigin(.5,1));
-   if(!seat.seated)o.setCrop(0,0,WORKER_WIDTH,seat.cropHeight);
+   if(!seat.seated)o.setCrop(0,0,native?56:WORKER_WIDTH,native?Math.round(seat.cropHeight*60/56):seat.cropHeight);
    o.sliceId=seat.id;
    o.sliceDepth=seat.depthY;
    o.caption=art?.caption??STAGE_PROPS.captions.coworker_placeholder;
-   if(animated)animatedWorkers.push({object:o,art,phase,firstFrame,near:false,noticedAt:-Infinity});
+   if(native)animatedWorkers.push({object:o,art,phase,native:nativeKind,near:false,noticedAt:-Infinity,nextBit:6000+Math.random()*12000});
+   else if(animated)animatedWorkers.push({object:o,art,phase,firstFrame,near:false,noticedAt:-Infinity});
    captions.push(o);
    items.push(o);
   }
   for(const person of data.officeLoop?.scenes||[]){
-   const art=cast[person.cast],key=officePersonTexture(scene,person.cast,false);
+   const art=cast[person.cast],nk=poseKey('standing',person.cast),nat=!!art&&scene.textures.exists(nk),key=nat?nk:officePersonTexture(scene,person.cast,false);
    if(!key||!art)continue;
-   const o=add(scene.add.image(person.x,person.y,key,0).setOrigin(.5,1).setFlipX(!!person.flip));
+   const o=add(scene.add.image(person.x,person.y,key,nat?32:0).setOrigin(.5,nat?59/60:1).setFlipX(!nat&&!!person.flip));
+   o.nativeStand=nat;
    o.sliceId=person.id;
    o.sliceDepth=o.y;
    items.push(o);
