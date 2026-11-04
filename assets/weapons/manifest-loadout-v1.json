@@ -1,0 +1,225 @@
+{
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "sampling": "nearest-neighbor",
+  "alpha": "binary",
+  "anchor": "cell center for effects; chair base y29; native physical sprite placement remains with Claude",
+  "timingNote": "Casserole 140ms follows the brief. Other timings are proposed art preview timings only; gameplay attack cadence stays unchanged.",
+  "sprites": [
+    {
+      "id": "casserole",
+      "file": "casserole-v1.png",
+      "cell": [
+        32,
+        24
+      ],
+      "columns": 4,
+      "rows": 1,
+      "animations": [
+        {
+          "name": "loop",
+          "row": 0,
+          "frames": 4,
+          "ms": 140,
+          "loop": true,
+          "preview": "casserole-loop-v1.gif"
+        }
+      ],
+      "displayName": "Mom's Spaghetti",
+      "note": "Legacy casserole filename retained per updated Nov 4 brief."
+    },
+    {
+      "id": "casserole-heat",
+      "file": "casserole-heat-v1.png",
+      "cell": [
+        128,
+        96
+      ],
+      "columns": 4,
+      "rows": 1,
+      "animations": [
+        {
+          "name": "loop",
+          "row": 0,
+          "frames": 4,
+          "ms": 140,
+          "loop": true,
+          "preview": "casserole-heat-loop-v1.gif"
+        }
+      ]
+    },
+    {
+      "id": "phones-bubble",
+      "file": "phones-bubble-v1.png",
+      "cell": [
+        80,
+        80
+      ],
+      "columns": 6,
+      "rows": 2,
+      "animations": [
+        {
+          "name": "idle",
+          "row": 0,
+          "frames": 6,
+          "ms": 120,
+          "loop": true,
+          "preview": "phones-bubble-idle-v1.gif"
+        },
+        {
+          "name": "pop",
+          "row": 1,
+          "frames": 6,
+          "ms": 60,
+          "loop": false,
+          "preview": "phones-bubble-pop-v1.gif"
+        }
+      ]
+    },
+    {
+      "id": "office-chair",
+      "file": "office-chair-v1.png",
+      "cell": [
+        28,
+        30
+      ],
+      "columns": 8,
+      "rows": 1,
+      "animations": [
+        {
+          "name": "loop",
+          "row": 0,
+          "frames": 8,
+          "ms": 80,
+          "loop": true,
+          "preview": "office-chair-loop-v1.gif"
+        }
+      ]
+    },
+    {
+      "id": "reply-all",
+      "file": "reply-all-v1.png",
+      "cell": [
+        18,
+        14
+      ],
+      "columns": 4,
+      "rows": 1,
+      "animations": [
+        {
+          "name": "loop",
+          "row": 0,
+          "frames": 4,
+          "ms": 90,
+          "loop": true,
+          "preview": "reply-all-loop-v1.gif"
+        }
+      ]
+    },
+    {
+      "id": "ooo-field",
+      "file": "ooo-field-v1.png",
+      "cell": [
+        256,
+        200
+      ],
+      "columns": 6,
+      "rows": 1,
+      "animations": [
+        {
+          "name": "loop",
+          "row": 0,
+          "frames": 6,
+          "ms": 180,
+          "loop": true,
+          "preview": "ooo-field-loop-v1.gif"
+        }
+      ]
+    },
+    {
+      "id": "sticky-note",
+      "file": "sticky-note-v1.png",
+      "cell": [
+        16,
+        16
+      ],
+      "columns": 4,
+      "rows": 3,
+      "animations": [
+        {
+          "name": "flat",
+          "row": 0,
+          "frames": 2,
+          "staticVariants": true
+        },
+        {
+          "name": "stuck",
+          "row": 1,
+          "frames": 4,
+          "ms": 90,
+          "loop": true,
+          "preview": "sticky-note-stuck-v1.gif"
+        },
+        {
+          "name": "pop",
+          "row": 2,
+          "frames": 4,
+          "ms": 60,
+          "loop": false,
+          "preview": "sticky-note-pop-v1.gif"
+        }
+      ],
+      "unusedCells": [
+        2,
+        3
+      ],
+      "variants": {
+        "cream": 0,
+        "pink": 1
+      }
+    },
+    {
+      "id": "cold-snap",
+      "file": "cold-snap-v1.png",
+      "cell": [
+        160,
+        160
+      ],
+      "columns": 6,
+      "rows": 1,
+      "animations": [
+        {
+          "name": "burst",
+          "row": 0,
+          "frames": 6,
+          "ms": 60,
+          "loop": false,
+          "preview": "cold-snap-burst-v1.gif"
+        }
+      ]
+    },
+    {
+      "id": "frozen-overlay",
+      "file": "frozen-overlay-v1.png",
+      "cell": [
+        40,
+        40
+      ],
+      "columns": 1,
+      "rows": 1,
+      "animations": []
+    }
+  ]
+}

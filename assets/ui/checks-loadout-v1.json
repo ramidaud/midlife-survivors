@@ -1,0 +1,352 @@
+[
+  {
+    "file": "assets/ui/loadout-icons-v1.png",
+    "size": [
+      256,
+      160
+    ],
+    "cell": [
+      32,
+      32
+    ],
+    "grid": [
+      8,
+      5
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      8,
+      8,
+      8,
+      8,
+      3
+    ],
+    "opaqueFractionPerCell": [
+      0.4668,
+      0.3574,
+      0.5186,
+      0.458,
+      0.2588,
+      0.4385,
+      0.4395,
+      0.3301,
+      0.4404,
+      0.4961,
+      0.4258,
+      0.3125,
+      0.498,
+      0.5439,
+      0.4619,
+      0.6133,
+      0.6025,
+      0.4004,
+      0.707,
+      0.502,
+      0.5527,
+      0.3965,
+      0.6455,
+      0.5488,
+      0.5322,
+      0.5078,
+      0.3164,
+      0.7637,
+      0.6865,
+      0.6367,
+      0.6865,
+      0.6367,
+      0.6328,
+      0.6328,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  {
+    "file": "assets/ui/style-badges-v1.png",
+    "size": [
+      48,
+      12
+    ],
+    "cell": [
+      12,
+      12
+    ],
+    "grid": [
+      4,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      4
+    ],
+    "opaqueFractionPerCell": [
+      0.3889,
+      0.4028,
+      0.2569,
+      0.4028
+    ]
+  },
+  {
+    "file": "assets/weapons/casserole-v1.png",
+    "size": [
+      128,
+      24
+    ],
+    "cell": [
+      32,
+      24
+    ],
+    "grid": [
+      4,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      4
+    ],
+    "opaqueFractionPerCell": [
+      0.3919,
+      0.3594,
+      0.3893,
+      0.4023
+    ]
+  },
+  {
+    "file": "assets/weapons/casserole-heat-v1.png",
+    "size": [
+      512,
+      96
+    ],
+    "cell": [
+      128,
+      96
+    ],
+    "grid": [
+      4,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      4
+    ],
+    "opaqueFractionPerCell": [
+      0.0098,
+      0.0097,
+      0.0099,
+      0.0097
+    ]
+  },
+  {
+    "file": "assets/weapons/phones-bubble-v1.png",
+    "size": [
+      480,
+      160
+    ],
+    "cell": [
+      80,
+      80
+    ],
+    "grid": [
+      6,
+      2
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      6,
+      6
+    ],
+    "opaqueFractionPerCell": [
+      0.172,
+      0.1767,
+      0.1531,
+      0.1591,
+      0.1728,
+      0.177,
+      0.0838,
+      0.0986,
+      0.0545,
+      0.0622,
+      0.0575,
+      0.0427
+    ]
+  },
+  {
+    "file": "assets/weapons/office-chair-v1.png",
+    "size": [
+      224,
+      30
+    ],
+    "cell": [
+      28,
+      30
+    ],
+    "grid": [
+      8,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      8
+    ],
+    "opaqueFractionPerCell": [
+      0.356,
+      0.3405,
+      0.2786,
+      0.3262,
+      0.3774,
+      0.3202,
+      0.2643,
+      0.3464
+    ]
+  },
+  {
+    "file": "assets/weapons/reply-all-v1.png",
+    "size": [
+      72,
+      14
+    ],
+    "cell": [
+      18,
+      14
+    ],
+    "grid": [
+      4,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      4
+    ],
+    "opaqueFractionPerCell": [
+      0.369,
+      0.3254,
+      0.369,
+      0.3254
+    ]
+  },
+  {
+    "file": "assets/weapons/ooo-field-v1.png",
+    "size": [
+      1536,
+      200
+    ],
+    "cell": [
+      256,
+      200
+    ],
+    "grid": [
+      6,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      6
+    ],
+    "opaqueFractionPerCell": [
+      0.1029,
+      0.1018,
+      0.1004,
+      0.1029,
+      0.1016,
+      0.1005
+    ]
+  },
+  {
+    "file": "assets/weapons/sticky-note-v1.png",
+    "size": [
+      64,
+      48
+    ],
+    "cell": [
+      16,
+      16
+    ],
+    "grid": [
+      4,
+      3
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      3,
+      4,
+      4
+    ],
+    "opaqueFractionPerCell": [
+      0.375,
+      0.6758,
+      0.0,
+      0.0,
+      0.3789,
+      0.375,
+      0.3789,
+      0.375,
+      0.375,
+      0.3359,
+      0.2109,
+      0.0625
+    ]
+  },
+  {
+    "file": "assets/weapons/cold-snap-v1.png",
+    "size": [
+      960,
+      160
+    ],
+    "cell": [
+      160,
+      160
+    ],
+    "grid": [
+      6,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      6
+    ],
+    "opaqueFractionPerCell": [
+      0.0075,
+      0.0182,
+      0.0392,
+      0.0657,
+      0.096,
+      0.0775
+    ]
+  },
+  {
+    "file": "assets/weapons/frozen-overlay-v1.png",
+    "size": [
+      40,
+      40
+    ],
+    "cell": [
+      40,
+      40
+    ],
+    "grid": [
+      1,
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true,
+    "uniqueFramesPerRow": [
+      1
+    ],
+    "opaqueFractionPerCell": [
+      0.0813
+    ]
+  }
+]

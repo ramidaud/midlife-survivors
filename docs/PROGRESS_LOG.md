@@ -1239,3 +1239,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Level-ups that offer a new item get a Skip button above the cards (+2 HP).
 - The Lounge card was almost always skipped (it was dropped next to a promotion card). It now waits its turn and shows TJ and Derek together.
 - Fixed a false "two employee files" prompt: two cloud saves could finish out of order. Identical files no longer ask.
+
+## 2026-11-04: Expanded loadout artwork (Codex)
+- Finished 27 named card icons and seven dedicated HUD icons, plus the four play-style badges.
+- Made nine weapon/effect families, including a full chair spin, hollow protection/travel rings and frost in cream/slate. Ten row previews and hero-size checks included.
+- Updated the food art and names to Mom's Spaghetti from the revised V. 1.89.0 brief. Native art/GIF checks and desktop/phone review pass. Art only, ready for Claude; no balance or game code changed.

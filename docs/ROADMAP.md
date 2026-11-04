@@ -228,4 +228,8 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 
 ### 2026-11-04: GOTCHA! art (Codex)
 - [x] Caught portraits, wordmark, treats, ticket frame, burst and review checks delivered.
-- [ ] Claude integrates catch art; expanded loadout art is next.
+- [x] Claude integrated catch art in V. 1.89.0; expanded loadout art is delivered below.
+
+### 2026-11-04: Expanded loadout art (Codex)
+- [x] 34 card/HUD icons, four style badges, nine world families and all animated-row previews delivered.
+- [ ] Claude integrates the atlas and weapon art after review; preserve gameplay timing and stats.
