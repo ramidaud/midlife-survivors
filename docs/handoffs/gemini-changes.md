@@ -31,3 +31,7 @@ Newest at the bottom. Rami pastes Gemini's change-log blocks here. Claude reads 
   - `Tip`: Plain and actionable, <= 55 characters.
   - Tone: Warm, recognizable midlife humor; never mean; zero brand names; zero em dashes.
 - Saved as docs/handoffs/gemini-spotlight-cards.md. Build after healing, retirement and age 50+ modifiers (Rami, Nov 3).
+
+## 2026-11-04: Final V2 copy audit
+- Review: docs/handoffs/gemini-final-pass-review.md
+- [done] Bugs + polish shipped in V. 1.77.0 (Nov 4). Skipped: Sam's card name length (fits as is), the decaf/password line moves, and the Grad Student Spotlight name (kept short to fit).

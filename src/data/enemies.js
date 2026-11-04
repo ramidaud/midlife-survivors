@@ -46,7 +46,7 @@ window.ENEMIES = {
     hp: 2,
     damage: 1,
     slowFactor: 0.68,
-    slowDurationMs: 1800,
+    slowDurationMs: 1400, // was 1800: one donut hit no longer sets up two more (Grok final pass, Nov 4)
     size: 24,
     color: 0xf078b8
   },
@@ -65,7 +65,7 @@ window.ENEMIES = {
   officeGossip: {
     name: "Reply-All Chain",
     label: "CC:",
-    seniorLabel: "BINGO",
+    seniorLabel: "RUMOR",
     isElite: true,
     speed: 75,
     hp: 7,
@@ -133,7 +133,7 @@ window.ENEMIES = {
     tex: "performanceReview",
     spawnAge: 45,
     speed: 68,
-    hp: 45,
+    hp: 36, // was 45: less time stuck in the 45-49 crush (Grok final pass, Nov 4)
     damage: 2,
     size: 52,
     color: 0xd94f6a
@@ -144,7 +144,7 @@ window.ENEMIES = {
     tex: "mortgageRefinance",
     spawnAge: 52,
     speed: 64,
-    hp: 110,
+    hp: 85, // was 110: shorter overlap with the age-50 swarm (Grok final pass, Nov 4)
     damage: 2,
     size: 60,
     color: 0x8c6fd9
@@ -186,7 +186,7 @@ window.ENEMIES = {
     color: 0xf5c542
   },
   retirementBoss: {
-    name: "Mandatory Retirement Test",
+    name: "Mandatory Retirement Audit", // matches the lore archive (Gemini final pass)
     label: "80!",
     tex: "mortgageRefinance",
     tint: 0x6be2ff,
@@ -198,7 +198,7 @@ window.ENEMIES = {
     color: 0x6be2ff
   },
   pickleballChamp: {
-    name: "6AM Pickleball Champion (Senior Boss)",
+    name: "The 6 AM Pickleball Champion",
     label: "90!",
     tex: "midlifeCrisis",
     tint: 0x6fbf73,

@@ -66,3 +66,11 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - Pending after Rami approval, art, implementation, and stats: mark [done] with version.
 - [done] Built in V. 1.73.0 (Nov 3). Hands are leading-edge only; swarm thins while it's alive; kill = tier-5 chest + 35 coins + Five O'Clock Somewhere + keepsake; still ticking at 65 = retire anyway. Telemetry fields gold_watch_phase_reached / gold_watch_killed not added yet (needs a Supabase column change).
 - Update (Nov 3, V. 1.73.1): Rami made the watch unkillable (VS Reaper style). HP and kill tuning no longer apply; hits push it back and slow its hands (wind: pushPerDamage 6, maxPushPerHit 60, maxPushSpeed 240, handSlowMult 0.85, handSlowMs 400). Worth a Grok pass on the wind-back numbers after real runs.
+## 2026-11-04: Final balance pass before V2 (Grok) [report only]
+- What: report-only review of V. 1.76.2 with the V. 1.72+ stats (35 runs, 11 players). The 60 to 61 wall is gone. The new 52 to 53 bump (29% of deaths) comes from the Mortgage overlapping the age-50 swarm, and the Mortgage itself kills nobody. The Gold Watch Minute Hand tip moves 438 to 605 px/s after age, Tax and phase scaling. The big red gem at cap 150 can only spike levels below about L9.
+- File: `docs/handoffs/grok-final-pass-review.md`.
+- Top 5 (Rami picks): (1) `mortgageRefinance.hp` 110 to 85; (2) `goldWatch.minuteHand.sweepDegPerSec` 70 to 55; (3) `performanceReview.hp` 45 to 36; (4) 9-to-5er `apply` +2 maxHp; (5) `snackAttack.slowDurationMs` 1800 to 1400.
+- Data flags: the overtime death at 77 conflicts with "reached 65 = 0"; the median death age is 52 (49.6 is the median over all runs); 42 to 49 is 45% of deaths, not a third.
+- Leave it: healing, Group Chat, V8, gem cap, Tax Bracket, ring and alarm geometry, 60 s despawns.
+- Pending: Rami's picks, then mark [done] with version.
+- [done] Rami picked all 5; shipped in V. 1.77.0 (Nov 4).

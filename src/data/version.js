@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.76.2",
-  displayVersion: "V. 1.76.2",
+  version: "1.77.0",
+  displayVersion: "V. 1.77.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 180,
+  build: 181,
   changelog: [
+    {
+      ver: "V. 1.77.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Final balance and copy pass: a fairer Mortgage, a slower minute hand, +2 health for the 9-to-5er, and a fixed achievement.",
+      highlights: [
+        "Balance (Grok): the 30-Year Mortgage and the Performance Review have less health, the Gold Watch's minute hand sweeps slower, the donut's sugar crash is shorter, and the 9-to-5er starts with +2 health.",
+        "\"Fully Evolved Adult\" can actually be earned now (it asked for 9 evolutions; there are 6).",
+        "Copy (Gemini): end-screen lines for six newer achievements, a Gold Watch entry in the Lore archive, clearer modifier and upgrade text, shorter tips and a few fresher jokes."
+      ]
+    },
     {
       ver: "V. 1.76.2", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Sharp new title art on phones: ChatGPT redrew all five scenes at the right proportions, and the birthday party is bigger.",

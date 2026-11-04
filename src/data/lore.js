@@ -68,7 +68,7 @@ const GAME_LORE = {
       icon: "🤠",
       archetype: "Help Desk Legend & Keeper of the Spare Parts Closet",
       backstory: "Has worked IT since the floppy disk was cutting edge, and never fully moved on. Keeps a drawer of cables nobody else can name, a pager that still buzzes, and a cowboy hat that has outlasted three CIOs.",
-      relic: "💾 Floppy Disk (a boomerang; evolves into the Zip Drive)",
+      relic: "💾 Floppy Disk (a boomerang that grows with Universal Remote upgrades)",
       edge: "Starts with the Floppy Disk and +2 max health. Once a run, at a quarter health, he turns it off and on again: clears the area and gets 40% back.",
       quote: '"Have you tried turning it off and on again? No? Then I will."'
     }
@@ -107,14 +107,14 @@ const GAME_LORE = {
       id: "home",
       code: "SCENARIO III // AGES 50 TO 59 · FOLLOWS YOU TO THE SERVER ROOM",
       name: "🏡 Suburban Home & Yard",
-      subtitle: "The Cul-de-Sac Crucible & LEGO Minefield",
-      lore: "You finally bought the house! Unfortunately, the oak living room rug is a tactical minefield of barefoot LEGO bricks, the water heater just started making an expensive rhythmic knocking sound, and Common Core fractions homework is waiting at the dining table while the minivan carpool honks outside.",
+      subtitle: "The Cul-de-Sac Crucible & Toy Brick Minefield",
+      lore: "You finally bought the house! Unfortunately, the oak living room rug is a tactical minefield of barefoot plastic toy bricks, the water heater just started making an expensive rhythmic knocking sound, and Common Core fractions homework is waiting at the dining table while the minivan carpool honks outside.",
       manifestations: [
-        "🎒 [TUITION] Activity & Camp Fees + [LEGO!] Barefoot Plastic Caltrops.",
+        "🎒 [TUITION] Activity & Camp Fees + [BRICKS!] Barefoot Plastic Caltrops.",
         "🏫 [SCHOOL] Automated Nurse/Attendance Calls + [JUICEBX] Sticky Fruit-Punch Spills.",
         "🚐 [CARPOOL] Double-Booked Soccer Runs + [NEWMATH] Common Core Word-Problem Elites."
       ],
-      survivalTip: "Reaching Age 50 permanently unlocks the Age 50 Decade Checkpoint (+2 free starting perks on future runs)!"
+      survivalTip: "Reaching Age 50 permanently unlocks the Age 50 Decade Checkpoint (+1 free starting perk on future runs)!"
     },
     {
       id: "social",
@@ -147,39 +147,45 @@ const GAME_LORE = {
   bosses: [
     {
       age: "AGE 45",
-      name: "📋 The Annual Performance Review",
+      name: "📋 The Performance Review",
       stage: "🏢 The Lobby & Bullpen",
-      lore: "A 30-HP sentient crimson HR binder that corners you between cubicles and demands you justify your Q3 synergy metrics. Drops a gold Tax-Free Bonus Chest on defeat."
+      lore: "A sentient crimson HR binder that corners you between cubicles and demands you justify your Q3 synergy metrics. Drops a gold Tax-Free Bonus Chest on defeat."
     },
     {
       age: "AGE 52",
-      name: "🏦 The 30-Year Adjustable Mortgage",
+      name: "🏦 The 30-Year Mortgage",
       stage: "🏡 Home life, fought in the Conference Rooms",
-      lore: "A 70-HP monument of escrow clauses, closing costs, and surprise roof repairs. Slow and relentless, it tests whether you evolved your primary weapon."
+      lore: "A monument of escrow clauses, closing costs, and surprise roof repairs. Slow and relentless, it tests whether you evolved your primary weapon."
     },
     {
       age: "AGE 60",
       name: "🏎️ The Midlife Crisis V8",
       stage: "🏎️ Executive Wing & Wellness Corner",
-      lore: "A cherry-red two-seater convertible temptation with 130 HP and 118 top speed. It drifts across the good carpet trying to convince you that you definitely need a leather jacket."
+      lore: "A cherry-red two-seater convertible temptation with a 118 top speed. It drifts across the good carpet trying to convince you that you definitely need a leather jacket."
+    },
+    {
+      age: "AGE 63.5",
+      name: "⌚ The Gold Watch",
+      stage: "🏢 Wherever you are when the clock runs down",
+      lore: "A giant gold retirement gift that shows up a year and a half early and ticks toward 5:00. You can't stop time, only wind it back with every hit until you clock out at 65."
     },
     {
       age: "AGE 70",
       name: "🏡 The HOA Board President",
       stage: "🍻 The Social Courtyard",
-      lore: "Armed with a laminated clipboard, a brass ruler for measuring grass blades, and 210 HP of sheer neighborhood authority over trash-can placement."
+      lore: "Armed with a laminated clipboard, a brass ruler for measuring grass blades, and sheer neighborhood authority over trash-can placement."
     },
     {
       age: "AGE 80",
       name: "🏖️ The Mandatory Retirement Audit",
       stage: "🌴 Sunset Palms Gate",
-      lore: "The 300-HP final boss of the standard career! Defeating it awards +15k 401(k) Coins and lets you choose between retiring at 80 or entering the 80-100 Senior Bonus Rounds."
+      lore: "The Full Life gatekeeper at 80! Defeating it awards +15k 401(k) Coins and lets you choose between retiring at 80 or entering the 80-100 Senior Bonus Rounds."
     },
     {
       age: "AGE 90",
       name: "🏓 The 6:00 AM Pickleball Champion",
       stage: "🌴 Sunset Palms Resort",
-      lore: "A 420-HP Senior Bonus super-boss wearing dual knee braces and a visor, patrolling the kitchen line with terrifying dink-shot precision."
+      lore: "A Senior Bonus super-boss wearing dual knee braces and a visor, patrolling the kitchen line with terrifying dink-shot precision."
     },
     {
       age: "AGE 100",

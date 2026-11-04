@@ -13,14 +13,14 @@ window.DEATHS = {
   bill: [
     "Crushed by a late electric bill.",
     "Buried under 'FINAL NOTICE' envelopes.",
-    "Died of autopay failure.",
-    "Paper-cut to death by a water bill.",
+    "Signed out by an autopay failure.",
+    "Paper-cut into early retirement by a water bill.",
     "Overwhelmed by a surprise HOA fee.",
     "Read the itemized hospital bill. Didn't recover.",
     "You gave it a solid eight hours, plus a working lunch. The spreadsheets will still be here when you get back."
   ],
   lateFee: [
-    "Nickeled and dimed to death by a $35 Late Fee.",
+    "A $35 Late Fee finally emptied your wallet and your stamina.",
     "Forgot to click 'Submit Payment' before midnight.",
     "Compounded into oblivion by overdue charges."
   ],
@@ -36,7 +36,7 @@ window.DEATHS = {
     "The breakroom decaf pot was mislabeled again. Go home, put your feet up, and start fresh at nine."
   ],
   backTwinge: [
-    "Sneezes once at 44. Threw out entire lower back.",
+    "Sneezed once at 44. Threw out your entire lower back.",
     "Slept on the wrong pillow and never stood up straight again.",
     "Bent over to pick up a sock. Fatal mistake.",
     "You pulled something reaching for a dropped pen. Take the rest of the afternoon to ice it.",
@@ -44,7 +44,7 @@ window.DEATHS = {
     "Your lower back filed a formal grievance with HR. Grab a heating pad and we will circle back tomorrow."
   ],
   officeGossip: [
-    "Accidentally hit 'Reply All' to the entire company.",
+    "Someone replied 'Thanks!' to all 400 people and your inbox collapsed.",
     "Dragged into a 47-message passive-aggressive email thread.",
     "CC'd on drama that wasn't even in your department.",
     "You accidentally clicked Reply All and decided it was best to simply go home."

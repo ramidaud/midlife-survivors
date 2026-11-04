@@ -29,9 +29,9 @@ window.CHARACTERS = [
   {
     id: "officeWorker",
     name: "The 9-to-5er",
-    tagline: "Balanced stats. Starts with Coffee Splash.",
+    tagline: "Balanced stats, +2 health. Starts with Coffee Splash.",
     cost: 0,
-    apply: s => {}
+    apply: s => { s.maxHp += 2; } // +2 max HP: one more mistake allowed while learning (Grok final pass, Nov 4)
   },
   {
     id: "photographer", // internal id kept so existing saves and unlocks still work; shown as The Soccer Dad

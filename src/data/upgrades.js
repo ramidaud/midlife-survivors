@@ -82,7 +82,7 @@ window.UPGRADES = [
     id: "universalRemote",
     name: "Universal Remote",
     maxRank: 4,
-    text: "Remote deals +1 damage and flies 15% farther. Ranks 2 and 4 throw an extra remote. Odd ranks also throw a bit sooner.",
+    text: "+1 damage, 15% more range and quicker throws. Ranks 2 and 4 add a remote.",
     when: s => s.remote && getRank(s, "universalRemote") < 4,
     apply: s => { addRank(s, "universalRemote"); const r = getRank(s, "universalRemote"); s.remoteDamage += 1; s.remoteRange = Math.round(s.remoteRange * 1.15); if (r === 2 || r === 4) s.remoteCount += 1; if (r === 1 || r === 3) s.remoteEveryMs = Math.round(s.remoteEveryMs * 0.95); s.remoteRank = r; }
   },

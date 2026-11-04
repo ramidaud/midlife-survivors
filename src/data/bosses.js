@@ -66,7 +66,7 @@ window.BOSS_ATTACKS = {
       stillTicking: "The watch kept ticking, so you clocked out at 65 and left it on HR's desk."
     },
     minuteHand: { telegraphMs: 800, cooldownMs: 5200, handLength: 280, handWidth: 18, leadingEdgeThickness: 14,
-                  sweepDegPerSec: 70, sweepDurationMs: 3200, damage: 2, weightPhase1: 60, weightPhase2: 35 },
+                  sweepDegPerSec: 55, sweepDurationMs: 3200 /* was 70: with age and phase scaling the tip outran the plan (Grok final pass, Nov 4) */, damage: 2, weightPhase1: 60, weightPhase2: 35 },
     hourHand:   { telegraphMs: 900, cooldownMs: 7000, handLength: 160, handWidth: 28, leadingEdgeThickness: 18,
                   sweepDegPerSec: 40, sweepDurationMs: 4000, damage: 2, weightPhase2: 25 },
     alarm:      { telegraphMs: 950, cooldownMs: 8000, ringCount: 2, ringGapMs: 750, expandSpeed: 120, startRadius: 40,

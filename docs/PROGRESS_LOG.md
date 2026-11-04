@@ -1115,3 +1115,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 1.76.2, sharp phone title art
 - ChatGPT redrew the five phone title scenes at true 1080×1920 proportions (`*-portrait-v3.jpg`). Checked them against the desktop art; the Happy 50th party is much bigger now.
 - Phones and portrait iPads crop differently, so tablets got their own setting (`focusTablet` in title-art.js). The cast now clears Punch In on both.
+
+## 2026-11-04: V. 1.77.0, Grok and Gemini final passes
+- Grok (balance, all 5 picked): Mortgage HP 110→85, Performance Review 45→36, Gold Watch minute hand 70→55°/s, donut slow 1.8→1.4 s, 9-to-5er +2 max HP.
+- Gemini (copy, bugs + polish): "Fully Evolved Adult" was impossible (needed 9 of 6 evolutions), now fixed. Added 6 missing end-screen lines, a Gold Watch lore entry, dropped stale boss HP from the lore, removed two brand names, trimmed long tips, clarified two modifiers and the Universal Remote card, refreshed a few death lines.
+- Reviews saved in `docs/handoffs/grok-final-pass-review.md` and `gemini-final-pass-review.md`. ChatGPT's art audit is still pending.

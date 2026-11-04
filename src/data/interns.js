@@ -49,7 +49,7 @@ window.INTERNS = {
       { id: "coldBrewCup",  name: "Cold Brew Cup",   price: 10, stock: 1, speedMult: 1.20, durMs: 12000, text: "20% faster for 12 seconds." },
       { id: "loanerBadge",  name: "Loaner Badge",    price: 14, stock: 1, vacuumMs: 4000, text: "Pulls in every gem nearby." },
       { id: "quietHour",    name: "Quiet Hour Pass", price: 22, stock: 1, clearRadius: 220, text: "Small fry near you clock out early." },
-      { id: "bandAidKit",   name: "Band-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." }
+      { id: "bandAidKit",   name: "First-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." }
     ],
     lines: {
       open: "{name} is on the Lounge register. Cash only.",
