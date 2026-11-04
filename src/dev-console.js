@@ -50,7 +50,7 @@
     lounge: need(() => { if (window.Lounge) { Lounge.forceOpen(scene()); const s = Lounge.spot(); player.body.reset(s.x, s.y + 140); say("Lounge open, you're next to it"); } }),
     modGo: need(() => { const v = (document.getElementById("dev-mod") || {}).value; if (window.Modifiers) { Modifiers.forceStart(v); say("Modifier: " + v); } }),
     modStop: need(() => { if (window.Modifiers) { Modifiers.stop(); say("Modifier stopped"); } }),
-    spBoss: () => { if (window.Spotlight) Spotlight.boss(["performanceReview", "mortgageRefinance", "midlifeCrisis"][Math.floor(Math.random() * 3)]); },
+    spBoss: () => { if (window.Spotlight) Spotlight.boss(["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch"][Math.floor(Math.random() * 4)]); },
     spRoom: () => { if (window.Spotlight) Spotlight.room(["breakroom", "parking", "server", "conference", "executive", "wellness"][Math.floor(Math.random() * 6)]); },
     spTip: () => { if (window.Spotlight) { Spotlight.resetSeen(); Spotlight.tip(["elite", "chest", "evolution", "lowHp"][Math.floor(Math.random() * 4)]); } },
     nav: () => { if (window.NAV) { NAV.debug = !NAV.debug; render(); say(NAV.debug ? "Route arrows ON" : "Route arrows OFF"); } }
@@ -128,6 +128,7 @@
           <button type="button" data-boss="performanceReview">REVIEW</button>
           <button type="button" data-boss="mortgageRefinance">MORTGAGE</button>
           <button type="button" data-boss="midlifeCrisis">V8</button>
+          <button type="button" data-boss="goldWatch">WATCH</button>
           <button type="button" data-a="clear">CLEAR SCREEN</button></div></section>
         <section><div class="lbl">AGE 50+ MODIFIER</div><div class="row">
           <select id="dev-mod" aria-label="Modifier to start"></select>

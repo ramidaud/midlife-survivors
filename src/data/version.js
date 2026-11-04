@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.72.2",
-  displayVersion: "V. 1.72.2",
+  version: "1.73.0",
+  displayVersion: "V. 1.73.0",
   lastUpdated: "Nov 3, 2026",
-  codename: "The Cold War Cowboy",
-  build: 170,
+  codename: "The Gold Watch",
+  build: 171,
   changelog: [
+    {
+      ver: "V. 1.73.0", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "The final boss is here: The Gold Watch arrives at 63.5. Forty years of watching the clock, now it watches you.",
+      highlights: [
+        "New final boss for Midlife mode: The Gold Watch shows up at age 63.5. Its hands sweep the room, its 5 AM alarm rings out shockwaves (slip out the gap at 12) and loose gears bounce around. It speeds up in Overtime and The Last Minute.",
+        "Stop its hands at 5:00 for a big bonus chest, +35 401(k), the Five O'Clock Somewhere achievement and a keepsake at your retirement party. Still ticking at 65? You clock out anyway.",
+        "The office calms down while you fight it: fewer, smaller crowds and no Group Chats. Numbers by Grok, words by Gemini, art by ChatGPT."
+      ]
+    },
     {
       ver: "V. 1.72.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
       teaser: "A brand-new Art Room: the whole office animated, a live Spotlight demo and before-and-after sliders. The About page now starts with the game.",

@@ -3,6 +3,7 @@
 window.BOSS_ATTACK_TUNING = {
   minTelegraphMs: 550,          // the warning never gets shorter than this (phones need time to react)
   minTelegraphMsMortgage: 650,  // rings need a beat longer to read the gap
+  minTelegraphMsWatch: 700,     // the Gold Watch's Alarm rings (Grok, Nov 3)
   ageRefYear: 40,
   telegraphAgeCutPerYear: 4,    // warnings get a little shorter as you age...
   telegraphTaxCutPerBracket: 25,// ...and with each Tax Bracket
@@ -32,4 +33,45 @@ window.BOSS_ATTACKS = {
     skidHalfW: 18, skidHalfL: 26, skidEveryPx: 28, skidLifeMs: 2800, skidDamage: 1,
     bodyHalfW: 24, bodyHalfH: 18, damage: 3
   }
+  ,
+  // The Gold Watch (Grok's numbers, Gemini's words, Nov 3). Fight logic in src/gold-watch.js.
+  goldWatch: {
+    firstAttackDelayMs: 2000, recoverMs: 280, holdDistance: 200,
+    phases: {
+      overtime:   { title: "UNPAID OVERTIME", enterFrac: 0.60, bannerSub: "The ticking speeds up. Nobody approved this." },
+      lastMinute: { title: "THE LAST MINUTE", enterFrac: 0.25, bannerSub: "Every second counts now. Almost five o'clock." }
+    },
+    phase2: { cooldownMult: 0.92, speedMult: 1.08 },
+    phase3: { cooldownMult: 0.80, speedMult: 1.22, gearCount: 6 },
+    killBonusCoins: 35,
+    banners: { // shown the first time each attack is used in a run
+      minuteHand: ["MINUTE HAND", "Fast sweep around the dial. Keep moving."],
+      hourHand:   ["BANKERS' HOURS", "Thick arm swinging wide. Sidestep early."],
+      alarm:      ["5 AM ALARM", "No snooze button. Slip out the gap at 12."],
+      gears:      ["STRIPPED GEARS", "Bouncing brass incoming. Mind the ricochet."]
+    },
+    victory: {
+      title: "FIVE O'CLOCK", sub: "The hands stop at 5:00. Your time is yours.", kicker: "CLOCKED OUT",
+      keepsake: "Gold-plated, engraved by HR, and permanently stopped at 5:00 PM.",
+      lines: {
+        any: "The hands stopped at five, and my out-of-office is on.",
+        officeWorker: "The hands stopped at five, and my out-of-office is on.",
+        photographer: "And that's the final whistle, great game everybody!",
+        gradStudent: "Does beating the clock count toward my thesis credits?",
+        coldWarCowboy: "Blinking 5:00 forever, just like my parents' old VCR."
+      },
+      stillTicking: "The watch kept ticking, so you clocked out at 65 and left it on HR's desk."
+    },
+    minuteHand: { telegraphMs: 800, cooldownMs: 5200, handLength: 280, handWidth: 18, leadingEdgeThickness: 14,
+                  sweepDegPerSec: 70, sweepDurationMs: 3200, damage: 2, weightPhase1: 60, weightPhase2: 35 },
+    hourHand:   { telegraphMs: 900, cooldownMs: 7000, handLength: 160, handWidth: 28, leadingEdgeThickness: 18,
+                  sweepDegPerSec: 40, sweepDurationMs: 4000, damage: 2, weightPhase2: 25 },
+    alarm:      { telegraphMs: 950, cooldownMs: 8000, ringCount: 2, ringGapMs: 750, expandSpeed: 120, startRadius: 40,
+                  maxRadius: 280, ringHalfThickness: 16, gapArcDeg: 75, damage: 2, weightPhase2: 25 },
+    gears:      { telegraphMs: 600, cooldownMs: 6000, gearCount: 4, gearSpeed: 160, gearSize: 18, gearLifeMs: 4500,
+                  damage: 1, weightPhase1: 40, weightPhase2: 15 },
+    swarm: { spawnDelayMult: 1.80, packSizeMult: 0.40, maxOnScreenMult: 0.45, eliteChanceMult: 0.35,
+             pauseKinds: ["groupChat", "mathWorksheet", "calendarInvite"], pauseEvents: true }
+  }
+
 };

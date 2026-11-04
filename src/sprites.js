@@ -581,6 +581,11 @@ function buildSprites(scene) {
     });
   });
 
+  // The Gold Watch's physics body (the drawn boss comes from assets/bosses via BossArt).
+  makeCanvasTex(scene, "goldWatch", 68, 68, (ctx) => {
+    ctx.fillStyle = "#d9a441"; ctx.beginPath(); ctx.arc(34, 36, 28, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#fff0cf"; ctx.beginPath(); ctx.arc(34, 36, 22, 0, Math.PI * 2); ctx.fill();
+  });
   makeCanvasTex(scene, "mortgageRefinance", 68, 68, (ctx) => {
     ctx.fillStyle = "rgba(0,0,0,0.45)"; rrect(ctx, 6, 14, 58, 52, 4); ctx.fill();
     ctx.fillStyle = "#1c0e36"; ctx.fillRect(8, 24, 52, 36);

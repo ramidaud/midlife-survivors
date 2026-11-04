@@ -149,6 +149,19 @@ window.ENEMIES = {
     size: 60,
     color: 0x8c6fd9
   },
+  // Midlife mode's final boss (Nov 3; numbers by Grok, docs/handoffs/grok-gold-watch-spec.md). Fight logic: src/gold-watch.js
+  goldWatch: {
+    name: "The Gold Watch",
+    label: "TIME",
+    seniorLabel: "TIME",
+    tex: "goldWatch",
+    spawnAge: 63.5,
+    speed: 48,
+    hp: 150,
+    damage: 2,
+    size: 64,
+    color: 0xd9a441
+  },
   midlifeCrisis: {
     name: "The Midlife Crisis V8",
     label: "V8",
@@ -214,7 +227,7 @@ window.ENEMIES = {
 // Regular enemies were about half the hero's height, and bosses were barely bigger than the hero.
 // 1 = original size. Bosses keep a smaller hit box than they look, so they don't jam between desks.
 window.ENEMY_SCALE = { regular: 1.4, boss: 2.3, bossHitbox: 0.5 };
-window.BOSS_KINDS = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
+window.BOSS_KINDS = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
 for (const [kind, E] of Object.entries(window.ENEMIES)) {
   E.scale = window.BOSS_KINDS.includes(kind) ? window.ENEMY_SCALE.boss : window.ENEMY_SCALE.regular;
   E.size = Math.round(E.size * E.scale); // labels, weapon reach and Close Calls read this

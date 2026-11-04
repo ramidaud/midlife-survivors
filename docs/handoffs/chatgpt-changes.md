@@ -262,3 +262,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Drew the pocket watch boss, sweeping hands, loose gear, clock floor telegraph, smug mugshot and stopped retirement keepsake. Frame 11 and the keepsake show five o'clock.
 - **Files.** assets/bosses/README-gold-watch-v1.md links the native assets, five GIFs and the 1×/2× size check beside the V8 and the 9-to-5er.
 - **For Claude.** The boss is 576×456 with 144×152 cells, magenta key and foot point (72,148). Frames 0–5 float, 6–7 wind up, 8–9 attack, 10 is hurt and 11 stops. Both hand textures rotate from bottom center, and the decal opens at 12. The mugshot uses four 96×96 cells at 200 ms.
+- [done] Claude built the Gold Watch fight around the boss sheet, hands, gears, telegraph, mugshot and keepsake in V. 1.73.0 (Nov 3).

@@ -9,7 +9,7 @@ window.RUN_MODES = {
     startAge: 40,
     endAge: 65,              // Retirement arrives here (Overtime in the shop pushes it back)
     secondsPerYear: 45,      // 45 real seconds = 1 year
-    bosses: ["performanceReview", "mortgageRefinance", "midlifeCrisis"],
+    bosses: ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch"],
     overtimeYearsPerRank: 5, // each "Delayed Retirement" rank adds 5 years (65 -> 70 -> 75 -> 80)
     endBossLabel: "RETIREMENT",
     endBossName: "Your Retirement Party",

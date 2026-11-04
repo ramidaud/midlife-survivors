@@ -287,7 +287,7 @@ function create() {
   runTaxBracket = meta.taxBracket || 0;
   runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
-  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0;
+  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
@@ -319,6 +319,7 @@ function create() {
   buildSprites(this);
   if (window.Breakables) Breakables.preload(this); // smashable prop art (assets/breakables)
   if (window.BossArt) BossArt.preload(this);       // big boss art (assets/bosses)
+  if (window.GoldWatch) GoldWatch.preload(this);   // the Gold Watch's hands and gears
   if (window.Interns && Interns.preload) Interns.preload(this); // TJ and Derek (assets/characters/intern-*.png)
   EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
@@ -812,7 +813,7 @@ function beginFreshRunAtDecade(scene) {
   lastAutoSave = 0;
   retire80Prompted = runStartAge >= 80;
   bossesSpawned = {};
-  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
+  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
     if (ENEMIES[bk] && ENEMIES[bk].spawnAge < runStartAge) bossesSpawned[bk] = true;
   });
 
@@ -1462,6 +1463,7 @@ function damageBill(bill, amount) {
     }
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
+      if (bill.kind === "goldWatch" && window.GoldWatch) GoldWatch.defeated(sc, bill); // hands stop at 5:00
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
       if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
@@ -1825,7 +1827,8 @@ function createEnemy(scene, kind, x, y) {
     fontFamily: "monospace", fontSize: "10px", color: currentAge >= 80 ? "#f5c542" : "#e8e9f3"
   }).setOrigin(0.5).setDepth(5);
   const EL = window.INTENSITY && INTENSITY.elites;
-  if (EL && EL.names[kind] && Math.random() < ageCurve(EL.chanceByAge, currentAge)) makeElite(e, E, EL);
+  const duelE = window.GoldWatch ? GoldWatch.duel() : null;
+  if (EL && EL.names[kind] && Math.random() < ageCurve(EL.chanceByAge, currentAge) * ((duelE && duelE.eliteChanceMult) || 1)) makeElite(e, E, EL);
   return e;
 }
 
@@ -1859,7 +1862,9 @@ function rollWaveKind() {
   const wave = currentWave();
   // Age 50+ modifiers can tilt the everyday mix (src/modifiers.js), e.g. Ghost Hour adds more 3 AM Thoughts.
   const bias = window.modFx ? modFx("waveBias", null) : null;
-  const mix = bias ? wave.mix.map(([k, w]) => [k, w + (bias[k] || 0)]).concat(Object.keys(bias).filter(k => !wave.mix.some(([m]) => m === k) && ENEMIES[k]).map(k => [k, bias[k]])) : wave.mix;
+  let mix = bias ? wave.mix.map(([k, w]) => [k, w + (bias[k] || 0)]).concat(Object.keys(bias).filter(k => !wave.mix.some(([m]) => m === k) && ENEMIES[k]).map(k => [k, bias[k]])) : wave.mix;
+  const duelS = window.GoldWatch ? GoldWatch.duel() : null; // no Group Chats, Math Homework or Calendar Invites during the Gold Watch fight
+  if (duelS && duelS.pauseKinds) { const kept = mix.filter(([k]) => !duelS.pauseKinds.includes(k)); if (kept.length) mix = kept; }
   const totalWeight = mix.reduce((sum, [, w]) => sum + w, 0);
   let roll = Math.random() * totalWeight, kind = mix[0][0];
   for (const [k, w] of mix) {
@@ -1871,7 +1876,8 @@ function rollWaveKind() {
 // The everyday drip: a small PACK of enemies just outside the screen. Packs get bigger each decade.
 function spawnBill(scene) {
   const I = window.INTENSITY || {};
-  const cap = Math.round(ageCurve(I.maxOnScreenByAge, currentAge) || SPAWNING.maxOnScreen);
+  const duelS = window.GoldWatch ? GoldWatch.duel() : null;
+  const cap = Math.round((ageCurve(I.maxOnScreenByAge, currentAge) || SPAWNING.maxOnScreen) * ((duelS && duelS.maxOnScreenMult) || 1));
   if (bills.countActive() >= cap) return;
   const view = scene.cameras.main.worldView; // the rectangle of the world you can currently see
   const m = window.viewModeIdx === 1 ? 220 : SPAWNING.offscreenMargin;
@@ -1883,7 +1889,8 @@ function spawnBill(scene) {
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
   const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")) + dynPackAdd() + (window.modFx ? modFx("packAdd", 0) : 0); // stronger you = bigger crowds
-  for (let i = 0; i < pack && bills.countActive() < cap; i++) {
+  const packN = duelS ? Math.max(1, Math.round(pack * (duelS.packSizeMult || 1))) : pack;
+  for (let i = 0; i < packN && bills.countActive() < cap; i++) {
     createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
   }
 }
@@ -1930,6 +1937,7 @@ function maybeRunSwarmEvent(scene) {
   nextSwarmAt = runElapsedMs + gap;
   const pool = (window.SWARM_EVENTS || []).filter(ev => currentAge >= ev.minAge && ENEMIES[ev.kind] || (ev.kind === "mixed" && currentAge >= ev.minAge));
   if (!pool.length) return;
+  { const duelS = window.GoldWatch ? GoldWatch.duel() : null; if (duelS && duelS.pauseEvents) return; } // no set pieces during the Gold Watch fight
   const total = pool.reduce((s, ev) => s + ev.weight, 0);
   let roll = Math.random() * total, pick = pool[0];
   for (const ev of pool) { if ((roll -= ev.weight) <= 0) { pick = ev; break; } }
@@ -1958,9 +1966,11 @@ function spawnBoss(scene, bossKind) {
   if (P.tint) boss.setTint(P.tint);
   boss.isBoss = true;
   boss.kind = bossKind;
+  if (bossKind === "goldWatch") window.goldWatchSeen = true;
   const lvlMult = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0);
   const ageMult = 1 + Math.max(0, currentAge - 40) * ((window.INTENSITY && window.INTENSITY.bossHpPerYear) || 0.10);
   boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult * (1 + tax("enemyHpMult"))); // bosses scale with your level AND your age
+  boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
   boss.speed = P.speed;
   boss.damage = P.damage;
   boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${boss.hp}`, { // show the scaled HP, not the base
@@ -2128,7 +2138,8 @@ function update(time, delta) {
   const blend = nextW === curW ? 0 : Phaser.Math.Clamp((currentAge - curW.minAge) / span, 0, 1);
   const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0) - tax("spawnFaster"));
   updateDynamicIntensity();
-  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed * dynSpawnMult() * (window.modFx ? modFx("spawnDelayMult", 1) : 1));
+  const duelS = window.GoldWatch ? GoldWatch.duel() : null; // the Gold Watch fight thins the swarm
+  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed * dynSpawnMult() * (window.modFx ? modFx("spawnDelayMult", 1) : 1) * ((duelS && duelS.spawnDelayMult) || 1));
   if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;
     spawnTimer.reset({ delay: wantDelay, loop: true, callback: spawnTimer.callback });

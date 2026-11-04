@@ -1,6 +1,15 @@
 // Causes of death, grouped by what finished you off. One is picked at random.
 // Add your own lines anytime. Keep them warm, never mean.
 window.DEATHS = {
+  // The Gold Watch (Gemini, Nov 3)
+  goldWatch: [
+    "You spent twenty minutes staring at the clock waiting for 4:59 to turn into 5:00.",
+    "The Minute Hand caught you sneaking toward the coat rack at 4:58.",
+    "HR engraved your name on the back, but spelled it with two Ys. Try again.",
+    "Your timesheet was one minute short of forty hours. Payroll says see you Monday.",
+    "A loose gear rolled under your sensible shoes. So close to the retirement cake.",
+    "You hit snooze for the ninth time and the morning meeting started without you."
+  ],
   bill: [
     "Crushed by a late electric bill.",
     "Buried under 'FINAL NOTICE' envelopes.",

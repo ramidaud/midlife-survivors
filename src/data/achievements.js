@@ -14,6 +14,7 @@ window.ACHIEVEMENTS = [
   { id: "showYourWork",  icon: "📐", name: "Show Your Work",            desc: "Beat Math Homework.",                     reward: 4,  on: "kill", test: d => d.kind === "mathWorksheet" },
   { id: "q3Met",         icon: "📈", name: "Exceeds Expectations",      desc: "Beat the Performance Review.",            reward: 5,  on: "bossKill", test: d => d.kind === "performanceReview" },
   { id: "escrowHero",    icon: "🏠", name: "Initial Here",              desc: "Beat the 30-Year Mortgage.",              reward: 6,  on: "bossKill", test: d => d.kind === "mortgageRefinance" },
+  { id: "fiveOClock",    icon: "⌚", name: "Five O'Clock Somewhere",    desc: "Beat the Gold Watch and stop the hands at 5:00.", reward: 12, on: "bossKill", test: d => d.kind === "goldWatch" },
   { id: "keepTheSedan",  icon: "🚗", name: "Keep The Sedan",            desc: "Beat the Midlife Crisis V8.",             reward: 8,  on: "bossKill", test: d => d.kind === "midlifeCrisis" },
   { id: "hybridSchedule", icon: "🔀", name: "Hybrid Schedule",          desc: "Finish runs on two kinds of devices (phone, tablet or computer).", reward: 5,  on: "devices", test: d => ["phone", "tablet", "desktop"].filter(k => d[k]).length >= 2 },
   { id: "remoteWorker",   icon: "🌐", name: "Remote Worker",            desc: "Finish runs on a phone, a tablet AND a computer.",               reward: 10, on: "devices", test: d => ["phone", "tablet", "desktop"].every(k => d[k]) },

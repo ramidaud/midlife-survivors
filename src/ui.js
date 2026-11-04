@@ -2671,13 +2671,20 @@ function retirementPartyHtml(isCentennial) {
     </div>
     <p class="rt-gifts">${isCentennial
       ? "A hundred candles. The fire marshal has questions. The gold watch is now an heirloom."
-      : "From everyone at the office: a sheet cake, a gold watch, and a card that Accounting signed twice."}</p>`;
+      : "From everyone at the office: a sheet cake, a gold watch, and a card that Accounting signed twice."}</p>${goldWatchRetireHtml()}`;
+}
+// The Gold Watch at the party: the keepsake if you stopped it, a wry line if it was still ticking (Nov 3).
+function goldWatchRetireHtml() {
+  const V = (window.BOSS_ATTACKS && BOSS_ATTACKS.goldWatch && BOSS_ATTACKS.goldWatch.victory) || {};
+  if (window.goldWatchBeat) return `<p class="rt-gifts" style="display:flex;align-items:center;gap:10px;justify-content:center"><img src="assets/ui/kill-screen/gold-watch-keepsake-v1.png" alt="" width="48" height="48" style="image-rendering:pixelated">${V.keepsake || ""}</p>`;
+  if (window.goldWatchSeen && V.stillTicking) return `<p class="rt-gifts">${V.stillTicking}</p>`;
+  return "";
 }
 
 // The HR Exit Interview scene (Nov 3, art by ChatGPT): your hero slumps in a chair on the left, whatever got you
 // gloats on the right, over an empty HR office. Retry plays the hero's shake-off before the restart.
 const KO_HERO = { officeWorker: "office-worker", photographer: "soccer-dad", gradStudent: "grad-student", coldWarCowboy: "cold-war-cowboy" };
-const KO_MUG = { bill: "bill", groupChat: "group-chat", groupChatPing: "group-chat", lateFee: "late-fee", spamCall: "spam-likely", snackAttack: "late-night-donut",
+const KO_MUG = { goldWatch: "gold-watch", bill: "bill", groupChat: "group-chat", groupChatPing: "group-chat", lateFee: "late-fee", spamCall: "spam-likely", snackAttack: "late-night-donut",
   threeAmThought: "3am-thought", officeGossip: "reply-all", calendarInvite: "calendar-invite", backTwinge: "back-twinge" };
 function koSceneHtml(killer) {
   if (!document.getElementById("ko-css")) {

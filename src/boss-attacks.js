@@ -28,6 +28,11 @@ window.BossAttacks = (() => {
 
   // Returns true while the attack system is steering the boss (so the normal chase is skipped).
   function update(scene, boss, player, now) {
+    if (boss.kind === "goldWatch" && window.GoldWatch) { // the final boss has its own fight (src/gold-watch.js)
+      const r = GoldWatch.update(scene, boss, player, now), st = boss._gw ? boss._gw.state : "chase";
+      if (window.BossArt) BossArt.sync(scene, boss, st === "float" ? "chase" : st, now);
+      return r;
+    }
     const r = step(scene, boss, player, now);
     if (window.BossArt) BossArt.sync(scene, boss, boss._atk ? boss._atk.state : "chase", now);
     return r;
