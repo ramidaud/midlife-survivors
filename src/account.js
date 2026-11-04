@@ -262,7 +262,8 @@ window.Account = (() => {
         <button type="button" class="acct-link" data-acct="deleteCloud">Delete my cloud save</button>`;
     } else if (ui.step === "code") {
       body = `<div class="modal-kicker">HR // BADGE OFFICE</div><h2 class="modal-title" id="acct-title">CHECK YOUR EMAIL</h2>
-        <p class="modal-sub">We sent a 6-digit code to <b>${esc(ui.email)}</b>. It can take a minute, and it might land in spam.</p>
+        <p class="modal-sub">We sent a sign-in email to <b>${esc(ui.email)}</b>. It can take a minute, and it might land in spam.</p>
+        <p class="modal-sub"><b>Has a link?</b> Open it on this device, in this browser. <b>Has a code?</b> Type it here.</p>
         <label for="acct-code">YOUR CODE</label>
         <input id="acct-code" class="code" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="000000">
         <div class="acct-row">${btn("verify", "Clock in", "primary", " data-acct-enter")}</div>
@@ -345,6 +346,7 @@ window.Account = (() => {
     if (!on()) return;
     let has = false; try { has = !!localStorage.getItem(AUTH_KEY); } catch (e) {}
     const back = /[?&]code=|access_token=|[?&]error=/.test(location.search + location.hash);
+    const hadCode = /[?&]code=/.test(location.search);
     if (!has && !back) return;
     client().then(() => {
       if (back) { // tidy the address bar
@@ -354,6 +356,7 @@ window.Account = (() => {
         if (err) { ui.err = err; open(); }
       }
       if (signedIn()) pull(back);
+      else if (hadCode) { ui.err = "That sign-in link has to be opened on the same device and browser where you asked for it. Try again from here."; open(); }
     }).catch(() => {});
   }
   setTimeout(boot, 1200); // after the title screen is up

@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.84.0",
-  displayVersion: "V. 1.84.0",
+  version: "1.84.1",
+  displayVersion: "V. 1.84.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 191,
+  build: 192,
   changelog: [
+    {
+      ver: "V. 1.84.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Accounts setup: sign-in emails can be a link or a code.",
+      highlights: [
+        "The sign-in email can now be a link or a 6-digit code. Supabase's free email sends a link until we connect our own email sender, so the game handles both."
+      ]
+    },
     {
       ver: "V. 1.84.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Behind the scenes: your employee file is getting a cloud backup.",

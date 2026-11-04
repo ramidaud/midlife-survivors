@@ -9,7 +9,9 @@ All clicks are in the Supabase dashboard for the Midlife Survivors project unles
 - **Site URL:** `https://ramidaud.github.io/midlife-survivors/`
 - **Redirect URLs > Add URL:** `https://ramidaud.github.io/midlife-survivors/**`
 
-## 2. Put the 6-digit code in the emails (3 min)
+## 2. Put the 6-digit code in the emails (after step 3)
+> **Found Nov 4:** on the free plan, Supabase won't let you edit email templates until a custom email sender (SMTP) is set up. Until then the default email sends a **sign-in link** instead of a code, and the game accepts that (open the link on the same device and browser). So do step 3 first, then come back here.
+
 **Authentication > Emails** (Templates). Edit **both** "Magic Link" and "Confirm signup" (new players get the second one).
 
 - **Subject:** `Your Midlife Survivors code: {{ .Token }}`
@@ -25,7 +27,7 @@ All clicks are in the Supabase dashboard for the Midlife Survivors project unles
 
 ## 3. Email for real players (needs a decision)
 Supabase's built-in email only delivers to **members of your Supabase team** (that's you), a few times an hour. Friends won't get codes until a real email sender is connected.
-- **Easiest:** [Resend](https://resend.com) has a free tier, but it needs a domain you own (to verify a sender like `noreply@yourdomain.com`).
+- **Easiest:** [Resend](https://resend.com) has a free tier. It needs a domain you own: **ramidaud.com** works (sender like `noreply@ramidaud.com`).
 - Then: **Project Settings > Authentication > SMTP Settings**, turn on custom SMTP, and paste Resend's host, port, username and password.
 - **No domain?** Google sign-in (step 4) works for everyone without any email setup.
 
