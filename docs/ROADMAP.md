@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-03 (V. 1.63.1 The Lounge)
+**Last updated:** 2026-11-04 (Discord posts)
 
 ---
 
@@ -134,6 +134,7 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 **Phase A: Finish the browser game**
 - [ ] Fun Pass and visual pass done (enemies, bosses, pickups, icons)
 - [ ] Stage art pass: friendlier, funnier, lots of props and inside jokes
+- [x] Auto-post changelog, memos and stats to Discord (Nov 4)
 - [ ] Grow the Discord and devlog audience; collect playtest notes
 
 **Phase B: Steam**

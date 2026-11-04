@@ -1761,3 +1761,29 @@ every run ends the same        each run is a different build
 | Authorization | What can you touch? | Row-level security: only your own save row |
 
 **The idea:** the public key in the game is like the building's front door. Anyone can walk in, but the row rules decide which locker opens for you.
+
+## Chapter: Webhooks and robot memory (Discord posts, Nov 4)
+A webhook is a private web address tied to one Discord channel. Send it a message and the message shows up in that channel.
+
+```
+ you push to GitHub, or the clock hits evening
+              |
+              v
+      +----------------+      "already posted?"     +--------------------+
+      | GitHub Action  | <------------------------> | discord-state.json |
+      | (the robot)    |      writes down new posts | (the robot's notes)|
+      +----------------+                            +--------------------+
+              |
+   locked secrets hold the 3 addresses
+      |            |            |
+      v            v            v
+ #changelog     #devlog       #stats
+```
+
+| Channel | What wakes the robot | What it reads |
+|---|---|---|
+| #changelog | The evening clock | `src/data/version.js` |
+| #devlog | A push that changes the memo list | `devlog/posts.js` |
+| #stats | The morning stats task saving its summary | `reports/discord-stats.md` |
+
+**Why the notes file matters:** the robot starts each run with an empty head. Without its notes, every run would repost every memo.

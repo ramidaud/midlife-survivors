@@ -1255,3 +1255,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - ChatGPT's loadout art is live: real icons on the cards and HUD slots (old weapons too), new style badges, and animated sprites for spaghetti, headphones, chair, reply-all, out-of-office, sticky notes, the cold snap and frozen enemies.
 - Each office floor kept its own full-size picture in graphics memory. They're now baked into the shared floor tiles: about 293 MB down to 192 MB.
 - Rami saw the title load oddly in Safari; waiting on a screenshot. The memory trim may already help.
+
+## Nov 4, 2026: Discord posts
+- Rami's Discord now gets posts automatically through three webhooks, kept as GitHub secrets.
+- #changelog: one roundup each evening. #devlog: a post when a memo is published, skipping any with [RAMI: ...] placeholders. #stats: a totals-only summary each morning.
+- The morning stats task now saves that summary to the repo, and GitHub posts it. The full report still comes to Rami in Claude.
+- Tested against a fake Discord, then live. The first stats post and three test posts ran successfully.

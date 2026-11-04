@@ -531,3 +531,8 @@ An enlarged sheet can hide a size mistake. Comparing each coworker beside the ac
 
 ## Graphics memory (Nov 4)
 Every picture the game shows lives in the graphics card's own memory as raw pixels, about 4 bytes each, no matter how small the PNG file was. A 1000 x 1000 floor costs 4 MB there even if the file is 50 KB. When a browser runs short, it can take the graphics away entirely (that was the white screen). Baking the floors into tiles we already had saved about 100 MB.
+
+## Webhooks (Nov 4, Discord posts)
+- A **webhook** is a private web address that posts to one Discord channel. Anything that has the address can post there, so it stays in GitHub's locked secrets, never in the code.
+- **GitHub Actions** is a robot that runs a script when something happens: a push, a schedule or a button press.
+- A robot forgets everything between runs, so it writes down what it already posted in a small **state file**. That's what stops double posts.
