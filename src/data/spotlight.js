@@ -18,7 +18,7 @@ window.SPOTLIGHT = {
     officeWorker: { bio: "Two decades in the bullpen. Can spot a Reply-All storm from a mile away.", style: "Balanced all-rounder who starts every shift with a hot Coffee Splash.", kicker: "NOW ONBOARDING", name: "THE 9-TO-5ER", line: "Clocking in at nine sharp and not a minute earlier.", tip: "Balanced all-rounder built for a steady workday." },
     photographer: { bio: "Coaches the under-10s on Saturdays. Trunk is full of folding chairs.", style: "Fast feet and a wide Dad Joke blast built for crowd control.", kicker: "SIDELINE CAPTAIN", name: "THE SOCCER DAD", line: "I brought orange slices and a trunk full of chairs!", tip: "High-stamina hero with strong crowd-control energy." },
     gradStudent:  { bio: "Started grad school at 45. Writes citations between afternoon naps.", style: "Huge gem magnet and faster cooldowns to level up in a hurry.", kicker: "FELLOWSHIP GRANT", name: "THE GRAD STUDENT", line: "Does this count for credit, or is it just exposure?", tip: "Fast-moving hero who levels up skills quickly." },
-    coldWarCowboy: { bio: "Started in Kent State J-school IT in 2002. Still kept a box of floppies.", style: "Floppy Disk boomerang, +2 health, and one full system reboot per run.", kicker: "IT SINCE 2002", name: "THE COLD WAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
+    coldWarCowboy: { bio: "Started in Kent State J-school IT in 2002. Still kept a box of floppies.", style: "Floppy Disk boomerang, +2 health, and one full system reboot per run.", kicker: "IT SINCE 2002", name: "THE COLDWAR COWBOY", line: "Back in my day, a gig was a gig. Now hand me that disk.", tip: "Floppy Disk boomerang. Once a run, he reboots everything." }
   },
   // Promotions: a coworker announces the new room. cast = which coworker sprite (START_AREA_COWORKERS).
   // Names match the sprites' own names from ChatGPT's cast sheet (Nov 3), with Gemini's departments.
@@ -77,6 +77,6 @@ window.SPOTLIGHT = {
                           gradStudent: "Another surprise fee, and financial aid is already closed.",
                           coldWarCowboy: "System threw a weird pop-up. Give it a minute to clear." } }
   },
-  heroNames: { officeWorker: "THE 9-TO-5ER", photographer: "THE SOCCER DAD", gradStudent: "THE GRAD STUDENT", coldWarCowboy: "THE COLD WAR COWBOY" },
+  heroNames: { officeWorker: "THE 9-TO-5ER", photographer: "THE SOCCER DAD", gradStudent: "THE GRAD STUDENT", coldWarCowboy: "THE COLDWAR COWBOY" },
   heroSheets: { officeWorker: "office-worker-on-break-v1", photographer: "soccer-dad-on-break-v1", gradStudent: "grad-student-on-break-v1", coldWarCowboy: "cold-war-cowboy-on-break-v3" }
 };

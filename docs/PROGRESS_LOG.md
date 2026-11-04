@@ -1107,3 +1107,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Every memo has a Share button next to "Play this build" and a "Share this memo" button after the sign-off, in the devlog and on each memo's own page.
 - Phones open the native share sheet; computers copy the link and say "Link copied". The link is the memo's own page, so it shows the preview card.
 - Each share is counted in GoatCounter as an event (`share-<memo>`), so you can see which memos get passed around.
+
+## 2026-11-04: "Coldwar Cowboy" (V. 1.76.1)
+- Ben prefers "Coldwar Cowboy" (one word). Renamed it everywhere players and readers see it: game, Spotlight card, lore, achievements, patch notes, devlog, Art Room, About and the feed.
+- Internal IDs and file names (`coldWarCowboy`, `cold-war-cowboy-*.png`) stay as they are, and old log entries keep the old spelling as history.

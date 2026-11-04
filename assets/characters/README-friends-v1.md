@@ -2,7 +2,7 @@
 
 | Character | Walk and secondary poses | Preview | Extra |
 |---|---|---|---|
-| Ben, The Cold War Cowboy | [PNG](cold-war-cowboy-walk-56x60-v1.png) | [GIF](cold-war-cowboy-walk-56x60-v1-preview.gif) | [32×32 title card badge](cold-war-cowboy-badge-v1.png) |
+| Ben, The Coldwar Cowboy | [PNG](cold-war-cowboy-walk-56x60-v1.png) | [GIF](cold-war-cowboy-walk-56x60-v1-preview.gif) | [32×32 title card badge](cold-war-cowboy-badge-v1.png) |
 | TJ | [PNG](intern-tj-v1.png) | [GIF](intern-tj-v1-preview.gif) | Coffee delivery and counter wave |
 | Derek | [PNG](intern-derek-v1.png) | [GIF](intern-derek-v1-preview.gif) | Snack delivery, camera strap and register tap |
 

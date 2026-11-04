@@ -29,15 +29,15 @@ TJ's other note was that runs end too fast because there aren't many ways to hea
 
 TJ and Derek came up with the Lounge in our group chat while I was asking them for lines. TJ sent me his. "What were the dinosaurs like?" and "For my Manager!!!" are both in the game now, and adding them made me smile.
 
-![The Lounge is open: TJ is on the register in the Break Room, coffee in one hand, waving with the other, while the Cold War Cowboy walks up.](img/09-lounge.jpg)
+![The Lounge is open: TJ is on the register in the Break Room, coffee in one hand, waving with the other, while the Coldwar Cowboy walks up.](img/09-lounge.jpg)
 
-## The Cold War Cowboy
+## The Coldwar Cowboy
 
 Ben and I met in 2002, when I started at Kent as an undergrad. We both worked IT for the journalism school. So he's in the game as an IT guy with a soft spot for days gone by.
 
 He throws a floppy disk that comes back to him. And once a run, when things get bad, he does the thing every IT person has said a thousand times: "Have you tried turning it off and on again?" The screen clears and he gets back up. You unlock him by reading 10 of these memos, which means you're about to be one memo closer.
 
-![The crew's badges on the title screen: the 9-to-5er, the Soccer Dad, the Grad Student and the Cold War Cowboy in his hat.](img/09-crew-badges.jpg)
+![The crew's badges on the title screen: the 9-to-5er, the Soccer Dad, the Grad Student and the Coldwar Cowboy in his hat.](img/09-crew-badges.jpg)
 
 ## One experience
 

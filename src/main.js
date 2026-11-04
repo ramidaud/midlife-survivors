@@ -899,7 +899,7 @@ window.achEvent = (on, d = {}) => {
     if (!ok) return;
     A.unlocked[def.id] = Date.now();
     meta.coins += def.reward; changed = true;
-      if (def.id === "requiredReading") { meta.unlockedChars = meta.unlockedChars || {}; meta.unlockedChars.coldWarCowboy = true; if (window.showLowerThird) window.showLowerThird("win", "NEW HIRE", "The Cold War Cowboy is unlocked. Pick him on the title screen.", 6000); }
+      if (def.id === "requiredReading") { meta.unlockedChars = meta.unlockedChars || {}; meta.unlockedChars.coldWarCowboy = true; if (window.showLowerThird) window.showLowerThird("win", "NEW HIRE", "The Coldwar Cowboy is unlocked. Pick him on the title screen.", 6000); }
     runAch.newly.push(def);
     sfx("levelUp");
     if (window.showLowerThird) window.showLowerThird("win", "ACHIEVED", `${def.icon} ${def.name}: ${def.desc} +${def.reward}k`, 4500);

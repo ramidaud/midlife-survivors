@@ -4,7 +4,7 @@
 
 | Character | Native sheet | Animation preview |
 |---|---|---|
-| Ben, The Cold War Cowboy | [Walk and idle](cold-war-cowboy-walk-56x60-v2.png) | [GIF](cold-war-cowboy-walk-56x60-v2-preview.gif) |
+| Ben, The Coldwar Cowboy | [Walk and idle](cold-war-cowboy-walk-56x60-v2.png) | [GIF](cold-war-cowboy-walk-56x60-v2-preview.gif) |
 | TJ | [Walk, counter and idle](intern-tj-v2.png) | [GIF](intern-tj-v2-preview.gif) |
 | Derek | [Walk, counter and idle](intern-derek-v2.png) | [GIF](intern-derek-v2-preview.gif) |
 | Ben, On Break | [Portrait poses](portraits/cold-war-cowboy-on-break-v2.png) | [GIF](portraits/cold-war-cowboy-on-break-preview-v2.gif) |

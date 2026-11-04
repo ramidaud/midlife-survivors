@@ -174,7 +174,7 @@
       const el = document.getElementById("ab-me"), L = window.LEADERBOARD;
       if (!L || !L.supabaseUrl) { el.innerHTML = tile("–", "best score"); return; }
       const h = { apikey: L.supabaseAnonKey }; if (!String(L.supabaseAnonKey).startsWith("sb_")) h.Authorization = "Bearer " + L.supabaseAnonKey;
-      const chars = { officeWorker: "The 9-to-5er", photographer: "The Soccer Dad", gradStudent: "The Grad Student", coldWarCowboy: "The Cold War Cowboy" };
+      const chars = { officeWorker: "The 9-to-5er", photographer: "The Soccer Dad", gradStudent: "The Grad Student", coldWarCowboy: "The Coldwar Cowboy" };
       try {
         const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age,character&order=score.desc&limit=500`, { headers: h, cache: "no-store" });
         const rows = r.ok ? await r.json() : [];

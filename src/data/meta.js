@@ -51,7 +51,7 @@ window.CHARACTERS = [
     // Ben (Nov 3): Rami's friend since 2002, when they both worked IT for Kent State's journalism school.
     // Unlocked by the Required Reading achievement (finish 10 devlog memos). Art by ChatGPT.
     id: "coldWarCowboy",
-    name: "The Cold War Cowboy",
+    name: "The Coldwar Cowboy",
     tagline: 'IT since 2002. Starts with the Floppy Disk. Once a run: "Have you tried turning it off and on again?"',
     cost: 0,
     unlock: "requiredReading",

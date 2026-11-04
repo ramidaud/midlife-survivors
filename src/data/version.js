@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.76.0",
-  displayVersion: "V. 1.76.0",
+  version: "1.76.1",
+  displayVersion: "V. 1.76.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 178,
+  build: 179,
   changelog: [
+    {
+      ver: "V. 1.76.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Ben's hero is now spelled the way Ben likes it: The Coldwar Cowboy.",
+      highlights: [
+        "The Cold War Cowboy is now The Coldwar Cowboy everywhere: title screen, Spotlight card, achievements, lore, the devlog and the Art Room. That's Ben's preference."
+      ]
+    },
     {
       ver: "V. 1.76.0", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "Cleaner phones: crowds drop their name tags, nav buttons are easier to tap, and Options puts touch settings first.",
@@ -79,7 +86,7 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.72.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.72.2", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "A brand-new Art Room: the whole office animated, a live Spotlight demo and before-and-after sliders. The About page now starts with the game.",
       highlights: [
         "New Art Room: every hero, intern, coworker, boss and enemy animated from the real game art, a live Spotlight card demo, and drag sliders comparing first drafts with today's art. The old page lives on as the Workshop.",
@@ -88,14 +95,14 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.72.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.72.1", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "The HR Exit Interview: when a run ends, your hero slumps in a chair while whatever got you gloats. Phones also see more of the office.",
       highlights: [
         "Anonymous play stats now also note screen zoom, touch layout, whether a boss was in the room when you went down, and Group Chat pings, so we can tune the late game with real numbers."
       ]
     },
     {
-      ver: "V. 1.72.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.72.0", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "The HR Exit Interview: when a run ends, your hero slumps in a chair while whatever got you gloats. Phones also see more of the office.",
       highlights: [
         "New death screen art by ChatGPT: your hero slumps into a chair in an empty HR office while the thing that got you looks very pleased with itself. Hit Retry and they get back up and dust off.",
@@ -104,7 +111,7 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.71.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.71.1", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Age 60 is less of a wall: Group Chats show up a little at 50 so you learn them early, and the V8 gives you a breath.",
       highlights: [
         "The age 60 wall, smoothed (numbers by Grok): a few Group Chats now show up from age 50 so you learn their pings before the V8 arrives, and there are fewer of them once it does.",
@@ -113,16 +120,16 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.71.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.71.0", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Every hero has their own voice now: new bios, play styles and first-time tip lines, written by Gemini.",
       highlights: [
-        "Every hero now has a line for every first-time tip, including the Cold War Cowboy (\"That's like jumping from dial-up straight to a T1 line.\").",
+        "Every hero now has a line for every first-time tip, including the Coldwar Cowboy (\"That's like jumping from dial-up straight to a T1 line.\").",
         "Three new first-time tips: your first intern delivery, your first Desk Salad and your first age-50+ surprise.",
         "New bios and play styles on the hero cards at the start of each run. Copy by Gemini."
       ]
     },
     {
-      ver: "V. 1.70.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.70.1", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Every run now opens with your hero's card, with a short bio and how they play. Spotlight cards spread out more.",
       highlights: [
         "Your hero's Spotlight card plays at the start of every run, not just the first, and now shows a one-line bio and their play style.",
@@ -130,7 +137,7 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.70.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.70.0", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Five new title screen scenes starring the whole crew, drawn to fit around the menus, with their own tall versions for phones.",
       highlights: [
         "New title screen art by ChatGPT: Group Photo, Off and On Again, The Lounge, Coffee Run and Happy 50th, starring the heroes, TJ, Derek and the coworkers.",
@@ -138,14 +145,14 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.69.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.69.2", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Spotlight cards take turns now: a breather between cards, bosses cut in, and the Lounge card shows once a run.",
       highlights: [
         "Spotlight cards no longer pile up back to back (Rami): there's a 12-second breather between cards, a boss cuts in right away, cards that wait too long are skipped, and the Lounge card shows once a run instead of right after the promotion card."
       ]
     },
     {
-      ver: "V. 1.69.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.69.1", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "The devlog note on the title screen now says what the newest memo is about, and this pop-up shows up right away.",
       highlights: [
         "The pinned devlog note on the title screen shows a one-line summary of the newest memo.",
@@ -153,7 +160,7 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.69.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.69.0", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Every Spotlight card now has a big animated portrait: the six coworkers who open new rooms got redrawn standing up.",
       highlights: [
         "The six coworkers who announce new rooms (Art, Sam, Eli, Nora, June and Mina) now appear as big standing portraits on their Spotlight cards, each with their own move. Art by ChatGPT.",
@@ -161,28 +168,28 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.68.4", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.68.4", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Derek has his own lines now. Yes, he will call you Unc.",
       highlights: [
         "Derek's lines are his own: \"Hey man, here's your coffee\", \"I love my manager\", \"Do you want a bundt cake?\", \"Unc\" and \"Hey you don't want to take damage\"."
       ]
     },
     {
-      ver: "V. 1.68.3", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.68.3", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "The coworkers who announce new rooms now go by their real names: Art, Sam, Eli, Nora, June and Mina.",
       highlights: [
         "Room cards now use each coworker's own name, so the person on the card matches the name: Art from Payroll, Sam at the Front Desk, Eli from IT, Nora in Marketing, June from Legal and Mina in Benefits."
       ]
     },
     {
-      ver: "V. 1.68.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.68.2", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Boss chests now slide over to you when you get close, so none get left behind.",
       highlights: [
         "Boss chests slide toward you once you're close, and touching one always opens it (Derek couldn't pick up the Mortgage chest)."
       ]
     },
     {
-      ver: "V. 1.68.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.68.1", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "The Lounge card now shows TJ and Derek's big new portraits: TJ raises his coffee, Derek snaps a photo.",
       highlights: [
         "When the Lounge opens, its Spotlight card shows a big On Break portrait of TJ (raising his coffee with a grin) or Derek (snapping a photo, flash and all). Art by ChatGPT.",
@@ -190,7 +197,7 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.68.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.68.0", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Spotlight cards got a glow-up: a real spotlight, a hop-in landing, names that drop in letter by letter, and lines that type themselves.",
       highlights: [
         "New Spotlight animation for every card: a light beam opens, the band wipes in, the character hops up and lands in a puff, the name drops in letter by letter, and the line types itself out.",
@@ -198,32 +205,32 @@ const GAME_VERSION = {
       ]
     },
     {
-      ver: "V. 1.67.3", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.67.3", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Ben, TJ and Derek got redrawn: real faces, a proper walk, and they finally stand out on the office floor.",
       highlights: [
-        "New art for the Cold War Cowboy (v3 by ChatGPT): you can see his face under the hat, he strides with the floppy disk, blows on it when idle, and has a new On Break portrait and badge.",
+        "New art for the Coldwar Cowboy (v3 by ChatGPT): you can see his face under the hat, he strides with the floppy disk, blows on it when idle, and has a new On Break portrait and badge.",
         "TJ and Derek's intern sprites were redrawn to match the heroes. TJ sips his coffee while he waits, and Derek raises his camera."
       ]
     },
     {
-      ver: "V. 1.67.2", date: "Nov 3, 2026", title: "The Cold War Cowboy",
+      ver: "V. 1.67.2", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
       teaser: "Easier to find the Lounge: a big card when it opens, an arrow the whole time, and a sign on the counter when it's closed.",
       highlights: [
         "The Lounge is easier to find (TJ couldn't): a Spotlight card when it opens, an arrow pointing to it the whole time it's open, 50 seconds instead of 35, and a sign on the Break Room counter when it's closed."
       ]
     },
     {
-      ver: "V. 1.67.1", date: "Nov 3, 2026", title: "The Cold War Cowboy",
-      teaser: "New hero: The Cold War Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
+      ver: "V. 1.67.1", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
+      teaser: "New hero: The Coldwar Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
       highlights: [
         "Spotlight cards load the hero art ahead of time, so the sprite rises with the card instead of popping in late."
       ]
     },
     {
-      ver: "V. 1.67.0", date: "Nov 3, 2026", title: "The Cold War Cowboy",
-      teaser: "New hero: The Cold War Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
+      ver: "V. 1.67.0", date: "Nov 3, 2026", title: "The Coldwar Cowboy",
+      teaser: "New hero: The Coldwar Cowboy. Finish 10 devlog memos to hire him. He throws floppy disks, and once a run he turns it off and on again.",
       highlights: [
-        "New hero: The Cold War Cowboy, based on Rami's friend Ben (they met working IT at Kent State in 2002). Unlock him by finishing 10 devlog memos.",
+        "New hero: The Coldwar Cowboy, based on Rami's friend Ben (they met working IT at Kent State in 2002). Unlock him by finishing 10 devlog memos.",
         "He starts with the Floppy Disk (a boomerang that evolves into the Zip Drive) and +2 max health. Once a run, at a quarter health: \"Have you tried turning it off and on again?\" The screen clears and he gets 40% back.",
         "TJ and Derek have real pixel art now, walking, carrying coffee and snacks, and working the Lounge counter. Art by ChatGPT."
       ]

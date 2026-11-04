@@ -63,7 +63,7 @@ const GAME_LORE = {
     coldWarCowboy: {
       id: "coldWarCowboy",
       code: "SUBJECT #04 // DEPT: IT, BASEMENT LEVEL",
-      name: "The Cold War Cowboy",
+      name: "The Coldwar Cowboy",
       realName: "Ben (inspired by a real IT friend of the developer, since 2002)",
       icon: "🤠",
       archetype: "Help Desk Legend & Keeper of the Spare Parts Closet",

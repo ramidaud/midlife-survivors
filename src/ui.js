@@ -2321,7 +2321,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         renderTitleModal(scene, `[data-char="${chId}"]`); updateHUD();
       } else if (ch.unlock) {
         sfx("hurt"); // achievement unlock only (Ben: finish 10 devlog memos)
-        if (window.showLowerThird) window.showLowerThird("tip", "LOCKED", "Finish 10 devlog memos to unlock The Cold War Cowboy.", 3500);
+        if (window.showLowerThird) window.showLowerThird("tip", "LOCKED", "Finish 10 devlog memos to unlock The Coldwar Cowboy.", 3500);
       } else if (meta.coins >= ch.cost) {
         meta.coins -= ch.cost; meta.unlockedChars[ch.id] = true; meta.selectedChar = ch.id;
         saveMeta(meta); sfx("levelUp");
