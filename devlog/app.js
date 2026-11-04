@@ -320,6 +320,14 @@
       ? marked.parse(md, { gfm: true })
       : `<pre>${esc(md)}</pre>`;
     html = html.replace(/<p>CODECARD(\d+)<\/p>/g, (m, i) => codeCards[+i] || "");
+    // Before/after sliders: an image whose title is "compare: img/before.jpg | img/after.jpg" becomes a swipe slider here.
+    // RSS, Substack and share pages keep the plain combined image, since email can't run a slider.
+    html = html.replace(/<p>\s*<img src="([^"]*)" alt="([^"]*)" title="compare:\s*([^"|]+?)\s*\|\s*([^"]+?)\s*">\s*<\/p>/g, (m, src, alt, a, b) =>
+      `<figure class="ba-post" data-full="${src}"><div class="ba" style="--cut:50%">` +
+      `<img class="ba-a" src="${a}" alt="Before. ${alt}"><div class="ba-b"><img src="${b}" alt=""></div>` +
+      `<span class="ba-lab l">BEFORE</span><span class="ba-lab r">AFTER</span><div class="ba-handle" aria-hidden="true"></div>` +
+      `<input type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare before and after"></div>` +
+      `<figcaption class="ba-cap">Drag the slider to compare.</figcaption></figure>`);
 
     const { prev, next } = neighbors(post.slug);
     const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
@@ -376,6 +384,10 @@
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
+    postMain.querySelectorAll(".ba-post .ba").forEach(ba => {
+      const r = ba.querySelector("input"), set = () => ba.style.setProperty("--cut", r.value + "%");
+      r.addEventListener("input", set); set();
+    });
     renderSeries(post.slug);
     renderStats();
     if (window.DevlogHome) { window.DevlogHome.stampPosts(); window.DevlogHome.postBuilds(post.slug); }

@@ -43,11 +43,11 @@ He throws a floppy disk that comes back to him. And once a run, when things get 
 
 The part I'm proudest of today is how it all feels together. The game, this devlog and the About page share one look now: the same fonts, the same memo strips, the same progress bar. Your stats follow you from the title screen to the devlog. The title tells you what version you're playing and what's new.
 
-![The title screen before and after. Top, V. 1.47: one centered box of buttons over the key art. Bottom, V. 1.68: a poster title with the key art up front, your employee file, today's shift with Punch In, and the newest devlog memo pinned on the right.](img/09-title-before-after.jpg)
+![The title screen before and after. Top, V. 1.47: one centered box of buttons over the key art. Bottom, V. 1.68: a poster title with the key art up front, your employee file, today's shift with Punch In, and the newest devlog memo pinned on the right.](img/09-title-before-after.jpg "compare: img/09-title-before.jpg | img/09-title-after.jpg")
 
 On a phone, it went from a wall of buttons to a poster you scroll.
 
-![The phone title screen before and after: a long stack of settings on the left, the poster layout with a big Punch In button on the right.](img/09-title-before-after-phone.jpg)
+![The phone title screen before and after: a long stack of settings on the left, the poster layout with a big Punch In button on the right.](img/09-title-before-after-phone.jpg "compare: img/09-title-before-phone.jpg | img/09-title-after-phone.jpg")
 
 And there are Spotlight cards. When a boss walks in, a coworker opens a new room, or you play a hero for the first time, a big card slides in with their sprite and one line, written by Gemini. That's the closest anything has come to the game I saw in my head before I started.
 
