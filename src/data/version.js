@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.93.0",
-  displayVersion: "V. 1.93.0",
+  version: "2.0.0",
+  displayVersion: "V. 2.0",
   lastUpdated: "Nov 4, 2026",
-  codename: "The Gold Watch",
-  build: 211,
+  codename: "Version Two",
+  build: 212,
   changelog: [
+    {
+      ver: "V. 2.0", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Version two is here: it's starting to feel real.",
+      highlights: [
+        "Midlife Survivors is officially V. 2.0. A new title screen and key art, an office full of coworkers, interns to catch, a 6 and 6 loadout with 13 new items, the Gold Watch, a retirement party at 65, Full Life bosses up to Father Time at 100, and Sprint mode.",
+        "Clock in with Google and your file follows you to any device. Read the story in Memo 10 on the devlog."
+      ]
+    },
     {
       ver: "V. 1.93.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Sprint mode: beat the Midlife Crisis V8 and the years start flying.",

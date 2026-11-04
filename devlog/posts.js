@@ -7,7 +7,7 @@ window.DEVLOG_POSTS = [
     "slug": "10-version-two",
     "date": "2026-11-04",
     "title": "This is starting to feel real.",
-    "version": "V. 1.68 to 1.93",
+    "version": "V. 1.68 to 2.0",
     "draft": false,
     "cover": "img/10-key-art.jpg",
     "leadAlt": "3 a.m. on the couch: Rami in a hoodie with a burp cloth and a bottle, the V2 title screen on his laptop, the whole cast standing on the coffee table, and the twins asleep in their bassinet.",

@@ -1310,3 +1310,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New Sprint toggle (Rami's Hyper mode idea): years 2x faster, everyone 25% faster, +50% coins. Unlocked by beating the Midlife Crisis V8.
 - Same leaderboard, with a ⚡ by Sprint scores. Tested: Midlife takes about 9.4 minutes with Sprint on.
 - Memo 10, "This is starting to feel real.", is published (V. 1.68 to 1.93), with a short section on Full Life bosses and Sprint added at the end.
+
+## Nov 4, 2026: V. 2.0
+- Rami called it: the game is officially V. 2.0 ("Version Two"), matching Memo 10. It's playable start to finish, has a hero and a mode to unlock, and the art is mostly in.
+- From here, updates count up from 2.0 (2.0.1 for fixes, 2.1 for new features).
