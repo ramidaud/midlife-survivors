@@ -1204,3 +1204,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Redrew the studio scene and square headshot using the original face as the likeness reference and the cast as the style reference.
 - Added face/hero comparisons, native pixel/palette checks, prompts and a responsive art review. Desktop and phone checks pass.
 - Art only, ready for Rami's review; Claude handles the About-page swap. Optional sprite deferred.
+- Google sign-in tested by Rami and working. Accounts are live for everyone (V. 1.85.0): Clock in with Google; email sign-in stays hidden until an email sender is set up.

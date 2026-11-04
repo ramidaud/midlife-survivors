@@ -2,9 +2,9 @@
 // Turn a sign-in button on here once its provider is set up in Supabase (Authentication > Sign In / Providers).
 // The cloud save lives in the Supabase table player_saves; each player can only read and write their own row.
 window.ACCOUNT = {
-  enabled: false, // false until the Supabase setup is done (docs/handoffs/accounts-setup.md). Test anytime with ?accounts=1
+  enabled: true, // live for everyone since Nov 4 (Google works). ?accounts=1 is no longer needed
   providers: {
-    email: true,   // 6-digit code by email (needs the code in the Magic Link email template, and custom SMTP for real players)
+    email: false,  // off for players until an email sender (Resend + ramidaud.com) is set up; Supabase's free email only reaches Rami
     google: true,  // on since Nov 4 (Google Cloud project "Midlife Survivors")
     apple: false   // flip to true after the Apple provider is on (needs an Apple Developer account)
   },

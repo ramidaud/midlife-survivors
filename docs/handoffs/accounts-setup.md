@@ -1,5 +1,7 @@
 # Accounts setup: Rami's checklist (Nov 4, 2026)
 
+**Status (Nov 4, 8:30 am):** steps 1 and 4 done, Google works, accounts are live for everyone (V. 1.85.0). Email sign-in is hidden from players until step 3 (Resend with ramidaud.com, DNS at directnic). Apple: skipped for now.
+
 The game side is built and the `player_saves` table is live (each player can only read and write their own row). Sign-in stays **hidden from players** until these steps are done. You can test anytime by adding `?accounts=1` to the game's address.
 
 All clicks are in the Supabase dashboard for the Midlife Survivors project unless noted.

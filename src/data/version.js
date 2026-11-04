@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.84.3",
-  displayVersion: "V. 1.84.3",
+  version: "1.85.0",
+  displayVersion: "V. 1.85.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 194,
+  build: 195,
   changelog: [
+    {
+      ver: "V. 1.85.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Clock in with Google and your employee file follows you to any device.",
+      highlights: [
+        "New Clock in badge on your employee file. Sign in with Google and your coins, shop ranks, unlocks, achievements, name, settings and a run in progress are saved to the cloud.",
+        "Start on your laptop, keep going on your phone. If two devices disagree, the game shows both files and lets you pick.",
+        "Completely optional. Your file still saves on your device like always. Email sign-in is coming soon."
+      ]
+    },
     {
       ver: "V. 1.84.3", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Accounts setup: Continue with Google is switched on.",
