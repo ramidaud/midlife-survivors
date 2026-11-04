@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.85.0",
-  displayVersion: "V. 1.85.0",
+  version: "1.86.0",
+  displayVersion: "V. 1.86.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 195,
+  build: 196,
   changelog: [
+    {
+      ver: "V. 1.86.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Retirement at 65 is a party now, not a reaper.",
+      highlights: [
+        "At 65 a retirement punch clock shows up near you: balloons, gifts, a framed fish and a clock stopped at 5:00. It waits for you instead of chasing you.",
+        "Walk into it to punch your golden card. Confetti, a flash, and nothing can hurt you while you clock out.",
+        "Father Time still waits at 100 in Full Life."
+      ]
+    },
     {
       ver: "V. 1.85.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Clock in with Google and your employee file follows you to any device.",

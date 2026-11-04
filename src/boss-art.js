@@ -14,22 +14,30 @@ window.BossArt = (() => {
     goldWatch: ["assets/bosses/telegraph-gold-watch-v1.png", 256, 128]
   };
   const ORIGIN_Y = 148 / 152; // the foot point
+  // The friendly retirement punch clock at 65 (ChatGPT, Nov 4). Row 0 waits (160 ms), row 1 clocks out once (110 ms) and holds.
+  const CLOCK_OUT = "assets/bosses/clock-out-goal-v1.png";
   function preload(scene) {
+    ArtSheets.load(scene, "bossart_clockOut", CLOCK_OUT, 144, 152);
     for (const [k, f] of Object.entries(FILES)) ArtSheets.load(scene, "bossart_" + k, f, 144, 152);
     for (const [k, [f, w, h]] of Object.entries(MARKERS)) ArtSheets.load(scene, "bossmark_" + k, f, w, h);
   }
   // state: chase | telegraph | attack | recover
   function sync(scene, boss, state, now) {
-    const key = "bossart_" + boss.kind;
-    if (!FILES[boss.kind] || !scene.textures.exists(key)) return;
+    const key = boss.clockOut ? "bossart_clockOut" : "bossart_" + boss.kind;
+    if ((!boss.clockOut && !FILES[boss.kind]) || !scene.textures.exists(key)) return;
     let v = boss._art;
     if (!v || !v.active) {
-      v = boss._art = scene.add.sprite(boss.x, boss.y, key, 0).setOrigin(0.5, ORIGIN_Y);
+      v = boss._art = scene.add.sprite(boss.x, boss.y, key, 0).setOrigin(0.5, boss.clockOut ? 151 / 152 : ORIGIN_Y);
       boss.artRecord = { visual: v }; // death pop and hit squash use the drawn boss
       boss.once("destroy", () => { if (v.active) v.destroy(); if (boss._mark) boss._mark.destroy(); });
     }
     boss.setVisible(false);
     const feetY = boss.y + boss.displayHeight * 0.42;
+    if (boss.clockOut) { // stands still, never flips or flashes
+      const f = boss.punchAt ? 6 + Math.min(5, Math.floor((now - boss.punchAt) / 110)) : Math.floor(now / 160) % 6;
+      v.setFrame(f).setPosition(Math.round(boss.x), Math.round(feetY)).setDepth(boss.depth + 0.5);
+      return;
+    }
     let frame;
     if (boss.hitAt && now - boss.hitAt < 160 && state === "chase") frame = 10;
     else if (state === "telegraph") frame = 6 + (Math.floor(now / 220) % 2);

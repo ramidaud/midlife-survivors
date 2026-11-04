@@ -278,7 +278,7 @@ function spawnCoin(x, y, bonusMult = 1) {
 // create() runs ONCE when the game starts: build the world.
 function create() {
   // Fresh start (this also runs again when you press "Try again").
-  gameOver = false; lastHurt = -Infinity; startTime = this.time.now;
+  gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
@@ -1355,6 +1355,18 @@ function showLevelUp(scene, customTitle, preferWeapons) {
 function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
   if (gameOver) return;
+  if (bill.clockOut) { // you reached the punch clock at 65: punch the golden card, confetti, then retirement
+    if (!bill.punchAt) {
+      bill.punchAt = runElapsedMs; window.clockingOut = true; p.setVelocity(0, 0);
+      sfx("catch"); scene.cameras.main.flash(260, 255, 240, 207);
+      [0, 180, 360].forEach(t => scene.time.delayedCall(t, () => burstConfetti(scene, bill.x + Phaser.Math.Between(-30, 30), bill.y - 40, 0xEF9347, 18)));
+      if (window.Lighting) Lighting.fx("levelUp", bill.x, bill.y);
+      if (bill.tag) bill.tag.setText("CLOCKED OUT!");
+      scene.time.delayedCall(760, () => { if (!gameOver) showGameOver(scene, "theReaper", true); });
+    }
+    return;
+  }
+  if (window.clockingOut) return; // nothing can hurt you while you punch out
   if (window.DEV && DEV.god && bill.kind !== "theReaper") return; // dev console god mode
   if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 100 = CENTENARIAN VICTORY!
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
@@ -2080,9 +2092,21 @@ function spawnBoss(scene, bossKind) {
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
   boss.speed = P.speed;
   boss.damage = P.damage;
+  if (isEnd && m.endBossLabel) { // Midlife at 65: a friendly punch clock that waits near you instead of chasing you (ChatGPT art, Nov 4)
+    boss.clockOut = true; boss.speed = 0; boss.body.setImmovable(true); boss.body.pushable = false;
+    const a0 = Math.random() * Math.PI * 2;
+    for (let i = 0; i < 8; i++) { // a clear, reachable spot about 200 px away, so it's on screen
+      const a = a0 + i * Math.PI / 4;
+      let sx = player.x + Math.cos(a) * 200, sy = player.y + Math.sin(a) * 160;
+      if (window.NAV) { const s2 = window.NAV.fixSpawn(sx, sy); if (!s2) continue; [sx, sy] = s2; }
+      if (scene.worldArt && scene.worldArt.startArea && !scene.worldArt.startArea.contains(sx, sy)) continue;
+      x = sx; y = sy; break;
+    }
+    boss.body.reset(x, y);
+  }
   // The end of the run (retirement at 65, Father Time at 100) is a goal, not an enemy: a friendly label and no HP number (Fable review).
   boss.tag = isEnd
-    ? scene.add.text(x, y - P.size / 2 - 10, m.endBossLabel ? "CLOCK OUT HERE ▼" : "SHAKE HIS HAND ▼", {
+    ? scene.add.text(x, boss.clockOut ? y - 100 : y - P.size / 2 - 10, m.endBossLabel ? "CLOCK OUT HERE ▼" : "SHAKE HIS HAND ▼", {
         fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 }
       }).setOrigin(0.5).setDepth(5)
     : scene.add.text(x, y - P.size / 2 - 8, bossKind === "goldWatch" ? label : `${label}:${boss.hp}`, { // show the scaled HP, not the base
@@ -2597,10 +2621,11 @@ function update(time, delta) {
     }
 
     // Default behavior (Bills, Late Fees, Snacks, Twinge lunge, Elites, Bosses): head for you, walking around furniture.
-    chase(bill, bill.speed || ENEMIES.bill.speed);
+    if (bill.clockOut) bill.setVelocity(0, 0); // the punch clock waits for you
+    else chase(bill, bill.speed || ENEMIES.bill.speed);
     bill.setFlipX(player.x < bill.x);
     const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
-    bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
+    bill.tag.setPosition(bill.x, bill.clockOut ? bill.y - 100 : bill.y - sz / 2 - 6);
   });
 
   if (window.MoreWeapons) MoreWeapons.post(this); // Out-of-Office slows and Thermostat freezes, after everyone has moved

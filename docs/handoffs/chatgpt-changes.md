@@ -287,6 +287,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Delivered the age-65 retirement punch-clock station: stopped five-o-clock dial, card rack, three balloons, bow, gifts, fish picture and a breathing pixel halo. No spooky imagery or baked text.
 - **Files.** `assets/bosses/clock-out-goal-v1.png`, both row GIFs, 2x comparison with the Gold Watch and 9-to-5er, detail image, README, prompt and pixel-check JSON.
 - **For Claude.** Art only, Midlife ending only. Keep Full Life Father Time separate. Sheet is 864x304, 6x2 of 144x152, anchor (72,151). Waiting frames0-5 at160ms loop; clock-out6-11 at110ms once, hold11. Twelve distinct poses, exact twelve-color palette, binary alpha and fixed lower base verified. Runtime texture/contact wiring is yours.
+- [done] Claude swapped it in for the reaper in Midlife mode in V. 1.86.0 (Nov 4): it spawns about 200 px from you, stands still, plays the waiting loop, and plays the clock-out row once when you touch it before the retirement screen.
 
 
 ## 2026-11-04: Wall-lining and floor-detail kit (Codex)
