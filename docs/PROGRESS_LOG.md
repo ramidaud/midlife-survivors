@@ -1328,3 +1328,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Find the YOU ARE HERE sign by reception once, and a minimap rides in the corner of every run after.
 - It fills in as you explore (fog of war), shows doors open or locked, chests, the Lounge, interns and bosses. Tap it or press M for the big paused view.
 - Placeholder art for now; ChatGPT has the brief for the frame, icons and the sign. Memo 11 social drafts written.
+- Rami sent photos of the real UCM student lounge. ChatGPT brief written: a room kit (futon, coffee table with chess, paper lamp, yellow desk wall, cube shelf, collage wall) and a scene for the top of the Lounge shop.
