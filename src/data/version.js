@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.91.1",
-  displayVersion: "V. 1.91.1",
+  version: "1.91.2",
+  displayVersion: "V. 1.91.2",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 205,
+  build: 206,
   changelog: [
+    {
+      ver: "V. 1.91.2", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The title screen opens at the top on short windows.",
+      highlights: [
+        "On a short laptop window the title opened halfway down, scrolled to the Punch In button. It now opens at the top; the arrow keys and gamepad still scroll to whatever you highlight."
+      ]
+    },
     {
       ver: "V. 1.91.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Scrolling the title screen on a short laptop window works again.",

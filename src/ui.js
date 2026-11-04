@@ -229,7 +229,7 @@ window.menuNav = {
     if (playSound) sfx("move");
   },
 
-  refresh(defaultSelector) {
+  refresh(defaultSelector, noScroll) {
     const modal = this.getActiveModal();
     if (!modal) { this.focusedEl = null; return; }
     const all = Array.from(modal.querySelectorAll(".nav-item:not([disabled])"));
@@ -239,7 +239,7 @@ window.menuNav = {
     if (!target || target.disabled) {
       target = modal.querySelector(".nav-default:not([disabled])") || all[0];
     }
-    this.focus(target, false);
+    this.focus(target, false, noScroll);
   },
 
   move(dir) {
@@ -2577,7 +2577,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     if (startFromTitle) startFromTitle();
   }, view === "main");
 
-  window.menuNav.refresh(preserveFocusSelector);
+  window.menuNav.refresh(preserveFocusSelector, !preserveFocusSelector); // a fresh title render keeps your scroll spot (Nov 4: it jumped to Punch In)
 }
 
 // A nudge that fits YOUR history: try another device, plug in a controller, read the devlog, join the Discord.

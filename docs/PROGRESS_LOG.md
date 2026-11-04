@@ -1265,3 +1265,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: Title screen scroll fix (V. 1.91.1)
 - In a short Safari window, scrolling up on the title snapped back down. Each wheel or trackpad tick was also moving the menu highlight, and the highlight pulled the page back to itself.
 - Now the wheel just scrolls when a menu is taller than the window, and hovering with the mouse never scrolls the page.
+- V. 1.91.2: the title also opened scrolled down to Punch In (the starting highlight pulled the page to it). It now opens at the top.

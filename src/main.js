@@ -1062,6 +1062,7 @@ function showTitleScreen(scene) {
   scene.time.paused = true;
 
   renderTitleModal(scene);
+  { const tm = document.getElementById("title-modal"); if (tm) tm.scrollTop = 0; } // open at the top on short windows
 
   window.resumeSavedRunFromTitle = () => {
     const saved = loadRunState();
