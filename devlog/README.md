@@ -10,7 +10,7 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 
 ## Memo ideas queue
 - **Memo 10: Version two** (drafted, waiting on Rami's voice memo).
-- **Memo 11 idea (Nov 4): plugging the game into Discord.** How Rami set up the server and had GitHub post to it with webhooks: a changelog roundup each evening, a devlog post when a memo goes live, and morning stats. Interview questions are in the Nov 4 chat; voice memo pending.
+- **Memo 11 idea (Nov 4): plugging the game into Discord.** How Rami set up the server and had GitHub post to it with webhooks: a changelog roundup each evening, a devlog post when a memo goes live, and morning stats. Interview answers: `devlog/notes/11-discord-interview.md`. Voice memo pending.
 
 ## Add a post
 1. Write `posts/<slug>.md` (casual, Rami's voice). Screenshots go in `img/` and are linked as `img/<file>.jpg`.

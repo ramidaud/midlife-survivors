@@ -1,5 +1,5 @@
 {
-  "_note": "Gallery posts for #art-and-ideas (node tools/discord-post.js art). Each id posts once; add a new id to post more. Images are served from the live site.",
+  "_note": "Gallery posts for #art-and-ideas. Pushing a change to this file posts any new ids automatically (GitHub Actions). Each id posts once. Images are served from the live site, so push the images first.",
   "posts": [
     { "id": "keyart-v2", "intro": "**Key art.** The five scenes on the title screen right now. Each also has a separately drawn tall version for phones.",
       "images": [

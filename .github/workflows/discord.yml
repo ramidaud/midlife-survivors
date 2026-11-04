@@ -8,6 +8,7 @@ on:
     paths:
       - devlog/posts.js
       - reports/discord-stats.md
+      - tools/discord-art.json
   workflow_dispatch:
     inputs:
       action:
@@ -43,7 +44,7 @@ jobs:
         run: |
           case "$EVENT" in
             schedule) node tools/discord-post.js changelog ;;
-            push) node tools/discord-post.js memos; node tools/discord-post.js stats ;;
+            push) node tools/discord-post.js memos; node tools/discord-post.js stats; node tools/discord-post.js art ;;
             *) node tools/discord-post.js "$ACTION" ;;
           esac
       - name: Remember what was posted
