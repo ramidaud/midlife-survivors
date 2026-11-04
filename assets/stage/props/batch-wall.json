@@ -1,0 +1,2275 @@
+{
+  "batch": "wall-and-floor-v1",
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "families": [
+    {
+      "id": "poster_mountain",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/poster_mountain-v1.png",
+      "subject": "A chunky framed motivational mountain picture: cream mountain peak, teal foothills and tiny coffee-orange sunrise; no words.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A chunky framed motivational mountain picture: cream mountain peak, teal foothills and tiny coffee-orange sunrise; no words.",
+      "sourceStudy": "exec-b2909a17-f280-4dd7-b8c3-722f7ec99133.png",
+      "sourceSHA256": "e1499a20ec8dfa17182344b1069078cacb02dcdfb899ce3eaf6ed56ac04f2f49",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "poster_rowers",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/poster_rowers-v1.png",
+      "subject": "A framed team-rowing picture: four tiny rowers in one long orange boat, sage water, abstract oars; no words.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x48, a 2-module wall piece. A framed team-rowing picture: four tiny rowers in one long orange boat, sage water, abstract oars; no words.",
+      "sourceStudy": "exec-a0afc2b9-fd4f-48be-929f-7aaa2d372633.png",
+      "sourceSHA256": "c61de5747b4af8319949ed67fa765458cdc29569e9d6d3c740bd255ccc9453f9",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "poster_eagle",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/poster_eagle-v1.png",
+      "subject": "A framed eagle picture: stylized cream eagle with spreading wings over sage mountains, no lettering.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A framed eagle picture: stylized cream eagle with spreading wings over sage mountains, no lettering.",
+      "sourceStudy": "exec-1352d78d-73d5-44d8-9ec7-e3fb929f991b.png",
+      "sourceSHA256": "ffee1581b50fd562de66a74c02e8ebe302c75605b0569359b7f1bf61cb902232",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "wall_clock",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 40,
+      "frame": [
+        32,
+        40
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.925
+      ],
+      "repeatX": false,
+      "file": "wall/wall_clock-v1.png",
+      "subject": "A round cream analog wall clock in a teal frame, tick marks only, clearly separated hands, no numbers.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x40, a 1-module wall piece. A round cream analog wall clock in a teal frame, tick marks only, clearly separated hands, no numbers.",
+      "sourceStudy": "exec-065b8dc8-5603-43f3-94e0-64dceb9a1e02.png",
+      "sourceSHA256": "f2952296daae7cb923becda8513b7480b0ad3a22f4a7ec9e5d1e16affa026979",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "fire_extinguisher",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 56,
+      "frame": [
+        32,
+        56
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9464285714285714
+      ],
+      "repeatX": false,
+      "file": "wall/fire_extinguisher-v1.png",
+      "subject": "A coffee-orange fire extinguisher mounted in a navy wall bracket, rolled dark hose and cream pressure-gauge icon, no writing.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x56, a 1-module wall piece. A coffee-orange fire extinguisher mounted in a navy wall bracket, rolled dark hose and cream pressure-gauge icon, no writing.",
+      "sourceStudy": "exec-3700cb9f-0fa9-46c6-ba41-2512b51ad045.png",
+      "sourceSHA256": "0c19e3f699190c782d9023e791b3618f41e5264369a3c4e18765f64d929f8485",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "thermostat_note",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/thermostat_note-v1.png",
+      "subject": "A small slate thermostat with abstract status bars and one curling lavender sticky note; no tiny text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x32, a 1-module wall piece. A small slate thermostat with abstract status bars and one curling lavender sticky note; no tiny text.",
+      "sourceStudy": "exec-49a52b42-e7fc-4e1a-b999-4d420065fa61.png",
+      "sourceSHA256": "9c9e7ae6b4c40d9cd721a89b8ca045329a5cae694a95d6cec22792d4256540b3",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "air_vent",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/air_vent-v1.png",
+      "subject": "A low wide brushed-slate air vent with chunky dark horizontal louvers and four screw pixels.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x32, a 2-module wall piece. A low wide brushed-slate air vent with chunky dark horizontal louvers and four screw pixels.",
+      "sourceStudy": "exec-371bb33a-1f33-47e9-a08c-3cb084c44b84.png",
+      "sourceSHA256": "86bcd03c4f920dcbd49973d5d8c5818f7746786c233629eccfe7141d5420d6f2",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "charger_outlet",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 40,
+      "frame": [
+        64,
+        40
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.925
+      ],
+      "repeatX": false,
+      "file": "wall/charger_outlet-v1.png",
+      "subject": "A cream power outlet plate with three chargers plugged in and a small comical coil of dark cords hanging below, no floor shadow.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x40, a 2-module wall piece. A cream power outlet plate with three chargers plugged in and a small comical coil of dark cords hanging below, no floor shadow.",
+      "sourceStudy": "exec-fa5e6007-5009-43c1-969d-fb6e1c3912d5.png",
+      "sourceSHA256": "dadf1f2751e255ca059e5a1b4a4d9c0728b70bc594af2ba850ec7046d89fde55",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "light_switch",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/light_switch-v1.png",
+      "subject": "A cream double light-switch plate, one switch up and the other down, two screw pixels.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x32, a 1-module wall piece. A cream double light-switch plate, one switch up and the other down, two screw pixels.",
+      "sourceStudy": "exec-948db87c-1d6c-4210-9f60-3563990dcf66.png",
+      "sourceSHA256": "7c979532564163be9a1b3aadc35f107e8b3feafabc073dd2e781b91619a10b4d",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "exit_running_icon",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/exit_running_icon-v1.png",
+      "subject": "A teal-green illuminated EXIT-style sign using ONLY a cream running-person silhouette, doorway and left arrow; no letters whatsoever.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x32, a 2-module wall piece. A teal-green illuminated EXIT-style sign using ONLY a cream running-person silhouette, doorway and left arrow; no letters whatsoever.",
+      "sourceStudy": "exec-d4da0f11-9b06-4d74-a61c-f45900d8a8ba.png",
+      "sourceSHA256": "119060c1631db5d64651a70fa63f17e5d931e5e249b005716fbaee0d52dca05b",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "cork_flyers",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/cork_flyers-v1.png",
+      "subject": "A cork board filled with pinned cream and lavender flyers, a small black-and-cream lost-cat picture, torn lower paper tabs, absolutely no letters.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. A cork board filled with pinned cream and lavender flyers, a small black-and-cream lost-cat picture, torn lower paper tabs, absolutely no letters.",
+      "sourceStudy": "exec-50a940fd-71c8-4e77-ac6b-6a83218dc85b.png",
+      "sourceSHA256": "cbaf1453b7508fc29d3d2206e94392fe7a38929f04937223798807a450647524",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "employee_photo",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/employee_photo-v1.png",
+      "subject": "An employee-of-the-month frame: friendly tiny office worker portrait, small orange rosette in one corner, no name or lettering.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. An employee-of-the-month frame: friendly tiny office worker portrait, small orange rosette in one corner, no name or lettering.",
+      "sourceStudy": "exec-c0126665-fa77-43f1-b52c-536c307650d5.png",
+      "sourceSHA256": "868cc0609a7c30eda6cff96cd78a8bc5ca71f302a346a90826607e276b69d4b8",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "hanging_plant",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/hanging_plant-v1.png",
+      "subject": "A corner hanging pot with sage and teal trailing leaves, navy wall bracket, cream macrame cord; complete contained silhouette.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A corner hanging pot with sage and teal trailing leaves, navy wall bracket, cream macrame cord; complete contained silhouette.",
+      "sourceStudy": "exec-c3cf0478-422b-4305-85e6-b36973448a8b.png",
+      "sourceSHA256": "be74552427314630d19c6ac60a8c0196291feb4a17620ecb5a82008206a948fb",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "low_bookshelf",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/low_bookshelf-v1.png",
+      "subject": "A low wooden office bookshelf with two shelves of colorful binders, one horizontal book pile and a tiny mug, flush back against the wall.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A low wooden office bookshelf with two shelves of colorful binders, one horizontal book pile and a tiny mug, flush back against the wall. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-492ca9a7-aaca-47d7-add2-613cf259e00f.png",
+      "sourceSHA256": "8792e87b92045fb8dfac735566baf0ed56c195525a11f9c229529ef481b29819",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "tall_bookshelf",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 112,
+      "frame": [
+        96,
+        112
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9732142857142857
+      ],
+      "repeatX": false,
+      "file": "wall/tall_bookshelf-v1.png",
+      "subject": "A tall broad office bookshelf packed with binders, two book stacks, an awkward empty bookend and one tiny framed photo, clear narrow floor base.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x112, a 3-module wall piece. A tall broad office bookshelf packed with binders, two book stacks, an awkward empty bookend and one tiny framed photo, clear narrow floor base. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-9f1f456a-a866-4557-b85c-585a8e946387.png",
+      "sourceSHA256": "7a1fb371ad980b7f57c1f0628fdaa4f63667b21fbeed5523eb5c3a902f5a5708",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "filing_two_drawer",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 64,
+      "frame": [
+        32,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 28,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/filing_two_drawer-v1.png",
+      "subject": "A narrow two-drawer slate filing cabinet, cream label slots with no writing, orange handle on the top drawer.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x64, a 1-module wall piece. A narrow two-drawer slate filing cabinet, cream label slots with no writing, orange handle on the top drawer. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-b23fc09c-8ee8-45c0-ac0e-4feaeb56620c.png",
+      "sourceSHA256": "15ad2b3a284ffcd01180be9ba93b0da01d3bf7824c293e6fec1afbe3563e07ca",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "filing_four_drawer",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "wall/filing_four_drawer-v1.png",
+      "subject": "A four-drawer filing cabinet with one drawer stuck slightly open INSIDE the total frame width, cream paper peeking out, no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x96, a 2-module wall piece. A four-drawer filing cabinet with one drawer stuck slightly open INSIDE the total frame width, cream paper peeking out, no text. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-677f6202-f1d4-4d2e-8d2a-20840c04cfbd.png",
+      "sourceSHA256": "52b748985711898c08e5086fb537bf301b6dbe28f4c6df26cf176198152a2593",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "paper_toner_shelf",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 88,
+      "frame": [
+        96,
+        88
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9659090909090909
+      ],
+      "repeatX": false,
+      "file": "wall/paper_toner_shelf-v1.png",
+      "subject": "An office supply shelf with neatly stacked paper reams, charcoal toner boxes and one crooked paper pack, no branding or lettering.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x88, a 3-module wall piece. An office supply shelf with neatly stacked paper reams, charcoal toner boxes and one crooked paper pack, no branding or lettering. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-5b15a47e-bae6-4fa4-9311-76793d7cc004.png",
+      "sourceSHA256": "9800cf9bed0cb6c575bc2b1cb6638916e8427b6f004a2109680f20afed492f7a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "recycling_pair",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/recycling_pair-v1.png",
+      "subject": "Two wall-hugging office recycling bins, teal and slate, cream three-arrow recycling icons, a paper corner sticking out.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. Two wall-hugging office recycling bins, teal and slate, cream three-arrow recycling icons, a paper corner sticking out. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-64c3a78f-3b97-4f98-a8bb-4cba555ab0be.png",
+      "sourceSHA256": "1f65594003d2ba0bcb184b0c156614426647bf04af300491551cf5b09db0fc93",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "umbrella_hooks",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/umbrella_hooks-v1.png",
+      "subject": "A narrow floor-backed coat-hook rail with a forgotten closed umbrella and charcoal raincoat, simple navy base; do not include any separate floor.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x80, a 2-module wall piece. A narrow floor-backed coat-hook rail with a forgotten closed umbrella and charcoal raincoat, simple navy base; do not include any separate floor. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-35ae0348-c060-43ed-a8b6-4393d45887f9.png",
+      "sourceSHA256": "ff942c03af7234748c3c1b0fac94ea1287a0083ab728ad4fe4a2fbfc81b4174e",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "moving_boxes",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/moving_boxes-v1.png",
+      "subject": "Three cardboard moving-day boxes stacked safely against the wall, one open box with a small plant pot and a folder, blank tape and no writing.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. Three cardboard moving-day boxes stacked safely against the wall, one open box with a small plant pot and a folder, blank tape and no writing. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-86296ccc-eceb-4991-a9b5-c6fe0de69e29.png",
+      "sourceSHA256": "be8de3436a23afbc9a9d7666bdf39d6c3d6152eab128c7bf553e3890393c02d8",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "milestone_photos",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 128,
+      "height": 48,
+      "frame": [
+        128,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/milestone_photos-v1.png",
+      "subject": "A row of three framed company milestone photographs: first tiny office, handshake, building opening with ribbon; picture icons only.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x48, a 4-module wall piece. A row of three framed company milestone photographs: first tiny office, handshake, building opening with ribbon; picture icons only.",
+      "sourceStudy": "exec-a9984976-af2a-4854-a2a2-e4be710f3c18.png",
+      "sourceSHA256": "7bbc959e2cd2995e57f8efb3901146e618d3c40199fd99fe3e3c7388b0e8008d",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "brochure_rack",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/brochure_rack-v1.png",
+      "subject": "A freestanding narrow brochure rack with colorful leaflets fanned on three shelves, abstract bars not words.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x80, a 2-module wall piece. A freestanding narrow brochure rack with colorful leaflets fanned on three shelves, abstract bars not words. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-8b34771f-93e1-4c93-9914-dc2be17b98a7.png",
+      "sourceSHA256": "5e28c463ec7b3bf87a2ff5b916ea2325cdbd48e142b9885bc060b13cc3d2d3a7",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "visitor_podium",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/visitor_podium-v1.png",
+      "subject": "A wooden visitor sign-in podium with open cream ledger, tethered pen and small teal tray, abstract checkmarks only.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x80, a 2-module wall piece. A wooden visitor sign-in podium with open cream ledger, tethered pen and small teal tray, abstract checkmarks only. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-8d9c422b-2147-46e1-988d-88dbd28ed7bb.png",
+      "sourceSHA256": "1a9675e7043bb8b79e588d5d146cf04e88415a26c10da172694024f506d2f827",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "campus_aerial",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/campus_aerial-v1.png",
+      "subject": "One large framed aerial photograph of a campus: teal lawns, cream buildings, tiny orange paths, no words or map labels.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. One large framed aerial photograph of a campus: teal lawns, cream buildings, tiny orange paths, no words or map labels.",
+      "sourceStudy": "exec-b819a0ef-9cac-485d-8389-b6da444f8fe4.png",
+      "sourceSHA256": "9d3b1289fb2935871378cf43cb5d3a4087e21506fa903e4246e85a1f94b60d59",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "sticky_whiteboard",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/sticky_whiteboard-v1.png",
+      "subject": "A long whiteboard with three clustered islands of orange, lavender and cream sticky notes connected by crooked navy arrows; no writing.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. A long whiteboard with three clustered islands of orange, lavender and cream sticky notes connected by crooked navy arrows; no writing.",
+      "sourceStudy": "exec-be340176-0b37-40e4-9197-d340833db898.png",
+      "sourceSHA256": "16378729260b0bfe91f8b34f8a74be7e5f8522e51c4ac0fbc28a73a59a9cc7f5",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "team_calendar",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/team_calendar-v1.png",
+      "subject": "A framed team calendar board with an abstract monthly grid, orange meeting blocks and one overlapping lavender block, no dates or letters.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. A framed team calendar board with an abstract monthly grid, orange meeting blocks and one overlapping lavender block, no dates or letters.",
+      "sourceStudy": "exec-e91850bf-05f7-4028-9220-ecae1eff12cd.png",
+      "sourceSHA256": "791882b517d1b749578d90f37e7336c5751a4adda59ce9af1f7a9faa9f481602",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "kudos_wall",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/kudos_wall-v1.png",
+      "subject": "A framed kudos board covered with colorful folded thank-you cards, tiny heart and star icons, absolutely no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. A framed kudos board covered with colorful folded thank-you cards, tiny heart and star icons, absolutely no text.",
+      "sourceStudy": "exec-f6d31232-bab8-41e2-83ad-4d2dc0371331.png",
+      "sourceSHA256": "133da099083d857a9e93a038a160ea70974069c13acd6e71973f10eedae33518",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "printer_nook",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 96,
+      "height": 80,
+      "frame": [
+        96,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/printer_nook-v1.png",
+      "subject": "A narrow wall-backed printer shelf with a compact chunky printer, a paper ream, two toner boxes below and one jammed paper corner.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x80, a 3-module wall piece. A narrow wall-backed printer shelf with a compact chunky printer, a paper ream, two toner boxes below and one jammed paper corner. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-a8047976-acb7-49e0-8896-c2755d1b287b.png",
+      "sourceSHA256": "d24e4b9b38828e804054a68bf51b9e74ed83e8529b986e0bc3c8c145522c46c1",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "birthday_ledge",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/birthday_ledge-v1.png",
+      "subject": "A small wall ledge holding a half-open birthday card with a balloon icon and a pen on a string; no words.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x48, a 2-module wall piece. A small wall ledge holding a half-open birthday card with a balloon icon and a pen on a string; no words.",
+      "sourceStudy": "exec-7226b5c6-1aa7-4606-ba3e-39caad6c9166.png",
+      "sourceSHA256": "91b26f140cdca03810ad9dfc1c7ead3139c1d8c150cc0c7c274667f9ad23c5b3",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "upper_cabinets",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/upper_cabinets-v1.png",
+      "subject": "A run of three cream upper kitchen cabinets with navy seams and teal handles, one little coffee-orange mug visible in a glass panel.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. A run of three cream upper kitchen cabinets with navy seams and teal handles, one little coffee-orange mug visible in a glass panel.",
+      "sourceStudy": "exec-110acabf-f5cb-45bd-82c0-fec60ea606c6.png",
+      "sourceSHA256": "2875b3dcf3a3bf8abcb1f9ceaa6f8c487da7aa814665e8582b42591a05bb5e0b",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "microwave_counter",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 128,
+      "height": 80,
+      "frame": [
+        128,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 124,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/microwave_counter-v1.png",
+      "subject": "A narrow kitchen counter with microwave, teal kettle and blank curling sticky note, muted timer bars only; drawers below.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x80, a 4-module wall piece. A narrow kitchen counter with microwave, teal kettle and blank curling sticky note, muted timer bars only; drawers below. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-69fe90c2-d836-4a59-92c4-88539cc24397.png",
+      "sourceSHA256": "db71fac58134db616e6b4b8b807013a53924d353d2a813055227acebdecdbf54",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "fridge_collage",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/fridge_collage-v1.png",
+      "subject": "A flat fridge-door collage panel of colorful geometric magnets, small family photos, a fish picture and a blank cream note; no fridge body.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A flat fridge-door collage panel of colorful geometric magnets, small family photos, a fish picture and a blank cream note; no fridge body.",
+      "sourceStudy": "exec-ab8de179-818c-4fce-9c63-4fe563c64ff3.png",
+      "sourceSHA256": "9fb4022ec21744bf71e8927c570d55f7aa12c2b9cd3b36ece5899c6c5a49bd71",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "mug_rack",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 96,
+      "height": 48,
+      "frame": [
+        96,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/mug_rack-v1.png",
+      "subject": "A wall mug rack with six distinct mugs: striped, dotted, short, tall, chipped and oversized. Icons and patterns only, no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x48, a 3-module wall piece. A wall mug rack with six distinct mugs: striped, dotted, short, tall, chipped and oversized. Icons and patterns only, no text.",
+      "sourceStudy": "exec-5b8c07e8-cbb1-47b7-ba6a-35a8198be146.png",
+      "sourceSHA256": "ed42339a8a28e75aa5873f2cf055d9b147526c5903981b8ff78ac46c06aa3a12",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "snack_shelf",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 96,
+      "height": 80,
+      "frame": [
+        96,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/snack_shelf-v1.png",
+      "subject": "A narrow pantry snack shelf with colorful unbranded bags, a nearly empty cracker box and one banana, no lettering.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x80, a 3-module wall piece. A narrow pantry snack shelf with colorful unbranded bags, a nearly empty cracker box and one banana, no lettering. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-137e45e1-b36d-4422-b468-aaf73ca565fd.png",
+      "sourceSHA256": "e4915403bebb75effd3cb3c99350660b398cca04a0b8d68b2ef21f107f26f941",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "chore_wheel",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/chore_wheel-v1.png",
+      "subject": "A round office kitchen chore wheel with six cream/teal/orange sectors and simple brush, cup and bin icons; small arrow pointer, no names.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A round office kitchen chore wheel with six cream/teal/orange sectors and simple brush, cup and bin icons; small arrow pointer, no names.",
+      "sourceStudy": "exec-7a9d66df-de9a-4d3a-9ef1-3c9d46dde12b.png",
+      "sourceSHA256": "c1dce88968855ee9604b7329f39a4581a9b6c069f410b371ed2d7c147c65f333",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "cable_tray",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/cable_tray-v1.png",
+      "subject": "A horizontal wall-top cable tray packed with bundled orange and teal cables and two navy tie loops; side-to-side repeatable segment.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. A horizontal wall-top cable tray packed with bundled orange and teal cables and two navy tie loops; side-to-side repeatable segment.",
+      "sourceStudy": "exec-002ec6c7-a0ba-4601-a233-07104317847d.png",
+      "sourceSHA256": "1a7da89530f3223ae85a252b228320cb1056872b2cc03f5d61477d9fe80a015f",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "patch_panel",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 96,
+      "height": 48,
+      "frame": [
+        96,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/patch_panel-v1.png",
+      "subject": "A chunky wall patch panel, rows of ports with tiny cream and sage status pixels, neatly looped patch cables, no port labels.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x48, a 3-module wall piece. A chunky wall patch panel, rows of ports with tiny cream and sage status pixels, neatly looped patch cables, no port labels.",
+      "sourceStudy": "exec-36a3d3c4-91a7-4c6e-804d-35c25d7b0311.png",
+      "sourceSHA256": "78aa812311ecc9476e1681f9332d774bbcb3be9285a896525b8caf4bf8eb4502",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "fire_suppression",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/fire_suppression-v1.png",
+      "subject": "A wall-mounted fire suppression control panel with round gauge, cream blank plate, orange covered switch and simple droplet icon.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A wall-mounted fire suppression control panel with round gauge, cream blank plate, orange covered switch and simple droplet icon.",
+      "sourceStudy": "exec-8846eee2-1071-4ae2-ada6-b73e3827ff8f.png",
+      "sourceSHA256": "33fe5ae4d55d8d85c7a28d781fb4bdca57604d5b94d73d6e9d2fbe2ca49933d7",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "server_warning_stripe",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/server_warning_stripe-v1.png",
+      "subject": "A low wall skirting strip of muted cream and coffee-orange diagonal warning stripes with navy top and bottom rails; repeatable side to side.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. A low wall skirting strip of muted cream and coffee-orange diagonal warning stripes with navy top and bottom rails; repeatable side to side.",
+      "sourceStudy": "exec-d42f72a5-b6c8-4d2f-b824-c78726df79ce.png",
+      "sourceSHA256": "03c5b3d07b059e12c28380730e345febd669097cb0b598c5cc937d8c8351ada5",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "label_tabs",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/label_tabs-v1.png",
+      "subject": "A tiny wall cable-label organizer strip with several blank cream label-maker tags wrapped on dark cable stubs. Only abstract dash marks, no readable letters.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x32, a 2-module wall piece. A tiny wall cable-label organizer strip with several blank cream label-maker tags wrapped on dark cable stubs. Only abstract dash marks, no readable letters.",
+      "sourceStudy": "exec-244242aa-d5a4-452e-be38-af738f657784.png",
+      "sourceSHA256": "d3a6ca218e9feff3687d9d45f98e4703d9d53b2ae06a009a656bd9c38e17bbda",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "frozen_call_screen",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/frozen_call_screen-v1.png",
+      "subject": "A wall screen showing a frozen video call: four simple friendly face tiles, one tiny muted-microphone icon and a blocky loading icon; no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. A wall screen showing a frozen video call: four simple friendly face tiles, one tiny muted-microphone icon and a blocky loading icon; no text.",
+      "sourceStudy": "exec-77bb51fd-ce3b-480f-a495-12e4bb33a53e.png",
+      "sourceSHA256": "b9977c77d5325b4a57d4094b8a9749e8fe4da0bf2bf1c0dea0888f2ba267e542",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "frosting_strip",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/frosting_strip-v1.png",
+      "subject": "A glass-wall privacy frosting strip with alternating sage opaque bands and abstract small circular company marks, no text; horizontal repeatable design.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. A glass-wall privacy frosting strip with alternating sage opaque bands and abstract small circular company marks, no text; horizontal repeatable design.",
+      "sourceStudy": "exec-f59b652c-b391-4242-94cb-b7f54c8183c9.png",
+      "sourceSHA256": "60259bdb43f2b92d45cf8f6a4f48f0a2b75e6e68f895f4ceaa35083fb74c0a9d",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "dead_marker_tray",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/dead_marker_tray-v1.png",
+      "subject": "A wall-mounted whiteboard marker tray with four short dry markers, a misplaced cap, small eraser and one crushed orange marker.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x32, a 2-module wall piece. A wall-mounted whiteboard marker tray with four short dry markers, a misplaced cap, small eraser and one crushed orange marker.",
+      "sourceStudy": "exec-1edaf785-3ba6-42a9-be59-b5ba846a0b05.png",
+      "sourceSHA256": "ba3a0b1543a444bc4272a6258c76b8b0c683b5dce234e53153a4969460f85962",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "quarterly_chart",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/quarterly_chart-v1.png",
+      "subject": "A framed quarterly chart whose thick orange line only goes up; cream graph paper and exaggerated final arrow, no letters or numbers.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. A framed quarterly chart whose thick orange line only goes up; cream graph paper and exaggerated final arrow, no letters or numbers.",
+      "sourceStudy": "exec-a038580d-8db1-4bdf-9ab2-80106d03bef4.png",
+      "sourceSHA256": "05107bf749c26711ea6d1b48634b688bb4cea6242da0757214454b712364b5e8",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "wood_paneling",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": true,
+      "file": "wall/wood_paneling-v1.png",
+      "subject": "A luxurious wood wall paneling section with four vertical warm wooden panels, navy joints and cream top trim; repeatable horizontal section.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. A luxurious wood wall paneling section with four vertical warm wooden panels, navy joints and cream top trim; repeatable horizontal section.",
+      "sourceStudy": "exec-fe93730d-6075-4a27-a8a6-701117a9f606.png",
+      "sourceSHA256": "863bc70ac019b219f85b0fcce73b1e335cd4030546c40b3459d76ac019b7ed5a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "diplomas_pair",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/diplomas_pair-v1.png",
+      "subject": "Two expensive framed diplomas: cream paper with abstract curved line marks and orange wax seals, no readable text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. Two expensive framed diplomas: cream paper with abstract curved line marks and orange wax seals, no readable text.",
+      "sourceStudy": "exec-a956ce81-64eb-47d6-abff-c6ce1078b20e.png",
+      "sourceSHA256": "6267bad920f470d48cad2d35d1e532f9f8aeb4582b98283ec2496d2938077b46",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "golf_trophy_shelf",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/golf_trophy_shelf-v1.png",
+      "subject": "A wood wall shelf with a small golf trophy, two golf balls, a framed tiny putting-green icon and one crooked rosette, no words.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. A wood wall shelf with a small golf trophy, two golf balls, a framed tiny putting-green icon and one crooked rosette, no words.",
+      "sourceStudy": "exec-37516969-a0fc-4b30-89c8-b037e8e34495.png",
+      "sourceSHA256": "24d7c8d998c1999bc5950ef6ae7ded8bd0cc69fa1a4cf84785a53b956bc0e78a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "expensive_painting",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/expensive_painting-v1.png",
+      "subject": "A thick framed expensive abstract painting: restrained teal shapes, one orange square and a lonely cream slash, no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. A thick framed expensive abstract painting: restrained teal shapes, one orange square and a lonely cream slash, no text.",
+      "sourceStudy": "exec-22cc7673-9ec8-43bb-b71c-3a62773696dc.png",
+      "sourceSHA256": "6e3443527725a161723aef54395b1e46611f3d246c3f47f23575539ba9578de4",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "sad_bonsai",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/sad_bonsai-v1.png",
+      "subject": "A single slightly sad but living bonsai with three sparse sage leaf clusters, teal pot on a narrow wooden pedestal.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x80, a 2-module wall piece. A single slightly sad but living bonsai with three sparse sage leaf clusters, teal pot on a narrow wooden pedestal. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-a07d0e03-d8fc-42f3-bc48-b362c0a58771.png",
+      "sourceSHA256": "46c101e2ff734c57c03eefb96876b32d466ba1f7d9fd49ba0d8b1050692d61b9",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "cloud_mural",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": true,
+      "file": "wall/cloud_mural-v1.png",
+      "subject": "A soft flat wall mural strip with low-contrast cream clouds on a sage field and one tiny lavender sun, no glow, repeatable horizontal design.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. A soft flat wall mural strip with low-contrast cream clouds on a sage field and one tiny lavender sun, no glow, repeatable horizontal design.",
+      "sourceStudy": "exec-0876b202-6efd-47c8-9fae-8b4c1a1cbb42.png",
+      "sourceSHA256": "ee6640086f081ae5169a62ae47c7e398610b392f36fd9993fe38eb0f28f1051d",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "meditation_gong",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/meditation_gong-v1.png",
+      "subject": "A small office meditation gong in a navy wooden frame with cream/gold disc and a hanging padded mallet, feet on the floor.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x80, a 2-module wall piece. A small office meditation gong in a navy wooden frame with cream/gold disc and a hanging padded mallet, feet on the floor. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-b9638ec0-1d55-4201-9550-8497d7816c5c.png",
+      "sourceSHA256": "b8e674885719858a07f37e96713d7f2f4455e18399a2738ee35e9f3f0ae1adba",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "towel_rack",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/towel_rack-v1.png",
+      "subject": "A wall-mounted towel rack with three folded cream and sage towels, one crooked lavender hand towel and tiny orange hook.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A wall-mounted towel rack with three folded cream and sage towels, one crooked lavender hand towel and tiny orange hook.",
+      "sourceStudy": "exec-f53d9b29-2524-4069-bc80-c584e878e498.png",
+      "sourceSHA256": "8ffed9dcaa3a4fcc3a08aab38c2837019f50b5f7ee0e6c99d16ea54ca0c1994e",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "wave_print",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/wave_print-v1.png",
+      "subject": "A framed inspirational wave print: one broad teal wave, cream foam, lavender distant sky and a small orange sun; no words.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A framed inspirational wave print: one broad teal wave, cream foam, lavender distant sky and a small orange sun; no words.",
+      "sourceStudy": "exec-8d031a83-9908-40c1-a7d4-db1fe6b022d9.png",
+      "sourceSHA256": "7fc713310bdd84a14f16ef49a99ca8cc7a7b55b342e7b29d80cb37968e853656",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "bottle_refill",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "wall/bottle_refill-v1.png",
+      "subject": "A slim wall-backed water-bottle refill station with charcoal base, teal bottle recess, cream nozzle and tiny sage status bar; no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x96, a 2-module wall piece. A slim wall-backed water-bottle refill station with charcoal base, teal bottle recess, cream nozzle and tiny sage status bar; no text. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-7fb9b026-ef88-4b22-b809-856fce7838c7.png",
+      "sourceSHA256": "06dd644825206f15724466e8fb116257944941efbd8741a95154cb2097ed182a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "parking_stripes",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/parking_stripes-v1.png",
+      "subject": "A low painted parking-wall stripe segment, two muted cream horizontal bands and tiny orange safety reflectors on slate; repeatable.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. A low painted parking-wall stripe segment, two muted cream horizontal bands and tiny orange safety reflectors on slate; repeatable.",
+      "sourceStudy": "exec-45c09441-87c2-4e5c-b731-e69b32b2c2a4.png",
+      "sourceSHA256": "8363b2afe2a77fe5f064aab7fa77f54c862a1e18ba9806a226836390aa89feb3",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "speed_bump_icon",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/speed_bump_icon-v1.png",
+      "subject": "A small cream-and-orange wall sign showing ONLY a car silhouette crossing a rounded speed-bump icon, navy border, no text.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x64, a 2-module wall piece. A small cream-and-orange wall sign showing ONLY a car silhouette crossing a rounded speed-bump icon, navy border, no text.",
+      "sourceStudy": "exec-68fee02d-ca36-4fe3-86b2-4fc9b96ca13f.png",
+      "sourceSHA256": "be064a9eb9ffbfc4c4d157f047259a8936f1d6976c1f9efc5bea08a069115e58",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "bike_rack",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 124,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/bike_rack-v1.png",
+      "subject": "A long wall-hugging metal bike rack with three rounded navy hoops, sage highlights and one comically forgotten bicycle wheel, no full bicycle.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x64, a 4-module wall piece. A long wall-hugging metal bike rack with three rounded navy hoops, sage highlights and one comically forgotten bicycle wheel, no full bicycle. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-9b4cb61f-e407-463d-8346-e2663aa15927.png",
+      "sourceSHA256": "dd442cb3cdd98aaa3a418447e7ff2c49ec99826e52d029f9f83e57b558dd7f93",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "ev_charger",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "wall/ev_charger-v1.png",
+      "subject": "A slim wall-backed electric vehicle charger, teal shell, cream plug icon, contained coiled navy charging cable and orange connector, no branding.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x96, a 2-module wall piece. A slim wall-backed electric vehicle charger, teal shell, cream plug icon, contained coiled navy charging cable and orange connector, no branding. Its floor footprint is only 24 pixels deep; keep it wall-hugging and compact.",
+      "sourceStudy": "exec-dfd5a16a-f3f2-46f1-aef9-a1359c44fcf4.png",
+      "sourceSHA256": "03bf9339db869dd3f62d8d75eb3dda29961eb033b37c935c48061d923a5ec459",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "security_camera",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/security_camera-v1.png",
+      "subject": "A compact wall security camera on an angled bracket, slate housing, round dark lens and tiny orange status light, complete within frame.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x48, a 2-module wall piece. A compact wall security camera on an angled bracket, slate housing, round dark lens and tiny orange status light, complete within frame.",
+      "sourceStudy": "exec-2d379c4f-a5c8-4410-b562-d7e5f1267bf6.png",
+      "sourceSHA256": "214c4196fd3e05a7e55d2fb97ee32cfa1627818a600fcf6c06438c962a03dce0",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "floor_scuffs",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/floor_scuffs-v1.png",
+      "subject": "A sparse low-contrast cluster of three rubbed carpet scuffs, warm taupe and slate, no perspective platform or floor rectangle.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x32, a 2-module wall piece. A sparse low-contrast cluster of three rubbed carpet scuffs, warm taupe and slate, no perspective platform or floor rectangle. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-ca795764-2fae-4596-9e11-4097641a9d9b.png",
+      "sourceSHA256": "5de83ad2a5ad98d05b3069b3fd1ad7cb28fbd379aabb16d6f0c705eba3288e4c",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "coffee_ring",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/coffee_ring-v1.png",
+      "subject": "One imperfect small coffee-cup ring stain with two tiny drops, low-contrast warm taupe and russet, no cup.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x32, a 1-module wall piece. One imperfect small coffee-cup ring stain with two tiny drops, low-contrast warm taupe and russet, no cup. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-21c2aa80-ff87-4775-a4ad-9d92a35252dd.png",
+      "sourceSHA256": "8a21f0140676e994481ad6fe3db0de8c45eecf1ad2b8485deebbbbc103da732f",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "carpet_seam",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": true,
+      "file": "floor/carpet_seam-v1.png",
+      "subject": "A narrow worn carpet seam, two muted taupe stitched lines with a tiny snag; side-to-side repeatable.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. A narrow worn carpet seam, two muted taupe stitched lines with a tiny snag; side-to-side repeatable. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-27746f43-1e9b-4f32-9324-85cf98ad802d.png",
+      "sourceSHA256": "9b706db423b83ed1e8b3620545d4b6e6049fb079e09e6d1b2a7a8a644a0a365a",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "cable_cover",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": true,
+      "file": "floor/cable_cover-v1.png",
+      "subject": "A low-profile floor cable-cover strip with subtle sage edges and slate rubber center, side-to-side repeatable, no cable ends.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. A low-profile floor cable-cover strip with subtle sage edges and slate rubber center, side-to-side repeatable, no cable ends. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-86c3fddc-a4e9-4d50-8e39-43b7af9f46b4.png",
+      "sourceSHA256": "eaab53be727b4d3c90227dae6eb48900d84704e1917ce694fdbfeb1d7362c9ec",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "floor_vent",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/floor_vent-v1.png",
+      "subject": "A flat horizontal floor vent grate with dark slate slots and muted taupe rim, shallow appearance and no cast shadow.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x32, a 2-module wall piece. A flat horizontal floor vent grate with dark slate slots and muted taupe rim, shallow appearance and no cast shadow. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-0f232166-8ddd-4696-b127-4f4002bda71f.png",
+      "sourceSHA256": "946115becd8da15c15a865323422fe69ac0e65d4c5810206c903c702092b4571",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "paperclip_pile",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/paperclip_pile-v1.png",
+      "subject": "Three dropped muted slate and cream paper clips forming a small untidy pile, no letters.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 32x32, a 1-module wall piece. Three dropped muted slate and cream paper clips forming a small untidy pile, no letters. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-2a66efc7-bb40-4c30-a2bb-6c395102a82a.png",
+      "sourceSHA256": "7c2300ca0e8bdeaf38e3852f3762b5379de87e72e8ecd2d45e197c8505e07328",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "floor_tape",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": true,
+      "file": "floor/floor_tape-v1.png",
+      "subject": "Two thin low-contrast cream floor-tape lines with worn breaks and a narrow orange safety dash; repeatable side-to-side.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 128x32, a 4-module wall piece. Two thin low-contrast cream floor-tape lines with worn breaks and a narrow orange safety dash; repeatable side-to-side. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-75d131ed-9475-4452-ab55-30b765a7dc65.png",
+      "sourceSHA256": "bdbf3e33bd04659d3a8058ad479ca835675cb1f93e836f481f21b781096f1ec2",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "chair_wheel_marks",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/chair_wheel_marks-v1.png",
+      "subject": "Faint overlapping office-chair caster arcs on carpet, broad sparse taupe curves, no chair and no filled floor patch.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. Faint overlapping office-chair caster arcs on carpet, broad sparse taupe curves, no chair and no filled floor patch. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-9b09e757-0c76-4924-a625-3034bd5b84d5.png",
+      "sourceSHA256": "a12e88c55cb18d4105c44e03944139a646ee1acf877898a56ffee3e3e79b63f4",
+      "suggestedAlpha": 0.23,
+      "refinementPrompt": "Use case: stylized-concept. ONE isolated non-solid FLOOR DECAL for Midlife Survivors. Subject ONLY: five faint overlapping C-shaped office-chair caster wheel scuff arcs and a few short rubbed streaks, an imperfect circular wear pattern under a desk chair. Native target96x64 pixels, top-down flat. Low contrast taupe #A88B70 and pale tan #D3B78D, tiny restrained navy #171C35 edge pixels where needed. Crisp hard 16-bit pixel clusters. Exact flat opaque #FF00FF everywhere between the arcs and outside them. NO carpet patch, NO carpet sample, NO floor tile, NO square, NO rectangle, NO frame, NO background illustration, NO chair, NO caster objects, NO separate panels or swatches. Do not draw any filled area inside the arcs: magenta must be visible through every arc. One sparse marks-only decal centered in generous magenta padding, no drop shadow, blur, antialiasing, gradient, text or logo. Draw just marks, like a transparent sticker of faint curved scuffs.",
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "muddy_boot_trail",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/muddy_boot_trail-v1.png",
+      "subject": "Four faint alternating muddy boot prints walking diagonally, muted taupe and cream scuffed edges, no solid shoes.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 96x64, a 3-module wall piece. Four faint alternating muddy boot prints walking diagonally, muted taupe and cream scuffed edges, no solid shoes. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-f65974e8-38d8-4ad0-a758-3566a14861e2.png",
+      "sourceSHA256": "aed330db80593b26ae12a7bc79cf7e1dd72676c1c0e2d14b09da10a70e07207f",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "wet_floor_spots",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/wet_floor_spots-v1.png",
+      "subject": "Three small pale sage wet-floor patches with one tiny reflected cream tick, matte and low contrast, no sign or shiny gradients.",
+      "prompt": "Use case: stylized-concept. Asset: ONE modular native Midlife Survivors office prop. Match the referenced sofa and hero exactly: crisp 16-bit pixels, broad color clusters, one native pixel navy silhouette outline, warm upper-left light. Front three-quarter view for floor furniture; straight wall-face view for wall hangings. Palette ONLY #171c35 #303750 #526078 #3e7775 #83a89a #a88b70 #d3b78d #f2d7a1 #fff0cf #874c3b #c45c4b #ef9347 #e5a995 #f1b5bf #bfa8cf #b97a58 #70402f. Opaque exact flat #FF00FF background, NO ground/background shadow, no floor plane, no blur, antialiasing, gradients, photorealism, logos, letters, numbers, readable text or watermark. One complete isolated object, centered with generous equal padding. Draw a small native object enlarged as square pixels; do not paint a scene. Native target 64x48, a 2-module wall piece. Three small pale sage wet-floor patches with one tiny reflected cream tick, matte and low contrast, no sign or shiny gradients. Flat TOP-DOWN NON-SOLID DECAL. Extremely restrained, sparse, matte, low contrast. No box around it. No shadow.",
+      "sourceStudy": "exec-f29789dd-7c61-40d4-9ee1-20ec0fc13891.png",
+      "sourceSHA256": "6be3d83cc316e929ff59b6b268b39a48ad5afa2111f03c174ef4acff270d10b9",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    }
+  ]
+}

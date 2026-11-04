@@ -520,3 +520,7 @@ The clock-out station keeps the same floor anchor in every pose. Its balloons an
 - **Authentication** is "who are you?" The emailed code proves you own that email, and you get a signed pass (a token).
 - **Authorization** is "what can you touch?" Row-level security in Supabase checks the pass on every request: you can only read and write the row with your own ID.
 - That's why the game can ship the public key safely. The key opens the front door; the row rules decide which locker is yours.
+
+
+## 2026-11-04: Modular wall art (Codex)
+A shared 32px unit lets differently shaped props fill the same wall length. A 128px cabinet, 64px poster and 64px shelf allocate exactly 256px, while a different mix can fill another segment. Module width is layout space; the smaller floor footprint is what a solid object will actually block.

@@ -1186,3 +1186,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New Supabase table `player_saves` (Rami OK'd): each signed-in player can only read and write their own row.
 - Built the "Clock in" badge on the employee file and the Badge Office screen (email code, signed-in badge, a "two employee files" chooser when this device and the cloud disagree). Tested sign-in, upload, pull from another device and the conflict chooser with a fake server.
 - Hidden until Rami finishes `docs/handoffs/accounts-setup.md` (URL settings, code in the email template, an email sender for real players, Google and Apple keys). Test with `?accounts=1`.
+
+
+## 2026-11-04: Wall and floor kit delivered (Codex)
+- Made 60 wall families and ten floor details in three colorways, covering every listed room and the shared office utilities.
+- Added modular metadata, nine 2x wall assembly boards, quiet floor preview and native catalog/review. All 210 cells pass pixel/module/seam checks.
+- Art only. Claude places pieces and preserves clear routes; no room geometry, spawning or gameplay files changed.

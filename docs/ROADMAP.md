@@ -211,3 +211,8 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### 2026-11-04: Retirement-goal art (Codex)
 - [x] Friendly clock-out station sheet, waiting/contact previews and size comparison delivered.
 - [ ] Claude integrates the station for Midlife age65 while keeping Full Life Father Time separate.
+
+
+### 2026-11-04: Wall-lining kit (Codex)
+- [x] All listed wall/floor families, colorways, metadata and room review boards delivered.
+- [ ] Claude places the kit along intact wall segments, keeping doors and224px routes clear.

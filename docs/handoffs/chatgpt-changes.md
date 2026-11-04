@@ -287,3 +287,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Delivered the age-65 retirement punch-clock station: stopped five-o-clock dial, card rack, three balloons, bow, gifts, fish picture and a breathing pixel halo. No spooky imagery or baked text.
 - **Files.** `assets/bosses/clock-out-goal-v1.png`, both row GIFs, 2x comparison with the Gold Watch and 9-to-5er, detail image, README, prompt and pixel-check JSON.
 - **For Claude.** Art only, Midlife ending only. Keep Full Life Father Time separate. Sheet is 864x304, 6x2 of 144x152, anchor (72,151). Waiting frames0-5 at160ms loop; clock-out6-11 at110ms once, hold11. Twelve distinct poses, exact twelve-color palette, binary alpha and fixed lower base verified. Runtime texture/contact wiring is yours.
+
+
+## 2026-11-04: Wall-lining and floor-detail kit (Codex)
+- **What.** Completed the full listed kit: 60 wall families (including separate mountain/rower/eagle posters), 10 non-solid floor decals and three colorways each, 210 native cells.
+- **Files.** `assets/stage/props/wall/`, `floor/`, `manifest-wall.json`, `batch-wall.json`, `README-wall.md`, `review-wall.html` and offline validator/check report. Nine room/general boards each fill 256px three ways at 2x beside the hero; floor and full native boards included.
+- **For Claude.** Art/metadata only. Widths32/64/96/128; mounted non-solid, hugging pieces have proposed24px-deep footprints. Floor decals are non-solid, suggested alpha0.23. Global room tag is `*`; repeating strips have matching X edges. Keep224px routes and doorways clear. Palette, exact magenta, navy boundaries, grids, distinct colorways and seam checks pass; desktop/390px review loading/filter/overflow checked. Placement, status blinking, lighting, navigation and collision wiring remain yours.

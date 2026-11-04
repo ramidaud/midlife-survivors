@@ -1,0 +1,640 @@
+{
+  "status": "passed",
+  "families": 70,
+  "colorways": 210,
+  "module": 32,
+  "solidDepth": 24,
+  "runtimePlacementTested": false,
+  "assets": [
+    {
+      "id": "poster_mountain",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "poster_rowers",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "poster_eagle",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "wall_clock",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "fire_extinguisher",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "thermostat_note",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "air_vent",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "charger_outlet",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "light_switch",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "exit_running_icon",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "cork_flyers",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "employee_photo",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "hanging_plant",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "low_bookshelf",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "tall_bookshelf",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "filing_two_drawer",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "filing_four_drawer",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "paper_toner_shelf",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "recycling_pair",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "umbrella_hooks",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "moving_boxes",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "milestone_photos",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "brochure_rack",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "visitor_podium",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "campus_aerial",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "sticky_whiteboard",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "team_calendar",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "kudos_wall",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "printer_nook",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "birthday_ledge",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "upper_cabinets",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "microwave_counter",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "fridge_collage",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "mug_rack",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "snack_shelf",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "chore_wheel",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "cable_tray",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "patch_panel",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "fire_suppression",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "server_warning_stripe",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "label_tabs",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "frozen_call_screen",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "frosting_strip",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "dead_marker_tray",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "quarterly_chart",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "wood_paneling",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "diplomas_pair",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "golf_trophy_shelf",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "expensive_painting",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "sad_bonsai",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "cloud_mural",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "meditation_gong",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "towel_rack",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "wave_print",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "bottle_refill",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "parking_stripes",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "speed_bump_icon",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "bike_rack",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "ev_charger",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "security_camera",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "floor_scuffs",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "coffee_ring",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "carpet_seam",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "cable_cover",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "floor_vent",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "paperclip_pile",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "floor_tape",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": true
+    },
+    {
+      "id": "chair_wheel_marks",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "muddy_boot_trail",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    },
+    {
+      "id": "wet_floor_spots",
+      "palette": true,
+      "magenta": true,
+      "navyOutline": true,
+      "identicalVariantMasks": true,
+      "uniqueColorways": true,
+      "repeatX": false
+    }
+  ]
+}

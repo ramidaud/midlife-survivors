@@ -509,3 +509,7 @@ Derek's On Break camera v2 uses a charcoal body and round highlighted lens match
 - **Evolutions:** Potluck, Do Not Disturb, Executive Swivel, Company-Wide Memo, Sabbatical, Wall of Post-its, Polar Vortex.
 ### 2026-11-04: Friendly age-65 destination art (Codex)
 Midlife retirement gets a welcoming punch-clock station with balloons and gifts, with a waiting loop and a one-shot clock-out celebration. This art delivery keeps the existing win interaction and Full Life Father Time unchanged; Claude owns integration.
+
+
+### 2026-11-04: Continuous wall dressing kit (Codex)
+Room-themed wall pieces use32px modules to dress intact256px wall segments. Mounted pieces and floor decals are non-solid; floor-standing wall furniture proposes24px-deep footprints. All art is delivered for placement review, with224px routes and existing doorways preserved during Claude's future integration.

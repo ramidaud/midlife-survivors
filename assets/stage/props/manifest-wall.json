@@ -1,0 +1,2216 @@
+{
+  "batch": "wall-and-floor-v1",
+  "status": "art-ready-for-review",
+  "palette": [
+    "#171c35",
+    "#303750",
+    "#526078",
+    "#3e7775",
+    "#83a89a",
+    "#a88b70",
+    "#d3b78d",
+    "#f2d7a1",
+    "#fff0cf",
+    "#874c3b",
+    "#c45c4b",
+    "#ef9347",
+    "#e5a995",
+    "#f1b5bf",
+    "#bfa8cf",
+    "#b97a58",
+    "#70402f"
+  ],
+  "background": "#FF00FF",
+  "variantsAreAnimations": false,
+  "module": 32,
+  "wallSegmentWidth": 256,
+  "solidDepth": 24,
+  "runtimePlacementOwnedBy": "Claude",
+  "assets": [
+    {
+      "id": "poster_mountain",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/poster_mountain-v1.png",
+      "subject": "A chunky framed motivational mountain picture: cream mountain peak, teal foothills and tiny coffee-orange sunrise; no words.",
+      "sourceStudy": "exec-b2909a17-f280-4dd7-b8c3-722f7ec99133.png",
+      "sha256": "966d25d19c4543043f9ba3ea1b9ddd2ffbd10a6aee88bcb5857d4a074b319387",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "poster_rowers",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/poster_rowers-v1.png",
+      "subject": "A framed team-rowing picture: four tiny rowers in one long orange boat, sage water, abstract oars; no words.",
+      "sourceStudy": "exec-a0afc2b9-fd4f-48be-929f-7aaa2d372633.png",
+      "sha256": "8687fa0a8a4bdbce1e81d3e78d97679fd3a89bdf023917b0a5a2efee92205e55",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "poster_eagle",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/poster_eagle-v1.png",
+      "subject": "A framed eagle picture: stylized cream eagle with spreading wings over sage mountains, no lettering.",
+      "sourceStudy": "exec-1352d78d-73d5-44d8-9ec7-e3fb929f991b.png",
+      "sha256": "53b82b218e2e7344b960a69c83e303cf951ef963b440be7a101d4209a4f40a7e",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "wall_clock",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 40,
+      "frame": [
+        32,
+        40
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.925
+      ],
+      "repeatX": false,
+      "file": "wall/wall_clock-v1.png",
+      "subject": "A round cream analog wall clock in a teal frame, tick marks only, clearly separated hands, no numbers.",
+      "sourceStudy": "exec-065b8dc8-5603-43f3-94e0-64dceb9a1e02.png",
+      "sha256": "eb904a15195fdce2ee64831584a93b3cec6967257ac97da73d57eb78e67c1a02",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "fire_extinguisher",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 56,
+      "frame": [
+        32,
+        56
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9464285714285714
+      ],
+      "repeatX": false,
+      "file": "wall/fire_extinguisher-v1.png",
+      "subject": "A coffee-orange fire extinguisher mounted in a navy wall bracket, rolled dark hose and cream pressure-gauge icon, no writing.",
+      "sourceStudy": "exec-3700cb9f-0fa9-46c6-ba41-2512b51ad045.png",
+      "sha256": "e9aba1722efdd17d01d4c4ffa2cfcc3841e79c09317e00305940329035cedb4b",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "thermostat_note",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/thermostat_note-v1.png",
+      "subject": "A small slate thermostat with abstract status bars and one curling lavender sticky note; no tiny text.",
+      "sourceStudy": "exec-49a52b42-e7fc-4e1a-b999-4d420065fa61.png",
+      "sha256": "029af1c5a52a352a3433316e06e1ef9f045bf6d04a2c99517828787de132a337",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "air_vent",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/air_vent-v1.png",
+      "subject": "A low wide brushed-slate air vent with chunky dark horizontal louvers and four screw pixels.",
+      "sourceStudy": "exec-371bb33a-1f33-47e9-a08c-3cb084c44b84.png",
+      "sha256": "6aefccee128c5e59a3d0d4f1296122134244783135eecc64e63317d39168f2e1",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "charger_outlet",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 40,
+      "frame": [
+        64,
+        40
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.925
+      ],
+      "repeatX": false,
+      "file": "wall/charger_outlet-v1.png",
+      "subject": "A cream power outlet plate with three chargers plugged in and a small comical coil of dark cords hanging below, no floor shadow.",
+      "sourceStudy": "exec-fa5e6007-5009-43c1-969d-fb6e1c3912d5.png",
+      "sha256": "a666e65cf3fa44c4afb354bf5a57363b1cc4663e083e385691e2d1b0e8c9415d",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "light_switch",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/light_switch-v1.png",
+      "subject": "A cream double light-switch plate, one switch up and the other down, two screw pixels.",
+      "sourceStudy": "exec-948db87c-1d6c-4210-9f60-3563990dcf66.png",
+      "sha256": "601fc0dfbf8330ad8628de299b26772cae6f2e2f7f5e8f44ae667e86678dccdd",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "exit_running_icon",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/exit_running_icon-v1.png",
+      "subject": "A teal-green illuminated EXIT-style sign using ONLY a cream running-person silhouette, doorway and left arrow; no letters whatsoever.",
+      "sourceStudy": "exec-d4da0f11-9b06-4d74-a61c-f45900d8a8ba.png",
+      "sha256": "63c3323d100b5b40fbcea3b2652e35b39a8b3b25b87e49c73e0d1d0441e2bc8c",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "cork_flyers",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/cork_flyers-v1.png",
+      "subject": "A cork board filled with pinned cream and lavender flyers, a small black-and-cream lost-cat picture, torn lower paper tabs, absolutely no letters.",
+      "sourceStudy": "exec-50a940fd-71c8-4e77-ac6b-6a83218dc85b.png",
+      "sha256": "88f3dd858c0c81b7bedb7415bb8b3369880527f8b63ce19ded24fed0e42a0a27",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "employee_photo",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/employee_photo-v1.png",
+      "subject": "An employee-of-the-month frame: friendly tiny office worker portrait, small orange rosette in one corner, no name or lettering.",
+      "sourceStudy": "exec-c0126665-fa77-43f1-b52c-536c307650d5.png",
+      "sha256": "dbece4d7b3b8ff1dd79edd11b929aa06f3ed8589f789db4aa46108f4821e7c10",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "hanging_plant",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/hanging_plant-v1.png",
+      "subject": "A corner hanging pot with sage and teal trailing leaves, navy wall bracket, cream macrame cord; complete contained silhouette.",
+      "sourceStudy": "exec-c3cf0478-422b-4305-85e6-b36973448a8b.png",
+      "sha256": "c8774e9e79f045e9ce2e87e49b0694563abd41f82f881fd1c5e54ce8d69debfc",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "low_bookshelf",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/low_bookshelf-v1.png",
+      "subject": "A low wooden office bookshelf with two shelves of colorful binders, one horizontal book pile and a tiny mug, flush back against the wall.",
+      "sourceStudy": "exec-492ca9a7-aaca-47d7-add2-613cf259e00f.png",
+      "sha256": "eed2ab17f178c5bbf83739e1f97784f4c68e1df92f1a21759205f353c240cd0e",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "tall_bookshelf",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 112,
+      "frame": [
+        96,
+        112
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9732142857142857
+      ],
+      "repeatX": false,
+      "file": "wall/tall_bookshelf-v1.png",
+      "subject": "A tall broad office bookshelf packed with binders, two book stacks, an awkward empty bookend and one tiny framed photo, clear narrow floor base.",
+      "sourceStudy": "exec-9f1f456a-a866-4557-b85c-585a8e946387.png",
+      "sha256": "4599603fbcb0c5a722dcf176ab574704a99e26a2a523fc1cdab737a5f1a0a496",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "filing_two_drawer",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 64,
+      "frame": [
+        32,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 28,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/filing_two_drawer-v1.png",
+      "subject": "A narrow two-drawer slate filing cabinet, cream label slots with no writing, orange handle on the top drawer.",
+      "sourceStudy": "exec-b23fc09c-8ee8-45c0-ac0e-4feaeb56620c.png",
+      "sha256": "c7c966eb6548447b99e12ba4114c691a86010fb37185a19b78ef5bf1da5f7e86",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "filing_four_drawer",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "wall/filing_four_drawer-v1.png",
+      "subject": "A four-drawer filing cabinet with one drawer stuck slightly open INSIDE the total frame width, cream paper peeking out, no text.",
+      "sourceStudy": "exec-677f6202-f1d4-4d2e-8d2a-20840c04cfbd.png",
+      "sha256": "baadb8c274392e22afae9a96aa9edf74d7b4462d40fa714536e916b42582f86a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "paper_toner_shelf",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 88,
+      "frame": [
+        96,
+        88
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9659090909090909
+      ],
+      "repeatX": false,
+      "file": "wall/paper_toner_shelf-v1.png",
+      "subject": "An office supply shelf with neatly stacked paper reams, charcoal toner boxes and one crooked paper pack, no branding or lettering.",
+      "sourceStudy": "exec-5b15a47e-bae6-4fa4-9311-76793d7cc004.png",
+      "sha256": "0c0dbf4a22cfcb4d990ac7da43cf33ee57ba6ff9dbc6e73317354ebbc19850f7",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "recycling_pair",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/recycling_pair-v1.png",
+      "subject": "Two wall-hugging office recycling bins, teal and slate, cream three-arrow recycling icons, a paper corner sticking out.",
+      "sourceStudy": "exec-64c3a78f-3b97-4f98-a8bb-4cba555ab0be.png",
+      "sha256": "490d123f4b4268195919e6d0d16e765526d4256d374cff975557deb4acdc2f18",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "umbrella_hooks",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/umbrella_hooks-v1.png",
+      "subject": "A narrow floor-backed coat-hook rail with a forgotten closed umbrella and charcoal raincoat, simple navy base; do not include any separate floor.",
+      "sourceStudy": "exec-35ae0348-c060-43ed-a8b6-4393d45887f9.png",
+      "sha256": "117bae609f61ae708481f3460a9e210e33bf61e0c870d2c9984462e193160685",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "moving_boxes",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/moving_boxes-v1.png",
+      "subject": "Three cardboard moving-day boxes stacked safely against the wall, one open box with a small plant pot and a folder, blank tape and no writing.",
+      "sourceStudy": "exec-86296ccc-eceb-4991-a9b5-c6fe0de69e29.png",
+      "sha256": "12e2f950b31f1256b53fe3844fd2ad07f058f9dddba2456cdb3064eb70c0a9ef",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "milestone_photos",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 128,
+      "height": 48,
+      "frame": [
+        128,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/milestone_photos-v1.png",
+      "subject": "A row of three framed company milestone photographs: first tiny office, handshake, building opening with ribbon; picture icons only.",
+      "sourceStudy": "exec-a9984976-af2a-4854-a2a2-e4be710f3c18.png",
+      "sha256": "2814daefc366f9bf6e015923b48ea52a274e5d23dd152f649c078ac5518bc649",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "brochure_rack",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/brochure_rack-v1.png",
+      "subject": "A freestanding narrow brochure rack with colorful leaflets fanned on three shelves, abstract bars not words.",
+      "sourceStudy": "exec-8b34771f-93e1-4c93-9914-dc2be17b98a7.png",
+      "sha256": "8012aaea633fc346b043cdf57ef5538c451bf47add7241e067e439c12b10bee3",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "visitor_podium",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/visitor_podium-v1.png",
+      "subject": "A wooden visitor sign-in podium with open cream ledger, tethered pen and small teal tray, abstract checkmarks only.",
+      "sourceStudy": "exec-8d9c422b-2147-46e1-988d-88dbd28ed7bb.png",
+      "sha256": "b1e32c32ea566bdc5368e0c161cbc345504940243c92f6084b5d269594dfe7f4",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "campus_aerial",
+      "rooms": [
+        "lobby"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/campus_aerial-v1.png",
+      "subject": "One large framed aerial photograph of a campus: teal lawns, cream buildings, tiny orange paths, no words or map labels.",
+      "sourceStudy": "exec-b819a0ef-9cac-485d-8389-b6da444f8fe4.png",
+      "sha256": "9d2585cab92965824d1c46b10934cb64b3cdf3cec14ba9ed5ce5f9970bee9ff3",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "sticky_whiteboard",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/sticky_whiteboard-v1.png",
+      "subject": "A long whiteboard with three clustered islands of orange, lavender and cream sticky notes connected by crooked navy arrows; no writing.",
+      "sourceStudy": "exec-be340176-0b37-40e4-9197-d340833db898.png",
+      "sha256": "a9f7121771478d6328dc4bf50558f3ae098364174761dae6e5357bcc0c8bd4a6",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "team_calendar",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/team_calendar-v1.png",
+      "subject": "A framed team calendar board with an abstract monthly grid, orange meeting blocks and one overlapping lavender block, no dates or letters.",
+      "sourceStudy": "exec-e91850bf-05f7-4028-9220-ecae1eff12cd.png",
+      "sha256": "0cf32016c0187522e785996e64c08d3d07b42fa9ca197dfad63d07b4023772bd",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "kudos_wall",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/kudos_wall-v1.png",
+      "subject": "A framed kudos board covered with colorful folded thank-you cards, tiny heart and star icons, absolutely no text.",
+      "sourceStudy": "exec-f6d31232-bab8-41e2-83ad-4d2dc0371331.png",
+      "sha256": "4ea69ff50f8fe37f576533dc8331417c0359f41b1f542f14e732d5d23435bcf0",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "printer_nook",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 96,
+      "height": 80,
+      "frame": [
+        96,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/printer_nook-v1.png",
+      "subject": "A narrow wall-backed printer shelf with a compact chunky printer, a paper ream, two toner boxes below and one jammed paper corner.",
+      "sourceStudy": "exec-a8047976-acb7-49e0-8896-c2755d1b287b.png",
+      "sha256": "4116599a0cc30deca86b23c89378d8d898a87d5ff739ab6b49dd06c3ae101652",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "birthday_ledge",
+      "rooms": [
+        "bullpen"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/birthday_ledge-v1.png",
+      "subject": "A small wall ledge holding a half-open birthday card with a balloon icon and a pen on a string; no words.",
+      "sourceStudy": "exec-7226b5c6-1aa7-4606-ba3e-39caad6c9166.png",
+      "sha256": "26c3d8e77018d6818ba6bd4014f5dca92bb9cd5b103f307e6d782237b086ab5c",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "upper_cabinets",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/upper_cabinets-v1.png",
+      "subject": "A run of three cream upper kitchen cabinets with navy seams and teal handles, one little coffee-orange mug visible in a glass panel.",
+      "sourceStudy": "exec-110acabf-f5cb-45bd-82c0-fec60ea606c6.png",
+      "sha256": "38803b7337a772823f8a9870261f0cbc7f76b55b3f31be32adfd27fef8dd7a6a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "microwave_counter",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 128,
+      "height": 80,
+      "frame": [
+        128,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 124,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/microwave_counter-v1.png",
+      "subject": "A narrow kitchen counter with microwave, teal kettle and blank curling sticky note, muted timer bars only; drawers below.",
+      "sourceStudy": "exec-69fe90c2-d836-4a59-92c4-88539cc24397.png",
+      "sha256": "a3d2c328ff9628b831ad418bfc2be59e5e46240bbfc51b37d1b295c37bd426f4",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "fridge_collage",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/fridge_collage-v1.png",
+      "subject": "A flat fridge-door collage panel of colorful geometric magnets, small family photos, a fish picture and a blank cream note; no fridge body.",
+      "sourceStudy": "exec-ab8de179-818c-4fce-9c63-4fe563c64ff3.png",
+      "sha256": "052d86785bb16f6da3df3d6fed15799be41906890f8cd0a382d28f895f4ac45e",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "mug_rack",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 96,
+      "height": 48,
+      "frame": [
+        96,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/mug_rack-v1.png",
+      "subject": "A wall mug rack with six distinct mugs: striped, dotted, short, tall, chipped and oversized. Icons and patterns only, no text.",
+      "sourceStudy": "exec-5b8c07e8-cbb1-47b7-ba6a-35a8198be146.png",
+      "sha256": "224cc3dc8cbcd077e66f73d946fed8b65493958b1534ce5418fee6c03a662302",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "snack_shelf",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 96,
+      "height": 80,
+      "frame": [
+        96,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 92,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/snack_shelf-v1.png",
+      "subject": "A narrow pantry snack shelf with colorful unbranded bags, a nearly empty cracker box and one banana, no lettering.",
+      "sourceStudy": "exec-137e45e1-b36d-4422-b468-aaf73ca565fd.png",
+      "sha256": "b3d018667069ccb80233db42fb721a38337aaee985bb9ed479b4e0be05eac681",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "chore_wheel",
+      "rooms": [
+        "breakroom"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/chore_wheel-v1.png",
+      "subject": "A round office kitchen chore wheel with six cream/teal/orange sectors and simple brush, cup and bin icons; small arrow pointer, no names.",
+      "sourceStudy": "exec-7a9d66df-de9a-4d3a-9ef1-3c9d46dde12b.png",
+      "sha256": "a331a66a9e417abbf9fd8543bd2603ef520bfd81540585c962dce82b8e612c02",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "cable_tray",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/cable_tray-v1.png",
+      "subject": "A horizontal wall-top cable tray packed with bundled orange and teal cables and two navy tie loops; side-to-side repeatable segment.",
+      "sourceStudy": "exec-002ec6c7-a0ba-4601-a233-07104317847d.png",
+      "sha256": "9aa4e16726684cc00dca5b6974f2fb6a21762a361d2c2cd85804e21672285a28",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "patch_panel",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 96,
+      "height": 48,
+      "frame": [
+        96,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/patch_panel-v1.png",
+      "subject": "A chunky wall patch panel, rows of ports with tiny cream and sage status pixels, neatly looped patch cables, no port labels.",
+      "sourceStudy": "exec-36a3d3c4-91a7-4c6e-804d-35c25d7b0311.png",
+      "sha256": "3e1e0df9ca9704e1892338f981fa08d6646eb0ed9046efcea2abeb36ce37d3a0",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "fire_suppression",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/fire_suppression-v1.png",
+      "subject": "A wall-mounted fire suppression control panel with round gauge, cream blank plate, orange covered switch and simple droplet icon.",
+      "sourceStudy": "exec-8846eee2-1071-4ae2-ada6-b73e3827ff8f.png",
+      "sha256": "bddaf61685653488529969229a144dbdfffbc012e6c276abb82eed44eeab7c9a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "server_warning_stripe",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/server_warning_stripe-v1.png",
+      "subject": "A low wall skirting strip of muted cream and coffee-orange diagonal warning stripes with navy top and bottom rails; repeatable side to side.",
+      "sourceStudy": "exec-d42f72a5-b6c8-4d2f-b824-c78726df79ce.png",
+      "sha256": "c95a2c7cdaebeab279ae64ce3a2fc4dd5941bee4bd0ec7c8b0e7448e3b456cdc",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "label_tabs",
+      "rooms": [
+        "server"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/label_tabs-v1.png",
+      "subject": "A tiny wall cable-label organizer strip with several blank cream label-maker tags wrapped on dark cable stubs. Only abstract dash marks, no readable letters.",
+      "sourceStudy": "exec-244242aa-d5a4-452e-be38-af738f657784.png",
+      "sha256": "ceabfbcac2d46f710dd3bec906610f22688c6c33d280ca7836a38d36ff6c560b",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "frozen_call_screen",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/frozen_call_screen-v1.png",
+      "subject": "A wall screen showing a frozen video call: four simple friendly face tiles, one tiny muted-microphone icon and a blocky loading icon; no text.",
+      "sourceStudy": "exec-77bb51fd-ce3b-480f-a495-12e4bb33a53e.png",
+      "sha256": "6c9440661ba37c1d46da0914764f8f824c501303cb7ea9eb86efdc3243b58951",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "frosting_strip",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/frosting_strip-v1.png",
+      "subject": "A glass-wall privacy frosting strip with alternating sage opaque bands and abstract small circular company marks, no text; horizontal repeatable design.",
+      "sourceStudy": "exec-f59b652c-b391-4242-94cb-b7f54c8183c9.png",
+      "sha256": "6bd2811fcbcf88f748f93676a73c3c4656ece5fb228b3e458d0e300cd8201257",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "dead_marker_tray",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": false,
+      "file": "wall/dead_marker_tray-v1.png",
+      "subject": "A wall-mounted whiteboard marker tray with four short dry markers, a misplaced cap, small eraser and one crushed orange marker.",
+      "sourceStudy": "exec-1edaf785-3ba6-42a9-be59-b5ba846a0b05.png",
+      "sha256": "8b4fba36ae87be56bad446bd6a8a80d7050428ccfd82cc48ddb38c1db5e648dd",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "quarterly_chart",
+      "rooms": [
+        "conference"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/quarterly_chart-v1.png",
+      "subject": "A framed quarterly chart whose thick orange line only goes up; cream graph paper and exaggerated final arrow, no letters or numbers.",
+      "sourceStudy": "exec-a038580d-8db1-4bdf-9ab2-80106d03bef4.png",
+      "sha256": "608edab83331839395c564ffa84630dadee1e6bddfe62d3cef9882c87a2fa4b4",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "wood_paneling",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": true,
+      "file": "wall/wood_paneling-v1.png",
+      "subject": "A luxurious wood wall paneling section with four vertical warm wooden panels, navy joints and cream top trim; repeatable horizontal section.",
+      "sourceStudy": "exec-fe93730d-6075-4a27-a8a6-701117a9f606.png",
+      "sha256": "4eef01528dcb648ac2e8fc70c3e9677673809488d8f7ff438fe15ce3b0f11368",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "diplomas_pair",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/diplomas_pair-v1.png",
+      "subject": "Two expensive framed diplomas: cream paper with abstract curved line marks and orange wax seals, no readable text.",
+      "sourceStudy": "exec-a956ce81-64eb-47d6-abff-c6ce1078b20e.png",
+      "sha256": "458135e2df45419edcb90c7e95f3832b340b3aaacadc09b509f275f6c0f34ca9",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "golf_trophy_shelf",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/golf_trophy_shelf-v1.png",
+      "subject": "A wood wall shelf with a small golf trophy, two golf balls, a framed tiny putting-green icon and one crooked rosette, no words.",
+      "sourceStudy": "exec-37516969-a0fc-4b30-89c8-b037e8e34495.png",
+      "sha256": "b150270790d1e9333b0cbf14d2d5f5371b9b37a1a12f13951dcd16889c51935b",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "expensive_painting",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/expensive_painting-v1.png",
+      "subject": "A thick framed expensive abstract painting: restrained teal shapes, one orange square and a lonely cream slash, no text.",
+      "sourceStudy": "exec-22cc7673-9ec8-43bb-b71c-3a62773696dc.png",
+      "sha256": "a0dc93248e31f9e131912729daa1820702c6934fe5377d73fbdd20b26a1c161e",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "sad_bonsai",
+      "rooms": [
+        "executive"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/sad_bonsai-v1.png",
+      "subject": "A single slightly sad but living bonsai with three sparse sage leaf clusters, teal pot on a narrow wooden pedestal.",
+      "sourceStudy": "exec-a07d0e03-d8fc-42f3-bc48-b362c0a58771.png",
+      "sha256": "5926492b7df946a61b146618e2a03f85a1061dbe36961c21331ef691092189b9",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "cloud_mural",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": true,
+      "file": "wall/cloud_mural-v1.png",
+      "subject": "A soft flat wall mural strip with low-contrast cream clouds on a sage field and one tiny lavender sun, no glow, repeatable horizontal design.",
+      "sourceStudy": "exec-0876b202-6efd-47c8-9fae-8b4c1a1cbb42.png",
+      "sha256": "be9c5c3814816febe7401f0fdd9ec16a064d18905bcf98f2a49eeff29fb4523a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "meditation_gong",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 80,
+      "frame": [
+        64,
+        80
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "wall/meditation_gong-v1.png",
+      "subject": "A small office meditation gong in a navy wooden frame with cream/gold disc and a hanging padded mallet, feet on the floor.",
+      "sourceStudy": "exec-b9638ec0-1d55-4201-9550-8497d7816c5c.png",
+      "sha256": "e9ce1ae87bd23274b6667912d5273ae1e6286987fbc45fdb36adad2f2b3cba99",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "towel_rack",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/towel_rack-v1.png",
+      "subject": "A wall-mounted towel rack with three folded cream and sage towels, one crooked lavender hand towel and tiny orange hook.",
+      "sourceStudy": "exec-f53d9b29-2524-4069-bc80-c584e878e498.png",
+      "sha256": "ed1e71ff2ffe1cd4bdd744cca16db23d282a88b4cbabcaa711ed61833787a020",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "wave_print",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/wave_print-v1.png",
+      "subject": "A framed inspirational wave print: one broad teal wave, cream foam, lavender distant sky and a small orange sun; no words.",
+      "sourceStudy": "exec-8d031a83-9908-40c1-a7d4-db1fe6b022d9.png",
+      "sha256": "4cb011695586d1f9465ce4d7dffc60a86c9a3b74503ea2dfd6150b3b47342d33",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "bottle_refill",
+      "rooms": [
+        "wellness"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "wall/bottle_refill-v1.png",
+      "subject": "A slim wall-backed water-bottle refill station with charcoal base, teal bottle recess, cream nozzle and tiny sage status bar; no text.",
+      "sourceStudy": "exec-7fb9b026-ef88-4b22-b809-856fce7838c7.png",
+      "sha256": "03fb4c2776091c3fa1a79f6ea69a74873f4c1c38b3c3be91320881ab400583da",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "parking_stripes",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.90625
+      ],
+      "repeatX": true,
+      "file": "wall/parking_stripes-v1.png",
+      "subject": "A low painted parking-wall stripe segment, two muted cream horizontal bands and tiny orange safety reflectors on slate; repeatable.",
+      "sourceStudy": "exec-45c09441-87c2-4e5c-b731-e69b32b2c2a4.png",
+      "sha256": "43f23f2e79fe1b2b72d23c4c4bd7e38dd3ed0ab2ab4f78ad40d1e8e253610013",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "speed_bump_icon",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 64,
+      "height": 64,
+      "frame": [
+        64,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/speed_bump_icon-v1.png",
+      "subject": "A small cream-and-orange wall sign showing ONLY a car silhouette crossing a rounded speed-bump icon, navy border, no text.",
+      "sourceStudy": "exec-68fee02d-ca36-4fe3-86b2-4fc9b96ca13f.png",
+      "sha256": "7ad8fbb72a4a6d9447f0221229116df1f2f9a90670ac951a4e3d11b844280750",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "bike_rack",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 128,
+      "height": 64,
+      "frame": [
+        128,
+        64
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 124,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "repeatX": false,
+      "file": "wall/bike_rack-v1.png",
+      "subject": "A long wall-hugging metal bike rack with three rounded navy hoops, sage highlights and one comically forgotten bicycle wheel, no full bicycle.",
+      "sourceStudy": "exec-9b4cb61f-e407-463d-8346-e2663aa15927.png",
+      "sha256": "5ad50a739aa16a91fb1714612c1abcf430a83d78c8c14f1f59976bfbf4e67b1f",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "ev_charger",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 3,
+      "solid": true,
+      "mount": "hugging",
+      "footprint": {
+        "width": 60,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "wall/ev_charger-v1.png",
+      "subject": "A slim wall-backed electric vehicle charger, teal shell, cream plug icon, contained coiled navy charging cable and orange connector, no branding.",
+      "sourceStudy": "exec-dfd5a16a-f3f2-46f1-aef9-a1359c44fcf4.png",
+      "sha256": "c97d5fa387825de6d7fe54d5d7827586d8f6f2129442b4960fe7d842fec07b35",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "security_camera",
+      "rooms": [
+        "parking"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.9375
+      ],
+      "repeatX": false,
+      "file": "wall/security_camera-v1.png",
+      "subject": "A compact wall security camera on an angled bracket, slate housing, round dark lens and tiny orange status light, complete within frame.",
+      "sourceStudy": "exec-2d379c4f-a5c8-4410-b562-d7e5f1267bf6.png",
+      "sha256": "04d0d35e805084899bcf37237fd5d20add68012b309e11177887c8dbbaf5ca1a",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "floor_scuffs",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/floor_scuffs-v1.png",
+      "subject": "A sparse low-contrast cluster of three rubbed carpet scuffs, warm taupe and slate, no perspective platform or floor rectangle.",
+      "sourceStudy": "exec-ca795764-2fae-4596-9e11-4097641a9d9b.png",
+      "sha256": "b2a3de56acc48faa834d7dfefdb97ee7b404e31e18c74c62100b2fd48579c69b",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "coffee_ring",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/coffee_ring-v1.png",
+      "subject": "One imperfect small coffee-cup ring stain with two tiny drops, low-contrast warm taupe and russet, no cup.",
+      "sourceStudy": "exec-21c2aa80-ff87-4775-a4ad-9d92a35252dd.png",
+      "sha256": "c5837501408130c435bb5c09f5bd6fc2f240566c998525878833283a9ea464a9",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "carpet_seam",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": true,
+      "file": "floor/carpet_seam-v1.png",
+      "subject": "A narrow worn carpet seam, two muted taupe stitched lines with a tiny snag; side-to-side repeatable.",
+      "sourceStudy": "exec-27746f43-1e9b-4f32-9324-85cf98ad802d.png",
+      "sha256": "fc98ad62aea1000c7b013e50d3eab3627de866ba88919f75fd192700d9529be4",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "cable_cover",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": true,
+      "file": "floor/cable_cover-v1.png",
+      "subject": "A low-profile floor cable-cover strip with subtle sage edges and slate rubber center, side-to-side repeatable, no cable ends.",
+      "sourceStudy": "exec-86c3fddc-a4e9-4d50-8e39-43b7af9f46b4.png",
+      "sha256": "50badb9f32a03f75c09e0c4579bb3a295f31b9102247005aed0315f204f6edde",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "floor_vent",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 32,
+      "frame": [
+        64,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/floor_vent-v1.png",
+      "subject": "A flat horizontal floor vent grate with dark slate slots and muted taupe rim, shallow appearance and no cast shadow.",
+      "sourceStudy": "exec-0f232166-8ddd-4696-b127-4f4002bda71f.png",
+      "sha256": "12335210bc432e3980357542aa29b383168eefe3c7fe9930e5f44410b2915e4f",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "paperclip_pile",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 32,
+      "height": 32,
+      "frame": [
+        32,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/paperclip_pile-v1.png",
+      "subject": "Three dropped muted slate and cream paper clips forming a small untidy pile, no letters.",
+      "sourceStudy": "exec-2a66efc7-bb40-4c30-a2bb-6c395102a82a.png",
+      "sha256": "8743fc76b22c52d980e7dc94b6ae28419a8b7bca9775395ff7245a890d5a3037",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "floor_tape",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 128,
+      "height": 32,
+      "frame": [
+        128,
+        32
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": true,
+      "file": "floor/floor_tape-v1.png",
+      "subject": "Two thin low-contrast cream floor-tape lines with worn breaks and a narrow orange safety dash; repeatable side-to-side.",
+      "sourceStudy": "exec-75d131ed-9475-4452-ab55-30b765a7dc65.png",
+      "sha256": "1497c143022d1d21bf729172351956a4d42aeb318ea334f2c9b73fde7004d006",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "chair_wheel_marks",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/chair_wheel_marks-v1.png",
+      "subject": "Faint overlapping office-chair caster arcs on carpet, broad sparse taupe curves, no chair and no filled floor patch.",
+      "sourceStudy": "exec-9b09e757-0c76-4924-a625-3034bd5b84d5.png",
+      "sha256": "93ceed14ee65e1af128b20a35c1a9e39a69cb110d57d9dffd24f4c1b17661add",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "muddy_boot_trail",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 96,
+      "height": 64,
+      "frame": [
+        96,
+        64
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/muddy_boot_trail-v1.png",
+      "subject": "Four faint alternating muddy boot prints walking diagonally, muted taupe and cream scuffed edges, no solid shoes.",
+      "sourceStudy": "exec-f65974e8-38d8-4ad0-a758-3566a14861e2.png",
+      "sha256": "7dd22525e38f7aa959a84f0f41155daace7b743d8f98835259fed8fdef5f5bcd",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    },
+    {
+      "id": "wet_floor_spots",
+      "rooms": [
+        "*"
+      ],
+      "moduleWidth": 64,
+      "height": 48,
+      "frame": [
+        64,
+        48
+      ],
+      "variants": 3,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "origin": [
+        0.5,
+        0.5
+      ],
+      "repeatX": false,
+      "file": "floor/wet_floor_spots-v1.png",
+      "subject": "Three small pale sage wet-floor patches with one tiny reflected cream tick, matte and low contrast, no sign or shiny gradients.",
+      "sourceStudy": "exec-f29789dd-7c61-40d4-9ee1-20ec0fc13891.png",
+      "sha256": "d7c83d7a32629cb67812ac230e0eaf043fe65eba2deab961474cb2fafb11c558",
+      "suggestedAlpha": 0.23,
+      "lighting": "matte-no-emission"
+    }
+  ],
+  "families": 70,
+  "wallFamilies": 60,
+  "floorFamilies": 10,
+  "colorways": 210,
+  "nativeSourcePolicy": "High-resolution studies remain outside the runtime tree. Source names and hashes are recorded in batch-wall.json; native sheets are the delivery."
+}

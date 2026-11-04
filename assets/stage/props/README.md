@@ -1,5 +1,9 @@
 # Stage 2 modular prop kit
 
+## Wall-lining add-on (Nov 4, art only)
+
+[Wall/floor kit](README-wall.md) adds 60 wall families and 10 floor decals in 210 colorway cells, with a separate [manifest](manifest-wall.json) and [review](review-wall.html). These pending-placement assets do not change the historical registered-kit totals below.
+
 Latest: **Stage 2G adds eight Wellness families and 24 colorways. Total 61 families,162 colorways**, plus two extra car paints and the separate coworker placeholder. The gallery defaults to 2G and compares every prop with the native 56x60 hero and Bill at 50px. Eleven of the planned 72 families remain.
 
 ## Batch 2G: HR Says Relax
