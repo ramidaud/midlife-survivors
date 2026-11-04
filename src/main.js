@@ -282,6 +282,7 @@ function create() {
   runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
+  if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
   if (window.Lounge) Lounge.reset();   // the Break Room counter (src/lounge.js)
   if (window.Modifiers) Modifiers.reset(); // age 50+ run modifiers (src/modifiers.js)
   meta = loadMeta();

@@ -253,12 +253,18 @@ window.Interns = (() => {
     floatText(scene, got > 0 ? `+${got} HP · SHIELD` : "SHIELD UP", "#83A89A");
     if (window.Lighting) Lighting.unfollow(it.o);
     if (typeof updateHUD === "function") updateHUD();
-    sfx("levelUp");
     if (window.Telemetry && Telemetry.note) Telemetry.note("internCaught");
     it.tag.setText(it.r.name.toUpperCase() + " · CAUGHT");
-    tossTreat(scene, it);
-    const lines = it.r.lines || [];
-    return leave(scene, lines[Math.floor(Math.random() * lines.length)] || "Here you go!", false);
+    const id = tossTreat(scene, it);
+    const lines = it.r.lines || [], line = lines[Math.floor(Math.random() * lines.length)] || "Here you go!";
+    const T = id && (CH.treats || {})[id];
+    if (window.CatchMoment && T) { // the GOTCHA! card: their line goes on the card, so no speech bubble in the world
+      const icons = {}; ["coffee", "burrito", "bundt"].forEach(k => { try { icons[k] = scene.textures.getBase64(treatTexture(scene, k)); } catch (e) { } });
+      CatchMoment.show(scene, it.r, line, { id, name: T.name, text: T.text || "", color: T.color }, icons, CH.shieldHits || 2);
+      return leave(scene, null, false);
+    }
+    sfx("levelUp");
+    return leave(scene, line, false);
   }
 
   // The treat they toss when you catch them: drawn in code (a pixel coffee, burrito or bundt cake), lands a short hop away.
@@ -282,6 +288,7 @@ window.Interns = (() => {
     t.isParcel = true; t.payload = "treat_" + id; t.dieAt = runElapsedMs + 15000; t.collectAt = runElapsedMs + 650;
     if (window.Lighting) Lighting.follow(t, "bigGem", { color: 0xF2D7A1, r: 30 });
     scene.tweens.add({ targets: t, x: tx, y: ty, duration: 380, ease: "Quad.easeOut" });
+    return id;
   }
   function giveTreat(scene, id) {
     const T = ((C().chase || {}).treats || {})[id]; if (!T) return;
@@ -291,7 +298,7 @@ window.Interns = (() => {
     if (T.xpMult) { buffs.xpUntil = until; buffs.xpMult = T.xpMult; }
     if (T.vacuumMs) buffs.vacuumUntil = runElapsedMs + T.vacuumMs;
     floatText(scene, T.name + "!", T.color || "#F2D7A1");
-    if (window.showLowerThird) window.showLowerThird("reward", T.name, T.text.charAt(0).toUpperCase() + T.text.slice(1) + ".", 3200);
+    if (window.showLowerThird) window.showLowerThird("reward", T.name, (T.text || "").charAt(0).toUpperCase() + (T.text || "").slice(1) + ".", 3200);
     if (typeof updateHUD === "function") updateHUD();
     sfx("levelUp");
   }

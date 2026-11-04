@@ -1158,3 +1158,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami's idea: interns appear on screen with a coffee and run (flee mode on the navigation map, so they go around desks). Catch them for a heal plus a 2-hit shield (20 s); they escape after 15 s, and ease off to taunt you if you fall far behind.
 - Every catch tosses a treat with a short premium buff: coffee (+30% speed), burrito (+30% damage), bundt cake (gem vacuum, +50% XP). Derek favors the bundt cake.
 - Settings: `INTERNS.mode` and `INTERNS.chase` in src/data/interns.js (`mode: "deliver"` brings back the old hand-off).
+
+## Nov 4, 2026 (late): GOTCHA! catch moment (V. 1.82.0)
+- Catching TJ or Derek now slows time for a beat, flashes the screen and stamps in a GOTCHA! card with their portrait and line.
+- A mini slot reel spins through coffee, burrito and bundt cake and lands on your treat, with its buff spelled out.
+- New sounds: a catch jingle, reel ticks and a landing ding. About 2 seconds, never a full pause.
+- On laptops the card sits beside the player so you can still see the action. Tested on phone, iPad and desktop.
+- Art brief for ChatGPT written (caught poses, GOTCHA! wordmark, treat icons, card frame, burst).

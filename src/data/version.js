@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.81.0",
-  displayVersion: "V. 1.81.0",
-  lastUpdated: "Nov 3, 2026",
+  version: "1.82.0",
+  displayVersion: "V. 1.82.0",
+  lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 187,
+  build: 188,
   changelog: [
+    {
+      ver: "V. 1.82.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Catching an intern is a moment now: GOTCHA!",
+      highlights: [
+        "Catch TJ or Derek and time slows for a beat, the screen flashes and a GOTCHA! card stamps in with their portrait and what they say.",
+        "A little slot reel spins through coffee, burrito and bundt cake, then lands on the treat they tossed you, with its buff spelled out.",
+        "New catch jingle, reel ticks and a ding when it lands. The whole thing takes about two seconds and never pauses the run."
+      ]
+    },
     {
       ver: "V. 1.81.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Interns don't walk up anymore. Chase them down for a heal, a shield and a treat.",

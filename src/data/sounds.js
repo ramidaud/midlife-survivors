@@ -20,6 +20,9 @@ window.SOUNDS = {
   overdue:  [[300, 0.06, "sawtooth"], [420, 0.08, "sawtooth"]],        // Bill splits into Late Fees
   bossSpawn:[[220, 0.14, "sawtooth"], [165, 0.24, "sawtooth"]],        // ominous HR arrival
   bossDefeat:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.22, "square"]],
+  catch:    [[659, 0.05, "square"], [880, 0.05, "square"], [1175, 0.05, "square"], [1568, 0.16, "triangle"]], // GOTCHA! (catching an intern)
+  reelTick: [[1400, 0.018, "square"]],                                                                      // the treat reel clicking past
+  reelLand: [[784, 0.06, "triangle"], [1047, 0.06, "triangle"], [1568, 0.22, "sine"]],                      // the reel lands on your treat
 
   // Retro 16-bit synthwave/chiptune background groove (16-step loop, in Hz; 0 = rest).
   music: {
@@ -37,6 +40,9 @@ window.SOUNDS = {
 //   gain   = louder/quieter than the master volume; important = always plays even in huge fights
 window.SOUND_VARY = {
   maxVoices: 28, // how many sound effects can overlap before small ones get skipped
+  catch:    { vary: 0, gain: 1.1, important: true, noise: [0.12, 3200, 0.35, "highpass"] }, // a bright whoosh under the chime
+  reelTick: { vary: 0.06, gain: 0.45, important: true },
+  reelLand: { vary: 0, gain: 1.0, important: true },
   shoot:    { vary: 0.10, gain: 0.6 },
   hit:      { vary: 0.18, gain: 0.8, noise: [0.035, 2400, 0.5] },               // paper smack
   billPaid: { ladder: true, ladderMs: 420, ladderMax: 12, noise: [0.07, 3200, 0.35, "highpass"] }, // cha-ching + paper rip, climbing in streaks
