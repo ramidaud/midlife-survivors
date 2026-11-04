@@ -6,13 +6,13 @@ window.DEVLOG_POSTS = [
   {
     "slug": "10-version-two",
     "date": "2026-11-05",
-    "title": "[RAMI: title] Version two.",
+    "title": "This is starting to feel real.",
     "version": "V. 1.68 to 1.80",
     "draft": true,
     "cover": "img/10-title-after.jpg",
     "leadAlt": "The V2 title screen: the poster title over the office group photo, your employee file, today's shift with Punch In, and the newest devlog memo.",
-    "blurb": "[RAMI: one-sentence summary for the memo card.]",
-    "teaser": "[RAMI: one-line teaser.]",
+    "blurb": "Between 3 a.m. feedings and Election Day, the game got a whole second version: new title art, lights, coworkers and a final boss you can't beat.",
+    "teaser": "Version two, built on paternity leave, one feeding at a time.",
     "changes": [
       "The Gold Watch: an unbeatable final boss you can only wind back until 65",
       "Spotlight cards for heroes, bosses, rooms, interns and big moments",
@@ -23,7 +23,7 @@ window.DEVLOG_POSTS = [
       "Faster on phones: lighter loading, smoother late game, instant Quick Retry",
       "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
     ],
-    "nextUp": "[RAMI: what's next. The Lounge redo, a busier office, coworkers who move.]",
+    "nextUp": "More playtesters (join the Discord), Abdel's music, a redone Lounge, and bosses for the Full Life years.",
     "playUrl": "https://ramidaud.github.io/midlife-survivors/"
   },
   {
