@@ -9,3 +9,4 @@ Rami's answers, in his words (lightly cleaned). Keep his sentences.
 5. **What's next for the server:** player screenshots, bug reports, a weekly challenge: "Yes, all of the above!"
 
 Screenshots Rami shared: #changelog (Nov 4 roundup of 26 builds), #devlog archive posts, #stats morning post. Still needs: his voice memo for the opening, and a screenshot of #art-and-ideas after the gallery posts.
+- Screenshot of #art-and-ideas on Rami's phone: `devlog/img/11-art-and-ideas-phone.jpg`.
