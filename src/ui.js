@@ -2281,7 +2281,23 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const creditsBtn = document.getElementById("title-credits-btn");
   if (creditsBtn) bindNavItem(creditsBtn, 10, () => goView("credits"));
   const achBtn = document.getElementById("title-ach-btn");
-  if (achBtn) bindNavItem(achBtn, 10, () => goView("achievements"));
+  if (achBtn) bindNavItem(achBtn, 10, () => { window.titleBackTo = "extras"; goView("achievements"); });
+  // Employee file: the achievements stat and the feed's buttons (Nov 4). Back from achievements returns to the title.
+  const fileAch = document.getElementById("title-file-ach");
+  if (fileAch) bindNavItem(fileAch, 8.5, () => { window.titleBackTo = "main"; goView("achievements"); });
+  document.querySelectorAll("[data-file-go]").forEach(b => bindNavItem(b, 8.4, () => {
+    const g = b.dataset.fileGo;
+    if (g === "whatsnew") { window.titleNewOpen = true; sfx("pick"); renderTitleModal(scene); return; }
+    if (g === "achievements") window.titleBackTo = "main";
+    goView(g);
+  }));
+  const fmore = document.getElementById("tp-fmore");
+  if (fmore) bindNavItem(fmore, 8.6, () => {
+    const ul = document.querySelector(".tp-feed"); if (!ul) return;
+    const n = +ul.dataset.pages, pg = (+ul.dataset.page + 1) % n; ul.dataset.page = pg;
+    ul.querySelectorAll(".tp-fi").forEach(li => { li.hidden = +li.dataset.pg !== pg; });
+    fmore.querySelector("span").textContent = `${pg + 1}/${n}`; sfx("pick");
+  });
   // Ko-fi tip jar: opens in a new tab so the game stays put
   const coffeeBtn = document.getElementById("title-coffee-btn");
   if (coffeeBtn) bindNavItem(coffeeBtn, 10, () => { window.open("https://ko-fi.com/ramidaud", "_blank", "noopener"); });
@@ -2308,7 +2324,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
     renderTitleModal(scene, ".shop-row"); updateHUD();
   });
   const backEl = document.getElementById("title-back-btn");
-  if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" || view === "achievements" ? "extras" : "main"), view !== "main");
+  if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" ? "extras" : view === "achievements" ? (window.titleBackTo || "extras") : "main"), view !== "main");
 
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {
@@ -2455,7 +2471,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
 // A nudge that fits YOUR history: try another device, plug in a controller, read the devlog, join the Discord.
 // Picks one at random from the ones that apply, so it changes from visit to visit.
 function titleNudge(returning) {
-  if (!returning) return "";
+  if (!returning) return [];
   const P = meta.played || {}, got = (meta.achievements && meta.achievements.unlocked) || {};
   const touchDev = navigator.maxTouchPoints > 1, shortSide = Math.min(screen.width, screen.height);
   const here = !touchDev ? "desktop" : shortSide >= 700 ? "tablet" : "phone";
@@ -2481,7 +2497,7 @@ function titleNudge(returning) {
   if (!voted) out.push(`🗳 <b>Quick poll:</b> should progress follow you across devices with an account? Vote in <b>✨ Extras</b>.`);
   const DC = (window.TITLE_COPY && TITLE_COPY.discord) || [];
   if (DC.length) out.push(`💬 ${DC[Math.floor(Math.random() * DC.length)]} <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Join the Discord</a>`);
-  return `<div class="tp-nudge">${out[Math.floor(Math.random() * out.length)]}</div>`;
+  return out; // to-dos for the employee file feed (titleFileTile)
 }
 
 // On wide screens, Punch In lives in the "Today's shift" tile, front and center. On phones it floats over the art.
@@ -2522,18 +2538,35 @@ function titleFileTile() {
   const line = !returning ? "Your first shift starts at 8:59. You only move. Everything else is automatic."
     : (pick(C.welcomeBack) || "Good to see you again. The Bills missed you.");
   const lastLine = returning && last ? (last.win ? `Last shift (${ago}): retired at ${last.age}. Show-off.` : `Last shift (${ago}): reached ${last.age} before ${esc(last.killer || "life")} got you.`) : "";
+  // The feed (Nov 4, Rami: "to-dos mixed with news and status things"): status first, then news, then to-dos.
+  const feed = [];
+  if (lastLine) feed.push({ t: "status", h: lastLine });
+  const cheap = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: it.baseCost * (r + 1) }; })
+    .filter(x => x.r < x.it.maxRank && x.cost <= (meta.coins || 0)).sort((a, b) => a.cost - b.cost)[0];
+  if (returning && cheap) feed.push({ t: "status", h: `💰 You can afford <b>${esc(cheap.it.name)}</b>${cheap.r ? ` rank ${cheap.r + 1}` : ""} (${cheap.cost}k).`, go: "shop", cta: "Open the shop" });
+  const V = window.GAME_VERSION || {}, latest = (V.changelog || [])[0] || {};
+  if (returning && latest.teaser) feed.push({ t: "news", h: `<b>${esc(latest.ver || V.displayVersion || "")}:</b> ${esc(latest.teaser)}`, go: "whatsnew", cta: "What's new" });
+  if (returning && got < all) feed.push({ t: "todo", h: `🏅 <b>${got} of ${all}</b> achievements earned.`, go: "achievements", cta: "See them all" });
+  titleNudge(returning).forEach(h => feed.push({ t: "todo", h }));
+  if (!returning) feed.push({ t: "todo", h: "📋 Survive your first <b>Performance Review</b> at 45." });
+  // Mix them so every page has a bit of each: status, news, to-do, status, news, to-do...
+  { const by = { status: [], news: [], todo: [] }; feed.forEach(f => by[f.t].push(f)); feed.length = 0;
+    while (by.status.length || by.news.length || by.todo.length) ["status", "news", "todo"].forEach(k => { if (by[k].length) feed.push(by[k].shift()); }); }
+  const TAG = { todo: "TO-DO", news: "NEWS", status: "STATUS" };
+  const per = 3, pages = Math.max(1, Math.ceil(feed.length / per));
+  const feedHtml = feed.length ? `<ul class="tp-feed" data-page="0" data-pages="${pages}">${feed.map((f, i) => `<li class="tp-fi ${f.t}" data-pg="${Math.floor(i / per)}"${i >= per ? " hidden" : ""}><span class="tp-ft">${TAG[f.t]}</span><span class="tp-fx">${f.h}${f.go ? ` <button type="button" class="tp-fgo" data-file-go="${f.go}">${f.cta} ▸</button>` : ""}</span></li>`).join("")}</ul>
+          ${pages > 1 ? `<button type="button" class="tp-fmore" id="tp-fmore">MORE ▸ <span>1/${pages}</span></button>` : ""}` : "";
   return `
         <section class="tp-tile tp-file" aria-label="Your employee file">
           <div class="tp-tile-tag">YOUR EMPLOYEE FILE</div>
           <div class="tp-welcome">${head}</div>
           <p class="tp-welcome-sub">${esc(line)}</p>
-          ${lastLine ? `<p class="tp-last">${lastLine}</p>` : ""}
-          ${titleNudge(returning)}
+          ${feedHtml}
           <div class="tp-stats">
             <div><b>${Math.floor(meta.bestAge || 40)}</b><span>oldest age</span></div>
             <div><b>${best ? best.toLocaleString("en-US") : "–"}</b><span>best score</span></div>
             <div><b>${(meta.coins || 0).toLocaleString("en-US")}k</b><span>401(k)</span></div>
-            <div><b>${got}/${all}</b><span>achievements</span></div>
+            <button type="button" class="tp-stat-btn" id="title-file-ach" aria-label="Achievements: ${got} of ${all}. Open the list"><b>${got}/${all}</b><span>achievements ▸</span></button>
           </div>
           ${runs ? `<div class="tp-file-foot">${runs} shift${runs === 1 ? "" : "s"} worked</div>` : ""}
         </section>`;

@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.78.0",
-  displayVersion: "V. 1.78.0",
+  version: "1.79.0",
+  displayVersion: "V. 1.79.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 183,
+  build: 184,
   changelog: [
+    {
+      ver: "V. 1.79.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Your employee file is a little inbox now: status, news and to-dos, and your achievements are one tap away.",
+      highlights: [
+        "The employee file on the title screen shows a short feed: your last shift, what's new, something you can afford in the shop, and to-dos toward achievements. Tap MORE to page through it.",
+        "Tap the achievements count in your file to see the full list. Back takes you right back to the title.",
+        "Derek's camera finally looks like a camera on his Spotlight cards.",
+        "Art Room: the cast filter hides the other cards again, and Spotlight previews show one character instead of a stretched sheet."
+      ]
+    },
     {
       ver: "V. 1.78.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The lights react now: coffee splashes glow, \"No.\" lights up the room, the V8 has headlights. And don't unplug the rack with the yellow note.",

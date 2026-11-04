@@ -1142,3 +1142,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Delivered v2 On Break art with a dark camera and readable round lens, plus three preview loops and a 4x comparison.
 - Pixel checks preserve everything outside the camera masks, including hands, strap, flash and feet. V1 stays intact.
 - Art only, awaiting Claude's portrait-reference switch. Frame map and timing stay the same; no game version bump.
+
+## 2026-11-04: V. 1.79.0, employee file feed + Art Room fixes
+- The employee file tile is a small feed: STATUS (last shift, something you can afford), NEWS (this version) and TO-DO (achievement nudges), mixed three to a page with MORE to page through.
+- Achievements are one tap from the title: the "x/39 achievements" stat opens the list, and Back returns to the title.
+- Derek's portrait v2 (ChatGPT, a real camera) is on his Spotlight cards.
+- Art Room (ChatGPT audit R2/R3): the cast filter hides cards again, and the Spotlight sprite no longer picks up the page's .hero styles (no more doubled, stretched portrait or dark box).

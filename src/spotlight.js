@@ -32,7 +32,7 @@ window.Spotlight = (() => {
 #spotlight .sp-edgebar::after{content:"";position:absolute;right:0;top:0;bottom:0;width:22px;background:linear-gradient(90deg,rgba(255,240,207,0),#FFF0CF)}
 #spotlight .sp-glint{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,240,207,.28) 47%,rgba(255,240,207,.08) 52%,transparent 56%);animation:spGlint .9s 1.25s ease-in-out both}
 #spotlight .sp-artwrap{position:absolute;left:var(--L);bottom:calc(66px * var(--s) + var(--lift));transform-origin:50% 100%;will-change:transform;animation:spPop .62s .24s cubic-bezier(.25,.8,.35,1) both}
-#spotlight .sp-art{image-rendering:pixelated;filter:drop-shadow(0 0 14px var(--edge))}
+#spotlight .sp-art{image-rendering:pixelated;filter:drop-shadow(0 0 14px var(--edge));background-repeat:no-repeat;background-color:transparent;box-shadow:none;border-radius:0;min-height:0;max-height:none;padding:0;margin:0;border:0;box-sizing:content-box} /* pages with their own .hero/.boss styles (the Art Room) must not stretch the sprite (ChatGPT audit R2) */
 #spotlight .sp-artwrap.duo{display:flex;align-items:flex-end}
 #spotlight .sp-artwrap.duo .sp-art.b{margin-left:calc(-20px * var(--a));animation-delay:-.5s}
 #spotlight .sp-art.boss{width:calc(144px * var(--a));height:calc(152px * var(--a));background-size:calc(576px * var(--a)) calc(456px * var(--a));background-position:0 0;animation:spBob 1.6s 1s ease-in-out infinite}

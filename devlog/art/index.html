@@ -48,6 +48,7 @@
   .chip[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: var(--navy); }
   .cast { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
   .cc { position: relative; background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 2px solid rgba(62,119,117,.8); border-radius: 10px; padding: 14px 14px 12px; display: flex; flex-direction: column; gap: 8px; transition: transform .18s, border-color .18s; overflow: hidden; }
+  .cc[hidden], [hidden].cc { display: none !important; } /* the cast filter hides cards (ChatGPT audit R3: .cc display:flex was beating [hidden]) */
   .cc:hover, .cc:focus-within { transform: translateY(-4px); border-color: var(--cream); }
   .cc-stage { position: relative; height: 210px; display: flex; align-items: flex-end; justify-content: center; border-radius: 6px;
     background: radial-gradient(ellipse 60% 40% at 50% 88%, rgba(255,240,207,.18), transparent 70%), repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 12px, transparent 12px 24px), #1a2038; }
@@ -158,11 +159,11 @@
   <!-- The game's own data files, so names and lines always match the game -->
   <script>window.SPOTLIGHT_ROOT = "../../";</script>
   <script src="../../src/data/title-art.js"></script>
-  <script src="../../src/data/spotlight.js"></script>
-  <script src="../../src/data/interns.js"></script>
+  <script src="../../src/data/spotlight.js?v=2"></script>
+  <script src="../../src/data/interns.js?v=2"></script>
   <script src="../../src/data/enemies.js"></script>
   <script src="../../src/data/deaths.js"></script>
-  <script src="../../src/spotlight.js"></script>
+  <script src="../../src/spotlight.js?v=2"></script>
   <script>
   (function () {
     const R = "../../";

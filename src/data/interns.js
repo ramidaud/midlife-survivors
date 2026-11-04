@@ -8,7 +8,7 @@ window.INTERNS = {
     { id: "tj", name: "TJ", title: "Coffee Runner", sheet: "assets/characters/intern-tj-v2.png", portrait: "assets/characters/portraits/intern-tj-on-break-v1.png", shirt: "#22263d", skin: "#5c3a26", hair: "#4a4f5c", glasses: true, beanie: true, pants: "#b0844f",
       lines: ["You're old enough to be my dad!", "Do you want Chipotle for lunch?", "What were the dinosaurs like?",
               "Oh big coffee guy huh?", "Another coffee today?", "I love my job!", "For my Manager!!!"] },
-    { id: "derek", name: "Derek", title: "Snack Scout", sheet: "assets/characters/intern-derek-v2.png", portrait: "assets/characters/portraits/intern-derek-on-break-v1.png", shirt: "#22263d", skin: "#e0a98c", hair: "#2a1d15", glasses: true, beard: true,
+    { id: "derek", name: "Derek", title: "Snack Scout", sheet: "assets/characters/intern-derek-v2.png", portrait: "assets/characters/portraits/intern-derek-on-break-v2.png", shirt: "#22263d", skin: "#e0a98c", hair: "#2a1d15", glasses: true, beard: true,
       // Derek's own lines (Nov 3).
       lines: ["Hey man, here's your coffee", "I love my manager", "Do you want a bundt cake?", "Unc", "Hey you don't want to take damage"] }
   ],
