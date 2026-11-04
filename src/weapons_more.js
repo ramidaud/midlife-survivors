@@ -2,7 +2,8 @@
 // Numbers: src/data/weapons.js. Cards and slots: src/data/loadout.js.
 // main.js calls MoreWeapons.update() each frame (before enemies move), .post() after enemies move
 // (so slows and freezes stick), and .onBlock() when a shield soaks a hit.
-// Art is drawn in code for now (placeholder until ChatGPT's sheets land).
+// Art: ChatGPT's sheets (assets/weapons/*-v1.png, Nov 4). The code-drawn sprites below stay as a fallback
+// for the first second while the sheets load, or if one fails.
 window.MoreWeapons = (() => {
   let W = null;
   const C = {
@@ -40,9 +41,26 @@ window.MoreWeapons = (() => {
     });
   }
 
+  // ChatGPT's sheets: key, file, frame width, frame height
+  const SHEETS = {
+    ws_dish: ["casserole-v1.png", 32, 24], ws_heat: ["casserole-heat-v1.png", 128, 96], ws_bubble: ["phones-bubble-v1.png", 80, 80],
+    ws_chair: ["office-chair-v1.png", 28, 30], ws_email: ["reply-all-v1.png", 18, 14], ws_ooo: ["ooo-field-v1.png", 256, 200],
+    ws_sticky: ["sticky-note-v1.png", 16, 16], ws_snap: ["cold-snap-v1.png", 160, 160], ws_ice: ["frozen-overlay-v1.png", 40, 40]
+  };
+  const has = (scene, k) => scene.textures.exists(k);
+  const loop = (t, ms, n, first) => (first || 0) + Math.floor(t / ms) % n; // which frame of a looping strip to show
+  // Play a strip once at (x, y), then remove it.
+  function burst(scene, key, x, y, first, n, ms, scale, depth) {
+    const sp = scene.add.sprite(x, y, key, first).setDepth(depth || 6).setScale(scale || 1);
+    const o = { f: 0 };
+    scene.tweens.add({ targets: o, f: n - 0.01, duration: n * ms, onUpdate: () => sp.active && sp.setFrame(first + Math.floor(o.f)), onComplete: () => sp.destroy() });
+    return sp;
+  }
+
   function init(scene) {
     buildSprites(scene);
-    W = { dishes: [], chairs: [], notes: [], fx: [], next: {}, phonesUp: false, phonesAt: 0, cardiganAt: null, regenAt: null, healAt: 0, oooTick: 0, fieldG: null, label: null };
+    if (window.ArtSheets) for (const [k, [f, w, h]] of Object.entries(SHEETS)) ArtSheets.load(scene, k, "assets/weapons/" + f, w, h);
+    W = { dishes: [], chairs: [], notes: [], fx: [], iced: new Set(), bubble: null, oooSp: null, next: {}, phonesUp: false, phonesAt: 0, cardiganAt: null, regenAt: null, healAt: 0, oooTick: 0, fieldG: null, label: null };
   }
   const ready = (key, every) => { const now = runElapsedMs; if (W.next[key] === undefined) W.next[key] = now + 400; if (now < W.next[key]) return false; W.next[key] = now + every * (stats.cooldownMult || 1); return true; };
   const pop = (scene, x, y, text, color) => {
@@ -80,19 +98,27 @@ window.MoreWeapons = (() => {
       for (let i = 0; i < n; i++) {
         const a = Math.random() * Math.PI * 2, d = i ? 70 : 0;
         const x = player.x + Math.cos(a) * d, y = player.y + Math.sin(a) * d + 6;
-        const g = scene.add.graphics().setDepth(2.5), img = scene.add.image(x, y, "w_casserole").setDepth(2.6).setScale(1.4);
-        W.dishes.push({ x, y, g, img, until: now + CW.lifeMs * (stats.potluck ? 1.5 : 1), tickAt: now, born: now });
+        const art = has(scene, "ws_dish"), g = scene.add.graphics().setDepth(2.5);
+        const img = art ? scene.add.sprite(x, y, "ws_dish", 0).setDepth(2.6).setScale(1.25) : scene.add.image(x, y, "w_casserole").setDepth(2.6).setScale(1.4);
+        const heat = has(scene, "ws_heat") ? scene.add.sprite(x, y, "ws_heat", 0).setDepth(2.5) : null;
+        W.dishes.push({ x, y, g, img, heat, until: now + CW.lifeMs * (stats.potluck ? 1.5 : 1), tickAt: now, born: now });
         if (window.Lighting) Lighting.fx("coffeeHit", x, y);
       }
       sfx("pick");
     }
     let inDish = false;
     W.dishes = W.dishes.filter(d => {
-      if (now >= d.until) { d.g.destroy(); d.img.destroy(); return false; }
+      if (now >= d.until) { d.g.destroy(); d.img.destroy(); if (d.heat) d.heat.destroy(); return false; }
       const r = stats.casRadius, left = d.until - now, fade = Math.min(1, left / 600);
       d.g.clear();
-      d.g.fillStyle(C.orange, 0.16 * fade).fillEllipse(d.x, d.y, r * 2.1, r * 1.5);
-      d.g.lineStyle(2, C.cream, 0.5 * fade).strokeEllipse(d.x, d.y, r * 2.1 + Math.sin(now / 120) * 3, r * 1.5 + Math.sin(now / 120) * 2);
+      if (d.heat) { // the heat shimmer art fills about 70 of its 128 px, so scale it to the burn radius
+        d.heat.setFrame(loop(now - d.born, 140, 4)).setScale((r * 2.1) / 70, (r * 1.5) / 48).setAlpha(0.9 * fade);
+        d.g.lineStyle(2, C.cream, 0.35 * fade).strokeEllipse(d.x, d.y, r * 2.1, r * 1.5);
+      } else {
+        d.g.fillStyle(C.orange, 0.16 * fade).fillEllipse(d.x, d.y, r * 2.1, r * 1.5);
+        d.g.lineStyle(2, C.cream, 0.5 * fade).strokeEllipse(d.x, d.y, r * 2.1 + Math.sin(now / 120) * 3, r * 1.5 + Math.sin(now / 120) * 2);
+      }
+      if (d.img.texture.key === "ws_dish") d.img.setFrame(loop(now - d.born, 140, 4));
       d.img.setAlpha(fade).setY(d.y - 2 + Math.sin((now - d.born) / 200));
       if (now >= d.tickAt) { d.tickAt = now + WEAPONS.casserole.tickMs; live().forEach(b => { if (near(b, d.x, d.y, r)) damageBill(b, stats.casDamage); }); }
       if (Phaser.Math.Distance.Between(player.x, player.y, d.x, d.y) <= r) inDish = true;
@@ -108,6 +134,13 @@ window.MoreWeapons = (() => {
       if (W.phonesUp) { W.phonesUp = false; W.phonesAt = now + stats.phonesRechargeMs * (stats.cooldownMult || 1); } // it ran out on its own
       else if (now >= W.phonesAt) { window.giveShield(scene, stats.dnd ? 2 : 1, WEAPONS.headphones.holdMs); W.phonesUp = true; sfx("wordNo"); }
     }
+    // The headphone bubble art rides on top of the shield ring while it's up.
+    const bubbleOn = stats.phones && W.phonesUp && shield.hits > 0 && has(scene, "ws_bubble");
+    if (bubbleOn) {
+      if (!W.bubble || !W.bubble.active) W.bubble = scene.add.sprite(player.x, player.y, "ws_bubble", 0).setDepth(5.55).setAlpha(0.9);
+      const left = shield.until - now, blink = left < 3000 && Math.floor(left / 160) % 2 === 0;
+      W.bubble.setPosition(player.x, player.y + 2).setFrame(loop(now, 120, 6)).setVisible(!blink);
+    } else if (W.bubble) { W.bubble.destroy(); W.bubble = null; }
     // CARDIGAN: a free one-hit shield on a timer.
     if (stats.hasCardigan && shield.hits <= 0) {
       if (W.cardiganAt === null) W.cardiganAt = now + 1500;
@@ -123,14 +156,18 @@ window.MoreWeapons = (() => {
     if (stats.chair && ready("chair", stats.chairEveryMs)) {
       const t = nearestBill(), base = t ? Phaser.Math.Angle.Between(player.x, player.y, t.x, t.y) : Math.random() * Math.PI * 2;
       (stats.swivel ? [-0.4, 0, 0.4] : [0]).forEach(off => {
-        const a = base + off, c = scene.add.image(player.x, player.y, "w_chair").setDepth(6).setScale(stats.swivel ? 1.5 : 1.25);
+        const a = base + off, art = has(scene, "ws_chair");
+        const c = (art ? scene.add.sprite(player.x, player.y, "ws_chair", 0) : scene.add.image(player.x, player.y, "w_chair")).setDepth(6).setScale(stats.swivel ? 1.5 : 1.25);
+        c.art = art; c.born = now;
         c.uid = "ch" + (projUid++); c.vx = Math.cos(a) * stats.chairSpeed; c.vy = Math.sin(a) * stats.chairSpeed; c.life = WEAPONS.officeChair.lifeMs;
         W.chairs.push(c);
       });
       sfx("shoot");
     }
     W.chairs = W.chairs.filter(c => {
-      c.x += c.vx * dt; c.y += c.vy * dt; c.life -= dt * 1000; c.rotation += (stats.swivel ? 16 : 9) * dt;
+      c.x += c.vx * dt; c.y += c.vy * dt; c.life -= dt * 1000;
+      if (c.art) c.setFrame(loop(now - c.born, stats.swivel ? 50 : 80, 8)); // the sheet spins itself (8 views)
+      else c.rotation += (stats.swivel ? 16 : 9) * dt;
       hitEnemiesNear(c, WEAPONS.officeChair.radius * (stats.swivel ? 1.3 : 1), stats.chairDamage, 700);
       if (c.life <= 0) { c.destroy(); return false; }
       if (c.life < 250) c.setAlpha(c.life / 250);
@@ -163,7 +200,11 @@ window.MoreWeapons = (() => {
       }
       const r = stats.oooRadius, g = W.fieldG; g.clear();
       g.fillStyle(C.lav, stats.sabbatical ? 0.1 : 0.07).fillEllipse(player.x, player.y + 6, r * 2, r * 1.6);
-      const dashes = 28, spin = now / 2400;
+      if (has(scene, "ws_ooo")) { // the ring art is 240 x 168 inside its 256 x 200 cell
+        if (!W.oooSp || !W.oooSp.active) W.oooSp = scene.add.sprite(0, 0, "ws_ooo", 0).setDepth(2.42).setAlpha(0.6);
+        W.oooSp.setPosition(player.x, player.y + 6).setFrame(loop(now, 180, 6)).setScale((r * 2) / 240, (r * 1.6) / 168);
+      }
+      const dashes = W.oooSp ? 0 : 28, spin = now / 2400;
       for (let i = 0; i < dashes; i += 2) {
         const a1 = spin + (i / dashes) * Math.PI * 2, a2 = spin + ((i + 1) / dashes) * Math.PI * 2;
         g.lineStyle(2, C.lav, 0.55).lineBetween(player.x + Math.cos(a1) * r, player.y + 6 + Math.sin(a1) * r * 0.8, player.x + Math.cos(a2) * r, player.y + 6 + Math.sin(a2) * r * 0.8);
@@ -177,7 +218,8 @@ window.MoreWeapons = (() => {
       const S = WEAPONS.stickyNotes, n = stats.postItWall ? 6 + stats.stickyCount : stats.stickyCount;
       for (let i = 0; i < n; i++) {
         const a = stats.postItWall ? (i / n) * Math.PI * 2 : Math.random() * Math.PI * 2, d = stats.postItWall ? 90 : 30 + Math.random() * 60;
-        const img = scene.add.image(player.x + Math.cos(a) * d, player.y + Math.sin(a) * d, "w_sticky").setDepth(2.6).setScale(1.5).setAngle(Phaser.Math.Between(-12, 12));
+        const x = player.x + Math.cos(a) * d, y = player.y + Math.sin(a) * d;
+        const img = (has(scene, "ws_sticky") ? scene.add.sprite(x, y, "ws_sticky", Math.random() < 0.5 ? 0 : 1) : scene.add.image(x, y, "w_sticky")).setDepth(2.6).setScale(1.5).setAngle(Phaser.Math.Between(-12, 12));
         W.notes.push({ img, until: now + S.lifeMs, popAt: 0, victim: null });
       }
       while (W.notes.length > S.maxOnFloor + (stats.postItWall ? 10 : 0)) { const o = W.notes.shift(); o.img.destroy(); }
@@ -187,22 +229,26 @@ window.MoreWeapons = (() => {
       if (!nt.popAt) {
         if (now >= nt.until) { nt.img.destroy(); return false; }
         const v = live().find(b => near(b, x, y, 8));
-        if (v) { nt.popAt = now + stats.stickyMs; nt.victim = v; freeze(v, stats.stickyMs); nt.img.setTint(0xEF9347); }
+        if (v) { nt.popAt = now + stats.stickyMs; nt.victim = v; nt.stuckAt = now; freeze(v, stats.stickyMs); if (nt.img.texture.key !== "ws_sticky") nt.img.setTint(0xEF9347); }
         return true;
       }
       if (nt.victim && nt.victim.active) nt.img.setPosition(nt.victim.x, nt.victim.y + 8);
-      nt.img.setScale(1.5 + Math.sin(now / 50) * 0.15);
+      if (nt.img.texture.key === "ws_sticky") nt.img.setFrame(loop(now - nt.stuckAt, 90, 4, 4)); // row 1: stuck and shaking
+      else nt.img.setScale(1.5 + Math.sin(now / 50) * 0.15);
       if (now < nt.popAt) return true;
       const r = S.popRadius * (stats.postItWall ? 1.4 : 1), px = nt.img.x, py = nt.img.y;
       live().forEach(b => { if (near(b, px, py, r)) damageBill(b, stats.stickyDamage); });
-      ring(scene, px, py, r, C.cream, 260); nt.img.destroy();
+      ring(scene, px, py, r, C.cream, 260);
+      if (has(scene, "ws_sticky")) burst(scene, "ws_sticky", px, py, 8, 4, 60, 2, 6); // row 2: pop
+      nt.img.destroy();
       return false;
     });
 
     // THERMOSTAT WARS: a cold snap freezes everything near you (bosses just slow down).
     if (stats.thermo && ready("thermo", stats.thermoEveryMs)) {
       const r = stats.thermoRadius;
-      ring(scene, player.x, player.y, r, C.ice, 420);
+      if (has(scene, "ws_snap")) burst(scene, "ws_snap", player.x, player.y, 0, 6, 70, (r * 2) / 152, 6); // the frost ring reaches 152 px across at full size
+      else ring(scene, player.x, player.y, r, C.ice, 420);
       for (let i = 0; i < 10; i++) {
         const a = (i / 10) * Math.PI * 2, f = scene.add.image(player.x, player.y, "w_snow").setDepth(6).setScale(1.5);
         scene.tweens.add({ targets: f, x: player.x + Math.cos(a) * r, y: player.y + Math.sin(a) * r, angle: 180, alpha: 0, duration: 520, onComplete: () => f.destroy() });
@@ -228,7 +274,8 @@ window.MoreWeapons = (() => {
       });
     };
     draw(1, 22);
-    pts.slice(1).forEach(p => { const e = scene.add.image(p.x, p.y - 12, "w_email").setDepth(6.6).setScale(1.4); scene.tweens.add({ targets: e, y: e.y - 16, alpha: 0, duration: 380, onComplete: () => e.destroy() }); });
+    pts.slice(1).forEach(p => { const art = has(scene, "ws_email"), e = (art ? scene.add.sprite(p.x, p.y - 12, "ws_email", 0) : scene.add.image(p.x, p.y - 12, "w_email")).setDepth(6.6).setScale(1.4), t0 = runElapsedMs;
+      scene.tweens.add({ targets: e, y: e.y - 16, alpha: 0, duration: 380, onUpdate: () => art && e.active && e.setFrame(Math.floor((runElapsedMs - t0) / 90) % 4), onComplete: () => e.destroy() }); });
     const o = { a: 1 };
     scene.tweens.add({ targets: o, a: 0, duration: 220, onUpdate: () => draw(o.a, 16), onComplete: () => g.destroy() });
   }
@@ -237,11 +284,20 @@ window.MoreWeapons = (() => {
   function post(scene) {
     if (!W || !stats || !player) return;
     const now = runElapsedMs, r = stats.ooo ? stats.oooRadius : 0;
+    W.iced.forEach(b => { if (!b.active || !b.frozenUntil) { if (b.iceImg) b.iceImg.destroy(); b.iceImg = null; W.iced.delete(b); } }); // enemies that died frozen
     bills.getChildren().forEach(b => {
       if (!b.active || !b.body) return;
       if (b.frozenUntil) {
-        if (now < b.frozenUntil) { b.setVelocity(0, 0); if (!b.tintFill) b.setTint(C.ice); return; }
+        if (now < b.frozenUntil) {
+          b.setVelocity(0, 0); if (!b.tintFill) b.setTint(C.ice);
+          if (has(scene, "ws_ice")) { // an ice crust and two icicles over the frozen enemy
+            if (!b.iceImg || !b.iceImg.active) { b.iceImg = scene.add.image(b.x, b.y, "ws_ice").setDepth((b.depth || 5) + 0.01); W.iced.add(b); }
+            b.iceImg.setPosition(b.x, b.y - size(b) * 0.2).setScale(Math.max(0.8, (size(b) * 2.2) / 40));
+          }
+          return;
+        }
         b.frozenUntil = 0; b.clearTint();
+        if (b.iceImg) { b.iceImg.destroy(); b.iceImg = null; W.iced.delete(b); }
       }
       let k = 1;
       if (b.slowUntil && now < b.slowUntil) k = 0.5;
@@ -256,6 +312,7 @@ window.MoreWeapons = (() => {
     if (stats.phones && W.phonesUp) {
       const r = stats.phonesPopRadius;
       ring(scene, p.x, p.y, r, C.teal, 360);
+      if (has(scene, "ws_bubble")) burst(scene, "ws_bubble", p.x, p.y + 2, 6, 6, 60, Math.max(1, r / 40), 6.2); // row 1: the pop
       live().forEach(b => { if (near(b, p.x, p.y, r)) damageBill(b, stats.phonesPopDamage); });
       scene.cameras.main.shake(100, 0.004);
       if (shield.hits <= 0) { W.phonesUp = false; W.phonesAt = runElapsedMs + stats.phonesRechargeMs * (stats.cooldownMult || 1); }

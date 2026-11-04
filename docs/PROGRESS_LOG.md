@@ -1250,3 +1250,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Now the run saves instantly, a "The office lights flickered" card offers a reload, and the event is counted in play stats so we can see how often it happens.
 - Measured: about 290 MB of textures in a run, half of it the baked floor tiles (pre-existing). Trimming that is a good next performance job.
 - ChatGPT's loadout art (icons, weapon sprites and effects, spaghetti) has landed; wiring it in is next.
+
+## Nov 4, 2026 (afternoon): Loadout art in, lighter floors (V. 1.91.0)
+- ChatGPT's loadout art is live: real icons on the cards and HUD slots (old weapons too), new style badges, and animated sprites for spaghetti, headphones, chair, reply-all, out-of-office, sticky notes, the cold snap and frozen enemies.
+- Each office floor kept its own full-size picture in graphics memory. They're now baked into the shared floor tiles: about 293 MB down to 192 MB.
+- Rami saw the title load oddly in Safari; waiting on a screenshot. The memory trim may already help.

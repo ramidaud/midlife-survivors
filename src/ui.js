@@ -47,6 +47,11 @@ const STYLE_GLYPHS = {
   defense: ["###.##", "......", "#.####", "......", "###.##", "......"]
 };
 function styleGlyph(cat, px) {
+  const B = window.LOADOUT_ICONS && LOADOUT_ICONS.badges, bi = B && B.map[cat];
+  if (window.USE_PIXEL_ICONS && bi !== undefined) { // ChatGPT's 12 px badges (Nov 4); px 2 = 12 px, the art's own size
+    const s = 6 * (px || 2);
+    return `<span class="style-glyph" style="display:inline-block;width:${s}px;height:${s}px;background:url(${B.image}?v=${window.BUILD || 1}) -${bi * s}px 0/${B.columns * s}px ${s}px;image-rendering:pixelated" aria-hidden="true"></span>`;
+  }
   const g = STYLE_GLYPHS[cat]; if (!g) return "";
   const p = px || 2, rects = [];
   g.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === "#") rects.push(`<rect x="${x}" y="${y}" width="1" height="1"/>`); }));
@@ -65,6 +70,7 @@ function ensureLoadoutCss() {
 .lo-build{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;margin:0 0 14px}
 .lo-row{display:flex;align-items:center;gap:4px}
 .lo-row b{font:9px Silkscreen,monospace;color:var(--ms-muted,#B8C0D4);letter-spacing:.05em;margin-right:3px}
+.lo-slot .px-icon{display:block}
 .lo-slot{position:relative;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;line-height:1;background:rgba(23,28,53,.88);border:1px solid rgba(131,168,154,.35);border-radius:4px;box-shadow:inset 0 -3px 0 var(--sc,transparent)}
 .lo-slot.empty{border-style:dashed;border-color:rgba(184,192,212,.28);background:rgba(23,28,53,.4)}
 .lo-slot.evo{border-color:#EF9347;box-shadow:inset 0 -3px 0 var(--sc,transparent),0 0 6px rgba(239,147,71,.6)}
@@ -81,7 +87,7 @@ function ensureLoadoutCss() {
 function loadoutSlotsHtml(opts) {
   const L = window.LOADOUT; if (!L || !stats) return "";
   const h = L.held(stats), o = opts || {};
-  const slot = (it, evo) => `<span class="lo-slot${evo ? " evo" : ""}" style="--sc:${L.cats[it.cat].color}" title="${L.cats[it.cat].label}">${evo ? it.evoIcon : it.icon}</span>`;
+  const slot = (it, evo) => `<span class="lo-slot${evo ? " evo" : ""}" style="--sc:${L.cats[it.cat].color}" title="${L.cats[it.cat].label}">${slotIcon(it, evo, o.labels ? 22 : 16)}</span>`;
   const empty = n => Array.from({ length: Math.max(0, n) }, () => `<span class="lo-slot empty"></span>`).join("");
   const wpn = h.weapons.map(w => slot(w, w.evo && w.evo(stats))).join("") + empty(L.weaponSlots - h.weapons.length);
   const pas = h.passives.map(p => slot(p, false)).join("") + empty(L.passiveSlots - h.passives.length);
@@ -94,17 +100,40 @@ function loadoutSlotsHtml(opts) {
 }
 window.loadoutSlotsHtml = loadoutSlotsHtml;
 
-// Pixel icon from the ChatGPT atlas (src/data/ui-icons.js), or the emoji if there isn't one.
-// size: displayed pixels (the atlas is 32px per icon; whole-number multiples stay crisp).
-function pixelIcon(kind, id, emoji, size) {
-  if (kind === "char" && id === "coldWarCowboy") { const s = size || 32; return `<img class="px-icon" src="assets/characters/cold-war-cowboy-badge-v3.png?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; }
-  const I = window.UI_ICONS;
-  if (!window.USE_PIXEL_ICONS || !I) return emoji;
-  const idx = kind === "char" ? I.characters[id] : (I.cards[id] ?? (emoji ? undefined : I.fallback));
-  if (idx === undefined) return emoji;
-  const s = size || 32, k = s / I.cell, col = idx % I.columns, row = Math.floor(idx / I.columns);
+// Pixel icon from the ChatGPT atlases (src/data/ui-icons.js), or the emoji if there isn't one.
+// size: displayed pixels (the atlases are 32px per icon; whole-number multiples stay crisp).
+function atlasIcon(I, idx, size) {
+  const s = size || 32, col = idx % I.columns, row = Math.floor(idx / I.columns);
   return `<span class="px-icon" style="width:${s}px;height:${s}px;background-image:url(${I.image}?v=${window.BUILD || 1});` +
     `background-size:${I.columns * s}px ${I.rows * s}px;background-position:-${col * s}px -${row * s}px" role="img" aria-label=""></span>`;
+}
+function pixelIcon(kind, id, emoji, size) {
+  if (kind === "char" && id === "coldWarCowboy") { const s = size || 32; return `<img class="px-icon" src="assets/characters/cold-war-cowboy-badge-v3.png?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; }
+  const I = window.UI_ICONS, L = window.LOADOUT_ICONS;
+  if (!window.USE_PIXEL_ICONS || !I) return emoji;
+  if (kind !== "char" && I.cards[id] === undefined && L && L.cards[id] !== undefined) return atlasIcon(L, L.cards[id], size); // loadout expansion cards
+  const idx = kind === "char" ? I.characters[id] : (I.cards[id] ?? (emoji ? undefined : I.fallback));
+  if (idx === undefined) return emoji;
+  return atlasIcon(I, idx, size);
+}
+// HUD and build-screen slot icons: which atlas card stands for each loadout item (and its evolution).
+const SLOT_CARDS = {
+  coffee: ["Extra Shot", "EVOLVE: Cold Brew Concentrate"], dadJoke: ["Unlock: Dad Joke", "EVOLVE: Unhinged Pun Storm"],
+  wordNo: ['Unlock: "No."', "EVOLVE: Healthy Boundaries"], remote: ["Unlock: The TV Remote", "EVOLVE: Smart TV"],
+  sheet: ["Unlock: Spreadsheet", "EVOLVE: Pivot Table"], podcast: ["Unlock: Podcast at 2x", "EVOLVE: Binge Mode"],
+  casserole: [null, "EVOLVE: Potluck"], headphones: [null, "EVOLVE: Do Not Disturb"], officeChair: [null, "EVOLVE: Executive Swivel"],
+  replyAll: [null, "EVOLVE: Company-Wide Memo"], outOfOffice: [null, "EVOLVE: Sabbatical"], stickyNotes: [null, "EVOLVE: Wall of Post-its"],
+  thermostat: [null, "EVOLVE: Polar Vortex"],
+  comfyShoes: ["Comfortable Shoes"], goodSleep: ["Good Night's Sleep"], readingGlasses: ["Reading Glasses"], titaniumKnees: ["Titanium Knees"],
+  execDelegation: ["Executive Delegation"], multivitamin: ["Multivitamin"], mealPrep: ["Meal Prep Sunday"], cardigan: ["Cardigan"],
+  lumbar: ["Lumbar Support"], fitnessTracker: ["Fitness Tracker"], bifocals: ["Bifocals"]
+};
+function slotIcon(it, evo, size) {
+  const emoji = evo ? it.evoIcon : it.icon, L = window.LOADOUT_ICONS;
+  if (!window.USE_PIXEL_ICONS) return emoji;
+  if (!evo && L && L.hud[it.id] !== undefined) return atlasIcon(L, L.hud[it.id], size); // the new weapons' framed HUD tiles
+  const name = (SLOT_CARDS[it.id] || [])[evo ? 1 : 0];
+  return name ? pixelIcon("card", name, emoji, size) : emoji;
 }
 window.pixelIcon = pixelIcon;
 

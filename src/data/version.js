@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.90.1",
-  displayVersion: "V. 1.90.1",
+  version: "1.91.0",
+  displayVersion: "V. 1.91.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 203,
+  build: 204,
   changelog: [
+    {
+      ver: "V. 1.91.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The new loadout gets its real art: spaghetti, spinning chairs, sticky notes and a cold snap.",
+      highlights: [
+        "All 13 new weapons and passives have real pixel icons on the level-up cards and in your HUD slots, plus new style badges.",
+        "In the world: a bubbling bowl of Mom's Spaghetti, a spinning office chair, flapping reply-all emails, an out-of-office ring, sticky notes that shake and pop, a frost burst, and an ice crust on frozen enemies.",
+        "The office floor now uses about a third less graphics memory, which should help older laptops and Safari."
+      ]
+    },
     {
       ver: "V. 1.90.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "No more silent white screens: if your graphics drop out, the game saves and offers a reload.",
