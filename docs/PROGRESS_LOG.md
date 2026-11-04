@@ -1075,3 +1075,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami spotted squished title art on his iPhone. The phone versions of all five key art scenes came from ChatGPT squashed to about 2/3 height (a round soccer ball measured 2:1).
 - Stretched each one back by 1.5× and cropped so the cast stays where it was (new `*-portrait-v2.jpg` files; originals kept).
 - Moved the portrait crop down a little so the cast clears Punch In on a portrait iPad. Phones are unaffected by that change.
+
+## 2026-11-03 (evening): Memo 09 sliders + Fable brief
+- Memo 09's title screen before/afters are now swipe sliders on the devlog, like the Art Room. RSS, Substack and share pages keep the combined image.
+- Any post can use it: give the markdown image a title of `compare: img/before.jpg | img/after.jpg`.
+- Wrote `docs/handoffs/fable-final-pass.md`, a review-only brief (performance, art, UX) for a fresh-eyes pass before V2.
