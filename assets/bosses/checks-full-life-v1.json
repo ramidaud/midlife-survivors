@@ -1,0 +1,103 @@
+[
+  {
+    "file": "boss-hoa-president-v1.png",
+    "size": [
+      576,
+      456
+    ],
+    "activeFrames": 11,
+    "palette": true,
+    "opaqueKey": true,
+    "margins": true,
+    "footPoint": [
+      72,
+      148
+    ],
+    "distinctPoses": true
+  },
+  {
+    "file": "telegraph-hoa-president-v1.png",
+    "size": [
+      256,
+      128
+    ],
+    "palette": true,
+    "opaqueKey": true
+  },
+  {
+    "file": "boss-retirement-audit-v1.png",
+    "size": [
+      576,
+      456
+    ],
+    "activeFrames": 11,
+    "palette": true,
+    "opaqueKey": true,
+    "margins": true,
+    "footPoint": [
+      72,
+      148
+    ],
+    "distinctPoses": true
+  },
+  {
+    "file": "telegraph-retirement-audit-v1.png",
+    "size": [
+      192,
+      128
+    ],
+    "palette": true,
+    "opaqueKey": true
+  },
+  {
+    "file": "boss-pickleball-champ-v1.png",
+    "size": [
+      576,
+      456
+    ],
+    "activeFrames": 11,
+    "palette": true,
+    "opaqueKey": true,
+    "margins": true,
+    "footPoint": [
+      72,
+      148
+    ],
+    "distinctPoses": true
+  },
+  {
+    "file": "telegraph-pickleball-champ-v1.png",
+    "size": [
+      256,
+      128
+    ],
+    "palette": true,
+    "opaqueKey": true
+  },
+  {
+    "file": "father-time-v1.png",
+    "size": [
+      864,
+      304
+    ],
+    "activeFrames": 12,
+    "palette": true,
+    "opaqueKey": true,
+    "margins": true,
+    "footPoint": [
+      72,
+      148
+    ],
+    "distinctPoses": true
+  },
+  {
+    "file": "../items/field-items-v1.png",
+    "size": [
+      96,
+      64
+    ],
+    "hardAlpha": true,
+    "palette": true,
+    "shinePreservesBase": true
+  }
+]

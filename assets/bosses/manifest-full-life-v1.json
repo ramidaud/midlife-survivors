@@ -1,0 +1,420 @@
+{
+  "status": "art-only-ready-for-review",
+  "generation": "built-in imagegen with native pixel cleanup",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "background": "#FF00FF",
+  "alpha": "opaque",
+  "sampling": "nearest-neighbor",
+  "timingNote": "Boss cadence is for art previews only. Existing charge, wave and drift timings and collision are unchanged.",
+  "bosses": [
+    {
+      "id": "hoa-president",
+      "gameKey": "hoaPresident",
+      "name": "The HOA Board President",
+      "file": "boss-hoa-president-v1.png",
+      "cell": [
+        144,
+        152
+      ],
+      "columns": 4,
+      "rows": 3,
+      "activeFrames": 11,
+      "blankCells": [
+        11
+      ],
+      "footPoint": [
+        72,
+        148
+      ],
+      "origin": [
+        0.5,
+        0.9736842105263158
+      ],
+      "drawScale": 1,
+      "existingMoveReference": "charge",
+      "animations": {
+        "walk": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-hoa-president-walk-v1.gif"
+        },
+        "wind-up": {
+          "frames": [
+            6,
+            7
+          ],
+          "ms": 180,
+          "loop": false,
+          "preview": "boss-hoa-president-wind-up-v1.gif"
+        },
+        "attack": {
+          "frames": [
+            8,
+            9
+          ],
+          "ms": 110,
+          "loop": false,
+          "preview": "boss-hoa-president-attack-v1.gif"
+        },
+        "hurt": {
+          "frames": [
+            10
+          ],
+          "static": true
+        }
+      },
+      "storageRowPreviews": [
+        {
+          "row": 0,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-hoa-president-row-0-v1.gif"
+        },
+        {
+          "row": 1,
+          "frames": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-hoa-president-row-1-v1.gif"
+        },
+        {
+          "row": 2,
+          "frames": [
+            8,
+            9,
+            10
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-hoa-president-row-2-v1.gif"
+        }
+      ],
+      "marker": {
+        "file": "telegraph-hoa-president-v1.png",
+        "size": [
+          256,
+          128
+        ],
+        "origin": [
+          0.5,
+          0.5
+        ],
+        "background": "#FF00FF"
+      }
+    },
+    {
+      "id": "retirement-audit",
+      "gameKey": "retirementBoss",
+      "name": "Mandatory Retirement Audit",
+      "file": "boss-retirement-audit-v1.png",
+      "cell": [
+        144,
+        152
+      ],
+      "columns": 4,
+      "rows": 3,
+      "activeFrames": 11,
+      "blankCells": [
+        11
+      ],
+      "footPoint": [
+        72,
+        148
+      ],
+      "origin": [
+        0.5,
+        0.9736842105263158
+      ],
+      "drawScale": 1,
+      "existingMoveReference": "shockwave",
+      "animations": {
+        "walk": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-retirement-audit-walk-v1.gif"
+        },
+        "wind-up": {
+          "frames": [
+            6,
+            7
+          ],
+          "ms": 180,
+          "loop": false,
+          "preview": "boss-retirement-audit-wind-up-v1.gif"
+        },
+        "attack": {
+          "frames": [
+            8,
+            9
+          ],
+          "ms": 110,
+          "loop": false,
+          "preview": "boss-retirement-audit-attack-v1.gif"
+        },
+        "hurt": {
+          "frames": [
+            10
+          ],
+          "static": true
+        }
+      },
+      "storageRowPreviews": [
+        {
+          "row": 0,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-retirement-audit-row-0-v1.gif"
+        },
+        {
+          "row": 1,
+          "frames": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-retirement-audit-row-1-v1.gif"
+        },
+        {
+          "row": 2,
+          "frames": [
+            8,
+            9,
+            10
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-retirement-audit-row-2-v1.gif"
+        }
+      ],
+      "marker": {
+        "file": "telegraph-retirement-audit-v1.png",
+        "size": [
+          192,
+          128
+        ],
+        "origin": [
+          0.5,
+          0.5
+        ],
+        "background": "#FF00FF"
+      }
+    },
+    {
+      "id": "pickleball-champ",
+      "gameKey": "pickleballChamp",
+      "name": "The 6 AM Pickleball Champion",
+      "file": "boss-pickleball-champ-v1.png",
+      "cell": [
+        144,
+        152
+      ],
+      "columns": 4,
+      "rows": 3,
+      "activeFrames": 11,
+      "blankCells": [
+        11
+      ],
+      "footPoint": [
+        72,
+        148
+      ],
+      "origin": [
+        0.5,
+        0.9736842105263158
+      ],
+      "drawScale": 1,
+      "existingMoveReference": "drifting-loops",
+      "animations": {
+        "walk": {
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-pickleball-champ-walk-v1.gif"
+        },
+        "wind-up": {
+          "frames": [
+            6,
+            7
+          ],
+          "ms": 180,
+          "loop": false,
+          "preview": "boss-pickleball-champ-wind-up-v1.gif"
+        },
+        "attack": {
+          "frames": [
+            8,
+            9
+          ],
+          "ms": 110,
+          "loop": false,
+          "preview": "boss-pickleball-champ-attack-v1.gif"
+        },
+        "hurt": {
+          "frames": [
+            10
+          ],
+          "static": true
+        }
+      },
+      "storageRowPreviews": [
+        {
+          "row": 0,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-pickleball-champ-row-0-v1.gif"
+        },
+        {
+          "row": 1,
+          "frames": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-pickleball-champ-row-1-v1.gif"
+        },
+        {
+          "row": 2,
+          "frames": [
+            8,
+            9,
+            10
+          ],
+          "ms": 140,
+          "loop": true,
+          "preview": "boss-pickleball-champ-row-2-v1.gif"
+        }
+      ],
+      "marker": {
+        "file": "telegraph-pickleball-champ-v1.png",
+        "size": [
+          256,
+          128
+        ],
+        "origin": [
+          0.5,
+          0.5
+        ],
+        "background": "#FF00FF"
+      }
+    }
+  ],
+  "fatherTime": {
+    "id": "father-time",
+    "role": "friendly-full-life-finish-goal",
+    "name": "Father Time",
+    "file": "father-time-v1.png",
+    "cell": [
+      144,
+      152
+    ],
+    "columns": 6,
+    "rows": 2,
+    "activeFrames": 12,
+    "footPoint": [
+      72,
+      148
+    ],
+    "origin": [
+      0.5,
+      0.9736842105263158
+    ],
+    "drawScale": 1,
+    "animations": {
+      "waiting": {
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ms": 160,
+        "loop": true,
+        "preview": "father-time-waiting-v1.gif"
+      },
+      "handshake": {
+        "frames": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "ms": 110,
+        "loop": false,
+        "holdLast": true,
+        "preview": "father-time-handshake-v1.gif"
+      }
+    },
+    "note": "Same 6x2 storage layout as the clock-out goal, on the requested boss anchor y148. No fight/attack states; code integration remains with Claude."
+  },
+  "scaleCheck": "full-life-size-check-v1.png",
+  "markerCheck": "full-life-marker-check-v1.png"
+}

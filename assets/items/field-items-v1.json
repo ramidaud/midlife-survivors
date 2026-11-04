@@ -1,0 +1,46 @@
+{
+  "file": "field-items-v1.png",
+  "cell": [
+    32,
+    32
+  ],
+  "columns": 3,
+  "rows": 2,
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "alpha": "binary",
+  "sampling": "nearest-neighbor",
+  "animation": "none; the game supplies bob/glow",
+  "items": {
+    "fannyPack": {
+      "column": 0,
+      "baseFrame": 0,
+      "shineFrame": 3
+    },
+    "energyDrink": {
+      "column": 1,
+      "baseFrame": 1,
+      "shineFrame": 4
+    },
+    "ptoDay": {
+      "column": 2,
+      "baseFrame": 2,
+      "shineFrame": 5
+    }
+  },
+  "shine": "Same base pixels plus one-pixel cream edge highlight; no circle or baked background.",
+  "sourcePrompts": "../bosses/full-life-prompts-v1.json",
+  "scaleCheck": "../bosses/full-life-size-check-v1.png"
+}

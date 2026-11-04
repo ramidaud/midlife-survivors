@@ -18,3 +18,9 @@ Rami's two remaining jobs are delivered in order. Art and docs only; Claude owns
 Both batches pass palette, hard-alpha, size/frame and preview checks. Desktop and phone review pages load without console errors or horizontal overflow. No runtime files or game version changed.
 
 Earlier jobs (clock-out goal, wall/floor kit, coworker bodies and studio portrait) are separate completed handoffs; Rami has confirmed their integration progress.
+
+## Full Life bosses, Father Time and pickups: delivered Nov 4
+
+- [Review](../../assets/bosses/review-full-life-v1.html), [frame maps](../../assets/bosses/README-full-life-v1.md). Three boss sheets and markers, the friendly handshake finish, and a transparent base/shine pickup atlas.
+- 20 GIFs, native palette/key/anchor checks and a hero/Bill/pickup comparison included. Art only, pending review and Claude integration.
+- Rami confirmed the earlier loadout batch is live in V. 1.91.0.

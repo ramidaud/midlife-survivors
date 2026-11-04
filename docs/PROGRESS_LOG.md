@@ -1276,3 +1276,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - GitHub can now post them, plus the five title scenes, to #art-and-ideas (one time each). It waits on Rami adding that channel's webhook as a GitHub secret.
 - The gallery is posted to #art-and-ideas. From now on, new art posts itself: adding an entry to the art list and pushing it is enough. No manual step for Rami.
 - Memo 11 (Discord) interview answers saved; key art prompt for ChatGPT written.
+
+## 2026-11-04: Full Life and pickup art (Codex)
+- Finished the three Full Life bosses with distinct walk, warning, attack and hurt poses, plus matching floor markers.
+- Drew a welcoming Father Time with a planted stance and handshake finish, and real floor pickup icons with shine variants.
+- Native palette/key/anchor and 20 GIF checks pass. Added manifests, prompts, hero/Bill size board and desktop/phone art review. Art only, ready for Claude and Rami.

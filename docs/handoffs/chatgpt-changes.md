@@ -318,3 +318,12 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: Expanded loadout art complete (Codex) [done] wired in by Claude, V. 1.91.0
 - Delivered the 34-cell 32px atlas and exact name/HUD map (27 named cards plus seven weapon HUD glyphs), four separate 12px style badges, nine native world families and ten row GIFs. Full prompts, animation manifest, labeled 2x/hero check and responsive review included; dimensions, palette, hard alpha, active cells, distinct frames, chair anchors, effect transparency and GIF counts/timings/loop flags pass. Desktop/390px previews load without errors or overflow. Updated the spaghetti unlock/upgrade/Potluck/HUD icons, card names and bowl animation to the revised V. 1.89.0 brief while retaining the requested casserole filenames. Also refined the GOTCHA ticket's cream notch and its check image during final QA. Art/docs only, no runtime or version changes; Claude integrates.
+
+## 2026-11-04: Full Life boss art, Part 1 (Codex)
+- Delivered HOA President, Retirement Audit and Pickleball Champion: three 576x456 sheets (11 active 144x152 poses, blank cell 11, anchor 72/148), three keyed floor markers, 18 state/storage-row GIFs, manifest, full prompts, native hero/Bill check and review page. Exact opaque magenta, twelve-color palette, margins, distinct poses and GIF timings pass. Art/docs only; Claude reuses the existing charge/wave/drift logic.
+
+## 2026-11-04: Father Time finish art, Part 2 (Codex)
+- Delivered friendly `father-time-v1.png`, 864x304, six waiting poses at 160ms and six handshake poses at 110ms once/hold last; two GIFs and manifest included. Uses requested boss foot point (72,148), with a fixed lower robe/shoe base throughout; note the older clock-out goal uses y151. Exact opaque magenta and all native checks pass. No fight state or grim imagery; Claude wires the age-100 finish.
+
+## 2026-11-04: Native floor pickups, Part 3 (Codex)
+- Delivered `assets/items/field-items-v1.png` (96x64, 32px cells: Fanny Pack, Energy Drink, PTO Day; base row plus cream-shine row) and JSON map. Transparent hard alpha, no baked circle/glow; base pixels are identical in shine variants. Shared 1x boss/hero/Bill and 2x pickup check, desktop 1280x800/phone 390x844 review controls/containment and all image loads pass without page errors. Static variants have no animation/GIF. Art/docs only, no version or runtime changes.

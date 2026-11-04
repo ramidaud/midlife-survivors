@@ -233,4 +233,8 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 
 ### 2026-11-04: Expanded loadout art (Codex)
 - [x] 34 card/HUD icons, four style badges, nine world families and all animated-row previews delivered.
-- [ ] Claude integrates the atlas and weapon art after review; preserve gameplay timing and stats.
+- [x] Claude integrated the atlas and weapon art in V. 1.91.0.
+
+### 2026-11-04: Full Life bosses and floor pickups (Codex)
+- [x] Three boss sheets/markers, friendly Father Time, pickup/shine sheet, manifests and previews delivered.
+- [ ] Rami reviews; Claude wires Full Life attacks, the age-100 handshake and floor pickups.
