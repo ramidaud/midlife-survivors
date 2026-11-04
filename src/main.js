@@ -473,6 +473,12 @@ function create() {
       if (now - lastWheelMs < 220) return;
       const activeModal = window.menuNav && window.menuNav.getActiveModal();
       if (activeModal) {
+        // If the menu is taller than the window, the wheel (or a trackpad swipe) just scrolls it.
+        // Nov 4: on a short Safari window each tick also jumped the menu focus, which yanked the page back down.
+        for (let el = e.target; el && el !== document.body; el = el.parentElement) {
+          if (el.scrollHeight > el.clientHeight + 2 && /(auto|scroll)/.test(getComputedStyle(el).overflowY)) return;
+          if (el === activeModal) break;
+        }
         lastWheelMs = now;
         window.menuNav.move(e.deltaY > 0 ? "down" : "up");
         return;

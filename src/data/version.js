@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.91.0",
-  displayVersion: "V. 1.91.0",
+  version: "1.91.1",
+  displayVersion: "V. 1.91.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 204,
+  build: 205,
   changelog: [
+    {
+      ver: "V. 1.91.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Scrolling the title screen on a short laptop window works again.",
+      highlights: [
+        "On a short window (Rami's Safari), scrolling up on the title screen snapped back down: each wheel or trackpad tick also moved the menu highlight. Now the wheel just scrolls when a menu is taller than the window."
+      ]
+    },
     {
       ver: "V. 1.91.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The new loadout gets its real art: spaghetti, spinning chairs, sticky notes and a cold snap.",

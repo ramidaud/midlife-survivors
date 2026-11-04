@@ -212,7 +212,7 @@ window.menuNav = {
     return Array.from(rowMap.keys()).sort((a, b) => a - b).map(k => rowMap.get(k));
   },
 
-  focus(el, playSound = false) {
+  focus(el, playSound = false, noScroll = false) {
     const modal = this.getActiveModal();
     if (!modal || !el) return;
     document.querySelectorAll(".nav-focused").forEach(n => n.classList.remove("nav-focused")); // clear stale highlights in closed menus too
@@ -225,7 +225,7 @@ window.menuNav = {
         if (isMatch && window.levelMenu) window.levelMenu.sel = idx;
       });
     }
-    try { el.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {}
+    if (!noScroll) try { el.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} // mouse hover never scrolls (Nov 4)
     if (playSound) sfx("move");
   },
 
@@ -317,14 +317,14 @@ function bindNavItem(el, row, onActivate, isDefault = false) {
   el.dataset.navRow = String(row);
   if (isDefault) el.classList.add("nav-default");
   el.addEventListener("pointermove", e => {
-    if (e.pointerType === "mouse" && window.menuNav.focusedEl !== el) { window.menuNav.focus(el, false); try { sfx("uiHover"); } catch (err) {} }
+    if (e.pointerType === "mouse" && window.menuNav.focusedEl !== el) { window.menuNav.focus(el, false, true); try { sfx("uiHover"); } catch (err) {} }
   });
   // Mouse clicks act right away. Touch taps act when the finger LIFTS (pointerup), so a restart
   // never happens mid-touch (that broke touch steering after Retry) and a stray touch can slide off to cancel.
   el.addEventListener("pointerdown", e => {
     e.stopPropagation();
     unlockAudio();
-    if (e.pointerType === "mouse") { window.menuNav.focus(el, false); onActivate(e); return; }
+    if (e.pointerType === "mouse") { window.menuNav.focus(el, false, true); onActivate(e); return; }
     el._pressId = e.pointerId;
     window.menuNav.focus(el, false);
   });
