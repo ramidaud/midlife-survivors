@@ -225,3 +225,7 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### 2026-11-04: Rami's About portrait (Codex)
 - [x] Studio redraw, square headshot, likeness comparison and hero check delivered as art only.
 - [ ] Rami reviews; Claude switches the About-page image and square placements.
+
+### 2026-11-04: GOTCHA! art (Codex)
+- [x] Caught portraits, wordmark, treats, ticket frame, burst and review checks delivered.
+- [ ] Claude integrates catch art; expanded loadout art is next.

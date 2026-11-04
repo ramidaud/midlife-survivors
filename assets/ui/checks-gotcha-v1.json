@@ -1,0 +1,129 @@
+[
+  {
+    "file": "assets/characters/portraits/intern-tj-caught-v1.png",
+    "size": [
+      768,
+      112
+    ],
+    "cell": [
+      96,
+      112
+    ],
+    "columns": 8,
+    "rows": 1,
+    "uniqueFramesPerRow": [
+      8
+    ],
+    "palette": true,
+    "hardAlpha": true
+  },
+  {
+    "file": "assets/characters/portraits/intern-derek-caught-v1.png",
+    "size": [
+      768,
+      112
+    ],
+    "cell": [
+      96,
+      112
+    ],
+    "columns": 8,
+    "rows": 1,
+    "uniqueFramesPerRow": [
+      8
+    ],
+    "palette": true,
+    "hardAlpha": true
+  },
+  {
+    "file": "assets/ui/gotcha-wordmark-v1.png",
+    "size": [
+      160,
+      40
+    ],
+    "cell": [
+      160,
+      40
+    ],
+    "columns": 1,
+    "rows": 1,
+    "uniqueFramesPerRow": [
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true
+  },
+  {
+    "file": "assets/ui/gotcha-wordmark-stamp-v1.png",
+    "size": [
+      640,
+      40
+    ],
+    "cell": [
+      160,
+      40
+    ],
+    "columns": 4,
+    "rows": 1,
+    "uniqueFramesPerRow": [
+      4
+    ],
+    "palette": true,
+    "hardAlpha": true
+  },
+  {
+    "file": "assets/items/treats-v1.png",
+    "size": [
+      96,
+      64
+    ],
+    "cell": [
+      32,
+      32
+    ],
+    "columns": 3,
+    "rows": 2,
+    "uniqueFramesPerRow": [
+      3,
+      3
+    ],
+    "palette": true,
+    "hardAlpha": true
+  },
+  {
+    "file": "assets/ui/gotcha-frame-v1.png",
+    "size": [
+      96,
+      96
+    ],
+    "cell": [
+      96,
+      96
+    ],
+    "columns": 1,
+    "rows": 1,
+    "uniqueFramesPerRow": [
+      1
+    ],
+    "palette": true,
+    "hardAlpha": true
+  },
+  {
+    "file": "assets/fx/gotcha-burst-v1.png",
+    "size": [
+      768,
+      128
+    ],
+    "cell": [
+      128,
+      128
+    ],
+    "columns": 6,
+    "rows": 1,
+    "uniqueFramesPerRow": [
+      6
+    ],
+    "palette": true,
+    "hardAlpha": true
+  }
+]

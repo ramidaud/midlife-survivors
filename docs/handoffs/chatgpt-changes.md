@@ -311,3 +311,6 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Checks:** opaque alpha, at most 20 permitted game/skin/wood colors, uniform 4x/8x pixel blocks, exact aspect ratios; desktop 1280x800 and phone 390x844 art review loads without overflow or console errors. Generated from repo art only; no reference photos committed.
 - **Notes for Claude or Rami:** optional animated Rami sprite deferred. This is an art handoff, no version bump. Preserve square/3:2 proportions when placing it; crop rather than stretch.
 - [done] Rami approved it (Nov 4). Claude put the studio v2 on the About page and rebuilt the About share card.
+
+## 2026-11-04: GOTCHA! art complete (Codex)
+- Delivered TJ/Derek 768x112 caught rows (8x96x112, 110ms, feet y111), 160x40 wordmark and 4-frame stamp (70ms), 96x64 treat/shine atlas, 96x96 nine-slice ticket (24px corners) and 768x128 burst (6x128, 60ms). PNG palette/alpha/anchor checks and all four GIF counts/timings pass; native studies/prompts, README, responsive review and 2x card/390px phone check included. Desktop/phone preview loads without errors or overflow. Art/docs only; Claude wires the catch moment.

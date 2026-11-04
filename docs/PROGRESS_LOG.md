@@ -1222,3 +1222,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Furniture (shelves, cabinets, counters) only goes where it can't narrow a route, doorway or existing prop; otherwise a framed piece hangs there instead.
 - Faint floor details (scuffs, coffee rings, tape) are baked into the floor, so they cost nothing per frame.
 - Rami's desktop save didn't reach his phone: the play-stats logs showed the desktop's Google sign-in stopped halfway (before accounts went live, the return trip wasn't recognized). Fixed; Rami needs to Clock in once on the desktop and pick "Keep this device".
+## 2026-11-04: GOTCHA! catch artwork (Codex)
+- Finished playful caught portraits for TJ and Derek, with the dark camera kept readable.
+- Added the arcade wordmark/stamp, ticket frame, treat/shine icons and confetti burst, with previews and a phone comparison.
+- Native pixel and animation checks pass. Art only, ready for Claude to wire in.
