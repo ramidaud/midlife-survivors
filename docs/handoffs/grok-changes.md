@@ -65,3 +65,4 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - Watch after ship: among runs reaching 63.5, kill rate 40 to 60%; deaths with boss_alive_at_death=goldWatch 25 to 40% of late deaths; median fight 45 to 65 s.
 - Pending after Rami approval, art, implementation, and stats: mark [done] with version.
 - [done] Built in V. 1.73.0 (Nov 3). Hands are leading-edge only; swarm thins while it's alive; kill = tier-5 chest + 35 coins + Five O'Clock Somewhere + keepsake; still ticking at 65 = retire anyway. Telemetry fields gold_watch_phase_reached / gold_watch_killed not added yet (needs a Supabase column change).
+- Update (Nov 3, V. 1.73.1): Rami made the watch unkillable (VS Reaper style). HP and kill tuning no longer apply; hits push it back and slow its hands (wind: pushPerDamage 6, maxPushPerHit 60, maxPushSpeed 240, handSlowMult 0.85, handSlowMs 400). Worth a Grok pass on the wind-back numbers after real runs.

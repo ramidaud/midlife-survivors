@@ -21,3 +21,9 @@ Rami picked **The Gold Watch** as Midlife mode's final boss: the classic retirem
 - `grok-gold-watch.md`: fight numbers.
 - `gemini-gold-watch.md`: Spotlight card, lines, death jokes, banners, achievement.
 - `chatgpt-gold-watch.md`: boss sheet, attack art, mugshot, keepsake.
+
+## Update (Nov 3, V. 1.73.1): it can't be beaten
+Rami: "Should we be able to kill the watch though? The most you can do in Vampire Survivors is keep him away a little longer." So now:
+- No health. Your hits **wind it back**: a shove away from you (6 px/s per damage, capped) and its hands slow to 85% for 0.4 s.
+- It arrives **1.5 years before retirement** (63.5 in a normal Midlife run, later with Delayed Retirement). Phases follow the clock: Overtime after 0.5 years, The Last Minute after 1.1.
+- At 65 the hands stop at 5:00 on their own: tier-5 chest, +35 401(k), "Five O'Clock Somewhere", the keepsake, and "Keep The Receipt" if it never landed a hit.

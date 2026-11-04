@@ -9,7 +9,9 @@
 //     run with it, duck inside, or cross behind it once it has passed.
 //   - Alarm: rings expand from the bell with a safe gap at 12 o'clock (straight up).
 //   - Loose Gears: gears pop out and bounce around the screen.
-//   - Phases by health: Ticking (100-60%), Overtime (60-25%, adds Hour Hand + Alarm), Last Minute (under 25%, faster).
+//   - It can't be beaten (like the Reaper in Vampire Survivors). Your hits wind it back: they push it away and
+//     slow its hands for a moment. Reach 65 and the hands stop at 5:00 on their own: you clock out.
+//   - Phases follow the clock: Ticking, then Overtime (adds Hour Hand + Alarm), then The Last Minute (faster).
 //   - While it's alive the everyday swarm thins out (see duel() below), so it's a duel, not a second wall.
 window.GoldWatch = (() => {
   const D = () => (window.BOSS_ATTACKS && BOSS_ATTACKS.goldWatch) || {};
@@ -34,12 +36,20 @@ window.GoldWatch = (() => {
     };
   }
   const pc = player => { const b = player.body; return b ? { x: b.center.x, y: b.center.y } : { x: player.x, y: player.y }; };
-  const hit = (player, boss, dmg) => hurtPlayer(player, { kind: "goldWatch", damage: dmg, x: boss.x, y: boss.y });
+  const hit = (player, boss, dmg) => { if (boss._gw) boss._gw.hits = (boss._gw.hits || 0) + 1; hurtPlayer(player, { kind: "goldWatch", damage: dmg, x: boss.x, y: boss.y }); };
+  // Pushes from your hits fade out over about half a second.
+  function addPush(boss, a) {
+    if (!a.pvx && !a.pvy) return;
+    boss.setVelocity(boss.body.velocity.x + a.pvx, boss.body.velocity.y + a.pvy);
+    a.pvx *= 0.88; a.pvy *= 0.88; if (Math.abs(a.pvx) + Math.abs(a.pvy) < 4) { a.pvx = 0; a.pvy = 0; }
+  }
 
+  // It arrives 1.5 years before you retire, and its phases follow the clock from there.
+  function arrivalAge() { return (typeof modeEndAge === "function" ? modeEndAge() : 65) - (D().arrivesYearsBeforeEnd || 1.5); }
   function phaseOf(boss) {
-    const f = boss.hpMax ? boss.hp / boss.hpMax : 1, P = D().phases || {};
-    if (f < ((P.lastMinute && P.lastMinute.enterFrac) || 0.25)) return 3;
-    if (f < ((P.overtime && P.overtime.enterFrac) || 0.60)) return 2;
+    const P = D().phases || {}, t = currentAge - arrivalAge();
+    if (t >= ((P.lastMinute && P.lastMinute.afterYears) || 1.1)) return 3;
+    if (t >= ((P.overtime && P.overtime.afterYears) || 0.5)) return 2;
     return 1;
   }
   function phaseMods(ph) { const d = D(); return ph === 3 ? (d.phase3 || {}) : ph === 2 ? (d.phase2 || {}) : {}; }
@@ -78,7 +88,8 @@ window.GoldWatch = (() => {
       const P = d.phases || {}, info = ph === 2 ? P.overtime : P.lastMinute;
       if (info && window.flashBanner) flashBanner(info.title || info.name, info.bannerSub, "alert");
     }
-    const mods = phaseMods(a.phase), spd = S.speed * (mods.speedMult || 1);
+    const mods = phaseMods(a.phase), wound = now < (a.slowUntil || 0) ? (d.wind && d.wind.handSlowMult) || 0.85 : 1;
+    const spd = S.speed * (mods.speedMult || 1) * wound;
 
     tickGears(scene, a, boss, player, now);
 
@@ -86,14 +97,15 @@ window.GoldWatch = (() => {
     const p = pc(player), dist = Math.hypot(p.x - boss.x, p.y - boss.y);
     if (a.state === "float") {
       const want = (d.holdDistance || 200);
-      if (dist > want) scene.physics.moveTo(boss, p.x, p.y, (ENEMIES.goldWatch.speed || 48) * (window.slowdownFactor ? slowdownFactor() : 1));
+      if (dist > want) scene.physics.moveTo(boss, p.x, p.y, (ENEMIES.goldWatch.speed || 48));
       else boss.setVelocity(0, 0);
+      addPush(boss, a);
       const v = scene.cameras.main.worldView, m = T().onScreenMargin || 40;
       const onScreen = boss.x > v.x - m && boss.x < v.right + m && boss.y > v.y - m && boss.y < v.bottom + m;
       if (now >= a.nextAt && onScreen && !gameOver) begin(scene, a, boss, player, now, S);
       return true;
     }
-    boss.setVelocity(0, 0);
+    boss.setVelocity(0, 0); addPush(boss, a);
 
     if (a.state === "telegraph") {
       const k = (now - a.startedAt) / Math.max(1, a.until - a.startedAt);
@@ -246,28 +258,48 @@ window.GoldWatch = (() => {
     return on ? (D().swarm || null) : null;
   }
 
-  // You beat it: the hands stop at 5:00, a chime, the keepsake and a bonus.
-  function defeated(scene, boss) {
-    const d = D();
+  // Your hits wind it back: a shove away from you (bigger hits shove more, up to a cap) and slower hands for a moment.
+  function wind(scene, boss, amount, player) {
+    const W = D().wind || {}, a = boss._gw; if (!a) return;
+    const p = pc(player), dx = boss.x - p.x, dy = boss.y - p.y, len = Math.hypot(dx, dy) || 1;
+    const add = Math.min(W.maxPushPerHit || 60, (W.pushPerDamage || 6) * amount);
+    a.pvx = (a.pvx || 0) + dx / len * add; a.pvy = (a.pvy || 0) + dy / len * add;
+    const cap = W.maxPushSpeed || 240, sp = Math.hypot(a.pvx, a.pvy); if (sp > cap) { a.pvx *= cap / sp; a.pvy *= cap / sp; }
+    a.slowUntil = runElapsedMs + (W.handSlowMs || 400);
+    if (popDamageNumber && !(a.lastPop > runElapsedMs - 250)) { a.lastPop = runElapsedMs; boss.setTintFill(0xfff0cf); scene.time.delayedCall(50, () => { if (boss.active) boss.clearTint(); }); }
+  }
+
+  // You reached retirement: the hands stop at 5:00 on their own. The keepsake, the chest and the bonus are yours.
+  function clockOut(scene) {
+    if (typeof bills === "undefined" || !bills) return;
+    const boss = bills.getChildren().find(b => b.active && b.isBoss && b.kind === "goldWatch");
+    if (!boss) return;
+    const d = D(), a = boss._gw || {}, clean = !a.hits;
     window.goldWatchBeat = true;
     try { meta.keepsakes = Object.assign({}, meta.keepsakes, { goldWatch: true }); } catch (e) {}
     const bonus = d.killBonusCoins || 0;
     if (bonus) { runCoins += bonus; meta.coins += bonus; }
     try { saveMeta(meta); } catch (e) {}
-    // the stopped watch lingers for a moment where it fell
+    window.achEvent("bossKill", { kind: "goldWatch" });
+    if (clean) window.achEvent("bossKill", { kind: "goldWatchClean" });
+    // the stopped watch lingers where it was, and drops the big chest
     if (scene.textures.exists("bossart_goldWatch")) {
       const s = scene.add.sprite(boss.x, boss.y + boss.displayHeight * 0.42, "bossart_goldWatch", 11).setOrigin(0.5, 148 / 152).setDepth(boss.depth + 0.5);
-      scene.tweens.add({ targets: s, alpha: 0, delay: 1800, duration: 700, onComplete: () => s.destroy() });
+      scene.tweens.add({ targets: s, alpha: 0, delay: 2600, duration: 800, onComplete: () => s.destroy() });
     }
+    const ch = chests.create(boss.x, boss.y, "chest").setDepth(3); ch.bossKind = "goldWatch";
+    ch.tag = scene.add.text(boss.x, boss.y, "BONUS", { fontFamily: "monospace", fontSize: "11px", color: "#f5c542" }).setOrigin(0.5).setDepth(4);
+    if (boss.tag) boss.tag.destroy();
+    boss.destroy();
     sfx("levelUp");
     const V = d.victory || {};
     if (window.flashBanner) flashBanner(V.title || "FIVE O'CLOCK", V.sub || "The hands stop at 5:00.", "reward");
     if (window.Spotlight && Spotlight.custom && V.lines) {
       const id = (typeof meta !== "undefined" && meta && meta.selectedChar) || "officeWorker";
-      setTimeout(() => Spotlight.custom({ kind: "hire", kicker: V.kicker || "CLOCKED OUT", name: (window.SPOTLIGHT && SPOTLIGHT.heroNames && SPOTLIGHT.heroNames[id]) || "YOU",
-        line: V.lines[id] || V.lines.any, tip: V.keepsake, tipLabel: "KEEPSAKE", hero: id }), 2600);
+      setTimeout(() => Spotlight.custom({ kind: "boss", kicker: V.kicker || "CLOCKED OUT", name: (window.SPOTLIGHT && SPOTLIGHT.heroNames && SPOTLIGHT.heroNames[id]) || "YOU",
+        line: V.lines[id] || V.lines.any, tip: V.keepsake, tipLabel: "KEEPSAKE", hero: id }), 1200);
     }
   }
 
-  return { preload, update, duel, defeated };
+  return { preload, update, duel, wind, clockOut, arrivalAge };
 })();

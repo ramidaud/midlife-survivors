@@ -36,14 +36,17 @@ window.BOSS_ATTACKS = {
   ,
   // The Gold Watch (Grok's numbers, Gemini's words, Nov 3). Fight logic in src/gold-watch.js.
   goldWatch: {
-    firstAttackDelayMs: 2000, recoverMs: 280, holdDistance: 200,
+    // It can't be beaten (Rami, Nov 3). It arrives 1.5 years before retirement; phases follow the clock.
+    firstAttackDelayMs: 2000, recoverMs: 280, holdDistance: 200, arrivesYearsBeforeEnd: 1.5,
     phases: {
-      overtime:   { title: "UNPAID OVERTIME", enterFrac: 0.60, bannerSub: "The ticking speeds up. Nobody approved this." },
-      lastMinute: { title: "THE LAST MINUTE", enterFrac: 0.25, bannerSub: "Every second counts now. Almost five o'clock." }
+      overtime:   { title: "UNPAID OVERTIME", afterYears: 0.5, bannerSub: "The ticking speeds up. Nobody approved this." },
+      lastMinute: { title: "THE LAST MINUTE", afterYears: 1.1, bannerSub: "Every second counts now. Almost five o'clock." }
     },
+    // Your hits wind it back: each point of damage pushes it this many px/s (capped), and its hands slow for a moment.
+    wind: { pushPerDamage: 6, maxPushPerHit: 60, maxPushSpeed: 240, handSlowMult: 0.85, handSlowMs: 400 },
     phase2: { cooldownMult: 0.92, speedMult: 1.08 },
     phase3: { cooldownMult: 0.80, speedMult: 1.22, gearCount: 6 },
-    killBonusCoins: 35,
+    killBonusCoins: 35, // paid when you clock out with it on your heels
     banners: { // shown the first time each attack is used in a run
       minuteHand: ["MINUTE HAND", "Fast sweep around the dial. Keep moving."],
       hourHand:   ["BANKERS' HOURS", "Thick arm swinging wide. Sidestep early."],

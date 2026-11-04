@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.73.0",
-  displayVersion: "V. 1.73.0",
+  version: "1.73.1",
+  displayVersion: "V. 1.73.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 171,
+  build: 172,
   changelog: [
+    {
+      ver: "V. 1.73.1", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "You can't stop the Gold Watch. You can only buy time: hit it to wind it back, and clock out at 65.",
+      highlights: [
+        "The Gold Watch can't be beaten now, like the Reaper in Vampire Survivors. Your hits wind it back: they push it away and slow its hands for a moment. A stronger build keeps it further off.",
+        "It arrives 1.5 years before retirement and gets faster as the clock runs down. Reach 65 and the hands stop at 5:00 on their own: big chest, +35 401(k) and the keepsake.",
+        "New achievement: Keep The Receipt, for clocking out without the watch ever landing a hit."
+      ]
+    },
     {
       ver: "V. 1.73.0", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "The final boss is here: The Gold Watch arrives at 63.5. Forty years of watching the clock, now it watches you.",

@@ -1437,6 +1437,8 @@ function damageBill(bill, amount) {
   if (bill.ghost) return; // faded 3 AM Thoughts ignore auras too
   const sc = bill.scene;
   if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
+  // The Gold Watch can't be beaten, only wound back: hits push it away and slow its hands (Rami, Nov 3).
+  if (bill.kind === "goldWatch" && window.GoldWatch) { GoldWatch.wind(sc, bill, amount, player); if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs); return; }
   bill.hp -= amount;
   popDamageNumber(sc, bill.x, bill.y, amount);
   if (bill.hp > 0) {
@@ -1463,7 +1465,6 @@ function damageBill(bill, amount) {
     }
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
-      if (bill.kind === "goldWatch" && window.GoldWatch) GoldWatch.defeated(sc, bill); // hands stop at 5:00
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
       if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
@@ -1973,7 +1974,7 @@ function spawnBoss(scene, bossKind) {
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
   boss.speed = P.speed;
   boss.damage = P.damage;
-  boss.tag = scene.add.text(x, y - P.size / 2 - 8, `${label}:${boss.hp}`, { // show the scaled HP, not the base
+  boss.tag = scene.add.text(x, y - P.size / 2 - 8, bossKind === "goldWatch" ? label : `${label}:${boss.hp}`, { // show the scaled HP, not the base
     fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
   }).setOrigin(0.5).setDepth(5);
 
@@ -2126,9 +2127,14 @@ function update(time, delta) {
 
   // Bosses for this mode, then the ending: Retirement at 65 (Midlife) or Father Time at 100 (Full Life).
   modeCfg().bosses.forEach(bk => {
-    if (!bossesSpawned[bk] && currentAge >= ENEMIES[bk].spawnAge) spawnBoss(this, bk);
+    // The Gold Watch always arrives 1.5 years before you retire (so Delayed Retirement moves it too).
+    const at = bk === "goldWatch" && window.GoldWatch ? GoldWatch.arrivalAge() : ENEMIES[bk].spawnAge;
+    if (!bossesSpawned[bk] && currentAge >= at) spawnBoss(this, bk);
   });
-  if (!bossesSpawned.theReaper && currentAge >= modeEndAge()) spawnBoss(this, "theReaper");
+  if (!bossesSpawned.theReaper && currentAge >= modeEndAge()) {
+    if (window.GoldWatch) GoldWatch.clockOut(this); // 5:00: the watch stops on its own when you retire
+    spawnBoss(this, "theReaper");
+  }
 
   // Wave schedule: as you pass milestone ages, speed up the spawn timer!
   const wIdx = SPAWNING.waves.reduce((acc, w, i) => currentAge >= w.minAge ? i : acc, 0);

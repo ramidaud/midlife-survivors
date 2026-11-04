@@ -11,7 +11,7 @@ window.SPOTLIGHT = {
     midlifeCrisis:     { kicker: "TEST DRIVE", name: "MIDLIFE CRISIS V8", line: "Forget the minivan, we are buying t-tops and leather!",
                          tip: "Dodge its wide skid laps and avoid the tire tracks.", art: "assets/bosses/boss-midlife-crisis-v8-v1.png", edge: "#C45C4B", band: "#874C3B" },
     goldWatch:         { kicker: "YEARS OF SERVICE", name: "THE GOLD WATCH", line: "Forty years of watching the clock, now it watches you.",
-                         tip: "Circle the dial to dodge sweeping hands and shockwaves.", art: "assets/bosses/boss-gold-watch-v1.png", edge: "#D9A441", band: "#874C3B" }
+                         tip: "You can't stop it. Hit it to buy time until 65.", art: "assets/bosses/boss-gold-watch-v1.png", edge: "#D9A441", band: "#874C3B" }
   },
   // Your hero's card at the start of every run. bio = who they are, style = how they play (copy by Gemini, Nov 3).
   hires: {
