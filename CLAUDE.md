@@ -34,7 +34,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 ## Tech decisions (change only with Rami's OK)
 - **Engine:** Phaser 3 (JavaScript), loaded from cdnjs with a pinned version. Vampire Survivors itself started life as a browser game, so this is a well-worn path.
 - **No build step at first.** Plain `index.html` + files in `src/`. Add tooling (Vite, etc.) only when there's a real reason, and explain why.
-- **Art:** current procedural pixel sprites (`src/sprites.js`) are placeholders. Final art direction comes from Rami's mood board, after the core loop is fun (Fun Pass objective 7).
+- **Art:** art comes from Rami's direction and ChatGPT's art passes; `src/sprites.js` only fills gaps.
 - **2D only for now.** The Diablo and 3D views are parked with `window.ENABLE_3D_VIEWS = false` in `src/view3d.js`. Don't build features for them.
 - **Data-driven content.** Enemies, weapons, passives and waves live in `src/data/*.js` as plain lists, so Rami can tweak numbers and jokes without touching game logic.
 - **Desktop packaging** (Electron/Tauri, itch.io, Steam) is a later decision. Keep code browser-first so any option stays open.
@@ -56,7 +56,7 @@ assets/                 art and sound (later)
 - One input: **move**. Everything attacks automatically.
 - Swarms build slowly, then become absurd. Power fantasy by your 60s.
 - Level-ups offer **3 choices**; combining items unlocks **evolutions**.
-- A full run is a whole life (about an hour, with save and resume), deaths are funny, and a meta currency makes the next run a little better.
+- A core run is about 19 minutes, with Full Life as an unlockable longer mode. Deaths are funny, and a meta currency makes the next run a little better.
 - The humor is warm and recognizable, never mean. Midlife is hard and also kind of great.
 
 ## Devlog
