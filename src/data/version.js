@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.73.1",
-  displayVersion: "V. 1.73.1",
+  version: "1.73.2",
+  displayVersion: "V. 1.73.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 172,
+  build: 173,
   changelog: [
+    {
+      ver: "V. 1.73.2", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "Your hero's big card only opens the run now. Tip cards name the topic, show your hero smaller, and stop at two per run.",
+      highlights: [
+        "Your hero's big Spotlight card only plays at the start of a run. First-time tip cards now say what they're about (\"BOSS CHESTS\", \"THE DESK SALAD\") with your hero smaller, so they don't look like the intro again.",
+        "No more than two first-time tips per run; the rest wait for a later run."
+      ]
+    },
     {
       ver: "V. 1.73.1", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "You can't stop the Gold Watch. You can only buy time: hit it to wind it back, and clock out at 65.",

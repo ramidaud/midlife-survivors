@@ -108,7 +108,8 @@ window.Spotlight = (() => {
     if (!root) { root = document.createElement("div"); root.id = "spotlight"; root.setAttribute("role", "status"); root.setAttribute("aria-live", "polite"); document.body.appendChild(root); }
     const portrait = matchMedia("(orientation:portrait),(max-width:760px)").matches;
     const big = portrait && innerWidth >= 600;
-    const a = c.artType === "intern" ? (big ? 3.4 : portrait ? 2.5 : 4) : c.artType === "boss" ? (big ? 1.6 : portrait ? 1.15 : 1.9) : c.artType === "hero" ? (big ? 2.1 : portrait ? 1.5 : 2.5) : (big ? 3.8 : portrait ? 2.8 : 4.6);
+    const a0 = c.artType === "intern" ? (big ? 3.4 : portrait ? 2.5 : 4) : c.artType === "boss" ? (big ? 1.6 : portrait ? 1.15 : 1.9) : c.artType === "hero" ? (big ? 2.1 : portrait ? 1.5 : 2.5) : (big ? 3.8 : portrait ? 2.8 : 4.6);
+    const a = c.small ? a0 * 0.72 : a0; // tip cards show your hero a size down
     const artW = c.artType === "intern" ? 56 * a : c.artType === "boss" ? 144 * a : c.artType === "hero" ? 96 * a : 48 * a;
     root.className = (c.boss ? "boss" : "") + (c.bio ? " has-bio" : "");
     root.style.setProperty("--a", a);
@@ -147,7 +148,7 @@ window.Spotlight = (() => {
   //   - each card waits only so long (maxWaitMs); if it's stale by then it's skipped
   //   - the Lounge card shows once per run, and not right after a room card (that card's tip already points there)
   const PRI = { boss: 3, hire: 2, room: 1, lounge: 1, tip: 0 };
-  const PACE = { gapMs: 15000, maxWaitMs: { hire: 20000, room: 40000, lounge: 15000, tip: 20000, boss: 15000 } };
+  const PACE = { maxTipsPerRun: 2, gapMs: 15000, maxWaitMs: { hire: 20000, room: 40000, lounge: 15000, tip: 20000, boss: 15000 } };
   let lastHiddenAt = -1e9, lastShownKind = null, run = { lounge: false, lastRoomAt: -1e9 };
 
   function hide() {
@@ -166,6 +167,8 @@ window.Spotlight = (() => {
     // A promotion and a boss often land in the same second (age 45). The room card waits a beat, so if a boss is
     // coming, the boss goes first and the room card follows after the breather instead of being cut off.
     if (card.kind === "room") card.notBefore = card.at + 2500;
+    // At most two first-time tips per run; the rest wait for a later run (they only count as seen once shown).
+    if (card.kind === "tip" && run.tips >= (PACE.maxTipsPerRun || 2)) return;
     if (card.kind === "lounge") {
       const roomNear = card.at - run.lastRoomAt < 45000 || queue.some(c => c.kind === "room") || (showing && showing.kind === "room");
       if (run.lounge || roomNear) return; // once a run, and never next to a room card
@@ -190,7 +193,8 @@ window.Spotlight = (() => {
     }
     if (next.kind !== "boss" && now - lastHiddenAt < PACE.gapMs) return; // breather between cards
     showing = next; queue = queue.filter(c => c !== next);
-    if (showing.seenKey) remember(showing.seenKey); // once-ever cards count as seen only when they actually show
+    if (showing.seenKey) remember(showing.seenKey);
+    if (showing.kind === "tip") run.tips = (run.tips || 0) + 1; // once-ever cards count as seen only when they actually show
     if (showing.kind === "room") run.lastRoomAt = now;
     render(showing);
     hideTimer = setTimeout(hide, showing.ms || S().durationMs || 6000);
@@ -247,7 +251,9 @@ window.Spotlight = (() => {
       const T = (S().tips || {})[key]; if (!T || seen["tip_" + key]) return false;
       if (window.tipsEnabled && !window.tipsEnabled()) return false;
       const id = heroId();
-      show({ seenKey: "tip_" + key, kind: "tip", kicker: T.kicker, name: (S().heroNames || {})[id] || "YOU", line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", edge: "#EF9347", band: "#303750", ms: 5000 });
+      // Tip cards name the TOPIC, not your hero, and show your hero smaller, so they don't read as the
+      // start-of-run hero card again (Rami, Nov 3: "my character's spotlight shows up several times").
+      show({ seenKey: "tip_" + key, kind: "tip", kicker: T.kicker, name: T.topic || T.kicker, line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", small: true, edge: "#EF9347", band: "#303750", ms: 5000 });
       return true;
     },
     // Any one-off card (the Gold Watch's victory line uses this). hero: show that hero's portrait.

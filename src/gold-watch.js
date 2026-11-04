@@ -293,10 +293,10 @@ window.GoldWatch = (() => {
     boss.destroy();
     sfx("levelUp");
     const V = d.victory || {};
-    if (window.flashBanner) flashBanner(V.title || "FIVE O'CLOCK", V.sub || "The hands stop at 5:00.", "reward");
+    if (!(window.Spotlight && Spotlight.custom) && window.flashBanner) flashBanner(V.title || "FIVE O'CLOCK", V.sub || "The hands stop at 5:00.", "reward");
     if (window.Spotlight && Spotlight.custom && V.lines) {
       const id = (typeof meta !== "undefined" && meta && meta.selectedChar) || "officeWorker";
-      setTimeout(() => Spotlight.custom({ kind: "boss", kicker: V.kicker || "CLOCKED OUT", name: (window.SPOTLIGHT && SPOTLIGHT.heroNames && SPOTLIGHT.heroNames[id]) || "YOU",
+      setTimeout(() => Spotlight.custom({ kind: "boss", kicker: V.kicker || "CLOCKED OUT", name: V.title || "FIVE O'CLOCK", small: true,
         line: V.lines[id] || V.lines.any, tip: V.keepsake, tipLabel: "KEEPSAKE", hero: id }), 1200);
     }
   }
