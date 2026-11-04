@@ -1270,3 +1270,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: Discord history backfill
 - Posted the whole changelog to #changelog, grouped by day, plus all 9 published memos to #devlog, oldest first.
 - It's a one-time run. It won't repeat, and the daily roundup picks up from here.
+
+## Nov 4, 2026: Art gallery for Discord
+- Made four share boards from the real game art: the cast, the bosses, the enemies and every office prop.
+- GitHub can now post them, plus the five title scenes, to #art-and-ideas (one time each). It waits on Rami adding that channel's webhook as a GitHub secret.
