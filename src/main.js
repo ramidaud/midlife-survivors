@@ -2652,3 +2652,30 @@ function update(time, delta) {
 }
 
 window.game = new Phaser.Game(config);
+
+// The graphics card dropped the game (Nov 4, Rami: a white screen right after a level-up, then a grey title screen).
+// Browsers can take WebGL away when the computer is short on graphics memory ("context lost"). Phaser can't always
+// get it back, so save the run and offer a one-tap reload instead of leaving a blank screen.
+(() => {
+  const hook = () => {
+    const cv = window.game && game.canvas; if (!cv) return setTimeout(hook, 500);
+    cv.addEventListener("webglcontextlost", e => {
+      e.preventDefault(); // asks the browser to hand the context back if it can
+      try { if (!titleOpen && !gameOver && window.persistActiveRun) window.persistActiveRun(); } catch (err) {}
+      try { if (window.Telemetry && Telemetry.event) Telemetry.event("webgl-context-lost"); } catch (err) {}
+      if (document.getElementById("ctx-lost")) return;
+      const d = document.createElement("div"); d.id = "ctx-lost"; d.setAttribute("role", "alertdialog");
+      d.style.cssText = "position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(23,28,53,.94);padding:16px";
+      d.innerHTML = `<div style="max-width:420px;background:#171C35;border:3px solid #EF9347;border-radius:8px;padding:20px;color:#FFF0CF;font:16px/1.45 'Atkinson Hyperlegible',sans-serif;text-align:left;box-shadow:6px 6px 0 rgba(0,0,0,.45)">
+        <div style="display:inline-block;font:10px Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#F2D7A1;padding:3px 7px;border-radius:2px">FACILITIES // POWER BLIP</div>
+        <h2 style="font:700 24px 'Atkinson Hyperlegible',sans-serif;margin:10px 0 6px">The office lights flickered.</h2>
+        <p style="margin:0 0 14px;color:#B8C0D4">Your computer's graphics took a coffee break, so the game went blank. Your run is saved. Reload and pick up where you left off with <b style="color:#FFF0CF">Continue saved run</b>.</p>
+        <button type="button" id="ctx-reload" style="width:100%;min-height:48px;border:0;border-radius:6px;background:#EF9347;color:#171C35;font:14px Silkscreen,monospace;letter-spacing:.05em;cursor:pointer">RELOAD THE GAME</button>
+        <p style="margin:12px 0 0;font-size:13px;color:#83A89A">Happens a lot? Close a few browser tabs, then reload.</p></div>`;
+      document.body.appendChild(d);
+      d.querySelector("#ctx-reload").addEventListener("click", () => location.reload());
+    }, false);
+    cv.addEventListener("webglcontextrestored", () => { const d = document.getElementById("ctx-lost"); if (d) d.remove(); }, false);
+  };
+  hook();
+})();

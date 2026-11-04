@@ -1244,3 +1244,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Finished 27 named card icons and seven dedicated HUD icons, plus the four play-style badges.
 - Made nine weapon/effect families, including a full chair spin, hollow protection/travel rings and frost in cream/slate. Ten row previews and hero-size checks included.
 - Updated the food art and names to Mom's Spaghetti from the revised V. 1.89.0 brief. Native art/GIF checks and desktop/phone review pass. Art only, ready for Claude; no balance or game code changed.
+
+## Nov 4, 2026 (morning): White screen after a level-up (V. 1.90.1)
+- Rami's game went white mid-run and the title stayed grey: the browser dropped the WebGL graphics ("context lost"), usually from graphics-memory pressure.
+- Now the run saves instantly, a "The office lights flickered" card offers a reload, and the event is counted in play stats so we can see how often it happens.
+- Measured: about 290 MB of textures in a run, half of it the baked floor tiles (pre-existing). Trimming that is a good next performance job.
+- ChatGPT's loadout art (icons, weapon sprites and effects, spaghetti) has landed; wiring it in is next.

@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.90.0",
-  displayVersion: "V. 1.90.0",
+  version: "1.90.1",
+  displayVersion: "V. 1.90.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 202,
+  build: 203,
   changelog: [
+    {
+      ver: "V. 1.90.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "No more silent white screens: if your graphics drop out, the game saves and offers a reload.",
+      highlights: [
+        "Sometimes a browser takes the graphics away when the computer is short on memory, and the game went white. Now your run is saved on the spot and a card offers a one-tap reload, then Continue saved run."
+      ]
+    },
     {
       ver: "V. 1.90.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Your loadout is your call: chests only upgrade what you carry, and you can skip a level-up.",
