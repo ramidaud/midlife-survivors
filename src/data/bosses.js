@@ -34,6 +34,26 @@ window.BOSS_ATTACKS = {
     driftSpeed: 340, loopRadius: 130, loopRevs: 1.25,
     skidHalfW: 18, skidHalfL: 26, skidEveryPx: 28, skidLifeMs: 2800, skidDamage: 1,
     bodyHalfW: 24, bodyHalfH: 18, damage: 3
+  },
+  // Full Life bosses (Nov 4): each reuses one of the three moves above, a little meaner since they show up after 70.
+  hoaPresident: {
+    style: "charge", bannerTitle: "VIOLATION NOTICE", bannerSub: "Grass is 0.2 inches too tall. Sidestep the yardstick.",
+    telegraphMs: 650, cooldownMs: 3800, firstAttackDelayMs: 1600, recoverMs: 300,
+    chargeSpeed: 430, chargeDurationMs: 1100, chargeMaxDist: 580,
+    bodyHalfW: 22, bodyHalfH: 28, damage: 3
+  },
+  retirementBoss: {
+    style: "rings", bannerTitle: "PAPERWORK AUDIT", bannerSub: "Forms fly out in rings. Slip through the checkbox.",
+    telegraphMs: 800, cooldownMs: 4800, firstAttackDelayMs: 1800, recoverMs: 300,
+    ringCount: 3, ringGapMs: 650, expandSpeed: 145, startRadius: 36, maxRadius: 270,
+    ringHalfThickness: 16, gapArcDeg: 66, damage: 3, color: 0xF2D7A1, gapLabel: "✓"
+  },
+  pickleballChamp: {
+    style: "drift", bannerTitle: "6 AM RALLY", bannerSub: "Sliding lunges in loops. Stay off the court lines.",
+    telegraphMs: 700, cooldownMs: 4200, firstAttackDelayMs: 2000, recoverMs: 300,
+    driftSpeed: 370, loopRadius: 130, loopRevs: 1.25, driftMarker: true, color: 0x83A89A,
+    skidHalfW: 18, skidHalfL: 26, skidEveryPx: 28, skidLifeMs: 2400, skidDamage: 1,
+    bodyHalfW: 22, bodyHalfH: 22, damage: 3
   }
   ,
   // The Gold Watch (Grok's numbers, Gemini's words, Nov 3). Fight logic in src/gold-watch.js.

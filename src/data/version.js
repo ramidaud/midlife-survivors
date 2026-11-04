@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.91.4",
-  displayVersion: "V. 1.91.4",
+  version: "1.92.0",
+  displayVersion: "V. 1.92.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 208,
+  build: 209,
   changelog: [
+    {
+      ver: "V. 1.92.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Full Life gets its own bosses: the HOA President, the Retirement Audit, the Pickleball Champ, and Father Time at 100.",
+      highlights: [
+        "The three Full Life bosses have their own art and attacks: the HOA President charges with a yardstick, the Retirement Audit stamps out rings of forms (slip through the checkmark), and the 6 AM Pickleball Champ lunges in loops.",
+        "Father Time waits for you at 100 and shakes your hand. No reaper.",
+        "Fanny Packs, Energy Drinks and PTO Days on the floor are real pixel art now, not emoji."
+      ]
+    },
     {
       ver: "V. 1.91.4", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "iPad fix: the office fills the whole screen again after you rotate.",

@@ -330,6 +330,7 @@ function create() {
   EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
   initExtraWeapons(this);
+  if (window.ArtSheets) ArtSheets.load(this, "field_items", "assets/items/field-items-v1.png", 32, 32); // Fanny Pack, Energy Drink, PTO Day (row 1: shine)
   if (window.MoreWeapons) MoreWeapons.init(this); // casserole, headphones, chair, reply-all, out-of-office, sticky notes, thermostat
 
   // 2. The stage: an open-plan office floor (carpet, wood hallway, breakroom rug) plus scattered office props!
@@ -968,7 +969,9 @@ function spawnFieldItem(scene, x, y, kind) {
     const kinds = Object.keys(FIELD_ITEMS), total = kinds.reduce((a, k) => a + FIELD_ITEMS[k].weight, 0);
     let r = Math.random() * total; kind = kinds.find(k => (r -= FIELD_ITEMS[k].weight) < 0) || kinds[0];
   }
-  const it = window.fieldItems.create(x, y, itemTexture(scene, kind)).setDepth(3);
+  const FI = { fannyPack: 0, energyDrink: 1, ptoDay: 2 }, art = scene.textures.exists("field_items") && FI[kind] !== undefined; // ChatGPT's pickups (Nov 4)
+  const it = (art ? window.fieldItems.create(x, y, "field_items", FI[kind]) : window.fieldItems.create(x, y, itemTexture(scene, kind))).setDepth(3);
+  if (art) { const f0 = FI[kind]; it.shineEv = scene.time.addEvent({ delay: 900, loop: true, callback: () => { if (it.active) it.setFrame(it.frame.name === f0 ? f0 + 3 : f0); } }); it.once("destroy", () => it.shineEv && it.shineEv.remove()); }
   it.kind = kind; it.expireAt = runElapsedMs + ITEM_DROPS.lifeMs;
   it.glowRing = scene.add.circle(x, y, 20).setStrokeStyle(2, FIELD_ITEMS[kind].glow, 0.9).setDepth(2);
   scene.tweens.add({ targets: it.glowRing, scale: { from: 0.8, to: 1.25 }, alpha: { from: 1, to: 0.3 }, yoyo: true, repeat: -1, duration: 600 });
@@ -1372,7 +1375,7 @@ function hurtPlayer(p, bill) {
       sfx("catch"); scene.cameras.main.flash(260, 255, 240, 207);
       [0, 180, 360].forEach(t => scene.time.delayedCall(t, () => burstConfetti(scene, bill.x + Phaser.Math.Between(-30, 30), bill.y - 40, 0xEF9347, 18)));
       if (window.Lighting) Lighting.fx("levelUp", bill.x, bill.y);
-      if (bill.tag) bill.tag.setText("CLOCKED OUT!");
+      if (bill.tag) bill.tag.setText(bill.kind === "theReaper" && !modeCfg().endBossLabel ? "HAPPY 100TH!" : "CLOCKED OUT!");
       scene.time.delayedCall(760, () => { if (!gameOver) showGameOver(scene, "theReaper", true); });
     }
     return;
@@ -2103,7 +2106,7 @@ function spawnBoss(scene, bossKind) {
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
   boss.speed = P.speed;
   boss.damage = P.damage;
-  if (isEnd && m.endBossLabel) { // Midlife at 65: a friendly punch clock that waits near you instead of chasing you (ChatGPT art, Nov 4)
+  if (isEnd) { // the finish waits near you instead of chasing you: the punch clock at 65, Father Time at 100 (ChatGPT art, Nov 4)
     boss.clockOut = true; boss.speed = 0; boss.body.setImmovable(true); boss.body.pushable = false;
     const a0 = Math.random() * Math.PI * 2;
     for (let i = 0; i < 8; i++) { // a clear, reachable spot about 200 px away, so it's on screen
@@ -2130,7 +2133,7 @@ function spawnBoss(scene, bossKind) {
   if (!spot && !isEnd) showBossToastUI(bossName); // the ending has its own card and lower third, so no red "calendar reminder" on top
   if (window.pushContextEvent && !spot) {
     if (isEnd && m.endBossLabel) window.showLowerThird("win", `AGE ${Math.round(modeEndAge())}`, m.endText, 7000);
-    else if (isEnd) window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);
+    else if (isEnd) window.showLowerThird("win", "AGE 100", "Father Time is here. Walk up and shake his hand.", 7000);
     else window.showLowerThird("alert", "BOSS", `${P.name} just walked in. Keep moving in wide circles.`, 5500, P.name.toUpperCase());
   }
 }

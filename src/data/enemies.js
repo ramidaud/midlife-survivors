@@ -174,10 +174,9 @@ window.ENEMIES = {
     color: 0xff2e4c
   },
   hoaPresident: {
-    name: "The HOA Board President",
+    name: "The HOA Board President", // drawn by ChatGPT (Nov 4): assets/bosses/boss-hoa-president-v1.png; tex is the fallback
     label: "HOA",
     tex: "performanceReview",
-    tint: 0xffe042,
     spawnAge: 70,
     speed: 82,
     hp: 210,
@@ -189,7 +188,6 @@ window.ENEMIES = {
     name: "Mandatory Retirement Audit", // matches the lore archive (Gemini final pass)
     label: "80!",
     tex: "mortgageRefinance",
-    tint: 0x6be2ff,
     spawnAge: 79.2,
     speed: 78,
     hp: 300,
@@ -201,7 +199,6 @@ window.ENEMIES = {
     name: "The 6 AM Pickleball Champion",
     label: "90!",
     tex: "midlifeCrisis",
-    tint: 0x6fbf73,
     spawnAge: 90,
     speed: 132,
     hp: 460,

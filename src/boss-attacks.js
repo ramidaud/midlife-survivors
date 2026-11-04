@@ -61,6 +61,8 @@ window.BossAttacks = (() => {
   function step(scene, boss, player, now) {
     const D = window.BOSS_ATTACKS && BOSS_ATTACKS[boss.kind];
     if (!D) return false;
+    // Three moves, shared by the Full Life bosses (Nov 4): charge (Performance Review, HOA), rings (Mortgage, Audit), drift (V8, Pickleball).
+    const st = D.style || ({ performanceReview: "charge", mortgageRefinance: "rings", midlifeCrisis: "drift" })[boss.kind];
     const a = boss._atk || (boss._atk = { state: "chase", nextAt: now + D.firstAttackDelayMs, skids: [], announced: false });
     const g = gfx(scene, a); g.clear();
     if (!boss.once_cleanup) { boss.once_cleanup = true; boss.once("destroy", () => { if (a.g) a.g.destroy(); if (a.skidG) a.skidG.destroy(); if (a.label) a.label.destroy(); }); }
@@ -71,11 +73,11 @@ window.BossAttacks = (() => {
       if (now < a.nextAt || !onScreen(scene, boss) || gameOver) return false;
       // Start the warning.
       a.state = "telegraph"; a.startedAt = now;
-      a.until = now + S.tele(D.telegraphMs, boss.kind === "mortgageRefinance" ? (T().minTelegraphMsMortgage || 650) : (T().minTelegraphMs || 550));
+      a.until = now + S.tele(D.telegraphMs, st === "rings" ? (T().minTelegraphMsMortgage || 650) : (T().minTelegraphMs || 550));
       const ang = Math.atan2(player.y - boss.y, player.x - boss.x);
       a.aim = ang;
-      if (boss.kind === "mortgageRefinance") a.gap = ang + (Math.random() < 0.5 ? -1 : 1) * Phaser.Math.DegToRad(60 + Math.random() * 50);
-      if (boss.kind === "midlifeCrisis") {
+      if (st === "rings") a.gap = ang + (Math.random() < 0.5 ? -1 : 1) * Phaser.Math.DegToRad(60 + Math.random() * 50);
+      if (st === "drift") {
         const v = scene.cameras.main.worldView, R = Math.max(90, Math.min(D.loopRadius, 0.32 * Math.min(v.width, v.height)));
         const side = Math.random() < 0.5 ? -1 : 1, off = ang + side * Phaser.Math.DegToRad(55);
         a.R = R; a.cx = boss.x + Math.cos(off) * R; a.cy = boss.y + Math.sin(off) * R;
@@ -90,10 +92,11 @@ window.BossAttacks = (() => {
       boss.setVelocity(0, 0);
       const k = (now - a.startedAt) / Math.max(1, a.until - a.startedAt), blink = reduceMotion ? 0.6 : 0.35 + 0.35 * Math.abs(Math.sin(now / 70));
       if (window.BossArt) { // ChatGPT's floor decal for this attack, fading in
-        if (boss.kind === "performanceReview") BossArt.marker(scene, boss, boss.x + Math.cos(a.aim) * 190, boss.y + Math.sin(a.aim) * 190, a.aim, 1, 1, 0.35 + 0.5 * k);
-        else if (boss.kind === "mortgageRefinance") BossArt.marker(scene, boss, boss.x, boss.y + 30, 0, 1.6, 1.6, 0.3 + 0.5 * k);
+        if (st === "charge") BossArt.marker(scene, boss, boss.x + Math.cos(a.aim) * 190, boss.y + Math.sin(a.aim) * 190, a.aim, 1, 1, 0.35 + 0.5 * k);
+        else if (st === "rings") BossArt.marker(scene, boss, boss.x, boss.y + 30, 0, 1.6, 1.6, 0.3 + 0.5 * k);
+        else if (st === "drift" && D.driftMarker) BossArt.marker(scene, boss, a.cx, a.cy, a.theta, 1, 1, 0.3 + 0.5 * k);
       }
-      if (boss.kind === "performanceReview") {
+      if (st === "charge") {
         const ex = boss.x + Math.cos(a.aim) * D.chargeMaxDist, ey = boss.y + Math.sin(a.aim) * D.chargeMaxDist;
         g.lineStyle(D.bodyHalfW * 2 + 24, 0xef9347, 0.18 + 0.12 * k).lineBetween(boss.x, boss.y, ex, ey);
         g.lineStyle(3, 0xef9347, blink).lineBetween(boss.x, boss.y, ex, ey);
@@ -101,21 +104,21 @@ window.BossAttacks = (() => {
           const d = ((now / 3 + i * D.chargeMaxDist / 4) % D.chargeMaxDist), cx = boss.x + Math.cos(a.aim) * d, cy = boss.y + Math.sin(a.aim) * d;
           g.fillStyle(0xef9347, 0.8).fillTriangle(cx + Math.cos(a.aim) * 10, cy + Math.sin(a.aim) * 10, cx + Math.cos(a.aim + 2.4) * 9, cy + Math.sin(a.aim + 2.4) * 9, cx + Math.cos(a.aim - 2.4) * 9, cy + Math.sin(a.aim - 2.4) * 9);
         }
-      } else if (boss.kind === "mortgageRefinance") {
-        drawRing(g, boss.x, boss.y, 140, a.gap, D.gapArcDeg, 0x9b6bd6, blink, 6);
+      } else if (st === "rings") {
+        drawRing(g, boss.x, boss.y, 140, a.gap, D.gapArcDeg, D.color || 0x9b6bd6, blink, 6);
         gapMarker(scene, a, boss, 140);
-      } else if (boss.kind === "midlifeCrisis") {
-        g.lineStyle(3, 0xe0564f, blink).strokeCircle(a.cx, a.cy, a.R);
-        g.lineStyle(D.bodyHalfW * 2, 0xe0564f, 0.12).strokeCircle(a.cx, a.cy, a.R);
+      } else if (st === "drift") {
+        g.lineStyle(3, D.color || 0xe0564f, blink).strokeCircle(a.cx, a.cy, a.R);
+        g.lineStyle(D.bodyHalfW * 2, D.color || 0xe0564f, 0.12).strokeCircle(a.cx, a.cy, a.R);
       }
-      if (now >= a.until) { if (window.BossArt) BossArt.hideMarker(boss); a.state = "attack"; a.startedAt = now; a.rings = []; a.sx = boss.x; a.sy = boss.y; boss.clearTint(); pass(boss, true); if (a.label) a.label.setVisible(boss.kind === "mortgageRefinance"); }
+      if (now >= a.until) { if (window.BossArt) BossArt.hideMarker(boss); a.state = "attack"; a.startedAt = now; a.rings = []; a.sx = boss.x; a.sy = boss.y; boss.clearTint(); pass(boss, true); if (a.label) a.label.setVisible(st === "rings"); }
       return true;
     }
 
     if (a.state === "attack") {
       const t = now - a.startedAt;
       let done = false;
-      if (boss.kind === "performanceReview") {
+      if (st === "charge") {
         const spd = D.chargeSpeed * S.speed;
         if (t > 60 && wallHit(scene, boss, D)) { bonk(scene, boss, a, now); return true; }
         a.lastX = boss.x; a.lastY = boss.y;
@@ -123,7 +126,7 @@ window.BossAttacks = (() => {
         if (touches(player, boss.x, boss.y, D.bodyHalfW, D.bodyHalfH)) hit(player, boss, D.damage);
         g.lineStyle(D.bodyHalfW * 2, 0xef9347, 0.12).lineBetween(a.sx, a.sy, boss.x, boss.y);
         done = t > D.chargeDurationMs || Math.hypot(boss.x - a.sx, boss.y - a.sy) > D.chargeMaxDist;
-      } else if (boss.kind === "mortgageRefinance") {
+      } else if (st === "rings") {
         boss.setVelocity(0, 0);
         const pb = player.body, px = pb ? pb.center.x : player.x, py = pb ? pb.center.y : player.y;
         const dist = Math.hypot(px - boss.x, py - boss.y), pang = Math.atan2(py - boss.y, px - boss.x);
@@ -134,12 +137,12 @@ window.BossAttacks = (() => {
           const r = D.startRadius + D.expandSpeed * S.speed * rt / 1000;
           if (r > D.maxRadius) continue;
           alive++;
-          drawRing(g, boss.x, boss.y, r, a.gap, D.gapArcDeg, 0x9b6bd6, 0.85, D.ringHalfThickness * 2);
+          drawRing(g, boss.x, boss.y, r, a.gap, D.gapArcDeg, D.color || 0x9b6bd6, 0.85, D.ringHalfThickness * 2);
           if (!inGap && Math.abs(dist - r) <= D.ringHalfThickness + 20) hit(player, boss, D.damage); // +20: about half the player's body
         }
         gapMarker(scene, a, boss, Math.min(D.maxRadius, D.startRadius + D.expandSpeed * S.speed * t / 1000));
         done = alive === 0;
-      } else if (boss.kind === "midlifeCrisis") {
+      } else if (st === "drift") {
         const step = D.driftSpeed * S.speed * (scene.game.loop.delta / 1000);
         a.theta += a.dir * step / a.R; a.traveled += step;
         const nx = a.cx + Math.cos(a.theta) * a.R, ny = a.cy + Math.sin(a.theta) * a.R;
@@ -178,7 +181,7 @@ window.BossAttacks = (() => {
     for (const s of [-1, 1]) { const ang = gap + s * half; g.lineBetween(x + Math.cos(ang) * (r - 10), y + Math.sin(ang) * (r - 10), x + Math.cos(ang) * (r + 10), y + Math.sin(ang) * (r + 10)); }
   }
   function gapMarker(scene, a, boss, r) {
-    if (!a.label || !a.label.active) a.label = scene.add.text(0, 0, "%", { fontFamily: "monospace", fontSize: "20px", color: "#f2d7a1", fontStyle: "bold", backgroundColor: "#171c35cc", padding: { x: 4, y: 1 } }).setOrigin(0.5).setDepth(20001);
+    if (!a.label || !a.label.active) a.label = scene.add.text(0, 0, (BOSS_ATTACKS[boss.kind] || {}).gapLabel || "%", { fontFamily: "monospace", fontSize: "20px", color: "#f2d7a1", fontStyle: "bold", backgroundColor: "#171c35cc", padding: { x: 4, y: 1 } }).setOrigin(0.5).setDepth(20001);
     a.label.setVisible(true).setPosition(boss.x + Math.cos(a.gap) * r, boss.y + Math.sin(a.gap) * r);
   }
   function tickSkids(scene, a, boss, player, now, D) {

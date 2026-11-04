@@ -11,7 +11,14 @@ window.SPOTLIGHT = {
     midlifeCrisis:     { kicker: "TEST DRIVE", name: "MIDLIFE CRISIS V8", line: "Forget the minivan, we are buying t-tops and leather!",
                          tip: "Dodge its wide skid laps and avoid the tire tracks.", art: "assets/bosses/boss-midlife-crisis-v8-v1.png", edge: "#C45C4B", band: "#874C3B" },
     goldWatch:         { kicker: "YEARS OF SERVICE", name: "THE GOLD WATCH", line: "Forty years of watching the clock, now it watches you.",
-                         tip: "You can't stop it. Hit it to buy time until 65.", art: "assets/bosses/boss-gold-watch-v1.png", edge: "#D9A441", band: "#874C3B" }
+                         tip: "You can't stop it. Hit it to buy time until 65.", art: "assets/bosses/boss-gold-watch-v1.png", edge: "#D9A441", band: "#874C3B" },
+    // Full Life bosses (Nov 4, art by ChatGPT)
+    hoaPresident:      { kicker: "BOARD MEETING", name: "THE HOA PRESIDENT", line: "Your mailbox is two inches too festive. We need to talk.",
+                         tip: "Sidestep when the yardstick goes up before it charges.", art: "assets/bosses/boss-hoa-president-v1.png", edge: "#EF9347", band: "#874C3B" },
+    retirementBoss:    { kicker: "FINAL PAPERWORK", name: "RETIREMENT AUDIT", line: "Please verify every pension statement since 1987.",
+                         tip: "Slip through the checkmark gap in each ring of forms.", art: "assets/bosses/boss-retirement-audit-v1.png", edge: "#D3B78D", band: "#874C3B" },
+    pickleballChamp:   { kicker: "COURT RESERVED", name: "PICKLEBALL CHAMP", line: "Courts open at six. I've been here since 5:15.",
+                         tip: "Watch for the circle, then dodge the sliding lunge.", art: "assets/bosses/boss-pickleball-champ-v1.png", edge: "#83A89A", band: "#874C3B" }
   },
   // Your hero's card at the start of every run. bio = who they are, style = how they play (copy by Gemini, Nov 3).
   hires: {

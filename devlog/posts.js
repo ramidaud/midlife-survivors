@@ -9,8 +9,8 @@ window.DEVLOG_POSTS = [
     "title": "This is starting to feel real.",
     "version": "V. 1.68 to 1.91.3",
     "draft": true,
-    "cover": "img/10-title-after.jpg",
-    "leadAlt": "The V2 title screen: the poster title over the office group photo, your employee file, today's shift with Punch In, and the newest devlog memo.",
+    "cover": "img/10-key-art.jpg",
+    "leadAlt": "3 a.m. on the couch: Rami in a hoodie with a burp cloth and a bottle, the V2 title screen on his laptop, the whole cast standing on the coffee table, and the twins asleep in their bassinet.",
     "blurb": "Between 3 a.m. feedings and Election Day, the game got a whole second version: new title art, lights, coworkers and a final boss you can't beat.",
     "teaser": "Version two, built on paternity leave, one feeding at a time.",
     "changes": [

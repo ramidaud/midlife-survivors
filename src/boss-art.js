@@ -5,29 +5,40 @@ window.BossArt = (() => {
     performanceReview: "assets/bosses/boss-performance-review-v1.png",
     mortgageRefinance: "assets/bosses/boss-30-year-mortgage-v1.png",
     midlifeCrisis: "assets/bosses/boss-midlife-crisis-v8-v1.png",
-    goldWatch: "assets/bosses/boss-gold-watch-v1.png"
+    goldWatch: "assets/bosses/boss-gold-watch-v1.png",
+    // Full Life bosses (ChatGPT, Nov 4)
+    hoaPresident: "assets/bosses/boss-hoa-president-v1.png",
+    retirementBoss: "assets/bosses/boss-retirement-audit-v1.png",
+    pickleballChamp: "assets/bosses/boss-pickleball-champ-v1.png"
   };
   const MARKERS = {
     performanceReview: ["assets/bosses/telegraph-performance-review-v1.png", 256, 128],
     mortgageRefinance: ["assets/bosses/telegraph-30-year-mortgage-v1.png", 192, 128],
     midlifeCrisis: ["assets/bosses/telegraph-midlife-crisis-v8-v1.png", 256, 128],
-    goldWatch: ["assets/bosses/telegraph-gold-watch-v1.png", 256, 128]
+    goldWatch: ["assets/bosses/telegraph-gold-watch-v1.png", 256, 128],
+    hoaPresident: ["assets/bosses/telegraph-hoa-president-v1.png", 256, 128],
+    retirementBoss: ["assets/bosses/telegraph-retirement-audit-v1.png", 192, 128],
+    pickleballChamp: ["assets/bosses/telegraph-pickleball-champ-v1.png", 256, 128]
   };
   const ORIGIN_Y = 148 / 152; // the foot point
   // The friendly retirement punch clock at 65 (ChatGPT, Nov 4). Row 0 waits (160 ms), row 1 clocks out once (110 ms) and holds.
   const CLOCK_OUT = "assets/bosses/clock-out-goal-v1.png";
+  // Father Time at 100 (ChatGPT, Nov 4): same layout, row 0 waits, row 1 shakes your hand. Feet at y148.
+  const FATHER_TIME = "assets/bosses/father-time-v1.png";
   function preload(scene) {
     ArtSheets.load(scene, "bossart_clockOut", CLOCK_OUT, 144, 152);
+    ArtSheets.load(scene, "bossart_fatherTime", FATHER_TIME, 144, 152);
     for (const [k, f] of Object.entries(FILES)) ArtSheets.load(scene, "bossart_" + k, f, 144, 152);
     for (const [k, [f, w, h]] of Object.entries(MARKERS)) ArtSheets.load(scene, "bossmark_" + k, f, w, h);
   }
   // state: chase | telegraph | attack | recover
   function sync(scene, boss, state, now) {
-    const key = boss.clockOut ? "bossart_clockOut" : "bossart_" + boss.kind;
+    const father = boss.clockOut && boss.kind === "theReaper" && !(window.modeCfg && modeCfg().endBossLabel);
+    const key = boss.clockOut ? (father ? "bossart_fatherTime" : "bossart_clockOut") : "bossart_" + boss.kind;
     if ((!boss.clockOut && !FILES[boss.kind]) || !scene.textures.exists(key)) return;
     let v = boss._art;
     if (!v || !v.active) {
-      v = boss._art = scene.add.sprite(boss.x, boss.y, key, 0).setOrigin(0.5, boss.clockOut ? 151 / 152 : ORIGIN_Y);
+      v = boss._art = scene.add.sprite(boss.x, boss.y, key, 0).setOrigin(0.5, boss.clockOut && !father ? 151 / 152 : ORIGIN_Y);
       boss.artRecord = { visual: v }; // death pop and hit squash use the drawn boss
       boss.once("destroy", () => { if (v.active) v.destroy(); if (boss._mark) boss._mark.destroy(); });
     }
