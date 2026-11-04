@@ -1233,3 +1233,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami renamed Mom's Casserole to Mom's Spaghetti (new bowl placeholder; ChatGPT's loadout brief updated).
 - The interns' Special Delivery card was a once-ever tip, so Rami hadn't seen it in ages. It now shows with the first intern of every run.
 - V. 1.89.1: bosses charging into a wall (Performance Review, Midlife Crisis V8) now bounce off with a BONK!, wobble for about a second (hurt pose, no damage), then chase again. Desks still don't stop them. Rami's catch.
+
+## Nov 4, 2026 (morning): Loadout is your call (V. 1.90.0)
+- Chests only upgrade or evolve what you carry; no new weapons or passives from chests (Rami: the loadout should be a decision).
+- Level-ups that offer a new item get a Skip button above the cards (+2 HP).
+- The Lounge card was almost always skipped (it was dropped next to a promotion card). It now waits its turn and shows TJ and Derek together.
+- Fixed a false "two employee files" prompt: two cloud saves could finish out of order. Identical files no longer ask.

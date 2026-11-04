@@ -1999,7 +1999,7 @@ function showRetire80Modal(scene, onContinueSenior, onClaimWin) {
   window.menuNav.refresh();
 }
 
-function renderLevelUpModal(choices, customTitle, onPick) {
+function renderLevelUpModal(choices, customTitle, onPick, skip) {
   const modal = document.getElementById("levelup-modal");
   const title = document.getElementById("lv-title");
   const kicker = document.getElementById("lv-kicker");
@@ -2062,6 +2062,20 @@ function renderLevelUpModal(choices, customTitle, onPick) {
     grid.appendChild(card);
     return card;
   });
+
+  // Skip button under the cards (only when a choice would add something new to your loadout)
+  let skipEl = document.getElementById("lv-skip");
+  if (skipEl) skipEl.remove();
+  const anyNew = window.LOADOUT && choices.some(up => { const k = LOADOUT.kindOf(up); return (k === "weapon" && up.name.startsWith("Unlock:")) || (k === "passive" && !((stats.perkRanks || {})[up.id] > 0)); });
+  if (skip && anyNew) {
+    skipEl = document.createElement("button"); skipEl.type = "button"; skipEl.id = "lv-skip"; skipEl.className = "lv-skip";
+    skipEl.innerHTML = `<b>SKIP</b> Keep my loadout · +2 HP`;
+    if (!document.getElementById("lv-skip-css")) { const st = document.createElement("style"); st.id = "lv-skip-css";
+      st.textContent = `.lv-skip{display:block;margin:-4px auto 16px;padding:7px 14px;min-height:38px;border-radius:5px;border:2px dashed #526078;background:rgba(23,28,53,.7);color:#B8C0D4;font:14px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}.lv-skip b{font:11px Silkscreen,monospace;letter-spacing:.06em;color:#F2D7A1;margin-right:6px}.lv-skip:hover,.lv-skip.nav-focused{border-style:solid;border-color:#F2D7A1;color:#FFF0CF}`;
+      document.head.appendChild(st); }
+    grid.parentNode.insertBefore(skipEl, grid); // above the cards, so it never scrolls off a phone screen
+    bindNavItem(skipEl, 1, () => { if (performance.now() - openedAt < 450) return; modal.classList.add("hidden"); skipEl.remove(); onPick(skip); });
+  }
 
   function highlightCard(idx) {
     const target = cardEls[idx];

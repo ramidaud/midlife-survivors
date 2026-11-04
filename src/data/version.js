@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.89.1",
-  displayVersion: "V. 1.89.1",
+  version: "1.90.0",
+  displayVersion: "V. 1.90.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 201,
+  build: 202,
   changelog: [
+    {
+      ver: "V. 1.90.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Your loadout is your call: chests only upgrade what you carry, and you can skip a level-up.",
+      highlights: [
+        "Boss chests no longer hand you new weapons or passives. They only upgrade what you already carry (or evolve it), so every slot is your choice.",
+        "Level-ups that offer something new now have a Skip button: keep your loadout as it is and heal 2 HP.",
+        "TJ and Derek's Lounge card now actually shows when the Lounge opens (it used to get skipped right after a promotion card).",
+        "Fixed: after a run, the cloud save could ask you to choose between two identical files."
+      ]
+    },
     {
       ver: "V. 1.89.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Bosses that charge into a wall now bounce off it. BONK.",

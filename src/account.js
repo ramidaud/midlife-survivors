@@ -18,7 +18,7 @@ window.Account = (() => {
   // screen for players with some progress who haven't signed in or said no. "Not now" waits 2 days; "don't ask again" is forever.
   const PROMPT_KEY = "ms-acct-prompt", SNOOZE_MS = 2 * 24 * 3600 * 1000, PROMPT_DELAY_MS = 1600;
   let promptTimer = null, promptedThisVisit = false;
-  let sb = null, libPromise = null, session = null, applying = false, pushTimer = null, lastPush = 0, lastPull = 0;
+  let sb = null, libPromise = null, session = null, applying = false, pushTimer = null, lastPush = 0, lastPull = 0, changedSince = 0;
   let ui = { step: "start", email: "", busy: false, msg: "", err: "", conflict: null };
 
   const readJSON = (k, d) => { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } };
@@ -95,7 +95,7 @@ window.Account = (() => {
   }
   async function push(opts) {
     if (!signedIn()) return;
-    clearTimeout(pushTimer); pushTimer = null; lastPush = Date.now();
+    clearTimeout(pushTimer); pushTimer = null; lastPush = Date.now(); const sentAt = Date.now();
     const f = localFile(), body = JSON.stringify({
       user_id: session.user.id, meta: f.meta, run: f.run,
       game_version: (window.GAME_VERSION || {}).displayVersion || "", device: /Mobi|Android|iPhone|iPad/.test(navigator.userAgent) ? "mobile" : "desktop"
@@ -105,13 +105,18 @@ window.Account = (() => {
       const r = await rest(`${A().table}?on_conflict=user_id&select=updated_at`, { method: "POST", body, keepalive, headers: { Prefer: "resolution=merge-duplicates,return=representation" } });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const row = (await r.json())[0];
-      setSync({ uid: session.user.id, at: row ? row.updated_at : sync().at, dirty: false });
+      // Two saves can finish out of order (a timed save and a save-on-leave). Keep the newest time we've seen, and
+      // stay "dirty" if something changed while this save was in flight (Nov 4: Rami saw two identical files).
+      const prev = sync().at, at = row && (!prev || new Date(row.updated_at) > new Date(prev)) ? row.updated_at : prev;
+      setSync({ uid: session.user.id, at, dirty: changedSince > sentAt });
+      if (changedSince > sentAt && !pushTimer) pushTimer = setTimeout(() => push(), 3000);
       ui.err = "";
     } catch (e) { ui.err = "Couldn't save to the cloud just now. Your file is safe on this device; we'll try again."; }
     render(); refreshTitle();
   }
   function markDirty() {
     if (applying) return;
+    changedSince = Date.now();
     setSync({ dirty: true });
     if (!signedIn()) return;
     const wait = Math.max(3000, (A().pushEveryMs || 20000) - (Date.now() - lastPush));
@@ -135,6 +140,8 @@ window.Account = (() => {
         else { ui.conflict = { row, local }; ui.step = "conflict"; open(); }
       } else if (row.updated_at !== s.at && new Date(row.updated_at) > new Date(s.at || 0)) { // another device saved since
         if (!s.dirty) { applyFile(row); ui.msg = "Picked up your latest progress from another device."; }
+        // Same progress on both sides (usually this device's own earlier save that finished out of order): no question, just save.
+        else if (JSON.stringify(summary(row)) === JSON.stringify(summary(local))) { setSync({ at: row.updated_at }); await push(); }
         else { ui.conflict = { row, local }; ui.step = "conflict"; open(); }
       } else if (s.dirty) await push();
       if (firstTime && ui.step !== "conflict") ui.step = "in";

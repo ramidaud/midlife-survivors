@@ -1217,13 +1217,15 @@ function chestIcon(up) {
 function rollChestRewards(n) {
   const out = [];
   for (let i = 0; i < n; i++) {
-    const pool = UPGRADES.filter(u => !u.isConsumable && (!u.when || u.when(stats)));
+    // Chests only upgrade what you already carry (Nov 4, Rami: "the loadout should be a decision the player makes").
+    // No new weapons and no new passives; evolutions are fine, since they grow from your own picks.
+    const L = window.LOADOUT;
+    const isNewItem = u => u.name.startsWith("Unlock:") || (L && L.kindOf(u) === "passive" && !((stats.perkRanks || {})[u.id] > 0));
+    const pool = UPGRADES.filter(u => !u.isConsumable && (!u.when || u.when(stats)) && !isNewItem(u));
     const evos = pool.filter(u => u.isEvolution);
-    const unlocks = pool.filter(u => u.name.startsWith("Unlock:"));
     let up = null;
     if (evos.length) up = Phaser.Utils.Array.GetRandom(evos);
-    else if (i === 0 && unlocks.length) up = Phaser.Utils.Array.GetRandom(unlocks);
-    else if (pool.length) up = Phaser.Utils.Array.GetRandom(pool.filter(u => !u.name.startsWith("Unlock:")).length ? pool.filter(u => !u.name.startsWith("Unlock:")) : pool);
+    else if (pool.length) up = Phaser.Utils.Array.GetRandom(pool);
     if (!up) {
       const bonus = window.getCoinYieldInfo().value * 3;
       runCoins += bonus; meta.coins += bonus; saveMeta(meta);
@@ -1338,7 +1340,9 @@ function showLevelUp(scene, customTitle, preferWeapons) {
     if (pendingLevels > 0) showLevelUp(scene);
   };
 
-  const uiCtrl = renderLevelUpModal(choices, customTitle, pick);
+  // Skip (Nov 4): with only 6 slots, you may not want any of the three. Skipping heals a little instead.
+  const SKIP = { id: "skipPerk", name: "Skip", isSkip: true, text: "Keep your loadout as it is. Heal 2 HP instead.", apply: s => { s.heal = 2; } };
+  const uiCtrl = renderLevelUpModal(choices, customTitle, pick, SKIP);
   levelMenu = {
     sel: 0,
     count: choices.length,

@@ -153,7 +153,7 @@ window.Spotlight = (() => {
   //   - each card waits only so long (maxWaitMs); if it's stale by then it's skipped
   //   - the Lounge card shows once per run, and not right after a room card (that card's tip already points there)
   const PRI = { boss: 3, event: 3, hire: 2, room: 1, lounge: 1, tip: 0 }; // event: one-off moments (clocking out, the yellow note)
-  const PACE = { maxTipsPerRun: 2, gapMs: 15000, maxWaitMs: { event: 15000, hire: 20000, room: 40000, lounge: 15000, tip: 20000, boss: 15000 } };
+  const PACE = { maxTipsPerRun: 2, gapMs: 15000, maxWaitMs: { event: 15000, hire: 20000, room: 40000, lounge: 60000, tip: 20000, boss: 15000 } };
   let lastHiddenAt = -1e9, lastShownKind = null, run = { lounge: false, lastRoomAt: -1e9 };
 
   function hide() {
@@ -175,9 +175,12 @@ window.Spotlight = (() => {
     // At most two first-time tips per run; the rest wait for a later run (they only count as seen once shown).
     if (card.kind === "tip" && run.tips >= (PACE.maxTipsPerRun || 2)) return;
     if (card.kind === "lounge") {
-      const roomNear = card.at - run.lastRoomAt < 45000 || queue.some(c => c.kind === "room") || (showing && showing.kind === "room");
-      if (run.lounge || roomNear) return; // once a run, and never next to a room card
+      // Once a run. It used to be dropped if a room card had just shown, and the Lounge opens right after a promotion,
+      // so it almost never appeared (Rami, Nov 4). Now it waits its turn: a few seconds after the room card instead.
+      if (run.lounge) return;
       run.lounge = true;
+      const roomNear = card.at - run.lastRoomAt < 12000 || queue.some(c => c.kind === "room") || (showing && showing.kind === "room");
+      if (roomNear) card.notBefore = Math.max(card.at, run.lastRoomAt) + 12000;
     }
     queue = queue.filter(c => c.kind !== card.kind || card.kind === "boss"); // newest of each kind wins
     queue.push(card);
@@ -241,6 +244,13 @@ window.Spotlight = (() => {
     },
     lounge(r) {
       const line = (r.lines || [])[Math.floor(Math.random() * (r.lines || []).length)] || "Cash only.";
+      // Duo card (Nov 4, Rami: "another intern card when the lounge opens"): TJ and Derek together behind the counter.
+      const R = ((window.INTERNS || {}).roster || []).filter(x => x.portrait), other = R.find(x => x.id !== r.id);
+      if (r.portrait && other) {
+        show({ kind: "lounge", kicker: "NOW OPEN", name: "THE LOUNGE", line: r.name + ": " + line, tip: `${r.name} is on the register. Follow the arrow to the Break Room counter.`,
+               art: ROOT + r.portrait, art2: ROOT + other.portrait, artType: "hero", edge: "#EF9347", band: "#3E7775", ms: 5500 });
+        return true;
+      }
       show({ kind: "lounge", kicker: "NOW OPEN", name: "THE LOUNGE", line: r.name + ": " + line, tip: "Follow the arrow to the Break Room counter.",
              // On Break portrait (same 96x112 format as the heroes, by ChatGPT); falls back to the counter sprite.
              art: (r.portrait ? ROOT + r.portrait : null) || ((window._activeGameScene && _activeGameScene.textures.exists("intern2_" + r.id)) ? r.sheet : null), artType: r.portrait ? "hero" : "intern", edge: "#EF9347", band: "#3E7775", ms: 5000 });
