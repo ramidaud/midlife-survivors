@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.75.0",
-  displayVersion: "V. 1.75.0",
+  version: "1.75.1",
+  displayVersion: "V. 1.75.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 176,
+  build: 177,
   changelog: [
+    {
+      ver: "V. 1.75.1", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "Quick Retry drops you straight into the office. No more old placeholder room while it rebuilds.",
+      highlights: [
+        "Quick Retry used to show an old placeholder room for a couple of seconds while the office rebuilt. The office now reuses the art it already unpacked (about 10x faster) and fades in once it's ready."
+      ]
+    },
     {
       ver: "V. 1.75.0", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "Lighter on phones: no hidden 3D engine, a calmer HUD, and too many gems on the floor merge into one big red gem.",

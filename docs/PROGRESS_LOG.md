@@ -1092,3 +1092,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The HUD only writes what changed (about 11 writes a second instead of ~20 every frame). Gems over 150 merge into a big red gem; unclaimed coins and pizza blink out after a minute (`FLOOR_LIMITS` in src/data/pickups.js).
 - Fixed two Retry leaks (resize listener, leftover Spotlight cards).
 - Found while testing: after Quick Retry the old placeholder room shows for ~2 s while the office rebuilds. It was already in the live build; it's Fable #9.
+
+## 2026-11-03 (late): V. 1.75.1, Quick Retry goes straight to the office
+- On Retry the office re-unpacked all its art before checking if it already had it; that was ~90% of the rebuild. Now it checks first: rebuild went from ~5.3 s to ~0.5 s in the test browser.
+- On Retry the view stays blank until the office is ready, then fades in (0.2 s), so the old placeholder room never shows. 3 s safety net.
+- New concept: caching (LEARNING_NOTES and a TEXTBOOK chapter).

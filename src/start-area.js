@@ -233,6 +233,9 @@ window.StartAreaArt = (() => {
   const add=(o,bounds=null)=>{all.push({o,bounds});return o;};
   // Decode everything before replacing the fallback office.
   for(const [id,a]of Object.entries(START_AREA_IMAGES)){
+   // Already cut on an earlier run (Quick Retry): skip the decode, which was ~90% of the rebuild (Fable review #9).
+   let have=true;for(let v=0;v<a.variants;v++)if(!scene.textures.exists('slice_'+id+'_'+v)){have=false;break;}
+   if(have)continue;
    const img=await H.image(a.src);if(!H.isAlive())return null;
    for(let v=0;v<a.variants;v++){const c=document.createElement('canvas');c.width=a.frame[0];c.height=a.frame[1];c.getContext('2d').drawImage(img,v*c.width,0,c.width,c.height,0,0,c.width,c.height);H.propTexture(scene,c,'slice_'+id+'_'+v,...a.frame);}
   }

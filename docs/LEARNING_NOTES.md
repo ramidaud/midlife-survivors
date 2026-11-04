@@ -497,3 +497,6 @@ CLOSED --promotion + Break Room open--> OPEN --you walk up, no crowd--> BROWSING
 
 ## Priority queue (Nov 3)
 When several things want the same spot on screen, a **priority queue** decides who goes next. Each Spotlight card gets a rank (boss highest, tips lowest) and a time stamp. The game always shows the highest-ranked card first, waits a few seconds between cards so they don't pile up, and throws away cards that have waited too long to still make sense. It's the same idea as a dispatcher at a busy desk: urgent calls jump the line, and stale messages get tossed.
+
+## Caching (Nov 3, Quick Retry)
+A **cache** is a place to keep the result of slow work so you don't redo it. The office art starts as compressed pictures that have to be unpacked and cut into pieces, which takes a while. The game kept those pieces after a run, but on Quick Retry it still unpacked every picture again before checking. Now it checks first ("do I already have this piece?") and skips the slow part, so the office rebuild dropped from about 5 seconds to half a second in testing. It's like keeping your camera bag packed between shoots instead of unpacking and repacking it every time.

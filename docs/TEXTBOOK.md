@@ -1688,3 +1688,19 @@ time ─────────────────────────
 | New hire | 2 | 20 s |
 | Room, Lounge | 1 | 25 s / 15 s |
 | Tip | 0 | 20 s |
+
+## Chapter: Caching (Quick Retry, Nov 3)
+**Idea:** do slow work once, keep the result, check for it before doing the work again.
+
+```
+BEFORE (every Quick Retry)                 AFTER
+  unpack 66 pictures   ~4.0 s                 have the pieces? yes -> skip   0 s
+  cut into pieces      (skipped, had them)    lay out the office             0.3 s
+  lay out the office   0.3 s                  bake the floor                 0.2 s
+  bake the floor       0.2 s                  ---------------------------------
+  -------------------------                   total ~0.5 s (in the slow test browser)
+  total ~5 s
+```
+
+**The check is the whole trick:** `if (scene.textures.exists(key)) skip`. The texture manager is the cache: it outlives a single run, so anything stored there is still around on Retry.
+**Watch out:** a cache can go stale. If the art changes mid-session, the old pieces would stay. Here that's fine, because art only changes when a new version loads, and a new version reloads the page.

@@ -83,14 +83,20 @@ window.WorldArt = (() => {
     async function loadOffice() {
       if(window.USE_START_AREA && window.StartAreaArt) {
         const before=new Set(scene.children.list);
+        // Quick Retry (the office was built before): keep the view blank for the moment it takes to rebuild,
+        // then fade it in, so the old placeholder room never flashes (Fable review #9). 3 s safety net.
+        const cam=scene.cameras.main,veil=window.__officeBuiltOnce;
+        const reveal=()=>{if(!alive||cam.alpha===1)return;scene.tweens.add({targets:cam,alpha:1,duration:200});};
+        if(veil){cam.setAlpha(0);setTimeout(()=>{if(alive)cam.setAlpha(1);},3000);}
         try {
           const area=await StartAreaArt.build(scene,refs,{image,propTexture,body,isAlive:()=>alive});
-          if(!alive||!area){if(area)area.destroy();return;}
+          if(!alive||!area){if(area)area.destroy();reveal();return;}
           refs.props.forEach(p=>p.destroy());refs.props.splice(0,refs.props.length,...pendingProps);pendingProps.length=0;
           window.stagePlatforms.forEach(p=>p.destroy());window.stagePlatforms=[];
           refs.floor.setTexture('slice_void').clearTint().setDepth(-1000000000);
-          state.startArea=area;state.active=true;scene.cameras.main.setRoundPixels(true);return;
+          state.startArea=area;state.active=true;scene.cameras.main.setRoundPixels(true);window.__officeBuiltOnce=true;reveal();return;
         } catch(error) {
+          reveal();
           scene.children.list.slice().forEach(o=>{if(!before.has(o))o.destroy();});pendingProps.length=0;
           scene.cameras.main.removeBounds();console.warn('Start-area art fallback: '+error.message);
         }
