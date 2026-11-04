@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "dimensions": [
+    864,
+    304
+  ],
+  "cell": [
+    144,
+    152
+  ],
+  "frames": 12,
+  "distinctFrames": 12,
+  "paletteOnly": true,
+  "hardAlpha": true,
+  "baseLine": 151,
+  "lowerPedestalAndGiftsFixed": true,
+  "rows": [
+    {
+      "name": "waiting",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ms": 160,
+      "loop": true
+    },
+    {
+      "name": "clock_out",
+      "frames": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "ms": 110,
+      "loop": false,
+      "holdLast": true
+    }
+  ],
+  "frameHashes": [
+    "0eb7958a20dbdefdbc90ddc90f1dcb73b26443103070d987f9e79d012785f74a",
+    "cdde4563e0ee6909b2f3e25b7f99fece2d147ca4435b9fb378935adf601ec03c",
+    "4556847fcc722c6a5d46dd1572fe4e26e5bc8abd2829941948baac619ae28cd7",
+    "92eaf753542737c8e5c85938e6272e61d901fba781900a9bda41ed8fb3db3964",
+    "913bfa39c019ce31dbdd458c275778b6bddec3f27b00d75fc51c66b4a57d007b",
+    "40d80ae1aba84bd4b293d3eac30414ad0d613ccc4be132692b87fff20845e16b",
+    "73d8595a72e0a92d7d0a98e394fac39c0927a5d3d65c4868525f3642a6166f8e",
+    "c854b19bac907d5b97b1ecede827bd6b365d3bd6c39ac4dc7703236371e6dbcb",
+    "4728db731c06bc05dddab4d99d7a06482821399a810709acb71fe5ef3d0f2daa",
+    "a2795bf285844832cd8037bf70334677115bec9bfc8eb32036b61a3025d989f1",
+    "08a511f202fe06bf44d5212d9d3b302a7915183b3c91e87864e324101ee65e6a",
+    "44d424c3d7a398fd0de1273dd776e5fe02fb3fcaceba0d6ec3f22869195b6578"
+  ]
+}

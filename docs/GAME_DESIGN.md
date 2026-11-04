@@ -507,3 +507,5 @@ Derek's On Break camera v2 uses a charcoal body and round highlighted lens match
 - **New weapons:** Mom's Casserole (Healing), Noise-Cancelling Headphones (Shield), Rolling Office Chair, Reply-All Storm and Sticky Notes (Offense), Out-of-Office Reply and Thermostat Wars (Defense; Thermostat freezes enemies).
 - **New passives:** Multivitamin, Meal Prep Sunday (Healing), Cardigan (Shield), Lumbar Support, Fitness Tracker (Defense), Bifocals (Offense).
 - **Evolutions:** Potluck, Do Not Disturb, Executive Swivel, Company-Wide Memo, Sabbatical, Wall of Post-its, Polar Vortex.
+### 2026-11-04: Friendly age-65 destination art (Codex)
+Midlife retirement gets a welcoming punch-clock station with balloons and gifts, with a waiting loop and a one-shot clock-out celebration. This art delivery keeps the existing win interaction and Full Life Father Time unchanged; Claude owns integration.

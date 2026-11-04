@@ -281,3 +281,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files.** `assets/characters/portraits/intern-derek-on-break-v2.png`, three row GIFs, the v1/v2 4x check, `README-derek-camera-v2.md` and prompt. Sheet stays 768x336, 96x112 cells; rows are 6 frames at 220 ms, 8 at 140 ms and 8 at 150 ms.
 - **For Claude.** Point Derek's portrait reference at v2 for the Lounge and Intern Delivery cards. No runtime or version changes in this art-only commit. Decoded pixel comparison: 2,491 changes, all inside camera masks; unchanged alpha, skin, original orange strap, flash, empty cells and shoe line. Preview load checked at 390x844 and 1280x800; GIF counts/delays verified. No gameplay/leaderboard requests were needed.
 - [done] Claude switched Derek's cards to the camera v2 portrait in V. 1.79.0 (Nov 4), and fixed the Art Room display bugs from the final audit (#8).
+
+
+## 2026-11-04: Friendly clock-out goal (Codex)
+- **What.** Delivered the age-65 retirement punch-clock station: stopped five-o-clock dial, card rack, three balloons, bow, gifts, fish picture and a breathing pixel halo. No spooky imagery or baked text.
+- **Files.** `assets/bosses/clock-out-goal-v1.png`, both row GIFs, 2x comparison with the Gold Watch and 9-to-5er, detail image, README, prompt and pixel-check JSON.
+- **For Claude.** Art only, Midlife ending only. Keep Full Life Father Time separate. Sheet is 864x304, 6x2 of 144x152, anchor (72,151). Waiting frames0-5 at160ms loop; clock-out6-11 at110ms once, hold11. Twelve distinct poses, exact twelve-color palette, binary alpha and fixed lower base verified. Runtime texture/contact wiring is yours.

@@ -513,3 +513,6 @@ Making a new thing on screen costs time: the game has to build it, draw its pict
 - A **slot limit** (6 weapons, 6 passives) turns every level-up into a trade-off: take the freeze now, or save the slot for a healer?
 - Vampire Survivors works the same way. The fun is in the build you commit to, not in owning everything.
 - Labels (Healing, Shield, Offense, Defense) help players see what kind of build they're making, so they can lean into a style on purpose.
+
+## 2026-11-04: Floor anchors in animation (Codex)
+The clock-out station keeps the same floor anchor in every pose. Its balloons and card can move while the pedestal, gifts and fish frame stay planted, so a celebratory animation does not look like the furniture is sliding.
