@@ -274,3 +274,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: Final art audit before V2 (Codex)
 - **What.** Report only: `docs/handoffs/chatgpt-final-pass-review.md` contains the three-line summary, ranked top ten, consistency/placeholder/animation/phone findings and a measured asset-weight inventory. Audited V. 1.76.2, then pulled through `abc63a3` (V. 1.77.1) and checked the intervening changes. Desktop 1280x800 and phone 390x844 checks used `?nostats=1&dev=1`; no score was submitted. Biggest gaps: friendly clock-out art, assembled world coworkers, procedural combat/loot and Full Life boss identities. Confirmed Art Room filter and Spotlight stylesheet bugs need presentation fixes, not new portraits. Derek's existing camera-only brief is referenced, not started. No art, runtime, version or published-post changes; Rami chooses the next jobs.
+
+
+## 2026-11-04: Derek's portrait camera v2 (Codex)
+- **What.** Replaced only the camera across all 22 occupied On Break frames with a charcoal body, round highlighted lens, viewfinder and shutter. All v1 files remain intact.
+- **Files.** `assets/characters/portraits/intern-derek-on-break-v2.png`, three row GIFs, the v1/v2 4x check, `README-derek-camera-v2.md` and prompt. Sheet stays 768x336, 96x112 cells; rows are 6 frames at 220 ms, 8 at 140 ms and 8 at 150 ms.
+- **For Claude.** Point Derek's portrait reference at v2 for the Lounge and Intern Delivery cards. No runtime or version changes in this art-only commit. Decoded pixel comparison: 2,491 changes, all inside camera masks; unchanged alpha, skin, original orange strap, flash, empty cells and shoe line. Preview load checked at 390x844 and 1280x800; GIF counts/delays verified. No gameplay/leaderboard requests were needed.

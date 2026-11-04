@@ -500,3 +500,7 @@ When several things want the same spot on screen, a **priority queue** decides w
 
 ## Caching (Nov 3, Quick Retry)
 A **cache** is a place to keep the result of slow work so you don't redo it. The office art starts as compressed pictures that have to be unpacked and cut into pieces, which takes a while. The game kept those pieces after a run, but on Quick Retry it still unpacked every picture again before checking. Now it checks first ("do I already have this piece?") and skips the slow part, so the office rebuild dropped from about 5 seconds to half a second in testing. It's like keeping your camera bag packed between shoots instead of unpacking and repacking it every time.
+
+
+## 2026-11-04: Checking a camera-only sprite edit (Codex)
+A pixel comparison can prove a small art edit stayed small. Derek's v2 portrait changes only the camera masks in 22 frames; every pixel outside those masks and every transparency value matches v1. This keeps the existing poses, expressions and timing safe while one detail is improved.

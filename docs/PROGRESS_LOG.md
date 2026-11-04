@@ -1137,3 +1137,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The dashboard has three small panels (the build, the playtest, Rami's record), a builds-per-day mini chart, a phone/desktop/tablet split bar and the top causes of death. On desktop it's about 280 px tall, down from a full block.
 - Personnel file: portrait beside the name, chips and bio, with the links as one row of pills (duplicate Play/Devlog links removed).
 - Also confirmed: the leaderboard cap is now 5,000,000 and Derek's 579,444 is on the board.
+
+## 2026-11-04: Derek camera detail correction (Codex)
+- Delivered v2 On Break art with a dark camera and readable round lens, plus three preview loops and a 4x comparison.
+- Pixel checks preserve everything outside the camera masks, including hands, strap, flash and feet. V1 stays intact.
+- Art only, awaiting Claude's portrait-reference switch. Frame map and timing stay the same; no game version bump.

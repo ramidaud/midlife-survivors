@@ -201,3 +201,8 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 - [ ] Stage 3: ambient coworker idle sheets and review page.
 - [x] Stage 4 start-area slice only: authored Lobby/Bullpen, closed gates, age-50 and crowd checks.
 - [ ] Full campus, gate opening, wrapping and explored-path map after Rami plays.
+
+
+### 2026-11-04: Focused art delivery (Codex)
+- [x] Derek's On Break camera-only v2 correction, three preview GIFs and comparison.
+- [ ] Claude switches the Lounge and Intern Delivery portrait reference to v2 after review.

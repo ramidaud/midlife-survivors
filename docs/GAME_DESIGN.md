@@ -490,3 +490,7 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
 - **Ben, the Coldwar Cowboy (Nov 3, Rami; built V. 1.67.0: Floppy Disk + once-a-run reboot):** works in IT and has a soft spot for days gone by (floppy disks, pagers, rotary phones). He wears a tan cowboy hat and has long wavy hair. He's the Required Reading unlock. Art brief: docs/handoffs/chatgpt-friends-sprites.md. Starting kit and jokes still to come.
 - **Spotlight cards built (V. 1.66.0):** Claude picked the funniest of Gemini's two options per card (Rami: "funniest please").
 - **Memo 10 = the V. 2 announcement (Rami, Nov 3):** the full before and after across every screen. Memo 09 keeps just the title screen pair.
+
+
+### 2026-11-04: Derek portrait art correction (Codex)
+Derek's On Break camera v2 uses a charcoal body and round highlighted lens matching his walking sheet. His identity, poses, flash, frame timing and shoe line are unchanged. The art is delivered for Claude's reference switch; no mechanics or design rules changed.
