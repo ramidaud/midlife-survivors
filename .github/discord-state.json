@@ -25,5 +25,11 @@
     ],
     "memosReset": true,
     "finished": true
-  }
+  },
+  "artPosted": [
+    "keyart-v2",
+    "cast-v1",
+    "bosses-v1",
+    "props-v1"
+  ]
 }
