@@ -1,0 +1,26 @@
+[
+  {
+    "file": "rami-studio-pixel-v2.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "colors": 20,
+    "alpha": "opaque",
+    "pixelBlock": 4,
+    "uniformBlocks": true,
+    "bytes": 110760
+  },
+  {
+    "file": "rami-headshot-pixel-v1.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "colors": 17,
+    "alpha": "opaque",
+    "pixelBlock": 8,
+    "uniformBlocks": true,
+    "bytes": 39476
+  }
+]

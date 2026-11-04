@@ -221,3 +221,7 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### 2026-11-04: Coworker world poses (Codex)
 - [x] Six complete seated/standing pairs, all row GIFs, metadata and real-size comparison delivered.
 - [ ] Claude replaces the assembled room coworkers after review; preserve navigation and spawn behavior.
+
+### 2026-11-04: Rami's About portrait (Codex)
+- [x] Studio redraw, square headshot, likeness comparison and hero check delivered as art only.
+- [ ] Rami reviews; Claude switches the About-page image and square placements.
