@@ -1070,3 +1070,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - V. 1.73.0: the final boss, The Gold Watch (age 63.5, Midlife). Minute Hand and Hour Hand sweeps (only the leading edge hurts), a 5 AM Alarm with a safe gap at 12, bouncing gears, and three phases (Ticking, Unpaid Overtime, The Last Minute). The office thins out during the duel. Beat it: hands stop at 5:00, tier-5 chest, +35 401(k), "Five O'Clock Somewhere" and a keepsake at the retirement party. Still ticking at 65: you clock out anyway. Grok's numbers, Gemini's words, ChatGPT's art. Dev console has a WATCH button for testing.
 - V. 1.73.1: the Gold Watch can't be beaten (Rami's call, like VS's Reaper). Hits wind it back (push + slower hands), it arrives 1.5 years before retirement, phases follow the clock, and reaching 65 stops the hands at 5:00 with the chest, bonus and keepsake. New "Keep The Receipt" badge for clocking out untouched.
 - V. 1.73.2: Rami saw his hero's card 3-4 times a run. Those repeats were the first-time tip cards, which showed his hero's name and portrait. Now only the opening card names your hero; tip cards name the topic ("INTERN DELIVERY"), show the hero a size smaller, and max out at two per run.
+
+## 2026-11-03 (evening): V. 1.73.3, title art un-squished on phones
+- Rami spotted squished title art on his iPhone. The phone versions of all five key art scenes came from ChatGPT squashed to about 2/3 height (a round soccer ball measured 2:1).
+- Stretched each one back by 1.5× and cropped so the cast stays where it was (new `*-portrait-v2.jpg` files; originals kept).
+- Moved the portrait crop down a little so the cast clears Punch In on a portrait iPad. Phones are unaffected by that change.

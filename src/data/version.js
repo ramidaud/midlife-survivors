@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.73.2",
-  displayVersion: "V. 1.73.2",
+  version: "1.73.3",
+  displayVersion: "V. 1.73.3",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 173,
+  build: 174,
   changelog: [
+    {
+      ver: "V. 1.73.3", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "The title art on phones isn't squished anymore. The cast stands at full height again.",
+      highlights: [
+        "The phone versions of the five title scenes were squashed to about two thirds of their height, so everyone looked short and wide. They're back to the right proportions, with the cast in the same spot."
+      ]
+    },
     {
       ver: "V. 1.73.2", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "Your hero's big card only opens the run now. Tip cards name the topic, show your hero smaller, and stop at two per run.",
