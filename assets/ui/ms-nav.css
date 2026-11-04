@@ -52,6 +52,8 @@ html.ms-playing .ms-nav, html.ms-playing .ms-nav-tab { display: none !important;
   .ms-nav-btn { padding: 9px 10px; font-size: 10px; }
 }
 @media (min-width: 700px) and (pointer: coarse) { .ms-nav-btn { padding: 11px 14px; font-size: 12px; } }
+/* Touch: every nav button is at least 40 px tall, close to Apple's 44 px tap target (Fable review) */
+@media (pointer: coarse) { .ms-nav-btn { min-height: 40px; } }
 
 /* 8-bit cursors everywhere: game, menus, gameplay and every devlog page (Nov 3) */
 html, body, canvas { cursor: url("cursors/cursor-arrow.png") 0 0, auto; }

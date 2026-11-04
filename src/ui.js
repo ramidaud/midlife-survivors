@@ -1722,9 +1722,11 @@ function renderControlsModal(scene, keepSelector) {
             <button class="ctrl-btn ${reb && reb.field === "keyPause" ? "listening" : ""}" id="ctrl-keyPause">
               <span>Pause / Options</span><span class="ctrl-val">${keyBtnLabel("keyPause", "Space")}</span>
             </button>
+${window.ENABLE_3D_VIEWS ? `
             <button class="ctrl-btn ${reb && reb.field === "keyView" ? "listening" : ""}" id="ctrl-keyView">
               <span>Switch View (2D/3D)</span><span class="ctrl-val">${keyBtnLabel("keyView", "KeyV")}</span>
             </button>
+` : ""}<!-- 3D is parked, so its bindings stay hidden (Fable review) -->
             <button class="ctrl-btn ${reb && reb.field === "keyMute" ? "listening" : ""}" id="ctrl-keyMute">
               <span>Mute Audio</span><span class="ctrl-val">${keyBtnLabel("keyMute", "KeyM")}</span>
             </button>
@@ -1742,9 +1744,11 @@ function renderControlsModal(scene, keepSelector) {
               <button class="ctrl-btn ${reb && reb.field === "padPauseBtn" ? "listening" : ""}" id="ctrl-padPauseBtn" data-opt-cycle="1">
                 <span>Pause / Options</span><span class="ctrl-val">${padBtnLabel("padPauseBtn", 9)}</span>
               </button>
+${window.ENABLE_3D_VIEWS ? `
               <button class="ctrl-btn ${reb && reb.field === "padViewBtn" ? "listening" : ""}" id="ctrl-padViewBtn" data-opt-cycle="1">
                 <span>Switch 2D/3D View</span><span class="ctrl-val">${padBtnLabel("padViewBtn", 3)}</span>
               </button>
+` : ""}<!-- 3D is parked, so its bindings stay hidden (Fable review) -->
               <button class="ctrl-btn ${reb && reb.field === "padMuteBtn" ? "listening" : ""}" id="ctrl-padMuteBtn" data-opt-cycle="1">
                 <span>Mute Audio</span><span class="ctrl-val">${padBtnLabel("padMuteBtn", 2)}</span>
               </button>
@@ -1755,7 +1759,7 @@ function renderControlsModal(scene, keepSelector) {
           </div>
 
           <div class="ctrl-section">
-            <div class="ctrl-sec-title">🖱️ MOUSE & 📱 TOUCH CONFIGURATION</div>
+            <div class="ctrl-sec-title" id="ctrl-touch-title">🖱️ MOUSE & 📱 TOUCH CONFIGURATION</div>
             <div class="ctrl-rows">
               <button class="ctrl-btn" id="ctrl-mouseMoveMode" data-opt-cycle="1">
                 <span>Mouse Movement</span><span class="ctrl-val">◀ ${mMode.label} ▶</span>
@@ -1763,9 +1767,11 @@ function renderControlsModal(scene, keepSelector) {
               <button class="ctrl-btn" id="ctrl-mouseRightClick" data-opt-cycle="1">
                 <span>Mouse Right-Click</span><span class="ctrl-val">◀ ${rMode.label} ▶</span>
               </button>
+${window.ENABLE_3D_VIEWS ? `
               <button class="ctrl-btn" id="ctrl-mouseWheelView" data-opt-cycle="1">
                 <span>Mouse Wheel View</span><span class="ctrl-val">◀ ${c.mouseWheelView !== false ? "ON (Cycles 2D/3D)" : "OFF"} ▶</span>
               </button>
+` : ""}<!-- 3D is parked, so its bindings stay hidden (Fable review) -->
               <button class="ctrl-btn" id="ctrl-touchMode" data-opt-cycle="1">
                 <span>Touch Stick Mode</span><span class="ctrl-val">◀ ${tMode.label} ▶</span>
               </button>
@@ -2198,14 +2204,14 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-subhead">✨ EXTRAS</div>
       <div class="title-poll-tile" data-ms-poll="accounts-v1"></div>
       <div class="title-style-switcher"><span>START AT (FULL LIFE):</span>${decadeBtnsHtml}</div>
-      <div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>
+      ${window.SHOW_STAGE_PICKER ? `<div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>` : ""}<!-- hidden until a second stage exists (Fable review) -->
       <div class="title-secondary">
         <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
         <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
         <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
         <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
         <button class="t-style-btn" id="title-discord-btn">💬 DISCORD</button>
-        <button class="t-style-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
+        <button class="t-style-btn danger-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
         <button class="t-style-btn" id="title-art-test-btn">🎨 ART ROOM</button>
         ${backBtn}
       </div>`;

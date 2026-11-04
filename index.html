@@ -35,7 +35,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
-<link rel="stylesheet" href="assets/ui/ms-nav.css?v=4">
+<link rel="stylesheet" href="assets/ui/ms-nav.css?v=5">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Chakra Petch', sans-serif; }
@@ -389,6 +389,12 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; text-align: left;
     margin-bottom: 12px;
   }
+  /* Touch screens: touch settings first, keyboard last (Fable review) */
+  @media (pointer: coarse) {
+    .controls-grid > :first-child { order: 2; }
+    .controls-grid .ctrl-section:has(#ctrl-touch-title) { order: -1; }
+  }
+  #ui-layer .t-style-btn.danger-btn { border-color: #C45C4B !important; color: #F2D7A1; }
   .ctrl-section {
     background: rgba(8, 11, 24, 0.72); border: 1.5px solid rgba(255,255,255,0.16);
     border-radius: var(--pod-radius); padding: 10px 12px;
@@ -1211,6 +1217,8 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .tp-label { font-family: 'Silkscreen', monospace; font-size: 11px; color: var(--ms-sage); letter-spacing: 0.05em; text-align: left; }
   .tp-label b { color: var(--ms-cream); font-weight: 400; margin: 0 6px; }
   .tp-label span { font-family: 'Atkinson Hyperlegible', sans-serif; letter-spacing: 0; color: var(--ms-muted); font-size: 13px; }
+  /* Narrow screens: the hero's description gets its own line instead of wrapping into the label (Fable review) */
+  @media (max-width: 900px) { .tp-crew .tp-label span { display: block; margin-top: 2px; } }
   .tp-badges { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; justify-content: stretch; gap: 10px !important; }
   #ui-layer .tp-badges .dossier-char { position: relative; display: grid; grid-template-columns: 48px 1fr; grid-template-areas: "ic nm" "ic st";
     align-items: center; column-gap: 8px; text-align: left; padding: 14px 10px 8px; border-radius: 6px;
@@ -1582,7 +1590,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=177&t=" + Date.now();
+    s.src = "src/loader.js?v=178&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

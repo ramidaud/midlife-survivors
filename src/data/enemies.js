@@ -227,6 +227,9 @@ window.ENEMIES = {
 // Regular enemies were about half the hero's height, and bosses were barely bigger than the hero.
 // 1 = original size. Bosses keep a smaller hit box than they look, so they don't jam between desks.
 window.ENEMY_SCALE = { regular: 1.4, boss: 2.3, bossHitbox: 0.5 };
+// Name tags (FLAKE!, TAPAS, 9PM BED...) turn into a wall of tiny text when the screen fills up (Fable review #7).
+// Past this many enemies, regular enemies hide their tags. Bosses, elites and the Group Chat's "typing..." always keep theirs.
+window.ENEMY_TAGS = { hideOverPhone: 25, hideOverDesktop: 60 };
 window.BOSS_KINDS = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
 for (const [kind, E] of Object.entries(window.ENEMIES)) {
   E.scale = window.BOSS_KINDS.includes(kind) ? window.ENEMY_SCALE.boss : window.ENEMY_SCALE.regular;

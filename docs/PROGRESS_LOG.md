@@ -1097,3 +1097,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - On Retry the office re-unpacked all its art before checking if it already had it; that was ~90% of the rebuild. Now it checks first: rebuild went from ~5.3 s to ~0.5 s in the test browser.
 - On Retry the view stays blank until the office is ready, then fades in (0.2 s), so the old placeholder room never shows. 3 s safety net.
 - New concept: caching (LEARNING_NOTES and a TEXTBOOK chapter).
+
+## 2026-11-03 (late): V. 1.76.0, Fable review Batch C (phone clarity)
+- Crowded screens hide regular enemy name tags (25+ on phones, 60+ on bigger screens; `ENEMY_TAGS` in src/data/enemies.js). Bosses, elites and "typing..." keep theirs.
+- Nav buttons are 40 px tall on touch screens. Options puts touch first on phones and hides the parked 3D controls; Extras hides stages that don't exist; Reset Progress has a red outline.
+- Sent ChatGPT a brief to redo the five phone title scenes at true proportions (`docs/handoffs/chatgpt-portrait-reexport.md`).

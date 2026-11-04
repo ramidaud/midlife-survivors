@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.75.1",
-  displayVersion: "V. 1.75.1",
+  version: "1.76.0",
+  displayVersion: "V. 1.76.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 177,
+  build: 178,
   changelog: [
+    {
+      ver: "V. 1.76.0", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "Cleaner phones: crowds drop their name tags, nav buttons are easier to tap, and Options puts touch settings first.",
+      highlights: [
+        "When the screen fills up, regular enemies hide their name tags (25+ on phones, 60+ on bigger screens). Bosses, elites and the Group Chat's \"typing...\" keep theirs.",
+        "Nav buttons are at least 40 px tall on touch screens.",
+        "Options: touch settings come first on phones, and the leftover 2D/3D view controls are gone while 3D is parked.",
+        "Extras no longer lists stages that don't exist yet, and Reset Progress has a red outline so thumbs stay away from it."
+      ]
+    },
     {
       ver: "V. 1.75.1", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "Quick Retry drops you straight into the office. No more old placeholder room while it rebuilds.",

@@ -2348,8 +2348,11 @@ function update(time, delta) {
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
+  const TG = window.ENEMY_TAGS || {}, smallView = this.cameras.main.zoom < 0.9 || window.innerWidth < 760;
+  const crowdTags = bills.countActive() > (smallView ? (TG.hideOverPhone || 25) : (TG.hideOverDesktop || 60));
   bills.getChildren().slice().forEach(bill => {
     if (!bill.active) return;
+    if (bill.tag) { const want = !crowdTags || bill.isBoss || bill.elite || bill.typing; if (bill.tag.visible !== want) bill.tag.setVisible(want); }
     const ageMs = now - (bill.bornAt || now);
 
     // Stray check (once a second): an enemy that ended up off the floor (behind a wall, in a dark unbuilt
