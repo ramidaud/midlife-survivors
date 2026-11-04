@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.83.0",
-  displayVersion: "V. 1.83.0",
+  version: "1.83.1",
+  displayVersion: "V. 1.83.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 189,
+  build: 190,
   changelog: [
+    {
+      ver: "V. 1.83.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "No more damage out of nowhere: Group Chats now stay where you can see them.",
+      highlights: [
+        "Ben kept taking damage \"for no apparent reason\" after 50. On phones, Group Chats were parking just past the edge of the screen and pinging you from out of sight.",
+        "Group Chats now hang back closer on small screens, and they only send a ping when they're on screen.",
+        "When a ping hits you, a little \"PING! GROUP CHAT\" pops up so you know what got you."
+      ]
+    },
     {
       ver: "V. 1.83.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Twice the gear, and only room for half of it. Pick your play style.",

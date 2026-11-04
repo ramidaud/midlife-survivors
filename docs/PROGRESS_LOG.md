@@ -1171,3 +1171,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Slots: 6 weapons and 6 passives, so a run can only hold about half of everything. Rami's goal: make players choose how they like to play.
 - Every card has a style badge (Healing, Shield, Offense, Defense). The level-up screen shows your slots and what your build leans toward; the HUD shows filled and empty slots.
 - Tested on phone, iPad and desktop, including every evolution. ChatGPT art brief written for icons and in-world sprites.
+
+## Nov 4, 2026 (morning): Ben's "damage for no reason" (V. 1.83.1)
+- Ben's 6:27 am run (phone, V. 1.83.0) died to Group Chat at 52 with 195 pings landing on him. The play-stats table pointed right at it.
+- Cause: on a phone the Group Chat's 260 px "hang back" distance was exactly the edge of the screen, so it shot from out of sight. The Back Spasm banner was a coincidence.
+- Fix: Group Chats keep closer on small screens and only fire while on screen. A "PING! GROUP CHAT" label shows what hit you.

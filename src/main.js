@@ -710,7 +710,12 @@ function create() {
   this.physics.add.overlap(player, pings, (p, ping) => {
     if (!ping.active) return;
     ping.destroy();
-    hurtPlayer(p, { kind: "groupChat", damage: ping.damage || 1 }); if (window.Telemetry && Telemetry.note) Telemetry.note("ping");
+    const hpBefore = hp;
+    hurtPlayer(p, { kind: "groupChat", damage: ping.damage || 1 });
+    if (hp < hpBefore) { // say what hit you
+      const t = p.scene.add.text(p.x, p.y - 58, "PING! GROUP CHAT", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#8ff0a8", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
+      p.scene.tweens.add({ targets: t, y: t.y - 20, alpha: 0, duration: 900, onComplete: () => t.destroy() });
+    } if (window.Telemetry && Telemetry.note) Telemetry.note("ping");
   });
   if (window.propGroup) {
     this.physics.add.overlap(splashes, window.propGroup, hitProp);
@@ -2545,12 +2550,18 @@ function update(time, delta) {
       const G = ENEMIES.groupChat;
       const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
       const a = Phaser.Math.Angle.Between(player.x, player.y, bill.x, bill.y);
-      if (d > G.keepDistance + 40) chase(bill, bill.speed);
-      else if (d < G.keepDistance - 40) bill.setVelocity(Math.cos(a) * bill.speed, Math.sin(a) * bill.speed); // back away
+      // Stay where you can see it (Nov 4, Ben: "I just start taking damage for no apparent reason"). On a phone the
+      // old 260 px distance parked Group Chats just past the screen edge, so pings came out of nowhere.
+      const cam = this.cameras.main, halfView = Math.min(cam.width, cam.height) / 2 / cam.zoom;
+      const keep = Math.max(150, Math.min(G.keepDistance, halfView * 0.72));
+      if (d > keep + 40) chase(bill, bill.speed);
+      else if (d < keep - 40) bill.setVelocity(Math.cos(a) * bill.speed, Math.sin(a) * bill.speed); // back away
       else bill.setVelocity(-Math.sin(a) * bill.speed * 0.8, Math.cos(a) * bill.speed * 0.8);                // circle you
       if (!bill.nextPing) bill.nextPing = now + G.fireEveryMs * (0.5 + Math.random() * 0.5);
       if (!bill.typing && now >= bill.nextPing - G.typingMs) { bill.typing = true; bill.tag.setText("typing...").setColor("#8ff0a8"); }
-      if (now >= bill.nextPing) {
+      const v = cam.worldView, onScreen = bill.x > v.x + 10 && bill.x < v.right - 10 && bill.y > v.y + 10 && bill.y < v.bottom - 10;
+      if (now >= bill.nextPing && !onScreen) bill.nextPing = now + 300; // only fire from where you can see it
+      else if (now >= bill.nextPing) {
         bill.typing = false; bill.nextPing = now + G.fireEveryMs;
         bill.tag.setText(currentAge >= 80 && G.seniorLabel ? G.seniorLabel : G.label).setColor("#e8e9f3");
         const pa = Phaser.Math.Angle.Between(bill.x, bill.y, player.x, player.y);
