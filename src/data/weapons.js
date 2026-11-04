@@ -156,7 +156,7 @@ window.WEAPONS = {
   },
   stickyNotes: {
     name: "Sticky Notes", // OFFENSE: notes left on the floor; enemies get stuck, then the note pops
-    fireEveryMs: 1800, count: 1, stickMs: 1100, popRadius: 46, damage: 3, lifeMs: 9000, maxOnFloor: 8
+    fireEveryMs: 1500, count: 2, stickMs: 1500, popRadius: 50, damage: 3, lifeMs: 9000, maxOnFloor: 10 // Nov 4: 2 notes, longer stick (Rami: "nothing is really sticking")
   },
   thermostat: {
     name: "Thermostat Wars", // DEFENSE: someone cranked the AC. A cold snap freezes everything near you

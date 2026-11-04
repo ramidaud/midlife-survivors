@@ -1304,3 +1304,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The HOA President, Retirement Audit and Pickleball Champ use ChatGPT's art, each with its own attack (a charge, rings of forms, sliding loops), plus Spotlight cards.
 - Father Time at 100 now waits for you like the clock-out station and shakes your hand. Floor pickups use real pixel art.
 - Memo 10 has its key art cover (3 a.m. on the couch with the twins) and fresh screenshots from V. 1.91.4.
+- V. 1.92.1: Sticky Notes barely stuck to anything (notes landed randomly around you). Now two notes drop in front of incoming enemies, hold longer, and catch neighbors; in a test, 12 of 14 enemies got stuck in 10 seconds.

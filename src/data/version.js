@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.92.0",
-  displayVersion: "V. 1.92.0",
+  version: "1.92.1",
+  displayVersion: "V. 1.92.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 209,
+  build: 210,
   changelog: [
+    {
+      ver: "V. 1.92.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Sticky Notes actually stick now.",
+      highlights: [
+        "Sticky Notes land in front of enemies that are coming for you, two at a time, and hold them longer. The glue catches the ones right behind too.",
+        "Stuck enemies turn cream (not icy blue), and a STUCK! pops up so you can see it working."
+      ]
+    },
     {
       ver: "V. 1.92.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Full Life gets its own bosses: the HOA President, the Retirement Audit, the Pickleball Champ, and Father Time at 100.",

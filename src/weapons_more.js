@@ -80,8 +80,10 @@ window.MoreWeapons = (() => {
       onUpdate: () => { g.clear(); g.lineStyle(4 * (1 - o.t) + 1, color, 1 - o.t).strokeCircle(x, y, r * (0.3 + 0.7 * o.t)); g.fillStyle(color, 0.18 * (1 - o.t)).fillCircle(x, y, r * (0.3 + 0.7 * o.t)); },
       onComplete: () => g.destroy() });
   }
-  function freeze(b, ms) {
+  function freeze(b, ms, glue) {
     if (b.isBoss) { b.slowUntil = Math.max(b.slowUntil || 0, runElapsedMs + ms); return; }
+    if (glue && !(b.frozenUntil > runElapsedMs)) b.stuck = true; // stuck to a note, not iced (no frost on it)
+    else if (!glue) b.stuck = false;
     b.frozenUntil = Math.max(b.frozenUntil || 0, runElapsedMs + ms);
     b.cringeUntil = Math.max(b.cringeUntil || 0, b.frozenUntil); // main.js already skips moving while this is set
     if (b.body) b.setVelocity(0, 0);
@@ -218,7 +220,12 @@ window.MoreWeapons = (() => {
       const S = WEAPONS.stickyNotes, n = stats.postItWall ? 6 + stats.stickyCount : stats.stickyCount;
       for (let i = 0; i < n; i++) {
         const a = stats.postItWall ? (i / n) * Math.PI * 2 : Math.random() * Math.PI * 2, d = stats.postItWall ? 90 : 30 + Math.random() * 60;
-        const x = player.x + Math.cos(a) * d, y = player.y + Math.sin(a) * d;
+        let x = player.x + Math.cos(a) * d, y = player.y + Math.sin(a) * d;
+        if (!stats.postItWall) { // Nov 4 (Rami: "nothing is really sticking"): drop it in front of an enemy that's coming for you
+          const near2 = live().filter(b => !b.isBoss && !b.stuck && near(b, player.x, player.y, 280));
+          const t = near2.length ? near2[Math.floor(Math.random() * near2.length)] : null;
+          if (t) { const vx = t.body ? t.body.velocity.x : 0, vy = t.body ? t.body.velocity.y : 0; x = t.x + vx * 0.35; y = t.y + vy * 0.35; }
+        }
         const img = (has(scene, "ws_sticky") ? scene.add.sprite(x, y, "ws_sticky", Math.random() < 0.5 ? 0 : 1) : scene.add.image(x, y, "w_sticky")).setDepth(2.6).setScale(1.5).setAngle(Phaser.Math.Between(-12, 12));
         W.notes.push({ img, until: now + S.lifeMs, popAt: 0, victim: null });
       }
@@ -228,8 +235,11 @@ window.MoreWeapons = (() => {
       const S = WEAPONS.stickyNotes, x = nt.img.x, y = nt.img.y;
       if (!nt.popAt) {
         if (now >= nt.until) { nt.img.destroy(); return false; }
-        const v = live().find(b => near(b, x, y, 8));
-        if (v) { nt.popAt = now + stats.stickyMs; nt.victim = v; nt.stuckAt = now; freeze(v, stats.stickyMs); if (nt.img.texture.key !== "ws_sticky") nt.img.setTint(0xEF9347); }
+        const v = live().find(b => near(b, x, y, 14));
+        if (v) {
+          nt.popAt = now + stats.stickyMs; nt.victim = v; nt.stuckAt = now; freeze(v, stats.stickyMs, true);
+          live().forEach(o => { if (o !== v && !o.isBoss && near(o, x, y, 30)) freeze(o, stats.stickyMs * 0.6, true); }); // the glue catches the ones right behind it
+          if (now >= (W.stuckSayAt || 0)) { W.stuckSayAt = now + 2500; pop(scene, x, y - 26, "STUCK!", "#F2D7A1"); } if (nt.img.texture.key !== "ws_sticky") nt.img.setTint(0xEF9347); }
         return true;
       }
       if (nt.victim && nt.victim.active) nt.img.setPosition(nt.victim.x, nt.victim.y + 8);
@@ -289,14 +299,16 @@ window.MoreWeapons = (() => {
       if (!b.active || !b.body) return;
       if (b.frozenUntil) {
         if (now < b.frozenUntil) {
-          b.setVelocity(0, 0); if (!b.tintFill) b.setTint(C.ice);
+          b.setVelocity(0, 0);
+          if (b.stuck) { if (!b.tintFill) b.setTint(C.cream); return; } // stuck to a sticky note: a cream tint, no frost
+          if (!b.tintFill) b.setTint(C.ice);
           if (has(scene, "ws_ice")) { // an ice crust and two icicles over the frozen enemy
             if (!b.iceImg || !b.iceImg.active) { b.iceImg = scene.add.image(b.x, b.y, "ws_ice").setDepth((b.depth || 5) + 0.01); W.iced.add(b); }
             b.iceImg.setPosition(b.x, b.y - size(b) * 0.2).setScale(Math.max(0.8, (size(b) * 2.2) / 40));
           }
           return;
         }
-        b.frozenUntil = 0; b.clearTint();
+        b.frozenUntil = 0; b.stuck = false; b.clearTint();
         if (b.iceImg) { b.iceImg.destroy(); b.iceImg = null; W.iced.delete(b); }
       }
       let k = 1;
