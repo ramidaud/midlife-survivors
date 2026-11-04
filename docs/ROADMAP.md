@@ -242,3 +242,7 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### 2026-11-04: Memo 11 cover (Codex)
 - [x] Mail-bot clubhouse cover, portrait crop, 2x preview and export checks delivered.
 - [ ] Rami reviews; Claude places the art with Memo 11.
+
+### 2026-11-04: Memo 10 cover (Codex)
+- [x] Paternity-leave cover, portrait crop, 2x preview and export checks delivered.
+- [ ] Rami reviews; Claude places the art with Memo 10.

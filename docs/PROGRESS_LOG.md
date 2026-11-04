@@ -1294,3 +1294,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: iPad size fix and lighter memo layout (V. 1.91.4)
 - iPad Safari sometimes kept an old screen size after rotating, so the office filled only part of the screen. The game now re-checks a moment later and every second.
 - Memo layout: back-to-back sliders become one tabbed "Then and now" box, "side" pictures sit beside the text, long change lists fold, and any picture opens full size with a tap. Memo 10 uses all of it.
+
+## 2026-11-04: Memo 10, the game coming to life (Codex)
+- Made the quiet 3 a.m. living-room cover: Rami, sleeping twins and six tiny cast members stepping out of his laptop.
+- Delivered a wide JPG, proportional portrait crop and lossless 2x preview; both JPGs are under 400 KB.
+- Likeness, clock, allowed text, native pixels and desktop/phone views checked. Art only, ready for Rami and Claude; the draft is untouched.

@@ -330,3 +330,6 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: Memo 11 Discord cover (Codex)
 - Delivered `devlog/img/11-discord-key-art.jpg` (1600x900, 386,742 bytes), proportional `11-discord-key-art-portrait.jpg` (1200x1500, 391,576 bytes) and lossless 3200x1800 `11-discord-key-art-preview-2x.png`, with prompts/export checks and delivery notes. Rami, courier bots, all five channel tags and the cast follow the approved references; the whiteboard uses an unlabeled arrow to honor the allowed-text rule. Native palette/block, file-size, crop and desktop/phone checks pass. Art/docs only; Claude places it in Memo 11.
+
+## 2026-11-04: Memo 10 paternity-leave cover (Codex)
+- Delivered `devlog/img/10-key-art.jpg` (1600x900, 393,301 bytes), proportional `10-key-art-portrait.jpg` (1200x1500, 378,333 bytes) and lossless 3200x1800 `10-key-art-preview-2x.png`, with prompts, crop/export checks and delivery notes. Wide scene includes Rami, two fictional sleeping newborns and all six miniature cast members; portrait focuses on Rami, bottle and emerging game. Clock reads 3:00; only other lettering is DAD/V2. Palette/block, size, proportions and desktop/phone checks pass. Art/docs only; Claude places it in Memo 10.

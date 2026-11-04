@@ -1,0 +1,50 @@
+{
+  "logicalSize" : [
+    800,
+    450
+  ],
+  "note" : "Lossless preview is palette-limited; JPEG encoding may introduce small color variations around edges.",
+  "outputs" : [
+    {
+      "bytes" : 393301,
+      "encoder" : "cjpeg optimized progressive 4:4:4",
+      "file" : "10-key-art.jpg",
+      "height" : 900,
+      "jpegQualityPercent" : 82,
+      "width" : 1600
+    },
+    {
+      "bytes" : 378333,
+      "encoder" : "cjpeg optimized progressive 4:4:4",
+      "file" : "10-key-art-portrait.jpg",
+      "height" : 1500,
+      "jpegQualityPercent" : 80,
+      "width" : 1200
+    }
+  ],
+  "portraitCropLogical" : [
+    120,
+    0,
+    360,
+    450
+  ],
+  "preview" : {
+    "file" : "10-key-art-preview-2x.png",
+    "paletteColors" : 12,
+    "size" : [
+      3200,
+      1800
+    ]
+  },
+  "sampling" : "nearest-neighbor, no anisotropic resizing",
+  "sourceCrop" : [
+    3,
+    2,
+    1664,
+    936
+  ],
+  "sourceSize" : [
+    1671,
+    941
+  ]
+}
