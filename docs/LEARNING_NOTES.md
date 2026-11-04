@@ -528,3 +528,6 @@ A shared 32px unit lets differently shaped props fill the same wall length. A 12
 
 ## 2026-11-04: Comparing characters at native scale (Codex)
 An enlarged sheet can hide a size mistake. Comparing each coworker beside the actual hero caught an undersized Nora export before delivery. Uniform scaling and an explicit shoe or chair-wheel line keep different poses at the same world scale without squeezing their proportions.
+
+## Graphics memory (Nov 4)
+Every picture the game shows lives in the graphics card's own memory as raw pixels, about 4 bytes each, no matter how small the PNG file was. A 1000 x 1000 floor costs 4 MB there even if the file is 50 KB. When a browser runs short, it can take the graphics away entirely (that was the white screen). Baking the floors into tiles we already had saved about 100 MB.
