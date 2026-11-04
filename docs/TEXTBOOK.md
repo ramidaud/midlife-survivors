@@ -1812,3 +1812,17 @@ Drawing the map is a stencil:
 | Tuning (reveal radius, where the sign stands) | `MINIMAP` at the top of `src/minimap.js` |
 | Floor plan source | `src/data/start-area.js` (floors, walls, rooms) |
 | Found the map yet? | `meta.mapFound` (saved forever, so you only find it once) |
+
+## Chapter: Footprints (Nov 4)
+```
+   picture (what you see, 128 x 72)
+  +--------------------------+
+  |      futon backrest      |   <- you can walk "behind" this part
+  |                          |
+  |   seat cushions          |
+  |##########################|   <- footprint (solid, 116 x 24)
+  +------------x-------------+
+               ^ foot point: where it stands, and how drawing order is decided
+```
+- Lower foot point on screen = drawn in front.
+- Wall art (posters, collage) has no footprint at all: it's just paint on the wall.

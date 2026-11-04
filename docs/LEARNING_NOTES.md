@@ -542,3 +542,8 @@ The minimap starts dark and only shows places you've been near. Under the hood, 
 
 ### 2026-11-04: Separating a prop's picture from its footprint (Codex)
 The Lounge desk picture includes monitors and two chairs, but the floor footprint only describes the space that blocks walking. Wall photos and shelves add visual detail without adding floor collision. Keeping that information in the art manifest lets Claude arrange the room and preserve the walking routes without repainting its furniture.
+
+## Footprints (Nov 4, the Student Lounge)
+- A prop's **picture** and its **footprint** are two different boxes. The futon picture is 128 x 72, but only a 116 x 24 strip at its base is solid.
+- That's why you can walk "behind" the futon's backrest without hitting an invisible wall: the solid part is just where the legs touch the floor.
+- The **foot point** (bottom-center of the picture) is where the prop stands. The game sorts drawing order by that point, so whoever's feet are lower on screen gets drawn in front.
