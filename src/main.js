@@ -2142,6 +2142,8 @@ function update(time, delta) {
       closeControlsModal(this);
     } else if (paused && (padJust("b") || padJust("start"))) {
       togglePause(this);
+    } else if (window.accountModalOpen && padJust("b")) {
+      if (window.Account) Account.close(); // the badge office (src/account.js)
     } else if (titleBackAvailable() && padJust("b")) {
       titleBack(); // controller B backs out of the Shop, Extras, Leaderboard and other title pages
     }

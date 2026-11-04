@@ -163,7 +163,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["lore-modal", "changelog-modal", "controls-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["account-modal", "lore-modal", "changelog-modal", "controls-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -2349,6 +2349,9 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const achBtn = document.getElementById("title-ach-btn");
   if (achBtn) bindNavItem(achBtn, 10, () => { window.titleBackTo = "extras"; goView("achievements"); });
   // Employee file: the achievements stat and the feed's buttons (Nov 4). Back from achievements returns to the title.
+  const acctBtn = document.getElementById("title-acct");
+  if (acctBtn) bindNavItem(acctBtn, 8.7, () => { sfx("pick"); Account.open(); });
+  if (window.Account) Account.onTitle();
   const fileAch = document.getElementById("title-file-ach");
   if (fileAch) bindNavItem(fileAch, 8.5, () => { window.titleBackTo = "main"; goView("achievements"); });
   document.querySelectorAll("[data-file-go]").forEach(b => bindNavItem(b, 8.4, () => {
@@ -2618,6 +2621,7 @@ function titleFileTile() {
   // Mix them so every page has a bit of each: status, news, to-do, status, news, to-do...
   { const by = { status: [], news: [], todo: [] }; feed.forEach(f => by[f.t].push(f)); feed.length = 0;
     while (by.status.length || by.news.length || by.todo.length) ["status", "news", "todo"].forEach(k => { if (by[k].length) feed.push(by[k].shift()); }); }
+  const acct = window.Account ? Account.status() : null; // optional cloud save (src/account.js)
   const TAG = { todo: "TO-DO", news: "NEWS", status: "STATUS" };
   const per = 3, pages = Math.max(1, Math.ceil(feed.length / per));
   const feedHtml = feed.length ? `<ul class="tp-feed" data-page="0" data-pages="${pages}">${feed.map((f, i) => `<li class="tp-fi ${f.t}" data-pg="${Math.floor(i / per)}"${i >= per ? " hidden" : ""}><span class="tp-ft">${TAG[f.t]}</span><span class="tp-fx">${f.h}${f.go ? ` <button type="button" class="tp-fgo" data-file-go="${f.go}">${f.cta} ▸</button>` : ""}</span></li>`).join("")}</ul>
@@ -2635,6 +2639,7 @@ function titleFileTile() {
             <button type="button" class="tp-stat-btn" id="title-file-ach" aria-label="Achievements: ${got} of ${all}. Open the list"><b>${got}/${all}</b><span>achievements ▸</span></button>
           </div>
           ${runs ? `<div class="tp-file-foot">${runs} shift${runs === 1 ? "" : "s"} worked</div>` : ""}
+          ${acct ? `<button type="button" class="tp-acct${acct.in ? " in" : ""}" id="title-acct"><span class="tp-acct-ic">☁</span><span><b>${acct.in ? "CLOCKED IN" : "CLOCK IN"}</b> ${esc(acct.text)}</span><span class="tp-acct-go">▸</span></button>` : ""}
         </section>`;
 }
 

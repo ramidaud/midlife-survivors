@@ -73,7 +73,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
    - Also considering: bigger early crowds, office mess that lingers (paper scraps, coffee rings), build icons on the HUD.
 5c. [x] **Enemy navigation (V. 1.29.0):** flow field so swarms walk around furniture and through doorways; spawns avoid furniture and unreachable (locked) areas. Gates hook in via `window.navExtraBlockers`.
 6. [ ] **Discoverable map + bigger world:** Rami chose exploration and Corporate Campus. Separate blockout ready in Extras > Art Test: 3072x2048 floor (5.5x previous area), seven areas, explored-path map and five optional finds. Central lanes are 224px, outer loop 192px. Test navigation first, then crowd pressure before main-game integration.
-7. [ ] **Accounts / cloud saves**
+7. [ ] **Accounts / cloud saves** (in progress Nov 4: game side built in V. 1.84.0, hidden until Rami finishes `docs/handoffs/accounts-setup.md`)
 8. [ ] Errands, Daily Challenge, gallery
 9. [ ] **Version archive + devlog:** git tag each major version, screenshots in `devlog/img/`, one devlog post per milestone (devlog page started in V. 1.20.0). Office exploration draft now has a 1536x1024 illustrated cover with a quiet left third; awaits Rami approval
 10. [ ] **AI layer (proof of concept):** LLM-generated dialogue, then LLM character creation

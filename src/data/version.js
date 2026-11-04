@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.83.1",
-  displayVersion: "V. 1.83.1",
+  version: "1.84.0",
+  displayVersion: "V. 1.84.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 190,
+  build: 191,
   changelog: [
+    {
+      ver: "V. 1.84.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Behind the scenes: your employee file is getting a cloud backup.",
+      highlights: [
+        "Optional accounts are built and waiting on setup. Soon you'll be able to clock in with an emailed code (Google and Apple later) and keep your coins, unlocks, achievements and a run in progress on every device.",
+        "Signing in will never be required. Your file keeps saving on your device like always."
+      ]
+    },
     {
       ver: "V. 1.83.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "No more damage out of nowhere: Group Chats now stay where you can see them.",

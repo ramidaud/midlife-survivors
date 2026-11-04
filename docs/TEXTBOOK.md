@@ -1740,3 +1740,24 @@ every run ends the same        each run is a different build
 | Defense | brick wall | Thermostat Wars (freezes) | Lumbar Support |
 
 **The idea:** a limit is what turns a menu into a decision. The badges help a player see the build they're drifting toward, so they can lean into it on purpose.
+
+## Chapter: Logging in vs. being allowed (accounts, Nov 4)
+
+```
+ YOU ──email──▶ Supabase Auth ──6-digit code──▶ YOUR INBOX
+  │                                               │
+  └────────── type the code in the game ◀─────────┘
+                     │
+                     ▼
+              a signed pass (token) that says "this is user 1234"
+                     │
+                     ▼
+   player_saves table:  row 1234 ✅ yours    row 5678 ❌ not yours
+```
+
+| Word | Question it answers | In our game |
+|---|---|---|
+| Authentication | Who are you? | The emailed code (later Google or Apple) |
+| Authorization | What can you touch? | Row-level security: only your own save row |
+
+**The idea:** the public key in the game is like the building's front door. Anyone can walk in, but the row rules decide which locker opens for you.

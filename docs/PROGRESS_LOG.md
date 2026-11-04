@@ -1181,3 +1181,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Drew a welcoming age-65 punch clock with balloons, presents and a golden card, replacing the reaper imagery for this proposed Midlife-only asset.
 - Delivered twelve native poses, two previews and a real-size hero/watch check. The base stays planted and the hands stay at five.
 - Art only; Claude still wires it in. Full Life Father Time and gameplay files are untouched.
+## Nov 4, 2026 (morning): Accounts groundwork (V. 1.84.0)
+- Rami chose email code + Google + Apple, syncing progress and a run in progress. Poll so far: Email 4, Google 2, Apple 1, No 1.
+- New Supabase table `player_saves` (Rami OK'd): each signed-in player can only read and write their own row.
+- Built the "Clock in" badge on the employee file and the Badge Office screen (email code, signed-in badge, a "two employee files" chooser when this device and the cloud disagree). Tested sign-in, upload, pull from another device and the conflict chooser with a fake server.
+- Hidden until Rami finishes `docs/handoffs/accounts-setup.md` (URL settings, code in the email template, an email sender for real players, Google and Apple keys). Test with `?accounts=1`.

@@ -516,3 +516,7 @@ Making a new thing on screen costs time: the game has to build it, draw its pict
 
 ## 2026-11-04: Floor anchors in animation (Codex)
 The clock-out station keeps the same floor anchor in every pose. Its balloons and card can move while the pedestal, gifts and fish frame stay planted, so a celebratory animation does not look like the furniture is sliding.
+## Logging in vs. being allowed (Nov 4, accounts)
+- **Authentication** is "who are you?" The emailed code proves you own that email, and you get a signed pass (a token).
+- **Authorization** is "what can you touch?" Row-level security in Supabase checks the pass on every request: you can only read and write the row with your own ID.
+- That's why the game can ship the public key safely. The key opens the front door; the row rules decide which locker is yours.
