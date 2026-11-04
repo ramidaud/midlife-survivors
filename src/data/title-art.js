@@ -10,13 +10,14 @@ window.TITLE_ART = {
   zoom: 1.08,     // how far the motion travels (1 = none). Small and slow reads smoothest
   // V2 key art (ChatGPT, Nov 3): each scene has a desktop version and a separately drawn portrait version for phones,
   // composed so the cast sits where the title screen's UI leaves room (docs/handoffs/chatgpt-key-art-v2.md).
-  //   srcPortrait / focusPortrait: used on phones and portrait tablets.
+  //   srcPortrait / focusPortrait: used on phones and portrait tablets. focusTablet: the crop on portrait tablets (700 px+ wide),
+  //   which show more of the top and bottom, so the cast needs nudging up to clear Punch In.
   slides: [
-    { src: "assets/title-screen/slides/08-group-photo-desktop.jpg", srcPortrait: "assets/title-screen/slides/08-group-photo-portrait-v2.jpg", name: "Group Photo",    focus: "74% 26%", focusPortrait: "50% 62%", move: "reveal", pointer: false },
-    { src: "assets/title-screen/slides/09-reboot-desktop.jpg",      srcPortrait: "assets/title-screen/slides/09-reboot-portrait-v2.jpg",      name: "Off and On Again", focus: "72% 26%", focusPortrait: "50% 62%", move: "push",   pointer: false },
-    { src: "assets/title-screen/slides/10-lounge-desktop.jpg",      srcPortrait: "assets/title-screen/slides/10-lounge-portrait-v2.jpg",      name: "The Lounge",      focus: "72% 26%", focusPortrait: "50% 62%", move: "reveal", pointer: false },
-    { src: "assets/title-screen/slides/11-coffee-run-desktop.jpg",  srcPortrait: "assets/title-screen/slides/11-coffee-run-portrait-v2.jpg",  name: "Coffee Run",      focus: "74% 28%", focusPortrait: "50% 62%", move: "push",   pointer: false },
-    { src: "assets/title-screen/slides/12-happy-50th-desktop.jpg",  srcPortrait: "assets/title-screen/slides/12-happy-50th-portrait-v2.jpg",  name: "Happy 50th",      focus: "74% 26%", focusPortrait: "50% 62%", move: "reveal", pointer: false }
+    { src: "assets/title-screen/slides/08-group-photo-desktop.jpg", srcPortrait: "assets/title-screen/slides/08-group-photo-portrait-v3.jpg", name: "Group Photo",    focus: "74% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false },
+    { src: "assets/title-screen/slides/09-reboot-desktop.jpg",      srcPortrait: "assets/title-screen/slides/09-reboot-portrait-v3.jpg",      name: "Off and On Again", focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false },
+    { src: "assets/title-screen/slides/10-lounge-desktop.jpg",      srcPortrait: "assets/title-screen/slides/10-lounge-portrait-v3.jpg",      name: "The Lounge",      focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false },
+    { src: "assets/title-screen/slides/11-coffee-run-desktop.jpg",  srcPortrait: "assets/title-screen/slides/11-coffee-run-portrait-v3.jpg",  name: "Coffee Run",      focus: "74% 28%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false },
+    { src: "assets/title-screen/slides/12-happy-50th-desktop.jpg",  srcPortrait: "assets/title-screen/slides/12-happy-50th-portrait-v3.jpg",  name: "Happy 50th",      focus: "74% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false }
   ],
   // V1 slides, retired Nov 3 because the title UI covers their main characters. Move any back into slides[] to reuse it.
   retired: [

@@ -1111,3 +1111,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: "Coldwar Cowboy" (V. 1.76.1)
 - Ben prefers "Coldwar Cowboy" (one word). Renamed it everywhere players and readers see it: game, Spotlight card, lore, achievements, patch notes, devlog, Art Room, About and the feed.
 - Internal IDs and file names (`coldWarCowboy`, `cold-war-cowboy-*.png`) stay as they are, and old log entries keep the old spelling as history.
+
+## 2026-11-04: V. 1.76.2, sharp phone title art
+- ChatGPT redrew the five phone title scenes at true 1080×1920 proportions (`*-portrait-v3.jpg`). Checked them against the desktop art; the Happy 50th party is much bigger now.
+- Phones and portrait iPads crop differently, so tablets got their own setting (`focusTablet` in title-art.js). The cast now clears Punch In on both.

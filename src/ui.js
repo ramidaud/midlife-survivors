@@ -2608,7 +2608,8 @@ window.TitleSlides = (() => {
     // Phones and portrait tablets get the tall version of the scene when there is one (key art v2).
     const tall = phone() && sl.srcPortrait, src = tall ? sl.srcPortrait : sl.src;
     if (el.dataset.src !== src) { el.dataset.src = src; el.style.setProperty("--ts-src", `url("${src}")`); img.style.backgroundImage = `url("${src}")`; }
-    const focus = (tall && sl.focusPortrait) || sl.focus || "50% 50%";
+    const tablet = tall && window.innerWidth >= 700;
+    const focus = (tablet && sl.focusTablet) || (tall && sl.focusPortrait) || sl.focus || "50% 50%";
     // Screens wider than the art show the whole picture, with a soft blurred copy filling the sides.
     const ultra = window.innerWidth / window.innerHeight > 1.9;
     el.classList.toggle("ultra", ultra);

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.76.1",
-  displayVersion: "V. 1.76.1",
+  version: "1.76.2",
+  displayVersion: "V. 1.76.2",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 179,
+  build: 180,
   changelog: [
+    {
+      ver: "V. 1.76.2", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Sharp new title art on phones: ChatGPT redrew all five scenes at the right proportions, and the birthday party is bigger.",
+      highlights: [
+        "The five phone title scenes are redrawn at true proportions, so they're crisp instead of stretched. Happy 50th's party now fills the screen.",
+        "Portrait iPads get their own crop, so the cast sits above Punch In instead of behind it."
+      ]
+    },
     {
       ver: "V. 1.76.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Ben's hero is now spelled the way Ben likes it: The Coldwar Cowboy.",

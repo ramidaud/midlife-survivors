@@ -270,3 +270,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: Phone title proportions repaired (Codex)
 - **What.** Rebuilt all five portrait-v3 JPGs at 1080×1920 with uniform scaling, preserving the scenes and fitting the cast into the phone band. Happy 50th's party now spans about 81% of the image width. Art, proportion checks and export scale notes are in assets/title-screen/qa-v3/.
+- [done] Claude switched the title screen to the portrait v3 files in V. 1.76.2 (Nov 4), with a separate tablet crop.

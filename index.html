@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Midlife Survivors</title>
 <!-- First title slide starts downloading at first paint (Fable review #4). Keep in sync with slides[0] in src/data/title-art.js. -->
-<link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-portrait-v2.jpg" media="(orientation: portrait), (max-width: 760px)">
+<link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-portrait-v3.jpg" media="(orientation: portrait), (max-width: 760px)">
 <link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-desktop.jpg" media="(orientation: landscape) and (min-width: 761px)">
 <meta name="description" content="Survive from 40 to 65. Bills, robocalls, donuts and back twinges are coming. Your coffee fires on its own. Free in your browser.">
 <meta property="og:type" content="website">
@@ -1512,8 +1512,9 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #title-slides[hidden] { display: none; }
   /* Static copy of the first slide, painted before the game scripts load. TitleSlides.start() swaps in the real slideshow (Fable review #4). */
   #title-slides-pre { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
-  #title-slides-pre > div { position: absolute; inset: 0; background: url("assets/title-screen/slides/08-group-photo-portrait-v2.jpg") 50% 62% / cover no-repeat;
+  #title-slides-pre > div { position: absolute; inset: 0; background: url("assets/title-screen/slides/08-group-photo-portrait-v3.jpg") 50% 62% / cover no-repeat;
     transform: scale(var(--ts-zoom, 1.08)); transform-origin: 50% 62%; }
+  @media (orientation: portrait) and (min-width: 700px) { #title-slides-pre > div { background-position: 50% 96%; transform-origin: 50% 96%; } }
   @media (orientation: landscape) and (min-width: 761px) {
     #title-slides-pre > div { top: -10vh; bottom: 10vh; background-image: url("assets/title-screen/slides/08-group-photo-desktop.jpg"); background-position: 74% 26%; transform-origin: 74% 26%; }
   }
@@ -1590,7 +1591,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=179&t=" + Date.now();
+    s.src = "src/loader.js?v=180&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
