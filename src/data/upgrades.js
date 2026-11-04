@@ -208,7 +208,7 @@ window.UPGRADES = [
     maxRank: 4,
     text: "Senior Perk: ALL weapons deal +1 damage and fire 10% faster.",
     when: s => (s.coffeeRank || 0) >= 2 && getRank(s, "execDelegation") < 4,
-    apply: s => { addRank(s, "execDelegation"); s.damage += 1; s.jokeDamage += 1; s.noDamage += 1; s.remoteDamage += 1; s.sheetDamage += 1; s.podDamage += 1; s.cooldownMult *= 0.90; }
+    apply: s => { addRank(s, "execDelegation"); s.damage += 1; s.jokeDamage += 1; s.noDamage += 1; s.remoteDamage += 1; s.sheetDamage += 1; s.podDamage += 1; ["casDamage", "phonesPopDamage", "chairDamage", "replyDamage", "stickyDamage", "thermoDamage"].forEach(k => { s[k] = (s[k] || 0) + 1; }); s.cooldownMult *= 0.90; }
   },
   {
     id: "titaniumKnees",

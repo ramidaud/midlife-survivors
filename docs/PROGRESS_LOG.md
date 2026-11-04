@@ -1165,3 +1165,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New sounds: a catch jingle, reel ticks and a landing ding. About 2 seconds, never a full pause.
 - On laptops the card sits beside the player so you can still see the action. Tested on phone, iPad and desktop.
 - Art brief for ChatGPT written (caught poses, GOTCHA! wordmark, treat icons, card frame, burst).
+
+## Nov 4, 2026 (later): Loadout expansion (V. 1.83.0)
+- Seven new weapons (Casserole, Headphones, Office Chair, Reply-All, Out-of-Office, Sticky Notes, Thermostat Wars with freezing) and six new passives, each weapon with its own evolution.
+- Slots: 6 weapons and 6 passives, so a run can only hold about half of everything. Rami's goal: make players choose how they like to play.
+- Every card has a style badge (Healing, Shield, Offense, Defense). The level-up screen shows your slots and what your build leans toward; the HUD shows filled and empty slots.
+- Tested on phone, iPad and desktop, including every evolution. ChatGPT art brief written for icons and in-world sprites.

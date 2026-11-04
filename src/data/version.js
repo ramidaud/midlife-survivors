@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.82.0",
-  displayVersion: "V. 1.82.0",
+  version: "1.83.0",
+  displayVersion: "V. 1.83.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 188,
+  build: 189,
   changelog: [
+    {
+      ver: "V. 1.83.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Twice the gear, and only room for half of it. Pick your play style.",
+      highlights: [
+        "Seven new weapons: Mom's Casserole, Noise-Cancelling Headphones, the Rolling Office Chair, Reply-All Storm, Out-of-Office Reply, Sticky Notes and Thermostat Wars (it freezes everything near you).",
+        "Six new passives: Multivitamin, Meal Prep Sunday, Cardigan, Lumbar Support, Fitness Tracker and Bifocals. Each new weapon also has its own evolution.",
+        "You can only carry 6 weapons and 6 passives now, so every run is a choice. Your slots show on the HUD and on the level-up screen.",
+        "Every card wears a style badge: Healing, Shield, Offense or Defense. The level-up screen counts what your build leans toward."
+      ]
+    },
     {
       ver: "V. 1.82.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Catching an intern is a moment now: GOTCHA!",

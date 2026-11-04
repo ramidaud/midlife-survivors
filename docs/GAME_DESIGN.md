@@ -499,3 +499,11 @@ Derek's On Break camera v2 uses a charcoal body and round highlighted lens match
 ## Interns: chase, don't wait (decided Nov 4, Rami)
 - TJ and Derek show up on screen with a coffee and run. Catch them for a heal plus a 2-hit shield; they escape after 15 seconds.
 - Each catch tosses a treat: coffee (speed), burrito (damage), bundt cake (gem vacuum + XP). Derek usually brings the bundt cake.
+
+## Loadout and play styles (decided Nov 4, built in V. 1.83.0)
+- **Rami:** "I want the users to have to make a choice about how they like to play."
+- **Slots:** 6 weapons (Coffee is always slot 1) and 6 passives. There are 13 weapons and 11 passives, so a run holds about half.
+- **Four styles,** shown as a badge on every card: Healing, Shield, Offense, Defense.
+- **New weapons:** Mom's Casserole (Healing), Noise-Cancelling Headphones (Shield), Rolling Office Chair, Reply-All Storm and Sticky Notes (Offense), Out-of-Office Reply and Thermostat Wars (Defense; Thermostat freezes enemies).
+- **New passives:** Multivitamin, Meal Prep Sunday (Healing), Cardigan (Shield), Lumbar Support, Fitness Tracker (Defense), Bifocals (Offense).
+- **Evolutions:** Potluck, Do Not Disturb, Executive Swivel, Company-Wide Memo, Sabbatical, Wall of Post-its, Polar Vortex.

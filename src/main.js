@@ -330,6 +330,7 @@ function create() {
   EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
   initExtraWeapons(this);
+  if (window.MoreWeapons) MoreWeapons.init(this); // casserole, headphones, chair, reply-all, out-of-office, sticky notes, thermostat
 
   // 2. The stage: an open-plan office floor (carpet, wood hallway, breakroom rug) plus scattered office props!
   floor = this.add.tileSprite(0, 0, this.scale.width, this.scale.height, "floor")
@@ -803,6 +804,7 @@ function applyMetaAndChar() {
   stats.jokeDamage += rPen;
   stats.noDamage += rPen;
   stats.remoteDamage += rPen; stats.sheetDamage += rPen; stats.podDamage += rPen; // "all weapons" means all six
+  if (window.loadoutResetStats) loadoutResetStats(stats, rPen); // the seven loadout-expansion weapons and six passives (src/data/loadout.js)
 
   const ch = CHARACTERS.find(c => c.id === meta.selectedChar) || CHARACTERS[0];
   ch.apply(stats);
@@ -1017,7 +1019,7 @@ function collectPizza(p, pz) {
   if (pz.isSalad) {
     pz.destroy();
     sfx("levelUp");
-    const sHeal = healAmt(saladHealAmount());
+    const sHeal = healAmt(Math.round(saladHealAmount() * (stats.foodMult || 1))); // Meal Prep Sunday
     hp = Math.min(stats.maxHp, hp + sHeal);
     updateHUD(); if (typeof drawHpBar === "function") drawHpBar();
     const sp = project3DToPhaserWorld(p.scene, p.x, 42, p.y);
@@ -1031,7 +1033,7 @@ function collectPizza(p, pz) {
   if (slowUntil > 0 && runElapsedMs - slowUntil < 8000) window.achEvent("pizzaAfterSlow"); // donut, then pizza
   pz.destroy();
   sfx("levelUp");
-  const pzHeal = healAmt(Math.max(1, Math.round((PICKUPS.pizza.heal + (window.modFx ? modFx("pizzaHealAdd", 0) : 0)) * (window.modFx ? modFx("pizzaHealMult", 1) : 1))));
+  const pzHeal = healAmt(Math.max(1, Math.round((PICKUPS.pizza.heal + (window.modFx ? modFx("pizzaHealAdd", 0) : 0)) * (window.modFx ? modFx("pizzaHealMult", 1) : 1) * (stats.foodMult || 1))));
   hp = Math.min(stats.maxHp, hp + pzHeal);
   updateHUD();
   const pt = project3DToPhaserWorld(p.scene, p.x, 42, p.y);
@@ -1353,15 +1355,22 @@ function hurtPlayer(p, bill) {
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
-  if (shield.hits > 0 && runElapsedMs < shield.until) { // the interns' shield soaks the hit (Nov 4)
+  if (stats.dodge && Math.random() < stats.dodge) { // Fitness Tracker: sidestep the hit
+    const t = scene.add.text(p.x, p.y - 44, Phaser.Utils.Array.GetRandom(["DODGED!", "10,000 STEPS!", "NOT TODAY!"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#BFA8CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
+    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+    return;
+  }
+  if (shield.hits > 0 && runElapsedMs < shield.until) { // a shield soaks the hit (interns, Headphones, Cardigan)
     shield.hits--; shield.flashAt = runElapsedMs; sfx("wordNo");
+    if (window.MoreWeapons) MoreWeapons.onBlock(scene, p); // the Headphones pop
     const t = scene.add.text(p.x, p.y - 44, shield.hits ? "BLOCKED!" : "SHIELD BROKE!", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#83A89A", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
     scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
     return;
   }
   dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
   { const dmg = (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
-    hp -= dmg; runHits++; runDamageTaken += dmg; } // runHits/runDamageTaken go to the play-stats table
+    const dmg2 = Math.max(1, dmg - (stats.armor || 0)); // Lumbar Support
+    hp -= dmg2; runHits++; runDamageTaken += dmg2; } // runHits/runDamageTaken go to the play-stats table
   if (bill.kind === "snackAttack") {
     slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
     const isSenior = currentAge >= 80;
@@ -1470,7 +1479,7 @@ function dmgFontReady(sc) {
   sc.cache.bitmapFont.add(DMG.font, Phaser.GameObjects.RetroFont.Parse(sc, { image: key, width: cw, height: ch, chars: DMG.chars, charsPerRow: DMG.chars.length, "spacing.x": 0, "spacing.y": 0, "offset.x": 0, "offset.y": 0 }));
   return true;
 }
-function popDamageNumber(sc, x, y, amount) {
+function popDamageNumber(sc, x, y, amount, crit) {
   const big = amount >= 2;
   const pt = project3DToPhaserWorld(sc, x, 34, y);
   const frame = sc.game.loop.frame;
@@ -1490,8 +1499,8 @@ function popDamageNumber(sc, x, y, amount) {
   }
   sc.tweens.killTweensOf(t);
   t.setText(`-${amount}`).setPosition(pt.x + Phaser.Math.Between(-8, 8), pt.y - 14).setAlpha(1).setVisible(true)
-    .setScale(big ? 1 : 0.8).setTint(big ? 0xEF9347 : 0xffffff);
-  sc.tweens.add({ targets: t, y: t.y - 26, alpha: 0, scale: big ? 1.25 : 0.8, duration: 460, ease: "Cubic.easeOut", onComplete: () => t.setVisible(false) });
+    .setScale(crit ? 1.3 : big ? 1 : 0.8).setTint(crit ? 0xC45C4B : big ? 0xEF9347 : 0xffffff);
+  sc.tweens.add({ targets: t, y: t.y - 26, alpha: 0, scale: crit ? 1.7 : big ? 1.25 : 0.8, duration: 460, ease: "Cubic.easeOut", onComplete: () => t.setVisible(false) });
 }
 
 // Burst shredded paper / confetti scraps when an enemy is paid off or defeated!
@@ -1519,11 +1528,13 @@ function damageBill(bill, amount) {
   if (bill.ghost) return; // faded 3 AM Thoughts ignore auras too
   const sc = bill.scene;
   if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
+  let crit = false;
+  if (stats.crit && Math.random() < stats.crit) { amount *= 2; crit = true; } // Bifocals
   // The Gold Watch can't be beaten, only wound back: hits push it away and slow its hands (Rami, Nov 3).
   if (bill.kind === "goldWatch" && window.GoldWatch) { GoldWatch.wind(sc, bill, amount, player); if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs); return; }
   if (bill.kind === "theReaper") return; // the finish line can't be hurt; walk into it
   bill.hp -= amount;
-  popDamageNumber(sc, bill.x, bill.y, amount);
+  popDamageNumber(sc, bill.x, bill.y, amount, crit);
   if (bill.hp > 0) {
     sfx("hit");
     if (bill.isBoss) bill.tag.setText(`${ENEMIES[bill.kind].label}:${bill.hp}`);
@@ -2140,6 +2151,7 @@ function update(time, delta) {
     return; // freeze while dead, paused, on title, or choosing an upgrade
   }
   updateExtraWeapons(this, delta); // TV Remote, Spreadsheet, Podcast (src/weapons_extra.js)
+  if (window.MoreWeapons) MoreWeapons.update(this, delta); // the loadout-expansion weapons (src/weapons_more.js)
 
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
   runElapsedMs += (delta || 16.6);
@@ -2577,6 +2589,8 @@ function update(time, delta) {
     const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
     bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
   });
+
+  if (window.MoreWeapons) MoreWeapons.post(this); // Out-of-Office slows and Thermostat freezes, after everyone has moved
 
   // Close Calls: reward enemies (and pings) that nearly got you.
   if (window.NearMiss) window.NearMiss.scan(this, player, bills, pings);

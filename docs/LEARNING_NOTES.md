@@ -507,3 +507,9 @@ A pixel comparison can prove a small art edit stayed small. Derek's v2 portrait 
 
 ## Object pooling (Nov 4, damage numbers)
 Making a new thing on screen costs time: the game has to build it, draw its picture and later throw it away. Damage numbers used to do that for every single hit, hundreds of times late in a run. A **pool** makes about 40 numbers once and reuses them: when one fades out, it's hidden and waits to be the next "-3". It's like a coffee shop keeping a stack of mugs instead of buying a new mug for every order.
+
+## Scarcity makes choices (Nov 4, the loadout)
+- When you can carry everything, picking a card isn't a decision. It's just a delay.
+- A **slot limit** (6 weapons, 6 passives) turns every level-up into a trade-off: take the freeze now, or save the slot for a healer?
+- Vampire Survivors works the same way. The fun is in the build you commit to, not in owning everything.
+- Labels (Healing, Shield, Offense, Defense) help players see what kind of build they're making, so they can lean into a style on purpose.

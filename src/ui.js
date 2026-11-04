@@ -36,6 +36,64 @@ const UPGRADE_META = {
   "HR Appreciation Snacks":        { icon: "🥨", tag: "BOOST", rarity: "boost" }
 };
 
+if (window.LOADOUT_META) Object.assign(UPGRADE_META, window.LOADOUT_META); // the loadout-expansion cards (src/data/loadout.js)
+
+// ---------- Loadout styles and slots (Nov 4) ----------
+// A tiny pixel glyph for each play style: a plus (Healing), a shield (Shield), a lightning bolt (Offense), a brick wall (Defense).
+const STYLE_GLYPHS = {
+  healing: ["..##..", "..##..", "######", "######", "..##..", "..##.."],
+  shield:  ["######", "#....#", "#.##.#", "#.##.#", ".#..#.", "..##.."],
+  offense: ["...##.", "..##..", ".#####", "#####.", "..##..", ".##..."],
+  defense: ["###.##", "......", "#.####", "......", "###.##", "......"]
+};
+function styleGlyph(cat, px) {
+  const g = STYLE_GLYPHS[cat]; if (!g) return "";
+  const p = px || 2, rects = [];
+  g.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === "#") rects.push(`<rect x="${x}" y="${y}" width="1" height="1"/>`); }));
+  return `<svg class="style-glyph" width="${6 * p}" height="${6 * p}" viewBox="0 0 6 6" shape-rendering="crispEdges" fill="currentColor" aria-hidden="true">${rects.join("")}</svg>`;
+}
+window.styleGlyph = styleGlyph;
+function ensureLoadoutCss() {
+  if (document.getElementById("loadout-css")) return;
+  const st = document.createElement("style"); st.id = "loadout-css";
+  st.textContent = `
+.perk-card{position:relative}
+.perk-card[data-style]::before{content:"";position:absolute;left:6px;right:6px;top:0;height:4px;border-radius:0 0 3px 3px;background:var(--sc)}
+.perk-style{position:absolute;top:-10px;right:8px;display:inline-flex;align-items:center;gap:4px;padding:3px 6px 3px 5px;border-radius:3px;background:var(--sc);color:var(--sink);font:9px/1 Silkscreen,monospace;letter-spacing:.05em;box-shadow:2px 2px 0 rgba(0,0,0,.45);z-index:2}
+.perk-card:hover .perk-style,.perk-card.selected .perk-style{transform:translateY(-2px) rotate(-2deg)}
+.perk-style .style-glyph{display:block}
+.lo-build{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;margin:0 0 14px}
+.lo-row{display:flex;align-items:center;gap:4px}
+.lo-row b{font:9px Silkscreen,monospace;color:var(--ms-muted,#B8C0D4);letter-spacing:.05em;margin-right:3px}
+.lo-slot{position:relative;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:15px;line-height:1;background:rgba(23,28,53,.88);border:1px solid rgba(131,168,154,.35);border-radius:4px;box-shadow:inset 0 -3px 0 var(--sc,transparent)}
+.lo-slot.empty{border-style:dashed;border-color:rgba(184,192,212,.28);background:rgba(23,28,53,.4)}
+.lo-slot.evo{border-color:#EF9347;box-shadow:inset 0 -3px 0 var(--sc,transparent),0 0 6px rgba(239,147,71,.6)}
+.lo-tally{display:flex;gap:6px}
+.lo-tally span{display:inline-flex;align-items:center;gap:3px;font:9px Silkscreen,monospace;color:var(--sc)}
+.vs-hud .vs-loadout{flex-direction:column;align-items:flex-start;gap:3px}
+.vs-hud .vs-loadout .lo-row{gap:3px}
+.vs-hud .vs-loadout .lo-slot{width:22px;height:22px;font-size:13px;padding:0}
+.vs-hud .vs-loadout .lo-slot.empty{opacity:.55}
+@media (max-width:760px){.vs-hud .vs-loadout .lo-slot{width:18px;height:18px;font-size:11px;border-radius:3px}.vs-hud .vs-loadout .lo-row{gap:2px}.perk-cards-grid{gap:14px!important}.perk-style{top:-8px;font-size:8px}.lo-slot{width:22px;height:22px;font-size:13px}.lo-build{gap:5px 10px;margin-bottom:12px}}`;
+  document.head.appendChild(st);
+}
+// Your 6 weapon slots and 6 passive slots, filled or empty, each underlined in its style color.
+function loadoutSlotsHtml(opts) {
+  const L = window.LOADOUT; if (!L || !stats) return "";
+  const h = L.held(stats), o = opts || {};
+  const slot = (it, evo) => `<span class="lo-slot${evo ? " evo" : ""}" style="--sc:${L.cats[it.cat].color}" title="${L.cats[it.cat].label}">${evo ? it.evoIcon : it.icon}</span>`;
+  const empty = n => Array.from({ length: Math.max(0, n) }, () => `<span class="lo-slot empty"></span>`).join("");
+  const wpn = h.weapons.map(w => slot(w, w.evo && w.evo(stats))).join("") + empty(L.weaponSlots - h.weapons.length);
+  const pas = h.passives.map(p => slot(p, false)).join("") + empty(L.passiveSlots - h.passives.length);
+  let tally = "";
+  if (o.tally) {
+    const n = {}; h.weapons.concat(h.passives).forEach(it => { n[it.cat] = (n[it.cat] || 0) + 1; });
+    tally = `<div class="lo-tally">${Object.keys(L.cats).filter(c => n[c]).map(c => `<span style="--sc:${L.cats[c].color}">${styleGlyph(c, 2)}${n[c]}</span>`).join("")}</div>`;
+  }
+  return `<div class="lo-row">${o.labels ? "<b>WEAPONS</b>" : ""}${wpn}</div><div class="lo-row">${o.labels ? "<b>PASSIVES</b>" : ""}${pas}</div>${tally}`;
+}
+window.loadoutSlotsHtml = loadoutSlotsHtml;
+
 // Pixel icon from the ChatGPT atlas (src/data/ui-icons.js), or the emoji if there isn't one.
 // size: displayed pixels (the atlas is 32px per icon; whole-number multiples stay crisp).
 function pixelIcon(kind, id, emoji, size) {
@@ -1148,17 +1206,11 @@ function updateCleanHUD() {
   }
   const tbNow = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
   if (window.computeRunScore) hudSetText("vs-score", `SCORE ${window.computeRunScore(currentAge, runStartAge, runKills, runCoins, false).toLocaleString()}${tbNow ? ` · TAX×${tbNow}` : ""}`);
-  const icons = [stats.coldBrew ? "⚡" : "☕"];
-  if (stats.dadJoke) icons.push(stats.punStorm ? "🌩️" : "😂");
-  if (stats.wordNo) icons.push(stats.healthyBoundaries ? "🛡️" : "🛑");
-  if (stats.remote) icons.push(stats.floppy ? "💾" : stats.smartTv ? "📡" : "📺");
-  if (stats.sheet) icons.push(stats.pivotTable ? "🧮" : "📊");
-  if (stats.podcast) icons.push(stats.bingeMode ? "🍿" : "🎧");
-  if (stats.hasShoes) icons.push("👟");
-  if (stats.hasSleep) icons.push("😴");
-  if (stats.hasGlasses) icons.push("👓");
+  // Loadout slots (Nov 4): 6 weapons and 6 passives, each underlined in its style color; empty slots are dashed.
+  ensureLoadoutCss();
   const lo = document.getElementById("vs-loadout");
-  const loHtml = icons.map(i => `<span>${i}</span>`).join("");
+  let loHtml = loadoutSlotsHtml();
+  if (stats.floppy) loHtml = loHtml.replace("📺", "💾").replace("📡", "💾");
   if (lo.dataset.prev !== loHtml) { lo.innerHTML = loHtml; lo.dataset.prev = loHtml; }
 }
 window.updateCleanHUD = updateCleanHUD;
@@ -1957,6 +2009,10 @@ function renderLevelUpModal(choices, customTitle, onPick) {
   kicker.textContent = customTitle ? "EXECUTIVE BONUS // TAX-FREE REWARD" : `HR BENEFITS DEPT // PROMOTION LEVEL ${level - pendingLevels + 1}`;
   title.textContent = customTitle || "SELECT YOUR MIDLIFE PERK";
   grid.innerHTML = "";
+  ensureLoadoutCss();
+  let build = document.getElementById("lv-build");
+  if (!build) { build = document.createElement("div"); build.id = "lv-build"; build.className = "lo-build"; grid.parentNode.insertBefore(build, grid); }
+  build.innerHTML = loadoutSlotsHtml({ labels: true, tally: true });
   const openedAt = performance.now();
   const isTouchUI = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
   let armed = null;
@@ -1969,12 +2025,19 @@ function renderLevelUpModal(choices, customTitle, onPick) {
       : up.name.startsWith("Unlock:") ? "NEW WEAPON"
       : (up.isConsumable || up.name === "Annual Checkup") ? "BOOST"
       : info.rarity === "passive" ? "PASSIVE" : "UPGRADE";
-    const rankLabel = (!up.isConsumable && up.maxRank && up.maxRank > 1 && up.maxRank < 50)
+    const LO = window.LOADOUT, cat = LO && LO.catOf(up), kind = LO && LO.kindOf(up), held = LO && stats ? LO.held(stats) : null;
+    const newSlot = held && ((kind === "weapon" && plain === "NEW WEAPON") ? `SLOT ${held.weapons.length + 1} OF ${LO.weaponSlots}`
+      : (kind === "passive" && curRank === 0) ? `SLOT ${held.passives.length + 1} OF ${LO.passiveSlots}` : "");
+    const rankLabel = newSlot ? `${plain === "NEW WEAPON" ? plain : "NEW PASSIVE"} · ${newSlot}`
+      : (!up.isConsumable && up.maxRank && up.maxRank > 1 && up.maxRank < 50)
       ? `${plain} · LEVEL ${curRank + 1} OF ${up.maxRank}`
       : plain;
     const card = document.createElement("div");
     card.className = `perk-card rarity-${info.rarity}`;
+    const sty = cat && LO.cats[cat];
+    if (sty) { card.dataset.style = cat; card.style.setProperty("--sc", sty.color); card.style.setProperty("--sink", sty.ink); }
     card.innerHTML = `
+      ${sty ? `<div class="perk-style">${styleGlyph(cat, 2)}${sty.label}</div>` : ""}
       <div class="perk-ribbon">${rankLabel}</div>
       <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
       <div class="perk-name">${heroWord(up.name)}</div>

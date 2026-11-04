@@ -131,4 +131,35 @@ window.WEAPONS = {
     healthyHealAmt: 1,
     color: 0x6fd9c4    // calm boundary teal
   }
+  ,
+  // ---- Loadout expansion (Nov 4): seven more weapons, so a run can't hold them all ----
+  casserole: {
+    name: "Mom's Casserole",  // HEALING: drop a hot dish. It burns enemies that walk over it; stand in it to heal
+    fireEveryMs: 5200, lifeMs: 4500, radius: 54, damage: 1, tickMs: 500,
+    healEveryMs: 1500, healAmt: 1  // standing in the dish heals 1 HP this often
+  },
+  headphones: {
+    name: "Noise-Cancelling Headphones", // SHIELD: a bubble that eats one hit, then pops in a damage wave
+    rechargeMs: 14000, holdMs: 60000, popRadius: 150, popDamage: 3
+  },
+  officeChair: {
+    name: "Rolling Office Chair", // OFFENSE: a chair that bowls through a line of enemies
+    fireEveryMs: 2600, speed: 360, lifeMs: 1500, damage: 3, radius: 18
+  },
+  replyAll: {
+    name: "Reply-All Storm", // OFFENSE: an email that chains from enemy to enemy
+    fireEveryMs: 2000, chains: 4, jumpPx: 170, damage: 2
+  },
+  outOfOffice: {
+    name: "Out-of-Office Reply", // DEFENSE: an "Away" field that slows everything near you
+    radius: 120, slowMult: 0.55
+  },
+  stickyNotes: {
+    name: "Sticky Notes", // OFFENSE: notes left on the floor; enemies get stuck, then the note pops
+    fireEveryMs: 1800, count: 1, stickMs: 1100, popRadius: 46, damage: 3, lifeMs: 9000, maxOnFloor: 8
+  },
+  thermostat: {
+    name: "Thermostat Wars", // DEFENSE: someone cranked the AC. A cold snap freezes everything near you
+    fireEveryMs: 7000, radius: 150, freezeMs: 1600, bossSlowMs: 1600, damage: 1
+  }
 };

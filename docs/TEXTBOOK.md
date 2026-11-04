@@ -1718,3 +1718,25 @@ a new picture uploaded every hit         one font picture, uploaded once
 
 **Two guards:** if every pooled number is still on screen, skip the new one; and no more than 6 new numbers per frame, so a huge swarm can't flood the screen.
 **Watch out:** objects in a pool must be reset fully each time (text, position, color, transparency), or old values leak into the next use.
+
+## Chapter: Scarcity makes choices (the loadout, Nov 4)
+
+Before V. 1.83.0 there were 6 weapons and no limit, so every long run ended with all of them. Now there are 13 weapons and only 6 slots.
+
+```
+BEFORE                         AFTER
+weapons: 6   slots: unlimited  weapons: 13   slots: 6
+every run ends the same        each run is a different build
+
+ [☕][😂][🛑][📺][📊][🎧]        [☕][🥘][🔇][❄️][  ][  ]
+  you own it all                 two slots left: what do you want to be?
+```
+
+| Style | Badge | Example weapon | Example passive |
+|---|---|---|---|
+| Healing | plus sign | Mom's Casserole | Multivitamin |
+| Shield | shield | Noise-Cancelling Headphones | Cardigan |
+| Offense | lightning bolt | Reply-All Storm | Bifocals |
+| Defense | brick wall | Thermostat Wars (freezes) | Lumbar Support |
+
+**The idea:** a limit is what turns a menu into a decision. The badges help a player see the build they're drifting toward, so they can lean into it on purpose.
