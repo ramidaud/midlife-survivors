@@ -21,7 +21,7 @@ PAGES = [
     ("game", "assets/title-screen/title-bg-lobby.jpg", "FREE TO PLAY IN YOUR BROWSER", "MIDLIFE SURVIVORS", "Survive from 40 to 65. Your coffee fires on its own."),
     ("devlog", "devlog/img/office-key-art-hero.jpg", "DEVLOG · INTERNAL MEMOS", "MAKING MIDLIFE SURVIVORS", "A photographer builds his first video game with AI."),
     ("art-room", "assets/title-screen/02-midlife-panorama-v1.png", "DEVLOG · THE ART ROOM", "WALK THE NEW OFFICE", "The newest art, before it reaches the game."),
-    ("about", "assets/bio/rami-studio-pixel-v1.png", "DEVLOG · ABOUT", "RAMI DAUD", "Photographer. First-time game developer."),
+    ("about", "assets/bio/rami-studio-pixel-v2.png", "DEVLOG · ABOUT", "RAMI DAUD", "Photographer. First-time game developer."),
     ("enemies", "@sprites", "ART REVIEW · BATCH 1", "MEET THE SWARM", "Bills, Spam Likely, the 3 AM Thought and friends."),
     ("roadmap", "devlog/img/office-key-art-hero.jpg", "PROJECT TRACKER", "THE ROADMAP", "What's done, what's next, and what's parked."),
 ]
