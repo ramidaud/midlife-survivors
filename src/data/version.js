@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.79.0",
-  displayVersion: "V. 1.79.0",
+  version: "1.79.1",
+  displayVersion: "V. 1.79.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 184,
+  build: 185,
   changelog: [
+    {
+      ver: "V. 1.79.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "A lighter, tidier build: the title loads about 3 MB less, colors stay on palette, and phones get a few fixes.",
+      highlights: [
+        "Loads lighter: the title art and the exit interview banners are about 3.5 MB smaller in total, with no visible change, and four unused fonts are gone.",
+        "The last off-palette yellows (the bonus chest card, the score, menu highlights) now use the game's cream and coffee orange.",
+        "Phones: the APPROVED stamp sits on the chest card's corner instead of over the headline, tall menus no longer tuck under the nav bar, and the Lounge sign is big enough to read.",
+        "New players on phones get \"Drag anywhere to walk\" as their first tip."
+      ]
+    },
     {
       ver: "V. 1.79.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Your employee file is a little inbox now: status, news and to-dos, and your achievements are one tap away.",

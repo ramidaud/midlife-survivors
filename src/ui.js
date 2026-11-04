@@ -787,7 +787,8 @@ window.firstTimeTip = function(key) {
   if (!t || tipsSeen[key] || !window.tipsEnabled()) return;
   tipsSeen[key] = true;
   try { localStorage.setItem("ms-tips-seen-v1", JSON.stringify(tipsSeen)); } catch (e) {}
-  window.showLowerThird("tip", t.badge || "TIP", t.text, 5000);
+  const touch = window.matchMedia && matchMedia("(pointer: coarse)").matches; // phones get the "how to move" version (Fable review)
+  window.showLowerThird("tip", t.badge || "TIP", (touch && t.touchText) || t.text, 5000);
 };
 window.resetTips = function() {
   tipsSeen = {};
@@ -2781,7 +2782,7 @@ function koSceneHtml(killer) {
   const isBoss = !!(E && window.BossArt && ["performanceReview", "mortgageRefinance", "midlifeCrisis"].includes(killer));
   const mug = KO_MUG[killer] ? `<div class="ko-mug" style="background-image:url(assets/enemies/mugshots/${KO_MUG[killer]}-mugshot-v1.png)"></div>`
     : isBoss ? `<div class="ko-mug boss" style="background-image:url(${window.Spotlight && Spotlight.texUrl ? Spotlight.texUrl("bossart_" + killer, "") : ""})"></div>` : "";
-  const banner = `assets/ui/kill-screen/exit-interview-banner-${phone ? "phone" : "desktop"}-v1.png`;
+  const banner = `assets/ui/kill-screen/exit-interview-banner-${phone ? "phone" : "desktop"}-v1.jpg`;
   return `<div class="ko-scene" style="--k:${k};--ko-banner:url(${banner})" aria-hidden="true">
       <div class="ko-hero" id="ko-hero" style="background-image:url(assets/characters/portraits/${hero}-defeated-v1.png)"></div>
       ${mug}

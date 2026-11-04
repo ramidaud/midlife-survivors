@@ -24,14 +24,14 @@ window.BonusChest = (() => {
       .bonus-memo { background: #F2D7A1; color: #171C35; margin: -14px -14px 10px; padding: 8px 12px; border-left: 4px solid #EF9347;
         font-family: "Silkscreen", monospace; font-size: 10px; letter-spacing: .06em; font-weight: 400; display: flex; justify-content: space-between; gap: 8px; }
       .bonus-memo b { color: #874C3B; }
-      .bonus-title { font-family: "Silkscreen", monospace; font-size: clamp(22px, 6vw, 30px); font-weight: 700; color: #f5c542; letter-spacing: .04em;
-        text-shadow: 2px 2px 0 #171C35, 0 0 14px rgba(245,197,66,.6); margin: 2px 0 2px; }
+      .bonus-title { font-family: "Silkscreen", monospace; font-size: clamp(22px, 6vw, 30px); font-weight: 700; color: #EF9347; letter-spacing: .04em;
+        text-shadow: 2px 2px 0 #171C35, 0 0 14px rgba(239,147,71,.6); margin: 2px 0 2px; }
       .bonus-sub { font-size: 13px; color: #B8C0D4; min-height: 18px; }
       .bonus-stage { position: relative; height: min(300px, 40dvh); margin: 8px 0 4px; }
       @media (max-height: 760px), (max-width: 480px) { .bonus-stage { height: min(240px, 32dvh); } .bonus-list li { padding: 3px 6px; } .bonus-list { margin: 4px 0 8px; } }
       .bonus-beams { position: absolute; left: 50%; bottom: 46px; width: 0; height: 100%; }
       .bonus-beam { position: absolute; bottom: 0; left: -27px; width: 54px; height: 0; transform-origin: 50% 100%;
-        background: linear-gradient(to top, rgba(255,226,120,.95), rgba(245,197,66,.55) 60%, rgba(245,197,66,0));
+        background: linear-gradient(to top, rgba(255,226,120,.95), rgba(239,147,71,.55) 60%, rgba(239,147,71,0));
         border-radius: 27px 27px 4px 4px; overflow: hidden; transition: height .45s cubic-bezier(.2,.9,.3,1.2);
         box-shadow: 0 0 22px rgba(255,214,90,.55); }
       .bonus-beam.evo { background: linear-gradient(to top, rgba(214,170,255,.95), rgba(191,168,207,.6) 60%, rgba(191,168,207,0)); box-shadow: 0 0 22px rgba(200,150,255,.6); }
@@ -55,7 +55,7 @@ window.BonusChest = (() => {
       @keyframes bonusBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
       .bonus-chest.shake { animation: bonusShake .09s linear infinite; }
       @keyframes bonusShake { 0% { transform: translate(-3px,0) rotate(-3deg); } 50% { transform: translate(3px,-2px) rotate(3deg); } 100% { transform: translate(-3px,0) rotate(-3deg); } }
-      .bonus-chest.open { animation: bonusPop .35s ease-out forwards; filter: brightness(1.35) drop-shadow(0 0 14px #ffd84a); }
+      .bonus-chest.open { animation: bonusPop .35s ease-out forwards; filter: brightness(1.35) drop-shadow(0 0 14px #F2D7A1); }
       @keyframes bonusPop { 0% { transform: scale(1); } 40% { transform: scale(1.25, .85); } 100% { transform: scale(1.08); } }
       .bonus-coin { position: absolute; left: 50%; bottom: 40px; width: 18px; height: 18px; margin-left: -9px; z-index: 3;
         background: center/contain no-repeat; image-rendering: pixelated; pointer-events: none;
@@ -65,8 +65,8 @@ window.BonusChest = (() => {
         45% { transform: translate(calc(var(--dx) * .6), var(--dy)) rotate(200deg); opacity: 1; }
         100% { transform: translate(var(--dx), 140px) rotate(420deg); opacity: 0; } }
       .bonus-total { font-family: "Silkscreen", monospace; font-size: clamp(26px, 7vw, 38px); font-weight: 700; color: #FFF0CF; letter-spacing: .02em; margin: 2px 0; }
-      .bonus-total small { font-size: 14px; color: #f5c542; margin-left: 4px; }
-      .bonus-total.done { color: #f5c542; text-shadow: 0 0 12px rgba(245,197,66,.7); }
+      .bonus-total small { font-size: 14px; color: #EF9347; margin-left: 4px; }
+      .bonus-total.done { color: #EF9347; text-shadow: 0 0 12px rgba(239,147,71,.7); }
       .bonus-list { list-style: none; margin: 6px 0 10px; padding: 0; text-align: left; font-family: system-ui, sans-serif; font-size: 13px; }
       .bonus-list li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; padding: 5px 6px; border-top: 1px solid #303750;
         opacity: 0; transform: translateY(6px); transition: opacity .25s, transform .25s; }
@@ -78,9 +78,9 @@ window.BonusChest = (() => {
       .bonus-list li.evo span { color: #BFA8CF; }
       .bonus-btn { font: 400 16px "Silkscreen", monospace; letter-spacing: .08em; padding: 12px 28px; min-width: 180px; border-radius: 8px;
         border: 3px solid #171C35; background: #EF9347; color: #171C35; cursor: pointer; box-shadow: 0 4px 0 #874C3B; }
-      .bonus-btn.nav-focused, .bonus-btn:hover { background: #f5c542; outline: 3px solid #FFF0CF; outline-offset: 2px; }
+      .bonus-btn.nav-focused, .bonus-btn:hover { background: #EF9347; outline: 3px solid #FFF0CF; outline-offset: 2px; }
       .bonus-btn.skip { background: #303750; color: #B8C0D4; box-shadow: none; font-size: 13px; padding: 8px 18px; min-width: 0; }
-      .bonus-flash { position: fixed; inset: 0; z-index: 40; pointer-events: none; background: radial-gradient(circle, #fff8d0, #f5c542 60%, rgba(245,197,66,.6));
+      .bonus-flash { position: fixed; inset: 0; z-index: 40; pointer-events: none; background: radial-gradient(circle, #FFF0CF, #EF9347 60%, rgba(239,147,71,.6));
         opacity: 0; transition: opacity .5s ease-out; }
       .bonus-flash.on { opacity: .85; transition: none; }
       /* ChatGPT's Bonus Approved art pack (assets/ui/bonus/, Nov 3) */
@@ -90,11 +90,13 @@ window.BonusChest = (() => {
       .bonus-stamp { position: absolute; top: 34px; right: 4px; width: 124px; height: 44px; background: url(assets/ui/bonus/approved-stamp-v1.png) center/contain no-repeat;
         image-rendering: pixelated; transform: rotate(8deg) scale(0); transition: transform .35s cubic-bezier(.3,1.7,.5,1); z-index: 4; }
       .bonus-card.stamped .bonus-stamp { transform: rotate(8deg) scale(1); }
+      /* The stamp sits on the card's top-right corner instead of over the headline (Fable review) */
+      .bonus-card.art .bonus-stamp { top: -20px; right: -12px; width: 100px; height: 36px; }
       .bonus-chest.sheet { width: 144px; height: 144px; margin-left: -72px; bottom: -8px; background-repeat: no-repeat; background-size: 400% 100%;
         background-position: 0% 0; image-rendering: pixelated; }
       .bonus-chest.sheet.shake { animation: bonusShakeSheet .18s steps(1) infinite; }
       @keyframes bonusShakeSheet { 0% { background-position: 33.333% 0; } 50% { background-position: 66.667% 0; } }
-      .bonus-chest.sheet.open { background-position: 100% 0; animation: bonusPop .35s ease-out forwards; filter: drop-shadow(0 0 16px #ffd84a); }
+      .bonus-chest.sheet.open { background-position: 100% 0; animation: bonusPop .35s ease-out forwards; filter: drop-shadow(0 0 16px #F2D7A1); }
       .bonus-beam.art { width: 64px; left: -32px; border-radius: 0; box-shadow: none;
         background: url(assets/ui/bonus/beam-gold-v1.png) center bottom / 64px auto repeat-y; image-rendering: pixelated; }
       .bonus-beam.art.evo { background-image: url(assets/ui/bonus/beam-lavender-v1.png); }

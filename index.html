@@ -33,12 +33,12 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&family=Bungee&family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=Cinzel:wght@700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"><!-- Nov 4: Bungee, Chakra Petch, Cinzel and Press Start 2P were only fallbacks or for the parked 3D themes (Fable review) -->
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
 <link rel="stylesheet" href="assets/ui/ms-nav.css?v=5">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
-  html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Chakra Petch', sans-serif; }
+  html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Atkinson Hyperlegible', sans-serif; }
   #game { position: fixed; inset: 0; }
   #game > canvas:not(#three-overlay) { position: relative; z-index: 1; }
 
@@ -53,13 +53,13 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     display: flex; flex-direction: column; justify-content: space-between;
     --bg-pod: rgba(18, 21, 42, 0.90);
     --border-col: #f0a24f;
-    --accent: #ffe042;
+    --accent: #F2D7A1; /* was #ffe042, off-palette (Fable review): cream is the palette highlight */
     --text-main: #f2f4fa;
     --text-muted: #9aa6c8;
-    --hp-grad: linear-gradient(90deg, #d9383a, #ff6b52);
-    --xp-grad: linear-gradient(90deg, #2b82d9, #6be2ff);
-    --font-head: 'Press Start 2P', monospace;
-    --font-body: 'Chakra Petch', monospace;
+    --hp-grad: linear-gradient(90deg, #C45C4B, #EF9347);
+    --xp-grad: linear-gradient(90deg, #3E7775, #83A89A);
+    --font-head: 'Silkscreen', monospace;
+    --font-body: 'Atkinson Hyperlegible', monospace;
     --pod-radius: 4px;
     --pod-skew: 0deg;
     --pod-shadow: 4px 4px 0px #090b14;
@@ -248,7 +248,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     border-radius: 5px; position: relative; margin-bottom: 14px;
   }
   .timeline-fill {
-    height: 100%; background: linear-gradient(90deg, #f0a24f, #ffe042);
+    height: 100%; background: linear-gradient(90deg, #EF9347, #F2D7A1);
     border-radius: 4px; transition: width 0.2s linear;
   }
   .milestone {
@@ -256,7 +256,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     font-size: 9px; color: var(--text-muted); font-weight: 700; white-space: nowrap;
   }
   .milestone.boss-pip { color: #ff8a82; }
-  .milestone.win-pip { color: #ffe042; }
+  .milestone.win-pip { color: #F2D7A1; }
   .radar-row {
     display: flex; justify-content: space-between; align-items: center; gap: 8px;
     font-size: 10px; font-weight: 700; color: #cbd4f0;
@@ -891,7 +891,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .vs-hud {
     position: fixed; top: 0; left: 0; right: 0; z-index: 12; pointer-events: none;
     padding: max(6px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) 0 max(10px, env(safe-area-inset-left));
-    font-family: 'Press Start 2P', monospace; color: #f2f4fa;
+    font-family: 'Silkscreen', monospace; color: #f2f4fa;
   }
   .vs-hud.hidden { display: none; }
   .vs-xp { position: relative; height: 16px; background: rgba(8,10,22,0.85); border: 2px solid #0a0c18; box-shadow: 0 0 0 1px rgba(107,226,255,0.35); }
@@ -932,7 +932,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   @keyframes vs-combo-pulse { to { background: #FFF0CF; } }
   @media (prefers-reduced-motion: reduce) { .vs-combo { animation: none !important; } }
   .vs-loadout { display: flex; flex-wrap: wrap; gap: 4px; }
-  .vs-loadout span { font-family: 'Chakra Petch', sans-serif; font-size: 15px; line-height: 1; padding: 4px; background: rgba(8,10,22,0.7); border: 1px solid rgba(240,162,79,0.5); border-radius: 3px; }
+  .vs-loadout span { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 15px; line-height: 1; padding: 4px; background: rgba(8,10,22,0.7); border: 1px solid rgba(240,162,79,0.5); border-radius: 3px; }
   .vs-center { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .vs-age { font-size: 20px; color: #fff; text-shadow: 3px 3px 0 #000; letter-spacing: 1px; }
   .vs-year { width: 120px; height: 4px; background: rgba(8,10,22,0.8); }
@@ -953,10 +953,10 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .lt-badge {
     flex: none; display: flex; align-items: center; padding: 0 12px;
     background: var(--lt-accent, #f0a24f); color: #0a0c18;
-    font-family: 'Press Start 2P', monospace; font-size: 10px; letter-spacing: 1px;
+    font-family: 'Silkscreen', monospace; font-size: 10px; letter-spacing: 1px;
   }
   .lt-body { padding: 9px 14px; min-width: 0; }
-  .lt-text { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 16px; color: #f2f4fa; line-height: 1.25;
+  .lt-text { font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700; font-size: 16px; color: #f2f4fa; line-height: 1.25;
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .lt-strip[data-kind="alert"]   { --lt-accent: #ff4d5e; }
   .lt-strip[data-kind="win"]     { --lt-accent: #ffe042; }
@@ -983,8 +983,8 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .title-clean .clock-in-btn { font-size: 18px; padding: 16px; letter-spacing: 1px; }
   .title-secondary { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
   .title-secondary .t-style-btn { min-width: 140px; padding: 10px 12px; font-size: 13px; }
-  .title-subhead { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #ffe042; display: flex; flex-direction: column; gap: 6px; }
-  .title-subnote { font-family: 'Chakra Petch', sans-serif; font-size: 13px; color: #9aa6c8; }
+  .title-subhead { font-family: 'Silkscreen', monospace; font-size: 13px; color: #ffe042; display: flex; flex-direction: column; gap: 6px; }
+  .title-subnote { font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 13px; color: #9aa6c8; }
   .title-clean .title-style-switcher { justify-content: center; flex-wrap: wrap; }
   .title-version { font-size: 11px; color: #6b7598; }
   @media (max-width: 600px) {
@@ -998,17 +998,17 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   /* CREDITS (Objective 6, Oct 30) */
   .credits-list { display: flex; flex-direction: column; gap: 14px; padding: 4px 0; }
   .credit-role { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #9aa6c8; }
-  .credit-name { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #f2f4fa; margin-top: 4px; }
+  .credit-name { font-family: 'Silkscreen', monospace; font-size: 13px; color: #f2f4fa; margin-top: 4px; }
   .credit-sec:first-child .credit-name { color: #ffe042; font-size: 16px; }
   .credit-closing { font-style: italic; color: #f0a24f; }
 
   /* SCORES + LEADERBOARD */
   .score-panel { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
-  .score-big { font-family: 'Press Start 2P', monospace; font-size: 13px; color: #9aa6c8; }
-  .score-big b { color: #ffe042; font-size: 20px; margin-left: 6px; }
+  .score-big { font-family: 'Silkscreen', monospace; font-size: 13px; color: #B8C0D4; }
+  .score-big b { color: #EF9347; font-size: 20px; margin-left: 6px; }
   .score-break { font-size: 13px; color: #9aa6c8; }
   .score-form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
-  .score-form input { flex: 1 1 160px; min-width: 0; max-width: 260px; padding: 10px 12px; font-size: 16px; font-family: 'Chakra Petch', sans-serif;
+  .score-form input { flex: 1 1 160px; min-width: 0; max-width: 260px; padding: 10px 12px; font-size: 16px; font-family: 'Atkinson Hyperlegible', sans-serif;
     background: #0a0c18; color: #f2f4fa; border: 2px solid #f0a24f; border-radius: 4px; user-select: text; -webkit-user-select: text; }
   .score-form input:focus { outline: 3px solid #ffe042; outline-offset: 1px; }
   .score-post-btn { padding: 10px 14px; font-size: 13px; }
@@ -1017,7 +1017,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .lb-status { font-size: 12px; color: #9aa6c8; margin-bottom: 4px; }
   .lb-wrap { overflow-x: auto; max-height: 40vh; overflow-y: auto; }
   .lb-table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
-  .lb-table th { font-family: 'Press Start 2P', monospace; font-size: 9px; color: #f0a24f; text-align: left; padding: 6px 6px; border-bottom: 1px solid #2e3356; }
+  .lb-table th { font-family: 'Silkscreen', monospace; font-size: 9px; color: #f0a24f; text-align: left; padding: 6px 6px; border-bottom: 1px solid #2e3356; }
   .lb-table td { padding: 5px 6px; color: #f2f4fa; border-bottom: 1px solid rgba(46,51,86,0.6); text-align: left; }
   .lb-table tr.lb-me td { background: rgba(255,224,66,0.16); color: #ffe042; font-weight: 700; }
   .lb-empty { text-align: center !important; color: #9aa6c8 !important; }
@@ -1039,8 +1039,8 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     --accent: var(--ms-cream);
     --text-main: var(--ms-white);
     --text-muted: var(--ms-muted);
-    --font-head: 'Silkscreen', 'Press Start 2P', monospace;
-    --font-body: 'Atkinson Hyperlegible', 'Chakra Petch', system-ui, sans-serif;
+    --font-head: 'Silkscreen', 'Silkscreen', monospace;
+    --font-body: 'Atkinson Hyperlegible', 'Atkinson Hyperlegible', system-ui, sans-serif;
     --pod-shadow: 0 0 0 2px var(--ms-teal), 6px 6px 0 #0b0e1d;
     font-family: var(--font-body);
   }
@@ -1295,6 +1295,8 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   /* Universal nav (assets/ui/ms-nav.*): menus leave room for it; it disappears during a run */
   .title-poster { padding-top: calc(var(--ms-nav-h, 0px) + max(16px, env(safe-area-inset-top))) !important; }
   .ui-modal:not(#title-modal) { padding-top: calc(var(--ms-nav-h, 0px) + 10px); }
+  /* Cards fit in the space under the nav, so a tall one (the exit interview, the retirement party) never tucks its top under it (Fable review) */
+  .ui-modal:not(#title-modal) .modal-card { max-height: calc(100dvh - var(--ms-nav-h, 0px) - 20px - env(safe-area-inset-bottom)); }
   #title-modal { align-items: stretch !important; justify-content: stretch !important; padding: 0 !important; overflow-y: auto; }
   .tp-nudge { font-size: 12.5px; line-height: 1.4; color: var(--ms-navy); background: var(--ms-cream); border-left: 4px solid var(--ms-coffee); padding: 7px 9px; border-radius: 2px; }
   .tp-nudge b { color: #874C3B; }
@@ -1607,7 +1609,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=184&t=" + Date.now();
+    s.src = "src/loader.js?v=185&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

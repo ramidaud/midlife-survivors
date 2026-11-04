@@ -1,7 +1,7 @@
 // Lower third messages. Edit the words freely; keep each line short (about 60 characters).
 // First-time tips show ONCE EVER (the game remembers), the first time you meet each thing.
 window.TIPS = {
-  start:       { badge: "TIP", text: "Your weapons fire on their own. Just keep moving." },
+  start:       { badge: "TIP", text: "Your weapons fire on their own. Just keep moving.", touchText: "Drag anywhere to walk. Your weapons fire on their own." },
   bill:        { badge: "TIP", text: "Pay off Bills fast before they split into Late Fees." },
   lateFee:     { badge: "TIP", text: "You let a Bill go overdue. Late Fees are small and fast." },
   spamCall:    { badge: "TIP", text: "Spam Likely rings before it charges. Step aside." },
