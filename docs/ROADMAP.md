@@ -26,6 +26,13 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 
 ---
 
+## Game plan after V. 2.0 (set Nov 4, Rami by voice)
+V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art mostly in. Work these in order, one at a time.
+1. [ ] **Minimap HUD.** Once you find the map, a small corner map fills in as you explore: a dot for you, door icons that flip from locked to open when you get promoted, and markers for chests, the Lounge and nearby interns. Tap it (or press M) to open it big with the game paused. Keep it small and hideable on phones. Builds on the test map in the Art Room.
+2. [ ] **New stages: St. Deductible Hospital and the home neighborhood.** Pickable from the title screen like Vampire Survivors' stage select, each its own short run with its own enemies, boss and gimmick, unlocked by an achievement. (Why: only about 4% of runs reach 65, so stages hidden deep in Full Life would go unseen.) Later, Full Life can chain them: office, then hospital, then home. Ideas already in GAME_DESIGN: the hospital's newborn and 3 a.m. feedings challenge; the home's LEGO-brick floor hazards and a New Math boss.
+3. [ ] **Phone apps (iOS and Android).** See "Phase B2" under Platforms.
+- Still open from V2: Lounge redo (needs Rami's photo), Abdel's music, Errands, a Daily Challenge.
+
 ## Now (Nov 3)
 - [x] Bonus chests, elites, poster title, one look, lighting, dev console (V. 1.48 to 1.60)
 - [x] **Healing 1:** birthday cake every 5 years and the Desk Salad (V. 1.61.0), freeze safety net (V. 1.61.1)
@@ -142,6 +149,14 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 - [ ] Steamworks account and app fee, store page, capsule art, trailer
 - [ ] Steam achievements, cloud saves, full controller support, Steam Deck testing
 - [ ] Wishlist campaign; consider a free demo and Steam Next Fest
+
+**Phase B2: Phone apps, iOS and Android (added Nov 4, before consoles)**
+The game already runs in a phone browser, so this is a wrapper, not a rebuild. Rough size: a few focused weekends.
+- [ ] Wrap the game with Capacitor (one codebase, an app shell for each store)
+- [ ] Trim graphics memory further (iPad Safari already struggled) and test on older phones
+- [ ] Apple Developer account ($99/year, build on Rami's Mac) and Google Play account ($25 once)
+- [ ] Hide the Ko-fi tip links in the iPhone app (Apple doesn't allow outside payment links)
+- [ ] Store pages, screenshots, privacy labels, and app review
 
 **Phase C: Consoles (PlayStation, Xbox)**
 - [ ] Apply to ID@Xbox and PlayStation Partners for dev kits

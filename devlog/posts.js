@@ -4,6 +4,26 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "11-where-community-is",
+    "date": "2026-11-05",
+    "title": "If that's where community is, that's where I want to be.",
+    "version": "V. 2.0",
+    "draft": true,
+    "cover": "img/11-discord-key-art.jpg",
+    "leadAlt": "The office mail room turned clubhouse: Rami with a coffee, little mail-bots dropping glowing envelopes into cubbies labeled #changelog, #devlog, #stats and #art-and-ideas, while TJ, Derek and the Coldwar Cowboy look on.",
+    "blurb": "I still don't totally get Discord. But my students say it's where community is, so the game has a server now, and it keeps itself up to date.",
+    "teaser": "The game got its own Discord, and it posts its own updates.",
+    "changes": [
+      "A Midlife Survivors Discord server, open to everyone",
+      "The game posts its own changelog every evening",
+      "New memos land in #devlog automatically",
+      "Morning play stats in #stats, out in the open",
+      "New art goes up in #art-and-ideas when it lands"
+    ],
+    "nextUp": "A minimap that fills in as you explore, then two new stages you can pick: the hospital and the home neighborhood. And Abdel's music.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "10-version-two",
     "date": "2026-11-04",
     "title": "This is starting to feel real.",

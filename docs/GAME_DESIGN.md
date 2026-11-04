@@ -522,3 +522,8 @@ The six named room coworkers now have delivered seated working/personal loops an
 - Rami: "like Vampire Survivors' Hyper mode." A toggle on top of Midlife or Full Life, under Mode on the title screen.
 - Years pass 2x faster, player and enemies move 25% faster, +50% 401(k) coins. Numbers live in `SPRINT` in `src/data/modes.js`.
 - Unlocked by beating the Midlife Crisis V8 (Keep The Sedan). Sprint scores share the leaderboard, marked with ⚡.
+
+## After V. 2.0: minimap and new stages (decided Nov 4, Rami by voice)
+- **Minimap:** after you discover the map, a small HUD map fills in as you explore, with you, open and locked doors, chests, the Lounge and nearby interns. Tap or press M for a big paused view. Small and hideable on phones.
+- **Stages are picked, not reached:** St. Deductible Hospital and the home neighborhood become stages you choose on the title screen (like Vampire Survivors), each with its own enemies, boss and gimmick, unlocked by an achievement. Midlife runs at the office stay the default. Full Life may chain office, hospital and home later.
+- **Platforms order:** Steam, then phone apps (Capacitor wrapper), then consoles.

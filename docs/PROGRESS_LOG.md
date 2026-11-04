@@ -1314,3 +1314,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: V. 2.0
 - Rami called it: the game is officially V. 2.0 ("Version Two"), matching Memo 10. It's playable start to finish, has a hero and a mode to unlock, and the art is mostly in.
 - From here, updates count up from 2.0 (2.0.1 for fixes, 2.1 for new features).
+
+## Nov 4, 2026 (afternoon): Game plan and Memo 11 draft
+- Rami's voice-call plans are in the roadmap: a minimap HUD first, then the hospital and home neighborhood as pickable stages, then iOS and Android apps (before consoles).
+- Memo 11, "If that's where community is, that's where I want to be.", is drafted from Rami's voice answers, with his Discord screenshots and ChatGPT's mail-room cover.

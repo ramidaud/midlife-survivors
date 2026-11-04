@@ -825,7 +825,7 @@ article.post .prose .fig.small img { max-width: min(100%, 440px); }
 article.post .prose .fig.side img { max-width: 100%; }
 article.post .prose .fig.side { width: 62%; }
 @media (min-width: 760px) {
-  article.post .prose .fig.side { float: right; width: 40%; margin: 6px 0 14px 22px; }
+  article.post .prose .fig.side { float: right; clear: right; width: 40%; margin: 6px 0 14px 22px; }
 }
 .ba-tabs { margin: 22px 0; border: 2px solid var(--teal); border-radius: 6px; background: rgba(23,28,53,.5); padding: 10px 10px 4px; }
 .ba-tabs .bt-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
