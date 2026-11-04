@@ -299,7 +299,8 @@ function create() {
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   if (window.Promotions) Promotions.reset();
   runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
-  buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
+  buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
+  shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
   window._padUsedThisRun = false;
   // Devlog memos finished in this browser (the devlog saves them under "devlog-read"): Required Reading achievement.
@@ -910,7 +911,25 @@ window.achEvent = (on, d = {}) => {
 };
 
 // ---------- Discoverable items + timed boosts ----------
-let buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0 };
+let buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
+// Shield from catching an intern (Nov 4): blocks the next few hits until it runs out. Drawn as a ring around you.
+let shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
+window.giveShield = (scene, hits, ms) => {
+  shield.hits = Math.max(shield.hits, hits); shield.until = runElapsedMs + ms;
+  if (!shield.ring || !shield.ring.active) shield.ring = scene.add.graphics().setDepth(5.5);
+};
+function drawShield() {
+  const g = shield.ring; if (!g || !g.active) return;
+  g.clear();
+  const left = shield.until - runElapsedMs;
+  if (shield.hits <= 0 || left <= 0) { shield.hits = 0; g.destroy(); shield.ring = null; return; }
+  const blink = left < 3000 && Math.floor(left / 160) % 2 === 0, hit = runElapsedMs - shield.flashAt < 180;
+  if (blink) return;
+  const r = 30 + Math.sin(runElapsedMs / 220) * 2, cy = player.y + 4;
+  g.fillStyle(0x83A89A, hit ? 0.35 : 0.12).fillEllipse(player.x, cy, r * 2.2, r * 1.9);
+  g.lineStyle(hit ? 4 : 2, hit ? 0xFFF0CF : 0x83A89A, 0.9).strokeEllipse(player.x, cy, r * 2.2, r * 1.9);
+  for (let i = 0; i < shield.hits; i++) g.fillStyle(0xFFF0CF, 1).fillRect(player.x - 7 + i * 10, cy - r * 0.95 - 10, 6, 6); // one pip per hit left
+}
 
 window.startBuff = (type, mult, durMs, label) => {
   buffs[type + "Until"] = runElapsedMs + durMs;
@@ -992,6 +1011,7 @@ function milestoneHealAmount(age) {
 
 function collectPizza(p, pz) {
   if (!pz.active) return;
+  if (pz.collectAt && runElapsedMs < pz.collectAt) return; // a tossed intern treat lands first, so you see it
   if (pz.isParcel) { if (window.Interns) Interns.collectParcel(p.scene, pz); else pz.destroy(); return; } // an intern left it for you
   if (pz.isSalad) {
     pz.destroy();
@@ -1250,7 +1270,7 @@ function collectGem(p, gem) {
   const worth = gem.worth || 1; // a merged big gem counts as every gem that went into it
   gem.destroy();
   sfx("gem");
-  addXp(p.scene, worth * PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")) * (window.modFx ? modFx("gemXpMult", 1) : 1)); // Continuing Ed + Tax Bracket (+ Empty Nest) add to every gem
+  addXp(p.scene, worth * (runElapsedMs < buffs.xpUntil ? buffs.xpMult : 1) * PICKUPS.wisdomGem.xp * (stats.xpMult || 1) * (1 + tax("xpMult")) * (window.modFx ? modFx("gemXpMult", 1) : 1)); // Continuing Ed + Tax Bracket (+ Empty Nest) add to every gem
 }
 
 // Add XP (fractions carry over) and open the level-up screen if you earned one. Gems and Close Calls both use this.
@@ -1332,6 +1352,12 @@ function hurtPlayer(p, bill) {
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
+  if (shield.hits > 0 && runElapsedMs < shield.until) { // the interns' shield soaks the hit (Nov 4)
+    shield.hits--; shield.flashAt = runElapsedMs; sfx("wordNo");
+    const t = scene.add.text(p.x, p.y - 44, shield.hits ? "BLOCKED!" : "SHIELD BROKE!", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#83A89A", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
+    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+    return;
+  }
   dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
   { const dmg = (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
     hp -= dmg; runHits++; runDamageTaken += dmg; } // runHits/runDamageTaken go to the play-stats table
@@ -2354,7 +2380,7 @@ function update(time, delta) {
         if (left <= 0) { pz.destroy(); return; }
         pz.setAlpha(left < fade ? 0.35 + 0.65 * (Math.floor(left / 150) % 2) : 1);
       }
-      if (Phaser.Math.Distance.Between(player.x, player.y, pz.x, pz.y) < magR) {
+      if ((!pz.collectAt || runElapsedMs >= pz.collectAt) && Phaser.Math.Distance.Between(player.x, player.y, pz.x, pz.y) < magR) {
         this.physics.moveToObject(pz, player, W.magnetSpeed * (pz.isSalad ? ((PICKUPS.salad && PICKUPS.salad.magnetSpeedMult) || 1) : 1));
       }
     });
@@ -2387,6 +2413,7 @@ function update(time, delta) {
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
   if (window.YellowNote) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note
+  drawShield();
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   const TG = window.ENEMY_TAGS || {}, smallView = this.cameras.main.zoom < 0.9 || window.innerWidth < 760;

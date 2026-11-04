@@ -494,3 +494,8 @@ Parking Lot supplies broad fighting lanes and an open center, with car rows, car
 
 ### 2026-11-04: Derek portrait art correction (Codex)
 Derek's On Break camera v2 uses a charcoal body and round highlighted lens matching his walking sheet. His identity, poses, flash, frame timing and shoe line are unchanged. The art is delivered for Claude's reference switch; no mechanics or design rules changed.
+
+
+## Interns: chase, don't wait (decided Nov 4, Rami)
+- TJ and Derek show up on screen with a coffee and run. Catch them for a heal plus a 2-hit shield; they escape after 15 seconds.
+- Each catch tosses a treat: coffee (speed), burrito (damage), bundt cake (gem vacuum + XP). Derek usually brings the bundt cake.

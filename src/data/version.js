@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.80.0",
-  displayVersion: "V. 1.80.0",
+  version: "1.81.0",
+  displayVersion: "V. 1.81.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 186,
+  build: 187,
   changelog: [
+    {
+      ver: "V. 1.81.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Interns don't walk up anymore. Chase them down for a heal, a shield and a treat.",
+      highlights: [
+        "TJ and Derek now show up with a coffee and run. Catch them for a heal plus a shield that blocks your next 2 hits (20 seconds). Let them go for 15 seconds and they get away.",
+        "Every catch tosses a treat: Coffee (Double Shot: 30% faster), a Burrito (Food Coma Power: 30% more damage) or a Bundt Cake (Office Party: every gem flies to you, +50% XP). Derek usually brings the bundt cake.",
+        "They run around desks, not into walls, so a corner is a good place to trap them."
+      ]
+    },
     {
       ver: "V. 1.80.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Damage numbers in the game's pixel font, and boss Spotlight cards that actually walk.",

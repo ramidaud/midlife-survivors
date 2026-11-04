@@ -14,6 +14,30 @@ window.INTERNS = {
   ],
   fleeLines: ["Nope!", "Ack! HR paperwork!", "Not in my job description!"],
 
+  // Chase mode (Nov 4, Rami: "can we chase them? if we catch them we get a health boost and a shield buff").
+  // An intern shows up on screen with a coffee and runs. Catch them for a heal plus a shield. mode: "deliver"
+  // brings back the old walk-up hand-off.
+  mode: "chase",
+  chase: {
+    spawnDist: [210, 290],      // how far from you they appear (on screen)
+    speedMult: 0.8,             // run speed vs. your BASE speed, so speed upgrades make them easier to catch
+    slowAfterPx: 380,           // if you fall this far behind, they ease off and taunt you...
+    slowMult: 0.4,              // ...at this fraction of their speed
+    catchRadius: 40,
+    giveUpMs: 15000,            // then they get away
+    healFrac: 0.15, healMin: 2, // the heal
+    shieldHits: 2, shieldMs: 20000, // the shield: blocks your next 2 hits within 20 seconds
+    // Catch one and they toss you a treat (Rami, Nov 4). Stronger than the old deliveries, but short.
+    treats: {
+      coffee:  { name: "DOUBLE SHOT",     speedMult: 1.30, durMs: 10000, text: "30% faster for 10 seconds", color: "#EF9347" },
+      burrito: { name: "FOOD COMA POWER", damageMult: 1.30, durMs: 10000, text: "30% more damage for 10 seconds", color: "#C45C4B" },
+      bundt:   { name: "OFFICE PARTY",    xpMult: 1.50, durMs: 12000, vacuumMs: 2500, text: "every gem flies to you, +50% XP for 12 seconds", color: "#F1B5BF" }
+    },
+    treatOdds: { tj: { coffee: 2, burrito: 2, bundt: 1 }, derek: { bundt: 3, coffee: 1, burrito: 1 } }, // "Do you want a bundt cake?"
+    tauntLines: ["Catch me, Unc!", "Cardio counts as overtime!", "You'll never take me alive!"],
+    escapeLines: ["Too slow!", "Back to my desk!", "Ha! Next time."]
+  },
+
   delivery: {
     armAfterMs: 45000,          // nobody shows up in the first 45 seconds
     maxOnMap: 1,

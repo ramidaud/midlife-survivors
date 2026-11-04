@@ -1153,3 +1153,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - 1.79.1 polish: title art and kill-screen banners about 3.5 MB lighter (no visible change), four unused fonts dropped, the last off-palette yellows moved to cream/coffee, chest stamp moved to the card corner, tall menus fit under the nav, a bigger Lounge sign, and a "Drag anywhere to walk" first tip on phones.
 - 1.80.0: damage numbers in a Silkscreen bitmap font from a pool of 40 (max 6 new per frame), and boss Spotlight cards play their six walk frames.
 - Memo 10 (V2 announcement) draft scaffold: five V. 1.47 vs V2 before/after slider pairs (title, gameplay, level-up, pause, death; desktop and phone) in devlog/img/10-*, with [RAMI: ...] spots for your words. Hidden until you publish (draft: true, not in the feed).
+
+## 2026-11-04 (night): V. 1.81.0, chase the interns
+- Rami's idea: interns appear on screen with a coffee and run (flee mode on the navigation map, so they go around desks). Catch them for a heal plus a 2-hit shield (20 s); they escape after 15 s, and ease off to taunt you if you fall far behind.
+- Every catch tosses a treat with a short premium buff: coffee (+30% speed), burrito (+30% damage), bundt cake (gem vacuum, +50% XP). Derek favors the bundt cake.
+- Settings: `INTERNS.mode` and `INTERNS.chase` in src/data/interns.js (`mode: "deliver"` brings back the old hand-off).

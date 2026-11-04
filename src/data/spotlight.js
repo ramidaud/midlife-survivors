@@ -59,7 +59,7 @@ window.SPOTLIGHT = {
                           gradStudent: "If I don't find a free bagel soon, I'm dropping this class.",
                           coldWarCowboy: "Running low on RAM. Let's go check the breakroom." } },
     // Rami, Nov 4: TJ and Derek both on the card, shouting together. seenKey is new so everyone sees this version once.
-    intern:    { topic: "INTERN DELIVERY", kicker: "SPECIAL DELIVERY", tip: "Meet interns halfway before the swarm scares them.",
+    intern:    { topic: "INTERN DELIVERY", kicker: "SPECIAL DELIVERY", tip: "Catch the interns for a heal and a shield.",
                  duo: ["tj", "derek"], shout: "For my MANAGER!", seenKey: "tip_intern2",
                  lines: { any: "Bless the interns, they remembered my afternoon coffee.",
                           officeWorker: "Bless the interns, they remembered my afternoon coffee.",

@@ -154,6 +154,27 @@
 
   // Steer one enemy toward the player at `speed`. Falls back to a straight chase when the
   // field can't help (not built yet, enemy outside it, or nothing in the way).
+  // Flee (Nov 4, intern chase): the mirror of steer. Step to the neighbor that is FARTHEST from you on the same
+  // walk-around-furniture map, so whoever is running goes around desks instead of into walls. A dead end is a corner
+  // you can trap them in. Returns false when the map isn't ready (the caller runs straight away instead).
+  NAV.flee = function (scene, e, speed) {
+    if (!NAV.enabled || !ready) return false;
+    const i = cellOf(e.x, e.y); if (i < 0 || !isFinite(dist[i])) return false;
+    const cx = i % SIZE, cy = (i / SIZE) | 0;
+    let best = -1, bestD = dist[i], bx = 0, by = 0;
+    for (const [dx, dy, cost] of NB) {
+      const nx = cx + dx, ny = cy + dy;
+      if (nx < 0 || ny < 0 || nx >= SIZE || ny >= SIZE) continue;
+      const j = ny * SIZE + nx, dn = dist[j];
+      if (!isFinite(dn) || blocked[j]) continue;
+      const score = dn + Math.random() * 0.6; // a little wobble so they don't run in perfectly straight lines
+      if (score > bestD) { bestD = score; best = j; bx = dx; by = dy; }
+    }
+    if (best < 0) { e.setVelocity(e.body.velocity.x * 0.8, e.body.velocity.y * 0.8); return true; } // cornered
+    const l = Math.hypot(bx, by) || 1;
+    e.setVelocity(bx / l * speed, by / l * speed);
+    return true;
+  };
   NAV.steer = function (scene, e, player, speed) {
     if (!NAV.enabled || !ready) return scene.physics.moveToObject(e, player, speed);
     const i = cellOf(e.x, e.y);

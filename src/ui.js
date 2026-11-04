@@ -1194,6 +1194,8 @@ function activeEffectsHtml() {
   if (typeof dyn !== "undefined" && dyn.comfortUntil > t) rows.push(["😤", "Comfort Zone Tax", "More enemies, because you got comfortable", left(dyn.comfortUntil)]);
   if (typeof dyn !== "undefined" && dyn.mercyUntil > t) rows.push(["🫶", "Breather", "Fewer enemies while your HP is low", left(dyn.mercyUntil)]);
   if (typeof buffs !== "undefined" && buffs.speedUntil > t) rows.push(["🥤", "Faster feet", `${Math.round((buffs.speedMult - 1) * 100)}% faster`, left(buffs.speedUntil)]);
+  if (typeof buffs !== "undefined" && buffs.xpUntil > t) rows.push(["🍰", "Office party", `${Math.round((buffs.xpMult - 1) * 100)}% more XP`, left(buffs.xpUntil)]);
+  if (typeof shield !== "undefined" && shield.hits > 0 && shield.until > t) rows.push(["🛡️", "Intern shield", `blocks ${shield.hits} more hit${shield.hits === 1 ? "" : "s"}`, left(shield.until)]);
   if (typeof buffs !== "undefined" && buffs.damageUntil > t) rows.push(["💪", "Extra damage", `${Math.round((buffs.damageMult - 1) * 100)}% more damage`, left(buffs.damageUntil)]);
   if (typeof slowUntil !== "undefined" && slowUntil > t) rows.push(["🍩", "Sugar crash", "You're slower for a bit", left(slowUntil)]);
   const nm = window.NearMiss && window.NearMiss.hud();

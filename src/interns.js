@@ -86,10 +86,14 @@ window.Interns = (() => {
     const r = roster[rosterIdx++ % roster.length];
     if (window.Spotlight) Spotlight.tip("intern"); // first delivery ever
     const key = texture(scene, r);
-    const view = scene.cameras.main.worldView;
+    const view = scene.cameras.main.worldView, chase = C().mode === "chase", CH = C().chase || {};
     const side = Math.floor(Math.random() * 4), m = 60;
     let x = side === 0 ? view.x - m : side === 1 ? view.right + m : player.x + Phaser.Math.Between(-200, 200);
     let y = side === 2 ? view.y - m : side === 3 ? view.bottom + m : player.y + Phaser.Math.Between(-150, 150);
+    if (chase) { // chase mode: they appear on screen, a short sprint away, so you see them and can go after them
+      const [d0, d1] = CH.spawnDist || [210, 290], a = Math.random() * Math.PI * 2, d = d0 + Math.random() * (d1 - d0);
+      x = player.x + Math.cos(a) * d; y = player.y + Math.sin(a) * d * 0.8;
+    }
     if (window.NAV && NAV.fixSpawn) { const s = NAV.fixSpawn(x, y); if (!s) return; [x, y] = s; }
     const real = hasSheet(scene, r);
     const o = real
@@ -100,10 +104,11 @@ window.Interns = (() => {
     const tag = scene.add.text(x, y, r.name.toUpperCase() + " · INTERN", {
       fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 }
     }).setOrigin(0.5, 1).setDepth(21);
-    intern = { o, tag, r, key, real, walked: 0, lastX: x, lastY: y, state: "walk", born: runElapsedMs, waitStart: 0, payload: pickPayload(), frameAt: 0, frame: 0 };
+    intern = { o, tag, r, key, real, walked: 0, lastX: x, lastY: y, state: chase ? "flee" : "walk", born: runElapsedMs, waitStart: 0, payload: pickPayload(), frameAt: 0, frame: 0, taunted: false };
+    if (chase) { tag.setText(r.name.toUpperCase() + " · CATCH ME!"); if (window.Lighting) Lighting.follow(o, "elite", { color: 0xEF9347, r: 44, strength: 0.5, glow: 0.4 }); }
     if (window.showLowerThird && !(window.__internIntroShown)) {
       window.__internIntroShown = true;
-      window.showLowerThird("tip", "INTERN", `${r.name} is on the way with something for you. Meet them halfway.`, 3800);
+      window.showLowerThird("tip", "INTERN", chase ? `${r.name} has a coffee for you. Catch them for a heal and a shield!` : `${r.name} is on the way with something for you. Meet them halfway.`, 4200);
     }
   }
 
@@ -186,6 +191,7 @@ window.Interns = (() => {
       }
       if (it.state === "leaving") return;
       if (typeof levelUpOpen !== "undefined" && levelUpOpen) { o.setVelocity(0, 0); return; }
+      if (it.state === "flee") return chaseStep(scene, it, now);
       // A Bill bumped into them: they run.
       const fr = D().fleeRadius || 26;
       if (bills.getChildren().some(b => b.active && !b.ghost && Math.abs(b.x - o.x) < fr && Math.abs(b.y - o.y) < fr)) {
@@ -217,8 +223,81 @@ window.Interns = (() => {
     spawn(scene);
   }
 
+  // Chase mode (Nov 4): run from the player; touch them to catch them.
+  function chaseStep(scene, it, now) {
+    const CH = C().chase || {}, o = it.o;
+    if (bossAlive()) return leave(scene, null, true);
+    const dist = Phaser.Math.Distance.Between(o.x, o.y, player.x, player.y);
+    if (dist < (CH.catchRadius || 40)) return caught(scene, it);
+    if (now - it.born > (CH.giveUpMs || 15000)) {
+      const el = CH.escapeLines || ["Too slow!"];
+      return leave(scene, `${it.r.name}: ${el[Math.floor(Math.random() * el.length)]}`, true);
+    }
+    let spd = (PLAYER.speed || 200) * (CH.speedMult || 0.8);
+    if (dist > (CH.slowAfterPx || 380)) { // too far ahead: ease off and taunt, so the chase stays winnable
+      spd *= CH.slowMult || 0.4;
+      if (!it.taunted) { it.taunted = true; const tl = CH.tauntLines || []; if (tl.length) bubble(scene, o.x, o.y - (it.real ? 74 : SPRITE_H * SCALE + 14), `${it.r.name}: ${tl[Math.floor(Math.random() * tl.length)]}`); }
+    } else it.taunted = false;
+    if (!(window.NAV && NAV.flee && NAV.flee(scene, o, spd))) { // no map yet: run straight away
+      const a = Math.atan2(o.y - player.y, o.x - player.x);
+      o.setVelocity(Math.cos(a) * spd, Math.sin(a) * spd);
+    }
+  }
+  function caught(scene, it) {
+    const CH = C().chase || {};
+    if (it.r.id === "derek" && window.Lighting) Lighting.fx("cameraFlash", it.o.x, it.o.y - 30); // Derek still gets his photo
+    const amt = healAmt(Math.max(CH.healMin || 2, Math.floor(stats.maxHp * (CH.healFrac || 0.15))));
+    const got = Math.min(stats.maxHp - hp, amt);
+    if (got > 0) { hp += got; recentHeals.push(runElapsedMs); if (typeof drawHpBar === "function") drawHpBar(); }
+    if (window.giveShield) window.giveShield(scene, CH.shieldHits || 2, CH.shieldMs || 20000);
+    floatText(scene, got > 0 ? `+${got} HP · SHIELD` : "SHIELD UP", "#83A89A");
+    if (window.Lighting) Lighting.unfollow(it.o);
+    if (typeof updateHUD === "function") updateHUD();
+    sfx("levelUp");
+    if (window.Telemetry && Telemetry.note) Telemetry.note("internCaught");
+    it.tag.setText(it.r.name.toUpperCase() + " · CAUGHT");
+    tossTreat(scene, it);
+    const lines = it.r.lines || [];
+    return leave(scene, lines[Math.floor(Math.random() * lines.length)] || "Here you go!", false);
+  }
+
+  // The treat they toss when you catch them: drawn in code (a pixel coffee, burrito or bundt cake), lands a short hop away.
+  function treatTexture(scene, id) {
+    const key = "treat_" + id; if (scene.textures.exists(key)) return key;
+    const px = (c, col, list) => { c.fillStyle = col; list.forEach(([x, y, w, h]) => c.fillRect(x, y, w || 1, h || 1)); };
+    makeCanvasTex(scene, key, 16, 16, c => {
+      if (id === "coffee") { px(c, "#171C35", [[3, 5, 10, 10]]); px(c, "#FFF0CF", [[4, 6, 8, 8]]); px(c, "#EF9347", [[4, 9, 8, 3]]); px(c, "#171C35", [[12, 8, 3, 4]]); px(c, "#FFF0CF", [[13, 9, 1, 2]]); px(c, "#83A89A", [[6, 1, 1, 3], [9, 2, 1, 3]]); }
+      else if (id === "burrito") { px(c, "#171C35", [[1, 5, 14, 8]]); px(c, "#D3B78D", [[2, 6, 12, 6]]); px(c, "#F2D7A1", [[3, 6, 9, 2]]); px(c, "#C45C4B", [[13, 7, 1, 2]]); px(c, "#3E7775", [[13, 9, 1, 2]]); px(c, "#EF9347", [[4, 10, 2, 1], [8, 10, 2, 1]]); }
+      else { px(c, "#171C35", [[2, 5, 12, 9]]); px(c, "#BFA8CF", [[3, 6, 10, 7]]); px(c, "#FFF0CF", [[3, 6, 10, 2], [4, 8, 1, 2], [8, 8, 1, 3], [11, 8, 1, 2]]); px(c, "#171C35", [[7, 7, 2, 3]]); px(c, "#C45C4B", [[7, 4, 2, 2]]); }
+    });
+    return key;
+  }
+  function tossTreat(scene, it) {
+    const CH = C().chase || {}, odds = (CH.treatOdds || {})[it.r.id] || { coffee: 1, burrito: 1, bundt: 1 };
+    const ids = Object.keys(odds).filter(k => (CH.treats || {})[k]); if (!ids.length || !window.pizzas) return;
+    let r = Math.random() * ids.reduce((s, k) => s + odds[k], 0), id = ids[0];
+    for (const k of ids) { r -= odds[k]; if (r <= 0) { id = k; break; } }
+    const a = Math.random() * Math.PI * 2, tx = it.o.x + Math.cos(a) * 60, ty = it.o.y + Math.sin(a) * 45;
+    const t = window.pizzas.create(it.o.x, it.o.y - 10, treatTexture(scene, id)).setScale(2).setDepth(3);
+    t.isParcel = true; t.payload = "treat_" + id; t.dieAt = runElapsedMs + 15000; t.collectAt = runElapsedMs + 650;
+    if (window.Lighting) Lighting.follow(t, "bigGem", { color: 0xF2D7A1, r: 30 });
+    scene.tweens.add({ targets: t, x: tx, y: ty, duration: 380, ease: "Quad.easeOut" });
+  }
+  function giveTreat(scene, id) {
+    const T = ((C().chase || {}).treats || {})[id]; if (!T) return;
+    const until = runElapsedMs + (T.durMs || 10000);
+    if (T.speedMult) { buffs.speedUntil = until; buffs.speedMult = Math.max(T.speedMult, runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1); }
+    if (T.damageMult) { buffs.damageUntil = until; buffs.damageMult = T.damageMult; }
+    if (T.xpMult) { buffs.xpUntil = until; buffs.xpMult = T.xpMult; }
+    if (T.vacuumMs) buffs.vacuumUntil = runElapsedMs + T.vacuumMs;
+    floatText(scene, T.name + "!", T.color || "#F2D7A1");
+    if (window.showLowerThird) window.showLowerThird("reward", T.name, T.text.charAt(0).toUpperCase() + T.text.slice(1) + ".", 3200);
+    if (typeof updateHUD === "function") updateHUD();
+    sfx("levelUp");
+  }
+
   // A parcel left on the floor was picked up (called from collectPizza).
-  function collectParcel(scene, p) { const id = p.payload; p.destroy(); give(scene, id); }
+  function collectParcel(scene, p) { const id = p.payload; p.destroy(); if (String(id).startsWith("treat_")) return giveTreat(scene, id.slice(6)); give(scene, id); }
 
   return { preload, reset, update, give, collectParcel, forceSpawn: (scene) => { if (!intern) spawn(scene); }, active: () => intern };
 })();
