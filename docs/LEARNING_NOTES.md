@@ -504,3 +504,6 @@ A **cache** is a place to keep the result of slow work so you don't redo it. The
 
 ## 2026-11-04: Checking a camera-only sprite edit (Codex)
 A pixel comparison can prove a small art edit stayed small. Derek's v2 portrait changes only the camera masks in 22 frames; every pixel outside those masks and every transparency value matches v1. This keeps the existing poses, expressions and timing safe while one detail is improved.
+
+## Object pooling (Nov 4, damage numbers)
+Making a new thing on screen costs time: the game has to build it, draw its picture and later throw it away. Damage numbers used to do that for every single hit, hundreds of times late in a run. A **pool** makes about 40 numbers once and reuses them: when one fades out, it's hidden and waits to be the next "-3". It's like a coffee shop keeping a stack of mugs instead of buying a new mug for every order.

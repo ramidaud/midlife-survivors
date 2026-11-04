@@ -1152,3 +1152,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04 (overnight): V. 1.79.1 and 1.80.0, polish + feel
 - 1.79.1 polish: title art and kill-screen banners about 3.5 MB lighter (no visible change), four unused fonts dropped, the last off-palette yellows moved to cream/coffee, chest stamp moved to the card corner, tall menus fit under the nav, a bigger Lounge sign, and a "Drag anywhere to walk" first tip on phones.
 - 1.80.0: damage numbers in a Silkscreen bitmap font from a pool of 40 (max 6 new per frame), and boss Spotlight cards play their six walk frames.
+- Memo 10 (V2 announcement) draft scaffold: five V. 1.47 vs V2 before/after slider pairs (title, gameplay, level-up, pause, death; desktop and phone) in devlog/img/10-*, with [RAMI: ...] spots for your words. Hidden until you publish (draft: true, not in the feed).

@@ -4,6 +4,29 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "10-version-two",
+    "date": "2026-11-05",
+    "title": "[RAMI: title] Version two.",
+    "version": "V. 1.68 to 1.80",
+    "draft": true,
+    "cover": "img/10-title-after.jpg",
+    "leadAlt": "The V2 title screen: the poster title over the office group photo, your employee file, today's shift with Punch In, and the newest devlog memo.",
+    "blurb": "[RAMI: one-sentence summary for the memo card.]",
+    "teaser": "[RAMI: one-line teaser.]",
+    "changes": [
+      "The Gold Watch: an unbeatable final boss you can only wind back until 65",
+      "Spotlight cards for heroes, bosses, rooms, interns and big moments",
+      "Dynamic lighting: weapons, enemies and bosses light up the dark",
+      "A new HR Exit Interview with defeated heroes and smug killers",
+      "Five new title scenes with the whole cast, drawn for phones too",
+      "The Coldwar Cowboy, TJ and Derek, and a rack with a yellow note",
+      "Faster on phones: lighter loading, smoother late game, instant Quick Retry",
+      "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
+    ],
+    "nextUp": "[RAMI: what's next. The Lounge redo, a busier office, coworkers who move.]",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "09-my-friends-work-here-now",
     "date": "2026-11-03",
     "title": "My friends work here now.",

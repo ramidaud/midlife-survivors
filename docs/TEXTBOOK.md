@@ -1704,3 +1704,17 @@ BEFORE (every Quick Retry)                 AFTER
 
 **The check is the whole trick:** `if (scene.textures.exists(key)) skip`. The texture manager is the cache: it outlives a single run, so anything stored there is still around on Retry.
 **Watch out:** a cache can go stale. If the art changes mid-session, the old pieces would stay. Here that's fine, because art only changes when a new version loads, and a new version reloads the page.
+
+## Chapter: Object pooling (damage numbers, Nov 4)
+**Idea:** reuse a fixed set of objects instead of creating and destroying them constantly.
+
+```
+BEFORE                                   AFTER (pool of 40)
+hit → make new text → draw → fade        hit → take a hidden number from the pool
+    → destroy                                → set "-3", show it → fade → hide it again
+200+ texts alive at age 60               never more than 40, all reused
+a new picture uploaded every hit         one font picture, uploaded once
+```
+
+**Two guards:** if every pooled number is still on screen, skip the new one; and no more than 6 new numbers per frame, so a huge swarm can't flood the screen.
+**Watch out:** objects in a pool must be reset fully each time (text, position, color, transparency), or old values leak into the next use.
