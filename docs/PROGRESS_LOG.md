@@ -1226,3 +1226,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Finished playful caught portraits for TJ and Derek, with the dark camera kept readable.
 - Added the arcade wordmark/stamp, ticket frame, treat/shine icons and confetti burst, with previews and a phone comparison.
 - Native pixel and animation checks pass. Art only, ready for Claude to wire in.
+- V. 1.88.1: a "Save your file?" sign-in card now pops up on the title screen for players with progress who aren't signed in (Rami: the badge got buried on iPhone). Not now waits 2 days; No thanks is forever. Retired the accounts poll.

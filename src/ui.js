@@ -2562,8 +2562,8 @@ function titleNudge(returning) {
   if (read < 10) out.push(`📚 <b>${read} of 10</b> devlog memos read toward <b>Required Reading</b>. <a href="devlog/" class="tp-nudge-link">Open the devlog</a>`);
   if ((meta.bestAge || 40) >= 50) out.push(`🏆 <b>Age ${Math.floor(meta.bestAge)} is worth bragging about.</b> Post it in the <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> and see who beats it.`);
   else out.push(`💬 <b>Stuck before 50?</b> The <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Discord</a> has tips from people who made it.`);
-  let voted = null; try { voted = localStorage.getItem("ms-poll-accounts-v1"); } catch (e) {}
-  if (!voted) out.push(`🗳 <b>Quick poll:</b> should progress follow you across devices with an account? Vote in <b>✨ Extras</b>.`);
+  // The accounts poll is retired now that accounts are live (Nov 4). Signed-out players get a nudge instead.
+  if (window.Account && Account.status() && !Account.signedIn()) out.push(`☁ <b>Play on more than one device?</b> Clock in (bottom of your file) and your progress follows you.`);
   const DC = (window.TITLE_COPY && TITLE_COPY.discord) || [];
   if (DC.length) out.push(`💬 ${DC[Math.floor(Math.random() * DC.length)]} <a href="https://discord.gg/E6N9j5tZe" target="_blank" rel="noopener" class="tp-nudge-link">Join the Discord</a>`);
   return out; // to-dos for the employee file feed (titleFileTile)
@@ -2585,6 +2585,7 @@ function titlePollPop() {
   let voted = null, closed = null;
   try { voted = localStorage.getItem("ms-poll-accounts-v1"); closed = sessionStorage.getItem("ms-poll-pop-closed"); } catch (e) {}
   // The poll waits until after a first run, so a new player's first title screen is just the game (Fable review #10).
+  return ""; // retired Nov 4: accounts are live, and the Clock in prompt (src/account.js) replaced the poll
   if (voted || closed || !window.MSPoll || !(typeof meta !== "undefined" && meta && meta.runsPlayed > 0)) return "";
   return `<aside class="tp-poll-pop" id="tp-poll-pop" aria-label="Quick poll">
     <button type="button" class="tp-poll-x" aria-label="Close the poll" onclick="try{sessionStorage.setItem('ms-poll-pop-closed','1')}catch(e){};this.parentElement.remove()">×</button>

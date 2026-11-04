@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.88.0",
-  displayVersion: "V. 1.88.0",
+  version: "1.88.1",
+  displayVersion: "V. 1.88.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 198,
+  build: 199,
   changelog: [
+    {
+      ver: "V. 1.88.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The title screen now offers to save your file to the cloud.",
+      highlights: [
+        "If you have some progress and haven't signed in, a \"Save your file?\" card pops up on the title screen. Tap Continue with Google, Not now (it asks again in 2 days), or No thanks.",
+        "Brand-new players aren't asked until they've played a run. The old accounts poll is retired."
+      ]
+    },
     {
       ver: "V. 1.88.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The office walls aren't bare anymore.",

@@ -14,6 +14,10 @@ window.Account = (() => {
   // Also on when coming back from Google with a sign-in code, or mid sign-in (supabase-js keeps "ms-auth-code-verifier").
   const on = () => !!(A().enabled || /[?&](accounts=1|code=)/.test(location.search) || (() => { try { return Object.keys(localStorage).some(k => k.startsWith("ms-auth")); } catch (e) { return false; } })());
   const SYNC_KEY = "ms-cloud-sync", AUTH_KEY = "ms-auth";
+  // The sign-in pop-up (Nov 4, Rami: "the login gets buried on the iPhone screen"). It opens by itself on the title
+  // screen for players with some progress who haven't signed in or said no. "Not now" waits 2 days; "don't ask again" is forever.
+  const PROMPT_KEY = "ms-acct-prompt", SNOOZE_MS = 2 * 24 * 3600 * 1000, PROMPT_DELAY_MS = 1600;
+  let promptTimer = null, promptedThisVisit = false;
   let sb = null, libPromise = null, session = null, applying = false, pushTimer = null, lastPush = 0, lastPull = 0;
   let ui = { step: "start", email: "", busy: false, msg: "", err: "", conflict: null };
 
@@ -270,12 +274,14 @@ window.Account = (() => {
         <div class="acct-row">${btn("verify", "Clock in", "primary", " data-acct-enter")}</div>
         <div class="acct-row"><button type="button" class="acct-link" data-acct="resend">Send a new code</button><button type="button" class="acct-link" data-acct="restart">Use a different email</button></div>`;
     } else {
-      body = `<div class="modal-kicker">HR // BADGE OFFICE</div><h2 class="modal-title" id="acct-title">CLOCK IN</h2>
-        <p class="modal-sub">Optional. Save your employee file to the cloud and pick up on any device: coins, shop ranks, unlocks, achievements and a run in progress.</p>
-        ${P.google || P.apple ? `<div class="acct-oauth">${P.google ? btn("google", "Continue with Google") : ""}${P.apple ? btn("apple", "Continue with Apple") : ""}</div>${P.email ? `<div class="acct-or">OR GET A CODE BY EMAIL</div>` : ""}` : ""}
+      const asked = ui.prompted; // opened by itself on the title screen (not by tapping the badge)
+      body = `<div class="modal-kicker">HR // BADGE OFFICE</div><h2 class="modal-title" id="acct-title">${asked ? "SAVE YOUR FILE?" : "CLOCK IN"}</h2>
+        <p class="modal-sub">${asked ? "You've got progress worth keeping. Clock in and your coins, unlocks, achievements and a run in progress follow you to your phone, tablet or laptop." : "Optional. Save your employee file to the cloud and pick up on any device: coins, shop ranks, unlocks, achievements and a run in progress."}</p>
+        ${P.google || P.apple ? `<div class="acct-oauth">${P.google ? btn("google", "Continue with Google", P.email ? "" : "primary") : ""}${P.apple ? btn("apple", "Continue with Apple") : ""}</div>${P.email ? `<div class="acct-or">OR GET A CODE BY EMAIL</div>` : ""}` : ""}
         ${P.email ? `<label for="acct-email">EMAIL</label><input id="acct-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" value="${esc(ui.email)}">
         <div class="acct-row">${btn("send", "Email me a code", "primary", " data-acct-enter")}</div>` : ""}
-        <div class="acct-row">${btn("close", "Not now")}</div>
+        <div class="acct-row">${btn(asked ? "later" : "close", "Not now")}</div>
+        ${asked ? `<button type="button" class="acct-link" data-acct="never">No thanks, don't ask again</button>` : ""}
         <p class="acct-fine">We only use your email to sign you in. No newsletters. Your file still saves on this device either way. <a href="devlog/privacy/" target="_blank" rel="noopener" style="color:#83A89A">Privacy</a></p>`;
     }
     modal.innerHTML = `<div class="modal-card acct-card">${body}${ui.msg ? `<div class="acct-msg">${esc(ui.msg)}</div>` : ""}${ui.err ? `<div class="acct-err" role="alert">${esc(ui.err)}</div>` : ""}</div>`;
@@ -291,6 +297,8 @@ window.Account = (() => {
     if (typeof sfx === "function") sfx("pick");
     ui.msg = "";
     if (act === "close") return close();
+    if (act === "later") { try { localStorage.setItem(PROMPT_KEY, String(Date.now() + SNOOZE_MS)); } catch (e) {} return close(); }
+    if (act === "never") { try { localStorage.setItem(PROMPT_KEY, "never"); } catch (e) {} return close(); }
     if (act === "google" || act === "apple") return oauth(act);
     if (act === "send" || act === "resend") {
       const v = act === "resend" ? ui.email : ((modal.querySelector("#acct-email") || {}).value || "").trim();
@@ -319,6 +327,7 @@ window.Account = (() => {
   }
   function close() {
     if (ui.step === "conflict") return; // you have to pick one
+    ui.prompted = false;
     if (modal) modal.classList.add("hidden");
     window.accountModalOpen = false;
     ui.err = ""; ui.msg = ""; ui.confirmDelete = false;
@@ -362,6 +371,24 @@ window.Account = (() => {
   }
   setTimeout(boot, 1200); // after the title screen is up
 
+  function maybePrompt() {
+    if (promptedThisVisit || promptTimer || !on() || signedIn() || window.accountModalOpen) return;
+    let pref = null; try { pref = localStorage.getItem(PROMPT_KEY); } catch (e) {}
+    if (pref === "never" || (pref && Date.now() < +pref)) return;
+    let authing = false; try { authing = Object.keys(localStorage).some(k => k.startsWith(AUTH_KEY)); } catch (e) {}
+    if (authing || /[?&]code=/.test(location.search)) return; // already mid sign-in
+    const m = typeof meta !== "undefined" ? meta : null; // only once there's something worth saving (a brand-new player just gets the game)
+    if (!m || !((m.runsPlayed || 0) > 0 || (m.coins || 0) > 0 || (m.bestAge || 40) > 40.5)) return;
+    promptTimer = setTimeout(() => {
+      promptTimer = null;
+      const onMain = typeof titleOpen !== "undefined" && titleOpen && document.querySelector('.title-poster[data-view="main"]');
+      const busy = window.changelogModalOpen || window.controlsModalOpen || window.loreModalOpen;
+      if (!onMain || busy || signedIn() || window.accountModalOpen) return;
+      promptedThisVisit = true; ui.prompted = true; ui.step = "start";
+      open();
+    }, PROMPT_DELAY_MS);
+  }
+
   return {
     open, close, signedIn, pull,
     // For the title screen badge: a short line about your cloud save
@@ -371,6 +398,9 @@ window.Account = (() => {
       const s = sync();
       return { in: true, text: s.dirty ? "Saving to the cloud..." : `Cloud save ${ago(s.at)}`, email: session.user.email || "" };
     },
-    onTitle: () => { if (signedIn() && Date.now() - lastPull > 30000) pull(false); }
+    onTitle: () => {
+      if (signedIn() && Date.now() - lastPull > 30000) pull(false);
+      maybePrompt();
+    }
   };
 })();
