@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.92.1",
-  displayVersion: "V. 1.92.1",
+  version: "1.93.0",
+  displayVersion: "V. 1.93.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 210,
+  build: 211,
   changelog: [
+    {
+      ver: "V. 1.93.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Sprint mode: beat the Midlife Crisis V8 and the years start flying.",
+      highlights: [
+        "New: Sprint. Turn it on under Mode on the title screen. Years pass 2x faster (Midlife in about 10 minutes), you and the enemies move 25% faster, and the 401(k) pays 50% more.",
+        "Unlock it by beating the Midlife Crisis V8 (the Keep The Sedan achievement). It works with Full Life and Tax Brackets too.",
+        "Sprint scores share the leaderboard with a ⚡ next to your name."
+      ]
+    },
     {
       ver: "V. 1.92.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Sticky Notes actually stick now.",

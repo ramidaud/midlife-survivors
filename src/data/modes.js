@@ -34,3 +34,17 @@ window.RUN_MODES = {
 
 // Unlocked by the "Retirement Plan" achievement (older saves that already reached 65 keep it too).
 window.isFullLifeUnlocked = m => !!(m && ((m.achievements && m.achievements.unlocked && m.achievements.unlocked.retired) || m.fullLifeUnlocked || (m.bestAge || 40) >= 65));
+
+// SPRINT (Nov 4, Rami: "like Vampire Survivors' Hyper mode"). A toggle on top of either mode.
+// Years pass faster, everyone moves faster, and the 401(k) pays more. Unlocked by beating the Midlife Crisis V8.
+window.SPRINT = {
+  name: "Sprint",
+  yearsMult: 2,       // years pass this much faster (Midlife to 65 in about 10 minutes)
+  playerSpeedMult: 1.25,
+  enemySpeedMult: 1.25,
+  coinMult: 1.5,      // +50% 401(k) coins
+  unlockAchievement: "keepTheSedan",
+  unlockText: "Beat the Midlife Crisis V8 to unlock Sprint.",
+  blurb: "Years pass 2x faster. Everyone moves 25% faster. +50% 401(k) coins."
+};
+window.isSprintUnlocked = m => !!(m && m.achievements && m.achievements.unlocked && m.achievements.unlocked[SPRINT.unlockAchievement]);

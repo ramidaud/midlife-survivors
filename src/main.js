@@ -215,6 +215,7 @@ const dynSpawnMult = () => (runElapsedMs < dyn.mercyUntil ? ((INTENSITY.dynamic 
 
 // ---------- Tax Bracket (src/data/heat.js): locked in when the run starts ----------
 let runTaxBracket = 0;
+let runSprint = false; // Sprint (src/data/modes.js): set when a run starts, kept on resume
 function tax(key) { return runTaxBracket * ((window.TAX_BRACKET && TAX_BRACKET.perLevel[key]) || 0); }
 // Every heal goes through here so the Tax Bracket can trim it (fractions round randomly so small heals still matter).
 function healAmt(n) {
@@ -235,7 +236,10 @@ function modeEndAge() {
   return m.endAge + ((meta.ranks && meta.ranks.delayedRetirement) || 0) * m.overtimeYearsPerRank;
 }
 window.getRunMode = () => runMode;
-window.getRunEndMs = () => (modeEndAge() - runStartAge) * modeCfg().secondsPerYear * 1000; // when the ending arrives, in run time
+function secsPerYear() { return modeCfg().secondsPerYear / (runSprint && window.SPRINT ? SPRINT.yearsMult : 1); } // Sprint makes the years fly
+window.secsPerYear = secsPerYear;
+window.isSprintRun = () => runSprint;
+window.getRunEndMs = () => (modeEndAge() - runStartAge) * secsPerYear() * 1000; // when the ending arrives, in run time
 window.refreshRunMode = () => { runMode = pickRunMode(); runStartAge = modeStartAge(); currentAge = runStartAge; };
 
 // Calculate current 401(k) Coin value & drop chance based on how long you have survived and your Age!
@@ -288,6 +292,7 @@ function create() {
   meta = loadMeta();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
+  runSprint = !!(meta.sprint && window.isSprintUnlocked && isSprintUnlocked(meta));
   runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
@@ -783,6 +788,7 @@ window.persistActiveRun = () => {
     retire80Prompted,
     runMode,
     runTaxBracket,
+    runSprint,
     stats
   });
 };
@@ -829,6 +835,7 @@ function beginFreshRunAtDecade(scene) {
   applyMetaAndChar();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
+  runSprint = !!(meta.sprint && window.isSprintUnlocked && isSprintUnlocked(meta));
   runStartAge = modeStartAge();
   currentAge = runStartAge;
   lastDividendAge = Math.floor(runStartAge / 5) * 5;
@@ -891,7 +898,7 @@ function collectCoin(p, coin) {
 // Fractions add up over the run instead of being lost.
 let coinFrac = 0, xpFrac = 0;
 function bankCoins(v) {
-  coinFrac += v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1) * (1 + tax("coinMult"));
+  coinFrac += v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1) * (1 + tax("coinMult")) * (runSprint && window.SPRINT ? SPRINT.coinMult : 1);
   const whole = Math.floor(coinFrac); coinFrac -= whole; return whole;
 }
 
@@ -1081,6 +1088,7 @@ function showTitleScreen(scene) {
     runStartAge = saved.runStartAge || 40;
     runMode = saved.runMode || "full"; // runs saved before modes existed were Full Life runs
     runTaxBracket = saved.runTaxBracket || 0; // resuming keeps the bracket you started with
+    runSprint = !!saved.runSprint;
     lastDividendAge = Math.floor(currentAge / 5) * 5;
     runElapsedMs = saved.runElapsedMs || 0;
     lastAutoSave = runElapsedMs;
@@ -1942,7 +1950,7 @@ function createEnemy(scene, kind, x, y) {
   const hpScale = (1 + yrs * perYear + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0)) * lvlScale; // smooth toughness ramp
   e.kind = kind;
   e.hp = Math.max(1, Math.round(E.hp * hpScale * (1 + tax("enemyHpMult"))));
-  e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)));
+  e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)) * (runSprint && window.SPRINT ? SPRINT.enemySpeedMult : 1));
   if (window.modFx) { // age 50+ modifiers: Rent Hike (Bills), Reply-All Tax (Gossip)
     if (kind === "bill") e.hp = Math.ceil(e.hp * modFx("billHpMult", 1));
     if (kind === "officeGossip") e.hp = Math.ceil(e.hp * modFx("gossipHpMult", 1));
@@ -2104,7 +2112,7 @@ function spawnBoss(scene, bossKind) {
   const ageMult = 1 + Math.max(0, currentAge - 40) * ((window.INTENSITY && window.INTENSITY.bossHpPerYear) || 0.10);
   boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult * (1 + tax("enemyHpMult"))); // bosses scale with your level AND your age
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
-  boss.speed = P.speed;
+  boss.speed = P.speed * (runSprint && window.SPRINT ? SPRINT.enemySpeedMult : 1);
   boss.damage = P.damage;
   if (isEnd) { // the finish waits near you instead of chasing you: the punch clock at 65, Father Time at 100 (ChatGPT art, Nov 4)
     boss.clockOut = true; boss.speed = 0; boss.body.setImmovable(true); boss.body.pushable = false;
@@ -2200,7 +2208,7 @@ function update(time, delta) {
 
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
   runElapsedMs += (delta || 16.6);
-  currentAge = runStartAge + (runElapsedMs / 1000) / modeCfg().secondsPerYear; // 45 s/year in Midlife, 60 in Full Life
+  currentAge = runStartAge + (runElapsedMs / 1000) / secsPerYear(); // 45 s/year in Midlife, 60 in Full Life
   if (Math.floor(currentAge) > runAch.lastAge) { runAch.lastAge = Math.floor(currentAge); window.achEvent("age", { age: currentAge }); }
 
   // 5-Year 401(k) Compound Interest Dividend! The longer you survive, the larger your automatic dividend payout!
@@ -2376,7 +2384,7 @@ function update(time, delta) {
   if (len > 0) { x /= len; y /= len; }
 
   const buffSpd = Math.max(runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1, window.NearMiss ? window.NearMiss.speedMult() : 1); // Energy Drink / Standing Desk, or a Close Call blip (never both stacked)
-  const baseSpd = stats.speed * (window.modFx ? modFx("speedMult", 1) : 1); // Back Spasm slows the base, drinks still help
+  const baseSpd = stats.speed * (window.modFx ? modFx("speedMult", 1) : 1) * (runSprint && window.SPRINT ? SPRINT.playerSpeedMult : 1); // Back Spasm slows the base, drinks still help
   const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd;
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right

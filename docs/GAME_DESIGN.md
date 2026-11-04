@@ -517,3 +517,8 @@ Room-themed wall pieces use32px modules to dress intact256px wall segments. Moun
 
 ### 2026-11-04: Full coworker world poses (Codex)
 The six named room coworkers now have delivered seated working/personal loops and four-direction standing walks with signature idle actions. Chairs and shoes contact fixed floor lines. This is art for the existing ambient coworkers, not a change to navigation, encounters, rewards or spawning; integration follows review.
+
+## Sprint mode (decided Nov 4, built in V. 1.93.0)
+- Rami: "like Vampire Survivors' Hyper mode." A toggle on top of Midlife or Full Life, under Mode on the title screen.
+- Years pass 2x faster, player and enemies move 25% faster, +50% 401(k) coins. Numbers live in `SPRINT` in `src/data/modes.js`.
+- Unlocked by beating the Midlife Crisis V8 (Keep The Sedan). Sprint scores share the leaderboard, marked with ⚡.

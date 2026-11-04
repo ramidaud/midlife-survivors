@@ -1282,6 +1282,7 @@ function activeEffectsHtml() {
   const nm = window.NearMiss && window.NearMiss.hud();
   if (nm && nm.tier >= 0) rows.push(["⚡", "Close Call streak", nm.text, "dodge to keep it"]);
   const tb = typeof runTaxBracket !== "undefined" ? runTaxBracket : 0;
+  if (window.isSprintRun && window.isSprintRun()) rows.push(["⚡", "Sprint", "Years pass 2x faster, everyone moves faster, +50% coins", "all run"]);
   if (tb > 0) rows.push(["📈", `Tax Bracket ${tb}`, ((window.TAX_BRACKET && TAX_BRACKET.labels && TAX_BRACKET.labels[tb]) || "") + ": tougher enemies, bigger rewards", "all run"]);
   const body = rows.length
     ? rows.map(([i, name, what, time]) => `<li><span class="ae-ico">${i}</span><span class="ae-txt"><b>${name}</b> ${what}</span><span class="ae-time">${time}</span></li>`).join("")
@@ -2218,12 +2219,17 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const curMode = (meta.runMode === "full" && fullOk) ? "full" : "midlife";
   const startAge = curMode === "full" ? (meta.startDecade || 40) : 40; // START AT only applies to Full Life
   const TB = window.TAX_BRACKET, tb = meta.taxBracket || 0;
+  const sprintOk = !!(window.SPRINT && window.isSprintUnlocked && isSprintUnlocked(meta)), sprintOn = sprintOk && !!meta.sprint;
   const modeRowHtml = `
       <div class="title-style-switcher title-mode-row"><span>MODE:</span>
         <button class="t-style-btn ${curMode === "midlife" ? "active" : ""}" data-mode="midlife" title="${RUN_MODES.midlife.blurb}">🗂️ MIDLIFE · 40-65</button>
         <button class="t-style-btn ${curMode === "full" ? "active" : ""}" data-mode="full" ${fullOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${fullOk ? RUN_MODES.full.blurb : RUN_MODES.full.unlockText}">${fullOk ? "🕰️" : "🔒"} FULL LIFE · 40-100</button>
       </div>
-      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${fullOk ? "" : " Full Life unlocks with the Retirement Plan achievement."}</div>
+      <div class="title-mode-blurb">${curMode === "full" ? RUN_MODES.full.blurb : RUN_MODES.midlife.blurb}${sprintOn ? " Half that with Sprint." : ""}${fullOk ? "" : " Full Life unlocks with the Retirement Plan achievement."}</div>
+      <div class="title-style-switcher title-sprint-row"><span>SPRINT:</span>
+        <button class="t-style-btn ${sprintOn ? "active" : ""}" data-sprint="toggle" ${sprintOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${sprintOk ? SPRINT.blurb : SPRINT.unlockText}" aria-pressed="${sprintOn}">${sprintOk ? (sprintOn ? "⚡ ON" : "OFF") : "🔒 LOCKED"}</button>
+      </div>
+      <div class="title-mode-blurb">${sprintOk ? SPRINT.blurb : SPRINT.unlockText}</div>
       <div class="title-style-switcher title-tax-row"><span>TAX BRACKET:</span>
         <button class="t-style-btn" data-tax="-1" ${tb <= 0 ? "disabled style='opacity:0.4'" : ""} aria-label="Lower tax bracket">−</button>
         <b class="tax-val ${tb > 0 ? "on" : ""}">${tb} · ${TB.labels[tb]}</b>
@@ -2339,7 +2345,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="tp-punch">
         <button class="cta-btn clock-in-btn" id="title-clockin-btn"><span class="tp-punch-ico" aria-hidden="true">⏱</span> PUNCH IN${startAge !== 40 ? ` AT ${startAge}` : ""}</button>
         ${resumeBannerHtml}
-        <button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>
+        <button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"}${sprintOn ? " · ⚡ Sprint" : ""} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>
         ${settingsOpen ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
       </div>
       ${bandHtml}${bandTail}`;
@@ -2458,6 +2464,12 @@ function renderTitleModal(scene, preserveFocusSelector) {
         sfx("hurt");
       }
     });
+  });
+
+  // Sprint on/off (unlocked by beating the Midlife Crisis V8)
+  modal.querySelectorAll("[data-sprint]").forEach(btn => {
+    if (btn.disabled) return;
+    bindNavItem(btn, 9.6, () => { meta.sprint = !meta.sprint; saveMeta(meta); sfx("pick"); renderTitleModal(scene, "[data-sprint]"); });
   });
 
   // Row 7: Tax Bracket − / +
@@ -2969,7 +2981,7 @@ function renderGameOverModal(scene, cause, isWin, killer) {
     nameInput.blur();
     document.getElementById("score-post-btn").disabled = true;
     scoreMsg.textContent = "Posting…";
-    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") + (window.getRunTaxBracket && window.getRunTaxBracket() ? ` T${window.getRunTaxBracket()}` : "") };
+    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") + (window.isSprintRun && window.isSprintRun() ? " S" : "") + (window.getRunTaxBracket && window.getRunTaxBracket() ? ` T${window.getRunTaxBracket()}` : "") }; // " S" = Sprint (shown as ⚡ on the board)
     const res = await window.lbSubmit(entry);
     // An HTTP 400 means the board answered but turned the score down (Nov 4: Derek's 579,444 hit an old 500,000 cap), so don't call that "couldn't reach".
     scoreMsg.textContent = res.reason === "dev" ? "Dev mode is on, so this score wasn't posted." : res.online ? "Posted to the online leaderboard!"

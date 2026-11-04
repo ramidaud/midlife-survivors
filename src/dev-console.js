@@ -57,7 +57,7 @@
   };
   const jumpTo = (age) => need(() => {
     const target = Math.max(runStartAge, age);
-    runElapsedMs = (target - runStartAge) * modeCfg().secondsPerYear * 1000;
+    runElapsedMs = (target - runStartAge) * (window.secsPerYear ? secsPerYear() : modeCfg().secondsPerYear) * 1000;
     say("Jumped to age " + target);
   });
   const boss = (kind) => need(() => {

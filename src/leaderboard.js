@@ -113,7 +113,7 @@ async function lbRenderInto(el, mine) {
   };
   const body = rows.length ? rows.map((r, i) => {
     const me = mine && r.name === mine.name && Number(r.score) === Number(mine.score);
-    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
+    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${/ S( T\d)?$/.test(r.version || "") ? ` <span class="lb-tax" title="Sprint">⚡</span>` : ""}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
   }).join("") : (empty
     ? `<tr><td colspan="5" class="lb-empty">Couldn't load the scores just now. <button class="lb-retry" type="button">↻ RETRY</button></td></tr>`
     : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`);
