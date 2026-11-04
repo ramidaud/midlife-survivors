@@ -1143,6 +1143,9 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .vs-hud .vs-coins { font-family: 'Silkscreen', monospace; color: var(--ms-cream); text-shadow: 2px 2px 0 var(--ms-navy); }
   .vs-hud .vs-timer { font-family: 'Silkscreen', monospace; font-weight: 700; color: var(--ms-white); text-shadow: 3px 3px 0 var(--ms-navy); }
   .vs-hud .vs-timer-final { color: var(--ms-red); }
+  .vs-hud .vs-timer-sprint { color: #EF9347; animation: sprintTick .5s steps(2) infinite; } /* Sprint: the clock runs 2x and ticks harder */
+  @keyframes sprintTick { 50% { transform: translateY(-1px) scale(1.04); } }
+  @media (prefers-reduced-motion: reduce) { .vs-hud .vs-timer-sprint { animation: none; } }
   .vs-hud .vs-age { font-family: 'Silkscreen', monospace; color: var(--ms-coffee); text-shadow: 2px 2px 0 var(--ms-navy); }
   .vs-hud .vs-loadout span { background: rgba(23,28,53,0.85); border: 1px solid rgba(62,119,117,0.8); border-radius: 4px; }
   .vs-hud .vs-btn { border-color: var(--ms-teal); background: rgba(23,28,53,0.85); color: var(--ms-white); box-shadow: 2px 2px 0 #0b0e1d; }
@@ -1618,7 +1621,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=216&t=" + Date.now();
+    s.src = "src/loader.js?v=217&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

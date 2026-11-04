@@ -1241,7 +1241,10 @@ function updateCleanHUD() {
   const mmss = ms => { const t = Math.max(0, Math.floor(ms / 1000)); return `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`; };
   const timerEl = document.getElementById("vs-timer");
   const endMs = window.getRunEndMs ? window.getRunEndMs() : 0;
-  hudSetText("vs-timer", mmss(runElapsedMs));
+  // Sprint (Nov 4, Rami: "it should feel like it"): the shift clock runs at the years' speed, 2x, and turns orange with a bolt.
+  const sprinting = window.isSprintRun && isSprintRun() && window.SPRINT;
+  hudSetText("vs-timer", (sprinting ? "⚡" : "") + mmss(runElapsedMs * (sprinting ? SPRINT.yearsMult : 1)));
+  if (timerEl) timerEl.classList.toggle("vs-timer-sprint", !!sprinting);
   const ttl = endMs ? `${mmss(endMs - runElapsedMs)} until the end of this life` : "";
   if (timerEl.title !== ttl) timerEl.title = ttl;
   timerEl.classList.toggle("vs-timer-final", !!endMs && endMs - runElapsedMs < 60000);

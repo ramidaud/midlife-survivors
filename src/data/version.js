@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.2.0",
-  displayVersion: "V. 2.2",
+  version: "2.3.0",
+  displayVersion: "V. 2.3",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 216,
+  build: 217,
   changelog: [
+    {
+      ver: "V. 2.3", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "The Student Lounge moves into the Break Room, and Sprint's clock finally feels fast.",
+      highlights: [
+        "The Student Lounge is in the Break Room: futons and paper lamps on the big rug, a mic stand, a desk run with two monitors, a filing cabinet with pumpkins, and a collage wall behind the coffee cart. It's built from Rami's real office lounge, where TJ and Derek work.",
+        "The Lounge shop now opens on an illustration of the lounge (wide on laptops, tall on phones).",
+        "Sprint's clock ticks at double speed with a lightning bolt, so you can feel the years going twice as fast."
+      ]
+    },
     {
       ver: "V. 2.2", date: "Nov 4, 2026", title: "Version Two",
       teaser: "A friendlier first shift: a briefing before the clock starts, evolution hints on cards, and interns that look like friends.",

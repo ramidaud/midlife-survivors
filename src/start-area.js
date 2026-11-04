@@ -548,6 +548,7 @@ window.StartAreaArt = (() => {
   }
   // Line the walls with the wall kit (src/wall-dresser.js), before collision and spawn spots are worked out.
   if(window.WallDresser){try{const wd=await WallDresser.dress(scene,{data,H,add,items,bodies,layer,BASE});window.WALL_DRESSER_STATS=wd;}catch(e){console.warn('Wall dresser skipped: '+e.message);}if(!H.isAlive())return null;}
+  if(window.LoungeRoom){try{await LoungeRoom.build(scene,{H,add,items,bodies,layer});}catch(e){console.warn('Lounge room skipped: '+e.message);}if(!H.isAlive())return null;}
   const gates=[];
   for(const r of data.gates){const key='slice_closed_gate';if(!scene.textures.exists(key))makeCanvasTex(scene,key,128,336,c=>{c.fillStyle='#171c35';c.fillRect(0,0,128,336);c.fillStyle='#303750';c.fillRect(3,3,122,330);c.fillStyle='#3e7775';c.fillRect(8,8,112,320);c.fillStyle='#83a89a';c.fillRect(12,12,4,312);c.fillStyle='#f2d7a1';c.fillRect(40,12,7,312);c.fillStyle='#171c35';c.fillRect(4,166,120,4);});const o=add(scene.add.image(r.x+64,r.y+224,key).setOrigin(.5,1));H.body(o,{width:128,back:224,front:0},'prop_gate');bodies.push(o);items.push(o);o.sliceId=r.id;o.sliceDepth=o.y;const record={...r,object:o,rect:{x:r.x,y:r.y,w:r.width,h:r.height}};gates.push(record);
    sign(scene,'slice_gate_'+r.id,r.sign||r.name.toUpperCase(),112);const tag=add(scene.add.image(r.x+64,r.y-68,'slice_gate_'+r.id));tag.sliceDepth=r.y+225;items.push(tag);sign(scene,'slice_age_'+r.age,'AGE '+r.age,64);const age=add(scene.add.image(r.x+64,r.y-44,'slice_age_'+r.age));age.sliceDepth=r.y+226;items.push(age);

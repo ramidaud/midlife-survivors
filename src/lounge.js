@@ -86,6 +86,9 @@ window.Lounge = (() => {
     css.textContent = `
       #lounge-modal .lg-card{width:min(560px,100%);max-height:calc(100dvh - 24px);overflow:auto;background:#171C35;border:3px solid #F2D7A1;border-radius:8px;box-shadow:0 8px 0 rgba(0,0,0,.4);color:#FFF0CF;font-family:"Atkinson Hyperlegible",system-ui,sans-serif}
       #lounge-modal .lg-head{background:#F2D7A1;color:#171C35;padding:8px 14px;font:13px Silkscreen,monospace;display:flex;justify-content:space-between;gap:8px}
+      #lounge-modal .lg-scene{display:block;border-bottom:3px solid #F2D7A1;background:#171C35}
+      #lounge-modal .lg-scene img{display:block;width:100%;height:auto;max-height:200px;object-fit:cover;image-rendering:pixelated}
+      @media (max-width:520px){#lounge-modal .lg-scene img{max-height:30dvh;object-position:50% 30%}}
       #lounge-modal .lg-body{padding:12px 14px;display:grid;gap:10px}
       #lounge-modal .lg-say{font-size:15px}
       #lounge-modal .lg-say b{color:#83A89A}
@@ -113,6 +116,7 @@ window.Lounge = (() => {
     const items = (L.catalog || []).map(it => ({ it, why: canBuy(it) }));
     m.innerHTML = `<div class="lg-card">
       <div class="lg-head"><span>THE LOUNGE · BREAK ROOM</span><span>401(k): ${meta.coins}k</span></div>
+      <picture class="lg-scene"><source media="(max-width:520px)" srcset="assets/ui/lounge-scene-tall-v1.png?v=${window.BUILD||1}"><img src="assets/ui/lounge-scene-v1.png?v=${window.BUILD||1}" alt="The Student Lounge: futon, paper lamp, collage wall and the desk where TJ and Derek work" width="960" height="360"></picture>
       <div class="lg-body">
         <div class="lg-say"><b>${r.name}:</b> ${msg || "What can I get you?"}</div>
         <div class="lg-grid">${items.map(({ it, why }, i) => `

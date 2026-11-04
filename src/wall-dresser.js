@@ -81,6 +81,7 @@ window.WallDresser = (() => {
 
     for (const w of data.walls) {
       if (w.axis !== "x" || w.side !== "n" || w.width < 64) continue;
+      if (window.LoungeRoom && LoungeRoom.skipWall(w.id)) continue; // the Student Lounge dresses this stretch (src/lounge-room.js)
       const bottom = w.y + w.height, room = roomAt(w.x + w.width / 2, bottom + 24);
       if (!room) continue;
       const rnd = rng(w.id), low = w.style === "parking" ? 2 : 16; // parking walls are short
