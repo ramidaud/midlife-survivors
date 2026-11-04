@@ -1274,3 +1274,5 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: Art gallery for Discord
 - Made four share boards from the real game art: the cast, the bosses, the enemies and every office prop.
 - GitHub can now post them, plus the five title scenes, to #art-and-ideas (one time each). It waits on Rami adding that channel's webhook as a GitHub secret.
+- The gallery is posted to #art-and-ideas. From now on, new art posts itself: adding an entry to the art list and pushing it is enough. No manual step for Rami.
+- Memo 11 (Discord) interview answers saved; key art prompt for ChatGPT written.
