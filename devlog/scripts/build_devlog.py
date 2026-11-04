@@ -50,6 +50,32 @@ def load_posts(root: Path) -> list[dict]:
     return json.loads(raw)
 
 
+def post_layout(body: str) -> str:
+    """Share pages get the devlog app's memo layout (devlog/app.js does the same in the browser).
+    compare: a | b | Label  -> a before/after slider; back-to-back sliders -> one tabbed "Then and now" box.
+    title "side" / "small"  -> a picture beside the text / a modest picture."""
+    def fix(u):
+        return u if u.startswith(("http", "../", "/")) else "../" + u
+    def ba(m):
+        alt, src, a, b, label = m.group(1), m.group(2), m.group(3).strip(), m.group(4).strip(), (m.group(5) or "").strip()
+        return (f'<figure class="ba-post" data-full="{src}" data-label="{html.escape(label)}"><div class="ba" style="--cut:50%">'
+                f'<img class="ba-a" src="{fix(a)}" alt="Before. {alt}"><div class="ba-b"><img src="{fix(b)}" alt=""></div>'
+                '<span class="ba-lab l">BEFORE</span><span class="ba-lab r">AFTER</span><div class="ba-handle" aria-hidden="true"></div>'
+                '<input type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare before and after"></div>'
+                '<figcaption class="ba-cap">Drag the slider to compare.</figcaption></figure>')
+    body = re.sub(r'<p>\s*<img alt="([^"]*)" src="([^"]*)" title="compare:\s*([^"|]+?)\s*\|\s*([^"|]+?)\s*(?:\|\s*([^"]+?)\s*)?"\s*/?>\s*</p>', ba, body)
+    counter = [0]
+    def tabs(m):
+        figs = re.findall(r'<figure class="ba-post"[\s\S]*?</figure>', m.group(0))
+        i0 = counter[0]; counter[0] += 1
+        chips = "".join(f'<button type="button" role="tab" class="bt-chip" aria-selected="{"true" if i == 0 else "false"}" aria-controls="bt{i0}-{i}">{(re.search(r'data-label="([^"]*)"', f).group(1) or f"View {i + 1}")}</button>' for i, f in enumerate(figs))
+        panels = "".join(f.replace('<figure class="ba-post"', f'<figure class="ba-post" role="tabpanel" id="bt{i0}-{i}"' + (" hidden" if i else ""), 1) for i, f in enumerate(figs))
+        return f'<div class="ba-tabs"><div class="bt-head"><span class="bt-title">THEN AND NOW</span><div class="bt-chips" role="tablist">{chips}</div></div>{panels}</div>'
+    body = re.sub(r'(?:<figure class="ba-post"[\s\S]*?</figure>\s*){2,}', tabs, body)
+    body = re.sub(r'<p>\s*(<img [^>]*?) title="(side|small)"\s*/?>\s*</p>', lambda m: f'<figure class="fig {m.group(2)}">{m.group(1)}></figure>', body)
+    return body
+
+
 def md_to_html(text: str) -> str:
     if mdlib:
         return mdlib.markdown(text, extensions=["fenced_code", "tables"])
@@ -97,7 +123,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=5">
-<link rel="stylesheet" href="../styles.css?v=24">
+<link rel="stylesheet" href="../styles.css?v=25">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -134,7 +160,7 @@ PAGE = """<!doctype html>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);initPostLayout(document);</script>
 </body>
 </html>
 """
@@ -180,7 +206,7 @@ def main():
         body = md_to_html(body_md)
         body = re.sub(r"<p>CODECARD(\d+)</p>", lambda m: cards[int(m.group(1))], body)
         body = body.replace('src="img/', 'src="../img/')
-        body = re.sub(r' title="(?:compare:[^"]*|side|small)"', "", body)  # sliders and size hints only run on the devlog itself
+        body = post_layout(body)  # the same sliders, "Then and now" tabs and side pictures as the devlog app (Nov 4)
 
         title = p["title"]
         desc = p.get("teaser") or title
@@ -197,7 +223,8 @@ def main():
         changes = ""
         if p.get("changes"):
             lis = "".join(f"<li>{html.escape(c)}</li>" for c in p["changes"])
-            changes = f'<div class="changes-box"><h3>What changed</h3><ul>{lis}</ul></div>'
+            changes = (f'<details class="changes-box"><summary><h3>What changed</h3><span class="cb-more">{len(p["changes"])} changes · show all</span></summary><ul>{lis}</ul></details>'
+                       if len(p["changes"]) > 7 else f'<div class="changes-box"><h3>What changed</h3><ul>{lis}</ul></div>')
         next_up = ""
         if p.get("nextUp"):
             next_up = f'<div class="next-up"><strong>Next up</strong>{html.escape(p["nextUp"])}</div>'
