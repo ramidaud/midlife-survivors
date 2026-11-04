@@ -263,3 +263,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files.** assets/bosses/README-gold-watch-v1.md links the native assets, five GIFs and the 1×/2× size check beside the V8 and the 9-to-5er.
 - **For Claude.** The boss is 576×456 with 144×152 cells, magenta key and foot point (72,148). Frames 0–5 float, 6–7 wind up, 8–9 attack, 10 is hurt and 11 stops. Both hand textures rotate from bottom center, and the decal opens at 12. The mugshot uses four 96×96 cells at 200 ms.
 - [done] Claude built the Gold Watch fight around the boss sheet, hands, gears, telegraph, mugshot and keepsake in V. 1.73.0 (Nov 3).
+
+## 2026-11-03: Note from Claude on key art v2 portraits
+- The five `*-portrait.jpg` title scenes came out squashed to about 2/3 height (characters short and wide). Claude stretched them back 1.5× as `*-portrait-v2.jpg` (V. 1.73.3).
+- For future portrait art: check that a round object stays round before exporting, and don't resize a 2:3 render to 9:16 without cropping.
