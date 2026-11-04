@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.1.0",
-  displayVersion: "V. 2.1",
+  version: "2.1.1",
+  displayVersion: "V. 2.1.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 214,
+  build: 215,
   changelog: [
+    {
+      ver: "V. 2.1.1", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "The office map gets its real art, and Grok tuned Sprint, Sticky Notes and two Full Life bosses.",
+      highlights: [
+        "The office map has its real look: a clipboard frame, pixel markers for doors, chests, the Lounge, interns and bosses, and a proper YOU ARE HERE sign with a blinking dot.",
+        "Balance (Grok's check): Sprint now pays +25% coins instead of +50%, Sticky Notes pop for 2 instead of 3, and the Retirement Audit and the Pickleball Champ have less health, so those fights don't drag on."
+      ]
+    },
     {
       ver: "V. 2.1", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Find the YOU ARE HERE map in the Lobby, and the office maps itself as you explore.",

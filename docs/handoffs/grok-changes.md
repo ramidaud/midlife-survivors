@@ -74,3 +74,28 @@ Newest at the bottom. Rami pastes Grok's change-log blocks here. Claude reads th
 - Leave it: healing, Group Chat, V8, gem cap, Tax Bracket, ring and alarm geometry, 60 s despawns.
 - Pending: Rami's picks, then mark [done] with version.
 - [done] Rami picked all 5; shipped in V. 1.77.0 (Nov 4).
+
+
+## Nov 4: balance check (V. 2.1)
+Checked at V. 2.1.0, commit 50ec8cd. Numbers only, no game code touched. Claude applies whatever Rami picks.
+
+**1. Sprint coins (`src/data/modes.js`, `SPRINT.coinMult`): too strong, mildly.**
+- Change: `SPRINT.coinMult` 1.5 -> 1.25.
+- Why: spawn waves key off age but spawn delays tick in real time, so Sprint gives about half the kills per run, and coin drops come out around 0.75x per run but 1.5x per minute. The birthday dividends (about 24 coins in a full Midlife run) come twice as fast and pay 1.5x, so they work out to 3x per minute. Overall Sprint farms about 2x to 2.5x the coins per minute of a normal run. At 1.25 it's still the fastest farm (about 1.25x to 2.5x per minute) and still pays for the faster enemies, but a normal run stops looking like a waste of an evening.
+- Watch: the share of all 401(k) coins earned in Sprint runs. If it's over about 60% while Sprint is under 40% of runs, trim again.
+
+**2. Full Life bosses (`src/data/enemies.js`): HOA fine, Audit a bit spongy, Pickleball too strong.**
+- Boss HP is `hp * (1 + (level-1)*0.28) * (1 + (age-40)*0.10) * (1 + Tax)`. Guessing level 30 / 37 / 45 at ages 70 / 79 / 90, Tax 0: HOA about 7,700 HP, Audit about 16,400, Pickleball about 36,800. For scale, the V8 at 60 and level 20 is about 3,800. At a late build doing 120 to 160 DPS, that's about 60 s, 2 min and almost 4 min of chasing a pickleball paddle.
+- Telegraphs: the age cut (4 ms per year) pushes HOA charge (650) and Pickleball drift (700) to the 550 floor, and Audit rings (800) to the 650 rings floor. Attack speed hits the 1.45x cap, so Pickleball drift runs about 536 px/s. Damage is 3 to 4 plus the +3 age bonus, so 6 to 7 per hit on roughly 12 to 30 max HP. That's scary but fair, as long as the fight doesn't last forever.
+- `hoaPresident.hp`: leave it (210).
+- `retirementBoss.hp` 300 -> 260 (about 14,200 HP, roughly 1.5 min). Three ring waves at the telegraph floor already make it a real test.
+- `pickleballChamp.hp` 460 -> 340 (about 27,200 HP, roughly 3 min). A 4-minute fight at 536 px/s is just a long way to lose a good run.
+- Damage and telegraphs: leave them.
+- Watch: median fight length per boss (aim for 60 to 150 s) and the share of Full Life deaths with each boss alive.
+
+**3. Sticky Notes (`src/data/weapons.js`, `stickyNotes`): too strong.**
+- Change: `stickyNotes.damage` 3 -> 2. Keep `count` 2 and `stickMs` 1500, since the sticking is the fun part Rami asked for.
+- Why: at base it does 2 notes x 3 damage every 1.5 s, which is about 4 DPS on every enemy in the 50 px pop, plus a 1.5 s freeze (0.9 s on neighbors). Coffee does about 1.5 single-target DPS, Remote about 2, Dad Joke about 0.9 area. Maxed out (4 Bulk Packs plus Post-It Wall), you get 6 notes, 9 damage, a 70 px pop and 2.6 s freezes: about 36 area DPS plus near-permanent crowd control. At 2 damage, base drops to about 2.7 DPS, still the best opener, and max drops to about 32.
+- Watch: Sticky pick rate and its share of damage. If it's over 40% of damage in runs that take it, the next knob is the Bulk Pack +1 damage per rank, in loadout.js.
+
+[done] All three applied by Claude in V. 2.1.1 (Sprint coins 1.25, Audit hp 260, Pickleball hp 340, Sticky damage 2).

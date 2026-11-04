@@ -42,9 +42,9 @@ window.SPRINT = {
   yearsMult: 2,       // years pass this much faster (Midlife to 65 in about 10 minutes)
   playerSpeedMult: 1.25,
   enemySpeedMult: 1.25,
-  coinMult: 1.5,      // +50% 401(k) coins
+  coinMult: 1.25,     // +25% 401(k) coins (Grok, Nov 4: 1.5 made Sprint the only way to farm)
   unlockAchievement: "keepTheSedan",
   unlockText: "Beat the Midlife Crisis V8 to unlock Sprint.",
-  blurb: "Years pass 2x faster. Everyone moves 25% faster. +50% 401(k) coins."
+  blurb: "Years pass 2x faster. Everyone moves 25% faster. +25% 401(k) coins."
 };
 window.isSprintUnlocked = m => !!(m && m.achievements && m.achievements.unlocked && m.achievements.unlocked[SPRINT.unlockAchievement]);

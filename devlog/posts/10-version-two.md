@@ -74,7 +74,7 @@ A few fixes too. If your graphics drop out, the game saves your run and offers a
 
 ## While I was writing this
 
-The game kept going. Full Life (40 to 100) got its own bosses: the HOA President charges with a yardstick, the Retirement Audit stamps out rings of forms, and the 6 AM Pickleball Champ lunges in loops. At 100, Father Time waits to shake your hand. Sticky Notes actually stick now. And there's a new Sprint mode, like Hyper in Vampire Survivors: beat the Midlife Crisis V8 to unlock it, and the years fly by twice as fast for 50% more 401(k).
+The game kept going. Full Life (40 to 100) got its own bosses: the HOA President charges with a yardstick, the Retirement Audit stamps out rings of forms, and the 6 AM Pickleball Champ lunges in loops. At 100, Father Time waits to shake your hand. Sticky Notes actually stick now. And there's a new Sprint mode, like Hyper in Vampire Survivors: beat the Midlife Crisis V8 to unlock it, and the years fly by twice as fast for 25% more 401(k).
 
 ## Next time: the game got a Discord
 

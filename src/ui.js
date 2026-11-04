@@ -1282,7 +1282,7 @@ function activeEffectsHtml() {
   const nm = window.NearMiss && window.NearMiss.hud();
   if (nm && nm.tier >= 0) rows.push(["⚡", "Close Call streak", nm.text, "dodge to keep it"]);
   const tb = typeof runTaxBracket !== "undefined" ? runTaxBracket : 0;
-  if (window.isSprintRun && window.isSprintRun()) rows.push(["⚡", "Sprint", "Years pass 2x faster, everyone moves faster, +50% coins", "all run"]);
+  if (window.isSprintRun && window.isSprintRun()) rows.push(["⚡", "Sprint", "Years pass 2x faster, everyone moves faster, +25% coins", "all run"]);
   if (tb > 0) rows.push(["📈", `Tax Bracket ${tb}`, ((window.TAX_BRACKET && TAX_BRACKET.labels && TAX_BRACKET.labels[tb]) || "") + ": tougher enemies, bigger rewards", "all run"]);
   const body = rows.length
     ? rows.map(([i, name, what, time]) => `<li><span class="ae-ico">${i}</span><span class="ae-txt"><b>${name}</b> ${what}</span><span class="ae-time">${time}</span></li>`).join("")

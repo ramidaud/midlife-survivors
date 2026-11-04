@@ -48,7 +48,7 @@ window.DEVLOG_POSTS = [
       "Coworkers with real bodies, dressed-up walls, and bosses that bounce off walls",
       "Safer runs: auto-save if your graphics drop out, plus lighter memory use",
       "Full Life bosses: the HOA President, the Retirement Audit, the Pickleball Champ, and Father Time at 100",
-      "Sprint mode: years pass 2x faster for +50% coins, unlocked by beating the V8",
+      "Sprint mode: years pass 2x faster for +25% coins, unlocked by beating the V8",
       "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
     ],
     "nextUp": "Next memo: the game got its own Discord, and it posts its own updates. After that: Abdel's music, a redone Lounge, and bosses for the Full Life years.",

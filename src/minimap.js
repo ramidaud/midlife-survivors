@@ -19,6 +19,11 @@ window.Minimap = (() => {
   let base = null, baseScale = 0, fog = null, fogCtx = null, cols = 0, rows = 0, B = null;
   let poster = null, posterScene = null, nextReveal = 0, nextDraw = 0, bigOpen = false, el = null, big = null, lastAngle = -Math.PI / 2;
   const has = () => !!(typeof meta !== "undefined" && meta && meta.mapFound);
+  // ChatGPT's art (Nov 4): 9-slice frame, expand/close buttons, 12 px markers, and the YOU ARE HERE sign
+  const ART = { frame: "assets/ui/minimap-frame-v1.png", buttons: "assets/ui/minimap-buttons-v1.png", icons: "assets/ui/minimap-icons-v1.png", sign: "assets/stage/props/evac-map-v1.png" };
+  const ICON = { you: 0, doorOpen: 1, doorLocked: 2, chest: 3, lounge: 4, intern: 5, boss: 6, map: 7 };
+  const icons = new Image(); let iconsOk = false; icons.onload = () => { iconsOk = true; }; icons.src = ART.icons + "?v=" + (window.BUILD || 1);
+  let signAsked = false, signWaitUntil = 0;
   const L = () => window.START_AREA_LAYOUT;
 
   // ---------- the floor plan, drawn once ----------
@@ -57,7 +62,7 @@ window.Minimap = (() => {
 
   // ---------- the evacuation map you find ----------
   function posterTexture(scene) {
-    if (scene.textures.exists("evac_map")) return "evac_map";
+    if (scene.textures.exists("evac_map")) return "evac_map"; // ChatGPT's sign (2 frames of 48x64: plain, glowing dot)
     if (scene.textures.exists("evac_map_code")) return "evac_map_code";
     const t = scene.textures.createCanvas("evac_map_code", 48, 64), c = t.getContext();
     c.fillStyle = "#171C35"; c.fillRect(22, 30, 4, 34); c.fillRect(14, 60, 20, 4); // the stand
@@ -71,12 +76,14 @@ window.Minimap = (() => {
   function placePoster(scene) {
     if (poster || has() || !L()) return;
     const P = MINIMAP.poster;
-    poster = scene.add.image(P.x, P.y, posterTexture(scene)).setOrigin(0.5, 1).setScale(1.4).setDepth(P.y / 10000 + 3);
-    poster.label = scene.add.text(P.x, P.y - 102, "YOU ARE HERE", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#FFF0CF", backgroundColor: "#171C35", padding: { x: 4, y: 2 } }).setOrigin(0.5).setDepth(poster.depth + 0.01);
+    const key = posterTexture(scene);
+    poster = scene.add.sprite(P.x, P.y, key, 0).setOrigin(0.5, 1).setScale(key === "evac_map" ? 2 : 1.4).setDepth(P.y / 10000 + 3);
+    if (key === "evac_map") poster.blink = scene.time.addEvent({ delay: 650, loop: true, callback: () => { if (poster && poster.active) poster.setFrame(poster.frame.name === 0 ? 1 : 0); } });
+    poster.label = scene.add.text(P.x, P.y - 146, "YOU ARE HERE", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#FFF0CF", backgroundColor: "#171C35", padding: { x: 4, y: 2 } }).setOrigin(0.5).setDepth(poster.depth + 0.01);
     scene.tweens.add({ targets: poster.label, y: poster.label.y - 6, duration: 700, yoyo: true, repeat: -1, ease: "Sine.InOut" });
     posterScene = scene;
   }
-  function removePoster() { if (poster) { if (poster.label) poster.label.destroy(); poster.destroy(); } poster = null; }
+  function removePoster() { if (poster) { if (poster.blink) poster.blink.remove(); if (poster.label) poster.label.destroy(); poster.destroy(); } poster = null; }
   function find(scene) {
     meta.mapFound = true; if (typeof saveMeta === "function") saveMeta(meta);
     if (poster && window.burstConfetti) burstConfetti(scene, poster.x, poster.y - 60, 0xf2d7a1, 12);
@@ -93,14 +100,15 @@ window.Minimap = (() => {
     if (document.getElementById("minimap-css")) return;
     const st = document.createElement("style"); st.id = "minimap-css";
     st.textContent = `
-#minimap{position:fixed;right:10px;top:calc(var(--ms-nav-h,0px) + 66px);z-index:24;width:150px;height:110px;border:2px solid ${C.frame};border-radius:6px;background:${C.bg};box-shadow:3px 3px 0 rgba(0,0,0,.45);overflow:hidden;cursor:pointer;touch-action:manipulation}
-#minimap canvas{width:100%;height:100%;display:block;image-rendering:auto}
-#minimap .mm-tab{position:absolute;left:0;top:0;font:9px Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#F2D7A1;padding:1px 5px 1px 4px;border-bottom-right-radius:4px}
-#minimap .mm-hide{position:absolute;right:0;top:0;width:20px;height:18px;border:0;border-bottom-left-radius:4px;background:rgba(23,28,53,.85);color:#F2D7A1;font:12px/1 Silkscreen,monospace;cursor:pointer;padding:0}
-#minimap.mm-min{width:46px;height:20px}
-#minimap.mm-min canvas,#minimap.mm-min .mm-hide{display:none}
+#minimap{position:fixed;right:10px;top:calc(var(--ms-nav-h,0px) + 66px);z-index:24;width:164px;height:124px;box-sizing:border-box;border:16px solid transparent;border-image:url(${ART.frame}) 16 fill / 16px stretch;image-rendering:pixelated;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.45));cursor:pointer;touch-action:manipulation}
+#minimap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:auto}
+#minimap .mm-btn{position:absolute;top:-14px;width:24px;height:24px;border:0;padding:0;cursor:pointer;background:url(${ART.buttons}) 0 0/48px 24px no-repeat;image-rendering:pixelated;z-index:2}
+#minimap .mm-big{right:14px}
+#minimap .mm-hide{right:-12px;background-position:-24px 0}
+#minimap.mm-min{width:64px;height:40px}
+#minimap.mm-min canvas,#minimap.mm-min .mm-btn{display:none}
 #minimap.hidden{display:none}
-@media (max-width:760px),(orientation:portrait){#minimap{width:108px;height:80px;top:calc(var(--ms-nav-h,0px) + 58px);right:8px}}
+@media (max-width:760px),(orientation:portrait){#minimap{width:124px;height:96px;top:calc(var(--ms-nav-h,0px) + 58px);right:6px;border-width:12px;border-image-width:12px}#minimap .mm-btn{top:-11px}#minimap .mm-hide{right:-9px}#minimap .mm-big{right:13px}}
 #minimap-modal{position:fixed;inset:0;z-index:60;background:rgba(10,12,24,.88);display:flex;align-items:center;justify-content:center;padding:14px}
 #minimap-modal.hidden{display:none}
 #minimap-modal .mmb{position:relative;width:min(960px,96vw);max-height:92vh;background:${C.bg};border:2px solid ${C.frame};border-radius:8px;padding:12px;box-shadow:6px 6px 0 rgba(0,0,0,.5);display:flex;flex-direction:column;gap:8px}
@@ -108,7 +116,7 @@ window.Minimap = (() => {
 #minimap-modal .mmb-title{font:12px Silkscreen,monospace;letter-spacing:.08em;color:#171C35;background:#F2D7A1;padding:3px 8px;border-radius:2px}
 #minimap-modal canvas{width:100%;height:auto;max-height:70vh;object-fit:contain;display:block;border-radius:4px}
 #minimap-modal .mmb-legend{display:flex;flex-wrap:wrap;gap:6px 14px;font:13px 'Atkinson Hyperlegible',sans-serif;color:#B8C0D4}
-#minimap-modal .mmb-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+#minimap-modal .mmb-legend i.mm-ic{display:inline-block;width:24px;height:24px;margin-right:5px;vertical-align:-7px;background:url(${ART.icons}) 0 0/192px 24px no-repeat;image-rendering:pixelated}
 #minimap-modal button.mmb-x{font:12px Silkscreen,monospace;color:#171C35;background:#EF9347;border:0;border-radius:3px;padding:8px 12px;cursor:pointer}`;
     document.head.appendChild(st);
   }
@@ -116,7 +124,7 @@ window.Minimap = (() => {
     css();
     if (!el) {
       el = document.createElement("div"); el.id = "minimap"; el.setAttribute("role", "button"); el.setAttribute("aria-label", "Office map. Tap to open the whole floor.");
-      el.innerHTML = `<canvas width="300" height="220"></canvas><span class="mm-tab">MAP</span><button type="button" class="mm-hide" aria-label="Hide the map">–</button>`;
+      el.innerHTML = `<canvas width="288" height="208"></canvas><button type="button" class="mm-btn mm-big" aria-label="Open the whole map"></button><button type="button" class="mm-btn mm-hide" aria-label="Hide the map"></button>`;
       document.body.appendChild(el);
       el.addEventListener("pointerdown", e => {
         e.stopPropagation(); e.preventDefault();
@@ -159,23 +167,26 @@ window.Minimap = (() => {
     t.globalCompositeOperation = "source-over";
     ctx.drawImage(tmp, 0, 0);
     const seen = (x, y) => { const d = fogCtx.getImageData(Math.floor((x - B.x) / MINIMAP.cell), Math.floor((y - B.y) / MINIMAP.cell), 1, 1).data; return d[3] > 40; };
-    const dot = (x, y, r, col) => { ctx.fillStyle = "#171C35"; ctx.beginPath(); ctx.arc(X(x), Y(y), r + 1.5, 0, 7); ctx.fill(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(x), Y(y), r, 0, 7); ctx.fill(); };
+    const icon = (i, x, y, size) => { ctx.imageSmoothingEnabled = false; const s2 = Math.round(size); ctx.drawImage(icons, i * 12, 0, 12, 12, Math.round(X(x) - s2 / 2), Math.round(Y(y) - s2 / 2), s2, s2); };
+    const isz = whole ? 26 : 22; // 12 px art at about 2x on the canvas
+    const dot = (x, y, r, col, ic) => { if (iconsOk && ic !== undefined) return icon(ic, x, y, isz); ctx.fillStyle = "#171C35"; ctx.beginPath(); ctx.arc(X(x), Y(y), r + 1.5, 0, 7); ctx.fill(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(x), Y(y), r, 0, 7); ctx.fill(); };
     const k = whole ? 1.6 : 1;
     // doors: green once your promotion opened them, red while locked (shown once you've seen them)
     for (const g of window.START_AREA_GATES || []) {
       const gx = g.x + (g.width || 128) / 2, gy = g.y + (g.height || 224) / 2; if (!seen(gx, gy)) continue;
-      ctx.fillStyle = "#171C35"; ctx.fillRect(X(gx) - 4 * k, Y(gy) - 4 * k, 8 * k, 8 * k);
-      ctx.fillStyle = g.opened ? C.doorOpen : C.doorLocked; ctx.fillRect(X(gx) - 3 * k, Y(gy) - 3 * k, 6 * k, 6 * k);
+      if (iconsOk) icon(g.opened ? ICON.doorOpen : ICON.doorLocked, gx, gy, isz);
+      else { ctx.fillStyle = "#171C35"; ctx.fillRect(X(gx) - 4 * k, Y(gy) - 4 * k, 8 * k, 8 * k); ctx.fillStyle = g.opened ? C.doorOpen : C.doorLocked; ctx.fillRect(X(gx) - 3 * k, Y(gy) - 3 * k, 6 * k, 6 * k); }
       if (whole && !g.opened) { ctx.font = "bold 11px Silkscreen, monospace"; ctx.fillStyle = "#F2D7A1"; ctx.textAlign = "center"; ctx.fillText("AGE " + g.age, X(gx), Y(gy) - 10); }
     }
-    if (window.Lounge && Lounge.spot && Lounge.isOpen && Lounge.isOpen()) { const p = Lounge.spot(); if (p && seen(p.x, p.y)) dot(p.x, p.y, 3.5 * k, C.lounge); }
-    if (typeof chests !== "undefined" && chests && chests.getChildren) chests.getChildren().forEach(o => { if (o.active) dot(o.x, o.y, 3 * k, C.chest); });
-    const it = window.Interns && Interns.active && Interns.active(); if (it && it.o && it.o.active) dot(it.o.x, it.o.y, 3 * k, C.intern);
-    if (typeof bills !== "undefined" && bills && bills.getChildren) bills.getChildren().forEach(b => { if (b.active && b.isBoss && !b.clockOut) dot(b.x, b.y, 4 * k, C.boss); });
+    if (window.Lounge && Lounge.spot && Lounge.isOpen && Lounge.isOpen()) { const p = Lounge.spot(); if (p && seen(p.x, p.y)) dot(p.x, p.y, 3.5 * k, C.lounge, ICON.lounge); }
+    if (typeof chests !== "undefined" && chests && chests.getChildren) chests.getChildren().forEach(o => { if (o.active) dot(o.x, o.y, 3 * k, C.chest, ICON.chest); });
+    const it = window.Interns && Interns.active && Interns.active(); if (it && it.o && it.o.active) dot(it.o.x, it.o.y, 3 * k, C.intern, ICON.intern);
+    if (typeof bills !== "undefined" && bills && bills.getChildren) bills.getChildren().forEach(b => { if (b.active && b.isBoss && !b.clockOut) dot(b.x, b.y, 4 * k, C.boss, ICON.boss); });
     // you: an arrow pointing the way you're walking
     if (typeof player !== "undefined" && player && player.body) {
       const v = player.body.velocity; if (Math.hypot(v.x, v.y) > 10) lastAngle = Math.atan2(v.y, v.x);
       const px = X(player.x), py = Y(player.y), r = 6 * k;
+      if (iconsOk) { const sz = isz + 4; ctx.save(); ctx.translate(Math.round(px), Math.round(py)); ctx.rotate(lastAngle + Math.PI / 2); ctx.imageSmoothingEnabled = false; ctx.drawImage(icons, 0, 0, 12, 12, -sz / 2, -sz / 2, sz, sz); ctx.restore(); return; }
       ctx.save(); ctx.translate(px, py); ctx.rotate(lastAngle + Math.PI / 2);
       ctx.beginPath(); ctx.moveTo(0, -r); ctx.lineTo(r * 0.75, r * 0.8); ctx.lineTo(0, r * 0.35); ctx.lineTo(-r * 0.75, r * 0.8); ctx.closePath();
       ctx.fillStyle = C.you; ctx.strokeStyle = "#171C35"; ctx.lineWidth = 2; ctx.stroke(); ctx.fill(); ctx.restore();
@@ -192,7 +203,7 @@ window.Minimap = (() => {
       big = document.createElement("div"); big.id = "minimap-modal"; big.className = "hidden"; big.setAttribute("role", "dialog"); big.setAttribute("aria-label", "Office map");
       big.innerHTML = `<div class="mmb"><div class="mmb-head"><span class="mmb-title">OFFICE MAP · YOU ARE HERE</span><button type="button" class="mmb-x nav-item" data-nav-idx="0">CLOSE [M]</button></div>
         <canvas width="1200" height="810"></canvas>
-        <div class="mmb-legend"><span><i style="background:${C.you}"></i>You</span><span><i style="background:${C.doorOpen};border-radius:1px"></i>Open door</span><span><i style="background:${C.doorLocked};border-radius:1px"></i>Locked (opens at that age)</span><span><i style="background:${C.chest}"></i>Chest</span><span><i style="background:${C.lounge}"></i>Lounge</span><span><i style="background:${C.intern}"></i>Intern</span><span><i style="background:${C.boss}"></i>Boss</span><span style="opacity:.8">Dark areas: not explored yet</span></div></div>`;
+        <div class="mmb-legend"><span><i class="mm-ic" style="background-position:-0px 0"></i>You</span><span><i class="mm-ic" style="background-position:-24px 0"></i>Open door</span><span><i class="mm-ic" style="background-position:-48px 0"></i>Locked (opens at that age)</span><span><i class="mm-ic" style="background-position:-72px 0"></i>Chest</span><span><i class="mm-ic" style="background-position:-96px 0"></i>Lounge</span><span><i class="mm-ic" style="background-position:-120px 0"></i>Intern</span><span><i class="mm-ic" style="background-position:-144px 0"></i>Boss</span><span style="opacity:.8">Dark areas: not explored yet</span></div></div>`;
       document.body.appendChild(big);
       big.addEventListener("pointerdown", e => { if (e.target === big || e.target.classList.contains("mmb-x")) { e.preventDefault(); closeBig(); } });
       big.querySelector(".mmb-x").addEventListener("nav-activate", closeBig);
@@ -223,7 +234,9 @@ window.Minimap = (() => {
     if (!base && !buildBase()) return;
     if (typeof player === "undefined" || !player || !player.active) return;
     if (!has()) {
-      if (!poster || posterScene !== scene || !poster.active) { poster = null; if (window.START_AREA_GATES && START_AREA_GATES.length) placePoster(scene); }
+      if (!signAsked && window.ArtSheets) { signAsked = true; signWaitUntil = now + 3000; ArtSheets.load(scene, "evac_map", ART.sign, 48, 64); }
+      const signReady = scene.textures.exists("evac_map") || now > signWaitUntil; // wait a moment for the real sign, then fall back
+      if (signReady && (!poster || posterScene !== scene || !poster.active)) { poster = null; if (window.START_AREA_GATES && START_AREA_GATES.length) placePoster(scene); }
       if (poster && Math.hypot(player.x - poster.x, player.y - (poster.y - 20)) < MINIMAP.findRadius) find(scene);
     }
     if (now >= nextReveal) { nextReveal = now + 200; reveal(player.x, player.y); } // exploring counts even before you find the map

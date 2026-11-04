@@ -190,7 +190,7 @@ window.ENEMIES = {
     tex: "mortgageRefinance",
     spawnAge: 79.2,
     speed: 78,
-    hp: 300,
+    hp: 260, // Grok Nov 4: was 300 (about 1.5 min fight)
     damage: 4,
     size: 62,
     color: 0x6be2ff
@@ -201,7 +201,7 @@ window.ENEMIES = {
     tex: "midlifeCrisis",
     spawnAge: 90,
     speed: 132,
-    hp: 460,
+    hp: 340, // Grok Nov 4: was 460 (a 4-minute chase was too long)
     damage: 4,
     size: 60,
     color: 0x6fbf73

@@ -35,3 +35,122 @@ Newest at the bottom. Rami pastes Gemini's change-log blocks here. Claude reads 
 ## 2026-11-04: Final V2 copy audit
 - Review: docs/handoffs/gemini-final-pass-review.md
 - [done] Bugs + polish shipped in V. 1.77.0 (Nov 4). Skipped: Sam's card name length (fits as is), the decaf/password line moves, and the Grad Student Spotlight name (kept short to fit).
+
+
+## Nov 4: new stage writing (hospital and home)
+For the stage builds after the poll. Not in the game yet. Notes from Claude: the home boss reuses the HOA Board President (already a Full Life boss), so it needs its own twist or a new boss; the hospital unlock (Annual Checkup or Second Opinion 3 times) works with items that exist.
+
+```json
+{
+  "hospital": {
+    "blurb": "Fluorescent halls, mystery co-pays, and five-year-old waiting room magazines.",
+    "enemies": [
+      {
+        "name": "Co-Pay",
+        "line": "That will be forty dollars before we say hello."
+      },
+      {
+        "name": "Out-of-Network Lab",
+        "line": "The clinic is covered, but the microscope is freelance."
+      },
+      {
+        "name": "Paper Gown",
+        "line": "Ties in the back and respects zero personal boundaries."
+      },
+      {
+        "name": "Triage Pager",
+        "line": "Beeps three times right when you close your eyes."
+      },
+      {
+        "name": "Cafeteria Gelatin",
+        "line": "Wobbles menacingly and slows your shoes to a crawl."
+      },
+      {
+        "name": "Blood Pressure Cuff",
+        "line": "Squeezes your arm until your pulse hits high score."
+      },
+      {
+        "name": "Clipboard Nurse",
+        "line": "Needs your mother's maiden name and three more signatures."
+      },
+      {
+        "name": "Mystery Deductible",
+        "line": "Resets every January first just to keep things exciting."
+      }
+    ],
+    "boss": {
+      "name": "THE PRIOR AUTHORIZATION",
+      "spotlight": "Your claim is pending review by a committee of fax machines.",
+      "tip": "Step between the red stamp shockwaves when the gavel drops."
+    },
+    "gimmick": "Every two minutes, a freshly mopped tile strip appears across the corridor, making your turns slide wider while giving you a brief speed boost.",
+    "tips": [
+      "Please do not read the 2017 golf magazines. They only lower morale.",
+      "The vending machine takes crisp dollar bills from before the millennium.",
+      "Your doctor will be right with you. That was forty minutes ago.",
+      "Remember to fast for twelve hours before fighting the cholesterol wave.",
+      "Hospital coffee counts as both a beverage and a minor stress test.",
+      "If the paper on the exam table crinkles, the enemies can hear you."
+    ],
+    "unlock": {
+      "name": "Met Your Deductible",
+      "desc": "Use Annual Checkup or Second Opinion 3 times across any runs."
+    }
+  },
+  "home": {
+    "blurb": "Cul-de-sac politics, barefoot plastic blocks, and tenth-grade fractions at 9 PM.",
+    "enemies": [
+      {
+        "name": "Plastic Toy Brick",
+        "line": "Waits in the shag carpet for an unshod heel."
+      },
+      {
+        "name": "New Math Worksheet",
+        "line": "Carry the one? We draw forty little boxes now."
+      },
+      {
+        "name": "Check Engine Light",
+        "line": "Glows amber the exact afternoon your warranty expires."
+      },
+      {
+        "name": "Mystery Thermostat",
+        "line": "Somebody touched the dial and now your dad senses tingle."
+      },
+      {
+        "name": "Trash Can Rollout",
+        "line": "It is 6 AM and the truck is already rumbling."
+      },
+      {
+        "name": "Carpool Minivan",
+        "line": "Double-booked for soccer and band on opposite sides of town."
+      },
+      {
+        "name": "Water Heater Knock",
+        "line": "Makes a rhythmic thumping noise that sounds like four hundred dollars."
+      },
+      {
+        "name": "Leaf Blower Neighbor",
+        "line": "Fires up the two-stroke engine at seven on Saturday."
+      }
+    ],
+    "boss": {
+      "name": "THE HOA BOARD PRESIDENT",
+      "spotlight": "Your grass is two-tenths of an inch over code, neighbor.",
+      "tip": "Sidestep the brass ruler sweep and stay off the cited lawn."
+    },
+    "gimmick": "Every ninety seconds, the automated lawn sprinklers pop up in alternating yard quadrants, washing away enemy projectiles while slowing anyone caught in the spray.",
+    "tips": [
+      "Who left the front door open? We are not air-conditioning the whole neighborhood.",
+      "Look with your eyes, not with your hands. The garage shelves are fragile.",
+      "The recycling goes in the blue bin, flattened, before Tuesday night.",
+      "Do not touch the thermostat. Put on a cardigan if you are chilly.",
+      "There is perfectly good food at home. Well, mostly condiments and tortillas.",
+      "If you hear a strange rattle under the hood, just turn the radio up."
+    ],
+    "unlock": {
+      "name": "Clear of Escrow",
+      "desc": "Defeat the 30-Year Mortgage at Age 52 to get the keys to the house."
+    }
+  }
+}
+```

@@ -57,7 +57,7 @@ window.ACH_END_LINES = {
   showYourWork: "You solved Math Homework using the new way they teach it now. Bank 4k in 401(k) coins for permanent shop upgrades.",
   q3Met: "You beat your Performance Review and exceeded every expectation. Management deposited 5k in 401(k) coins for your next trip to the shop.",
   escrowHero: "You signed the last page and conquered the 30-Year Mortgage. Celebrate out of escrow with 6k in 401(k) coins for the shop.",
-  keepTheSedan: "You outran the Midlife Crisis V8 and kept the sensible four-door. Sprint mode is unlocked: turn it on under Mode on the title screen. Years fly, everyone hustles, and the 401(k) pays 50% more.",
+  keepTheSedan: "You outran the Midlife Crisis V8 and kept the sensible four-door. Sprint mode is unlocked: turn it on under Mode on the title screen. Years fly, everyone hustles, and the 401(k) pays 25% more.",
   retired: "You made it to your Retirement Party in Midlife. You get 10k in 401(k) coins for the shop, and Full Life mode (ages 40 to 100) is now unlocked.",
   grassLegal: "You defeated the HOA Board President with two-tenths of an inch to spare. Take 8k in 401(k) coins to the shop with zero lawn citations.",
   vested: "You reached age 80 and are officially fully vested. Collect 10k in 401(k) coins to spend on permanent upgrades in the shop.",
