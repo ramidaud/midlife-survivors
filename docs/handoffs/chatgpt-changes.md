@@ -271,3 +271,6 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 ## 2026-11-04: Phone title proportions repaired (Codex)
 - **What.** Rebuilt all five portrait-v3 JPGs at 1080×1920 with uniform scaling, preserving the scenes and fitting the cast into the phone band. Happy 50th's party now spans about 81% of the image width. Art, proportion checks and export scale notes are in assets/title-screen/qa-v3/.
 - [done] Claude switched the title screen to the portrait v3 files in V. 1.76.2 (Nov 4), with a separate tablet crop.
+
+## 2026-11-04: Final art audit before V2 (Codex)
+- **What.** Report only: `docs/handoffs/chatgpt-final-pass-review.md` contains the three-line summary, ranked top ten, consistency/placeholder/animation/phone findings and a measured asset-weight inventory. Audited V. 1.76.2, then pulled through `abc63a3` (V. 1.77.1) and checked the intervening changes. Desktop 1280x800 and phone 390x844 checks used `?nostats=1&dev=1`; no score was submitted. Biggest gaps: friendly clock-out art, assembled world coworkers, procedural combat/loot and Full Life boss identities. Confirmed Art Room filter and Spotlight stylesheet bugs need presentation fixes, not new portraits. Derek's existing camera-only brief is referenced, not started. No art, runtime, version or published-post changes; Rami chooses the next jobs.
