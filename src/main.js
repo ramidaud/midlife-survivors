@@ -289,6 +289,7 @@ function create() {
   runTaxBracket = meta.taxBracket || 0;
   runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
+  this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
   if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
   bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
@@ -1425,17 +1426,45 @@ function showGameOver(scene, killer, isWin) {
 }
 
 // Pop a floating damage number above an enemy that drifts up and fades out.
+// Damage numbers (Nov 4, Fable review #2): one bitmap font in the game's pixel font (Silkscreen) and a pool of
+// about 40 reusable numbers, instead of a brand-new text texture for every hit. At most 6 new numbers per frame.
+const DMG = { pool: 40, perFrame: 6, font: "ms_dmgfont", chars: "-0123456789+" };
+function dmgFontReady(sc) {
+  if (sc.cache.bitmapFont.exists(DMG.font)) return true;
+  if (!(document.fonts && document.fonts.check && document.fonts.check("16px Silkscreen"))) return false; // wait for the pixel font
+  const cw = 15, ch = 20, key = DMG.font + "_tex";
+  if (!sc.textures.exists(key)) {
+    const t = sc.textures.createCanvas(key, cw * DMG.chars.length, ch), c = t.getContext();
+    c.font = "16px Silkscreen"; c.textAlign = "center"; c.textBaseline = "middle"; c.lineJoin = "round";
+    [...DMG.chars].forEach((g, i) => { const x = i * cw + cw / 2, y = ch / 2 + 1;
+      c.lineWidth = 4; c.strokeStyle = "#171C35"; c.strokeText(g, x, y); c.fillStyle = "#FFF0CF"; c.fillText(g, x, y); });
+    t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
+  }
+  sc.cache.bitmapFont.add(DMG.font, Phaser.GameObjects.RetroFont.Parse(sc, { image: key, width: cw, height: ch, chars: DMG.chars, charsPerRow: DMG.chars.length, "spacing.x": 0, "spacing.y": 0, "offset.x": 0, "offset.y": 0 }));
+  return true;
+}
 function popDamageNumber(sc, x, y, amount) {
   const big = amount >= 2;
   const pt = project3DToPhaserWorld(sc, x, 34, y);
-  const txt = sc.add.text(pt.x + Phaser.Math.Between(-8, 8), pt.y - 14, `-${amount}`, {
-    fontFamily: "monospace", fontSize: big ? "16px" : "13px", fontStyle: "bold",
-    color: big ? "#ffe042" : "#ffffff", stroke: "#12152a", strokeThickness: 3
-  }).setOrigin(0.5).setDepth(49500); // above the lighting layer so numbers stay readable in the dark
-  sc.tweens.add({
-    targets: txt, y: txt.y - 26, alpha: 0, scale: big ? 1.25 : 1,
-    duration: 460, ease: "Cubic.easeOut", onComplete: () => txt.destroy()
-  });
+  const frame = sc.game.loop.frame;
+  if (sc._dmgFrame !== frame) { sc._dmgFrame = frame; sc._dmgCount = 0; }
+  if (++sc._dmgCount > DMG.perFrame) return; // a huge swarm hit at once: skip the extras
+  if (!dmgFontReady(sc)) { // fallback until the pixel font has loaded
+    const txt = sc.add.text(pt.x + Phaser.Math.Between(-8, 8), pt.y - 14, `-${amount}`, { fontFamily: "monospace", fontSize: big ? "16px" : "13px", fontStyle: "bold", color: big ? "#EF9347" : "#FFF0CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(49500);
+    sc.tweens.add({ targets: txt, y: txt.y - 26, alpha: 0, duration: 460, ease: "Cubic.easeOut", onComplete: () => txt.destroy() });
+    return;
+  }
+  const pool = sc._dmgPool || (sc._dmgPool = []);
+  let t = pool.find(o => !o.visible);
+  if (!t) {
+    if (pool.length >= DMG.pool) return; // every number is still on screen: skip this one
+    t = sc.add.bitmapText(0, 0, DMG.font, "", 20).setOrigin(0.5).setDepth(49500); // above the lighting so numbers stay readable
+    pool.push(t);
+  }
+  sc.tweens.killTweensOf(t);
+  t.setText(`-${amount}`).setPosition(pt.x + Phaser.Math.Between(-8, 8), pt.y - 14).setAlpha(1).setVisible(true)
+    .setScale(big ? 1 : 0.8).setTint(big ? 0xEF9347 : 0xffffff);
+  sc.tweens.add({ targets: t, y: t.y - 26, alpha: 0, scale: big ? 1.25 : 0.8, duration: 460, ease: "Cubic.easeOut", onComplete: () => t.setVisible(false) });
 }
 
 // Burst shredded paper / confetti scraps when an enemy is paid off or defeated!

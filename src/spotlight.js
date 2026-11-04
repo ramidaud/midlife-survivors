@@ -35,7 +35,7 @@ window.Spotlight = (() => {
 #spotlight .sp-art{image-rendering:pixelated;filter:drop-shadow(0 0 14px var(--edge));background-repeat:no-repeat;background-color:transparent;box-shadow:none;border-radius:0;min-height:0;max-height:none;padding:0;margin:0;border:0;box-sizing:content-box} /* pages with their own .hero/.boss styles (the Art Room) must not stretch the sprite (ChatGPT audit R2) */
 #spotlight .sp-artwrap.duo{display:flex;align-items:flex-end}
 #spotlight .sp-artwrap.duo .sp-art.b{margin-left:calc(-20px * var(--a));animation-delay:-.5s}
-#spotlight .sp-art.boss{width:calc(144px * var(--a));height:calc(152px * var(--a));background-size:calc(576px * var(--a)) calc(456px * var(--a));background-position:0 0;animation:spBob 1.6s 1s ease-in-out infinite}
+#spotlight .sp-art.boss{width:calc(144px * var(--a));height:calc(152px * var(--a));background-size:calc(576px * var(--a)) calc(456px * var(--a));background-position:0 0;animation:spBossWalk .84s steps(1) infinite,spBob 1.6s 1s ease-in-out infinite}
 #spotlight .sp-art.hero{width:calc(96px * var(--a));height:calc(112px * var(--a));background-size:calc(768px * var(--a)) calc(336px * var(--a));background-position:0 calc(-112px * var(--a));animation:spHero 1.12s steps(8) infinite}
 #spotlight .sp-art.cast{width:calc(48px * var(--a));height:calc(56px * var(--a));background-size:calc(192px * var(--a)) calc(224px * var(--a));background-position:0 0;animation:spCast .9s steps(4) infinite}
 #spotlight .sp-art.intern{width:calc(56px * var(--a));height:calc(60px * var(--a));background-size:calc(448px * var(--a)) calc(300px * var(--a));background-position:0 calc(-240px * var(--a));animation:spIntern .74s steps(4) infinite}
@@ -87,6 +87,8 @@ window.Spotlight = (() => {
 @keyframes spSink{to{transform:translateY(115%) scale(.9,1.1)}}
 @keyframes spPuff{0%{opacity:1;transform:none}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3)}}
 @keyframes spBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* Boss cards play the six walk frames of their 144x152 sheet (4 columns x 3 rows; frames 0-5) instead of one still (ChatGPT audit) */
+@keyframes spBossWalk{0.0%{background-position:calc(-144px * var(--a) * 0) calc(-152px * var(--a) * 0)}16.67%{background-position:calc(-144px * var(--a) * 1) calc(-152px * var(--a) * 0)}33.33%{background-position:calc(-144px * var(--a) * 2) calc(-152px * var(--a) * 0)}50.0%{background-position:calc(-144px * var(--a) * 3) calc(-152px * var(--a) * 0)}66.67%{background-position:calc(-144px * var(--a) * 0) calc(-152px * var(--a) * 1)}83.33%{background-position:calc(-144px * var(--a) * 1) calc(-152px * var(--a) * 1)}100%{background-position:0 0}}
 @keyframes spHero{from{background-position-x:0}to{background-position-x:calc(-768px * var(--a))}}
 @keyframes spCast{from{background-position-x:0}to{background-position-x:calc(-192px * var(--a))}}
 @keyframes spIntern{from{background-position-x:0}to{background-position-x:calc(-224px * var(--a))}}

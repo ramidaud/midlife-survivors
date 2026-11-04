@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.79.1",
-  displayVersion: "V. 1.79.1",
+  version: "1.80.0",
+  displayVersion: "V. 1.80.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 185,
+  build: 186,
   changelog: [
+    {
+      ver: "V. 1.80.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Damage numbers in the game's pixel font, and boss Spotlight cards that actually walk.",
+      highlights: [
+        "Damage numbers now use the game's pixel font: cream for small hits, coffee orange for big ones. They're reused instead of made fresh for every hit, which keeps big swarms smoother on phones.",
+        "Boss Spotlight cards play the boss's walk cycle instead of one still frame."
+      ]
+    },
     {
       ver: "V. 1.79.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "A lighter, tidier build: the title loads about 3 MB less, colors stay on palette, and phones get a few fixes.",

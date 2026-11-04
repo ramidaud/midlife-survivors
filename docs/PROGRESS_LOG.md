@@ -1148,3 +1148,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Achievements are one tap from the title: the "x/39 achievements" stat opens the list, and Back returns to the title.
 - Derek's portrait v2 (ChatGPT, a real camera) is on his Spotlight cards.
 - Art Room (ChatGPT audit R2/R3): the cast filter hides cards again, and the Spotlight sprite no longer picks up the page's .hero styles (no more doubled, stretched portrait or dark box).
+
+## 2026-11-04 (overnight): V. 1.79.1 and 1.80.0, polish + feel
+- 1.79.1 polish: title art and kill-screen banners about 3.5 MB lighter (no visible change), four unused fonts dropped, the last off-palette yellows moved to cream/coffee, chest stamp moved to the card corner, tall menus fit under the nav, a bigger Lounge sign, and a "Drag anywhere to walk" first tip on phones.
+- 1.80.0: damage numbers in a Silkscreen bitmap font from a pool of 40 (max 6 new per frame), and boss Spotlight cards play their six walk frames.
