@@ -1339,3 +1339,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The office map uses ChatGPT's real art: clipboard frame, pixel markers and a YOU ARE HERE sign with a blinking dot.
 - Grok's balance check applied: Sprint coins +25% (was +50%), Sticky Notes damage 2 (was 3), Retirement Audit and Pickleball Champ have less health.
 - Gemini Argon's new-player review and Gemini's stage writing are saved in the handoffs for Rami to pick from.
+
+## Nov 4, 2026: Friendlier first shift (V. 2.2)
+- From Gemini Argon's new-player review: a shift briefing before the clock starts (hero card plus today's goal, tap to clock in).
+- Level-up cards name evolution partners, TJ and Derek wear a green ALLY ring, the very first title shows only PUNCH IN, and Bills wait a bit longer before splitting early on.

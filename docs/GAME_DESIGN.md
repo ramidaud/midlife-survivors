@@ -527,3 +527,7 @@ The six named room coworkers now have delivered seated working/personal loops an
 - **Minimap:** after you discover the map, a small HUD map fills in as you explore, with you, open and locked doors, chests, the Lounge and nearby interns. Tap or press M for a big paused view. Small and hideable on phones.
 - **Stages are picked, not reached:** St. Deductible Hospital and the home neighborhood become stages you choose on the title screen (like Vampire Survivors), each with its own enemies, boss and gimmick, unlocked by an achievement. Midlife runs at the office stay the default. Full Life may chain office, hospital and home later.
 - **Platforms order:** Steam, then phone apps (Capacitor wrapper), then consoles.
+
+## New-player pass (Nov 4, from Gemini Argon's review, Rami's picks)
+- **Shift briefing:** every run opens with the hero card plus "Today's shift" (the goal), with the clock stopped. Rami kept the hero card for its tone instead of hiding it.
+- Level-up cards name evolution partners; interns wear a green ALLY ring; the first-ever title shows only PUNCH IN; Bills wait 14 s (not 11) to split before age 43.

@@ -13,7 +13,8 @@ window.ENEMIES = {
     damage: 1,
     size: 24,
     color: 0x6fbf73,
-    overdueAfterMs: 11000 // leave a Bill unpaid for 11 seconds and it splits into 2 fast Late Fees!
+    overdueAfterMs: 11000, // leave a Bill unpaid for 11 seconds and it splits into 2 fast Late Fees!
+    overdueEarlyMs: 14000, overdueEarlyUntilAge: 43 // a grace period for the first few years (Gemini Argon, Nov 4: beginners died at 41.5 to Late Fees)
   },
   lateFee: {
     name: "Late Fee",

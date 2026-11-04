@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.1.1",
-  displayVersion: "V. 2.1.1",
+  version: "2.2.0",
+  displayVersion: "V. 2.2",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 215,
+  build: 216,
   changelog: [
+    {
+      ver: "V. 2.2", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "A friendlier first shift: a briefing before the clock starts, evolution hints on cards, and interns that look like friends.",
+      highlights: [
+        "Every run now opens with a shift briefing: your hero's card and today's goal, with the clock stopped. Tap or press any key to clock in.",
+        "Level-up cards say what pairs with what: \"Evolves with Reading Glasses\" on a weapon, \"Evolves Podcast, Coffee Splash\" on a passive.",
+        "TJ and Derek walk in with a green ring and an ALLY tag, so new players head toward them instead of running away.",
+        "Your very first shift is simpler: just PUNCH IN (Mode and Tax show up after your first run), and Bills take a little longer to split into Late Fees before 43."
+      ]
+    },
     {
       ver: "V. 2.1.1", date: "Nov 4, 2026", title: "Version Two",
       teaser: "The office map gets its real art, and Grok tuned Sprint, Sticky Notes and two Full Life bosses.",

@@ -32,3 +32,5 @@ Sent by Rami (he used Gemini Argon instead of Fable for this one). Claude's note
    - *What the player notices:* On Run 1, the screen stays 100% clear for the first 15 seconds so they only see their character, the first Bills, and `"Your weapons fire on their own. Just keep moving."`
 5. **Put a friendly green `[SNACK!]` or `[ALLY]` badge (or pulsing green floor ring) under TJ and Derek.**
    - *What the player notices:* Even before reading the Spotlight tip, players immediately read green = friendly pickup and walk *toward* the intern instead of kiting away from them.
+---
+**Rami's picks (Nov 4):** all of them, except hiding the hero card. He likes its tone, so it became a shift briefing that plays before the clock starts. [done] in V. 2.2: briefing, "Evolves with" notes, ALLY ring on interns, simpler first title screen, 14 s Bill grace before 43.

@@ -508,6 +508,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .id-avatar { overflow: hidden; }
   .perk-name { font-family: var(--font-head); font-size: 12px; color: var(--text-main); line-height: 1.3; margin-bottom: 6px; }
   .perk-desc { font-size: 12px; color: #cbd4f0; line-height: 1.35; flex: 1; }
+  .perk-pair { display: block; width: fit-content; font: 10px Silkscreen, monospace; letter-spacing: .04em; color: #171C35; background: #83A89A; border-radius: 3px; padding: 3px 6px; margin: 6px auto 0; text-align: center; } /* "Evolves Coffee Splash" (Nov 4) */
   .perk-key {
     margin-top: 10px; font-size: 10px; font-weight: 700; color: #12152a;
     background: var(--border-col); padding: 3px 10px; border-radius: 3px;
@@ -1617,7 +1618,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=215&t=" + Date.now();
+    s.src = "src/loader.js?v=216&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

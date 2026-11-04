@@ -102,11 +102,14 @@ window.Interns = (() => {
       : scene.physics.add.sprite(x, y, key + "_0").setScale(SCALE).setOrigin(0.5, 1).setDepth(4.6);
     if (real) o.body.setSize(16, 10).setOffset(20, 46); else o.body.setSize(14, 10).setOffset(5, 26);
     if (window.propGroup) o.propCollider = scene.physics.add.collider(o, window.propGroup);
-    const tag = scene.add.text(x, y, r.name.toUpperCase() + " · INTERN", {
-      fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 }
+    const tag = scene.add.text(x, y, "★ ALLY · " + r.name.toUpperCase(), {
+      fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#171C35", backgroundColor: "#83A89A", padding: { x: 4, y: 2 }
     }).setOrigin(0.5, 1).setDepth(21);
-    intern = { o, tag, r, key, real, walked: 0, lastX: x, lastY: y, state: chase ? "flee" : "walk", born: runElapsedMs, waitStart: 0, payload: pickPayload(), frameAt: 0, frame: 0, taunted: false };
-    if (chase) { tag.setText(r.name.toUpperCase() + " · CATCH ME!"); if (window.Lighting) Lighting.follow(o, "elite", { color: 0xEF9347, r: 44, strength: 0.5, glow: 0.4 }); }
+    // A soft green ring under their feet, so new players read "friend" and walk toward them (Gemini Argon review, Nov 4)
+    const ring = scene.add.ellipse(x, y, 46, 18).setStrokeStyle(2, 0x83A89A, 0.95).setFillStyle(0x83A89A, 0.18).setDepth(4.5);
+    scene.tweens.add({ targets: ring, scaleX: 1.18, scaleY: 1.18, alpha: 0.55, duration: 700, yoyo: true, repeat: -1, ease: "Sine.InOut" });
+    intern = { o, tag, ring, r, key, real, walked: 0, lastX: x, lastY: y, state: chase ? "flee" : "walk", born: runElapsedMs, waitStart: 0, payload: pickPayload(), frameAt: 0, frame: 0, taunted: false };
+    if (chase) { tag.setText("★ ALLY · " + r.name.toUpperCase() + " · CATCH ME!"); if (window.Lighting) Lighting.follow(o, "elite", { color: 0xEF9347, r: 44, strength: 0.5, glow: 0.4 }); }
     if (window.showLowerThird && !(window.__internIntroShown)) {
       window.__internIntroShown = true;
       window.showLowerThird("tip", "INTERN", chase ? `${r.name} has a coffee for you. Catch them for a heal and a shield!` : `${r.name} is on the way with something for you. Meet them halfway.`, 4200);
@@ -164,7 +167,7 @@ window.Interns = (() => {
   function despawn() {
     if (!intern) return;
     if (intern.propCollider) intern.propCollider.destroy();
-    intern.o.destroy(); intern.tag.destroy();
+    intern.o.destroy(); intern.tag.destroy(); if (intern.ring) intern.ring.destroy();
     intern = null;
   }
 
@@ -180,6 +183,7 @@ window.Interns = (() => {
       const it = intern, o = it.o;
       if (!o.active) { intern = null; return; }
       it.tag.setPosition(o.x, o.y - (it.real ? 62 : SPRITE_H * SCALE + 2));
+      if (it.ring) it.ring.setPosition(o.x, o.y + (it.real ? 2 : 0));
       if (it.real) {
         const vx = o.body.velocity.x, vy = o.body.velocity.y, moving = Math.hypot(vx, vy) > 5;
         it.walked += Math.hypot(o.x - it.lastX, o.y - it.lastY); it.lastX = o.x; it.lastY = o.y;

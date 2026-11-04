@@ -116,6 +116,24 @@ function pixelIcon(kind, id, emoji, size) {
   if (idx === undefined) return emoji;
   return atlasIcon(I, idx, size);
 }
+// "Pairs with" notes on level-up cards (Gemini Argon review, Nov 4): which passive evolves which weapon.
+// Matches the evolution rules in src/data/upgrades.js and src/data/loadout.js. Add a line here with each new evolution.
+const EVO_PAIRS = [
+  ["comfyShoes", "unlockRemote", "TV Remote"], ["comfyShoes", "unlockNo", '"No."'], ["comfyShoes", "unlockChair", "Office Chair"],
+  ["readingGlasses", "unlockSheet", "Spreadsheet"], ["readingGlasses", "unlockJoke", "Dad Joke"],
+  ["goodSleep", "unlockPodcast", "Podcast"], ["goodSleep", null, "Coffee Splash"],
+  ["mealPrep", "unlockCasserole", "Mom's Spaghetti"], ["cardigan", "unlockPhones", "Headphones"], ["bifocals", "unlockReplyAll", "Reply-All"],
+  ["lumbar", "unlockOoo", "Out-of-Office"], ["fitnessTracker", "unlockSticky", "Sticky Notes"], ["multivitamin", "unlockThermo", "Thermostat Wars"]
+];
+function evoPairNote(up) {
+  if (!up || up.isEvolution) return "";
+  const asPassive = EVO_PAIRS.filter(p => p[0] === up.id).map(p => p[2]);
+  if (asPassive.length) return "Evolves " + asPassive.join(", ");
+  const asWeapon = EVO_PAIRS.find(p => p[1] === up.id);
+  if (asWeapon) { const pas = (window.UPGRADES || []).find(u => u.id === asWeapon[0]); return pas ? "Evolves with " + pas.name : ""; }
+  return "";
+}
+
 // HUD and build-screen slot icons: which atlas card stands for each loadout item (and its evolution).
 const SLOT_CARDS = {
   coffee: ["Extra Shot", "EVOLVE: Cold Brew Concentrate"], dadJoke: ["Unlock: Dad Joke", "EVOLVE: Unhinged Pun Storm"],
@@ -2071,7 +2089,7 @@ function renderLevelUpModal(choices, customTitle, onPick, skip) {
       <div class="perk-ribbon">${rankLabel}</div>
       <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
       <div class="perk-name">${heroWord(up.name)}</div>
-      <div class="perk-desc">${heroWord(up.text)}</div>
+      <div class="perk-desc">${heroWord(up.text)}${evoPairNote(up) ? `<span class="perk-pair">${heroWord(evoPairNote(up))}</span>` : ""}</div>
       <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `PRESS [${i + 1}] / SPACE`}</div>
     `;
     bindNavItem(card, 0, e => {
@@ -2220,6 +2238,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const startAge = curMode === "full" ? (meta.startDecade || 40) : 40; // START AT only applies to Full Life
   const TB = window.TAX_BRACKET, tb = meta.taxBracket || 0;
   const sprintOk = !!(window.SPRINT && window.isSprintUnlocked && isSprintUnlocked(meta)), sprintOn = sprintOk && !!meta.sprint;
+  const firstShift = !(meta.runsPlayed > 0); // Gemini Argon (Nov 4): a brand-new player sees just PUNCH IN; Mode and Tax show after the first run
   const modeRowHtml = `
       <div class="title-style-switcher title-mode-row"><span>MODE:</span>
         <button class="t-style-btn ${curMode === "midlife" ? "active" : ""}" data-mode="midlife" title="${RUN_MODES.midlife.blurb}">🗂️ MIDLIFE · 40-65</button>
@@ -2345,8 +2364,8 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="tp-punch">
         <button class="cta-btn clock-in-btn" id="title-clockin-btn"><span class="tp-punch-ico" aria-hidden="true">⏱</span> PUNCH IN${startAge !== 40 ? ` AT ${startAge}` : ""}</button>
         ${resumeBannerHtml}
-        <button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"}${sprintOn ? " · ⚡ Sprint" : ""} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>
-        ${settingsOpen ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
+${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"}${sprintOn ? " · ⚡ Sprint" : ""} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>`}
+        ${settingsOpen && !firstShift ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
       </div>
       ${bandHtml}${bandTail}`;
   }

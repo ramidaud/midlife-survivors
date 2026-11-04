@@ -1124,7 +1124,7 @@ function showTitleScreen(scene) {
     startFromTitle = null;
     hideTitleModal();
     beginFreshRunAtDecade(scene);
-    if (window.Spotlight) { if (Spotlight.newRun) Spotlight.newRun(); setTimeout(() => Spotlight.hire(meta.selectedChar), 1500); } // first shift as this hero: a NEW HIRE card
+    startShiftBriefing(scene); // your hero's card plus today's shift, before the clock starts (Rami, Nov 4)
     resetInputState(scene);
     if (window.Telemetry) window.Telemetry.runStarted(false); // anonymous play stats (src/telemetry.js)
     touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0 };
@@ -1193,7 +1193,7 @@ function collectChest(p, chest) {
 // Stuck-pause watchdog (Nov 3, Derek: "game froze after getting the chest post HR boss").
 // If the run is paused but no menu is showing for 2 checks in a row, put the menu back or unpause.
 // It also records which flags were stuck (as an anonymous "stuck-..." play-stats event) so we can find the cause.
-const PAUSE_MENUS = ["minimap-modal", "levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
+const PAUSE_MENUS = ["shift-briefing", "minimap-modal", "levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
 let stuckChecks = 0;
 setInterval(() => {
   const sc = window._activeGameScene;
@@ -2200,6 +2200,7 @@ function update(time, delta) {
   }
 
   if (window.minimapOpen) { if (window.Minimap) Minimap.padCheck(); return; } // the big office map is open (src/minimap.js)
+  if (window.briefingOpen) { if (padJust("a") || padJust("start") || padJust("b")) endShiftBriefing(); return; } // the shift briefing before a run
   if (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen || window.changelogModalOpen || window.loreModalOpen) {
     renderThreeView(this);
     restore2DSprites();
@@ -2517,7 +2518,8 @@ function update(time, delta) {
     }
 
     // 1. Unpaid Bills turn red and split into two fast Late Fees after 9 seconds!
-    if (bill.kind === "bill" && ageMs > (window.modFx ? modFx("overdueAfterMs", ENEMIES.bill.overdueAfterMs) : ENEMIES.bill.overdueAfterMs)) {
+    const overdue = currentAge < (ENEMIES.bill.overdueEarlyUntilAge || 0) ? (ENEMIES.bill.overdueEarlyMs || ENEMIES.bill.overdueAfterMs) : ENEMIES.bill.overdueAfterMs;
+    if (bill.kind === "bill" && ageMs > (window.modFx ? modFx("overdueAfterMs", overdue) : overdue)) {
       sfx("overdue");
       const bx = bill.x, by = bill.y;
       bill.tag.destroy(); bill.destroy();
@@ -2670,6 +2672,51 @@ function update(time, delta) {
   // Render the active 3D / Diablo 3/4 view (or restore 2D sprites when in 2D 16-Bit mode)
   renderThreeView(this);
   restore2DSprites();
+}
+
+// The shift briefing (Nov 4). Rami liked the hero card's tone but it covered the first wave (Gemini Argon's review),
+// so now it plays BEFORE the clock starts: the hero card plus a "today's shift" strip. Tap, click or press any key to clock in.
+function startShiftBriefing(scene) {
+  if (!window.Spotlight) return;
+  if (Spotlight.newRun) Spotlight.newRun();
+  Spotlight.hire(meta.selectedChar);
+  window.briefingOpen = true;
+  scene.physics.pause(); scene.time.paused = true;
+  const m = modeCfg(), sprint = typeof runSprint !== "undefined" && runSprint;
+  const goal = m.endBossLabel ? "Survive to " + modeEndAge() + " and clock out." : "Make it all the way to " + modeEndAge() + ".";
+  const el = document.createElement("div"); el.id = "shift-briefing"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Today's shift");
+  el.innerHTML = `<div class="sb-card"><span class="sb-kick">TODAY'S SHIFT</span><p class="sb-goal">${goal}${sprint ? " ⚡ Sprint: the years fly by." : ""}</p><p class="sb-how">Everything fires on its own. Just keep moving.</p><span class="sb-go">${(window.matchMedia && matchMedia("(pointer:coarse)").matches) ? "TAP ANYWHERE TO CLOCK IN" : "PRESS ANY KEY TO CLOCK IN"}</span></div>`;
+  if (!document.getElementById("shift-briefing-css")) {
+    const st = document.createElement("style"); st.id = "shift-briefing-css";
+    st.textContent = `#shift-briefing{position:fixed;left:0;right:0;top:calc(var(--ms-nav-h,0px) + 15%);z-index:47;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
+#shift-briefing .sb-card{max-width:440px;width:100%;background:#FFF0CF;color:#171C35;border:3px solid #171C35;border-radius:6px;box-shadow:5px 5px 0 rgba(0,0,0,.45);padding:12px 14px;text-align:center;animation:sbIn .35s cubic-bezier(.2,1.5,.4,1) both}
+#shift-briefing .sb-kick{display:inline-block;font:10px Silkscreen,monospace;letter-spacing:.1em;background:#171C35;color:#F2D7A1;padding:3px 8px;border-radius:2px}
+#shift-briefing .sb-goal{font:700 18px/1.25 'Atkinson Hyperlegible',sans-serif;margin:8px 0 2px}
+@media (max-width:760px){#shift-briefing{top:calc(var(--ms-nav-h,0px) + 12%)}#shift-briefing .sb-card{padding:9px 12px}#shift-briefing .sb-goal{font-size:16px;margin-top:6px}#shift-briefing .sb-how{font-size:13px;margin-bottom:6px}}
+#shift-briefing .sb-how{font:14px/1.3 'Atkinson Hyperlegible',sans-serif;margin:0 0 8px;color:#303750}
+#shift-briefing .sb-go{display:inline-block;font:11px Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#EF9347;padding:6px 10px;border-radius:3px;animation:sbPulse 1.1s ease-in-out infinite}
+@keyframes sbIn{from{transform:translateY(-12px) scale(.9);opacity:0}to{transform:none;opacity:1}}
+@keyframes sbPulse{50%{transform:scale(1.05)}}
+@media (prefers-reduced-motion:reduce){#shift-briefing *{animation:none!important}}`;
+    document.head.appendChild(st);
+  }
+  document.body.appendChild(el);
+  const t0 = performance.now();
+  const go = e => { if (performance.now() - t0 < 500) return; if (e && e.preventDefault) e.preventDefault(); endShiftBriefing(); }; // a short grace so the PUNCH IN tap doesn't skip it
+  window._briefingEnd = () => { window.removeEventListener("pointerdown", go, true); window.removeEventListener("keydown", go, true); clearTimeout(window._briefingTimer); };
+  window.addEventListener("pointerdown", go, true); window.addEventListener("keydown", go, true);
+  window._briefingTimer = setTimeout(endShiftBriefing, 9000); // starts on its own if nobody taps
+}
+function endShiftBriefing() {
+  if (!window.briefingOpen) return;
+  window.briefingOpen = false;
+  if (window._briefingEnd) window._briefingEnd();
+  const el = document.getElementById("shift-briefing"); if (el) el.remove();
+  if (window.Spotlight && Spotlight.isShowing && Spotlight.isShowing()) Spotlight.hide();
+  const sc = window._activeGameScene;
+  if (sc && !paused && !levelUpOpen && !gameOver && !titleOpen) { sc.physics.resume(); sc.time.paused = false; }
+  resetInputState(sc || undefined);
+  if (typeof sfx === "function") sfx("pick");
 }
 
 window.game = new Phaser.Game(config);
