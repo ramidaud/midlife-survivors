@@ -4,7 +4,7 @@ Paste below the line into ChatGPT.
 
 ---
 
-Next feature: a **minimap**. Please pull first (`git stash && git pull`). The minimap is a small map in a HUD corner that fills in as you explore the office. It shows you, the doors (locked or open), chests, the Lounge and the interns. You unlock it by finding the office's **"You Are Here" evacuation map** on a wall. Claude draws the floor plan itself from the level data. This job covers the frame, the icons and the wall poster.
+Next feature: a **minimap**. Please pull first (`git stash && git pull`). The minimap is a small map in a HUD corner that fills in as you explore the office. It shows you, the doors (locked or open), chests, the Lounge and the interns. You unlock it by finding the office's **"You Are Here" evacuation map**, a sign on a stand next to the reception desk. Claude draws the floor plan itself from the level data. This job covers the frame, the icons and the wall poster.
 
 **Match these:** the 32 px UI icon atlas (`assets/ui-icons/icons-v1-alpha.png`), the loadout icons (`assets/ui/loadout-icons-v1.png`) and the wall kit (`assets/stage/props/manifest-wall.json`).
 
@@ -31,9 +31,9 @@ Next feature: a **minimap**. Please pull first (`git stash && git pull`). The mi
   },
   "evacuation_map_prop": {
     "file": "assets/stage/props/evac-map-v1.png",
-    "cell": "48x40, 2 frames (row 0: plain, row 1: a gentle glow on the red 'you are here' dot)",
-    "what": "a framed fire-evacuation floor plan hanging on the wall: cream paper, slate room outlines, green exit arrows, a red dot, a little title bar with tick marks (no readable words)",
-    "anchor": "hangs on north walls like the wall-kit modules (same light and outline)"
+    "cell": "48x64, 2 frames side by side (frame 0: plain, frame 1: a gentle glow on the red 'you are here' dot)",
+    "what": "a framed fire-evacuation floor plan on a slim metal stand with a weighted base, like a museum floor sign: cream paper, slate room outlines, green exit arrows, a red dot, a little teal title bar with tick marks (no readable words)",
+    "anchor": "the base's bottom center is the foot point (24, 63); about the height of the 9-to-5er's shoulders"
   },
   "palette_only": ["#171C35", "#303750", "#526078", "#3E7775", "#83A89A", "#D3B78D", "#F2D7A1", "#FFF0CF", "#EF9347", "#C45C4B", "#BFA8CF", "#F1B5BF"],
   "style": "crisp 16-bit pixel art, navy outline, warm upper-left light, no anti-aliasing",
@@ -41,4 +41,4 @@ Next feature: a **minimap**. Please pull first (`git stash && git pull`). The mi
 }
 ```
 
-**Checks:** one image with the frame at 2x holding a fake map, with every icon on it, plus the poster on a wall strip beside the 9-to-5er. Commit art and docs only, push to main, and add a line to `docs/handoffs/chatgpt-changes.md`.
+**Checks:** one image with the frame at 2x holding a fake map, with every icon on it, plus the sign standing beside the 9-to-5er. Commit art and docs only, push to main, and add a line to `docs/handoffs/chatgpt-changes.md`.
