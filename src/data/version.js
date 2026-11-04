@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.84.1",
-  displayVersion: "V. 1.84.1",
+  version: "1.84.2",
+  displayVersion: "V. 1.84.2",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 192,
+  build: 193,
   changelog: [
+    {
+      ver: "V. 1.84.2", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "New Privacy and Terms pages, in plain words.",
+      highlights: [
+        "Added a Privacy page and a short Terms page to the devlog: what the game keeps, why, and how to delete it. The sign-in screen links to it."
+      ]
+    },
     {
       ver: "V. 1.84.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Accounts setup: sign-in emails can be a link or a code.",

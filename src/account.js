@@ -275,7 +275,7 @@ window.Account = (() => {
         ${P.email ? `<label for="acct-email">EMAIL</label><input id="acct-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" value="${esc(ui.email)}">
         <div class="acct-row">${btn("send", "Email me a code", "primary", " data-acct-enter")}</div>` : ""}
         <div class="acct-row">${btn("close", "Not now")}</div>
-        <p class="acct-fine">We only use your email to sign you in. No newsletters. Your file still saves on this device either way.</p>`;
+        <p class="acct-fine">We only use your email to sign you in. No newsletters. Your file still saves on this device either way. <a href="devlog/privacy/" target="_blank" rel="noopener" style="color:#83A89A">Privacy</a></p>`;
     }
     modal.innerHTML = `<div class="modal-card acct-card">${body}${ui.msg ? `<div class="acct-msg">${esc(ui.msg)}</div>` : ""}${ui.err ? `<div class="acct-err" role="alert">${esc(ui.err)}</div>` : ""}</div>`;
     modal.querySelectorAll("[data-acct]").forEach((b, i) => {
