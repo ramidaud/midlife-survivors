@@ -1227,3 +1227,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added the arcade wordmark/stamp, ticket frame, treat/shine icons and confetti burst, with previews and a phone comparison.
 - Native pixel and animation checks pass. Art only, ready for Claude to wire in.
 - V. 1.88.1: a "Save your file?" sign-in card now pops up on the title screen for players with progress who aren't signed in (Rami: the badge got buried on iPhone). Not now waits 2 days; No thanks is forever. Retired the accounts poll.
+
+## Nov 4, 2026 (morning): GOTCHA! art, Mom's Spaghetti, intern card every run (V. 1.89.0)
+- ChatGPT's GOTCHA! art is live: prize-ticket frame, stamp-in wordmark, burst, TJ/Derek caught loops, treat icons in the reel and on the floor.
+- Rami renamed Mom's Casserole to Mom's Spaghetti (new bowl placeholder; ChatGPT's loadout brief updated).
+- The interns' Special Delivery card was a once-ever tip, so Rami hadn't seen it in ages. It now shows with the first intern of every run.

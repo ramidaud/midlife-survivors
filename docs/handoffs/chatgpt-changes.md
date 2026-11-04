@@ -314,3 +314,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: GOTCHA! art complete (Codex)
 - Delivered TJ/Derek 768x112 caught rows (8x96x112, 110ms, feet y111), 160x40 wordmark and 4-frame stamp (70ms), 96x64 treat/shine atlas, 96x96 nine-slice ticket (24px corners) and 768x128 burst (6x128, 60ms). PNG palette/alpha/anchor checks and all four GIF counts/timings pass; native studies/prompts, README, responsive review and 2x card/390px phone check included. Desktop/phone preview loads without errors or overflow. Art/docs only; Claude wires the catch moment.
+- [done] Claude wired all of it into the GOTCHA! card in V. 1.89.0 (Nov 4): 9-slice frame, stamp-in wordmark, burst, caught loops, treat atlas in the reel (shine on landing) and on the floor.

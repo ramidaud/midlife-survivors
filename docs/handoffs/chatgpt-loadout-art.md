@@ -17,9 +17,9 @@ Add them to the card atlas as a new sheet, `assets/ui/loadout-icons-v1.png`, **8
 ```json
 {
   "weapons": {
-    "Unlock: Mom's Casserole": "a glass casserole dish with orange cheesy top and steam, oven mitt peeking in",
-    "Second Helping": "a serving spoon scooping a big portion",
-    "EVOLVE: Potluck": "two dishes side by side on a checkered tablecloth with a little name card",
+    "Unlock: Mom's Spaghetti": "a cream bowl heaped with spaghetti, red sauce and two meatballs, steam rising, a fork twirled in (renamed from Mom's Casserole on Nov 4)",
+    "Second Helping": "a pasta server lifting a big tangle of noodles",
+    "EVOLVE: Potluck": "two spaghetti bowls on a checkered tablecloth with a little name card",
     "Unlock: Noise-Cancelling Headphones": "chunky over-ear headphones with a soft teal bubble around them",
     "Active Noise Cancelling": "a slider knob turned all the way up",
     "EVOLVE: Do Not Disturb": "headphones plus a door hanger with a crescent moon (no text)",
@@ -57,7 +57,7 @@ Add them to the card atlas as a new sheet, `assets/ui/loadout-icons-v1.png`, **8
 ## 2. In-world sprites and effects (replacing the code-drawn ones)
 ```json
 {
-  "casserole_dish": { "file": "assets/weapons/casserole-v1.png", "cell": "32x24", "frames": "4 (cheese bubbling, steam rising), 140 ms" },
+  "casserole_dish": { "file": "assets/weapons/casserole-v1.png", "cell": "32x24", "frames": "4 (a bowl of Mom's Spaghetti: sauce bubbling, steam rising), 140 ms. The weapon is now Mom's Spaghetti; keep the file name" },
   "casserole_zone": { "file": "assets/weapons/casserole-heat-v1.png", "cell": "128x96 ellipse", "frames": "4 (heat shimmer, warm orange and cream, mostly transparent)" },
   "headphone_bubble": { "file": "assets/weapons/phones-bubble-v1.png", "cell": "80x80", "frames": "row 0: idle shimmer 6 frames; row 1: pop burst 6 frames (plays once)" },
   "office_chair": { "file": "assets/weapons/office-chair-v1.png", "cell": "28x30", "frames": "8 (spinning one full turn)" },

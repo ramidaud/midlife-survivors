@@ -23,7 +23,7 @@ Thanks for the clock-out goal, wall kit, coworker poses and my studio portrait. 
   },
   "part_2_loadout": {
     "card_icons": "34 icons at 32x32 on an 8-column sheet with a JSON name-to-cell map: 7 new weapons, their 7 upgrades, 7 evolutions, 6 new passives, plus the 4 style badges (plus sign, shield, lightning bolt, brick wall at 12x12)",
-    "world_sprites": "casserole dish and heat zone, headphone bubble and pop, rolling office chair (8-frame spin), reply-all envelope, out-of-office ring, sticky note (flat, stuck, pop), cold snap burst, frozen overlay",
+    "world_sprites": "spaghetti bowl (file still casserole-v1.png) and heat zone, headphone bubble and pop, rolling office chair (8-frame spin), reply-all envelope, out-of-office ring, sticky note (flat, stuck, pop), cold snap burst, frozen overlay",
     "style_colors": { "healing": "#83A89A", "shield": "#3E7775", "offense": "#EF9347", "defense": "#BFA8CF" }
   },
   "palette_only": ["#171C35", "#303750", "#526078", "#3E7775", "#83A89A", "#D3B78D", "#F2D7A1", "#FFF0CF", "#EF9347", "#C45C4B", "#BFA8CF", "#F1B5BF"],

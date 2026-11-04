@@ -16,10 +16,11 @@ window.MoreWeapons = (() => {
   // ---------- Placeholder pixel art ----------
   function buildSprites(scene) {
     const px = (ctx, col, list) => { ctx.fillStyle = col; list.forEach(([x, y, w, h]) => ctx.fillRect(x, y, w || 1, h || 1)); };
-    if (!scene.textures.exists("w_casserole")) makeCanvasTex(scene, "w_casserole", 30, 20, c => {
-      px(c, "#171C35", [[1, 6, 28, 13], [0, 9, 1, 4], [29, 9, 1, 4]]); px(c, "#D3B78D", [[2, 7, 26, 11]]);
-      px(c, "#EF9347", [[3, 7, 24, 5]]); px(c, "#F2D7A1", [[5, 8, 4, 2], [13, 7, 5, 2], [21, 8, 4, 2]]); px(c, "#C45C4B", [[9, 9, 3, 2], [18, 10, 3, 1]]);
-      px(c, "#874C3B", [[2, 15, 26, 3]]); px(c, "#FFF0CF", [[8, 1, 1, 4], [14, 0, 1, 5], [20, 2, 1, 3]]);
+    if (!scene.textures.exists("w_casserole")) makeCanvasTex(scene, "w_casserole", 30, 22, c => { // Mom's Spaghetti: a bowl, noodles, sauce, meatballs, steam
+      px(c, "#171C35", [[2, 10, 26, 10], [4, 20, 22, 2], [1, 9, 28, 2]]); px(c, "#FFF0CF", [[3, 11, 24, 8], [5, 19, 20, 1]]); px(c, "#526078", [[3, 16, 24, 1]]);
+      px(c, "#171C35", [[5, 5, 20, 5]]); px(c, "#F2D7A1", [[6, 6, 18, 4], [4, 9, 22, 1]]); px(c, "#D3B78D", [[7, 7, 3, 1], [12, 6, 4, 1], [18, 8, 4, 1], [9, 9, 3, 1]]);
+      px(c, "#C45C4B", [[9, 5, 10, 3], [11, 4, 6, 1]]); px(c, "#874C3B", [[10, 5, 3, 2], [16, 5, 3, 2]]); px(c, "#EF9347", [[11, 5, 1, 1], [17, 5, 1, 1]]);
+      px(c, "#83A89A", [[14, 3, 2, 1]]); px(c, "#FFF0CF", [[8, 0, 1, 3], [14, 0, 1, 2], [21, 1, 1, 3]]);
     });
     if (!scene.textures.exists("w_chair")) makeCanvasTex(scene, "w_chair", 24, 26, c => {
       px(c, "#171C35", [[5, 0, 14, 12], [3, 11, 18, 6], [11, 17, 2, 4], [3, 21, 18, 2]]);
@@ -99,7 +100,7 @@ window.MoreWeapons = (() => {
     });
     if (inDish && now >= W.healAt) {
       W.healAt = now + WEAPONS.casserole.healEveryMs / (stats.potluck ? 2 : 1);
-      heal(scene, Math.max(1, Math.round(WEAPONS.casserole.healAmt * (stats.foodMult || 1))), "CASSEROLE");
+      heal(scene, Math.max(1, Math.round(WEAPONS.casserole.healAmt * (stats.foodMult || 1))), "SPAGHETTI");
     }
 
     // NOISE-CANCELLING HEADPHONES: a bubble (the same shield as the interns' gift) that pops when it blocks.

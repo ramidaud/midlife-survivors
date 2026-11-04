@@ -24,7 +24,7 @@ window.LOADOUT = {
     { id: "remote",      cat: "offense", icon: "📺", evoIcon: "📡", has: s => s.remote,      evo: s => s.smartTv,      cards: ["unlockRemote", "universalRemote", "evoSmartTv"] },
     { id: "sheet",       cat: "defense", icon: "📊", evoIcon: "🧮", has: s => s.sheet,       evo: s => s.pivotTable,   cards: ["unlockSheet", "moreColumns", "evoPivotTable"] },
     { id: "podcast",     cat: "offense", icon: "🎧", evoIcon: "🍿", has: s => s.podcast,     evo: s => s.bingeMode,    cards: ["unlockPodcast", "playbackSpeed", "evoBingeMode"] },
-    { id: "casserole",   cat: "healing", icon: "🥘", evoIcon: "🍲", has: s => s.casserole,   evo: s => s.potluck,      cards: ["unlockCasserole", "secondHelping", "evoPotluck"] },
+    { id: "casserole",   cat: "healing", icon: "🍝", evoIcon: "🍲", has: s => s.casserole,   evo: s => s.potluck,      cards: ["unlockCasserole", "secondHelping", "evoPotluck"] },
     { id: "headphones",  cat: "shield",  icon: "🔇", evoIcon: "🔕", has: s => s.phones,      evo: s => s.dnd,          cards: ["unlockPhones", "activeNoise", "evoDnd"] },
     { id: "officeChair", cat: "offense", icon: "🪑", evoIcon: "💺", has: s => s.chair,       evo: s => s.swivel,       cards: ["unlockChair", "wd40", "evoSwivel"] },
     { id: "replyAll",    cat: "offense", icon: "📧", evoIcon: "📨", has: s => s.replyAll,    evo: s => s.memo,         cards: ["unlockReplyAll", "ccEveryone", "evoMemo"] },
@@ -51,7 +51,7 @@ window.LOADOUT = {
 
 // Card icons and labels for the new cards (merged into UPGRADE_META in src/ui.js).
 window.LOADOUT_META = {
-  "Unlock: Mom's Casserole":            { icon: "🥘", tag: "NEW WEAPON", rarity: "unlock" },
+  "Unlock: Mom's Spaghetti":            { icon: "🍝", tag: "NEW WEAPON", rarity: "unlock" },
   "Second Helping":                     { icon: "🍽️", tag: "UPGRADE", rarity: "common" },
   "EVOLVE: Potluck":                    { icon: "🍲", tag: "✨ EVOLUTION", rarity: "evo" },
   "Unlock: Noise-Cancelling Headphones": { icon: "🔇", tag: "NEW WEAPON", rarity: "unlock" },
@@ -99,15 +99,15 @@ window.loadoutResetStats = (s, pension) => {
 (() => {
   const U = window.UPGRADES, mult = (v, k, min) => Math.max(min || 0, Math.round(v * k));
   const cards = [
-    // ---- Mom's Casserole (HEALING) ----
-    { id: "unlockCasserole", name: "Unlock: Mom's Casserole", maxRank: 1,
-      text: "Drops a hot dish every few seconds. It burns anything that walks in, and standing in it heals you.",
+    // ---- Mom's Spaghetti (HEALING; was Mom's Casserole until Nov 4, Rami's call) ----
+    { id: "unlockCasserole", name: "Unlock: Mom's Spaghetti", maxRank: 1,
+      text: "Drops a steaming bowl of spaghetti every few seconds. It burns anything that walks in, and standing in it heals you.",
       when: s => !s.casserole, apply: s => { addRank(s, "unlockCasserole"); s.casserole = true; } },
     { id: "secondHelping", name: "Second Helping", maxRank: 4,
-      text: "Casserole: a bigger dish, +1 damage, and it comes out 10% sooner.",
+      text: "Spaghetti: a bigger bowl, +1 damage, and it comes out 10% sooner.",
       when: s => s.casserole, apply: s => { addRank(s, "secondHelping"); s.casRank++; s.casRadius = mult(s.casRadius, 1.15); s.casDamage += 1; s.casEveryMs = mult(s.casEveryMs, 0.9, 2000); } },
     { id: "evoPotluck", name: "EVOLVE: Potluck", maxRank: 1, isEvolution: true,
-      text: "Casserole Lv 2+ and Meal Prep Sunday: two dishes at once, they stay hot longer, and they heal twice as fast.",
+      text: "Spaghetti Lv 2+ and Meal Prep Sunday: two bowls at once, they stay hot longer, and they heal twice as fast.",
       when: s => s.casserole && s.casRank >= 2 && s.hasMealPrep && !s.potluck, apply: s => { addRank(s, "evoPotluck"); s.potluck = true; s.casDamage += 1; } },
 
     // ---- Noise-Cancelling Headphones (SHIELD) ----
@@ -181,7 +181,7 @@ window.loadoutResetStats = (s, pension) => {
       text: "Passive: heal 1 HP every 20 seconds (15, then 10, at higher levels).",
       apply: s => { addRank(s, "multivitamin"); s.hasVitamin = true; s.regenMs = [20000, 15000, 10000][getRank(s, "multivitamin") - 1]; } },
     { id: "mealPrep", name: "Meal Prep Sunday", maxRank: 3,
-      text: "Passive: pizza, salad and casserole heal 50% more.",
+      text: "Passive: pizza, salad and spaghetti heal 50% more.",
       apply: s => { addRank(s, "mealPrep"); s.hasMealPrep = true; s.foodMult = 1 + 0.5 * getRank(s, "mealPrep"); } },
     { id: "cardigan", name: "Cardigan", maxRank: 3,
       text: "Passive: a free shield that blocks 1 hit, back every 30 seconds (25, then 20).",

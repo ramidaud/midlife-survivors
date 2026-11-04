@@ -268,6 +268,17 @@ window.Spotlight = (() => {
       show({ seenKey: sk, kind: "tip", kicker: T.kicker, name: T.topic || T.kicker, line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", small: true, edge: "#EF9347", band: "#303750", ms: 5000 });
       return true;
     },
+    // The interns' duo card, once every run (Nov 4, Rami: "I haven't seen the intern card pop in a long time").
+    // It used to be a once-ever tip. Now the first intern of each run brings it, as an event card.
+    internDelivery() {
+      if (run.intern) return false; run.intern = true;
+      const T = (S().tips || {}).intern, R = ((window.INTERNS || {}).roster || []);
+      const duo = T ? (T.duo || []).map(d => R.find(r => r.id === d)).filter(r => r && r.portrait) : [];
+      if (!T || duo.length !== 2) return this.tip("intern");
+      show({ kind: "event", kicker: T.kicker, name: T.topic || T.kicker, line: T.shout || (T.lines || {}).any, tip: T.tip, tipLabel: "TIP",
+             art: ROOT + duo[0].portrait, art2: ROOT + duo[1].portrait, artType: "hero", small: true, edge: "#EF9347", band: "#303750", ms: 5000 });
+      return true;
+    },
     // Any one-off card (the Gold Watch's victory line uses this). hero: show that hero's portrait.
     // One-off moments are "event" cards: they cut in like a boss and never count against the two-tips-per-run limit
     // (before Nov 4 they defaulted to tips, so the FIVE O'CLOCK card could be dropped after two tips).

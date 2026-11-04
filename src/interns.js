@@ -40,6 +40,7 @@ window.Interns = (() => {
   // row 4 columns 0-3 the counter pose. Feet sit at y56. Until they load, the placeholder above is used.
   function preload(scene) {
     (C().roster || []).forEach(r => { if (r.sheet && window.ArtSheets) ArtSheets.load(scene, "intern2_" + r.id, r.sheet, 56, 60); });
+    if (window.ArtSheets) ArtSheets.load(scene, "treats_atlas", "assets/items/treats-v1.png", 32, 32); // ChatGPT's treats (Nov 4): coffee, burrito, bundt; row 1 = shine
   }
   const hasSheet = (scene, r) => scene.textures.exists("intern2_" + r.id);
 
@@ -84,7 +85,7 @@ window.Interns = (() => {
   function spawn(scene) {
     const roster = C().roster || []; if (!roster.length) return;
     const r = roster[rosterIdx++ % roster.length];
-    if (window.Spotlight) Spotlight.tip("intern"); // first delivery ever
+    if (window.Spotlight) Spotlight.internDelivery(); // TJ and Derek's duo card, first intern of every run
     const key = texture(scene, r);
     const view = scene.cameras.main.worldView, chase = C().mode === "chase", CH = C().chase || {};
     const side = Math.floor(Math.random() * 4), m = 60;
@@ -284,7 +285,9 @@ window.Interns = (() => {
     let r = Math.random() * ids.reduce((s, k) => s + odds[k], 0), id = ids[0];
     for (const k of ids) { r -= odds[k]; if (r <= 0) { id = k; break; } }
     const a = Math.random() * Math.PI * 2, tx = it.o.x + Math.cos(a) * 60, ty = it.o.y + Math.sin(a) * 45;
-    const t = window.pizzas.create(it.o.x, it.o.y - 10, treatTexture(scene, id)).setScale(2).setDepth(3);
+    const atlas = scene.textures.exists("treats_atlas"), col = ["coffee", "burrito", "bundt"].indexOf(id);
+    const t = atlas ? window.pizzas.create(it.o.x, it.o.y - 10, "treats_atlas", Math.max(0, col)).setDepth(3)
+      : window.pizzas.create(it.o.x, it.o.y - 10, treatTexture(scene, id)).setScale(2).setDepth(3); // drawn-in-code fallback
     t.isParcel = true; t.payload = "treat_" + id; t.dieAt = runElapsedMs + 15000; t.collectAt = runElapsedMs + 650;
     if (window.Lighting) Lighting.follow(t, "bigGem", { color: 0xF2D7A1, r: 30 });
     scene.tweens.add({ targets: t, x: tx, y: ty, duration: 380, ease: "Quad.easeOut" });

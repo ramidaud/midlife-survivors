@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.88.1",
-  displayVersion: "V. 1.88.1",
+  version: "1.89.0",
+  displayVersion: "V. 1.89.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 199,
+  build: 200,
   changelog: [
+    {
+      ver: "V. 1.89.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The GOTCHA! card got real art, and Mom's Spaghetti is on the menu.",
+      highlights: [
+        "Catching an intern now shows a proper prize-ticket card: a pixel GOTCHA! that stamps in, a burst behind TJ or Derek as they hand over the treat, and new treat icons that shine when the reel lands.",
+        "Treats on the floor use the new coffee, burrito and bundt cake art too.",
+        "Mom's Casserole is now Mom's Spaghetti. Same healing bowl, better name.",
+        "TJ and Derek's Special Delivery card now shows with the first intern of every run, not just once ever."
+      ]
+    },
     {
       ver: "V. 1.88.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The title screen now offers to save your file to the cloud.",

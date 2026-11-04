@@ -134,7 +134,7 @@ window.WEAPONS = {
   ,
   // ---- Loadout expansion (Nov 4): seven more weapons, so a run can't hold them all ----
   casserole: {
-    name: "Mom's Casserole",  // HEALING: drop a hot dish. It burns enemies that walk over it; stand in it to heal
+    name: "Mom's Spaghetti",  // HEALING (renamed from Mom's Casserole, Nov 4): drop a hot bowl. It burns enemies that walk over it; stand in it to heal
     fireEveryMs: 5200, lifeMs: 4500, radius: 54, damage: 1, tickMs: 500,
     healEveryMs: 1500, healAmt: 1  // standing in the dish heals 1 HP this often
   },
