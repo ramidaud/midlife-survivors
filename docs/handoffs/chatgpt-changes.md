@@ -327,3 +327,6 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: Native floor pickups, Part 3 (Codex)
 - Delivered `assets/items/field-items-v1.png` (96x64, 32px cells: Fanny Pack, Energy Drink, PTO Day; base row plus cream-shine row) and JSON map. Transparent hard alpha, no baked circle/glow; base pixels are identical in shine variants. Shared 1x boss/hero/Bill and 2x pickup check, desktop 1280x800/phone 390x844 review controls/containment and all image loads pass without page errors. Static variants have no animation/GIF. Art/docs only, no version or runtime changes.
+
+## 2026-11-04: Memo 11 Discord cover (Codex)
+- Delivered `devlog/img/11-discord-key-art.jpg` (1600x900, 386,742 bytes), proportional `11-discord-key-art-portrait.jpg` (1200x1500, 391,576 bytes) and lossless 3200x1800 `11-discord-key-art-preview-2x.png`, with prompts/export checks and delivery notes. Rami, courier bots, all five channel tags and the cast follow the approved references; the whiteboard uses an unlabeled arrow to honor the allowed-text rule. Native palette/block, file-size, crop and desktop/phone checks pass. Art/docs only; Claude places it in Memo 11.

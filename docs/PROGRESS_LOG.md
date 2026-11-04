@@ -1281,3 +1281,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Finished the three Full Life bosses with distinct walk, warning, attack and hurt poses, plus matching floor markers.
 - Drew a welcoming Father Time with a planted stance and handshake finish, and real floor pickup icons with shine variants.
 - Native palette/key/anchor and 20 GIF checks pass. Added manifests, prompts, hero/Bill size board and desktop/phone art review. Art only, ready for Claude and Rami.
+
+## 2026-11-04: Memo 11 mail-bot clubhouse cover (Codex)
+- Made the Discord memo cover with Rami, the interns, Ben and friendly couriers sorting updates into five wooden channel cubbies.
+- Delivered the wide JPG, a proportional portrait crop and a lossless 2x preview. Both JPGs are under 400 KB.
+- Face, labels, palette, crop and desktop/phone checks complete; prompts and export notes saved. Art only, ready for Rami and Claude.

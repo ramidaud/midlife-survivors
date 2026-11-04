@@ -1,0 +1,50 @@
+{
+  "logicalSize" : [
+    800,
+    450
+  ],
+  "note" : "Lossless preview is palette-limited; JPEG encoding may introduce small color variations around edges.",
+  "outputs" : [
+    {
+      "bytes" : 386742,
+      "encoder" : "cjpeg optimized progressive 4:4:4",
+      "file" : "11-discord-key-art.jpg",
+      "height" : 900,
+      "jpegQualityPercent" : 80,
+      "width" : 1600
+    },
+    {
+      "bytes" : 391576,
+      "encoder" : "cjpeg optimized progressive 4:4:4",
+      "file" : "11-discord-key-art-portrait.jpg",
+      "height" : 1500,
+      "jpegQualityPercent" : 78,
+      "width" : 1200
+    }
+  ],
+  "portraitCropLogical" : [
+    64,
+    0,
+    360,
+    450
+  ],
+  "preview" : {
+    "file" : "11-discord-key-art-preview-2x.png",
+    "paletteColors" : 12,
+    "size" : [
+      3200,
+      1800
+    ]
+  },
+  "sampling" : "nearest-neighbor, no anisotropic resizing",
+  "sourceCrop" : [
+    4,
+    2,
+    1664,
+    936
+  ],
+  "sourceSize" : [
+    1672,
+    941
+  ]
+}

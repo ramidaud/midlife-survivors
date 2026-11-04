@@ -238,3 +238,7 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### 2026-11-04: Full Life bosses and floor pickups (Codex)
 - [x] Three boss sheets/markers, friendly Father Time, pickup/shine sheet, manifests and previews delivered.
 - [ ] Rami reviews; Claude wires Full Life attacks, the age-100 handshake and floor pickups.
+
+### 2026-11-04: Memo 11 cover (Codex)
+- [x] Mail-bot clubhouse cover, portrait crop, 2x preview and export checks delivered.
+- [ ] Rami reviews; Claude places the art with Memo 11.
