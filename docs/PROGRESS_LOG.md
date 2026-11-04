@@ -1124,3 +1124,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 1.77.1, "For my MANAGER!"
 - The Intern Delivery Spotlight card now shows TJ and Derek side by side, shouting "For my MANAGER!" together (Rami's idea; TJ already had the line).
 - Spotlight cards can now show two portraits (`duo` in the tips data). The card has a new seen key, so everyone sees it once.
+
+## 2026-11-04: V. 1.78.0, dynamic lighting + the yellow note
+- Lighting pass 3: weapon flashes, enemy glows, boss lights (V8 headlights, a Gold Watch that pulses faster near 65), Derek's camera flash, level-up bloom, loot glow. Presets in `LIGHTING.dynamic` (src/data/lighting.js). Capped at 12 flashes + 10 follow lights.
+- Fable's lighting speed fix rode along: darkness at half resolution, one batched draw, off-screen glows hidden, no redraws while a menu is open.
+- The rack with the yellow note (src/yellow-note.js): trip its cable in the Server Room for a blackout, red emergency light, enemies on screen freeze while they "reboot", and Eli's card. Once per run, new achievement.
+- Bug found along the way: one-off Spotlight cards (FIVE O'CLOCK at 65) counted as tips and could be dropped after two tips. Now they're "event" cards that always show.
+- Derek's 579,444 run was rejected by an old 500,000 cap on the leaderboard table. SQL to raise it (and add his score) is in docs/sql/SCORES_CAP_5M.sql, waiting on Rami.

@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.77.1",
-  displayVersion: "V. 1.77.1",
+  version: "1.78.0",
+  displayVersion: "V. 1.78.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 182,
+  build: 183,
   changelog: [
+    {
+      ver: "V. 1.78.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The lights react now: coffee splashes glow, \"No.\" lights up the room, the V8 has headlights. And don't unplug the rack with the yellow note.",
+      highlights: [
+        "Dynamic lighting: coffee hits, \"No.\" and Dad Joke light up the dark. Spam phones glow, the Group Chat lights up while typing, elites have a red halo, the V8 sweeps its headlights and the Gold Watch pulses faster as 65 gets closer. Derek's camera flashes, level-ups bloom and boss chests land with a glow.",
+        "Eli from IT warned you. The Server Room now has a rack with a yellow note. Trip over its cable and find out (new achievement: There Was A Note).",
+        "Lighting is cheaper to draw on phones, so all of this costs less than the old lights did.",
+        "Fixed: the Five O'Clock card at 65 could be skipped if you'd already seen two tips that run. Big one-off cards now always show.",
+        "A score the online board turns down now says so, instead of \"couldn't reach the online board\"."
+      ]
+    },
     {
       ver: "V. 1.77.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The Intern Delivery card now stars TJ and Derek, shouting it together: \"For my MANAGER!\"",

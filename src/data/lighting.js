@@ -49,5 +49,36 @@ window.LIGHTING = {
   roomMood: { lobby: 0.8, bullpen: 1.0, breakroom: 0.9, conference: 0.95, executive: 0.9, wellness: 0.75, server: 1.25, parking: 1.45 },
   moodEase: 0.04,                            // how fast the mood changes as you cross rooms (0 to 1)
   // Once in a while a fluorescent panel in a meeting room sputters, the way they do at 4:55 PM
-  ceilingSputter: { every: [9000, 20000], length: 900 }
+  ceilingSputter: { every: [9000, 20000], length: 900 },
+
+  // Speed (Fable review, Nov 4): the darkness is drawn at this fraction of screen resolution, then scaled up.
+  // It's soft anyway, so half size looks the same and is 4x fewer pixels.
+  darkScale: 0.5,
+
+  // Pass 3 (Nov 4, Rami: "can we get all?"): light from the action itself.
+  //   flashes: quick lights that fade out (r = radius in px, r1 = grows to this radius, ms = how long)
+  //   follow:  lights that stick to an enemy or boss while it's alive (pulse = how much it breathes, 0 to 1)
+  //   strength: how much it clears the dark (0 to 1)   glow: how strong the colored light on the floor is
+  dynamic: {
+    maxFlashes: 12,        // at most this many quick lights at once (the oldest gives way)
+    maxFollow: 10,         // at most this many enemy/boss lights at once (the closest win)
+    flashes: {
+      coffeeHit:   { r: 34,  color: 0xffb060, strength: 0.5,  glow: 0.35, ms: 170 },              // a coffee splash lands
+      wordNo:      { r: 40,  r1: 1.1, color: 0xfff0cf, strength: 0.75, glow: 0.4, ms: 380 },      // "No." (r1 = times the shockwave radius)
+      dadJoke:     { r: 1.0, color: 0xffe08a, strength: 0.6,  glow: 0.45, ms: 280 },              // Dad Joke (r = times the joke radius)
+      cameraFlash: { r: 120, color: 0xffffff, strength: 1.0,  glow: 0.75, ms: 170 },              // Derek's camera
+      levelUp:     { r: 80,  r1: 260, color: 0xfff0cf, strength: 0.85, glow: 0.35, ms: 750 },     // a level-up
+      lootDrop:    { r: 70,  color: 0xffd36a, strength: 0.75, glow: 0.55, ms: 600 },              // a boss chest lands
+      saladDrop:   { r: 50,  color: 0x9fe0a0, strength: 0.6,  glow: 0.45, ms: 450 }               // a Desk Salad lands
+    },
+    follow: {
+      spamCall:    { r: 40,  color: 0x9fd8ff, strength: 0.45, glow: 0.35, pulse: 0.3, periodMs: 700 },   // the phone screen
+      groupChat:   { r: 50,  color: 0x8ff0a8, strength: 0.55, glow: 0.45, onlyTyping: true },           // glows while "typing..."
+      elite:       { r: 50,  color: 0xff5a4a, strength: 0.35, glow: 0.3,  pulse: 0.2, periodMs: 900 },   // red halo
+      bigGem:      { r: 36,  color: 0xc45c4b, strength: 0.45, glow: 0.4,  pulse: 0.3, periodMs: 600 },   // the merged red gem
+      boss:        { r: 90,  color: 0xffe2b0, strength: 0.55, glow: 0.22 },                              // any boss
+      goldWatch:   { r: 140, color: 0xffd36a, strength: 0.7,  glow: 0.45, pulse: 0.35 },                 // pulses faster as 65 gets closer
+      headlights:  { r: 70,  color: 0xfff6d8, strength: 0.9,  glow: 0.35, ahead: 85, spread: 18 }        // the V8's two headlights
+    }
+  }
 };

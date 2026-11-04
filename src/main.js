@@ -346,7 +346,8 @@ function create() {
   //     redrawn after every frame. The top HUD (age, XP) also refreshes here about 10x a second.
   const hpBar = this.add.graphics().setDepth(7);
   WorldArt.init(this, {player, floor, props:stageProps, label, hpBar, clock:()=>runElapsedMs, enemies:()=>bills});
-  if (window.Lighting) Lighting.init(this, { player, chests: () => chests, age: () => currentAge }); // src/lighting.js
+  if (window.Lighting) Lighting.init(this, { player, chests: () => chests, age: () => currentAge, clock: () => runElapsedMs }); // src/lighting.js
+  if (window.YellowNote) YellowNote.init(this); // the rack with the yellow note (src/yellow-note.js)
   ltDecadeShown = null; ltLowHpWarned = false; nextSwarmAt = null;
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {
@@ -971,6 +972,7 @@ function maybeDropSalad(sc, x, y, EL) {
   if (onGround >= (S.maxOnGround || 2)) { gems.create(x, y, "gem").setDepth(3); return; }
   const s = window.pizzas.create(x, y, "salad").setDepth(3);
   s.isSalad = true; s.dieAt = runElapsedMs + (S.lifeMs || 14000);
+  if (window.Lighting) Lighting.fx("saladDrop", x, y);
   if (window.Spotlight) Spotlight.tip("salad"); // first Desk Salad ever
 }
 function saladHealAmount() {
@@ -1238,6 +1240,7 @@ function capFloorGems(scene) {
   if (!big) {
     big = gems.create(pool[0].x, pool[0].y, "gem").setDepth(3).setScale(L.bigGemScale || 1.7).setTint(0xC45C4B);
     big.isBig = true; big.worth = 0;
+    if (window.Lighting) Lighting.follow(big, "bigGem");
   }
   pool.forEach(g => { big.worth += g.worth || 1; g.destroy(); });
 }
@@ -1253,6 +1256,7 @@ function collectGem(p, gem) {
 function addXp(scene, amount) {
   xpFrac += amount;
   xp += Math.floor(xpFrac); xpFrac -= Math.floor(xpFrac);
+  if (xp >= xpNeeded && window.Lighting) Lighting.fx("levelUp", player.x, player.y, { follow: player }); // a warm bloom (it plays out after you pick)
   while (xp >= xpNeeded) {
     xp -= xpNeeded;
     level++;
@@ -1489,6 +1493,7 @@ function damageBill(bill, amount) {
     if (bill.isBoss) {
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
+      if (window.Lighting) Lighting.fx("lootDrop", bill.x, bill.y);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
       if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
@@ -1522,6 +1527,7 @@ function damageBill(bill, amount) {
 function hitBill(splash, bill) {
   if (!splash.active || !bill.active) return; // already gone this frame
   if (bill.ghost) return; // splashes pass right through a faded 3 AM Thought
+  if (window.Lighting) Lighting.fx("coffeeHit", bill.x, bill.y); // a warm splash of light where it lands
   if (splash.pierce) {
     if (splash.hitSet.has(bill)) return; // already pierced this enemy
     splash.hitSet.add(bill);
@@ -1671,6 +1677,7 @@ function fireDadJoke(scene) {
   if (!stats.dadJoke) return;
   sfx("dadJoke");
   const J = WEAPONS.dadJoke, r = stats.jokeRadius * (window.modFx ? modFx("jokeRadiusMult", 1) : 1); // Reply-All Tax gives the groan more reach
+  if (window.Lighting) Lighting.fx("dadJoke", player.x, player.y, { scale: r, follow: player });
   if (window.viewModeIdx > 0) {
     spawn3DRing(player.x, player.y, r, J.color);
   } else {
@@ -1733,6 +1740,7 @@ function fireWordNo(scene) {
   if (!stats.wordNo) return;
   sfx("wordNo");
   const N = WEAPONS.wordNo, r = stats.noRadius;
+  if (window.Lighting) Lighting.fx("wordNo", player.x, player.y, { scale: r, follow: player }); // a bright ring pushes the dark back
   if (window.viewModeIdx > 0) {
     spawn3DRing(player.x, player.y, r, N.color);
   } else {
@@ -1850,6 +1858,7 @@ function createEnemy(scene, kind, x, y) {
   e.tag = scene.add.text(x, y - E.size / 2 - 6, lbl, {
     fontFamily: "monospace", fontSize: "10px", color: currentAge >= 80 ? "#f5c542" : "#e8e9f3"
   }).setOrigin(0.5).setDepth(5);
+  if (window.Lighting && (kind === "spamCall" || kind === "groupChat")) Lighting.follow(e, kind); // phone screens glow; the Group Chat lights up while typing
   const EL = window.INTENSITY && INTENSITY.elites;
   const duelE = window.GoldWatch ? GoldWatch.duel() : null;
   if (EL && EL.names[kind] && Math.random() < ageCurve(EL.chanceByAge, currentAge) * ((duelE && duelE.eliteChanceMult) || 1)) makeElite(e, E, EL);
@@ -1859,6 +1868,7 @@ function createEnemy(scene, kind, x, y) {
 // Turn a fresh enemy into an elite: bigger, tougher (always several hits), slower, labeled in red.
 function makeElite(e, E, EL) {
   e.elite = true;
+  if (window.Lighting) Lighting.follow(e, "elite"); // red halo
   if (window.Spotlight) Spotlight.tip("elite"); // first elite ever
   e.eliteScale = EL.scale;
   e.setScale((E.scale || 1) * EL.scale);
@@ -1991,6 +2001,7 @@ function spawnBoss(scene, bossKind) {
   boss.isBoss = true;
   boss.kind = bossKind;
   if (bossKind === "goldWatch") window.goldWatchSeen = true;
+  if (window.Lighting) Lighting.follow(boss, bossKind === "goldWatch" ? "goldWatch" : bossKind === "midlifeCrisis" ? "headlights" : "boss");
   const lvlMult = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0);
   const ageMult = 1 + Math.max(0, currentAge - 40) * ((window.INTENSITY && window.INTENSITY.bossHpPerYear) || 0.10);
   boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult * (1 + tax("enemyHpMult"))); // bosses scale with your level AND your age
@@ -2346,6 +2357,7 @@ function update(time, delta) {
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
+  if (window.YellowNote) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);
   const TG = window.ENEMY_TAGS || {}, smallView = this.cameras.main.zoom < 0.9 || window.innerWidth < 760;

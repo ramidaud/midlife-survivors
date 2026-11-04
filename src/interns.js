@@ -202,6 +202,7 @@ window.Interns = (() => {
           if (now - it.waitStart > (D().waitMs || 4000)) { dropParcel(scene); leave(scene, `${it.r.name}: Left it on the floor!`, false); }
           return;
         }
+        if (it.r.id === "derek" && window.Lighting) Lighting.fx("cameraFlash", o.x, o.y - 30); // Derek snaps a photo on the hand-off
         give(scene, it.payload);
         const lines = it.r.lines || [];
         return leave(scene, lines[Math.floor(Math.random() * lines.length)] || "Here you go!", false);

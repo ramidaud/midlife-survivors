@@ -150,8 +150,8 @@ window.Spotlight = (() => {
   //   - a boss bumps whatever lower card is up, and the bumped card is dropped, not replayed
   //   - each card waits only so long (maxWaitMs); if it's stale by then it's skipped
   //   - the Lounge card shows once per run, and not right after a room card (that card's tip already points there)
-  const PRI = { boss: 3, hire: 2, room: 1, lounge: 1, tip: 0 };
-  const PACE = { maxTipsPerRun: 2, gapMs: 15000, maxWaitMs: { hire: 20000, room: 40000, lounge: 15000, tip: 20000, boss: 15000 } };
+  const PRI = { boss: 3, event: 3, hire: 2, room: 1, lounge: 1, tip: 0 }; // event: one-off moments (clocking out, the yellow note)
+  const PACE = { maxTipsPerRun: 2, gapMs: 15000, maxWaitMs: { event: 15000, hire: 20000, room: 40000, lounge: 15000, tip: 20000, boss: 15000 } };
   let lastHiddenAt = -1e9, lastShownKind = null, run = { lounge: false, lastRoomAt: -1e9 };
 
   function hide() {
@@ -191,10 +191,10 @@ window.Spotlight = (() => {
     if (!ready.length || menuOpen()) return;
     const next = ready[0];
     if (showing) {
-      if (next.kind === "boss" && showing.kind !== "boss") { hide(); } // a boss cuts in
+      if ((next.kind === "boss" || next.kind === "event") && showing.kind !== "boss" && showing.kind !== "event") { hide(); } // a boss or a big moment cuts in
       return;
     }
-    if (next.kind !== "boss" && now - lastHiddenAt < PACE.gapMs) return; // breather between cards
+    if (next.kind !== "boss" && next.kind !== "event" && now - lastHiddenAt < PACE.gapMs) return; // breather between cards
     showing = next; queue = queue.filter(c => c !== next);
     if (showing.seenKey) remember(showing.seenKey);
     if (showing.kind === "tip") run.tips = (run.tips || 0) + 1; // once-ever cards count as seen only when they actually show
@@ -267,7 +267,9 @@ window.Spotlight = (() => {
       return true;
     },
     // Any one-off card (the Gold Watch's victory line uses this). hero: show that hero's portrait.
-    custom(c) { show(Object.assign({ art: c.hero ? heroArt(c.hero) : null, artType: "hero", edge: "#D9A441", band: "#303750", ms: 6500 }, c)); return true; },
+    // One-off moments are "event" cards: they cut in like a boss and never count against the two-tips-per-run limit
+    // (before Nov 4 they defaulted to tips, so the FIVE O'CLOCK card could be dropped after two tips).
+    custom(c) { show(Object.assign({ kind: "event", art: c.hero ? heroArt(c.hero) : null, artType: "hero", edge: "#D9A441", band: "#303750", ms: 6500 }, c)); return true; },
     hide, texUrl, isShowing: () => !!showing, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
   };
 })();

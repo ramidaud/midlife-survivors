@@ -2823,7 +2823,10 @@ function renderGameOverModal(scene, cause, isWin, killer) {
     scoreMsg.textContent = "Posting…";
     const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") + (window.getRunTaxBracket && window.getRunTaxBracket() ? ` T${window.getRunTaxBracket()}` : "") };
     const res = await window.lbSubmit(entry);
-    scoreMsg.textContent = res.reason === "dev" ? "Dev mode is on, so this score wasn't posted." : res.online ? "Posted to the online leaderboard!" : (window.lbConfigured() ? "Couldn't reach the online board. Saved on this device." : "Saved on this device.");
+    // An HTTP 400 means the board answered but turned the score down (Nov 4: Derek's 579,444 hit an old 500,000 cap), so don't call that "couldn't reach".
+    scoreMsg.textContent = res.reason === "dev" ? "Dev mode is on, so this score wasn't posted." : res.online ? "Posted to the online leaderboard!"
+      : /^HTTP 4/.test(res.reason || "") ? "The online board couldn't accept this score yet. It's saved on this device, and Rami's been told."
+      : (window.lbConfigured() ? "Couldn't reach the online board. Saved on this device." : "Saved on this device.");
     sfx("levelUp");
     window.lbRenderInto(document.getElementById("go-leaderboard"), entry);
   });
