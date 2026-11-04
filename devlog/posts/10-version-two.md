@@ -14,6 +14,8 @@ I love the new title screen. It ties the game to the website and makes them feel
 
 ![Rami's favorite key art: the 9-to-5er getting promoted at 50, still at his desk at 11:58 PM with a "just one more run" note, running through the cubicles with his coffee, surrounded by the swarm, and the whole crew in the server room while the Coldwar Cowboy turns it off and on again.](img/10-favorite-key-art.jpg)
 
+Four of them had been retired from the title screen because the menus covered the characters. I brought them back, so the slideshow has nine scenes now.
+
 ## Clocking in
 
 ![Mid-run at age 48, V. 1.47 above and V2 below.](img/10-play-before-after.jpg "compare: img/10-play-before.jpg | img/10-play-after.jpg")
@@ -47,6 +49,26 @@ The interns don't just walk up anymore. TJ and Derek show up with a coffee, a bu
 ![The Badge Office asks if you want to save your file, with Continue with Google.](img/10-save-your-file.jpg)
 
 Your employee file can follow you now. Sign in with Google once, and your coins, unlocks, achievements and even a run in progress move between your phone, tablet and laptop. It's optional. Your file still saves on your device either way, and there are new Privacy and Terms pages in plain words.
+
+## Twice the gear
+
+![A level-up with the new loadout: six weapon slots and six passive slots with pixel icons, a style tally, and cards marked Shield and Offense.](img/10-loadout.jpg)
+
+There are 13 new things to pick up: seven weapons and six passives. Mom's Spaghetti heals you while you stand in it, noise-cancelling headphones block hits, a rolling office chair bowls through crowds, Reply-All chains from enemy to enemy, Out-of-Office slows everything near you, sticky notes trap whatever steps on them, and Thermostat Wars freezes the room. But you only get six weapon slots and six passive slots, so you have to pick a play style: Healing, Shield, Offense or Defense. Chests only upgrade what you already carry now, and if a level-up only offers something new, you can skip it and heal a little instead.
+
+## Retirement is a party
+
+![The clock-out station at 65: a big friendly clock with a bow on top, balloons, a cake and presents.](img/10-clock-out.jpg)
+
+Make it to 65 and the Gold Watch stops. A clock-out station appears with balloons and presents. Walk up, punch out, and you're retired. It used to be a reaper. Now it's a party.
+
+## The office filled in
+
+![The office walls now: bookshelves, clocks, light switches, posters and a vending machine.](img/10-walls.jpg)
+
+The walls aren't bare anymore. Every room has shelves, clocks, posters and its own clutter, and the coworkers at their desks sit, stand and fidget. Bosses that charge into a wall bounce off it now (BONK) and need a second to shake it off.
+
+A few fixes too. If your graphics drop out, the game saves your run and offers a reload instead of going white. Group Chats only shoot at you from where you can see them. The office uses about a third less graphics memory, and the title screen scrolls properly on short laptop windows.
 
 ## Who helped
 
