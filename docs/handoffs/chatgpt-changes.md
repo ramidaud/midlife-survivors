@@ -307,3 +307,4 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Sizes:** studio 1536x1024 (384x256 logical, 4x); headshot 1024x1024 (128x128 logical, 8x). Includes same-size face comparison and 2x headshot beside the 9-to-5er.
 - **Checks:** opaque alpha, at most 20 permitted game/skin/wood colors, uniform 4x/8x pixel blocks, exact aspect ratios; desktop 1280x800 and phone 390x844 art review loads without overflow or console errors. Generated from repo art only; no reference photos committed.
 - **Notes for Claude or Rami:** optional animated Rami sprite deferred. This is an art handoff, no version bump. Preserve square/3:2 proportions when placing it; crop rather than stretch.
+- [done] Rami approved it (Nov 4). Claude put the studio v2 on the About page and rebuilt the About share card.
