@@ -76,4 +76,8 @@ Derek, TJ and Ben have really been into this project. Their playthroughs and tho
 
 The AI crew did their parts: ChatGPT drew the art, Gemini wrote a lot of the lines, Grok ran the balance numbers, Fable reviewed the whole build, and Claude put it together with me.
 
+## Next time: the game got a Discord
+
+I still don't totally get Discord, but my students say it's the place to be. So the game has its own server now, and it posts its own updates: a changelog every evening, new memos when they go up, and play stats every morning. The next memo is about how that works. [Come say hi.](https://discord.gg/E6N9j5tZe)
+
 A special shout-out to my newborn twins, my beautiful wife and my super talented son. They're the real inspiration behind this project.

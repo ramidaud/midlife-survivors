@@ -29,7 +29,7 @@ window.DEVLOG_POSTS = [
       "Safer runs: auto-save if your graphics drop out, plus lighter memory use",
       "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
     ],
-    "nextUp": "More playtesters (join the Discord), Abdel's music, a redone Lounge, and bosses for the Full Life years.",
+    "nextUp": "Next memo: the game got its own Discord, and it posts its own updates. After that: Abdel's music, a redone Lounge, and bosses for the Full Life years.",
     "playUrl": "https://ramidaud.github.io/midlife-survivors/"
   },
   {
