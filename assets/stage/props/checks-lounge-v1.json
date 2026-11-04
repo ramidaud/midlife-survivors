@@ -1,0 +1,248 @@
+{
+  "props": {
+    "lounge_futon": {
+      "size": [
+        256,
+        72
+      ],
+      "cells": 2,
+      "bounds": [
+        [
+          5,
+          4,
+          122,
+          69
+        ],
+        [
+          5,
+          4,
+          122,
+          69
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_coffee_table": {
+      "size": [
+        88,
+        52
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          2,
+          12,
+          85,
+          49
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_paper_lamp": {
+      "size": [
+        48,
+        96
+      ],
+      "cells": 2,
+      "bounds": [
+        [
+          4,
+          4,
+          18,
+          93
+        ],
+        [
+          4,
+          4,
+          18,
+          93
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_desk_run": {
+      "size": [
+        224,
+        88
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          6,
+          4,
+          217,
+          85
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_cube_shelf": {
+      "size": [
+        176,
+        64
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          9,
+          2,
+          166,
+          61
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_collage_wall": {
+      "size": [
+        160,
+        80
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          11,
+          2,
+          148,
+          77
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_chalkboard": {
+      "size": [
+        64,
+        96
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          3,
+          2,
+          59,
+          93
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_mic_stand": {
+      "size": [
+        24,
+        80
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          3,
+          4,
+          20,
+          77
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_filing_pumpkins": {
+      "size": [
+        36,
+        88
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          4,
+          4,
+          31,
+          85
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_posters": {
+      "size": [
+        144,
+        64
+      ],
+      "cells": 3,
+      "bounds": [
+        [
+          2,
+          4,
+          45,
+          58
+        ],
+        [
+          2,
+          4,
+          45,
+          58
+        ],
+        [
+          2,
+          4,
+          45,
+          58
+        ]
+      ],
+      "palette_background_foot": true
+    },
+    "lounge_accent_wall": {
+      "size": [
+        256,
+        96
+      ],
+      "cells": 1,
+      "bounds": [
+        [
+          0,
+          0,
+          255,
+          95
+        ]
+      ],
+      "palette_background_foot": true
+    }
+  },
+  "scenes": {
+    "lounge-scene-v1.png": {
+      "size": [
+        960,
+        360
+      ],
+      "opaque": true,
+      "palette": true,
+      "exact_3x_pixels": true,
+      "bytes": 31777
+    },
+    "lounge-scene-tall-v1.png": {
+      "size": [
+        600,
+        720
+      ],
+      "opaque": true,
+      "palette": true,
+      "exact_3x_pixels": true,
+      "bytes": 43011
+    }
+  },
+  "families": 11,
+  "cells": 15,
+  "review": {
+    "desktop": [
+      1280,
+      800
+    ],
+    "phone": [
+      390,
+      844
+    ],
+    "all_images_loaded": true,
+    "prop_canvases": 11,
+    "horizontal_overflow": false,
+    "console_errors": 0,
+    "no_game_or_analytics_loaded": true
+  },
+  "lamp_gif": {
+    "frames": 2,
+    "frame_ms": 900,
+    "loop": true
+  }
+}

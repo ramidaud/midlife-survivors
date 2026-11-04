@@ -531,3 +531,6 @@ The six named room coworkers now have delivered seated working/personal loops an
 ## New-player pass (Nov 4, from Gemini Argon's review, Rami's picks)
 - **Shift briefing:** every run opens with the hero card plus "Today's shift" (the goal), with the clock stopped. Rami kept the hero card for its tone instead of hiding it.
 - Level-up cards name evolution partners; interns wear a green ALLY ring; the first-ever title shows only PUNCH IN; Bills wait 14 s (not 11) to split before age 43.
+
+### 2026-11-04: Student Lounge visual kit (Codex, art delivery)
+TJ and Derek's Lounge can use the mustard desk wall, crowded camera/monitor workbench, white cubbies, navy food-pillow futon, chess coffee table and photo collage from Rami's real student lounge. `assets/stage/props/manifest-lounge.json` provides eleven modular families and suggested floor footprints; the two opaque shop illustrations reserve the lower fifth for overlays. These are prepared art assets, not a shipped room layout. Promotion timing, prices, boosts and navigation remain Claude's existing systems.

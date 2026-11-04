@@ -1,0 +1,463 @@
+{
+  "batch": "student-lounge-v1",
+  "status": "art-ready-for-review",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "background": "#FF00FF",
+  "variantsAreAnimations": false,
+  "module": null,
+  "wallSegmentWidth": 256,
+  "runtimePlacementOwnedBy": "Claude",
+  "notes": [
+    "Standalone room kit retains wall-manifest schema; native widths follow the Lounge brief rather than the 32px wall-kit module.",
+    "All floor foot points sit at cell height minus 3; opaque magenta remains below the feet.",
+    "Lamp is the only animated family. All other cells are visual variants.",
+    "Desk footprint includes both pushed-in chairs. Coffee table rug is cosmetic outside its floor footprint.",
+    "Scene illustrations are separate opaque twelve-color PNGs with calm lower-fifth overlay space."
+  ],
+  "assets": [
+    {
+      "id": "lounge_futon",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 128,
+      "height": 72,
+      "frame": [
+        128,
+        72
+      ],
+      "variants": 2,
+      "frames": 2,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 116,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "foot": [
+        64,
+        69
+      ],
+      "origin": [
+        0.5,
+        0.9583333333333334
+      ],
+      "repeatX": false,
+      "file": "lounge_futon-v1.png",
+      "subject": "TWO equal cells horizontally: IDENTICAL navy tufted three-seat FUTON with slim dark angled legs, no bulky sofa arms. Cell0 plain; cell1 same couch with burger pillow, hot-dog pillow and fluffy WHITE amorphous plush (no recognizable character). Overall footprint 112px wide at native scale, seat sized for three 56x60 heroes. Keep identical couch/base between the cells. No room.",
+      "sourceStudy": "exec-2bca0c64-b4dc-4afe-a6cb-6d4279b08578.png",
+      "sha256": "36c0037446abc42cc0dcf65d1f2b467f5819d746a164d3363a616a0a05a15afa",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_coffee_table",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 88,
+      "height": 52,
+      "frame": [
+        88,
+        52
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 76,
+        "depth": 24,
+        "back": 24,
+        "front": 0
+      },
+      "foot": [
+        44,
+        49
+      ],
+      "origin": [
+        0.5,
+        0.9423076923076923
+      ],
+      "repeatX": false,
+      "file": "lounge_coffee_table-v1.png",
+      "subject": "ONE oval WALNUT coffee table, top down three-quarter: chessboard with a few tiny chess pieces, closed RED paperback NO words, clear water bottle, white napkin stack. Small slate/sage rug peeking below table. Four short legs, table top elliptical. No chairs or people.",
+      "sourceStudy": "exec-dd106c4c-f094-4cad-904e-aaef9be4d053.png",
+      "sha256": "681c42fdbaae04c1ce8570e2c27da15749d9834826bcdd4720b86ce15134adf1",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_paper_lamp",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 24,
+      "height": 96,
+      "frame": [
+        24,
+        96
+      ],
+      "variants": 1,
+      "frames": 2,
+      "variantsAreAnimations": true,
+      "frameMs": 900,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        12,
+        93
+      ],
+      "origin": [
+        0.5,
+        0.96875
+      ],
+      "repeatX": false,
+      "file": "lounge_paper_lamp-v1.png",
+      "subject": "ONE very slender tall cylindrical cream PAPER LANTERN floor lamp, delicate horizontal ribbing in a few pixel steps, narrow navy stand and round weighted base. Silhouette only about20pxwide at native size. Shade takes upper2/3, warm cream surface with upperleft warmwhite band. No exterior glow/no halo (runtime will light it), no floor shadow.",
+      "sourceStudy": "exec-b80f0be1-a62b-4aa0-b6ac-a8c5caee96e4.png",
+      "sha256": "9d274e282f57b27d91b59788da6ea304562b753d5f574fbf444292e9e85cecf3",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_desk_run",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 224,
+      "height": 88,
+      "frame": [
+        224,
+        88
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 212,
+        "depth": 36,
+        "back": 36,
+        "front": 0
+      },
+      "foot": [
+        112,
+        85
+      ],
+      "origin": [
+        0.5,
+        0.9659090909090909
+      ],
+      "repeatX": false,
+      "file": "lounge_desk_run-v1.png",
+      "subject": "ONE very long narrow WHITE desktop on slim metal legs, four monitors along its back edge (THREE modern dark displays plus ONE old beige all-in-one CRT). Cameras, 2 long lenses, small labelmaker, mugs and tangled cables on top. TWO navy office chairs pushed in beneath it, visibly integrated feet/wheels. Native desk width~210px, height~78px. Front three-quarter top-down broad horizontal 2.55:1 silhouette. No wall, no floor, no people.",
+      "sourceStudy": "exec-3997d8f1-0ea0-482b-9218-a443d8ed0f46.png",
+      "sha256": "09209c11a64c6a3db3999d53a5c2ed71708fd47105d459ae52fb2255b6b02ebd",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_cube_shelf",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 176,
+      "height": 64,
+      "frame": [
+        176,
+        64
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        88,
+        63
+      ],
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "repeatX": false,
+      "file": "lounge_cube_shelf-v1.png",
+      "subject": "ONE long white wall-mounted row of FOUR open cube cubbies. Cameras and long lenses on top; inside small generic toy figurines, a rounded green abstract plush toy (NOT blocky brandedcharacter), teal waterjug, cream mugs, rolled tape. Cream rim light left/top, navy/slate deep interiors. Long horizontal2.75:1 silhouette. No supporting legs, no wall.",
+      "sourceStudy": "exec-67455a53-615b-4de6-8e82-a9a27ca6afe2.png",
+      "sha256": "1ad0da14333d3ca8fa2668cdcf50941a35be0a77294481f81c1dd0fb6769d123",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_collage_wall",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 160,
+      "height": 80,
+      "frame": [
+        160,
+        80
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        80,
+        79
+      ],
+      "origin": [
+        0.5,
+        0.9875
+      ],
+      "repeatX": false,
+      "file": "lounge_collage_wall-v1.png",
+      "subject": "ONE wall decoration cluster in2:1rectangle: broad whiteboard with simple teal CAMERA DOODLE and a few tally strokes, surrounded below and to sides by snapshots and instant-photo cream frames, tiny abstract landscapes and UNIDENTIFIABLE silhouettes, plus a black tassel at right. No words/logos, no recognizable faces. No wall background, no supporting stand.",
+      "sourceStudy": "exec-98f5dd3d-2f44-453f-8000-736c9c74a3f0.png",
+      "sha256": "eb657135fd3241b9edef2c1bc322d1ee07886d7038f9ce1b264b81bbe0753ac6",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_chalkboard",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 64,
+      "height": 96,
+      "frame": [
+        64,
+        96
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        32,
+        95
+      ],
+      "origin": [
+        0.5,
+        0.9895833333333334
+      ],
+      "repeatX": false,
+      "file": "lounge_chalkboard-v1.png",
+      "subject": "ONE tall black/navy framed chalkboard with BIG cream jagged LIGHTNING BOLT, a few chalk sparks and smudges only, no letters or words. Soft slate frame edges. Ratio2:3. No room/wall.",
+      "sourceStudy": "exec-1f34762e-962e-499b-9c56-df7f86f3bf2f.png",
+      "sha256": "57dce9d9ccf468bfd01f17aecc6937a24c60196ad7106b18c6e2b5f71611a2a8",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_mic_stand",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 24,
+      "height": 80,
+      "frame": [
+        24,
+        80
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "floor",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        12,
+        77
+      ],
+      "origin": [
+        0.5,
+        0.9625
+      ],
+      "repeatX": false,
+      "file": "lounge_mic_stand-v1.png",
+      "subject": "ONE giant novelty MICROPHONE on thin slate pole and round navy weighted base. Oversized capsule black/navy mesh head, silver/slate shaft, little cable down side. Slender24x80native silhouette. No people or groundshadow.",
+      "sourceStudy": "exec-7e0a53c0-175c-4b39-9ba4-eea17c7b08a3.png",
+      "sha256": "73399718c3725c24761d05e969ae954e9e1e2d7ed757f09e2bddc57fda0f5f78",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_filing_pumpkins",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 36,
+      "height": 88,
+      "frame": [
+        36,
+        88
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "footprint": {
+        "width": 28,
+        "depth": 20,
+        "back": 20,
+        "front": 0
+      },
+      "foot": [
+        18,
+        85
+      ],
+      "origin": [
+        0.5,
+        0.9659090909090909
+      ],
+      "repeatX": false,
+      "file": "lounge_filing_pumpkins-v1.png",
+      "subject": "ONE narrow tall gray/slate FOUR-drawer filing tower, small blank whiteboard on SIDE and TWO small painted pumpkins sitting side by side on top (one orange with abstract creamdots, one pink withcreamzigzag). No faces/no text/nobrands. 36x88native proportions slim vertical cabinet. No surroundingroom.",
+      "sourceStudy": "exec-947d2074-83bb-4de3-a7d1-335dbda389f4.png",
+      "sha256": "3fe5f5c0e14f712ab69921c04dff0f13e3e6b5aa034dc14102213dec94b656ef",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_posters",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 48,
+      "height": 64,
+      "frame": [
+        48,
+        64
+      ],
+      "variants": 3,
+      "frames": 3,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        24,
+        63
+      ],
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "repeatX": false,
+      "file": "lounge_posters-v1.png",
+      "subject": "THREE equal portrait poster cells horizontally, each48x64native; equalpadding. Generic SPORTS SCHEDULE motif without words or numbers: row of tiny athlete silhouettes above a grid of cream dots. Variant0 orangebackground/navyathletes; variant1navy/creamathletes; variant2cream/orangeathletes. No real brands, schoolmarks, letters, teamlogos, faces. Thin navy paperedge.",
+      "sourceStudy": "exec-19b15dd1-55ed-4825-9e31-9c51fdd2b696.png",
+      "sha256": "6a02d85a40b0b1636e975c55b2cac554217f51cca9f9b79a3612f552aacbeee4",
+      "suggestedAlpha": 1
+    },
+    {
+      "id": "lounge_accent_wall",
+      "rooms": [
+        "lounge",
+        "breakroom"
+      ],
+      "moduleWidth": 256,
+      "height": 96,
+      "frame": [
+        256,
+        96
+      ],
+      "variants": 1,
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "mounted",
+      "footprint": {
+        "width": 0,
+        "depth": 0,
+        "back": 0,
+        "front": 0
+      },
+      "foot": [
+        128,
+        95
+      ],
+      "origin": [
+        0.5,
+        0.9895833333333334
+      ],
+      "repeatX": true,
+      "file": "lounge_accent_wall-v1.png",
+      "subject": "ONE flat horizontal MUSTARD ACCENT WALL strip, ratio8:3, seamless left-to-right. Native256x96. Main matte #D3B78D with large #F2D7A1 warm blocks, a narrow slate/navy baseboard at very bottom. Very subtle few stepped scuffs, no gradient, no lighting bloom. Ends identical full-height repeatable texture. No props, no door, no sign, no people.",
+      "sourceStudy": "exec-33e0c76f-633d-462c-8f7a-821b2adef426.png",
+      "sha256": "a9162e0feee08686578d85464f2197a8a6066825db84309fda8fcbf74f8487fc",
+      "suggestedAlpha": 1
+    }
+  ],
+  "families": 11,
+  "nativeCells": 15
+}

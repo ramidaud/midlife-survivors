@@ -265,3 +265,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ### 2026-11-04: Minimap art (Codex)
 - [x] Frame, buttons, eight markers and standing evacuation sign delivered with manifest, prompts and checks.
 - [ ] Rami reviews; Claude swaps out the minimap placeholders.
+
+### 2026-11-04: Student Lounge art (Codex)
+- [x] Eleven modular prop families, fifteen cells and two shop illustrations delivered with manifest, prompts and scale checks.
+- [ ] Rami reviews; Claude builds the Lounge in the Break Room's north end and wires in the shop scenes.

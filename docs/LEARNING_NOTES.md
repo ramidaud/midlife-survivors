@@ -539,3 +539,6 @@ Every picture the game shows lives in the graphics card's own memory as raw pixe
 
 ## Fog of war (Nov 4)
 The minimap starts dark and only shows places you've been near. Under the hood, the office is split into a grid of 128-pixel squares, and every fifth of a second the game marks the squares around you as "seen." When the map draws, it paints the whole floor plan, then keeps only the seen squares, like a stencil. Strategy games call this "fog of war." It turns exploring into a reward, because the map only fills in when you go somewhere new.
+
+### 2026-11-04: Separating a prop's picture from its footprint (Codex)
+The Lounge desk picture includes monitors and two chairs, but the floor footprint only describes the space that blocks walking. Wall photos and shelves add visual detail without adding floor collision. Keeping that information in the art manifest lets Claude arrange the room and preserve the walking routes without repainting its furniture.

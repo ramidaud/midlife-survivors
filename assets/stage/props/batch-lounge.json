@@ -1,0 +1,145 @@
+{
+  "tool": "built-in image_gen",
+  "photo_policy": "Attached room photos used as private visual direction only; no reference photos or real faces included in delivery.",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "assets": [
+    {
+      "id": "lounge_futon",
+      "w": 128,
+      "h": 72,
+      "count": 2,
+      "solid": true,
+      "mount": "floor",
+      "subject": "TWO equal cells horizontally: IDENTICAL navy tufted three-seat FUTON with slim dark angled legs, no bulky sofa arms. Cell0 plain; cell1 same couch with burger pillow, hot-dog pillow and fluffy WHITE amorphous plush (no recognizable character). Overall footprint 112px wide at native scale, seat sized for three 56x60 heroes. Keep identical couch/base between the cells. No room.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-2bca0c64-b4dc-4afe-a6cb-6d4279b08578.png",
+      "prompt": "Use case: stylized-concept. Production pixel-art prop for Midlife Survivors. Match reference sofa and cast sprite density EXACTLY: crisp 16-bit, top-down three-quarter (not isometric diamond), broad hand-placed color clusters, ONE native pixel navy silhouette outline, upper-left warm cream highlight, no antialiasing, blur, gradients or realistic textures. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Opaque perfectly flat #FF00FF background, no ground shadow, no text/numbers/logos/recognizable franchise characters. Draw isolated sprite centered with equal padding, native design displayed enlarged at integer scale.  Native frame 128x72. TWO equal cells horizontally: IDENTICAL navy tufted three-seat FUTON with slim dark angled legs, no bulky sofa arms. Cell0 plain; cell1 same couch with burger pillow, hot-dog pillow and fluffy WHITE amorphous plush (no recognizable character). Overall footprint 112px wide at native scale, seat sized for three 56x60 heroes. Keep identical couch/base between the cells. No room."
+    },
+    {
+      "id": "lounge_coffee_table",
+      "w": 88,
+      "h": 52,
+      "count": 1,
+      "solid": true,
+      "mount": "floor",
+      "subject": "ONE oval WALNUT coffee table, top down three-quarter: chessboard with a few tiny chess pieces, closed RED paperback NO words, clear water bottle, white napkin stack. Small slate/sage rug peeking below table. Four short legs, table top elliptical. No chairs or people.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-dd106c4c-f094-4cad-904e-aaef9be4d053.png",
+      "prompt": "Use case: stylized-concept. Production pixel-art prop for Midlife Survivors. Match reference sofa and cast sprite density EXACTLY: crisp 16-bit, top-down three-quarter (not isometric diamond), broad hand-placed color clusters, ONE native pixel navy silhouette outline, upper-left warm cream highlight, no antialiasing, blur, gradients or realistic textures. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Opaque perfectly flat #FF00FF background, no ground shadow, no text/numbers/logos/recognizable franchise characters. Draw isolated sprite centered with equal padding, native design displayed enlarged at integer scale.  Native frame 88x52. ONE oval WALNUT coffee table, top down three-quarter: chessboard with a few tiny chess pieces, closed RED paperback NO words, clear water bottle, white napkin stack. Small slate/sage rug peeking below table. Four short legs, table top elliptical. No chairs or people.",
+      "initialSource": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-3d3d815c-a3e9-440d-b227-a086b5739d1f.png",
+      "cleanupPrompt": "Remove the entire SOFA in the upper half, replace it with exact flat magenta #FF00FF. KEEP ONLY the oval coffee table, chessboard, red paperback, bottle, napkins and small rug, preserving their exact appearance. Center that one table generously isolated on #FF00FF, no otherfurniture. Crisp16bitnative88x52design."
+    },
+    {
+      "id": "lounge_paper_lamp",
+      "w": 24,
+      "h": 96,
+      "count": 1,
+      "solid": false,
+      "mount": "floor",
+      "subject": "ONE very slender tall cylindrical cream PAPER LANTERN floor lamp, delicate horizontal ribbing in a few pixel steps, narrow navy stand and round weighted base. Silhouette only about20pxwide at native size. Shade takes upper2/3, warm cream surface with upperleft warmwhite band. No exterior glow/no halo (runtime will light it), no floor shadow.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-b80f0be1-a62b-4aa0-b6ac-a8c5caee96e4.png",
+      "prompt": "Use case: stylized-concept. Production pixel-art prop for Midlife Survivors. Match reference sofa and cast sprite density EXACTLY: crisp 16-bit, top-down three-quarter (not isometric diamond), broad hand-placed color clusters, ONE native pixel navy silhouette outline, upper-left warm cream highlight, no antialiasing, blur, gradients or realistic textures. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Opaque perfectly flat #FF00FF background, no ground shadow, no text/numbers/logos/recognizable franchise characters. Draw isolated sprite centered with equal padding, native design displayed enlarged at integer scale.  Native frame 24x96. ONE very slender tall cylindrical cream PAPER LANTERN floor lamp, delicate horizontal ribbing in a few pixel steps, narrow navy stand and round weighted base. Silhouette only about20pxwide at native size. Shade takes upper2/3, warm cream surface with upperleft warmwhite band. No exterior glow/no halo (runtime will light it), no floor shadow."
+    },
+    {
+      "id": "lounge_desk_run",
+      "w": 224,
+      "h": 88,
+      "count": 1,
+      "solid": true,
+      "mount": "floor",
+      "subject": "ONE very long narrow WHITE desktop on slim metal legs, four monitors along its back edge (THREE modern dark displays plus ONE old beige all-in-one CRT). Cameras, 2 long lenses, small labelmaker, mugs and tangled cables on top. TWO navy office chairs pushed in beneath it, visibly integrated feet/wheels. Native desk width~210px, height~78px. Front three-quarter top-down broad horizontal 2.55:1 silhouette. No wall, no floor, no people.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-3997d8f1-0ea0-482b-9218-a443d8ed0f46.png",
+      "prompt": "Use case: stylized-concept. Production pixel-art prop for Midlife Survivors. Match reference sofa and cast sprite density EXACTLY: crisp 16-bit, top-down three-quarter (not isometric diamond), broad hand-placed color clusters, ONE native pixel navy silhouette outline, upper-left warm cream highlight, no antialiasing, blur, gradients or realistic textures. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Opaque perfectly flat #FF00FF background, no ground shadow, no text/numbers/logos/recognizable franchise characters. Draw isolated sprite centered with equal padding, native design displayed enlarged at integer scale.  Native frame 224x88. ONE very long narrow WHITE desktop on slim metal legs, four monitors along its back edge (THREE modern dark displays plus ONE old beige all-in-one CRT). Cameras, 2 long lenses, small labelmaker, mugs and tangled cables on top. TWO navy office chairs pushed in beneath it, visibly integrated feet/wheels. Native desk width~210px, height~78px. Front three-quarter top-down broad horizontal 2.55:1 silhouette. No wall, no floor, no people."
+    },
+    {
+      "id": "lounge_cube_shelf",
+      "w": 176,
+      "h": 64,
+      "count": 1,
+      "solid": false,
+      "mount": "mounted",
+      "subject": "ONE long white wall-mounted row of FOUR open cube cubbies. Cameras and long lenses on top; inside small generic toy figurines, a rounded green abstract plush toy (NOT blocky brandedcharacter), teal waterjug, cream mugs, rolled tape. Cream rim light left/top, navy/slate deep interiors. Long horizontal2.75:1 silhouette. No supporting legs, no wall.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-67455a53-615b-4de6-8e82-a9a27ca6afe2.png",
+      "prompt": "Use case: stylized-concept. Production pixel-art prop for Midlife Survivors. Match reference sofa and cast sprite density EXACTLY: crisp 16-bit, top-down three-quarter (not isometric diamond), broad hand-placed color clusters, ONE native pixel navy silhouette outline, upper-left warm cream highlight, no antialiasing, blur, gradients or realistic textures. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Opaque perfectly flat #FF00FF background, no ground shadow, no text/numbers/logos/recognizable franchise characters. Draw isolated sprite centered with equal padding, native design displayed enlarged at integer scale.  Native frame 176x64. ONE long white wall-mounted row of FOUR open cube cubbies. Cameras and long lenses on top; inside small generic toy figurines, a rounded green abstract plush toy (NOT blocky brandedcharacter), teal waterjug, cream mugs, rolled tape. Cream rim light left/top, navy/slate deep interiors. Long horizontal2.75:1 silhouette. No supporting legs, no wall."
+    },
+    {
+      "id": "lounge_collage_wall",
+      "w": 160,
+      "h": 80,
+      "count": 1,
+      "solid": false,
+      "mount": "mounted",
+      "subject": "ONE wall decoration cluster in2:1rectangle: broad whiteboard with simple teal CAMERA DOODLE and a few tally strokes, surrounded below and to sides by snapshots and instant-photo cream frames, tiny abstract landscapes and UNIDENTIFIABLE silhouettes, plus a black tassel at right. No words/logos, no recognizable faces. No wall background, no supporting stand.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-98f5dd3d-2f44-453f-8000-736c9c74a3f0.png",
+      "prompt": "Midlife Survivors native pixel-art room kit. Exact style reference is game sofa. 16-bit top-down three-quarter, crisp broad hard clusters ONE nativepixelnavy outline, warmupperleft light, noAA/no blur/no gradients/no realisticrendering. Only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. OPAQUE FLAT #FF00FF background NO castshadow, no text/numbers/logos/franchisecharacters. Each isolated sprite generously centered with equalpadding. Native design integerenlarged. Native cell160x80. Whiteboard with a teal camera doodle and tally strokes, surrounded below/sides by uneven rows of cream instant photos and snapshots of tiny ABSTRACT scenery and unidentifiable silhouettes; black tassel at right. One isolated wall decoration cluster,2:1ratio, no actual wall."
+    },
+    {
+      "id": "lounge_chalkboard",
+      "w": 64,
+      "h": 96,
+      "count": 1,
+      "solid": false,
+      "mount": "mounted",
+      "subject": "ONE tall black/navy framed chalkboard with BIG cream jagged LIGHTNING BOLT, a few chalk sparks and smudges only, no letters or words. Soft slate frame edges. Ratio2:3. No room/wall.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-1f34762e-962e-499b-9c56-df7f86f3bf2f.png",
+      "prompt": "Midlife Survivors native pixel-art room kit. Exact style reference is game sofa. 16-bit top-down three-quarter, crisp broad hard clusters ONE nativepixelnavy outline, warmupperleft light, noAA/no blur/no gradients/no realisticrendering. Only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. OPAQUE FLAT #FF00FF background NO castshadow, no text/numbers/logos/franchisecharacters. Each isolated sprite generously centered with equalpadding. Native design integerenlarged. Native cell64x96. Tall black/navy chalkboard with slate thin frame, big cream chalk LIGHTNING BOLT and chalk sparks, NO WORDS, no wall.",
+      "initialSource": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-c0f235ab-b1b9-4be6-9de9-ed43ccd518ab.png",
+      "cleanupPrompt": "Change this freestanding easel into a WALL-MOUNTED framed chalkboard. REMOVE all legs and rear easel stand. Keep only tall black/navy rectangular board, thin slate/navy frame and large cream lightningbolt/chalksparks; more frontal view appropriate hanging onofficewall in topdownthreequarter game. No words. Isolated generouslycenteredonexactflat #FF00FF. Native64x96 crisponepixelnavyoutline, upperleftcreamrimlight. No groundshadow or wallbackground."
+    },
+    {
+      "id": "lounge_mic_stand",
+      "w": 24,
+      "h": 80,
+      "count": 1,
+      "solid": false,
+      "mount": "floor",
+      "subject": "ONE giant novelty MICROPHONE on thin slate pole and round navy weighted base. Oversized capsule black/navy mesh head, silver/slate shaft, little cable down side. Slender24x80native silhouette. No people or groundshadow.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-7e0a53c0-175c-4b39-9ba4-eea17c7b08a3.png",
+      "prompt": "Midlife Survivors native pixel-art room kit. Exact style reference is game sofa. 16-bit top-down three-quarter, crisp broad hard clusters ONE nativepixelnavy outline, warmupperleft light, noAA/no blur/no gradients/no realisticrendering. Only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. OPAQUE FLAT #FF00FF background NO castshadow, no text/numbers/logos/franchisecharacters. Each isolated sprite generously centered with equalpadding. Native design integerenlarged. Native cell24x80. Giant novelty microphone, oversized round black mesh capsule on silver/slate shaft, long thin stand with round weighted navy base, little cable down side. Slender vertical sprite, no floor shadow."
+    },
+    {
+      "id": "lounge_filing_pumpkins",
+      "w": 36,
+      "h": 88,
+      "count": 1,
+      "solid": true,
+      "mount": "floor",
+      "subject": "ONE narrow tall gray/slate FOUR-drawer filing tower, small blank whiteboard on SIDE and TWO small painted pumpkins sitting side by side on top (one orange with abstract creamdots, one pink withcreamzigzag). No faces/no text/nobrands. 36x88native proportions slim vertical cabinet. No surroundingroom.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-947d2074-83bb-4de3-a7d1-335dbda389f4.png",
+      "prompt": "Midlife Survivors native pixel-art room kit. Exact style reference is game sofa. 16-bit top-down three-quarter, crisp broad hard clusters ONE nativepixelnavy outline, warmupperleft light, noAA/no blur/no gradients/no realisticrendering. Only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. OPAQUE FLAT #FF00FF background NO castshadow, no text/numbers/logos/franchisecharacters. Each isolated sprite generously centered with equalpadding. Native design integerenlarged. Native cell36x88. Narrow tall gray four-drawer filing tower with a blank cream whiteboard on SIDE, TWO painted pumpkins on top, one coffeeorange creamdots one pink creamzigzag. No faces/words. Slender verticalsprite."
+    },
+    {
+      "id": "lounge_posters",
+      "w": 48,
+      "h": 64,
+      "count": 3,
+      "solid": false,
+      "mount": "mounted",
+      "subject": "THREE equal portrait poster cells horizontally, each48x64native; equalpadding. Generic SPORTS SCHEDULE motif without words or numbers: row of tiny athlete silhouettes above a grid of cream dots. Variant0 orangebackground/navyathletes; variant1navy/creamathletes; variant2cream/orangeathletes. No real brands, schoolmarks, letters, teamlogos, faces. Thin navy paperedge.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-19b15dd1-55ed-4825-9e31-9c51fdd2b696.png",
+      "prompt": "Midlife Survivors native pixel-art room kit. Exact style reference is game sofa. 16-bit top-down three-quarter, crisp broad hard clusters ONE nativepixelnavy outline, warmupperleft light, noAA/no blur/no gradients/no realisticrendering. Only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. OPAQUE FLAT #FF00FF background NO castshadow, no text/numbers/logos/franchisecharacters. Each isolated sprite generously centered with equalpadding. Native design integerenlarged. Native cell48x64. THREE EQUAL CELLS horizontally, each portrait48x64native. Generic sports-schedule posters, tiny athlete silhouettes above grid of cream dots, NO words/numbers/brands. Cell0 coffeeorange/navyathletes; cell1navy/creamathletes; cell2cream/orangeathletes. Same thin navy edge and equalpadding."
+    },
+    {
+      "id": "lounge_accent_wall",
+      "w": 256,
+      "h": 96,
+      "count": 1,
+      "solid": false,
+      "mount": "mounted",
+      "subject": "ONE flat horizontal MUSTARD ACCENT WALL strip, ratio8:3, seamless left-to-right. Native256x96. Main matte #D3B78D with large #F2D7A1 warm blocks, a narrow slate/navy baseboard at very bottom. Very subtle few stepped scuffs, no gradient, no lighting bloom. Ends identical full-height repeatable texture. No props, no door, no sign, no people.",
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-33e0c76f-633d-462c-8f7a-821b2adef426.png",
+      "prompt": "Midlife Survivors native pixel-art room kit. Exact style reference is game sofa. 16-bit top-down three-quarter, crisp broad hard clusters ONE nativepixelnavy outline, warmupperleft light, noAA/no blur/no gradients/no realisticrendering. Only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. OPAQUE FLAT #FF00FF background NO castshadow, no text/numbers/logos/franchisecharacters. Each isolated sprite generously centered with equalpadding. Native design integerenlarged. Native cell256x96. Flat matte MUSTARD accent wall strip,8:3ratio. Main #D3B78D, broad #F2D7A1 warm blocks, narrow slate/navy baseboardatbottom, almostno texture. Seamlesshorizontalrepeat identicalleft/rightends, no gradients or bloom. Fullrectangularwall only, no props/door/people."
+    }
+  ]
+}

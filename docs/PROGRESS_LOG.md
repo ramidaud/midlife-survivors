@@ -1343,3 +1343,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: Friendlier first shift (V. 2.2)
 - From Gemini Argon's new-player review: a shift briefing before the clock starts (hero card plus today's goal, tap to clock in).
 - Level-up cards name evolution partners, TJ and Derek wear a green ALLY ring, the very first title shows only PUNCH IN, and Bills wait a bit longer before splitting early on.
+
+## 2026-11-04: Student Lounge room kit and shop scenes (Codex)
+- Delivered 11 modular prop families in 15 cells, plus wide/phone shop illustrations of TJ and Derek's room, interpreted from Rami's attached photos without committing the photos.
+- Added floor footprints, foot anchors, variant/animation map, full prompts, lamp GIF, native 2x hero check, validator and responsive review.
+- Palette, exact magenta, grids, anchors, wall tiling and 3x scene exports pass. Desktop/phone previews load cleanly. Claude owns room/shop integration; art and docs only.
