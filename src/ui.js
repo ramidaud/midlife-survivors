@@ -690,6 +690,9 @@ function seenVersion() { try { return localStorage.getItem("ms-seen-version") ||
 function markVersionSeen() { try { localStorage.setItem("ms-seen-version", (window.GAME_VERSION || {}).version || ""); } catch (e) {} }
 function titleNewVisible() {
   if (window.titleNewOpen !== undefined) return !!window.titleNewOpen;
+  // A brand-new player (no runs yet) has nothing to compare against, so they skip "What's new" and start
+  // counting from this version (Fable review #10). The version chip still opens it on request.
+  if (!(typeof meta !== "undefined" && meta && meta.runsPlayed > 0)) { if (!seenVersion()) markVersionSeen(); return false; }
   return seenVersion() !== ((window.GAME_VERSION || {}).version || "");
 }
 function titleVersionHtml(verInfo) {
@@ -742,8 +745,9 @@ function titleNewPop() {
 
 window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
   // While a Spotlight card is up, ordinary messages wait their turn instead of stacking under it (Nov 3, Rami:
-  // "the cards still show up in pairs"). Alerts still go out right away. Gives up after ~15 s.
-  if (kind !== "alert" && window.Spotlight && Spotlight.isShowing && Spotlight.isShowing() && (_waited || 0) < 15000) {
+  // "the cards still show up in pairs"). Alerts wait too now (Fable review: four messages stacked at 65);
+  // only LOW HP goes out right away, because it can save the run. Gives up after ~15 s.
+  if (badge !== "LOW HP" && window.Spotlight && Spotlight.isShowing && Spotlight.isShowing() && (_waited || 0) < 15000) {
     setTimeout(() => window.showLowerThird(kind, badge, text, ms, short, (_waited || 0) + 500), 500);
     return;
   }
@@ -2480,7 +2484,8 @@ window.addEventListener("resize", () => { if (document.querySelector(".tp-punch"
 function titlePollPop() {
   let voted = null, closed = null;
   try { voted = localStorage.getItem("ms-poll-accounts-v1"); closed = sessionStorage.getItem("ms-poll-pop-closed"); } catch (e) {}
-  if (voted || closed || !window.MSPoll) return "";
+  // The poll waits until after a first run, so a new player's first title screen is just the game (Fable review #10).
+  if (voted || closed || !window.MSPoll || !(typeof meta !== "undefined" && meta && meta.runsPlayed > 0)) return "";
   return `<aside class="tp-poll-pop" id="tp-poll-pop" aria-label="Quick poll">
     <button type="button" class="tp-poll-x" aria-label="Close the poll" onclick="try{sessionStorage.setItem('ms-poll-pop-closed','1')}catch(e){};this.parentElement.remove()">×</button>
     <button type="button" class="tp-poll-pill" onclick="this.parentElement.classList.add('open')">📊 One quick question</button>
@@ -2615,16 +2620,25 @@ window.TitleSlides = (() => {
     const n = (i + 1) % root.children.length, nx = window.TITLE_ART.slides[n];
     if (!root.children[n].dataset.src) { const im = new Image(); im.src = (phone() && nx.srcPortrait) || nx.src; }
   }
+  let first = true;
+  function dropPre() { const pre = document.getElementById("title-slides-pre"); if (pre) pre.remove(); }
   function start() {
-    if (!root && !build()) return;
+    if (!root && !build()) { dropPre(); return; }
     root.hidden = false;
     if (running) return;
     running = true;
-    show(idx);
+    if (first) {
+      // The very first slide appears with no fade, on top of the static copy index.html already painted (Fable review #4).
+      first = false;
+      const el = root.children[idx]; el.classList.add("instant");
+      show(idx);
+      requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.remove("instant"); dropPre(); }));
+    } else show(idx);
     const A = window.TITLE_ART;
     if (A.slides.length > 1) timer = setInterval(() => { idx = (idx + 1) % A.slides.length; show(idx); }, A.holdMs + A.fadeMs);
   }
   function stop() {
+    dropPre();
     if (timer) clearInterval(timer); timer = null; running = false;
     if (root) root.hidden = true;
   }
@@ -2759,12 +2773,13 @@ function renderGameOverModal(scene, cause, isWin, killer) {
         </form>
         <div class="score-names hidden" id="score-names" aria-label="Pick a name"></div>
         <div class="score-msg" id="score-msg"></div>
-        <div id="go-leaderboard"></div>
       </div>
+      <!-- Retry sits above the leaderboard so it's on the first screen on phones (Fable review #1, Nov 3) -->
       <div class="gameover-actions">
-        <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY (Space / Enter / A)</button>
+        <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY${(window.matchMedia && matchMedia("(pointer: coarse)").matches) ? "" : " (Space / Enter / A)"}</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>
       </div>
+      <div class="score-panel go-board"><div id="go-leaderboard"></div></div>
       <div class="go-coffee">Midlife Survivors is free. If it made you laugh, <a href="https://ko-fi.com/ramidaud" target="_blank" rel="noopener">buy the developer a coffee</a> ☕</div>
       <div class="nav-hint-bar">
         <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Option</span>

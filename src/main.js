@@ -159,6 +159,7 @@ function updateDynamicIntensity() {
   if (!D || runElapsedMs < D.armAfterMs || !stats) return;
   if (hp / stats.maxHp < D.mercyHpFrac) { dyn.mercyUntil = runElapsedMs + D.mercyDurationMs; dyn.comfortUntil = 0; return; }
   if (window.Modifiers && Modifiers.active()) return; // a modifier is already making life interesting: no Comfort Zone Tax on top
+  if (bossesSpawned.theReaper || currentAge >= modeEndAge() - 0.3) return; // the run is wrapping up: no tax at the finish line (Fable review)
   if (runElapsedMs >= dyn.comfortUntil && runElapsedMs > dyn.mercyUntil && runElapsedMs - Math.max(dyn.lastHitAt, D.armAfterMs - D.noHitBonusAfterMs) > D.noHitBonusAfterMs) {
     dyn.comfortUntil = runElapsedMs + D.bonusDurationMs;
     dyn.lastHitAt = runElapsedMs + D.bonusDurationMs; // the next tax needs another 45 s of no hits after this one
@@ -1439,6 +1440,7 @@ function damageBill(bill, amount) {
   if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
   // The Gold Watch can't be beaten, only wound back: hits push it away and slow its hands (Rami, Nov 3).
   if (bill.kind === "goldWatch" && window.GoldWatch) { GoldWatch.wind(sc, bill, amount, player); if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs); return; }
+  if (bill.kind === "theReaper") return; // the finish line can't be hurt; walk into it
   bill.hp -= amount;
   popDamageNumber(sc, bill.x, bill.y, amount);
   if (bill.hp > 0) {
@@ -1974,12 +1976,19 @@ function spawnBoss(scene, bossKind) {
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
   boss.speed = P.speed;
   boss.damage = P.damage;
-  boss.tag = scene.add.text(x, y - P.size / 2 - 8, bossKind === "goldWatch" ? label : `${label}:${boss.hp}`, { // show the scaled HP, not the base
-    fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
-  }).setOrigin(0.5).setDepth(5);
+  // The end of the run (retirement at 65, Father Time at 100) is a goal, not an enemy: a friendly label and no HP number (Fable review).
+  boss.tag = isEnd
+    ? scene.add.text(x, y - P.size / 2 - 10, m.endBossLabel ? "CLOCK OUT HERE ▼" : "SHAKE HIS HAND ▼", {
+        fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 }
+      }).setOrigin(0.5).setDepth(5)
+    : scene.add.text(x, y - P.size / 2 - 8, bossKind === "goldWatch" ? label : `${label}:${boss.hp}`, { // show the scaled HP, not the base
+        fontFamily: "monospace", fontSize: "14px", color: "#f5c542", backgroundColor: "#12152acc", padding: { x: 4, y: 2 }
+      }).setOrigin(0.5).setDepth(5);
+  if (isEnd && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches))
+    scene.tweens.add({ targets: boss.tag, scale: 1.08, duration: 520, yoyo: true, repeat: -1, ease: "Sine.easeInOut" }); // a gentle pulse says "come here"
 
   const spot = !isEnd && window.Spotlight && Spotlight.boss(bossKind); // big Spotlight card replaces the toast + lower third
-  if (!spot) showBossToastUI(bossName);
+  if (!spot && !isEnd) showBossToastUI(bossName); // the ending has its own card and lower third, so no red "calendar reminder" on top
   if (window.pushContextEvent && !spot) {
     if (isEnd && m.endBossLabel) window.showLowerThird("win", `AGE ${Math.round(modeEndAge())}`, m.endText, 7000);
     else if (isEnd) window.showLowerThird("win", "AGE 100", "Death has arrived. Walk up and shake his hand.", 7000);

@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.73.3",
-  displayVersion: "V. 1.73.3",
+  version: "1.74.0",
+  displayVersion: "V. 1.74.0",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 174,
+  build: 175,
   changelog: [
+    {
+      ver: "V. 1.74.0", date: "Nov 3, 2026", title: "The Gold Watch",
+      teaser: "Quick Retry is right there on phones now, the title art shows up instantly, and clocking out at 65 is one clean moment.",
+      highlights: [
+        "Phones: Quick Retry and the 401(k) Shop ride along at the bottom of the exit interview, above the leaderboard.",
+        "The title art paints the moment the page opens, instead of after a few seconds of navy.",
+        "New players skip the What's New pop-up and the poll on their very first visit.",
+        "At 65, retirement says CLOCK OUT HERE instead of showing a health number, and no alerts pile on top of the Five O'Clock card."
+      ]
+    },
     {
       ver: "V. 1.73.3", date: "Nov 3, 2026", title: "The Gold Watch",
       teaser: "The title art on phones isn't squished anymore. The cast stands at full height again.",

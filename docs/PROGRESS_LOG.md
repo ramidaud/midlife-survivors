@@ -1080,3 +1080,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Memo 09's title screen before/afters are now swipe sliders on the devlog, like the Art Room. RSS, Substack and share pages keep the combined image.
 - Any post can use it: give the markdown image a title of `compare: img/before.jpg | img/after.jpg`.
 - Wrote `docs/handoffs/fable-final-pass.md`, a review-only brief (performance, art, UX) for a fresh-eyes pass before V2.
+
+## 2026-11-03 (night): V. 1.74.0, Fable review Batch A
+- Fable (fresh-eyes review) found no blockers for V2; findings are in `docs/handoffs/fable-review.md`. Rami picked Batch A (player-facing quick wins) then Batch B (cheap speed fixes).
+- Phones: Quick Retry and Shop are pinned to the bottom of the exit interview, above the leaderboard.
+- Title art paints at first load (a static copy of slide 1 in the page, no fade). The hidden lobby image behind the slideshow is gone (-360 KB).
+- First-time players skip What's New and the poll. At 65 the finish line reads CLOCK OUT HERE, can't be hit, and alerts wait for the Five O'Clock card (only LOW HP cuts in).

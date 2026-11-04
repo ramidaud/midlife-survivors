@@ -163,6 +163,8 @@ window.NearMiss = (() => {
 
   // What the HUD meter shows (null = hidden).
   function hud() {
+    // The meter steps aside while a Spotlight card is up, so big moments (like clocking out at 65) don't stack (Fable review).
+    if (window.Spotlight && Spotlight.isShowing && Spotlight.isShowing()) return null;
     if (combo.flashUntil > runElapsedMs) return { text: "STREAK BROKEN", tier: -1 };
     if (!combo.streak || runElapsedMs > combo.expireAt) return null;
     const label = (N().comboLabels || [])[combo.tier] || "CLOSE";

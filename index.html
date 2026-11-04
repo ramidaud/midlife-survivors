@@ -1,6 +1,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Midlife Survivors</title>
+<!-- First title slide starts downloading at first paint (Fable review #4). Keep in sync with slides[0] in src/data/title-art.js. -->
+<link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-portrait-v2.jpg" media="(orientation: portrait), (max-width: 760px)">
+<link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-desktop.jpg" media="(orientation: landscape) and (min-width: 761px)">
 <meta name="description" content="Survive from 40 to 65. Bills, robocalls, donuts and back twinges are coming. Your coffee fires on its own. Free in your browser.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Midlife Survivors">
@@ -703,6 +706,14 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   }
   .stat-pill b { font-size: 14px; color: var(--accent); margin-top: 2px; }
   .gameover-actions { display: flex; gap: 10px; margin-top: 10px; }
+  /* Phones: Retry and Shop ride along at the bottom of the screen, so they're always one tap away (Fable review #1) */
+  @media (max-width: 760px), (pointer: coarse) and (orientation: portrait) {
+    .gameover-box .gameover-actions { position: sticky; bottom: 0; z-index: 3; flex-direction: row !important; gap: 8px;
+      margin: 10px -4px 0; padding: 14px 4px calc(8px + env(safe-area-inset-bottom));
+      background: linear-gradient(rgba(23,28,53,0), var(--ms-navy, #171C35) 34%); }
+    .gameover-box .gameover-actions .cta-btn { flex: 1 1 0; min-width: 0; margin: 0; }
+    .gameover-box .gameover-actions #go-retry-btn { flex-grow: 1.6; }
+  }
 
   @keyframes popIn {
     from { opacity: 0; transform: scale(0.92) skewX(var(--pod-skew)); }
@@ -1063,8 +1074,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #ui-layer[data-theme="0"] #title-modal {
     background:
       repeating-linear-gradient(0deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px),
-      radial-gradient(ellipse at center, rgba(23,28,53,0.45) 0%, rgba(23,28,53,0.30) 60%, rgba(23,28,53,0.55) 100%),
-      url("assets/title-screen/title-bg-lobby.jpg") center / cover no-repeat; /* 8:59 AM lobby (assets/title-screen/) */
+      radial-gradient(ellipse at center, rgba(23,28,53,0.45) 0%, rgba(23,28,53,0.30) 60%, rgba(23,28,53,0.55) 100%); /* the slideshow sits behind; the old lobby image was hidden by it (Fable review) */
     backdrop-filter: none;
     animation: msTitlePan 40s ease-in-out infinite alternate;
   }
@@ -1394,7 +1404,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
     .pt-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .pause-tiles .nav-hint-bar { display: none; }
   }
-  @media (pointer: coarse) { .pause-tiles .nav-hint-bar { display: none; } }
+  @media (pointer: coarse) { .pause-tiles .nav-hint-bar, .gameover-box .nav-hint-bar { display: none; } }
   /* Title sub-views + Options as tile panels (Nov 3): Shop, Extras, Leaderboard, Achievements, Credits */
   #title-modal:not([data-view="main"]) .title-clean { width: min(1100px, 94vw); max-width: none; max-height: calc(100dvh - var(--ms-nav-h, 0px) - var(--tp-band-h, 0px) - 40px); overflow-y: auto;
     background: rgba(23,28,53,0.95); text-align: left; }
@@ -1492,6 +1502,14 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   /* Title slideshow (src/data/title-art.js): crossfade + slow push-in behind the poster */
   #title-slides { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
   #title-slides[hidden] { display: none; }
+  /* Static copy of the first slide, painted before the game scripts load. TitleSlides.start() swaps in the real slideshow (Fable review #4). */
+  #title-slides-pre { position: fixed; inset: 0; z-index: 29; overflow: hidden; pointer-events: none; background: var(--ms-navy); }
+  #title-slides-pre > div { position: absolute; inset: 0; background: url("assets/title-screen/slides/08-group-photo-portrait-v2.jpg") 50% 62% / cover no-repeat;
+    transform: scale(var(--ts-zoom, 1.08)); transform-origin: 50% 62%; }
+  @media (orientation: landscape) and (min-width: 761px) {
+    #title-slides-pre > div { top: -10vh; bottom: 10vh; background-image: url("assets/title-screen/slides/08-group-photo-desktop.jpg"); background-position: 74% 26%; transform-origin: 74% 26%; }
+  }
+  .ts-slide.instant, .ts-slide.instant .ts-img { transition: none !important; }
   .ts-slide { position: absolute; inset: 0; background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0;
     transition: opacity var(--ts-fade, 1800ms) cubic-bezier(.45,0,.25,1); }
   .ts-slide.on, .ts-slide.leaving { opacity: 1; }
@@ -1554,6 +1572,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   #ui-layer[data-theme="0"] .title-links a { color: var(--ms-cream); text-decoration: underline; text-underline-offset: 3px; pointer-events: auto; }
 </style>
 <div id="game"></div>
+<div id="title-slides-pre" aria-hidden="true"><div></div></div>
 <div id="ui-layer" data-theme="0"></div>
 <script src="assets/ui/ms-nav.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
@@ -1562,7 +1581,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=174&t=" + Date.now();
+    s.src = "src/loader.js?v=175&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
