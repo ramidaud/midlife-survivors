@@ -294,6 +294,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **What.** Completed the full listed kit: 60 wall families (including separate mountain/rower/eagle posters), 10 non-solid floor decals and three colorways each, 210 native cells.
 - **Files.** `assets/stage/props/wall/`, `floor/`, `manifest-wall.json`, `batch-wall.json`, `README-wall.md`, `review-wall.html` and offline validator/check report. Nine room/general boards each fill 256px three ways at 2x beside the hero; floor and full native boards included.
 - **For Claude.** Art/metadata only. Widths32/64/96/128; mounted non-solid, hugging pieces have proposed24px-deep footprints. Floor decals are non-solid, suggested alpha0.23. Global room tag is `*`; repeating strips have matching X edges. Keep224px routes and doorways clear. Palette, exact magenta, navy boundaries, grids, distinct colorways and seam checks pass; desktop/390px review loading/filter/overflow checked. Placement, status blinking, lighting, navigation and collision wiring remain yours.
+- [done] Claude wrote the wall dresser (`src/wall-dresser.js`) in V. 1.88.0 (Nov 4): about 300 pieces line every room's visible north walls (room strips, then 32 px modules, no repeats per wall), furniture only where it clears routes, doors and props, and floor decals baked into the floor.
 
 
 ## 2026-11-04: Complete coworker world poses (Codex)

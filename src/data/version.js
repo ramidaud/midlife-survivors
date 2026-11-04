@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.87.0",
-  displayVersion: "V. 1.87.0",
+  version: "1.88.0",
+  displayVersion: "V. 1.88.0",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 197,
+  build: 198,
   changelog: [
+    {
+      ver: "V. 1.88.0", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The office walls aren't bare anymore.",
+      highlights: [
+        "Every room's walls are lined now: whiteboards, kudos walls and printer nooks in the Bullpen, chore wheels and upper cabinets in the Break Room, cable trays in the Server Room, wood paneling in the Executive Wing, a cloud mural in Wellness, and posters, clocks, bookshelves and filing cabinets everywhere.",
+        "Faint floor details too: scuffs, coffee rings, tape lines and chair-wheel marks.",
+        "Furniture only goes where it can't block a hallway or a doorway.",
+        "Fixed: signing in with Google could stop halfway before accounts were switched on for everyone."
+      ]
+    },
     {
       ver: "V. 1.87.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Your coworkers got real bodies: chairs, legs, and their own little habits.",

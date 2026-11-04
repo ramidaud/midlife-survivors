@@ -11,7 +11,8 @@
 window.Account = (() => {
   const A = () => window.ACCOUNT || {}, L = () => window.LEADERBOARD || {};
   // Hidden from players until setup is done (ACCOUNT.enabled). Add ?accounts=1 to the address to test it early.
-  const on = () => !!(A().enabled || /[?&]accounts=1/.test(location.search) || (() => { try { return !!localStorage.getItem("ms-auth"); } catch (e) { return false; } })());
+  // Also on when coming back from Google with a sign-in code, or mid sign-in (supabase-js keeps "ms-auth-code-verifier").
+  const on = () => !!(A().enabled || /[?&](accounts=1|code=)/.test(location.search) || (() => { try { return Object.keys(localStorage).some(k => k.startsWith("ms-auth")); } catch (e) { return false; } })());
   const SYNC_KEY = "ms-cloud-sync", AUTH_KEY = "ms-auth";
   let sb = null, libPromise = null, session = null, applying = false, pushTimer = null, lastPush = 0, lastPull = 0;
   let ui = { step: "start", email: "", busy: false, msg: "", err: "", conflict: null };
@@ -344,7 +345,7 @@ window.Account = (() => {
   // ---------- Start up: only load the library if you're signed in or coming back from Google/Apple ----------
   function boot() {
     if (!on()) return;
-    let has = false; try { has = !!localStorage.getItem(AUTH_KEY); } catch (e) {}
+    let has = false; try { has = Object.keys(localStorage).some(k => k.startsWith(AUTH_KEY)); } catch (e) {}
     const back = /[?&]code=|access_token=|[?&]error=/.test(location.search + location.hash);
     const hadCode = /[?&]code=/.test(location.search);
     if (!has && !back) return;

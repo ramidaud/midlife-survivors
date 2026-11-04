@@ -1216,3 +1216,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Seated coworkers loop their work poses and do their personal bit every 12 to 22 seconds or when you walk by.
 - Water-cooler and counter people stand and walk with direction-facing strides. Checked on laptop and phone.
 - Next: the wall dresser (its own session).
+
+## Nov 4, 2026 (morning): The wall dresser (V. 1.88.0)
+- New `src/wall-dresser.js` lines every room's visible walls with ChatGPT's wall kit: about 300 pieces, room-themed, seeded so the office looks the same each run.
+- Furniture (shelves, cabinets, counters) only goes where it can't narrow a route, doorway or existing prop; otherwise a framed piece hangs there instead.
+- Faint floor details (scuffs, coffee rings, tape) are baked into the floor, so they cost nothing per frame.
+- Rami's desktop save didn't reach his phone: the play-stats logs showed the desktop's Google sign-in stopped halfway (before accounts went live, the return trip wasn't recognized). Fixed; Rami needs to Clock in once on the desktop and pick "Keep this device".
