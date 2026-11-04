@@ -524,3 +524,7 @@ The clock-out station keeps the same floor anchor in every pose. Its balloons an
 
 ## 2026-11-04: Modular wall art (Codex)
 A shared 32px unit lets differently shaped props fill the same wall length. A 128px cabinet, 64px poster and 64px shelf allocate exactly 256px, while a different mix can fill another segment. Module width is layout space; the smaller floor footprint is what a solid object will actually block.
+
+
+## 2026-11-04: Comparing characters at native scale (Codex)
+An enlarged sheet can hide a size mistake. Comparing each coworker beside the actual hero caught an undersized Nora export before delivery. Uniform scaling and an explicit shoe or chair-wheel line keep different poses at the same world scale without squeezing their proportions.

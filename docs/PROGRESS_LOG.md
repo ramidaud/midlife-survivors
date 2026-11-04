@@ -1192,3 +1192,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Made 60 wall families and ten floor details in three colorways, covering every listed room and the shared office utilities.
 - Added modular metadata, nine 2x wall assembly boards, quiet floor preview and native catalog/review. All 210 cells pass pixel/module/seam checks.
 - Art only. Claude places pieces and preserves clear routes; no room geometry, spawning or gameplay files changed.
+
+
+## 2026-11-04: Native coworker bodies and chairs (Codex)
+- Finished six seated sheets and six full-body walk/idle sheets, with each room coworker's personal action.
+- Added 42 row previews and a 2x comparison against the existing hero and TJ. Corrected Nora's export scale during review.
+- Pixel/anchor/pose and GIF checks pass; desktop and phone review pages work. Art only, ready for Rami and Claude to review and integrate.

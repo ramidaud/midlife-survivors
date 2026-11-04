@@ -216,3 +216,8 @@ Full write-up: [Platform Roadmap doc](https://claude.ai/artifact/QVWrudNVvGRGWPH
 ### 2026-11-04: Wall-lining kit (Codex)
 - [x] All listed wall/floor families, colorways, metadata and room review boards delivered.
 - [ ] Claude places the kit along intact wall segments, keeping doors and224px routes clear.
+
+
+### 2026-11-04: Coworker world poses (Codex)
+- [x] Six complete seated/standing pairs, all row GIFs, metadata and real-size comparison delivered.
+- [ ] Claude replaces the assembled room coworkers after review; preserve navigation and spawn behavior.

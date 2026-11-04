@@ -1,0 +1,692 @@
+{
+  "batch": "coworker-world-v1",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "assets": [
+    {
+      "id": "salad",
+      "name": "Art",
+      "kind": "seated",
+      "identity": "Older friendly man with wild swept-back gray-blond hair, thick brows and a gray moustache, coffee-orange cardigan over cream shirt, slate trousers, navy shoes. Match his portrait face and outfit.",
+      "signature": "eats a bowl of salad, lifts a fork, takes a bite, looks pleased and settles",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        72,
+        64
+      ],
+      "columns": 8,
+      "rows": 2,
+      "size": [
+        576,
+        128
+      ],
+      "sourceGrid": [
+        4,
+        4
+      ],
+      "timing": [
+        180,
+        160
+      ],
+      "rowNames": [
+        "working",
+        "personal"
+      ],
+      "footLine": 63,
+      "file": "coworker-salad-seated-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Art, stable ID salad. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Older friendly man with wild swept-back gray-blond hair, thick brows and a gray moustache, coffee-orange cardigan over cream shirt, slate trousers, navy shoes. Match his portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY FOUR columns by FOUR rows, sixteen full poses, read left to right top to bottom. Native target72x64 each; make a 1536x1368 study with384x342 equal cells. Each pose includes a complete navy office chair: back behind shoulders, clear seat under hips, bent knees, shoes resting on ground, five-wheel base making floor contact. Chair wheels stay planted on the same baseline. NO full desk; only small keyboard/work props and hands reaching toward the desk that the game supplies. Poses0-7: eight-frame working loop, typing with alternating hands, brief sip, sigh and phone glance, then return to initial typing. Poses8-15: eight sequential poses of the personal action: eats a bowl of salad, lifts a fork, takes a bite, looks pleased and settles. Keep the exact face, outfit, chair and seated angle consistent. Separate the feet from chair wheels clearly. No copied floating torso, no standing person above a chair.",
+      "sourceStudy": "exec-5777bc1e-3185-45da-b136-db47d5c56739.png",
+      "sourceSHA256": "0c118cb4347aaaf1d0daf4feb80a82e9474cf3d870faf489ab7c7deac5c5cb67",
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "loop": true
+    },
+    {
+      "id": "salad",
+      "name": "Art",
+      "kind": "standing",
+      "identity": "Older friendly man with wild swept-back gray-blond hair, thick brows and a gray moustache, coffee-orange cardigan over cream shirt, slate trousers, navy shoes. Match his portrait face and outfit.",
+      "signature": "carries his salad bowl low, pauses for a small fork salute",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        56,
+        60
+      ],
+      "columns": 8,
+      "rows": 5,
+      "size": [
+        448,
+        300
+      ],
+      "sourceGrid": [
+        8,
+        5
+      ],
+      "timing": [
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "rowNames": [
+        "down",
+        "up",
+        "left",
+        "right",
+        "idle"
+      ],
+      "footLine": 59,
+      "file": "coworker-salad-standing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Art, stable ID salad. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Older friendly man with wild swept-back gray-blond hair, thick brows and a gray moustache, coffee-orange cardigan over cream shirt, slate trousers, navy shoes. Match his portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY EIGHT columns by FIVE rows, forty full-body poses. Native target56x60 each, study1792x1920 with224x384 equal cells. Rows: row0 walk DOWN toward viewer; row1 walk UP with back to viewer; row2 walk LEFT, visible side; row3 walk RIGHT, visible opposite side; row4 standing idle signature fidget. Each walk row is a REAL eight-frame cycle: left contact, left loading, passing, right lift, right contact, right loading, passing, left lift. Alternating arm swing, clear strides and one-native-pixel body bob, planted shoes at local y59. NO chairs. Show backs in the UP row, not front faces. Show LEFT and RIGHT as distinct directions. Idle row: carries his salad bowl low, pauses for a small fork salute. No spinning or changing outfit, same head size in every frame.",
+      "sourceStudy": "exec-af721ed3-1865-40a1-89f5-7233f6bdfcfb.png",
+      "sourceSHA256": "2996338fd804b9dee5f87ac495f8211f2260929a92278ca0a2968d88e50e5425",
+      "origin": [
+        0.5,
+        0.9833333333333333
+      ],
+      "loop": true
+    },
+    {
+      "id": "retiring",
+      "name": "Sam",
+      "kind": "seated",
+      "identity": "Older balding man with gray hair at the sides, round spectacles, white moustache, teal blazer over cream shirt, warm brown trousers and dark shoes. Match his portrait face and outfit.",
+      "signature": "packs a small cardboard box with a mug and a tiny plant, closes a flap and smiles",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        72,
+        64
+      ],
+      "columns": 8,
+      "rows": 2,
+      "size": [
+        576,
+        128
+      ],
+      "sourceGrid": [
+        4,
+        4
+      ],
+      "timing": [
+        180,
+        160
+      ],
+      "rowNames": [
+        "working",
+        "personal"
+      ],
+      "footLine": 63,
+      "file": "coworker-retiring-seated-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Sam, stable ID retiring. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Older balding man with gray hair at the sides, round spectacles, white moustache, teal blazer over cream shirt, warm brown trousers and dark shoes. Match his portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY FOUR columns by FOUR rows, sixteen full poses, read left to right top to bottom. Native target72x64 each; make a 1536x1368 study with384x342 equal cells. Each pose includes a complete navy office chair: back behind shoulders, clear seat under hips, bent knees, shoes resting on ground, five-wheel base making floor contact. Chair wheels stay planted on the same baseline. NO full desk; only small keyboard/work props and hands reaching toward the desk that the game supplies. Poses0-7: eight-frame working loop, typing with alternating hands, brief sip, sigh and phone glance, then return to initial typing. Poses8-15: eight sequential poses of the personal action: packs a small cardboard box with a mug and a tiny plant, closes a flap and smiles. Keep the exact face, outfit, chair and seated angle consistent. Separate the feet from chair wheels clearly. No copied floating torso, no standing person above a chair.",
+      "sourceStudy": "exec-921d3f24-de0f-4277-b1eb-ef534a8fe818.png",
+      "sourceSHA256": "c274d0bbf0717466976f824a037691b4bef056528503c2108822b3827bde9b70",
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "loop": true
+    },
+    {
+      "id": "retiring",
+      "name": "Sam",
+      "kind": "standing",
+      "identity": "Older balding man with gray hair at the sides, round spectacles, white moustache, teal blazer over cream shirt, warm brown trousers and dark shoes. Match his portrait face and outfit.",
+      "signature": "holds a small folder while walking, then folds a small moving box and pats its lid",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        56,
+        60
+      ],
+      "columns": 8,
+      "rows": 5,
+      "size": [
+        448,
+        300
+      ],
+      "sourceGrid": [
+        8,
+        5
+      ],
+      "timing": [
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "rowNames": [
+        "down",
+        "up",
+        "left",
+        "right",
+        "idle"
+      ],
+      "footLine": 59,
+      "file": "coworker-retiring-standing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Sam, stable ID retiring. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Older balding man with gray hair at the sides, round spectacles, white moustache, teal blazer over cream shirt, warm brown trousers and dark shoes. Match his portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY EIGHT columns by FIVE rows, forty full-body poses. Native target56x60 each, study1792x1920 with224x384 equal cells. Rows: row0 walk DOWN toward viewer; row1 walk UP with back to viewer; row2 walk LEFT, visible side; row3 walk RIGHT, visible opposite side; row4 standing idle signature fidget. Each walk row is a REAL eight-frame cycle: left contact, left loading, passing, right lift, right contact, right loading, passing, left lift. Alternating arm swing, clear strides and one-native-pixel body bob, planted shoes at local y59. NO chairs. Show backs in the UP row, not front faces. Show LEFT and RIGHT as distinct directions. Idle row: holds a small folder while walking, then folds a small moving box and pats its lid. No spinning or changing outfit, same head size in every frame.",
+      "sourceStudy": "exec-9ecefbc8-430e-4649-b5b0-2212e831c56b.png",
+      "sourceSHA256": "7be74f662a6541c564db4f24bcd3e72ade31e0a7dbf18c71003d22e024c6ff59",
+      "origin": [
+        0.5,
+        0.9833333333333333
+      ],
+      "loop": true
+    },
+    {
+      "id": "intern",
+      "name": "Eli",
+      "kind": "seated",
+      "identity": "Young adult office IT worker with tousled dark hair, friendly large eyes, rust-orange hoodie with cream lining and drawstrings, teal trousers, cream sneakers. Match his portrait face and outfit.",
+      "signature": "untangles a coil of cable, finds a knot, gently works it loose and raises the freed plug",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        72,
+        64
+      ],
+      "columns": 8,
+      "rows": 2,
+      "size": [
+        576,
+        128
+      ],
+      "sourceGrid": [
+        4,
+        4
+      ],
+      "timing": [
+        180,
+        160
+      ],
+      "rowNames": [
+        "working",
+        "personal"
+      ],
+      "footLine": 63,
+      "file": "coworker-intern-seated-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Eli, stable ID intern. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Young adult office IT worker with tousled dark hair, friendly large eyes, rust-orange hoodie with cream lining and drawstrings, teal trousers, cream sneakers. Match his portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY FOUR columns by FOUR rows, sixteen full poses, read left to right top to bottom. Native target72x64 each; make a 1536x1368 study with384x342 equal cells. Each pose includes a complete navy office chair: back behind shoulders, clear seat under hips, bent knees, shoes resting on ground, five-wheel base making floor contact. Chair wheels stay planted on the same baseline. NO full desk; only small keyboard/work props and hands reaching toward the desk that the game supplies. Poses0-7: eight-frame working loop, typing with alternating hands, brief sip, sigh and phone glance, then return to initial typing. Poses8-15: eight sequential poses of the personal action: untangles a coil of cable, finds a knot, gently works it loose and raises the freed plug. Keep the exact face, outfit, chair and seated angle consistent. Separate the feet from chair wheels clearly. No copied floating torso, no standing person above a chair.",
+      "sourceStudy": "exec-b9b2d2c2-b07f-40c3-ae13-50b2c9801a03.png",
+      "sourceSHA256": "bb6e983e9aecf2d808128aae0eb214b41350b7f7154e788462c8e14fa94a398c",
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "loop": true
+    },
+    {
+      "id": "intern",
+      "name": "Eli",
+      "kind": "standing",
+      "identity": "Young adult office IT worker with tousled dark hair, friendly large eyes, rust-orange hoodie with cream lining and drawstrings, teal trousers, cream sneakers. Match his portrait face and outfit.",
+      "signature": "carries a small cable coil while walking, stops to loosen a stubborn knot",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        56,
+        60
+      ],
+      "columns": 8,
+      "rows": 5,
+      "size": [
+        448,
+        300
+      ],
+      "sourceGrid": [
+        8,
+        5
+      ],
+      "timing": [
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "rowNames": [
+        "down",
+        "up",
+        "left",
+        "right",
+        "idle"
+      ],
+      "footLine": 59,
+      "file": "coworker-intern-standing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Eli, stable ID intern. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Young adult office IT worker with tousled dark hair, friendly large eyes, rust-orange hoodie with cream lining and drawstrings, teal trousers, cream sneakers. Match his portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY EIGHT columns by FIVE rows, forty full-body poses. Native target56x60 each, study1792x1920 with224x384 equal cells. Rows: row0 walk DOWN toward viewer; row1 walk UP with back to viewer; row2 walk LEFT, visible side; row3 walk RIGHT, visible opposite side; row4 standing idle signature fidget. Each walk row is a REAL eight-frame cycle: left contact, left loading, passing, right lift, right contact, right loading, passing, left lift. Alternating arm swing, clear strides and one-native-pixel body bob, planted shoes at local y59. NO chairs. Show backs in the UP row, not front faces. Show LEFT and RIGHT as distinct directions. Idle row: carries a small cable coil while walking, stops to loosen a stubborn knot. No spinning or changing outfit, same head size in every frame.",
+      "sourceStudy": "exec-81cf8940-1bf9-4800-a2bb-d48062f609c1.png",
+      "sourceSHA256": "b5ac204ec41884084411bb813d3ed2b4b4d379a0da5d254bed756465ae994c83",
+      "origin": [
+        0.5,
+        0.9833333333333333
+      ],
+      "loop": true
+    },
+    {
+      "id": "email",
+      "name": "Nora",
+      "kind": "seated",
+      "identity": "Woman with auburn hair in a high bun, black rectangular glasses, navy blazer, cream blouse, rust trousers and dark flats. Match her portrait face and outfit.",
+      "signature": "types, presses reply-all on a small keyboard, realizes it, winces and covers her mouth briefly, then settles",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        72,
+        64
+      ],
+      "columns": 8,
+      "rows": 2,
+      "size": [
+        576,
+        128
+      ],
+      "sourceGrid": [
+        4,
+        4
+      ],
+      "timing": [
+        180,
+        160
+      ],
+      "rowNames": [
+        "working",
+        "personal"
+      ],
+      "footLine": 63,
+      "file": "coworker-email-seated-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Nora, stable ID email. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Woman with auburn hair in a high bun, black rectangular glasses, navy blazer, cream blouse, rust trousers and dark flats. Match her portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY FOUR columns by FOUR rows, sixteen full poses, read left to right top to bottom. Native target72x64 each; make a 1536x1368 study with384x342 equal cells. Each pose includes a complete navy office chair: back behind shoulders, clear seat under hips, bent knees, shoes resting on ground, five-wheel base making floor contact. Chair wheels stay planted on the same baseline. NO full desk; only small keyboard/work props and hands reaching toward the desk that the game supplies. Poses0-7: eight-frame working loop, typing with alternating hands, brief sip, sigh and phone glance, then return to initial typing. Poses8-15: eight sequential poses of the personal action: types, presses reply-all on a small keyboard, realizes it, winces and covers her mouth briefly, then settles. Keep the exact face, outfit, chair and seated angle consistent. Separate the feet from chair wheels clearly. No copied floating torso, no standing person above a chair.",
+      "sourceStudy": "exec-9e87369d-82a4-4ef7-9d7c-2cbb08078fbd.png",
+      "sourceSHA256": "cf8ca7deca4d74a32b36729298783ab6d735c758a261806277e718028bd685be",
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "loop": true
+    },
+    {
+      "id": "email",
+      "name": "Nora",
+      "kind": "standing",
+      "identity": "Woman with auburn hair in a high bun, black rectangular glasses, navy blazer, cream blouse, rust trousers and dark flats. Match her portrait face and outfit.",
+      "signature": "holds a slim tablet low while walking, then taps it and gives a tiny embarrassed wince",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        56,
+        60
+      ],
+      "columns": 8,
+      "rows": 5,
+      "size": [
+        448,
+        300
+      ],
+      "sourceGrid": [
+        8,
+        5
+      ],
+      "timing": [
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "rowNames": [
+        "down",
+        "up",
+        "left",
+        "right",
+        "idle"
+      ],
+      "footLine": 59,
+      "file": "coworker-email-standing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Nora, stable ID email. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Woman with auburn hair in a high bun, black rectangular glasses, navy blazer, cream blouse, rust trousers and dark flats. Match her portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY EIGHT columns by FIVE rows, forty full-body poses. Native target56x60 each, study1792x1920 with224x384 equal cells. Rows: row0 walk DOWN toward viewer; row1 walk UP with back to viewer; row2 walk LEFT, visible side; row3 walk RIGHT, visible opposite side; row4 standing idle signature fidget. Each walk row is a REAL eight-frame cycle: left contact, left loading, passing, right lift, right contact, right loading, passing, left lift. Alternating arm swing, clear strides and one-native-pixel body bob, planted shoes at local y59. NO chairs. Show backs in the UP row, not front faces. Show LEFT and RIGHT as distinct directions. Idle row: holds a slim tablet low while walking, then taps it and gives a tiny embarrassed wince. No spinning or changing outfit, same head size in every frame.",
+      "sourceStudy": "exec-a2ddf927-ff29-4546-8566-f15dee79f926.png",
+      "sourceSHA256": "69836ee57ab29f42dac8da438787ac400c55b9c41d01fb75d98f5f84fc59a12a",
+      "origin": [
+        0.5,
+        0.9833333333333333
+      ],
+      "loop": true
+    },
+    {
+      "id": "dozer",
+      "name": "June",
+      "kind": "seated",
+      "identity": "Middle-aged woman with shoulder-length wavy gray hair, lavender cardigan, cream blouse with a small bow, warm brown trousers and navy shoes. Match her portrait face and outfit.",
+      "signature": "eyes slowly close, head dips, shoulders sag, then she jerks awake, blinks and straightens, warm and funny",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        72,
+        64
+      ],
+      "columns": 8,
+      "rows": 2,
+      "size": [
+        576,
+        128
+      ],
+      "sourceGrid": [
+        4,
+        4
+      ],
+      "timing": [
+        180,
+        160
+      ],
+      "rowNames": [
+        "working",
+        "personal"
+      ],
+      "footLine": 63,
+      "file": "coworker-dozer-seated-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, June, stable ID dozer. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Middle-aged woman with shoulder-length wavy gray hair, lavender cardigan, cream blouse with a small bow, warm brown trousers and navy shoes. Match her portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY FOUR columns by FOUR rows, sixteen full poses, read left to right top to bottom. Native target72x64 each; make a 1536x1368 study with384x342 equal cells. Each pose includes a complete navy office chair: back behind shoulders, clear seat under hips, bent knees, shoes resting on ground, five-wheel base making floor contact. Chair wheels stay planted on the same baseline. NO full desk; only small keyboard/work props and hands reaching toward the desk that the game supplies. Poses0-7: eight-frame working loop, typing with alternating hands, brief sip, sigh and phone glance, then return to initial typing. Poses8-15: eight sequential poses of the personal action: eyes slowly close, head dips, shoulders sag, then she jerks awake, blinks and straightens, warm and funny. Keep the exact face, outfit, chair and seated angle consistent. Separate the feet from chair wheels clearly. No copied floating torso, no standing person above a chair.",
+      "sourceStudy": "exec-f9e22dff-7201-4a6c-8e55-9d1b254b3d71.png",
+      "sourceSHA256": "1a4704e25ce125b257aa270fba1a494a43547a87ed04522de4b262ab6bc61584",
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "loop": true
+    },
+    {
+      "id": "dozer",
+      "name": "June",
+      "kind": "standing",
+      "identity": "Middle-aged woman with shoulder-length wavy gray hair, lavender cardigan, cream blouse with a small bow, warm brown trousers and navy shoes. Match her portrait face and outfit.",
+      "signature": "carries a small folder while walking, stops for a slow blink, short head dip and recovery",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        56,
+        60
+      ],
+      "columns": 8,
+      "rows": 5,
+      "size": [
+        448,
+        300
+      ],
+      "sourceGrid": [
+        8,
+        5
+      ],
+      "timing": [
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "rowNames": [
+        "down",
+        "up",
+        "left",
+        "right",
+        "idle"
+      ],
+      "footLine": 59,
+      "file": "coworker-dozer-standing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, June, stable ID dozer. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Middle-aged woman with shoulder-length wavy gray hair, lavender cardigan, cream blouse with a small bow, warm brown trousers and navy shoes. Match her portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY EIGHT columns by FIVE rows, forty full-body poses. Native target56x60 each, study1792x1920 with224x384 equal cells. Rows: row0 walk DOWN toward viewer; row1 walk UP with back to viewer; row2 walk LEFT, visible side; row3 walk RIGHT, visible opposite side; row4 standing idle signature fidget. Each walk row is a REAL eight-frame cycle: left contact, left loading, passing, right lift, right contact, right loading, passing, left lift. Alternating arm swing, clear strides and one-native-pixel body bob, planted shoes at local y59. NO chairs. Show backs in the UP row, not front faces. Show LEFT and RIGHT as distinct directions. Idle row: carries a small folder while walking, stops for a slow blink, short head dip and recovery. No spinning or changing outfit, same head size in every frame.",
+      "sourceStudy": "exec-e7cadb33-46ae-48c6-a80a-6ab4534296e5.png",
+      "sourceSHA256": "598eb7b01e94681e30304cfb450cddacd183a8cf977172d06a81cd65c6adfd2d",
+      "origin": [
+        0.5,
+        0.9833333333333333
+      ],
+      "loop": true
+    },
+    {
+      "id": "mute",
+      "name": "Mina",
+      "kind": "seated",
+      "identity": "Middle-aged woman with short curly salt-and-pepper hair, teal patterned short-sleeve blouse, navy trousers and brown low shoes; small office headset. Match her portrait face and outfit.",
+      "signature": "talks cheerfully on her headset, notices the mute light, pauses, taps the mic button and gives a rueful little smile",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        72,
+        64
+      ],
+      "columns": 8,
+      "rows": 2,
+      "size": [
+        576,
+        128
+      ],
+      "sourceGrid": [
+        4,
+        4
+      ],
+      "timing": [
+        180,
+        160
+      ],
+      "rowNames": [
+        "working",
+        "personal"
+      ],
+      "footLine": 63,
+      "file": "coworker-mute-seated-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Mina, stable ID mute. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Middle-aged woman with short curly salt-and-pepper hair, teal patterned short-sleeve blouse, navy trousers and brown low shoes; small office headset. Match her portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY FOUR columns by FOUR rows, sixteen full poses, read left to right top to bottom. Native target72x64 each; make a 1536x1368 study with384x342 equal cells. Each pose includes a complete navy office chair: back behind shoulders, clear seat under hips, bent knees, shoes resting on ground, five-wheel base making floor contact. Chair wheels stay planted on the same baseline. NO full desk; only small keyboard/work props and hands reaching toward the desk that the game supplies. Poses0-7: eight-frame working loop, typing with alternating hands, brief sip, sigh and phone glance, then return to initial typing. Poses8-15: eight sequential poses of the personal action: talks cheerfully on her headset, notices the mute light, pauses, taps the mic button and gives a rueful little smile. Keep the exact face, outfit, chair and seated angle consistent. Separate the feet from chair wheels clearly. No copied floating torso, no standing person above a chair.",
+      "sourceStudy": "exec-c4880aa4-fb26-4521-9d0f-583fb4614330.png",
+      "sourceSHA256": "9e27cc6c77bc0fd5f64ed5f46005efb351165ae6637f55072690dd31f34cf1e0",
+      "origin": [
+        0.5,
+        0.984375
+      ],
+      "loop": true
+    },
+    {
+      "id": "mute",
+      "name": "Mina",
+      "kind": "standing",
+      "identity": "Middle-aged woman with short curly salt-and-pepper hair, teal patterned short-sleeve blouse, navy trousers and brown low shoes; small office headset. Match her portrait face and outfit.",
+      "signature": "walks with a small headset, then gestures while talking, notices mute and taps the mic",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "cell": [
+        56,
+        60
+      ],
+      "columns": 8,
+      "rows": 5,
+      "size": [
+        448,
+        300
+      ],
+      "sourceGrid": [
+        8,
+        5
+      ],
+      "timing": [
+        120,
+        120,
+        120,
+        120,
+        240
+      ],
+      "rowNames": [
+        "down",
+        "up",
+        "left",
+        "right",
+        "idle"
+      ],
+      "footLine": 59,
+      "file": "coworker-mute-standing-v1.png",
+      "prompt": "Use case: stylized-concept. Asset: ONE production animation pose-study atlas for Midlife Survivors, Mina, stable ID mute. Input1 is THIS coworker identity sheet; input2 is exact hero style and scale reference. Middle-aged woman with short curly salt-and-pepper hair, teal patterned short-sleeve blouse, navy trousers and brown low shoes; small office headset. Match her portrait face and outfit. Crisp 16-bit pixel art, same round friendly proportions and head size as hero, three-quarter top-down view, navy silhouette, warm upper-left lighting, broad hard square color clusters, no realistic shading or antialiasing. Palette ONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Transparent background, NO floor plane, NO cast shadow, no names, no text, no digits, no logos or grid lines. Equal separated cells, complete character in each cell, no cropping, constant person size and shared ground line. Draw EXACTLY EIGHT columns by FIVE rows, forty full-body poses. Native target56x60 each, study1792x1920 with224x384 equal cells. Rows: row0 walk DOWN toward viewer; row1 walk UP with back to viewer; row2 walk LEFT, visible side; row3 walk RIGHT, visible opposite side; row4 standing idle signature fidget. Each walk row is a REAL eight-frame cycle: left contact, left loading, passing, right lift, right contact, right loading, passing, left lift. Alternating arm swing, clear strides and one-native-pixel body bob, planted shoes at local y59. NO chairs. Show backs in the UP row, not front faces. Show LEFT and RIGHT as distinct directions. Idle row: walks with a small headset, then gestures while talking, notices mute and taps the mic. No spinning or changing outfit, same head size in every frame.",
+      "sourceStudy": "exec-dde2612e-a055-488e-95d9-0dbbbb9f9380.png",
+      "sourceSHA256": "6466b359f3d900faeebbaeaf75341fae47cc011f4ef170a4e00a38c92c81690f",
+      "origin": [
+        0.5,
+        0.9833333333333333
+      ],
+      "loop": true
+    }
+  ],
+  "status": "art-ready-for-review"
+}

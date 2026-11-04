@@ -513,3 +513,7 @@ Midlife retirement gets a welcoming punch-clock station with balloons and gifts,
 
 ### 2026-11-04: Continuous wall dressing kit (Codex)
 Room-themed wall pieces use32px modules to dress intact256px wall segments. Mounted pieces and floor decals are non-solid; floor-standing wall furniture proposes24px-deep footprints. All art is delivered for placement review, with224px routes and existing doorways preserved during Claude's future integration.
+
+
+### 2026-11-04: Full coworker world poses (Codex)
+The six named room coworkers now have delivered seated working/personal loops and four-direction standing walks with signature idle actions. Chairs and shoes contact fixed floor lines. This is art for the existing ambient coworkers, not a change to navigation, encounters, rewards or spawning; integration follows review.

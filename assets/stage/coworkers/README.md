@@ -16,3 +16,7 @@ python3 assets/stage/coworkers/validate.py
 ```
 
 `qa/` contains before and after captures in the Bullpen and Conference Rooms, plus the matched 350-enemy runs. Tests ran in desktop and phone-sized viewports on the same machine with stats disabled. The measured mean was 96.3 to 97.4 FPS at 1280×800 and 97.1 to 97.5 FPS at 390×844. Both viewport measurements came from the same desktop browser.
+
+
+## Native world poses (Nov 4, art only)
+[New complete bodies and chairs](world/README.md) provide seated and standing sheets for the six room coworkers, with [animation review](world/review.html) and a hero/TJ scale check. These are pending runtime integration; the historical sheets above stay unchanged.

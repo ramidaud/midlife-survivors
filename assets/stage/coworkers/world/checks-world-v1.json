@@ -1,0 +1,416 @@
+{
+  "status": "passed",
+  "sheets": 12,
+  "frames": 336,
+  "previews": 42,
+  "assets": [
+    {
+      "id": "salad",
+      "kind": "seated",
+      "size": [
+        576,
+        128
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 63,
+      "rows": [
+        {
+          "name": "working",
+          "frames": 8,
+          "ms": 180,
+          "distinct": true
+        },
+        {
+          "name": "personal",
+          "frames": 8,
+          "ms": 160,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "salad",
+      "kind": "standing",
+      "size": [
+        448,
+        300
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 59,
+      "rows": [
+        {
+          "name": "down",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "up",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "left",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "right",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "idle",
+          "frames": 8,
+          "ms": 240,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "retiring",
+      "kind": "seated",
+      "size": [
+        576,
+        128
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 63,
+      "rows": [
+        {
+          "name": "working",
+          "frames": 8,
+          "ms": 180,
+          "distinct": true
+        },
+        {
+          "name": "personal",
+          "frames": 8,
+          "ms": 160,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "retiring",
+      "kind": "standing",
+      "size": [
+        448,
+        300
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 59,
+      "rows": [
+        {
+          "name": "down",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "up",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "left",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "right",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "idle",
+          "frames": 8,
+          "ms": 240,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "intern",
+      "kind": "seated",
+      "size": [
+        576,
+        128
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 63,
+      "rows": [
+        {
+          "name": "working",
+          "frames": 8,
+          "ms": 180,
+          "distinct": true
+        },
+        {
+          "name": "personal",
+          "frames": 8,
+          "ms": 160,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "intern",
+      "kind": "standing",
+      "size": [
+        448,
+        300
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 59,
+      "rows": [
+        {
+          "name": "down",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "up",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "left",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "right",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "idle",
+          "frames": 8,
+          "ms": 240,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "kind": "seated",
+      "size": [
+        576,
+        128
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 63,
+      "rows": [
+        {
+          "name": "working",
+          "frames": 8,
+          "ms": 180,
+          "distinct": true
+        },
+        {
+          "name": "personal",
+          "frames": 8,
+          "ms": 160,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "email",
+      "kind": "standing",
+      "size": [
+        448,
+        300
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 59,
+      "rows": [
+        {
+          "name": "down",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "up",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "left",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "right",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "idle",
+          "frames": 8,
+          "ms": 240,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "dozer",
+      "kind": "seated",
+      "size": [
+        576,
+        128
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 63,
+      "rows": [
+        {
+          "name": "working",
+          "frames": 8,
+          "ms": 180,
+          "distinct": true
+        },
+        {
+          "name": "personal",
+          "frames": 8,
+          "ms": 160,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "dozer",
+      "kind": "standing",
+      "size": [
+        448,
+        300
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 59,
+      "rows": [
+        {
+          "name": "down",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "up",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "left",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "right",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "idle",
+          "frames": 8,
+          "ms": 240,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "mute",
+      "kind": "seated",
+      "size": [
+        576,
+        128
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 63,
+      "rows": [
+        {
+          "name": "working",
+          "frames": 8,
+          "ms": 180,
+          "distinct": true
+        },
+        {
+          "name": "personal",
+          "frames": 8,
+          "ms": 160,
+          "distinct": true
+        }
+      ]
+    },
+    {
+      "id": "mute",
+      "kind": "standing",
+      "size": [
+        448,
+        300
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "footLine": 59,
+      "rows": [
+        {
+          "name": "down",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "up",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "left",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "right",
+          "frames": 8,
+          "ms": 120,
+          "distinct": true
+        },
+        {
+          "name": "idle",
+          "frames": 8,
+          "ms": 240,
+          "distinct": true
+        }
+      ]
+    }
+  ]
+}
