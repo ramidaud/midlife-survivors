@@ -97,7 +97,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=5">
-<link rel="stylesheet" href="../styles.css?v=18">
+<link rel="stylesheet" href="../styles.css?v=24">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -124,16 +124,17 @@ PAGE = """<!doctype html>
     </div>
     {lead}
     <div class="post-cta">
-      <div><a class="btn btn-primary" href="{play}">▶ Play this build</a></div>
+      <div class="cta-row"><a class="btn btn-primary" href="{play}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="{slug}" data-url="{share_url}" data-title="{title}" data-text="{share_text}">↗ <span class="share-label">Share</span></button></div>
       {changes}
       {next_up}
     </div>
     <article class="post"><div class="prose">{body}</div>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to {version}. Screenshots are from the real game at the time.</div>
+      <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="{slug}" data-url="{share_url}" data-title="{title}" data-text="{share_text}">↗ <span class="share-label">Share this memo</span></button></div>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
 </body>
 </html>
 """
@@ -224,6 +225,9 @@ def main():
             description=html.escape(desc),
             og_image=html.escape(og_image),
             og_url=html.escape(f"{site}/{slug}/"),
+            slug=html.escape(slug),
+            share_url=html.escape(f"{site}/{slug}/"),
+            share_text=html.escape(f"Midlife Survivors devlog: {title}"),
             play=html.escape(play),
             date=html.escape(date),
             date_fmt=html.escape(date_fmt),

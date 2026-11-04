@@ -1102,3 +1102,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Crowded screens hide regular enemy name tags (25+ on phones, 60+ on bigger screens; `ENEMY_TAGS` in src/data/enemies.js). Bosses, elites and "typing..." keep theirs.
 - Nav buttons are 40 px tall on touch screens. Options puts touch first on phones and hides the parked 3D controls; Extras hides stages that don't exist; Reset Progress has a red outline.
 - Sent ChatGPT a brief to redo the five phone title scenes at true proportions (`docs/handoffs/chatgpt-portrait-reexport.md`).
+
+## 2026-11-04: Share button on memos
+- Every memo has a Share button next to "Play this build" and a "Share this memo" button after the sign-off, in the devlog and on each memo's own page.
+- Phones open the native share sheet; computers copy the link and say "Link copied". The link is the memo's own page, so it shows the preview card.
+- Each share is counted in GoatCounter as an event (`share-<memo>`), so you can see which memos get passed around.

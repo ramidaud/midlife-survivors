@@ -365,7 +365,7 @@
       </div>
       ${lead}
       <div class="post-cta">
-        <div><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a></div>
+        <div class="cta-row"><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://ramidaud.github.io/midlife-survivors/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share</span></button></div>
         ${changes}
         ${nextUp}
       </div>
@@ -375,6 +375,7 @@
           <div class="silk">Filed by Rami.</div>
           Survived to ${esc(post.version || "the next build")}. Screenshots are from the real game at the time.
         </div>
+        <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://ramidaud.github.io/midlife-survivors/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share this memo</span></button></div>
       </article>
       ${sequel(post, prev, next)}`;
     // Lead clips play like a GIF; respect reduced motion by starting paused.

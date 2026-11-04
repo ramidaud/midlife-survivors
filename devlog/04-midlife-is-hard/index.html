@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=5">
-<link rel="stylesheet" href="../styles.css?v=18">
+<link rel="stylesheet" href="../styles.css?v=24">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -50,7 +50,7 @@
     </div>
     <figure class="post-lead"><div class="lead-loop"><video src="../img/04-midlife-is-hard.mp4" poster="../img/04-midlife-is-hard.jpg" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in." onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div><figcaption>15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in.</figcaption></figure><script>(function(v){if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();v.nextElementSibling.textContent='▶';v.nextElementSibling.setAttribute('aria-label','Play animation');}})(document.currentScript.previousElementSibling.querySelector('video'))</script>
     <div class="post-cta">
-      <div><a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a></div>
+      <div class="cta-row"><a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="04-midlife-is-hard" data-url="https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/" data-title="I could beat my own game standing still. So I hired a robot." data-text="Midlife Survivors devlog: I could beat my own game standing still. So I hired a robot.">↗ <span class="share-label">Share</span></button></div>
       <div class="changes-box"><h3>What changed</h3><ul><li>Enemies and bosses scale with your level</li><li>Coins come in slowly; the 401(k) Shop is the long game</li><li>Tax Bracket: optional difficulty with bigger rewards</li><li>Comfort Zone Tax: 45 seconds without a hit brings more enemies</li></ul></div>
       <div class="next-up"><strong>Next up</strong>Near-miss rewards for dodging, then the art pass.</div>
     </div>
@@ -80,9 +80,10 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
 </code></pre></figure>
 <p>I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.</p></div>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to V. 1.24 to 1.27. Screenshots are from the real game at the time.</div>
+      <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="04-midlife-is-hard" data-url="https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/" data-title="I could beat my own game standing still. So I hired a robot." data-text="Midlife Survivors devlog: I could beat my own game standing still. So I hired a robot.">↗ <span class="share-label">Share this memo</span></button></div>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script>initSidenotes(document);initCodeCards(document);</script>
 </body>
 </html>
