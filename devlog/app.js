@@ -322,17 +322,31 @@
     html = html.replace(/<p>CODECARD(\d+)<\/p>/g, (m, i) => codeCards[+i] || "");
     // Before/after sliders: an image whose title is "compare: img/before.jpg | img/after.jpg" becomes a swipe slider here.
     // RSS, Substack and share pages keep the plain combined image, since email can't run a slider.
-    html = html.replace(/<p>\s*<img src="([^"]*)" alt="([^"]*)" title="compare:\s*([^"|]+?)\s*\|\s*([^"]+?)\s*">\s*<\/p>/g, (m, src, alt, a, b) =>
-      `<figure class="ba-post" data-full="${src}"><div class="ba" style="--cut:50%">` +
+    // An optional third part names the tab when several sliders sit together: "compare: a.jpg | b.jpg | Title screen".
+    html = html.replace(/<p>\s*<img src="([^"]*)" alt="([^"]*)" title="compare:\s*([^"|]+?)\s*\|\s*([^"|]+?)\s*(?:\|\s*([^"]+?)\s*)?">\s*<\/p>/g, (m, src, alt, a, b, label) =>
+      `<figure class="ba-post" data-full="${src}" data-label="${esc(label || "")}"><div class="ba" style="--cut:50%">` +
       `<img class="ba-a" src="${a}" alt="Before. ${alt}"><div class="ba-b"><img src="${b}" alt=""></div>` +
       `<span class="ba-lab l">BEFORE</span><span class="ba-lab r">AFTER</span><div class="ba-handle" aria-hidden="true"></div>` +
       `<input type="range" min="0" max="100" value="50" step="0.5" aria-label="Drag to compare before and after"></div>` +
       `<figcaption class="ba-cap">Drag the slider to compare.</figcaption></figure>`);
+    // Sliders that sit back to back become one "Then and now" box with tabs, so a memo isn't a wall of screenshots (Nov 4).
+    let tabSet = 0;
+    html = html.replace(/(?:<figure class="ba-post"[\s\S]*?<\/figure>\s*){2,}/g, block => {
+      const figs = block.match(/<figure class="ba-post"[\s\S]*?<\/figure>/g), id = "bt" + (tabSet++);
+      const chips = figs.map((f, i) => { const l = (f.match(/data-label="([^"]*)"/) || [])[1] || `View ${i + 1}`;
+        return `<button type="button" role="tab" class="bt-chip" aria-selected="${i === 0}" aria-controls="${id}-${i}">${l}</button>`; }).join("");
+      return `<div class="ba-tabs"><div class="bt-head"><span class="bt-title">THEN AND NOW</span><div class="bt-chips" role="tablist">${chips}</div></div>` +
+        figs.map((f, i) => f.replace('<figure class="ba-post"', `<figure class="ba-post" role="tabpanel" id="${id}-${i}"${i ? " hidden" : ""}`)).join("") + `</div>`;
+    });
+    // Image size hints in the markdown title: "side" sits beside the text on wide screens, "small" stays modest.
+    html = html.replace(/<p>\s*(<img [^>]*?) title="(side|small)">\s*<\/p>/g, (m, img, kind) => `<figure class="fig ${kind}">${img}></figure>`);
 
     const { prev, next } = neighbors(post.slug);
     const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
     const changes = Array.isArray(post.changes) && post.changes.length
-      ? `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`
+      ? (post.changes.length > 7 // a long list folds, so the memo itself starts sooner (Nov 4)
+        ? `<details class="changes-box"><summary><h3>What changed</h3><span class="cb-more">${post.changes.length} changes · show all</span></summary><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></details>`
+        : `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`)
       : "";
     // Optional leadNote (markdown): how the lead image was made (tool + prompt). Shows as a margin note marker.
     const leadNote = post.leadNote
@@ -385,6 +399,22 @@
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
+    postMain.querySelectorAll(".ba-tabs").forEach(box => {
+      const chips = [...box.querySelectorAll(".bt-chip")], panels = [...box.querySelectorAll(".ba-post")];
+      chips.forEach((c, i) => c.addEventListener("click", () => {
+        chips.forEach((x, j) => x.setAttribute("aria-selected", String(j === i))); panels.forEach((p, j) => { p.hidden = j !== i; });
+      }));
+    });
+    // Tap a picture to see it full size.
+    postMain.querySelectorAll(".prose img:not(.ba img)").forEach(im => {
+      im.classList.add("zoomable");
+      im.addEventListener("click", () => {
+        const o = document.createElement("div"); o.className = "img-zoom"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", im.alt || "Image");
+        o.innerHTML = `<img src="${im.currentSrc || im.src}" alt="${esc(im.alt || "")}"><button type="button" aria-label="Close">×</button>`;
+        const close = () => { o.remove(); document.removeEventListener("keydown", key); }, key = e => { if (e.key === "Escape") close(); };
+        o.addEventListener("click", close); document.addEventListener("keydown", key); document.body.appendChild(o);
+      });
+    });
     postMain.querySelectorAll(".ba-post .ba").forEach(ba => {
       const r = ba.querySelector("input"), set = () => ba.style.setProperty("--cut", r.value + "%");
       r.addEventListener("input", set); set();

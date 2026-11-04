@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.91.3",
-  displayVersion: "V. 1.91.3",
+  version: "1.91.4",
+  displayVersion: "V. 1.91.4",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 207,
+  build: 208,
   changelog: [
+    {
+      ver: "V. 1.91.4", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "iPad fix: the office fills the whole screen again after you rotate.",
+      highlights: [
+        "On iPad Safari the office could fill only part of the screen after rotating or when the toolbars moved. The game now re-checks its size a moment later and fixes itself.",
+        "Devlog: long memos read easier. Before-and-after sliders share one tabbed box, phone screenshots sit beside the text, and any picture opens full size with a tap."
+      ]
+    },
     {
       ver: "V. 1.91.3", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Four favorite title scenes are back: Promoted, 11:58 PM, The Long Way and The Swarm.",

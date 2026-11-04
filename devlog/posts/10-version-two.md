@@ -4,11 +4,25 @@ If the kid version of me, building websites on GeoCities, could see what I built
 
 This started out as a way to deal with being off work. I'm not very good at taking time off, and I've been told over and over not to work on work while I'm on paternity leave. So I'm putting my energy into something I want to see go out into the world. Kinda like the twins.
 
+## Then and now
+
+V. 1.47 next to today. Pick a screen and drag the slider.
+
+![The title screen, V. 1.47 above and V2 below.](img/10-title-before-after.jpg "compare: img/10-title-before.jpg | img/10-title-after.jpg | Title")
+
+![The phone title screen, V. 1.47 on the left and V2 on the right.](img/10-title-before-after-phone.jpg "compare: img/10-title-before-phone.jpg | img/10-title-after-phone.jpg | Title (phone)")
+
+![Mid-run at age 48, V. 1.47 above and V2 below.](img/10-play-before-after.jpg "compare: img/10-play-before.jpg | img/10-play-after.jpg | Mid-run")
+
+![The level-up screen, V. 1.47 above and V2 below.](img/10-levelup-before-after.jpg "compare: img/10-levelup-before.jpg | img/10-levelup-after.jpg | Level up")
+
+![The pause screen, V. 1.47 above and V2's On Break screen below.](img/10-pause-before-after.jpg "compare: img/10-pause-before.jpg | img/10-pause-after.jpg | On Break")
+
+![The death screen, V. 1.47 above and V2's HR Exit Interview below.](img/10-death-before-after.jpg "compare: img/10-death-before.jpg | img/10-death-after.jpg | Exit interview")
+
+![The phone death screen, V. 1.47 on the left and V2 on the right.](img/10-death-before-after-phone.jpg "compare: img/10-death-before-phone.jpg | img/10-death-after-phone.jpg | Exit interview (phone)")
+
 ## The title screen
-
-![The title screen, V. 1.47 above and V2 below.](img/10-title-before-after.jpg "compare: img/10-title-before.jpg | img/10-title-after.jpg")
-
-![The phone title screen, V. 1.47 on the left and V2 on the right.](img/10-title-before-after-phone.jpg "compare: img/10-title-before-phone.jpg | img/10-title-after-phone.jpg")
 
 I love the new title screen. It ties the game to the website and makes them feel like a single unit. I love all the key art, but these are my favorites, because it's starting to feel more personal. Like a part of me is coming to life in the game.
 
@@ -18,21 +32,9 @@ Four of them had been retired from the title screen because the menus covered th
 
 ## Clocking in
 
-![Mid-run at age 48, V. 1.47 above and V2 below.](img/10-play-before-after.jpg "compare: img/10-play-before.jpg | img/10-play-after.jpg")
-
 Runs feel good. The lights react to your weapons now, the office is full of people, and TJ and Derek show up mid-run. But I'm worried it might still be too hard for new players. That's where I need help from playtesters and feedback. [Join the Discord!](https://discord.gg/E6N9j5tZe) The next post will go into this a little more.
 
-## Level up and On Break
-
-![The level-up screen, V. 1.47 above and V2 below.](img/10-levelup-before-after.jpg "compare: img/10-levelup-before.jpg | img/10-levelup-after.jpg")
-
-![The pause screen, V. 1.47 above and V2's On Break screen below.](img/10-pause-before-after.jpg "compare: img/10-pause-before.jpg | img/10-pause-after.jpg")
-
 ## The exit interview
-
-![The death screen, V. 1.47 above and V2's HR Exit Interview below.](img/10-death-before-after.jpg "compare: img/10-death-before.jpg | img/10-death-after.jpg")
-
-![The phone death screen, V. 1.47 on the left and V2 on the right.](img/10-death-before-after-phone.jpg "compare: img/10-death-before-phone.jpg | img/10-death-after-phone.jpg")
 
 When you die now, HR sits you down for an exit interview, and whatever got you stands there looking smug about it.
 
@@ -40,31 +42,31 @@ And at 63.5 the Gold Watch shows up. You can't kill it. Every hit just winds the
 
 ## GOTCHA!
 
-![Catching Derek: the GOTCHA! card stamps in with his portrait and a treat.](img/10-gotcha.jpg)
+![Catching Derek: the GOTCHA! card stamps in with his portrait and a treat.](img/10-gotcha.jpg "side")
 
 The interns don't just walk up anymore. TJ and Derek show up with a coffee, a burrito or a bundt cake, and you have to chase them down. Catch one and the game slows for a beat, a GOTCHA! card stamps in with their portrait, and a little reel spins to land on your treat: a heal, a shield and a bonus. The coworkers at their desks got real bodies too, with chairs, legs and their own little habits.
 
 ## Clock in anywhere
 
-![The Badge Office asks if you want to save your file, with Continue with Google.](img/10-save-your-file.jpg)
+![The Badge Office asks if you want to save your file, with Continue with Google.](img/10-save-your-file.jpg "side")
 
 Your employee file can follow you now. Sign in with Google once, and your coins, unlocks, achievements and even a run in progress move between your phone, tablet and laptop. It's optional. Your file still saves on your device either way, and there are new Privacy and Terms pages in plain words.
 
 ## Twice the gear
 
-![A level-up with the new loadout: six weapon slots and six passive slots with pixel icons, a style tally, and cards marked Shield and Offense.](img/10-loadout.jpg)
+![A level-up with the new loadout: six weapon slots and six passive slots with pixel icons, a style tally, and cards marked Shield and Offense.](img/10-loadout.jpg "side")
 
 There are 13 new things to pick up: seven weapons and six passives. Mom's Spaghetti heals you while you stand in it, noise-cancelling headphones block hits, a rolling office chair bowls through crowds, Reply-All chains from enemy to enemy, Out-of-Office slows everything near you, sticky notes trap whatever steps on them, and Thermostat Wars freezes the room. But you only get six weapon slots and six passive slots, so you have to pick a play style: Healing, Shield, Offense or Defense. Chests only upgrade what you already carry now, and if a level-up only offers something new, you can skip it and heal a little instead.
 
 ## Retirement is a party
 
-![The clock-out station at 65: a big friendly clock with a bow on top, balloons, a cake and presents.](img/10-clock-out.jpg)
+![The clock-out station at 65: a big friendly clock with a bow on top, balloons, a cake and presents.](img/10-clock-out.jpg "side")
 
 Make it to 65 and the Gold Watch stops. A clock-out station appears with balloons and presents. Walk up, punch out, and you're retired. It used to be a reaper. Now it's a party.
 
 ## The office filled in
 
-![The office walls now: bookshelves, clocks, light switches, posters and a vending machine.](img/10-walls.jpg)
+![The office walls now: bookshelves, clocks, light switches, posters and a vending machine.](img/10-walls.jpg "small")
 
 The walls aren't bare anymore. Every room has shelves, clocks, posters and its own clutter, and the coworkers at their desks sit, stand and fidget. Bosses that charge into a wall bounce off it now (BONK) and need a second to shake it off.
 

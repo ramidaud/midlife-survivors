@@ -1290,3 +1290,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: Memo 10 filled in, favorite scenes back (V. 1.91.3)
 - Rami's interview answers are in Memo 10 (still a draft), plus his five favorite key art scenes, the GOTCHA! catch and Clock in with Google. The range is now V. 1.68 to 1.91.
 - Promoted, 11:58 PM, The Long Way and The Swarm are back in the title slideshow (nine scenes) and the Art Room, by Rami's request.
+
+## Nov 4, 2026: iPad size fix and lighter memo layout (V. 1.91.4)
+- iPad Safari sometimes kept an old screen size after rotating, so the office filled only part of the screen. The game now re-checks a moment later and every second.
+- Memo layout: back-to-back sliders become one tabbed "Then and now" box, "side" pictures sit beside the text, long change lists fold, and any picture opens full size with a tap. Memo 10 uses all of it.

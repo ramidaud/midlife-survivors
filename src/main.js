@@ -2660,6 +2660,25 @@ function update(time, delta) {
 
 window.game = new Phaser.Game(config);
 
+// iPad Safari sometimes reports the old window size when you rotate or the toolbars move (Nov 4, Rami: the office
+// only filled three quarters of the screen). Check again a moment later, and keep a slow watch in case it still drifts.
+(() => {
+  const fix = () => {
+    const g = window.game; if (!g || !g.scale || !g.isBooted) return;
+    const w = window.innerWidth, h = window.innerHeight;
+    const off = () => Math.abs(g.scale.width - w) > 1 || Math.abs(g.scale.height - h) > 1;
+    if (off()) g.scale.refresh(); // re-measure the page
+    if (off()) g.scale.resize(w, h); // still wrong: size it to the window ourselves
+    const cv = g.canvas; if (cv && (Math.abs(cv.clientWidth - g.scale.width) > 1 || Math.abs(cv.clientHeight - g.scale.height) > 1)) g.scale.refresh();
+    g.scene.getScenes(true).forEach(sc => { const c = sc.cameras && sc.cameras.main; if (c && (c.width !== g.scale.width || c.height !== g.scale.height)) c.setSize(g.scale.width, g.scale.height); });
+  };
+  const soon = () => [120, 500, 1200].forEach(ms => setTimeout(fix, ms));
+  window.addEventListener("orientationchange", soon);
+  window.addEventListener("resize", soon);
+  if (window.visualViewport) visualViewport.addEventListener("resize", soon);
+  setInterval(fix, 1000);
+})();
+
 // The graphics card dropped the game (Nov 4, Rami: a white screen right after a level-up, then a grey title screen).
 // Browsers can take WebGL away when the computer is short on graphics memory ("context lost"). Phaser can't always
 // get it back, so save the run and offer a one-tap reload instead of leaving a blank screen.

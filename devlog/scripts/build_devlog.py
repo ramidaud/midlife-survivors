@@ -180,7 +180,7 @@ def main():
         body = md_to_html(body_md)
         body = re.sub(r"<p>CODECARD(\d+)</p>", lambda m: cards[int(m.group(1))], body)
         body = body.replace('src="img/', 'src="../img/')
-        body = re.sub(r' title="compare:[^"]*"', "", body)  # sliders only run on the devlog itself
+        body = re.sub(r' title="(?:compare:[^"]*|side|small)"', "", body)  # sliders and size hints only run on the devlog itself
 
         title = p["title"]
         desc = p.get("teaser") or title
@@ -252,7 +252,7 @@ def main():
         fmd = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _fcode, raw_md, flags=re.M)
         fmd = re.sub(r"\^\[([^\]]+)\]", lambda m: f" *({m.group(1)})*", fmd)
         fbody = md_to_html(fmd)
-        fbody = re.sub(r' title="compare:[^"]*"', "", fbody)
+        fbody = re.sub(r' title="(?:compare:[^"]*|side|small)"', "", fbody)
         fbody = re.sub(r"<p>FEEDCODE(\d+)</p>", lambda m: f"<pre><code>{html.escape(fcode[int(m.group(1))], quote=False)}</code></pre>", fbody)
         fbody = re.sub(r'(src|href)="(?!https?:|mailto:|#)(?:\.\./)?', lambda m: f'{m.group(1)}="{site}/', fbody)
         flead = ""
