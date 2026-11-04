@@ -1323,3 +1323,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Memo 11's four Discord screenshots now sit in one tidy grid of same-size tiles (tap for full size), instead of four pictures of different sizes down the side.
 - The accounts poll is retired. New quick poll on the devlog and in Extras: which stage first, the hospital or the home neighborhood?
 - Memo 11, "If that's where community is, that's where I want to be.", is published, with a nudge to vote in the new stage poll.
+
+## Nov 4, 2026: The office map (V. 2.1)
+- Find the YOU ARE HERE sign by reception once, and a minimap rides in the corner of every run after.
+- It fills in as you explore (fog of war), shows doors open or locked, chests, the Lounge, interns and bosses. Tap it or press M for the big paused view.
+- Placeholder art for now; ChatGPT has the brief for the frame, icons and the sign. Memo 11 social drafts written.

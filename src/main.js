@@ -304,6 +304,7 @@ function create() {
   window._heldKeys.clear();
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   if (window.Promotions) Promotions.reset();
+  if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
   runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
@@ -1192,7 +1193,7 @@ function collectChest(p, chest) {
 // Stuck-pause watchdog (Nov 3, Derek: "game froze after getting the chest post HR boss").
 // If the run is paused but no menu is showing for 2 checks in a row, put the menu back or unpause.
 // It also records which flags were stuck (as an anonymous "stuck-..." play-stats event) so we can find the cause.
-const PAUSE_MENUS = ["levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
+const PAUSE_MENUS = ["minimap-modal", "levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
 let stuckChecks = 0;
 setInterval(() => {
   const sc = window._activeGameScene;
@@ -2195,9 +2196,10 @@ function update(time, delta) {
     }
   } else {
     // Active gameplay controller shortcuts: Start or B opens Pause & Options
-    if (padJust("start") || padJust("b")) togglePause(this);
+    if ((padJust("start") || padJust("b")) && !window.minimapOpen) togglePause(this);
   }
 
+  if (window.minimapOpen) { if (window.Minimap) Minimap.padCheck(); return; } // the big office map is open (src/minimap.js)
   if (gameOver || levelUpOpen || paused || titleOpen || retire80Open || window.controlsModalOpen || window.changelogModalOpen || window.loreModalOpen) {
     renderThreeView(this);
     restore2DSprites();
@@ -2475,6 +2477,7 @@ function update(time, delta) {
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
+  if (window.Minimap) Minimap.update(this, now);         // find the office map, then it fills in as you explore
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers

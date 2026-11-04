@@ -28,7 +28,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 
 ## Game plan after V. 2.0 (set Nov 4, Rami by voice)
 V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art mostly in. Work these in order, one at a time.
-1. [ ] **Minimap HUD.** Once you find the map, a small corner map fills in as you explore: a dot for you, door icons that flip from locked to open when you get promoted, and markers for chests, the Lounge and nearby interns. Tap it (or press M) to open it big with the game paused. Keep it small and hideable on phones. Builds on the test map in the Art Room.
+1. [x] **Minimap HUD (V. 2.1, first version with placeholder art; ChatGPT art brief out).** Once you find the map, a small corner map fills in as you explore: a dot for you, door icons that flip from locked to open when you get promoted, and markers for chests, the Lounge and nearby interns. Tap it (or press M) to open it big with the game paused. Keep it small and hideable on phones. Builds on the test map in the Art Room.
 2. [ ] **New stages: St. Deductible Hospital and the home neighborhood.** Pickable from the title screen like Vampire Survivors' stage select, each its own short run with its own enemies, boss and gimmick, unlocked by an achievement. (Why: only about 4% of runs reach 65, so stages hidden deep in Full Life would go unseen.) Later, Full Life can chain them: office, then hospital, then home. Ideas already in GAME_DESIGN: the hospital's newborn and 3 a.m. feedings challenge; the home's LEGO-brick floor hazards and a New Math boss.
 3. [ ] **Phone apps (iOS and Android).** See "Phase B2" under Platforms.
 - Still open from V2: Lounge redo (needs Rami's photo), Abdel's music, Errands, a Daily Challenge.

@@ -1787,3 +1787,28 @@ A webhook is a private web address tied to one Discord channel. Send it a messag
 | #stats | The morning stats task saving its summary | `reports/discord-stats.md` |
 
 **Why the notes file matters:** the robot starts each run with an empty head. Without its notes, every run would repost every memo.
+
+## Chapter: Fog of war (the minimap, Nov 4)
+
+The office is cut into a grid. Every square starts dark. Squares near you turn on, and stay on for the rest of the run.
+
+```
+  start of the run          after a walk east
+  . . . . . . . .           . . . . . . . .
+  . . . . . . . .           . # # # # # # .
+  . . # @ # . . .           . # # # # # @ .
+  . . # # # . . .           . # # # # # # .
+  . . . . . . . .           . . . . . . . .
+  @ = you   # = seen   . = still dark
+```
+
+Drawing the map is a stencil:
+1. Paint the whole floor plan (built once from the level data).
+2. Lay the "seen" grid on top as a stencil, and keep only the painted parts under seen squares.
+3. Draw the dots: doors (green open, red locked), chests, the Lounge, interns, bosses, and your arrow.
+
+| Piece | Where it lives |
+|---|---|
+| Tuning (reveal radius, where the sign stands) | `MINIMAP` at the top of `src/minimap.js` |
+| Floor plan source | `src/data/start-area.js` (floors, walls, rooms) |
+| Found the map yet? | `meta.mapFound` (saved forever, so you only find it once) |

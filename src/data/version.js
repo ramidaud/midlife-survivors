@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.0.1",
-  displayVersion: "V. 2.0.1",
+  version: "2.1.0",
+  displayVersion: "V. 2.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 213,
+  build: 214,
   changelog: [
+    {
+      ver: "V. 2.1", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Find the YOU ARE HERE map in the Lobby, and the office maps itself as you explore.",
+      highlights: [
+        "New: the office map. Find the YOU ARE HERE sign by the reception desk once, and a small map rides in the corner of every run after.",
+        "It starts dark and fills in as you explore. Doors show green when your promotion opens them and red while they're locked. Chests, the Lounge, interns and bosses are marked.",
+        "Tap the map, or press M, to see everything you've explored, paused. The little – shrinks it out of the way."
+      ]
+    },
     {
       ver: "V. 2.0.1", date: "Nov 4, 2026", title: "Version Two",
       teaser: "New poll: which stage should we build first, the hospital or the home neighborhood?",

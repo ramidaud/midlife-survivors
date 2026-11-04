@@ -536,3 +536,6 @@ Every picture the game shows lives in the graphics card's own memory as raw pixe
 - A **webhook** is a private web address that posts to one Discord channel. Anything that has the address can post there, so it stays in GitHub's locked secrets, never in the code.
 - **GitHub Actions** is a robot that runs a script when something happens: a push, a schedule or a button press.
 - A robot forgets everything between runs, so it writes down what it already posted in a small **state file**. That's what stops double posts.
+
+## Fog of war (Nov 4)
+The minimap starts dark and only shows places you've been near. Under the hood, the office is split into a grid of 128-pixel squares, and every fifth of a second the game marks the squares around you as "seen." When the map draws, it paints the whole floor plan, then keeps only the seen squares, like a stencil. Strategy games call this "fog of war." It turns exploring into a reward, because the map only fills in when you go somewhere new.
