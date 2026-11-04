@@ -10,7 +10,9 @@ This started out as a way to deal with being off work. I'm not very good at taki
 
 ![The phone title screen, V. 1.47 on the left and V2 on the right.](img/10-title-before-after-phone.jpg "compare: img/10-title-before-phone.jpg | img/10-title-after-phone.jpg")
 
-I love the new title screen. It ties the game to the website and makes them feel like a single unit. I love all the key art, but [RAMI: which scene] is my favorite, because it's starting to feel more personal. Like a part of me is coming to life in the game.
+I love the new title screen. It ties the game to the website and makes them feel like a single unit. I love all the key art, but these are my favorites, because it's starting to feel more personal. Like a part of me is coming to life in the game.
+
+![Rami's favorite key art: the 9-to-5er getting promoted at 50, still at his desk at 11:58 PM with a "just one more run" note, running through the cubicles with his coffee, surrounded by the swarm, and the whole crew in the server room while the Coldwar Cowboy turns it off and on again.](img/10-favorite-key-art.jpg)
 
 ## Clocking in
 
