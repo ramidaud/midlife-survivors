@@ -1198,3 +1198,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Finished six seated sheets and six full-body walk/idle sheets, with each room coworker's personal action.
 - Added 42 row previews and a 2x comparison against the existing hero and TJ. Corrected Nora's export scale during review.
 - Pixel/anchor/pose and GIF checks pass; desktop and phone review pages work. Art only, ready for Rami and Claude to review and integrate.
+- Later Nov 4: Rami tested email sign-in (works, via link until SMTP is set up). Set up Google sign-in: Google Cloud project "Midlife Survivors", published, client created, Supabase Google provider on. Added Privacy and Terms pages for Google's branding page. Game button switched on (V. 1.84.3).

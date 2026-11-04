@@ -5,7 +5,7 @@ window.ACCOUNT = {
   enabled: false, // false until the Supabase setup is done (docs/handoffs/accounts-setup.md). Test anytime with ?accounts=1
   providers: {
     email: true,   // 6-digit code by email (needs the code in the Magic Link email template, and custom SMTP for real players)
-    google: false, // flip to true after the Google provider is on in Supabase
+    google: true,  // on since Nov 4 (Google Cloud project "Midlife Survivors")
     apple: false   // flip to true after the Apple provider is on (needs an Apple Developer account)
   },
   // supabase-js, pinned, loaded only when someone opens the account screen or is already signed in

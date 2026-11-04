@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.84.2",
-  displayVersion: "V. 1.84.2",
+  version: "1.84.3",
+  displayVersion: "V. 1.84.3",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 193,
+  build: 194,
   changelog: [
+    {
+      ver: "V. 1.84.3", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Accounts setup: Continue with Google is switched on.",
+      highlights: [
+        "The sign-in screen now offers Continue with Google, next to the emailed link or code. Still hidden from players while we finish testing."
+      ]
+    },
     {
       ver: "V. 1.84.2", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "New Privacy and Terms pages, in plain words.",
