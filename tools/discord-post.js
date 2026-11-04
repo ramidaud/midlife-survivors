@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Posts Midlife Survivors news to Discord through webhooks.
-// Run by .github/workflows/discord.yml. Usage: node tools/discord-post.js <changelog|memos|stats|test|backfill>
+// Run by .github/workflows/discord.yml. Usage: node tools/discord-post.js <changelog|memos|stats|test|backfill|art>
 // Webhook URLs come from environment variables (GitHub secrets) and are never printed.
 // What has already been posted is remembered in .github/discord-state.json.
 // "backfill" is a one-time catch-up: every old build, by day, then every published memo, oldest first.
@@ -14,7 +14,7 @@ const STATE_FILE = path.join(ROOT, ".github/discord-state.json");
 const STATS_FILE = path.join(ROOT, "reports/discord-stats.md");
 const PLAY_URL = "https://ramidaud.github.io/midlife-survivors/";
 const DEVLOG_URL = PLAY_URL + "devlog/";
-const COLORS = { changelog: 0x2f8f83, memo: 0xc8743a, stats: 0x5b6f7a, test: 0x8fae8b };
+const COLORS = { changelog: 0x2f8f83, memo: 0xc8743a, stats: 0x5b6f7a, test: 0x8fae8b, art: 0xBFA8CF };
 const DESCRIPTION_LIMIT = 3900; // Discord allows 4096 per embed; leave room
 
 function readState() { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8")); }
@@ -182,6 +182,21 @@ async function postTests() {
   }
 }
 
+// #art-and-ideas: the gallery in tools/discord-art.json. Each post goes out once (ids remembered in the state file).
+async function postArt(state) {
+  const { posts } = JSON.parse(fs.readFileSync(path.join(ROOT, "tools/discord-art.json"), "utf8"));
+  const done = state.artPosted || (state.artPosted = []);
+  for (const p of posts) {
+    if (done.includes(p.id)) continue;
+    const embeds = p.images.slice(0, 10).map(([title, file], i) => ({ title, url: PLAY_URL + "#art-" + p.id + "-" + i, color: COLORS.art, image: { url: PLAY_URL + file } }));
+    // (each embed gets its own link: Discord merges embeds that share one)
+    await send("DISCORD_WEBHOOK_ART", { content: p.intro, embeds });
+    done.push(p.id); writeState(state);
+    console.log(`Art: posted ${p.id}`);
+    await new Promise(r => setTimeout(r, 1500));
+  }
+}
+
 async function main() {
   const action = process.argv[2];
   const state = readState();
@@ -190,6 +205,7 @@ async function main() {
   else if (action === "stats") await postStats(state);
   else if (action === "test") await postTests();
   else if (action === "backfill") await backfill(state);
-  else throw new Error("Usage: discord-post.js <changelog|memos|stats|test|backfill>");
+  else if (action === "art") await postArt(state);
+  else throw new Error("Usage: discord-post.js <changelog|memos|stats|test|backfill|art>");
 }
 main().catch(err => { console.error(err.message); process.exit(1); });

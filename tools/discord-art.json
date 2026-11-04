@@ -1,0 +1,19 @@
+{
+  "_note": "Gallery posts for #art-and-ideas (node tools/discord-post.js art). Each id posts once; add a new id to post more. Images are served from the live site.",
+  "posts": [
+    { "id": "keyart-v2", "intro": "**Key art.** The five scenes on the title screen right now. Each also has a separately drawn tall version for phones.",
+      "images": [
+        ["Group Photo", "assets/title-screen/slides/08-group-photo-desktop.jpg"],
+        ["Off and On Again", "assets/title-screen/slides/09-reboot-desktop.jpg"],
+        ["The Lounge", "assets/title-screen/slides/10-lounge-desktop.jpg"],
+        ["Coffee Run", "assets/title-screen/slides/11-coffee-run-desktop.jpg"],
+        ["Happy 50th", "assets/title-screen/slides/12-happy-50th-desktop.jpg"]
+      ] },
+    { "id": "cast-v1", "intro": "**The cast.** Four heroes and two interns, in their On Break poses.",
+      "images": [["The cast", "assets/share/discord/cast-v1.jpg"]] },
+    { "id": "bosses-v1", "intro": "**The bosses** from 40 to 65, and **the enemies** that chase you around the office.",
+      "images": [["The bosses", "assets/share/discord/bosses-v1.jpg"], ["The enemies", "assets/share/discord/enemies-v1.jpg"]] },
+    { "id": "props-v1", "intro": "**The office.** Every prop on the campus, from the 2009 desk to the kiddie pool.",
+      "images": [["Props", "assets/share/discord/props-v1.jpg"]] }
+  ]
+}
