@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.77.0",
-  displayVersion: "V. 1.77.0",
+  version: "1.77.1",
+  displayVersion: "V. 1.77.1",
   lastUpdated: "Nov 3, 2026",
   codename: "The Gold Watch",
-  build: 181,
+  build: 182,
   changelog: [
+    {
+      ver: "V. 1.77.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "The Intern Delivery card now stars TJ and Derek, shouting it together: \"For my MANAGER!\"",
+      highlights: [
+        "The first intern delivery shows a new Spotlight card with TJ and Derek side by side, shouting \"For my MANAGER!\" Everyone gets to see it once, even if you saw the old card."
+      ]
+    },
     {
       ver: "V. 1.77.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Final balance and copy pass: a fairer Mortgage, a slower minute hand, +2 health for the 9-to-5er, and a fixed achievement.",

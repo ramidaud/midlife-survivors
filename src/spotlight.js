@@ -33,6 +33,8 @@ window.Spotlight = (() => {
 #spotlight .sp-glint{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,240,207,.28) 47%,rgba(255,240,207,.08) 52%,transparent 56%);animation:spGlint .9s 1.25s ease-in-out both}
 #spotlight .sp-artwrap{position:absolute;left:var(--L);bottom:calc(66px * var(--s) + var(--lift));transform-origin:50% 100%;will-change:transform;animation:spPop .62s .24s cubic-bezier(.25,.8,.35,1) both}
 #spotlight .sp-art{image-rendering:pixelated;filter:drop-shadow(0 0 14px var(--edge))}
+#spotlight .sp-artwrap.duo{display:flex;align-items:flex-end}
+#spotlight .sp-artwrap.duo .sp-art.b{margin-left:calc(-20px * var(--a));animation-delay:-.5s}
 #spotlight .sp-art.boss{width:calc(144px * var(--a));height:calc(152px * var(--a));background-size:calc(576px * var(--a)) calc(456px * var(--a));background-position:0 0;animation:spBob 1.6s 1s ease-in-out infinite}
 #spotlight .sp-art.hero{width:calc(96px * var(--a));height:calc(112px * var(--a));background-size:calc(768px * var(--a)) calc(336px * var(--a));background-position:0 calc(-112px * var(--a));animation:spHero 1.12s steps(8) infinite}
 #spotlight .sp-art.cast{width:calc(48px * var(--a));height:calc(56px * var(--a));background-size:calc(192px * var(--a)) calc(224px * var(--a));background-position:0 0;animation:spCast .9s steps(4) infinite}
@@ -110,7 +112,8 @@ window.Spotlight = (() => {
     const big = portrait && innerWidth >= 600;
     const a0 = c.artType === "intern" ? (big ? 3.4 : portrait ? 2.5 : 4) : c.artType === "boss" ? (big ? 1.6 : portrait ? 1.15 : 1.9) : c.artType === "hero" ? (big ? 2.1 : portrait ? 1.5 : 2.5) : (big ? 3.8 : portrait ? 2.8 : 4.6);
     const a = c.small ? a0 * 0.72 : a0; // tip cards show your hero a size down
-    const artW = c.artType === "intern" ? 56 * a : c.artType === "boss" ? 144 * a : c.artType === "hero" ? 96 * a : 48 * a;
+    const artW1 = c.artType === "intern" ? 56 * a : c.artType === "boss" ? 144 * a : c.artType === "hero" ? 96 * a : 48 * a;
+    const artW = c.art2 ? artW1 * 1.8 : artW1; // two portraits overlap a little
     root.className = (c.boss ? "boss" : "") + (c.bio ? " has-bio" : "");
     root.style.setProperty("--a", a);
     root.style.setProperty("--aw", artW + "px");
@@ -133,7 +136,7 @@ window.Spotlight = (() => {
       ${c.boss ? `<div class="sp-bar t"></div><div class="sp-bar b"></div><div class="sp-flash"></div>` : ""}
       ${c.art ? `<div class="sp-beam"></div><div class="sp-glow"></div>` : ""}
       <div class="sp-band"><div class="sp-edgebar"></div><div class="sp-glint"></div></div>
-      ${c.art ? `<div class="sp-artwrap"><div class="sp-art ${c.artType}" style="${artStyle}"></div></div><div class="sp-puff">${puff}</div>` : ""}
+      ${c.art ? `<div class="sp-artwrap${c.art2 ? " duo" : ""}"><div class="sp-art ${c.artType}" style="${artStyle}"></div>${c.art2 ? `<div class="sp-art ${c.artType} b" style="background-image:url(${JSON.stringify(c.art2).slice(1, -1)})"></div>` : ""}</div><div class="sp-puff">${puff}</div>` : ""}
       <div class="sp-say" title="Tap to dismiss" aria-label="${esc(c.line)}"><span aria-hidden="true">${sayHtml}</span></div>
       <div class="sp-text"><span class="sp-kick">${esc(c.kicker)}</span><span class="sp-name" aria-label="${esc(c.name)}"><span aria-hidden="true">${nameHtml}</span></span>${c.bio ? `<span class="sp-bio">${esc(c.bio)}</span>` : ""}</div>
       ${c.tip ? `<div class="sp-tip"><span>${esc(c.tipLabel || "TIP")}</span><span>${esc(c.tip)}</span></div>` : ""}`;
@@ -248,12 +251,19 @@ window.Spotlight = (() => {
       return true;
     },
     tip(key) {
-      const T = (S().tips || {})[key]; if (!T || seen["tip_" + key]) return false;
+      const T = (S().tips || {})[key], sk = (T && T.seenKey) || "tip_" + key; if (!T || seen[sk]) return false;
       if (window.tipsEnabled && !window.tipsEnabled()) return false;
       const id = heroId();
+      // Duo cards (the interns): two portraits side by side, and they shout the line together.
+      const R = ((window.INTERNS || {}).roster || []), duo = (T.duo || []).map(d => R.find(r => r.id === d)).filter(r => r && r.portrait);
+      if (duo.length === 2) {
+        show({ seenKey: sk, kind: "tip", kicker: T.kicker, name: T.topic || T.kicker, line: T.shout || (T.lines || {}).any, tip: T.tip,
+               art: ROOT + duo[0].portrait, art2: ROOT + duo[1].portrait, artType: "hero", small: true, edge: "#EF9347", band: "#303750", ms: 5500 });
+        return true;
+      }
       // Tip cards name the TOPIC, not your hero, and show your hero smaller, so they don't read as the
       // start-of-run hero card again (Rami, Nov 3: "my character's spotlight shows up several times").
-      show({ seenKey: "tip_" + key, kind: "tip", kicker: T.kicker, name: T.topic || T.kicker, line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", small: true, edge: "#EF9347", band: "#303750", ms: 5000 });
+      show({ seenKey: sk, kind: "tip", kicker: T.kicker, name: T.topic || T.kicker, line: (T.lines || {})[id] || (T.lines || {}).any, tip: T.tip, art: heroArt(id), artType: "hero", small: true, edge: "#EF9347", band: "#303750", ms: 5000 });
       return true;
     },
     // Any one-off card (the Gold Watch's victory line uses this). hero: show that hero's portrait.

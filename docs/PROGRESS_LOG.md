@@ -1120,3 +1120,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Grok (balance, all 5 picked): Mortgage HP 110→85, Performance Review 45→36, Gold Watch minute hand 70→55°/s, donut slow 1.8→1.4 s, 9-to-5er +2 max HP.
 - Gemini (copy, bugs + polish): "Fully Evolved Adult" was impossible (needed 9 of 6 evolutions), now fixed. Added 6 missing end-screen lines, a Gold Watch lore entry, dropped stale boss HP from the lore, removed two brand names, trimmed long tips, clarified two modifiers and the Universal Remote card, refreshed a few death lines.
 - Reviews saved in `docs/handoffs/grok-final-pass-review.md` and `gemini-final-pass-review.md`. ChatGPT's art audit is still pending.
+
+## 2026-11-04: V. 1.77.1, "For my MANAGER!"
+- The Intern Delivery Spotlight card now shows TJ and Derek side by side, shouting "For my MANAGER!" together (Rami's idea; TJ already had the line).
+- Spotlight cards can now show two portraits (`duo` in the tips data). The card has a new seen key, so everyone sees it once.
