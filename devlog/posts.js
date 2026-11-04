@@ -5,10 +5,10 @@
 window.DEVLOG_POSTS = [
   {
     "slug": "10-version-two",
-    "date": "2026-11-05",
+    "date": "2026-11-04",
     "title": "This is starting to feel real.",
-    "version": "V. 1.68 to 1.91.3",
-    "draft": true,
+    "version": "V. 1.68 to 1.93",
+    "draft": false,
     "cover": "img/10-key-art.jpg",
     "leadAlt": "3 a.m. on the couch: Rami in a hoodie with a burp cloth and a bottle, the V2 title screen on his laptop, the whole cast standing on the coffee table, and the twins asleep in their bassinet.",
     "blurb": "Between 3 a.m. feedings and Election Day, the game got a whole second version: new title art, lights, coworkers and a final boss you can't beat.",
@@ -27,6 +27,8 @@ window.DEVLOG_POSTS = [
       "Retirement at 65 is a party: walk up to the clock-out station and punch out",
       "Coworkers with real bodies, dressed-up walls, and bosses that bounce off walls",
       "Safer runs: auto-save if your graphics drop out, plus lighter memory use",
+      "Full Life bosses: the HOA President, the Retirement Audit, the Pickleball Champ, and Father Time at 100",
+      "Sprint mode: years pass 2x faster for +50% coins, unlocked by beating the V8",
       "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
     ],
     "nextUp": "Next memo: the game got its own Discord, and it posts its own updates. After that: Abdel's music, a redone Lounge, and bosses for the Full Life years.",

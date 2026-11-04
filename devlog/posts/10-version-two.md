@@ -72,6 +72,10 @@ The walls aren't bare anymore. Every room has shelves, clocks, posters and its o
 
 A few fixes too. If your graphics drop out, the game saves your run and offers a reload instead of going white. Group Chats only shoot at you from where you can see them. The office uses about a third less graphics memory, and the title screen scrolls properly on short laptop windows.
 
+## While I was writing this
+
+The game kept going. Full Life (40 to 100) got its own bosses: the HOA President charges with a yardstick, the Retirement Audit stamps out rings of forms, and the 6 AM Pickleball Champ lunges in loops. At 100, Father Time waits to shake your hand. Sticky Notes actually stick now. And there's a new Sprint mode, like Hyper in Vampire Survivors: beat the Midlife Crisis V8 to unlock it, and the years fly by twice as fast for 50% more 401(k).
+
 ## Next time: the game got a Discord
 
 I still don't totally get Discord, but my students say it's the place to be. So the game has its own server now, and it posts its own updates: a changelog every evening, new memos when they go up, and play stats every morning. The next memo is about how that works. [Come say hi.](https://discord.gg/E6N9j5tZe)
