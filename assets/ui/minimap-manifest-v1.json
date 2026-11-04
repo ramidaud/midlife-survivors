@@ -1,0 +1,78 @@
+{
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "alpha": "binary transparent, no keying",
+  "frame": {
+    "file": "assets/ui/minimap-frame-v1.png",
+    "size": [
+      64,
+      64
+    ],
+    "slice": [
+      16,
+      16,
+      16,
+      16
+    ],
+    "center": "#171C35"
+  },
+  "buttons": {
+    "file": "assets/ui/minimap-buttons-v1.png",
+    "cell": [
+      24,
+      24
+    ],
+    "frames": {
+      "expand": 0,
+      "close": 1
+    }
+  },
+  "icons": {
+    "file": "assets/ui/minimap-icons-v1.png",
+    "cell": [
+      12,
+      12
+    ],
+    "frames": {
+      "you": 0,
+      "door_open": 1,
+      "door_locked": 2,
+      "chest": 3,
+      "lounge": 4,
+      "intern": 5,
+      "boss": 6,
+      "map_found": 7
+    }
+  },
+  "sign": {
+    "file": "assets/stage/props/evac-map-v1.png",
+    "cell": [
+      48,
+      64
+    ],
+    "frames": {
+      "plain": 0,
+      "dot_glow": 1
+    },
+    "foot": [
+      24,
+      63
+    ],
+    "preview_frame_ms": 650,
+    "silhouette_height": 45,
+    "solid_footprint_for_claude_to_decide": true
+  },
+  "runtime_changes": false
+}

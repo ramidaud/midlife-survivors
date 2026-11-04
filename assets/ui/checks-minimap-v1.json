@@ -1,0 +1,63 @@
+{
+  "assets/ui/minimap-frame-v1.png": {
+    "size": [
+      64,
+      64
+    ],
+    "hard_alpha": true,
+    "palette": true,
+    "bytes": 690
+  },
+  "assets/ui/minimap-buttons-v1.png": {
+    "size": [
+      48,
+      24
+    ],
+    "hard_alpha": true,
+    "palette": true,
+    "bytes": 637
+  },
+  "assets/ui/minimap-icons-v1.png": {
+    "size": [
+      96,
+      12
+    ],
+    "hard_alpha": true,
+    "palette": true,
+    "bytes": 895
+  },
+  "assets/stage/props/evac-map-v1.png": {
+    "size": [
+      96,
+      64
+    ],
+    "hard_alpha": true,
+    "palette": true,
+    "bytes": 1079
+  },
+  "invariants": {
+    "flat_center": true,
+    "nine_slice_straight_rails": true,
+    "sign_fixed_foot": [
+      24,
+      63
+    ],
+    "sign_changed_pixels": 8,
+    "eight_nonempty_icons": true
+  },
+  "review": {
+    "desktop": [
+      1280,
+      800
+    ],
+    "phone": [
+      390,
+      844
+    ],
+    "images_loaded": true,
+    "native_canvases": 8,
+    "horizontal_overflow": false,
+    "console_errors": 0,
+    "url": "assets/ui/review-minimap-v1.html?nostats=1"
+  }
+}

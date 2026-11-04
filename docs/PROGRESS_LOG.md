@@ -1329,3 +1329,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - It fills in as you explore (fog of war), shows doors open or locked, chests, the Lounge, interns and bosses. Tap it or press M for the big paused view.
 - Placeholder art for now; ChatGPT has the brief for the frame, icons and the sign. Memo 11 social drafts written.
 - Rami sent photos of the real UCM student lounge. ChatGPT brief written: a room kit (futon, coffee table with chess, paper lamp, yellow desk wall, cube shelf, collage wall) and a scene for the top of the Lounge shop.
+
+## 2026-11-04: Minimap art delivery (Codex)
+- Finished the clipboard nine-slice, expand/close buttons, eight tiny markers and the two-state standing evacuation map.
+- Added prompts, manifest, native/2x hero check, sign GIF, responsive review and asset validator. Exact sizes, twelve-color palette, hard alpha, flat panel center, slice rails and fixed sign foot pass.
+- Desktop and 390px phone art previews load cleanly. Art/docs only; Claude wires the minimap assets into the live feature.

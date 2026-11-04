@@ -261,3 +261,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ### 2026-11-04: Memo 10 cover (Codex)
 - [x] Paternity-leave cover, portrait crop, 2x preview and export checks delivered.
 - [ ] Rami reviews; Claude places the art with Memo 10.
+
+### 2026-11-04: Minimap art (Codex)
+- [x] Frame, buttons, eight markers and standing evacuation sign delivered with manifest, prompts and checks.
+- [ ] Rami reviews; Claude swaps out the minimap placeholders.
