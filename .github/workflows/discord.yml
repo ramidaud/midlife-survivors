@@ -1,0 +1,57 @@
+# Posts to the Midlife Survivors Discord. See tools/discord-post.js.
+name: Discord posts
+on:
+  schedule:
+    - cron: "37 0 * * *" # daily changelog roundup, evening in Ohio
+  push:
+    branches: [main]
+    paths:
+      - devlog/posts.js
+      - reports/discord-stats.md
+  workflow_dispatch:
+    inputs:
+      action:
+        description: What to post
+        type: choice
+        options: [test, changelog, memos, stats]
+        default: test
+permissions:
+  contents: write
+concurrency:
+  group: discord-posts
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DISCORD_WEBHOOK_CHANGELOG: ${{ secrets.DISCORD_WEBHOOK_CHANGELOG }}
+      DISCORD_WEBHOOK_DEVLOG: ${{ secrets.DISCORD_WEBHOOK_DEVLOG }}
+      DISCORD_WEBHOOK_STATS: ${{ secrets.DISCORD_WEBHOOK_STATS }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Post
+        env:
+          EVENT: ${{ github.event_name }}
+          ACTION: ${{ inputs.action }}
+        run: |
+          case "$EVENT" in
+            schedule) node tools/discord-post.js changelog ;;
+            push) node tools/discord-post.js memos; node tools/discord-post.js stats ;;
+            *) node tools/discord-post.js "$ACTION" ;;
+          esac
+      - name: Remember what was posted
+        if: always()
+        run: |
+          git add .github/discord-state.json
+          git diff --cached --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Discord: remember what was posted"
+          git pull --rebase origin main
+          git push origin HEAD:main
