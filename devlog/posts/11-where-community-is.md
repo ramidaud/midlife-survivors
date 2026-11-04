@@ -8,8 +8,6 @@ Setting it up was super easy with help from Claude. The server has a handful of 
 
 ## The game posts its own updates
 
-![The #changelog channel: the Nov 4 roundup lists every build that day, from V. 1.76 to 1.91.](img/11-changelog.jpg "side")
-
 Here's the trick. Discord lets you make a **webhook** for a channel: a private link where anything sent to it shows up as a post. The game's code lives on GitHub, and GitHub can run little jobs on a schedule or whenever something changes. So now:
 
 - **Every evening**, GitHub rounds up that day's builds and posts them to #changelog.
@@ -17,17 +15,19 @@ Here's the trick. Discord lets you make a **webhook** for a channel: a private l
 - **Every morning**, after the play-stats summary, the numbers go to #stats.
 - **When new art comes in**, it goes up in #art-and-ideas.
 
-The webhook links are kept as GitHub secrets, so they never sit in the public code. And GitHub remembers what it already posted, so nothing shows up twice.
+![The #changelog channel: the Nov 4 roundup lists every build that day, from V. 1.76 to 1.91.](img/11-changelog.jpg "gallery: #changelog")
 
-![The #devlog channel, with the archive memos posted by the game.](img/11-devlog-channel.jpg "side")
+![The #devlog channel, with the archive memos posted by the game.](img/11-devlog-channel.jpg "gallery: #devlog")
+
+![A morning #stats post: who played, how far they got, top killers, difficulty and lag.](img/11-stats.jpg "gallery: #stats")
+
+![The #art-and-ideas channel on my phone, with the key art gallery.](img/11-art-and-ideas-phone.jpg "gallery: #art-and-ideas")
+
+The webhook links are kept as GitHub secrets, so they never sit in the public code. And GitHub remembers what it already posted, so nothing shows up twice.
 
 The first time I saw the game post its own changelog and stats without me touching anything, I was thrilled. One less thing for me to worry about while I'm working on making the game better.
 
-![The #art-and-ideas channel on my phone, with the key art gallery.](img/11-art-and-ideas-phone.jpg "side")
-
 ## Out in the open
-
-![A morning #stats post: who played, how far they got, top killers, difficulty and lag.](img/11-stats.jpg "side")
 
 The stats are the part I like most. Every morning you can see how many people played, how far they got, and what killed them. Group Chats are winning right now.
 

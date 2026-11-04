@@ -72,6 +72,8 @@ def post_layout(body: str) -> str:
         panels = "".join(f.replace('<figure class="ba-post"', f'<figure class="ba-post" role="tabpanel" id="bt{i0}-{i}"' + (" hidden" if i else ""), 1) for i, f in enumerate(figs))
         return f'<div class="ba-tabs"><div class="bt-head"><span class="bt-title">THEN AND NOW</span><div class="bt-chips" role="tablist">{chips}</div></div>{panels}</div>'
     body = re.sub(r'(?:<figure class="ba-post"[\s\S]*?</figure>\s*){2,}', tabs, body)
+    body = re.sub(r'(?:<p>\s*<img [^>]*title="gallery:[^"]*"\s*/?>\s*</p>\s*){2,}', lambda m: '<div class="shot-grid">' + re.sub(
+        r'<p>\s*(<img [^>]*?) title="gallery:\s*([^"]*)"\s*/?>\s*</p>\s*', lambda g: f'<figure class="shot"><div class="shot-frame">{g.group(1)}></div><figcaption>{g.group(2)}</figcaption></figure>', m.group(0)) + '</div>', body)
     body = re.sub(r'<p>\s*(<img [^>]*?) title="(side|small)"\s*/?>\s*</p>', lambda m: f'<figure class="fig {m.group(2)}">{m.group(1)}></figure>', body)
     return body
 
@@ -123,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=5">
-<link rel="stylesheet" href="../styles.css?v=26">
+<link rel="stylesheet" href="../styles.css?v=27">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -279,7 +281,7 @@ def main():
         fmd = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _fcode, raw_md, flags=re.M)
         fmd = re.sub(r"\^\[([^\]]+)\]", lambda m: f" *({m.group(1)})*", fmd)
         fbody = md_to_html(fmd)
-        fbody = re.sub(r' title="(?:compare:[^"]*|side|small)"', "", fbody)
+        fbody = re.sub(r' title="(?:compare:[^"]*|side|small|gallery:[^"]*)"', "", fbody)
         fbody = re.sub(r"<p>FEEDCODE(\d+)</p>", lambda m: f"<pre><code>{html.escape(fcode[int(m.group(1))], quote=False)}</code></pre>", fbody)
         fbody = re.sub(r'(src|href)="(?!https?:|mailto:|#)(?:\.\./)?', lambda m: f'{m.group(1)}="{site}/', fbody)
         flead = ""

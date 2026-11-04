@@ -844,3 +844,11 @@ details.changes-box summary h3 { margin: 0; }
 details.changes-box .cb-more { font: 10px var(--display); letter-spacing: .05em; color: var(--orange); }
 details.changes-box[open] .cb-more { display: none; }
 details.changes-box ul { margin-top: 10px; }
+
+/* Nov 4: screenshot galleries. Same-size tiles in a tidy grid, cropped from the top, tap for the full picture. */
+article.post .prose .shot-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 22px 0; clear: both; }
+@media (min-width: 760px) { article.post .prose .shot-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+article.post .prose .shot { margin: 0; }
+article.post .prose .shot-frame { aspect-ratio: 4 / 5; overflow: hidden; border: 2px solid var(--teal); border-radius: 6px; background: var(--navy); }
+article.post .prose .shot-frame img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: top center; margin: 0; display: block; }
+article.post .prose .shot figcaption { font: 10px var(--display); letter-spacing: .05em; color: var(--cream); text-align: center; margin-top: 6px; }

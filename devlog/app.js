@@ -338,6 +338,10 @@
       return `<div class="ba-tabs"><div class="bt-head"><span class="bt-title">THEN AND NOW</span><div class="bt-chips" role="tablist">${chips}</div></div>` +
         figs.map((f, i) => f.replace('<figure class="ba-post"', `<figure class="ba-post" role="tabpanel" id="${id}-${i}"${i ? " hidden" : ""}`)).join("") + `</div>`;
     });
+    // Screenshots marked "gallery: Label" that sit together become one tidy grid of same-size tiles (tap for full size).
+    html = html.replace(/(?:<p>\s*<img [^>]*title="gallery:[^"]*">\s*<\/p>\s*){2,}/g, block =>
+      `<div class="shot-grid">` + block.replace(/<p>\s*(<img [^>]*?) title="gallery:\s*([^"]*)">\s*<\/p>\s*/g,
+        (m, img, label) => `<figure class="shot"><div class="shot-frame">${img}></div><figcaption>${label}</figcaption></figure>`) + `</div>`);
     // Image size hints in the markdown title: "side" sits beside the text on wide screens, "small" stays modest.
     html = html.replace(/<p>\s*(<img [^>]*?) title="(side|small)">\s*<\/p>/g, (m, img, kind) => `<figure class="fig ${kind}">${img}></figure>`);
 
