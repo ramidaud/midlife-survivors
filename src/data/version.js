@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.0.0",
-  displayVersion: "V. 2.0",
+  version: "2.0.1",
+  displayVersion: "V. 2.0.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 212,
+  build: 213,
   changelog: [
+    {
+      ver: "V. 2.0.1", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "New poll: which stage should we build first, the hospital or the home neighborhood?",
+      highlights: [
+        "A new quick poll on the devlog and in Extras: St. Deductible Hospital or the home neighborhood? Your votes help pick the next stage.",
+        "Devlog memos can show screenshots as a tidy gallery of same-size tiles. Tap one to see it full size."
+      ]
+    },
     {
       ver: "V. 2.0", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Version two is here: it's starting to feel real.",

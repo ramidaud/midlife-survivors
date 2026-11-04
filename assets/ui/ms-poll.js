@@ -1,8 +1,18 @@
 // Midlife Survivors quick poll (Nov 3). One vote per browser, live results as totals only.
 // Votes go to Supabase table poll_votes (insert-only); totals come from the poll_results view.
-// Usage: <div data-ms-poll="accounts-v1"></div> anywhere, after window.LEADERBOARD is loaded.
+// Usage: <div data-ms-poll="stage-first-v1"></div> anywhere, after window.LEADERBOARD is loaded.
 window.MSPoll = (() => {
   const POLLS = {
+    // Nov 4: which new stage to build first (Rami's plan: minimap, then two stages you pick from the title screen)
+    "stage-first-v1": {
+      tag: "QUICK POLL",
+      question: "Two new stages are coming after the minimap. Which one should we build first?",
+      options: [
+        { id: "hospital", label: "St. Deductible Hospital (3 a.m. feedings, a newborn, very long waits)" },
+        { id: "home",     label: "The home neighborhood (LEGO bricks underfoot, the HOA, New Math)" },
+        { id: "other",    label: "Somewhere else (tell us where on Discord)" }
+      ]
+    },
     "accounts-v1": {
       tag: "QUICK POLL",
       question: "If Midlife Survivors had accounts so your progress followed you to every device, would you sign up?",

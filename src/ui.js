@@ -2317,7 +2317,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   } else if (view === "extras") {
     bodyHtml = `
       <div class="title-subhead">✨ EXTRAS</div>
-      <div class="title-poll-tile" data-ms-poll="accounts-v1"></div>
+      <div class="title-poll-tile" data-ms-poll="stage-first-v1"></div>
       <div class="title-style-switcher"><span>START AT (FULL LIFE):</span>${decadeBtnsHtml}</div>
       ${window.SHOW_STAGE_PICKER ? `<div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>` : ""}<!-- hidden until a second stage exists (Fable review) -->
       <div class="title-secondary">
