@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "1.89.0",
-  displayVersion: "V. 1.89.0",
+  version: "1.89.1",
+  displayVersion: "V. 1.89.1",
   lastUpdated: "Nov 4, 2026",
   codename: "The Gold Watch",
-  build: 200,
+  build: 201,
   changelog: [
+    {
+      ver: "V. 1.89.1", date: "Nov 4, 2026", title: "The Gold Watch",
+      teaser: "Bosses that charge into a wall now bounce off it. BONK.",
+      highlights: [
+        "The Performance Review used to charge straight through walls. Now he bounces off, wobbles for a second, and goes back to chasing you.",
+        "The Midlife Crisis V8 spins out on walls the same way. They still plow through desks."
+      ]
+    },
     {
       ver: "V. 1.89.0", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "The GOTCHA! card got real art, and Mom's Spaghetti is on the menu.",

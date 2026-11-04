@@ -39,7 +39,8 @@ window.BossArt = (() => {
       return;
     }
     let frame;
-    if (boss.hitAt && now - boss.hitAt < 160 && state === "chase") frame = 10;
+    if (state === "stagger") frame = 10; // bonked into a wall: the hurt pose while he wobbles
+    else if (boss.hitAt && now - boss.hitAt < 160 && state === "chase") frame = 10;
     else if (state === "telegraph") frame = 6 + (Math.floor(now / 220) % 2);
     else if (state === "attack") frame = 8 + (Math.floor(now / 130) % 2);
     else frame = Math.floor(now / 140) % 6;
@@ -50,6 +51,7 @@ window.BossArt = (() => {
     // squash on hit, like regular enemies
     const k = boss.hitAt ? (now - boss.hitAt) / 120 : 1;
     if (k >= 0 && k < 1) { const w = Math.sin(Math.PI * k); v.setScale(1 + 0.12 * w, 1 - 0.1 * w); } else v.setScale(1);
+    v.setAngle(boss._wobble || 0);
   }
   // Floor decal under a telegraph: placed and rotated by the attack code.
   function marker(scene, boss, x, y, angle, sx, sy, alpha) {

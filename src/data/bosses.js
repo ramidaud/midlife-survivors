@@ -1,6 +1,8 @@
 // Boss special attacks (Grok spec, Nov 2: docs/handoffs/grok-boss-attacks.md). Tweak freely.
 // Times in milliseconds, speeds in pixels per second, sizes in pixels.
 window.BOSS_ATTACK_TUNING = {
+  // Charging into a wall (Nov 4): bounce back, wobble, then chase again.
+  wallBonk: { bounceSpeed: 260, bounceMs: 320, dizzyMs: 700, words: ["BONK!", "OOF!", "THUD!", "WHO PUT A WALL HERE?"] },
   minTelegraphMs: 550,          // the warning never gets shorter than this (phones need time to react)
   minTelegraphMsMortgage: 650,  // rings need a beat longer to read the gap
   minTelegraphMsWatch: 700,     // the Gold Watch's Alarm rings (Grok, Nov 3)

@@ -24,6 +24,27 @@ window.BossAttacks = (() => {
     if (!a.skidG || !a.skidG.active) a.skidG = scene.add.graphics().setDepth(3);
     return a.g;
   }
+  // Did a charging boss run into a wall, a closed door, or off the floor? (Nov 4, Rami: "he goes right through walls")
+  // Furniture still doesn't stop him (that's what pass() is for); only walls do.
+  function wallHit(scene, boss, D, px, py) {
+    const L = window.START_AREA_LAYOUT, hw = D.bodyHalfW, hh = D.bodyHalfH, x = px ?? boss.x, y = py ?? boss.y;
+    const over = r => x - hw < r.x + r.width && x + hw > r.x && y - hh < r.y + r.height && y + hh > r.y;
+    if (L && L.walls.some(over)) return true;
+    if ((window.START_AREA_GATES || []).some(g => !g.opened && g.rect && over({ x: g.rect.x, y: g.rect.y, width: g.rect.w, height: g.rect.h }))) return true;
+    const sa = scene.worldArt && scene.worldArt.startArea;
+    return !!(sa && !sa.contains(x, y));
+  }
+  function bonk(scene, boss, a, now) { // bounce back off the wall, then a dizzy moment before chasing again
+    pass(boss, false);
+    if (a.lastX !== undefined && boss.body) boss.body.reset(a.lastX, a.lastY); // step back out of the wall
+    const B = T().wallBonk || {};
+    a.state = "stagger"; a.startedAt = now; a.bounceUntil = now + (B.bounceMs || 320);
+    a.bounceVx = -Math.cos(a.aim) * (B.bounceSpeed || 260); a.bounceVy = -Math.sin(a.aim) * (B.bounceSpeed || 260);
+    scene.cameras.main.shake(160, 0.006); sfx("hurt", 0);
+    const t = scene.add.text(boss.x, boss.y - 70, Phaser.Utils.Array.GetRandom(B.words || ["BONK!", "OOF!", "THUD!"]), { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#FFF0CF", stroke: "#171C35", strokeThickness: 4 }).setOrigin(0.5).setDepth(50002);
+    scene.tweens.add({ targets: t, y: t.y - 26, alpha: 0, duration: 800, ease: "Cubic.easeOut", onComplete: () => t.destroy() });
+    if (typeof burstConfetti === "function") burstConfetti(scene, boss.x + Math.cos(a.aim) * 20, boss.y + Math.sin(a.aim) * 20, 0xD3B78D, 8); // drywall dust
+  }
   function pass(boss, on) { if (boss.body) boss.body.checkCollision.none = on; } // walk through furniture during an attack
 
   // Returns true while the attack system is steering the boss (so the normal chase is skipped).
@@ -96,6 +117,8 @@ window.BossAttacks = (() => {
       let done = false;
       if (boss.kind === "performanceReview") {
         const spd = D.chargeSpeed * S.speed;
+        if (t > 60 && wallHit(scene, boss, D)) { bonk(scene, boss, a, now); return true; }
+        a.lastX = boss.x; a.lastY = boss.y;
         boss.setVelocity(Math.cos(a.aim) * spd, Math.sin(a.aim) * spd);
         if (touches(player, boss.x, boss.y, D.bodyHalfW, D.bodyHalfH)) hit(player, boss, D.damage);
         g.lineStyle(D.bodyHalfW * 2, 0xef9347, 0.12).lineBetween(a.sx, a.sy, boss.x, boss.y);
@@ -120,6 +143,7 @@ window.BossAttacks = (() => {
         const step = D.driftSpeed * S.speed * (scene.game.loop.delta / 1000);
         a.theta += a.dir * step / a.R; a.traveled += step;
         const nx = a.cx + Math.cos(a.theta) * a.R, ny = a.cy + Math.sin(a.theta) * a.R;
+        if (wallHit(scene, boss, D, nx, ny)) { a.aim = a.theta + a.dir * Math.PI / 2; a.lastX = boss.x; a.lastY = boss.y; bonk(scene, boss, a, now); return true; } // the V8 spins out on a wall too
         boss.setVelocity(0, 0); boss.setPosition(nx, ny); if (boss.body) boss.body.reset(nx, ny);
         boss.setFlipX(Math.sin(a.theta) * a.dir > 0);
         if (a.traveled - a.lastSkid >= D.skidEveryPx) { a.lastSkid = a.traveled; a.skids.push({ x: nx, y: ny, ang: a.theta + Math.PI / 2, dieAt: now + D.skidLifeMs }); }
@@ -127,6 +151,15 @@ window.BossAttacks = (() => {
         done = a.traveled >= D.loopRevs * Math.PI * 2 * a.R;
       }
       if (done) { a.state = "recover"; a.startedAt = now; pass(boss, false); if (a.label) a.label.setVisible(false); }
+      return true;
+    }
+
+    if (a.state === "stagger") { // knocked back, then wobbling: no damage, then back to the chase
+      const B = T().wallBonk || {}, t = now - a.startedAt, dizzyMs = B.dizzyMs || 700;
+      if (now < a.bounceUntil) { const k = 1 - t / (a.bounceUntil - a.startedAt); boss.setVelocity(a.bounceVx * k, a.bounceVy * k); }
+      else boss.setVelocity(0, 0);
+      boss._wobble = reduceMotion ? 0 : Math.sin(t / 55) * 10 * Math.max(0, 1 - t / ((B.bounceMs || 320) + dizzyMs));
+      if (t > (B.bounceMs || 320) + dizzyMs) { boss._wobble = 0; a.state = "chase"; a.nextAt = now + D.cooldownMs; return false; }
       return true;
     }
 

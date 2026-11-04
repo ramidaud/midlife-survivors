@@ -1232,3 +1232,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - ChatGPT's GOTCHA! art is live: prize-ticket frame, stamp-in wordmark, burst, TJ/Derek caught loops, treat icons in the reel and on the floor.
 - Rami renamed Mom's Casserole to Mom's Spaghetti (new bowl placeholder; ChatGPT's loadout brief updated).
 - The interns' Special Delivery card was a once-ever tip, so Rami hadn't seen it in ages. It now shows with the first intern of every run.
+- V. 1.89.1: bosses charging into a wall (Performance Review, Midlife Crisis V8) now bounce off with a BONK!, wobble for about a second (hurt pose, no damage), then chase again. Desks still don't stop them. Rami's catch.
