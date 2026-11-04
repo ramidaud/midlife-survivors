@@ -5,10 +5,10 @@
 window.DEVLOG_POSTS = [
   {
     "slug": "11-where-community-is",
-    "date": "2026-11-05",
+    "date": "2026-11-04",
     "title": "If that's where community is, that's where I want to be.",
-    "version": "V. 2.0",
-    "draft": true,
+    "version": "V. 2.0.1",
+    "draft": false,
     "cover": "img/11-discord-key-art.jpg",
     "leadAlt": "The office mail room turned clubhouse: Rami with a coffee, little mail-bots dropping glowing envelopes into cubbies labeled #changelog, #devlog, #stats and #art-and-ideas, while TJ, Derek and the Coldwar Cowboy look on.",
     "blurb": "I still don't totally get Discord. But my students say it's where community is, so the game has a server now, and it keeps itself up to date.",

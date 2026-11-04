@@ -39,4 +39,6 @@ Say someone finds the server six months from now. I want them to find a thriving
 
 Next for the server: your screenshots, your bug reports, maybe a weekly challenge. All of the above.
 
+And while you're here: two new stages are coming after the minimap, the hospital and the home neighborhood. Vote for which one comes first in the quick poll on the devlog's sidebar.
+
 [Join the Midlife Survivors Discord.](https://discord.gg/E6N9j5tZe) Come say hi, tell me what's too hard, and watch the game update itself.

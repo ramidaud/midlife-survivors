@@ -1322,3 +1322,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 4, 2026: Memo 11 gallery, new poll (V. 2.0.1)
 - Memo 11's four Discord screenshots now sit in one tidy grid of same-size tiles (tap for full size), instead of four pictures of different sizes down the side.
 - The accounts poll is retired. New quick poll on the devlog and in Extras: which stage first, the hospital or the home neighborhood?
+- Memo 11, "If that's where community is, that's where I want to be.", is published, with a nudge to vote in the new stage poll.

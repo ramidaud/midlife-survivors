@@ -6,6 +6,64 @@
     <description>HR memos from building Midlife Survivors.</description>
     
     <item>
+      <title>If that&#x27;s where community is, that&#x27;s where I want to be.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/11-where-community-is/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/11-where-community-is/</guid>
+      <pubDate>Wed, 04 Nov 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-discord-key-art.jpg" alt="The office mail room turned clubhouse: Rami with a coffee, little mail-bots dropping glowing envelopes into cubbies labeled #changelog, #devlog, #stats and #art-and-ideas, while TJ, Derek and the Coldwar Cowboy look on."></p><p>Honestly, I'm not that familiar with Discord. To me, it seems like one of the million ways to chat with people that already exist, like Teams and messages and email and blah, blah, blah. The fact that it's kind of gamer focused is useful. But ultimately, I'm trusting my gut and what my students have to say about it being a good place to collaborate and evolve this game, and hopefully build a community.</p>
+<p>That's what I'm really going after here. If that's where community is right now, that's where I want to be.</p>
+<h2>Setting it up</h2>
+<p>Setting it up was super easy with help from Claude. The server has a handful of channels: #general for hanging out, #playtest-notes for bugs and "this is too hard," #art-and-ideas, and three channels the game fills in by itself: #changelog, #devlog and #stats.</p>
+<h2>The game posts its own updates</h2>
+<p>Here's the trick. Discord lets you make a <strong>webhook</strong> for a channel: a private link where anything sent to it shows up as a post. The game's code lives on GitHub, and GitHub can run little jobs on a schedule or whenever something changes. So now:</p>
+<ul>
+<li><strong>Every evening</strong>, GitHub rounds up that day's builds and posts them to #changelog.</li>
+<li><strong>When a memo goes live</strong>, like this one, it lands in #devlog with its cover.</li>
+<li><strong>Every morning</strong>, after the play-stats summary, the numbers go to #stats.</li>
+<li><strong>When new art comes in</strong>, it goes up in #art-and-ideas.</li>
+</ul>
+<p><img alt="The #changelog channel: the Nov 4 roundup lists every build that day, from V. 1.76 to 1.91." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-changelog.jpg" /></p>
+<p><img alt="The #devlog channel, with the archive memos posted by the game." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-devlog-channel.jpg" /></p>
+<p><img alt="A morning #stats post: who played, how far they got, top killers, difficulty and lag." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-stats.jpg" /></p>
+<p><img alt="The #art-and-ideas channel on my phone, with the key art gallery." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-art-and-ideas-phone.jpg" /></p>
+<p>The webhook links are kept as GitHub secrets, so they never sit in the public code. And GitHub remembers what it already posted, so nothing shows up twice.</p>
+<p>The first time I saw the game post its own changelog and stats without me touching anything, I was thrilled. One less thing for me to worry about while I'm working on making the game better.</p>
+<h2>Out in the open</h2>
+<p>The stats are the part I like most. Every morning you can see how many people played, how far they got, and what killed them. Group Chats are winning right now.</p>
+<p>I love the idea of transparency, and of this being a potential learning tool for others who want to try to build a game. And community at the same time.</p>
+<h2>What I hope you find there</h2>
+<p>Say someone finds the server six months from now. I want them to find a thriving community, and a way to check what's been done in the game and how we got there. I think that will be important for other people who want to try the same thing, or something similar, or even people trying to learn how to code, like myself. This has direct implications for what I'm doing in EMAT, and it's a really cool way to explore all that code can do.</p>
+<p>Next for the server: your screenshots, your bug reports, maybe a weekly challenge. All of the above.</p>
+<p>And while you're here: two new stages are coming after the minimap, the hospital and the home neighborhood. Vote for which one comes first in the quick poll on the devlog's sidebar.</p>
+<p><a href="https://discord.gg/E6N9j5tZe">Join the Midlife Survivors Discord.</a> Come say hi, tell me what's too hard, and watch the game update itself.</p><h3>What changed</h3><ul><li>A Midlife Survivors Discord server, open to everyone</li><li>The game posts its own changelog every evening</li><li>New memos land in #devlog automatically</li><li>Morning play stats in #stats, out in the open</li><li>New art goes up in #art-and-ideas when it lands</li></ul><p><strong>Next up:</strong> A minimap that fills in as you explore, then two new stages you can pick: the hospital and the home neighborhood. And Abdel&#x27;s music.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 2.0.1)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-discord-key-art.jpg" alt="The office mail room turned clubhouse: Rami with a coffee, little mail-bots dropping glowing envelopes into cubbies labeled #changelog, #devlog, #stats and #art-and-ideas, while TJ, Derek and the Coldwar Cowboy look on."></p><p>Honestly, I'm not that familiar with Discord. To me, it seems like one of the million ways to chat with people that already exist, like Teams and messages and email and blah, blah, blah. The fact that it's kind of gamer focused is useful. But ultimately, I'm trusting my gut and what my students have to say about it being a good place to collaborate and evolve this game, and hopefully build a community.</p>
+<p>That's what I'm really going after here. If that's where community is right now, that's where I want to be.</p>
+<h2>Setting it up</h2>
+<p>Setting it up was super easy with help from Claude. The server has a handful of channels: #general for hanging out, #playtest-notes for bugs and "this is too hard," #art-and-ideas, and three channels the game fills in by itself: #changelog, #devlog and #stats.</p>
+<h2>The game posts its own updates</h2>
+<p>Here's the trick. Discord lets you make a <strong>webhook</strong> for a channel: a private link where anything sent to it shows up as a post. The game's code lives on GitHub, and GitHub can run little jobs on a schedule or whenever something changes. So now:</p>
+<ul>
+<li><strong>Every evening</strong>, GitHub rounds up that day's builds and posts them to #changelog.</li>
+<li><strong>When a memo goes live</strong>, like this one, it lands in #devlog with its cover.</li>
+<li><strong>Every morning</strong>, after the play-stats summary, the numbers go to #stats.</li>
+<li><strong>When new art comes in</strong>, it goes up in #art-and-ideas.</li>
+</ul>
+<p><img alt="The #changelog channel: the Nov 4 roundup lists every build that day, from V. 1.76 to 1.91." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-changelog.jpg" /></p>
+<p><img alt="The #devlog channel, with the archive memos posted by the game." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-devlog-channel.jpg" /></p>
+<p><img alt="A morning #stats post: who played, how far they got, top killers, difficulty and lag." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-stats.jpg" /></p>
+<p><img alt="The #art-and-ideas channel on my phone, with the key art gallery." src="https://ramidaud.github.io/midlife-survivors/devlog/img/11-art-and-ideas-phone.jpg" /></p>
+<p>The webhook links are kept as GitHub secrets, so they never sit in the public code. And GitHub remembers what it already posted, so nothing shows up twice.</p>
+<p>The first time I saw the game post its own changelog and stats without me touching anything, I was thrilled. One less thing for me to worry about while I'm working on making the game better.</p>
+<h2>Out in the open</h2>
+<p>The stats are the part I like most. Every morning you can see how many people played, how far they got, and what killed them. Group Chats are winning right now.</p>
+<p>I love the idea of transparency, and of this being a potential learning tool for others who want to try to build a game. And community at the same time.</p>
+<h2>What I hope you find there</h2>
+<p>Say someone finds the server six months from now. I want them to find a thriving community, and a way to check what's been done in the game and how we got there. I think that will be important for other people who want to try the same thing, or something similar, or even people trying to learn how to code, like myself. This has direct implications for what I'm doing in EMAT, and it's a really cool way to explore all that code can do.</p>
+<p>Next for the server: your screenshots, your bug reports, maybe a weekly challenge. All of the above.</p>
+<p>And while you're here: two new stages are coming after the minimap, the hospital and the home neighborhood. Vote for which one comes first in the quick poll on the devlog's sidebar.</p>
+<p><a href="https://discord.gg/E6N9j5tZe">Join the Midlife Survivors Discord.</a> Come say hi, tell me what's too hard, and watch the game update itself.</p><h3>What changed</h3><ul><li>A Midlife Survivors Discord server, open to everyone</li><li>The game posts its own changelog every evening</li><li>New memos land in #devlog automatically</li><li>Morning play stats in #stats, out in the open</li><li>New art goes up in #art-and-ideas when it lands</li></ul><p><strong>Next up:</strong> A minimap that fills in as you explore, then two new stages you can pick: the hospital and the home neighborhood. And Abdel&#x27;s music.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 2.0.1)</p>]]></content:encoded>
+    </item>
+    <item>
       <title>This is starting to feel real.</title>
       <link>https://ramidaud.github.io/midlife-survivors/devlog/10-version-two/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/10-version-two/</guid>

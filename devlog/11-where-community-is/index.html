@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>If that&#x27;s where community is, that&#x27;s where I want to be. · Midlife Survivors Devlog</title>
+<meta name="description" content="The game got its own Discord, and it posts its own updates.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Midlife Survivors">
+<meta property="og:title" content="If that&#x27;s where community is, that&#x27;s where I want to be.">
+<meta property="og:description" content="The game got its own Discord, and it posts its own updates.">
+<meta property="og:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/share/11-where-community-is.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="If that&#x27;s where community is, that&#x27;s where I want to be.">
+<meta property="og:url" content="https://ramidaud.github.io/midlife-survivors/devlog/11-where-community-is/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="If that&#x27;s where community is, that&#x27;s where I want to be.">
+<meta name="twitter:description" content="The game got its own Discord, and it posts its own updates.">
+<meta name="twitter:image" content="https://ramidaud.github.io/midlife-survivors/devlog/img/share/11-where-community-is.jpg">
+<link rel="alternate" type="application/rss+xml" title="Midlife Survivors Devlog" href="../feed.xml">
+<link rel="icon" href="../../favicon.png?v=clock-1" type="image/png">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=5">
+<link rel="stylesheet" href="../styles.css?v=27">
+<script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <header class="site-header is-compact">
+    <a class="brand" href="../">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><span class="brand-title">Midlife Survivors</span></span>
+    </a>
+    <div class="actions">
+      <a class="btn btn-coffee" href="https://ko-fi.com/ramidaud" rel="noopener">☕ <span class="coffee-long">Buy Rami a </span>Coffee</a>
+      <a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a>
+    </div>
+  </header>
+  <script src="../../assets/ui/ms-nav.js?v=3"></script>
+  <div class="wrap">
+    <a class="back" href="../">← All memos</a>
+    <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>If that&#x27;s where community is, that&#x27;s where I want to be.</strong></div>
+    <div class="post-header">
+      <h1>If that&#x27;s where community is, that&#x27;s where I want to be.</h1>
+      <div class="post-meta">
+        <time datetime="2026-11-04">Nov 04, 2026</time>
+        <span class="pill">V. 2.0.1</span>
+      </div>
+    </div>
+    <figure class="post-lead"><img src="../img/11-discord-key-art.jpg" alt="The office mail room turned clubhouse: Rami with a coffee, little mail-bots dropping glowing envelopes into cubbies labeled #changelog, #devlog, #stats and #art-and-ideas, while TJ, Derek and the Coldwar Cowboy look on."><figcaption>The office mail room turned clubhouse: Rami with a coffee, little mail-bots dropping glowing envelopes into cubbies labeled #changelog, #devlog, #stats and #art-and-ideas, while TJ, Derek and the Coldwar Cowboy look on.</figcaption></figure>
+    <div class="post-cta">
+      <div class="cta-row"><a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="11-where-community-is" data-url="https://ramidaud.github.io/midlife-survivors/devlog/11-where-community-is/" data-title="If that&#x27;s where community is, that&#x27;s where I want to be." data-text="Midlife Survivors devlog: If that&#x27;s where community is, that&#x27;s where I want to be.">↗ <span class="share-label">Share</span></button></div>
+      <div class="changes-box"><h3>What changed</h3><ul><li>A Midlife Survivors Discord server, open to everyone</li><li>The game posts its own changelog every evening</li><li>New memos land in #devlog automatically</li><li>Morning play stats in #stats, out in the open</li><li>New art goes up in #art-and-ideas when it lands</li></ul></div>
+      <div class="next-up"><strong>Next up</strong>A minimap that fills in as you explore, then two new stages you can pick: the hospital and the home neighborhood. And Abdel&#x27;s music.</div>
+    </div>
+    <article class="post"><div class="prose"><p>Honestly, I'm not that familiar with Discord. To me, it seems like one of the million ways to chat with people that already exist, like Teams and messages and email and blah, blah, blah. The fact that it's kind of gamer focused is useful. But ultimately, I'm trusting my gut and what my students have to say about it being a good place to collaborate and evolve this game, and hopefully build a community.</p>
+<p>That's what I'm really going after here. If that's where community is right now, that's where I want to be.</p>
+<h2>Setting it up</h2>
+<p>Setting it up was super easy with help from Claude. The server has a handful of channels: #general for hanging out, #playtest-notes for bugs and "this is too hard," #art-and-ideas, and three channels the game fills in by itself: #changelog, #devlog and #stats.</p>
+<h2>The game posts its own updates</h2>
+<p>Here's the trick. Discord lets you make a <strong>webhook</strong> for a channel: a private link where anything sent to it shows up as a post. The game's code lives on GitHub, and GitHub can run little jobs on a schedule or whenever something changes. So now:</p>
+<ul>
+<li><strong>Every evening</strong>, GitHub rounds up that day's builds and posts them to #changelog.</li>
+<li><strong>When a memo goes live</strong>, like this one, it lands in #devlog with its cover.</li>
+<li><strong>Every morning</strong>, after the play-stats summary, the numbers go to #stats.</li>
+<li><strong>When new art comes in</strong>, it goes up in #art-and-ideas.</li>
+</ul>
+<div class="shot-grid"><figure class="shot"><div class="shot-frame"><img alt="The #changelog channel: the Nov 4 roundup lists every build that day, from V. 1.76 to 1.91." src="../img/11-changelog.jpg"></div><figcaption>#changelog</figcaption></figure><figure class="shot"><div class="shot-frame"><img alt="The #devlog channel, with the archive memos posted by the game." src="../img/11-devlog-channel.jpg"></div><figcaption>#devlog</figcaption></figure><figure class="shot"><div class="shot-frame"><img alt="A morning #stats post: who played, how far they got, top killers, difficulty and lag." src="../img/11-stats.jpg"></div><figcaption>#stats</figcaption></figure><figure class="shot"><div class="shot-frame"><img alt="The #art-and-ideas channel on my phone, with the key art gallery." src="../img/11-art-and-ideas-phone.jpg"></div><figcaption>#art-and-ideas</figcaption></figure></div><p>The webhook links are kept as GitHub secrets, so they never sit in the public code. And GitHub remembers what it already posted, so nothing shows up twice.</p>
+<p>The first time I saw the game post its own changelog and stats without me touching anything, I was thrilled. One less thing for me to worry about while I'm working on making the game better.</p>
+<h2>Out in the open</h2>
+<p>The stats are the part I like most. Every morning you can see how many people played, how far they got, and what killed them. Group Chats are winning right now.</p>
+<p>I love the idea of transparency, and of this being a potential learning tool for others who want to try to build a game. And community at the same time.</p>
+<h2>What I hope you find there</h2>
+<p>Say someone finds the server six months from now. I want them to find a thriving community, and a way to check what's been done in the game and how we got there. I think that will be important for other people who want to try the same thing, or something similar, or even people trying to learn how to code, like myself. This has direct implications for what I'm doing in EMAT, and it's a really cool way to explore all that code can do.</p>
+<p>Next for the server: your screenshots, your bug reports, maybe a weekly challenge. All of the above.</p>
+<p>And while you're here: two new stages are coming after the minimap, the hospital and the home neighborhood. Vote for which one comes first in the quick poll on the devlog's sidebar.</p>
+<p><a href="https://discord.gg/E6N9j5tZe">Join the Midlife Survivors Discord.</a> Come say hi, tell me what's too hard, and watch the game update itself.</p></div>
+      <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to V. 2.0.1. Screenshots are from the real game at the time.</div>
+      <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="11-where-community-is" data-url="https://ramidaud.github.io/midlife-survivors/devlog/11-where-community-is/" data-title="If that&#x27;s where community is, that&#x27;s where I want to be." data-text="Midlife Survivors devlog: If that&#x27;s where community is, that&#x27;s where I want to be.">↗ <span class="share-label">Share this memo</span></button></div>
+    </article>
+  </div>
+  <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);initPostLayout(document);</script>
+</body>
+</html>
