@@ -8,6 +8,10 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 3. Claude builds the post around his sentences and stories, adds the build details, screenshots and code card, and Rami approves.
 4. Posts are openly AI-assisted. The Substack section carries a "How I make this" statement.
 
+## Memo ideas queue
+- **Memo 10: Version two** (drafted, waiting on Rami's voice memo).
+- **Memo 11 idea (Nov 4): plugging the game into Discord.** How Rami set up the server and had GitHub post to it with webhooks: a changelog roundup each evening, a devlog post when a memo goes live, and morning stats. Interview questions are in the Nov 4 chat; voice memo pending.
+
 ## Add a post
 1. Write `posts/<slug>.md` (casual, Rami's voice). Screenshots go in `img/` and are linked as `img/<file>.jpg`.
 2. Add an entry at the top of `posts.js` with `"draft": true`. Keep the JSON style (quoted keys, no trailing commas).
