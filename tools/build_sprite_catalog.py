@@ -17,8 +17,8 @@ def add(group, name, file, cw, ch, anims, note=""):
 def row(r, n, cols=8, start=0): return [r * cols + start + i for i in range(n)]
 
 # Heroes: game timing from src/world-art.js (walkFrameMs 95, breathMs 320, fidgetFrameMs 170)
-HEROES = {"The 9-to-5er": "office-worker-walk-56x60-v2", "The Soccer Dad": "soccer-dad-walk-56x60-v2",
-          "The Grad Student at 45": "grad-student-walk-56x60-v2", "The Coldwar Cowboy": "cold-war-cowboy-walk-56x60-v3"}
+HEROES = {"The 9-to-5er": "office-worker-walk-56x60-v3", "The Soccer Dad": "soccer-dad-walk-56x60-v3",
+          "The Grad Student at 45": "grad-student-walk-56x60-v3", "The Coldwar Cowboy": "cold-war-cowboy-walk-56x60-v4"}
 for name, f in HEROES.items():
     add("Heroes", name, f"assets/characters/{f}.png", 56, 60, [
         {"name": "walk down", "frames": row(0, 8), "ms": 95}, {"name": "walk up", "frames": row(1, 8), "ms": 95},

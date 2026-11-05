@@ -1477,3 +1477,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rebuilt all 16 directional walks so each leg takes a turn leading and the arms swing against the stride.
 - Reused the head and shirt pixels with a one-pixel dip on the down beats. The Sprite Board confirms the movement stays on the limbs between dips.
 - Saved the original idle rows in the new sheets and included previews. Claude wires the updated art into the game.
+
+## Nov 5, 2026: V2.7.11 New hero walk cycles
+- ChatGPT redrew all four heroes' walks from Paul's notes: legs alternate in every direction, arms swing opposite, 1 px bob, heads steady.
+- Wired into the game and the Sprite Board. Paired with V2.7.10's steady 95 ms clock.

@@ -58,7 +58,7 @@ window.WorldArt = (() => {
       if(window.HERO_ART_VERSION===2) loadHeroV2('coldWarCowboy'); // Ben has v2 art only (Nov 3)
     }
     // v2: 448x300 sheet, 8 columns x 5 rows of 56x60 (rows: down, up, left, right walks, then idle). Exact magenta = clear.
-    const HERO_FILES={officeWorker:'office-worker-walk-56x60-v2',photographer:'soccer-dad-walk-56x60-v2',gradStudent:'grad-student-walk-56x60-v2',coldWarCowboy:'cold-war-cowboy-walk-56x60-v3'};
+    const HERO_FILES={officeWorker:'office-worker-walk-56x60-v3',photographer:'soccer-dad-walk-56x60-v3',gradStudent:'grad-student-walk-56x60-v3',coldWarCowboy:'cold-war-cowboy-walk-56x60-v4'};
     function loadHeroV2(id) {
       const img=new Image();
       img.onload=()=>{

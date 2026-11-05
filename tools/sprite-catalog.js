@@ -3,7 +3,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Heroes",
 "name": "The 9-to-5er",
-"file": "assets/characters/office-worker-walk-56x60-v2.png",
+"file": "assets/characters/office-worker-walk-56x60-v3.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -91,7 +91,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Heroes",
 "name": "The Soccer Dad",
-"file": "assets/characters/soccer-dad-walk-56x60-v2.png",
+"file": "assets/characters/soccer-dad-walk-56x60-v3.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -179,7 +179,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Heroes",
 "name": "The Grad Student at 45",
-"file": "assets/characters/grad-student-walk-56x60-v2.png",
+"file": "assets/characters/grad-student-walk-56x60-v3.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -267,7 +267,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Heroes",
 "name": "The Coldwar Cowboy",
-"file": "assets/characters/cold-war-cowboy-walk-56x60-v3.png",
+"file": "assets/characters/cold-war-cowboy-walk-56x60-v4.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,

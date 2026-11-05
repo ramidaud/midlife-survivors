@@ -32,7 +32,7 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 2. [ ] **New stages: St. Deductible Hospital and the home neighborhood.** Pickable from the title screen like Vampire Survivors' stage select, each its own short run with its own enemies, boss and gimmick, unlocked by an achievement. (Why: only about 4% of runs reach 65, so stages hidden deep in Full Life would go unseen.) Later, Full Life can chain them: office, then hospital, then home. Ideas already in GAME_DESIGN: the hospital's newborn and 3 a.m. feedings challenge; the home's LEGO-brick floor hazards and a New Math boss.
 3. [ ] **Phone apps (iOS and Android).** See "Phase B2" under Platforms.
 - [x] **Real music** from Rami's Flow Music tracks (V. 2.7.9). Sound effects next.
-- [ ] **Hero art polish (Paul McKinney's review, Nov 5).** Step 1 now: redraw the walk rows so the legs actually alternate (ChatGPT brief out). Step 2 near the end: a polish round on the four heroes drawn natively at game size, with readable small details (Mario's mustache idea), and calmer idle loops for the seated coworkers. Check every change on the Sprite Board (`tools/sprites.html`, CHANGED PIXELS view).
+- [ ] **Hero art polish (Paul McKinney's review, Nov 5).** Step 1 done (V. 2.7.11): walk rows redrawn so the legs alternate. Step 2 near the end: a polish round on the four heroes drawn natively at game size, with readable small details (Mario's mustache idea), and calmer idle loops for the seated coworkers. Check every change on the Sprite Board (`tools/sprites.html`, CHANGED PIXELS view).
 - Still open from V2: Lounge redo (Rami sent photos of the real student lounge Nov 4; ChatGPT brief out), Abdel's music, Errands, a Daily Challenge.
 
 ## Now (Nov 3)

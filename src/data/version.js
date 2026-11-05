@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.10",
-  displayVersion: "V. 2.7.10",
+  version: "2.7.11",
+  displayVersion: "V. 2.7.11",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 238,
+  build: 239,
   changelog: [
+    {
+      ver: "V. 2.7.11", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "All four heroes finally walk like people: left foot, right foot.",
+      highlights: [
+        "Redrawn walk cycles for the 9-to-5er, Soccer Dad, Grad Student and Coldwar Cowboy: the legs alternate in every direction, arms swing opposite, and there's a little bob on each step.",
+        "Heads and shirts stay steady between frames, so the motion reads cleanly instead of shimmering."
+      ]
+    },
     {
       ver: "V. 2.7.10", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Your hero walks with a steady rhythm now, thanks to a sharp-eyed art director.",
