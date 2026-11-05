@@ -1,0 +1,28 @@
+{
+  "file": "assets/ui/stamp-plate-v1.png",
+  "size": [
+    48,
+    24
+  ],
+  "slice": {
+    "left": 8,
+    "right": 8,
+    "top": 8,
+    "bottom": 8
+  },
+  "background": "#FF00FF",
+  "opaque": true,
+  "ink": "#C45C4B",
+  "emptyCenter": [
+    8,
+    8,
+    32,
+    8
+  ],
+  "suggestedTint": "none",
+  "textBakedIn": false,
+  "notes": [
+    "Magenta is the transparent key, including the entire inner center.",
+    "Render defeat words above this blank russet plate at runtime."
+  ]
+}

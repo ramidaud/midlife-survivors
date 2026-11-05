@@ -1,0 +1,164 @@
+{
+  "file": "assets/enemies/remains-v1.png",
+  "size": [
+    96,
+    200
+  ],
+  "cell": [
+    32,
+    20
+  ],
+  "columns": 3,
+  "rows": 10,
+  "background": "#FF00FF",
+  "opaque": true,
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "suggestedTint": "none",
+  "nativeInkBudget": 29,
+  "origin": [
+    0.5,
+    0.5
+  ],
+  "collision": false,
+  "rowsByEnemy": [
+    {
+      "row": 0,
+      "enemy": "bill",
+      "frames": [
+        0,
+        1,
+        2
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Two or three tiny cream torn paper scraps, faint teal checkmark shape on one, no writing."
+    },
+    {
+      "row": 1,
+      "enemy": "lateFee",
+      "frames": [
+        3,
+        4,
+        5
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Ripped russet-red penalty stub and two confetti-sized red bits."
+    },
+    {
+      "row": 2,
+      "enemy": "spamCall",
+      "frames": [
+        6,
+        7,
+        8
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Flattened charcoal cracked phone casing showing slate broken glass and two tiny slate shards. No intact upright phone."
+    },
+    {
+      "row": 3,
+      "enemy": "snackAttack",
+      "frames": [
+        9,
+        10,
+        11
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Four coffeeorange donut crumbs and two donutpink sprinkle pixels, no whole donut."
+    },
+    {
+      "row": 4,
+      "enemy": "backTwinge",
+      "frames": [
+        12,
+        13,
+        14
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Flattened pale cream rectangular heat patch with tiny russet warm center and a loose cream bandage."
+    },
+    {
+      "row": 5,
+      "enemy": "officeGossip",
+      "frames": [
+        15,
+        16,
+        17
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Crumpled cream printout scraps with one tiny slate curved arrow line, no actual writing."
+    },
+    {
+      "row": 6,
+      "enemy": "threeAmThought",
+      "frames": [
+        18,
+        19,
+        20
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Faint lavender wisp puddle: very sparse one-pixel checker dither with magenta gaps, no alpha and no intact ghost."
+    },
+    {
+      "row": 7,
+      "enemy": "calendarInvite",
+      "frames": [
+        21,
+        22,
+        23
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "One torn cream calendar page CORNER with tiny russet binding fragment, no digits."
+    },
+    {
+      "row": 8,
+      "enemy": "groupChat",
+      "frames": [
+        24,
+        25,
+        26
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Two small sage/teal/lavender popped speech bubble curve fragments, no whole speech bubble and no letters."
+    },
+    {
+      "row": 9,
+      "enemy": "mathWorksheet",
+      "frames": [
+        27,
+        28,
+        29
+      ],
+      "variants": 3,
+      "suggestedTint": "none",
+      "subject": "Two shredded cream graph-paper strips with faint slate grid fragment and one pink eraser crumb."
+    }
+  ],
+  "notes": [
+    "Art is final color. Key magenta, use nearest-neighbor, do not tint.",
+    "Three variants are alternatives, not animation frames.",
+    "Lavender wisp uses hard checker-dither gaps, no actual partial alpha.",
+    "Duration, fading and pooling are owned by existing runtime code."
+  ]
+}

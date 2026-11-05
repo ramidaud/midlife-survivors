@@ -1,0 +1,88 @@
+{
+  "file": "assets/bosses/boss-knockdown-v1.png",
+  "size": [
+    1008,
+    152
+  ],
+  "cell": [
+    144,
+    152
+  ],
+  "columns": 7,
+  "rows": 1,
+  "background": "#FF00FF",
+  "opaque": true,
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "foot": [
+    72,
+    148
+  ],
+  "origin": [
+    0.5,
+    0.9736842105263158
+  ],
+  "suggestedTint": "none",
+  "frames": [
+    {
+      "frame": 0,
+      "boss": "performanceReview",
+      "reference": "assets/bosses/boss-performance-review-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    },
+    {
+      "frame": 1,
+      "boss": "mortgageRefinance",
+      "reference": "assets/bosses/boss-30-year-mortgage-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    },
+    {
+      "frame": 2,
+      "boss": "midlifeCrisis",
+      "reference": "assets/bosses/boss-midlife-crisis-v8-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    },
+    {
+      "frame": 3,
+      "boss": "goldWatch",
+      "reference": "assets/bosses/boss-gold-watch-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    },
+    {
+      "frame": 4,
+      "boss": "hoaPresident",
+      "reference": "assets/bosses/boss-hoa-president-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    },
+    {
+      "frame": 5,
+      "boss": "retirementBoss",
+      "reference": "assets/bosses/boss-retirement-audit-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    },
+    {
+      "frame": 6,
+      "boss": "pickleballChamp",
+      "reference": "assets/bosses/boss-pickleball-champ-v1.png",
+      "pose": "flat on floor, dazed; intact figure with tiny stars"
+    }
+  ],
+  "notes": [
+    "One static knocked-down pose per boss.",
+    "Native art scale 1x; no boss-size multiplier. Preserve existing physics independently.",
+    "No animation or fall timing is specified by art. Claude wires this into boss-down.js.",
+    "Existing walk/attack/hurt sheets remain untouched."
+  ]
+}

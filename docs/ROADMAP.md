@@ -269,3 +269,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ### 2026-11-04: Student Lounge art (Codex)
 - [x] Eleven modular prop families, fifteen cells and two shop illustrations delivered with manifest, prompts and scale checks.
 - [ ] Rami reviews; Claude builds the Lounge in the Break Room's north end and wires in the shop scenes.
+
+### 2026-11-04: Defeat art (Codex)
+- [x] Thirty remains, seven knockdown poses and blank nine-slice stamp delivered with manifests, prompts and native-size checks.
+- [ ] Rami reviews; Claude replaces the remains and boss-down placeholders.

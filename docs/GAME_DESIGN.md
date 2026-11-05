@@ -542,3 +542,6 @@ The six named room coworkers now have delivered seated working/personal loops an
 
 ### 2026-11-04: Student Lounge visual kit (Codex, art delivery)
 TJ and Derek's Lounge can use the mustard desk wall, crowded camera/monitor workbench, white cubbies, navy food-pillow futon, chess coffee table and photo collage from Rami's real student lounge. `assets/stage/props/manifest-lounge.json` provides eleven modular families and suggested floor footprints; the two opaque shop illustrations reserve the lower fifth for overlays. These are prepared art assets, not a shipped room layout. Promotion timing, prices, boosts and navigation remain Claude's existing systems.
+
+### 2026-11-04: Defeat art prepared (Codex)
+Enemy remains use tiny, final-color debris piles with three variants per enemy. Boss knockdowns are static, intact toppled poses with dazed stars; the optional russet plate leaves defeat words to the UI. The art lives in `manifest-remains.json`, `manifest-knockdown.json` and `stamp-plate-v1.json`; this delivery changes no defeat timing, pooling, drops, collisions or game balance.

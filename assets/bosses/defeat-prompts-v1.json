@@ -1,0 +1,398 @@
+{
+  "tool": "built-in image_gen",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "bosses": [
+    {
+      "id": "performanceReview",
+      "reference": "assets/bosses/boss-performance-review-v1.png",
+      "prompt": {
+        "subject": "the performanceReview knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "anthropomorphic wooden clipboard with a cream sheet, orange bar chart, teal top metal clip, dark sleeves and trouser legs, brown shoes. It has fallen FLAT FACE-UP on its back, broad foreshortened clipboard lies along floor, dazed squiggle eyes, little arms and feet sprawled. Three tiny cream stars over topclip. No text/letters/numbers on sheet.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-fe1cbd1c-71b1-4f71-b6f5-13f23727e478.png"
+    },
+    {
+      "id": "mortgageRefinance",
+      "reference": "assets/bosses/boss-30-year-mortgage-v1.png",
+      "prompt": {
+        "subject": "the mortgageRefinance knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "anthropomorphic cream house with russet tiled roof sitting in a fat stack of cream mortgage forms, small teal windows, dark trouser legs and brown shoes. It has tipped FLAT on its SIDE/BACK, roof facing left, papers splayed under it, dazed window-eyes, three tiny cream stars overhead. Preserve house+paper identity. NO percent signs/numbers/letters.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-4d02f431-2c17-4907-968a-28fb2aec072d.png"
+    },
+    {
+      "id": "midlifeCrisis",
+      "reference": "assets/bosses/boss-midlife-crisis-v8-v1.png",
+      "prompt": {
+        "subject": "the midlifeCrisis knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "anthropomorphic russet/coffeorange convertible sports car with cream windshield rim, two navy seats, expressive round headlight eyes, cream bumpers, black tires. It is comically BELLY-UP on its back with four tires sticking up, open seats visible at angle, headlight eyes dizzy, three tiny stars hovering above hood. Soft intactcar, NO flames, no smoke plume, no wreckage, no realbrand badge.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-042e0d47-29b9-422a-8c74-c5b7bd15efc4.png"
+    },
+    {
+      "id": "goldWatch",
+      "reference": "assets/bosses/boss-gold-watch-v1.png",
+      "prompt": {
+        "subject": "the goldWatch knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "large gold pocket watch, cream face with tick marks ONLY, curled gold chain and top crown, smug little face now dazed. It lies FLAT FACE-UP on floor, strongly foreshortened oval circularwatch, chain pooled beside it, small squash, three cream stars overhead. Clock hands stopped, NO clock numbers/letters.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-25883afc-5137-418e-9fa8-a8e6a05df234.png"
+    },
+    {
+      "id": "hoaPresident",
+      "reference": "assets/bosses/boss-hoa-president-v1.png",
+      "prompt": {
+        "subject": "the hoaPresident knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "same older WOMAN from reference: swept silvercream bob, reading glasses, teal cardigan vest over cream blouse, russet/coffeeorange trousers, navy shoes, cream lanyard badge, wooden yardstick and clipboard. She lies FLAT ON HER BACK across floor, dazed bemused expression, knees gentlybent, yardstick/clipboard loosely beside intact hands. Three tiny cream stars overhead. Friendly comic rest, never injury.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-42dce090-7117-4509-9040-45c78a32b99f.png"
+    },
+    {
+      "id": "retirementBoss",
+      "reference": "assets/bosses/boss-retirement-audit-v1.png",
+      "prompt": {
+        "subject": "the retirementBoss knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "anthropomorphic tall teal/slate filing cabinet with stubby dark legs/shoes, forms poking from drawers, accountant face on topdrawer under green visor and big coffeeorange rubber-stamp arm. Cabinet tipped FLAT on its SIDE/BACK, drawers facingviewer but foreshortened, stamp laid on floor, forms looselyspread, dazed eyes and three cream stars overhead. No writing/letters/numbers onforms.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-7ada6575-3137-41ae-bd38-1cc8f43cb322.png"
+    },
+    {
+      "id": "pickleballChamp",
+      "reference": "assets/bosses/boss-pickleball-champ-v1.png",
+      "prompt": {
+        "subject": "the pickleballChamp knocked flat and dazed, comic",
+        "style": "16-bit top-down three-quarter pixel art, chunky ONE NATIVE PIXEL navy outline, no anti-aliasing, exactly match attached Midlife Survivors boss sheet's identity and pixel density. Render just ONE pose, not a sheet.",
+        "palette": [
+          "#171C35",
+          "#303750",
+          "#526078",
+          "#3E7775",
+          "#83A89A",
+          "#D3B78D",
+          "#F2D7A1",
+          "#FFF0CF",
+          "#EF9347",
+          "#C45C4B",
+          "#BFA8CF",
+          "#F1B5BF"
+        ],
+        "background": "#FF00FF flat opaque, no gradient",
+        "canvas": "144x152 ONE cell, silhouette width under132px, roughly85px tall including stars. Bottommost resting point at local y148; equal padding; no shadow.",
+        "row_contents": "same older energetic wiry athlete from reference: white visor, short silvery hair, sun-tanned skin, teal sports shirt, navy shorts, knee brace, cream/orange bright court shoes, dark paddle. Lying FLAT ON BACK in a comic starfish sprawl, visor crooked but eyesvisible, paddle beside hand and one cream ballnearshoe, bemused dazedface, three stars overhead. Friendly intactbody, no injury.",
+        "rules": [
+          "no text",
+          "no brands",
+          "no shadows",
+          "no gore, wounds, pain or humiliation",
+          "native hard pixel clusters, not smooth rendering",
+          "warm upper-left light",
+          "Full figure lying visibly horizontal on the floor, not an upright seated or hurt stance",
+          "No detached body parts. No extra poses or objects beyond described belongings/stars."
+        ]
+      },
+      "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-70d7e622-ad5e-414e-a52f-1e2f5f98c31f.png"
+    }
+  ],
+  "remains": {
+    "prompt": {
+      "subject": "pixel-art floor debris left behind by ten defeated office-life enemies",
+      "style": "16-bit top-down pixel art, chunky1px navy outline, no antialiasing, matches attached Midlife Survivors enemy sheets",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "background": "#FF00FF flat opaque, no gradient",
+      "canvas": "ONE SPRITE SHEET, EXACT 3 columns x10rows. Each nativecell32x20, total96x200, tall portrait. Equalgrid, equalpadding. No visiblegridlines or labels. Native design shownenlarged. Everyrow has3 DIFFERENT little arrangements of its listed debris.",
+      "row_contents": [
+        {
+          "row": 0,
+          "enemy": "bill",
+          "variants": 3,
+          "content": "Two or three tiny cream torn paper scraps, faint teal checkmark shape on one, no writing."
+        },
+        {
+          "row": 1,
+          "enemy": "lateFee",
+          "variants": 3,
+          "content": "Ripped russet-red penalty stub and two confetti-sized red bits."
+        },
+        {
+          "row": 2,
+          "enemy": "spamCall",
+          "variants": 3,
+          "content": "Flattened charcoal cracked phone casing showing slate broken glass and two tiny slate shards. No intact upright phone."
+        },
+        {
+          "row": 3,
+          "enemy": "snackAttack",
+          "variants": 3,
+          "content": "Four coffeeorange donut crumbs and two donutpink sprinkle pixels, no whole donut."
+        },
+        {
+          "row": 4,
+          "enemy": "backTwinge",
+          "variants": 3,
+          "content": "Flattened pale cream rectangular heat patch with tiny russet warm center and a loose cream bandage."
+        },
+        {
+          "row": 5,
+          "enemy": "officeGossip",
+          "variants": 3,
+          "content": "Crumpled cream printout scraps with one tiny slate curved arrow line, no actual writing."
+        },
+        {
+          "row": 6,
+          "enemy": "threeAmThought",
+          "variants": 3,
+          "content": "Faint lavender wisp puddle: very sparse one-pixel checker dither with magenta gaps, no alpha and no intact ghost."
+        },
+        {
+          "row": 7,
+          "enemy": "calendarInvite",
+          "variants": 3,
+          "content": "One torn cream calendar page CORNER with tiny russet binding fragment, no digits."
+        },
+        {
+          "row": 8,
+          "enemy": "groupChat",
+          "variants": 3,
+          "content": "Two small sage/teal/lavender popped speech bubble curve fragments, no whole speech bubble and no letters."
+        },
+        {
+          "row": 9,
+          "enemy": "mathWorksheet",
+          "variants": 3,
+          "content": "Two shredded cream graph-paper strips with faint slate grid fragment and one pink eraser crumb."
+        }
+      ],
+      "rules": [
+        "no text/numbers/logos",
+        "no brands",
+        "no shadows",
+        "reads at1x onphone",
+        "EXTREMELY SPARSE: eachcellhas under30painted nativepixels TOTAL, tiny lowflatpiles withincenter14x8 area of32x20cell; mostly empty magenta, not detailed objects",
+        "Three variants differ in positions/torn shapes, not colors.",
+        "No upright creatures, no faces, no aliveenemies, no labels.",
+        "Keep roworderexactly aslisted: paper,redstub,phone,crumbs,heatpatch,printouts,lavenderwisp,calendarcorner,speechfragments,graphpaper."
+      ]
+    },
+    "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-0e03a1c9-3099-4aba-8acd-bcba25447e33.png"
+  },
+  "stamp": {
+    "prompt": {
+      "subject": "blank rubber-stamp ink plate for funny office boss defeat words, with no words",
+      "style": "crisp16-bit nativepixelart, onepixelinkclusters, noantialiasing, slightlyimperfectstampedges",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "background": "#FF00FF opaque flat no gradient",
+      "canvas": "48x24 native source, 9-slice8px corners, ONE horizontal rectangular stampborder centered filling source",
+      "row_contents": "Russet #C45C4B ink rectangular thin double-line outline. Slightly uneven jaggedouteredges and a few tiny missinginkpixels, but straight horizontal/vertical stretchbands. Entire inner center x8..39/y8..15 is EMPTY MAGENTA so Claude places words on top. Decor confined to8pxedge bands, no text, no actual rubberstamp object.",
+      "rules": [
+        "no words/letters/numbers/logos",
+        "no shadows",
+        "no texture noise",
+        "no diagonal tilt",
+        "readableat1x",
+        "edges must stretch as9slice, no motifs in center"
+      ]
+    },
+    "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-48829687-0a98-46ba-9246-768e8d3cdba0.png"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "assets/enemies/remains-v1.png": {
+    "size": [
+      96,
+      200
+    ],
+    "opaque_exact_key_and_palette": true,
+    "bytes": 3169
+  },
+  "assets/bosses/boss-knockdown-v1.png": {
+    "size": [
+      1008,
+      152
+    ],
+    "opaque_exact_key_and_palette": true,
+    "bytes": 44513
+  },
+  "assets/ui/stamp-plate-v1.png": {
+    "size": [
+      48,
+      24
+    ],
+    "opaque_exact_key_and_palette": true,
+    "bytes": 266
+  },
+  "remains": {
+    "ink_pixels_per_variant": [
+      [
+        26,
+        22,
+        24
+      ],
+      [
+        26,
+        28,
+        23
+      ],
+      [
+        28,
+        26,
+        24
+      ],
+      [
+        29,
+        26,
+        27
+      ],
+      [
+        28,
+        22,
+        26
+      ],
+      [
+        28,
+        23,
+        28
+      ],
+      [
+        23,
+        29,
+        11
+      ],
+      [
+        27,
+        21,
+        28
+      ],
+      [
+        28,
+        29,
+        28
+      ],
+      [
+        28,
+        25,
+        24
+      ]
+    ],
+    "all_variants_distinct": true,
+    "tint": "none",
+    "native_budget": 29
+  },
+  "knockdowns": {
+    "bounds": [
+      [
+        17,
+        49,
+        125,
+        148
+      ],
+      [
+        13,
+        49,
+        129,
+        148
+      ],
+      [
+        14,
+        49,
+        128,
+        148
+      ],
+      [
+        9,
+        49,
+        133,
+        148
+      ],
+      [
+        10,
+        49,
+        133,
+        148
+      ],
+      [
+        16,
+        49,
+        126,
+        148
+      ],
+      [
+        13,
+        49,
+        129,
+        148
+      ]
+    ],
+    "ground_line": 148,
+    "cell": [
+      144,
+      152
+    ]
+  },
+  "stamp": {
+    "empty_center": true,
+    "slice": 8,
+    "seamless_stretch_bands": true
+  },
+  "review": {
+    "desktop_css": [
+      1280,
+      800
+    ],
+    "phone_css_verified": [
+      390,
+      844
+    ],
+    "boss_comparisons": 7,
+    "remains_rows": 10,
+    "sixty_pile_preview": true,
+    "images_loaded": true,
+    "horizontal_document_overflow": false,
+    "console_errors": 0,
+    "two_x_toggle": true,
+    "no_game_stats_or_scores": true
+  }
+}

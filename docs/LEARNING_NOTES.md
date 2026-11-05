@@ -552,3 +552,6 @@ The Lounge desk picture includes monitors and two chairs, but the floor footprin
 - In a top-down game, whoever's **feet are lower on the screen** should be drawn in front. The game turns each thing's foot position into a **depth** number every frame: bigger depth = drawn later = in front.
 - TJ and Derek had a fixed small depth, so every wall (which uses the foot rule) was drawn over them. Putting them on the same rule fixed it.
 - Labels and speech bubbles skip the rule and get a huge depth, so nothing can ever cover them.
+
+### 2026-11-04: A pixel budget keeps floor effects quiet (Codex)
+A 32x20 remains cell has 640 possible pixels, but each debris pile uses fewer than 30. That leaves room for the floor to show through when many defeated enemies overlap. The faint thought-wisp uses spaced lavender pixels instead of soft transparency, so it stays crisp after the magenta background is keyed out.

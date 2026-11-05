@@ -1390,3 +1390,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Wall bonks: splat and jiggle, a wall crack, circling stars, a pop-in word (two new ones).
 - "No." shoved bosses as far as Bills (up to 520 px). Now bosses get 12% of the shove (`bossPushMult` in src/data/weapons.js). Dad Joke and the freezes already went easy on bosses.
 - Art requests for remains and boss knockdowns handed to ChatGPT (docs/handoffs/chatgpt-defeat-art.md).
+
+## 2026-11-04: Native defeat art delivery (Codex)
+- Delivered 30 sparse enemy-remains variants, seven comic boss knockdowns and the optional blank russet stamp plate.
+- Included key/index manifests, JSON generation prompts, 1x/2x hero scale boards, responsive review and validator. No original sheets changed.
+- Dimensions, twelve-color palette, opaque magenta, remains budget/distinctness, y148 ground line and stamp stretch edges pass. Desktop and 390px phone art previews are clean; no gameplay or stats runs were made. Claude integrates.
