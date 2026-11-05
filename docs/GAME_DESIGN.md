@@ -574,7 +574,7 @@ Each direction uses eight walk poses at the game's 95 ms cadence. The near leg l
 - The taper only affects the bank, never the score. Tuning knobs: `COIN_ECONOMY` in src/data/meta.js.
 
 ## The Lounge, two ways (decided Nov 5, V. 2.8.2)
-- **Day One cart (Lobby, first 60 s):** Lounge-only weapons and whole-run perks, bought with banked 401(k) coins. A real start-of-run choice.
+- **Day One cart (hidden in a far corner of the Bullpen or Lobby, first 2 min, found by exploring):** Lounge-only weapons and whole-run perks, bought with banked 401(k) coins. A real start-of-run choice.
 - **Break Room counter (after promotions 45-60):** heals and quick buffs only.
 
 ### 2026-11-05 Coworker pose cleanup (Codex)

@@ -177,8 +177,9 @@ window.Spotlight = (() => {
     if (card.kind === "lounge") {
       // Once a run. It used to be dropped if a room card had just shown, and the Lounge opens right after a promotion,
       // so it almost never appeared (Rami, Nov 4). Now it waits its turn: a few seconds after the room card instead.
-      if (run.lounge) return;
-      run.lounge = true;
+      const once = card.cart ? "cartCard" : "lounge"; // the Day One cart and the Break Room counter each get their card
+      if (run[once]) return;
+      run[once] = true;
       const roomNear = card.at - run.lastRoomAt < 12000 || queue.some(c => c.kind === "room") || (showing && showing.kind === "room");
       if (roomNear) card.notBefore = Math.max(card.at, run.lastRoomAt) + 12000;
     }
@@ -242,8 +243,14 @@ window.Spotlight = (() => {
       show({ kind: "room", kicker: R.kicker, name: R.name, line: R.line, tip: R.tip, art: portrait || texUrl("slice_coworker_" + R.cast, cw && cw.src), artType: portrait ? "hero" : "cast", edge: "#83A89A", band: "#3E7775" });
       return true;
     },
-    lounge(r) {
+    lounge(r, cartMinutes) {
       const line = (r.lines || [])[Math.floor(Math.random() * (r.lines || []).length)] || "Cash only.";
+      if (cartMinutes) { // Day One cart (Nov 5, Rami): a heads-up to go exploring, not directions
+        show({ kind: "lounge", cart: true, kicker: "SOMEWHERE ON THIS FLOOR", name: "THE LOUNGE CART", line: r.name + ": " + line,
+               tip: `Start exploring! ${r.name} parked a cart of treats you can only get in the first ${cartMinutes} minutes of your shift.`,
+               art: r.portrait ? ROOT + r.portrait : null, artType: "hero", edge: "#EF9347", band: "#3E7775", ms: 6500 });
+        return true;
+      }
       // Duo card (Nov 4, Rami: "another intern card when the lounge opens"): TJ and Derek together behind the counter.
       const R = ((window.INTERNS || {}).roster || []).filter(x => x.portrait), other = R.find(x => x.id !== r.id);
       if (r.portrait && other) {

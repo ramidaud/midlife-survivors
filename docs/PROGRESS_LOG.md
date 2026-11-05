@@ -1541,3 +1541,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Once per fiscal year, players with shop ranks get an optional Corporate Buyout memo: ranks cashed out at 50% of what they spent, plus a BOUGHT OUT tag on that year's board. The cursor starts on KEEP.
 - New fiscal year = add a line to `SEASONS` in src/data/leaderboard.js (plan: Fiscal Year 3 with Version 3.0).
 - V2.9.4: fixed magenta boxes behind the coworkers (v2 sheets had a solid magenta background). Sheets converted to transparent, and the coworker loader now keys magenta itself.
+
+## Nov 5, 2026: V2.9.5 Hidden Lounge cart + buyout once per account
+- Rami: the buyout memo showed on every signed-in device. It now waits for the cloud save first (up to 20 s), and a memo open on one device closes itself when you answer on another.
+- Rami: he'd already shopped at the cart before its card appeared. The cart now hides in one of six far corners of the Bullpen or Lobby (at least 1,200 px from the start), open for the first 2 minutes, with no arrow.
+- Its spotlight card: "SOMEWHERE ON THIS FLOOR · THE LOUNGE CART. Start exploring! TJ parked a cart of treats you can only get in the first 2 minutes of your shift." The Break Room counter keeps its own card.

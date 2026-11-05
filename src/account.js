@@ -27,6 +27,7 @@ window.Account = (() => {
   const setSync = patch => writeJSON(SYNC_KEY, Object.assign(sync(), patch));
   const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const signedIn = () => !!(session && session.user);
+  let pulledOnce = false;
 
   // ---------- The supabase-js library (loaded on demand) ----------
   function loadLib() {
@@ -146,6 +147,7 @@ window.Account = (() => {
       } else if (s.dirty) await push();
       if (firstTime && ui.step !== "conflict") ui.step = "in";
     } catch (e) { ui.busy = false; ui.err = e.message || "Couldn't reach the cloud."; }
+    pulledOnce = true; // the Corporate Buyout waits for this, so every device sees the answer you already gave
     render(); refreshTitle();
   }
 
@@ -398,6 +400,8 @@ window.Account = (() => {
 
   return {
     open, close, signedIn, pull,
+    linked: () => !!(sync() && sync().uid), // this device has been signed in before
+    pulledOnce: () => pulledOnce,
     // For the title screen badge: a short line about your cloud save
     status: () => {
       if (!on()) return null;

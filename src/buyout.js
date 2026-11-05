@@ -2,6 +2,7 @@
 // offered a choice: cash out every rank for a share of what they spent and start the year level with everyone
 // (plus a BOUGHT OUT tag on this year's board), or keep everything. Nothing happens without a tap.
 window.Buyout = (() => {
+  let waits = 0;
   function spent(m) {
     return (window.META_SHOP || []).reduce((s, it) => { const r = (m.ranks && m.ranks[it.id]) || 0; return s + it.baseCost * r * (r + 1) / 2; }, 0) + (m.shopInflationPaid || 0);
   }
@@ -11,6 +12,13 @@ window.Buyout = (() => {
     if (!S || !m || document.getElementById("buyout-modal")) return;
     const season = S.current();
     if (m.seasonSeen === season.id) return;
+    // Signed-in devices wait for the cloud save first, so an answer given on one device counts on all of them.
+    const A = window.Account;
+    if (A && A.linked && A.linked() && !(A.pulledOnce && A.pulledOnce())) {
+      waits = (waits || 0) + 1;
+      if (waits <= 20) setTimeout(maybeOffer, 1000); // up to 20 s; if the cloud never answers, ask another day
+      return;
+    }
     if (ranksOwned(m) === 0) { m.seasonSeen = season.id; saveMeta(m); return; } // nothing to buy out
     const pay = Math.round(spent(m) * (S.buyoutRate || 0.5));
     const el = document.createElement("div"); el.id = "buyout-modal"; el.className = "ui-modal"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Corporate Buyout");
@@ -31,10 +39,14 @@ window.Buyout = (() => {
       document.head.appendChild(st);
     }
     (document.getElementById("ui-layer") || document.body).appendChild(el);
-    const close = () => { m.seasonSeen = season.id; saveMeta(m); el.remove(); if (window.menuNav) menuNav.refresh(); if (typeof renderTitleModal === "function" && window._activeGameScene && titleOpen) renderTitleModal(window._activeGameScene); };
+    // If you answer on another device while this one is showing the memo, close it here when that save arrives.
+    const watch = setInterval(() => { const mm = typeof meta !== "undefined" ? meta : m; if (!document.body.contains(el)) return clearInterval(watch); if (mm.seasonSeen === season.id) { clearInterval(watch); el.remove(); if (window.menuNav) menuNav.refresh(); } }, 1500);
+    const cur = () => (typeof meta !== "undefined" ? meta : m); // always the latest save (a cloud pull may have replaced it)
+    const close = () => { const mm = cur(); mm.seasonSeen = season.id; saveMeta(mm); el.remove(); if (window.menuNav) menuNav.refresh(); if (typeof renderTitleModal === "function" && window._activeGameScene && titleOpen) renderTitleModal(window._activeGameScene); };
     const take = () => {
-      (window.META_SHOP || []).forEach(it => { m.ranks[it.id] = 0; }); m.shopInflationPaid = 0;
-      m.coins = (m.coins || 0) + pay; m.boughtOut = season.id;
+      const mm = cur(), payNow = Math.round(spent(mm) * (S.buyoutRate || 0.5)); // recount on the latest save
+      (window.META_SHOP || []).forEach(it => { mm.ranks[it.id] = 0; }); mm.shopInflationPaid = 0;
+      mm.coins = (mm.coins || 0) + payNow; mm.boughtOut = season.id;
       if (typeof sfx === "function") sfx("coin");
       close();
     };

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.9.4",
-  displayVersion: "V. 2.9.4",
+  version: "2.9.5",
+  displayVersion: "V. 2.9.5",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 255,
+  build: 256,
   changelog: [
+    {
+      ver: "V. 2.9.5", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The Lounge cart is hiding somewhere on the floor. Go find it.",
+      highlights: [
+        "The Day One cart now parks in a far corner of the Bullpen or Lobby, a different one each run, and stays for your first 2 minutes. No arrow: exploring is the point.",
+        "Its spotlight card tells you to start exploring for treats you can only get early in your shift.",
+        "The Corporate Buyout memo now waits for your cloud save, so answering on one device answers it everywhere."
+      ]
+    },
     {
       ver: "V. 2.9.4", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Fixed: pink boxes behind the office coworkers.",

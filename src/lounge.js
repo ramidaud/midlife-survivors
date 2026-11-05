@@ -45,7 +45,7 @@ window.Lounge = (() => {
     st.state = "open"; st.spot = s; st.openUntil = runElapsedMs + (L.openMsPromotion || 35000);
     st.arrowUntil = st.openUntil; // the arrow stays up the whole time it's open (TJ couldn't find it, Nov 3) st.needExit = false; st.bubbleUsed = false;
     catalog().forEach(it => { st.stock[it.id] = it.stock; });
-    if (cartMode()) st.openUntil = st.arrowUntil = runElapsedMs + ((L.cart && L.cart.openMs) || 60000);
+    if (cartMode()) { st.openUntil = runElapsedMs + ((L.cart && L.cart.openMs) || 120000); st.arrowUntil = 0; } // no arrow: finding it is the fun
     const roster = (window.INTERNS && INTERNS.roster) || [];
     const r = roster[Math.floor(Math.random() * roster.length)] || { name: "The intern", id: "tj" };
     st.staff = r;
@@ -63,7 +63,7 @@ window.Lounge = (() => {
     st.objs = [rug, sign, staff, tag, arrow]; st.arrow = arrow;
     if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
     const line = ((cartMode() && L.cart && L.cart.lines && L.cart.lines.open) || (L.lines && L.lines.open) || "{name} is on the Lounge register.").replace("{name}", r.name);
-    if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r);
+    if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r, cartMode() ? Math.round(((L.cart && L.cart.openMs) || 120000) / 60000) : 0);
     if (window.showLowerThird) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
     sfx("coin");
   }
@@ -236,7 +236,9 @@ window.Lounge = (() => {
       const cheapest = Math.min(...(L.cart.catalog || []).map(it => it.price));
       if ((meta.coins || 0) < cheapest) return; // nothing you could buy yet: no cart to distract you (first runs)
       st.mode = "cart";
-      const o = L.cart.offset || [150, 40]; let s = { x: player.x + o[0], y: player.y + o[1] };
+      const far = (L.cart.spots || [[150, 40]]).filter(p => Math.hypot(p[0] - player.x, p[1] - player.y) >= (L.cart.minDistance || 0));
+      const pick = Phaser.Utils.Array.GetRandom(far.length ? far : (L.cart.spots || [[player.x + 150, player.y + 40]]));
+      let s = { x: pick[0], y: pick[1] };
       if (window.NAV && NAV.fixSpawn) { const f = NAV.fixSpawn(s.x, s.y); if (f) s = { x: f[0], y: f[1] }; }
       st.cartSpot = s; open(scene);
     }

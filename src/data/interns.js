@@ -79,8 +79,11 @@ window.INTERNS = {
     // (the Break Room is still locked). It sells the Lounge-only weapons, while you still have free hands,
     // and perks that last the whole run. The Break Room counter later sticks to heals and quick buffs.
     cart: {
-      openMs: 60000,
-      offset: [150, 40],        // where it parks, relative to where you start
+      // Nov 5 (Rami): it used to park next to you, so you'd shopped before its card even showed. Now it hides in a
+      // far corner of the Bullpen or Lobby (a different one each run) for the first 2 minutes: go exploring to find it.
+      openMs: 120000,
+      spots: [[2600, -500], [3800, 200], [2000, 660], [3300, -760], [-500, 560], [1100, -480]],
+      minDistance: 1200,        // never closer than this to where you start
       header: "THE LOUNGE CART · LOBBY",
       sign: "LOUNGE CART\nOPEN",
       catalog: [
@@ -91,7 +94,7 @@ window.INTERNS = {
         // Revive (Nov 5, Rami): one extra get-back-up for this run, on top of the 401(k) Shop's Second Opinion.
         { id: "emergencyContact", name: "🚑 Emergency Contact", price: 100, stock: 1, perRun: 1, runRevive: 1, text: "If a hit would end your run, get back up with half health. Once, this run." }
       ],
-      lines: { open: "{name} rolled the Lounge cart into the Lobby. First minute only.", shutter: "The cart's heading back to the Break Room. See you after your promotion." }
+      lines: { open: "{name} parked the Lounge cart somewhere on this floor. Find it in the first 2 minutes.", shutter: "The cart's heading back to the Break Room. See you after your promotion." }
     },
     lines: {
       open: "{name} is on the Lounge register. Cash only.",
