@@ -1455,3 +1455,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 
 - Delivered a wide and a phone layout of six cheering guests around the retirement cake, with eight frames per loop.
 - Checked both at native size, including the falling confetti, party horns and Eli's streamer pop. Claude handles the win-screen placement.
+
+## Nov 5, 2026: V2.7.8 Retirement party crowd
+- ChatGPT's party animation is on the HAPPY RETIREMENT screen: six guests cheering around the cake.
+- Wide strip on laptops, two-row version on phones; still frame when "reduce motion" is on.

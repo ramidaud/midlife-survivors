@@ -2948,6 +2948,7 @@ function retirementPartyHtml(isCentennial) {
         <img class="rt-watch" src="${A}retirement-watch-v1.png" alt="">
       </div>
     </div>
+    <div class="rt-crowd" aria-hidden="true"></div>
     <p class="rt-gifts">${isCentennial
       ? "A hundred candles. The fire marshal has questions. The gold watch is now an heirloom."
       : "From everyone at the office: a sheet cake, a gold watch, and a card that Accounting signed twice."}</p>${goldWatchRetireHtml()}`;

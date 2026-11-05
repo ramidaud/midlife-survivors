@@ -1195,6 +1195,12 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .rt-watch { width: clamp(40px, 6vw, 64px); height: auto; image-rendering: pixelated; animation: rtPop .6s .3s cubic-bezier(.2,1.5,.4,1) both, rtSwing 1.8s 1s ease-in-out infinite alternate; transform-origin: 50% 0; }
   .rt-confetti { position: absolute; inset: 0; pointer-events: none; }
   .rt-confetti i { position: absolute; top: -10px; left: var(--x); width: 6px; height: 10px; background: var(--c); animation: rtFall 3.2s var(--d) linear infinite; }
+  /* Retirement party crowd (ChatGPT, Nov 5): 8 frames at 120 ms. Wide strip on laptops, two-tier strip on phones. */
+  .rt-crowd { width: 640px; max-width: 100%; aspect-ratio: 320 / 96; margin: 0 auto 6px; image-rendering: pixelated;
+    background: url(assets/ui/retire-party-v1-alpha.png) 0 0 / 800% 100% no-repeat; animation: rt-crowd 960ms steps(8, jump-none) infinite; }
+  @keyframes rt-crowd { from { background-position: 0 0; } to { background-position: 100% 0; } }
+  @media (max-width: 560px) { .rt-crowd { width: 288px; aspect-ratio: 192 / 160; background-image: url(assets/ui/retire-party-tall-v1-alpha.png); } }
+  @media (prefers-reduced-motion: reduce) { .rt-crowd { animation: none; background-position: 28.57% 0; } }
   .rt-gifts { margin: 0 0 8px; text-align: center; font: 600 14px/1.4 "Atkinson Hyperlegible", sans-serif; color: var(--ms-cream, #F2D7A1); }
   @keyframes rtPop { from { opacity: 0; transform: translateY(14px) scale(.7); } to { opacity: 1; transform: none; } }
   @keyframes rtSway { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
@@ -1629,7 +1635,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=235&t=" + Date.now();
+    s.src = "src/loader.js?v=236&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

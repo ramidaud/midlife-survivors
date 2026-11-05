@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.7",
-  displayVersion: "V. 2.7.7",
+  version: "2.7.8",
+  displayVersion: "V. 2.7.8",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 235,
+  build: 236,
   changelog: [
+    {
+      ver: "V. 2.7.8", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Your retirement party finally has guests.",
+      highlights: [
+        "The HAPPY RETIREMENT screen now has the whole crew cheering around the sheet cake: TJ, Derek, Eli, an intern, and a Bill in a party hat.",
+        "Phones get a two-row version so nobody gets cropped out of the photo."
+      ]
+    },
     {
       ver: "V. 2.7.7", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Retirement finally sounds like a party, and the Lounge weapons got their real art.",
