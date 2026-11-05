@@ -17,6 +17,14 @@ window.BOSS_DOWN = {
   defaultStamp: "DEFEATED"
 };
 window.BossDown = (() => {
+  // ChatGPT art (Nov 4): one knockdown pose per boss (144x152, feet at y=148) and a russet stamp plate (9-slice).
+  const KO_KEY = "boss_knockdown", KO_ORDER = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp"];
+  const PLATE_KEY = "stamp_plate";
+  function preload(scene) {
+    if (!window.ArtSheets) return;
+    ArtSheets.load(scene, KO_KEY, "assets/bosses/boss-knockdown-v1.png", 144, 152);
+    ArtSheets.load(scene, PLATE_KEY, "assets/ui/stamp-plate-v1.png", 48, 24);
+  }
   const reduced = () => { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
   let slowTimer = null;
   function play(scene, boss, color) {
@@ -43,6 +51,16 @@ window.BossDown = (() => {
       scene.time.delayedCall(520, () => {
         if (!body.active) return;
         body.clearTint();
+        const ko = KO_ORDER.indexOf(boss.kind);
+        if (ko >= 0 && scene.textures.exists(KO_KEY)) { // drop into the knockdown pose: land with a squash, lie there dazed, then fade
+          const feetY = v === boss ? y + (boss.displayHeight || 0) * 0.42 : y;
+          body.setTexture(KO_KEY, ko).setOrigin(0.5, 148 / 152).setPosition(x, feetY).setAngle(0).setFlipX(Math.random() < 0.5).setScale(calm ? 1 : 1.22, calm ? 1 : 0.72);
+          if (typeof burstConfetti === "function") burstConfetti(scene, x, feetY - 10, 0xD3B78D, 12); // thud of dust
+          if (!calm) scene.cameras.main.shake(140, 0.008);
+          scene.tweens.add({ targets: body, scaleX: 1, scaleY: 1, duration: 280, ease: "Back.Out",
+            onComplete: () => scene.tweens.add({ targets: body, alpha: 0, delay: 1300, duration: 550, ease: "Quad.In", onComplete: () => body.destroy() }) });
+          return;
+        }
         const dir = Math.random() < 0.5 ? -1 : 1;
         scene.tweens.add({ targets: body, angle: dir * 78, x: x + dir * 18, y: y + 8, duration: calm ? 1 : 520, ease: "Back.In",
           onComplete: () => { if (typeof burstConfetti === "function") burstConfetti(scene, body.x, body.y, 0xD3B78D, 10); // it lands with a puff of dust
@@ -54,10 +72,19 @@ window.BossDown = (() => {
       burstConfetti(scene, x + (i - 1) * 26, y - 30, [color || 0xEF9347, 0xEF9347, 0xF2D7A1][i], 18)));
     // 5. The stamp.
     const word = (C.stamps && C.stamps[boss.kind]) || C.defaultStamp;
-    const stamp = scene.add.text(x, y - 60, word, {
-      fontFamily: "Silkscreen, monospace", fontSize: "22px", color: "#C45C4B", backgroundColor: "#FFF0CFEE",
-      padding: { x: 10, y: 6 }, align: "center", stroke: "#C45C4B", strokeThickness: 1
-    }).setOrigin(0.5).setDepth(50010).setAngle(-8).setAlpha(0).setScale(2.4);
+    let stamp;
+    if (scene.textures.exists(PLATE_KEY) && scene.add.nineslice) { // russet ink plate with the words stamped inside
+      const txt = scene.add.text(0, 0, word, { fontFamily: "Silkscreen, monospace", fontSize: "22px", color: "#C45C4B", align: "center" }).setOrigin(0.5);
+      const w = Math.ceil(txt.width) + 36, h = Math.ceil(txt.height) + 22;
+      const paper = scene.add.rectangle(0, 0, w - 8, h - 8, 0xFFF0CF, 0.92);
+      const plate = scene.add.nineslice(0, 0, PLATE_KEY, 0, w, h, 8, 8, 8, 8);
+      stamp = scene.add.container(x, y - 130, [paper, plate, txt]).setDepth(50010).setAngle(-8).setAlpha(0).setScale(2.4);
+    } else {
+      stamp = scene.add.text(x, y - 130, word, {
+        fontFamily: "Silkscreen, monospace", fontSize: "22px", color: "#C45C4B", backgroundColor: "#FFF0CFEE",
+        padding: { x: 10, y: 6 }, align: "center", stroke: "#C45C4B", strokeThickness: 1
+      }).setOrigin(0.5).setDepth(50010).setAngle(-8).setAlpha(0).setScale(2.4);
+    }
     scene.time.delayedCall(calm ? 0 : 380, () => {
       if (!stamp.active) return;
       if (typeof sfx === "function") sfx("wordNo");
@@ -67,5 +94,5 @@ window.BossDown = (() => {
     });
   }
   function reset() { clearTimeout(slowTimer); }
-  return { play, reset };
+  return { preload, play, reset };
 })();

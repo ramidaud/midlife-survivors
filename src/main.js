@@ -331,6 +331,8 @@ function create() {
   buildSprites(this);
   if (window.Breakables) Breakables.preload(this); // smashable prop art (assets/breakables)
   if (window.BossArt) BossArt.preload(this);       // big boss art (assets/bosses)
+  if (window.Remains && Remains.preload) Remains.preload(this);   // floor debris (assets/enemies/remains-v1.png)
+  if (window.BossDown && BossDown.preload) BossDown.preload(this); // knockdown poses and the stamp plate
   if (window.GoldWatch) GoldWatch.preload(this);   // the Gold Watch's hands and gears
   if (window.Interns && Interns.preload) Interns.preload(this); // TJ and Derek (assets/characters/intern-*.png)
   EnemyArt.init(this, () => runElapsedMs);
@@ -1590,7 +1592,7 @@ function damageBill(bill, amount) {
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
     if (bill.isBoss && window.BossDown) BossDown.play(sc, bill, E.color); // the big, slow-motion boss defeat (src/boss-down.js)
     else if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
-    if (window.Remains && !bill.clockOut) Remains.add(sc, bill.x, bill.y, E.color, bill.isBoss); // a little pile of scraps that fades (src/remains.js)
+    if (window.Remains && !bill.clockOut) Remains.add(sc, bill.x, bill.y, E.color, bill.isBoss, bill.kind); // a little pile of scraps that fades (src/remains.js)
     burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 8);
     if (bill.elite) { // the jackpot
       const EL = INTENSITY.elites;

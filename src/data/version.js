@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.5.2",
-  displayVersion: "V. 2.5.2",
+  version: "2.6.0",
+  displayVersion: "V. 2.6",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 225,
+  build: 226,
   changelog: [
+    {
+      ver: "V. 2.6", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Real art for the mess: knocked-out bosses, a rubber stamp, and what every enemy leaves behind.",
+      highlights: [
+        "Defeated bosses now drop into their own knockdown pose (the Mortgage in a heap of paperwork, the Review flat on its back) with dizzy stars, then fade.",
+        "The defeat words land inside a russet rubber-stamp plate, above the fallen boss.",
+        "Every enemy leaves its own debris: torn bills, red late-fee stubs, cracked phone bits, donut crumbs, a loose bandage, popped speech bubbles and more. Art by ChatGPT."
+      ]
+    },
     {
       ver: "V. 2.5.2", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Bosses splat into walls now, and \"No.\" stops shoving them across the room.",

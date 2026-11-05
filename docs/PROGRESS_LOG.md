@@ -1395,3 +1395,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Delivered 30 sparse enemy-remains variants, seven comic boss knockdowns and the optional blank russet stamp plate.
 - Included key/index manifests, JSON generation prompts, 1x/2x hero scale boards, responsive review and validator. No original sheets changed.
 - Dimensions, twelve-color palette, opaque magenta, remains budget/distinctness, y148 ground line and stamp stretch edges pass. Desktop and 390px phone art previews are clean; no gameplay or stats runs were made. Claude integrates.
+
+## 2026-11-04: V. 2.6, defeat art wired in
+- ChatGPT delivered remains for 10 enemies (3 variants each), seven boss knockdown poses and a stamp plate.
+- Enemies now leave their own debris (the tinted scraps stay as the fallback). Bosses flicker, then drop into their knockdown pose with a dust thud, lie there about 1.3 s, and fade. The defeat words sit in the stamp plate, above the boss.
