@@ -1,0 +1,166 @@
+{
+  "mic-drop-v1.png": {
+    "subject": "Stage microphone falling and tipping over. Six drop poses and a lavender/cream feedback squiggle loop.",
+    "style": "16-bit pixel art, 1 px navy outline on physical objects, no anti-aliasing, matches the Midlife Survivors loadout sprites",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
+    "background": "#FF00FF flat",
+    "rules": [
+      "no text",
+      "no brands or logos",
+      "no real camera or mic models",
+      "readable at 1x on a phone",
+      "binary alpha after keying"
+    ],
+    "canvas": "24x40 per cell, 6x2 grid; 6 drop frames, 4 feedback frames, 2 empty cells",
+    "studyPrompt": "Native pixel-art pose study for the indie game Midlife Survivors. Match the reference for 16-bit pixel weight, upper left highlights, deep navy 1px outline #171C35, slate #303750/#526078, lavender #BFA8CF, teal #3E7775, sage #83A89A, cream #F2D7A1/#FFF0CF, coffee #EF9347. Flat opaque #FF00FF only behind sprites. No shadows, antialias, typography, brands or grid lines. Chunky stair-step squares that will still read at native size. Six isolated equal cells in one horizontal row. Same stage microphone in each, big silver-lavender rounded mesh grille with three short stepped bands, navy-charcoal tapered grip with a small warm-metal band. Each cell represents 24x40. Fixed floor baseline, first hangs nearly vertical, second tilts clockwise to the right, third hits head-first toward the right, fourth bounces slightly, fifth falls flat pointing right, sixth lies still with a tiny recoil. Fit full flattened silhouette with padding and keep shaft short enough to fit cell width."
+  },
+  "mic-shockwave-v1.png": {
+    "subject": "Thin expanding elliptical sound-wave ring with lavender and cream dashes, clear center.",
+    "style": "16-bit pixel art, 1 px navy outline on physical objects, no anti-aliasing, matches the Midlife Survivors loadout sprites",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
+    "background": "#FF00FF flat",
+    "rules": [
+      "no text",
+      "no brands or logos",
+      "no real camera or mic models",
+      "readable at 1x on a phone",
+      "binary alpha after keying"
+    ],
+    "canvas": "96x96 per cell, 5x1 grid"
+  },
+  "say-cheese-camera-v1.png": {
+    "subject": "Chunky right-facing retro camera with teal grip, raised viewfinder and stepped lens. Idle, shutter press, warm white flash and cooldown.",
+    "style": "16-bit pixel art, 1 px navy outline on physical objects, no anti-aliasing, matches the Midlife Survivors loadout sprites",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
+    "background": "#FF00FF flat",
+    "rules": [
+      "no text",
+      "no brands or logos",
+      "no real camera or mic models",
+      "readable at 1x on a phone",
+      "binary alpha after keying"
+    ],
+    "canvas": "32x24 per cell, 4x1 grid",
+    "studyPrompt": "Native pixel-art pose study for the indie game Midlife Survivors. Match the reference for 16-bit pixel weight, upper left highlights, deep navy 1px outline #171C35, slate #303750/#526078, lavender #BFA8CF, teal #3E7775, sage #83A89A, cream #F2D7A1/#FFF0CF, coffee #EF9347. Flat opaque #FF00FF only behind sprites. No shadows, antialias, typography, brands or grid lines. Chunky stair-step squares that will still read at native size. Four isolated equal cells in one horizontal row. Identical chunky unbranded retro camera seen sideways, nose/lens facing RIGHT; charcoal body, teal grip and a cream and slate lens barrel with visible projecting segments, small raised viewfinder and warm shutter button. Each cell represents 32x24. State 1 idle, state 2 shutter presses down, state 3 a compact cream star burst near the top right, state 4 small light fading. Keep camera body position and silhouette consistent."
+  },
+  "say-cheese-posed-v1.png": {
+    "subject": "Sparse frozen-enemy overlays: peace-sign hand, blink bar, sparkle, broken white flash outline.",
+    "style": "16-bit pixel art, 1 px navy outline on physical objects, no anti-aliasing, matches the Midlife Survivors loadout sprites",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
+    "background": "#FF00FF flat",
+    "rules": [
+      "no text",
+      "no brands or logos",
+      "no real camera or mic models",
+      "readable at 1x on a phone",
+      "binary alpha after keying"
+    ],
+    "canvas": "24x24 per cell, 4x1 grid"
+  },
+  "icon-mic-drop-v1.png": {
+    "subject": "Microphone tipping head-first over lavender and cream sound ripples.",
+    "style": "16-bit pixel art, 1 px navy outline on physical objects, no anti-aliasing, matches the Midlife Survivors loadout sprites",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
+    "background": "#FF00FF flat",
+    "rules": [
+      "no text",
+      "no brands or logos",
+      "no real camera or mic models",
+      "readable at 1x on a phone",
+      "binary alpha after keying"
+    ],
+    "canvas": "24x24, one HUD icon"
+  },
+  "icon-say-cheese-v1.png": {
+    "subject": "Teal-grip camera with a large circular lens and cream flash star.",
+    "style": "16-bit pixel art, 1 px navy outline on physical objects, no anti-aliasing, matches the Midlife Survivors loadout sprites",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
+    "background": "#FF00FF flat",
+    "rules": [
+      "no text",
+      "no brands or logos",
+      "no real camera or mic models",
+      "readable at 1x on a phone",
+      "binary alpha after keying"
+    ],
+    "canvas": "24x24, one HUD icon"
+  }
+}

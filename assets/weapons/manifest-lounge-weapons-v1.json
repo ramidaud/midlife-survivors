@@ -1,0 +1,240 @@
+{
+  "background": "#FF00FF",
+  "alpha": "opaque RGB; key exact magenta to alpha zero",
+  "sampling": "nearest",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "timing": "Preview timings in ms; use gameplay state for trigger and lifetime.",
+  "sheets": {
+    "mic-drop-v1.png": {
+      "cellWidth": 24,
+      "cellHeight": 40,
+      "columns": 6,
+      "rows": 2,
+      "originPx": [
+        12,
+        36
+      ],
+      "animations": [
+        {
+          "id": "drop",
+          "row": 0,
+          "frameIndices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "frames": [
+            "upright",
+            "tilt",
+            "impact",
+            "bounce",
+            "flat",
+            "still"
+          ],
+          "loop": false,
+          "frameDurationsMs": [
+            50,
+            60,
+            40,
+            60,
+            80,
+            120
+          ],
+          "preview": "mic-drop-drop-preview-v1.gif"
+        },
+        {
+          "id": "feedback",
+          "row": 1,
+          "frameIndices": [
+            6,
+            7,
+            8,
+            9
+          ],
+          "frames": [
+            "squiggle_1",
+            "squiggle_2",
+            "squiggle_3",
+            "squiggle_4"
+          ],
+          "loop": true,
+          "frameDurationsMs": [
+            70,
+            70,
+            70,
+            70
+          ],
+          "preview": "mic-drop-feedback-preview-v1.gif"
+        }
+      ],
+      "notes": "Feedback is a separate effect layer above the resting mic. Row 1 columns 4 and 5 are blank."
+    },
+    "mic-shockwave-v1.png": {
+      "cellWidth": 96,
+      "cellHeight": 96,
+      "columns": 5,
+      "rows": 1,
+      "originPx": [
+        48,
+        48
+      ],
+      "animations": [
+        {
+          "id": "shockwave",
+          "row": 0,
+          "frameIndices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "frames": [
+            "expand_1",
+            "expand_2",
+            "expand_3",
+            "expand_4",
+            "expand_5"
+          ],
+          "loop": false,
+          "frameDurationsMs": [
+            70,
+            70,
+            70,
+            70,
+            70
+          ],
+          "preview": "mic-shockwave-preview-v1.gif"
+        }
+      ]
+    },
+    "say-cheese-camera-v1.png": {
+      "cellWidth": 32,
+      "cellHeight": 24,
+      "columns": 4,
+      "rows": 1,
+      "originPx": [
+        16,
+        12
+      ],
+      "animations": [
+        {
+          "id": "camera",
+          "row": 0,
+          "frameIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "frames": [
+            "idle",
+            "shutter_press",
+            "flash_burst",
+            "cooldown"
+          ],
+          "loop": false,
+          "frameDurationsMs": [
+            100,
+            60,
+            60,
+            140
+          ],
+          "preview": "say-cheese-camera-preview-v1.gif"
+        }
+      ],
+      "facing": "right"
+    },
+    "say-cheese-posed-v1.png": {
+      "cellWidth": 24,
+      "cellHeight": 24,
+      "columns": 4,
+      "rows": 1,
+      "originPx": [
+        12,
+        12
+      ],
+      "animations": [
+        {
+          "id": "poses",
+          "row": 0,
+          "frameIndices": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "frames": [
+            "peace_sign",
+            "blink_bar",
+            "sparkle",
+            "flash_outline"
+          ],
+          "loop": false
+        }
+      ]
+    },
+    "icon-mic-drop-v1.png": {
+      "cellWidth": 24,
+      "cellHeight": 24,
+      "columns": 1,
+      "rows": 1,
+      "originPx": [
+        12,
+        12
+      ],
+      "animations": [
+        {
+          "id": "hud",
+          "row": 0,
+          "frameIndices": [
+            0
+          ],
+          "frames": [
+            "mic_drop"
+          ],
+          "loop": false
+        }
+      ]
+    },
+    "icon-say-cheese-v1.png": {
+      "cellWidth": 24,
+      "cellHeight": 24,
+      "columns": 1,
+      "rows": 1,
+      "originPx": [
+        12,
+        12
+      ],
+      "animations": [
+        {
+          "id": "hud",
+          "row": 0,
+          "frameIndices": [
+            0
+          ],
+          "frames": [
+            "say_cheese"
+          ],
+          "loop": false
+        }
+      ]
+    }
+  }
+}

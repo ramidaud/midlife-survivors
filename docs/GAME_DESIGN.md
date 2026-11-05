@@ -555,3 +555,7 @@ Enemy remains use tiny, final-color debris piles with three variants per enemy. 
 ### 2026-11-05 Wall bonk art (Codex)
 
 The wall impact uses one of three drywall cracks with a slate dent and cream plaster chips. The dizzy effect uses an orange star loop with a cream bird option. The frame indices and suggested cadences live in `assets/bosses/manifest-bonk.json`.
+
+### 2026-11-05 Lounge weapon art (Codex)
+
+Mic Drop falls and bounces before lavender feedback flickers over the resting mic. The sound ring has a clear center so enemies stay visible. Say Cheese uses a right-facing camera with a cream flash and four interchangeable frozen poses. Frame order and preview timings live in `assets/weapons/manifest-lounge-weapons-v1.json`.

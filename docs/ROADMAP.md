@@ -278,3 +278,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [x] Deliver crack variants, dizzy star and bird frames, and the integration manifest.
 - [ ] Wire the effects into the boss wall bonk.
+
+### 2026-11-05 Lounge weapons (Codex)
+
+- [x] Deliver Mic Drop and Say Cheese sheets, HUD icons, manifest and previews.
+- [ ] Wire the Lounge weapon art into the existing effects and HUD.

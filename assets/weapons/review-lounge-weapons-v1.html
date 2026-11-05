@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lounge weapons art review</title>
+  <style>
+    body { margin: 0; background: #171c35; color: #fff0cf; font: 16px/1.5 system-ui; }
+    main { max-width: 960px; margin: auto; padding: 16px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 18px; }
+    .review { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 352px), 1fr)); gap: 16px; }
+    .previews { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    figure { margin: 0; min-width: 0; padding: 8px; border: 1px solid #526078; }
+    img { max-width: 100%; height: auto; image-rendering: pixelated; }
+    figcaption { font-size: 14px; }
+    a { color: #f2d7a1; }
+    .wide { grid-column: 1 / -1; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Lounge weapons art review</h1>
+    <p>Native world and HUD comparison with the 9-to-5er and Bill. The four animations below are shown at 2×. Reload to replay the one-shot GIFs.</p>
+    <div class="review">
+      <section>
+        <h2>Scale and pose check</h2>
+        <img src="lounge-weapons-check-v1.png" alt="Mic Drop and Say Cheese at 1× in the office, with all drop, feedback, shockwave, camera and freeze overlay frames">
+      </section>
+      <section>
+        <h2>Animation previews</h2>
+        <div class="previews">
+          <figure><img src="mic-drop-drop-preview-v1.gif" alt="The microphone falls, bounces and lies flat"><figcaption>Mic Drop</figcaption></figure>
+          <figure><img src="mic-drop-feedback-preview-v1.gif" alt="Lavender feedback flickers above the fallen microphone"><figcaption>Feedback loop</figcaption></figure>
+          <figure><img src="say-cheese-camera-preview-v1.gif" alt="Camera shutter press, flash and cooldown"><figcaption>Say Cheese</figcaption></figure>
+          <figure class="wide"><img src="mic-shockwave-preview-v1.gif" alt="Lavender and cream ring expands"><figcaption>Shockwave</figcaption></figure>
+        </div>
+        <p><a href="manifest-lounge-weapons-v1.json">Frame manifest</a></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

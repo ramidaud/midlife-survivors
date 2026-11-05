@@ -1439,3 +1439,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - **Say Cheese** (40 coins): camera flash cone in the direction you face, freezes what's in the shot. Burst Mode adds a double flash.
 - Bosses only slow down from both (same rule as the No and the Thermostat).
 - The Lounge says "HANDS FULL" if your six weapon slots are taken. Placeholder sprites until ChatGPT's art lands.
+
+## 2026-11-05 Lounge weapon art (Codex)
+
+- Finished the Mic Drop fall, feedback and shockwave, plus the Say Cheese flash and four frozen poses.
+- Checked the two 24px HUD icons and the world effects at 1×. The manifest and animated previews are ready for Claude.

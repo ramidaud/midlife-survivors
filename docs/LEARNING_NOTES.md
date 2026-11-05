@@ -569,3 +569,7 @@ A decal inherits the wall behind it. Navy fissures and cream chips give the bonk
 - The save file is a list of named values (coins, ranks, mapFound...). Loading it used a fixed list of names to copy back, called an **allowlist**.
 - Anything added later and not put on that list worked fine until a reload, then quietly vanished. That's how the office map "forgot" you found it.
 - Fix: copy everything that was saved first, then clean up the important fields. New features now persist without anyone remembering to update the list.
+
+## 2026-11-05 Separate effect layers (Codex)
+
+Mic Drop has three pieces of art: the falling mic, the feedback above it and the ring on the floor. That lets the ring grow to the attack's radius while the mic stays the same size. The ring's empty center keeps enemies readable as it passes over them.
