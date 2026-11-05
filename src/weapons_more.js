@@ -53,7 +53,8 @@ window.MoreWeapons = (() => {
   const SHEETS = {
     ws_dish: ["casserole-v1.png", 32, 24], ws_heat: ["casserole-heat-v1.png", 128, 96], ws_bubble: ["phones-bubble-v1.png", 80, 80],
     ws_chair: ["office-chair-v1.png", 28, 30], ws_email: ["reply-all-v1.png", 18, 14], ws_ooo: ["ooo-field-v1.png", 256, 200],
-    ws_sticky: ["sticky-note-v1.png", 16, 16], ws_snap: ["cold-snap-v1.png", 160, 160], ws_ice: ["frozen-overlay-v1.png", 40, 40]
+    ws_sticky: ["sticky-note-v1.png", 16, 16], ws_snap: ["cold-snap-v1.png", 160, 160], ws_ice: ["frozen-overlay-v1.png", 40, 40],
+    ws_mic: ["mic-drop-v1.png", 24, 40], ws_micwave: ["mic-shockwave-v1.png", 96, 96], ws_cam: ["say-cheese-camera-v1.png", 32, 24], ws_pose: ["say-cheese-posed-v1.png", 24, 24]
   };
   const has = (scene, k) => scene.textures.exists(k);
   const loop = (t, ms, n, first) => (first || 0) + Math.floor(t / ms) % n; // which frame of a looping strip to show
@@ -283,10 +284,20 @@ window.MoreWeapons = (() => {
     // MIC DROP (Lounge exclusive): the mic falls at your feet and a feedback screech stuns everything around you.
     if (stats.micDrop && ready("mic", stats.micEveryMs)) {
       const MD = WEAPONS.micDrop, r = stats.micRadius, x = player.x, y = player.y + 10;
-      const mic = scene.add.image(x + 18, y - 70, "w_mic").setDepth(7).setScale(2).setAngle(-20);
-      scene.tweens.add({ targets: mic, y: y + 4, angle: 70, duration: 260, ease: "Quad.In", onComplete: () => {
+      const art = has(scene, "ws_mic");
+      // ChatGPT art: falls from above, then plays the 6-frame tip-over (feet at 12,36). Placeholder: a spinning mic.
+      const mic = art ? scene.add.sprite(x + 18, y - 70, "ws_mic", 0).setOrigin(0.5, 36 / 40).setDepth(7).setScale(1.5)
+                      : scene.add.image(x + 18, y - 70, "w_mic").setDepth(7).setScale(2).setAngle(-20);
+      scene.tweens.add({ targets: mic, y: y + 4, angle: art ? 0 : 70, duration: 260, ease: "Quad.In", onComplete: () => {
+        if (art) { // tip over, then a feedback squiggle loops over the resting mic
+          const D = [50, 60, 40, 60, 80, 120]; let t = 0;
+          D.forEach((d, i) => { scene.time.delayedCall(t, () => mic.active && mic.setFrame(i)); t += d; });
+          const fb = scene.add.sprite(x + 18, y - 40, "ws_mic", 6).setDepth(7.1).setScale(1.5);
+          const o = { f: 0 }; scene.tweens.add({ targets: o, f: 12, duration: 840, onUpdate: () => fb.active && fb.setFrame(6 + Math.floor(o.f) % 4), onComplete: () => fb.destroy() });
+          burst(scene, "ws_micwave", x, y, 0, 5, 80, (r * 2) / 90, 6.3);
+        }
         // the drop lands: shockwave rings, a shake, everything nearby stunned and hit
-        ring(scene, x, y, r, C.lav, 520); scene.time.delayedCall(120, () => ring(scene, x, y, r * 0.7, C.white, 420));
+        if (!art) { ring(scene, x, y, r, C.lav, 520); scene.time.delayedCall(120, () => ring(scene, x, y, r * 0.7, C.white, 420)); }
         scene.cameras.main.shake(160, 0.006);
         let n = 0;
         live().forEach(b => { if (!near(b, x, y, r)) return; n++;
@@ -295,7 +306,7 @@ window.MoreWeapons = (() => {
           damageBill(b, stats.micDamage); });
         sfx("wordNo");
         pop(scene, x, y - 70, Phaser.Utils.Array.GetRandom(MD.words), "#BFA8CF");
-        scene.tweens.add({ targets: mic, alpha: 0, delay: 600, duration: 300, onComplete: () => mic.destroy() });
+        scene.tweens.add({ targets: mic, alpha: 0, delay: 900, duration: 300, onComplete: () => mic.destroy() });
       } });
     }
 
@@ -308,8 +319,10 @@ window.MoreWeapons = (() => {
         g.fillStyle(0xFFF0CF, 0.55).slice(x, y, r, a0 - half, a0 + half, false).fillPath();
         g.fillStyle(0xFFFFFF, 0.8).slice(x, y, r * 0.55, a0 - half * 0.6, a0 + half * 0.6, false).fillPath();
         scene.tweens.add({ targets: g, alpha: 0, duration: 260, onComplete: () => g.destroy() });
-        const cam = scene.add.image(x + Math.cos(a0) * 16, y + Math.sin(a0) * 16, "w_camera").setDepth(7).setScale(1.6).setFlipX(Math.cos(a0) < 0);
-        scene.tweens.add({ targets: cam, alpha: 0, delay: 200, duration: 200, onComplete: () => cam.destroy() });
+        const camArt = has(scene, "ws_cam"), cx = x + Math.cos(a0) * 18, cy = y + Math.sin(a0) * 18;
+        const cam = (camArt ? scene.add.sprite(cx, cy, "ws_cam", 1) : scene.add.image(cx, cy, "w_camera")).setDepth(7).setScale(camArt ? 1.25 : 1.6).setFlipX(Math.cos(a0) < 0);
+        if (camArt) { scene.time.delayedCall(60, () => cam.active && cam.setFrame(2)); scene.time.delayedCall(180, () => cam.active && cam.setFrame(3)); }
+        scene.tweens.add({ targets: cam, alpha: 0, delay: 260, duration: 200, onComplete: () => cam.destroy() });
         let n = 0;
         live().forEach(b => {
           const d = Phaser.Math.Distance.Between(x, y, b.x, b.y); if (d > r + size(b)) return;
@@ -317,6 +330,10 @@ window.MoreWeapons = (() => {
           n++;
           if (b.isBoss) b.slowUntil = Math.max(b.slowUntil || 0, runElapsedMs + stats.cheeseFreezeMs);
           else { b.cringeUntil = Math.max(b.cringeUntil || 0, runElapsedMs + stats.cheeseFreezeMs); if (b.body) b.setVelocity(0, 0); b.setTintFill && b.setTintFill(0xFFFFFF); scene.time.delayedCall(90, () => b.active && b.clearTint && b.clearTint()); }
+          if (!b.isBoss && has(scene, "ws_pose") && b.active) { // a little pose sticker while frozen (peace sign, blink bar, sparkle, flash outline)
+            const st = scene.add.image(b.x + 10, b.y - size(b) - 6, "ws_pose", Phaser.Math.Between(0, 3)).setDepth((b.depth || 5) + 0.02);
+            scene.tweens.add({ targets: st, alpha: 0, delay: stats.cheeseFreezeMs - 250, duration: 250, onComplete: () => st.destroy() });
+          }
           damageBill(b, stats.cheeseDamage);
         });
         sfx("pick");

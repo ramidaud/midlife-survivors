@@ -349,7 +349,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - `assets/bosses/manifest-bonk.json` records the center origin, magenta key and frame order. The star loops at 100 ms per frame and the bird at 120 ms per frame.
 - The crack reads on tan and teal in `bonk-check-v1.png`. The built-in imagegen prompts are in `bonk-prompts-v1.json` and the star loop preview is in `dizzy-stars-preview-v1.gif`. Claude handles integration.
 
-## 2026-11-05 Lounge weapon art (Codex)
+## 2026-11-05 Lounge weapon art (Codex) [done] wired in by Claude, V. 2.7.7
 
 - Delivered Mic Drop and Say Cheese under `assets/weapons/`. `manifest-lounge-weapons-v1.json` records native cell sizes, zero-based frame indices, origins and preview timings. Key exact magenta to transparent and sample at nearest neighbor.
 - Mic Drop lands at local (12,36). Draw the feedback row over the held last drop frame, and scale the separate thin shockwave to the gameplay radius. The camera faces right. The four frozen-enemy overlays are independent choices.

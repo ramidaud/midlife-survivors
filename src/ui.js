@@ -107,7 +107,12 @@ function atlasIcon(I, idx, size) {
   return `<span class="px-icon" style="width:${s}px;height:${s}px;background-image:url(${I.image}?v=${window.BUILD || 1});` +
     `background-size:${I.columns * s}px ${I.rows * s}px;background-position:-${col * s}px -${row * s}px" role="img" aria-label=""></span>`;
 }
+// Single-image icons (ChatGPT, Nov 5): Lounge weapons. Keyed by weapon id (HUD) and card name (level-up cards).
+const SOLO_ICONS = { micDrop: "assets/weapons/icon-mic-drop-v1-alpha.png", sayCheese: "assets/weapons/icon-say-cheese-v1-alpha.png" };
+const SOLO_CARDS = { "Unlock: Mic Drop": "micDrop", "Encore": "micDrop", "Unlock: Say Cheese": "sayCheese", "Burst Mode": "sayCheese" };
+const soloIcon = (id, size) => { const s = size || 32; return `<img class="px-icon" src="${SOLO_ICONS[id]}?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; };
 function pixelIcon(kind, id, emoji, size) {
+  if (kind === "card" && SOLO_CARDS[id] && window.USE_PIXEL_ICONS) return soloIcon(SOLO_CARDS[id], size);
   if (kind === "char" && id === "coldWarCowboy") { const s = size || 32; return `<img class="px-icon" src="assets/characters/cold-war-cowboy-badge-v3.png?v=${window.BUILD || 1}" width="${s}" height="${s}" style="image-rendering:pixelated" alt="">`; }
   const I = window.UI_ICONS, L = window.LOADOUT_ICONS;
   if (!window.USE_PIXEL_ICONS || !I) return emoji;
@@ -162,6 +167,7 @@ const SLOT_CARDS = {
 function slotIcon(it, evo, size) {
   const emoji = evo ? it.evoIcon : it.icon, L = window.LOADOUT_ICONS;
   if (!window.USE_PIXEL_ICONS) return emoji;
+  if (SOLO_ICONS[it.id]) return soloIcon(it.id, size);
   if (!evo && L && L.hud[it.id] !== undefined) return atlasIcon(L, L.hud[it.id], size); // the new weapons' framed HUD tiles
   const name = (SLOT_CARDS[it.id] || [])[evo ? 1 : 0];
   return name ? pixelIcon("card", name, emoji, size) : emoji;

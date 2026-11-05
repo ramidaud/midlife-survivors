@@ -88,6 +88,12 @@ function toggleVoice() {
 }
 function isVoiceEnabled() { return voiceEnabled; }
 
+// End screen hush (Nov 5, Rami: cut the hits still sounding behind the retirement screen).
+// While a run's end screen is up, only menu sounds and the ending fanfare play. musicTrack picks which tune loops.
+let endHush = false, musicTrack = "music", musicTick = 0;
+const HUSH_OK = new Set(["pick", "move", "uiHover", "retireFanfare"]);
+function setEndHush(on) { endHush = !!on; }
+function setMusicTrack(name) { if (musicTrack !== name) { musicTrack = name; musicStep = 0; musicTick = 0; } }
 function setMusicPlaying(on) {
   musicPlaying = on;
   if (on && audioCtx && audioCtx.state !== "running" && audioCtx.state !== "closed") audioCtx.resume().catch(() => {}); // a run starting is a good moment to wake the audio
@@ -116,9 +122,11 @@ function speakDadJoke(text, pitch = 0.94, rate = 1.06) {
 
 // Background 16-bit synth groove scheduler: ticks every SOUNDS.music.stepMs.
 setInterval(() => {
-  if (muted || !musicPlaying || document.hidden || !audioCtx || audioCtx.state !== "running" || !SOUNDS.music) return;
-  const M = SOUNDS.music, i = musicStep++ % M.bass.length;
-  const t = audioCtx.currentTime, dur = (M.stepMs / 1000) * 0.85;
+  const M = SOUNDS[musicTrack] || SOUNDS.music;
+  if (muted || !musicPlaying || document.hidden || !audioCtx || audioCtx.state !== "running" || !M) return;
+  if (musicTick++ % (M.every || 1)) return; // slower tunes skip ticks (every: 2 = half speed)
+  const i = musicStep++ % M.bass.length;
+  const t = audioCtx.currentTime, dur = (165 * (M.every || 1) / 1000) * 0.85;
   const bFreq = M.bass[i], lFreq = M.lead[i];
   if (bFreq) {
     const o = audioCtx.createOscillator(), g = audioCtx.createGain();
@@ -144,6 +152,7 @@ const PENTA = [1, 1.125, 1.25, 1.5, 1.667]; // major pentatonic: any mix of thes
 const ladders = {}; // kill/gem streaks: how far up the scale we are
 function sfx(name, minGapMs = 40) {
   if (muted || !audioCtx || audioCtx.state !== "running" || !SOUNDS[name]) return;
+  if (endHush && !HUSH_OK.has(name)) return;
   setupBuses();
   const now = performance.now();
   if (now - (lastPlayed[name] || 0) < minGapMs) return;

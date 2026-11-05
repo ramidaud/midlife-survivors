@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.6",
-  displayVersion: "V. 2.7.6",
+  version: "2.7.7",
+  displayVersion: "V. 2.7.7",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 234,
+  build: 235,
   changelog: [
+    {
+      ver: "V. 2.7.7", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Retirement finally sounds like a party, and the Lounge weapons got their real art.",
+      highlights: [
+        "The end screen goes quiet: no more phantom hits behind your retirement card.",
+        "Retire and you get a fanfare, then a slow victory-lap tune under the HAPPY RETIREMENT screen.",
+        "Mic Drop and Say Cheese have real pixel art: a tipping mic, a feedback screech, a shockwave and a camera that leaves pose stickers on frozen enemies."
+      ]
+    },
     {
       ver: "V. 2.7.6", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The Student Lounge now sells two weapons you can't find anywhere else.",

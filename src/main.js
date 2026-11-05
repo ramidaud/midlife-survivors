@@ -283,6 +283,7 @@ function spawnCoin(x, y, bonusMult = 1) {
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
+  if (typeof setEndHush === "function") { setEndHush(false); setMusicTrack("music"); }
   runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); if (window.BossDown) BossDown.reset(); if (this.physics && this.physics.world) this.physics.world.timeScale = 1; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
@@ -1500,6 +1501,10 @@ function showGameOver(scene, killer, isWin) {
   });
   saveMeta(meta);
   setMusicPlaying(false);
+  if (typeof setEndHush === "function") {
+    setEndHush(true); // the fight behind the end screen goes quiet
+    if (isWin) { sfx("retireFanfare", 0); setMusicTrack("musicRetire"); setTimeout(() => { if (gameOver) setMusicPlaying(true); }, 1400); }
+  }
   restartGame = () => { hideAllModals(); scene.scene.restart(); };
   scene.physics.pause();
   const winLines80 = [

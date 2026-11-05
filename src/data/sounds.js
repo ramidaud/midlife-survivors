@@ -22,6 +22,7 @@ window.SOUNDS = {
   bossDefeat:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.22, "square"]],
   catch:    [[659, 0.05, "square"], [880, 0.05, "square"], [1175, 0.05, "square"], [1568, 0.16, "triangle"]], // GOTCHA! (catching an intern)
   reelTick: [[1400, 0.018, "square"]],                                                                      // the treat reel clicking past
+  retireFanfare: [[523, 0.12, "square"], [659, 0.12, "square"], [784, 0.12, "square"], [1047, 0.32, "square"], [784, 0.12, "triangle"], [1047, 0.6, "triangle"]], // HAPPY RETIREMENT!
   reelLand: [[784, 0.06, "triangle"], [1047, 0.06, "triangle"], [1568, 0.22, "sine"]],                      // the reel lands on your treat
 
   // Retro 16-bit synthwave/chiptune background groove (16-step loop, in Hz; 0 = rest).
@@ -30,6 +31,13 @@ window.SOUNDS = {
     stepMs: 165,       // tempo (~180 eighth-notes per minute)
     bass: [110, 110, 220, 110,  131, 131, 262, 131,  147, 147, 294, 147,  165, 147, 131, 98],
     lead: [440, 0,   523, 659,  587, 0,   523, 440,  587, 0,   659, 784,  659, 587, 523, 0]
+  },
+  // Retirement party (Nov 5): a slow, warm victory lap that loops under the HAPPY RETIREMENT screen.
+  musicRetire: {
+    volume: 0.06,
+    every: 2,          // half speed (two music ticks per note)
+    bass: [131, 0, 196, 0,  98, 0, 196, 0,  110, 0, 165, 0,  87, 0, 175, 0,  131, 0, 196, 0,  87, 0, 175, 0,  98, 0, 147, 0,  131, 0, 196, 0],
+    lead: [659, 0, 587, 523, 587, 0, 659, 0,  784, 0, 659, 587, 523, 0, 0, 0,  523, 0, 587, 659, 698, 0, 659, 587, 523, 0, 494, 587, 523, 0, 0, 0]
   }
 };
 
