@@ -1535,3 +1535,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - From 55: nonstop movement fills a candle meter under your health (about 45 s), standing still drains it fast; full = a tougher pink Medical Bill whose hit costs a 5k copay. Energy Drinks add a big chunk.
 - Settings in `src/data/hustle.js`. Next: fiscal-year seasons with an optional Corporate Buyout.
 - V2.9.2: ChatGPT's coworker cleanup wired in. Measured: working loops 30-46% → about 2% changed pixels, idles 46-74% → under 1.1%, holes → 0.
+
+## Nov 5, 2026: V2.9.3 Fiscal-year seasons + Corporate Buyout (Kevin's idea)
+- The board shows the current fiscal year by default (FY2 = from Nov 4, Version Two), with a SHOW ALL-TIME toggle. No database change: it filters by date.
+- Once per fiscal year, players with shop ranks get an optional Corporate Buyout memo: ranks cashed out at 50% of what they spent, plus a BOUGHT OUT tag on that year's board. The cursor starts on KEEP.
+- New fiscal year = add a line to `SEASONS` in src/data/leaderboard.js (plan: Fiscal Year 3 with Version 3.0).

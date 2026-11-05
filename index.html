@@ -491,6 +491,9 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   .tax-val { font-size: 12px; min-width: 150px; text-align: center; }
   .tax-val.on { color: #ff8a5b; }
   .lb-tax { font-size: 9px; color: #ff8a5b; font-weight: 700; }
+  .lb-season { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0 0 6px; font: 13px Silkscreen, monospace; color: #F2D7A1; }
+  .lb-scope-btn { font: 11px Silkscreen, monospace; background: #1f2640; color: #FFF0CF; border: 2px solid #3E7775; border-radius: 6px; padding: 5px 8px; cursor: pointer; min-height: 32px; }
+  .lb-legacy.lb-buyout { background: #BFA8CF; }
   .lb-legacy { font: 9px Silkscreen, monospace; color: #171C35; background: #D3B78D; padding: 1px 4px; border-radius: 3px; vertical-align: middle; }
   .lb-note { font-size: 12px; color: #B8C0D4; margin-top: 6px; line-height: 1.4; }
   .go-ach { margin: 8px 0; font-size: 12px; color: #f5c542; text-align: center; }
@@ -1635,7 +1638,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=253&t=" + Date.now();
+    s.src = "src/loader.js?v=254&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

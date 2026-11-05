@@ -20,3 +20,15 @@ window.LEADERBOARD = {
   bossSlowSecs: 120,            // no fast bonus after 2 minutes
   centennialBonus: 25000 // meeting Death at 100
 };
+
+// Fiscal-year seasons (Nov 5; Kevin's "corporate buyout" idea, Rami's OK). Each big version starts a new fiscal year:
+// the board shows this year's scores by default (ALL-TIME is one tap away), and players with shop ranks get a
+// one-time, optional Corporate Buyout. Add a season here when a big version ships (3.0 = Fiscal Year 3).
+window.SEASONS = {
+  list: [
+    { id: "fy1", name: "Fiscal Year 1", start: "2026-10-30", note: "Version One" },
+    { id: "fy2", name: "Fiscal Year 2", start: "2026-11-04", note: "Version Two" }
+  ],
+  buyoutRate: 0.5,  // the buyout pays back this share of everything you spent in the 401(k) Shop
+  current() { const today = new Date().toISOString().slice(0, 10); return this.list.filter(s => s.start <= today).pop() || this.list[0]; }
+};

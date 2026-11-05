@@ -583,3 +583,7 @@ Each coworker has a quiet typing loop, a personal gesture and a small standing b
 ## Hustle and Burning the Candle (decided Nov 5, V. 2.9.1, Kevin's idea)
 - Midlife in one mechanic: hustling pays early, then costs you. Before 55 movement and exploring raise the paycheck; after 55 nonstop movement fills a candle meter and summons Medical Bills (copays).
 - Rule kept from First Day: it punishes overdoing it, never normal dodging. A one-second pause drains the meter.
+
+## Fiscal years and the Corporate Buyout (decided Nov 5, V. 2.9.3, Kevin's idea)
+- Each big version starts a fiscal year (season). The board defaults to the current year; all-time stays one tap away.
+- The buyout is optional, offered once a year, and pays 50% of shop spending, with a BOUGHT OUT badge on that year's board.

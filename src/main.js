@@ -1096,6 +1096,7 @@ function showTitleScreen(scene) {
 
   renderTitleModal(scene);
   { const tm = document.getElementById("title-modal"); if (tm) tm.scrollTop = 0; } // open at the top on short windows
+  setTimeout(() => { if (titleOpen && window.Buyout) Buyout.maybeOffer(); }, 900); // once a fiscal year: the Corporate Buyout offer
 
   window.resumeSavedRunFromTitle = () => {
     const saved = loadRunState();

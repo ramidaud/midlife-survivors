@@ -3081,7 +3081,7 @@ function renderGameOverModal(scene, cause, isWin, killer) {
     nameInput.blur();
     document.getElementById("score-post-btn").disabled = true;
     scoreMsg.textContent = "Posting…";
-    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") + (window.isSprintRun && window.isSprintRun() ? " S" : "") + (window.getRunTaxBracket && window.getRunTaxBracket() ? ` T${window.getRunTaxBracket()}` : "") }; // " S" = Sprint (shown as ⚡ on the board)
+    const entry = { name, score: runScore, age: +currentAge.toFixed(2), startAge: runStartAge, character: meta.selectedChar, version: (getVersionInfo().version || "") + (window.SEASONS && meta.boughtOut === SEASONS.current().id ? " B" : "") + (window.isSprintRun && window.isSprintRun() ? " S" : "") + (window.getRunTaxBracket && window.getRunTaxBracket() ? ` T${window.getRunTaxBracket()}` : "") }; // " S" = Sprint (shown as ⚡ on the board)
     const res = await window.lbSubmit(entry);
     // An HTTP 400 means the board answered but turned the score down (Nov 4: Derek's 579,444 hit an old 500,000 cap), so don't call that "couldn't reach".
     scoreMsg.textContent = res.reason === "dev" ? "Dev mode is on, so this score wasn't posted." : res.online ? "Posted to the online leaderboard!"
