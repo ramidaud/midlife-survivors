@@ -22,6 +22,7 @@ window.ACHIEVEMENTS = [
   { id: "remoteWorker",   icon: "🌐", name: "Remote Worker",            desc: "Finish runs on a phone, a tablet AND a computer.",               reward: 10, on: "devices", test: d => ["phone", "tablet", "desktop"].every(k => d[k]) },
   { id: "pluggedIn",      icon: "🎮", name: "Plugged In",               desc: "Finish a run using a game controller.",                          reward: 5,  on: "devices", test: d => d.controller >= 1 },
   { id: "requiredReading", icon: "📚", name: "Required Reading",       desc: "Finish 10 devlog memos (scroll to the end of each).", reward: 10, on: "devlog", test: d => d.read >= 10 },
+  { id: "middleManagement", icon: "💤", name: "Middle Management",     desc: "Reach age 55 in any run. Unlocks Sleep On It (rerolls) in the 401(k) shop.", reward: 6, on: "age", test: d => d.age >= 55 },
   { id: "retired",       icon: "🎂", name: "Retirement Plan",           desc: "Reach your Retirement Party in Midlife. Unlocks Full Life.", reward: 10, on: "clear", test: d => d.mode === "midlife" },
   { id: "grassLegal",    icon: "📏", name: "0.2 Inches Legal",          desc: "Beat the HOA Board President.",           reward: 8,  on: "bossKill", test: d => d.kind === "hoaPresident" },
   { id: "vested",        icon: "🪙", name: "Fully Vested",              desc: "Reach age 80.",                           reward: 10, on: "age", test: d => d.age >= 80 },

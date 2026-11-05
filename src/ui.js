@@ -2063,7 +2063,7 @@ function showRetire80Modal(scene, onContinueSenior, onClaimWin) {
   window.menuNav.refresh();
 }
 
-function renderLevelUpModal(choices, customTitle, onPick, skip) {
+function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
   const modal = document.getElementById("levelup-modal");
   const title = document.getElementById("lv-title");
   const kicker = document.getElementById("lv-kicker");
@@ -2127,6 +2127,12 @@ function renderLevelUpModal(choices, customTitle, onPick, skip) {
     return card;
   });
 
+  // Skip and Sleep On It share one row above the cards.
+  let actions = document.getElementById("lv-actions");
+  if (actions) actions.remove();
+  actions = document.createElement("div"); actions.id = "lv-actions";
+  actions.style.cssText = "display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:-4px auto 16px";
+  grid.parentNode.insertBefore(actions, grid);
   // Skip button under the cards (only when a choice would add something new to your loadout)
   let skipEl = document.getElementById("lv-skip");
   if (skipEl) skipEl.remove();
@@ -2137,8 +2143,20 @@ function renderLevelUpModal(choices, customTitle, onPick, skip) {
     if (!document.getElementById("lv-skip-css")) { const st = document.createElement("style"); st.id = "lv-skip-css";
       st.textContent = `.lv-skip{display:block;margin:-4px auto 16px;padding:7px 14px;min-height:38px;border-radius:5px;border:2px dashed #526078;background:rgba(23,28,53,.7);color:#B8C0D4;font:14px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}.lv-skip b{font:11px Silkscreen,monospace;letter-spacing:.06em;color:#F2D7A1;margin-right:6px}.lv-skip:hover,.lv-skip.nav-focused{border-style:solid;border-color:#F2D7A1;color:#FFF0CF}`;
       document.head.appendChild(st); }
-    grid.parentNode.insertBefore(skipEl, grid); // above the cards, so it never scrolls off a phone screen
-    bindNavItem(skipEl, 1, () => { if (performance.now() - openedAt < 450) return; modal.classList.add("hidden"); skipEl.remove(); onPick(skip); });
+    skipEl.style.margin = "0"; actions.appendChild(skipEl); // above the cards, so it never scrolls off a phone screen
+    bindNavItem(skipEl, 1, () => { if (performance.now() - openedAt < 450) return; modal.classList.add("hidden"); actions.remove(); onPick(skip); });
+  }
+  // Sleep On It (Nov 5): reroll all three cards. Charges come from the 401(k) shop, unlocked at age 55.
+  let rerollEl = document.getElementById("lv-reroll");
+  if (rerollEl) rerollEl.remove();
+  if (reroll && reroll.left > 0) {
+    rerollEl = document.createElement("button"); rerollEl.type = "button"; rerollEl.id = "lv-reroll"; rerollEl.className = "lv-skip lv-reroll";
+    rerollEl.innerHTML = `<b>💤 SLEEP ON IT</b> New cards · ${reroll.left} left`;
+    if (!document.getElementById("lv-reroll-css")) { const st = document.createElement("style"); st.id = "lv-reroll-css";
+      st.textContent = `.lv-reroll{border-color:#3E7775}.lv-reroll b{color:#83A89A}`;
+      document.head.appendChild(st); }
+    rerollEl.style.margin = "0"; actions.appendChild(rerollEl);
+    bindNavItem(rerollEl, 1, () => { if (performance.now() - openedAt < 450) return; actions.remove(); reroll.go(); });
   }
 
   function highlightCard(idx) {
@@ -2208,18 +2226,19 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const shopSpent = META_SHOP.reduce((sum, item) => { const r = meta.ranks[item.id] || 0; return sum + item.baseCost * r * (r + 1) / 2; }, 0);
   const shopRowsHtml = META_SHOP.map(item => {
     const rank = meta.ranks[item.id] || 0;
+    const locked = window.shopItemLocked && shopItemLocked(item, meta);
     const maxed = rank >= item.maxRank;
     const cost = item.baseCost * (rank + 1);
-    const canBuy = !maxed && meta.coins >= cost;
+    const canBuy = !locked && !maxed && meta.coins >= cost;
     return `
-      <div class="shop-row ${maxed ? "maxed" : ""} ${canBuy ? "affordable" : ""}" data-shop="${item.id}">
-        <div class="shop-art" aria-hidden="true">${item.icon || "🪙"}</div>
+      <div class="shop-row ${maxed ? "maxed" : ""} ${canBuy ? "affordable" : ""} ${locked ? "shop-locked" : ""}" data-shop="${item.id}">
+        <div class="shop-art" aria-hidden="true">${locked ? "🔒" : (item.icon || "🪙")}</div>
         <div class="shop-info">
           <span class="shop-name">${item.name}</span>
           <span class="shop-pips">${"■".repeat(rank)}${"□".repeat(item.maxRank - rank)}</span>
-          <span class="shop-desc">${item.desc}</span>
+          <span class="shop-desc">${locked ? (item.lockedDesc || "Locked.") : item.desc}</span>
         </div>
-        <button class="shop-buy-btn" tabindex="-1">${maxed ? "MAXED" : `BUY ${cost}k`}</button>
+        <button class="shop-buy-btn" tabindex="-1">${locked ? "LOCKED" : maxed ? "MAXED" : `BUY ${cost}k`}</button>
       </div>
     `;
   }).join("");
@@ -2564,7 +2583,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
       if (!item) return;
       const rank = meta.ranks[item.id] || 0;
       const cost = item.baseCost * (rank + 1);
-      if (rank < item.maxRank && meta.coins >= cost) {
+      if (!(window.shopItemLocked && shopItemLocked(item, meta)) && rank < item.maxRank && meta.coins >= cost) {
         meta.coins -= cost; meta.ranks[item.id] = rank + 1;
         if (rank + 1 >= item.maxRank && window.achEvent) window.achEvent("shopMax", { id: item.id });
         saveMeta(meta); sfx("billPaid");
@@ -2702,7 +2721,7 @@ function titleFileTile() {
   const feed = [];
   if (lastLine) feed.push({ t: "status", h: lastLine });
   const cheap = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: it.baseCost * (r + 1) }; })
-    .filter(x => x.r < x.it.maxRank && x.cost <= (meta.coins || 0)).sort((a, b) => a.cost - b.cost)[0];
+    .filter(x => !(window.shopItemLocked && shopItemLocked(x.it, meta)) && x.r < x.it.maxRank && x.cost <= (meta.coins || 0)).sort((a, b) => a.cost - b.cost)[0];
   if (returning && cheap) feed.push({ t: "status", h: `💰 You can afford <b>${esc(cheap.it.name)}</b>${cheap.r ? ` rank ${cheap.r + 1}` : ""} (${cheap.cost}k).`, go: "shop", cta: "Open the shop" });
   const V = window.GAME_VERSION || {}, latest = (V.changelog || [])[0] || {};
   if (returning && latest.teaser) feed.push({ t: "news", h: `<b>${esc(latest.ver || V.displayVersion || "")}:</b> ${esc(latest.teaser)}`, go: "whatsnew", cta: "What's new" });
@@ -2871,7 +2890,7 @@ function runSummaryHtml() {
   const got = (meta && meta.achievements && meta.achievements.unlocked) || {};
   const next = (window.ACHIEVEMENTS || []).filter(a => !got[a.id]).slice(0, 2);
   const shop = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: it.baseCost * (r + 1) }; })
-    .filter(x => x.r < x.it.maxRank && meta.coins >= x.cost).sort((a, b) => a.cost - b.cost)[0];
+    .filter(x => !(window.shopItemLocked && shopItemLocked(x.it, meta)) && x.r < x.it.maxRank && meta.coins >= x.cost).sort((a, b) => a.cost - b.cost)[0];
   if (!fresh.length && !next.length && !shop) return "";
   return `<div class="run-summary">
     ${fresh.length ? `<div class="rs-head">🏅 EARNED THIS RUN</div>${fresh.map(a => `

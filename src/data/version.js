@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.6.1",
-  displayVersion: "V. 2.6.1",
+  version: "2.7.0",
+  displayVersion: "V. 2.7",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 227,
+  build: 228,
   changelog: [
+    {
+      ver: "V. 2.7", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Don't like your cards? Sleep On It: rerolls you earn by making it to 55.",
+      highlights: [
+        "New: Sleep On It. Reach age 55 in any run (the new Middle Management achievement) to unlock it in the 401(k) shop. Each rank gives one reroll per run (up to 3).",
+        "On the level-up screen, Sleep On It swaps all three cards for different ones. Evolutions always stay on the table."
+      ]
+    },
     {
       ver: "V. 2.6.1", date: "Nov 4, 2026", title: "Version Two",
       teaser: "No more gap at the bottom of iPhone screens.",

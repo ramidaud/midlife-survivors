@@ -6,6 +6,8 @@
 
 // Permanent upgrades. Cost of the next rank = baseCost x (rank + 1), in thousands.
 // Tuned (Oct 31) so a first run buys about one cheap rank and maxing everything takes many runs.
+// A shop item with unlockAchievement stays locked until that achievement is earned.
+window.shopItemLocked = (item, m) => { m = m || window.meta; return !!(item && item.unlockAchievement && !(m && m.achievements && m.achievements.unlocked && m.achievements.unlocked[item.unlockAchievement])); };
 window.META_SHOP = [
   { id: "compoundInterest", name: "Employer Match",    icon: "🤝", desc: "+2 max HP at start of run",         baseCost: 8,  maxRank: 6 },
   { id: "espressoMachine",  name: "Home Espresso",     icon: "☕", desc: "+10% starting move & fire speed",   baseCost: 12, maxRank: 6 },
@@ -14,7 +16,10 @@ window.META_SHOP = [
   { id: "continuingEd",     name: "Continuing Ed",     icon: "🎓", desc: "+8% Wisdom (XP) from every gem",    baseCost: 10, maxRank: 5 },
   { id: "sideHustle",       name: "Side Hustle",       icon: "💼", desc: "+15% 401(k) coins earned",          baseCost: 10, maxRank: 5 },
   { id: "secondOpinion",    name: "Second Opinion",    icon: "🩺", desc: "Survive a fatal hit with half HP (once per rank, per run)", baseCost: 60, maxRank: 2 },
-  { id: "delayedRetirement", name: "Delayed Retirement", icon: "⏳", desc: "Overtime: Midlife runs last 5 more years", baseCost: 40, maxRank: 3 }
+  { id: "delayedRetirement", name: "Delayed Retirement", icon: "⏳", desc: "Overtime: Midlife runs last 5 more years", baseCost: 40, maxRank: 3 },
+  // Reroll (Nov 5, Rami: "something you could unlock after some effort"). Locked until Middle Management (reach 55).
+  { id: "sleepOnIt",        name: "Sleep On It",       icon: "💤", desc: "+1 level-up reroll per run: swap all three cards for new ones", baseCost: 15, maxRank: 3,
+    unlockAchievement: "middleManagement", lockedDesc: "Locked: reach age 55 in any run (Middle Management)." }
 ];
 
 // Coming soon in the 401(k) Shop: shown as greyed-out mystery tiles. Add real ones to META_SHOP when they ship.

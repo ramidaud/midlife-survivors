@@ -559,3 +559,8 @@ A 32x20 remains cell has 640 possible pixels, but each debris pile uses fewer th
 ### 2026-11-05 Checking an effect against its backdrop (Codex)
 
 A decal inherits the wall behind it. Navy fissures and cream chips give the bonk two levels of contrast on both tan and teal. Comparing the same sprites at 1× makes it easier to catch branches that disappear at game size.
+
+## Gating, or "earn it first" (Nov 5, Sleep On It)
+- **Gating** means a feature exists in the game but stays locked until the player does something. Sprint waits for the V8; Sleep On It waits for age 55.
+- It spreads new things across many runs, so a player always has a next goal, and it teaches features one at a time instead of all on the first screen.
+- In code it's one line of data: `unlockAchievement: "middleManagement"` on the shop item. The shop reads it and shows a lock until that achievement is earned.

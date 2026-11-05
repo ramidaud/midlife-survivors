@@ -822,6 +822,7 @@ function applyMetaAndChar() {
   stats.xpMult = 1 + (meta.ranks.continuingEd || 0) * 0.08;
   stats.coinMult = 1 + (meta.ranks.sideHustle || 0) * 0.15;
   stats.revives = meta.ranks.secondOpinion || 0; // one comeback per rank
+  stats.rerolls = (window.shopItemLocked && shopItemLocked({ unlockAchievement: "middleManagement" }, meta)) ? 0 : (meta.ranks.sleepOnIt || 0); // Sleep On It: level-up rerolls this run
   stats.jokeDamage += rPen;
   stats.noDamage += rPen;
   stats.remoteDamage += rPen; stats.sheetDamage += rPen; stats.podDamage += rPen; // "all weapons" means all six
@@ -1323,7 +1324,7 @@ function addXp(scene, amount) {
 window.addXp = addXp;
 
 // The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
-function showLevelUp(scene, customTitle, preferWeapons) {
+function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   levelUpOpen = true;
   // Keys/stick you were holding to walk shouldn't scroll the perk cards. Ignore them until released and pressed again.
   window.menuInputGateUntil = performance.now() + 200;
@@ -1342,7 +1343,9 @@ function showLevelUp(scene, customTitle, preferWeapons) {
   const evos = regular.filter(u => u.isEvolution);
   const unlocked = preferWeapons ? regular.filter(u => u.name.startsWith("Unlock:")) : [];
   const priority = evos.concat(unlocked);
-  const rest = Phaser.Utils.Array.Shuffle(regular.filter(u => !priority.includes(u)).slice());
+  let rest = Phaser.Utils.Array.Shuffle(regular.filter(u => !priority.includes(u)).slice());
+  // After a reroll, show different cards when there are enough to choose from (evolutions always stay).
+  if (avoidIds && avoidIds.length) { const fresh = rest.filter(u => !avoidIds.includes(u.id)); if (fresh.length + priority.length >= 3) rest = fresh.concat(rest.filter(u => avoidIds.includes(u.id))); }
   let choices = priority.concat(rest).slice(0, 3);
   // Boosts fill empty slots when regular cards run out, and after 50 one sometimes takes the third slot.
   while (choices.length < 3 && boosts.length) choices.push(boosts.shift());
@@ -1364,7 +1367,12 @@ function showLevelUp(scene, customTitle, preferWeapons) {
 
   // Skip (Nov 4): with only 6 slots, you may not want any of the three. Skipping heals a little instead.
   const SKIP = { id: "skipPerk", name: "Skip", isSkip: true, text: "Keep your loadout as it is. Heal 2 HP instead.", apply: s => { s.heal = 2; } };
-  const uiCtrl = renderLevelUpModal(choices, customTitle, pick, SKIP);
+  const REROLL = (stats.rerolls || 0) > 0 ? { left: stats.rerolls, go: () => {
+    stats.rerolls--; stats.rerollsUsed = (stats.rerollsUsed || 0) + 1; sfx("pick");
+    if (levelMenu && levelMenu.close) levelMenu.close();
+    showLevelUp(scene, customTitle, preferWeapons, choices.map(c => c.id)); // same level-up, new cards
+  } } : null;
+  const uiCtrl = renderLevelUpModal(choices, customTitle, pick, SKIP, REROLL);
   levelMenu = {
     sel: 0,
     count: choices.length,

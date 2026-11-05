@@ -1407,3 +1407,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 
 - Exported three native drywall cracks, a six-frame dizzy star loop and a two-frame bird option.
 - Checked the crack variants at 1× on tan and teal and included the frame timings and magenta key in the manifest.
+
+## 2026-11-05: V. 2.7, Sleep On It (rerolls)
+- Rami asked for a reroll you unlock with effort. Reach 55 in any run (Middle Management achievement) to unlock Sleep On It in the 401(k) shop; each of 3 ranks adds one reroll per run.
+- The level-up screen shows a 💤 SLEEP ON IT button next to Skip; it deals three different cards and keeps evolutions.
+- Shop items can now be locked behind achievements, shown with a lock and how to earn it.

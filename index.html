@@ -668,6 +668,8 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   }
   .shop-row.affordable { border-color: var(--border-col); }
   .shop-row.maxed { border-color: #6fbf73; opacity: 0.85; }
+  .shop-row.shop-locked { opacity: 0.6; border-style: dashed; }
+  .shop-row.shop-locked .shop-buy-btn { font-size: 10px; }
   .shop-info { display: flex; align-items: center; gap: 8px; text-align: left; font-size: 11px; }
   .shop-name { font-weight: 700; color: var(--text-main); }
   .shop-pips { color: var(--accent); letter-spacing: 1px; font-size: 11px; }
@@ -1623,7 +1625,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=227&t=" + Date.now();
+    s.src = "src/loader.js?v=228&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>
