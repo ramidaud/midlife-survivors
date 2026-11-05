@@ -1490,4 +1490,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 5, 2026: V2.7.13 Real sound effects
 - Rami made 20 takes in ElevenLabs. Claude picked one per sound by how fast it hits, trimmed the silence, evened the volume and shortened the ones that repeat often.
 - Ten are live: paper rip, XP gem, hurt, boss arrive, boss down, wall bonk, Mic Drop, camera, chest, phone ring.
-- Still beeps: weapon hit and coin (no files yet).
+- Hit and coin added in V2.7.14, so all 12 effects are real recordings.

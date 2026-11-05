@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.13",
-  displayVersion: "V. 2.7.13",
+  version: "2.7.14",
+  displayVersion: "V. 2.7.14",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 241,
+  build: 242,
   changelog: [
+    {
+      ver: "V. 2.7.14", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Every sound in the fight is real now, including hits and coins.",
+      highlights: ["The last two beeps are gone: weapon hits and 401(k) coins have real sound effects."]
+    },
     {
       ver: "V. 2.7.13", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The office sounds real now: paper rips, oofs, bonks and a boss that slams the door.",
