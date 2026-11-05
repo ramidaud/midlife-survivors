@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.5.0",
-  displayVersion: "V. 2.5",
+  version: "2.5.1",
+  displayVersion: "V. 2.5.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 223,
+  build: 224,
   changelog: [
+    {
+      ver: "V. 2.5.1", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Leaderboard runs from before V. 2.0 now wear a LEGACY tag.",
+      highlights: [
+        "Runs from before V. 2.0 are tagged LEGACY on the leaderboard and the devlog sidebar. Back then a Midlife run could go to age 80; now it ends at 65, so those scores can't be matched. Nothing was removed."
+      ]
+    },
     {
       ver: "V. 2.5", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Bosses go down in style: slow motion, a topple and a rubber stamp.",

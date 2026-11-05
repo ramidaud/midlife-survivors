@@ -111,9 +111,12 @@ async function lbRenderInto(el, mine) {
     const c = (window.CHARACTERS || []).find(x => x.id === id);
     return c ? c.name.replace(/^The /, "") : "";
   };
+  // LEGACY (Nov 4, Rami): runs from before V. 2.0, when Midlife still ran to 80. They stay on the board, marked.
+  const legacy = r => /^1\./.test(String(r.version || ""));
+  const anyLegacy = rows.some(legacy);
   const body = rows.length ? rows.map((r, i) => {
     const me = mine && r.name === mine.name && Number(r.score) === Number(mine.score);
-    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${/ S( T\d)?$/.test(r.version || "") ? ` <span class="lb-tax" title="Sprint">⚡</span>` : ""}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
+    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${legacy(r) ? ` <span class="lb-legacy" title="Played before V. 2.0, when Midlife ran to age 80">LEGACY</span>` : ""}${/ S( T\d)?$/.test(r.version || "") ? ` <span class="lb-tax" title="Sprint">⚡</span>` : ""}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
   }).join("") : (empty
     ? `<tr><td colspan="5" class="lb-empty">Couldn't load the scores just now. <button class="lb-retry" type="button">↻ RETRY</button></td></tr>`
     : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`);
@@ -122,7 +125,7 @@ async function lbRenderInto(el, mine) {
     <div class="lb-wrap"><table class="lb-table">
       <thead><tr><th>#</th><th>NAME</th><th>SCORE</th><th>AGE</th><th>AS</th></tr></thead>
       <tbody>${body}</tbody>
-    </table></div>`;
+    </table></div>${anyLegacy ? `<div class="lb-note"><span class="lb-legacy">LEGACY</span> Played before V. 2.0, when a Midlife run could go to age 80. Today it ends at 65.</div>` : ""}`;
   const retry = el.querySelector(".lb-retry");
   if (retry) retry.addEventListener("click", () => lbRenderInto(el, mine));
 }

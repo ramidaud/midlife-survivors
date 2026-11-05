@@ -118,7 +118,7 @@ window.DevlogHome = (() => {
     let rows = null;
     for (let i = 0; i < 2 && !(rows && rows.length); i++) {
       try {
-        const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age&order=score.desc&limit=200`, { headers, cache: "no-store" });
+        const r = await fetch(`${L.supabaseUrl}/rest/v1/scores_midlife?select=name,score,age,version&order=score.desc&limit=200`, { headers, cache: "no-store" });
         if (r.ok) rows = await r.json();
       } catch (e) {}
     }
@@ -126,7 +126,7 @@ window.DevlogHome = (() => {
     const seen = new Set(), top = rows.filter(r => { const k = String(r.name || "").trim().toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 10);
     els.forEach(el => el.innerHTML = `
       <div class="side-eyebrow">Leaderboard · Midlife run <span class="live-dot" title="Live">LIVE</span></div>
-      <ol class="board">${top.map((r, i) => `<li><span class="rk">${i + 1}</span><span class="nm">${esc(r.name)}</span><span class="sc">${n(r.score)}</span><span class="ag">${Number(r.age).toFixed(1)}</span></li>`).join("")}</ol>
+      <ol class="board">${top.map((r, i) => `<li><span class="rk">${i + 1}</span><span class="nm">${esc(r.name)}${/^1\./.test(String(r.version || "")) ? ' <span class="legacy" title="Played before V. 2.0, when Midlife ran to age 80">LEGACY</span>' : ""}</span><span class="sc">${n(r.score)}</span><span class="ag">${Number(r.age).toFixed(1)}</span></li>`).join("")}</ol>
       <a class="btn btn-primary side-play" href="../">▶ Beat these scores</a>`);
   }
 

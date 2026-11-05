@@ -1381,3 +1381,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: a boss froze on screen after defeat. Its drawn picture was being rebuilt for one more frame after the boss was gone, leaving an orphan copy. Fixed with a guard.
 - New boss defeat: slow motion, white flicker, topple with dust, fade, three confetti bursts and a stamp per boss. The chest waits 2 s so you see it.
 - Regular enemies keep their small pop plus the new remains; a full cinematic for every enemy would be too much in a 300-enemy swarm.
+
+## 2026-11-04: V. 2.5.1, LEGACY tags on the leaderboard
+- Rami asked whether today's changes tanked scores. They didn't: runs to the same age and Tax Bracket score the same as before (about 55-67k at age 62, Tax 0-1).
+- The board's top spots are age-80 runs from before V. 2.0 (Midlife used to go to 80) plus Tax 5 runs (+75%). Rami chose to tag pre-2.0 runs LEGACY in the game and on the devlog sidebar. Nothing deleted.

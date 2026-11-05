@@ -72,6 +72,8 @@ Status: brainstorm. Everything here is a starting point for Rami to cut, rename 
 | 50:00 | 90 | Boss: 6AM Pickleball Champion |
 | 60:00 | 100 | Death arrives. Meeting him is the win |
 
+**Leaderboards (Nov 4, Rami):** each mode has its own board, and each future stage (Hospital, Home) should get its own too, since stages differ in difficulty. Runs from before V. 2.0 (Midlife ran to 80) are tagged LEGACY, never deleted. Open question: a player's LEGACY best hides their newer runs, because the board shows one row per name; a V2 season tab would fix that.
+
 **Boss defeats (Nov 4, Rami):** slow motion, a white flicker, a topple and fade, confetti, and a boss-specific stamp (EXCEEDS EXPECTATIONS, PAID IN FULL, CRISIS AVERTED, VARIANCE APPROVED, AUDIT PASSED, GAME, SET, MATCH). Words and timing in `BOSS_DOWN` (src/boss-down.js). Regular enemies keep their quick pop.
 
 **Remains (Nov 4, Rami):** defeated enemies leave a small pile of scraps in their color that fades after about 9 seconds; bosses leave a bigger one.
