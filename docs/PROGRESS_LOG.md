@@ -1508,3 +1508,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: the new audio is "seriously overwhelming". Music dropped to about a third of its volume; constant sounds (hits, rips, gems, coins) are quieter and capped at 2-3 overlapping copies.
 - Level-up fanfare at most every 20 s. New Pause > Sound style: STUDIO or CLASSIC BEEPS (the original sounds).
 - Lounge plan approved: a Lobby pop-up cart for the first 60 s (Lounge weapons + run perks); Break Room counter keeps heals and buffs.
+
+## Nov 5, 2026: V2.8.2 Day One Lounge cart
+- For the first minute of every fresh run, a Lounge cart parks in the Lobby next to where you start.
+- Sells Mic Drop and Say Cheese (while you still have free slots) plus two whole-run perks: Ergonomic Cushion (+2 max HP) and Good Beans (+8% speed).
+- The Break Room counter after promotions now sells only heals and quick buffs. Settings in `INTERNS.lounge.cart`.

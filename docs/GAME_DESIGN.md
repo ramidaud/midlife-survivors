@@ -572,3 +572,7 @@ Each direction uses eight walk poses at the game's 95 ms cadence. The near leg l
 - Goal: about 25-35 runs to max the 401(k) Shop, and every run (even a quick death) earns something.
 - Paycheck per year survived; late-career taper on drops, chests and dividends; shop prices rise 8% per rank owned.
 - The taper only affects the bank, never the score. Tuning knobs: `COIN_ECONOMY` in src/data/meta.js.
+
+## The Lounge, two ways (decided Nov 5, V. 2.8.2)
+- **Day One cart (Lobby, first 60 s):** Lounge-only weapons and whole-run perks, bought with banked 401(k) coins. A real start-of-run choice.
+- **Break Room counter (after promotions 45-60):** heals and quick buffs only.

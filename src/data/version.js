@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.8.1",
-  displayVersion: "V. 2.8.1",
+  version: "2.8.2",
+  displayVersion: "V. 2.8.2",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 246,
+  build: 247,
   changelog: [
+    {
+      ver: "V. 2.8.2", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The Lounge cart meets you in the Lobby on day one.",
+      highlights: [
+        "For the first minute of every run, a Lounge cart parks in the Lobby: buy Mic Drop or Say Cheese while your hands are still free.",
+        "New run perks on the cart: Ergonomic Cushion (+2 max health) and Good Beans (8% faster), both for the whole run.",
+        "The Break Room counter after promotions now sticks to heals and quick buffs."
+      ]
+    },
     {
       ver: "V. 2.8.1", date: "Nov 5, 2026", title: "Version Two",
       teaser: "A calmer mix, plus a Classic Beeps option for the nostalgic.",

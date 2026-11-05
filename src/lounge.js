@@ -13,17 +13,20 @@ window.Lounge = (() => {
   function reset() {
     if (st && st.objs) st.objs.forEach(o => o && o.destroy && o.destroy());
     if (st && st.closedSign) st.closedSign.forEach(o => o.destroy());
-    st = { state: "closed", done: {}, pendingAge: 0, openUntil: 0, objs: [], arrowUntil: 0, needExit: false,
+    st = { mode: "counter", cartDone: false, state: "closed", done: {}, pendingAge: 0, openUntil: 0, objs: [], arrowUntil: 0, needExit: false,
            bought: {}, ramp: {}, stock: {}, loiterSince: 0, loiterWarned: 0, staff: null };
     hideModal();
   }
 
+  const cartMode = () => !!(st && st.mode === "cart");
+  const catalog = () => (cartMode() ? (C().cart || {}).catalog : C().catalog) || [];
   function gateOpen() {
     const gates = window.START_AREA_GATES || [];
     const g = gates.find(g => g.toDistrict === (C().districtId || "breakroom"));
     return g ? !!g.opened : false;
   }
   function spot() {
+    if (cartMode() && st.cartSpot) return st.cartSpot;
     const p = (window.START_AREA_LAYOUT && START_AREA_LAYOUT.placements || []).find(p => p.prop === "coffee_cart" && p.district === "breakroom");
     let s = p ? { x: p.x, y: p.y + 104 } : Object.assign({}, SPOT_FALLBACK);
     if (window.NAV && NAV.fixSpawn) { const f = NAV.fixSpawn(s.x, s.y); if (f) s = { x: f[0], y: f[1] }; }
@@ -41,13 +44,14 @@ window.Lounge = (() => {
     const L = C(), s = spot();
     st.state = "open"; st.spot = s; st.openUntil = runElapsedMs + (L.openMsPromotion || 35000);
     st.arrowUntil = st.openUntil; // the arrow stays up the whole time it's open (TJ couldn't find it, Nov 3) st.needExit = false; st.bubbleUsed = false;
-    (L.catalog || []).forEach(it => { st.stock[it.id] = it.stock; });
+    catalog().forEach(it => { st.stock[it.id] = it.stock; });
+    if (cartMode()) st.openUntil = st.arrowUntil = runElapsedMs + ((L.cart && L.cart.openMs) || 60000);
     const roster = (window.INTERNS && INTERNS.roster) || [];
     const r = roster[Math.floor(Math.random() * roster.length)] || { name: "The intern", id: "tj" };
     st.staff = r;
     // Counter marker: a cream rug with OPEN on it, plus the intern behind it.
     const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.22).setStrokeStyle(3, 0xF2D7A1, 0.9).setDepth(2.5);
-    const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPEN", { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000);
+    const sign = scene.add.text(s.x, s.y - 2, cartMode() ? ((L.cart && L.cart.sign) || "LOUNGE CART\nOPEN") : "THE LOUNGE\nOPEN", { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000);
     scene.tweens.add({ targets: rug, alpha: { from: 0.6, to: 1 }, scale: { from: 0.96, to: 1.04 }, duration: 700, yoyo: true, repeat: -1 });
     const key = "intern_" + r.id + "_0";
     const real = scene.textures.exists("intern2_" + r.id); // ChatGPT's counter pose: row 4, columns 0-3
@@ -58,7 +62,7 @@ window.Lounge = (() => {
     const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(50003).setScrollFactor(0);
     st.objs = [rug, sign, staff, tag, arrow]; st.arrow = arrow;
     if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
-    const line = (L.lines && L.lines.open || "{name} is on the Lounge register.").replace("{name}", r.name);
+    const line = ((cartMode() && L.cart && L.cart.lines && L.cart.lines.open) || (L.lines && L.lines.open) || "{name} is on the Lounge register.").replace("{name}", r.name);
     if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r);
     if (window.showLowerThird) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
     sfx("coin");
@@ -68,6 +72,7 @@ window.Lounge = (() => {
     if (st.state === "browsing") closeBrowse(scene);
     st.state = "closed";
     st.objs.forEach(o => o && o.destroy && o.destroy()); st.objs = []; st.arrow = null;
+    if (cartMode()) { st.mode = "counter"; line = (C().cart && C().cart.lines && C().cart.lines.shutter) || line; }
     if (line && window.showLowerThird) window.showLowerThird("lore", "THE LOUNGE", line, 3000);
   }
 
@@ -118,9 +123,9 @@ window.Lounge = (() => {
   function hideModal() { const m = document.getElementById("lounge-modal"); if (m) m.classList.add("hidden"); }
   function renderModal(scene, msg) {
     const m = ensureModal(), L = C(), r = st.staff || { name: "The intern" };
-    const items = (L.catalog || []).map(it => ({ it, why: canBuy(it) }));
+    const items = catalog().map(it => ({ it, why: canBuy(it) }));
     m.innerHTML = `<div class="lg-card">
-      <div class="lg-head"><span>THE LOUNGE · BREAK ROOM</span><span>401(k): ${meta.coins}k</span></div>
+      <div class="lg-head"><span>${cartMode() ? ((L.cart && L.cart.header) || "THE LOUNGE CART") : "THE LOUNGE · BREAK ROOM"}</span><span>401(k): ${meta.coins}k</span></div>
       <picture class="lg-scene"><source media="(max-width:520px)" srcset="assets/ui/lounge-scene-tall-v1.png?v=${window.BUILD||1}"><img src="assets/ui/lounge-scene-v1.png?v=${window.BUILD||1}" alt="The Student Lounge: futon, paper lamp, collage wall and the desk where TJ and Derek work" width="960" height="360"></picture>
       <div class="lg-body">
         <div class="lg-say"><b>${r.name}:</b> ${msg || "What can I get you?"}</div>
@@ -141,7 +146,7 @@ window.Lounge = (() => {
   }
 
   function buy(scene, id) {
-    const it = (C().catalog || []).find(x => x.id === id); if (!it) return;
+    const it = catalog().find(x => x.id === id); if (!it) return;
     const why = canBuy(it);
     if (why) { sfx("pick"); return renderModal(scene, why === "TOO PRICEY" ? "That one's out of your budget, boss." : why === "HANDS FULL" ? "Your hands are full. Six weapons is the union limit." : why === "OWNED" ? "You already have one. Upgrades come with level-ups." : "Sold out. Someone got here first."); }
     const cost = price(it);
@@ -155,6 +160,8 @@ window.Lounge = (() => {
     if (it.speedMult) { buffs.speedUntil = runElapsedMs + it.durMs; buffs.speedMult = Math.max(buffs.speedMult || 1, it.speedMult); }
     if (it.vacuumMs) buffs.vacuumUntil = runElapsedMs + it.vacuumMs;
     if (it.clearRadius) st.quietHour = it.clearRadius; // applied when you go back to work
+    if (it.runMaxHp) { stats.maxHp += it.runMaxHp; hp = Math.min(stats.maxHp, hp + it.runMaxHp); if (typeof drawHpBar === "function") drawHpBar(); } // whole-run perks from the cart
+    if (it.runSpeedMult) stats.speed = Math.round(stats.speed * it.runSpeedMult);
     if (it.weapon) { const up = (window.UPGRADES || []).find(u => u.id === it.weapon); if (up && typeof applyUpgrade === "function") applyUpgrade(up); } // a Lounge-only weapon
     if (typeof updateHUD === "function") updateHUD();
     sfx("coin");
@@ -209,7 +216,7 @@ window.Lounge = (() => {
 
   // While it's closed, a dim sign marks the counter so you know where to go next time.
   function closedSign(scene) {
-    if (st.closedSign || st.state !== "closed" || !gateOpen()) return;
+    if (st.closedSign || st.state !== "closed" || !gateOpen() || cartMode()) return;
     const s = spot();
     const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPENS AFTER PROMOTIONS", { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 7, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000).setAlpha(0.75);
     const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.08).setStrokeStyle(2, 0xF2D7A1, 0.4).setDepth(2.5);
@@ -222,8 +229,16 @@ window.Lounge = (() => {
     closedSign(scene);
     const L = C(), S = L.safety || {};
     // Arm a window at each promotion age once the Break Room is open.
+    // Day One cart: opens in the Lobby right at the start of a fresh run.
+    if (!st.cartDone && st.state === "closed" && L.cart && runElapsedMs < 3000 && runElapsedMs > 300) {
+      st.cartDone = true; st.mode = "cart";
+      const o = L.cart.offset || [150, 40]; let s = { x: player.x + o[0], y: player.y + o[1] };
+      if (window.NAV && NAV.fixSpawn) { const f = NAV.fixSpawn(s.x, s.y); if (f) s = { x: f[0], y: f[1] }; }
+      st.cartSpot = s; open(scene);
+    }
+    if (runElapsedMs >= 3000) st.cartDone = true; // resumed runs skip the cart
     (L.promotionAges || []).forEach(age => { if (!st.done[age] && currentAge >= age) { st.done[age] = true; st.pendingAge = age; } });
-    if (st.state === "closed" && st.pendingAge && gateOpen() && !bossAlive() && !taxOn()) { st.pendingAge = 0; open(scene); }
+    if (st.state === "closed" && !cartMode() && st.pendingAge && gateOpen() && !bossAlive() && !taxOn()) { st.pendingAge = 0; open(scene); }
     if (st.staffReal && st.objs[2] && st.objs[2].active) st.objs[2].setFrame(32 + Math.floor(now / 185) % 4); // counter wave / register tap
     if (st.state === "open") {
       if (now > st.openUntil || bossAlive() || taxOn()) return shutter(scene, (L.lines && L.lines.shutter) || "Break's over.");
