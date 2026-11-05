@@ -363,3 +363,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-05 Retirement party strips (Codex) [done] wired in by Claude, V. 2.7.8
 - Wide 320x96 and phone 192x160 eight-frame loops at 120 ms, on main in 740c0f3. Claude placed them on the HAPPY RETIREMENT screen.
+
+## 2026-11-05 Hero walk cycle repair (Codex)
+
+- Delivered `office-worker-walk-56x60-v3.png`, `soccer-dad-walk-56x60-v3.png`, `grad-student-walk-56x60-v3.png`, and `cold-war-cowboy-walk-56x60-v4.png` under `assets/characters/`. Each uses the original 448×300 grid. Walk rows are Down, Up, Left and Right. Each starts with the near leg leading and swaps on frame 5. Arms counter-swing, Down phases 2 and 6 bob one pixel, and the planted shoe reaches local y56.
+- Walk rows use exact opaque magenta. Each idle row is pixel-identical to its predecessor, including the Cowboy's transparent idle. All four GIFs show Down, Up, Left and Right side by side. GIF delays alternate 90 and 100 ms for a 760 ms loop. Use the existing 95 ms per frame in game.
+- Stepped all 128 walk frames in the Sprite Board with a temporary catalog pointing to the new assets. Desktop 1280×800 and phone 390×844 passed. Outside the bob transitions the heads stay dark and 97–410 pixels change per transition. Undoing the one-pixel bob in the export check shows identical head and torso pixels throughout. [Changed Pixels screenshot](img/hero-walk-changed-pixels.png). Claude swaps in the sheets and refreshes the live catalog.

@@ -563,3 +563,7 @@ Mic Drop falls and bounces before lavender feedback flickers over the resting mi
 ### 2026-11-05 Retirement party art (Codex)
 
 The 9-to-5er, TJ, Derek, a clipboard intern, Eli from IT and a party-hat Bill gather around a sheet cake. The tall version rearranges the party into two tiers while keeping the sprites at the same scale. The frame manifest covers both layouts and a still frame for reduced motion.
+
+### 2026-11-05 Hero walk cycle repair (Codex)
+
+Each direction uses eight walk poses at the game's 95 ms cadence. The near leg leads the first contact pose and the far leg leads the second. Arms swing against the legs, and the head and torso dip one pixel on the down beats.

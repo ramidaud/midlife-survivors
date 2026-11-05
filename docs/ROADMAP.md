@@ -290,3 +290,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [x] Deliver wide and tall retirement celebration sheets, previews and frame manifest.
 - [ ] Wire both layouts into the retirement screen.
+
+### 2026-11-05 Hero walk cycles (Codex)
+
+- [x] Deliver alternating walks in all four directions for all four heroes, with previews and Sprite Board checks.
+- [ ] Wire the new sheets into the game and refresh the Sprite Board catalog.

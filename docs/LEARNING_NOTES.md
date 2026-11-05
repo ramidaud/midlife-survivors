@@ -588,3 +588,7 @@ The retirement strip has the same guests and animation beats on both screens. Mo
 - The walk used to pick its frame by **distance moved**. Small or uneven moves meant the frames stalled, then jumped, so the hero seemed to glide with blips.
 - Now it runs on a **steady clock** (95 ms per frame). A walk cycle reads as a rhythm, and a steady rhythm looks intentional even if the feet slide a little.
 - **Pixel reuse:** good pixel animation keeps most pixels identical between frames and moves only what should move. The Sprite Board's CHANGED PIXELS view shows this in red.
+
+## 2026-11-05 A walk needs two different steps (Codex)
+
+A walk loop reads when the foot in front switches sides. Keep the head and shirt on one fixed drawing, then move the feet and arms around it. In the Sprite Board's Changed Pixels view, a body bob shows up as a one-pixel shift across the torso while ordinary steps light up the moving limbs.

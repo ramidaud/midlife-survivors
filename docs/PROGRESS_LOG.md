@@ -1471,3 +1471,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Walk frames now play on a steady 95 ms clock instead of by distance moved.
 - New Sprite Board (`tools/sprites.html`): all 57 animated sheets at game speed, nearest-neighbor, with onion skin and a CHANGED PIXELS view. It confirmed the legs never swap in side and back walks.
 - ChatGPT brief out for walk rows that alternate (`docs/handoffs/chatgpt-walk-cycle-fix.md`). A full hero polish round is planned near the end.
+
+## 2026-11-05 Hero walk cycle repair (Codex)
+
+- Rebuilt all 16 directional walks so each leg takes a turn leading and the arms swing against the stride.
+- Reused the head and shirt pixels with a one-pixel dip on the down beats. The Sprite Board confirms the movement stays on the limbs between dips.
+- Saved the original idle rows in the new sheets and included previews. Claude wires the updated art into the game.
