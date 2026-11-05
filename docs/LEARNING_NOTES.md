@@ -605,3 +605,7 @@ The Sprite Board can highlight every pixel that changed between frames. If a cow
 ## 2026-11-05 Transparent sprite edges (Codex)
 
 RGBA stores an alpha value alongside each pixel's color. A fully transparent pixel lets the room show through, and a fully opaque one holds the sprite color. Sticking to those two values and using nearest-neighbor sampling keeps the outlines sharp.
+
+## 2026-11-05 Check a sprite at the size players see (Codex)
+
+The XP gem lives in a 32px cell, but it has to read at 16px on carpet. A cream facet and dark outline survive that reduction. Checking against the actual carpet shows which details still read at play size.

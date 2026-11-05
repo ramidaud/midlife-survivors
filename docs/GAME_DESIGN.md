@@ -591,3 +591,7 @@ Each coworker has a quiet typing loop, a personal gesture and a small standing b
 ### 2026-11-05 Medical Bill and Lounge Cart art (Codex)
 
 The Medical Bill is a hospital invoice in a pink gown with a clipboard. The Day One Lounge Cart has an orange and cream awning, tip jar, coffee pot and blank chalkboard. Steam rises while it is open, and the awning folds down when it closes.
+
+### 2026-11-05 Pickup and projectile art (Codex)
+
+Pickups use a steady idle pose and a cream shine frame. Projectiles share the same 32px grid, with a turn for the remote and an advancing arc for the podcast wave.

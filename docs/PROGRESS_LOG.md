@@ -1572,3 +1572,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - New `?me=1` link: turns off GoatCounter for that browser and shows the device's player ID so Rami's runs can be left out of the stats (`docs/stats-exclude.md`). `?me=0` undoes it.
 - Art audit: about 11 code-drawn pieces left in the office (XP gem, 401(k) coin, pizza, Desk Salad, boss chest, coffee splash and 5 weapon projectiles). The ChatGPT brief is ready.
 - Decided no "read to the end" event for the devlog.
+
+## 2026-11-05 Pickups and projectiles (Codex)
+
+- Drew six office pickups and five projectiles with matching shine or motion frames.
+- Checked the gem at 16 px on office carpet and verified exact RGBA transparency and palette across all three sheets.

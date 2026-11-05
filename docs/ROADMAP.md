@@ -311,3 +311,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [x] Deliver transparent enemy, icon and cart art with animation previews and manifest.
 - [ ] Wire the art into the Hustle penalty and Day One Lounge Cart.
+
+### 2026-11-05 Pickups and projectiles (Codex)
+
+- [x] Deliver the transparent pickup and projectile sheets.
+- [ ] Wire the sheets into the pickup and projectile visuals.

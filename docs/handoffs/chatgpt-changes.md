@@ -392,3 +392,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-05 Medical Bill + Lounge Cart [done] wired in by Claude, V. 2.10.1
 - Medical Bill sheet drawn for Bills flagged medical (src/hustle.js), replacing the pink tint. Lounge Cart shown at 2x with the steam loop; the awning fold plays when the cart closes.
+
+## 2026-11-05 Pickups and projectiles (Codex)
+
+- Delivered three transparent RGBA sheets with 32×32 cells and the twelve field-item colors. `assets/items/pickups-v1.png` contains XP Gem, 401(k) coin and Pizza slice. `assets/items/pickups-v2.png` contains Desk Salad, Boss chest and Coffee splash. `assets/weapons/projectiles-v1.png` contains TV Remote, Floppy disk, Spreadsheet cell, Podcast wave and Thermostat snowflake. Each list is in column order. Row 0 is idle and row 1 is shine or motion.
+- The Remote turns 90° with pixel trails. The Podcast arcs advance, and the Thermostat snowflake catches two glints. All 22 cells have binary alpha and a transparent margin. Checked the XP gem at 16 px and the rest at 32 px on office carpet at desktop and phone sizes. [Phone check](img/pickups-projectiles-phone-v1.png).
+- Built-in imagegen supplied shape studies, followed by a native pixel redraw. [Study prompts](chatgpt-pickup-projectile-prompts.md).
