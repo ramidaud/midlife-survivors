@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.14",
-  displayVersion: "V. 2.7.14",
+  version: "2.7.15",
+  displayVersion: "V. 2.7.15",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 242,
+  build: 243,
   changelog: [
+    {
+      ver: "V. 2.7.15", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Bosses don't sound the same twice in a row anymore.",
+      highlights: ["Boss entrances, boss knockdowns, wall bonks, Mic Drops and XP pings now rotate between several recorded takes."]
+    },
     {
       ver: "V. 2.7.14", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Every sound in the fight is real now, including hits and coins.",

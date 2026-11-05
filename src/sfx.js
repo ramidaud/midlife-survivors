@@ -28,9 +28,11 @@ function loadSfxFiles() {
   sfxFilesStarted = true;
   for (const [name, def] of Object.entries(SFX_FILES.files)) {
     if (!def.on) continue;
-    fetch(def.file + "?v=" + (SFX_FILES.ver || 1)).then(r => r.ok ? r.arrayBuffer() : Promise.reject(r.status))
-      .then(a => new Promise((res, rej) => audioCtx.decodeAudioData(a, res, rej)))
-      .then(b => { sfxBuf[name] = b; }).catch(() => {});
+    (Array.isArray(def.file) ? def.file : [def.file]).forEach(file => {
+      fetch(file + "?v=" + (SFX_FILES.ver || 1)).then(r => r.ok ? r.arrayBuffer() : Promise.reject(r.status))
+        .then(a => new Promise((res, rej) => audioCtx.decodeAudioData(a, res, rej)))
+        .then(b => { (sfxBuf[name] = sfxBuf[name] || []).push(b); }).catch(() => {});
+    });
   }
 }
 function applyVolumes() {
@@ -181,12 +183,15 @@ function sfx(name, minGapMs = 40) {
     mult = PENTA[st % 5] * Math.pow(2, Math.floor(st / 5)) * (1 + (Math.random() * 2 - 1) * 0.01);
   }
   const vol = SOUNDS.volume * (V.gain || 1);
-  if (sfxBuf[name]) { // a real recording: same pitch variety, kept in a natural range
+  if (sfxBuf[name] && sfxBuf[name].length) { // a real recording: same pitch variety, kept in a natural range
+    const takes = sfxBuf[name]; let k = Math.floor(Math.random() * takes.length);
+    if (takes.length > 1 && k === takes.lastK) k = (k + 1) % takes.length; // rotate takes, never the same twice in a row
+    takes.lastK = k;
     const src = audioCtx.createBufferSource(), g = audioCtx.createGain(), def = SFX_FILES.files[name];
-    src.buffer = sfxBuf[name]; src.playbackRate.value = Math.max(0.8, Math.min(1.6, mult));
+    src.buffer = takes[k]; src.playbackRate.value = Math.max(0.8, Math.min(1.6, mult));
     g.gain.value = (def.vol ?? 0.6) * (V.gain || 1);
     src.connect(g).connect(sfxBus); src.start();
-    liveVoices++; setTimeout(() => { liveVoices--; }, sfxBuf[name].duration * 1000 / src.playbackRate.value + 30);
+    liveVoices++; setTimeout(() => { liveVoices--; }, takes[k].duration * 1000 / src.playbackRate.value + 30);
     return;
   }
   let t = audioCtx.currentTime + 0.001, end = t;

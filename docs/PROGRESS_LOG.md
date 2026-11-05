@@ -1491,3 +1491,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami made 20 takes in ElevenLabs. Claude picked one per sound by how fast it hits, trimmed the silence, evened the volume and shortened the ones that repeat often.
 - Ten are live: paper rip, XP gem, hurt, boss arrive, boss down, wall bonk, Mic Drop, camera, chest, phone ring.
 - Hit and coin added in V2.7.14, so all 12 effects are real recordings.
+- V2.7.15 (Rami's idea): sounds with several takes rotate between them, never the same one twice in a row (boss arrive and boss down have 4 takes, wall bonk 3, Mic Drop and XP gem 2).
