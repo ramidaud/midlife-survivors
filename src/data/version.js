@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.8.0",
-  displayVersion: "V. 2.8.0",
+  version: "2.8.1",
+  displayVersion: "V. 2.8.1",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 245,
+  build: 246,
   changelog: [
+    {
+      ver: "V. 2.8.1", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "A calmer mix, plus a Classic Beeps option for the nostalgic.",
+      highlights: [
+        "Music sits well under the action now, and the constant sounds (hits, paper rips, gems, coins) are quieter and can't pile up.",
+        "The level-up fanfare plays at most every 20 seconds.",
+        "New in Pause > Settings: Sound style. STUDIO is the new recorded audio; CLASSIC BEEPS brings back the original sounds and groove."
+      ]
+    },
     {
       ver: "V. 2.8.0", date: "Nov 5, 2026", title: "Version Two",
       teaser: "A new 401(k) economy: every shift gets a paycheck, and the shop is a longer climb.",

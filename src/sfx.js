@@ -22,7 +22,11 @@ function setupBuses() {
   const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
 }
 // Real sound-effect files (src/data/sfx-files.js): decoded once, then played instead of the beep.
-const sfxBuf = {}; let sfxFilesStarted = false;
+const sfxBuf = {}, sfxLive = {}; let sfxFilesStarted = false;
+// Sound style (Nov 5): "studio" = Rami's recorded music and effects, "classic" = the original code-made beeps and groove.
+let soundStyle = (() => { try { return localStorage.getItem("ms-sound-style") || "studio"; } catch (e) { return "studio"; } })();
+function getSoundStyle() { return soundStyle; }
+function toggleSoundStyle() { soundStyle = soundStyle === "studio" ? "classic" : "studio"; try { localStorage.setItem("ms-sound-style", soundStyle); } catch (e) {} return soundStyle; }
 function loadSfxFiles() {
   if (sfxFilesStarted || !audioCtx || !window.SFX_FILES) return;
   sfxFilesStarted = true;
@@ -183,7 +187,9 @@ function sfx(name, minGapMs = 40) {
     mult = PENTA[st % 5] * Math.pow(2, Math.floor(st / 5)) * (1 + (Math.random() * 2 - 1) * 0.01);
   }
   const vol = SOUNDS.volume * (V.gain || 1);
-  if (sfxBuf[name] && sfxBuf[name].length) { // a real recording: same pitch variety, kept in a natural range
+  if (soundStyle === "studio" && sfxBuf[name] && sfxBuf[name].length) {
+    const cap = window.SFX_FILES && SFX_FILES.maxAtOnce && SFX_FILES.maxAtOnce[name];
+    if (cap && (sfxLive[name] || 0) >= cap) return; // enough of these already ringing // a real recording: same pitch variety, kept in a natural range
     const takes = sfxBuf[name]; let k = Math.floor(Math.random() * takes.length);
     if (takes.length > 1 && k === takes.lastK) k = (k + 1) % takes.length; // rotate takes, never the same twice in a row
     takes.lastK = k;
@@ -191,7 +197,8 @@ function sfx(name, minGapMs = 40) {
     src.buffer = takes[k]; src.playbackRate.value = Math.max(0.8, Math.min(1.6, mult));
     g.gain.value = (def.vol ?? 0.6) * (V.gain || 1);
     src.connect(g).connect(sfxBus); src.start();
-    liveVoices++; setTimeout(() => { liveVoices--; }, takes[k].duration * 1000 / src.playbackRate.value + 30);
+    liveVoices++; sfxLive[name] = (sfxLive[name] || 0) + 1;
+    setTimeout(() => { liveVoices--; sfxLive[name]--; }, takes[k].duration * 1000 / src.playbackRate.value + 30);
     return;
   }
   let t = audioCtx.currentTime + 0.001, end = t;

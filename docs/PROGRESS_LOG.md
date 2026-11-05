@@ -1503,3 +1503,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Late coins taper from 55 (5% a year, floor 30%); the leaderboard still counts the full amount.
 - Lifestyle inflation: +8% per rank owned. Maxing the shop goes from about 1,560 to about 4,900 coins; refunds return everything.
 - All numbers live in `COIN_ECONOMY` (src/data/meta.js). Tune after Rami's dev-mode ledger run.
+
+## Nov 5, 2026: V2.8.1 Mix pass + Classic Beeps
+- Rami: the new audio is "seriously overwhelming". Music dropped to about a third of its volume; constant sounds (hits, rips, gems, coins) are quieter and capped at 2-3 overlapping copies.
+- Level-up fanfare at most every 20 s. New Pause > Sound style: STUDIO or CLASSIC BEEPS (the original sounds).
+- Lounge plan approved: a Lobby pop-up cart for the first 60 s (Lounge weapons + run perks); Break Room counter keeps heals and buffs.

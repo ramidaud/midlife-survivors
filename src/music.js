@@ -5,6 +5,7 @@ window.Music = (() => {
   const M = window.MUSIC || { tracks: {}, stings: {} };
   const buf = {}, loading = {}, failed = {};
   let master = null, cur = null, ending = null, duckUntil = 0;
+  const lastSting = {};
   const ctx = () => (typeof audioCtx !== "undefined" && audioCtx && audioCtx.state === "running") ? audioCtx : null;
   function setup(c) {
     if (master) return;
@@ -49,7 +50,7 @@ window.Music = (() => {
     const c = ctx(); if (!c) return;
     setup(c);
     for (const k in M.stings) load("s_" + k, M.stings[k]);
-    const want = desired();
+    const want = (typeof getSoundStyle === "function" && getSoundStyle() === "classic") ? null : desired();
     if (want) load(want, M.tracks[want]);
     if (want === "calm") load("busy", M.tracks.busy); // get the next one ready early
     // overall level: muted, hidden tab, paused, or under a sting
@@ -78,7 +79,11 @@ window.Music = (() => {
   // A short one-shot (level-up, game over). Returns false if it isn't ready, so the old beep can play instead.
   function sting(name) {
     const c = ctx(), b = buf["s_" + name];
+    if (typeof getSoundStyle === "function" && getSoundStyle() === "classic") return false;
     if (!c || !b || (typeof muted !== "undefined" && muted)) return false;
+    const gap = M.stings[name].minGapMs || 0, nowMs = performance.now();
+    if (gap && nowMs - (lastSting[name] || -1e9) < gap) return false;
+    lastSting[name] = nowMs;
     setup(c);
     const s = c.createBufferSource(), g = c.createGain();
     s.buffer = b; g.gain.value = (M.stings[name].vol ?? 1);
