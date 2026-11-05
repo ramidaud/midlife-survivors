@@ -993,7 +993,7 @@ function spawnFieldItem(scene, x, y, kind) {
 window.itemEffect = (kind, quiet) => {
   const sc = player && player.scene; if (!sc) return;
   if (kind === "fannyPack") buffs.vacuumUntil = runElapsedMs + 2500;
-  if (kind === "energyDrink") { buffs.speedUntil = runElapsedMs + FIELD_ITEMS.energyDrink.durMs; buffs.speedMult = FIELD_ITEMS.energyDrink.speedMult; }
+  if (kind === "energyDrink") { buffs.speedUntil = runElapsedMs + FIELD_ITEMS.energyDrink.durMs; buffs.speedMult = FIELD_ITEMS.energyDrink.speedMult; buffs.drinkShieldUntil = buffs.speedUntil; }
   if (kind === "ptoDay") {
     sc.cameras.main.flash(250, 120, 220, 160);
     bills.getChildren().slice().forEach(b => { if (b.active && !b.isBoss) { b.ghost = false; damageBill(b, 9999); } });
@@ -1386,6 +1386,11 @@ function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
 }
 
 // An enemy (Bill, Snack, Twinge, Elite, or Boss) touched you.
+// Energy Drink shield (Nov 5): up while the drink lasts AND you're moving.
+function drinkShieldUp(p) {
+  const D = (window.FIELD_ITEMS && FIELD_ITEMS.energyDrink) || {};
+  return runElapsedMs < (buffs.drinkShieldUntil || 0) && !!(p && p.body) && p.body.speed >= (D.shieldMinSpeed || 60);
+}
 function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
   if (gameOver) return;
@@ -1409,6 +1414,11 @@ function hurtPlayer(p, bill) {
   if (stats.dodge && Math.random() < stats.dodge) { // Fitness Tracker: sidestep the hit
     const t = scene.add.text(p.x, p.y - 44, Phaser.Utils.Array.GetRandom(["DODGED!", "10,000 STEPS!", "NOT TODAY!"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#BFA8CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
     scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+    return;
+  }
+  if (drinkShieldUp(p)) { // Energy Drink: too wired to be hit while you keep moving (src/data/items.js)
+    const t = scene.add.text(p.x, p.y - 44, Phaser.Utils.Array.GetRandom(["TOO WIRED!", "CAN'T STOP!", "CAFFEINATED!", "ZOOM!"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#6BE2FF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
+    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 650, onComplete: () => t.destroy() });
     return;
   }
   if (shield.hits > 0 && runElapsedMs < shield.until) { // a shield soaks the hit (interns, Headphones, Cardigan)
@@ -2426,6 +2436,20 @@ function update(time, delta) {
   const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd;
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
+  { // Energy Drink aura: bright while you're moving (shielded), faint when you stop.
+    const on = runElapsedMs < (buffs.drinkShieldUntil || 0);
+    if (on && !player.drinkAura) {
+      const aura = player.drinkAura = this.add.ellipse(player.x, player.y, 58, 70).setStrokeStyle(3, 0x6BE2FF, 1).setFillStyle(0x6BE2FF, 0.12);
+      const follow = () => { if (aura.active && player.active) aura.setPosition(player.x, player.y); }; // after physics moves you, so it never trails
+      this.events.on("postupdate", follow); aura.once("destroy", () => this.events.off("postupdate", follow));
+    }
+    if (player.drinkAura) {
+      if (!on) { player.drinkAura.destroy(); player.drinkAura = null; }
+      else { const moving = (x !== 0 || y !== 0), left = buffs.drinkShieldUntil - runElapsedMs;
+        player.drinkAura.setPosition(player.x, player.y).setDepth(player.depth - 0.1)
+          .setAlpha((moving ? 0.95 : 0.25) * (left < 2000 ? (Math.floor(left / 150) % 2 ? 1 : 0.4) : 1)); } // blinks in the last 2 s
+    }
+  }
   player.setAngle((x !== 0 || y !== 0) ? Math.sin(this.time.now / 55) * 7 : 0); // jaunty walk wobble
   if (window.Juice) Juice.step(this, player, len > 0, runElapsedMs, this.worldArt && this.worldArt.hero); // dust puffs
   label.setPosition(player.x, player.y - PLAYER.size / 2 - 4);

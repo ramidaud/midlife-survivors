@@ -13,10 +13,13 @@ window.FIELD_ITEMS = {
     name: "Energy Drink",
     emoji: "🥤",
     glow: 0x6be2ff,
-    text: "Energy Drink! You move 35% faster for 12 seconds.",
-    short: "35% FASTER · 12s",
+    text: "Energy Drink! 35% faster, and nothing can touch you while you keep moving. 12 seconds.",
+    short: "FAST + SHIELD WHILE MOVING · 12s",
     speedMult: 1.35,
     durMs: 12000,
+    // Nov 5 (Rami): "a strong shield buff while you're running around". Every hit is blocked while you move
+    // at least this fast; stand still and you're on your own.
+    shieldMinSpeed: 60,
     weight: 4
   },
   ptoDay: {

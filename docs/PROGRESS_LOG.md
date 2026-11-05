@@ -1425,3 +1425,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Score (Rami: "all of the above"): boss bonus with a quick-kill extra, retirement bonus 8k to 25k, kill points capped at 400 per year of age, Lounge spending no longer costs score.
 - Runs now send coins earned and spent. The database columns still need adding (Rami runs one SQL line); until then the game resends runs without them, so no stats are lost.
 - ChatGPT's bonk art is in (cracks, stars, bird). Fixed: north-wall charges stalled without a bonk because physics stopped bosses ~30 px before the bonk check's wall line.
+
+## 2026-11-05: V. 2.7.4, Energy Drink shield
+- Rami: the Energy Drink should give a strong shield while you run around. Now every hit is blocked while you keep moving during the drink's 12 seconds; standing still drops it. Cyan aura, TOO WIRED! pops.

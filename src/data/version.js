@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.3",
-  displayVersion: "V. 2.7.3",
+  version: "2.7.4",
+  displayVersion: "V. 2.7.4",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 231,
+  build: 232,
   changelog: [
+    {
+      ver: "V. 2.7.4", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Energy Drinks make you untouchable, as long as you keep moving.",
+      highlights: [
+        "Energy Drink: besides 35% more speed for 12 seconds, nothing can hit you while you keep moving (TOO WIRED!). Stop and the shield drops. A cyan aura shows it, blinking in the last 2 seconds."
+      ]
+    },
     {
       ver: "V. 2.7.3", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Scores reward skill now: boss bonuses, a bigger retirement bonus, and late swarms count less.",
