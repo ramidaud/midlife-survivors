@@ -2191,7 +2191,7 @@ function shopBadgeInfo(m) {
   const open = (window.META_SHOP || []).filter(it => !(window.shopItemLocked && shopItemLocked(it, m)));
   const seen = (m && m.shopSeen) || [];
   const fresh = open.filter(it => it.unlockAchievement && !seen.includes(it.id));
-  const afford = open.filter(it => { const r = (m.ranks && m.ranks[it.id]) || 0; return r < it.maxRank && (m.coins || 0) >= it.baseCost * (r + 1); });
+  const afford = open.filter(it => { const r = (m.ranks && m.ranks[it.id]) || 0; return r < it.maxRank && (m.coins || 0) >= shopPrice(it, m); });
   return { fresh, afford };
 }
 function shopBadgeHtml(m) {
@@ -2255,12 +2255,13 @@ function renderTitleModal(scene, preserveFocusSelector) {
     }).join("");
 
   // Coins spent so far in the 401(k) Shop (rank r of an item cost baseCost x (1 + 2 + ... + r)).
-  const shopSpent = META_SHOP.reduce((sum, item) => { const r = meta.ranks[item.id] || 0; return sum + item.baseCost * r * (r + 1) / 2; }, 0);
+  // Plus the extra paid to "lifestyle inflation" since Nov 5 (meta.shopInflationPaid), so a refund gives back everything.
+  const shopSpent = META_SHOP.reduce((sum, item) => { const r = meta.ranks[item.id] || 0; return sum + item.baseCost * r * (r + 1) / 2; }, 0) + (meta.shopInflationPaid || 0);
   const shopRowsHtml = META_SHOP.map(item => {
     const rank = meta.ranks[item.id] || 0;
     const locked = window.shopItemLocked && shopItemLocked(item, meta);
     const maxed = rank >= item.maxRank;
-    const cost = item.baseCost * (rank + 1);
+    const cost = shopPrice(item, meta);
     const canBuy = !locked && !maxed && meta.coins >= cost;
     return `
       <div class="shop-row ${maxed ? "maxed" : ""} ${canBuy ? "affordable" : ""} ${locked ? "shop-locked" : ""}" data-shop="${item.id}">
@@ -2524,7 +2525,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   if (refundBtn) bindNavItem(refundBtn, 98, () => {
     if (!refundBtn.dataset.armed) { refundBtn.dataset.armed = "1"; refundBtn.textContent = `TAP AGAIN TO REFUND ${shopSpent}k`; sfx("move"); return; }
     meta.coins += shopSpent;
-    META_SHOP.forEach(item => { meta.ranks[item.id] = 0; });
+    META_SHOP.forEach(item => { meta.ranks[item.id] = 0; }); meta.shopInflationPaid = 0;
     saveMeta(meta); sfx("billPaid");
     renderTitleModal(scene, ".shop-row"); updateHUD();
   });
@@ -2617,9 +2618,9 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
       const item = META_SHOP.find(it => it.id === shopId);
       if (!item) return;
       const rank = meta.ranks[item.id] || 0;
-      const cost = item.baseCost * (rank + 1);
+      const cost = shopPrice(item, meta);
       if (!(window.shopItemLocked && shopItemLocked(item, meta)) && rank < item.maxRank && meta.coins >= cost) {
-        meta.coins -= cost; meta.ranks[item.id] = rank + 1;
+        meta.coins -= cost; meta.shopInflationPaid = (meta.shopInflationPaid || 0) + Math.max(0, cost - item.baseCost * (rank + 1)); meta.ranks[item.id] = rank + 1;
         if (rank + 1 >= item.maxRank && window.achEvent) window.achEvent("shopMax", { id: item.id });
         saveMeta(meta); sfx("billPaid");
         renderTitleModal(scene, `[data-shop="${shopId}"]`); updateHUD();
@@ -2755,7 +2756,7 @@ function titleFileTile() {
   // The feed (Nov 4, Rami: "to-dos mixed with news and status things"): status first, then news, then to-dos.
   const feed = [];
   if (lastLine) feed.push({ t: "status", h: lastLine });
-  const cheap = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: it.baseCost * (r + 1) }; })
+  const cheap = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: shopPrice(it, meta) }; })
     .filter(x => !(window.shopItemLocked && shopItemLocked(x.it, meta)) && x.r < x.it.maxRank && x.cost <= (meta.coins || 0)).sort((a, b) => a.cost - b.cost)[0];
   if (returning && cheap) feed.push({ t: "status", h: `💰 You can afford <b>${esc(cheap.it.name)}</b>${cheap.r ? ` rank ${cheap.r + 1}` : ""} (${cheap.cost}k).`, go: "shop", cta: "Open the shop" });
   const V = window.GAME_VERSION || {}, latest = (V.changelog || [])[0] || {};
@@ -2924,10 +2925,11 @@ function runSummaryHtml() {
   const lines = window.ACH_END_LINES || {};
   const got = (meta && meta.achievements && meta.achievements.unlocked) || {};
   const next = (window.ACHIEVEMENTS || []).filter(a => !got[a.id]).slice(0, 2);
-  const shop = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: it.baseCost * (r + 1) }; })
+  const shop = (window.META_SHOP || []).map(it => { const r = (meta.ranks && meta.ranks[it.id]) || 0; return { it, r, cost: shopPrice(it, meta) }; })
     .filter(x => !(window.shopItemLocked && shopItemLocked(x.it, meta)) && x.r < x.it.maxRank && meta.coins >= x.cost).sort((a, b) => a.cost - b.cost)[0];
   if (!fresh.length && !next.length && !shop) return "";
   return `<div class="run-summary">
+    ${window.lastPaycheck ? `<div class="rs-tip">💼 <b>Paycheck:</b> +${window.lastPaycheck}k in your 401(k) for the years you put in.</div>` : ""}
     ${window.DEV && window.DEV.on && window.coinLedger ? `<div class="rs-next"><b>DEV · COINS BY SOURCE:</b> ${Object.entries(window.coinLedger).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${esc(k)} ${Math.round(v)}k`).join(" · ") || "none"}</div>` : ""}
     ${fresh.length ? `<div class="rs-head">🏅 EARNED THIS RUN</div>${fresh.map(a => `
       <div class="rs-ach"><div class="rs-name">${a.icon} ${esc(a.name)} <span class="rs-coins">+${a.reward}k</span></div>

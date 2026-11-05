@@ -8,6 +8,20 @@
 // Tuned (Oct 31) so a first run buys about one cheap rank and maxing everything takes many runs.
 // A shop item with unlockAchievement stays locked until that achievement is earned.
 window.shopItemLocked = (item, m) => { m = m || window.meta; return !!(item && item.unlockAchievement && !(m && m.achievements && m.achievements.unlocked && m.achievements.unlocked[item.unlockAchievement])); };
+// Coin economy (Nov 5, Rami OK'd the four-part fix). Tune these from the dev end screen's "COINS BY SOURCE" line.
+window.COIN_ECONOMY = {
+  paycheckPerYear: 3,   // every run pays 3k per year survived when it ends, so even a quick death buys something
+  taperStartAge: 55,    // from this age, coins that drop or come from chests/dividends shrink...
+  taperPerYear: 0.05,   // ...by 5% a year...
+  taperFloor: 0.3,      // ...but never below 30%. (Score still counts the full amount.)
+  inflationPerRank: 0.08 // "lifestyle inflation": every rank you own makes the next purchase 8% pricier
+};
+// What a shop item's next rank costs right now.
+window.shopPrice = (item, m) => {
+  m = m || window.meta; const ranks = (m && m.ranks) || {}, r = ranks[item.id] || 0;
+  const owned = Object.values(ranks).reduce((a, b) => a + (b || 0), 0);
+  return Math.round(item.baseCost * (r + 1) * (1 + (COIN_ECONOMY.inflationPerRank || 0) * owned));
+};
 window.META_SHOP = [
   { id: "compoundInterest", name: "Employer Match",    icon: "🤝", desc: "+2 max HP at start of run",         baseCost: 8,  maxRank: 6 },
   { id: "espressoMachine",  name: "Home Espresso",     icon: "☕", desc: "+10% starting move & fire speed",   baseCost: 12, maxRank: 6 },

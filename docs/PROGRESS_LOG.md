@@ -1497,3 +1497,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Data: maxing the whole shop costs 1,560 coins, regulars hit 36 ranks in 11-40 runs, and a run to 63 earned 1,195 (77% of the shop). Rami's retire-at-80 run earned 15,113.
 - Coins come all at once late in a run; runs that end before 45 earn about 1.
 - Added a coin ledger (by source) on the end screen in dev mode to find what pays out late. Balance proposal sent to Rami for approval.
+
+## Nov 5, 2026: V2.8.0 New coin economy (step B)
+- Rami OK'd the four-part fix. Paycheck: 3k per year survived, shown on the end screen.
+- Late coins taper from 55 (5% a year, floor 30%); the leaderboard still counts the full amount.
+- Lifestyle inflation: +8% per rank owned. Maxing the shop goes from about 1,560 to about 4,900 coins; refunds return everything.
+- All numbers live in `COIN_ECONOMY` (src/data/meta.js). Tune after Rami's dev-mode ledger run.

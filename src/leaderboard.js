@@ -25,7 +25,7 @@ function computeRunScore(ageReached, startAge, kills, coins, isClear) {
   // Nov 5: kills level off late in each year (stats.killPts), bosses add a bonus (stats.bossPts), and Lounge spending no longer costs score.
   const killPts = st && st.killPts != null ? st.killPts : kills * (L.pointsPerKill || 2);
   const bossPts = (st && st.bossPts) || 0;
-  const coinsEarned = coins + (window.runCoinsSpent || 0);
+  const coinsEarned = coins + (window.runCoinsSpent || 0) + (window.runCoinsTapered || 0); // the late-career taper doesn't cost score
   return Math.round((years * (L.pointsPerYear || 1000) + killPts + bossPts +
     coinsEarned * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0) +
     (window.NearMiss ? window.NearMiss.score() * (L.pointsPerNearMiss || 1) : 0)) * taxMult); // Close Calls add a little

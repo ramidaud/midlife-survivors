@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.16",
-  displayVersion: "V. 2.7.16",
+  version: "2.8.0",
+  displayVersion: "V. 2.8.0",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 244,
+  build: 245,
   changelog: [
+    {
+      ver: "V. 2.8.0", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "A new 401(k) economy: every shift gets a paycheck, and the shop is a longer climb.",
+      highlights: [
+        "Paycheck: every run now pays 3k per year you survived, so even a rough first day buys something.",
+        "Late-career coins taper after 55, so one great run no longer buys the whole shop. Your score still counts every coin.",
+        "Lifestyle inflation: each rank you own makes the next purchase 8% pricier. Cheap early ranks stay cheap; the last ones are real goals.",
+        "Refunds still give back everything you spent."
+      ]
+    },
     {
       ver: "V. 2.7.16", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Behind the scenes: counting where every 401(k) coin comes from.",

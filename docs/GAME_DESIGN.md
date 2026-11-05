@@ -567,3 +567,8 @@ The 9-to-5er, TJ, Derek, a clipboard intern, Eli from IT and a party-hat Bill ga
 ### 2026-11-05 Hero walk cycle repair (Codex)
 
 Each direction uses eight walk poses at the game's 95 ms cadence. The near leg leads the first contact pose and the far leg leads the second. Arms swing against the legs, and the head and torso dip one pixel on the down beats.
+
+## Coin economy (decided Nov 5, V. 2.8.0)
+- Goal: about 25-35 runs to max the 401(k) Shop, and every run (even a quick death) earns something.
+- Paycheck per year survived; late-career taper on drops, chests and dividends; shop prices rise 8% per rank owned.
+- The taper only affects the bank, never the score. Tuning knobs: `COIN_ECONOMY` in src/data/meta.js.
