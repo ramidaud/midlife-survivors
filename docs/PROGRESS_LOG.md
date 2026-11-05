@@ -1481,3 +1481,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 5, 2026: V2.7.11 New hero walk cycles
 - ChatGPT redrew all four heroes' walks from Paul's notes: legs alternate in every direction, arms swing opposite, 1 px bob, heads steady.
 - Wired into the game and the Sprite Board. Paired with V2.7.10's steady 95 ms clock.
+
+## Nov 5, 2026: V2.7.12 Sound-effect loader
+- Rami picked the order: sound effects, coin balance, first-minute pass, new stages.
+- Each game sound can now use a file from `assets/audio/sfx/` (list in `src/data/sfx-files.js`); missing files keep the old beep.
+- New sound slots: wall bonk, Mic Drop, Say Cheese camera, bonus chest. Waiting on Rami's ElevenLabs files.

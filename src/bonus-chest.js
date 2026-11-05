@@ -163,7 +163,7 @@ window.BonusChest = (() => {
     modal.classList.remove("hidden");
     if (window.menuNav) window.menuNav.refresh();
     if (window.menuNav) window.menuNav.focus(btn, false);
-    sfx("levelUp");
+    sfx("chestOpen");
   }
 
   function press() {

@@ -22,6 +22,10 @@ window.SOUNDS = {
   bossDefeat:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.22, "square"]],
   catch:    [[659, 0.05, "square"], [880, 0.05, "square"], [1175, 0.05, "square"], [1568, 0.16, "triangle"]], // GOTCHA! (catching an intern)
   reelTick: [[1400, 0.018, "square"]],                                                                      // the treat reel clicking past
+  wallBonk: [[140, 0.15, "sawtooth"]],                                   // a boss charges into a wall (file: sfx-wall-bonk)
+  micDrop:  [[180, 0.09, "square"], [360, 0.08, "triangle"]],            // Mic Drop lands (file: sfx-mic-drop)
+  camera:   [[784, 0.06, "triangle"], [1047, 0.10, "triangle"]],         // Say Cheese flash (file: sfx-camera)
+  chestOpen:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.18, "square"]], // bonus chest (file: sfx-chest-open)
   retireFanfare: [[523, 0.12, "square"], [659, 0.12, "square"], [784, 0.12, "square"], [1047, 0.32, "square"], [784, 0.12, "triangle"], [1047, 0.6, "triangle"]], // HAPPY RETIREMENT!
   reelLand: [[784, 0.06, "triangle"], [1047, 0.06, "triangle"], [1568, 0.22, "sine"]],                      // the reel lands on your treat
 

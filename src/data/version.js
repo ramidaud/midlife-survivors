@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.11",
-  displayVersion: "V. 2.7.11",
+  version: "2.7.12",
+  displayVersion: "V. 2.7.12",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 239,
+  build: 240,
   changelog: [
+    {
+      ver: "V. 2.7.12", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The game is ready for real sound effects.",
+      highlights: [
+        "Behind the scenes: every sound can now play a real recording instead of a beep, with the same pitch variety so repeats don't sound robotic.",
+        "Mic Drop, Say Cheese, wall bonks and bonus chests got their own sound slots."
+      ]
+    },
     {
       ver: "V. 2.7.11", date: "Nov 5, 2026", title: "Version Two",
       teaser: "All four heroes finally walk like people: left foot, right foot.",

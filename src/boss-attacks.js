@@ -75,7 +75,7 @@ window.BossAttacks = (() => {
     const B = T().wallBonk || {};
     a.state = "stagger"; a.startedAt = now; a.bounceUntil = now + (B.bounceMs || 320);
     a.bounceVx = -Math.cos(a.aim) * (B.bounceSpeed || 260); a.bounceVy = -Math.sin(a.aim) * (B.bounceSpeed || 260);
-    scene.cameras.main.shake(160, 0.006); sfx("hurt", 0);
+    scene.cameras.main.shake(160, 0.006); sfx("wallBonk", 0);
     // Comic bonk (Nov 4, Rami): the word pops in big and wobbly, the boss splats flat (src/boss-art.js reads _bonkAt),
     // a crack appears in the wall, and stars circle the boss's head while it's dizzy.
     const t = scene.add.text(boss.x, boss.y - 76, Phaser.Utils.Array.GetRandom(B.words || ["BONK!", "OOF!", "THUD!"]), { fontFamily: "Silkscreen, monospace", fontSize: "18px", color: "#FFF0CF", backgroundColor: "#C45C4B", padding: { x: 6, y: 3 }, stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004).setScale(0.3).setAngle(Phaser.Math.Between(-14, 14));

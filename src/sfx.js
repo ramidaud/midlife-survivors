@@ -16,9 +16,22 @@ function setupBuses() {
   sfxBus = audioCtx.createGain(); sfxBus.connect(comp);
   musicBus = audioCtx.createGain(); musicBus.connect(audioCtx.destination);
   applyVolumes();
+  loadSfxFiles();
   // Half a second of white noise, reused for paper rips, thuds and whooshes.
   noiseBuf = audioCtx.createBuffer(1, audioCtx.sampleRate / 2, audioCtx.sampleRate);
   const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+}
+// Real sound-effect files (src/data/sfx-files.js): decoded once, then played instead of the beep.
+const sfxBuf = {}; let sfxFilesStarted = false;
+function loadSfxFiles() {
+  if (sfxFilesStarted || !audioCtx || !window.SFX_FILES) return;
+  sfxFilesStarted = true;
+  for (const [name, def] of Object.entries(SFX_FILES.files)) {
+    if (!def.on) continue;
+    fetch(def.file + "?v=" + (SFX_FILES.ver || 1)).then(r => r.ok ? r.arrayBuffer() : Promise.reject(r.status))
+      .then(a => new Promise((res, rej) => audioCtx.decodeAudioData(a, res, rej)))
+      .then(b => { sfxBuf[name] = b; }).catch(() => {});
+  }
 }
 function applyVolumes() {
   if (sfxBus) sfxBus.gain.value = audioVol.sfx;
@@ -168,6 +181,14 @@ function sfx(name, minGapMs = 40) {
     mult = PENTA[st % 5] * Math.pow(2, Math.floor(st / 5)) * (1 + (Math.random() * 2 - 1) * 0.01);
   }
   const vol = SOUNDS.volume * (V.gain || 1);
+  if (sfxBuf[name]) { // a real recording: same pitch variety, kept in a natural range
+    const src = audioCtx.createBufferSource(), g = audioCtx.createGain(), def = SFX_FILES.files[name];
+    src.buffer = sfxBuf[name]; src.playbackRate.value = Math.max(0.8, Math.min(1.6, mult));
+    g.gain.value = (def.vol ?? 0.6) * (V.gain || 1);
+    src.connect(g).connect(sfxBus); src.start();
+    liveVoices++; setTimeout(() => { liveVoices--; }, sfxBuf[name].duration * 1000 / src.playbackRate.value + 30);
+    return;
+  }
   let t = audioCtx.currentTime + 0.001, end = t;
   SOUNDS[name].forEach(([freq, len, wave]) => {
     const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();

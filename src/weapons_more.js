@@ -304,7 +304,7 @@ window.MoreWeapons = (() => {
           if (b.isBoss) b.slowUntil = Math.max(b.slowUntil || 0, runElapsedMs + MD.bossStunMs); // bosses only stagger
           else { b.cringeUntil = Math.max(b.cringeUntil || 0, runElapsedMs + stats.micStunMs); if (b.body) b.setVelocity(0, 0); }
           damageBill(b, stats.micDamage); });
-        sfx("wordNo");
+        sfx("micDrop");
         pop(scene, x, y - 70, Phaser.Utils.Array.GetRandom(MD.words), "#BFA8CF");
         scene.tweens.add({ targets: mic, alpha: 0, delay: 900, duration: 300, onComplete: () => mic.destroy() });
       } });
@@ -336,7 +336,7 @@ window.MoreWeapons = (() => {
           }
           damageBill(b, stats.cheeseDamage);
         });
-        sfx("pick");
+        sfx("camera");
         if (n >= 4 || Math.random() < 0.25) pop(scene, x, y - 54, Phaser.Utils.Array.GetRandom(SC.words), "#FFF0CF");
       };
       shoot();
