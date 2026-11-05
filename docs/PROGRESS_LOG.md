@@ -1566,3 +1566,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Drew a rolling cart with an orange striped awning, a steam loop and four closing poses.
 - Checked the transparent RGBA sheets and preview timing. Claude wires the assets in.
 - V2.10.1: ChatGPT's Medical Bill (gown, 8-frame walk) and Lounge Cart (steam loop at 2x, awning folds when it closes) wired in. Transparent PNGs this time, no magenta issues.
+
+## Nov 5, 2026 (evening): traffic stats and the "this is me" switch (V2.10.2)
+- Read the first GoatCounter week: 206 game visits, about 2 in 3 started a run, half reached 45. Most players are on iPhones. The Taiwan traffic is Ben.
+- New `?me=1` link: turns off GoatCounter for that browser and shows the device's player ID so Rami's runs can be left out of the stats (`docs/stats-exclude.md`). `?me=0` undoes it.
+- Art audit: about 11 code-drawn pieces left in the office (XP gem, 401(k) coin, pizza, Desk Salad, boss chest, coffee splash and 5 weapon projectiles). The ChatGPT brief is ready.
+- Decided no "read to the end" event for the devlog.

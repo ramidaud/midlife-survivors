@@ -21,7 +21,37 @@
 <meta name="twitter:image:alt" content="Pixel-art office lobby at 8:59 AM: a tired office worker punches in while Bills and a spam phone press against the glass doors.">
 <!-- Visitor counts (GoatCounter): no cookies, nothing personal -->
 <script>
-if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
+// ?me=1 marks this browser as Rami's: GoatCounter skips it (its own "skipgc" flag) and a card shows this device's player ID
+// so his runs can be filtered out of the stats. ?me=0 undoes it.
+(function () {
+  var m = /[?&]me=([01])/.exec(location.search); if (!m) return;
+  try {
+    if (m[1] === "1") {
+      localStorage.setItem("skipgc", "t"); localStorage.setItem("ms-me", "1");
+      var id = localStorage.getItem("ms-player-id");
+      if (!id) { id = Math.random().toString(36).slice(2, 10) + Date.now().toString(36); localStorage.setItem("ms-player-id", id); }
+      window.__meCard = id;
+    } else { localStorage.removeItem("skipgc"); localStorage.removeItem("ms-me"); window.__meCard = "off"; }
+  } catch (e) { window.__meCard = "no-storage"; }
+  document.addEventListener("DOMContentLoaded", function () {
+    var id = window.__meCard, d = document.createElement("div");
+    d.id = "me-card";
+    d.style.cssText = "position:fixed;left:50%;top:16px;transform:translateX(-50%);z-index:99999;max-width:calc(100vw - 32px);box-sizing:border-box;background:#f3ead8;color:#1d2a3a;border:3px solid #2f8f8a;padding:14px 16px;font:15px/1.4 'Atkinson Hyperlegible',sans-serif;box-shadow:0 6px 0 rgba(0,0,0,.35);text-align:center";
+    var head = "<div style=\"font-family:Silkscreen,monospace;font-size:12px;letter-spacing:1px;color:#b5562f\">MEMO · RE: THIS IS ME</div>";
+    if (id === "off") d.innerHTML = head + "<div>This browser counts in the stats again.</div>";
+    else if (id === "no-storage") d.innerHTML = head + "<div>This browser blocks storage, so it can't be marked.</div>";
+    else d.innerHTML = head + "<div>Visits from this browser aren't counted anymore. Send Claude this device ID:</div>" +
+      "<div style=\"font:700 18px monospace;margin:8px 0;user-select:all\">" + id + "</div>" +
+      "<button id=\"me-copy\" style=\"font:12px Silkscreen,monospace;background:#2f8f8a;color:#f3ead8;border:0;padding:8px 12px;margin-right:6px;cursor:pointer\">COPY</button>";
+    d.innerHTML += "<button id=\"me-close\" style=\"font:12px Silkscreen,monospace;background:#1d2a3a;color:#f3ead8;border:0;padding:8px 12px;cursor:pointer\">OK</button>";
+    document.body.appendChild(d);
+    var c = document.getElementById("me-copy");
+    if (c) c.onclick = function () { try { navigator.clipboard.writeText(id); c.textContent = "COPIED"; } catch (e) {} };
+    document.getElementById("me-close").onclick = function () { d.remove(); };
+  });
+})();
+var gcSkip = false; try { gcSkip = localStorage.getItem("skipgc") === "t"; } catch (e) {}
+if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   var gc = document.createElement("script");
   gc.dataset.goatcounter = "https://midlifesurvivors.goatcounter.com/count";
   gc.async = true; gc.src = "https://gc.zgo.at/count.js";
@@ -1641,7 +1671,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=259&t=" + Date.now();
+    s.src = "src/loader.js?v=260&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

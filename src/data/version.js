@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.1",
-  displayVersion: "V. 2.10.1",
+  version: "2.10.2",
+  displayVersion: "V. 2.10.2",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 259,
+  build: 260,
   changelog: [
+    {
+      ver: "V. 2.10.2", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Behind the scenes: the dev's own visits stop padding the numbers.",
+      highlights: [
+        "A small tester switch keeps the developer's own visits and runs out of the play stats, so the numbers show real players."
+      ]
+    },
     {
       ver: "V. 2.10.1", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Medical Bills got scrubs, and the Lounge Cart got wheels.",
