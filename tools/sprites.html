@@ -28,9 +28,10 @@
   .card h2 small { font:11px "Atkinson Hyperlegible", sans-serif; font-weight:700; opacity:.75; }
   .stage { display:grid; place-items:center; min-height:180px; padding:12px; overflow:auto; }
   .stage canvas { image-rendering:pixelated; image-rendering:crisp-edges; display:block; }
-  body.bg-floor .stage { background:var(--tan); }
+  .stage { background:var(--stage-bg, #10142a); }
   body.bg-check .stage { background:repeating-conic-gradient(#2a3150 0 25%, #222842 0 50%) 0 0 / 16px 16px; }
-  body.bg-navy .stage { background:#10142a; }
+  .swatch { display:inline-flex; align-items:center; gap:4px; font:11px Silkscreen, monospace; color:var(--sage); }
+  .swatch input { width:34px; height:30px; padding:0; border:2px solid var(--teal); border-radius:6px; background:var(--navy2); cursor:pointer; }
   .meta { padding:8px 10px 10px; border-top:2px solid var(--slate); display:grid; gap:6px; }
   .anims { display:flex; flex-wrap:wrap; gap:4px; }
   .anims button.chip { font-size:10px; padding:4px 6px; min-height:28px; }
@@ -42,7 +43,7 @@
   @media (max-width:520px) { main { grid-template-columns:1fr; padding:12px; } header { position:static; } }
 </style>
 </head>
-<body class="bg-navy">
+<body>
 <header>
   <h1>SPRITE BOARD</h1>
   <p class="sub">Every animated sheet in the game, looping at its in-game speed and scaled up with nearest-neighbor pixels.</p>
@@ -62,15 +63,19 @@
       <button class="chip" data-speed="0" aria-pressed="false">PAUSE</button>
       <button class="chip" id="step">STEP ▶</button>
     </div>
+    <div class="grp" id="poses"><span class="lbl">ALL CARDS</span></div>
     <div class="grp"><span class="lbl">VIEW</span>
       <button class="chip" data-mode="normal" aria-pressed="true">NORMAL</button>
       <button class="chip" data-mode="onion" aria-pressed="false">ONION</button>
       <button class="chip" data-mode="diff" aria-pressed="false">CHANGED PIXELS</button>
     </div>
     <div class="grp"><span class="lbl">BACKDROP</span>
-      <button class="chip" data-bg="navy" aria-pressed="true">DARK</button>
-      <button class="chip" data-bg="floor" aria-pressed="false">FLOOR</button>
+      <button class="chip" data-bg="#10142a" aria-pressed="true">DARK</button>
+      <button class="chip" data-bg="#D3B78D" aria-pressed="false">FLOOR</button>
+      <button class="chip" data-bg="#FF00FF" aria-pressed="false">MAGENTA</button>
+      <button class="chip" data-bg="#00FF00" aria-pressed="false">GREEN</button>
       <button class="chip" data-bg="check" aria-pressed="false">CHECKER</button>
+      <label class="swatch">ANY <input type="color" id="swatch" value="#526078" aria-label="Pick any backdrop color"></label>
     </div>
   </div>
   <p class="legend"><b>Red</b> pixels changed since the last frame. Good pixel animation keeps most pixels still and moves only what should move. Lots of scattered red = pixels popping.</p>
@@ -108,6 +113,18 @@
   const gEl = document.getElementById("groups");
   groups.forEach(g => { const b = document.createElement("button"); b.className = "chip"; b.textContent = g.toUpperCase(); b.dataset.group = g; gEl.appendChild(b); });
 
+  // "All cards" pose buttons (Paul's idea): every animation name that 3+ sheets share, minus anything in brackets.
+  const poseKey = n => n.toLowerCase().replace(/\s*\(.*\)\s*/g, "").replace(/-/g, "").trim();
+  const counts = {}; CAT.forEach(e => new Set(e.anims.map(a => poseKey(a.name))).forEach(k => counts[k] = (counts[k] || 0) + 1));
+  const ORDER = ["walk down", "walk up", "walk left", "walk right", "walk", "idle", "loop"];
+  const poses = Object.keys(counts).filter(k => counts[k] >= 3).sort((a, b) => ((ORDER.indexOf(a) + 1) || 99) - ((ORDER.indexOf(b) + 1) || 99));
+  const pEl = document.getElementById("poses");
+  [["", "FIRST"], ...poses.map(k => [k, k.toUpperCase()])].forEach(([k, label]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.pose = k; b.textContent = label; pEl.appendChild(b); });
+  function setAnim(card, k) {
+    card.anim = k; card.i = 0; card.t = 0;
+    card.el.querySelectorAll(".anims button").forEach((x, j) => x.setAttribute("aria-pressed", j === k ? "true" : "false"));
+    draw(card);
+  }
   const board = document.getElementById("board"), cards = [];
   CAT.forEach(entry => {
     const el = document.createElement("section"); el.className = "card"; el.dataset.group = entry.group;
@@ -121,7 +138,7 @@
     entry.anims.forEach((a, k) => {
       const b = document.createElement("button"); b.className = "chip"; b.textContent = a.name.toUpperCase();
       b.setAttribute("aria-pressed", k === 0 ? "true" : "false");
-      b.onclick = () => { card.anim = k; card.i = 0; card.t = 0; box.querySelectorAll("button").forEach((x, j) => x.setAttribute("aria-pressed", j === k ? "true" : "false")); draw(card); };
+      b.onclick = () => setAnim(card, k);
       box.appendChild(b);
     });
     cards.push(card);
@@ -202,11 +219,21 @@
     else if (b.dataset.scale) state.scale = b.dataset.scale === "auto" ? "auto" : +b.dataset.scale;
     else if (b.dataset.speed) state.speed = +b.dataset.speed;
     else if (b.dataset.mode) state.mode = b.dataset.mode;
-    else if (b.dataset.bg) { document.body.className = document.body.className.replace(/bg-\w+/, "bg-" + b.dataset.bg); document.querySelectorAll("[data-bg]").forEach(x => x.setAttribute("aria-pressed", x === b)); return; }
+    else if (b.dataset.bg) { setBg(b.dataset.bg); document.querySelectorAll("[data-bg]").forEach(x => x.setAttribute("aria-pressed", x === b)); return; }
+    else if (b.dataset.pose !== undefined) { // set every card that has this pose (cards without it keep theirs)
+      const k = b.dataset.pose;
+      cards.forEach(c => { const j = k === "" ? 0 : c.entry.anims.findIndex(a => poseKey(a.name) === k); if (j >= 0) setAnim(c, j); });
+      document.querySelectorAll("[data-pose]").forEach(x => x.setAttribute("aria-pressed", x === b)); return;
+    }
     else if (b.id === "step") { state.speed = 0; state.stepOnce = true; }
     else return;
     sync();
   });
+  function setBg(v) {
+    document.body.classList.toggle("bg-check", v === "check");
+    if (v !== "check") document.body.style.setProperty("--stage-bg", v);
+  }
+  document.getElementById("swatch").addEventListener("input", e => { setBg(e.target.value); document.querySelectorAll("[data-bg]").forEach(x => x.setAttribute("aria-pressed", "false")); });
   window.addEventListener("resize", () => cards.forEach(c => { layout(c); draw(c); }));
   sync();
 })();
