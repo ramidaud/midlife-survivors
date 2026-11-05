@@ -1367,3 +1367,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 2.3.3, the chest that wouldn't open
 - Rami: the boss chest followed him but never opened. My 2.3.2 slide used a fixed speed (about 300 px/s), and a fast hero who keeps moving outruns it, so it trailed just behind.
 - The chest now always moves 160 px/s faster than you and opens within 56 px. Tested at 368 px/s, nonstop running: caught and opened in about 1.5 s.
+
+## 2026-11-04: V. 2.3.4, pairing hints on upgrade cards
+- Rami asked whether Ben's Floppy Disk evolves. It does (Zip Drive: 2 Double Density + Comfortable Shoes), but starting heroes never see an Unlock card, so they never got the hint.
+- Every weapon upgrade card now says "Pairs with ..." and shows a check mark if you already have that passive.
+- Chest safety net: a chest screen that's marked open but isn't showing gets cleared, and it's reset every new run. The chest tip now says the chest comes to you.

@@ -125,8 +125,20 @@ const EVO_PAIRS = [
   ["mealPrep", "unlockCasserole", "Mom's Spaghetti"], ["cardigan", "unlockPhones", "Headphones"], ["bifocals", "unlockReplyAll", "Reply-All"],
   ["lumbar", "unlockOoo", "Out-of-Office"], ["fitnessTracker", "unlockSticky", "Sticky Notes"], ["multivitamin", "unlockThermo", "Thermostat Wars"]
 ];
+// Weapon upgrade cards get the hint too (Nov 4, Rami: Ben starts with the Floppy Disk, so he never saw its Unlock card).
+const EVO_UPGRADE_PASSIVE = {
+  extraShot: "goodSleep", darkRoast: "goodSleep", longPour: "goodSleep", louderGroan: "readingGlasses", firmBoundaries: "comfyShoes",
+  universalRemote: "comfyShoes", moreColumns: "readingGlasses", playbackSpeed: "goodSleep", secondHelping: "mealPrep", activeNoise: "cardigan",
+  wd40: "comfyShoes", ccEveryone: "bifocals", extendedLeave: "lumbar", bulkPack: "fitnessTracker", crankAc: "multivitamin"
+};
 function evoPairNote(up) {
   if (!up || up.isEvolution) return "";
+  const passiveId = EVO_UPGRADE_PASSIVE[up.id];
+  if (passiveId) {
+    const pas = (window.UPGRADES || []).find(u => u.id === passiveId);
+    const have = typeof stats !== "undefined" && stats && typeof getRank === "function" && getRank(stats, passiveId) > 0;
+    return pas ? "Pairs with " + pas.name + (have ? " ✓" : "") : "";
+  }
   const asPassive = EVO_PAIRS.filter(p => p[0] === up.id).map(p => p[2]);
   // Nov 4 (Rami): "Evolves Mom's Spaghetti" on Meal Prep read like the card WAS the spaghetti. Say "pairs with" instead.
   if (asPassive.length) return "Pairs with " + asPassive.join(", ");

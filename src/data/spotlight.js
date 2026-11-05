@@ -47,7 +47,7 @@ window.SPOTLIGHT = {
                           photographer: "Keep your knees bent, that glowing red one has hustle!",
                           gradStudent: "Great, a peer reviewer with a red pen and an attitude.",
                           coldWarCowboy: "Whoa, somebody overclocked that guy way past factory." } },
-    chest:     { topic: "BOSS CHESTS", kicker: "BONUS APPROVED", tip: "Walk over the boss chest to claim upgrades and coins.",
+    chest:     { topic: "BOSS CHESTS", kicker: "BONUS APPROVED", tip: "The boss chest comes to you: upgrades and coins inside.",
                  lines: { any: "Wait, accounting actually signed off on a spot bonus?",
                           officeWorker: "A real bonus, and it's not even a pizza party.",
                           photographer: "Look at that chest, the whole sideline earned this one!",

@@ -283,7 +283,7 @@ function spawnCoin(x, y, bonusMult = 1) {
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
-  runElapsedMs = 0; window.lastBossDownMs = null; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
+  runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
   if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
@@ -2473,6 +2473,8 @@ function update(time, delta) {
     this.physics.moveToObject(ch, player, Math.max(W.magnetSpeed * (d < Math.max(magR, 150) ? 0.8 : 0.55), runSpeed + 160));
     if (ch.tag) ch.tag.setPosition(ch.x, ch.y);
     if (d < 56) {
+      // A chest screen that says it's open but isn't on screen while you're playing is stale: let it go.
+      if (!levelUpOpen && window.BonusChest && BonusChest.isOpen() && BonusChest.visible && !BonusChest.visible()) BonusChest.abandon();
       const blocked = levelUpOpen || (window.BonusChest && BonusChest.isOpen());
       if (!blocked) collectChest(player, ch);
       else if (!ch.blockLogged && (ch.blockedSince = ch.blockedSince || runElapsedMs) && runElapsedMs - ch.blockedSince > 4000) {

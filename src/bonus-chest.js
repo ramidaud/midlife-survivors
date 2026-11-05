@@ -312,5 +312,12 @@ window.BonusChest = (() => {
     if (done) done();
   }
 
-  return { open, press, isOpen: () => !!state };
+  // Safety net (Nov 4): forget a chest screen that isn't actually showing (a new run, or a menu that closed over it).
+  function abandon() {
+    if (!state) return;
+    state.timers.forEach(clearTimeout); if (state.raf) cancelAnimationFrame(state.raf);
+    state = null; if (modal) modal.classList.add("hidden");
+  }
+  const visible = () => !!(modal && !modal.classList.contains("hidden"));
+  return { open, press, abandon, visible, isOpen: () => !!state };
 })();

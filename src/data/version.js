@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.3.3",
-  displayVersion: "V. 2.3.3",
+  version: "2.3.4",
+  displayVersion: "V. 2.3.4",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 220,
+  build: 221,
   changelog: [
+    {
+      ver: "V. 2.3.4", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Every weapon upgrade card now tells you what it pairs with, so the Coldwar Cowboy can find the Zip Drive.",
+      highlights: [
+        "Weapon upgrade cards (Double Density, Second Helping, Bulk Pack and the rest) now say which passive they pair with, with a check mark if you already have it. Heroes who start with a weapon never see its Unlock card, so they never got the hint.",
+        "Ben's Floppy Disk evolves into the Zip Drive: two Double Density upgrades plus Comfortable Shoes.",
+        "Safety net: a boss chest can't get stuck behind a chest screen that isn't really showing. The BOSS CHESTS tip now says the chest comes to you."
+      ]
+    },
     {
       ver: "V. 2.3.3", date: "Nov 4, 2026", title: "Version Two",
       teaser: "The boss chest catches you now, even at full speed.",
