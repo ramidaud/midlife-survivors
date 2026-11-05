@@ -2178,6 +2178,29 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
   };
 }
 
+// Shop button badge (Nov 5, Rami): "NEW" when an item unlocked since you last opened the shop,
+// otherwise how many upgrades you can afford right now. Nothing when there's nothing to do.
+function shopBadgeInfo(m) {
+  const open = (window.META_SHOP || []).filter(it => !(window.shopItemLocked && shopItemLocked(it, m)));
+  const seen = (m && m.shopSeen) || [];
+  const fresh = open.filter(it => it.unlockAchievement && !seen.includes(it.id));
+  const afford = open.filter(it => { const r = (m.ranks && m.ranks[it.id]) || 0; return r < it.maxRank && (m.coins || 0) >= it.baseCost * (r + 1); });
+  return { fresh, afford };
+}
+function shopBadgeHtml(m) {
+  if (!m) return "";
+  const { fresh, afford } = shopBadgeInfo(m);
+  if (fresh.length) return ` <span class="shop-badge new" title="${fresh.map(f => f.name).join(", ")} unlocked">NEW</span>`;
+  if (afford.length) return ` <span class="shop-badge" title="You can afford ${afford.length} upgrade${afford.length > 1 ? "s" : ""}">${afford.length}</span>`;
+  return "";
+}
+function markShopSeen(m) {
+  const { fresh } = shopBadgeInfo(m);
+  if (!fresh.length) return;
+  m.shopSeen = ((m.shopSeen) || []).concat(fresh.map(f => f.id));
+  if (typeof saveMeta === "function") saveMeta(m);
+}
+
 // Render the Title Screen ("Executive Dossier, Save/Resume & 401(k) Portal")
 function renderTitleModal(scene, preserveFocusSelector) {
   const modal = document.getElementById("title-modal");
@@ -2318,7 +2341,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
           <div class="tp-memo-foot" id="title-memo-foot">${verInfo.displayVersion}</div>
         </aside>
         <div class="title-secondary tp-links">
-          <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP</button>
+          <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP${shopBadgeHtml(meta)}</button>
           <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
           <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
           <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
@@ -2329,6 +2352,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const bandTail = `</div>`;
   let bodyHtml = "";
   if (view === "shop") {
+    markShopSeen(meta); // opening the shop clears the NEW tag
     bodyHtml = `
       <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
       <div class="shop-list">${shopRowsHtml}${(window.SHOP_COMING_SOON || []).map(c => `

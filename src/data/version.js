@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.1",
-  displayVersion: "V. 2.7.1",
+  version: "2.7.2",
+  displayVersion: "V. 2.7.2",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 229,
+  build: 230,
   changelog: [
+    {
+      ver: "V. 2.7.2", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The 401(k) Shop button tells you when there's something to buy, and the map stops forgetting you found it.",
+      highlights: [
+        "The 401(k) Shop button shows NEW when an item unlocks (like Sleep On It), or how many upgrades you can afford right now.",
+        "Fixed: finding the office map, your Sprint switch and the Gold Watch keepsake were forgotten whenever the game reloaded. They stick now."
+      ]
+    },
     {
       ver: "V. 2.7.1", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Controllers can reach everything on the title screen now.",

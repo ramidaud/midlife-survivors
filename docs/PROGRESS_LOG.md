@@ -1416,3 +1416,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-05: V. 2.7.1, controller reaches the whole title screen
 - Rami couldn't reach everything with a controller. Menu navigation only looked inside the open window, so the top bar (Devlog, Art Room, Discord...) was out of reach, and the Extras poll buttons never joined navigation.
 - The top bar is now the top row on the title screen, and poll options join as soon as they appear. Mouse and touch behave as before.
+
+## 2026-11-05: V. 2.7.2, shop badge and a save bug
+- The 401(k) Shop button shows NEW for items unlocked since your last visit, otherwise a count of affordable upgrades.
+- Found while building it: the save loader kept a fixed list of fields, so newer ones (map found, minimap size, Sprint switch, Gold Watch keepsake) were dropped on every reload. It now keeps everything saved.

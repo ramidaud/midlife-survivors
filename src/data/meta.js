@@ -165,7 +165,9 @@ function loadMeta() {
     const raw = localStorage.getItem(SAVE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
-      return {
+      // Start from everything that was saved, so newer fields (mapFound, sprint, keepsakes, shopSeen...) survive a reload.
+      // Nov 5: the old fixed list quietly dropped those. The lines below still clean up and default the core fields.
+      return Object.assign({}, parsed, {
         coins: parsed.coins || 0,
         ranks: parsed.ranks || {},
         // Ben unlocks with Required Reading; players who already earned it get him on load (Nov 3).
@@ -186,7 +188,7 @@ function loadMeta() {
         bestScore: parsed.bestScore || 0,
         lastRun: parsed.lastRun || null,
         played: parsed.played || {}         // runs per device type + controller runs (Hybrid Schedule achievements)
-      };
+      });
     }
   } catch (e) {}
   return {

@@ -564,3 +564,8 @@ A decal inherits the wall behind it. Navy fissures and cream chips give the bonk
 - **Gating** means a feature exists in the game but stays locked until the player does something. Sprint waits for the V8; Sleep On It waits for age 55.
 - It spreads new things across many runs, so a player always has a next goal, and it teaches features one at a time instead of all on the first screen.
 - In code it's one line of data: `unlockAchievement: "middleManagement"` on the shop item. The shop reads it and shows a lock until that achievement is earned.
+
+## Saving and loading: allowlists can forget things (Nov 5)
+- The save file is a list of named values (coins, ranks, mapFound...). Loading it used a fixed list of names to copy back, called an **allowlist**.
+- Anything added later and not put on that list worked fine until a reload, then quietly vanished. That's how the office map "forgot" you found it.
+- Fix: copy everything that was saved first, then clean up the important fields. New features now persist without anyone remembering to update the list.
