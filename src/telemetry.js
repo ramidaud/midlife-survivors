@@ -75,7 +75,10 @@ window.Telemetry = (() => {
       tax_bracket: typeof runTaxBracket !== "undefined" ? runTaxBracket : 0,
       device: device(),
       resumed: !!run.resumed,
-      version: String((window.GAME_VERSION && GAME_VERSION.displayVersion) || "").slice(0, 24)
+      version: String((window.GAME_VERSION && GAME_VERSION.displayVersion) || "").slice(0, 24),
+      // Coin balance (Nov 5): what the run banked and what it spent in the Lounge.
+      coins_earned: typeof runCoins !== "undefined" ? Math.round(runCoins + (window.runCoinsSpent || 0)) : null,
+      coins_spent: Math.round(window.runCoinsSpent || 0)
     };
     if (DIFFICULTY_DETAIL) {
       let boss = null, ranks = 0, zoom = null;
@@ -96,12 +99,14 @@ window.Telemetry = (() => {
       avg_fps: fpsTime ? Math.round(1000 * fpsFrames / fpsTime) : null,
       slow_frame_pct: fpsFrames ? Math.round(100 * fpsSlow / fpsFrames) : null
     });
+    const post = r => fetch(`${L.supabaseUrl}/rest/v1/runs`, {
+      method: "POST", keepalive: true, // keepalive lets it finish even if the tab is closing
+      headers: { apikey: L.supabaseAnonKey, Authorization: `Bearer ${L.supabaseAnonKey}`, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify(r)
+    });
     try {
-      fetch(`${L.supabaseUrl}/rest/v1/runs`, {
-        method: "POST", keepalive: true, // keepalive lets it finish even if the tab is closing
-        headers: { apikey: L.supabaseAnonKey, Authorization: `Bearer ${L.supabaseAnonKey}`, "Content-Type": "application/json", Prefer: "return=minimal" },
-        body: JSON.stringify(row)
-      }).catch(() => {});
+      // If the database doesn't have the coin columns yet, send the run again without them so the stats aren't lost.
+      post(row).then(res => { if (res && res.status === 400) { const r2 = Object.assign({}, row); delete r2.coins_earned; delete r2.coins_spent; return post(r2); } }).catch(() => {});
     } catch (e) {}
   }
 

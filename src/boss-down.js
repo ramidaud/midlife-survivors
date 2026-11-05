@@ -24,6 +24,8 @@ window.BossDown = (() => {
     if (!window.ArtSheets) return;
     ArtSheets.load(scene, KO_KEY, "assets/bosses/boss-knockdown-v1.png", 144, 152);
     ArtSheets.load(scene, PLATE_KEY, "assets/ui/stamp-plate-v1.png", 48, 24);
+    ArtSheets.load(scene, "bonk_crack", "assets/bosses/bonk-crack-v1.png", 48, 48);   // wall bonk (src/boss-attacks.js)
+    ArtSheets.load(scene, "dizzy_stars", "assets/bosses/dizzy-stars-v1.png", 16, 16); // 6 star frames + 2 bird frames
   }
   const reduced = () => { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
   let slowTimer = null;
@@ -91,6 +93,13 @@ window.BossDown = (() => {
       scene.tweens.add({ targets: stamp, alpha: 1, scale: 1, duration: calm ? 1 : 160, ease: "Back.Out",
         onComplete: () => { if (!calm) scene.cameras.main.shake(120, 0.006);
           scene.tweens.add({ targets: stamp, alpha: 0, y: stamp.y - 18, delay: 1300, duration: 500, onComplete: () => stamp.destroy() }); } });
+      // The score bonus this boss paid (src/main.js, LEADERBOARD.bossBonus), under the stamp.
+      if (boss.scoreBonus) {
+        const pts = scene.add.text(x, y - 92, "+" + boss.scoreBonus.toLocaleString() + " SCORE", { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#FFF0CF", stroke: "#171C35", strokeThickness: 4 })
+          .setOrigin(0.5).setDepth(50011).setAlpha(0);
+        scene.tweens.add({ targets: pts, alpha: 1, y: pts.y + 4, delay: 220, duration: 200, ease: "Back.Out",
+          onComplete: () => scene.tweens.add({ targets: pts, alpha: 0, y: pts.y - 14, delay: 1200, duration: 450, onComplete: () => pts.destroy() }) });
+      }
     });
   }
   function reset() { clearTimeout(slowTimer); }

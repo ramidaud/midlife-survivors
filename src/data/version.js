@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.2",
-  displayVersion: "V. 2.7.2",
+  version: "2.7.3",
+  displayVersion: "V. 2.7.3",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 230,
+  build: 231,
   changelog: [
+    {
+      ver: "V. 2.7.3", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Scores reward skill now: boss bonuses, a bigger retirement bonus, and late swarms count less.",
+      highlights: [
+        "Score: every boss pays +5,000, plus up to +5,000 more for a quick kill (shown under the stamp). Reaching retirement pays 25,000 (was 8,000).",
+        "Score: the first 400 kills in each year of age count fully; after that a kill is worth a quarter point, so huge late swarms don't drown out everything else. Coins you spend in the Lounge no longer lower your score.",
+        "Wall bonks have real art: drywall cracks, twinkling dizzy stars and a little bird. Fixed: bosses charging the Break Room's north wall stopped short without bonking.",
+        "Behind the scenes: runs now record coins earned and spent, to balance the 401(k) shop."
+      ]
+    },
     {
       ver: "V. 2.7.2", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The 401(k) Shop button tells you when there's something to buy, and the map stops forgetting you found it.",

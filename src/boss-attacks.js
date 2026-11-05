@@ -26,8 +26,8 @@ window.BossAttacks = (() => {
   }
   // Did a charging boss run into a wall, a closed door, or off the floor? (Nov 4, Rami: "he goes right through walls")
   // Furniture still doesn't stop him (that's what pass() is for); only walls do.
-  function wallHit(scene, boss, D, px, py) {
-    const L = window.START_AREA_LAYOUT, hw = D.bodyHalfW, hh = D.bodyHalfH, x = px ?? boss.x, y = py ?? boss.y;
+  function wallHit(scene, boss, D, px, py, pad = 0) {
+    const L = window.START_AREA_LAYOUT, hw = D.bodyHalfW + pad, hh = D.bodyHalfH + pad, x = px ?? boss.x, y = py ?? boss.y;
     const over = r => x - hw < r.x + r.width && x + hw > r.x && y - hh < r.y + r.height && y + hh > r.y;
     if (L && L.walls.some(over)) return true;
     if ((window.START_AREA_GATES || []).some(g => !g.opened && g.rect && over({ x: g.rect.x, y: g.rect.y, width: g.rect.w, height: g.rect.h }))) return true;
@@ -36,7 +36,12 @@ window.BossAttacks = (() => {
   }
   // A jagged crack where the boss hit the wall. Fades after a few seconds.
   function crack(scene, x, y, B) {
-    const key = "bonk_crack";
+    if (scene.textures.exists("bonk_crack") && scene.textures.get("bonk_crack").frameTotal > 2) { // ChatGPT's drywall cracks (3 variants)
+      const o = scene.add.image(Math.round(x), Math.round(y), "bonk_crack", Phaser.Math.Between(0, 2)).setDepth(50003).setScale(1.25).setAngle(Phaser.Math.Between(-12, 12)).setFlipX(Math.random() < 0.5);
+      scene.tweens.add({ targets: o, alpha: 0, delay: (B.crackMs || 3500), duration: 600, onComplete: () => o.destroy() });
+      return;
+    }
+    const key = "bonk_crack_code";
     if (!scene.textures.exists(key)) {
       const c = document.createElement("canvas"); c.width = 44; c.height = 44; const g = c.getContext("2d");
       g.strokeStyle = "#171C35"; g.lineWidth = 2; g.lineCap = "square";
@@ -51,14 +56,17 @@ window.BossAttacks = (() => {
   // Little stars that circle the boss's head while it's dizzy.
   function stars(scene, boss, B) {
     if (boss._stars) boss._stars.forEach(o => o.destroy());
-    boss._stars = [0, 1, 2].map(i => scene.add.text(boss.x, boss.y, i === 1 ? "✦" : "★", { fontFamily: "monospace", fontSize: i === 1 ? "14px" : "16px", color: i === 1 ? "#FFF0CF" : "#EF9347", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004));
+    if (scene.textures.exists("dizzy_stars") && scene.textures.get("dizzy_stars").frameTotal > 8) { // ChatGPT's twinkling stars, plus one little bird
+      boss._stars = [0, 1, 2].map(i => { const o = scene.add.image(boss.x, boss.y, "dizzy_stars", i === 1 ? 6 : 0).setDepth(50004).setScale(1.5); o.bird = i === 1; o.phase = i * 2; return o; });
+    } else boss._stars = [0, 1, 2].map(i => scene.add.text(boss.x, boss.y, i === 1 ? "✦" : "★", { fontFamily: "monospace", fontSize: i === 1 ? "14px" : "16px", color: i === 1 ? "#FFF0CF" : "#EF9347", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004));
     if (!boss._starsHooked) { boss._starsHooked = true; boss.once("destroy", () => { if (boss._stars) boss._stars.forEach(o => o.destroy()); boss._stars = null; }); }
   }
   function moveStars(boss, t, total) {
     if (!boss._stars) return;
     const v = boss.artRecord && boss.artRecord.visual && boss.artRecord.visual.active ? boss.artRecord.visual : boss;
     const top = v.y - (v.displayHeight || 80) * (v === boss ? 0.6 : 0.95), fade = Math.max(0, Math.min(1, (total - t) / 250));
-    boss._stars.forEach((o, i) => { const ang = t / 160 + i * Math.PI * 2 / 3; o.setPosition(v.x + Math.cos(ang) * 26, top + Math.sin(ang) * 8).setAlpha(fade).setDepth(Math.sin(ang) > 0 ? 50004 : (v.depth || 4) - 0.1); });
+    boss._stars.forEach((o, i) => { if (o.type === "Image") o.setFrame(o.bird ? 6 + Math.floor(t / 120) % 2 : (Math.floor(t / 100) + o.phase) % 6);
+      const ang = t / 160 + i * Math.PI * 2 / 3; o.setPosition(v.x + Math.cos(ang) * 26, top + Math.sin(ang) * 8).setAlpha(fade).setDepth(Math.sin(ang) > 0 ? 50004 : (v.depth || 4) - 0.1); });
     if (t >= total) { boss._stars.forEach(o => o.destroy()); boss._stars = null; }
   }
   function bonk(scene, boss, a, now) { // bounce back off the wall, then a dizzy moment before chasing again
@@ -147,7 +155,7 @@ window.BossAttacks = (() => {
         g.lineStyle(3, D.color || 0xe0564f, blink).strokeCircle(a.cx, a.cy, a.R);
         g.lineStyle(D.bodyHalfW * 2, D.color || 0xe0564f, 0.12).strokeCircle(a.cx, a.cy, a.R);
       }
-      if (now >= a.until) { if (window.BossArt) BossArt.hideMarker(boss); a.state = "attack"; a.startedAt = now; a.rings = []; a.sx = boss.x; a.sy = boss.y; boss.clearTint(); pass(boss, true); if (a.label) a.label.setVisible(st === "rings"); }
+      if (now >= a.until) { if (window.BossArt) BossArt.hideMarker(boss); a.state = "attack"; a.startedAt = now; a.rings = []; a.lastX = null; a.sx = boss.x; a.sy = boss.y; boss.clearTint(); pass(boss, true); if (a.label) a.label.setVisible(st === "rings"); }
       return true;
     }
 
@@ -156,7 +164,9 @@ window.BossAttacks = (() => {
       let done = false;
       if (st === "charge") {
         const spd = D.chargeSpeed * S.speed;
-        if (t > 60 && wallHit(scene, boss, D)) { bonk(scene, boss, a, now); return true; }
+        // Hit a wall? Either the map says so, or the physics stopped the charge short (Nov 5: north walls stop bosses ~30 px early).
+        const b = boss.body, stalled = a.lastX != null && Math.hypot(boss.x - a.lastX, boss.y - a.lastY) < 0.5;
+        if (t > 60 && (wallHit(scene, boss, D) || (((b && !b.blocked.none) || (t > 140 && stalled)) && wallHit(scene, boss, D, null, null, 40)))) { bonk(scene, boss, a, now); return true; }
         a.lastX = boss.x; a.lastY = boss.y;
         boss.setVelocity(Math.cos(a.aim) * spd, Math.sin(a.aim) * spd);
         if (touches(player, boss.x, boss.y, D.bodyHalfW, D.bodyHalfH)) hit(player, boss, D.damage);

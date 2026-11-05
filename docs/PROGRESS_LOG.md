@@ -1420,3 +1420,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-05: V. 2.7.2, shop badge and a save bug
 - The 401(k) Shop button shows NEW for items unlocked since your last visit, otherwise a count of affordable upgrades.
 - Found while building it: the save loader kept a fixed list of fields, so newer ones (map found, minimap size, Sprint switch, Gold Watch keepsake) were dropped on every reload. It now keeps everything saved.
+
+## 2026-11-05: V. 2.7.3, score pass, coin tracking, bonk art
+- Score (Rami: "all of the above"): boss bonus with a quick-kill extra, retirement bonus 8k to 25k, kill points capped at 400 per year of age, Lounge spending no longer costs score.
+- Runs now send coins earned and spent. The database columns still need adding (Rami runs one SQL line); until then the game resends runs without them, so no stats are lost.
+- ChatGPT's bonk art is in (cracks, stars, bird). Fixed: north-wall charges stalled without a bonk because physics stopped bosses ~30 px before the bonk check's wall line.

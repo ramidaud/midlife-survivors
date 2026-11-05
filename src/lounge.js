@@ -140,7 +140,7 @@ window.Lounge = (() => {
     const why = canBuy(it);
     if (why) { sfx("pick"); return renderModal(scene, why === "TOO PRICEY" ? "That one's out of your budget, boss." : "Sold out. Someone got here first."); }
     const cost = price(it);
-    meta.coins = Math.max(0, meta.coins - cost); runCoins = Math.max(0, runCoins - cost); saveMeta(meta);
+    meta.coins = Math.max(0, meta.coins - cost); runCoins = Math.max(0, runCoins - cost); saveMeta(meta); window.runCoinsSpent = (window.runCoinsSpent || 0) + cost;
     st.stock[it.id]--; st.bought[it.id] = (st.bought[it.id] || 0) + 1; st.ramp[it.id] = (st.ramp[it.id] || 0) + (C().priceRampAdd || 1);
     let heal = 0;
     if (it.healFlat) heal = healAmt(it.healFlat);

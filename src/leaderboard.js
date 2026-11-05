@@ -21,8 +21,13 @@ function computeRunScore(ageReached, startAge, kills, coins, isClear) {
   const m = window.RUN_MODES && window.RUN_MODES[lbMode()];
   const tb = window.getRunTaxBracket ? window.getRunTaxBracket() : 0;
   const taxMult = 1 + tb * ((window.TAX_BRACKET && TAX_BRACKET.perLevel.scoreMult) || 0); // harder bracket, bigger score
-  return Math.round((years * (L.pointsPerYear || 1000) + kills * (L.pointsPerKill || 2) +
-    coins * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0) +
+  const st = typeof stats !== "undefined" && stats ? stats : null;
+  // Nov 5: kills level off late in each year (stats.killPts), bosses add a bonus (stats.bossPts), and Lounge spending no longer costs score.
+  const killPts = st && st.killPts != null ? st.killPts : kills * (L.pointsPerKill || 2);
+  const bossPts = (st && st.bossPts) || 0;
+  const coinsEarned = coins + (window.runCoinsSpent || 0);
+  return Math.round((years * (L.pointsPerYear || 1000) + killPts + bossPts +
+    coinsEarned * (L.pointsPerCoin || 5) + (isClear ? ((m && m.clearBonus) || 0) : 0) +
     (window.NearMiss ? window.NearMiss.score() * (L.pointsPerNearMiss || 1) : 0)) * taxMult); // Close Calls add a little
 }
 

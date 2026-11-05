@@ -15,7 +15,7 @@ window.RUN_MODES = {
     endBossName: "Your Retirement Party",
     endText: "Retirement is here. Walk up and clock out for good.",
     table: "scores_midlife", // its own online leaderboard
-    clearBonus: 8000         // score bonus for reaching retirement
+    clearBonus: 25000        // score bonus for reaching retirement (was 8000; Nov 5: finishing should matter more than farming)
   },
   full: {
     id: "full",

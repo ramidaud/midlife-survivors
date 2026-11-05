@@ -11,5 +11,12 @@ window.LEADERBOARD = {
   pointsPerYear: 1000,
   pointsPerKill: 2,
   pointsPerCoin: 5,
+  // Nov 5 score pass (Rami: "all of the above"): reward skill inside 40-65 instead of raw swarm size.
+  killPointsCapPerYear: 400,    // the first 400 kills each year of age earn full points...
+  pointsPerKillOverCap: 0.25,   // ...after that a kill is worth a quarter point (late swarms used to drown everything)
+  bossBonus: 5000,              // every boss you beat
+  bossFastBonus: 5000,          // up to this much more for a quick kill
+  bossFastSecs: 30,             // full fast bonus if the boss falls within 30 s of arriving
+  bossSlowSecs: 120,            // no fast bonus after 2 minutes
   centennialBonus: 25000 // meeting Death at 100
 };

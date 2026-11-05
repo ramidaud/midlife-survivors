@@ -74,6 +74,10 @@ Status: brainstorm. Everything here is a starting point for Rami to cut, rename 
 
 **Rerolls: Sleep On It (Nov 5, Rami):** reaching age 55 in any run earns Middle Management, which unlocks Sleep On It in the 401(k) shop (15k, 30k, 45k; up to 3 rerolls per run). A reroll swaps all three level-up cards for different ones; evolutions stay. Shop items can now be locked behind an achievement (`unlockAchievement` in src/data/meta.js).
 
+**Score pass (Nov 5, Rami):** 1,000 per year + kill points (2 each for the first 400 kills per year of age, then 0.25) + boss bonus (5,000, plus up to 5,000 for a kill within 30 s, fading to 0 at 2 min) + 5 per coin earned (Lounge spending doesn't count against you) + 25,000 for retiring, times the Tax Bracket bonus. Numbers in `src/data/leaderboard.js`.
+
+**Coin balance (Nov 5):** runs now report coins_earned and coins_spent (needs two Supabase columns Rami adds). Target: first run buys 1-2 cheap ranks, a run to 55 buys a mid item, maxing the shop (1,570k) takes 25-35 runs. Candidate fixes once we have data: bigger birthday dividends, a pension payout at 65, fewer coin drops after 55, prices that rise with ranks owned.
+
 **Leaderboards (Nov 4, Rami):** each mode has its own board, and each future stage (Hospital, Home) should get its own too, since stages differ in difficulty. Runs from before V. 2.0 (Midlife ran to 80) are tagged LEGACY, never deleted. Open question: a player's LEGACY best hides their newer runs, because the board shows one row per name; a V2 season tab would fix that.
 
 **Boss defeats (Nov 4, Rami):** slow motion, a white flicker, a topple and fade, confetti, and a boss-specific stamp (EXCEEDS EXPECTATIONS, PAID IN FULL, CRISIS AVERTED, VARIANCE APPROVED, AUDIT PASSED, GAME, SET, MATCH). Words and timing in `BOSS_DOWN` (src/boss-down.js). Regular enemies keep their quick pop.

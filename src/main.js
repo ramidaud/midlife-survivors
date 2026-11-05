@@ -305,7 +305,7 @@ function create() {
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   if (window.Promotions) Promotions.reset();
   if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
-  runCoins = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
+  runCoins = 0; window.runCoinsSpent = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
@@ -1595,6 +1595,20 @@ function damageBill(bill, amount) {
     sc.time.delayedCall(60, () => { if (bill.active) bill.clearTint(); });
   } else {
     runKills += bill.isBoss ? 25 : 1; // bosses count extra toward your score
+    { // Score parts (src/data/leaderboard.js): kill points level off late in each year; bosses pay a bonus, more for a quick kill.
+      const L = window.LEADERBOARD || {};
+      if (bill.isBoss) {
+        const secs = Math.max(0, (runElapsedMs - (bill.spawnedMs != null ? bill.spawnedMs : runElapsedMs)) / 1000);
+        const fast = Math.max(0, Math.min(1, ((L.bossSlowSecs || 120) - secs) / ((L.bossSlowSecs || 120) - (L.bossFastSecs || 30))));
+        const pts = Math.round((L.bossBonus || 5000) + (L.bossFastBonus || 5000) * fast);
+        stats.bossPts = (stats.bossPts || 0) + pts; bill.scoreBonus = pts;
+      } else {
+        const yr = Math.floor(currentAge);
+        if (stats.killYear !== yr) { stats.killYear = yr; stats.killYearN = 0; }
+        stats.killYearN++;
+        stats.killPts = (stats.killPts || 0) + (stats.killYearN <= (L.killPointsCapPerYear || 400) ? (L.pointsPerKill || 2) : (L.pointsPerKillOverCap ?? 0.25));
+      }
+    }
     window.achEvent(bill.isBoss ? "bossKill" : "kill", { kind: bill.kind });
     sfx(bill.isBoss ? "bossDefeat" : "billPaid");
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
@@ -2120,7 +2134,7 @@ function spawnBoss(scene, bossKind) {
   const isEnd = bossKind === "theReaper", m = modeCfg();
   const label = (isEnd && m.endBossLabel) || P.label, bossName = (isEnd && m.endBossName) || P.name;
   if (P.tint) boss.setTint(P.tint);
-  boss.isBoss = true;
+  boss.isBoss = true; boss.spawnedMs = runElapsedMs; // for the quick-kill score bonus
   boss.kind = bossKind;
   if (bossKind === "goldWatch") window.goldWatchSeen = true;
   if (window.Lighting) Lighting.follow(boss, bossKind === "goldWatch" ? "goldWatch" : bossKind === "midlifeCrisis" ? "headlights" : "boss");
