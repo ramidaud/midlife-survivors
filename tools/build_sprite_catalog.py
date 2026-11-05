@@ -31,7 +31,7 @@ for name, f in {"TJ": "intern-tj-v2", "Derek": "intern-derek-v2"}.items():
         {"name": "walk left", "frames": row(2, 8), "ms": 95}, {"name": "walk right", "frames": row(3, 8), "ms": 95},
         {"name": "counter", "frames": row(4, 4), "ms": 240}, {"name": "idle bit", "frames": row(4, 4, start=4), "ms": 240}])
 # Office coworkers: src/start-area.js (seated: working 180 ms, personal bit 160 ms; standing idle 240 ms)
-for f in sorted(glob.glob("assets/stage/coworkers/world/coworker-*-seated-v1.png")):
+for f in sorted(glob.glob("assets/stage/coworkers/world/coworker-*-seated-v2.png")):
     who = f.split("coworker-")[1].split("-seated")[0]
     add("Coworkers", f"{who} (seated)", f, 72, 64, [{"name": "working", "frames": row(0, 8), "ms": 180}, {"name": "personal bit", "frames": row(1, 8), "ms": 160}])
     st = f.replace("-seated-", "-standing-")

@@ -531,7 +531,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "dozer (seated)",
-"file": "assets/stage/coworkers/world/coworker-dozer-seated-v1.png",
+"file": "assets/stage/coworkers/world/coworker-dozer-seated-v2.png",
 "cw": 72,
 "ch": 64,
 "cols": 8,
@@ -571,7 +571,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "dozer (standing)",
-"file": "assets/stage/coworkers/world/coworker-dozer-standing-v1.png",
+"file": "assets/stage/coworkers/world/coworker-dozer-standing-v2.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -625,7 +625,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "email (seated)",
-"file": "assets/stage/coworkers/world/coworker-email-seated-v1.png",
+"file": "assets/stage/coworkers/world/coworker-email-seated-v2.png",
 "cw": 72,
 "ch": 64,
 "cols": 8,
@@ -665,7 +665,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "email (standing)",
-"file": "assets/stage/coworkers/world/coworker-email-standing-v1.png",
+"file": "assets/stage/coworkers/world/coworker-email-standing-v2.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -719,7 +719,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "intern (seated)",
-"file": "assets/stage/coworkers/world/coworker-intern-seated-v1.png",
+"file": "assets/stage/coworkers/world/coworker-intern-seated-v2.png",
 "cw": 72,
 "ch": 64,
 "cols": 8,
@@ -759,7 +759,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "intern (standing)",
-"file": "assets/stage/coworkers/world/coworker-intern-standing-v1.png",
+"file": "assets/stage/coworkers/world/coworker-intern-standing-v2.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -813,7 +813,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "mute (seated)",
-"file": "assets/stage/coworkers/world/coworker-mute-seated-v1.png",
+"file": "assets/stage/coworkers/world/coworker-mute-seated-v2.png",
 "cw": 72,
 "ch": 64,
 "cols": 8,
@@ -853,7 +853,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "mute (standing)",
-"file": "assets/stage/coworkers/world/coworker-mute-standing-v1.png",
+"file": "assets/stage/coworkers/world/coworker-mute-standing-v2.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -907,7 +907,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "retiring (seated)",
-"file": "assets/stage/coworkers/world/coworker-retiring-seated-v1.png",
+"file": "assets/stage/coworkers/world/coworker-retiring-seated-v2.png",
 "cw": 72,
 "ch": 64,
 "cols": 8,
@@ -947,7 +947,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "retiring (standing)",
-"file": "assets/stage/coworkers/world/coworker-retiring-standing-v1.png",
+"file": "assets/stage/coworkers/world/coworker-retiring-standing-v2.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,
@@ -1001,7 +1001,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "salad (seated)",
-"file": "assets/stage/coworkers/world/coworker-salad-seated-v1.png",
+"file": "assets/stage/coworkers/world/coworker-salad-seated-v2.png",
 "cw": 72,
 "ch": 64,
 "cols": 8,
@@ -1041,7 +1041,7 @@ window.SPRITE_CATALOG = [
 {
 "group": "Coworkers",
 "name": "salad (standing)",
-"file": "assets/stage/coworkers/world/coworker-salad-standing-v1.png",
+"file": "assets/stage/coworkers/world/coworker-salad-standing-v2.png",
 "cw": 56,
 "ch": 60,
 "cols": 8,

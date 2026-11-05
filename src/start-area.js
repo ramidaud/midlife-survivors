@@ -40,7 +40,7 @@ window.StartAreaArt = (() => {
    const key=poseKey(kind,id);
    if(scene.textures.exists(key))continue;
    try{
-    const img=await H.image(`assets/stage/coworkers/world/coworker-${id}-${kind}-v1.png`);
+    const img=await H.image(`assets/stage/coworkers/world/coworker-${id}-${kind}-v2.png`);
     if(!H.isAlive())return;
     scene.textures.addSpriteSheet(key,img,{frameWidth:w,frameHeight:h});
     scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);

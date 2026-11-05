@@ -1534,3 +1534,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Before 55: distance walked and office areas visited add a Hustle Bonus to the paycheck (cap 60k).
 - From 55: nonstop movement fills a candle meter under your health (about 45 s), standing still drains it fast; full = a tougher pink Medical Bill whose hit costs a 5k copay. Energy Drinks add a big chunk.
 - Settings in `src/data/hustle.js`. Next: fiscal-year seasons with an optional Corporate Buyout.
+- V2.9.2: ChatGPT's coworker cleanup wired in. Measured: working loops 30-46% → about 2% changed pixels, idles 46-74% → under 1.1%, holes → 0.

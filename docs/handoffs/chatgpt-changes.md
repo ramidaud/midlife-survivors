@@ -373,7 +373,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 ## 2026-11-05 Hero walk cycles that alternate (Codex) [done] wired in by Claude, V. 2.7.11
 - v3 sheets for the 9-to-5er, Soccer Dad and Grad Student, v4 for the Cowboy (2edd6c4). Legs alternate in all four directions, idle rows unchanged.
 
-## 2026-11-05 Coworker pixel cleanup (Codex)
+## 2026-11-05 Coworker pixel cleanup (Codex) [done] wired in by Claude, V. 2.9.2
 
 - Delivered twelve v2 world sheets and 42 timed previews. The working pose keeps its chair and face fixed, the personal bits keep their individual gestures, and the standing poses use alternating walks and a one-pixel breath in the clothing.
 - Sprite Board working peaks at 4.7%, standing idle at 3.5%, and all 336 cells have zero enclosed magenta holes. [Before/after counts and review](chatgpt-coworker-cleanup-results.md).
