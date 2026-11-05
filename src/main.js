@@ -283,7 +283,7 @@ function spawnCoin(x, y, bonusMult = 1) {
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
-  runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
+  runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); if (window.BossDown) BossDown.reset(); if (this.physics && this.physics.world) this.physics.world.timeScale = 1; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
   if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
@@ -1165,6 +1165,7 @@ function togglePause(scene) {
 // The chest pays 1, 3 or 5 rewards depending on the boss, applied right away, plus a 401(k) payout.
 function collectChest(p, chest) {
   if (!chest.active) return;
+  if (chest.readyAt && runElapsedMs < chest.readyAt) return; // the boss is still going down
   if (levelUpOpen || (window.BonusChest && BonusChest.isOpen())) return; // another menu is up: the chest waits on the floor
   if (chest.tag) chest.tag.destroy();
   const scene = p.scene;
@@ -1587,7 +1588,8 @@ function damageBill(bill, amount) {
     window.achEvent(bill.isBoss ? "bossKill" : "kill", { kind: bill.kind });
     sfx(bill.isBoss ? "bossDefeat" : "billPaid");
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
-    if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
+    if (bill.isBoss && window.BossDown) BossDown.play(sc, bill, E.color); // the big, slow-motion boss defeat (src/boss-down.js)
+    else if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
     if (window.Remains && !bill.clockOut) Remains.add(sc, bill.x, bill.y, E.color, bill.isBoss); // a little pile of scraps that fades (src/remains.js)
     burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 8);
     if (bill.elite) { // the jackpot
@@ -1604,6 +1606,7 @@ function damageBill(bill, amount) {
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
       if (window.Lighting) Lighting.fx("lootDrop", bill.x, bill.y);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
+      ch.readyAt = runElapsedMs + ((window.BOSS_DOWN && BOSS_DOWN.chestDelayMs) || 2000); // let the defeat animation play before the chest comes to you
       if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#EF9347", stroke: "#171C35", strokeThickness: 3
@@ -2467,6 +2470,7 @@ function update(time, delta) {
   // and touching one opens it even if the physics overlap missed. If something blocks it, log why (play stats).
   chests.getChildren().slice().forEach(ch => {
     if (!ch.active) return;
+    if (ch.readyAt && runElapsedMs < ch.readyAt) { ch.setVelocity(0, 0); if (ch.tag) ch.tag.setPosition(ch.x, ch.y); return; }
     const d = Phaser.Math.Distance.Between(player.x, player.y, ch.x, ch.y);
     // Nov 4 (Rami: "the spotlight card showed up but I didn't get a chest"): a boss can die off screen, so the chest always comes to you.
     // Always faster than you (Nov 4, Rami: "it follows me, I just don't get it"): a fixed speed lost to a fast hero who kept moving.

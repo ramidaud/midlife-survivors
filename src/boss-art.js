@@ -33,6 +33,7 @@ window.BossArt = (() => {
   }
   // state: chase | telegraph | attack | recover
   function sync(scene, boss, state, now) {
+    if (!boss || !boss.active || !boss.scene) return; // never redraw a boss that was just defeated (Nov 4: the frozen Performance Review)
     const father = boss.clockOut && boss.kind === "theReaper" && !(window.modeCfg && modeCfg().endBossLabel);
     const key = boss.clockOut ? (father ? "bossart_fatherTime" : "bossart_clockOut") : "bossart_" + boss.kind;
     if ((!boss.clockOut && !FILES[boss.kind]) || !scene.textures.exists(key)) return;

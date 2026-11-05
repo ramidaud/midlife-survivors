@@ -1376,3 +1376,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 2.4, remains and draw order
 - Rami's idea: defeated enemies leave scraps in their color that fade after about 9 s (bosses leave a bigger pile). Capped at 60 so phones stay smooth. Tunable in `REMAINS` (src/remains.js).
 - Rami: TJ and Derek kept vanishing behind walls. They sat on a fixed low layer; now they sort by their feet like enemies and props. Their tags, the Lounge sign, register tag and arrow are lifted above everything.
+
+## 2026-11-04: V. 2.5, boss defeats
+- Rami: a boss froze on screen after defeat. Its drawn picture was being rebuilt for one more frame after the boss was gone, leaving an orphan copy. Fixed with a guard.
+- New boss defeat: slow motion, white flicker, topple with dust, fade, three confetti bursts and a stamp per boss. The chest waits 2 s so you see it.
+- Regular enemies keep their small pop plus the new remains; a full cinematic for every enemy would be too much in a 300-enemy swarm.

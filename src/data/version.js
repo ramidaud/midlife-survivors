@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.4.0",
-  displayVersion: "V. 2.4",
+  version: "2.5.0",
+  displayVersion: "V. 2.5",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 222,
+  build: 223,
   changelog: [
+    {
+      ver: "V. 2.5", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Bosses go down in style: slow motion, a topple and a rubber stamp.",
+      highlights: [
+        "When a boss falls: the world slows for a beat, the boss flickers white, topples over with a puff of dust and fades, confetti goes off, and a stamp slams down (EXCEEDS EXPECTATIONS, PAID IN FULL, CRISIS AVERTED...).",
+        "The boss chest waits two seconds so you get to watch, then comes to you.",
+        "Fixed: a defeated boss could leave a frozen copy of itself standing on the floor."
+      ]
+    },
     {
       ver: "V. 2.4", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Every fight leaves a mess now, and TJ and Derek stop hiding behind walls.",
