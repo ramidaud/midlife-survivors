@@ -1486,3 +1486,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami picked the order: sound effects, coin balance, first-minute pass, new stages.
 - Each game sound can now use a file from `assets/audio/sfx/` (list in `src/data/sfx-files.js`); missing files keep the old beep.
 - New sound slots: wall bonk, Mic Drop, Say Cheese camera, bonus chest. Waiting on Rami's ElevenLabs files.
+
+## Nov 5, 2026: V2.7.13 Real sound effects
+- Rami made 20 takes in ElevenLabs. Claude picked one per sound by how fast it hits, trimmed the silence, evened the volume and shortened the ones that repeat often.
+- Ten are live: paper rip, XP gem, hurt, boss arrive, boss down, wall bonk, Mic Drop, camera, chest, phone ring.
+- Still beeps: weapon hit and coin (no files yet).

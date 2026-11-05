@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.12",
-  displayVersion: "V. 2.7.12",
+  version: "2.7.13",
+  displayVersion: "V. 2.7.13",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 240,
+  build: 241,
   changelog: [
+    {
+      ver: "V. 2.7.13", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The office sounds real now: paper rips, oofs, bonks and a boss that slams the door.",
+      highlights: [
+        "Ten new sound effects: Bills ripping, XP pings, your 'oof', boss entrances and knockdowns, wall bonks, Mic Drop, the Say Cheese shutter, bonus chests and Spam Likely's ring.",
+        "Each play shifts pitch a little, and kill streaks still climb the scale."
+      ]
+    },
     {
       ver: "V. 2.7.12", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The game is ready for real sound effects.",
