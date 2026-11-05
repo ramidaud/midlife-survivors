@@ -299,7 +299,8 @@ function create() {
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
   if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
-  if (window.Lounge) Lounge.reset();   // the Break Room counter (src/lounge.js)
+  if (window.Lounge) Lounge.reset();
+  if (window.Hustle) Hustle.reset();   // Hustle Bonus and Burning the Candle (src/hustle.js)   // the Break Room counter (src/lounge.js)
   if (window.Modifiers) Modifiers.reset(); // age 50+ run modifiers (src/modifiers.js)
   meta = loadMeta();
   runMode = pickRunMode();
@@ -1010,6 +1011,7 @@ function spawnFieldItem(scene, x, y, kind) {
 window.itemEffect = (kind, quiet) => {
   const sc = player && player.scene; if (!sc) return;
   if (kind === "fannyPack") buffs.vacuumUntil = runElapsedMs + 2500;
+  if (kind === "energyDrink" && window.Hustle) Hustle.energyDrink(); // after 55, energy drinks burn the candle
   if (kind === "energyDrink") { buffs.speedUntil = runElapsedMs + FIELD_ITEMS.energyDrink.durMs; buffs.speedMult = FIELD_ITEMS.energyDrink.speedMult; buffs.drinkShieldUntil = buffs.speedUntil; }
   if (kind === "ptoDay") {
     sc.cameras.main.flash(250, 120, 220, 160);
@@ -1451,6 +1453,7 @@ function hurtPlayer(p, bill) {
   dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
   { const dmg = (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
     const dmg2 = Math.max(1, dmg - (stats.armor || 0)); // Lumbar Support
+    if (window.Hustle) Hustle.onHit(scene, bill); // a Medical Bill also takes a copay
     hp -= dmg2; runHits++; runDamageTaken += dmg2; } // runHits/runDamageTaken go to the play-stats table
   if (bill.kind === "snackAttack") {
     slowUntil = runElapsedMs + ENEMIES.snackAttack.slowDurationMs;
@@ -1491,7 +1494,10 @@ function showGameOver(scene, killer, isWin) {
   gameOver = true;
   // Paycheck (Nov 5): every run pays a little per year survived, so a quick death still buys something.
   { const pay = Math.round(((window.COIN_ECONOMY && COIN_ECONOMY.paycheckPerYear) || 0) * Math.max(0, currentAge - runStartAge));
-    if (pay > 0) { runCoins += pay; meta.coins += pay; window.coinLog("paycheck", pay); window.lastPaycheck = pay; } }
+    const hb = window.Hustle ? Hustle.bonus() : { coins: 0 }; // Hustle Bonus: distance walked and areas explored before 55
+    if (pay > 0) { runCoins += pay; meta.coins += pay; window.coinLog("paycheck", pay); window.lastPaycheck = pay; }
+    if (hb.coins > 0) { runCoins += hb.coins; meta.coins += hb.coins; window.coinLog("hustle bonus", hb.coins); }
+    window.lastHustle = hb; }
   window.justUnlockedFull = isWin && runMode === "midlife" && !isFullLifeUnlocked(meta);
   if (isWin) window.achEvent("clear", { mode: runMode, age: currentAge, taxBracket: runTaxBracket });
   else window.achEvent("death", { killer });
@@ -2295,7 +2301,7 @@ function update(time, delta) {
     if (v && Math.abs(v.x) + Math.abs(v.y) > 5) { window.awaitFirstMove = false; window.teach.on = (meta.runsPlayed || 0) < ((window.FIRST_MINUTE && FIRST_MINUTE.teachRuns) || 3); if (spawnTimer) spawnTimer.paused = false; if (window.FirstMinute) FirstMinute.moved(); }
     else { if (spawnTimer) spawnTimer.paused = true; if (window.FirstMinute) FirstMinute.waiting(this); }
   }
-  if (!window.awaitFirstMove) runElapsedMs += (delta || 16.6);
+  if (!window.awaitFirstMove) { runElapsedMs += (delta || 16.6); if (window.Hustle) Hustle.update(this, delta); }
   currentAge = runStartAge + (runElapsedMs / 1000) / secsPerYear(); // 45 s/year in Midlife, 60 in Full Life
   if (Math.floor(currentAge) > runAch.lastAge) { runAch.lastAge = Math.floor(currentAge); window.achEvent("age", { age: currentAge }); }
 

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.9.0",
-  displayVersion: "V. 2.9.0",
+  version: "2.9.1",
+  displayVersion: "V. 2.9.1",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 251,
+  build: 252,
   changelog: [
+    {
+      ver: "V. 2.9.1", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Hustle pays, until it doesn't. (Thanks, Kevin.)",
+      highlights: [
+        "Hustle Bonus: before 55, the ground you cover and the office areas you explore add to your end-of-run paycheck.",
+        "Burning the Candle: from 55, nonstop hustling fills a little meter under your health. Stand still for a second to catch your breath.",
+        "Let it fill and a Medical Bill comes for you: tougher than a regular Bill, and its touch costs a copay. Energy Drinks after 55 fill the meter fast."
+      ]
+    },
     {
       ver: "V. 2.9.0", date: "Nov 5, 2026", title: "Version Two",
       teaser: "First Day: the shift clock now starts when you take your first step.",

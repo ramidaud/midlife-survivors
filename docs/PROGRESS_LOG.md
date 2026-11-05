@@ -1529,3 +1529,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Filled the see-through spots and steadied the faces, outfits and chairs of the six office coworkers.
 - Working stays below 5% changed pixels and standing idle below 4% on every transition. All four walks now alternate feet.
 - Added v2 sheets, previews and before/after counts for Claude's integration.
+## Nov 5, 2026: V2.9.1 Hustle Bonus + Burning the Candle (Kevin's idea)
+- Kevin (Discord, Rami's high-school friend): income tied to hustle, then the script flips at 55-60 with "medical bills from all those energy drinks".
+- Before 55: distance walked and office areas visited add a Hustle Bonus to the paycheck (cap 60k).
+- From 55: nonstop movement fills a candle meter under your health (about 45 s), standing still drains it fast; full = a tougher pink Medical Bill whose hit costs a 5k copay. Energy Drinks add a big chunk.
+- Settings in `src/data/hustle.js`. Next: fiscal-year seasons with an optional Corporate Buyout.

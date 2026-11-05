@@ -2936,7 +2936,7 @@ function runSummaryHtml() {
     .filter(x => !(window.shopItemLocked && shopItemLocked(x.it, meta)) && x.r < x.it.maxRank && meta.coins >= x.cost).sort((a, b) => a.cost - b.cost)[0];
   if (!fresh.length && !next.length && !shop) return "";
   return `<div class="run-summary">
-    ${window.lastPaycheck ? `<div class="rs-tip">💼 <b>Paycheck:</b> +${window.lastPaycheck}k in your 401(k) for the years you put in.</div>` : ""}
+    ${window.lastPaycheck ? `<div class="rs-tip">💼 <b>Paycheck:</b> +${window.lastPaycheck}k in your 401(k) for the years you put in.${window.lastHustle && lastHustle.coins ? ` <b>Hustle Bonus:</b> +${lastHustle.coins}k (${lastHustle.areas} area${lastHustle.areas === 1 ? "" : "s"} explored, ${Math.round(lastHustle.dist / 1000)}k steps).` : ""}</div>` : ""}
     ${window.DEV && window.DEV.on && window.coinLedger ? `<div class="rs-next"><b>DEV · COINS BY SOURCE:</b> ${Object.entries(window.coinLedger).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${esc(k)} ${Math.round(v)}k`).join(" · ") || "none"}</div>` : ""}
     ${fresh.length ? `<div class="rs-head">🏅 EARNED THIS RUN</div>${fresh.map(a => `
       <div class="rs-ach"><div class="rs-name">${a.icon} ${esc(a.name)} <span class="rs-coins">+${a.reward}k</span></div>

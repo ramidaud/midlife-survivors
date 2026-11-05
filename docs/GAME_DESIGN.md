@@ -580,3 +580,6 @@ Each direction uses eight walk poses at the game's 95 ms cadence. The near leg l
 ### 2026-11-05 Coworker pose cleanup (Codex)
 
 Each coworker has a quiet typing loop, a personal gesture and a small standing breath. The chairs and faces hold steady while the hands move. The standing walks alternate legs and share a local y56 foot line.
+## Hustle and Burning the Candle (decided Nov 5, V. 2.9.1, Kevin's idea)
+- Midlife in one mechanic: hustling pays early, then costs you. Before 55 movement and exploring raise the paycheck; after 55 nonstop movement fills a candle meter and summons Medical Bills (copays).
+- Rule kept from First Day: it punishes overdoing it, never normal dodging. A one-second pause drains the meter.
