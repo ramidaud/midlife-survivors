@@ -1363,3 +1363,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: the Mortgage showed up before the Performance Review died, and the chest never appeared.
 - Bosses now queue: the next one waits while another is alive (up to 3 years late), plus 8 seconds after a kill. Tunable in `BOSS_QUEUE` (src/data/bosses.js). The Gold Watch never waits.
 - The chest had dropped off screen where the boss died. Boss chests now always slide to you.
+
+## 2026-11-04: V. 2.3.3, the chest that wouldn't open
+- Rami: the boss chest followed him but never opened. My 2.3.2 slide used a fixed speed (about 300 px/s), and a fast hero who keeps moving outruns it, so it trailed just behind.
+- The chest now always moves 160 px/s faster than you and opens within 56 px. Tested at 368 px/s, nonstop running: caught and opened in about 1.5 s.

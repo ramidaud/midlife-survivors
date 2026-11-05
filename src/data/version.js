@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.3.2",
-  displayVersion: "V. 2.3.2",
+  version: "2.3.3",
+  displayVersion: "V. 2.3.3",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 219,
+  build: 220,
   changelog: [
+    {
+      ver: "V. 2.3.3", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "The boss chest catches you now, even at full speed.",
+      highlights: [
+        "Fixed: the boss chest could trail right behind a fast hero and never open. It now always moves faster than you and opens from a little farther away."
+      ]
+    },
     {
       ver: "V. 2.3.2", date: "Nov 4, 2026", title: "Version Two",
       teaser: "One boss at a time, and the boss chest always finds you.",

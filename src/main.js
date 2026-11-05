@@ -2468,9 +2468,11 @@ function update(time, delta) {
     if (!ch.active) return;
     const d = Phaser.Math.Distance.Between(player.x, player.y, ch.x, ch.y);
     // Nov 4 (Rami: "the spotlight card showed up but I didn't get a chest"): a boss can die off screen, so the chest always comes to you.
-    this.physics.moveToObject(ch, player, W.magnetSpeed * (d < Math.max(magR, 150) ? 0.8 : 0.55));
+    // Always faster than you (Nov 4, Rami: "it follows me, I just don't get it"): a fixed speed lost to a fast hero who kept moving.
+    const runSpeed = (player.body && player.body.speed) || 0;
+    this.physics.moveToObject(ch, player, Math.max(W.magnetSpeed * (d < Math.max(magR, 150) ? 0.8 : 0.55), runSpeed + 160));
     if (ch.tag) ch.tag.setPosition(ch.x, ch.y);
-    if (d < 44) {
+    if (d < 56) {
       const blocked = levelUpOpen || (window.BonusChest && BonusChest.isOpen());
       if (!blocked) collectChest(player, ch);
       else if (!ch.blockLogged && (ch.blockedSince = ch.blockedSince || runElapsedMs) && runElapsedMs - ch.blockedSince > 4000) {
