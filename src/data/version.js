@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.0",
-  displayVersion: "V. 2.10.0",
+  version: "2.10.1",
+  displayVersion: "V. 2.10.1",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 258,
+  build: 259,
   changelog: [
+    {
+      ver: "V. 2.10.1", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Medical Bills got scrubs, and the Lounge Cart got wheels.",
+      highlights: [
+        "The Medical Bill (after 55, when you hustle nonstop) has its own art: a hospital bill in a pink gown.",
+        "The Day One Lounge Cart is a real rolling cart now, with a steaming pot and an orange awning you can spot across the Lobby. When time's up, the awning folds before it rolls away."
+      ]
+    },
     {
       ver: "V. 2.10.0", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The controller update: menus go where you point.",

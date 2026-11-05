@@ -51,6 +51,11 @@ window.Lounge = (() => {
     st.staff = r;
     // Counter marker: a cream rug with OPEN on it, plus the intern behind it.
     const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.22).setStrokeStyle(3, 0xF2D7A1, 0.9).setDepth(2.5);
+    // Day One cart: the real cart sprite (2x, so you can spot it across the Lobby) instead of the rug and sign.
+    const cartSprite = cartMode() && scene.textures.exists("lounge_cart") && scene.anims.exists("lounge_cart_steam")
+      ? scene.add.sprite(s.x, s.y + 20, "lounge_cart", 0).setOrigin(0.5, 1).setScale(2).setDepth(4.4).play("lounge_cart_steam") : null;
+    st.cartSprite = cartSprite;
+    if (cartSprite) rug.setVisible(false);
     const sign = scene.add.text(s.x, s.y - 2, cartMode() ? ((L.cart && L.cart.sign) || "LOUNGE CART\nOPEN") : "THE LOUNGE\nOPEN", { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000);
     scene.tweens.add({ targets: rug, alpha: { from: 0.6, to: 1 }, scale: { from: 0.96, to: 1.04 }, duration: 700, yoyo: true, repeat: -1 });
     const key = "intern_" + r.id + "_0";
@@ -60,7 +65,8 @@ window.Lounge = (() => {
     st.staffReal = real;
     const tag = scene.add.text(s.x + 58, s.y - 70, r.name.toUpperCase() + " · REGISTER", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 } }).setOrigin(0.5, 1).setDepth(50000);
     const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(50003).setScrollFactor(0);
-    st.objs = [rug, sign, staff, tag, arrow]; st.arrow = arrow;
+    if (cartSprite) { sign.setVisible(false); if (staff) staff.setPosition(s.x + 84, s.y + 14); tag.setPosition(s.x, s.y - 112).setText("LOUNGE CART · " + r.name.toUpperCase()); }
+    st.objs = [rug, sign, staff, tag, arrow, cartSprite]; st.arrow = arrow;
     if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
     const line = ((cartMode() && L.cart && L.cart.lines && L.cart.lines.open) || (L.lines && L.lines.open) || "{name} is on the Lounge register.").replace("{name}", r.name);
     if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r, cartMode() ? Math.round(((L.cart && L.cart.openMs) || 120000) / 60000) : 0);
@@ -71,6 +77,11 @@ window.Lounge = (() => {
   function shutter(scene, line) {
     if (st.state === "browsing") closeBrowse(scene);
     st.state = "closed";
+    if (st.cartSprite && st.cartSprite.active && st.cartSprite.scene && st.cartSprite.scene.anims.exists("lounge_cart_fold")) { // the awning folds up before the cart rolls away
+      const sc = st.cartSprite.scene, fold = sc.add.sprite(st.cartSprite.x, st.cartSprite.y, "lounge_cart_close", 0).setOrigin(0.5, 1).setScale(2).setDepth(4.4);
+      fold.play("lounge_cart_fold"); fold.once("animationcomplete", () => sc.tweens.add({ targets: fold, alpha: 0, duration: 400, onComplete: () => fold.destroy() }));
+    }
+    st.cartSprite = null;
     st.objs.forEach(o => o && o.destroy && o.destroy()); st.objs = []; st.arrow = null;
     if (cartMode()) { st.mode = "counter"; line = (C().cart && C().cart.lines && C().cart.lines.shutter) || line; }
     if (line && window.showLowerThird) window.showLowerThird("lore", "THE LOUNGE", line, 3000);
@@ -224,7 +235,19 @@ window.Lounge = (() => {
     st.closedSign = [sign, rug];
   }
 
+  // The Lounge Cart art (Nov 5, ChatGPT): 64x56, 4-frame steam loop and 4-frame awning fold, 160 ms a frame.
+  let cartArtAsked = false;
+  function cartArt(scene) {
+    if (cartArtAsked || !window.ArtSheets) return; cartArtAsked = true;
+    ArtSheets.load(scene, "lounge_cart", "assets/stage/lounge/lounge-cart-v1.png", 64, 56).then(() => {
+      if (!scene.anims.exists("lounge_cart_steam")) scene.anims.create({ key: "lounge_cart_steam", frames: scene.anims.generateFrameNumbers("lounge_cart", { start: 0, end: 3 }), frameRate: 1000 / 160, repeat: -1 });
+    });
+    ArtSheets.load(scene, "lounge_cart_close", "assets/stage/lounge/lounge-cart-closing-v1.png", 64, 56).then(() => {
+      if (!scene.anims.exists("lounge_cart_fold")) scene.anims.create({ key: "lounge_cart_fold", frames: scene.anims.generateFrameNumbers("lounge_cart_close", { start: 0, end: 3 }), frameRate: 1000 / 160, repeat: 0 });
+    });
+  }
   function update(scene, now) {
+    cartArt(scene);
     if (!st || typeof player === "undefined" || !player || !player.scene) return;
     { const staff = st.objs && st.objs[2]; if (staff && staff.active && typeof player !== "undefined" && player) staff.setDepth(10000 + staff.y - player.y); } // the intern at the register sorts by feet too
     closedSign(scene);

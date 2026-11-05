@@ -14,7 +14,9 @@ window.EnemyArt = (() => {
     calendarInvite: ['calendar-invite', 48, 4, 120, 32],
     groupChat: ['group-chat', 48, 4, 200, 34],
     mathWorksheet: ['math-homework', 48, 4, 170, 34],
-    ping: ['group-chat-ping', 16, 2, 160, 14]
+    ping: ['group-chat-ping', 16, 2, 160, 14],
+    // Medical Bill (Nov 5, ChatGPT): a Bill flagged entity.medical (src/hustle.js) wears this sheet instead.
+    medicalBill: ['medical-bill', 48, 4, 180, 40, 'medical-bill-v1.png']
   };
   const key = kind => 'enemy-art-' + kind;
   // Frames per sheet and ms per frame for the art version in use. v2 has twice the frames at half the time each,
@@ -72,7 +74,7 @@ window.EnemyArt = (() => {
         catch (error) { console.warn('Enemy art fallback for ' + kind + ': ' + error.message); }
       };
       image.onerror = () => { /* Keep the original canvas sprite for this species. */ };
-      image.src = 'assets/enemies/enemy-' + specs[kind][0] + (V2() ? '-v2' : '-v1') + '.png?v=' + window.BUILD;
+      image.src = (specs[kind][5] ? 'assets/enemies/' + specs[kind][5] : 'assets/enemies/enemy-' + specs[kind][0] + (V2() ? '-v2' : '-v1') + '.png') + '?v=' + window.BUILD;
     }
     function attach(entity, kind) {
       if (!specs[kind]) return; // bosses never enter the art layer
@@ -104,10 +106,11 @@ window.EnemyArt = (() => {
           if (record.glow) record.glow.setVisible(false);
           continue;
         }
-        const [, size, , , baseDisplay] = specs[kind];
+        const art = entity.medical && ready.has('medicalBill') ? 'medicalBill' : kind; // which sheet to draw
+        const [, size, , , baseDisplay] = specs[art];
         const displaySize = baseDisplay * ((ENEMIES[kind] && ENEMIES[kind].scale) || 1) * (entity.eliteScale || 1); // ENEMY_SCALE in src/data/enemies.js; elites are bigger
         if (!record.visual) {
-          record.visual = scene.add.sprite(entity.x, entity.y, key(kind)).setScale(displaySize / size);
+          record.visual = scene.add.sprite(entity.x, entity.y, key(art)).setScale(displaySize / size);
           if (kind !== 'threeAmThought' && kind !== 'ping') {
             record.shadow = scene.add.image(entity.x, entity.y, shadowKey).setDisplaySize(displaySize * 0.65, 7);
           }
@@ -154,7 +157,7 @@ window.EnemyArt = (() => {
           visual.anims.stop(); visual.setFrame(frame);
         } else {
           const suffix = kind === 'spamCall' ? (entity.state === 'ringing' ? '-ring' : '-walk') : '';
-          visual.play(key(kind) + suffix, true);
+          visual.play(key(art) + suffix, true);
           visual.anims.timeScale = running ? 1 : 0;
         }
         if (record.shadow) {

@@ -51,7 +51,7 @@ window.Hustle = (() => {
     const b = createEnemy(scene, "bill", player.x + Math.cos(a) * r, player.y + Math.sin(a) * r);
     if (!b) return;
     b.medical = true; b.hp = Math.ceil(b.hp * (M.hpMult || 2)); b.damage = (b.damage || 1) + (M.damageAdd || 1);
-    if (M.tint) b.setTint(M.tint);
+    if (M.tint && !window.USE_ENEMY_ART) b.setTint(M.tint); // the Medical Bill art (Nov 5) replaces the pink tint
     const tag = scene.add.text(b.x, b.y - 34, M.label || "MEDICAL BILL", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#171C35", backgroundColor: "#F1B5BF", padding: { x: 4, y: 2 } }).setOrigin(0.5).setDepth(50000);
     b.medTag = tag;
     scene.events.on("postupdate", function follow() { if (!b.active) { tag.destroy(); scene.events.off("postupdate", follow); return; } tag.setPosition(b.x, b.y - 34); });

@@ -1565,3 +1565,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Drew a hospital invoice in a pink gown with a clipboard and a compact HUD icon.
 - Drew a rolling cart with an orange striped awning, a steam loop and four closing poses.
 - Checked the transparent RGBA sheets and preview timing. Claude wires the assets in.
+- V2.10.1: ChatGPT's Medical Bill (gown, 8-frame walk) and Lounge Cart (steam loop at 2x, awning folds when it closes) wired in. Transparent PNGs this time, no magenta issues.
