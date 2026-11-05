@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.15",
-  displayVersion: "V. 2.7.15",
+  version: "2.7.16",
+  displayVersion: "V. 2.7.16",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 243,
+  build: 244,
   changelog: [
+    {
+      ver: "V. 2.7.16", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Behind the scenes: counting where every 401(k) coin comes from.",
+      highlights: ["Testers with the dev console see a coin breakdown on the end screen, so the shop can be rebalanced from real numbers."]
+    },
     {
       ver: "V. 2.7.15", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Bosses don't sound the same twice in a row anymore.",

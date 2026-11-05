@@ -278,7 +278,7 @@ window.GoldWatch = (() => {
     window.goldWatchBeat = true;
     try { meta.keepsakes = Object.assign({}, meta.keepsakes, { goldWatch: true }); } catch (e) {}
     const bonus = d.killBonusCoins || 0;
-    if (bonus) { runCoins += bonus; meta.coins += bonus; }
+    if (bonus) { runCoins += bonus; meta.coins += bonus; window.coinLog && window.coinLog("gold watch", bonus); }
     try { saveMeta(meta); } catch (e) {}
     window.achEvent("bossKill", { kind: "goldWatch" });
     if (clean) window.achEvent("bossKill", { kind: "goldWatchClean" });

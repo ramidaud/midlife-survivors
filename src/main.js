@@ -134,6 +134,9 @@ function getPadMenuStep(nowMs) {
 
 let player, label, keys, cursors, bills, splashes, floor, stageProps, gems, coins, chests, hudText, viewBtn;
 let xp = 0, level = 1, xpNeeded = 0, xpBar, levelText, currentAge = 40, bossesSpawned = {}, slowUntil = 0;
+// Coin ledger (Nov 5): where this run's coins came from, for balancing. Shown on the end screen in dev mode.
+window.coinLedger = {};
+window.coinLog = (src, n) => { if (n > 0) window.coinLedger[src] = (window.coinLedger[src] || 0) + n; };
 let meta, runCoins = 0, runKills = 0, runHits = 0, runDamageTaken = 0; // runKills feeds the leaderboard score
 // "stats" is this run's copy of the numbers. Upgrades change the copy, never the data files,
 // so every new run starts fresh.
@@ -307,7 +310,7 @@ function create() {
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   if (window.Promotions) Promotions.reset();
   if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
-  runCoins = 0; window.runCoinsSpent = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
+  runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
@@ -887,7 +890,7 @@ function collectCoin(p, coin) {
   const yld = window.getCoinYieldInfo();
   const gain = bankCoins(yld.value * mult);
   runCoins += gain;
-  meta.coins += gain;
+  meta.coins += gain; window.coinLog(mult > 1 ? "coins (elite/bonus)" : "coins (enemy drops)", gain);
   saveMeta(meta);
   updateHUD();
   const pt = project3DToPhaserWorld(p.scene, p.x, 38, p.y);
@@ -932,7 +935,7 @@ window.achEvent = (on, d = {}) => {
     let ok = false; try { ok = def.test(d, runAch, life); } catch (e) {}
     if (!ok) return;
     A.unlocked[def.id] = Date.now();
-    meta.coins += def.reward; changed = true;
+    meta.coins += def.reward; changed = true; window.coinLog("achievements", def.reward);
       if (def.id === "requiredReading") { meta.unlockedChars = meta.unlockedChars || {}; meta.unlockedChars.coldWarCowboy = true; if (window.showLowerThird) window.showLowerThird("win", "NEW HIRE", "The Coldwar Cowboy is unlocked. Pick him on the title screen.", 6000); }
     runAch.newly.push(def);
     sfx("levelUp");
@@ -1183,7 +1186,7 @@ function collectChest(p, chest) {
   chest.destroy();
   const payout = window.getCoinYieldInfo().value * ((C.coinMultPerTier && C.coinMultPerTier[tier]) || tier * 4);
   runCoins += payout;
-  meta.coins += payout;
+  meta.coins += payout; window.coinLog("bonus chests", payout);
   saveMeta(meta);
   const rewards = rollChestRewards(tier);
   updateHUD();
@@ -1256,7 +1259,7 @@ function rollChestRewards(n) {
     else if (pool.length) up = Phaser.Utils.Array.GetRandom(pool);
     if (!up) {
       const bonus = window.getCoinYieldInfo().value * 3;
-      runCoins += bonus; meta.coins += bonus; saveMeta(meta);
+      runCoins += bonus; meta.coins += bonus; window.coinLog("maxed-out level-ups", bonus); saveMeta(meta);
       out.push({ name: `Signing Bonus +${bonus}k`, label: "EVERYTHING'S MAXED", text: "", icon: "💰", evo: false });
       continue;
     }
@@ -2275,7 +2278,7 @@ function update(time, delta) {
     const yld = window.getCoinYieldInfo();
     const divBonus = bankCoins(2 + stepNum * 2 + yld.value); // birthday dividend, scaled like every other coin
     runCoins += divBonus;
-    meta.coins += divBonus;
+    meta.coins += divBonus; window.coinLog("birthday dividends", divBonus);
     saveMeta(meta);
     sfx("coin");
     const pt = project3DToPhaserWorld(this, player.x, 56, player.y);
@@ -2335,7 +2338,7 @@ function update(time, delta) {
   if (runMode === "full" && currentAge >= PLAYER.retirementAge && !retire80Prompted) {
     retire80Prompted = true;
     meta.coins += 15;
-    runCoins += 15;
+    runCoins += 15; window.coinLog("retire at 80", 15);
     hp = stats.maxHp; // a retirement party heals you up
     updateHUD();
     window.persistActiveRun();

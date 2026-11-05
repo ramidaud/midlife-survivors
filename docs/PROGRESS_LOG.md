@@ -1492,3 +1492,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Ten are live: paper rip, XP gem, hurt, boss arrive, boss down, wall bonk, Mic Drop, camera, chest, phone ring.
 - Hit and coin added in V2.7.14, so all 12 effects are real recordings.
 - V2.7.15 (Rami's idea): sounds with several takes rotate between them, never the same one twice in a row (boss arrive and boss down have 4 takes, wall bonk 3, Mic Drop and XP gem 2).
+
+## Nov 5, 2026: V2.7.16 Coin ledger (balance step B, part 1)
+- Data: maxing the whole shop costs 1,560 coins, regulars hit 36 ranks in 11-40 runs, and a run to 63 earned 1,195 (77% of the shop). Rami's retire-at-80 run earned 15,113.
+- Coins come all at once late in a run; runs that end before 45 earn about 1.
+- Added a coin ledger (by source) on the end screen in dev mode to find what pays out late. Balance proposal sent to Rami for approval.
