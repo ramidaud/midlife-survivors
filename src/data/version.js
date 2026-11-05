@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.8.3",
-  displayVersion: "V. 2.8.3",
+  version: "2.8.4",
+  displayVersion: "V. 2.8.4",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 248,
+  build: 249,
   changelog: [
+    {
+      ver: "V. 2.8.4", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "A revive in the Lounge and a snappier level-up.",
+      highlights: ["New at the Break Room counter: Emergency Contact (60k). If a hit would end your run, you get back up with half health. Once per run.", "The level-up fanfare is now a quick 1-second flourish."]
+    },
     {
       ver: "V. 2.8.3", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Softer Mic Drops and phones that buzz instead of ring.",

@@ -3,7 +3,7 @@
 // Tweak freely: vol (0 to 1), the ages where the office music changes, and fade times in seconds.
 // To try a different take, swap the file and keep the name. The code-made groove plays if a file can't load.
 window.MUSIC = {
-  ver: 1,
+  ver: 2,
   tracks: {
     title:  { file: "assets/audio/music/title.mp3",          vol: 0.45 },
     calm:   { file: "assets/audio/music/office-1-calm.mp3",  vol: 0.28 },  // ages 40 to 49

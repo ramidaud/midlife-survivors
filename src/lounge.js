@@ -161,6 +161,7 @@ window.Lounge = (() => {
     if (it.vacuumMs) buffs.vacuumUntil = runElapsedMs + it.vacuumMs;
     if (it.clearRadius) st.quietHour = it.clearRadius; // applied when you go back to work
     if (it.runMaxHp) { stats.maxHp += it.runMaxHp; hp = Math.min(stats.maxHp, hp + it.runMaxHp); if (typeof drawHpBar === "function") drawHpBar(); } // whole-run perks from the cart
+    if (it.runRevive) stats.revives = (stats.revives || 0) + it.runRevive;
     if (it.runSpeedMult) stats.speed = Math.round(stats.speed * it.runSpeedMult);
     if (it.weapon) { const up = (window.UPGRADES || []).find(u => u.id === it.weapon); if (up && typeof applyUpgrade === "function") applyUpgrade(up); } // a Lounge-only weapon
     if (typeof updateHUD === "function") updateHUD();

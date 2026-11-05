@@ -74,6 +74,8 @@ window.INTERNS = {
       { id: "loanerBadge",  name: "Loaner Badge",    price: 14, stock: 1, vacuumMs: 4000, text: "Pulls in every gem nearby." },
       { id: "quietHour",    name: "Quiet Hour Pass", price: 22, stock: 1, clearRadius: 220, text: "Small fry near you clock out early." },
       { id: "bandAidKit",   name: "First-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." },
+      // Revive (Nov 5, Rami): one extra get-back-up for this run, on top of the 401(k) Shop's Second Opinion.
+      { id: "emergencyContact", name: "🚑 Emergency Contact", price: 60, stock: 1, perRun: 1, runRevive: 1, text: "If a hit would end your run, get back up with half health. Once, this run." },
     ],
     // Day One cart (Nov 5, Rami): for the first minute of every run, the Lounge rolls a cart into the Lobby
     // (the Break Room is still locked). It sells the Lounge-only weapons, while you still have free hands,

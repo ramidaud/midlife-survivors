@@ -1514,3 +1514,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Sells Mic Drop and Say Cheese (while you still have free slots) plus two whole-run perks: Ergonomic Cushion (+2 max HP) and Good Beans (+8% speed).
 - The Break Room counter after promotions now sells only heals and quick buffs. Settings in `INTERNS.lounge.cart`.
 - V2.8.3: Mic Drop trimmed to the drop and thud (no squeal); Spam Likely's ring replaced with a soft phone-on-desk buzz.
+- V2.8.4: level-up fanfare cut to about 1 s; new Break Room counter item Emergency Contact (60k): one extra revive this run (stacks with Second Opinion).
