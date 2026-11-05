@@ -52,7 +52,7 @@ window.SPOTLIGHT = {
                           officeWorker: "A real bonus, and it's not even a pizza party.",
                           photographer: "Look at that chest, the whole sideline earned this one!",
                           gradStudent: "Actual funding, and I didn't even have to write a paper!",
-                          coldWarCowboy: "Jackpot. Better than finding twenty bucks in an old PC." } },
+                          coldWarCowboy: "Hot diggity dog. Better than twenty bucks in an old PC." } },
     evolution: { topic: "EVOLVED WEAPONS", kicker: "PEAK SYNERGY", tip: "Evolved weapons clear swarms much faster than normal.",
                  lines: { any: "Finally, a workflow upgrade that actually saves time.",
                           officeWorker: "Now that's what I call cross-functional synergy.",
@@ -64,7 +64,7 @@ window.SPOTLIGHT = {
                           officeWorker: "I'm one minor inconvenience away from using sick leave.",
                           photographer: "Calling a quick timeout, somebody pass the orange slices!",
                           gradStudent: "If I don't find a free bagel soon, I'm dropping this class.",
-                          coldWarCowboy: "Running low on RAM. Let's go check the breakroom." } },
+                          coldWarCowboy: "Life is suffering. And low on RAM. Breakroom, now." } },
     // Rami, Nov 4: TJ and Derek both on the card, shouting together. seenKey is new so everyone sees this version once.
     intern:    { topic: "INTERN DELIVERY", kicker: "SPECIAL DELIVERY", tip: "Catch the interns for a heal and a shield.",
                  duo: ["tj", "derek"], shout: "For my MANAGER!", seenKey: "tip_intern2",

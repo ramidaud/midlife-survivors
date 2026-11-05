@@ -821,6 +821,9 @@ function applyMetaAndChar() {
   stats.damage += rPen;
   stats.xpMult = 1 + (meta.ranks.continuingEd || 0) * 0.08;
   stats.coinMult = 1 + (meta.ranks.sideHustle || 0) * 0.15;
+  { const NH = ENEMIES.bill && ENEMIES.bill.newHire; // New Hire Orientation: your first runs are a little gentler
+    window.newHireRun = !!(NH && (meta.runsPlayed || 0) < NH.runs);
+    if (window.newHireRun) { stats.maxHp += NH.bonusMaxHp; } }
   stats.revives = meta.ranks.secondOpinion || 0; // one comeback per rank
   stats.rerolls = (window.shopItemLocked && shopItemLocked({ unlockAchievement: "middleManagement" }, meta)) ? 0 : (meta.ranks.sleepOnIt || 0); // Sleep On It: level-up rerolls this run
   stats.jokeDamage += rPen;
@@ -1517,7 +1520,9 @@ function showGameOver(scene, killer, isWin) {
   if (isWin && runMode === "midlife") { meta.fullLifeUnlocked = true; saveMeta(meta); }
   const cause = isWin
     ? Phaser.Utils.Array.GetRandom(runMode === "midlife" ? winLinesRetire : (currentAge >= 99.5 ? winLines100 : winLines80))
-    : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.fallback);
+    : (window.HERO_DEATHS && HERO_DEATHS[meta.selectedChar] && Math.random() < (HERO_DEATHS.chance || 0.35)
+        ? Phaser.Utils.Array.GetRandom(HERO_DEATHS[meta.selectedChar]) // the hero's own last words (src/data/deaths.js)
+        : Phaser.Utils.Array.GetRandom(DEATHS[killer] || DEATHS.fallback));
 
   renderGameOverModal(scene, cause, isWin, killer);
 }
@@ -1833,7 +1838,8 @@ function fireDadJoke(scene) {
   const stJ = (typeof getActiveStage === "function") ? getActiveStage(currentAge, meta) : null;
   const stagePool = (stJ && J.linesByStage && J.linesByStage[stJ.id]) || [];
   const base = (currentAge >= 80 && J.seniorLines) ? J.seniorLines.concat(J.lines) : J.lines;
-  const pool = stagePool.length && Math.random() < 0.75 ? stagePool : base;
+  const heroPool = (J.linesByHero && meta && J.linesByHero[meta.selectedChar]) || [];
+  const pool = heroPool.length && Math.random() < 0.5 ? heroPool : (stagePool.length && Math.random() < 0.75 ? stagePool : base);
   // The groan ring hits every time, but the joke itself is only told now and then:
   // right after you unlock or upgrade Dad Joke, plus an occasional bonus joke (WEAPONS.dadJoke.bonusEveryMs).
   const bonusDue = runElapsedMs - lastJokeToldAt >= (J.bonusEveryMs || 50000);
@@ -1993,6 +1999,7 @@ function createEnemy(scene, kind, x, y) {
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)) * (runSprint && window.SPRINT ? SPRINT.enemySpeedMult : 1));
   if (window.modFx) { // age 50+ modifiers: Rent Hike (Bills), Reply-All Tax (Gossip)
     if (kind === "bill") e.hp = Math.ceil(e.hp * modFx("billHpMult", 1));
+    if (kind === "bill" && window.newHireRun && ENEMIES.bill.newHire && currentAge < ENEMIES.bill.newHire.billHpUntilAge) e.hp = Math.min(e.hp, ENEMIES.bill.newHire.billHp); // New Hire Orientation
     if (kind === "officeGossip") e.hp = Math.ceil(e.hp * modFx("gossipHpMult", 1));
   }
   e.damage = E.damage + (kind === "officeGossip" && window.modFx ? modFx("gossipDamageAdd", 0) : 0); // age bonus comes only from INTENSITY.hitDamageByAge (in hurtPlayer), so it can't stack twice
@@ -2750,7 +2757,7 @@ function startShiftBriefing(scene) {
   const m = modeCfg(), sprint = typeof runSprint !== "undefined" && runSprint;
   const goal = m.endBossLabel ? "Survive to " + modeEndAge() + " and clock out." : "Make it all the way to " + modeEndAge() + ".";
   const el = document.createElement("div"); el.id = "shift-briefing"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Today's shift");
-  el.innerHTML = `<div class="sb-card"><span class="sb-kick">TODAY'S SHIFT</span><p class="sb-goal">${goal}${sprint ? " ⚡ Sprint: the years fly by." : ""}</p><p class="sb-how">Everything fires on its own. Just keep moving.</p><span class="sb-go">${(window.matchMedia && matchMedia("(pointer:coarse)").matches) ? "TAP ANYWHERE TO CLOCK IN" : "PRESS ANY KEY TO CLOCK IN"}</span></div>`;
+  el.innerHTML = `<div class="sb-card"><span class="sb-kick">TODAY'S SHIFT</span><p class="sb-goal">${goal}${sprint ? " ⚡ Sprint: the years fly by." : ""}</p><p class="sb-how">Everything fires on its own. Just keep moving.</p>${window.newHireRun ? `<p class="sb-how sb-newhire">🪪 New Hire Orientation: +2 health and easier Bills until 43, for your first ${(ENEMIES.bill.newHire || {}).runs || 2} shifts.</p>` : ""}<span class="sb-go">${(window.matchMedia && matchMedia("(pointer:coarse)").matches) ? "TAP ANYWHERE TO CLOCK IN" : "PRESS ANY KEY TO CLOCK IN"}</span></div>`;
   if (!document.getElementById("shift-briefing-css")) {
     const st = document.createElement("style"); st.id = "shift-briefing-css";
     st.textContent = `#shift-briefing{position:fixed;left:0;right:0;top:calc(var(--ms-nav-h,0px) + 15%);z-index:47;display:flex;justify-content:center;padding:0 16px;pointer-events:none}

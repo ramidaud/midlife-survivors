@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.4",
-  displayVersion: "V. 2.7.4",
+  version: "2.7.5",
+  displayVersion: "V. 2.7.5",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 232,
+  build: 233,
   changelog: [
+    {
+      ver: "V. 2.7.5", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Ben's real one-liners are in the game, and new players get a gentler first shift.",
+      highlights: [
+        "The Coldwar Cowboy talks like Ben now: his own dad jokes in the Dad Joke rotation, his own last words on the death screen, and a couple of his catchphrases on tip cards.",
+        "Eli from IT has new ticket notes when the yellow-note rack goes down (ID10T, PEBCAK). Thanks, Ben.",
+        "New Hire Orientation: your first two shifts start with +2 health and Bills that pop in two hits until age 43."
+      ]
+    },
     {
       ver: "V. 2.7.4", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Energy Drinks make you untouchable, as long as you keep moving.",

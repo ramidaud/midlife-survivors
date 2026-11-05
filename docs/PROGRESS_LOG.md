@@ -1428,3 +1428,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 
 ## 2026-11-05: V. 2.7.4, Energy Drink shield
 - Rami: the Energy Drink should give a strong shield while you run around. Now every hit is blocked while you keep moving during the drink's 12 seconds; standing still drops it. Cyan aura, TOO WIRED! pops.
+
+## 2026-11-05: V. 2.7.5, Ben's lines and New Hire Orientation
+- From the Bulky Boyz chat (Rami's PDF): Ben's dad jokes join Dad Joke when playing the Coldwar Cowboy, 8 Cowboy last words on the death screen, ID10T/PEBCAK notes for Eli from IT. Only PG lines; health, politics and crude bits left out.
+- Ben's feedback noted: shop maxes out too fast (matches the coin plan), more cards make favorites harder to find (rerolls help), loved losing the jarring Grim Reaper ending.
+- Morning report: 64% of first-ever runs ended before 45. New Hire Orientation: first 2 runs get +2 max HP and 2-HP Bills until 43, explained on the shift briefing.

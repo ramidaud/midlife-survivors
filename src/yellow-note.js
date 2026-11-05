@@ -8,6 +8,8 @@ window.YELLOW_NOTE = {
   rebootMs: 3800,              // how long enemies on screen stay frozen
   tripRadius: 22,              // how close your feet have to get to the cable
   card: { kicker: "OUTAGE", name: "ELI FROM IT", line: "There was a NOTE. It was YELLOW.", tip: "Everything nearby is rebooting. Make it count." },
+  // Eli's ticket notes (Nov 5, Ben's IT classics). One is picked at random for the card.
+  lines: ["There was a NOTE. It was YELLOW.", "Closing this ticket as an ID10T error.", "Logging it as PEBCAK: problem exists between chair and keyboard.", "There was a NOTE. It was YELLOW."],
   lowerThird: "Who unplugged the rack with the yellow note?!"
 };
 
@@ -60,7 +62,7 @@ window.YellowNote = (() => {
     });
     if (window.Spotlight && Spotlight.custom) {
       const root = window.SPOTLIGHT_ROOT || "";
-      Spotlight.custom(Object.assign({ art: root + "assets/stage/coworkers/portraits/coworker-intern-on-break-v1.png", artType: "hero", edge: "#C45C4B", band: "#303750", ms: 5000 }, Y.card));
+      Spotlight.custom(Object.assign({ art: root + "assets/stage/coworkers/portraits/coworker-intern-on-break-v1.png", artType: "hero", edge: "#C45C4B", band: "#303750", ms: 5000 }, Y.card, Y.lines ? { line: Y.lines[Math.floor(Math.random() * Y.lines.length)] } : {}));
     }
     if (window.showLowerThird) window.showLowerThird("alert", "IT", Y.lowerThird, 4200, "POWER OUT");
     if (window.achEvent) window.achEvent("yellowNote");

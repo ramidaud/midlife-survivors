@@ -128,3 +128,19 @@ const MORE_DEATHS = {
   fallback: ["Midlife called. You picked up.", "The actuarial tables were undefeated today.", "Form W-40 filed itself."]
 };
 Object.keys(MORE_DEATHS).forEach(k => { window.DEATHS[k] = (window.DEATHS[k] || []).concat(MORE_DEATHS[k]); });
+
+// A hero's own last words, used now and then instead of the killer's line (Nov 5).
+// The Coldwar Cowboy's are Ben's, from the Bulky Boyz chat.
+window.HERO_DEATHS = {
+  chance: 0.35,
+  coldWarCowboy: [
+    "Life is suffering. The Coldwar Cowboy logs off.",
+    "\"I'll sleep when I'm dead.\" Well. Goodnight, Cowboy.",
+    "Sorry bro. He already has reservations to be eaten by worms.",
+    "\"Did I get too good? Are you locking me out?\" Yes. Yes we are.",
+    "He doesn't talk to people anymore, so there were no famous last words.",
+    "Um, he's a creative. He needed an audience. Try again.",
+    "The pain of living on the bleeding edge.",
+    "Problem exists between chair and keyboard."
+  ]
+};

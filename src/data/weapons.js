@@ -34,6 +34,20 @@ window.WEAPONS = {
       "Back in a minute. Gotta check the gutters.",
       "That's a 'future me' problem."
     ],
+    // Ben's own dad jokes (Nov 5, from the Bulky Boyz chat). Playing the Coldwar Cowboy, about half the jokes come from here.
+    linesByHero: {
+      coldWarCowboy: [
+        "You can pick your friends, you can pick your nose, but you can't pick your friend's nose.",
+        "Working hard, or hardly working?",
+        "Don't sweat the petty things. And don't pet the sweaty things.",
+        "Raw carrots give me the hiccups. It's a fact.",
+        "A country legend once pulled my finger.",
+        "Everyone talks about the Funky Drummer. But what about the Amen Break?",
+        "Research has actually shown coffee to be quite good for you.",
+        "Hot diggity dog!",
+        "Have you tried turning it off and on again?"
+      ]
+    },
     linesByStage: {
       office: [
         "Per my last email... and the twelve before that!",
