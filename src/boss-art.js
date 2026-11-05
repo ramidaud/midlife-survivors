@@ -63,6 +63,13 @@ window.BossArt = (() => {
     // squash on hit, like regular enemies
     const k = boss.hitAt ? (now - boss.hitAt) / 120 : 1;
     if (k >= 0 && k < 1) { const w = Math.sin(Math.PI * k); v.setScale(1 + 0.12 * w, 1 - 0.1 * w); } else v.setScale(1);
+    // Wall bonk (src/boss-attacks.js): splat flat against the wall, then spring back with a jiggle.
+    if (state === "stagger" && boss._bonkAt != null) {
+      const t = now - boss._bonkAt; let f = 0;
+      if (t < 90) f = 0.42 * (t / 90);
+      else if (t < 900) f = 0.42 * Math.exp(-(t - 90) / 170) * Math.cos((t - 90) / 45);
+      if (f) { const a = 1 - f, b = 1 + f * 0.7; if (boss._bonkFlat === "x") v.setScale(a, b); else v.setScale(b, a); }
+    }
     v.setAngle(boss._wobble || 0);
   }
   // Floor decal under a telegraph: placed and rotated by the attack code.

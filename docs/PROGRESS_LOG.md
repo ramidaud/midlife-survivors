@@ -1385,3 +1385,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 2.5.1, LEGACY tags on the leaderboard
 - Rami asked whether today's changes tanked scores. They didn't: runs to the same age and Tax Bracket score the same as before (about 55-67k at age 62, Tax 0-1).
 - The board's top spots are age-80 runs from before V. 2.0 (Midlife used to go to 80) plus Tax 5 runs (+75%). Rami chose to tag pre-2.0 runs LEGACY in the game and on the devlog sidebar. Nothing deleted.
+
+## 2026-11-04: V. 2.5.2, comic wall bonks and a gentler "No." on bosses
+- Wall bonks: splat and jiggle, a wall crack, circling stars, a pop-in word (two new ones).
+- "No." shoved bosses as far as Bills (up to 520 px). Now bosses get 12% of the shove (`bossPushMult` in src/data/weapons.js). Dad Joke and the freezes already went easy on bosses.
+- Art requests for remains and boss knockdowns handed to ChatGPT (docs/handoffs/chatgpt-defeat-art.md).

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.5.1",
-  displayVersion: "V. 2.5.1",
+  version: "2.5.2",
+  displayVersion: "V. 2.5.2",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 224,
+  build: 225,
   changelog: [
+    {
+      ver: "V. 2.5.2", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Bosses splat into walls now, and \"No.\" stops shoving them across the room.",
+      highlights: [
+        "Wall bonks are a cartoon now: the boss splats flat and jiggles back, a crack appears in the wall, stars circle its head, and the BONK! word pops in. New words: LOAD-BEARING! and NOT IN THE BUDGET.",
+        "The Word \"No.\" barely moves bosses anymore (about an eighth of the shove). Regular enemies still get the full push."
+      ]
+    },
     {
       ver: "V. 2.5.1", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Leaderboard runs from before V. 2.0 now wear a LEGACY tag.",

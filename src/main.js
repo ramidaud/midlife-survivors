@@ -1873,7 +1873,7 @@ function fireWordNo(scene) {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
     if (d <= r && d > 0) {
       const dx = (bill.x - player.x) / d, dy = (bill.y - player.y) / d; // direction away from you
-      shoveEnemy(bill, dx, dy, Math.min(stats.noPush, N.noPushCap || Infinity));
+      shoveEnemy(bill, dx, dy, Math.min(stats.noPush, N.noPushCap || Infinity) * (bill.isBoss ? (N.bossPushMult ?? 0.12) : 1)); // bosses barely budge
       const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
       bill.tag.setPosition(bill.x, bill.y - sz / 2 - 6);
       damageBill(bill, stats.noDamage);

@@ -127,6 +127,7 @@ window.WEAPONS = {
     damage: 1,         // damage dealt
     pushPx: 110,       // how far Bills get shoved backward (Grok weapon pass: was 95)
     noPushCap: 520,    // shoves never go farther than this, even fully upgraded
+    bossPushMult: 0.12, // bosses barely budge (Nov 4, Rami): a fully upgraded "No." moves a boss about 15-60 px, not 520
     healthyHealEvery: 2, // Healthy Boundaries heals on every Nth pulse
     healthyHealAmt: 1,
     color: 0x6fd9c4    // calm boundary teal

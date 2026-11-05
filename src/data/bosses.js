@@ -7,7 +7,7 @@ window.BOSS_QUEUE = { maxWaitYears: 3, breatherMs: 8000 }; // breather: after a 
 
 window.BOSS_ATTACK_TUNING = {
   // Charging into a wall (Nov 4): bounce back, wobble, then chase again.
-  wallBonk: { bounceSpeed: 260, bounceMs: 320, dizzyMs: 700, words: ["BONK!", "OOF!", "THUD!", "WHO PUT A WALL HERE?"] },
+  wallBonk: { bounceSpeed: 260, bounceMs: 320, dizzyMs: 850, crackMs: 3500, words: ["BONK!", "OOF!", "THUD!", "WHO PUT A WALL HERE?", "LOAD-BEARING!", "NOT IN THE BUDGET"] },
   minTelegraphMs: 550,          // the warning never gets shorter than this (phones need time to react)
   minTelegraphMsMortgage: 650,  // rings need a beat longer to read the gap
   minTelegraphMsWatch: 700,     // the Gold Watch's Alarm rings (Grok, Nov 3)

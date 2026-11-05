@@ -34,6 +34,33 @@ window.BossAttacks = (() => {
     const sa = scene.worldArt && scene.worldArt.startArea;
     return !!(sa && !sa.contains(x, y));
   }
+  // A jagged crack where the boss hit the wall. Fades after a few seconds.
+  function crack(scene, x, y, B) {
+    const key = "bonk_crack";
+    if (!scene.textures.exists(key)) {
+      const c = document.createElement("canvas"); c.width = 44; c.height = 44; const g = c.getContext("2d");
+      g.strokeStyle = "#171C35"; g.lineWidth = 2; g.lineCap = "square";
+      [[22, 22, 4, 8], [22, 22, 40, 12], [22, 22, 8, 38], [22, 22, 38, 36], [22, 22, 24, 2]].forEach(([x0, y0, x1, y1]) => {
+        g.beginPath(); g.moveTo(x0, y0); g.lineTo((x0 + x1) / 2 + 3, (y0 + y1) / 2 - 2); g.lineTo(x1, y1); g.stroke(); });
+      g.fillStyle = "#171C35"; g.fillRect(19, 19, 6, 6);
+      scene.textures.addCanvas(key, c);
+    }
+    const o = scene.add.image(Math.round(x), Math.round(y), key).setDepth(50003).setAlpha(0.85).setAngle(Phaser.Math.Between(0, 359)).setScale(1.2);
+    scene.tweens.add({ targets: o, alpha: 0, delay: (B.crackMs || 3500), duration: 600, onComplete: () => o.destroy() });
+  }
+  // Little stars that circle the boss's head while it's dizzy.
+  function stars(scene, boss, B) {
+    if (boss._stars) boss._stars.forEach(o => o.destroy());
+    boss._stars = [0, 1, 2].map(i => scene.add.text(boss.x, boss.y, i === 1 ? "✦" : "★", { fontFamily: "monospace", fontSize: i === 1 ? "14px" : "16px", color: i === 1 ? "#FFF0CF" : "#EF9347", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004));
+    if (!boss._starsHooked) { boss._starsHooked = true; boss.once("destroy", () => { if (boss._stars) boss._stars.forEach(o => o.destroy()); boss._stars = null; }); }
+  }
+  function moveStars(boss, t, total) {
+    if (!boss._stars) return;
+    const v = boss.artRecord && boss.artRecord.visual && boss.artRecord.visual.active ? boss.artRecord.visual : boss;
+    const top = v.y - (v.displayHeight || 80) * (v === boss ? 0.6 : 0.95), fade = Math.max(0, Math.min(1, (total - t) / 250));
+    boss._stars.forEach((o, i) => { const ang = t / 160 + i * Math.PI * 2 / 3; o.setPosition(v.x + Math.cos(ang) * 26, top + Math.sin(ang) * 8).setAlpha(fade).setDepth(Math.sin(ang) > 0 ? 50004 : (v.depth || 4) - 0.1); });
+    if (t >= total) { boss._stars.forEach(o => o.destroy()); boss._stars = null; }
+  }
   function bonk(scene, boss, a, now) { // bounce back off the wall, then a dizzy moment before chasing again
     pass(boss, false);
     if (a.lastX !== undefined && boss.body) boss.body.reset(a.lastX, a.lastY); // step back out of the wall
@@ -41,8 +68,16 @@ window.BossAttacks = (() => {
     a.state = "stagger"; a.startedAt = now; a.bounceUntil = now + (B.bounceMs || 320);
     a.bounceVx = -Math.cos(a.aim) * (B.bounceSpeed || 260); a.bounceVy = -Math.sin(a.aim) * (B.bounceSpeed || 260);
     scene.cameras.main.shake(160, 0.006); sfx("hurt", 0);
-    const t = scene.add.text(boss.x, boss.y - 70, Phaser.Utils.Array.GetRandom(B.words || ["BONK!", "OOF!", "THUD!"]), { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#FFF0CF", stroke: "#171C35", strokeThickness: 4 }).setOrigin(0.5).setDepth(50002);
-    scene.tweens.add({ targets: t, y: t.y - 26, alpha: 0, duration: 800, ease: "Cubic.easeOut", onComplete: () => t.destroy() });
+    // Comic bonk (Nov 4, Rami): the word pops in big and wobbly, the boss splats flat (src/boss-art.js reads _bonkAt),
+    // a crack appears in the wall, and stars circle the boss's head while it's dizzy.
+    const t = scene.add.text(boss.x, boss.y - 76, Phaser.Utils.Array.GetRandom(B.words || ["BONK!", "OOF!", "THUD!"]), { fontFamily: "Silkscreen, monospace", fontSize: "18px", color: "#FFF0CF", backgroundColor: "#C45C4B", padding: { x: 6, y: 3 }, stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004).setScale(0.3).setAngle(Phaser.Math.Between(-14, 14));
+    scene.tweens.add({ targets: t, scale: 1.25, duration: 120, ease: "Back.Out", onComplete: () => scene.tweens.add({ targets: t, scale: 1, duration: 90,
+      onComplete: () => scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, delay: 420, duration: 420, ease: "Cubic.easeIn", onComplete: () => t.destroy() }) }) });
+    boss._bonkAt = now; boss._bonkFlat = Math.abs(Math.cos(a.aim)) >= Math.abs(Math.sin(a.aim)) ? "x" : "y"; // which way it flattens
+    const D = (window.BOSS_ATTACKS && BOSS_ATTACKS[boss.kind]) || {};
+    crack(scene, boss.x + Math.cos(a.aim) * ((D.bodyHalfW || 22) + 14), boss.y + Math.sin(a.aim) * ((D.bodyHalfH || 24) + 6) - 20, B);
+    if (!reduceMotion) stars(scene, boss, B);
+    if (typeof sfx === "function") scene.time.delayedCall(140, () => sfx("pick")); // a little boing
     if (typeof burstConfetti === "function") burstConfetti(scene, boss.x + Math.cos(a.aim) * 20, boss.y + Math.sin(a.aim) * 20, 0xD3B78D, 8); // drywall dust
   }
   function pass(boss, on) { if (boss.body) boss.body.checkCollision.none = on; } // walk through furniture during an attack
@@ -163,6 +198,7 @@ window.BossAttacks = (() => {
       if (now < a.bounceUntil) { const k = 1 - t / (a.bounceUntil - a.startedAt); boss.setVelocity(a.bounceVx * k, a.bounceVy * k); }
       else boss.setVelocity(0, 0);
       boss._wobble = reduceMotion ? 0 : Math.sin(t / 55) * 10 * Math.max(0, 1 - t / ((B.bounceMs || 320) + dizzyMs));
+      moveStars(boss, t, (B.bounceMs || 320) + dizzyMs);
       if (t > (B.bounceMs || 320) + dizzyMs) { boss._wobble = 0; a.state = "chase"; a.nextAt = now + D.cooldownMs; return false; }
       return true;
     }
