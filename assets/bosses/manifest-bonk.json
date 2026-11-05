@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "background": "#FF00FF",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "sampling": "nearest",
+  "origin": [
+    0.5,
+    0.5
+  ],
+  "crack": {
+    "file": "assets/bosses/bonk-crack-v1.png",
+    "size": [
+      144,
+      48
+    ],
+    "cell": [
+      48,
+      48
+    ],
+    "columns": 3,
+    "rows": 1,
+    "variants": 3,
+    "frames": [
+      0,
+      1,
+      2
+    ]
+  },
+  "dizzy": {
+    "file": "assets/bosses/dizzy-stars-v1.png",
+    "size": [
+      128,
+      16
+    ],
+    "cell": [
+      16,
+      16
+    ],
+    "columns": 8,
+    "rows": 1,
+    "variants": 2,
+    "animations": {
+      "star": {
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "frameMs": 100,
+        "fps": 10,
+        "loop": true
+      },
+      "bird": {
+        "frames": [
+          6,
+          7
+        ],
+        "frameMs": 120,
+        "fps": 8.333333333333334,
+        "loop": true
+      }
+    }
+  }
+}

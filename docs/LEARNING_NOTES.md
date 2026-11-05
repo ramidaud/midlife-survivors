@@ -555,3 +555,7 @@ The Lounge desk picture includes monitors and two chairs, but the floor footprin
 
 ### 2026-11-04: A pixel budget keeps floor effects quiet (Codex)
 A 32x20 remains cell has 640 possible pixels, but each debris pile uses fewer than 30. That leaves room for the floor to show through when many defeated enemies overlap. The faint thought-wisp uses spaced lavender pixels instead of soft transparency, so it stays crisp after the magenta background is keyed out.
+
+### 2026-11-05 Checking an effect against its backdrop (Codex)
+
+A decal inherits the wall behind it. Navy fissures and cream chips give the bonk two levels of contrast on both tan and teal. Comparing the same sprites at 1× makes it easier to catch branches that disappear at game size.

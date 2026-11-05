@@ -1402,3 +1402,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 
 ## 2026-11-04: V. 2.6.1, iPhone bottom gap
 - Rami saw a gap at the bottom of his iPhone. My iPad resize safety net sized the game to `window.innerHeight`, which iPhone Safari can report shorter than the screen. It now measures the full-screen game box.
+
+## 2026-11-05 Wall bonk art (Codex)
+
+- Exported three native drywall cracks, a six-frame dizzy star loop and a two-frame bird option.
+- Checked the crack variants at 1× on tan and teal and included the frame timings and magenta key in the manifest.

@@ -342,3 +342,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 ## 2026-11-04: Defeat remains, boss knockdowns and stamp plate (Codex) [done]
 - What: `assets/enemies/remains-v1.png` (96x200, 3x10 of 32x20), `assets/bosses/boss-knockdown-v1.png` (1008x152, seven 144x152 cells in brief order, ground y148), and blank `assets/ui/stamp-plate-v1.png` (48x24, 8px nine-slice corners). Files: three manifests, `assets/bosses/defeat-prompts-v1.json`, README/review/validator/checks, boss and remains scale boards. For the game: exact opaque magenta, requested twelve colors, final colors/tint none, nearest-neighbor. All 30 debris variants are distinct and contain fewer than 30 painted pixels; the wisp uses checker holes, not partial alpha. Seven intact comic toppled poses keep existing identities and have dazed stars. Notes for Claude/Rami: use `(72,148)` for boss down frames, no extra boss scale; existing sheets untouched. Stamp center is empty for runtime words. Pixel/anchor/slice checks pass; desktop and verified 390px phone review load without errors or document overflow, with 1x/2x comparisons and a 60-pile floor preview. Art/docs only, no runtime or version changes; Claude wires remains.js and boss-down.js.
+
+## 2026-11-05 Wall bonk art (Codex)
+
+- Added three drywall crack variants in `assets/bosses/bonk-crack-v1.png` (48×48 cells) and six orange star frames plus two cream bird frames in `assets/bosses/dizzy-stars-v1.png` (16×16 cells).
+- `assets/bosses/manifest-bonk.json` records the center origin, magenta key and frame order. The star loops at 100 ms per frame and the bird at 120 ms per frame.
+- The crack reads on tan and teal in `bonk-check-v1.png`. The built-in imagegen prompts are in `bonk-prompts-v1.json` and the star loop preview is in `dizzy-stars-preview-v1.gif`. Claude handles integration.

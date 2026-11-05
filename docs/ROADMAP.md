@@ -273,3 +273,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ### 2026-11-04: Defeat art (Codex)
 - [x] Thirty remains, seven knockdown poses and blank nine-slice stamp delivered with manifests, prompts and native-size checks.
 - [ ] Rami reviews; Claude replaces the remains and boss-down placeholders.
+
+### 2026-11-05 Wall bonk art (Codex)
+
+- [x] Deliver crack variants, dizzy star and bird frames, and the integration manifest.
+- [ ] Wire the effects into the boss wall bonk.

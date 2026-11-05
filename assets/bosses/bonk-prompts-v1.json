@@ -1,0 +1,90 @@
+{
+  "tool": "built-in imagegen",
+  "crack": {
+    "prompt": {
+      "subject": "pixel-art drywall crack decal from a cartoon boss crashing into an office wall",
+      "canvas": "48x48 native per cell, exactly 3 square cells in a single horizontal strip, equally spaced and enlarged",
+      "design": "Each isolated decal has a small shaded dent surrounded by slender irregular navy branches, with a few cream plaster chips along the edges. Three different radial crack silhouettes. Read on both cream and teal. No square wall tile behind decal.",
+      "style": "Crisp Midlife Survivors 16-bit pixel art, chunky hard native pixels, navy one-pixel outline where needed, no antialiasing or gradients",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "background": "#FF00FF perfectly flat opaque in all open areas",
+      "rules": [
+        "no text, brands, shadows, grid lines, logos or labels",
+        "readable at 1x on a phone",
+        "complete isolated sprites with generous equal padding"
+      ]
+    },
+    "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-1f41cb13-939e-489c-b683-9d60c6aa0779.png"
+  },
+  "star": {
+    "prompt": {
+      "subject": "cartoon dizzy star circling a stunned character's head",
+      "canvas": "16x16 native per cell, exactly 6 square cells in one horizontal strip, equally spaced and enlarged",
+      "design": "One solid five-point cartoon orange star per cell, cream upper-left highlight and navy outline. Keep the same center and similar size, smoothly turn a few degrees then back, with highlight twinkling across six distinct frames. No detached sparkle or orbital trail.",
+      "style": "Crisp Midlife Survivors 16-bit pixel art, chunky hard native pixels, navy one-pixel outline where needed, no antialiasing or gradients",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "background": "#FF00FF perfectly flat opaque in all open areas",
+      "rules": [
+        "no text, brands, shadows, grid lines, logos or labels",
+        "readable at 1x on a phone",
+        "complete isolated sprites with generous equal padding"
+      ]
+    },
+    "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-f10569cc-0769-46e5-ad75-9e728989cf40.png"
+  },
+  "bird": {
+    "prompt": {
+      "subject": "tiny cream cartoon bird circling a stunned boss",
+      "canvas": "16x16 native per cell, exactly 2 square cells in one horizontal strip, equally spaced and enlarged",
+      "design": "Same tiny bird in profile facing right, cream body, single navy eye, small orange beak and navy outline. Wings up in first cell, down in second. Both silhouettes centered, no trails.",
+      "style": "Crisp Midlife Survivors 16-bit pixel art, chunky hard native pixels, navy one-pixel outline where needed, no antialiasing or gradients",
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "background": "#FF00FF perfectly flat opaque in all open areas",
+      "rules": [
+        "no text, brands, shadows, grid lines, logos or labels",
+        "readable at 1x on a phone",
+        "complete isolated sprites with generous equal padding"
+      ]
+    },
+    "source": "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-169641ef-fb5a-49a9-b86a-01991b2c3388.png"
+  }
+}

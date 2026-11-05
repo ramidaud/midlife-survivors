@@ -545,3 +545,7 @@ TJ and Derek's Lounge can use the mustard desk wall, crowded camera/monitor work
 
 ### 2026-11-04: Defeat art prepared (Codex)
 Enemy remains use tiny, final-color debris piles with three variants per enemy. Boss knockdowns are static, intact toppled poses with dazed stars; the optional russet plate leaves defeat words to the UI. The art lives in `manifest-remains.json`, `manifest-knockdown.json` and `stamp-plate-v1.json`; this delivery changes no defeat timing, pooling, drops, collisions or game balance.
+
+### 2026-11-05 Wall bonk art (Codex)
+
+The wall impact uses one of three drywall cracks with a slate dent and cream plaster chips. The dizzy effect uses an orange star loop with a cream bird option. The frame indices and suggested cadences live in `assets/bosses/manifest-bonk.json`.
