@@ -576,3 +576,7 @@ Each direction uses eight walk poses at the game's 95 ms cadence. The near leg l
 ## The Lounge, two ways (decided Nov 5, V. 2.8.2)
 - **Day One cart (Lobby, first 60 s):** Lounge-only weapons and whole-run perks, bought with banked 401(k) coins. A real start-of-run choice.
 - **Break Room counter (after promotions 45-60):** heals and quick buffs only.
+
+### 2026-11-05 Coworker pose cleanup (Codex)
+
+Each coworker has a quiet typing loop, a personal gesture and a small standing breath. The chairs and faces hold steady while the hands move. The standing walks alternate legs and share a local y56 foot line.

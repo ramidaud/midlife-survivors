@@ -592,3 +592,7 @@ The retirement strip has the same guests and animation beats on both screens. Mo
 ## 2026-11-05 A walk needs two different steps (Codex)
 
 A walk loop reads when the foot in front switches sides. Keep the head and shirt on one fixed drawing, then move the feet and arms around it. In the Sprite Board's Changed Pixels view, a body bob shows up as a one-pixel shift across the torso while ordinary steps light up the moving limbs.
+
+## 2026-11-05 Let the pose hold (Codex)
+
+The Sprite Board can highlight every pixel that changed between frames. If a coworker is typing, the red should sit at the hands. Keeping the chair and face still makes the gesture easier to read.

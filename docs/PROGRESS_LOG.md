@@ -1523,3 +1523,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - First kill: big PAID! plus "your coffee fires on its own"; first hit: "keep moving". The cart hides when you can't afford anything.
 - Settings in `src/data/first-minute.js`. Success check: first-run "dead before 42" from about 35% to under 15%.
 - Also: Sprite Board got Paul's magenta/green/any-color backdrops and all-cards pose buttons. Magenta exposed see-through holes in the coworker sprites.
+
+## 2026-11-05 Coworker pixel cleanup (Codex)
+
+- Filled the see-through spots and steadied the faces, outfits and chairs of the six office coworkers.
+- Working stays below 5% changed pixels and standing idle below 4% on every transition. All four walks now alternate feet.
+- Added v2 sheets, previews and before/after counts for Claude's integration.
