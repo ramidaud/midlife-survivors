@@ -232,7 +232,10 @@ window.Lounge = (() => {
     // Arm a window at each promotion age once the Break Room is open.
     // Day One cart: opens in the Lobby right at the start of a fresh run.
     if (!st.cartDone && st.state === "closed" && L.cart && runElapsedMs < 3000 && runElapsedMs > 300) {
-      st.cartDone = true; st.mode = "cart";
+      st.cartDone = true;
+      const cheapest = Math.min(...(L.cart.catalog || []).map(it => it.price));
+      if ((meta.coins || 0) < cheapest) return; // nothing you could buy yet: no cart to distract you (first runs)
+      st.mode = "cart";
       const o = L.cart.offset || [150, 40]; let s = { x: player.x + o[0], y: player.y + o[1] };
       if (window.NAV && NAV.fixSpawn) { const f = NAV.fixSpawn(s.x, s.y); if (f) s = { x: f[0], y: f[1] }; }
       st.cartSpot = s; open(scene);

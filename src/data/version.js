@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.8.5",
-  displayVersion: "V. 2.8.5",
+  version: "2.9.0",
+  displayVersion: "V. 2.9.0",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 250,
+  build: 251,
   changelog: [
+    {
+      ver: "V. 2.9.0", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "First Day: the shift clock now starts when you take your first step.",
+      highlights: [
+        "Nothing spawns and the clock doesn't tick until you move. A hint shows how: drag on phones, WASD or arrows on a keyboard, the left stick on a controller.",
+        "Your first three runs ease you in: for the first 20 seconds, Bills arrive one or two at a time from the direction you're heading.",
+        "Your first Bill paid off pops a big PAID! and a reminder that the coffee fires on its own. The first hit tells you to keep moving.",
+        "The Lounge cart skips the Lobby when you can't afford anything yet."
+      ]
+    },
     {
       ver: "V. 2.8.5", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Emergency Contact moved to the Day One cart.",

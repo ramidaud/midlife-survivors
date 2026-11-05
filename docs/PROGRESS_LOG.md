@@ -1516,3 +1516,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - V2.8.3: Mic Drop trimmed to the drop and thud (no squeal); Spam Likely's ring replaced with a soft phone-on-desk buzz.
 - V2.8.4: level-up fanfare cut to about 1 s; new Break Room counter item Emergency Contact (60k): one extra revive this run (stacks with Second Opinion).
 - V2.8.5: Emergency Contact moved to the Day One cart at 100k (Rami).
+
+## Nov 5, 2026: V2.9.0 First Day (step C, the first-minute pass)
+- Data: 39% of first runs ended before 42, often 12-15 hits in under 40 s (people standing still), mostly on phones. Runs 4+: only 7%.
+- The shift clock waits for your first step, with a device-aware move hint. Teacher Bills (first 3 runs, first 20 s) come one or two at a time from ahead.
+- First kill: big PAID! plus "your coffee fires on its own"; first hit: "keep moving". The cart hides when you can't afford anything.
+- Settings in `src/data/first-minute.js`. Success check: first-run "dead before 42" from about 35% to under 15%.
+- Also: Sprite Board got Paul's magenta/green/any-color backdrops and all-cards pose buttons. Magenta exposed see-through holes in the coworker sprites.

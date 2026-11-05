@@ -291,6 +291,9 @@ function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
   if (typeof setEndHush === "function") { setEndHush(false); setMusicTrack("music"); }
+  // First-minute pass (Nov 5, Miyamoto's 1-1 idea): the clock waits for your first step, and early runs teach before they threaten.
+  window.awaitFirstMove = true;
+  window.teach = { on: false, killShown: false, hurtShown: false }; // decided on your first step, once the save is loaded
   if (window.Music) Music.reset();
   runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); if (window.BossDown) BossDown.reset(); if (this.physics && this.physics.world) this.physics.world.timeScale = 1; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
@@ -1114,6 +1117,7 @@ function showTitleScreen(scene) {
     xp = saved.xp || 0;
     xpNeeded = saved.xpNeeded || LEVELING.firstLevelXp;
     runCoins = saved.runCoins || 0;
+    window.awaitFirstMove = false; // a resumed run picks up where it left off
     bossesSpawned = saved.bossesSpawned || {};
     retire80Prompted = !!saved.retire80Prompted;
     if (saved.stats) Object.assign(stats, saved.stats);
@@ -1426,6 +1430,7 @@ function hurtPlayer(p, bill) {
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
   lastHurt = now;
+  if (window.teach && teach.on && !teach.hurtShown && window.FirstMinute) { teach.hurtShown = true; FirstMinute.firstHurt(scene); }
   if (stats.dodge && Math.random() < stats.dodge) { // Fitness Tracker: sidestep the hit
     const t = scene.add.text(p.x, p.y - 44, Phaser.Utils.Array.GetRandom(["DODGED!", "10,000 STEPS!", "NOT TODAY!"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#BFA8CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
     scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
@@ -1630,6 +1635,7 @@ function damageBill(bill, amount) {
     sc.time.delayedCall(60, () => { if (bill.active) bill.clearTint(); });
   } else {
     runKills += bill.isBoss ? 25 : 1; // bosses count extra toward your score
+    if (window.teach && teach.on && !teach.killShown && !bill.isBoss && window.FirstMinute) { teach.killShown = true; FirstMinute.firstKill(sc, bill); }
     { // Score parts (src/data/leaderboard.js): kill points level off late in each year; bosses pay a bonus, more for a quick kill.
       const L = window.LEADERBOARD || {};
       if (bill.isBoss) {
@@ -2086,6 +2092,14 @@ function spawnBill(scene) {
   const duelS = window.GoldWatch ? GoldWatch.duel() : null;
   const cap = Math.round((ageCurve(I.maxOnScreenByAge, currentAge) || SPAWNING.maxOnScreen) * ((duelS && duelS.maxOnScreenMult) || 1));
   if (bills.countActive() >= cap) return;
+  const T = window.teach, FM = window.FIRST_MINUTE || {};
+  if (T && T.on && runElapsedMs < (FM.gentleMs || 20000)) { // teacher Bills: one at a time, walking in from where you're headed
+    if (bills.getChildren().filter(b => b.active && !b.isBoss).length >= (FM.gentleMax || 2)) return;
+    const v = player.body ? player.body.velocity : { x: 1, y: 0 }, a = (Math.abs(v.x) + Math.abs(v.y) > 5) ? Math.atan2(v.y, v.x) : 0;
+    const r = Math.max(scene.cameras.main.worldView.width, scene.cameras.main.worldView.height) * 0.55;
+    createEnemy(scene, "bill", player.x + Math.cos(a) * r, player.y + Math.sin(a) * r);
+    return;
+  }
   const view = scene.cameras.main.worldView; // the rectangle of the world you can currently see
   const m = window.viewModeIdx === 1 ? 220 : SPAWNING.offscreenMargin;
   let x, y;
@@ -2276,7 +2290,12 @@ function update(time, delta) {
   if (window.MoreWeapons) MoreWeapons.update(this, delta); // the loadout-expansion weapons (src/weapons_more.js)
 
   // Active-play Age clock: only advances during real gameplay (never while reading level-up cards or paused!).
-  runElapsedMs += (delta || 16.6);
+  if (window.awaitFirstMove) { // the shift clock starts on your first step (nothing spawns or ages until then)
+    const v = player && player.body && player.body.velocity;
+    if (v && Math.abs(v.x) + Math.abs(v.y) > 5) { window.awaitFirstMove = false; window.teach.on = (meta.runsPlayed || 0) < ((window.FIRST_MINUTE && FIRST_MINUTE.teachRuns) || 3); if (spawnTimer) spawnTimer.paused = false; if (window.FirstMinute) FirstMinute.moved(); }
+    else { if (spawnTimer) spawnTimer.paused = true; if (window.FirstMinute) FirstMinute.waiting(this); }
+  }
+  if (!window.awaitFirstMove) runElapsedMs += (delta || 16.6);
   currentAge = runStartAge + (runElapsedMs / 1000) / secsPerYear(); // 45 s/year in Midlife, 60 in Full Life
   if (Math.floor(currentAge) > runAch.lastAge) { runAch.lastAge = Math.floor(currentAge); window.achEvent("age", { age: currentAge }); }
 
