@@ -1540,3 +1540,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The board shows the current fiscal year by default (FY2 = from Nov 4, Version Two), with a SHOW ALL-TIME toggle. No database change: it filters by date.
 - Once per fiscal year, players with shop ranks get an optional Corporate Buyout memo: ranks cashed out at 50% of what they spent, plus a BOUGHT OUT tag on that year's board. The cursor starts on KEEP.
 - New fiscal year = add a line to `SEASONS` in src/data/leaderboard.js (plan: Fiscal Year 3 with Version 3.0).
+- V2.9.4: fixed magenta boxes behind the coworkers (v2 sheets had a solid magenta background). Sheets converted to transparent, and the coworker loader now keys magenta itself.

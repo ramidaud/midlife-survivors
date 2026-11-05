@@ -40,9 +40,15 @@ window.StartAreaArt = (() => {
    const key=poseKey(kind,id);
    if(scene.textures.exists(key))continue;
    try{
-    const img=await H.image(`assets/stage/coworkers/world/coworker-${id}-${kind}-v2.png`);
+    const img=await H.image(`assets/stage/coworkers/world/coworker-${id}-${kind}-v2.png?v=${window.BUILD||1}`);
     if(!H.isAlive())return;
-    scene.textures.addSpriteSheet(key,img,{frameWidth:w,frameHeight:h});
+    // Key out exact magenta (#FF00FF) in case a sheet arrives with a solid background (Nov 5: the v2 sheets did).
+    const cv=document.createElement('canvas');cv.width=img.width;cv.height=img.height;
+    const cx=cv.getContext('2d',{willReadFrequently:true});cx.drawImage(img,0,0);
+    const px=cx.getImageData(0,0,cv.width,cv.height),d=px.data;
+    for(let i=0;i<d.length;i+=4)if(d[i]===255&&d[i+1]===0&&d[i+2]===255)d[i+3]=0;
+    cx.putImageData(px,0,0);
+    scene.textures.addSpriteSheet(key,cv,{frameWidth:w,frameHeight:h});
     scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
    }catch(error){console.warn('Coworker world pose missing for '+id+' ('+kind+'), using the old art');}
   }

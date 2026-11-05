@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.9.3",
-  displayVersion: "V. 2.9.3",
+  version: "2.9.4",
+  displayVersion: "V. 2.9.4",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 254,
+  build: 255,
   changelog: [
+    {
+      ver: "V. 2.9.4", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Fixed: pink boxes behind the office coworkers.",
+      highlights: ["The cleaned-up coworkers briefly showed a solid magenta background. They're see-through again."]
+    },
     {
       ver: "V. 2.9.3", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Fiscal Year 2: a fresh leaderboard and an optional Corporate Buyout. (Thanks again, Kevin.)",

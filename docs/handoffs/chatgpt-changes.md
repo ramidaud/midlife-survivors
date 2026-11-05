@@ -378,3 +378,7 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - Delivered twelve v2 world sheets and 42 timed previews. The working pose keeps its chair and face fixed, the personal bits keep their individual gestures, and the standing poses use alternating walks and a one-pixel breath in the clothing.
 - Sprite Board working peaks at 4.7%, standing idle at 3.5%, and all 336 cells have zero enclosed magenta holes. [Before/after counts and review](chatgpt-coworker-cleanup-results.md).
 - For integration, key exact magenta and set standing origin to 56/60. The seated origin stays at 63/64. Claude switches the sheets and refreshes the Sprite Board catalog.
+
+## Note for future art (Nov 5, Claude)
+- The coworker v2 sheets arrived as RGB with a solid #FF00FF background, and the coworker loader didn't key magenta, so pink boxes showed in game (fixed in V. 2.9.4). Claude converted them to transparent PNGs and made the loader key magenta too.
+- Going forward: either format works now, but please say which one in the handoff.
