@@ -283,7 +283,7 @@ function spawnCoin(x, y, bonusMult = 1) {
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
-  runElapsedMs = 0; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
+  runElapsedMs = 0; window.lastBossDownMs = null; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
   if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
@@ -1598,14 +1598,15 @@ function damageBill(bill, amount) {
       maybeDropSalad(sc, bill.x, bill.y - 10, EL);
     }
     if (bill.isBoss) {
+      window.lastBossDownMs = runElapsedMs; // the next boss gives you a breather to open the chest (BOSS_QUEUE.breatherMs)
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
       if (window.Lighting) Lighting.fx("lootDrop", bill.x, bill.y);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
       if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
-        fontFamily: "monospace", fontSize: "11px", color: "#f5c542"
-      }).setOrigin(0.5).setDepth(4);
+        fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#EF9347", stroke: "#171C35", strokeThickness: 3
+      }).setOrigin(0.5, 1.6).setDepth(4);
       for (let i = -2; i <= 2; i++) spawnCoin(bill.x + i * 10, bill.y + 14, 2);
       if (window.pushContextEvent) {
         window.showLowerThird("win", "SURVIVED", `You outlasted ${E.name}. Grab the gold chest.`, 5000);
@@ -2294,7 +2295,13 @@ function update(time, delta) {
   modeCfg().bosses.forEach(bk => {
     // The Gold Watch always arrives 1.5 years before you retire (so Delayed Retirement moves it too).
     const at = bk === "goldWatch" && window.GoldWatch ? GoldWatch.arrivalAge() : ENEMIES[bk].spawnAge;
-    if (!bossesSpawned[bk] && currentAge >= at) spawnBoss(this, bk);
+    if (bossesSpawned[bk] || currentAge < at) return;
+    // One boss at a time: wait for the one you're fighting (src/data/bosses.js, BOSS_QUEUE), up to a few years.
+    const Q = window.BOSS_QUEUE || {};
+    const busy = bk !== "goldWatch" && (bills.getChildren().some(o => o.active && o.isBoss && !o.clockOut)
+      || (window.lastBossDownMs != null && runElapsedMs - lastBossDownMs < (Q.breatherMs || 8000)));
+    if (busy && currentAge < at + (Q.maxWaitYears || 3)) return;
+    spawnBoss(this, bk);
   });
   if (!bossesSpawned.theReaper && currentAge >= modeEndAge()) {
     if (window.GoldWatch) GoldWatch.clockOut(this); // 5:00: the watch stops on its own when you retire
@@ -2460,7 +2467,8 @@ function update(time, delta) {
   chests.getChildren().slice().forEach(ch => {
     if (!ch.active) return;
     const d = Phaser.Math.Distance.Between(player.x, player.y, ch.x, ch.y);
-    if (d < Math.max(magR, 150)) this.physics.moveToObject(ch, player, W.magnetSpeed * 0.8); else ch.setVelocity(0, 0);
+    // Nov 4 (Rami: "the spotlight card showed up but I didn't get a chest"): a boss can die off screen, so the chest always comes to you.
+    this.physics.moveToObject(ch, player, W.magnetSpeed * (d < Math.max(magR, 150) ? 0.8 : 0.55));
     if (ch.tag) ch.tag.setPosition(ch.x, ch.y);
     if (d < 44) {
       const blocked = levelUpOpen || (window.BonusChest && BonusChest.isOpen());

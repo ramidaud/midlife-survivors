@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.3.1",
-  displayVersion: "V. 2.3.1",
+  version: "2.3.2",
+  displayVersion: "V. 2.3.2",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 218,
+  build: 219,
   changelog: [
+    {
+      ver: "V. 2.3.2", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "One boss at a time, and the boss chest always finds you.",
+      highlights: [
+        "Bosses take turns: if you're still fighting one, the next waits (up to 3 years), then gives you 8 seconds after the kill to open your chest.",
+        "The boss chest now slides to you from wherever the boss fell, even off screen. Its BONUS tag uses the game font and colors."
+      ]
+    },
     {
       ver: "V. 2.3.1", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Clearer level-up cards: Meal Prep Sunday no longer looks like Mom's Spaghetti.",

@@ -1358,3 +1358,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 2.3.1, clearer evolution badges
 - Rami got "Mom's Spaghetti evolutions" before the weapon and nothing spawned. It was the Meal Prep Sunday passive: its badge said "Evolves Mom's Spaghetti."
 - Badges now say "Pairs with ..." on both the weapon and the passive. The real Potluck evolution still needs the spaghetti at Lv 2 plus Meal Prep, and bowls drop fine.
+
+## 2026-11-04: V. 2.3.2, one boss at a time
+- Rami: the Mortgage showed up before the Performance Review died, and the chest never appeared.
+- Bosses now queue: the next one waits while another is alive (up to 3 years late), plus 8 seconds after a kill. Tunable in `BOSS_QUEUE` (src/data/bosses.js). The Gold Watch never waits.
+- The chest had dropped off screen where the boss died. Boss chests now always slide to you.

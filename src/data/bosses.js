@@ -1,5 +1,10 @@
 // Boss special attacks (Grok spec, Nov 2: docs/handoffs/grok-boss-attacks.md). Tweak freely.
 // Times in milliseconds, speeds in pixels per second, sizes in pixels.
+// One boss at a time (Nov 4, Rami: "the 2nd boss showed up before the 1st one was defeated").
+// A boss that's due waits while another boss is still alive, but never more than this many years late.
+// The Gold Watch and the retirement clock are tied to the end of the run, so they never wait.
+window.BOSS_QUEUE = { maxWaitYears: 3, breatherMs: 8000 }; // breather: after a boss falls, the next one waits 8 s so you can open the chest
+
 window.BOSS_ATTACK_TUNING = {
   // Charging into a wall (Nov 4): bounce back, wobble, then chase again.
   wallBonk: { bounceSpeed: 260, bounceMs: 320, dizzyMs: 700, words: ["BONK!", "OOF!", "THUD!", "WHO PUT A WALL HERE?"] },
