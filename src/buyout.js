@@ -40,7 +40,8 @@ window.Buyout = (() => {
     };
     const keep = () => { if (typeof sfx === "function") sfx("pick"); close(); };
     const tb = el.querySelector(".bo-take"), kb = el.querySelector(".bo-keep");
-    if (window.bindNavItem) { bindNavItem(tb, 0, take); bindNavItem(kb, 1, keep, true); // the cursor starts on KEEP so a stray press never wipes the shop } else { tb.onclick = take; kb.onclick = keep; }
+    // The cursor starts on KEEP, so a stray press never wipes the shop.
+    if (window.bindNavItem) { bindNavItem(tb, 0, take); bindNavItem(kb, 1, keep, true); } else { tb.onclick = take; kb.onclick = keep; }
     if (window.menuNav) menuNav.refresh();
   }
   return { maybeOffer, spent };

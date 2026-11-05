@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.9.2",
-  displayVersion: "V. 2.9.2",
+  version: "2.9.3",
+  displayVersion: "V. 2.9.3",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 253,
+  build: 254,
   changelog: [
+    {
+      ver: "V. 2.9.3", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Fiscal Year 2: a fresh leaderboard and an optional Corporate Buyout. (Thanks again, Kevin.)",
+      highlights: [
+        "The leaderboard now shows this fiscal year's scores (Fiscal Year 2 began with Version Two). SHOW ALL-TIME brings back every score.",
+        "Corporate Buyout, once a fiscal year and completely optional: cash out your 401(k) Shop ranks for half of what you spent, start level with everyone, and wear a BOUGHT OUT tag on this year's board. Or keep everything."
+      ]
+    },
     {
       ver: "V. 2.9.2", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Calmer coworkers: no more shimmering pixels at the desks.",
