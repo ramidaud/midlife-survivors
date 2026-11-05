@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.8.2",
-  displayVersion: "V. 2.8.2",
+  version: "2.8.3",
+  displayVersion: "V. 2.8.3",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 247,
+  build: 248,
   changelog: [
+    {
+      ver: "V. 2.8.3", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Softer Mic Drops and phones that buzz instead of ring.",
+      highlights: ["Mic Drop now plays just the drop and thud, no feedback squeal every time.", "Spam Likely buzzes like a phone vibrating on a desk instead of ringing."]
+    },
     {
       ver: "V. 2.8.2", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The Lounge cart meets you in the Lobby on day one.",

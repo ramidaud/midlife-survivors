@@ -1513,3 +1513,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - For the first minute of every fresh run, a Lounge cart parks in the Lobby next to where you start.
 - Sells Mic Drop and Say Cheese (while you still have free slots) plus two whole-run perks: Ergonomic Cushion (+2 max HP) and Good Beans (+8% speed).
 - The Break Room counter after promotions now sells only heals and quick buffs. Settings in `INTERNS.lounge.cart`.
+- V2.8.3: Mic Drop trimmed to the drop and thud (no squeal); Spam Likely's ring replaced with a soft phone-on-desk buzz.
