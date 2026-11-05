@@ -318,6 +318,14 @@ def main():
 """
     (root / "feed.xml").write_text(feed)
     print("wrote", root / "feed.xml", f"({len(posts)} posts)")
+    # One-post feeds (feed-08.xml, feed-09.xml...) so Substack can import a single memo without re-importing the rest.
+    for item in items_rss:
+        m = re.search(r"<link>[^<]*/(\d+)-[^<]*/</link>", item)
+        if not m:
+            continue
+        one = feed.replace("".join(items_rss), item)
+        (root / f"feed-{m.group(1)}.xml").write_text(one)
+    print("wrote one-post feeds")
 
 
 if __name__ == "__main__":

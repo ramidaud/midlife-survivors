@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Midlife Survivors Devlog</title>
+    <link>https://ramidaud.github.io/midlife-survivors/devlog/</link>
+    <description>HR memos from building Midlife Survivors.</description>
+    
+    <item>
+      <title>The office got bigger. Somebody lost a binder.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/06-the-office-got-bigger/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/06-the-office-got-bigger/</guid>
+      <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-long-way-cover-v1.jpg" alt="Pixel-art cover illustration: the 9-to-5er takes the long way to coffee through the office, with Bills, a spam phone and a donut trailing him."></p><p>The office was starting to look like an office, but it still felt like a little room. I wanted somewhere I could wander.</p>
+<p>The art preview now has an atrium, longer paths, and side wings. The map fills in as you walk. There is a records annex with a lost binder, which feels like the right thing to find in a place like this.</p>
+<p>The floor got some attention too: brighter carpet, worn chair mats, coffee rings, and a printer paper trail. Enough history to feel used, with room left to see whatever is chasing me.</p>
+<p>This is still the separate art preview. Next we need to see what happens when a crowd tries to get around those desks.</p><h3>What changed</h3><ul><li>Atrium, longer paths and side wings in the Campus preview</li><li>Map reveals as you explore</li><li>Brighter carpet, chair mats, coffee rings and a printer paper trail</li></ul><p><strong>Next up:</strong> See what happens when a crowd tries to get around those desks.</p><p><a href="https://ramidaud.github.io/midlife-survivors/devlog/art/">Play Midlife Survivors free in your browser</a> (V. 1.27.1)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-long-way-cover-v1.jpg" alt="Pixel-art cover illustration: the 9-to-5er takes the long way to coffee through the office, with Bills, a spam phone and a donut trailing him."></p><p>The office was starting to look like an office, but it still felt like a little room. I wanted somewhere I could wander.</p>
+<p>The art preview now has an atrium, longer paths, and side wings. The map fills in as you walk. There is a records annex with a lost binder, which feels like the right thing to find in a place like this.</p>
+<p>The floor got some attention too: brighter carpet, worn chair mats, coffee rings, and a printer paper trail. Enough history to feel used, with room left to see whatever is chasing me.</p>
+<p>This is still the separate art preview. Next we need to see what happens when a crowd tries to get around those desks.</p><h3>What changed</h3><ul><li>Atrium, longer paths and side wings in the Campus preview</li><li>Map reveals as you explore</li><li>Brighter carpet, chair mats, coffee rings and a printer paper trail</li></ul><p><strong>Next up:</strong> See what happens when a crowd tries to get around those desks.</p><p><a href="https://ramidaud.github.io/midlife-survivors/devlog/art/">Play Midlife Survivors free in your browser</a> (V. 1.27.1)</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>

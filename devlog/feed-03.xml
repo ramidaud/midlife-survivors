@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Midlife Survivors Devlog</title>
+    <link>https://ramidaud.github.io/midlife-survivors/devlog/</link>
+    <description>HR memos from building Midlife Survivors.</description>
+    
+    <item>
+      <title>The office has seen a few restructurings.</title>
+      <link>https://ramidaud.github.io/midlife-survivors/devlog/03-office-with-some-history/</link>
+      <guid>https://ramidaud.github.io/midlife-survivors/devlog/03-office-with-some-history/</guid>
+      <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
+      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/03-office-with-some-history.jpg" alt="The first detailed office section in the separate Campus preview."></p><p>The characters can walk now, so I wanted the office around them to feel more like a place.</p>
+<p>The first environment pass is Accounts Payable. It has the three desk personalities, a printer with a paper jam, an overstuffed filing cabinet and a plant that could use a day off. <em>(It's no coincidence that PTO Day is also a pickup in the game. It clears the whole screen. The plant would like one too.)</em> The floors have carpet and wood patterns now, with warmer lighting and a few scattered signs of office life.</p>
+<p>One thing I'm learning: background detail has to stay quieter than the action. <em>(Photographers know this one. If the background is as busy as the subject, nobody knows where to look. Same rule in a game, except the subject is being chased by donuts.)</em> The floor can have texture without competing with the person trying to survive on it. The furniture also needs to block the right amount of floor space so walking around it feels believable.</p>
+<p>Even the jokes live in a data file. Each department gets a landmark and a line you see when you walk in:</p>
+<pre><code>{ id: 'accounts', name: 'ACCOUNTS PAYABLE',
+  landmark: 'The paperwork skyline',
+  joke: 'Every pile has been marked urgent since 2009.',
+  // three desk personalities, placed on the 32-pixel grid
+  desks: [[-928, -544, 'tidy'], [-768, -544, 'paperwork'], [-608, -544, 'lunch']] }
+</code></pre>
+<p>This is still the separate art test. Next is deciding how much detail feels right before extending the look to the other departments and environments.</p><h3>What changed</h3><ul><li>Three desk personalities in the Campus art test</li><li>Carpet and wood floor patterns, warmer lighting</li><li>Printer jam, filing cabinet, breakroom plant props</li></ul><p><strong>Next up:</strong> Decide how much detail survives before the other departments get the same look.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.24.1)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/03-office-with-some-history.jpg" alt="The first detailed office section in the separate Campus preview."></p><p>The characters can walk now, so I wanted the office around them to feel more like a place.</p>
+<p>The first environment pass is Accounts Payable. It has the three desk personalities, a printer with a paper jam, an overstuffed filing cabinet and a plant that could use a day off. <em>(It's no coincidence that PTO Day is also a pickup in the game. It clears the whole screen. The plant would like one too.)</em> The floors have carpet and wood patterns now, with warmer lighting and a few scattered signs of office life.</p>
+<p>One thing I'm learning: background detail has to stay quieter than the action. <em>(Photographers know this one. If the background is as busy as the subject, nobody knows where to look. Same rule in a game, except the subject is being chased by donuts.)</em> The floor can have texture without competing with the person trying to survive on it. The furniture also needs to block the right amount of floor space so walking around it feels believable.</p>
+<p>Even the jokes live in a data file. Each department gets a landmark and a line you see when you walk in:</p>
+<pre><code>{ id: 'accounts', name: 'ACCOUNTS PAYABLE',
+  landmark: 'The paperwork skyline',
+  joke: 'Every pile has been marked urgent since 2009.',
+  // three desk personalities, placed on the 32-pixel grid
+  desks: [[-928, -544, 'tidy'], [-768, -544, 'paperwork'], [-608, -544, 'lunch']] }
+</code></pre>
+<p>This is still the separate art test. Next is deciding how much detail feels right before extending the look to the other departments and environments.</p><h3>What changed</h3><ul><li>Three desk personalities in the Campus art test</li><li>Carpet and wood floor patterns, warmer lighting</li><li>Printer jam, filing cabinet, breakroom plant props</li></ul><p><strong>Next up:</strong> Decide how much detail survives before the other departments get the same look.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.24.1)</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
