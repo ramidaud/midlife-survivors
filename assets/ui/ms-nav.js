@@ -65,4 +65,59 @@
   window.addEventListener("resize", measure);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   window.MSNav = { setHidden, measure, adopted };
+
+  // Controller support on the site pages (Nov 5, Rami: "once I go to the devlog it loses all control").
+  // D-pad or left stick moves between links and buttons by where they sit on screen; with nothing further that way it
+  // scrolls the page. A opens, B goes back (or to the game). The game has its own controller code, so this is off there.
+  if (!inGame && navigator.getGamepads) {
+    const st = document.createElement("style");
+    st.textContent = `.ms-pad-focus{outline:3px solid #EF9347!important;outline-offset:3px;border-radius:4px}`;
+    document.head.appendChild(st);
+    let focused = null, prev = {}, holdDir = null, nextAt = 0;
+    const visible = el => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(el).visibility !== "hidden" && el.getAttribute("aria-current") !== "page"; };
+    const items = () => Array.from(document.querySelectorAll("a[href], button:not([disabled]), [tabindex='0']")).filter(visible);
+    const setFocus = el => { if (focused) focused.classList.remove("ms-pad-focus"); focused = el; if (!el) return; el.classList.add("ms-pad-focus"); try { el.focus({ preventScroll: true }); } catch (e) {} el.scrollIntoView({ block: "nearest", behavior: "smooth" }); };
+    const onScreen = el => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; };
+    function move(dir) {
+      const list = items();
+      if (!focused || !list.includes(focused) || !onScreen(focused)) { // start from the first thing in view
+        const first = list.find(onScreen); if (first) { setFocus(first); return; }
+      }
+      const horiz = dir === "left" || dir === "right", sign = (dir === "right" || dir === "down") ? 1 : -1;
+      if (focused) {
+        const a = focused.getBoundingClientRect(), ax = a.left + a.width / 2, ay = a.top + a.height / 2;
+        let best = null, bestS = Infinity;
+        for (const el of list) {
+          if (el === focused) continue;
+          const b = el.getBoundingClientRect(), bx = b.left + b.width / 2, by = b.top + b.height / 2;
+          const main = horiz ? (bx - ax) * sign : (by - ay) * sign; if (main <= 4) continue;
+          if (!horiz && Math.abs(by - ay) > innerHeight * 0.6) continue; // far below: scroll to it instead of leaping
+          const side = horiz ? Math.abs(by - ay) : Math.abs(bx - ax);
+          const sc = main + side * 2; if (sc < bestS) { bestS = sc; best = el; }
+        }
+        if (best) { setFocus(best); return; }
+      }
+      if (!horiz) window.scrollBy({ top: sign * innerHeight * 0.45, behavior: "smooth" });
+    }
+    function poll() {
+      const gp = Array.from(navigator.getGamepads() || []).find(g => g && g.connected);
+      if (gp) {
+        const b = i => !!(gp.buttons[i] && (gp.buttons[i].pressed || gp.buttons[i].value > 0.5));
+        const ax = gp.axes[0] || 0, ay = gp.axes[1] || 0;
+        const now = performance.now();
+        const dir = b(12) || ay < -0.55 ? "up" : b(13) || ay > 0.55 ? "down" : b(14) || ax < -0.55 ? "left" : b(15) || ax > 0.55 ? "right" : null;
+        if (!dir) holdDir = null;
+        else if (dir !== holdDir) { holdDir = dir; nextAt = now + 300; move(dir); }
+        else if (now >= nextAt) { nextAt = now + 150; move(dir); }
+        const ry = gp.axes[3] || 0; if (Math.abs(ry) > 0.3) window.scrollBy({ top: ry * 18 }); // right stick: free scroll
+        const A = b(0), B = b(1);
+        if (A && !prev.A && focused) focused.click();
+        if (B && !prev.B) { if (history.length > 1) history.back(); else location.href = u("./"); }
+        prev = { A, B };
+      }
+      requestAnimationFrame(poll);
+    }
+    window.addEventListener("gamepadconnected", () => { if (!focused) move("down"); });
+    requestAnimationFrame(poll);
+  }
 })();

@@ -2,12 +2,24 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.9.6",
-  displayVersion: "V. 2.9.6",
+  version: "2.10.0",
+  displayVersion: "V. 2.10.0",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 257,
+  build: 258,
   changelog: [
+    {
+      ver: "V. 2.10.0", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The controller update: menus go where you point.",
+      highlights: [
+        "Every menu now moves the way you'd expect: press a direction and the cursor goes to whatever is that way on screen. Nothing there? The page scrolls.",
+        "PUNCH IN, the whole 401(k) Shop and the bottom of the Shift Ended screen are all reachable with a controller.",
+        "New controller shortcuts: Y opens the 401(k) Shop from the title screen, Select opens the office map during a run (M on a keyboard).",
+        "The Devlog, Art Room and About pages work with a controller too: move with the D-pad, A to open, B to go back.",
+        "The tab for the page you're on looks pressed in and can't be selected.",
+        "Big screens and 4K TVs skip the blurred menu backdrop, so menus stay snappy."
+      ]
+    },
     {
       ver: "V. 2.9.6", date: "Nov 5, 2026", title: "Version Two",
       teaser: "A playtest cleanup: findable cart, one message at a time, clearer boss rings.",

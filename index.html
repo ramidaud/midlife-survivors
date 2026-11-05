@@ -35,7 +35,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"><!-- Nov 4: Bungee, Chakra Petch, Cinzel and Press Start 2P were only fallbacks or for the parked 3D themes (Fable review) -->
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
-<link rel="stylesheet" href="assets/ui/ms-nav.css?v=5">
+<link rel="stylesheet" href="assets/ui/ms-nav.css?v=6">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Atkinson Hyperlegible', sans-serif; }
@@ -1626,11 +1626,14 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
   }
   @media (prefers-reduced-motion: reduce) { .tp-punch .clock-in-btn { animation: none; } }
   #ui-layer[data-theme="0"] .title-links a { color: var(--ms-cream); text-decoration: underline; text-underline-offset: 3px; pointer-events: auto; }
+  /* 4K TVs and big monitors (Nov 5, Rami: menus felt laggy mirrored to a 4K TV): blurring the game behind every menu is
+     expensive at that size, so big screens get a plain dim backdrop instead. */
+  @media (min-width: 1800px), (min-height: 1300px) { * { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; } }
 </style>
 <div id="game"></div>
 <div id="title-slides-pre" aria-hidden="true"><div></div></div>
 <div id="ui-layer" data-theme="0"></div>
-<script src="assets/ui/ms-nav.js?v=3"></script>
+<script src="assets/ui/ms-nav.js?v=4"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <!-- three.js (600 KB) is only needed for the parked 3D views. To bring 3D back, set ENABLE_3D_VIEWS in src/view3d.js and restore:
      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
@@ -1638,7 +1641,7 @@ if (!window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) {
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=257&t=" + Date.now();
+    s.src = "src/loader.js?v=258&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

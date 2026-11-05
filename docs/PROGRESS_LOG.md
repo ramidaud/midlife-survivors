@@ -1553,3 +1553,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Bonus Approved card keeps a fixed size; the Mortgage ring's "%" in a gray box is now a clear SAFE tag that never gets left behind; Desk Salads pop out with a label.
 - Spam calls: soft two-note marimba chime in A. iPad + controller: a TAP TO TURN ON SOUND button when audio is still off.
 - Next: the controller pass (title order, shop grid, scrolling end screen and pages, shortcuts, map button). Design notes: Mortgage and Midlife Crisis may fit the neighborhood stage better.
+
+## Nov 5, 2026: V2.10.0 Controller pass
+- Menus use spatial navigation: a direction goes to whatever is visually that way; nothing there scrolls the page. Fixes the title jumping, PUNCH IN reach (now the starting spot), the shop grid (past Second Opinion) and scrolling the Shift Ended screen.
+- Y on the title screen opens the 401(k) Shop (it used to redraw the menu for the parked 3D views). Select opens the office map in a run (it used to double as Pause).
+- Devlog, Art Room and About pages work with a controller (D-pad/stick moves, right stick scrolls, A opens, B goes back). The current page's tab looks pressed in and is skipped.
+- Big screens and 4K TVs skip the blurred menu backdrop (likely cause of the laggy feel when mirrored to the TV).

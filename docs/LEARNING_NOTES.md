@@ -596,3 +596,8 @@ A walk loop reads when the foot in front switches sides. Keep the head and shirt
 ## 2026-11-05 Let the pose hold (Codex)
 
 The Sprite Board can highlight every pixel that changed between frames. If a coworker is typing, the red should sit at the hands. Keeping the chair and face still makes the gesture easier to read.
+
+## Spatial navigation (Nov 5, V2.10.0)
+- Our menus used numbered rows, so "down" meant "next row number", which didn't always match what's below on screen. That's why the cursor jumped around on the TV.
+- Spatial navigation measures where every button actually sits and picks the nearest one in the direction you pressed, the way TV and console menus work. If nothing is that way, the page scrolls instead.
+- Bonus: it keeps working when the layout changes (phone vs. iPad vs. TV) with no extra setup.

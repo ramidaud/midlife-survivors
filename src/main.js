@@ -107,7 +107,8 @@ function readPad(scene) {
     b:     btn(1),
     xBtn:  btn(c.padMuteBtn !== undefined ? c.padMuteBtn : 2),
     yBtn:  btn(c.padViewBtn !== undefined ? c.padViewBtn : 3),
-    start: btn(c.padPauseBtn !== undefined ? c.padPauseBtn : 9) || btn(8)
+    start: btn(c.padPauseBtn !== undefined ? c.padPauseBtn : 9),
+    select: btn(8) // Select / Back / View / Share: the office map in a run (Nov 5 controller pass)
   };
   if (padNow.a || padNow.b || padNow.xBtn || padNow.yBtn || padNow.start) unlockAudio();
 }
@@ -2253,12 +2254,15 @@ function titleBack() {
 
 function update(time, delta) {
   readPad(this);
+  // Y button (Nov 5 controller pass): it used to switch the parked 3D views, which just redrew the menu and threw the
+  // cursor somewhere (Rami: "it jumps around"). Now on the title screen Y is a shortcut to the 401(k) Shop.
   if (padJust("yBtn")) {
-    cycleViewMode(this);
-    sfx("pick");
-    if (window.controlsModalOpen) renderControlsModal(this);
-    else if (titleOpen) renderTitleModal(this);
-    else if (paused) renderPauseModal(this, 2);
+    if (window.ENABLE_3D_VIEWS) {
+      cycleViewMode(this); sfx("pick");
+      if (window.controlsModalOpen) renderControlsModal(this); else if (titleOpen) renderTitleModal(this); else if (paused) renderPauseModal(this, 2);
+    } else if (titleOpen && !window.controlsModalOpen && !window.accountModalOpen && !document.getElementById("buyout-modal")) {
+      window.titleView = window.titleView === "shop" ? "main" : "shop"; sfx("pick"); renderTitleModal(this);
+    }
   }
   if (padJust("xBtn")) {
     toggleMute();
@@ -2291,8 +2295,9 @@ function update(time, delta) {
       titleBack(); // controller B backs out of the Shop, Extras, Leaderboard and other title pages
     }
   } else {
-    // Active gameplay controller shortcuts: Start or B opens Pause & Options
-    if ((padJust("start") || padJust("b")) && !window.minimapOpen) togglePause(this);
+    // Active gameplay controller shortcuts: Start or B opens Pause & Options; Select opens the office map
+    if (padJust("select") && !window.minimapOpen && window.Minimap && Minimap.has && Minimap.has()) Minimap.openBig();
+    else if ((padJust("start") || padJust("b") || padJust("select")) && !window.minimapOpen) togglePause(this);
   }
 
   if (window.minimapOpen) { if (window.Minimap) Minimap.padCheck(); return; } // the big office map is open (src/minimap.js)

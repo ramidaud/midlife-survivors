@@ -252,6 +252,6 @@ window.Minimap = (() => {
   }, true);
   setInterval(syncMini, 500); // hide the corner map on the title screen and after a run ends
   function onKey(code) { if (code !== "KeyM" || !has()) return false; if (bigOpen) closeBig(); else openBig(); return true; }
-  function padCheck() { if (bigOpen && typeof padJust === "function" && (padJust("b") || padJust("start") || padJust("a") || padJust("yBtn"))) closeBig(); }
+  function padCheck() { if (bigOpen && typeof padJust === "function" && (padJust("b") || padJust("start") || padJust("a") || padJust("yBtn") || padJust("select"))) closeBig(); }
   return { padCheck, reset, update, openBig, closeBig, onKey, isOpen: () => bigOpen, sync: syncMini, has };
 })();

@@ -281,60 +281,54 @@ window.menuNav = {
     this.focus(target, false, noScroll);
   },
 
+  // Spatial menu movement (Nov 5 controller pass; Rami on iPad + TV: the cursor "jumps around", PUNCH IN is hard to
+  // reach, the shop only goes left/right and the Shift Ended screen won't scroll). A direction now moves to whatever is
+  // visually that way on screen; if nothing is, the page scrolls instead. Left/Right on a setting row still cycles it.
+  navItems(modal) {
+    const items = Array.from(modal.querySelectorAll(".nav-item:not([disabled])"));
+    if (modal.id === "title-modal") document.querySelectorAll(".ms-nav .nav-item:not([disabled])").forEach(el => items.push(el));
+    return items.filter(el => { if (el.offsetParent === null || el.getAttribute("aria-current") === "page") return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; });
+  },
+  scrollerFor(el, modal) {
+    for (let n = el; n && n !== document.body; n = n.parentElement) {
+      const cs = getComputedStyle(n);
+      if (/(auto|scroll)/.test(cs.overflowY) && n.scrollHeight > n.clientHeight + 4) return n;
+      if (n === modal) break;
+    }
+    return modal.scrollHeight > modal.clientHeight + 4 ? modal : null;
+  },
   move(dir) {
     const modal = this.getActiveModal();
     if (!modal) return false;
-    const rows = this.getRows(modal);
-    if (!rows.length) return false;
+    const items = this.navItems(modal);
+    if (!items.length) return false;
+    const cur = this.focusedEl && items.includes(this.focusedEl) ? this.focusedEl : null;
+    if (!cur) { this.focus(modal.querySelector(".nav-default:not([disabled])") || items[0], true); return true; }
 
-    let rIdx = 0, cIdx = 0, found = false;
-    for (let r = 0; r < rows.length; r++) {
-      const c = rows[r].indexOf(this.focusedEl);
-      if (c !== -1) { rIdx = r; cIdx = c; found = true; break; }
-    }
-    if (!found) {
-      this.focus(rows[0][0], true);
-      return true;
-    }
+    if ((dir === "left" || dir === "right") && cur.dataset.optCycle) { this.activate(dir); return true; } // setting rows cycle
 
-    // Special horizontal adjustment when on Pause/Options cycler rows (Camera Style / Audio)
-    if ((dir === "left" || dir === "right") && this.focusedEl && this.focusedEl.dataset.optCycle) {
-      this.activate(dir);
-      return true;
+    const a = cur.getBoundingClientRect(), ax = a.left + a.width / 2, ay = a.top + a.height / 2;
+    const horiz = dir === "left" || dir === "right", sign = (dir === "right" || dir === "down") ? 1 : -1;
+    let best = null, bestScore = Infinity;
+    for (const el of items) {
+      if (el === cur) continue;
+      const b = el.getBoundingClientRect(), bx = b.left + b.width / 2, by = b.top + b.height / 2;
+      const main = horiz ? (bx - ax) * sign : (by - ay) * sign;          // how far in the pressed direction
+      const edgeGap = horiz ? (sign > 0 ? b.left - a.right : a.left - b.right) : (sign > 0 ? b.top - a.bottom : a.top - b.bottom);
+      if (main <= 4 || edgeGap < -Math.min(a.height, b.height) * 0.5) continue; // not actually that way
+      if (horiz && Math.abs(by - ay) > Math.max(a.height, b.height) * 1.2) continue; // sideways means roughly the same line
+      const side = horiz ? Math.abs(by - ay) : Math.abs(bx - ax);         // how far off to the side
+      const overlap = horiz ? !(b.bottom < a.top || b.top > a.bottom) : !(b.right < a.left || b.left > a.right);
+      const score = Math.max(0, edgeGap) + side * (overlap ? 0.3 : 2.2);
+      if (score < bestScore) { bestScore = score; best = el; }
     }
-
-    if (dir === "left" || dir === "right") {
-      const row = rows[rIdx];
-      if (row.length > 1) {
-        const step = dir === "left" ? -1 : 1;
-        const nextC = (cIdx + step + row.length) % row.length;
-        this.focus(row[nextC], true);
-      } else if (rows.length > 1) {
-        // Single-item row: Left/Right steps to previous/next row for effortless 1D arrowing
-        const step = dir === "left" ? -1 : 1;
-        const nextR = (rIdx + step + rows.length) % rows.length;
-        this.focus(rows[nextR][0], true);
-      }
-      return true;
+    if (best) { this.focus(best, true); return true; }
+    // Nothing that way: scroll the page/panel instead (reaches the art at the top of Shift Ended, long lists, etc.)
+    if (!horiz) {
+      const sc = this.scrollerFor(cur, modal);
+      if (sc) sc.scrollBy({ top: sign * sc.clientHeight * 0.45, behavior: "smooth" });
     }
-
-    if (dir === "up" || dir === "down") {
-      if (rows.length > 1) {
-        const step = dir === "up" ? -1 : 1;
-        const nextR = (rIdx + step + rows.length) % rows.length;
-        const targetRow = rows[nextR];
-        const nextC = Math.min(cIdx, targetRow.length - 1);
-        this.focus(targetRow[nextC], true);
-      } else {
-        // Only 1 row (e.g., 3 horizontal Perk Cards or 2 Game Over buttons): Up/Down also steps through items!
-        const row = rows[0];
-        const step = dir === "up" ? -1 : 1;
-        const nextC = (cIdx + step + row.length) % row.length;
-        this.focus(row[nextC], true);
-      }
-      return true;
-    }
-    return false;
+    return true;
   },
 
   activate(dirHint) {
@@ -2538,8 +2532,8 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   });
   const backEl = document.getElementById("title-back-btn");
   // Top bar links (Devlog, Art Room, Discord...) sit above everything as row -1. Bound once; the bar outlives re-renders.
-  document.querySelectorAll(".ms-nav a, .ms-nav button").forEach(el => { if (!el.classList.contains("nav-item")) bindNavItem(el, -1, e => { if (e && e.type === "nav-activate") el.click(); }); }); // mouse and touch keep their normal click
-  if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" ? "extras" : view === "achievements" ? (window.titleBackTo || "extras") : "main"), view !== "main");
+  document.querySelectorAll(".ms-nav a, .ms-nav button").forEach(el => { if (!el.classList.contains("nav-item") && el.getAttribute("aria-current") !== "page") bindNavItem(el, -1, e => { if (e && e.type === "nav-activate") el.click(); }); }); // mouse and touch keep their normal click
+  if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" ? "extras" : view === "achievements" ? (window.titleBackTo || "extras") : "main"), view !== "main" && view !== "shop"); // the Shop starts on its first item
 
   // Row 0: Character Cards
   modal.querySelectorAll(".dossier-char").forEach(el => {
@@ -2621,6 +2615,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   // Rows 3..6: 401(k) Shop Upgrades
   modal.querySelectorAll(".shop-row:not(.shop-mystery)").forEach((el, idx) => {
     const shopId = el.dataset.shop;
+    if (idx === 0 && view === "shop") el.classList.add("nav-default");
     bindNavItem(el, 3 + idx, () => {
       const item = META_SHOP.find(it => it.id === shopId);
       if (!item) return;
