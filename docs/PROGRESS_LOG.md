@@ -1559,3 +1559,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Y on the title screen opens the 401(k) Shop (it used to redraw the menu for the parked 3D views). Select opens the office map in a run (it used to double as Pause).
 - Devlog, Art Room and About pages work with a controller (D-pad/stick moves, right stick scrolls, A opens, B goes back). The current page's tab looks pressed in and is skipped.
 - Big screens and 4K TVs skip the blurred menu backdrop (likely cause of the laggy feel when mirrored to the TV).
+
+## 2026-11-05 Medical Bill and Lounge Cart art (Codex)
+
+- Drew a hospital invoice in a pink gown with a clipboard and a compact HUD icon.
+- Drew a rolling cart with an orange striped awning, a steam loop and four closing poses.
+- Checked the transparent RGBA sheets and preview timing. Claude wires the assets in.

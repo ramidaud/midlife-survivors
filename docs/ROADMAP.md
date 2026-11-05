@@ -306,3 +306,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [x] Deliver stable seated work, personal gestures and alternating standing walks for all six coworkers.
 - [ ] Switch to the keyed v2 sheets and refresh the Sprite Board catalog.
+
+### 2026-11-05 Medical Bill and Lounge Cart (Codex)
+
+- [x] Deliver transparent enemy, icon and cart art with animation previews and manifest.
+- [ ] Wire the art into the Hustle penalty and Day One Lounge Cart.

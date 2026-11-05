@@ -382,3 +382,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 ## Note for future art (Nov 5, Claude)
 - The coworker v2 sheets arrived as RGB with a solid #FF00FF background, and the coworker loader didn't key magenta, so pink boxes showed in game (fixed in V. 2.9.4). Claude converted them to transparent PNGs and made the loader key magenta too.
 - Going forward: either format works now, but please say which one in the handoff.
+
+## 2026-11-05 Medical Bill and Lounge Cart art (Codex)
+
+- All four PNGs are transparent RGBA with binary alpha. Use nearest-neighbor sampling and load the alpha directly.
+- Medical Bill uses the existing Bill's 384×48 layout with eight 48×48 frames at 90 ms and feet at local y44. The 24×24 HUD icon uses the same gown and medical cross. Apply the existing runtime hit flash to the walk frames.
+- The Lounge Cart has two 256×56 sheets with four 64×56 frames each and caster contact at local y54. Open loops the steam at 160 ms. Closing uses 160 ms per frame as well, starts on the matching open pose, then holds the folded awning. Claude handles placement and wiring.
+- The [manifest](../../assets/stage/lounge/manifest-medical-bill-and-cart-v1.json) lists the three GIF previews and frame anchors. PNG alpha, palette, GIF delays and desktop and phone previews passed. [Native art check at 2×](img/medical-bill-and-cart-check-v1.png).

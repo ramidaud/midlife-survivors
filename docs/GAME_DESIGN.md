@@ -587,3 +587,7 @@ Each coworker has a quiet typing loop, a personal gesture and a small standing b
 ## Fiscal years and the Corporate Buyout (decided Nov 5, V. 2.9.3, Kevin's idea)
 - Each big version starts a fiscal year (season). The board defaults to the current year; all-time stays one tap away.
 - The buyout is optional, offered once a year, and pays 50% of shop spending, with a BOUGHT OUT badge on that year's board.
+
+### 2026-11-05 Medical Bill and Lounge Cart art (Codex)
+
+The Medical Bill is a hospital invoice in a pink gown with a clipboard. The Day One Lounge Cart has an orange and cream awning, tip jar, coffee pot and blank chalkboard. Steam rises while it is open, and the awning folds down when it closes.

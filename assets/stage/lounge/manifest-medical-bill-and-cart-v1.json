@@ -1,0 +1,108 @@
+{
+  "format": "PNG RGBA, 8 bits per channel",
+  "background": "Transparent",
+  "alpha": "Binary (0 or 255); no color key",
+  "sampling": "nearest",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "assets": [
+    {
+      "file": "assets/enemies/medical-bill-v1.png",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "columns": 8,
+      "rows": 1,
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameDurationMs": 90,
+      "loop": true,
+      "anchorPx": [
+        24,
+        44
+      ],
+      "preview": "assets/enemies/medical-bill-v1-preview.gif",
+      "notes": "One row, same grid as enemy-bill-v2.png. Use the runtime white hit flash."
+    },
+    {
+      "file": "assets/enemies/icon-medical-bill-v1.png",
+      "frameWidth": 24,
+      "frameHeight": 24,
+      "columns": 1,
+      "rows": 1,
+      "frames": [
+        0
+      ],
+      "notes": "HUD icon."
+    },
+    {
+      "file": "assets/stage/lounge/lounge-cart-v1.png",
+      "frameWidth": 64,
+      "frameHeight": 56,
+      "columns": 4,
+      "rows": 1,
+      "frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frameDurationMs": 160,
+      "loop": true,
+      "anchorPx": [
+        32,
+        54
+      ],
+      "preview": "assets/stage/lounge/lounge-cart-v1-preview.gif",
+      "notes": "Cart stays still. Only steam changes."
+    },
+    {
+      "file": "assets/stage/lounge/lounge-cart-closing-v1.png",
+      "frameWidth": 64,
+      "frameHeight": 56,
+      "columns": 4,
+      "rows": 1,
+      "frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frameDurationMs": 160,
+      "loop": false,
+      "anchorPx": [
+        32,
+        54
+      ],
+      "preview": "assets/stage/lounge/lounge-cart-closing-v1-preview.gif",
+      "notes": "Frame 0 matches open frame 0. Play once, then hold the last frame until removal."
+    }
+  ],
+  "designStudies": {
+    "tool": "Built-in imagegen",
+    "production": "Native pixel redraw and frame assembly",
+    "prompts": {
+      "medicalBill": "Design study for a single 48x48 native pixel-art enemy, Medical Bill, in Midlife Survivors. Use attached animated paper Bill sprites as exact style and proportions reference. New enemy is a bulky chubby sentient hospital invoice in a pale pink patient gown, navy outline, red medical cross stitched on left chest and a couple short rows of abstract itemized dashes on the cream sheet sticking up out of the gown. Grumpy eyebrows and a tiny cheeky face. Short inky arms and stumpy running legs, one arm carries a little brown clipboard on the right. Strong compact upright silhouette at game size. Warm comic design. No actual numbers or text, no brands, no gore. Hard blocky native pixels, sparse color clusters, no glow no drop shadow, transparent background. Single character only. Palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF.",
+      "loungeCart": "Design study for a single 64x56 native pixel-art rolling coffee/snack cart in the cozy office game Midlife Survivors. The reference gives the native 16-bit palette and top-down three-quarter furniture perspective. A compact teal-fronted mobile cart on two dark chunky caster wheels, warm wood counter, broad coffee-orange and cream striped little awning, cream tip jar with two visible coins, chunky coffee pot with two little wisps of steam, small slate blank chalkboard with a wood rim and snacks. Warm upper-left highlights, navy edges. Designed for 1x visibility on the office floor. No letters or logo or realistic shading, no drop shadow, transparent background. Entire cart centered with all wheels visible and some clearance above it. Palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF."
+    }
+  }
+}

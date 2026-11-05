@@ -601,3 +601,7 @@ The Sprite Board can highlight every pixel that changed between frames. If a cow
 - Our menus used numbered rows, so "down" meant "next row number", which didn't always match what's below on screen. That's why the cursor jumped around on the TV.
 - Spatial navigation measures where every button actually sits and picks the nearest one in the direction you pressed, the way TV and console menus work. If nothing is that way, the page scrolls instead.
 - Bonus: it keeps working when the layout changes (phone vs. iPad vs. TV) with no extra setup.
+
+## 2026-11-05 Transparent sprite edges (Codex)
+
+RGBA stores an alpha value alongside each pixel's color. A fully transparent pixel lets the room show through, and a fully opaque one holds the sprite color. Sticking to those two values and using nearest-neighbor sampling keeps the outlines sharp.
