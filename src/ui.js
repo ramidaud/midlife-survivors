@@ -234,6 +234,8 @@ window.menuNav = {
   getRows(modal) {
     if (!modal) return [];
     const items = Array.from(modal.querySelectorAll(".nav-item:not([disabled])"));
+    // The title screen also reaches the site's top bar (Nov 5, Rami: "you can't fully navigate the title screen with a controller").
+    if (modal.id === "title-modal") document.querySelectorAll(".ms-nav .nav-item:not([disabled])").forEach(el => { if (el.offsetParent !== null) items.push(el); });
     const rowMap = new Map();
     items.forEach(el => {
       const r = Number(el.dataset.navRow || 0);
@@ -332,7 +334,7 @@ window.menuNav = {
   activate(dirHint) {
     const modal = this.getActiveModal();
     if (!modal) return false;
-    if (!this.focusedEl || !modal.contains(this.focusedEl)) {
+    if (!this.focusedEl || (!modal.contains(this.focusedEl) && !(modal.id === "title-modal" && this.focusedEl.closest(".ms-nav")))) {
       this.refresh();
     }
     if (!this.focusedEl) return false;
@@ -2496,6 +2498,8 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
     renderTitleModal(scene, ".shop-row"); updateHUD();
   });
   const backEl = document.getElementById("title-back-btn");
+  // Top bar links (Devlog, Art Room, Discord...) sit above everything as row -1. Bound once; the bar outlives re-renders.
+  document.querySelectorAll(".ms-nav a, .ms-nav button").forEach(el => { if (!el.classList.contains("nav-item")) bindNavItem(el, -1, e => { if (e && e.type === "nav-activate") el.click(); }); }); // mouse and touch keep their normal click
   if (backEl) bindNavItem(backEl, 99, () => goView(view === "credits" ? "extras" : view === "achievements" ? (window.titleBackTo || "extras") : "main"), view !== "main");
 
   // Row 0: Character Cards
@@ -3100,3 +3104,10 @@ function hideAllModals() {
     if (el) el.classList.add("hidden");
   });
 }
+
+// Polls draw their buttons after a moment (assets/ui/ms-poll.js); hook them into controller navigation when they appear (Nov 5).
+document.addEventListener("ms-poll-rendered", e => {
+  const el = e.detail && e.detail.el; if (!el || !el.closest(".ui-modal, #title-modal")) return;
+  el.querySelectorAll(".ms-poll-opt").forEach(b => { if (!b.classList.contains("nav-item")) bindNavItem(b, 0.5, ev => { if (ev && ev.type === "nav-activate") b.click(); }); });
+  if (window.menuNav && window.menuNav.focusedEl && !document.contains(window.menuNav.focusedEl)) window.menuNav.refresh();
+});

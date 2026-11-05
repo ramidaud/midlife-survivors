@@ -69,6 +69,7 @@ window.MSPoll = (() => {
         else { el.querySelector(".ms-poll-foot").textContent = "Couldn't reach the poll just now. Try again in a minute."; el.querySelectorAll(".ms-poll-opt").forEach(x => x.disabled = false); b.classList.remove("picked"); }
       }));
       ["pointerdown", "touchstart", "keydown"].forEach(t => el.addEventListener(t, e => e.stopPropagation()));
+      try { document.dispatchEvent(new CustomEvent("ms-poll-rendered", { detail: { el } })); } catch (e) {} // lets the game add controller navigation
       return;
     }
     el.innerHTML = `<div class="ms-poll-tag">${P.tag} · RESULTS</div><div class="ms-poll-q">${esc(P.question)}</div><div class="ms-poll-res">Counting votes…</div>`;

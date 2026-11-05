@@ -1412,3 +1412,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami asked for a reroll you unlock with effort. Reach 55 in any run (Middle Management achievement) to unlock Sleep On It in the 401(k) shop; each of 3 ranks adds one reroll per run.
 - The level-up screen shows a 💤 SLEEP ON IT button next to Skip; it deals three different cards and keeps evolutions.
 - Shop items can now be locked behind achievements, shown with a lock and how to earn it.
+
+## 2026-11-05: V. 2.7.1, controller reaches the whole title screen
+- Rami couldn't reach everything with a controller. Menu navigation only looked inside the open window, so the top bar (Devlog, Art Room, Discord...) was out of reach, and the Extras poll buttons never joined navigation.
+- The top bar is now the top row on the title screen, and poll options join as soon as they appear. Mouse and touch behave as before.

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.0",
-  displayVersion: "V. 2.7",
+  version: "2.7.1",
+  displayVersion: "V. 2.7.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 228,
+  build: 229,
   changelog: [
+    {
+      ver: "V. 2.7.1", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Controllers can reach everything on the title screen now.",
+      highlights: [
+        "With a controller (or arrow keys), push up from the title screen to reach the top bar: Devlog, Art Room, About, Discord and Buy Rami a Coffee.",
+        "The stage poll in Extras works with a controller too."
+      ]
+    },
     {
       ver: "V. 2.7", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Don't like your cards? Sleep On It: rerolls you earn by making it to 55.",
