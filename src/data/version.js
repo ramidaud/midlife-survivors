@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.2",
-  displayVersion: "V. 2.10.2",
+  version: "2.10.3",
+  displayVersion: "V. 2.10.3",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 260,
+  build: 261,
   changelog: [
+    {
+      ver: "V. 2.10.3", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Real pixel art for the stuff you pick up and the stuff you throw.",
+      highlights: [
+        "XP gems, 401(k) coins, pizza, the Desk Salad, boss chests and the coffee splash are hand-drawn pixel art now.",
+        "The TV Remote, Floppy, Spreadsheet cells, Podcast waves and Thermostat snowflakes got real art too."
+      ]
+    },
     {
       ver: "V. 2.10.2", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Behind the scenes: the dev's own visits stop padding the numbers.",

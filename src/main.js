@@ -352,6 +352,7 @@ function create() {
   EnemyArt.init(this, () => runElapsedMs);
   buildWeaponSprites(this); // TV Remote, Spreadsheet cells, Podcast waves
   initExtraWeapons(this);
+  if (window.PickupArt) PickupArt.init(this); // real art for gems, coins, pizza, salad, chests, splash and projectiles
   if (window.ArtSheets) ArtSheets.load(this, "field_items", "assets/items/field-items-v1.png", 32, 32); // Fanny Pack, Energy Drink, PTO Day (row 1: shine)
   if (window.MoreWeapons) MoreWeapons.init(this); // casserole, headphones, chair, reply-all, out-of-office, sticky notes, thermostat
 

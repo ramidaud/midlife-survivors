@@ -1577,3 +1577,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 
 - Drew six office pickups and five projectiles with matching shine or motion frames.
 - Checked the gem at 16 px on office carpet and verified exact RGBA transparency and palette across all three sheets.
+
+## Nov 5, 2026 (night): pickup and projectile art (V2.10.3)
+- ChatGPT's three new sheets are in the game: XP gem, 401(k) coin, pizza, Desk Salad, boss chest, coffee splash, and the Remote, Floppy, Spreadsheet, Podcast and Thermostat projectiles.
+- The art drops into the old sizes, so hitboxes and balance didn't change. The Remote and snowflake got a little more room.
+- The shine/motion row isn't animated yet. That's an easy follow-up if the idle art feels flat.
+- Stats: Rami's Mac, iPad and iPhone are on the exclude list (94 of 473 runs were his).

@@ -4,9 +4,10 @@
 
 function makeCanvasTex(scene, key, w, h, drawFn) {
   if (scene.textures.exists(key)) scene.textures.remove(key);
+  if (window.PickupArt && PickupArt.has(key)) [w, h] = PickupArt.size(key, w, h); // real art for this pickup/projectile
   const tex = scene.textures.createCanvas(key, w, h);
   const ctx = tex.getContext();
-  drawFn(ctx, w, h);
+  if (!(window.PickupArt && PickupArt.draw(key, ctx, w, h))) drawFn(ctx, w, h);
   tex.refresh();
 }
 
