@@ -577,3 +577,9 @@ Mic Drop has three pieces of art: the falling mic, the feedback above it and the
 ## 2026-11-05 Recompose for a smaller screen (Codex)
 
 The retirement strip has the same guests and animation beats on both screens. Moving the guests into two tiers gives the phone layout more room without shrinking faces or props. Keeping the two loops at the same frame rate also lets the screen choose a layout without changing the celebration's pace.
+
+## Crossfading and loading music on demand (Nov 5, V2.7.9)
+- **Crossfade:** when the music changes, the old track fades down while the new one fades up over a few seconds, so there's never a hard cut or silence.
+- **Seamless loops:** AI tracks have an intro and an ending, so the game starts the next play 4 seconds before the current one ends and crossfades them.
+- **Load on demand:** the game only downloads a song when it's about to need it (the busy track starts downloading while the calm one plays). Phones don't pay for music you never reach.
+- **Audio bus:** all music runs through one volume knob (the "music bus"), which is why the music slider and mute still work.

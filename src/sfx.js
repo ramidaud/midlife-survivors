@@ -124,6 +124,7 @@ function speakDadJoke(text, pitch = 0.94, rate = 1.06) {
 setInterval(() => {
   const M = SOUNDS[musicTrack] || SOUNDS.music;
   if (muted || !musicPlaying || document.hidden || !audioCtx || audioCtx.state !== "running" || !M) return;
+  if (window.Music && Music.covering()) return; // Rami's real tracks are playing
   if (musicTick++ % (M.every || 1)) return; // slower tunes skip ticks (every: 2 = half speed)
   const i = musicStep++ % M.bass.length;
   const t = audioCtx.currentTime, dur = (165 * (M.every || 1) / 1000) * 0.85;

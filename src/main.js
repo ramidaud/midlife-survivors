@@ -284,6 +284,7 @@ function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
   if (typeof setEndHush === "function") { setEndHush(false); setMusicTrack("music"); }
+  if (window.Music) Music.reset();
   runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); if (window.BossDown) BossDown.reset(); if (this.physics && this.physics.world) this.physics.world.timeScale = 1; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
@@ -1386,7 +1387,7 @@ function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   };
   window.levelMenu = levelMenu;
   levelMenu.highlight(0);
-  sfx("levelUp");
+  if (!(window.Music && Music.sting("levelUp"))) sfx("levelUp");
 }
 
 // An enemy (Bill, Snack, Twinge, Elite, or Boss) touched you.
@@ -1503,6 +1504,7 @@ function showGameOver(scene, killer, isWin) {
   setMusicPlaying(false);
   if (typeof setEndHush === "function") {
     setEndHush(true); // the fight behind the end screen goes quiet
+    if (window.Music) Music.end(isWin);
     if (isWin) { sfx("retireFanfare", 0); setMusicTrack("musicRetire"); setTimeout(() => { if (gameOver) setMusicPlaying(true); }, 1400); }
   }
   restartGame = () => { hideAllModals(); scene.scene.restart(); };

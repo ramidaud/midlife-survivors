@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.8",
-  displayVersion: "V. 2.7.8",
+  version: "2.7.9",
+  displayVersion: "V. 2.7.9",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 236,
+  build: 237,
   changelog: [
+    {
+      ver: "V. 2.7.9", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Real music! The office now has a soundtrack that grows with you.",
+      highlights: [
+        "Seven new tracks: a title theme, three office songs that get busier at 50 and 58, boss music, a Student Lounge groove and a retirement party.",
+        "Music crossfades when a boss shows up or you hit a new decade, and loops without a gap.",
+        "New stings for leveling up and for game over.",
+        "Tracks download only when you need them, and the music slider and mute still control everything."
+      ]
+    },
     {
       ver: "V. 2.7.8", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Your retirement party finally has guests.",

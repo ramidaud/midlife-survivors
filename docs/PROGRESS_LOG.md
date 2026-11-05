@@ -1459,3 +1459,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 5, 2026: V2.7.8 Retirement party crowd
 - ChatGPT's party animation is on the HAPPY RETIREMENT screen: six guests cheering around the cake.
 - Wide strip on laptops, two-row version on phones; still frame when "reduce motion" is on.
+
+## Nov 5, 2026: V2.7.9 Real music
+- Rami made 17 takes in Google Flow Music. Claude picked one per slot, evened the volume and stripped the embedded cover images (about 14 MB total).
+- Music follows the game: title theme, office calm/busy/chaos by age (50 and 58), boss music while a boss is up, Lounge groove, retirement party.
+- Level-up and game-over stings come from Rami's tracks. The old code groove stays as a backup if a file can't load.
+- Takes and volumes live in `src/data/music.js`, so swapping a take is a one-line change.
