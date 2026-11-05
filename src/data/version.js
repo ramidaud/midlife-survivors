@@ -2,12 +2,25 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.9.5",
-  displayVersion: "V. 2.9.5",
+  version: "2.9.6",
+  displayVersion: "V. 2.9.6",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 256,
+  build: 257,
   changelog: [
+    {
+      ver: "V. 2.9.6", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "A playtest cleanup: findable cart, one message at a time, clearer boss rings.",
+      highlights: [
+        "The Lounge cart now hides somewhere in the Lobby (never behind a locked door).",
+        "Spotlight cards and message banners take turns instead of landing on top of each other.",
+        "Second Opinion now freezes the moment for a beat with a big BACK ON YOUR FEET, so you know it saved you.",
+        "The Bonus Approved card keeps its size while rewards land.",
+        "The Mortgage's ring attack marks its escape gap with a clear SAFE tag (it used to be a mystery % sign).",
+        "Desk Salads pop out with a label when an elite drops one.",
+        "Spam calls chime softly in key instead of buzzing. On iPad with a controller, a button offers to turn the sound on."
+      ]
+    },
     {
       ver: "V. 2.9.5", date: "Nov 5, 2026", title: "Version Two",
       teaser: "The Lounge cart is hiding somewhere on the floor. Go find it.",

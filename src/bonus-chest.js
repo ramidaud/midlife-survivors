@@ -150,9 +150,11 @@ window.BonusChest = (() => {
     $("bonus-title").textContent = "BONUS APPROVED";
     $("bonus-sub").textContent = bossName ? `You outlasted ${bossName}. HR signed off on it.` : "HR signed off on it.";
     $("bonus-beams").innerHTML = "";
-    $("bonus-list").innerHTML = "";
+    // Nov 5 (Rami): the card used to grow as each reward landed. Now every row is laid out (invisible) up front
+    // and revealed in place, and the total keeps its space, so the card never changes size.
+    $("bonus-list").innerHTML = rewards.map(r => `<li class="${r.evo ? "evo" : ""}"><span class="li-ic">${r.icon}</span><div><b>${r.name}</b><span>${r.label}</span></div></li>`).join("");
     $("bonus-stage").classList.remove("up");
-    const tot = $("bonus-total"); tot.hidden = true; tot.classList.remove("done"); tot.firstChild.textContent = "0";
+    const tot = $("bonus-total"); tot.hidden = false; tot.style.visibility = "hidden"; tot.classList.remove("done"); tot.firstChild.textContent = "0";
     const chest = $("bonus-chest");
     chest.className = "bonus-chest";
     const sheet = `ASSETchest-tier-${tier >= 5 ? 5 : tier >= 3 ? 3 : 1}-v1.png`.replace("ASSET", "assets/ui/bonus/");
@@ -223,16 +225,13 @@ window.BonusChest = (() => {
     b.classList.add("landed");
     sfx("pick");
     const r = state.rewards[idx];
-    const li = document.createElement("li");
-    if (r.evo) li.className = "evo";
-    li.innerHTML = `<span class="li-ic">${r.icon}</span><div><b>${r.name}</b><span>${r.label}</span></div>`;
-    $("bonus-list").appendChild(li);
-    requestAnimationFrame(() => li.classList.add("show"));
+    const li = $("bonus-list").children[idx]; // already laid out; just reveal it
+    if (li) requestAnimationFrame(() => li.classList.add("show"));
   }
 
   function countUp() {
     const tot = $("bonus-total");
-    tot.hidden = false;
+    tot.style.visibility = "visible";
     const target = state.coins, start = performance.now(), dur = state.fast ? 0 : 1300;
     let lastTick = 0;
     const step = now => {
@@ -265,7 +264,7 @@ window.BonusChest = (() => {
     if (state.raf) cancelAnimationFrame(state.raf);
     if (!$("bonus-beams").children.length) burst();
     state.rewards.forEach((_, i) => land(i));
-    const tot = $("bonus-total"); tot.hidden = false;
+    const tot = $("bonus-total"); tot.hidden = false; tot.style.visibility = "visible";
     tot.firstChild.textContent = state.coins.toLocaleString("en-US");
     finish();
   }

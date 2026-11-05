@@ -1546,3 +1546,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami: the buyout memo showed on every signed-in device. It now waits for the cloud save first (up to 20 s), and a memo open on one device closes itself when you answer on another.
 - Rami: he'd already shopped at the cart before its card appeared. The cart now hides in one of six far corners of the Bullpen or Lobby (at least 1,200 px from the start), open for the first 2 minutes, with no arrow.
 - Its spotlight card: "SOMEWHERE ON THIS FLOOR · THE LOUNGE CART. Start exploring! TJ parked a cart of treats you can only get in the first 2 minutes of your shift." The Break Room counter keeps its own card.
+
+## Nov 5, 2026: V2.9.6 Playtest fixes from Rami's voice memo (iPad + controller on the TV)
+- Cart: Lobby spots only, checked reachable (one old spot was in the locked manager's office).
+- Spotlight cards now wait for message banners too, and the cart skips its banner. Second Opinion freezes the moment with BACK ON YOUR FEET instead of a late banner.
+- Bonus Approved card keeps a fixed size; the Mortgage ring's "%" in a gray box is now a clear SAFE tag that never gets left behind; Desk Salads pop out with a label.
+- Spam calls: soft two-note marimba chime in A. iPad + controller: a TAP TO TURN ON SOUND button when audio is still off.
+- Next: the controller pass (title order, shop grid, scrolling end screen and pages, shortcuts, map button). Design notes: Mortgage and Midlife Crisis may fit the neighborhood stage better.

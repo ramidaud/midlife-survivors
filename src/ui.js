@@ -872,7 +872,7 @@ window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
   // While a Spotlight card is up, ordinary messages wait their turn instead of stacking under it (Nov 3, Rami:
   // "the cards still show up in pairs"). Alerts wait too now (Fable review: four messages stacked at 65);
   // only LOW HP goes out right away, because it can save the run. Gives up after ~15 s.
-  if (badge !== "LOW HP" && window.Spotlight && Spotlight.isShowing && Spotlight.isShowing() && (_waited || 0) < 15000) {
+  if (badge !== "LOW HP" && badge !== "SECOND OPINION" && window.Spotlight && Spotlight.isShowing && Spotlight.isShowing() && (_waited || 0) < 15000) {
     setTimeout(() => window.showLowerThird(kind, badge, text, ms, short, (_waited || 0) + 500), 500);
     return;
   }

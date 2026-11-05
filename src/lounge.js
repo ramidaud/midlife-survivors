@@ -64,7 +64,7 @@ window.Lounge = (() => {
     if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
     const line = ((cartMode() && L.cart && L.cart.lines && L.cart.lines.open) || (L.lines && L.lines.open) || "{name} is on the Lounge register.").replace("{name}", r.name);
     if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r, cartMode() ? Math.round(((L.cart && L.cart.openMs) || 120000) / 60000) : 0);
-    if (window.showLowerThird) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
+    if (window.showLowerThird && !cartMode()) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
     sfx("coin");
   }
 
@@ -236,7 +236,7 @@ window.Lounge = (() => {
       const cheapest = Math.min(...(L.cart.catalog || []).map(it => it.price));
       if ((meta.coins || 0) < cheapest) return; // nothing you could buy yet: no cart to distract you (first runs)
       st.mode = "cart";
-      const far = (L.cart.spots || [[150, 40]]).filter(p => Math.hypot(p[0] - player.x, p[1] - player.y) >= (L.cart.minDistance || 0));
+      const far = (L.cart.spots || [[150, 40]]).filter(p => Math.hypot(p[0] - player.x, p[1] - player.y) >= (L.cart.minDistance || 0) && (!window.NAV || !NAV.reachable || NAV.reachable(p[0], p[1])));
       const pick = Phaser.Utils.Array.GetRandom(far.length ? far : (L.cart.spots || [[player.x + 150, player.y + 40]]));
       let s = { x: pick[0], y: pick[1] };
       if (window.NAV && NAV.fixSpawn) { const f = NAV.fixSpawn(s.x, s.y); if (f) s = { x: f[0], y: f[1] }; }

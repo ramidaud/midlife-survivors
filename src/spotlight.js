@@ -201,6 +201,9 @@ window.Spotlight = (() => {
       return;
     }
     if (next.kind !== "boss" && next.kind !== "event" && now - lastHiddenAt < PACE.gapMs) return; // breather between cards
+    // One message at a time (Nov 5, Rami: cards and memo lines kept landing on each other). Memo lines already wait
+    // for cards; now cards also wait for a memo line on screen to finish. Bosses still cut in.
+    if (next.kind !== "boss" && window._ltState && window._ltState.current) return;
     showing = next; queue = queue.filter(c => c !== next);
     if (showing.seenKey) remember(showing.seenKey);
     if (showing.kind === "tip") run.tips = (run.tips || 0) + 1; // once-ever cards count as seen only when they actually show

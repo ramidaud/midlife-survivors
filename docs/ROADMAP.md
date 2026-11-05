@@ -36,6 +36,8 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [x] **Day One Lounge cart** (V. 2.8.2-2.8.5): Lounge weapons, run perks and Emergency Contact in the Lobby for the first minute.
 - [x] **First Day / first-minute pass** (V. 2.9.0). Re-check first-run deaths before 42 after a week of data.
 - [x] **Coworker sprite cleanup** (Paul, Nov 5; done V. 2.9.2: working ~2%, idle under 1.1%, no holes): idles that explode with changed pixels, plus see-through holes visible on the Sprite Board's magenta backdrop. ChatGPT brief next.
+- [ ] **Controller pass** (Rami's Nov 5 playtest on iPad + TV): title screen order and PUNCH IN reach, shop up/down, scrolling the Shift Ended screen, Devlog/Art Room/About scrolling and back, non-selectable current nav tab, shortcut buttons (map, shop), menus closing too easily, menu responsiveness.
+- [ ] **Boss and stage fit** (design talk): Mortgage and Midlife Crisis car may move to the neighborhood stage; brainstorm office-only replacements.
 - [ ] **Hero art polish (Paul McKinney's review, Nov 5).** Step 1 done (V. 2.7.11): walk rows redrawn so the legs alternate. Step 2 near the end: a polish round on the four heroes drawn natively at game size, with readable small details (Mario's mustache idea), and calmer idle loops for the seated coworkers. Check every change on the Sprite Board (`tools/sprites.html`, CHANGED PIXELS view).
 - Still open from V2: Lounge redo (Rami sent photos of the real student lounge Nov 4; ChatGPT brief out), Abdel's music, Errands, a Daily Challenge.
 

@@ -1040,6 +1040,10 @@ function maybeDropSalad(sc, x, y, EL) {
   const s = window.pizzas.create(x, y, "salad").setDepth(3);
   s.isSalad = true; s.dieAt = runElapsedMs + (S.lifeMs || 14000);
   if (window.Lighting) Lighting.fx("saladDrop", x, y);
+  // Nov 5 (Rami: "it kind of just shows up"): pop it out of the elite with a label, so you see where it came from.
+  { const sc = s.scene; s.setScale(0.2); sc.tweens.add({ targets: s, scale: 1, y: y - 6, duration: 320, ease: "Back.Out", yoyo: false });
+    const t = sc.add.text(x, y - 26, "🥗 DESK SALAD", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#83A89A", padding: { x: 4, y: 2 } }).setOrigin(0.5).setDepth(50000);
+    sc.tweens.add({ targets: t, y: y - 40, alpha: 0, delay: 900, duration: 600, onComplete: () => t.destroy() }); }
   if (window.Spotlight) Spotlight.tip("salad"); // first Desk Salad ever
 }
 function saladHealAmount() {
@@ -1485,6 +1489,11 @@ function hurtPlayer(p, bill) {
     stats.revives--; hp = Math.max(1, healAmt(Math.ceil(stats.maxHp / 2))); drawHpBar(); lastHurt = now + 1500;
     if (window.itemEffect) window.itemEffect("ptoDay", true);
     if (window.showLowerThird) window.showLowerThird("win", "SECOND OPINION", "The second doctor says you're fine. Back on your feet with half HP.", 4500);
+    // Nov 5 (Rami): the notice used to arrive seconds later. Now the moment stops for a beat so you see it happen.
+    { const cam = scene.cameras.main, t = scene.add.text(cam.width / 2, cam.height * 0.42, "SECOND OPINION!\nBACK ON YOUR FEET", { fontFamily: "Silkscreen, monospace", fontSize: "26px", color: "#F2D7A1", stroke: "#171C35", strokeThickness: 7, align: "center" }).setOrigin(0.5).setScrollFactor(0).setDepth(60000);
+      cam.flash(250, 255, 240, 207); scene.physics.pause(); lastHurt = now + 2600;
+      scene.tweens.add({ targets: t, scale: { from: 0.5, to: 1 }, duration: 260, ease: "Back.Out" });
+      setTimeout(() => { if (!gameOver && !titleOpen && !levelUpOpen && !paused) scene.physics.resume(); scene.tweens.add({ targets: t, alpha: 0, duration: 300, onComplete: () => t.destroy() }); }, 1100); }
     return;
   }
   if (hp <= 0) showGameOver(scene, bill.kind || "bill", false); // dying is never a win; only meeting Death at 100 is

@@ -79,11 +79,12 @@ window.INTERNS = {
     // (the Break Room is still locked). It sells the Lounge-only weapons, while you still have free hands,
     // and perks that last the whole run. The Break Room counter later sticks to heals and quick buffs.
     cart: {
-      // Nov 5 (Rami): it used to park next to you, so you'd shopped before its card even showed. Now it hides in a
-      // far corner of the Bullpen or Lobby (a different one each run) for the first 2 minutes: go exploring to find it.
+      // Nov 5 (Rami): it used to park next to you, so you'd shopped before its card even showed. Then it hid too well
+      // (once in the locked manager's office). Now: somewhere in the Lobby, mostly bottom right before the office area,
+      // a different spot each run, open for the first 2 minutes. All spots checked reachable from the start.
       openMs: 120000,
-      spots: [[2600, -500], [3800, 200], [2000, 660], [3300, -760], [-500, 560], [1100, -480]],
-      minDistance: 1200,        // never closer than this to where you start
+      spots: [[1100, 240], [900, 240], [1100, 80], [700, 240], [300, 560], [100, 560], [-300, 560]],
+      minDistance: 700,         // never closer than this to where you start
       header: "THE LOUNGE CART · LOBBY",
       sign: "LOUNGE CART\nOPEN",
       catalog: [

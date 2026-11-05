@@ -224,3 +224,23 @@ function sfx(name, minGapMs = 40) {
   liveVoices++;
   setTimeout(() => { liveVoices--; }, (end - audioCtx.currentTime) * 1000 + 30);
 }
+
+// Sound-off nudge (Nov 5, Rami on iPad + controller: "there's no sound"). Browsers only start audio after a touch,
+// click or key press; controller buttons don't count on iPad. If sound is still off while a controller is connected
+// or a run is going, a small button offers to turn it on.
+(function soundNudge() {
+  let el = null;
+  setInterval(() => {
+    const off = !audioCtx || audioCtx.state !== "running";
+    const pad = navigator.getGamepads && Array.from(navigator.getGamepads() || []).some(g => g && g.connected);
+    const inRun = typeof titleOpen !== "undefined" && !titleOpen && typeof gameOver !== "undefined" && !gameOver;
+    const want = off && !muted && (pad || inRun) && performance.now() > 2500;
+    if (want && !el) {
+      el = document.createElement("button"); el.id = "sound-nudge"; el.type = "button";
+      el.textContent = "🔊 TAP TO TURN ON SOUND";
+      el.style.cssText = "position:fixed;top:calc(env(safe-area-inset-top,0px) + 70px);left:50%;transform:translateX(-50%);z-index:70;font:12px Silkscreen,monospace;background:#F2D7A1;color:#171C35;border:2px solid #171C35;border-radius:8px;padding:10px 14px;min-height:44px;cursor:pointer;box-shadow:0 3px 0 #171C35";
+      el.addEventListener("click", () => { unlockAudio(); setTimeout(() => { if (audioCtx && audioCtx.state === "running" && el) { el.remove(); el = null; } }, 300); });
+      document.body.appendChild(el);
+    } else if (!want && el) { el.remove(); el = null; }
+  }, 1000);
+})();

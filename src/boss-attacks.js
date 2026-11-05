@@ -111,6 +111,7 @@ window.BossAttacks = (() => {
     const g = gfx(scene, a); g.clear();
     if (!boss.once_cleanup) { boss.once_cleanup = true; boss.once("destroy", () => { if (a.g) a.g.destroy(); if (a.skidG) a.skidG.destroy(); if (a.label) a.label.destroy(); }); }
     tickSkids(scene, a, boss, player, now, D);
+    if (a.label && a.state !== "telegraph" && a.state !== "attack") a.label.setVisible(false); // never left behind after an interrupted attack
     const S = scaling();
 
     if (a.state === "chase") {
@@ -228,7 +229,7 @@ window.BossAttacks = (() => {
     for (const s of [-1, 1]) { const ang = gap + s * half; g.lineBetween(x + Math.cos(ang) * (r - 10), y + Math.sin(ang) * (r - 10), x + Math.cos(ang) * (r + 10), y + Math.sin(ang) * (r + 10)); }
   }
   function gapMarker(scene, a, boss, r) {
-    if (!a.label || !a.label.active) a.label = scene.add.text(0, 0, (BOSS_ATTACKS[boss.kind] || {}).gapLabel || "%", { fontFamily: "monospace", fontSize: "20px", color: "#f2d7a1", fontStyle: "bold", backgroundColor: "#171c35cc", padding: { x: 4, y: 1 } }).setOrigin(0.5).setDepth(20001);
+    if (!a.label || !a.label.active) a.label = scene.add.text(0, 0, (BOSS_ATTACKS[boss.kind] || {}).gapLabel || "SAFE", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(50000); // Nov 5: was a bare "%" in a gray box (Rami thought it was a glitch)
     a.label.setVisible(true).setPosition(boss.x + Math.cos(a.gap) * r, boss.y + Math.sin(a.gap) * r);
   }
   function tickSkids(scene, a, boss, player, now, D) {
