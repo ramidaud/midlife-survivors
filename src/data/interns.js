@@ -74,8 +74,6 @@ window.INTERNS = {
       { id: "loanerBadge",  name: "Loaner Badge",    price: 14, stock: 1, vacuumMs: 4000, text: "Pulls in every gem nearby." },
       { id: "quietHour",    name: "Quiet Hour Pass", price: 22, stock: 1, clearRadius: 220, text: "Small fry near you clock out early." },
       { id: "bandAidKit",   name: "First-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." },
-      // Revive (Nov 5, Rami): one extra get-back-up for this run, on top of the 401(k) Shop's Second Opinion.
-      { id: "emergencyContact", name: "🚑 Emergency Contact", price: 60, stock: 1, perRun: 1, runRevive: 1, text: "If a hit would end your run, get back up with half health. Once, this run." },
     ],
     // Day One cart (Nov 5, Rami): for the first minute of every run, the Lounge rolls a cart into the Lobby
     // (the Break Room is still locked). It sells the Lounge-only weapons, while you still have free hands,
@@ -89,7 +87,9 @@ window.INTERNS = {
         { id: "micDropBuy",   name: "🎤 Mic Drop",          price: 45, stock: 1, perRun: 1, weapon: "unlockMicDrop", text: "LOUNGE EXCLUSIVE weapon. Drop the mic, stun the room." },
         { id: "sayCheeseBuy", name: "📸 Say Cheese",        price: 40, stock: 1, perRun: 1, weapon: "unlockSayCheese", text: "LOUNGE EXCLUSIVE weapon. Derek's camera. Everyone freeze." },
         { id: "cushionBuy",   name: "🪑 Ergonomic Cushion", price: 25, stock: 1, perRun: 1, runMaxHp: 2, text: "+2 max health for this whole run. Lumbar approved." },
-        { id: "beansBuy",     name: "🫘 Good Beans",        price: 30, stock: 1, perRun: 1, runSpeedMult: 1.08, text: "8% faster for this whole run. Single origin, obviously." }
+        { id: "beansBuy",     name: "🫘 Good Beans",        price: 30, stock: 1, perRun: 1, runSpeedMult: 1.08, text: "8% faster for this whole run. Single origin, obviously." },
+        // Revive (Nov 5, Rami): one extra get-back-up for this run, on top of the 401(k) Shop's Second Opinion.
+        { id: "emergencyContact", name: "🚑 Emergency Contact", price: 100, stock: 1, perRun: 1, runRevive: 1, text: "If a hit would end your run, get back up with half health. Once, this run." }
       ],
       lines: { open: "{name} rolled the Lounge cart into the Lobby. First minute only.", shutter: "The cart's heading back to the Break Room. See you after your promotion." }
     },

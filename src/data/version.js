@@ -2,16 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.8.4",
-  displayVersion: "V. 2.8.4",
+  version: "2.8.5",
+  displayVersion: "V. 2.8.5",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 249,
+  build: 250,
   changelog: [
+    {
+      ver: "V. 2.8.5", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Emergency Contact moved to the Day One cart.",
+      highlights: ["Emergency Contact (100k) is now sold from the Lobby cart at the start of each run, so you can plan around it."]
+    },
     {
       ver: "V. 2.8.4", date: "Nov 5, 2026", title: "Version Two",
       teaser: "A revive in the Lounge and a snappier level-up.",
-      highlights: ["New at the Break Room counter: Emergency Contact (60k). If a hit would end your run, you get back up with half health. Once per run.", "The level-up fanfare is now a quick 1-second flourish."]
+      highlights: ["New on the Day One Lounge cart: Emergency Contact (100k). If a hit would end your run, you get back up with half health. Once per run.", "The level-up fanfare is now a quick 1-second flourish."]
     },
     {
       ver: "V. 2.8.3", date: "Nov 5, 2026", title: "Version Two",
