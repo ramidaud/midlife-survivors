@@ -1399,3 +1399,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## 2026-11-04: V. 2.6, defeat art wired in
 - ChatGPT delivered remains for 10 enemies (3 variants each), seven boss knockdown poses and a stamp plate.
 - Enemies now leave their own debris (the tinted scraps stay as the fallback). Bosses flicker, then drop into their knockdown pose with a dust thud, lie there about 1.3 s, and fade. The defeat words sit in the stamp plate, above the boss.
+
+## 2026-11-04: V. 2.6.1, iPhone bottom gap
+- Rami saw a gap at the bottom of his iPhone. My iPad resize safety net sized the game to `window.innerHeight`, which iPhone Safari can report shorter than the screen. It now measures the full-screen game box.

@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.6.0",
-  displayVersion: "V. 2.6",
+  version: "2.6.1",
+  displayVersion: "V. 2.6.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 226,
+  build: 227,
   changelog: [
+    {
+      ver: "V. 2.6.1", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "No more gap at the bottom of iPhone screens.",
+      highlights: [
+        "Fixed a strip at the bottom of the screen on iPhone. The iPad fix from earlier today sized the game to the height Safari reports, which can be shorter than the real screen; it now measures the game's own full-screen box."
+      ]
+    },
     {
       ver: "V. 2.6", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Real art for the mess: knocked-out bosses, a rubber stamp, and what every enemy leaves behind.",

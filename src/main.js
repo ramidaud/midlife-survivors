@@ -2745,7 +2745,10 @@ window.game = new Phaser.Game(config);
 (() => {
   const fix = () => {
     const g = window.game; if (!g || !g.scale || !g.isBooted) return;
-    const w = window.innerWidth, h = window.innerHeight;
+    // Measure the full-screen game box, not window.innerHeight: on iPhone Safari innerHeight can be shorter than the
+    // screen (toolbar and home bar), which left a strip at the bottom (Nov 4, Rami).
+    const box = document.getElementById("game"), r = box && box.getBoundingClientRect();
+    const w = Math.round(r && r.width || window.innerWidth), h = Math.round(r && r.height || window.innerHeight);
     const off = () => Math.abs(g.scale.width - w) > 1 || Math.abs(g.scale.height - h) > 1;
     if (off()) g.scale.refresh(); // re-measure the page
     if (off()) g.scale.resize(w, h); // still wrong: size it to the window ourselves
