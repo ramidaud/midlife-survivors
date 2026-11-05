@@ -225,6 +225,8 @@ window.WorldArt = (() => {
           if(Math.abs(o.x-px)<110&&Math.abs(o.y-py)<110){captionsShown.add(o.caption);lastCaptionAt=now;window.showLowerThird('lore','MEMO',o.caption,4500);break;}
         }
         for(const e of refs.enemies().getChildren()) {e.setDepth(10000+e.y+e.height/2-p.y);if(e.tag)e.tag.setDepth(50000);}
+        // TJ and Derek sort by their feet like everyone else (Nov 4, Rami: they kept disappearing behind walls).
+        {const it=window.Interns&&Interns.active&&Interns.active();if(it&&it.o&&it.o.active){const d=10000+it.o.y-p.y;it.o.setDepth(d);if(it.ring&&it.ring.active)it.ring.setDepth(d-.5);}}
         refs.hpBar.setDepth(50001);refs.label.setDepth(50000);
       }
       if(state.startArea)state.startArea.sync();

@@ -47,15 +47,15 @@ window.Lounge = (() => {
     st.staff = r;
     // Counter marker: a cream rug with OPEN on it, plus the intern behind it.
     const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.22).setStrokeStyle(3, 0xF2D7A1, 0.9).setDepth(2.5);
-    const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPEN", { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(21);
+    const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPEN", { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000);
     scene.tweens.add({ targets: rug, alpha: { from: 0.6, to: 1 }, scale: { from: 0.96, to: 1.04 }, duration: 700, yoyo: true, repeat: -1 });
     const key = "intern_" + r.id + "_0";
     const real = scene.textures.exists("intern2_" + r.id); // ChatGPT's counter pose: row 4, columns 0-3
     const staff = real ? scene.add.sprite(s.x + 58, s.y - 6, "intern2_" + r.id, 32).setOrigin(0.5, 56 / 60).setDepth(4.5)
       : scene.textures.exists(key) ? scene.add.image(s.x + 58, s.y - 6, key).setScale(1.6).setOrigin(0.5, 1).setDepth(4.5) : null;
     st.staffReal = real;
-    const tag = scene.add.text(s.x + 58, s.y - 70, r.name.toUpperCase() + " · REGISTER", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 } }).setOrigin(0.5, 1).setDepth(21);
-    const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(23).setScrollFactor(0);
+    const tag = scene.add.text(s.x + 58, s.y - 70, r.name.toUpperCase() + " · REGISTER", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 4, y: 2 } }).setOrigin(0.5, 1).setDepth(50000);
+    const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(50003).setScrollFactor(0);
     st.objs = [rug, sign, staff, tag, arrow]; st.arrow = arrow;
     if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
     const line = (L.lines && L.lines.open || "{name} is on the Lounge register.").replace("{name}", r.name);
@@ -205,13 +205,14 @@ window.Lounge = (() => {
   function closedSign(scene) {
     if (st.closedSign || st.state !== "closed" || !gateOpen()) return;
     const s = spot();
-    const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPENS AFTER PROMOTIONS", { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 7, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(21).setAlpha(0.75);
+    const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPENS AFTER PROMOTIONS", { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 7, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000).setAlpha(0.75);
     const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.08).setStrokeStyle(2, 0xF2D7A1, 0.4).setDepth(2.5);
     st.closedSign = [sign, rug];
   }
 
   function update(scene, now) {
     if (!st || typeof player === "undefined" || !player || !player.scene) return;
+    { const staff = st.objs && st.objs[2]; if (staff && staff.active && typeof player !== "undefined" && player) staff.setDepth(10000 + staff.y - player.y); } // the intern at the register sorts by feet too
     closedSign(scene);
     const L = C(), S = L.safety || {};
     // Arm a window at each promotion age once the Break Room is open.

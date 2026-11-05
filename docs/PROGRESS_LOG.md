@@ -1372,3 +1372,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami asked whether Ben's Floppy Disk evolves. It does (Zip Drive: 2 Double Density + Comfortable Shoes), but starting heroes never see an Unlock card, so they never got the hint.
 - Every weapon upgrade card now says "Pairs with ..." and shows a check mark if you already have that passive.
 - Chest safety net: a chest screen that's marked open but isn't showing gets cleared, and it's reset every new run. The chest tip now says the chest comes to you.
+
+## 2026-11-04: V. 2.4, remains and draw order
+- Rami's idea: defeated enemies leave scraps in their color that fade after about 9 s (bosses leave a bigger pile). Capped at 60 so phones stay smooth. Tunable in `REMAINS` (src/remains.js).
+- Rami: TJ and Derek kept vanishing behind walls. They sat on a fixed low layer; now they sort by their feet like enemies and props. Their tags, the Lounge sign, register tag and arrow are lifted above everything.

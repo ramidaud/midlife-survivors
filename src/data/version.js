@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.3.4",
-  displayVersion: "V. 2.3.4",
+  version: "2.4.0",
+  displayVersion: "V. 2.4",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 221,
+  build: 222,
   changelog: [
+    {
+      ver: "V. 2.4", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Every fight leaves a mess now, and TJ and Derek stop hiding behind walls.",
+      highlights: [
+        "Defeated enemies leave a little pile of scraps in their color (green for Bills, red for Late Fees). It sits for about 9 seconds, then fades. Bosses leave a bigger mess.",
+        "TJ and Derek no longer disappear behind walls: they're drawn in front of or behind things by where their feet are, like everyone else. Their ALLY tags and speech bubbles always show.",
+        "The Lounge sign, the register tag and the THE LOUNGE arrow can't be covered by furniture anymore."
+      ]
+    },
     {
       ver: "V. 2.3.4", date: "Nov 4, 2026", title: "Version Two",
       teaser: "Every weapon upgrade card now tells you what it pairs with, so the Coldwar Cowboy can find the Zip Drive.",

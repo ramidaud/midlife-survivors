@@ -283,7 +283,7 @@ function spawnCoin(x, y, bonusMult = 1) {
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
-  runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
+  runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
   if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
@@ -1588,6 +1588,7 @@ function damageBill(bill, amount) {
     sfx(bill.isBoss ? "bossDefeat" : "billPaid");
     const E = ENEMIES[bill.kind] || ENEMIES.bill;
     if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
+    if (window.Remains && !bill.clockOut) Remains.add(sc, bill.x, bill.y, E.color, bill.isBoss); // a little pile of scraps that fades (src/remains.js)
     burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 8);
     if (bill.elite) { // the jackpot
       const EL = INTENSITY.elites;

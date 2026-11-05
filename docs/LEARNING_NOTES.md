@@ -547,3 +547,8 @@ The Lounge desk picture includes monitors and two chairs, but the floor footprin
 - A prop's **picture** and its **footprint** are two different boxes. The futon picture is 128 x 72, but only a 116 x 24 strip at its base is solid.
 - That's why you can walk "behind" the futon's backrest without hitting an invisible wall: the solid part is just where the legs touch the floor.
 - The **foot point** (bottom-center of the picture) is where the prop stands. The game sorts drawing order by that point, so whoever's feet are lower on screen gets drawn in front.
+
+## Draw order, or "who's in front?" (Nov 4, TJ behind the walls)
+- In a top-down game, whoever's **feet are lower on the screen** should be drawn in front. The game turns each thing's foot position into a **depth** number every frame: bigger depth = drawn later = in front.
+- TJ and Derek had a fixed small depth, so every wall (which uses the foot rule) was drawn over them. Putting them on the same rule fixed it.
+- Labels and speech bubbles skip the rule and get a huge depth, so nothing can ever cover them.

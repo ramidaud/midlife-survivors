@@ -104,7 +104,7 @@ window.Interns = (() => {
     if (window.propGroup) o.propCollider = scene.physics.add.collider(o, window.propGroup);
     const tag = scene.add.text(x, y, "★ ALLY · " + r.name.toUpperCase(), {
       fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#171C35", backgroundColor: "#83A89A", padding: { x: 4, y: 2 }
-    }).setOrigin(0.5, 1).setDepth(21);
+    }).setOrigin(0.5, 1).setDepth(50000);
     // A soft green ring under their feet, so new players read "friend" and walk toward them (Gemini Argon review, Nov 4)
     const ring = scene.add.ellipse(x, y, 46, 18).setStrokeStyle(2, 0x83A89A, 0.95).setFillStyle(0x83A89A, 0.18).setDepth(4.5);
     scene.tweens.add({ targets: ring, scaleX: 1.18, scaleY: 1.18, alpha: 0.55, duration: 700, yoyo: true, repeat: -1, ease: "Sine.InOut" });
@@ -120,14 +120,14 @@ window.Interns = (() => {
     const t = scene.add.text(x, y, text, {
       fontFamily: "'Atkinson Hyperlegible', sans-serif", fontSize: "13px", fontStyle: "bold", color: "#171C35",
       backgroundColor: "#FFF0CF", padding: { x: 6, y: 4 }, wordWrap: { width: 190 }
-    }).setOrigin(0.5, 1).setDepth(22);
+    }).setOrigin(0.5, 1).setDepth(50002);
     scene.tweens.add({ targets: t, y: y - 18, alpha: 0, delay: 1800, duration: 600, onComplete: () => t.destroy() });
   }
 
   function floatText(scene, text, color) {
     const t = scene.add.text(player.x, player.y - 70, text, {
       fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color, stroke: "#12152a", strokeThickness: 3
-    }).setOrigin(0.5).setDepth(22);
+    }).setOrigin(0.5).setDepth(50002);
     scene.tweens.add({ targets: t, y: t.y - 26, alpha: 0, duration: 1100, onComplete: () => t.destroy() });
   }
 

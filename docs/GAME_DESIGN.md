@@ -72,6 +72,8 @@ Status: brainstorm. Everything here is a starting point for Rami to cut, rename 
 | 50:00 | 90 | Boss: 6AM Pickleball Champion |
 | 60:00 | 100 | Death arrives. Meeting him is the win |
 
+**Remains (Nov 4, Rami):** defeated enemies leave a small pile of scraps in their color that fades after about 9 seconds; bosses leave a bigger one.
+
 **One boss at a time (Nov 4):** a boss that comes due waits while you are still fighting another one (up to 3 years late), then waits 8 more seconds after the kill so you can open the chest. The Gold Watch never waits. Boss chests always slide to you.
 
 *Original 40-to-50 plan, kept for reference:*

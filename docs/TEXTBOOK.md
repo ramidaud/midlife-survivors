@@ -1826,3 +1826,14 @@ Drawing the map is a stencil:
 ```
 - Lower foot point on screen = drawn in front.
 - Wall art (posters, collage) has no footprint at all: it's just paint on the wall.
+
+## Chapter: Draw order (Nov 4)
+```
+ screen top
+   wall  (feet at y=-144)  depth  9 856   drawn first
+   TJ    (feet at y= -70)  depth  9 930   drawn over the wall
+   you   (feet at y= -40)  depth 10 000   drawn over TJ
+ screen bottom
+ tags and bubbles           depth 50 000  always on top
+```
+- Before the fix, TJ had depth 4.6: smaller than every wall, so always hidden.
