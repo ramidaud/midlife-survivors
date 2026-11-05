@@ -1465,3 +1465,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Music follows the game: title theme, office calm/busy/chaos by age (50 and 58), boss music while a boss is up, Lounge groove, retirement party.
 - Level-up and game-over stings come from Rami's tracks. The old code groove stays as a backup if a file can't load.
 - Takes and volumes live in `src/data/music.js`, so swapping a take is a one-line change.
+
+## Nov 5, 2026: V2.7.10 Paul's review: steady walk + Sprite Board
+- Paul McKinney (art director, UCM) reviewed the game: the hero glides, legs don't alternate, pixels pop in idle loops. He recommended *Shovel Knight* (Boss Fight Books) and Miyamoto's 1-1 video.
+- Walk frames now play on a steady 95 ms clock instead of by distance moved.
+- New Sprite Board (`tools/sprites.html`): all 57 animated sheets at game speed, nearest-neighbor, with onion skin and a CHANGED PIXELS view. It confirmed the legs never swap in side and back walks.
+- ChatGPT brief out for walk rows that alternate (`docs/handoffs/chatgpt-walk-cycle-fix.md`). A full hero polish round is planned near the end.

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.9",
-  displayVersion: "V. 2.7.9",
+  version: "2.7.10",
+  displayVersion: "V. 2.7.10",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 237,
+  build: 238,
   changelog: [
+    {
+      ver: "V. 2.7.10", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "Your hero walks with a steady rhythm now, thanks to a sharp-eyed art director.",
+      highlights: [
+        "The walk animation plays on its own steady clock instead of following how far you moved, so it no longer stalls and skips.",
+        "Behind the scenes: a Sprite Board that plays every sprite in the game at its real speed, with a view that shows which pixels change each frame."
+      ]
+    },
     {
       ver: "V. 2.7.9", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Real music! The office now has a soundtrack that grows with you.",

@@ -583,3 +583,8 @@ The retirement strip has the same guests and animation beats on both screens. Mo
 - **Seamless loops:** AI tracks have an intro and an ending, so the game starts the next play 4 seconds before the current one ends and crossfades them.
 - **Load on demand:** the game only downloads a song when it's about to need it (the busy track starts downloading while the calm one plays). Phones don't pay for music you never reach.
 - **Audio bus:** all music runs through one volume knob (the "music bus"), which is why the music slider and mute still work.
+
+## Animation speed vs. movement speed (Nov 5, V2.7.10, from Paul McKinney)
+- The walk used to pick its frame by **distance moved**. Small or uneven moves meant the frames stalled, then jumped, so the hero seemed to glide with blips.
+- Now it runs on a **steady clock** (95 ms per frame). A walk cycle reads as a rhythm, and a steady rhythm looks intentional even if the feet slide a little.
+- **Pixel reuse:** good pixel animation keeps most pixels identical between frames and moves only what should move. The Sprite Board's CHANGED PIXELS view shows this in red.

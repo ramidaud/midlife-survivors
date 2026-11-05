@@ -2,7 +2,7 @@
 window.USE_HERO_ART = true;
 // Nov 2: 8-frame hero sheets with an idle row (ChatGPT). Set to 1 and reload for the 4-frame v1 walk.
 window.HERO_ART_VERSION = 2;
-window.HERO_ANIM = { stepPx: 8.5, breathMs: 320, fidgetEveryMs: 7000, fidgetFrameMs: 170 };
+window.HERO_ANIM = { walkFrameMs: 95, stepPx: 8.5, breathMs: 320, fidgetEveryMs: 7000, fidgetFrameMs: 170 };
 window.USE_OFFICE_ART = true;
 window.WorldArt = (() => {
   const palette = '171c35 303750 526078 3e7775 83a89a a88b70 d3b78d f2d7a1 fff0cf 874c3b c45c4b ef9347 e5a995 f1b5bf bfa8cf b97a58 70402f'.split(' ').map(hex => [0,2,4].map(i => parseInt(hex.slice(i,i+2),16)));
@@ -72,10 +72,12 @@ window.WorldArt = (() => {
       img.onerror=()=>{};
       img.src='assets/characters/'+HERO_FILES[id]+'.png?v='+window.BUILD;
     }
-    let stillSince=0,nextFidget=0;
+    let stillSince=0,nextFidget=0,walkFrom=0;
     function heroFrame(id,moving,now) {
       const H=window.HERO_ANIM,dirs=['down','up','left','right'];
-      if(moving){stillSince=now;nextFidget=now+H.fidgetEveryMs;return dirs.indexOf(facing)*8+Math.floor(walked/H.stepPx)%8;}
+      // Walk cycle on its own clock (Nov 5, Paul McKinney's review): a steady rhythm that doesn't speed up or stall with
+      // movement speed. walkFrameMs per frame; the cycle starts on frame 0 each time you start moving.
+      if(moving){if(now-stillSince>150)walkFrom=now;stillSince=now;nextFidget=now+H.fidgetEveryMs;return dirs.indexOf(facing)*8+Math.floor((now-walkFrom)/H.walkFrameMs)%8;}
       if(facing!=='down'&&now-stillSince<600) return dirs.indexOf(facing)*8; // brief stand in the direction you stopped
       if(now>=nextFidget){const k=Math.floor((now-nextFidget)/H.fidgetFrameMs);if(k<4)return 32+4+k;nextFidget=now+H.fidgetEveryMs;}
       return 32+Math.floor(now/H.breathMs)%4; // breathing / coffee-sip loop
@@ -197,7 +199,7 @@ window.WorldArt = (() => {
         const dx=p.x-lastX,dy=p.y-lastY;
         if(moving&&now!==lastClock){facing=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');walked+=Math.hypot(dx,dy);}
         if(heroV2.has(meta.selectedChar))hero.setTexture('walk2_'+meta.selectedChar,heroFrame(meta.selectedChar,moving,now));
-        else hero.setTexture('walk_'+meta.selectedChar,CharacterArt.frame(facing,moving?Math.floor(walked/17):1));
+        else hero.setTexture('walk_'+meta.selectedChar,CharacterArt.frame(facing,moving?Math.floor(now/(window.HERO_ANIM.walkFrameMs*2)):1));
         p.setVisible(false);hero.setPosition(Math.round(p.x),Math.round(feet)).setAlpha(p.alpha).setDepth(state.active?10000+feet-p.y:5);
         if(p.isTinted){if(p.tintFill)hero.setTintFill(p.tintTopLeft);else hero.setTint(p.tintTopLeft);}else hero.clearTint();
         shadow.setPosition(p.x,feet-2).setDepth(state.active?10000+feet-p.y-.1:4.9);
