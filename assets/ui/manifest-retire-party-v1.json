@@ -1,0 +1,77 @@
+{
+  "background": "#FF00FF",
+  "alpha": "opaque RGB; key exact magenta to transparent",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "sampling": "nearest",
+  "cast": [
+    "The 9-to-5er",
+    "TJ",
+    "Derek",
+    "Clipboard Intern",
+    "Eli from IT",
+    "Party Hat Bill"
+  ],
+  "artDirection": {
+    "tool": "built-in imagegen",
+    "prompt": "Composition study for a native 320x96 Midlife Survivors retirement party sprite. Reference is the actual cast lineup, left to right: office worker with dark glasses white shirt and russet tie, TJ in beanie and quilted jacket, Derek in beard and dark glasses with camera, Eli with dark curly hair in teal IT layers, sentient Bill, and cake. Arrange these FIVE identities plus a sixth distinct junior office intern in a sage cardigan holding a small clipboard. Native 56x60 human sprite proportions, matching facial details and navy 1px outlines, faces bright, hand-placed pixel art, strong clean clusters, same 3/4 front angle. At the center of the scene, a cream rectangular sheet cake with three lit candles on a low teal folding table. The hero beside the cake is raising his orange coffee mug, TJ cheers, Derek points his camera, the sage intern raises both arms, Eli fires a ribbon streamer, and the Bill bounces in a tiny lavender party hat with visible face and legs. Stagger the feet slightly in an inviting arc around the cake and leave silhouettes legible. A few chunky pieces of confetti. No shadow outside sprites, no furniture besides cake table, no type or logos. Solid #FF00FF background everywhere outside the art. Palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Single wide 10:3 composition, generous breathing room between heads, show feet.",
+    "reference": "Native 9-to-5er, TJ, Derek, Eli, Bill and retirement cake assets",
+    "production": "Native palette cleanup, independent wide and tall staging, and hand-pixel animation layers."
+  },
+  "sheets": {
+    "retire-party-v1.png": {
+      "layout": "wide",
+      "cellWidth": 320,
+      "cellHeight": 96,
+      "columns": 8,
+      "rows": 1,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameDurationMs": 120,
+      "loop": true,
+      "preview": "retire-party-preview-v1.gif",
+      "stillFrame": 2
+    },
+    "retire-party-tall-v1.png": {
+      "layout": "tall",
+      "cellWidth": 192,
+      "cellHeight": 160,
+      "columns": 8,
+      "rows": 1,
+      "frameIndices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "frameDurationMs": 120,
+      "loop": true,
+      "preview": "retire-party-tall-preview-v1.gif",
+      "stillFrame": 2
+    }
+  }
+}

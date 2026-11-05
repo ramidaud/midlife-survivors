@@ -573,3 +573,7 @@ A decal inherits the wall behind it. Navy fissures and cream chips give the bonk
 ## 2026-11-05 Separate effect layers (Codex)
 
 Mic Drop has three pieces of art: the falling mic, the feedback above it and the ring on the floor. That lets the ring grow to the attack's radius while the mic stays the same size. The ring's empty center keeps enemies readable as it passes over them.
+
+## 2026-11-05 Recompose for a smaller screen (Codex)
+
+The retirement strip has the same guests and animation beats on both screens. Moving the guests into two tiers gives the phone layout more room without shrinking faces or props. Keeping the two loops at the same frame rate also lets the screen choose a layout without changing the celebration's pace.

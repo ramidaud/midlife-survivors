@@ -354,3 +354,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - Delivered Mic Drop and Say Cheese under `assets/weapons/`. `manifest-lounge-weapons-v1.json` records native cell sizes, zero-based frame indices, origins and preview timings. Key exact magenta to transparent and sample at nearest neighbor.
 - Mic Drop lands at local (12,36). Draw the feedback row over the held last drop frame, and scale the separate thin shockwave to the gameplay radius. The camera faces right. The four frozen-enemy overlays are independent choices.
 - All six PNGs and four GIFs passed size, palette and frame checks. The review shows 1× scale next to the 9-to-5er and Bill and loaded at desktop and 390px phone widths. Claude handles gameplay integration.
+
+## 2026-11-05 Retirement party strip (Codex)
+
+- Delivered `assets/ui/retire-party-v1.png` (2560×96, 320×96 cells) and `assets/ui/retire-party-tall-v1.png` (1536×160, 192×160 cells). Both run left to right for eight frames at 120 ms each. The tall scene rearranges the cast at the same scale.
+- Key exact magenta and use nearest-neighbor sampling. The frame manifest includes both GIFs and suggests frame 2 for reduced motion. The cake, confetti and streamer are already in the scene.
+- The game uses the intern coworker sprite for Eli from IT. The party uses that likeness for Eli and gives the sixth guest a distinct sage cardigan and clipboard. Both variants passed palette, key, border and timing checks. Native-size previews loaded at 1280×800 and 390×844. Claude wires the strips into the win screen.

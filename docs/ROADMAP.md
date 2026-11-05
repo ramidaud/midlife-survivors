@@ -283,3 +283,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [x] Deliver Mic Drop and Say Cheese sheets, HUD icons, manifest and previews.
 - [ ] Wire the Lounge weapon art into the existing effects and HUD.
+
+### 2026-11-05 Retirement party strip (Codex)
+
+- [x] Deliver wide and tall retirement celebration sheets, previews and frame manifest.
+- [ ] Wire both layouts into the retirement screen.

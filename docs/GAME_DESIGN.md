@@ -559,3 +559,7 @@ The wall impact uses one of three drywall cracks with a slate dent and cream pla
 ### 2026-11-05 Lounge weapon art (Codex)
 
 Mic Drop falls and bounces before lavender feedback flickers over the resting mic. The sound ring has a clear center so enemies stay visible. Say Cheese uses a right-facing camera with a cream flash and four interchangeable frozen poses. Frame order and preview timings live in `assets/weapons/manifest-lounge-weapons-v1.json`.
+
+### 2026-11-05 Retirement party art (Codex)
+
+The 9-to-5er, TJ, Derek, a clipboard intern, Eli from IT and a party-hat Bill gather around a sheet cake. The tall version rearranges the party into two tiers while keeping the sprites at the same scale. The frame manifest covers both layouts and a still frame for reduced motion.
