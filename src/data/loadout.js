@@ -30,7 +30,10 @@ window.LOADOUT = {
     { id: "replyAll",    cat: "offense", icon: "📧", evoIcon: "📨", has: s => s.replyAll,    evo: s => s.memo,         cards: ["unlockReplyAll", "ccEveryone", "evoMemo"] },
     { id: "outOfOffice", cat: "defense", icon: "✈️", evoIcon: "🏖️", has: s => s.ooo,         evo: s => s.sabbatical,   cards: ["unlockOoo", "extendedLeave", "evoSabbatical"] },
     { id: "stickyNotes", cat: "offense", icon: "🗒️", evoIcon: "📋", has: s => s.sticky,      evo: s => s.postItWall,   cards: ["unlockSticky", "bulkPack", "evoPostItWall"] },
-    { id: "thermostat",  cat: "defense", icon: "❄️", evoIcon: "🌀", has: s => s.thermo,      evo: s => s.polarVortex,  cards: ["unlockThermo", "crankAc", "evoPolarVortex"] }
+    { id: "thermostat",  cat: "defense", icon: "❄️", evoIcon: "🌀", has: s => s.thermo,      evo: s => s.polarVortex,  cards: ["unlockThermo", "crankAc", "evoPolarVortex"] },
+    // Lounge exclusives (Nov 5): bought at the register, never at level-up
+    { id: "micDrop",     cat: "defense", icon: "🎤", evoIcon: "🎤", has: s => s.micDrop,     evo: s => false,          cards: ["unlockMicDrop", "encore"], lounge: true },
+    { id: "sayCheese",   cat: "defense", icon: "📸", evoIcon: "📸", has: s => s.sayCheese,   evo: s => false,          cards: ["unlockSayCheese", "burstMode"], lounge: true }
   ],
   passives: [
     { id: "comfyShoes",     cat: "defense", icon: "👟", has: s => s.hasShoes },
@@ -91,6 +94,8 @@ window.loadoutResetStats = (s, pension) => {
     ooo: false, sabbatical: false, oooRank: 0, oooRadius: W.outOfOffice.radius, oooSlow: W.outOfOffice.slowMult,
     sticky: false, postItWall: false, stickyRank: 0, stickyEveryMs: W.stickyNotes.fireEveryMs, stickyCount: W.stickyNotes.count, stickyMs: W.stickyNotes.stickMs, stickyDamage: W.stickyNotes.damage + p,
     thermo: false, polarVortex: false, thermoRank: 0, thermoEveryMs: W.thermostat.fireEveryMs, thermoRadius: W.thermostat.radius, thermoFreezeMs: W.thermostat.freezeMs, thermoDamage: W.thermostat.damage + p,
+    micDrop: false, micRank: 0, micEveryMs: W.micDrop.fireEveryMs, micRadius: W.micDrop.radius, micStunMs: W.micDrop.stunMs, micDamage: W.micDrop.damage + p,
+    sayCheese: false, cheeseRank: 0, cheeseEveryMs: W.sayCheese.fireEveryMs, cheeseRange: W.sayCheese.range, cheeseCone: W.sayCheese.coneDeg, cheeseFreezeMs: W.sayCheese.freezeMs, cheeseDamage: W.sayCheese.damage + p, cheeseDouble: false,
     hasVitamin: false, regenMs: 0, hasMealPrep: false, foodMult: 1, hasCardigan: false, cardiganMs: 0,
     hasLumbar: false, armor: 0, hasTracker: false, dodge: 0, hasBifocals: false, crit: 0
   });
@@ -175,6 +180,20 @@ window.loadoutResetStats = (s, pension) => {
     { id: "evoPolarVortex", name: "EVOLVE: Polar Vortex", maxRank: 1, isEvolution: true,
       text: "Thermostat Lv 2+ and Multivitamin: a huge cold snap that freezes twice as long and deals +2 damage.",
       when: s => s.thermo && s.thermoRank >= 2 && s.hasVitamin && !s.polarVortex, apply: s => { addRank(s, "evoPolarVortex"); s.polarVortex = true; s.thermoRadius = mult(s.thermoRadius, 1.4); s.thermoFreezeMs *= 2; s.thermoDamage += 2; } },
+
+    // ---- Lounge exclusives (Nov 5). The Unlock cards are applied by the Lounge register, never offered at level-up. ----
+    { id: "unlockMicDrop", name: "Unlock: Mic Drop", maxRank: 1, loungeOnly: true,
+      text: "Lounge exclusive. Every 9 seconds you drop the mic: the feedback stuns everything around you.",
+      when: s => false, apply: s => { addRank(s, "unlockMicDrop"); s.micDrop = true; } },
+    { id: "encore", name: "Encore", maxRank: 3,
+      text: "Mic Drop: 15% wider, 10% sooner, +1 damage.",
+      when: s => s.micDrop, apply: s => { addRank(s, "encore"); s.micRank++; s.micRadius = mult(s.micRadius, 1.15); s.micEveryMs = mult(s.micEveryMs, 0.9, 5000); s.micDamage++; } },
+    { id: "unlockSayCheese", name: "Unlock: Say Cheese", maxRank: 1, loungeOnly: true,
+      text: "Lounge exclusive. Derek's camera flashes ahead of you; everything in the shot freezes mid-pose.",
+      when: s => false, apply: s => { addRank(s, "unlockSayCheese"); s.sayCheese = true; } },
+    { id: "burstMode", name: "Burst Mode", maxRank: 3,
+      text: "Say Cheese: a wider, longer shot, a little more often. Rank 2: a second flash right after.",
+      when: s => s.sayCheese, apply: s => { addRank(s, "burstMode"); s.cheeseRank++; s.cheeseCone = Math.min(150, s.cheeseCone + 15); s.cheeseRange = mult(s.cheeseRange, 1.12); s.cheeseEveryMs = mult(s.cheeseEveryMs, 0.9, 2800); if (s.cheeseRank >= 2) s.cheeseDouble = true; } },
 
     // ---- New passives ----
     { id: "multivitamin", name: "Multivitamin", maxRank: 3,

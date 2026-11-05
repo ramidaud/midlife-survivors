@@ -176,5 +176,17 @@ window.WEAPONS = {
   thermostat: {
     name: "Thermostat Wars", // DEFENSE: someone cranked the AC. A cold snap freezes everything near you
     fireEveryMs: 7000, radius: 150, freezeMs: 1600, bossSlowMs: 1600, damage: 1
+  },
+  // ---- Lounge exclusives (Nov 5, Rami: "weapons you can only get from the lounge, super silly but fun") ----
+  // Bought at the Lounge register, never offered at level-up. Their upgrade cards (Encore, Burst Mode) can show up once you own them.
+  micDrop: {
+    name: "Mic Drop",       // DEFENSE: drop the mic, the feedback screech stuns everything around you
+    fireEveryMs: 9000, radius: 240, stunMs: 950, damage: 3, bossStunMs: 400,
+    words: ["SCREEEE!", "MIC DROP.", "FEEDBACK!", "IS THIS THING ON?", "THANK YOU, GOODNIGHT!"]
+  },
+  sayCheese: {
+    name: "Say Cheese",     // DEFENSE: Derek's camera flash. Everything in front of you freezes mid-pose
+    fireEveryMs: 4500, range: 230, coneDeg: 70, freezeMs: 1400, damage: 2,
+    words: ["SAY CHEESE!", "ONE MORE!", "BLINKED. AGAIN!", "SMILE!"]
   }
 };

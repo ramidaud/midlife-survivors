@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.7.5",
-  displayVersion: "V. 2.7.5",
-  lastUpdated: "Nov 4, 2026",
+  version: "2.7.6",
+  displayVersion: "V. 2.7.6",
+  lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 233,
+  build: 234,
   changelog: [
+    {
+      ver: "V. 2.7.6", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "The Student Lounge now sells two weapons you can't find anywhere else.",
+      highlights: [
+        "Mic Drop (45 coins): every 9 seconds you drop the mic and the feedback screech stuns everything around you. Upgrade it with Encore.",
+        "Say Cheese (40 coins): a camera flash fires the way you're facing and freezes everything in the shot mid-pose. Burst Mode adds a second flash.",
+        "Bosses only stagger from both, so no cheesing the birthday fights.",
+        "Lounge weapons still count toward your six weapon slots."
+      ]
+    },
     {
       ver: "V. 2.7.5", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Ben's real one-liners are in the game, and new players get a gentler first shift.",

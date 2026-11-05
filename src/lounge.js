@@ -76,6 +76,11 @@ window.Lounge = (() => {
   function canBuy(it) {
     if (it.perRun && (st.bought[it.id] || 0) >= it.perRun) return "SOLD OUT";
     if ((st.stock[it.id] || 0) <= 0) return "SOLD OUT";
+    if (it.weapon) { // Lounge-only weapons need a free slot and can't be bought twice
+      const up = (window.UPGRADES || []).find(u => u.id === it.weapon);
+      if (!up || (typeof getRank === "function" && getRank(stats, up.id) > 0)) return "OWNED";
+      if (window.LOADOUT && LOADOUT.held(stats).weapons.length >= LOADOUT.weaponSlots) return "HANDS FULL";
+    }
     if (meta.coins < price(it)) return "TOO PRICEY";
     return "";
   }
@@ -138,7 +143,7 @@ window.Lounge = (() => {
   function buy(scene, id) {
     const it = (C().catalog || []).find(x => x.id === id); if (!it) return;
     const why = canBuy(it);
-    if (why) { sfx("pick"); return renderModal(scene, why === "TOO PRICEY" ? "That one's out of your budget, boss." : "Sold out. Someone got here first."); }
+    if (why) { sfx("pick"); return renderModal(scene, why === "TOO PRICEY" ? "That one's out of your budget, boss." : why === "HANDS FULL" ? "Your hands are full. Six weapons is the union limit." : why === "OWNED" ? "You already have one. Upgrades come with level-ups." : "Sold out. Someone got here first."); }
     const cost = price(it);
     meta.coins = Math.max(0, meta.coins - cost); runCoins = Math.max(0, runCoins - cost); saveMeta(meta); window.runCoinsSpent = (window.runCoinsSpent || 0) + cost;
     st.stock[it.id]--; st.bought[it.id] = (st.bought[it.id] || 0) + 1; st.ramp[it.id] = (st.ramp[it.id] || 0) + (C().priceRampAdd || 1);
@@ -150,6 +155,7 @@ window.Lounge = (() => {
     if (it.speedMult) { buffs.speedUntil = runElapsedMs + it.durMs; buffs.speedMult = Math.max(buffs.speedMult || 1, it.speedMult); }
     if (it.vacuumMs) buffs.vacuumUntil = runElapsedMs + it.vacuumMs;
     if (it.clearRadius) st.quietHour = it.clearRadius; // applied when you go back to work
+    if (it.weapon) { const up = (window.UPGRADES || []).find(u => u.id === it.weapon); if (up && typeof applyUpgrade === "function") applyUpgrade(up); } // a Lounge-only weapon
     if (typeof updateHUD === "function") updateHUD();
     sfx("coin");
     renderModal(scene, (C().lines && C().lines.buy) || "Receipt is a vibe.");

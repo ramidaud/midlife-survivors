@@ -1433,3 +1433,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - From the Bulky Boyz chat (Rami's PDF): Ben's dad jokes join Dad Joke when playing the Coldwar Cowboy, 8 Cowboy last words on the death screen, ID10T/PEBCAK notes for Eli from IT. Only PG lines; health, politics and crude bits left out.
 - Ben's feedback noted: shop maxes out too fast (matches the coin plan), more cards make favorites harder to find (rerolls help), loved losing the jarring Grim Reaper ending.
 - Morning report: 64% of first-ever runs ended before 45. New Hire Orientation: first 2 runs get +2 max HP and 2-HP Bills until 43, explained on the shift briefing.
+
+## Nov 5, 2026: V2.7.6 Lounge-only weapons
+- **Mic Drop** (45 coins): drops the mic every 9 s, the screech stuns everything nearby. Encore card upgrades it.
+- **Say Cheese** (40 coins): camera flash cone in the direction you face, freezes what's in the shot. Burst Mode adds a double flash.
+- Bosses only slow down from both (same rule as the No and the Thermostat).
+- The Lounge says "HANDS FULL" if your six weapon slots are taken. Placeholder sprites until ChatGPT's art lands.

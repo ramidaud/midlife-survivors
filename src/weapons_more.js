@@ -36,6 +36,14 @@ window.MoreWeapons = (() => {
       px(c, "#171C35", [[0, 0, 14, 14]]); px(c, "#F2D7A1", [[1, 1, 12, 12]]); px(c, "#D3B78D", [[9, 9, 4, 4]]);
       px(c, "#171C35", [[9, 9, 1, 4], [9, 9, 4, 1]]); px(c, "#526078", [[3, 4, 7, 1], [3, 7, 5, 1]]);
     });
+    if (!scene.textures.exists("w_mic")) makeCanvasTex(scene, "w_mic", 10, 18, c => { // Mic Drop: a stage mic (placeholder until ChatGPT's art)
+      px(c, "#171C35", [[1, 0, 8, 8], [3, 8, 4, 10]]); px(c, "#B8C0D4", [[2, 1, 6, 6]]); px(c, "#526078", [[3, 2, 1, 1], [5, 2, 1, 1], [3, 4, 1, 1], [5, 4, 1, 1], [4, 3, 1, 1], [6, 3, 1, 1]]);
+      px(c, "#303750", [[4, 8, 2, 9]]); px(c, "#C45C4B", [[4, 11, 2, 1]]);
+    });
+    if (!scene.textures.exists("w_camera")) makeCanvasTex(scene, "w_camera", 16, 12, c => { // Say Cheese: Derek's camera
+      px(c, "#171C35", [[0, 2, 16, 10], [3, 0, 5, 3]]); px(c, "#303750", [[1, 3, 14, 8]]); px(c, "#526078", [[4, 1, 3, 2]]);
+      px(c, "#171C35", [[5, 4, 6, 6]]); px(c, "#83A89A", [[6, 5, 4, 4]]); px(c, "#FFF0CF", [[7, 6, 1, 1], [12, 4, 2, 1]]); px(c, "#EF9347", [[1, 4, 2, 1]]);
+    });
     if (!scene.textures.exists("w_snow")) makeCanvasTex(scene, "w_snow", 9, 9, c => {
       px(c, "#FFF0CF", [[4, 0, 1, 9], [0, 4, 9, 1], [1, 1, 1, 1], [7, 1, 1, 1], [1, 7, 1, 1], [7, 7, 1, 1], [2, 2, 1, 1], [6, 2, 1, 1], [2, 6, 1, 1], [6, 6, 1, 1]]);
     });
@@ -267,6 +275,55 @@ window.MoreWeapons = (() => {
       live().forEach(b => { if (near(b, player.x, player.y, r)) { freeze(b, stats.thermoFreezeMs); damageBill(b, stats.thermoDamage); n++; } });
       sfx("wordNo");
       if (n >= 8 && Math.random() < 0.35) pop(scene, player.x, player.y - 60, Phaser.Utils.Array.GetRandom(["WHO TOUCHED THE THERMOSTAT?", "IT'S FREEZING IN HERE", "SWEATER WEATHER"]), "#FFF0CF");
+    }
+
+    // Which way you're facing: where you're moving, else where you last moved (Say Cheese aims this way).
+    { const v = player.body && player.body.velocity; if (v && (Math.abs(v.x) > 5 || Math.abs(v.y) > 5)) W.face = Math.atan2(v.y, v.x); else if (W.face == null) W.face = player.flipX ? Math.PI : 0; }
+
+    // MIC DROP (Lounge exclusive): the mic falls at your feet and a feedback screech stuns everything around you.
+    if (stats.micDrop && ready("mic", stats.micEveryMs)) {
+      const MD = WEAPONS.micDrop, r = stats.micRadius, x = player.x, y = player.y + 10;
+      const mic = scene.add.image(x + 18, y - 70, "w_mic").setDepth(7).setScale(2).setAngle(-20);
+      scene.tweens.add({ targets: mic, y: y + 4, angle: 70, duration: 260, ease: "Quad.In", onComplete: () => {
+        // the drop lands: shockwave rings, a shake, everything nearby stunned and hit
+        ring(scene, x, y, r, C.lav, 520); scene.time.delayedCall(120, () => ring(scene, x, y, r * 0.7, C.white, 420));
+        scene.cameras.main.shake(160, 0.006);
+        let n = 0;
+        live().forEach(b => { if (!near(b, x, y, r)) return; n++;
+          if (b.isBoss) b.slowUntil = Math.max(b.slowUntil || 0, runElapsedMs + MD.bossStunMs); // bosses only stagger
+          else { b.cringeUntil = Math.max(b.cringeUntil || 0, runElapsedMs + stats.micStunMs); if (b.body) b.setVelocity(0, 0); }
+          damageBill(b, stats.micDamage); });
+        sfx("wordNo");
+        pop(scene, x, y - 70, Phaser.Utils.Array.GetRandom(MD.words), "#BFA8CF");
+        scene.tweens.add({ targets: mic, alpha: 0, delay: 600, duration: 300, onComplete: () => mic.destroy() });
+      } });
+    }
+
+    // SAY CHEESE (Lounge exclusive): Derek's camera flashes a cone ahead of you; everything in the shot freezes mid-pose.
+    if (stats.sayCheese && ready("cheese", stats.cheeseEveryMs)) {
+      const shoot = () => {
+        if (!player || !player.active) return;
+        const SC = WEAPONS.sayCheese, r = stats.cheeseRange, half = Phaser.Math.DegToRad(stats.cheeseCone / 2), a0 = W.face || 0, x = player.x, y = player.y - 8;
+        const g = scene.add.graphics().setDepth(6.4);
+        g.fillStyle(0xFFF0CF, 0.55).slice(x, y, r, a0 - half, a0 + half, false).fillPath();
+        g.fillStyle(0xFFFFFF, 0.8).slice(x, y, r * 0.55, a0 - half * 0.6, a0 + half * 0.6, false).fillPath();
+        scene.tweens.add({ targets: g, alpha: 0, duration: 260, onComplete: () => g.destroy() });
+        const cam = scene.add.image(x + Math.cos(a0) * 16, y + Math.sin(a0) * 16, "w_camera").setDepth(7).setScale(1.6).setFlipX(Math.cos(a0) < 0);
+        scene.tweens.add({ targets: cam, alpha: 0, delay: 200, duration: 200, onComplete: () => cam.destroy() });
+        let n = 0;
+        live().forEach(b => {
+          const d = Phaser.Math.Distance.Between(x, y, b.x, b.y); if (d > r + size(b)) return;
+          const diff = Math.abs(Phaser.Math.Angle.Wrap(Math.atan2(b.y - y, b.x - x) - a0)); if (diff > half) return;
+          n++;
+          if (b.isBoss) b.slowUntil = Math.max(b.slowUntil || 0, runElapsedMs + stats.cheeseFreezeMs);
+          else { b.cringeUntil = Math.max(b.cringeUntil || 0, runElapsedMs + stats.cheeseFreezeMs); if (b.body) b.setVelocity(0, 0); b.setTintFill && b.setTintFill(0xFFFFFF); scene.time.delayedCall(90, () => b.active && b.clearTint && b.clearTint()); }
+          damageBill(b, stats.cheeseDamage);
+        });
+        sfx("pick");
+        if (n >= 4 || Math.random() < 0.25) pop(scene, x, y - 54, Phaser.Utils.Array.GetRandom(SC.words), "#FFF0CF");
+      };
+      shoot();
+      if (stats.cheeseDouble) scene.time.delayedCall(280, shoot); // Burst Mode rank 2+: a second flash
     }
   }
 
