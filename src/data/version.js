@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.3.0",
-  displayVersion: "V. 2.3",
+  version: "2.3.1",
+  displayVersion: "V. 2.3.1",
   lastUpdated: "Nov 4, 2026",
   codename: "Version Two",
-  build: 217,
+  build: 218,
   changelog: [
+    {
+      ver: "V. 2.3.1", date: "Nov 4, 2026", title: "Version Two",
+      teaser: "Clearer level-up cards: Meal Prep Sunday no longer looks like Mom's Spaghetti.",
+      highlights: [
+        "Level-up cards now say \"Pairs with\" instead of \"Evolves\". Meal Prep Sunday's badge said \"Evolves Mom's Spaghetti\", which read like the card was the spaghetti. It's a healing passive; the bowl comes from Unlock: Mom's Spaghetti."
+      ]
+    },
     {
       ver: "V. 2.3", date: "Nov 4, 2026", title: "Version Two",
       teaser: "The Student Lounge moves into the Break Room, and Sprint's clock finally feels fast.",

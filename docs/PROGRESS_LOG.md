@@ -1354,3 +1354,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The furniture is solid and sits inside the walking loop, so no hallway got narrower.
 - The Lounge shop opens on the new lounge illustration (wide on laptop, tall on phone).
 - Sprint's HUD clock now runs at 2x with a lightning bolt and an orange tick. Sprint was already locked behind beating the V8 and hidden on a first run.
+
+## 2026-11-04: V. 2.3.1, clearer evolution badges
+- Rami got "Mom's Spaghetti evolutions" before the weapon and nothing spawned. It was the Meal Prep Sunday passive: its badge said "Evolves Mom's Spaghetti."
+- Badges now say "Pairs with ..." on both the weapon and the passive. The real Potluck evolution still needs the spaghetti at Lv 2 plus Meal Prep, and bowls drop fine.

@@ -128,9 +128,10 @@ const EVO_PAIRS = [
 function evoPairNote(up) {
   if (!up || up.isEvolution) return "";
   const asPassive = EVO_PAIRS.filter(p => p[0] === up.id).map(p => p[2]);
-  if (asPassive.length) return "Evolves " + asPassive.join(", ");
+  // Nov 4 (Rami): "Evolves Mom's Spaghetti" on Meal Prep read like the card WAS the spaghetti. Say "pairs with" instead.
+  if (asPassive.length) return "Pairs with " + asPassive.join(", ");
   const asWeapon = EVO_PAIRS.find(p => p[1] === up.id);
-  if (asWeapon) { const pas = (window.UPGRADES || []).find(u => u.id === asWeapon[0]); return pas ? "Evolves with " + pas.name : ""; }
+  if (asWeapon) { const pas = (window.UPGRADES || []).find(u => u.id === asWeapon[0]); return pas ? "Pairs with " + pas.name : ""; }
   return "";
 }
 
