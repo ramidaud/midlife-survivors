@@ -1,12 +1,12 @@
-This one's going to be a little different. Most of what changed since the last memo didn't start with me. It started with other people taking the time to play the game and tell me what they honestly thought. So this memo is mostly about them.
+I've never been good at sitting still, and this game gives all that restlessness somewhere to go. This stretch, other people gave it plenty to do.
+
+A couple hundred people stopped by the game this week, which still blows my mind. A few of them did more than play. A stranger on Facebook, my coworker Paul, and my old friend Kevin all told me what they honestly thought, and most of the big changes this time came from them. I mostly took notes.
 
 ## Who's actually playing
 
 I looked at the traffic for the first time this week.^[I use GoatCounter, which counts page visits without cookies or names. It can't tell how long anyone stays, so for that I look at how long runs last.] Most people play on their phones. Somebody in Taiwan plays a lot (that's my friend Ben).^[Ben's in the game, too. Play as the Coldwar Cowboy and some of the dad jokes and last words are his.]
 
 In a world of social media, it's really cool that people took time out to try something that came out of some random new obsession of mine. Well, maybe not so random. This has been cooking in my head for a long time, but I kept getting overwhelmed by the coding. My brain tried, but it just doesn't hold on to it. Practice makes perfect, though, and hopefully I'll start to pull some real lessons for myself out of this as well.
-
-I'm not great at sitting still, and this gives me somewhere to put it.
 
 ## The people who showed up
 

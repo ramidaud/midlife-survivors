@@ -72,6 +72,7 @@ The game and the devlog are one product.
 - **Colors:** the devlog palette only (navy, slate, teal, sage, cream, coffee orange, russet). No off-palette blues or yellows.
 - **Building blocks:** cream "MEMO · RE:" strips, tiles with teal borders, the shared progress bar (`assets/ui/ms-bar.css`) and the universal nav (`assets/ui/ms-nav.*`).
 - **Every screen is checked** at phone, iPad (both orientations) and desktop sizes before it ships.
+- **Devlog memos (Nov 6):** "What changed" and "Next up" live in the right column (below the memo on phones and share pages), and every memo opens with a pixel-font drop cap.
 
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
