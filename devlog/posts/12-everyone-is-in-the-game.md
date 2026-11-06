@@ -22,7 +22,7 @@ The game has a soundtrack now: a title theme, three moods that build as you get 
 
 The music came from Google's Flow Music. Here's the prompt for the title theme:
 
-> [PASTE THE TITLE THEME PROMPT FROM FLOW]
+> 16-bit SNES-style chiptune title screen theme, catchy square-wave lead melody, soft bass, light drums, warm, a little wistful and optimistic, like coffee on a Monday morning, major key, 100 bpm, steady tempo, loops cleanly, no fade-out
 
 The sound effects came from ElevenLabs. Here's the one for the boss defeat:
 
