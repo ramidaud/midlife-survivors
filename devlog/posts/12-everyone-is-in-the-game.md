@@ -26,7 +26,7 @@ The music came from Google's Flow Music. Here's the prompt for the title theme:
 
 The sound effects came from ElevenLabs. Here's the one for the boss defeat:
 
-> Cartoon boss defeat, a comedic crash, a descending [PASTE THE REST FROM ELEVENLABS HISTORY]
+> Cartoon boss defeat, a comedic crash, a descending slide whistle, then a loud rubber stamp thump, retro game style
 
 It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic and chaotic.
 
