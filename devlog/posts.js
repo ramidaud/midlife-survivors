@@ -8,7 +8,7 @@ window.DEVLOG_POSTS = [
     "date": "2026-11-06",
     "title": "Restless. Also, who's actually playing?",
     "version": "V. 2.1 to 2.10.5",
-    "draft": true,
+    "draft": false,
     "cover": "img/12-key-art.jpg",
     "leadNote": "**Made with ChatGPT** (image generation), from a photo of my desk at midnight and a prompt Claude wrote and I directed: crisp 16-bit pixel art, a dark room lit by the screens, more code on the left monitor, Bills and weaving 3 AM Thoughts on the right, the kids' drawings on the wall, and two sticky notes from this week. The first version had me looking crazy, so I asked it to take me out and just focus on the desk. A monstera took the chair's spot. [Read the full prompt](art/prompts/12-key-art-chatgpt.txt).",
     "leadAlt": "Pixel art of a home desk at night: code on one monitor, the game on the other, kids' drawings on the wall, a clock at 12:21, and two sticky notes reading HR flagged that name and holistic AND chaotic.",

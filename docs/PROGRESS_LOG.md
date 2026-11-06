@@ -1594,3 +1594,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Swears, slurs and hate terms are blocked at Post Score ("HR flagged that name"). Number swaps like 5h1t and stretched spellings are caught. Mild pun names like Semore Butts are allowed (Rami's call).
 - With Rami's OK, Supabase now refuses blocked names on both leaderboard tables too, so posting straight to the database won't work. All existing names passed.
 - If a bad name ever gets through, the board and devlog show "Anonymous Retiree" instead. The word lists are in `src/data/name-filter.js`. Changing them also needs the database copy updated.
+
+## Nov 6, 2026: Memo 12 published, devlog upgrades
+- Published Memo 12, "Restless. Also, who's actually playing?": a stranger's tip, Paul's review, Kevin's ideas, the first soundtrack, and a reading list.
+- The devlog got audio players, book covers, pixel drop caps, desktop social buttons, an Apple Music playlist card, and "What changed" moved to the side column on every memo.
+- The Sprite Board now has the site's top bar and links back to the Art Room.
+- Every memo gets a 4:5 social image automatically. Memo 12 also has a 5-slide carousel (two animated) and a 16-second Reel.
