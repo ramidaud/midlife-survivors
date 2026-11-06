@@ -23,7 +23,7 @@ window.DEVLOG_POSTS = [
       "A leaderboard name filter (HR is watching)",
       "Real art for every gem, coin and projectile"
     ],
-    "nextUp": "Abdel's music, a shine on the gems, and the first new stage.",
+    "nextUp": "More on the music, plus an unofficial Midlife Survivors soundtrack on Apple Music.",
     "playUrl": "https://ramidaud.github.io/midlife-survivors/"
   },
   {
