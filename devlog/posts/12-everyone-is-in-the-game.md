@@ -40,19 +40,21 @@ thought.setVelocity(v.x - v.y * side, v.y + v.x * side);
 
 ### Paul
 
+![The cover of Shovel Knight by David L. Craddock, from Boss Fight Books.](img/book-shovel-knight.jpg "book")
+
 My coworker Paul sat down with the game and sent me notes, a screen recording, and some reading: [*Shovel Knight*](https://bossfightbooks.com/products/shovel-knight-by-david-l-craddock) by David L. Craddock, from Boss Fight Books, about how a small team made a modern classic. It felt really good to get real, honest, knowledgeable advice, and research materials to help me think more deeply about what I've gotten myself into.
 
 What came out of it:
 
-- **A steady walk.** The hero's legs used to speed up and slow down with the frame rate.^[Before, the legs moved one frame every time the screen redrew, so a slow phone meant a slow walk. Now they flip every 95 milliseconds no matter what.] Now they keep their own clock, and there are new walk cycles to go with it.
+- **A steady walk.** The hero's legs used to speed up and slow down with the frame rate.^[Before, the legs moved one frame every time the screen redrew, so a slow phone meant a slow walk. Now they flip every 95 milliseconds no matter what.] Now they keep their own clock, and the walk cycles were redrawn so the legs actually trade places.
 - **The Sprite Board.** Paul's idea: one page that shows every sprite in the game side by side, on any background color, with buttons to flip every card to the same pose. It's how I check new art now.
 - **Cleaner coworkers.** The office crowd got a pixel cleanup.
 
-One more on the reading list: [*Teaching the Game*](https://doi.org/10.17613/2j5eh-p5n15), edited by Rick Ferdig, Emily Baumgartner and Enrico Gandolfi. It collects real game design courses: how they run playtests, how students keep devlogs, and how AI fits into the work. It's free to read.
+![The 9-to-5er's walk, before and after. In the old cycle the same leg kept leading; now they alternate.](img/12-walk-before-after.gif "small")
 
-Emily is currently my creative coding professor in [EMAT](https://www.kent.edu/emat), and I took an AI workshop with Rick this summer as part of the [College of Aeronautics and Engineering](https://www.kent.edu/cae). Both professors are incredible, and if that's an indication of what the next few years have to offer, I'm excited.
+The Sprite Board is public, so you can poke around it yourself: [open the Sprite Board](https://ramidaud.github.io/midlife-survivors/tools/sprites.html). Pick a backdrop, slow everything down to a quarter speed, or flip on onion skin to see the frames stacked.
 
-And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org/books/game-programming-for-artists/9781138106130) by Jarryd Huntley and Hanna Brady. Hanna is my good friend Damian's wife, and an accomplished veteran of the video game industry. A book that teaches game programming to people who think like artists sounds like it was written for me.
+![The Sprite Board: every hero, coworker, enemy and boss in the game, animating side by side.](img/12-sprite-board.jpg)
 
 ### Kevin
 
@@ -66,13 +68,13 @@ Tonight he also asked if I had a language filter ready for the inevitable high s
 
 Best part: this has turned into a way for us to reconnect after a long time. That alone made the whole project worth it.
 
-![HR flags a bad name at Game Over. (Blurred, but you get the idea.)](img/12-hr-flagged.jpg "gallery: HR flagged that name")
+![HR flags a bad name at Game Over. (Blurred, but you get the idea.)](img/12-hr-flagged.jpg "small")
 
 ## The music
 
 The game has a soundtrack now: a title theme, three moods that build as you get older, a boss track, and a retirement party at the end. It's AI-generated. I wrote the prompts, picked the takes I liked, and Claude trimmed and leveled them for the game. The sound effects were made the same way, replacing the old code-made beeps.^[Those were made in code with the browser's built-in audio. No sound files at all.] If you miss those, there's a "Classic Beeps" switch in the pause menu.
 
-Here are two of the prompts, one phrase per line so they fit on a phone. The music came from Google's Flow Music:^[Flow Music runs on Google's Lyria music model.]
+Here are two of the prompts, one phrase per line so they fit on a phone, with a player under each so you can hear what came out. The music came from Google's Flow Music:^[Flow Music runs on Google's Lyria music model.]
 
 ```json Flow Music: title theme
 {
@@ -90,6 +92,8 @@ Here are two of the prompts, one phrase per line so they fit on a phone. The mus
 }
 ```
 
+!audio[Title theme · Flow Music](../assets/audio/music/title.mp3)
+
 And the sound effects came from ElevenLabs. This is the one you hear when a boss goes down:
 
 ```json ElevenLabs: boss defeat
@@ -106,12 +110,26 @@ And the sound effects came from ElevenLabs. This is the one you hear when a boss
 }
 ```
 
+!audio[Boss defeat · ElevenLabs](../assets/audio/sfx/sfx-boss-down-4.mp3)
+
 It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic and chaotic.
 
 ## Everything else
 
-There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, a hidden snack cart, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
+There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
 
-TJ and Derek were quiet this time, although they did get a new cart.
+TJ and Derek were quiet this time, although they did get a new cart. It parks somewhere in the lobby for the first two minutes of a run, and it only sells things you can't get later.
+
+![TJ and Derek's snack cart, steaming coffee and all.](img/12-day-one-cart.gif "small")
+
+### The reading list
+
+![The cover of Teaching the Game, Second Edition, Volume I.](img/book-teaching-the-game.jpg "book")
+
+Two more for the reading list. First, [*Teaching the Game*](https://doi.org/10.17613/2j5eh-p5n15), edited by Rick Ferdig, Emily Baumgartner and Enrico Gandolfi. It collects real game design courses: how they run playtests, how students keep devlogs, and how AI fits into the work. It's free to read.
+
+Emily is currently my creative coding professor in [EMAT](https://www.kent.edu/emat), and I took an AI workshop with Rick this summer as part of the [College of Aeronautics and Engineering](https://www.kent.edu/cae). Both professors are incredible, and if that's an indication of what the next few years have to offer, I'm excited.
+
+And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org/books/game-programming-for-artists/9781138106130) by Jarryd Huntley and Hanna Brady. Hanna is my good friend Damian's wife, and an accomplished veteran of the video game industry. A book that teaches game programming to people who think like artists sounds like it was written for me.
 
 Thank you to everyone who played, and especially to everyone who told me what they thought. Keep it coming: [join the Midlife Survivors Discord](https://discord.gg/E6N9j5tZe) and drop your notes in #playtest-notes.

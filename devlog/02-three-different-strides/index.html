@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=29">
+<link rel="stylesheet" href="../styles.css?v=30">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -57,7 +57,7 @@
     <article class="post"><div class="prose"><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-1" aria-label="Note 1">1</button><span class="sn" id="sn-1" role="note"><span class="sn-head"><b>1</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.</span></span> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
 <p>They each have four directions and four walking poses per direction. You can switch between them in the separate art test and walk around the same desks. There's also a side-by-side preview so I can compare their movement before replacing the main game's art.</p>
 <p>One useful detail: the walking animation follows distance traveled.<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-2" aria-label="Note 2">2</button><span class="sn" id="sn-2" role="note"><span class="sn-head"><b>2</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">Most games loop the walk on a timer, so a character pushing into a wall moonwalks in place. Counting steps by distance fixes that.</span></span> If you push into a desk and stop moving, your feet stop too. Small thing, but it helps the character feel connected to the room. This is the whole trick:</p>
-<figure class="code-card"><figcaption><span class="code-file">src/art-test.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>// Each frame, add up how far the character actually moved.
+<figure class="code-card lang-js"><figcaption><span class="code-file">src/art-test.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>// Each frame, add up how far the character actually moved.
 walked += distanceWalked;
 
 // Pick the walking pose from distance, not time: a new step every 17 pixels.
@@ -70,6 +70,6 @@ currentFrame = CharacterArt.frame(facing, moving ? Math.floor(walked / 17) : 1);
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);initPostLayout(document);</script>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../audio.js?v=1"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);if(window.initAudioCards)initAudioCards(document);initPostLayout(document);</script>
 </body>
 </html>

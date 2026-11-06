@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=29">
+<link rel="stylesheet" href="../styles.css?v=30">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -63,7 +63,7 @@
 <h2>The fix: the game grows with you</h2>
 <p>Now enemies get tougher and more numerous every time you level up. Bosses scale with your level and your age. Hits hurt more after 48. Coins come in slowly, so the 401(k) Shop is something you work toward over a lot of runs.</p>
 <p>Leveling up keeps you even. Permanent upgrades are how you get ahead. Here's what that looks like in the actual file. Every one of these numbers is a dial I can turn:</p>
-<figure class="code-card"><figcaption><span class="code-file">src/data/swarms.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>hpPerLevel: 0.10,     // enemies get 10% tougher for every level YOU gain
+<figure class="code-card lang-js"><figcaption><span class="code-file">src/data/swarms.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>hpPerLevel: 0.10,     // enemies get 10% tougher for every level YOU gain
 packPerLevel: 0.35,   // ...and show up in bigger groups
 bossHpPerYear: 0.10,  // bosses get 10% tougher for every year past 40
 hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 55 and 62
@@ -71,7 +71,7 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
 <h2>Then I got a second opinion</h2>
 <p>I asked Grok to review the difficulty too.<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-2" aria-label="Note 2">2</button><span class="sn" id="sn-2" role="note"><span class="sn-head"><b>2</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">Grok's notes came back as a document I handed straight to Claude. Two AIs passing notes through me, like a group project where I'm the only one who shows up to meetings.</span></span> It came back with a full handoff document: bugs (one perk claimed to boost "all weapons" and quietly skipped three of them), tuning numbers, and some new ideas. Claude worked through it in order.</p>
 <p>Two of those ideas made it in. <strong>Tax Bracket</strong> is an optional difficulty you can crank from "Standard Deduction" up to "Full Audit" for bigger rewards. And my favorite, the <strong>Comfort Zone Tax</strong>: go 45 seconds without getting hit and the game sends extra enemies for 20 seconds.</p>
-<figure class="code-card"><figcaption><span class="code-file">src/data/swarms.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>dynamic: {
+<figure class="code-card lang-js"><figcaption><span class="code-file">src/data/swarms.js</span><span class="code-lang">JS</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>dynamic: {
   armAfterMs: 90000,        // off for the first 90 seconds of a run
   noHitBonusAfterMs: 45000, // go 45 s without getting hit...
   bonusPackAdd: 2,          // ...and every group gets 2 extra enemies
@@ -84,6 +84,6 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);initPostLayout(document);</script>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../audio.js?v=1"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);if(window.initAudioCards)initAudioCards(document);initPostLayout(document);</script>
 </body>
 </html>

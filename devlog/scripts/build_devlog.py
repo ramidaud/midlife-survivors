@@ -74,7 +74,7 @@ def post_layout(body: str) -> str:
     body = re.sub(r'(?:<figure class="ba-post"[\s\S]*?</figure>\s*){2,}', tabs, body)
     body = re.sub(r'(?:<p>\s*<img [^>]*title="gallery:[^"]*"\s*/?>\s*</p>\s*){2,}', lambda m: '<div class="shot-grid">' + re.sub(
         r'<p>\s*(<img [^>]*?) title="gallery:\s*([^"]*)"\s*/?>\s*</p>\s*', lambda g: f'<figure class="shot"><div class="shot-frame">{g.group(1)}></div><figcaption>{g.group(2)}</figcaption></figure>', m.group(0)) + '</div>', body)
-    body = re.sub(r'<p>\s*(<img [^>]*?) title="(side|small)"\s*/?>\s*</p>', lambda m: f'<figure class="fig {m.group(2)}">{m.group(1)}></figure>', body)
+    body = re.sub(r'<p>\s*(<img [^>]*?) title="(side|small|book)"\s*/?>\s*</p>', lambda m: f'<figure class="fig {m.group(2)}">{m.group(1)}></figure>', body)
     return body
 
 
@@ -125,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=29">
+<link rel="stylesheet" href="../styles.css?v=30">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -162,7 +162,7 @@ PAGE = """<!doctype html>
     </article>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
-<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);initPostLayout(document);</script>
+<script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../audio.js?v=1"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);if(window.initAudioCards)initAudioCards(document);initPostLayout(document);</script>
 </body>
 </html>
 """
@@ -191,12 +191,21 @@ def main():
         cards = []
         def _code(m):
             lang, fname, code = m.group(1), (m.group(2) or "").strip(), m.group(3)
-            cards.append('<figure class="code-card"><figcaption>'
+            cards.append(f'<figure class="code-card lang-{html.escape(lang.lower())}"><figcaption>'
                          f'<span class="code-file">{html.escape(fname or lang)}</span><span class="code-lang">{html.escape(lang.upper())}</span>'
                          '<button class="code-copy" type="button">Copy</button></figcaption>'
                          f"<pre><code>{html.escape(code, quote=False)}</code></pre></figure>")
             return f"\n\nCODECARD{len(cards) - 1}\n\n"  # placeholder, swapped back after markdown
         body_md = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _code, body_md, flags=re.M)
+        # Audio cards: !audio[Label](file.mp3) -> the same player markup as audio.js
+        def _audio(m):
+            lab, src = m.group(1), m.group(2)
+            e = lambda x: html.escape(x)
+            cards.append(f'<figure class="audio-card"><button class="ac-play" type="button" aria-label="Play {e(lab)}"><span class="ac-icon" aria-hidden="true">▶</span></button>'
+                         f'<div class="ac-meta"><span class="ac-title">{e(lab)}</span><div class="ac-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="ac-fill"></span></div>'
+                         f'<span class="ac-time">0:00</span></div><audio preload="metadata" src="{e(src)}"></audio></figure>')
+            return f"\n\nCODECARD{len(cards) - 1}\n\n"
+        body_md = re.sub(r"^!audio\[([^\]]+)\]\(([^)\s]+)\)[ \t]*$", _audio, body_md, flags=re.M)
         # Sidenotes: ^[note] -> numbered margin note (same markup as app.js)
         sn = {"n": 0}
         def _sn(m):
@@ -208,6 +217,7 @@ def main():
         body = md_to_html(body_md)
         body = re.sub(r"<p>CODECARD(\d+)</p>", lambda m: cards[int(m.group(1))], body)
         body = body.replace('src="img/', 'src="../img/')
+        body = body.replace('src="../assets/', 'src="../../assets/')
         body = post_layout(body)  # the same sliders, "Then and now" tabs and side pictures as the devlog app (Nov 4)
 
         title = p["title"]
@@ -280,8 +290,9 @@ def main():
             return f"\n\nFEEDCODE{len(fcode) - 1}\n\n"
         fmd = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _fcode, raw_md, flags=re.M)
         fmd = re.sub(r"\^\[([^\]]+)\]", lambda m: f" *({m.group(1)})*", fmd)
+        fmd = re.sub(r"^!audio\[([^\]]+)\]\(([^)\s]+)\)[ \t]*$", lambda m: f"[▶ Listen: {m.group(1)}]({m.group(2).replace('../', 'https://ramidaud.github.io/midlife-survivors/', 1)})", fmd, flags=re.M)
         fbody = md_to_html(fmd)
-        fbody = re.sub(r' title="(?:compare:[^"]*|side|small|gallery:[^"]*)"', "", fbody)
+        fbody = re.sub(r' title="(?:compare:[^"]*|side|small|book|gallery:[^"]*)"', "", fbody)
         fbody = re.sub(r"<p>FEEDCODE(\d+)</p>", lambda m: f"<pre><code>{html.escape(fcode[int(m.group(1))], quote=False)}</code></pre>", fbody)
         fbody = re.sub(r'(src|href)="(?!https?:|mailto:|#)(?:\.\./)?', lambda m: f'{m.group(1)}="{site}/', fbody)
         flead = ""

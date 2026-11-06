@@ -308,6 +308,11 @@
       codeCards.push(`<figure class="code-card lang-${esc(lang.toLowerCase())}"><figcaption><span class="code-file">${esc(file.trim() || lang)}</span><span class="code-lang">${esc(lang.toUpperCase())}</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>${esc(body)}</code></pre></figure>`);
       return `\n\nCODECARD${codeCards.length - 1}\n\n`; // placeholder, swapped back after markdown
     });
+    // Audio cards: !audio[Label](path/to/file.mp3) on its own line becomes a play/pause player (audio.js).
+    md = md.replace(/^!audio\[([^\]]+)\]\(([^)\s]+)\)[ \t]*$/gm, (m, label, src) => {
+      codeCards.push(window.audioCardHTML ? audioCardHTML(label, src) : `<p><a href="${esc(src)}">▶ ${esc(label)}</a></p>`);
+      return `\n\nCODECARD${codeCards.length - 1}\n\n`;
+    });
     // Sidenotes: write ^[a note] in the markdown. It becomes a small orange number;
     // the note sits in the margin on wide screens and opens under the line when tapped on phones.
     let snCount = 0;
@@ -343,7 +348,7 @@
       `<div class="shot-grid">` + block.replace(/<p>\s*(<img [^>]*?) title="gallery:\s*([^"]*)">\s*<\/p>\s*/g,
         (m, img, label) => `<figure class="shot"><div class="shot-frame">${img}></div><figcaption>${label}</figcaption></figure>`) + `</div>`);
     // Image size hints in the markdown title: "side" sits beside the text on wide screens, "small" stays modest.
-    html = html.replace(/<p>\s*(<img [^>]*?) title="(side|small)">\s*<\/p>/g, (m, img, kind) => `<figure class="fig ${kind}">${img}></figure>`);
+    html = html.replace(/<p>\s*(<img [^>]*?) title="(side|small|book)">\s*<\/p>/g, (m, img, kind) => `<figure class="fig ${kind}">${img}></figure>`);
 
     const { prev, next } = neighbors(post.slug);
     const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
@@ -428,6 +433,7 @@
     if (window.DevlogHome) { window.DevlogHome.stampPosts(); window.DevlogHome.postBuilds(post.slug); }
     if (window.initSidenotes) initSidenotes(postMain);
     if (window.initCodeCards) initCodeCards(postMain);
+    if (window.initAudioCards) initAudioCards(postMain);
     window.scrollTo(0, 0);
     updateProgress();
   }
