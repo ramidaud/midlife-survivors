@@ -41,6 +41,10 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [ ] **Hero art polish (Paul McKinney's review, Nov 5).** Step 1 done (V. 2.7.11): walk rows redrawn so the legs alternate. Step 2 near the end: a polish round on the four heroes drawn natively at game size, with readable small details (Mario's mustache idea), and calmer idle loops for the seated coworkers. Check every change on the Sprite Board (`tools/sprites.html`, CHANGED PIXELS view).
 - Still open from V2: Lounge redo (Rami sent photos of the real student lounge Nov 4; ChatGPT brief out), Abdel's music, Errands, a Daily Challenge.
 
+## Devlog to-do (Nov 6)
+- [ ] **Memo 13: the music memo.** Rami sends a voice memo on why music matters to him (teased in Memo 12).
+- [ ] **Memo 14: how I write these memos.** Answer the interview questions in `docs/devlog-plans/how-i-write-these-memos.md` (why your own words matter, what Claude gets wrong in your voice, the edit that mattered most in Memo 12, editing memos vs editing photos, what you're still unsure about).
+
 ## Now (Nov 3)
 - [x] Bonus chests, elites, poster title, one look, lighting, dev console (V. 1.48 to 1.60)
 - [x] **Healing 1:** birthday cake every 5 years and the Desk Salad (V. 1.61.0), freeze safety net (V. 1.61.1)

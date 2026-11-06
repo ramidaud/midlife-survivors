@@ -75,7 +75,7 @@ window.INTERNS = {
       { id: "quietHour",    name: "Quiet Hour Pass", price: 22, stock: 1, clearRadius: 220, text: "Small fry near you clock out early." },
       { id: "bandAidKit",   name: "First-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." },
     ],
-    // Day One cart (Nov 5, Rami): for the first minute of every run, the Lounge rolls a cart into the Lobby
+    // Day One cart (Nov 5, Rami): for the first two minutes of every run (openMs), the Lounge rolls a cart into the Lobby
     // (the Break Room is still locked). It sells the Lounge-only weapons, while you still have free hands,
     // and perks that last the whole run. The Break Room counter later sticks to heals and quick buffs.
     cart: {
