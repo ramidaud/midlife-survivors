@@ -38,6 +38,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 - **2D only for now.** The Diablo and 3D views are parked with `window.ENABLE_3D_VIEWS = false` in `src/view3d.js`. Don't build features for them.
 - **Data-driven content.** Enemies, weapons, passives and waves live in `src/data/*.js` as plain lists, so Rami can tweak numbers and jokes without touching game logic.
 - **Desktop packaging** (Electron/Tauri, itch.io, Steam) is a later decision. Keep code browser-first so any option stays open.
+- **Deploys (Nov 6, Rami's OK):** the site deploys through `.github/workflows/pages.yml`, which publishes only the files the game and devlog use (no docs, reports, art source files, studies, QA shots or zips) with a 30-minute deploy timeout. If a page shows a missing image, check its EXCLUDE pattern.
 
 ## Folder layout
 ```

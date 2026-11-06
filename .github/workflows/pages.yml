@@ -1,0 +1,41 @@
+# Publishes the site to GitHub Pages (Nov 6, Rami's OK).
+# Why: the plain "deploy from branch" upload grew to ~380 MB / 2,200 files and started timing out after 10 minutes.
+# This uploads only what the game and devlog load (about 145 MB), skipping docs, reports, art source files,
+# studies, QA screenshots and zips, and it gives the deploy 30 minutes instead of 10.
+# Nothing is deleted from the repo. If a page ever shows a missing image, check the EXCLUDE pattern below.
+name: Deploy site
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["docs/**", "reports/**", ".github/discord-state.json", "CLAUDE.md"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gather the files the site uses
+        run: |
+          EXCLUDE='(^CLAUDE\.md$|\.zip$|\.swift$|source|study|/layout-plan/|contact-sheet|/qa-|/qa/)'
+          git ls-files | grep -v -E '^(docs/|reports/|output/|\.github/)' | grep -v -E "$EXCLUDE" > /tmp/keep.txt
+          mkdir _site && tar -cf - -T /tmp/keep.txt | tar -xf - -C _site
+          touch _site/.nojekyll
+          echo "Publishing $(wc -l < /tmp/keep.txt) files, $(du -sh _site | cut -f1)"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000
