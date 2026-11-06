@@ -1,25 +1,23 @@
-# Play stats: Nov 5 morning (last 24 hours)
-**Bills came due.** Bill is back on top as the main killer, and more runs ended before 45 than the day before.
+# Play stats: Nov 6 morning (last 24 hours)
+**Fewer runs, deeper runs.** More players reached 50 and 55 than last week, but the first two years got rougher.
 
 **Who played**
-- 115 runs from 25 players (13 new, 12 returning)
-- All-time: 434 runs from 63 players
-- Phone 59 runs, desktop 51
+- 55 runs from 12 players, most of them returning
+- All-time: 489 runs from 66 players
+- Desktop 33 runs, phone 14, tablet 8
 
 **How far they got**
-- Median run 3.5 min (was 4.5), median age 44.7 (was 47)
-- Reached 50: 29%, reached 55: 16%, reached 60: 10%
+- Median run 3.3 min (week before: 3.1), median age 45.1 (was 44.3)
+- Reached 50: 36%, reached 55: 22%, reached 60: 13%, reached 65: 9%
 
 **Top killers**
-- Bill 32, Snack Attack 12, Late Fee 9, Group Chat 8
+- Bill 10, Late Fee 7, Office Gossip 5
 
 **Difficulty**
-- 38% of finished runs died before 45 (was 28%)
-- 10% died before 42 (was 5%)
-- Most common age of death: 44
-- Median per run: 19 hits and 27 damage taken
+- 15% of runs died before 42 (week before: 8%)
+- 22% of runs died before 45 (was 27%)
+- Most common age of death: 41
+- Median per run: 18 hits and 31 damage taken
 
 **Lag**
-- Desktop averages 76.9 fps, phones 58.8 fps
-
-These numbers mostly cover builds before V. 2.2.
+- Desktop averages 66.8 fps, and no device type averaged under 45 fps
