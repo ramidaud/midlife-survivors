@@ -90,4 +90,6 @@ It still needs work, honestly. I want my son to make it, but he's still learning
 
 There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, a hidden snack cart, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
 
-Thank you to everyone who played, and especially to everyone who told me what they thought. Keep it coming.
+TJ and Derek were quiet this time, although they did get a new cart.
+
+Thank you to everyone who played, and especially to everyone who told me what they thought. Keep it coming: [join the Midlife Survivors Discord](https://discord.gg/E6N9j5tZe) and drop your notes in #playtest-notes.
