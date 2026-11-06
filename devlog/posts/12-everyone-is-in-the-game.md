@@ -20,13 +20,39 @@ And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org
 
 The game has a soundtrack now: a title theme, three moods that build as you get older, a boss track, and a retirement party at the end. It's AI-generated. I wrote the prompts, picked the takes I liked, and Claude trimmed and leveled them for the game. The sound effects were made the same way, replacing the old code-made beeps. If you miss those, there's a "Classic Beeps" switch in the pause menu.
 
-The music came from Google's Flow Music. Here's the prompt for the title theme:
+Here are two of the prompts, one phrase per line so they fit on a phone. The music came from Google's Flow Music:
 
-> 16-bit SNES-style chiptune title screen theme, catchy square-wave lead melody, soft bass, light drums, warm, a little wistful and optimistic, like coffee on a Monday morning, major key, 100 bpm, steady tempo, loops cleanly, no fade-out
+```json Flow Music: title theme
+{
+  "tool": "Google Flow Music",
+  "track": "title theme, take 2",
+  "prompt": [
+    "16-bit SNES-style chiptune title screen theme",
+    "catchy square-wave lead melody",
+    "soft bass, light drums",
+    "warm, a little wistful and optimistic",
+    "like coffee on a Monday morning",
+    "major key, 100 bpm, steady tempo",
+    "loops cleanly, no fade-out"
+  ]
+}
+```
 
-The sound effects came from ElevenLabs. Here's the one for the boss defeat:
+And the sound effects came from ElevenLabs. This is the one you hear when a boss goes down:
 
-> Cartoon boss defeat, a comedic crash, a descending slide whistle, then a loud rubber stamp thump, retro game style
+```json ElevenLabs: boss defeat
+{
+  "tool": "ElevenLabs Sound Effects",
+  "sound": "boss defeat",
+  "prompt": [
+    "Cartoon boss defeat",
+    "a comedic crash",
+    "a descending slide whistle",
+    "then a loud rubber stamp thump",
+    "retro game style"
+  ]
+}
+```
 
 It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic and chaotic.
 
@@ -61,5 +87,27 @@ I'm not great at sitting still, and this gives me somewhere to put it.
 ## Everything else
 
 There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, a hidden snack cart, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
+
+## The cover
+
+The cover started as a photo of my desk at midnight. I asked ChatGPT to turn it into pixel art, with a little more code on the screen. The first version had me looking crazy, so I asked it to take me out and just focus on the desk. Here's the core of the prompt:
+
+```json ChatGPT: Memo 12 cover
+{
+  "based_on": "a photo of my desk at night",
+  "style": "crisp 16-bit pixel art, navy outlines, cozy and a little funny",
+  "lighting": "dark room, cool screen glow, one warm desk lamp",
+  "left_monitor": "MORE CODE: colorful JavaScript in a dark editor",
+  "right_monitor": "Bills marching straight, 3 AM Thoughts weaving",
+  "wall": "kids' crayon drawings: a red race car, a jellyfish",
+  "small_jokes": [
+    "sticky note: HR flagged that name",
+    "sticky note: holistic AND chaotic",
+    "a 3 AM Thought peeking over the monitor",
+    "a stack of empty coffee cups"
+  ],
+  "avoid": "real brand logos"
+}
+```
 
 Thank you to everyone who played, and especially to everyone who told me what they thought. Keep it coming.

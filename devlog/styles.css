@@ -557,6 +557,9 @@ article.post .prose { position: relative; }
 .code-card pre { margin: 0; padding: 14px 0; overflow-x: auto; }
 .code-card code { display: block; counter-reset: ln; font: 14px/1.6 ui-monospace, "SF Mono", Menlo, Consolas, monospace; color: #dfe3f2; white-space: pre; }
 .code-card .ln { display: block; padding: 0 16px 0 0; }
+/* Prompts (JSON cards) wrap instead of scrolling sideways, so they read on a phone */
+.code-card.lang-json code { white-space: pre-wrap; overflow-wrap: anywhere; }
+.code-card.lang-json .ln { padding-left: calc(2.6em + 14px); text-indent: calc(-2.6em - 14px); }
 .code-card .ln::before { counter-increment: ln; content: counter(ln); display: inline-block; width: 2.6em; margin-right: 14px; text-align: right; color: #526078; user-select: none; }
 .tk-c { color: #a9d4bf; font-style: italic; }   /* comments: the plain-English "why" */
 .tk-s { color: var(--cream); }

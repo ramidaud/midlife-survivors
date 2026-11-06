@@ -305,7 +305,7 @@
     // Code snippets: ```js src/file.js ... ``` becomes a code card with a file tab (styled by code.js + styles.css).
     const codeCards = [];
     md = md.replace(/^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$/gm, (m, lang, file, body) => {
-      codeCards.push(`<figure class="code-card"><figcaption><span class="code-file">${esc(file.trim() || lang)}</span><span class="code-lang">${esc(lang.toUpperCase())}</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>${esc(body)}</code></pre></figure>`);
+      codeCards.push(`<figure class="code-card lang-${esc(lang.toLowerCase())}"><figcaption><span class="code-file">${esc(file.trim() || lang)}</span><span class="code-lang">${esc(lang.toUpperCase())}</span><button class="code-copy" type="button">Copy</button></figcaption><pre><code>${esc(body)}</code></pre></figure>`);
       return `\n\nCODECARD${codeCards.length - 1}\n\n`; // placeholder, swapped back after markdown
     });
     // Sidenotes: write ^[a note] in the markdown. It becomes a small orange number;
