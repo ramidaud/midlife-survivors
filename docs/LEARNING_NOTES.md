@@ -612,3 +612,7 @@ The XP gem lives in a 32px cell, but it has to read at 16px on carpet. A cream f
 
 ## Reading the swarm by motion (Nov 5)
 When hundreds of enemies are on screen, you can't read their faces, but you can read how they move. Giving each enemy type its own path (straight, weaving, dashing, stop-and-go) lets the player tell them apart at a glance, even on a phone. The 3 AM Thought's weave only adds a sideways push on a sine wave, so it still closes in at the same speed. Game designers call this a "motion silhouette."
+
+## Reading list
+- **Shovel Knight** by David L. Craddock (Boss Fight Books, 2018). Recommended by Paul McKinney (Nov 2026). How Yacht Club Games built Shovel Knight. [Amazon](https://www.amazon.com/dp/1940535190) · [Publisher](https://bossfightbooks.com/products/shovel-knight-by-david-l-craddock)
+- **Miyamoto's World 1-1 design breakdown** (video), also from Paul: how the first level of Super Mario Bros. teaches you the game without words.
