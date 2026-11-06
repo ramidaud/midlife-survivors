@@ -175,7 +175,7 @@ def make_social_post(root: Path, post: dict) -> str | None:
 
 
 def make_slide(root: Path, out: Path, strip_left: str, art, title: str, caption: str = "",
-               footer_left: str = "READ IT + PLAY FREE", contain: bool = False) -> bool:
+               footer_left: str = "READ IT + PLAY FREE", contain: bool = False, show_url: bool = True) -> bool:
     """One 1080x1350 slide in the social post style (Nov 6). `art` is a PIL image.
     contain=True fits the whole image on navy (screenshots, sprites); otherwise it fills the 16:9 band."""
     from PIL import Image, ImageDraw
@@ -212,11 +212,24 @@ def make_slide(root: Path, out: Path, strip_left: str, art, title: str, caption:
             d.text((52, y), ln, font=bf, fill=WARM); y += bf.size + 10
     d.rectangle([0, SH - 92, SW, SH], fill=(30, 36, 64))
     d.text((52, SH - 62), footer_left, font=silk(26), fill=COFFEE)
-    url = "ramidaud.github.io/midlife-survivors"
-    d.text((SW - 52 - d.textlength(url, font=body(30)), SH - 64), url, font=body(30), fill=CREAM)
+    if show_url:
+        url = "ramidaud.github.io/midlife-survivors"
+        d.text((SW - 52 - d.textlength(url, font=body(30)), SH - 64), url, font=body(30), fill=CREAM)
     out.parent.mkdir(parents=True, exist_ok=True)
     im.save(out, "JPEG", quality=88, optimize=True, progressive=True)
     return True
+
+
+def to_reel(slide_path: Path, out: Path) -> None:
+    """Place a 1080x1350 slide on a 1080x1920 (9:16) navy frame for Reels and Stories (Nov 6).
+    It sits a little above center, inside Instagram's safe area: clear of the top bar, the caption at the
+    bottom and the like/comment buttons on the right."""
+    from PIL import Image
+    s = Image.open(slide_path).convert("RGB").resize((950, 1188), Image.LANCZOS)
+    im = Image.new("RGB", (1080, 1920), NAVY)
+    im.paste(s, (65, 250))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    im.save(out, "JPEG", quality=90)
 
 
 def make_post_card(root: Path, post: dict) -> str | None:
