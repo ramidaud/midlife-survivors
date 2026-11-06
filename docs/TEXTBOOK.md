@@ -1837,3 +1837,19 @@ Drawing the map is a stencil:
  tags and bubbles           depth 50 000  always on top
 ```
 - Before the fix, TJ had depth 4.6: smaller than every wall, so always hidden.
+
+## Chapter: Motion silhouettes (Nov 5)
+
+```
+Bill (straight)          3 AM Thought (weave)
+   $                         3AM
+   |                          \
+   |                          /
+   |                          \
+   v                          /
+  YOU                        YOU
+```
+
+- Both arrive at the same time. Only the path is different.
+- Sideways speed comes from a sine wave: `sideways = cos(time) × weavePx × swing speed`.
+- Rule of thumb: if two enemies look alike when they're tiny, make them move differently.

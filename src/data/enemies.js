@@ -89,7 +89,11 @@ window.ENEMIES = {
     color: 0x9a8cff,
     solidMs: 1800,     // solid: can hurt you and be hit
     ghostMs: 1500,     // ghost: see-through, can't hurt you or be hit, sneaks closer faster
-    ghostSpeed: 125
+    ghostSpeed: 125,
+    // Weave (Nov 5, Facebook tip from "Deep Diver 2"): Bills march straight in, Thoughts drift side to side,
+    // so you can tell them apart in a crowd by how they move. Sideways only, so they reach you just as fast as before.
+    weaveHz: 0.8,      // side-to-side swings per second
+    weavePx: 18        // how far it drifts to each side, in pixels (0 = straight line like a Bill)
   },
   calendarInvite: {
     name: "Calendar Invite",

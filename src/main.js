@@ -2715,6 +2715,14 @@ function update(time, delta) {
         bill.tag.setAlpha(ghost ? 0.3 : 1);
       }
       chase(bill, ghost ? T.ghostSpeed : bill.speed);
+      // Weave: push sideways (across the direction it's heading) on a slow sine wave. Each Thought starts at its own point.
+      if (bill.weavePhase === undefined) bill.weavePhase = Math.random() * Math.PI * 2;
+      const v = bill.body.velocity, len = Math.hypot(v.x, v.y);
+      if (len > 1 && T.weavePx) {
+        const w = Math.PI * 2 * (T.weaveHz || 1); // sideways speed = the slope of a sine wave that's weavePx tall
+        const side = Math.cos(bill.weavePhase + ageMs / 1000 * w) * T.weavePx * w / len;
+        bill.setVelocity(v.x - v.y * side, v.y + v.x * side);
+      }
       bill.tag.setPosition(bill.x, bill.y - T.size / 2 - 6);
       return;
     }

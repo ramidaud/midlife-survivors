@@ -1583,3 +1583,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The art drops into the old sizes, so hitboxes and balance didn't change. The Remote and snowflake got a little more room.
 - The shine/motion row isn't animated yet. That's an easy follow-up if the idle art feels flat.
 - Stats: Rami's Mac, iPad and iPhone are on the exclude list (94 of 473 runs were his).
+
+## Nov 5, 2026 (late): 3 AM Thoughts weave (V2.10.4)
+- Tip from a Facebook commenter: enemies should move differently so you can tell them apart by motion when 200 are on screen.
+- 3 AM Thoughts now drift side to side (about 18 px each way, a bit under one swing per second) while Bills march straight in.
+- The drift is only sideways, so they reach you just as fast as before. Tune it with `weaveHz` and `weavePx` in `src/data/enemies.js`.

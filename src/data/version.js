@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.3",
-  displayVersion: "V. 2.10.3",
+  version: "2.10.4",
+  displayVersion: "V. 2.10.4",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 261,
+  build: 262,
   changelog: [
+    {
+      ver: "V. 2.10.4", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "3 AM Thoughts don't walk straight anymore. Neither do yours.",
+      highlights: [
+        "3 AM Thoughts now drift side to side as they close in, while Bills march straight at you. Easy to tell apart in a crowd. (Thanks to a tip on Facebook.)"
+      ]
+    },
     {
       ver: "V. 2.10.3", date: "Nov 5, 2026", title: "Version Two",
       teaser: "Real pixel art for the stuff you pick up and the stuff you throw.",

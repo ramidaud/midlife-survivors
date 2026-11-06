@@ -609,3 +609,6 @@ RGBA stores an alpha value alongside each pixel's color. A fully transparent pix
 ## 2026-11-05 Check a sprite at the size players see (Codex)
 
 The XP gem lives in a 32px cell, but it has to read at 16px on carpet. A cream facet and dark outline survive that reduction. Checking against the actual carpet shows which details still read at play size.
+
+## Reading the swarm by motion (Nov 5)
+When hundreds of enemies are on screen, you can't read their faces, but you can read how they move. Giving each enemy type its own path (straight, weaving, dashing, stop-and-go) lets the player tell them apart at a glance, even on a phone. The 3 AM Thought's weave only adds a sideways push on a sine wave, so it still closes in at the same speed. Game designers call this a "motion silhouette."
