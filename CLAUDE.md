@@ -73,6 +73,7 @@ The game and the devlog are one product.
 - **Building blocks:** cream "MEMO · RE:" strips, tiles with teal borders, the shared progress bar (`assets/ui/ms-bar.css`) and the universal nav (`assets/ui/ms-nav.*`).
 - **Every screen is checked** at phone, iPad (both orientations) and desktop sizes before it ships.
 - **Devlog memos (Nov 6):** "What changed" and "Next up" live in the right column (below the memo on phones and share pages), and every memo opens with a pixel-font drop cap.
+- **Social post images (Nov 6):** every memo gets a 1080x1350 (4:5) image in this style: cream "MEMO NN · RE:" strip, the cover art full width, a coffee-orange rule, the title in Silkscreen caps on navy, the teaser in Atkinson, and a footer with "READ IT + PLAY FREE" and the site address. `devlog/scripts/share_cards.py` (`make_social_post`) builds it automatically into `devlog/img/social/`.
 
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
