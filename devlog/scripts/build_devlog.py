@@ -125,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=31">
+<link rel="stylesheet" href="../styles.css?v=32">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -214,6 +214,7 @@ def main():
                     f'<span class="sn" id="sn-{n}" role="note"><span class="sn-head"><b>{n}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">{inner}</span></span>')
         body_md = re.sub(r"\^\[([^\]]+)\]", _sn, body_md)
         body = md_to_html(body_md)
+        body = re.sub(r'<p>([A-Za-z])', r'<p><span class="dropcap" aria-hidden="true">\1</span><span class="sr-only">\1</span>', body, count=1)
         body = re.sub(r"<p>CODECARD(\d+)</p>", lambda m: cards[int(m.group(1))], body)
         body = body.replace('src="img/', 'src="../img/')
         body = body.replace('src="../assets/', 'src="../../assets/')

@@ -884,7 +884,14 @@ article.post .prose .shot figcaption { font: 10px var(--display); letter-spacing
 .post-facts-end .changes-box { padding: 14px 16px; border: 1px solid var(--teal); background: var(--surface-2); }
 
 /* Drop cap (Nov 6): every memo opens with a big pixel-font initial with a hard shadow */
-article.post .prose > p:first-of-type::first-letter {
+article.post .prose .dropcap {
   float: left; font-family: var(--display); font-weight: 700; font-size: 3.6em; line-height: .82;
-  margin: .08em .12em 0 0; color: var(--orange); text-shadow: 4px 4px 0 var(--navy);
+  margin: .08em .12em 0 0; color: var(--orange); text-shadow: 4px 4px 0 rgba(255,240,207,.28);
 }
+
+/* A small pixel portrait inside a sidenote (Nov 6), e.g. Ben's mugshot */
+.sn img.sn-mug { display: block; width: 96px !important; height: 96px !important; max-width: none; margin: 2px 0 8px; image-rendering: pixelated; border-radius: 6px; }
+/* The Midlife Survivors playlist (Apple Music) in the side column */
+.side-card.playlist iframe { display: block; width: 100%; height: 450px; border: 0; border-radius: 10px; background: transparent; }
+.side-card.playlist p { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }

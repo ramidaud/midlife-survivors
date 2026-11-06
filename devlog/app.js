@@ -325,6 +325,8 @@
       ? marked.parse(md, { gfm: true })
       : `<pre>${esc(md)}</pre>`;
     html = html.replace(/<p>CODECARD(\d+)<\/p>/g, (m, i) => codeCards[+i] || "");
+    // Drop cap: wrap just the first letter of the first paragraph (so "I've" gets a big I, not "I'")
+    html = html.replace(/<p>([A-Za-z])/, '<p><span class="dropcap" aria-hidden="true">$1</span><span class="sr-only">$1</span>');
     // Before/after sliders: an image whose title is "compare: img/before.jpg | img/after.jpg" becomes a swipe slider here.
     // RSS, Substack and share pages keep the plain combined image, since email can't run a slider.
     // An optional third part names the tab when several sliders sit together: "compare: a.jpg | b.jpg | Title screen".

@@ -4,7 +4,7 @@ A couple hundred people stopped by the game this week, which still blows my mind
 
 ## Who's actually playing
 
-I looked at the traffic for the first time this week.^[I use GoatCounter, which counts page visits without cookies or names. It can't tell how long anyone stays, so for that I look at how long runs last.] Most people play on their phones. Somebody in Taiwan plays a lot (that's my friend Ben).^[Ben's in the game, too. Play as the Coldwar Cowboy and some of the dad jokes and last words are his.]
+I looked at the traffic for the first time this week.^[I use GoatCounter, which counts page visits without cookies or names. It can't tell how long anyone stays, so for that I look at how long runs last.] Most people play on their phones. Somebody in Taiwan plays a lot (that's my friend Ben).^[<img class="sn-mug" src="img/12-ben-mugshot.gif" alt="Pixel Ben as the Coldwar Cowboy, sipping coffee." width="96" height="96">Ben's in the game, too. Play as the Coldwar Cowboy and some of the dad jokes and last words are his.]
 
 In a world of social media, it's really cool that people took time out to try something that came out of some random new obsession of mine. Well, maybe not so random. This has been cooking in my head for a long time, but I kept getting overwhelmed by the coding. My brain tried, but it just doesn't hold on to it. Practice makes perfect, though, and hopefully I'll start to pull some real lessons for myself out of this as well.
 
