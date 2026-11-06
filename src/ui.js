@@ -3071,6 +3071,7 @@ function renderGameOverModal(scene, cause, isWin, killer) {
     if (posted) return;
     const name = window.lbCleanName(nameInput.value);
     if (!name) { scoreMsg.textContent = "Type a name first."; nameInput.focus(); return; }
+    if (window.lbNameOk && !window.lbNameOk(name)) { scoreMsg.textContent = "HR flagged that name. Try another one."; nameInput.select(); return; }
     posted = true;
     window.lbSaveName(name);
     nameInput.blur();

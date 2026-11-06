@@ -34,6 +34,9 @@ function computeRunScore(ageReached, startAge, kills, coins, isClear) {
 function lbCleanName(raw) {
   return String(raw || "").replace(/[<>"'`\\]/g, "").replace(/\s+/g, " ").trim().slice(0, 16);
 }
+function lbNameOk(raw) { return window.nameOk ? window.nameOk(raw) : true; } // src/data/name-filter.js
+function lbShownName(name) { return lbNameOk(name) ? name : ((window.NAME_FILTER && NAME_FILTER.replacement) || "Anonymous"); }
+
 function lbSavedName() { try { return localStorage.getItem(LB_NAME_KEY) || ""; } catch (e) { return ""; } }
 function lbSaveName(n) { try { localStorage.setItem(LB_NAME_KEY, n); } catch (e) {} }
 
@@ -122,7 +125,7 @@ async function lbRenderInto(el, mine) {
   const anyLegacy = rows.some(legacy);
   const body = rows.length ? rows.map((r, i) => {
     const me = mine && r.name === mine.name && Number(r.score) === Number(mine.score);
-    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(r.name)}${legacy(r) ? ` <span class="lb-legacy" title="Played before V. 2.0, when Midlife ran to age 80">LEGACY</span>` : ""}${/ B( |$)/.test(r.version || "") ? ` <span class="lb-legacy lb-buyout" title="Took the Corporate Buyout this fiscal year">BOUGHT OUT</span>` : ""}${/ S( T\d)?$/.test(r.version || "") ? ` <span class="lb-tax" title="Sprint">⚡</span>` : ""}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
+    return `<tr class="${me ? "lb-me" : ""}"><td>${i + 1}</td><td>${lbEscape(lbShownName(r.name))}${legacy(r) ? ` <span class="lb-legacy" title="Played before V. 2.0, when Midlife ran to age 80">LEGACY</span>` : ""}${/ B( |$)/.test(r.version || "") ? ` <span class="lb-legacy lb-buyout" title="Took the Corporate Buyout this fiscal year">BOUGHT OUT</span>` : ""}${/ S( T\d)?$/.test(r.version || "") ? ` <span class="lb-tax" title="Sprint">⚡</span>` : ""}${/ T(\d)$/.test(r.version || "") ? ` <span class="lb-tax">TAX×${(r.version.match(/ T(\d)$/) || [])[1]}</span>` : ""}</td><td>${Number(r.score).toLocaleString()}</td><td>${Number(r.age).toFixed(1)}</td><td>${lbEscape(charName(r.character))}</td></tr>`;
   }).join("") : (empty
     ? `<tr><td colspan="5" class="lb-empty">Couldn't load the scores just now. <button class="lb-retry" type="button">↻ RETRY</button></td></tr>`
     : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`);
@@ -145,4 +148,6 @@ window.lbRenderInto = lbRenderInto;
 window.lbSavedName = lbSavedName;
 window.lbSaveName = lbSaveName;
 window.lbCleanName = lbCleanName;
+window.lbNameOk = lbNameOk;
+window.lbShownName = lbShownName;
 window.lbConfigured = lbConfigured;

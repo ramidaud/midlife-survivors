@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.4",
-  displayVersion: "V. 2.10.4",
+  version: "2.10.5",
+  displayVersion: "V. 2.10.5",
   lastUpdated: "Nov 5, 2026",
   codename: "Version Two",
-  build: 262,
+  build: 263,
   changelog: [
+    {
+      ver: "V. 2.10.5", date: "Nov 5, 2026", title: "Version Two",
+      teaser: "HR has entered the leaderboard.",
+      highlights: [
+        "Leaderboard names now go past HR. Swears, slurs and hate terms get turned away. Classic office pun names are still fine. (Thanks, Kevin.)"
+      ]
+    },
     {
       ver: "V. 2.10.4", date: "Nov 5, 2026", title: "Version Two",
       teaser: "3 AM Thoughts don't walk straight anymore. Neither do yours.",

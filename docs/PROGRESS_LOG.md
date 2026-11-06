@@ -1588,3 +1588,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Tip from a Facebook commenter: enemies should move differently so you can tell them apart by motion when 200 are on screen.
 - 3 AM Thoughts now drift side to side (about 18 px each way, a bit under one swing per second) while Bills march straight in.
 - The drift is only sideways, so they reach you just as fast as before. Tune it with `weaveHz` and `weavePx` in `src/data/enemies.js`.
+
+## Nov 5, 2026 (late): leaderboard name filter (V2.10.5)
+- Kevin's tip on Discord: the leaderboard needs a language filter before it gets popular.
+- Swears, slurs and hate terms are blocked at Post Score ("HR flagged that name"). Number swaps like 5h1t and stretched spellings are caught. Mild pun names like Semore Butts are allowed (Rami's call).
+- With Rami's OK, Supabase now refuses blocked names on both leaderboard tables too, so posting straight to the database won't work. All existing names passed.
+- If a bad name ever gets through, the board and devlog show "Anonymous Retiree" instead. The word lists are in `src/data/name-filter.js`. Changing them also needs the database copy updated.
