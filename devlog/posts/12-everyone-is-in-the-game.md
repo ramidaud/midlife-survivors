@@ -42,6 +42,8 @@ I looked at the traffic for the first time this week. Most people play on their 
 
 In a world of social media, it's really cool that people took time out to try something that came out of some random new obsession of mine. Well, maybe not so random. This has been cooking in my head for a long time, but I kept getting overwhelmed by the coding. My brain tried, but it just doesn't hold on to it. Practice makes perfect, though, and hopefully I'll start to pull some real lessons for myself out of this as well.
 
+I'm not great at sitting still, and this gives me somewhere to put it.
+
 ## Everything else
 
 There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, a hidden snack cart, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the changelog.
