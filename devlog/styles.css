@@ -1,3 +1,5 @@
+/* VT323 (SIL OFL, self-hosted): a pixel font with serifs, used for the big first letter of each memo */
+@font-face { font-family: "VT323"; src: url("fonts/vt323-latin-400.woff2") format("woff2"); font-display: swap; }
 /* Midlife Survivors Devlog mockup — palette from assets/art-direction/STYLE_GUIDE.md */
 :root {
   --navy: #171C35;
@@ -885,14 +887,14 @@ article.post .prose .shot figcaption { font: 10px var(--display); letter-spacing
 
 /* Drop cap (Nov 6): every memo opens with a big pixel-font initial with a hard shadow */
 article.post .prose .dropcap {
-  float: left; font-family: var(--display); font-weight: 700; font-size: 3.6em; line-height: .82;
-  margin: .08em .12em 0 0; color: var(--orange); text-shadow: 4px 4px 0 rgba(255,240,207,.28);
+  float: left; font-family: "VT323", var(--display); font-weight: 400; font-size: 5.6em; line-height: .68;
+  margin: .06em .1em 0 0; color: var(--orange); text-shadow: 4px 4px 0 rgba(255,240,207,.28);
 }
 
 /* A small pixel portrait inside a sidenote (Nov 6), e.g. Ben's mugshot */
 .sn img.sn-mug { display: block; width: 96px !important; height: 96px !important; max-width: none; margin: 2px 0 8px; image-rendering: pixelated; border-radius: 6px; }
 /* The Midlife Survivors playlist (Apple Music) in the side column */
-.side-card.playlist iframe { display: block; width: 100%; height: 450px; border: 0; border-radius: 10px; background: transparent; }
+.side-card.playlist iframe { display: block; width: 100%; height: 450px; border: 0; border-radius: 10px; background: transparent; color-scheme: dark; }
 .side-card.playlist p { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 /* Desktop social buttons beside Share (Nov 6). Hidden on touch screens, which get the share sheet instead. */

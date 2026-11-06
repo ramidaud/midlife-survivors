@@ -133,6 +133,8 @@ And the sound effects came from ElevenLabs. This is the one you hear when a boss
 
 It still needs work, honestly. I want my son to make it, but he's still learning. I want the music and sound effects to hang together and still feel a little chaotic, like midlife. That's a hard balance.
 
+In the meantime, I made an unofficial soundtrack: [the Midlife Survivors playlist on Apple Music](https://music.apple.com/us/playlist/midlife-survivors/pl.u-D8mPuala4BW), songs that fit the vibe of the game. Next memo, I'll get into why music matters so much to me, and why it's become one of the most important side characters in this whole thing.
+
 ## Everything else
 
 There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
