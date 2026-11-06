@@ -2,7 +2,7 @@ This one's going to be a little different. Most of what changed since the last m
 
 ## Paul's review
 
-My coworker Paul sat down with the game and sent me notes, a screen recording, and some reading: [*Shovel Knight*](https://www.amazon.com/dp/1940535190) by David L. Craddock, from Boss Fight Books, about how a small team made a modern classic. It felt really good to get real, honest, knowledgeable advice, and research materials to help me think more deeply about what I've gotten myself into.
+My coworker Paul sat down with the game and sent me notes, a screen recording, and some reading: [*Shovel Knight*](https://bossfightbooks.com/products/shovel-knight-by-david-l-craddock) by David L. Craddock, from Boss Fight Books, about how a small team made a modern classic. It felt really good to get real, honest, knowledgeable advice, and research materials to help me think more deeply about what I've gotten myself into.
 
 What came out of it:
 
