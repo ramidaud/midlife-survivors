@@ -14,7 +14,29 @@ I'm not great at sitting still, and this gives me somewhere to put it.
 
 The fact that a random person commented on my personal Facebook post: it's public, but no one is really knocking down my door. And for the message to be so nice, from someone who'd obviously played through the game and given it some thought. That felt like a real honor.
 
-His point: in a game like this, your only real job is reading the swarm,^[In games like this you never aim or shoot. Your weapons fire on their own, so all you do is move, and reading the crowd is the whole skill.] and Bills and 3 AM Thoughts read as one blob once there are 200 on screen. His fix was to make them move differently. So now Bills march straight in, and 3 AM Thoughts drift side to side on their way.^[Under the hood it's a sideways push on a slow wave, about 18 pixels each way. It only moves them sideways, so they still reach you just as fast.] Same size, same speed, and you can pick them out at a glance.
+His point: in a game like this, your only real job is reading the swarm,^[In games like this you never aim or shoot. Your weapons fire on their own, so all you do is move, and reading the crowd is the whole skill.] and Bills and 3 AM Thoughts read as one blob once there are 200 on screen. His fix was to make them move differently. So now Bills march straight in, and 3 AM Thoughts drift side to side on their way. Same size, same speed, and you can pick them out at a glance.
+
+Here's the whole change. Bills didn't get touched at all. The new part only runs for 3 AM Thoughts, and the two knobs live in the enemy list, so I can tune the wobble without touching the game logic:
+
+```js src/data/enemies.js
+// 3 AM Thought: same size and speed as before, plus two new numbers
+weaveHz: 0.8,   // side-to-side swings per second
+weavePx: 18     // how far it drifts to each side, in pixels (0 = walks straight like a Bill)
+```
+
+```js src/main.js
+chase(thought, speed);   // same as a Bill: head straight for the player
+
+// Each Thought starts its wobble at a random point, so a crowd doesn't sway in sync
+if (thought.weavePhase === undefined) thought.weavePhase = Math.random() * Math.PI * 2;
+
+// Then add a push across the direction it's walking, following a slow wave.
+// It only goes sideways, so it reaches you just as fast as before.
+const v = thought.body.velocity, len = Math.hypot(v.x, v.y);
+const w = Math.PI * 2 * T.weaveHz;
+const side = Math.cos(thought.weavePhase + ageMs / 1000 * w) * T.weavePx * w / len;
+thought.setVelocity(v.x - v.y * side, v.y + v.x * side);
+```
 
 ### Paul
 
