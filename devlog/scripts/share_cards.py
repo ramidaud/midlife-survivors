@@ -121,6 +121,59 @@ def make_card(root: Path, src: str, out: Path, kicker: str, title: str, subtitle
     return True
 
 
+def make_social_post(root: Path, post: dict) -> str | None:
+    """A 1080x1350 (4:5) image for feed posts on Instagram, Facebook, Threads and LinkedIn (Nov 6).
+    Cream memo strip on top, the cover art, then the title and teaser on navy. Saved to devlog/img/social/<slug>.jpg."""
+    try:
+        from PIL import Image, ImageDraw
+    except ImportError:
+        return None
+    SW, SH = 1080, 1350
+    srcp = root / "devlog" / (post.get("cover") or "img/office-key-art-hero.jpg")
+    if not srcp.exists():
+        return None
+    silk, body = _fonts(root)
+    im = Image.new("RGB", (SW, SH), NAVY)
+    d = ImageDraw.Draw(im, "RGBA")
+    # 1. Memo strip
+    d.rectangle([0, 0, SW, 104], fill=CREAM)
+    d.rectangle([0, 0, 14, 104], fill=COFFEE)
+    num = post["slug"].split("-")[0]
+    d.text((52, 34), f"MEMO {num} · RE:", font=silk(30), fill=TEAL)
+    tag = "MIDLIFE SURVIVORS DEVLOG"
+    d.text((SW - 52 - d.textlength(tag, font=silk(24)), 38), tag, font=silk(24), fill=NAVY)
+    # 2. Cover art, 16:9, full width
+    art = Image.open(srcp).convert("RGB")
+    ah = round(SW * 9 / 16)
+    scale = max(SW / art.width, ah / art.height)
+    art = art.resize((round(art.width * scale), round(art.height * scale)), Image.LANCZOS)
+    l, t = (art.width - SW) // 2, (art.height - ah) // 2
+    im.paste(art.crop((l, t, l + SW, t + ah)), (0, 104))
+    y = 104 + ah
+    d.rectangle([0, y, SW, y + 6], fill=COFFEE)
+    # 3. Title + teaser
+    y += 52
+    tf, lines = _fit_lines(d, post["title"].upper(), silk, [80, 72, 64, 56, 50], SW - 104, 3)
+    for ln in lines:
+        d.text((52, y), ln, font=tf, fill=CREAM); y += tf.size + 12
+    teaser = post.get("teaser") or post.get("blurb") or ""
+    if teaser:
+        bf, tl = _fit_lines(d, teaser, body, [38, 34, 30], SW - 104, 3)
+        y += 14
+        for ln in tl:
+            d.text((52, y), ln, font=bf, fill=WARM); y += bf.size + 10
+    # 4. Footer
+    d.rectangle([0, SH - 92, SW, SH], fill=(30, 36, 64))
+    d.text((52, SH - 62), "READ IT + PLAY FREE", font=silk(26), fill=COFFEE)
+    url = "ramidaud.github.io/midlife-survivors"
+    d.text((SW - 52 - d.textlength(url, font=body(30)), SH - 64), url, font=body(30), fill=CREAM)
+    rel = f"img/social/{post['slug']}.jpg"
+    out = root / "devlog" / rel
+    out.parent.mkdir(parents=True, exist_ok=True)
+    im.save(out, "JPEG", quality=88, optimize=True, progressive=True)
+    return rel
+
+
 def make_post_card(root: Path, post: dict) -> str | None:
     """Card for one devlog post. Returns the path relative to devlog/, or None."""
     cover = post.get("cover") or "img/office-key-art-hero.jpg"

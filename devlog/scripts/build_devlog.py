@@ -26,9 +26,9 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 try:
-    from share_cards import make_post_card  # 1200x630 link-preview cards (needs Pillow)
+    from share_cards import make_post_card, make_social_post  # link-preview cards + 4:5 feed images (needs Pillow)
 except Exception:
-    make_post_card = None
+    make_post_card = make_social_post = None
 
 try:
     import markdown as mdlib
@@ -125,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=35">
+<link rel="stylesheet" href="../styles.css?v=36">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -225,6 +225,7 @@ def main():
         cover = p.get("cover") or "img/office-key-art-hero.jpg"
         og_image = f"{site}/{cover}" if not cover.startswith("http") else cover
         card = make_post_card(root.resolve().parent, p) if make_post_card else None
+        if make_social_post: make_social_post(root.resolve().parent, p)  # img/social/<slug>.jpg for Instagram, Facebook, Threads, LinkedIn
         if card:
             og_image = f"{site}/{card}"
         play = p.get("playUrl") or "https://ramidaud.github.io/midlife-survivors/"
