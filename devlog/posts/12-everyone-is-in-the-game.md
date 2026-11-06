@@ -18,7 +18,15 @@ And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org
 
 ## The music
 
-The game has real music now. A title theme, three moods that build as you get older, a boss track, and a retirement party at the end. Real sound effects, too, instead of code-made beeps, plus a "Classic Beeps" switch in the pause menu if you miss them.
+The game has a soundtrack now: a title theme, three moods that build as you get older, a boss track, and a retirement party at the end. It's AI-generated. I wrote the prompts, picked the takes I liked, and Claude trimmed and leveled them for the game. The sound effects were made the same way, replacing the old code-made beeps. If you miss those, there's a "Classic Beeps" switch in the pause menu.
+
+The music came from Google's Flow Music. Here's the prompt for the title theme:
+
+> [PASTE THE TITLE THEME PROMPT FROM FLOW]
+
+The sound effects came from ElevenLabs. Here's the one for the boss defeat:
+
+> Cartoon boss defeat, a comedic crash, a descending [PASTE THE REST FROM ELEVENLABS HISTORY]
 
 It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic and chaotic.
 
