@@ -12,9 +12,11 @@ I'm not great at sitting still, and this gives me somewhere to put it.
 
 ### A stranger on Facebook
 
-The fact that a random person commented on my personal Facebook post: it's public, but no one is really knocking down my door. And for the message to be so nice, from someone who'd obviously played through the game and given it some thought. That felt like a real honor.
+A random person commented on my personal Facebook post. It's public, but no one is really knocking down my door. So for the message to be so nice, from someone who'd obviously played through the game and given it some thought, felt like a real honor.
 
 His point: in a game like this, your only real job is reading the swarm,^[In games like this you never aim or shoot. Your weapons fire on their own, so all you do is move, and reading the crowd is the whole skill.] and Bills and 3 AM Thoughts read as one blob once there are 200 on screen. His fix was to make them move differently. So now Bills march straight in, and 3 AM Thoughts drift side to side on their way. Same size, same speed, and you can pick them out at a glance.
+
+![Bills march straight in while the purple 3 AM Thoughts weave toward the player.](img/12-weave.jpg)
 
 Here's the whole change. Bills didn't get touched at all. The new part only runs for 3 AM Thoughts, and the two knobs live in the enemy list, so I can tune the wobble without touching the game logic:
 
@@ -64,11 +66,28 @@ Kevin is a friend from way back in high school. He found the game on Discord and
 - **Burning the Candle.** After 55 the script flips. Too much running around fills a wear meter, and when it's full, a Medical Bill comes for you.^[Medical Bills have double the health of a regular Bill and hit a little harder.] From all those energy drinks, right?
 - **Fiscal-year seasons and the Corporate Buyout.** The leaderboard resets with each season, and once a season you can cash out your upgrades for half price and start fresh.^[Scores you post after a buyout carry a small BOUGHT OUT tag on the leaderboard.]
 
+![A regular Bill next to a Medical Bill, the one that shows up when you've been burning the candle.](img/12-medical-bill.gif "small")
+
 Tonight he also asked if I had a language filter ready for the inevitable high scorer who goes ten steps beyond "Seymore Butts." I did not. Now I do. Swears and slurs get bounced at the door ("HR flagged that name"), and the database turns them away too.^[It catches number swaps like 5h1t and stretched-out spellings. The database checks names too, so you can't sneak one in by skipping the game.] Semore Butts lives on, though.
 
-Best part: this has turned into a way for us to reconnect after a long time. That alone made the whole project worth it.
+The trick is undoing the disguises before checking the name:
+
+```js src/data/name-filter.js
+// 1. Lowercase, then swap numbers and symbols back into letters ("5h1t" -> "shit")
+const swapped = name.toLowerCase()
+  .replace(/[0134578@$!|+9]/g, c => ({ 0: "o", 1: "i", 3: "e", 4: "a", 5: "s", 7: "t", 8: "b", 9: "g", "@": "a", $: "s", "!": "i", "|": "i", "+": "t" })[c]);
+
+// 2. Squash out spaces and dots ("s.h.i.t" -> "shit"), then collapse stretched letters ("shiiiit" -> "shit")
+const squash = swapped.replace(/[^a-z]/g, "");
+const once = squash.replace(/(.)\1+/g, "$1");
+
+// 3. Check the worst words anywhere in the squashed name, and the shorter ones only as whole words,
+//    so names like Hancock and Dickens still get through
+```
 
 ![HR flags a bad name at Game Over. (Blurred, but you get the idea.)](img/12-hr-flagged.jpg "small")
+
+Best part: this has turned into a way for us to reconnect after a long time. That alone made the whole project worth it.
 
 ## The music
 
@@ -130,6 +149,8 @@ Two more for the reading list. First, [*Teaching the Game*](https://doi.org/10.1
 
 Emily is currently my creative coding professor in [EMAT](https://www.kent.edu/emat), and I took an AI workshop with Rick this summer as part of the [College of Aeronautics and Engineering](https://www.kent.edu/cae). Both professors are incredible, and if that's an indication of what the next few years have to offer, I'm excited.
 
-And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org/books/game-programming-for-artists/9781138106130) by Jarryd Huntley and Hanna Brady. Hanna is my good friend Damian's wife, and an accomplished veteran of the video game industry. A book that teaches game programming to people who think like artists sounds like it was written for me.
+![The cover of Game Programming for Artists by Jarryd Huntley and Hanna Brady.](img/book-game-programming-for-artists.jpg "book")
+
+And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org/books/game-programming-for-artists/9781138106130) by Jarryd Huntley and Hanna Brady. Hanna is an accomplished veteran of the video game industry, who happens to be my good friend Damian's wife. A book that teaches game programming to people who think like artists sounds like it was written for me.
 
 Thank you to everyone who played, and especially to everyone who told me what they thought. Keep it coming: [join the Midlife Survivors Discord](https://discord.gg/E6N9j5tZe) and drop your notes in #playtest-notes.

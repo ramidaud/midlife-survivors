@@ -9,9 +9,9 @@ window.DEVLOG_POSTS = [
     "title": "Somewhere to put it.",
     "version": "V. 2.1 to 2.10.5",
     "draft": true,
-    "cover": "img/12-cover.jpg",
-    "leadNote": "**Made with ChatGPT** (image generation), from a photo of my desk at midnight and a prompt Claude wrote and I directed: crisp 16-bit pixel art, a dark room lit by the screens, more code on the left monitor, Bills and weaving 3 AM Thoughts on the right, the kids' drawings on the wall, and two sticky notes from this week. The first version had me looking crazy, so I asked it to take me out and just focus on the desk. [Read the full prompt](art/prompts/12-key-art-chatgpt.txt).",
-    "leadAlt": "A crowd of Bills and purple 3 AM Thoughts closing in on the hero in the office lobby. The Bills march straight, the Thoughts weave.",
+    "cover": "img/12-key-art.jpg",
+    "leadNote": "**Made with ChatGPT** (image generation), from a photo of my desk at midnight and a prompt Claude wrote and I directed: crisp 16-bit pixel art, a dark room lit by the screens, more code on the left monitor, Bills and weaving 3 AM Thoughts on the right, the kids' drawings on the wall, and two sticky notes from this week. The first version had me looking crazy, so I asked it to take me out and just focus on the desk. A monstera took the chair's spot. [Read the full prompt](art/prompts/12-key-art-chatgpt.txt).",
+    "leadAlt": "Pixel art of a home desk at night: code on one monitor, the game on the other, kids' drawings on the wall, a clock at 12:21, and two sticky notes reading HR flagged that name and holistic AND chaotic.",
     "blurb": "A stranger's tip on Facebook, a coworker's art review, a high school friend's ideas, and a first soundtrack. Everyone's in the game now.",
     "teaser": "A stranger on Facebook, Paul, Kevin, and the game's first soundtrack.",
     "changes": [

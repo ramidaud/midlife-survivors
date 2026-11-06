@@ -125,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=30">
+<link rel="stylesheet" href="../styles.css?v=31">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -153,13 +153,12 @@ PAGE = """<!doctype html>
     {lead}
     <div class="post-cta">
       <div class="cta-row"><a class="btn btn-primary" href="{play}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="{slug}" data-url="{share_url}" data-title="{title}" data-text="{share_text}">↗ <span class="share-label">Share</span></button></div>
-      {changes}
-      {next_up}
     </div>
     <article class="post"><div class="prose">{body}</div>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to {version}. Screenshots are from the real game at the time.</div>
       <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="{slug}" data-url="{share_url}" data-title="{title}" data-text="{share_text}">↗ <span class="share-label">Share this memo</span></button></div>
     </article>
+    <div class="post-facts post-facts-end">{changes}{next_up}</div>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
 <script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../audio.js?v=1"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);if(window.initAudioCards)initAudioCards(document);initPostLayout(document);</script>
@@ -235,8 +234,7 @@ def main():
         changes = ""
         if p.get("changes"):
             lis = "".join(f"<li>{html.escape(c)}</li>" for c in p["changes"])
-            changes = (f'<details class="changes-box"><summary><h3>What changed</h3><span class="cb-more">{len(p["changes"])} changes · show all</span></summary><ul>{lis}</ul></details>'
-                       if len(p["changes"]) > 7 else f'<div class="changes-box"><h3>What changed</h3><ul>{lis}</ul></div>')
+            changes = f'<div class="changes-box"><h3>What changed</h3><ul>{lis}</ul></div>'
         next_up = ""
         if p.get("nextUp"):
             next_up = f'<div class="next-up"><strong>Next up</strong>{html.escape(p["nextUp"])}</div>'

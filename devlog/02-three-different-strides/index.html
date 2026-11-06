@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=6">
-<link rel="stylesheet" href="../styles.css?v=30">
+<link rel="stylesheet" href="../styles.css?v=31">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -51,8 +51,6 @@
     <figure class="post-lead"><img src="../img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."><figcaption>The first walking pass for the three playable characters.</figcaption></figure>
     <div class="post-cta">
       <div class="cta-row"><a class="btn btn-primary" href="https://ramidaud.github.io/midlife-survivors/">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="02-three-different-strides" data-url="https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/" data-title="The office has people in it now. And they walk." data-text="Midlife Survivors devlog: The office has people in it now. And they walk.">↗ <span class="share-label">Share</span></button></div>
-      <div class="changes-box"><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul></div>
-      <div class="next-up"><strong>Next up</strong>Judge the costumes and rhythm, then idle and combat poses.</div>
     </div>
     <article class="post"><div class="prose"><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-1" aria-label="Note 1">1</button><span class="sn" id="sn-1" role="note"><span class="sn-head"><b>1</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.</span></span> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
 <p>They each have four directions and four walking poses per direction. You can switch between them in the separate art test and walk around the same desks. There's also a side-by-side preview so I can compare their movement before replacing the main game's art.</p>
@@ -68,6 +66,7 @@ currentFrame = CharacterArt.frame(facing, moving ? Math.floor(walked / 17) : 1);
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to V. 1.23.4. Screenshots are from the real game at the time.</div>
       <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="02-three-different-strides" data-url="https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/" data-title="The office has people in it now. And they walk." data-text="Midlife Survivors devlog: The office has people in it now. And they walk.">↗ <span class="share-label">Share this memo</span></button></div>
     </article>
+    <div class="post-facts post-facts-end"><div class="changes-box"><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul></div><div class="next-up"><strong>Next up</strong>Judge the costumes and rhythm, then idle and combat poses.</div></div>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
 <script src="../share.js?v=1"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../audio.js?v=1"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);if(window.initAudioCards)initAudioCards(document);initPostLayout(document);</script>

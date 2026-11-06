@@ -352,10 +352,10 @@
 
     const { prev, next } = neighbors(post.slug);
     const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
+    // What changed + Next up live in the right column (Nov 6, Rami's rule for every memo), so the memo itself starts right
+    // under the cover. On phones the column stacks below the memo.
     const changes = Array.isArray(post.changes) && post.changes.length
-      ? (post.changes.length > 7 // a long list folds, so the memo itself starts sooner (Nov 4)
-        ? `<details class="changes-box"><summary><h3>What changed</h3><span class="cb-more">${post.changes.length} changes · show all</span></summary><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></details>`
-        : `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`)
+      ? `<div class="changes-box"><h3>What changed</h3><ul>${post.changes.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div>`
       : "";
     // Optional leadNote (markdown): how the lead image was made (tool + prompt). Shows as a margin note marker.
     const leadNote = post.leadNote
@@ -389,8 +389,6 @@
       ${lead}
       <div class="post-cta">
         <div class="cta-row"><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://ramidaud.github.io/midlife-survivors/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share</span></button></div>
-        ${changes}
-        ${nextUp}
       </div>
       <article class="post">
         <div class="prose">${html}</div>
@@ -434,6 +432,8 @@
     if (window.initSidenotes) initSidenotes(postMain);
     if (window.initCodeCards) initCodeCards(postMain);
     if (window.initAudioCards) initAudioCards(postMain);
+    const facts = document.getElementById("post-facts");
+    if (facts) { facts.innerHTML = changes + nextUp; facts.hidden = !(changes || nextUp); }
     window.scrollTo(0, 0);
     updateProgress();
   }

@@ -873,3 +873,18 @@ article.post .prose .shot figcaption { font: 10px var(--display); letter-spacing
 .audio-card .ac-fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--teal); }
 .audio-card.playing .ac-fill { background: var(--orange); }
 .audio-card .ac-time { font: 12px/1 ui-monospace, Menlo, monospace; opacity: .75; }
+
+/* What changed + Next up (Nov 6): first card in the right column on wide screens; below the memo on phones and share pages */
+.post-facts { display: flex; flex-direction: column; gap: 12px; padding: 14px; }
+.post-facts[hidden] { display: none; }
+.post-facts .changes-box { padding: 0; border: 0; background: none; }
+.post-facts .changes-box li { font-size: 14px; }
+.post-facts .next-up { font-size: 14px; }
+.post-facts-end { margin: 26px 0 8px; padding: 0; }
+.post-facts-end .changes-box { padding: 14px 16px; border: 1px solid var(--teal); background: var(--surface-2); }
+
+/* Drop cap (Nov 6): every memo opens with a big pixel-font initial with a hard shadow */
+article.post .prose > p:first-of-type::first-letter {
+  float: left; font-family: var(--display); font-weight: 700; font-size: 3.6em; line-height: .82;
+  margin: .08em .12em 0 0; color: var(--orange); text-shadow: 4px 4px 0 var(--navy);
+}

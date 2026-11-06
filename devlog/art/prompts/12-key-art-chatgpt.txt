@@ -36,3 +36,12 @@ Make the cover image for Memo 12 of the Midlife Survivors devlog. The memo is ab
 
 Follow-up, after the first version:
 Take me out of it and just focus on the desk setup.
+
+Final fix, on the version without me:
+Edit this image, keeping everything else exactly the same:
+1. Remove the desk chair completely. Fill that area with the desk edge, the wall and a dark floor, matching the existing pixel art.
+2. Move the "HR flagged that name" sticky note so it is stuck flat onto the bottom-left corner of the LEFT monitor's frame (the one with the code), overlapping the bezel. It must touch the monitor, not float on the wall or above the right monitor.
+3. Keep the "holistic AND chaotic" note on the top-right corner of the RIGHT monitor.
+4. Set the wall clock to 12:21.
+Same 16:9 size, same palette, same crisp pixels. No new objects, no people, no text changes.
+(ChatGPT filled the chair's spot with a monstera.)
