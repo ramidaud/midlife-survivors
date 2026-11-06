@@ -10,7 +10,9 @@ What came out of it:
 - **The Sprite Board.** Paul's idea: one page that shows every sprite in the game side by side, on any background color, with buttons to flip every card to the same pose. It's how I check new art now.
 - **Cleaner coworkers.** The office crowd got a pixel cleanup.
 
-One more on the reading list: [*Teaching the Game*](https://doi.org/10.17613/2j5eh-p5n15), co-edited by Emily Baumgartner here at Kent State, with Richard Ferdig and Enrico Gandolfi. It collects real game design courses: how they run playtests, how students keep devlogs, and how AI fits into the work. It's free to read.
+One more on the reading list: [*Teaching the Game*](https://doi.org/10.17613/2j5eh-p5n15), edited by Rick Ferdig, Emily Baumgartner and Enrico Gandolfi. It collects real game design courses: how they run playtests, how students keep devlogs, and how AI fits into the work. It's free to read.
+
+Emily is currently my creative coding professor in [EMAT](https://www.kent.edu/emat), and I took an AI workshop with Rick this summer as part of the [College of Aeronautics and Engineering](https://www.kent.edu/cae). Both professors are incredible, and if that's an indication of what the next few years have to offer, I'm excited.
 
 ## The music
 
