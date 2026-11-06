@@ -4,6 +4,28 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "12-everyone-is-in-the-game",
+    "date": "2026-11-06",
+    "title": "Most of this didn't start with me.",
+    "version": "V. 2.1 to 2.10.5",
+    "draft": true,
+    "cover": "img/12-cover.jpg",
+    "leadAlt": "A crowd of Bills and purple 3 AM Thoughts closing in on the hero in the office lobby. The Bills march straight, the Thoughts weave.",
+    "blurb": "A coworker's art review, a high school friend's ideas, a stranger's tip on Facebook, and real music. Everyone's in the game now.",
+    "teaser": "Paul, Kevin, a stranger on Facebook, and the game's first real soundtrack.",
+    "changes": [
+      "Real music and sound effects (plus a Classic Beeps switch)",
+      "Steadier walk cycles and the Sprite Board, from Paul's review",
+      "Hustle Bonus, Burning the Candle and Medical Bills, from Kevin",
+      "Fiscal-year seasons and the Corporate Buyout",
+      "3 AM Thoughts weave so you can read the swarm",
+      "A leaderboard name filter (HR is watching)",
+      "Real art for every gem, coin and projectile"
+    ],
+    "nextUp": "Abdel's music, a shine on the gems, and the first new stage.",
+    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+  },
+  {
     "slug": "11-where-community-is",
     "date": "2026-11-04",
     "title": "If that's where community is, that's where I want to be.",
