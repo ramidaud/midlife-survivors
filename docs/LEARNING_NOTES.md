@@ -615,4 +615,5 @@ When hundreds of enemies are on screen, you can't read their faces, but you can 
 
 ## Reading list
 - **Shovel Knight** by David L. Craddock (Boss Fight Books, 2018). Recommended by Paul McKinney (Nov 2026). How Yacht Club Games built Shovel Knight. [Boss Fight Books](https://bossfightbooks.com/products/shovel-knight-by-david-l-craddock)
+- **Teaching the Game** (2nd ed., 2026), edited by Richard Ferdig, Emily Baumgartner and Enrico Gandolfi (Kent State). About 60 real game design courses. Free: https://doi.org/10.17613/2j5eh-p5n15 (digest in the Project: TEACHING_THE_GAME_DIGEST.md)
 - **Miyamoto's World 1-1 design breakdown** (video), also from Paul: how the first level of Super Mario Bros. teaches you the game without words.

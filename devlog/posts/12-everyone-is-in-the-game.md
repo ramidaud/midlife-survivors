@@ -10,6 +10,8 @@ What came out of it:
 - **The Sprite Board.** Paul's idea: one page that shows every sprite in the game side by side, on any background color, with buttons to flip every card to the same pose. It's how I check new art now.
 - **Cleaner coworkers.** The office crowd got a pixel cleanup.
 
+One more on the reading list: [*Teaching the Game*](https://doi.org/10.17613/2j5eh-p5n15), co-edited by Emily Baumgartner here at Kent State, with Richard Ferdig and Enrico Gandolfi. It collects real game design courses: how they run playtests, how students keep devlogs, and how AI fits into the work. It's free to read.
+
 ## The music
 
 The game has real music now. A title theme, three moods that build as you get older, a boss track, and a retirement party at the end. Real sound effects, too, instead of code-made beeps, plus a "Classic Beeps" switch in the pause menu if you miss them.
