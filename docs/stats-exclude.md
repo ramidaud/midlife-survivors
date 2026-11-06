@@ -12,4 +12,6 @@ GoatCounter for that browser. The card shows the device ID to send to Claude. `?
 | 1tou53humvyubmzb | Rami's iPad | Nov 5, 2026 |
 | y43kg4uimvz48biq | Rami's iPhone | Nov 5, 2026 |
 
+The morning stats report (scheduled task) leaves out every ID in this table, so add new devices here.
+
 Not excluded on purpose: Ben (Taiwan). He's a real player.
