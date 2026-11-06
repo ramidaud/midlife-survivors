@@ -14,7 +14,7 @@ One more on the reading list: [*Teaching the Game*](https://doi.org/10.17613/2j5
 
 Emily is currently my creative coding professor in [EMAT](https://www.kent.edu/emat), and I took an AI workshop with Rick this summer as part of the [College of Aeronautics and Engineering](https://www.kent.edu/cae). Both professors are incredible, and if that's an indication of what the next few years have to offer, I'm excited.
 
-And one I need to pick up: [*Game Programming for Artists*](https://www.routledge.com/Game-Programming-for-Artists/Huntley-Brady/p/book/9781138626461) by Jarryd Huntley and Hanna Brady. Hanna is my good friend Damian's wife, and an accomplished veteran of the video game industry. A book that teaches game programming to people who think like artists sounds like it was written for me.
+And one I need to pick up: [*Game Programming for Artists*](https://bookshop.org/books/game-programming-for-artists/9781138106130) by Jarryd Huntley and Hanna Brady. Hanna is my good friend Damian's wife, and an accomplished veteran of the video game industry. A book that teaches game programming to people who think like artists sounds like it was written for me.
 
 ## The music
 
