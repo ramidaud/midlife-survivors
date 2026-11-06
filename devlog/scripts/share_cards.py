@@ -174,6 +174,51 @@ def make_social_post(root: Path, post: dict) -> str | None:
     return rel
 
 
+def make_slide(root: Path, out: Path, strip_left: str, art, title: str, caption: str = "",
+               footer_left: str = "READ IT + PLAY FREE", contain: bool = False) -> bool:
+    """One 1080x1350 slide in the social post style (Nov 6). `art` is a PIL image.
+    contain=True fits the whole image on navy (screenshots, sprites); otherwise it fills the 16:9 band."""
+    from PIL import Image, ImageDraw
+    SW, SH, AH = 1080, 1350, 640
+    silk, body = _fonts(root)
+    im = Image.new("RGB", (SW, SH), NAVY)
+    d = ImageDraw.Draw(im, "RGBA")
+    d.rectangle([0, 0, SW, 104], fill=CREAM); d.rectangle([0, 0, 14, 104], fill=COFFEE)
+    d.text((52, 34), strip_left, font=silk(30), fill=TEAL)
+    tag = "MIDLIFE SURVIVORS DEVLOG"
+    d.text((SW - 52 - d.textlength(tag, font=silk(24)), 38), tag, font=silk(24), fill=NAVY)
+    art = art.convert("RGB")
+    pixel = art.width <= 800
+    if contain:
+        d.rectangle([0, 104, SW, 104 + AH], fill=(30, 36, 64))
+        k = min((SW - 80) / art.width, (AH - 60) / art.height)
+        a2 = art.resize((round(art.width * k), round(art.height * k)), Image.NEAREST if pixel else Image.LANCZOS)
+        im.paste(a2, ((SW - a2.width) // 2, 104 + (AH - a2.height) // 2))
+    else:
+        k = max(SW / art.width, AH / art.height)
+        a2 = art.resize((round(art.width * k), round(art.height * k)), Image.NEAREST if pixel else Image.LANCZOS)
+        l, t = (a2.width - SW) // 2, (a2.height - AH) // 2
+        im.paste(a2.crop((l, t, l + SW, t + AH)), (0, 104))
+    y = 104 + AH
+    d.rectangle([0, y, SW, y + 6], fill=COFFEE)
+    y += 50
+    tf, lines = _fit_lines(d, title.upper(), silk, [72, 64, 56, 50, 44], SW - 104, 3)
+    for ln in lines:
+        d.text((52, y), ln, font=tf, fill=CREAM); y += tf.size + 12
+    if caption:
+        bf, tl = _fit_lines(d, caption, body, [36, 33, 30], SW - 104, 4)
+        y += 12
+        for ln in tl:
+            d.text((52, y), ln, font=bf, fill=WARM); y += bf.size + 10
+    d.rectangle([0, SH - 92, SW, SH], fill=(30, 36, 64))
+    d.text((52, SH - 62), footer_left, font=silk(26), fill=COFFEE)
+    url = "ramidaud.github.io/midlife-survivors"
+    d.text((SW - 52 - d.textlength(url, font=body(30)), SH - 64), url, font=body(30), fill=CREAM)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    im.save(out, "JPEG", quality=88, optimize=True, progressive=True)
+    return True
+
+
 def make_post_card(root: Path, post: dict) -> str | None:
     """Card for one devlog post. Returns the path relative to devlog/, or None."""
     cover = post.get("cover") or "img/office-key-art-hero.jpg"
