@@ -6,12 +6,15 @@
 <title>Sprite Board · Midlife Survivors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Silkscreen&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ui/ms-nav.css?v=6">
 <style>
   :root { --navy:#171C35; --navy2:#1f2640; --slate:#303750; --slate2:#526078; --teal:#3E7775; --sage:#83A89A;
           --tan:#D3B78D; --cream:#F2D7A1; --paper:#FFF0CF; --orange:#EF9347; --russet:#C45C4B; --lav:#BFA8CF; }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--navy); color:var(--paper); font:15px/1.45 "Atkinson Hyperlegible", sans-serif; }
-  header { position:sticky; top:0; z-index:5; background:var(--navy); border-bottom:3px solid var(--cream); padding:12px 16px; }
+  header.board-head { background:var(--navy); border-bottom:3px solid var(--cream); padding:12px 16px; }
+  .board-back { display:inline-block; margin:0 0 8px; font:12px/1.2 "Silkscreen", monospace; color:var(--cream); text-decoration:none; opacity:.85; }
+  .board-back:hover { color:#EF9347; opacity:1; }
   h1 { font:20px Silkscreen, monospace; margin:0 0 4px; color:var(--cream); letter-spacing:.5px; }
   .sub { margin:0 0 10px; color:var(--tan); font-size:14px; }
   .bar { display:flex; flex-wrap:wrap; gap:6px 14px; align-items:center; }
@@ -40,11 +43,13 @@
   .legend { font-size:13px; color:var(--tan); margin-top:8px; display:none; }
   body.mode-diff .legend { display:block; }
   .legend b { color:var(--russet); }
-  @media (max-width:520px) { main { grid-template-columns:1fr; padding:12px; } header { position:static; } }
+  @media (max-width:520px) { main { grid-template-columns:1fr; padding:12px; } header.board-head { padding:10px 12px; } }
 </style>
 </head>
 <body>
-<header>
+<script src="../assets/ui/ms-nav.js?v=5"></script>
+<header class="board-head">
+  <a class="board-back" href="../devlog/art/">← Art Room</a>
   <h1>SPRITE BOARD</h1>
   <p class="sub">Every animated sheet in the game, looping at its in-game speed and scaled up with nearest-neighbor pixels.</p>
   <div class="bar">

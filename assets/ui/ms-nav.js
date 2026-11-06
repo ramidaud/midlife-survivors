@@ -8,7 +8,7 @@
   const u = p => new URL(p, root).href;
   const HIDE_KEY = "ms-nav-hidden";
   const path = location.pathname;
-  const section = /\/devlog\/art\//.test(path) ? "art" : /\/devlog\/about\//.test(path) ? "about" : /\/devlog\//.test(path) ? "memos" : "play";
+  const section = /\/devlog\/art\/|\/tools\//.test(path) ? "art" : /\/devlog\/about\//.test(path) ? "about" : /\/devlog\//.test(path) ? "memos" : "play";
   const inGame = section === "play";
 
   const links = [
