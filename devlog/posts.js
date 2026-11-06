@@ -6,7 +6,7 @@ window.DEVLOG_POSTS = [
   {
     "slug": "12-everyone-is-in-the-game",
     "date": "2026-11-06",
-    "title": "Most of this didn't start with me.",
+    "title": "Somewhere to put it.",
     "version": "V. 2.1 to 2.10.5",
     "draft": true,
     "cover": "img/12-cover.jpg",

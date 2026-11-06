@@ -2666,6 +2666,8 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
       openChangelogModal(scene);
     });
   }
+  // A link ending in #changelog (the devlog's "full list") opens the patch notes once, right on the title screen.
+  if (location.hash === "#changelog" && !window.__changelogLinked) { window.__changelogLinked = true; setTimeout(() => openChangelogModal(scene), 250); }
 
   // Row 8: Resume Saved Run (if present)
   const resumeBtn = document.getElementById("title-resume-btn");

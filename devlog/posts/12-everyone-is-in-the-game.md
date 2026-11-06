@@ -14,7 +14,7 @@ What came out of it:
 
 The game has real music now. A title theme, three moods that build as you get older, a boss track, and a retirement party at the end. Real sound effects, too, instead of code-made beeps, plus a "Classic Beeps" switch in the pause menu if you miss them.
 
-It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic instead of chaotic.
+It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic and chaotic.
 
 ## Kevin
 
@@ -24,11 +24,11 @@ Kevin is a friend from way back in high school. He found the game on Discord and
 - **Burning the Candle.** After 55 the script flips. Too much running around fills a wear meter, and when it's full, a Medical Bill comes for you. From all those energy drinks, right?
 - **Fiscal-year seasons and the Corporate Buyout.** The leaderboard resets with each season, and once a season you can cash out your upgrades for half price and start fresh.
 
-Last night he also asked if I had a language filter ready for the inevitable high scorer who goes ten steps beyond "Seymore Butts." I did not. Now I do. Swears and slurs get bounced at the door ("HR flagged that name"), and the database turns them away too. Semore Butts lives on, though.
+Tonight he also asked if I had a language filter ready for the inevitable high scorer who goes ten steps beyond "Seymore Butts." I did not. Now I do. Swears and slurs get bounced at the door ("HR flagged that name"), and the database turns them away too. Semore Butts lives on, though.
 
 Best part: this has turned into a way for us to reconnect after a long time. That alone made the whole project worth it.
 
-![HR flags a bad name at Game Over.](img/12-hr-flagged.jpg "gallery: HR flagged that name")
+![HR flags a bad name at Game Over. (Blurred, but you get the idea.)](img/12-hr-flagged.jpg "gallery: HR flagged that name")
 
 ## A stranger on Facebook
 
@@ -46,6 +46,6 @@ I'm not great at sitting still, and this gives me somewhere to put it.
 
 ## Everything else
 
-There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, a hidden snack cart, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the changelog.
+There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, a hidden snack cart, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
 
 Thank you to everyone who played, and especially to everyone who told me what they thought. Keep it coming.
