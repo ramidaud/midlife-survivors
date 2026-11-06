@@ -434,6 +434,7 @@
     if (window.initSidenotes) initSidenotes(postMain);
     if (window.initCodeCards) initCodeCards(postMain);
     if (window.initAudioCards) initAudioCards(postMain);
+    if (window.msShareLinks) msShareLinks(postMain);
     const facts = document.getElementById("post-facts");
     if (facts) { facts.innerHTML = changes + nextUp; facts.hidden = !(changes || nextUp); }
     window.scrollTo(0, 0);

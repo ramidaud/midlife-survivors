@@ -131,7 +131,7 @@ And the sound effects came from ElevenLabs. This is the one you hear when a boss
 
 !audio[Boss defeat · ElevenLabs](../assets/audio/sfx/sfx-boss-down-4.mp3)
 
-It still needs work, honestly. I want my son to make it, but he's still learning. And I have so many thoughts on the music that it's kind of hard to keep it holistic and chaotic.
+It still needs work, honestly. I want my son to make it, but he's still learning. I want the music and sound effects to hang together and still feel a little chaotic, like midlife. That's a hard balance.
 
 ## Everything else
 

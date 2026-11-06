@@ -6,7 +6,7 @@ window.DEVLOG_POSTS = [
   {
     "slug": "12-everyone-is-in-the-game",
     "date": "2026-11-06",
-    "title": "Restless, and who's actually playing.",
+    "title": "Restless. Also, who's actually playing?",
     "version": "V. 2.1 to 2.10.5",
     "draft": true,
     "cover": "img/12-key-art.jpg",
