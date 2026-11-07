@@ -1675,3 +1675,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami wants achievements for all the easter eggs except the Seymore Butts name.
 - Added Early Bird Special: buy anything from the Day One cart.
 - The Supply Closet hidden room is only planned in the map data, not built. It needs its own design and art before it can have an achievement.
+- V2.10.16: the Game Over screen has a Back to Title Screen button under Quick Retry and the 401(k) Shop (Rami's request).

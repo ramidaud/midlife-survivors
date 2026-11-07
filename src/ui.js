@@ -3058,6 +3058,7 @@ function renderGameOverModal(scene, cause, isWin, killer) {
       <div class="gameover-actions">
         <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY${(window.matchMedia && matchMedia("(pointer: coarse)").matches) ? "" : " (Space / Enter / A)"}</button>
         <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>
+        <button class="cta-btn secondary-btn go-title-btn" id="go-title-btn">🏠 BACK TO TITLE SCREEN</button>
       </div>
       <div class="score-panel go-board"><div id="go-leaderboard"></div></div>
       <div class="go-coffee">Midlife Survivors is free. If it made you laugh, <a href="https://ko-fi.com/ramidaud" target="_blank" rel="noopener">buy the developer a coffee</a> ☕</div>
@@ -3135,6 +3136,15 @@ function renderGameOverModal(scene, cause, isWin, killer) {
     modal.classList.add("hidden");
     titleSeen = false;
     window.titleViewNext = "shop"; // land on the Shop view, not the main title
+    scene.scene.restart();
+  }, false);
+
+  // Back to the title screen (Nov 7, Rami): same as the Shop button, but lands on the main title.
+  bindNavItem(document.getElementById("go-title-btn"), 1, () => {
+    sfx("pick");
+    modal.classList.add("hidden");
+    titleSeen = false;
+    window.titleViewNext = "main";
     scene.scene.restart();
   }, false);
 

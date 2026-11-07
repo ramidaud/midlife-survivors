@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.15",
-  displayVersion: "V. 2.10.15",
+  version: "2.10.16",
+  displayVersion: "V. 2.10.16",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 273,
+  build: 274,
   changelog: [
+    {
+      ver: "V. 2.10.16", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "A way home from the Game Over screen.",
+      highlights: [
+        "The Game Over screen has a Back to Title Screen button under Quick Retry and the 401(k) Shop."
+      ]
+    },
     {
       ver: "V. 2.10.15", date: "Nov 7, 2026", title: "Version Two",
       teaser: "The Day One cart has an achievement now.",

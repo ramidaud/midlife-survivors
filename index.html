@@ -753,7 +753,8 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     border-radius: 5px; padding: 6px 12px; display: flex; flex-direction: column; font-size: 10px; color: var(--text-muted);
   }
   .stat-pill b { font-size: 14px; color: var(--accent); margin-top: 2px; }
-  .gameover-actions { display: flex; gap: 10px; margin-top: 10px; }
+  .gameover-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .gameover-actions .go-title-btn { flex: 1 1 100%; padding-top: 9px; padding-bottom: 9px; font-size: 12px; } /* its own row under Retry and Shop */
   /* Phones: Retry and Shop ride along at the bottom of the screen, so they're always one tap away (Fable review #1) */
   @media (max-width: 760px), (pointer: coarse) and (orientation: portrait) {
     .gameover-box .gameover-actions { position: sticky; bottom: 0; z-index: 3; flex-direction: row !important; gap: 8px;
@@ -761,6 +762,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
       background: linear-gradient(rgba(23,28,53,0), var(--ms-navy, #171C35) 34%); }
     .gameover-box .gameover-actions .cta-btn { flex: 1 1 0; min-width: 0; margin: 0; }
     .gameover-box .gameover-actions #go-retry-btn { flex-grow: 1.6; }
+    .gameover-box .gameover-actions .go-title-btn { flex: 1 1 100%; }
   }
 
   @keyframes popIn {
@@ -1672,7 +1674,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 273; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 274; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);
