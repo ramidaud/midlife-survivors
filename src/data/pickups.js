@@ -13,7 +13,7 @@ window.PICKUPS = {
     size: 24,
     color: 0xf5c542,  // gold chest dropped by bosses; opens the Bonus Chest moment
     // How many rewards (light beams) each boss's chest pays out. Any boss not listed pays 3.
-    tiers: { performanceReview: 1, mortgageRefinance: 3, midlifeCrisis: 5, goldWatch: 5, hoaPresident: 3, retirementBoss: 5, pickleballChamp: 5 },
+    tiers: { supplyCloset: 1, performanceReview: 1, mortgageRefinance: 3, midlifeCrisis: 5, goldWatch: 5, hoaPresident: 3, retirementBoss: 5, pickleballChamp: 5 },
     defaultTier: 3,
     coinMultPerTier: { 1: 4, 3: 10, 5: 18 } // 401(k) payout = coin value x this
   },

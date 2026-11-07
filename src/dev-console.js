@@ -47,6 +47,7 @@
       say("Desk Salad dropped");
     }),
     intern: need(() => { if (window.Interns) { Interns.forceSpawn(scene()); say("Intern on the way"); } }),
+    closet: need(() => { if (window.SupplyCloset) { const pick = ["chest", "nap", "stash"][Math.floor(Math.random() * 3)]; SupplyCloset.open(pick); player.body.reset(1700, -1490 - player.height / 2); say("Supply Closet open (" + SupplyCloset.supply() + "), you're inside"); } }),
     lounge: need(() => { if (window.Lounge) { Lounge.forceOpen(scene()); const s = Lounge.spot(); player.body.reset(s.x, s.y + 140); say("Lounge open, you're next to it"); } }),
     modGo: need(() => { const v = (document.getElementById("dev-mod") || {}).value; if (window.Modifiers) { Modifiers.forceStart(v); say("Modifier: " + v); } }),
     modStop: need(() => { if (window.Modifiers) { Modifiers.stop(); say("Modifier stopped"); } }),
@@ -118,7 +119,7 @@
           <button type="button" data-a="level">LEVEL UP</button>
           <button type="button" data-a="salad">DROP SALAD</button>
           <button type="button" data-a="intern">SEND INTERN</button>
-          <button type="button" data-a="lounge">OPEN LOUNGE</button></div></section>
+          <button type="button" data-a="lounge">OPEN LOUNGE</button><button type="button" data-a="closet">OPEN CLOSET</button></div></section>
         <section><div class="lbl">GIVE</div><div class="row">
           <select id="dev-up" aria-label="Upgrade to give"></select>
           <button type="button" data-a="give">GIVE</button></div></section>

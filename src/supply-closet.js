@@ -12,6 +12,14 @@ window.SUPPLY_CLOSET = {
     { id: "closet-door-exec", x: 2208, y: -1552, w: 32, h: 112, style: "executive" }
   ],
   line: "Badge accepted. Please don't tell IT.",
+  // Today's supply (step 2): one of these is rolled each run when the doors open. weight = how often.
+  supplies: {
+    chest: { weight: 1, line: "Somebody expensed this and forgot." },
+    nap:   { weight: 1, line: "Lights off. Door closed. Nobody checks the Supply Closet.", stillMs: 2000, everyMs: 2000, heal: 1 },
+    stash: { weight: 1, line: "Petty cash. Technically.", coins: 3 }
+  },
+  room: { x: 1248, y: -1600, w: 960, h: 160 }, // the hallway floor, for the nap spot
+  spot: { x: 1728, y: -1500 },                  // where the chest or stash lands (middle of the hallway)
   readerCaption: "BADGE READER. The light is red. It's been red since 2019. It seems to be thinking about it."
 };
 
@@ -47,7 +55,7 @@ window.SUPPLY_CLOSET = {
 })();
 
 window.SupplyCloset = (() => {
-  let wallsFixed = false, scene = null, doors = [], reader = null, ring = null, plateImg = null, opened = false, standSince = 0, blink = 0, hurtMark = null;
+  let supply = null, napStill = 0, napNext = 0, napZz = null, wallsFixed = false, scene = null, doors = [], reader = null, ring = null, plateImg = null, opened = false, standSince = 0, blink = 0, hurtMark = null;
   function textures(sc) {
     if (!sc.textures.exists("closet_door")) makeCanvasTex(sc, "closet_door", 32, 208, c => {
       c.fillStyle = "#171C35"; c.fillRect(0, 0, 32, 208);
@@ -91,7 +99,7 @@ window.SupplyCloset = (() => {
     reader = sc.add.image(C.reader.x, C.reader.y, "closet_reader_red").setScale(2).setDepth(10000 + C.reader.y + 200);
     reader.caption = C.readerCaption;
     ring = sc.add.graphics().setDepth(3.5);
-    sc.events.once("shutdown", () => { doors = []; reader = ring = plateImg = null; scene = null; });
+    sc.events.once("shutdown", () => { doors = []; reader = ring = plateImg = napZz = null; scene = null; });
   }
   function open(sc, quiet) {
     opened = true;
@@ -107,6 +115,53 @@ window.SupplyCloset = (() => {
     if (window.showLowerThird) window.showLowerThird("reward", "IT", SUPPLY_CLOSET.line, 4500, "SUPPLY CLOSET");
     if (window.achEvent) window.achEvent("closetBadge");
     if (window.Telemetry && Telemetry.note) Telemetry.note("closetBadge");
+    stock(sc);
+  }
+  // Roll today's supply and put it in the closet.
+  function roll() {
+    const S = SUPPLY_CLOSET.supplies, keys = Object.keys(S), total = keys.reduce((a, k) => a + (S[k].weight || 0), 0);
+    let r = Math.random() * total;
+    for (const k of keys) { r -= S[k].weight || 0; if (r < 0) return k; }
+    return keys[0];
+  }
+  function stock(sc, forced) {
+    supply = forced || roll();
+    const S = SUPPLY_CLOSET.supplies[supply], P = SUPPLY_CLOSET.spot;
+    if (supply === "chest" && typeof chests !== "undefined") {
+      const ch = chests.create(P.x, P.y, "chest").setDepth(3);
+      ch.bossKind = "supplyCloset"; // a small chest: PICKUPS.bossChest.tiers.supplyCloset
+      ch.tag = sc.add.text(P.x, P.y, "SUPPLIES", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#EF9347", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5, 1.6).setDepth(4);
+    } else if (supply === "stash") {
+      for (let i = 0; i < (S.coins || 3); i++) spawnCoin(P.x - 30 + i * 30, P.y + 10, 2);
+      const pz = window.pizzas && window.pizzas.create(P.x, P.y - 24, "pizza").setDepth(3);
+      if (pz) pz.dieAt = runElapsedMs + 10 * 60000; // it keeps in here
+    } else if (supply === "nap") {
+      napStill = 0; napNext = 0;
+    }
+    // The supply line follows the badge line once that has had its moment.
+    if (window.showLowerThird) setTimeout(() => { if (scene === sc) window.showLowerThird("reward", "SUPPLY CLOSET", S.line, 4500, "TODAY'S SUPPLY"); }, 4800);
+  }
+  // Nap spot: stand still inside the closet and heal a little at a time.
+  function nap(sc) {
+    const R = SUPPLY_CLOSET.room, N = SUPPLY_CLOSET.supplies.nap, now = runElapsedMs;
+    const fx = player.x, fy = player.y + player.height / 2;
+    const inside = fx > R.x && fx < R.x + R.w && fy > R.y && fy < R.y + R.h;
+    const still = Math.hypot(player.body.velocity.x, player.body.velocity.y) < 5;
+    if (!inside || !still) { napStill = 0; if (napZz) napZz.setVisible(false); return; }
+    if (!napStill) { napStill = now; napNext = now + N.stillMs; return; }
+    if (!napZz) napZz = sc.add.text(0, 0, "z z", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#BFA8CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(100000);
+    if (now - napStill > N.stillMs) napZz.setVisible(true).setPosition(player.x + 18, player.y - 34 - Math.sin(now / 300) * 3);
+    if (now >= napNext) {
+      napNext = now + N.everyMs;
+      if (hp < stats.maxHp) {
+        const amt = typeof healAmt === "function" ? healAmt(N.heal) : N.heal;
+        hp = Math.min(stats.maxHp, hp + amt);
+        if (typeof drawHpBar === "function") drawHpBar();
+        if (typeof updateHUD === "function") updateHUD();
+        const t = sc.add.text(player.x, player.y - 46, `+${amt} HP`, { fontFamily: "monospace", fontSize: "12px", fontStyle: "bold", color: "#83A89A", stroke: "#12152a", strokeThickness: 3 }).setOrigin(0.5).setDepth(100000);
+        sc.tweens.add({ targets: t, y: t.y - 20, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+      }
+    }
   }
   // Vertical walls are drawn rising 112 px above their base, so the piece below each door would cover the doorway.
   // Trim those two pieces once the office has been built.
@@ -117,8 +172,9 @@ window.SupplyCloset = (() => {
   }
   function update(sc) {
     if (scene && !wallsFixed) fixWalls(sc);
-    if (!scene || opened || !player || !player.active) return;
+    if (!scene || !player || !player.active) return;
     if (typeof paused !== "undefined" && paused) return;
+    if (opened) { if (supply === "nap") nap(sc); return; }
     const C = SUPPLY_CLOSET, now = runElapsedMs;
     // The reader blinks while it waits.
     if (now > blink) { blink = now + 600; if (reader && !standSince) reader.setTexture(reader.texture.key === "closet_reader_red" ? "closet_reader_dim" : "closet_reader_red"); }
@@ -139,8 +195,12 @@ window.SupplyCloset = (() => {
       const list = window.navExtraBlockers || [], i = list.indexOf(rect); if (i >= 0) list.splice(i, 1);
       if (o && o.destroy) o.destroy();
     });
-    [reader, ring, plateImg].forEach(o => o && o.destroy && o.destroy());
-    doors = []; reader = ring = plateImg = null; scene = null; opened = false; standSince = 0;
+    [reader, ring, plateImg, napZz].forEach(o => o && o.destroy && o.destroy());
+    doors = []; reader = ring = plateImg = napZz = null; scene = null; opened = false; standSince = 0; supply = null;
   }
-  return { init, update, destroy, open: () => scene && !opened && open(scene, false), isOpen: () => opened, plate: () => SUPPLY_CLOSET.plate };
+  return {
+    init, update, destroy,
+    open: (forced) => { if (scene && !opened) { open(scene, true); stock(scene, forced); } }, // dev console: skip the badge (no achievement)
+    isOpen: () => opened, supply: () => supply, plate: () => SUPPLY_CLOSET.plate
+  };
 })();

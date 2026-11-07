@@ -1684,3 +1684,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Stand on the plate by the blinking badge reader for 5 seconds without getting hit and both doors slide open. Getting hit starts the timer over. First time ever: "Please Don't Tell IT" (5k).
 - Eli from IT's card at 50 now ends with the hint. Placeholder doors, reader and decor until ChatGPT's art arrives. No enemies spawn inside.
 - Next: step 2, the random supply (chest, nap spot or stash).
+
+## Nov 7, 2026: V2.10.18, Supply Closet step 2
+- When the closet opens, it rolls one supply for the run: a small bonus chest, a nap spot (stand still inside to heal 1 HP every 2 seconds), or a stash (3 coins and a Leftover Pizza).
+- Each one gets its own lower-third line a few seconds after "Badge accepted."
+- The dev console has an OPEN CLOSET button for testing.
