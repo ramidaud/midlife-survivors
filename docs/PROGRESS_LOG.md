@@ -1600,3 +1600,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The devlog got audio players, book covers, pixel drop caps, desktop social buttons, an Apple Music playlist card, and "What changed" moved to the side column on every memo.
 - The Sprite Board now has the site's top bar and links back to the Art Room.
 - Every memo gets a 4:5 social image automatically. Memo 12 also has a 5-slide carousel (two animated) and a 16-second Reel.
+
+## Nov 6, 2026 (evening): our own address, midlifesurvivors.com (V2.10.7)
+- Rami bought midlifesurvivors.com at Porkbun ($11.81 a year, same price to renew) and pointed it at GitHub Pages (four A records plus a www CNAME).
+- Before switching, guests on the old address now see a "We're moving" note asking them to clock in, because progress saved only on a device can't follow the move. Signed-in players lose nothing.
+- Supabase sign-in now accepts the new address, so Google sign-in will land in the right place.
+- Still to do on switch day: set the custom domain in GitHub's Pages settings, turn on HTTPS, change Supabase's Site URL, and point devlog links at the new address.

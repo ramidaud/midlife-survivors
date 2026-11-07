@@ -595,3 +595,13 @@ The Medical Bill is a hospital invoice in a pink gown with a clipboard. The Day 
 ### 2026-11-05 Pickup and projectile art (Codex)
 
 Pickups use a steady idle pose and a cream shine frame. Projectiles share the same 32px grid, with a turn for the remote and an advancing arc for the podcast wave.
+
+## Business path (Nov 6, 2026, Rami's question: could this pay for a house?)
+- **Framing agreed with Rami:** plan finances as if the game earns zero; anything above that is upside.
+- **Rough outcomes:** most Steam indies earn under a few thousand dollars; a polished, funny survivors-like might do $20k to $100k; a house-and-car result needs a breakout.
+- **Money would come from** Steam first ($100 fee, 30% cut), itch.io for playtests, Ko-fi tips now. Mobile stays parked.
+- **In our control:** make it fun first, lean on Rami's marketing strengths (photos, writing, devlog), keep the one-line hook, put a Steam page up months before launch for wishlists.
+- **First money milestone:** cover the monthly AI subscriptions. Cost tracker to come once Rami shares plan prices.
+- **Domain:** midlifesurvivors.com (Porkbun, $11.81/yr). Guests get a "We're moving" note before the switch.
+- Revisit in Phase 6: Steam page, wishlists, trailer, pricing, publisher question.
+
