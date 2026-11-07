@@ -35,7 +35,7 @@ The room always has the joke props, plus one random "supply" that is rolled when
 ## Build plan (each step is one sitting, and each ends playable)
 1. **Room, doors and badge reader.** Build the closet's floor and walls, the two doors and the badge reader in a new `src/supply-closet.js`, plus the 5-second trigger and the achievement. Use placeholder art until ChatGPT's arrives.
 2. **The three rolls.** Chest, nap spot, stash. Plus a dev-console shortcut to open the closet.
-3. **Art pass.** ChatGPT's closet props and the 4-frame cabinet slide (handoff: `docs/handoffs/chatgpt-supply-closet.md`).
+3. **Art pass.** ChatGPT's closet props, badge reader and sliding doors (handoff: `docs/handoffs/chatgpt-supply-closet.md`).
 4. **Later:** the closet-only weapon.
 
 ## Open questions
