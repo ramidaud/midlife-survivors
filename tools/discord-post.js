@@ -12,7 +12,7 @@ const crypto = require("crypto");
 const ROOT = path.resolve(__dirname, "..");
 const STATE_FILE = path.join(ROOT, ".github/discord-state.json");
 const STATS_FILE = path.join(ROOT, "reports/discord-stats.md");
-const PLAY_URL = "https://ramidaud.github.io/midlife-survivors/";
+const PLAY_URL = "https://midlifesurvivors.com/";
 const DEVLOG_URL = PLAY_URL + "devlog/";
 const COLORS = { changelog: 0x2f8f83, memo: 0xc8743a, stats: 0x5b6f7a, test: 0x8fae8b, art: 0xBFA8CF };
 const DESCRIPTION_LIMIT = 3900; // Discord allows 4096 per embed; leave room
@@ -72,7 +72,7 @@ function changelogPayload(fresh) {
     description = lines.join("\n");
   }
   const title = fresh.length === 1 ? `New build: ${newest.ver}` : `${fresh.length} new builds: ${oldest.ver} to ${newest.ver}`;
-  return { embeds: [{ title, url: PLAY_URL, description: description.slice(0, 4000), color: COLORS.changelog, footer: { text: "Play the latest at ramidaud.github.io/midlife-survivors" } }] };
+  return { embeds: [{ title, url: PLAY_URL, description: description.slice(0, 4000), color: COLORS.changelog, footer: { text: "Play the latest at midlifesurvivors.com" } }] };
 }
 
 async function postChangelog(state) {

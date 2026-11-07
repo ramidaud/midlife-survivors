@@ -54,7 +54,7 @@ What came out of it:
 
 ![The 9-to-5er's walk, before and after. In the old cycle the same leg kept leading; now they alternate.](img/12-walk-before-after.gif "small")
 
-The Sprite Board is public, so you can poke around it yourself: [open the Sprite Board](https://ramidaud.github.io/midlife-survivors/tools/sprites.html). Pick a backdrop, slow everything down to a quarter speed, or flip on onion skin to see the frames stacked.
+The Sprite Board is public, so you can poke around it yourself: [open the Sprite Board](https://midlifesurvivors.com/tools/sprites.html). Pick a backdrop, slow everything down to a quarter speed, or flip on onion skin to see the frames stacked.
 
 ![The Sprite Board: every hero, coworker, enemy and boss in the game, animating side by side.](img/12-sprite-board.jpg)
 
@@ -137,7 +137,7 @@ In the meantime, I made an unofficial soundtrack: [the Midlife Survivors playlis
 
 ## Everything else
 
-There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://ramidaud.github.io/midlife-survivors/#changelog).
+There's a lot more in this stretch: an office map, a friendlier first day, the Student Lounge with its own weapons, boss defeat art, a new coin economy, a controller pass for playing on the TV, and real art for every gem, coin and projectile. The full list is in the [changelog](https://midlifesurvivors.com/#changelog).
 
 TJ and Derek were quiet this time, although they did get a new cart. It parks somewhere in the lobby for the first two minutes of a run, and it only sells things you can't get later.
 

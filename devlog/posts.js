@@ -24,7 +24,7 @@ window.DEVLOG_POSTS = [
       "Real art for every gem, coin and projectile"
     ],
     "nextUp": "More on the music, plus an unofficial Midlife Survivors soundtrack on Apple Music.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "11-where-community-is",
@@ -44,7 +44,7 @@ window.DEVLOG_POSTS = [
       "New art goes up in #art-and-ideas when it lands"
     ],
     "nextUp": "A minimap that fills in as you explore, then two new stages you can pick: the hospital and the home neighborhood. And Abdel's music.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "10-version-two",
@@ -75,7 +75,7 @@ window.DEVLOG_POSTS = [
       "Balance, writing and art passes from Fable, Grok, Gemini and ChatGPT"
     ],
     "nextUp": "Next memo: the game got its own Discord, and it posts its own updates. After that: Abdel's music, a redone Lounge, and bosses for the Full Life years.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "09-my-friends-work-here-now",
@@ -90,7 +90,7 @@ window.DEVLOG_POSTS = [
     "teaser": "TJ found a bug, Derek and TJ became interns with their own Lounge, Ben became the Coldwar Cowboy, and the game and the devlog finally feel like one thing.",
     "changes": ["Fixed the second-run force field TJ found", "Birthday cake, the Desk Salad and interns who bring you coffee", "The Lounge: a counter shop in the Break Room after every promotion", "New hero: the Coldwar Cowboy (read 10 memos)", "Spotlight cards for bosses, rooms and new hires", "Lighting, age 50+ surprises and a retirement party"],
     "nextUp": "Derek's own intern lines, Ben's jokes, and more playtesting with the crew.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "08-promoted-four-times",
@@ -104,7 +104,7 @@ window.DEVLOG_POSTS = [
     "teaser": "Promotions open six new rooms, almost everything breaks, bosses fight back, a sneaky bug made enemies run away, every weapon got a job, and the whole office moves smoother.",
     "changes": ["Promotions at 45, 50, 55 and 60 open the Parking Lot, Break Room, Server Room, Conference Rooms, Executive Wing and Wellness Corner", "Breakable printers, vending machines and more, with loot", "Bigger bosses with real attacks", "Fixed enemies walking through walls and backing away", "Dad Joke is now an attack; every weapon has a role", "8-frame enemies and heroes, idle fidgets, animated coworkers, pixel icons"],
     "nextUp": "Two layout plans for a less repetitive office, with team pods, landmarks and coworkers who actually sit in their chairs.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "07-around-the-desk",
@@ -117,7 +117,7 @@ window.DEVLOG_POSTS = [
     "teaser": "Corporate slang became furniture, the swarm learned to walk around desks, dodging got a streak meter, and real playtesters told me what was broken.",
     "changes": ["Office props: corporate slang taken literally, with jokes on approach", "Enemies walk around furniture (flow field)", "Close Calls: rewards and a streak meter for near misses", "Playtest fixes: center flash banners, a stronger Dad Joke", "Anonymous play stats"],
     "nextUp": "The new Lobby and Bullpen, with doors that unlock as you age.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "06-the-office-got-bigger",
@@ -130,7 +130,7 @@ window.DEVLOG_POSTS = [
     "teaser": "The art preview grows an atrium, side wings and a records annex with a lost binder. The map fills in as you walk.",
     "changes": ["Atrium, longer paths and side wings in the Campus preview", "Map reveals as you explore", "Brighter carpet, chair mats, coffee rings and a printer paper trail"],
     "nextUp": "See what happens when a crowd tries to get around those desks.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/devlog/art/"
+    "playUrl": "https://midlifesurvivors.com/devlog/art/"
   },
   {
     "slug": "05-buy-the-dev-a-coffee",
@@ -143,7 +143,7 @@ window.DEVLOG_POSTS = [
     "teaser": "Asking for money feels weird, so here is exactly where it goes: more AI time to finish this game. Also, I am looking for people who want to help build it.",
     "changes": ["Buy the Dev a Coffee on the main menu and Game Over screen", "Ko-fi links in the devlog header, footer and About page", "Early tips go to AI usage to finish the game"],
     "nextUp": "Reviewing the first batch of real enemy art from ChatGPT.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "04-midlife-is-hard",
@@ -162,7 +162,7 @@ window.DEVLOG_POSTS = [
       "Comfort Zone Tax: 45 seconds without a hit brings more enemies"
     ],
     "nextUp": "Near-miss rewards for dodging, then the art pass.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "03-office-with-some-history",
@@ -179,7 +179,7 @@ window.DEVLOG_POSTS = [
       "Printer jam, filing cabinet, breakroom plant props"
     ],
     "nextUp": "Decide how much detail survives before the other departments get the same look.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "02-three-different-strides",
@@ -196,7 +196,7 @@ window.DEVLOG_POSTS = [
       "Step timing tied to distance traveled"
     ],
     "nextUp": "Judge the costumes and rhythm, then idle and combat poses.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   },
   {
     "slug": "01-never-made-a-game",
@@ -212,7 +212,7 @@ window.DEVLOG_POSTS = [
       "Top 10 midlife annoyances became the enemy roster"
     ],
     "nextUp": "Coffee Splash that fires on its own, and the first real Game Over.",
-    "playUrl": "https://ramidaud.github.io/midlife-survivors/"
+    "playUrl": "https://midlifesurvivors.com/"
   }
 ];
 

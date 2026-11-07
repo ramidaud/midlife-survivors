@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Midlife Survivors Devlog</title>
-    <link>https://ramidaud.github.io/midlife-survivors/devlog/</link>
+    <link>https://midlifesurvivors.com/devlog/</link>
     <description>HR memos from building Midlife Survivors.</description>
     
     <item>
       <title>I could beat my own game standing still. So I hired a robot.</title>
-      <link>https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/</link>
+      <link>https://midlifesurvivors.com/devlog/04-midlife-is-hard/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/04-midlife-is-hard/</guid>
       <pubDate>Sun, 01 Nov 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-midlife-is-hard.jpg" alt="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in."></p><p>Here's an embarrassing thing to admit about your own game: four minutes in, I could put the controller down.</p>
+      <description><![CDATA[<p><img src="https://midlifesurvivors.com/devlog/img/04-midlife-is-hard.jpg" alt="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in."></p><p>Here's an embarrassing thing to admit about your own game: four minutes in, I could put the controller down.</p>
 <p>My weapons were doing so much damage that I could stand in one spot and let midlife come to me. Bills, robocalls, donuts, all of it melting before it got close. Nineteen minutes felt like the right length for a run. The run itself just wasn't a fight.</p>
 <p>That's backwards. In Vampire Survivors you die a lot early on, buy a few upgrades, and come back a little stronger. A first-time player should not get anywhere near the end.</p>
 <h2>So Claude hired a robot</h2>
@@ -34,8 +34,8 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
   bonusDurationMs: 20000,   // for 20 seconds. That's the Comfort Zone Tax.
 }
 </code></pre>
-<p>I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.</p><h3>What changed</h3><ul><li>Enemies and bosses scale with your level</li><li>Coins come in slowly; the 401(k) Shop is the long game</li><li>Tax Bracket: optional difficulty with bigger rewards</li><li>Comfort Zone Tax: 45 seconds without a hit brings more enemies</li></ul><p><strong>Next up:</strong> Near-miss rewards for dodging, then the art pass.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.24 to 1.27)</p>]]></description>
-      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/04-midlife-is-hard.jpg" alt="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in."></p><p>Here's an embarrassing thing to admit about your own game: four minutes in, I could put the controller down.</p>
+<p>I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.</p><h3>What changed</h3><ul><li>Enemies and bosses scale with your level</li><li>Coins come in slowly; the 401(k) Shop is the long game</li><li>Tax Bracket: optional difficulty with bigger rewards</li><li>Comfort Zone Tax: 45 seconds without a hit brings more enemies</li></ul><p><strong>Next up:</strong> Near-miss rewards for dodging, then the art pass.</p><p><a href="https://midlifesurvivors.com/">Play Midlife Survivors free in your browser</a> (V. 1.24 to 1.27)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://midlifesurvivors.com/devlog/img/04-midlife-is-hard.jpg" alt="15 seconds at age 49: the Performance Review walks in, the swarm builds, and the Comfort Zone Tax kicks in."></p><p>Here's an embarrassing thing to admit about your own game: four minutes in, I could put the controller down.</p>
 <p>My weapons were doing so much damage that I could stand in one spot and let midlife come to me. Bills, robocalls, donuts, all of it melting before it got close. Nineteen minutes felt like the right length for a run. The run itself just wasn't a fight.</p>
 <p>That's backwards. In Vampire Survivors you die a lot early on, buy a few upgrades, and come back a little stronger. A first-time player should not get anywhere near the end.</p>
 <h2>So Claude hired a robot</h2>
@@ -59,7 +59,7 @@ hitDamageByAge: [[40, 0], [48, 1], [55, 2], [62, 3]], // hits hurt more at 48, 5
   bonusDurationMs: 20000,   // for 20 seconds. That's the Comfort Zone Tax.
 }
 </code></pre>
-<p>I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.</p><h3>What changed</h3><ul><li>Enemies and bosses scale with your level</li><li>Coins come in slowly; the 401(k) Shop is the long game</li><li>Tax Bracket: optional difficulty with bigger rewards</li><li>Comfort Zone Tax: 45 seconds without a hit brings more enemies</li></ul><p><strong>Next up:</strong> Near-miss rewards for dodging, then the art pass.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.24 to 1.27)</p>]]></content:encoded>
+<p>I played it at 1 AM with newborn twins asleep down the hall. It feels a lot more like Vampire Survivors now. I died. I wanted to go again.</p><h3>What changed</h3><ul><li>Enemies and bosses scale with your level</li><li>Coins come in slowly; the 401(k) Shop is the long game</li><li>Tax Bracket: optional difficulty with bigger rewards</li><li>Comfort Zone Tax: 45 seconds without a hit brings more enemies</li></ul><p><strong>Next up:</strong> Near-miss rewards for dodging, then the art pass.</p><p><a href="https://midlifesurvivors.com/">Play Midlife Survivors free in your browser</a> (V. 1.24 to 1.27)</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

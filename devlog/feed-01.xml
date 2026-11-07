@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Midlife Survivors Devlog</title>
-    <link>https://ramidaud.github.io/midlife-survivors/devlog/</link>
+    <link>https://midlifesurvivors.com/devlog/</link>
     <description>HR memos from building Midlife Survivors.</description>
     
     <item>
       <title>I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square.</title>
-      <link>https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/</link>
+      <link>https://midlifesurvivors.com/devlog/01-never-made-a-game/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/01-never-made-a-game/</guid>
       <pubDate>Fri, 30 Oct 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/01-never-made-a-game.jpg" alt="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square."></p><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
+      <description><![CDATA[<p><img src="https://midlifesurvivors.com/devlog/img/01-never-made-a-game.jpg" alt="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square."></p><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
 <p>But I've played a lot of Vampire Survivors. If you haven't: you walk around, your weapons fire on their own, and an absurd number of monsters try to touch you. That's it. It's the most relaxing stressful thing I own. <em>(Vampire Survivors came out in 2022 from a tiny studio called poncle, and it started life as a browser game. That's part of why mine runs in a browser too.)</em></p>
 <p>Somewhere around my forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.</p>
 <p>So that's the game. <strong>Midlife Survivors.</strong> You start at 40. You survive.</p>
@@ -49,8 +49,8 @@ player.setVelocity(x * moveSpd, y * moveSpd);
 </code></pre>
 <p>Another: a game redraws the screen about 60 times a second, and everything you see happens inside that loop. Move the player, move the enemies, check if they're touching, draw it all again. Sixty times. Every second.</p>
 <p>That one blew my mind a little.</p>
-<p>Next up: a coffee splash that fires on its own, and the first time I got hit by a Bill and died.</p><h3>What changed</h3><ul><li>First playable square with touch and keyboard movement</li><li>First Bill (green $) chase</li><li>Top 10 midlife annoyances became the enemy roster</li></ul><p><strong>Next up:</strong> Coffee Splash that fires on its own, and the first real Game Over.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 0.1 to 1.8)</p>]]></description>
-      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/01-never-made-a-game.jpg" alt="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square."></p><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
+<p>Next up: a coffee splash that fires on its own, and the first time I got hit by a Bill and died.</p><h3>What changed</h3><ul><li>First playable square with touch and keyboard movement</li><li>First Bill (green $) chase</li><li>Top 10 midlife annoyances became the enemy roster</li></ul><p><strong>Next up:</strong> Coffee Splash that fires on its own, and the first real Game Over.</p><p><a href="https://midlifesurvivors.com/">Play Midlife Survivors free in your browser</a> (V. 0.1 to 1.8)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://midlifesurvivors.com/devlog/img/01-never-made-a-game.jpg" alt="I&#x27;ve never made a game. Here&#x27;s a green dollar sign chasing a square."></p><p>I'm a photographer. I've spent twenty-some years figuring out where to stand and when to press the button. I have never made a video game. Not a little one in college, not a Flash thing in 2006. Nothing.</p>
 <p>But I've played a lot of Vampire Survivors. If you haven't: you walk around, your weapons fire on their own, and an absurd number of monsters try to touch you. That's it. It's the most relaxing stressful thing I own. <em>(Vampire Survivors came out in 2022 from a tiny studio called poncle, and it started life as a browser game. That's part of why mine runs in a browser too.)</em></p>
 <p>Somewhere around my forties I realized midlife works the same way. You don't get to choose your attacks anymore. You just keep moving while the bills, the robocalls and the weird new back pain close in.</p>
 <p>So that's the game. <strong>Midlife Survivors.</strong> You start at 40. You survive.</p>
@@ -89,7 +89,7 @@ player.setVelocity(x * moveSpd, y * moveSpd);
 </code></pre>
 <p>Another: a game redraws the screen about 60 times a second, and everything you see happens inside that loop. Move the player, move the enemies, check if they're touching, draw it all again. Sixty times. Every second.</p>
 <p>That one blew my mind a little.</p>
-<p>Next up: a coffee splash that fires on its own, and the first time I got hit by a Bill and died.</p><h3>What changed</h3><ul><li>First playable square with touch and keyboard movement</li><li>First Bill (green $) chase</li><li>Top 10 midlife annoyances became the enemy roster</li></ul><p><strong>Next up:</strong> Coffee Splash that fires on its own, and the first real Game Over.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 0.1 to 1.8)</p>]]></content:encoded>
+<p>Next up: a coffee splash that fires on its own, and the first time I got hit by a Bill and died.</p><h3>What changed</h3><ul><li>First playable square with touch and keyboard movement</li><li>First Bill (green $) chase</li><li>Top 10 midlife annoyances became the enemy roster</li></ul><p><strong>Next up:</strong> Coffee Splash that fires on its own, and the first real Game Over.</p><p><a href="https://midlifesurvivors.com/">Play Midlife Survivors free in your browser</a> (V. 0.1 to 1.8)</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

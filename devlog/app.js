@@ -353,7 +353,7 @@
     html = html.replace(/<p>\s*(<img [^>]*?) title="(side|small|book)">\s*<\/p>/g, (m, img, kind) => `<figure class="fig ${kind}">${img}></figure>`);
 
     const { prev, next } = neighbors(post.slug);
-    const play = post.playUrl || "https://ramidaud.github.io/midlife-survivors/";
+    const play = post.playUrl || "https://midlifesurvivors.com/";
     // What changed + Next up live in the right column (Nov 6, Rami's rule for every memo), so the memo itself starts right
     // under the cover. On phones the column stacks below the memo.
     const changes = Array.isArray(post.changes) && post.changes.length
@@ -390,7 +390,7 @@
       </div>
       ${lead}
       <div class="post-cta">
-        <div class="cta-row"><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://ramidaud.github.io/midlife-survivors/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share</span></button></div>
+        <div class="cta-row"><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://midlifesurvivors.com/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share</span></button></div>
       </div>
       <article class="post">
         <div class="prose">${html}</div>
@@ -398,7 +398,7 @@
           <div class="silk">Filed by Rami.</div>
           Survived to ${esc(post.version || "the next build")}. Screenshots are from the real game at the time.
         </div>
-        <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://ramidaud.github.io/midlife-survivors/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share this memo</span></button></div>
+        <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://midlifesurvivors.com/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share this memo</span></button></div>
       </article>
       ${sequel(post, prev, next)}`;
     // Lead clips play like a GIF; respect reduced motion by starting paused.

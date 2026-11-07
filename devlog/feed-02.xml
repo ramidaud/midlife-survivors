@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Midlife Survivors Devlog</title>
-    <link>https://ramidaud.github.io/midlife-survivors/devlog/</link>
+    <link>https://midlifesurvivors.com/devlog/</link>
     <description>HR memos from building Midlife Survivors.</description>
     
     <item>
       <title>The office has people in it now. And they walk.</title>
-      <link>https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/</link>
+      <link>https://midlifesurvivors.com/devlog/02-three-different-strides/</link>
       <guid>https://ramidaud.github.io/midlife-survivors/devlog/02-three-different-strides/</guid>
       <pubDate>Sat, 31 Oct 2026 12:00:00 GMT</pubDate>
-      <description><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."></p><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets <em>(A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.)</em> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
+      <description><![CDATA[<p><img src="https://midlifesurvivors.com/devlog/img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."></p><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets <em>(A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.)</em> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
 <p>They each have four directions and four walking poses per direction. You can switch between them in the separate art test and walk around the same desks. There's also a side-by-side preview so I can compare their movement before replacing the main game's art.</p>
 <p>One useful detail: the walking animation follows distance traveled. <em>(Most games loop the walk on a timer, so a character pushing into a wall moonwalks in place. Counting steps by distance fixes that.)</em> If you push into a desk and stop moving, your feet stop too. Small thing, but it helps the character feel connected to the room. This is the whole trick:</p>
 <pre><code>// Each frame, add up how far the character actually moved.
@@ -20,8 +20,8 @@ walked += distanceWalked;
 // Pushing into a desk means no distance, so the feet stop too.
 currentFrame = CharacterArt.frame(facing, moving ? Math.floor(walked / 17) : 1);
 </code></pre>
-<p>These are the first walking sheets. The costumes and rhythm still need a look, then we can add idle and combat reactions.</p><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul><p><strong>Next up:</strong> Judge the costumes and rhythm, then idle and combat poses.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.23.4)</p>]]></description>
-      <content:encoded><![CDATA[<p><img src="https://ramidaud.github.io/midlife-survivors/devlog/img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."></p><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets <em>(A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.)</em> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
+<p>These are the first walking sheets. The costumes and rhythm still need a look, then we can add idle and combat reactions.</p><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul><p><strong>Next up:</strong> Judge the costumes and rhythm, then idle and combat poses.</p><p><a href="https://midlifesurvivors.com/">Play Midlife Survivors free in your browser</a> (V. 1.23.4)</p>]]></description>
+      <content:encoded><![CDATA[<p><img src="https://midlifesurvivors.com/devlog/img/02-three-different-strides.jpg" alt="The first walking pass for the three playable characters."></p><p>The office layout felt good, but I wanted the graphics to feel more animated. So the next art pass was walking sheets <em>(A sprite sheet is one image holding every frame of an animation in a grid. The game shows one square at a time, fast, like a flip book.)</em> for all three playable characters: the 9-to-5er, the Soccer Dad and the Grad Student at 45.</p>
 <p>They each have four directions and four walking poses per direction. You can switch between them in the separate art test and walk around the same desks. There's also a side-by-side preview so I can compare their movement before replacing the main game's art.</p>
 <p>One useful detail: the walking animation follows distance traveled. <em>(Most games loop the walk on a timer, so a character pushing into a wall moonwalks in place. Counting steps by distance fixes that.)</em> If you push into a desk and stop moving, your feet stop too. Small thing, but it helps the character feel connected to the room. This is the whole trick:</p>
 <pre><code>// Each frame, add up how far the character actually moved.
@@ -31,7 +31,7 @@ walked += distanceWalked;
 // Pushing into a desk means no distance, so the feet stop too.
 currentFrame = CharacterArt.frame(facing, moving ? Math.floor(walked / 17) : 1);
 </code></pre>
-<p>These are the first walking sheets. The costumes and rhythm still need a look, then we can add idle and combat reactions.</p><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul><p><strong>Next up:</strong> Judge the costumes and rhythm, then idle and combat poses.</p><p><a href="https://ramidaud.github.io/midlife-survivors/">Play Midlife Survivors free in your browser</a> (V. 1.23.4)</p>]]></content:encoded>
+<p>These are the first walking sheets. The costumes and rhythm still need a look, then we can add idle and combat reactions.</p><h3>What changed</h3><ul><li>Four-direction walking sheets for all three playable characters</li><li>Explore As switcher and direction gallery in the art test</li><li>Step timing tied to distance traveled</li></ul><p><strong>Next up:</strong> Judge the costumes and rhythm, then idle and combat poses.</p><p><a href="https://midlifesurvivors.com/">Play Midlife Survivors free in your browser</a> (V. 1.23.4)</p>]]></content:encoded>
     </item>
   </channel>
 </rss>

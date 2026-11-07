@@ -4,7 +4,7 @@ Generate static per-post pages + RSS for the Midlife Survivors devlog.
 
 Usage (from the devlog folder, or pass --root):
   python3 scripts/build_devlog.py
-  python3 scripts/build_devlog.py --root /path/to/devlog --site-url https://ramidaud.github.io/midlife-survivors/devlog
+  python3 scripts/build_devlog.py --root /path/to/devlog --site-url https://midlifesurvivors.com/devlog
 
 Reads posts.js (via a tiny JSON extraction — keep posts.js as a JS array assigned to
 window.DEVLOG_POSTS) OR, preferred for CI: also accepts posts.json if present.
@@ -170,7 +170,7 @@ PAGE = """<!doctype html>
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
-    ap.add_argument("--site-url", default="https://ramidaud.github.io/midlife-survivors/devlog")
+    ap.add_argument("--site-url", default="https://midlifesurvivors.com/devlog")
     ap.add_argument("--include-drafts", action="store_true")
     args = ap.parse_args()
     root: Path = args.root
@@ -179,6 +179,10 @@ def main():
         posts = [p for p in posts if not p.get("draft")]
 
     site = args.site_url.rstrip("/")
+    # RSS item IDs stay on the old address forever (Nov 6 move to midlifesurvivors.com), so feed readers and the
+    # Substack import don't see every memo as brand new. Links use the new address.
+    global GUID_BASE
+    GUID_BASE = "https://ramidaud.github.io/midlife-survivors/devlog"
     items_rss = []
 
     for p in posts:
@@ -311,7 +315,7 @@ def main():
     <item>
       <title>{html.escape(title)}</title>
       <link>{site}/{slug}/</link>
-      <guid>{site}/{slug}/</guid>
+      <guid>{GUID_BASE}/{slug}/</guid>
       <pubDate>{datetime.date.fromisoformat(date).strftime('%a, %d %b %Y')} 12:00:00 GMT</pubDate>
       <description><![CDATA[{full}]]></description>
       <content:encoded><![CDATA[{full}]]></content:encoded>

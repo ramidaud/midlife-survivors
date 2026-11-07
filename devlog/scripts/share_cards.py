@@ -165,7 +165,7 @@ def make_social_post(root: Path, post: dict) -> str | None:
     # 4. Footer
     d.rectangle([0, SH - 92, SW, SH], fill=(30, 36, 64))
     d.text((52, SH - 62), "READ IT + PLAY FREE", font=silk(26), fill=COFFEE)
-    url = "ramidaud.github.io/midlife-survivors"
+    url = "midlifesurvivors.com"
     d.text((SW - 52 - d.textlength(url, font=body(30)), SH - 64), url, font=body(30), fill=CREAM)
     rel = f"img/social/{post['slug']}.jpg"
     out = root / "devlog" / rel
@@ -213,7 +213,7 @@ def make_slide(root: Path, out: Path, strip_left: str, art, title: str, caption:
     d.rectangle([0, SH - 92, SW, SH], fill=(30, 36, 64))
     d.text((52, SH - 62), footer_left, font=silk(26), fill=COFFEE)
     if show_url:
-        url = "ramidaud.github.io/midlife-survivors"
+        url = "midlifesurvivors.com"
         d.text((SW - 52 - d.textlength(url, font=body(30)), SH - 64), url, font=body(30), fill=CREAM)
     out.parent.mkdir(parents=True, exist_ok=True)
     im.save(out, "JPEG", quality=88, optimize=True, progressive=True)
