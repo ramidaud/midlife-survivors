@@ -616,3 +616,7 @@ Pickups use a steady idle pose and a cream shine frame. Projectiles share the sa
 ### 2026-11-07 Flow scene references (Codex)
 
 The Flow cut-scene kit begins with ten empty office locations in day and night versions. These references use a gentle three-quarter camera, perimeter furnishings and an open middle floor for composited characters. Posters and banners contain no words. The Executive Wing's founder tribute is abstract so the background contains no depicted person. This is art for cut scenes and does not change playable room layouts.
+
+### 2026-11-07 Clean Flow cast references (Codex)
+
+The first character batch pairs a natural full-body pose with an action pose for the four heroes, TJ and Derek. The portraits use cream backgrounds and the original office key-art look. These are cut-scene reference illustrations, with the existing character identities and costumes retained. Playable sprites and gameplay stay unchanged.

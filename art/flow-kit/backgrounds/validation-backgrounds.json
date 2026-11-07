@@ -16,10 +16,10 @@
       ]
     },
     {
-      "bytes": 93507,
+      "bytes": 93144,
       "colors": 12,
       "file": "bg-lobby-night.png",
-      "mean_luma": 58.25205714068211,
+      "mean_luma": 52.404090410544974,
       "nearest_3x_pass": true,
       "opaque": true,
       "palette_pass": true,
@@ -107,10 +107,10 @@
       ]
     },
     {
-      "bytes": 118119,
+      "bytes": 122183,
       "colors": 14,
       "file": "bg-server-room-day.png",
-      "mean_luma": 110.77552389397968,
+      "mean_luma": 111.11160853460625,
       "nearest_3x_pass": true,
       "opaque": true,
       "palette_pass": true,
@@ -120,10 +120,10 @@
       ]
     },
     {
-      "bytes": 91855,
+      "bytes": 92301,
       "colors": 12,
       "file": "bg-server-room-night.png",
-      "mean_luma": 53.040983856823544,
+      "mean_luma": 53.133124369851934,
       "nearest_3x_pass": true,
       "opaque": true,
       "palette_pass": true,
@@ -146,10 +146,10 @@
       ]
     },
     {
-      "bytes": 91427,
-      "colors": 13,
+      "bytes": 88975,
+      "colors": 12,
       "file": "bg-executive-wing-night.png",
-      "mean_luma": 49.338316346121644,
+      "mean_luma": 48.34130110303021,
       "nearest_3x_pass": true,
       "opaque": true,
       "palette_pass": true,
@@ -267,7 +267,6 @@
     "All 20 scenes visually inspected for open middle floor, no characters, text, UI or logos.",
     "All ten day/night pairs compared for major prop positions and camera."
   ],
-  "completed": "2026-11-07",
   "review_page_checks": {
     "viewports": [
       [

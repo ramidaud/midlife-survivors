@@ -1649,3 +1649,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Created day and night reference plates for ten office locations, twenty 1920×1080 PNGs in total. Clear middle floors leave space for characters in Flow.
 - Added the contact sheet, prompts, manifest and review page under `art/flow-kit/backgrounds/`. All image checks and desktop, phone and tablet preview checks passed.
 - Background set ready for Rami's review. Character portraits wait until that review. No game changes or version bump.
+
+## 2026-11-07: First clean Flow cast batch (Codex)
+- Delivered twelve illustrations for the four heroes, TJ and Derek, with two poses each on flat cream. The contact sheet and identity comparisons are ready for Rami's review.
+- Fixed the two night-floor color issues and added orange headers to the Server Room note in both lighting versions, following Claude's review.
+- Character and background exports passed native checks and desktop, phone and tablet review checks. June, enemies and bosses wait for the next batch. No game changes.

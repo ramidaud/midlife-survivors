@@ -1,0 +1,69 @@
+{
+  "set": "Flow clean key-art portraits, batch 1",
+  "date": "2026-11-07",
+  "scope": "Four heroes plus TJ and Derek. Review before remaining cast, enemies and bosses.",
+  "format": "Opaque RGBA PNG",
+  "size": [
+    1024,
+    1024
+  ],
+  "background": "#F2D7A1",
+  "logical_grid": [
+    512,
+    512
+  ],
+  "nearest_neighbor_scale": 2,
+  "style_reference": "art/flow-kit/key-art/9to5er-keyart.png",
+  "palette_reference": "assets/art-direction/STYLE_GUIDE.md",
+  "palette_mode": "Style-guide targets with the generated illustration's material and skin shading retained. These are illustrated Flow references, not restricted-palette runtime sprites.",
+  "entries": [
+    {
+      "id": "9to5er",
+      "name": "The 9-to-5er",
+      "identity_reference": "art/flow-kit/hero-9to5er.png",
+      "portrait": "keyart-9to5er.png",
+      "alternate": "keyart-9to5er-pose2.png",
+      "alternate_pose": "A lively three-quarter forward running stride while balancing his steaming orange mug, loose red tie trailing. Other arm counter-swings, small coffee droplet near rim, both shoes visible. Tired determination, not anger."
+    },
+    {
+      "id": "soccer-dad",
+      "name": "Soccer Dad",
+      "identity_reference": "art/flow-kit/hero-soccer-dad.png",
+      "portrait": "keyart-soccer-dad.png",
+      "alternate": "keyart-soccer-dad-pose2.png",
+      "alternate_pose": "A cheerful three-quarter jog, one hand raised in a small encouragement fist, opposite arm swinging, navy cap and beard fully readable, legs alternating. Both shoes visible. No added soccer ball or other new equipment."
+    },
+    {
+      "id": "grad-student",
+      "name": "Grad Student at 45",
+      "identity_reference": "art/flow-kit/hero-grad-student.png",
+      "portrait": "keyart-grad-student.png",
+      "alternate": "keyart-grad-student-pose2.png",
+      "alternate_pose": "A small delighted celebratory hop, notebook held securely in one arm, free hand raised in a modest fist, brown backpack and lavender hoodie unchanged. Both feet fully visible and near ground with small oval shadow, no extra objects."
+    },
+    {
+      "id": "coldwar-cowboy",
+      "name": "Coldwar Cowboy",
+      "identity_reference": "art/flow-kit/hero-coldwar-cowboy.png",
+      "portrait": "keyart-coldwar-cowboy.png",
+      "alternate": "keyart-coldwar-cowboy-pose2.png",
+      "alternate_pose": "A lazy three-quarter hat-tip, one hand touching the thin brim so his half-lidded eyes remain visible, opposite hand holding the same beige floppy disk near his hip. Weight on one boot, the other slightly outward. Same world-weary smirk."
+    },
+    {
+      "id": "tj",
+      "name": "TJ",
+      "identity_reference": "art/flow-kit/intern-tj.png",
+      "portrait": "keyart-tj.png",
+      "alternate": "keyart-tj-pose2.png",
+      "alternate_pose": "A playful running skid into a stop, both hands offering the lidded orange coffee cup forward, beanie knocked very slightly crooked, warm laughing grin and glasses. Three-quarter angle, both shoes fully in frame, no spilled coffee cloud or motion lines."
+    },
+    {
+      "id": "derek",
+      "name": "Derek",
+      "identity_reference": "art/flow-kit/intern-derek.png",
+      "portrait": "keyart-derek.png",
+      "alternate": "keyart-derek-pose2.png",
+      "alternate_pose": "Standing in a three-quarter photographer stance, both hands holding his dark charcoal camera up to his eye, front circular lens visible toward viewer, orange strap still visible. Small cream flash sparkle immediately above camera, no big light burst. Beard, curly hair and glasses readable around camera, both shoes fully visible."
+    }
+  ]
+}

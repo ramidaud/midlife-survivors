@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-07",
+  "reason": "Claude's review at bottom of chatgpt-flow-kit.md",
+  "edits": [
+    {
+      "file": "bg-lobby-night.png",
+      "source_revision": "9d8edb9:art/flow-kit/backgrounds/bg-lobby-night.png",
+      "prompt": "Use case: precise-object-edit. Edit only the FLOOR COLOR of this empty Midlife Survivors lobby night background. Keep all furniture, architecture, ceiling, windows, clock, plants, camera and object shapes in exactly the same places. The broad russet orange floor rectangle is an error: it is cream tile in daylight and at night must read as dim SLATE BLUE tile (#303750 and #526078), with navy grout and a few muted teal reflections from the window. Remove all orange/russet fill across the middle tile floor. Permit just one very small muted cream warm light patch immediately against the reception desk base, not across the middle. Keep the tiled grid and open clear floor unchanged. NIGHT, dark navy room with cream ceiling lights. Match crisp hard 16-bit pixel clusters, no blur, no gradients. Absolutely no characters, creatures, people, text, letters, digits, logos or UI. Same 16:9 composition."
+    },
+    {
+      "file": "bg-executive-wing-night.png",
+      "source_revision": "9d8edb9:art/flow-kit/backgrounds/bg-executive-wing-night.png",
+      "prompt": "Use case: precise-object-edit. Preserve this empty Executive Wing night scene's exact camera, furniture, windows, awards, picture and objects. Edit only the floor lighting: remove the large russet/orange reflection smears. Wood floor at night should remain low-contrast navy and slate blue (#171C35 #303750 #526078) with subdued grain. Allow one small warm pool directly below each wall sconce, tight to the back wall, and a tiny muted warm glint at the desk lamp base. No wide orange streaks or patches in the walking area. Keep all floorboards, perspective and clear floor unchanged. Crisp 16-bit pixel clusters and limited palette. No people, creatures, text, letters, logos, UI, blur or gradients. Same wide 16:9 composition."
+    },
+    {
+      "file": "bg-server-room-day.png",
+      "source_revision": "9d8edb9:art/flow-kit/backgrounds/bg-server-room-day.png",
+      "prompt": "Use case: precise-object-edit. This empty server room DAY has ONE plain cream sticky note on the rightmost rack in the back row (fourth rear rack), approximately 70% across the image and 32% down. Color the TOP THIRD of that note BRIGHT COFFEE ORANGE #EF9347. It must visibly become a two-tone note: orange top band, cream bottom two-thirds. Preserve its tilted square silhouette. No letters, no writing. This is the ONLY change. All other scene pixels, camera, furniture, lighting, racks, floor and posters remain the same. Make the orange band thick enough to be clearly visible in a small thumbnail. No people, text, logos, UI or creatures. Same 16:9 crisp pixel art."
+    },
+    {
+      "file": "bg-server-room-night.png",
+      "source_revision": "9d8edb9:art/flow-kit/backgrounds/bg-server-room-night.png",
+      "prompt": "Use case: precise-object-edit. This empty server room NIGHT has ONE plain cream sticky note on the rightmost rack in the back row (fourth rear rack), approximately 70% across the image and 32% down. Color the TOP THIRD of that note BRIGHT COFFEE ORANGE #EF9347. It must visibly become a two-tone note: orange top band, cream bottom two-thirds. Preserve its tilted square silhouette. No letters, no writing. This is the ONLY change. All other scene pixels, camera, furniture, lighting, racks, floor and posters remain the same. Make the orange band thick enough to be clearly visible in a small thumbnail. No people, text, logos, UI or creatures. Same 16:9 crisp pixel art."
+    }
+  ],
+  "reviewed_unchanged": [
+    "bg-retirement-party-night.png: middle floor already slate, warm light confined near the cake table."
+  ]
+}

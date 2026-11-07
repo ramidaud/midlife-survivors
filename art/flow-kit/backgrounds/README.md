@@ -13,3 +13,7 @@ The Executive Wing's founder frame is an abstract geometric tribute. This keeps 
 - [Validation](validation-backgrounds.json) records dimensions, palette, opacity, repeated 3× pixels, file sizes and day/night luminance checks. All twenty plates were visually inspected.
 
 This delivery covers backgrounds only. The clean character portraits are the next set after Rami's review. No runtime files or game version changed.
+
+## Review touchups, Nov 7
+
+The Lobby and Executive Wing night floors now stay slate, with warm accents confined near the furnishings. The Server Room rack note has a coffee-orange top band in both lighting versions. Retirement Party night was checked and retained because its middle floor is already slate. [Touchup prompts](generation-touchups-2026-11-07.json).

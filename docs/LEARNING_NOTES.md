@@ -626,3 +626,7 @@ When you visit a website, your browser and the web host both keep a copy of the 
 ## 2026-11-07: Paired background plates (Codex)
 
 A background plate is a scene without its characters. Keeping the camera and main furniture in place lets the same character performance work in daylight or at night. The Flow set leaves a clear floor for that performance and puts the room's story around its edges.
+
+## 2026-11-07: Identity and style references (Codex)
+
+An identity reference says who the character is, including face, outfit and accessories. A style reference says how to draw them. Keeping those roles separate lets the six Flow cast members share the 9-to-5er's key-art look while retaining their own features.

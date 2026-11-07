@@ -87,5 +87,11 @@
       "night": "bg-retirement-party-night.png"
     }
   ],
-  "completed": "2026-11-07"
+  "completed": "2026-11-07",
+  "last_review_touchup": "2026-11-07",
+  "review_touchups": [
+    "Lobby night and Executive Wing night floors cooled to slate.",
+    "Server Room day/night rack note has a coffee-orange header.",
+    "Retirement Party night reviewed, warm light stays near the cake table."
+  ]
 }

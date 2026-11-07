@@ -1,0 +1,240 @@
+{
+  "all_passed": true,
+  "date": "2026-11-07",
+  "files": [
+    {
+      "bytes": 156869,
+      "cream_border_64px": true,
+      "file": "keyart-9to5er.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        334,
+        144,
+        687,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 169273,
+      "cream_border_64px": true,
+      "file": "keyart-9to5er-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        268,
+        144,
+        755,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 137801,
+      "cream_border_64px": true,
+      "file": "keyart-soccer-dad.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        346,
+        144,
+        677,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 148356,
+      "cream_border_64px": true,
+      "file": "keyart-soccer-dad-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        292,
+        144,
+        731,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 144626,
+      "cream_border_64px": true,
+      "file": "keyart-grad-student.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        342,
+        144,
+        681,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 143426,
+      "cream_border_64px": true,
+      "file": "keyart-grad-student-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        332,
+        144,
+        689,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 165364,
+      "cream_border_64px": true,
+      "file": "keyart-coldwar-cowboy.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        322,
+        144,
+        699,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 185292,
+      "cream_border_64px": true,
+      "file": "keyart-coldwar-cowboy-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        304,
+        144,
+        719,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 157255,
+      "cream_border_64px": true,
+      "file": "keyart-tj.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        314,
+        144,
+        709,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 162671,
+      "cream_border_64px": true,
+      "file": "keyart-tj-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        268,
+        144,
+        753,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 159804,
+      "cream_border_64px": true,
+      "file": "keyart-derek.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        332,
+        144,
+        689,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 157632,
+      "cream_border_64px": true,
+      "file": "keyart-derek-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        314,
+        144,
+        709,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "manual_checks": [
+    "One complete character per PNG, identity features and clothing compared to provided references.",
+    "All twelve illustrations checked for text, logos, clipping and unrelated props.",
+    "Two poses per character compared together. Cowboy's alternate was redrawn to keep the large head and short body."
+  ],
+  "palette_mode": "Style targets, source illustration shading retained",
+  "review_page_checks": {
+    "viewports": [
+      [
+        1280,
+        800
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "images_decoded": 19,
+    "horizontal_overflow": false,
+    "runtime_exceptions": 0,
+    "network": "blocked"
+  }
+}
