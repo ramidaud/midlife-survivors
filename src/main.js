@@ -376,6 +376,7 @@ function create() {
   WorldArt.init(this, {player, floor, props:stageProps, label, hpBar, clock:()=>runElapsedMs, enemies:()=>bills});
   if (window.Lighting) Lighting.init(this, { player, chests: () => chests, age: () => currentAge, clock: () => runElapsedMs }); // src/lighting.js
   if (window.YellowNote) YellowNote.init(this); // the rack with the yellow note (src/yellow-note.js)
+  if (window.Butterscotch) Butterscotch.init(this); // June from Legal's candy dish (src/butterscotch.js)
   ltDecadeShown = null; ltLowHpWarned = false; nextSwarmAt = null;
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {
@@ -2621,6 +2622,7 @@ function update(time, delta) {
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
   if (window.YellowNote) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note
+  if (window.Butterscotch) { Butterscotch.update(this); Butterscotch.sync(); } // help yourself to a butterscotch
   drawShield();
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);

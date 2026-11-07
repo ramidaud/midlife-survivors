@@ -1622,3 +1622,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The event tag on the HUD now hides when any menu is open, so it no longer covers the pause title.
 - Next from Kevin's list: the Executive Wing butterscotch, then an original instant-message ping.
 
+## Nov 6, 2026: V2.10.11, June's butterscotch
+- Kevin's idea: a candy dish (ChatGPT art) now sits on the Executive Wing credenza, right where June from Legal said it would be.
+- Walk up to it for +3 HP and a rotating line from June. It looks empty for a year (45 seconds), then restocks.
+- The credenza's caption now mentions "the good butterscotch."
+- Message ping: Rami didn't like the ElevenLabs takes; three code-made pings are out for him to pick from.
+

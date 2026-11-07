@@ -45,7 +45,7 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [x] Bigger, glowing pizza and Desk Salad (V2.10.8)
 - [x] Bigger Group Chat shots with an orange ring (V2.10.8)
 - [x] **Active effects list** in the pause menu (Ghost Hour, Rent Hike and the rest, with a plain-English line each) (V2.10.10)
-- [ ] **A real butterscotch** on the Executive Wing credenza (small heal + joke line; needs a tiny art request)
+- [x] **A real butterscotch** on the Executive Wing credenza (small heal + joke line; needs a tiny art request) (V2.10.11)
 - [ ] **Our own instant-message sound** for Group Chat pings (ElevenLabs; original, not the AIM sound)
 
 ## Devlog to-do (Nov 6)

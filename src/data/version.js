@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.10",
-  displayVersion: "V. 2.10.10",
+  version: "2.10.11",
+  displayVersion: "V. 2.10.11",
   lastUpdated: "Nov 6, 2026",
   codename: "Version Two",
-  build: 268,
+  build: 269,
   changelog: [
+    {
+      ver: "V. 2.10.11", date: "Nov 6, 2026", title: "Version Two",
+      teaser: "June from Legal wasn't kidding about the butterscotch.",
+      highlights: [
+        "There's a candy dish on the Executive Wing credenza now. Walk up to it for +3 HP and a word from June from Legal. It restocks once a year. (Thanks, Kevin.)"
+      ]
+    },
     {
       ver: "V. 2.10.10", date: "Nov 6, 2026", title: "Version Two",
       teaser: "Ghost Hour, Rent Hike and friends now explain themselves.",
