@@ -1654,3 +1654,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Delivered twelve illustrations for the four heroes, TJ and Derek, with two poses each on flat cream. The contact sheet and identity comparisons are ready for Rami's review.
 - Fixed the two night-floor color issues and added orange headers to the Server Room note in both lighting versions, following Claude's review.
 - Character and background exports passed native checks and desktop, phone and tablet review checks. June, enemies and bosses wait for the next batch. No game changes.
+
+## Nov 7, 2026: live-scene test page (plan step 1)
+- Rami approved the live-scene plan: still background plates with the lettering painted in, plus small sprite strips that swap poses, instead of AI video or moving cutouts.
+- Step 1 is a standalone test page (tools/live-scene.html) playing Grok's chase prototype in that format. No game code changed.
+- Result: 522 KB for the whole scene versus 1.45 MB for the 4-second MP4, about 0.1 ms to draw each pose change, and reduced motion shows one still picture.
+- Reviewed ChatGPT's first six clean portraits: approved.
