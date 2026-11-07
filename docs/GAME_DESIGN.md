@@ -620,3 +620,6 @@ The Flow cut-scene kit begins with ten empty office locations in day and night v
 ### 2026-11-07 Clean Flow cast references (Codex)
 
 The first character batch pairs a natural full-body pose with an action pose for the four heroes, TJ and Derek. The portraits use cream backgrounds and the original office key-art look. These are cut-scene reference illustrations, with the existing character identities and costumes retained. Playable sprites and gameplay stay unchanged.
+
+## Supply Closet art handoff (Nov 7, 2026, Codex)
+The current secret hallway uses the badge-reader glitch between Server Room and Executive Wing. The art kit includes red/blink/green reader states, a slate floor plate, a utility door that slides into its frame, shelves, lost-and-found, mop, chair, bulb and concrete floor. Older cabinet art remains supplemental. This delivery does not alter the hallway logic.

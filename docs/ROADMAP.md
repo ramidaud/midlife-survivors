@@ -347,3 +347,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [ ] Step 3: ChatGPT art pass (docs/handoffs/chatgpt-supply-closet.md)
 - [ ] Later: closet-only weapon joins the roll
 
+
+## 2026-11-07 art delivery (Codex)
+- [x] Registered late-night title layers and Supply Closet art kit, including current badge-reader entrance.
+- [ ] Claude integrates the art; Rami reviews playback and in-world placement.

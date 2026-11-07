@@ -1689,3 +1689,6 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - When the closet opens, it rolls one supply for the run: a small bonus chest, a nap spot (stand still inside to heal 1 HP every 2 seconds), or a stash (3 coins and a Leftover Pizza).
 - Each one gets its own lower-third line a few seconds after "Badge accepted."
 - The dev console has an OPEN CLOSET button for testing.
+
+## 2026-11-07: Live title layers and Supply Closet art (Codex)
+Saved the registered 11:58 PM title plate, eighteen animation frames and contact/check files. Finished Supply Closet props and the updated badge-reader/utility-door entrance, with previews and manifest. Art only; integration remains with Claude.

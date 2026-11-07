@@ -422,3 +422,11 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files:** `assets/title-screen/live/late-night/` includes the contact sheet, composite check, preview HTML, prompts and exact changed-pixel maps.
 - **For the game:** Every PNG is 1920×1080, registered at (0,0). Room plate is opaque; sprite layers are transparent. Hide the resting steam during worker frames 04–06. README documents the note backing patch and deliberate steam/red-stripe additions.
 - **Checks:** All eighteen frames passed protected-pixel and alpha checks. Clock and lettering retain source pixels. Native contact sheet exported; browser playback was not tested. No runtime or version changes.
+
+## 2026-11-07 Supply Closet kit (Codex)
+
+- **What:** Seven closet prop families, blinking badge reader, slate floor plate and four-frame sliding utility door for the updated Server Room to Executive Wing hallway. Earlier cabinet-slide request is included as supplemental art with an optional wide sheet.
+- **Files:** `assets/stage/props/` contains `supply-closet-props-v1.png`, `closet_badge_reader-v1.png`, `closet_floor_plate-v1.png`, `closet_door-open-v1.png`, cabinet sheets, five GIF previews, contact board, manifest, prompts, checks and README.
+- **For the game:** Opaque exact #FF00FF backgrounds, hard pixels, shared office palette. Claude owns wiring and placement. Reader: red/blink loop, then hold green. Utility door: 180 ms, hold final frame.
+- **Sizes:** Props atlas 464×112 with per-family rectangles in manifest; reader 72×32; floor plate 48×32; door 256×96. Concrete tile 64×64 repeats both axes. Cabinet 384×112 plus optional 768×112 wide helper.
+- **Checks / notes:** Contact board inspected; palette, opacity, matching floor edges and unchanged cabinet pixels passed. No runtime, navigation, spawn, balance or version changes. Current entrance follows the newly pulled brief, not the obsolete Lobby cabinet plan. In-game placement is untested.

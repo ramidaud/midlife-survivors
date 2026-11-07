@@ -1,0 +1,363 @@
+{
+  "batch": "supply-closet-v1",
+  "status": "art-ready-for-review",
+  "background": "#FF00FF",
+  "sheet": "supply-closet-props-v1.png",
+  "sheetSize": [
+    464,
+    112
+  ],
+  "placementOwnedBy": "Claude",
+  "location": "Current design: Server Room to Executive Wing secret hallway",
+  "assets": [
+    {
+      "id": "closet_shelf_paper",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        96,
+        112
+      ],
+      "atlasRect": [
+        0,
+        0,
+        96,
+        112
+      ],
+      "atlasFrames": [
+        [
+          0,
+          0,
+          96,
+          112
+        ]
+      ],
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "foot": [
+        48,
+        109
+      ],
+      "footprint": {
+        "width": 50,
+        "depth": 16
+      },
+      "repeatX": false,
+      "repeatY": false,
+      "rooms": [
+        "supply_closet"
+      ]
+    },
+    {
+      "id": "closet_shelf_toner",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        96,
+        112
+      ],
+      "atlasRect": [
+        96,
+        0,
+        96,
+        112
+      ],
+      "atlasFrames": [
+        [
+          96,
+          0,
+          96,
+          112
+        ]
+      ],
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "foot": [
+        48,
+        109
+      ],
+      "footprint": {
+        "width": 50,
+        "depth": 16
+      },
+      "repeatX": false,
+      "repeatY": false,
+      "rooms": [
+        "supply_closet"
+      ]
+    },
+    {
+      "id": "closet_lost_found",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        64,
+        64
+      ],
+      "atlasRect": [
+        192,
+        0,
+        64,
+        64
+      ],
+      "atlasFrames": [
+        [
+          192,
+          0,
+          64,
+          64
+        ]
+      ],
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "foot": [
+        32,
+        61
+      ],
+      "footprint": {
+        "width": 48,
+        "depth": 16
+      },
+      "repeatX": false,
+      "repeatY": false,
+      "rooms": [
+        "supply_closet"
+      ]
+    },
+    {
+      "id": "closet_mop_bucket",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        48,
+        64
+      ],
+      "atlasRect": [
+        256,
+        0,
+        48,
+        64
+      ],
+      "atlasFrames": [
+        [
+          256,
+          0,
+          48,
+          64
+        ]
+      ],
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "foot": [
+        24,
+        61
+      ],
+      "footprint": {
+        "width": 28,
+        "depth": 14
+      },
+      "repeatX": false,
+      "repeatY": false,
+      "rooms": [
+        "supply_closet"
+      ]
+    },
+    {
+      "id": "closet_chair",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        48,
+        56
+      ],
+      "atlasRect": [
+        304,
+        0,
+        48,
+        56
+      ],
+      "atlasFrames": [
+        [
+          304,
+          0,
+          48,
+          56
+        ]
+      ],
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": true,
+      "mount": "floor",
+      "foot": [
+        24,
+        53
+      ],
+      "footprint": {
+        "width": 34,
+        "depth": 18
+      },
+      "repeatX": false,
+      "repeatY": false,
+      "rooms": [
+        "supply_closet"
+      ]
+    },
+    {
+      "id": "closet_bulb",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        24,
+        40
+      ],
+      "atlasRect": [
+        352,
+        0,
+        24,
+        40
+      ],
+      "atlasFrames": [
+        [
+          352,
+          0,
+          24,
+          40
+        ],
+        [
+          376,
+          0,
+          24,
+          40
+        ]
+      ],
+      "frames": 2,
+      "variantsAreAnimations": true,
+      "frameMs": 400,
+      "solid": false,
+      "mount": "ceiling",
+      "foot": [
+        12,
+        37
+      ],
+      "footprint": {
+        "width": 0,
+        "depth": 0
+      },
+      "repeatX": false,
+      "repeatY": false,
+      "rooms": [
+        "supply_closet"
+      ]
+    },
+    {
+      "id": "closet_floor",
+      "file": "supply-closet-props-v1.png",
+      "frame": [
+        64,
+        64
+      ],
+      "atlasRect": [
+        400,
+        0,
+        64,
+        64
+      ],
+      "atlasFrames": [
+        [
+          400,
+          0,
+          64,
+          64
+        ]
+      ],
+      "frames": 1,
+      "variantsAreAnimations": false,
+      "frameMs": null,
+      "solid": false,
+      "mount": "floor-decal",
+      "foot": [
+        32,
+        63
+      ],
+      "footprint": {
+        "width": 0,
+        "depth": 0
+      },
+      "repeatX": true,
+      "repeatY": true,
+      "rooms": [
+        "supply_closet"
+      ]
+    }
+  ],
+  "cabinet": {
+    "file": "gate_hidden_cabinet-open-v1.png",
+    "frame": [
+      96,
+      112
+    ],
+    "frames": 4,
+    "frameMs": 250,
+    "source": "gate_hidden_cabinet-v1.png frame 0",
+    "slideX": [
+      0,
+      24,
+      48,
+      96
+    ],
+    "wideFile": "gate_hidden_cabinet-open-wide-v1.png",
+    "wideFrame": [
+      192,
+      112
+    ],
+    "note": "96px cells clip the cabinet as it slides off to the right. Wide helper keeps the entire unchanged cabinet visible. Closed frame is source-identical.",
+    "status": "Supplemental legacy brief art; current design uses closet_door."
+  },
+  "entrance": [
+    {
+      "id": "closet_badge_reader",
+      "file": "closet_badge_reader-v1.png",
+      "frame": [
+        24,
+        32
+      ],
+      "frames": 3,
+      "states": [
+        "red",
+        "brighter_red",
+        "green"
+      ],
+      "frameMs": 400,
+      "note": "Loop frames 0-1 while locked; hold 2 after badge accepted."
+    },
+    {
+      "id": "closet_floor_plate",
+      "file": "closet_floor_plate-v1.png",
+      "frame": [
+        48,
+        32
+      ],
+      "frames": 1,
+      "solid": false
+    },
+    {
+      "id": "closet_door",
+      "file": "closet_door-open-v1.png",
+      "frame": [
+        64,
+        96
+      ],
+      "frames": 4,
+      "frameMs": 180,
+      "loop": false,
+      "holdLast": true
+    }
+  ]
+}

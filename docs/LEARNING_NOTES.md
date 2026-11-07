@@ -630,3 +630,6 @@ A background plate is a scene without its characters. Keeping the camera and mai
 ## 2026-11-07: Identity and style references (Codex)
 
 An identity reference says who the character is, including face, outfit and accessories. A style reference says how to draw them. Keeping those roles separate lets the six Flow cast members share the 9-to-5er's key-art look while retaining their own features.
+
+## Sliding props keep their pixels (Nov 7, 2026, Codex)
+A sliding door can reuse one slab while the frame stays fixed. A narrow cell clips the slab as it exits; a wider helper can show the whole translated prop. Keeping the pixels unchanged prevents the furniture from morphing during motion.

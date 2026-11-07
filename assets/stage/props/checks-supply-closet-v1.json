@@ -1,0 +1,44 @@
+{
+  "all_passed" : true,
+  "atlas_size" : [
+    464,
+    112
+  ],
+  "cabinet_closed_matches_source" : true,
+  "cabinet_offsets" : [
+    0,
+    24,
+    48,
+    96
+  ],
+  "cabinet_pixels_reused_without_recoloring" : true,
+  "cabinet_size" : [
+    384,
+    112
+  ],
+  "floor_opposite_edges_identical" : true,
+  "new_props_palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F"
+  ],
+  "opaque_magenta" : true,
+  "wide_cabinet_size" : [
+    768,
+    112
+  ]
+}
