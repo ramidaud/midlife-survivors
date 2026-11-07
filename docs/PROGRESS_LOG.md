@@ -1697,3 +1697,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - ChatGPT's closet kit is in: sliding utility doors at both ends, the blinking badge reader and floor plate, two shelves, a chair, the lost-and-found bin, a mop bucket, three flickering bulbs and a concrete floor.
 - The closet's front wall is now a low knee wall so the narrow hallway floor stays visible.
 - Props have MEMO captions when you walk by. The old drawn shapes are still the fallback if the art fails to load.
+
+## Nov 7, 2026: 11:58 PM title scene on the test page
+- ChatGPT's late-night art is built into the live-scene format: an empty-room plate plus five layers (worker, steam, monitor, note, Bill), 8 poses a second, an 8-second loop.
+- 500 KB for the whole scene, versus 843 KB for the AI video, and about 0.1 ms per pose change. The clock and the note never move.
+- Try it at midlifesurvivors.com/tools/live-scene.html. It is not on the real title screen yet; that is plan step 3 once Rami has watched it.
+- Rami OKed two things for the planned Part-Time Job stage: he can be its playable hero (CLAUDE.md updated), and real Apple lore and inside jokes are welcome (names, logos and exact product designs stay genericized).

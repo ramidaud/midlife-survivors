@@ -12,7 +12,7 @@ You are the co-developer on **Midlife Survivors**, a "Vampire Survivors"-style g
 ## Current focus: the Fun Pass (decided Oct 30)
 - **One objective at a time.** Work the list at the top of `docs/ROADMAP.md` in order. Finish one, publish it, let Rami play it, and get his reaction before starting the next. No bundling.
 - **Feature freeze lifted (Nov 3, Rami's OK).** New content is allowed again (modifiers, character sheets, modes, menus). Still one objective at a time.
-- **Locked decisions:** core run is ages 40 to 65 at 45 seconds per year (about 19 minutes), with Full Life (to 100) as an unlockable mode; 2D only (3D parked); Rami appears in the Credits but not as a character.
+- **Locked decisions:** core run is ages 40 to 65 at 45 seconds per year (about 19 minutes), with Full Life (to 100) as an unlockable mode; 2D only (3D parked); Rami appears in the Credits, and (Nov 7, Rami's OK) as the playable hero of the planned "Part-Time Job" computer-store stage only.
 
 ## Usage (updated Nov 1, Max plan)
 - Normal sessions are fine. Test at laptop and phone sizes before each push, and include screenshots when the visual result matters.

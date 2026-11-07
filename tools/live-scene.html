@@ -18,7 +18,9 @@
   .stage { position:relative; border:2px solid var(--teal); background:#000; aspect-ratio:1280/853; overflow:hidden; }
   .stage canvas { width:100%; height:100%; display:block; image-rendering:pixelated; image-rendering:crisp-edges; }
   .stage.cover { aspect-ratio:9/16; max-width:380px; }
-  .stage.cover canvas { object-fit:cover; object-position:45% 50%; }
+  .stage.cover canvas { object-fit:cover; }
+  .pick { font:11px Silkscreen, monospace; color:var(--paper); border:2px solid var(--teal); padding:8px 10px; text-decoration:none; background:var(--navy2); }
+  .pick.on { background:var(--teal); }
   .row { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; align-items:center; }
   button { font:11px Silkscreen, monospace; background:var(--navy2); color:var(--paper); border:2px solid var(--teal); padding:8px 10px; cursor:pointer; }
   button[aria-pressed="true"] { background:var(--teal); }
@@ -34,8 +36,12 @@
 <main>
   <a class="back" href="sprites.html">&larr; Sprite Board</a><br>
   <span class="memo">MEMO · RE: LIVE SCENES (TEST)</span>
-  <h1>Live scene test: the office chase</h1>
-  <p class="sub">A still background plus small sprite strips that swap poses 8 times a second. This uses Grok's prototype layers, so the smeared floor is expected. The test is about file size and speed, not the art.</p>
+  <h1 id="h-title">Live scene test</h1>
+  <p class="sub" id="h-sub"></p>
+  <div class="row" id="scene-pick">
+    <a class="pick" href="?scene=late-night">11:58 PM (title scene)</a>
+    <a class="pick" href="?scene=chase">Office chase (Grok prototype)</a>
+  </div>
 
   <div class="stage" id="stage"><canvas id="cv"></canvas></div>
 
@@ -48,26 +54,39 @@
 
   <div class="tiles">
     <div class="tile"><b id="t-size">…</b><span>download, whole scene</span></div>
-    <div class="tile"><b>1.45 MB</b><span>Grok's 4-second MP4, for comparison</span></div>
+    <div class="tile"><b id="t-cmp">…</b><span id="t-cmp-l">video version, for comparison</span></div>
     <div class="tile"><b id="t-ms">…</b><span>drawing time per pose change</span></div>
     <div class="tile"><b id="t-area">…</b><span>share of the picture repainted each time</span></div>
   </div>
 
-  <p class="note">What to look for: the "DO NOT TOUCH MY MUG" sign and the whole office never move. Only the characters do, in whole-pixel steps. With reduced motion on, you get one still picture.</p>
+  <p class="note" id="h-note"></p>
 </main>
-<script src="live-scene/live-scene.js?v=1"></script>
+<script src="live-scene/live-scene.js?v=2"></script>
 <script>
 (async () => {
-  const base = "live-scene/chase/";
+  // Two scenes (Nov 7): ChatGPT's 11:58 PM title art, and Grok's chase prototype.
+  const SCENES = {
+    "late-night": { title: "Live scene test: 11:58 PM", sub: "ChatGPT's title art, built from an empty-room plate plus five small layers: the worker (breathing, blinking, sipping), steam, the monitor, the sticky note and Bill. 8 poses a second, an 8-second loop.",
+      cmp: "843 KB", cmpLabel: "the 8-second AI video, for comparison", note: "What to look for: the clock still reads 11:58 and the note still says \"just one more run\" in every frame. The big dark area, where the title and menu sit, never moves. Phone crop shows the left side, like the real title screen on a phone.", focus: "24% 50%" },
+    "chase": { title: "Live scene test: the office chase", sub: "Grok's prototype layers in the same format. The smeared floor is expected; this one was about file size and speed, not the art.",
+      cmp: "1.45 MB", cmpLabel: "Grok's 4-second MP4, for comparison", note: "What to look for: the \"DO NOT TOUCH MY MUG\" sign and the whole office never move. Only the characters do, in whole-pixel steps. With reduced motion on, you get one still picture.", focus: "45% 50%" }
+  };
+  const key = SCENES[new URLSearchParams(location.search).get("scene")] ? new URLSearchParams(location.search).get("scene") : "late-night";
+  const CFG = SCENES[key], base = "live-scene/" + key + "/";
+  document.getElementById("h-title").textContent = CFG.title; document.getElementById("h-sub").textContent = CFG.sub;
+  document.getElementById("h-note").textContent = CFG.note; document.getElementById("t-cmp").textContent = CFG.cmp; document.getElementById("t-cmp-l").textContent = CFG.cmpLabel;
+  document.querySelectorAll(".pick").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "?scene=" + key));
   const reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scene = await LiveScene.create(document.getElementById("cv"), base, { still: reduce });
+  document.getElementById("stage").style.aspectRatio = scene.scene.w + " / " + scene.scene.h;
+  document.getElementById("cv").style.objectPosition = CFG.focus;
   const $ = id => document.getElementById(id);
   const set = (b, on, label) => { b.setAttribute("aria-pressed", on ? "true" : "false"); if (label) b.textContent = label; };
   set($("b-still"), reduce); set($("b-play"), !reduce, reduce ? "Paused" : "Playing");
   $("b-play").onclick = () => { if (scene.playing()) { scene.pause(); set($("b-play"), false, "Paused"); } else { scene.still(false); set($("b-still"), false); scene.play(); set($("b-play"), true, "Playing"); } };
   $("b-still").onclick = () => { const on = $("b-still").getAttribute("aria-pressed") !== "true"; scene.still(on); set($("b-still"), on); set($("b-play"), !on, on ? "Paused" : "Playing"); };
   $("b-boxes").onclick = () => { const on = $("b-boxes").getAttribute("aria-pressed") !== "true"; scene.boxes(on); set($("b-boxes"), on); };
-  $("b-phone").onclick = () => { const on = $("b-phone").getAttribute("aria-pressed") !== "true"; $("stage").classList.toggle("cover", on); set($("b-phone"), on); };
+  $("b-phone").onclick = () => { const on = $("b-phone").getAttribute("aria-pressed") !== "true"; $("stage").classList.toggle("cover", on); $("stage").style.aspectRatio = on ? "9 / 16" : scene.scene.w + " / " + scene.scene.h; set($("b-phone"), on); };
   // Total download: ask the server for each file's size.
   const files = [scene.scene.plate, ...scene.scene.layers.map(l => l.sheet), "scene.json"];
   const sizes = await Promise.all(files.map(f => fetch(base + f, { method: "HEAD" }).then(r => +r.headers.get("content-length") || 0).catch(() => 0)));
