@@ -1713,3 +1713,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Finished June, six enemies and three bosses, two clean portraits each.
 - Built the seven registered Performance Review intro layers on the unchanged Bullpen day plate.
 - Both review pages passed desktop, phone and both tablet orientations; native checks passed. Runtime integration remains with Claude.
+
+## Nov 7, 2026: Performance Review cut scene on the test page; portrait batch 2
+- ChatGPT delivered the 7 Performance Review frames. Built into the live-scene format: 297 KB, 4 seconds, on the test page (tools/live-scene.html, third button). Not in the game yet.
+- Portrait batch 2 (June, all enemies, all three bosses, two poses each) is in. The whole Flow cast now has clean portraits.

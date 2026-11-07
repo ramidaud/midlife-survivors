@@ -40,6 +40,7 @@
   <p class="sub" id="h-sub"></p>
   <div class="row" id="scene-pick">
     <a class="pick" href="?scene=late-night">11:58 PM (title scene)</a>
+    <a class="pick" href="?scene=performance-review">Performance Review intro (cut scene)</a>
     <a class="pick" href="?scene=chase">Office chase (Grok prototype)</a>
   </div>
 
@@ -68,6 +69,8 @@
   const SCENES = {
     "late-night": { title: "Live scene test: 11:58 PM", sub: "ChatGPT's title art, built from an empty-room plate plus five small layers: the worker (breathing, blinking, sipping), steam, the monitor, the sticky note and Bill. 8 poses a second, an 8-second loop.",
       cmp: "843 KB", cmpLabel: "the 8-second AI video, for comparison", note: "What to look for: the clock still reads 11:58 and the note still says \"just one more run\" in every frame. The big dark area, where the title and menu sit, never moves. Phone crop shows the left side, like the real title screen on a phone.", focus: "24% 50%" },
+    "performance-review": { title: "Cut scene test: Performance Review intro", sub: "The first boss intro, from Grok's storyboard and ChatGPT's frames: the bullpen plate plus the 9-to-5er (3 poses) and the Performance Review (4 poses). Four seconds. In the game it plays once, right before the fight; here it loops so you can watch it again.",
+      cmp: "n/a", cmpLabel: "no video version was made", note: "The beats: formal introduction, a very important clipboard, the stomp, and 'not intimidated, much.' Possible caption, painted into the wall later if you want it: 'You brought experience. They brought a clipboard.'", focus: "50% 60%" },
     "chase": { title: "Live scene test: the office chase", sub: "Grok's prototype layers in the same format. The smeared floor is expected; this one was about file size and speed, not the art.",
       cmp: "1.45 MB", cmpLabel: "Grok's 4-second MP4, for comparison", note: "What to look for: the \"DO NOT TOUCH MY MUG\" sign and the whole office never move. Only the characters do, in whole-pixel steps. With reduced motion on, you get one still picture.", focus: "45% 50%" }
   };
