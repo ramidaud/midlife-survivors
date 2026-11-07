@@ -915,3 +915,7 @@ article.post .prose .dropcap {
   .share-links .btn-social { padding: 6px 10px; font: 11px/1.2 var(--display); border: 1px solid var(--line, rgba(255,255,255,.2)); border-radius: 6px; color: var(--cream); background: transparent; text-decoration: none; }
   .share-links .btn-social:hover, .share-links .btn-social:focus-visible { border-color: var(--orange); color: var(--orange); }
 }
+
+/* Apple Music song players inside a memo (Memo 13) */
+.song-embed { margin: 4px 0 26px; max-width: 660px; }
+.song-embed iframe { display: block; width: 100%; height: 175px; }

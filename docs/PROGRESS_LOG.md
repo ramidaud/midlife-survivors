@@ -1734,3 +1734,5 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - It's a draft (`devlog/?drafts=1`) until ChatGPT's cover comes back (the school run, prompt in `devlog/art/prompts/13-key-art-chatgpt.txt`) and Rami gives it a final read.
 - Corrected Rami's description in every art brief: olive-skinned Palestinian male, bald. The old briefs had it wrong.
 - New to-dos: Spotify playlist, an Abdel-tracks option, Ben's note on the original music, and a Paradise-style Instagram reel.
+- Memo 13 cover is in: ChatGPT's school-run scene (seen from the back seat, left-hand drive this time).
+- Each song in Memo 13 now has Apple's own mini player under its paragraph (album art plus a preview), 8 in all. Nothing copied into the repo. Nick Shoulders' song title corrected to "Appreciatecha".
