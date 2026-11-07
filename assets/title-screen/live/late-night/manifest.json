@@ -1,0 +1,84 @@
+{
+  "name": "late-night-11-58",
+  "source": "assets/title-screen/slides/06-late-night.jpg",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "origin": "top-left",
+    "offset": [
+      0,
+      0
+    ]
+  },
+  "fps": 8,
+  "plate": "plate.png",
+  "plate_check": "plate-check.png",
+  "contact": "contact-late-night.png",
+  "format": {
+    "sprites": "RGBA PNG, transparent outside registered layer",
+    "plate": "RGBA PNG, opaque painted room",
+    "body_edges": "binary alpha",
+    "steam_and_bill_shadow": "stepped alpha, no blur added"
+  },
+  "layers": [
+    {
+      "id": "worker",
+      "files": [
+        "worker-01.png",
+        "worker-02.png",
+        "worker-03.png",
+        "worker-04.png",
+        "worker-05.png",
+        "worker-06.png"
+      ]
+    },
+    {
+      "id": "steam",
+      "files": [
+        "steam-01.png",
+        "steam-02.png",
+        "steam-03.png",
+        "steam-04.png"
+      ]
+    },
+    {
+      "id": "monitor",
+      "files": [
+        "monitor-01.png",
+        "monitor-02.png"
+      ]
+    },
+    {
+      "id": "note",
+      "files": [
+        "note-01.png",
+        "note-02.png"
+      ]
+    },
+    {
+      "id": "bill",
+      "files": [
+        "bill-01.png",
+        "bill-02.png",
+        "bill-03.png",
+        "bill-04.png"
+      ]
+    }
+  ],
+  "native_motion_pixel": 3,
+  "phone_source_crop": [
+    0,
+    0,
+    768,
+    1080
+  ],
+  "integration_notes": [
+    "All images share the source canvas. Place at 0,0 without recentering.",
+    "Every frame is a complete layer, not a difference image. Alpha-union and change-union bounds are listed in validation.json.",
+    "Worker 06 equals 04 by design.",
+    "Steam is anchored to the resting mug. Hide it while worker 04,05,06 are shown.",
+    "The flat note and normal screen remain in the plate. Note 02 carries a small opaque erasure patch beneath its curled corner.",
+    "Keep note 02's local background-colored pixels; they hide the old flat corner.",
+    "No strips or scene.json are supplied. Claude handles playback wiring."
+  ]
+}

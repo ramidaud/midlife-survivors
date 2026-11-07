@@ -1,0 +1,697 @@
+{
+  "all_passed" : true,
+  "date" : "2026-11-07",
+  "frames" : [
+    {
+      "alpha_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 297910,
+      "file" : "worker-01.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1959558
+    },
+    {
+      "alpha_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 297458,
+      "file" : "worker-02.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1959527
+    },
+    {
+      "alpha_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 294151,
+      "file" : "worker-03.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1959527
+    },
+    {
+      "alpha_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 283360,
+      "file" : "worker-04.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1963360
+    },
+    {
+      "alpha_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 275934,
+      "file" : "worker-05.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1965949
+    },
+    {
+      "alpha_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 283360,
+      "file" : "worker-06.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1963360
+    },
+    {
+      "alpha_bounds" : [
+        345,
+        612,
+        24,
+        45
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 36783,
+      "file" : "steam-01.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2073096
+    },
+    {
+      "alpha_bounds" : [
+        345,
+        609,
+        24,
+        45
+      ],
+      "alpha_levels" : [
+        0,
+        224
+      ],
+      "bytes" : 36777,
+      "file" : "steam-02.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2073096
+    },
+    {
+      "alpha_bounds" : [
+        345,
+        606,
+        24,
+        45
+      ],
+      "alpha_levels" : [
+        0,
+        160
+      ],
+      "bytes" : 36777,
+      "file" : "steam-03.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2073096
+    },
+    {
+      "alpha_bounds" : [
+        345,
+        603,
+        24,
+        45
+      ],
+      "alpha_levels" : [
+        0,
+        80
+      ],
+      "bytes" : 36780,
+      "file" : "steam-04.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2073096
+    },
+    {
+      "alpha_bounds" : [
+        164,
+        597,
+        117,
+        81
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 48639,
+      "file" : "monitor-01.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2064203
+    },
+    {
+      "alpha_bounds" : [
+        164,
+        597,
+        117,
+        81
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 48711,
+      "file" : "monitor-02.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2064203
+    },
+    {
+      "alpha_bounds" : [
+        103,
+        768,
+        109,
+        102
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 63179,
+      "file" : "note-01.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2063544
+    },
+    {
+      "alpha_bounds" : [
+        103,
+        768,
+        116,
+        110
+      ],
+      "alpha_levels" : [
+        0,
+        255
+      ],
+      "bytes" : 64451,
+      "file" : "note-02.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 2063143
+    },
+    {
+      "alpha_bounds" : [
+        1442,
+        620,
+        335,
+        371
+      ],
+      "alpha_levels" : [
+        0,
+        32,
+        64,
+        96,
+        128,
+        160,
+        255
+      ],
+      "bytes" : 198765,
+      "file" : "bill-01.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1992497
+    },
+    {
+      "alpha_bounds" : [
+        1442,
+        620,
+        335,
+        371
+      ],
+      "alpha_levels" : [
+        0,
+        32,
+        64,
+        96,
+        128,
+        160,
+        255
+      ],
+      "bytes" : 198294,
+      "file" : "bill-02.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1992567
+    },
+    {
+      "alpha_bounds" : [
+        1442,
+        623,
+        335,
+        368
+      ],
+      "alpha_levels" : [
+        0,
+        32,
+        64,
+        96,
+        128,
+        160,
+        255
+      ],
+      "bytes" : 198218,
+      "file" : "bill-03.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1992774
+    },
+    {
+      "alpha_bounds" : [
+        1442,
+        620,
+        335,
+        371
+      ],
+      "alpha_levels" : [
+        0,
+        32,
+        64,
+        96,
+        128,
+        160,
+        255
+      ],
+      "bytes" : 198432,
+      "file" : "bill-04.png",
+      "size" : [
+        1920,
+        1080
+      ],
+      "transparent_pixels" : 1992351
+    }
+  ],
+  "intentional_source_differences" : [
+    "Red header added to source Bill.",
+    "Small steam curl added above resting mug.",
+    "Newly exposed chair and floor reconstructed where figures were removed."
+  ],
+  "plate_format" : "Opaque RGBA room plate; all eighteen sprite frames have transparent backgrounds.",
+  "protected_checks" : [
+    "Clock and plate sticky note identical to decoded source pixels.",
+    "Sticky-note letter pixels identical in both note layers.",
+    "Worker head pixels unchanged outside eyelids and mug occlusion.",
+    "Worker legs and supported hand unchanged across all six frames.",
+    "Worker frame 06 equals frame 04 pixel-for-pixel.",
+    "Bill face identical after compensating frame 03's three-pixel impact.",
+    "No transition changes pixels outside its declared part.",
+    "All sprite alpha stays outside the top strip and central menu region; worker remains in left 40%."
+  ],
+  "source" : "assets\/title-screen\/slides\/06-late-night.jpg",
+  "source_sha256" : "2ca8840dbd9e62b5f27d2774c4a8eb556ebf9a5f75f06be29447680842b57ebe",
+  "transitions_and_unions" : [
+    {
+      "bounds" : [
+        405,
+        644,
+        248,
+        134
+      ],
+      "from" : 1,
+      "layer" : "worker",
+      "outside_allowed" : 0,
+      "pixels" : 27027,
+      "to" : 2
+    },
+    {
+      "bounds" : [
+        479,
+        541,
+        104,
+        34
+      ],
+      "from" : 2,
+      "layer" : "worker",
+      "outside_allowed" : 0,
+      "pixels" : 1630,
+      "to" : 3
+    },
+    {
+      "bounds" : [
+        303,
+        541,
+        350,
+        237
+      ],
+      "from" : 3,
+      "layer" : "worker",
+      "outside_allowed" : 0,
+      "pixels" : 41553,
+      "to" : 4
+    },
+    {
+      "bounds" : [
+        305,
+        541,
+        278,
+        208
+      ],
+      "from" : 4,
+      "layer" : "worker",
+      "outside_allowed" : 0,
+      "pixels" : 23305,
+      "to" : 5
+    },
+    {
+      "bounds" : [
+        305,
+        541,
+        278,
+        208
+      ],
+      "from" : 5,
+      "layer" : "worker",
+      "outside_allowed" : 0,
+      "pixels" : 23305,
+      "to" : 6
+    },
+    {
+      "bounds" : [
+        303,
+        614,
+        198,
+        135
+      ],
+      "from" : 6,
+      "layer" : "worker",
+      "outside_allowed" : 0,
+      "pixels" : 20412,
+      "to" : 1
+    },
+    {
+      "alpha_union_bounds" : [
+        290,
+        416,
+        372,
+        571
+      ],
+      "changed_union_bounds" : [
+        303,
+        541,
+        350,
+        237
+      ],
+      "layer" : "worker"
+    },
+    {
+      "bounds" : [
+        345,
+        609,
+        24,
+        48
+      ],
+      "from" : 1,
+      "layer" : "steam",
+      "outside_allowed" : 0,
+      "pixels" : 621,
+      "to" : 2
+    },
+    {
+      "bounds" : [
+        345,
+        606,
+        24,
+        48
+      ],
+      "from" : 2,
+      "layer" : "steam",
+      "outside_allowed" : 0,
+      "pixels" : 621,
+      "to" : 3
+    },
+    {
+      "bounds" : [
+        345,
+        603,
+        24,
+        48
+      ],
+      "from" : 3,
+      "layer" : "steam",
+      "outside_allowed" : 0,
+      "pixels" : 621,
+      "to" : 4
+    },
+    {
+      "bounds" : [
+        345,
+        603,
+        24,
+        54
+      ],
+      "from" : 4,
+      "layer" : "steam",
+      "outside_allowed" : 0,
+      "pixels" : 828,
+      "to" : 1
+    },
+    {
+      "alpha_union_bounds" : [
+        345,
+        603,
+        24,
+        54
+      ],
+      "changed_union_bounds" : [
+        345,
+        603,
+        24,
+        54
+      ],
+      "layer" : "steam"
+    },
+    {
+      "bounds" : [
+        164,
+        597,
+        117,
+        81
+      ],
+      "from" : 1,
+      "layer" : "monitor",
+      "outside_allowed" : 0,
+      "pixels" : 9397,
+      "to" : 2
+    },
+    {
+      "bounds" : [
+        164,
+        597,
+        117,
+        81
+      ],
+      "from" : 2,
+      "layer" : "monitor",
+      "outside_allowed" : 0,
+      "pixels" : 9397,
+      "to" : 1
+    },
+    {
+      "alpha_union_bounds" : [
+        164,
+        597,
+        117,
+        81
+      ],
+      "changed_union_bounds" : [
+        164,
+        597,
+        117,
+        81
+      ],
+      "layer" : "monitor"
+    },
+    {
+      "bounds" : [
+        189,
+        847,
+        30,
+        31
+      ],
+      "from" : 1,
+      "layer" : "note",
+      "outside_allowed" : 0,
+      "pixels" : 930,
+      "to" : 2
+    },
+    {
+      "bounds" : [
+        189,
+        847,
+        30,
+        31
+      ],
+      "from" : 2,
+      "layer" : "note",
+      "outside_allowed" : 0,
+      "pixels" : 930,
+      "to" : 1
+    },
+    {
+      "alpha_union_bounds" : [
+        103,
+        768,
+        116,
+        110
+      ],
+      "changed_union_bounds" : [
+        189,
+        847,
+        30,
+        31
+      ],
+      "layer" : "note"
+    },
+    {
+      "bounds" : [
+        1450,
+        894,
+        76,
+        61
+      ],
+      "from" : 1,
+      "layer" : "bill",
+      "outside_allowed" : 0,
+      "pixels" : 3818,
+      "to" : 2
+    },
+    {
+      "bounds" : [
+        1442,
+        620,
+        301,
+        335
+      ],
+      "from" : 2,
+      "layer" : "bill",
+      "outside_allowed" : 0,
+      "pixels" : 65156,
+      "to" : 3
+    },
+    {
+      "bounds" : [
+        1442,
+        620,
+        301,
+        333
+      ],
+      "from" : 3,
+      "layer" : "bill",
+      "outside_allowed" : 0,
+      "pixels" : 64633,
+      "to" : 4
+    },
+    {
+      "bounds" : [
+        1656,
+        889,
+        72,
+        64
+      ],
+      "from" : 4,
+      "layer" : "bill",
+      "outside_allowed" : 0,
+      "pixels" : 3295,
+      "to" : 1
+    },
+    {
+      "alpha_union_bounds" : [
+        1442,
+        620,
+        335,
+        371
+      ],
+      "changed_union_bounds" : [
+        1442,
+        620,
+        301,
+        335
+      ],
+      "layer" : "bill"
+    }
+  ]
+}

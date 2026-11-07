@@ -415,3 +415,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Sizes:** 1024×1024 opaque RGBA PNGs on exact flat cream `#F2D7A1`, with generous margins. Hard alpha was composited from generated cutouts at a 512×512 logical grid and enlarged 2× by nearest-neighbor. Style-guide palette targets are used, while painted material and skin shading is retained. No private reference photos were used or committed.
 - **Checks:** All twelve passed size, opacity, flat cream border, clipping margin and repeated-pixel checks. Compared the full cast and both poses visually. Review decoded all 19 images without overflow or exceptions at desktop, phone and both tablet orientations, with network access blocked. Art and docs only, no version bump.
 - **Background review fixes:** Cooled the Lobby and Executive Wing night floors to slate, added a visible coffee-orange header to the Server Room rack note in day and night, and rebuilt the background contact sheet and checks. Retirement Party night was inspected and retained, with its warm light confined near the cake table. Touchup prompts record the earlier source revision. All twenty background plates and four review sizes passed again.
+
+## 2026-11-07 Live 11:58 PM title layers (Codex)
+
+- **What:** Room plate and eighteen registered animation frames: worker 6, steam 4, monitor 2, sticky note 2 and Bill 4.
+- **Files:** `assets/title-screen/live/late-night/` includes the contact sheet, composite check, preview HTML, prompts and exact changed-pixel maps.
+- **For the game:** Every PNG is 1920×1080, registered at (0,0). Room plate is opaque; sprite layers are transparent. Hide the resting steam during worker frames 04–06. README documents the note backing patch and deliberate steam/red-stripe additions.
+- **Checks:** All eighteen frames passed protected-pixel and alpha checks. Clock and lettering retain source pixels. Native contact sheet exported; browser playback was not tested. No runtime or version changes.

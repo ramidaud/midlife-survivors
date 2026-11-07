@@ -1,0 +1,70 @@
+{
+  "tool": "Built-in image_gen plus native source-pixel edits",
+  "source": "assets/title-screen/slides/06-late-night.jpg",
+  "policy": "Each frame is edited from the previous frame. Only its declared moving part changes. Fixed face/body pixels are restored from the source or previous pose. Text is copied directly from the source.",
+  "generative_edits": [
+    {
+      "id": "plate",
+      "input": "assets/title-screen/slides/06-late-night.jpg",
+      "prompt": "Use case: precise-object-edit. Edit target is the attached Midlife Survivors late-night title image. Create its EMPTY BACKGROUND PLATE. Remove ONLY the seated office worker, his orange mug and any steam, and the angry paper Bill on the far right plus Bill's floor shadow. Repaint the hidden chair, wall, desk edge and tiled floor coherently in the exact existing pixel-art style. Leave the empty office chair at the exact same location, with full seat/back/base/wheels reconstructed where the worker covered it. Preserve the desk, lamp, monitor, furniture, lighting, camera, frame boundaries, dark negative space and all floor tile lines exactly. Keep the clock reading \"11:58\" pixel-for-pixel. Keep the sticky-note words \"just one more run\" letter-for-letter, same line breaks and same placement. Do NOT remove the chair or sticky note. Do not add objects, labels, letters, characters, creatures, gradients, glow or blur. No change to the top blank navy area or the central blank menu area. Canvas 1920x1080, same exact 16:9 composition and positions. This is a tiny object removal edit, not a redesign."
+    },
+    {
+      "id": "worker-04",
+      "input": "plate + worker-03 composite",
+      "prompt": "Use case: precise-object-edit. This is FRAME 03 of a pixel-art title scene. Make FRAME 04 by editing this exact previous frame. Move ONLY the worker's mug-holding arm and orange mug: lift the mug a little toward his mouth, halfway to a sip. Mug center should be around x455,y660 on the 1920x1080 canvas, rim near y633. The elbow bends naturally from the same sleeve and shoulder. Reopen his eyes within the existing glasses. Preserve his exact head, hair, glasses outline, beard, face shape, shirt, other hand on knee, pants, shoes, chair and scale. The worker remains seated in precisely the same spot in the left 40%. Keep every pixel of the room and the two texts \"11:58\" and \"just one more run\" unchanged. No steam yet. No Bill. Do not add anything to the dark middle or top menu area. No new text, blur, glow, gradients or camera changes. Same chunky source pixel-art scale."
+    },
+    {
+      "id": "worker-05",
+      "input": "plate + worker-04 composite",
+      "prompt": "Use case: precise-object-edit. This is worker FRAME 04. Make FRAME 05 by editing this exact previous image. Change ONLY his mug-holding arm and mug so he takes a small sip: lift the SAME orange mug from its current position to his mouth, rim touching his lips at approximately x543,y603 in the 1920x1080 canvas. Bend the elbow naturally from the same seated shoulder. Half-close his eyes within the same black glasses. Keep the exact head shape, hair, glasses frames, face, shirt, tie, other hand resting on his knee, trousers, shoes, chair, desk, room and lettering unchanged. He remains in the exact same seated position and scale in the left 40%, no leaning or body movement. Do not redraw the worker or add new fingers, props, text, steam, blur, glow or gradients. Keep source pixel clusters and line weight. All the blank navy title/menu space stays empty. No Bill. Same 1920x1080 scene composition."
+    },
+    {
+      "id": "steam-01",
+      "input": "plate + worker-01 composite",
+      "prompt": "Use case: precise-object-edit. Edit this exact pixel-art title scene by adding ONLY a very small warm-white coffee-steam curl directly above the orange mug. The mug is at x340..397, top y663 on a 1920x1080 canvas. Keep the steam entirely within x336..393 and y603..656. Two or three small chunky puffs, a single restrained S curl, hard pixel edges. No glow or blur. No smoke cloud. No drifting into the middle or top blank navy menu space. Every existing character, prop, letter and scene pixel stays unchanged. This will be isolated as a transparent overlay afterward. Do not move the cup or worker. Same composition and size."
+    },
+    {
+      "id": "note-02",
+      "input": "source scene, same flat note as note-01",
+      "prompt": "Use case: precise-object-edit. Edit ONLY the sticky note on the front of the desk at the lower left. This is note frame 01; make frame 02 by curling its bottom-right corner upward just a few source pixel-art pixels. The note occupies x102..213,y770..872 on the 1920x1080 canvas. Curl only the blank bottom-right corner around x190..213,y848..872, exposing a tiny cream triangular reverse side. The words \"just one more run\" and the tack, top edge, left edge and every other note pixel stay exactly unchanged. The three lines of lettering remain letter-for-letter and are not redrawn. Do not move the note or affect any other object, worker, Bill, clock, desk or room pixel. No new objects, text, blur, glow or gradients. Same pixel size and composition."
+    },
+    {
+      "id": "bill-01 red header",
+      "input": [
+        "assets/title-screen/slides/06-late-night.jpg",
+        "assets/enemies/enemy-bill-source-v2.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit ONLY the angry paper Bill on the far right of this image. Add a broad russet red stripe (#C45C4B) across the upper part of the cream page, just below the folded corner, like the in-game Bill reference. Keep his exact silhouette, placement, scale, original angry eyes, cheeks, mouth, arms, legs and pose unchanged. Do not draw a new Bill, do not move him and do not add text. No other pixel in the worker, environment, clock, desk, note, floor or blank navy menu area changes. Preserve the exact 1920x1080 composition and source pixel style. Image 2 is for the red-header stripe only, not to replace his face or body."
+    }
+  ],
+  "native_edit_chains": {
+    "worker": [
+      "01: extract source pixels with registered matte.",
+      "02 from 01: calm row-preserving chest/shoulder breath, maximum 3px, head and supported hand fixed.",
+      "03 from 02: close only the eyelids inside the existing lenses.",
+      "04 from 03: reopen eyes, settle breath, select generated lifted arm/mug only, retain fixed head/body pixels.",
+      "05 from 04: select sipping arm/mug and half-close eyes, retain visible source face and fixed body.",
+      "06 from 05: restore only changed pixels to held pose 04; pixel-identical to 04."
+    ],
+    "steam": [
+      "01: isolate and snap generated curl to 3px source-style clusters.",
+      "02 from 01: rise 3px, alpha 224.",
+      "03 from 02: rise another 3px, alpha 160.",
+      "04 from 03: rise another 3px, alpha 80."
+    ],
+    "monitor": [
+      "01: source screen pixels only.",
+      "02 from 01: RGB +5 in the glass; subtract 9 on rows 630–632 for a faint scanline."
+    ],
+    "note": [
+      "01: source flat paper pixels and unchanged lettering.",
+      "02 from 01: replace only x189,y847,w30,h31 with edited corner and erasure patch; every letter pixel remains source-identical."
+    ],
+    "bill": [
+      "01: source shape/face, generated red header selected only; extract contact shadow as stepped alpha.",
+      "02 from 01: lift left foot locally up to 9px.",
+      "03 from 02: set left foot down, lower paper body 3px for impact.",
+      "04 from 03: reset body and lift right foot locally up to 9px. Face pixels are reused, not redrawn."
+    ]
+  }
+}
