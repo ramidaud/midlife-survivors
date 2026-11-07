@@ -1637,3 +1637,10 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 ## Nov 6, 2026: Flow character kit
 - Rami wants animated cut scenes (title screen and in-game) made in Google Flow, using its character builder for consistency.
 - Built `art/flow-kit/`: one clean, crisp reference image per main character (4 heroes, June, TJ, Derek, 4 enemies, 3 bosses), plus a description for each and a first title-loop prompt. Copied to Rami's Mac.
+
+## Nov 6, 2026 (late): merch side quest with Kevin
+- Rami floated 3D-printed character figurines as a Ko-fi incentive on Discord. Kevin offered his single-filament printer and laser engraver, and asked for full-resolution sprites (Bill first).
+- Claude pulled the sprites from the Mac, keyed out the magenta background (the game strips it at load, so the sheets still have it), and built merch packs in `art/merch/`: Bill plus the 9-to-5er, Soccer Dad, Grad Student and Cold War Cowboy. Each has native, 8x, 16x, silhouette and a README with palette and thin-part notes.
+- Decided: keychains, magnets and stickers first; figurines later. Merch to-dos added to ROADMAP, idea logged in GAME_DESIGN.
+- Concept for Rami: a 3D printer needs a mesh (STL or 3MF), and the easy path for pixel art is a voxel standee where every pixel becomes a cube. Nothing generated yet; Kevin is handling the modeling.
+

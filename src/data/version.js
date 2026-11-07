@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.12",
-  displayVersion: "V. 2.10.12",
-  lastUpdated: "Nov 6, 2026",
+  version: "2.10.13",
+  displayVersion: "V. 2.10.13",
+  lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 270,
+  build: 271,
   changelog: [
+    {
+      ver: "V. 2.10.13", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "Kevin's in the credits.",
+      highlights: [
+        "Kevin Smith joins the credits for his Discord ideas (Hustle, fiscal years, the butterscotch) and for taking on the merch: 3D-printed and laser-engraved keychains, magnets and more are in the works."
+      ]
+    },
     {
       ver: "V. 2.10.12", date: "Nov 6, 2026", title: "Version Two",
       teaser: "Updates show up right away now.",

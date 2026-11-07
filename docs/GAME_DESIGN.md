@@ -605,3 +605,10 @@ Pickups use a steady idle pose and a cream shine frame. Projectiles share the sa
 - **Domain:** midlifesurvivors.com (Porkbun, $11.81/yr). Guests get a "We're moving" note before the switch.
 - Revisit in Phase 6: Steam page, wishlists, trailer, pricing, publisher question.
 
+## Merch (Nov 6, 2026, Rami + Kevin on Discord)
+- **Idea:** physical goods from the game's characters as Ko-fi donation incentives. Rami's original thought was 3D-printed figurines; Kevin (who has a single-filament 3D printer and a laser engraver) offered to fabricate.
+- **Tiers, as proposed:** keychains, lapel pins, fridge magnets and vinyl stickers first (cheap, flat, easy). Bobbleheads and fidget toys as the stretch tier. Iron-ons for hats and shirts also possible.
+- **Why pixel standees before figurines:** the sprites are 48x48 and 56x60 px. At 1 mm per pixel they are keychain-sized, and the chunky pixel look survives single-color printing. True sculpted figurines need art direction locked (Phase 4) or they get reprinted.
+- **Source files:** `art/merch/` holds one pack per character (native PNG with transparent background, 8x and 16x nearest-neighbor enlargements, a black silhouette for engraving, and a README with the key palette colors and thin-part warnings). Bill first, per Kevin's request, then the four heroes.
+- **Open:** who covers material and shipping; whether any of this sells. Rami's stance: cart before the horse on purpose, same as the game itself.
+

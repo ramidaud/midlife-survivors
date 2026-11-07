@@ -1,5 +1,6 @@
 // Credits screen (Title > Extras > Credits). Edit freely: add playtesters, friends, music credits.
 // Updated Nov 3, 2026 (Rami): the AI crew, the playtesters and the interns.
+// Nov 7, 2026: Kevin Smith (game ideas on Discord, 3D-printed and laser-engraved merch).
 window.CREDITS = {
   title: "CREDITS",
   sections: [
@@ -12,6 +13,7 @@ window.CREDITS = {
     { role: "Early prototype", names: ["Google Antigravity"] },
     { role: "Playtesters", names: ["TJ Laryea", "Derek Galperin", "Jon Jivan", "Mike Rich", "Rich Bryant", "Ben Emm"] },
     { role: "Office interns", names: ["TJ (Coffee Runner)", "Derek (Snack Scout)"] },
+    { role: "Ideas, merch and fabrication", names: ["Kevin Smith"] },
     { role: "Game engine", names: ["Phaser 3"] },
     { role: "Fonts", names: ["Silkscreen by Jason Kottke", "Atkinson Hyperlegible by the Braille Institute"] },
     { role: "Inspired by", names: ["Vampire Survivors by poncle"] },
