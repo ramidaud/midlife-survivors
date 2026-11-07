@@ -2,6 +2,8 @@
 # Why: the plain "deploy from branch" upload grew to ~380 MB / 2,200 files and started timing out after 10 minutes.
 # This uploads only what the game and devlog load (about 145 MB), skipping docs, reports, art source files,
 # studies, QA screenshots and zips, and it gives the deploy 30 minutes instead of 10.
+# Nov 7: also skips art/ (Flow kit), assets/art-direction/ and assets/cutscenes/ (source frames; the
+# test page uses tools/live-scene/). deploy-pages stops at 10 minutes no matter what, so smaller is the fix.
 # Nothing is deleted from the repo. If a page ever shows a missing image, check the EXCLUDE pattern below.
 name: Deploy site
 on:
@@ -27,7 +29,7 @@ jobs:
       - name: Gather the files the site uses
         run: |
           EXCLUDE='(^CLAUDE\.md$|\.zip$|\.swift$|source|study|/layout-plan/|contact-sheet|/qa-|/qa/)'
-          git ls-files | grep -v -E '^(docs/|reports/|output/|\.github/)' | grep -v -E "$EXCLUDE" > /tmp/keep.txt
+          git ls-files | grep -v -E '^(docs/|reports/|output/|\.github/|art/|assets/art-direction/|assets/cutscenes/)' | grep -v -E "$EXCLUDE" > /tmp/keep.txt
           mkdir _site && tar -cf - -T /tmp/keep.txt | tar -xf - -C _site
           touch _site/.nojekyll
           echo "Publishing $(wc -l < /tmp/keep.txt) files, $(du -sh _site | cut -f1)"
