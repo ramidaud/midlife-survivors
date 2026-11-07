@@ -20,5 +20,5 @@
 - Median per run: 17 hits and 20 damage taken
 
 **Lag**
-- Desktop averages 87.5 fps, phone 80.3 fps
+- Desktop averages 90.2 fps, phone 79.9 fps
 - No device type averaged under 45 fps
