@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.14",
-  displayVersion: "V. 2.10.14",
+  version: "2.10.15",
+  displayVersion: "V. 2.10.15",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 272,
+  build: 273,
   changelog: [
+    {
+      ver: "V. 2.10.15", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "The Day One cart has an achievement now.",
+      highlights: [
+        "New achievement: Early Bird Special. Buy something from TJ and Derek's Day One cart before it rolls out of the Lobby."
+      ]
+    },
     {
       ver: "V. 2.10.14", date: "Nov 7, 2026", title: "Version Two",
       teaser: "No more getting wedged between desks.",

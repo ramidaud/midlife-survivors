@@ -1670,3 +1670,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami got wedged between two Marketing desks. The gaps between pod desks were 56 px and the hero is 48 px wide, so you could squeeze in and get pinned. All 10 gaps are now blocked.
 - Spam Likely buzzes again (Rami: the chime was "not as bad as the ringing, not as good as the vibration").
 - New achievements for easter eggs: Help Yourself (June's butterscotch) and Caught In The Act (catch TJ or Derek). The yellow note already had one.
+
+## Nov 7, 2026: V2.10.15, Early Bird Special
+- Rami wants achievements for all the easter eggs except the Seymore Butts name.
+- Added Early Bird Special: buy anything from the Day One cart.
+- The Supply Closet hidden room is only planned in the map data, not built. It needs its own design and art before it can have an achievement.
