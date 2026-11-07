@@ -1676,3 +1676,4 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Added Early Bird Special: buy anything from the Day One cart.
 - The Supply Closet hidden room is only planned in the map data, not built. It needs its own design and art before it can have an achievement.
 - V2.10.16: the Game Over screen has a Back to Title Screen button under Quick Retry and the 401(k) Shop (Rami's request).
+- Supply Closet designed (docs/plans/supply-closet.md): opens at 50 Bills paid in a run, sits between the Lobby and Server Room behind the FILES cabinet, and rolls a random supply each run (chest, nap spot or stash). ChatGPT art handoff written.

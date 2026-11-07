@@ -340,3 +340,10 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [x] Ten empty backgrounds in day and night versions, with a contact sheet and review page in `art/flow-kit/backgrounds/`. Approved, review touchups done Nov 7.
 - [x] First clean character batch, four heroes plus TJ and Derek with two poses each. Ready for Rami's review in `art/flow-kit/key-art/clean/`.
 - [ ] Remaining ten clean character portraits from `docs/handoffs/chatgpt-flow-kit.md`, after the first cast review.
+
+## Supply Closet (Nov 7, Rami's call; design in docs/plans/supply-closet.md)
+- [ ] Step 1: room, cabinet door, 50-Bills trigger, "Inventory Day" achievement (placeholder props)
+- [ ] Step 2: random supply each run: bonus chest, nap spot, stash
+- [ ] Step 3: ChatGPT art pass (docs/handoffs/chatgpt-supply-closet.md)
+- [ ] Later: closet-only weapon joins the roll
+
