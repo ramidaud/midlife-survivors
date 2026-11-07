@@ -1633,3 +1633,7 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The game code was already fetched fresh, but the page itself (layout and styles) could be stale. Now the page checks itself against the fresh code and reloads once if it's out of date.
 - Claude now waits for the deploy to finish before saying an update is live.
 
+
+## Nov 6, 2026: Flow character kit
+- Rami wants animated cut scenes (title screen and in-game) made in Google Flow, using its character builder for consistency.
+- Built `art/flow-kit/`: one clean, crisp reference image per main character (4 heroes, June, TJ, Derek, 4 enemies, 3 bosses), plus a description for each and a first title-loop prompt. Copied to Rami's Mac.
