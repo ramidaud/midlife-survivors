@@ -19,6 +19,7 @@
   .stage canvas { width:100%; height:100%; display:block; image-rendering:pixelated; image-rendering:crisp-edges; }
   .stage.cover { aspect-ratio:9/16; max-width:380px; }
   .stage.cover canvas { object-fit:cover; }
+  .stage.cover.fit canvas { object-fit:contain; } /* cut scenes on phones: the whole 16:9 picture with bars (Nov 7) */
   .pick { font:11px Silkscreen, monospace; color:var(--paper); border:2px solid var(--teal); padding:8px 10px; text-decoration:none; background:var(--navy2); }
   .pick.on { background:var(--teal); }
   .row { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; align-items:center; }
@@ -70,7 +71,7 @@
     "late-night": { title: "Live scene test: 11:58 PM", sub: "ChatGPT's title art, built from an empty-room plate plus five small layers: the worker (breathing, blinking, sipping), steam, the monitor, the sticky note and Bill. 8 poses a second, an 8-second loop.",
       cmp: "843 KB", cmpLabel: "the 8-second AI video, for comparison", note: "What to look for: the clock still reads 11:58 and the note still says \"just one more run\" in every frame. The big dark area, where the title and menu sit, never moves. Phone crop shows the left side, like the real title screen on a phone.", focus: "24% 50%" },
     "performance-review": { title: "Cut scene test: Performance Review intro", sub: "The first boss intro, from Grok's storyboard and ChatGPT's frames: the bullpen plate plus the 9-to-5er (3 poses) and the Performance Review (4 poses). Four seconds. In the game it plays once, right before the fight; here it loops so you can watch it again.",
-      cmp: "n/a", cmpLabel: "no video version was made", note: "The beats: formal introduction, a very important clipboard, the stomp, and 'not intimidated, much.' Possible caption, painted into the wall later if you want it: 'You brought experience. They brought a clipboard.'", focus: "50% 60%" },
+      cmp: "n/a", cmpLabel: "no video version was made", letterbox: true, note: "Phone view shows the whole picture with bars above and below, the way a cut scene would play on a phone. The beats: formal introduction, a very important clipboard, the stomp, and 'not intimidated, much.' Possible caption, painted into the wall later if you want it: 'You brought experience. They brought a clipboard.'", focus: "50% 60%" },
     "chase": { title: "Live scene test: the office chase", sub: "Grok's prototype layers in the same format. The smeared floor is expected; this one was about file size and speed, not the art.",
       cmp: "1.45 MB", cmpLabel: "Grok's 4-second MP4, for comparison", note: "What to look for: the \"DO NOT TOUCH MY MUG\" sign and the whole office never move. Only the characters do, in whole-pixel steps. With reduced motion on, you get one still picture.", focus: "45% 50%" }
   };
@@ -89,7 +90,7 @@
   $("b-play").onclick = () => { if (scene.playing()) { scene.pause(); set($("b-play"), false, "Paused"); } else { scene.still(false); set($("b-still"), false); scene.play(); set($("b-play"), true, "Playing"); } };
   $("b-still").onclick = () => { const on = $("b-still").getAttribute("aria-pressed") !== "true"; scene.still(on); set($("b-still"), on); set($("b-play"), !on, on ? "Paused" : "Playing"); };
   $("b-boxes").onclick = () => { const on = $("b-boxes").getAttribute("aria-pressed") !== "true"; scene.boxes(on); set($("b-boxes"), on); };
-  $("b-phone").onclick = () => { const on = $("b-phone").getAttribute("aria-pressed") !== "true"; $("stage").classList.toggle("cover", on); $("stage").style.aspectRatio = on ? "9 / 16" : scene.scene.w + " / " + scene.scene.h; set($("b-phone"), on); };
+  $("b-phone").onclick = () => { const on = $("b-phone").getAttribute("aria-pressed") !== "true"; $("stage").classList.toggle("cover", on); $("stage").classList.toggle("fit", on && !!CFG.letterbox); $("stage").style.aspectRatio = on ? "9 / 16" : scene.scene.w + " / " + scene.scene.h; set($("b-phone"), on); };
   // Total download: ask the server for each file's size.
   const files = [scene.scene.plate, ...scene.scene.layers.map(l => l.sheet), "scene.json"];
   const sizes = await Promise.all(files.map(f => fetch(base + f, { method: "HEAD" }).then(r => +r.headers.get("content-length") || 0).catch(() => 0)));
