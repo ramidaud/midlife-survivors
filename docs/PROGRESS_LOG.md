@@ -1717,3 +1717,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## Nov 7, 2026: Performance Review cut scene on the test page; portrait batch 2
 - ChatGPT delivered the 7 Performance Review frames. Built into the live-scene format: 297 KB, 4 seconds, on the test page (tools/live-scene.html, third button). Not in the game yet.
 - Portrait batch 2 (June, all enemies, all three bosses, two poses each) is in. The whole Flow cast now has clean portraits.
+
+## Nov 7, 2026: Close Call visuals, quieter first minute, stats check (V. 2.10.21)
+- From Grok's playtest: Close Calls now leave a short trail of afterimages, the popup is bigger, and the first one ever explains itself.
+- The opening is quieter: the "weapons fire on their own" tip no longer repeats the first-day line, and the Bill tip is folded into the Late Fee tip (shown when a Bill actually splits).
+- Stats (read only): Rami's runs average about 210 kills per in-game year after 55; other players about 490, Ben about 720. Lower kill rate means lower level (16 vs 20 to 25) by the 50s, which is where Rami's runs fall apart.
+- Cut scene test: the review frame with the loose shoe is skipped, and phone view now letterboxes instead of cropping.

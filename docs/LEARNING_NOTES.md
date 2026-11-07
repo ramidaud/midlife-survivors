@@ -636,3 +636,9 @@ A sliding door can reuse one slab while the frame stays fixed. A narrow cell cli
 
 ## An intro can move without redrawing everything (Nov 7, 2026, Codex)
 The Performance Review intro keeps one background and one fixed clipboard face/chart. Its poses edit just the head, arms and feet on a common pixel grid. Registered full-screen layers let playback switch poses without moving the actors around the room.
+
+## Kill rate is the hidden difficulty dial (Nov 7, 2026)
+In a survivors game, the swarm is also your XP. Players who stay close to the crowd and kill more level up faster, and their power keeps pace with the swarm. Players who kite at a safe distance kill less, fall behind on levels, and hit a wall in the 50s. That's why "dying more" and "playing safe" can be the same thing.
+
+## Afterimages are cheap "juice" (Nov 7, 2026)
+"Juice" is feedback that makes an action feel good without changing the rules. A Close Call already gave a speed burst, but nobody could see it. Three fading copies of the hero, drawn a tenth of a second apart, make the burst visible for almost no cost.
