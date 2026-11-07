@@ -1724,3 +1724,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Stats (read only): Rami's runs average about 210 kills per in-game year after 55; other players about 490, Ben about 720. Lower kill rate means lower level (16 vs 20 to 25) by the 50s, which is where Rami's runs fall apart.
 - Cut scene test: the review frame with the loose shoe is skipped, and phone view now letterboxes instead of cropping.
 - Deploys failed three times (GitHub Pages stops at 10 minutes, whatever the setting says). The upload now skips about 42 MB of art source folders no page loads, and the next deploy went through.
+
+## Nov 7, 2026: loadout in run stats, cut scene beats (V. 2.10.22)
+- Rami OKed a "build" column: run stats now send the weapons and passives held at the end. The game sends it now; the database column still needs adding (one SQL line, Rami runs it or approves it), and runs save fine without it.
+- Cut scene test page: 7 extra beats you can switch on and off (title card, printer, monitor flicker, clipboard stamp, stomp dust and shake, sweat drop, caption). All drawn in code, no new art.
