@@ -49,7 +49,7 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [ ] **Our own instant-message sound** for Group Chat pings (ElevenLabs; original, not the AIM sound)
 
 ## Merch with Kevin (Nov 6, side quest)
-- [x] Prep merch-ready sprite files for Kevin: Bill plus the four heroes (native PNG, 8x, 16x, silhouette, palette notes) in `art/merch/`
+- [x] Prep merch-ready sprite files for Kevin: Medical Bill, regular Bill and the four heroes (native PNG, 8x, 16x, silhouette, palette notes) in `art/merch/`
 - [ ] Rami sends `bill-merch-pack.zip` and `heroes-merch-pack.zip` to Kevin once he DMs his email
 - [ ] Rami replies to Kevin's "what were you thinking": keychains, magnets and stickers first; bobbleheads and fidget toys later
 - [ ] Settle with Kevin who covers material and shipping before any batch becomes a Ko-fi reward
