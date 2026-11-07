@@ -1,0 +1,376 @@
+{
+  "all_passed": true,
+  "date": "2026-11-07",
+  "files": [
+    {
+      "bytes": 139344,
+      "cream_border_64px": true,
+      "file": "keyart-june-from-legal.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        370,
+        144,
+        651,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 144055,
+      "cream_border_64px": true,
+      "file": "keyart-june-from-legal-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        334,
+        144,
+        689,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 198027,
+      "cream_border_64px": true,
+      "file": "keyart-bill.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        182,
+        144,
+        841,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 189741,
+      "cream_border_64px": true,
+      "file": "keyart-bill-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        216,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 177818,
+      "cream_border_64px": true,
+      "file": "keyart-3am-thought.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        210,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 191696,
+      "cream_border_64px": true,
+      "file": "keyart-3am-thought-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        194,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 192188,
+      "cream_border_64px": true,
+      "file": "keyart-group-chat.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        216,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 161848,
+      "cream_border_64px": true,
+      "file": "keyart-group-chat-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        270,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 180166,
+      "cream_border_64px": true,
+      "file": "keyart-calendar-invite.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        286,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 157566,
+      "cream_border_64px": true,
+      "file": "keyart-calendar-invite-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        316,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 195159,
+      "cream_border_64px": true,
+      "file": "keyart-spam-likely.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        204,
+        144,
+        817,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 189898,
+      "cream_border_64px": true,
+      "file": "keyart-spam-likely-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        174,
+        144,
+        849,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 190165,
+      "cream_border_64px": true,
+      "file": "keyart-late-night-donut.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        264,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 193143,
+      "cream_border_64px": true,
+      "file": "keyart-late-night-donut-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        268,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 240111,
+      "cream_border_64px": true,
+      "file": "keyart-midlife-crisis.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        202,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 217172,
+      "cream_border_64px": true,
+      "file": "keyart-midlife-crisis-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        162,
+        270,
+        861,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 199943,
+      "cream_border_64px": true,
+      "file": "keyart-performance-review.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        230,
+        144,
+        793,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 204582,
+      "cream_border_64px": true,
+      "file": "keyart-performance-review-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        214,
+        144,
+        809,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 220935,
+      "cream_border_64px": true,
+      "file": "keyart-30-year-mortgage.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        238,
+        144,
+        783,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "bytes": 218373,
+      "cream_border_64px": true,
+      "file": "keyart-30-year-mortgage-pose2.png",
+      "hard_2x_pixels": true,
+      "non_background_bounds": [
+        240,
+        144,
+        781,
+        879
+      ],
+      "opaque": true,
+      "size": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "manual_checks": [
+    "One complete character per PNG, identity features and clothing compared to provided references.",
+    "All twenty illustrations checked for text, logos, clipping and unrelated props.",
+    "Both poses compared at a consistent scale; no floor shadows in either pose."
+  ],
+  "palette_mode": "Style targets, source illustration shading retained",
+  "browser_checks": {
+    "sizes": [
+      [
+        1280,
+        800
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "decoded_images": 31,
+    "horizontal_overflow": false,
+    "exceptions": 0,
+    "network": "blocked"
+  }
+}

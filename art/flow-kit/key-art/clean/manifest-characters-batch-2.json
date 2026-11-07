@@ -1,0 +1,101 @@
+{
+  "set": "Flow clean key-art portraits, batch 2",
+  "date": "2026-11-07",
+  "scope": "June, six enemies and three bosses, two poses each; no shadows.",
+  "format": "Opaque RGBA PNG",
+  "size": [
+    1024,
+    1024
+  ],
+  "background": "#F2D7A1",
+  "logical_grid": [
+    512,
+    512
+  ],
+  "nearest_neighbor_scale": 2,
+  "style_reference": "art/flow-kit/key-art/9to5er-keyart.png",
+  "palette_reference": "assets/art-direction/STYLE_GUIDE.md",
+  "palette_mode": "Style-guide targets with the generated illustration's material and skin shading retained. These are illustrated Flow references, not restricted-palette runtime sprites.",
+  "entries": [
+    {
+      "id": "june-from-legal",
+      "name": "June from Legal",
+      "identity_reference": "art/flow-kit/coworker-june-from-legal.png",
+      "portrait": "keyart-june-from-legal.png",
+      "alternate": "keyart-june-from-legal-pose2.png",
+      "alternate_pose": "One hand resting on hip, the other raised palm outward in a gently skeptical 'hold that thought' gesture, same mature face."
+    },
+    {
+      "id": "bill",
+      "name": "Bill",
+      "identity_reference": "art/flow-kit/enemy-bill.png",
+      "portrait": "keyart-bill.png",
+      "alternate": "keyart-bill-pose2.png",
+      "alternate_pose": "A determined running stride, paper corners fluttering, opposite arms swinging. Keep the broad red header stripe and exact face."
+    },
+    {
+      "id": "3am-thought",
+      "name": "3 AM Thought",
+      "identity_reference": "art/flow-kit/enemy-3am-thought.png",
+      "portrait": "keyart-3am-thought.png",
+      "alternate": "keyart-3am-thought-pose2.png",
+      "alternate_pose": "Lean into a different three-quarter floating drift, trailing small lavender puffs curl behind, one eyebrow raised. Crescent moon stays cream. No new limbs."
+    },
+    {
+      "id": "group-chat",
+      "name": "Group Chat",
+      "identity_reference": "art/flow-kit/enemy-group-chat.png",
+      "portrait": "keyart-group-chat.png",
+      "alternate": "keyart-group-chat-pose2.png",
+      "alternate_pose": "Bouncing forward in a short waddling stride, tail and typing dots follow through, amused annoyed expression. No new objects."
+    },
+    {
+      "id": "calendar-invite",
+      "name": "Calendar Invite",
+      "identity_reference": "art/flow-kit/enemy-calendar-invite.png",
+      "portrait": "keyart-calendar-invite.png",
+      "alternate": "keyart-calendar-invite-pose2.png",
+      "alternate_pose": "Charging three-quarter forward, one boot forward, arms counter-swing, one blank page curls outward, preserve header and rings."
+    },
+    {
+      "id": "spam-likely",
+      "name": "Spam Likely",
+      "identity_reference": "art/flow-kit/key-art/spam-likely-keyart.png",
+      "portrait": "keyart-spam-likely.png",
+      "alternate": "keyart-spam-likely-pose2.png",
+      "alternate_pose": "Phone tilts into a ringing pose, arms spread, one boot lifted. Two restrained cream ringing arcs on either side. Keep exact screen symbols."
+    },
+    {
+      "id": "late-night-donut",
+      "name": "Late-Night Donut",
+      "identity_reference": "art/flow-kit/key-art/late-night-donut-keyart.png",
+      "portrait": "keyart-late-night-donut.png",
+      "alternate": "keyart-late-night-donut-pose2.png",
+      "alternate_pose": "A jaunty running stride, one hand curled into a tiny fist, other arm back, same frosting and sprinkle arrangement, same mischievous expression."
+    },
+    {
+      "id": "midlife-crisis",
+      "name": "The Midlife Crisis",
+      "identity_reference": "art/flow-kit/boss-midlife-crisis.png",
+      "portrait": "keyart-midlife-crisis.png",
+      "alternate": "keyart-midlife-crisis-pose2.png",
+      "alternate_pose": "Same car turning into a playful drifting angle, front wheels steered, warm cream highlights on curved hood, no tire smoke or floor marks or added driver."
+    },
+    {
+      "id": "performance-review",
+      "name": "The Performance Review",
+      "identity_reference": "art/flow-kit/boss-performance-review.png",
+      "portrait": "keyart-performance-review.png",
+      "alternate": "keyart-performance-review-pose2.png",
+      "alternate_pose": "Same clipboard facing slightly left, elbows out and fists raised slightly, officious self-importance, planted feet. Keep the same face, chart and proportions."
+    },
+    {
+      "id": "30-year-mortgage",
+      "name": "The 30-Year Mortgage",
+      "identity_reference": "art/flow-kit/boss-30-year-mortgage.png",
+      "portrait": "keyart-30-year-mortgage.png",
+      "alternate": "keyart-30-year-mortgage-pose2.png",
+      "alternate_pose": "Stomping forward with one brown boot raised, paper stack flexes slightly, same house roof/shutters/face and abstract blank seal. No debris or floor."
+    }
+  ]
+}

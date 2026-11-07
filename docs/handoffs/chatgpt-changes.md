@@ -430,3 +430,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **For the game:** Opaque exact #FF00FF backgrounds, hard pixels, shared office palette. Claude owns wiring and placement. Reader: red/blink loop, then hold green. Utility door: 180 ms, hold final frame.
 - **Sizes:** Props atlas 464×112 with per-family rectangles in manifest; reader 72×32; floor plate 48×32; door 256×96. Concrete tile 64×64 repeats both axes. Cabinet 384×112 plus optional 768×112 wide helper.
 - **Checks / notes:** Contact board inspected; palette, opacity, matching floor edges and unchanged cabinet pixels passed. No runtime, navigation, spawn, balance or version changes. Current entrance follows the newly pulled brief, not the obsolete Lobby cabinet plan. In-game placement is untested.
+
+## 2026-11-07 Flow portraits, batch 2 (Codex)
+
+- **What:** June, Bill, 3 AM Thought, Group Chat, Calendar Invite, Spam Likely, Late-Night Donut and the three Midlife bosses, each with a second action pose.
+- **Files:** Twenty named PNGs in `art/flow-kit/key-art/clean/`, plus `contact-sheet-characters-batch-2.png`, `review-batch-2.html`, README, manifest, generation prompts and validation. Batch 1 files and supplied identities remain unchanged.
+- **For Flow:** Main image for identity, `-pose2` for an alternate gesture. These are illustrated references, not runtime sprites. Bill keeps its red stripe; Mortgage uses an abstract seal, without lettering. All poses omit floor shadows.
+- **Sizes/checks:** 1024×1024 opaque RGBA, exact cream #F2D7A1, 512×512 logical pixels enlarged 2× nearest-neighbor. All twenty passed dimensions, alpha, margin and repeated-pixel checks; both poses were inspected together. The review decoded all 31 images at desktop, phone and both tablet orientations, without overflow or exceptions, external networking blocked. No runtime or version changes.
