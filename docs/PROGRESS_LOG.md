@@ -1644,3 +1644,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Decided: keychains, magnets and stickers first; figurines later. Merch to-dos added to ROADMAP, idea logged in GAME_DESIGN.
 - Concept for Rami: a 3D printer needs a mesh (STL or 3MF), and the easy path for pixel art is a voxel standee where every pixel becomes a cube. Nothing generated yet; Kevin is handling the modeling.
 
+
+## 2026-11-07: Empty Flow backgrounds (Codex)
+- Created day and night reference plates for ten office locations, twenty 1920×1080 PNGs in total. Clear middle floors leave space for characters in Flow.
+- Added the contact sheet, prompts, manifest and review page under `art/flow-kit/backgrounds/`. All image checks and desktop, phone and tablet preview checks passed.
+- Background set ready for Rami's review. Character portraits wait until that review. No game changes or version bump.

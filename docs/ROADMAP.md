@@ -335,3 +335,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [x] Deliver the transparent pickup and projectile sheets.
 - [ ] Wire the sheets into the pickup and projectile visuals.
+
+## Flow cut-scene references (Nov 7, Codex)
+- [x] Ten empty backgrounds in day and night versions, with a contact sheet and review page in `art/flow-kit/backgrounds/`. Ready for Rami's review.
+- [ ] Clean key-art character portraits from `docs/handoffs/chatgpt-flow-kit.md`, after the background review.

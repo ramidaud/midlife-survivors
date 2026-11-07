@@ -612,3 +612,7 @@ Pickups use a steady idle pose and a cream shine frame. Projectiles share the sa
 - **Source files:** `art/merch/` holds one pack per character (native PNG with transparent background, 8x and 16x nearest-neighbor enlargements, a black silhouette for engraving, and a README with the key palette colors and thin-part warnings). Bill first, per Kevin's request, then the four heroes.
 - **Open:** who covers material and shipping; whether any of this sells. Rami's stance: cart before the horse on purpose, same as the game itself.
 
+
+### 2026-11-07 Flow scene references (Codex)
+
+The Flow cut-scene kit begins with ten empty office locations in day and night versions. These references use a gentle three-quarter camera, perimeter furnishings and an open middle floor for composited characters. Posters and banners contain no words. The Executive Wing's founder tribute is abstract so the background contains no depicted person. This is art for cut scenes and does not change playable room layouts.

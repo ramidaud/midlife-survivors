@@ -1,0 +1,295 @@
+{
+  "all_passed": true,
+  "date": "2026-11-06",
+  "files": [
+    {
+      "bytes": 106926,
+      "colors": 14,
+      "file": "bg-lobby-day.png",
+      "mean_luma": 135.78802235240207,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 93507,
+      "colors": 12,
+      "file": "bg-lobby-night.png",
+      "mean_luma": 58.25205714068211,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 134209,
+      "colors": 14,
+      "file": "bg-bullpen-day.png",
+      "mean_luma": 115.67404221998376,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 85762,
+      "colors": 12,
+      "file": "bg-bullpen-night.png",
+      "mean_luma": 50.52203781409041,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 140789,
+      "colors": 14,
+      "file": "bg-breakroom-day.png",
+      "mean_luma": 109.9060364104505,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 111591,
+      "colors": 14,
+      "file": "bg-breakroom-night.png",
+      "mean_luma": 65.42876278670221,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 124053,
+      "colors": 14,
+      "file": "bg-conference-day.png",
+      "mean_luma": 107.24342704775559,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 95493,
+      "colors": 12,
+      "file": "bg-conference-night.png",
+      "mean_luma": 54.034770335717354,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 118119,
+      "colors": 14,
+      "file": "bg-server-room-day.png",
+      "mean_luma": 110.77552389397968,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 91855,
+      "colors": 12,
+      "file": "bg-server-room-night.png",
+      "mean_luma": 53.040983856823544,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 133619,
+      "colors": 14,
+      "file": "bg-executive-wing-day.png",
+      "mean_luma": 107.52714211585031,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 91427,
+      "colors": 13,
+      "file": "bg-executive-wing-night.png",
+      "mean_luma": 49.338316346121644,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 153251,
+      "colors": 14,
+      "file": "bg-wellness-corner-day.png",
+      "mean_luma": 118.34274778886684,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 105861,
+      "colors": 12,
+      "file": "bg-wellness-corner-night.png",
+      "mean_luma": 57.274164646390396,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 114592,
+      "colors": 14,
+      "file": "bg-parking-lot-day.png",
+      "mean_luma": 101.41840337016511,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 77815,
+      "colors": 11,
+      "file": "bg-parking-lot-night.png",
+      "mean_luma": 50.85653421152479,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 195460,
+      "colors": 13,
+      "file": "bg-student-lounge-day.png",
+      "mean_luma": 106.95686770939358,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 132370,
+      "colors": 12,
+      "file": "bg-student-lounge-night.png",
+      "mean_luma": 55.857813171638696,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 149988,
+      "colors": 14,
+      "file": "bg-retirement-party-day.png",
+      "mean_luma": 115.05496371910179,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    },
+    {
+      "bytes": 131397,
+      "colors": 13,
+      "file": "bg-retirement-party-night.png",
+      "mean_luma": 75.18258316580925,
+      "nearest_3x_pass": true,
+      "opaque": true,
+      "palette_pass": true,
+      "size": [
+        1920,
+        1080
+      ]
+    }
+  ],
+  "manual_checks": [
+    "All 20 scenes visually inspected for open middle floor, no characters, text, UI or logos.",
+    "All ten day/night pairs compared for major prop positions and camera."
+  ],
+  "completed": "2026-11-07",
+  "review_page_checks": {
+    "viewports": [
+      [
+        1280,
+        800
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "images_decoded": 21,
+    "horizontal_overflow": false,
+    "runtime_exceptions": 0,
+    "network": "blocked"
+  }
+}

@@ -622,3 +622,7 @@ When hundreds of enemies are on screen, you can't read their faces, but you can 
 ## Caching (Nov 6)
 When you visit a website, your browser and the web host both keep a copy of the files so the next visit is faster. That's a **cache**. GitHub Pages tells everyone to keep the main page for 10 minutes, which is why updates seemed slow. The fix is to ask for files at a brand-new address (adding something like `?b=270` to the end): nobody has a copy of that address yet, so they have to fetch the real, current file.
 
+
+## 2026-11-07: Paired background plates (Codex)
+
+A background plate is a scene without its characters. Keeping the camera and main furniture in place lets the same character performance work in daylight or at night. The Flow set leaves a clear floor for that performance and puts the room's story around its edges.

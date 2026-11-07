@@ -1,0 +1,91 @@
+{
+  "set": "Flow kit empty backgrounds",
+  "date": "2026-11-06",
+  "scope": "Background set only. Character portraits await review.",
+  "size": [
+    1920,
+    1080
+  ],
+  "format": "Opaque RGB PNG",
+  "logical_grid": [
+    640,
+    360
+  ],
+  "nearest_neighbor_scale": 3,
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#F1B5BF",
+    "#BFA8CF"
+  ],
+  "source_brief": "docs/handoffs/chatgpt-flow-kit.md",
+  "style_reference": "assets/art-direction/office-key-art-v1.png",
+  "notes": [
+    "Night versions generated as lighting edits of each day composition, with major furniture and camera matched. These are separate reference plates, not pixel-registered lighting layers.",
+    "Executive founder frame is an abstract geometric tribute to honor the no-characters rule.",
+    "No text, characters, enemies, logos or UI. No runtime changes."
+  ],
+  "scenes": [
+    {
+      "id": "lobby",
+      "day": "bg-lobby-day.png",
+      "night": "bg-lobby-night.png"
+    },
+    {
+      "id": "bullpen",
+      "day": "bg-bullpen-day.png",
+      "night": "bg-bullpen-night.png"
+    },
+    {
+      "id": "breakroom",
+      "day": "bg-breakroom-day.png",
+      "night": "bg-breakroom-night.png"
+    },
+    {
+      "id": "conference",
+      "day": "bg-conference-day.png",
+      "night": "bg-conference-night.png"
+    },
+    {
+      "id": "server-room",
+      "day": "bg-server-room-day.png",
+      "night": "bg-server-room-night.png"
+    },
+    {
+      "id": "executive-wing",
+      "day": "bg-executive-wing-day.png",
+      "night": "bg-executive-wing-night.png"
+    },
+    {
+      "id": "wellness-corner",
+      "day": "bg-wellness-corner-day.png",
+      "night": "bg-wellness-corner-night.png"
+    },
+    {
+      "id": "parking-lot",
+      "day": "bg-parking-lot-day.png",
+      "night": "bg-parking-lot-night.png"
+    },
+    {
+      "id": "student-lounge",
+      "day": "bg-student-lounge-day.png",
+      "night": "bg-student-lounge-night.png"
+    },
+    {
+      "id": "retirement-party",
+      "day": "bg-retirement-party-day.png",
+      "night": "bg-retirement-party-night.png"
+    }
+  ],
+  "completed": "2026-11-07"
+}
