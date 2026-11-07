@@ -907,6 +907,7 @@ window.firstTimeTip = function(key) {
   if (!t || tipsSeen[key] || !window.tipsEnabled()) return;
   tipsSeen[key] = true;
   try { localStorage.setItem("ms-tips-seen-v1", JSON.stringify(tipsSeen)); } catch (e) {}
+  if (t.skipWhileTeaching && window.teach && window.teach.on) return; // the teaching runs already said it another way (Nov 7)
   const touch = window.matchMedia && matchMedia("(pointer: coarse)").matches; // phones get the "how to move" version (Fable review)
   window.showLowerThird("tip", t.badge || "TIP", (touch && t.touchText) || t.text, 5000);
 };

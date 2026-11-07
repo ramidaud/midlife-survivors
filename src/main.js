@@ -2036,7 +2036,7 @@ function createEnemy(scene, kind, x, y) {
     if (!spot) return null;
     [x, y] = spot;
   }
-  if (window.firstTimeTip) window.firstTimeTip(kind);
+  if (window.firstTimeTip && !(window.TIPS && TIPS[kind] && TIPS[kind].onSpawn === false)) window.firstTimeTip(kind);
   const E = ENEMIES[kind];
   const e = bills.create(x, y, E.tex || kind).setDepth(4).setScale(E.scale || 1); // hit box grows with the scale too
   scene.enemyArt.attach(e, kind);

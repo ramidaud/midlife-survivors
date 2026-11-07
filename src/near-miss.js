@@ -7,13 +7,14 @@
 window.NearMiss = (() => {
   const N = () => window.NEAR_MISS || {};
   const reducedMotion = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-  let combo, nmStats, xpLog, popupLog, lastShakeAt, lastLine, scoreUnits, gfx, burstUntil, burstMult;
+  let combo, nmStats, xpLog, popupLog, lastShakeAt, lastLine, scoreUnits, gfx, burstUntil, burstMult, ghostsUntil = 0;
 
   function reset() {
     combo = { streak: 0, tier: 0, expireAt: 0, flashUntil: 0 };
     nmStats = { credits: 0, rejectedNotClosing: 0, rejectedNoApproach: 0, rejectedCooldown: 0, rejectedXpCap: 0, xpGranted: 0, maxStreak: 0, pingCredits: 0, bossCredits: 0 };
     xpLog = []; popupLog = []; lastShakeAt = -1e9; lastLine = ""; scoreUnits = 0; burstUntil = 0; burstMult = 1;
     if (gfx) { gfx.destroy(); gfx = null; }
+    ghostsUntil = 0;
   }
   reset();
 
@@ -43,10 +44,25 @@ window.NearMiss = (() => {
     if (popupLog.length >= (N().maxPopupsPerSec || 4)) return; // swarm readability: the HUD meter still counts it
     popupLog.push(now);
     const msg = scene.add.text(player.x, player.y - 44, text, {
-      fontFamily: "monospace", fontSize: "12px", color: "#f2d7a1", stroke: "#171c35", strokeThickness: 3
+      fontFamily: "Silkscreen, monospace", fontSize: (N().popupFontPx || 14) + "px", color: "#f2d7a1", stroke: "#171c35", strokeThickness: 3
     }).setOrigin(0.5).setDepth(50002);
     if (reducedMotion()) scene.time.delayedCall(700, () => msg.destroy());
     else scene.tweens.add({ targets: msg, y: msg.y - 24, alpha: 0, duration: 750, onComplete: () => msg.destroy() });
+  }
+
+  // Afterimages (Nov 7, Grok's playtest): 2-3 fading copies of the hero during the speed burst,
+  // so you can SEE the burst. Skipped with reduced motion.
+  function afterimages(scene, player) {
+    const C = N(), n = C.afterimages == null ? 3 : C.afterimages;
+    if (!n || reducedMotion() || runElapsedMs < ghostsUntil || !player || !player.texture) return;
+    ghostsUntil = runElapsedMs + (C.speedBurstMs || 350);
+    scene.time.addEvent({ delay: Math.round((C.speedBurstMs || 350) / (n + 1)), repeat: n - 1, callback: () => {
+      if (!player.active) return;
+      const g = scene.add.image(player.x, player.y, player.texture.key, player.frame && player.frame.name)
+        .setOrigin(player.originX, player.originY).setScale(player.scaleX, player.scaleY).setFlipX(player.flipX)
+        .setDepth((player.depth || 5) - 0.1).setAlpha(0.5).setTint(0x83a89a);
+      scene.tweens.add({ targets: g, alpha: 0, duration: 260, onComplete: () => g.destroy() });
+    } });
   }
 
   function credit(scene, player, t, isPing) {
@@ -66,6 +82,8 @@ window.NearMiss = (() => {
     grantXp(scene, xpGain);
     burstUntil = runElapsedMs + (C.speedBurstMs || 350) + (combo.tier >= 2 && prevTier < 2 ? 100 : 0);
     burstMult = C.speedBurstMult || 1.1;
+    afterimages(scene, player);
+    if (window.firstTimeTip) window.firstTimeTip("closeCall");
     scoreUnits += C.scorePerCredit || 1;
     if (combo.tier >= 3 && prevTier < 3) scoreUnits += C.tier3ScoreBonus || 0;
     if (combo.tier >= 4 && prevTier < 4) scoreUnits += C.tier4ScoreBonus || 0;
@@ -176,5 +194,6 @@ window.NearMiss = (() => {
     console.log("[Close Calls]", JSON.stringify(nmStats));
   }
 
-  return { reset, scan, onHurt, speedMult, score, hud, logSummary, getStats: () => nmStats };
+  return { reset, scan, onHurt, speedMult, score, hud, logSummary, getStats: () => nmStats,
+    testCredit: (scene, player) => credit(scene, player, { kind: "bill" }, false) }; // for tests and the dev console
 })();

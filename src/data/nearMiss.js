@@ -33,6 +33,8 @@ window.NEAR_MISS = {
 
   // Feedback
   maxPopupsPerSec: 4,
+  popupFontPx: 14,         // the floating "CLOSE CALL!" text (Silkscreen)
+  afterimages: 3,          // fading copies of the hero during the speed burst (0 turns them off)
   shakeDurationMs: 55,
   shakeIntensity: 0.0025,
   shakeCooldownMs: 180,

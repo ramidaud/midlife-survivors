@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.20",
-  displayVersion: "V. 2.10.20",
+  version: "2.10.21",
+  displayVersion: "V. 2.10.21",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 278,
+  build: 279,
   changelog: [
+    {
+      ver: "V. 2.10.21", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "You can see yourself dodge now.",
+      highlights: [
+        "Close Calls are easier to spot: a quick trail of afterimages follows you during the speed burst, the popup text is bigger, and the first one ever explains what just happened. (From Grok's playtest.)",
+        "Fewer messages pile up in your first seconds: the \"weapons fire on their own\" tip no longer repeats the first-day line, and the Bill tip now waits until a Bill actually splits into Late Fees."
+      ]
+    },
     {
       ver: "V. 2.10.20", date: "Nov 7, 2026", title: "Version Two",
       teaser: "It's 11:58 PM and he's still here.",
