@@ -1723,3 +1723,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The opening is quieter: the "weapons fire on their own" tip no longer repeats the first-day line, and the Bill tip is folded into the Late Fee tip (shown when a Bill actually splits).
 - Stats (read only): Rami's runs average about 210 kills per in-game year after 55; other players about 490, Ben about 720. Lower kill rate means lower level (16 vs 20 to 25) by the 50s, which is where Rami's runs fall apart.
 - Cut scene test: the review frame with the loose shoe is skipped, and phone view now letterboxes instead of cropping.
+- Deploys failed three times (GitHub Pages stops at 10 minutes, whatever the setting says). The upload now skips about 42 MB of art source folders no page loads, and the next deploy went through.
