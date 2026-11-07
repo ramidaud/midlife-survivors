@@ -1692,3 +1692,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 
 ## 2026-11-07: Live title layers and Supply Closet art (Codex)
 Saved the registered 11:58 PM title plate, eighteen animation frames and contact/check files. Finished Supply Closet props and the updated badge-reader/utility-door entrance, with previews and manifest. Art only; integration remains with Claude.
+
+## Nov 7, 2026: V2.10.19, Supply Closet art
+- ChatGPT's closet kit is in: sliding utility doors at both ends, the blinking badge reader and floor plate, two shelves, a chair, the lost-and-found bin, a mop bucket, three flickering bulbs and a concrete floor.
+- The closet's front wall is now a low knee wall so the narrow hallway floor stays visible.
+- Props have MEMO captions when you walk by. The old drawn shapes are still the fallback if the art fails to load.
