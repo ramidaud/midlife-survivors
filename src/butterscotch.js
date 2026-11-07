@@ -60,6 +60,7 @@ window.Butterscotch = (() => {
     if (window.showLowerThird) window.showLowerThird("reward", "JUNE FROM LEGAL", line, 3600, "BUTTERSCOTCH");
     dish.setAlpha(0.45); // empty dish until it restocks
     if (window.Telemetry && Telemetry.note) Telemetry.note("butterscotch");
+    if (window.achEvent) window.achEvent("butterscotch");
   }
   function update(sc) {
     if (!dish || !player || !player.active) return;

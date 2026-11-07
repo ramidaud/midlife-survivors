@@ -3,9 +3,10 @@
 // file can be a list of takes: the game rotates between them (never the same one twice in a row).
 // vol is 0 to 1. Pitch still varies a little each play (and climbs on kill streaks), so repeats don't sound robotic.
 window.SFX_FILES = {
-  ver: 7,
+  ver: 8,
   // Nov 5, round 2 (Rami): Mic Drop is just the drop and thud (no feedback squeal); Spam Likely buzzes like a phone on a desk.
   // Round 3 (Rami: "should add to the musicality"): a soft two-note marimba chime in A instead of the buzz.
+  // Round 4 (Nov 7, Rami): the chime wore thin; the desk buzz is back.
   // Mix pass (Nov 5): sounds that happen many times a second (hits, rips, gems, coins) are quiet and capped,
   // so a swarm reads as texture instead of a wall of noise. maxAtOnce = how many copies may overlap.
   maxAtOnce: { hit: 3, billPaid: 3, gem: 2, coin: 2, camera: 1, ring: 1, micDrop: 1, wallBonk: 1 },
@@ -21,6 +22,6 @@ window.SFX_FILES = {
     micDrop:    { file: ["assets/audio/sfx/sfx-mic-drop-1.mp3", "assets/audio/sfx/sfx-mic-drop-2.mp3"],    vol: 0.3, on: true },
     camera:     { file: "assets/audio/sfx/sfx-camera.mp3",      vol: 0.22, on: true },
     chestOpen:  { file: "assets/audio/sfx/sfx-chest-open.mp3",  vol: 0.4, on: true },
-    ring:       { file: "assets/audio/sfx/sfx-phone-chime.mp3", vol: 0.22, on: true }
+    ring:       { file: "assets/audio/sfx/sfx-phone-buzz.mp3", vol: 0.22, on: true }  // Nov 7 (Rami): back to the buzz; the chime got old fast
   }
 };

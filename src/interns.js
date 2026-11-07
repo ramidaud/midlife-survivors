@@ -259,6 +259,7 @@ window.Interns = (() => {
     if (window.Lighting) Lighting.unfollow(it.o);
     if (typeof updateHUD === "function") updateHUD();
     if (window.Telemetry && Telemetry.note) Telemetry.note("internCaught");
+    if (window.achEvent) window.achEvent("internCaught");
     it.tag.setText(it.r.name.toUpperCase() + " · CAUGHT");
     const id = tossTreat(scene, it);
     const lines = it.r.lines || [], line = lines[Math.floor(Math.random() * lines.length)] || "Here you go!";

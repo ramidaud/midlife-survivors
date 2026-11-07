@@ -1665,3 +1665,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Rami asked for hover and click states on the devlog's Read the memo button and the nav bar.
 - Buttons now sit on a dark raised edge, lift 1 pixel and brighten on hover, and press down when clicked. The Read the memo button reacts when you hover anywhere on its memo card.
 - Turned off for people who have reduced motion on.
+
+## Nov 7, 2026: V2.10.14, desk gaps, buzz, easter-egg achievements
+- Rami got wedged between two Marketing desks. The gaps between pod desks were 56 px and the hero is 48 px wide, so you could squeeze in and get pinned. All 10 gaps are now blocked.
+- Spam Likely buzzes again (Rami: the chime was "not as bad as the ringing, not as good as the vibration").
+- New achievements for easter eggs: Help Yourself (June's butterscotch) and Caught In The Act (catch TJ or Derek). The yellow note already had one.

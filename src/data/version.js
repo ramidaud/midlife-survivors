@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.13",
-  displayVersion: "V. 2.10.13",
+  version: "2.10.14",
+  displayVersion: "V. 2.10.14",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 271,
+  build: 272,
   changelog: [
+    {
+      ver: "V. 2.10.14", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "No more getting wedged between desks.",
+      highlights: [
+        "The gaps between desks in the office pods are closed, so you can't squeeze in and get pinned there anymore. (Thanks for the playtest, Rami.)",
+        "Spam Likely buzzes like a phone on a desk again instead of chiming.",
+        "Two new easter-egg achievements: Help Yourself (June's butterscotch) and Caught In The Act (catch TJ or Derek mid-errand)."
+      ]
+    },
     {
       ver: "V. 2.10.13", date: "Nov 7, 2026", title: "Version Two",
       teaser: "Kevin's in the credits.",

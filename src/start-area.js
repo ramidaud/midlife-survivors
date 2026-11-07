@@ -504,6 +504,14 @@ window.StartAreaArt = (() => {
   }
   for(const p of data.officeLoop?.partitions||[])partition(p);
   for(const d of data.officeLoop?.workstations||[])workstation(d);
+  // Close the gaps between neighboring desks in a pod row (Nov 7, Rami got wedged between two Marketing desks).
+  // The gaps were just wider than the hero, so you could squeeze in and get pinned. An invisible block fills each one.
+  {const ws=data.officeLoop?.workstations||[];
+   for(const a of ws)for(const b of ws){
+    const gap=b.x-(a.x+a.w);
+    if(a!==b&&a.y===b.y&&gap>0&&gap<=72&&a.id.replace(/\d+$/,'')===b.id.replace(/\d+$/,''))
+     officePiece('deskgap-'+a.id+'-'+b.id,a.x+a.w,a.y-24,gap,a.h+24,()=>{},{width:gap,back:a.h-20,front:0});
+   }}
   for(const p of data.placements)fixture(p);
   for(const r of data.labels||[]){const key='slice_label_'+r.id;sign(scene,key,r.text,r.width,r.plate!==false,r.scale||2);const o=add(scene.add.image(r.x,r.y,key).setOrigin(.5,1).setAlpha(r.alpha??1),r.floor?{x:r.x-r.width/2,y:r.y-40,width:r.width,height:40}:null);if(r.floor){o.setDepth(BASE+4);if(r.id.startsWith('loop-'))o.sliceBakeFloor=true;}else{o.sliceDepth=r.depthY??r.y;items.push(o);}if(r.caption){o.caption=r.caption;o.sliceReadAt=r.readAt;captions.push(o);}}
 
