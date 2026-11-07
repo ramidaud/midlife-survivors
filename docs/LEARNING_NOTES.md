@@ -618,3 +618,7 @@ When hundreds of enemies are on screen, you can't read their faces, but you can 
 - **Teaching the Game** (2nd ed., 2026), edited by Richard Ferdig, Emily Baumgartner and Enrico Gandolfi (Kent State). About 60 real game design courses. Free: https://doi.org/10.17613/2j5eh-p5n15 (digest in the Project: TEACHING_THE_GAME_DIGEST.md)
 - **Game Programming for Artists** by Jarryd Huntley and Hanna Brady (CRC Press). Hanna is Damian's wife and a game industry veteran. [Bookshop.org](https://bookshop.org/books/game-programming-for-artists/9781138106130) · Hanna also wrote **Animal Friends Alphabet Book**. [All her books](https://www.goodreads.com/author/list/15932500.Hanna_Brady)
 - **Miyamoto's World 1-1 design breakdown** (video), also from Paul: how the first level of Super Mario Bros. teaches you the game without words.
+
+## Caching (Nov 6)
+When you visit a website, your browser and the web host both keep a copy of the files so the next visit is faster. That's a **cache**. GitHub Pages tells everyone to keep the main page for 10 minutes, which is why updates seemed slow. The fix is to ask for files at a brand-new address (adding something like `?b=270` to the end): nobody has a copy of that address yet, so they have to fetch the real, current file.
+

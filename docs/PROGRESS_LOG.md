@@ -1628,3 +1628,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The credenza's caption now mentions "the good butterscotch."
 - Message ping: Rami didn't like the ElevenLabs takes; three code-made pings are out for him to pick from.
 
+## Nov 6, 2026: V2.10.12, updates show up faster
+- Rami noticed updates took 10+ minutes to appear. The deploy itself only takes about a minute; GitHub Pages lets browsers keep the main page for 10 minutes.
+- The game code was already fetched fresh, but the page itself (layout and styles) could be stale. Now the page checks itself against the fresh code and reloads once if it's out of date.
+- Claude now waits for the deploy to finish before saying an update is live.
+

@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.11",
-  displayVersion: "V. 2.10.11",
+  version: "2.10.12",
+  displayVersion: "V. 2.10.12",
   lastUpdated: "Nov 6, 2026",
   codename: "Version Two",
-  build: 269,
+  build: 270,
   changelog: [
+    {
+      ver: "V. 2.10.12", date: "Nov 6, 2026", title: "Version Two",
+      teaser: "Updates show up right away now.",
+      highlights: [
+        "If your browser was holding on to an old copy of the page, the game now notices and quietly reloads the new one, so updates show up within a minute or two of going live instead of ten."
+      ]
+    },
     {
       ver: "V. 2.10.11", date: "Nov 6, 2026", title: "Version Two",
       teaser: "June from Legal wasn't kidding about the butterscotch.",

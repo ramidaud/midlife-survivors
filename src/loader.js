@@ -1,7 +1,17 @@
 // Loads the game's code files in order, all tagged with the same BUILD number.
 // index.html fetches this file fresh on every visit, so the browser can't mix an old page with new code
 // (that mismatch broke controls until a second reload). Bump BUILD after every change; it replaces the old ?v= tags.
-window.BUILD = 269;
+window.BUILD = 270;
+// GitHub Pages lets browsers and its CDN keep index.html for up to 10 minutes, but this file always arrives fresh.
+// If the page is older than this file, reload once with ?b=BUILD: a brand-new address, so nothing cached can answer it.
+(function () {
+  if (!window.PAGE_BUILD || window.PAGE_BUILD >= window.BUILD) return;
+  var q = new URLSearchParams(location.search);
+  if (q.get("b") === String(window.BUILD)) return; // already tried once; don't loop
+  q.set("b", window.BUILD);
+  location.replace(location.pathname + "?" + q.toString() + location.hash);
+  window.STALE_PAGE_RELOADING = true;
+})();
 window.GAME_FILES = [
   "src/data/version.js",
   "src/data/lore.js",
@@ -95,6 +105,7 @@ window.GAME_FILES = [
   "src/main.js"
 ];
 (function () {
+  if (window.STALE_PAGE_RELOADING) return; // the fresh page is on its way
   window.GAME_FILES.forEach(function (f) {
     var s = document.createElement("script");
     s.src = f + "?v=" + window.BUILD;
