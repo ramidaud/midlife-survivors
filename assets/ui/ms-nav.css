@@ -26,13 +26,20 @@
   background: transparent; color: #F2D7A1; border: 1px solid #3E7775;
 }
 .ms-nav-btn:hover { border-color: #EF9347; color: #EF9347; }
+/* Buttons feel like buttons (Nov 7, Rami): raised bottom edge, lift on hover, press on click */
+.ms-nav-btn { box-shadow: 0 3px 0 rgba(0,0,0,.45); transition: transform .08s ease, box-shadow .08s ease, background-color .12s ease, color .12s ease, border-color .12s ease; }
+.ms-nav-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 0 rgba(0,0,0,.45); background-color: rgba(239,147,71,.08); }
+.ms-nav-btn:active { transform: translateY(3px); box-shadow: inset 0 2px 0 rgba(0,0,0,.35); transition-duration: .03s; }
+@media (prefers-reduced-motion: reduce) { .ms-nav-btn, .ms-nav-btn:hover, .ms-nav-btn:active { transform: none; transition: none; } }
 .ms-nav-btn:focus-visible, .ms-nav-tab:focus-visible { outline: 2px solid #EF9347; outline-offset: 2px; }
 /* The page you're on looks pressed in and can't be picked (Nov 5, Rami: "the Title Screen tab shouldn't be selectable") */
 .ms-nav-btn[aria-current="page"] { background: rgba(23, 28, 53, 0.9); border-color: #303750; color: #83A89A; box-shadow: inset 0 3px 0 rgba(0,0,0,.45); transform: translateY(2px); pointer-events: none; cursor: default; }
 .ms-nav-btn.primary { background: #EF9347; color: #171C35; border-color: #EF9347; }
-.ms-nav-btn.primary:hover { filter: brightness(1.06); color: #171C35; }
+.ms-nav-btn.primary:hover { filter: none; background: #F5A866; color: #171C35; }
 .ms-nav-btn.coffee { background: #F2D7A1; color: #171C35; border-color: #F2D7A1; }
 .ms-nav-btn.coffee:hover { background: #FFF0CF; color: #171C35; }
+.ms-nav-btn.primary:active { background: #E07F33; }
+.ms-nav-btn.coffee:active { background: #E5C88F; }
 .ms-nav-btn.hide { padding: 9px 10px; border-color: #303750; color: #B8C0D4; }
 /* The tab that brings the bar back */
 .ms-nav-tab {

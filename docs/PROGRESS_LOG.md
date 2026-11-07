@@ -1660,3 +1660,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Step 1 is a standalone test page (tools/live-scene.html) playing Grok's chase prototype in that format. No game code changed.
 - Result: 522 KB for the whole scene versus 1.45 MB for the 4-second MP4, about 0.1 ms to draw each pose change, and reduced motion shows one still picture.
 - Reviewed ChatGPT's first six clean portraits: approved.
+
+## Nov 7, 2026: buttons feel like buttons
+- Rami asked for hover and click states on the devlog's Read the memo button and the nav bar.
+- Buttons now sit on a dark raised edge, lift 1 pixel and brighten on hover, and press down when clicked. The Read the memo button reacts when you hover anywhere on its memo card.
+- Turned off for people who have reduced motion on.

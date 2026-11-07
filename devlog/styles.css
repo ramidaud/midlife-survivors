@@ -100,6 +100,13 @@ a:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
 .btn-primary:hover { filter: brightness(1.05); }
 .btn-ghost { background: transparent; color: var(--cream); border-color: var(--teal); }
 .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+/* Buttons feel like buttons (Nov 7, Rami): a raised bottom edge at rest, a lift on hover, a press on click.
+   The Read the memo button lives inside the big memo card, so it reacts when the card is hovered or clicked too. */
+.btn { position: relative; box-shadow: 0 3px 0 rgba(0,0,0,.45); transition: transform .08s ease, box-shadow .08s ease, filter .12s ease, background-color .12s ease, color .12s ease, border-color .12s ease; }
+.btn:hover, .feature:hover .feature-cta, .feature:focus-visible .feature-cta { transform: translateY(-1px); box-shadow: 0 4px 0 rgba(0,0,0,.45); }
+.btn-primary:hover, .feature:hover .feature-cta.btn-primary, .feature:focus-visible .feature-cta.btn-primary { filter: none; background: #F5A866; }
+.btn:active, .feature:active .feature-cta { transform: translateY(3px); box-shadow: 0 0 0 rgba(0,0,0,.45), inset 0 2px 0 rgba(0,0,0,.25); filter: brightness(.94); transition-duration: .03s; }
+@media (prefers-reduced-motion: reduce) { .btn, .btn:hover, .btn:active, .feature .feature-cta { transform: none !important; transition: none; } }
 
 /* —— Hero (key art) —— */
 .hero {
