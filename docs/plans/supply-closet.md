@@ -3,11 +3,13 @@
 Rami's calls: it's a **secret back hallway from the Server Room to the Executive Wing**, it opens with a **new easter egg (the badge reader glitch)**, and what's inside **changes randomly every run**.
 
 ## Where (changed Nov 7: it's a secret back hallway now)
-- A long, narrow closet in the empty space **between the Server Room's east wall and the Executive Wing's west wall** (map x 1248 to 2208, y -1680 to -1440, about 960×240).
-- One door in the Server Room's east wall (around y -1560, walls 131/132) and one in the Executive Wing's west wall (around y -1560, wall 174).
+- A long, narrow closet in the empty space **between the Server Room's east wall and the Executive Wing's west wall** (map x 1248 to 2208, y -1632 to -1408 including walls, about 960×224).
+- One door in the Server Room's east wall and one in the Executive Wing's west wall, both 112 px tall at y -1552 to -1440, just below the Server Room's OFFLINE rack. June's coat rack moved 100 px over to clear the Executive Wing door.
 - **Why it matters:** the Server Room opens at 50 and the Executive Wing at 55. Find the closet and you can sneak into the corner office up to five years early. The early Executive Wing is quiet (no enemies spawn in a room before its promotion) and June's butterscotch is waiting.
 
 ## How it opens: the badge reader glitch (Rami's pick)
+- **Hint (Rami's pick, on Eli from IT's card at 50):** "Also, stop loitering at the closet badge reader. It is NOT supposed to let you in."
+- **Reader caption:** "BADGE READER. The light is red. It's been red since 2019. It seems to be thinking about it."
 - A badge reader on the Server Room wall next to the closet door blinks red.
 - **Stand on the floor plate in front of it for 5 seconds without getting hit.** It beeps, turns green, and the door slides open: "Badge accepted. Please don't tell IT."
 - Getting hit resets the 5 seconds. A small ring fills up while you stand there, so players can tell something is happening.

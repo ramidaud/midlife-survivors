@@ -32,7 +32,7 @@ window.SPOTLIGHT = {
   rooms: {
     breakroom:  { kicker: "PROMOTED", name: "ART FROM PAYROLL", cast: "salad", line: "The decaf pot is fresh and someone brought bagels.", tip: "The Lounge counter opens here after promotions." },
     parking:    { kicker: "GATE OPENED", name: "SAM AT THE FRONT DESK", cast: "retiring", line: "Careful around row B, Dave's idea still has a boot.", tip: "The Parking Lot is open with wide lanes for kiting." },
-    server:     { kicker: "PROMOTED", name: "ELI FROM IT", cast: "intern", line: "Please do not unplug the rack with the yellow note.", tip: "The Server Room is now open. Watch the narrow aisles." },
+    server:     { kicker: "PROMOTED", name: "ELI FROM IT", cast: "intern", line: "Please do not unplug the rack with the yellow note.", tip: "Also, stop loitering at the closet badge reader. It is NOT supposed to let you in." },
     conference: { kicker: "MEETING INVITE", name: "NORA IN MARKETING", cast: "email", line: "We have been in Alignment since Tuesday. Grab a pen.", tip: "Conference Rooms are open. Use the side doors to loop." },
     executive:  { kicker: "KEYCARD UPGRADED", name: "JUNE FROM LEGAL", cast: "dozer", line: "Help yourself to a butterscotch from the credenza.", tip: "Explore the Executive Wing for high-value props." },
     wellness:   { kicker: "MANDATORY FUN", name: "MINA IN BENEFITS", cast: "mute", line: "The nap pod is broken, but the herbal tea is free.", tip: "The Wellness Corner is open for a peaceful breather." }

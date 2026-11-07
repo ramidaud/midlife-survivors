@@ -342,7 +342,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [ ] Remaining ten clean character portraits from `docs/handoffs/chatgpt-flow-kit.md`, after the first cast review.
 
 ## Supply Closet (Nov 7, Rami's call; design in docs/plans/supply-closet.md)
-- [ ] Step 1: back hallway (Server Room to Executive Wing), two doors, badge-reader trigger, "Please Don't Tell IT" achievement (placeholder art)
+- [x] Step 1: back hallway (Server Room to Executive Wing), two doors, badge-reader trigger, "Please Don't Tell IT" achievement (placeholder art) (V2.10.17)
 - [ ] Step 2: random supply each run: bonus chest, nap spot, stash
 - [ ] Step 3: ChatGPT art pass (docs/handoffs/chatgpt-supply-closet.md)
 - [ ] Later: closet-only weapon joins the roll

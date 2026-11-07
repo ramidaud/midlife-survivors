@@ -1678,3 +1678,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - V2.10.16: the Game Over screen has a Back to Title Screen button under Quick Retry and the 401(k) Shop (Rami's request).
 - Supply Closet designed (docs/plans/supply-closet.md): opens at 50 Bills paid in a run, sits between the Lobby and Server Room behind the FILES cabinet, and rolls a random supply each run (chest, nap spot or stash). ChatGPT art handoff written.
 - Supply Closet changed (Rami): it's a secret back hallway from the Server Room to the Executive Wing, opened by a new easter egg: stand at a glitchy badge reader for 5 seconds without getting hit.
+
+## Nov 7, 2026: V2.10.17, Supply Closet step 1
+- The secret back hallway is in: from the Server Room's east wall (just below the OFFLINE rack) to the Executive Wing's west wall.
+- Stand on the plate by the blinking badge reader for 5 seconds without getting hit and both doors slide open. Getting hit starts the timer over. First time ever: "Please Don't Tell IT" (5k).
+- Eli from IT's card at 50 now ends with the hint. Placeholder doors, reader and decor until ChatGPT's art arrives. No enemies spawn inside.
+- Next: step 2, the random supply (chest, nap spot or stash).
