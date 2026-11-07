@@ -63,3 +63,8 @@ Every background:
 | bg-parking-lot | Office parking lot at the curb, light poles, a cart corral, one compact car |
 | bg-student-lounge | Campus student lounge: couches, a snack counter, posters, backpacks |
 | bg-retirement-party | The office decorated for a retirement party: banner (no lettering), cake, balloons, streamers |
+
+## Claude's review of the background set (Nov 7)
+Approved. The set is consistent, has no people in it, and leaves clear walkways. Go ahead with Set 1 (characters). Two small fixes when you have a minute:
+- **bg-lobby-night:** the floor turned solid russet red. At night it should be the same cream tile dimmed to slate blue, with maybe one warm pool of light from the desk lamp. (Your palette step probably snapped the dimmed cream to russet.) Check **bg-executive-wing-night** and **bg-retirement-party-night** for the same orange smear on the floor.
+- **bg-server-room (both):** the sticky note reads as a cream square. Add a coffee-orange (#EF9347) strip across its top, like the in-game note, so it reads as "the yellow note."
