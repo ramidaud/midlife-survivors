@@ -1,0 +1,66 @@
+{
+  "title": "Performance Review intro",
+  "size": [
+    1920,
+    1080
+  ],
+  "format": "RGBA PNG",
+  "plate": {
+    "file": "plate.png",
+    "source": "art/flow-kit/backgrounds/bg-bullpen-day.png",
+    "byteIdentical": true
+  },
+  "pixelGrid": 3,
+  "heroFoot": [
+    672,
+    875
+  ],
+  "bossFoot": [
+    1152,
+    875
+  ],
+  "heroVisibleHeight": 432,
+  "layers": {
+    "hero": [
+      "hero-01.png",
+      "hero-02.png",
+      "hero-03.png"
+    ],
+    "review": [
+      "review-01.png",
+      "review-02.png",
+      "review-03.png",
+      "review-04.png"
+    ]
+  },
+  "beats": [
+    {
+      "ms": 1000,
+      "hero": 1,
+      "review": 1
+    },
+    {
+      "ms": 1000,
+      "hero": 2,
+      "review": 2
+    },
+    {
+      "ms": 500,
+      "hero": 2,
+      "review": 3
+    },
+    {
+      "ms": 500,
+      "hero": 2,
+      "review": 4
+    },
+    {
+      "ms": 1000,
+      "hero": 3,
+      "review": 1
+    }
+  ],
+  "durationMs": 4000,
+  "registration": "All layers at (0,0); do not recenter individual poses.",
+  "runtimeWiring": "Claude"
+}

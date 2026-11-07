@@ -1,0 +1,118 @@
+{
+  "actors_center_x": [
+    672,
+    1152
+  ],
+  "all_passed": true,
+  "clipboard_face_and_chart_identical": true,
+  "files": [
+    {
+      "binary_alpha": true,
+      "file": "hero-01.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 56133
+    },
+    {
+      "binary_alpha": true,
+      "file": "hero-02.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 56079
+    },
+    {
+      "binary_alpha": true,
+      "file": "hero-03.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 56133
+    },
+    {
+      "binary_alpha": true,
+      "file": "review-01.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 88434
+    },
+    {
+      "binary_alpha": true,
+      "file": "review-02.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 87795
+    },
+    {
+      "binary_alpha": true,
+      "file": "review-03.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 87066
+    },
+    {
+      "binary_alpha": true,
+      "file": "review-04.png",
+      "pixel_grid": 3,
+      "size": [
+        1920,
+        1080
+      ],
+      "visible_pixels": 86922
+    }
+  ],
+  "foot_y": 875,
+  "hero_height": 432,
+  "native_actor_sizes": [
+    [
+      69,
+      144
+    ],
+    [
+      110,
+      144
+    ]
+  ],
+  "plate_byte_identical": true,
+  "browser_checks": {
+    "sizes": [
+      [
+        1280,
+        800
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "decoded_layers": 8,
+    "all_five_timing_beats": true,
+    "horizontal_overflow": false,
+    "exceptions": 0,
+    "network": "blocked"
+  }
+}

@@ -339,7 +339,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ## Flow cut-scene references (Nov 7, Codex)
 - [x] Ten empty backgrounds in day and night versions, with a contact sheet and review page in `art/flow-kit/backgrounds/`. Approved, review touchups done Nov 7.
 - [x] First clean character batch, four heroes plus TJ and Derek with two poses each. Ready for Rami's review in `art/flow-kit/key-art/clean/`.
-- [ ] Remaining ten clean character portraits from `docs/handoffs/chatgpt-flow-kit.md`, after the first cast review.
+- [x] Remaining ten clean characters, two poses each, from `docs/handoffs/chatgpt-flow-kit.md` (Codex, Nov 7).
 
 ## Supply Closet (Nov 7, Rami's call; design in docs/plans/supply-closet.md)
 - [x] Step 1: back hallway (Server Room to Executive Wing), two doors, badge-reader trigger, "Please Don't Tell IT" achievement (placeholder art) (V2.10.17)
@@ -351,3 +351,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ## 2026-11-07 art delivery (Codex)
 - [x] Registered late-night title layers and Supply Closet art kit, including current badge-reader entrance.
 - [ ] Claude integrates the art; Rami reviews playback and in-world placement.
+
+## 2026-11-07 Flow and intro art (Codex)
+- [x] Flow portrait batch 2, twenty clean PNGs and review page.
+- [x] Seven Performance Review intro layers, unchanged plate and four-second preview.
+- [ ] Rami reviews both art sets; Claude wires the intro playback.

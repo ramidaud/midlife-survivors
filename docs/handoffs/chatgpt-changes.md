@@ -437,3 +437,10 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files:** Twenty named PNGs in `art/flow-kit/key-art/clean/`, plus `contact-sheet-characters-batch-2.png`, `review-batch-2.html`, README, manifest, generation prompts and validation. Batch 1 files and supplied identities remain unchanged.
 - **For Flow:** Main image for identity, `-pose2` for an alternate gesture. These are illustrated references, not runtime sprites. Bill keeps its red stripe; Mortgage uses an abstract seal, without lettering. All poses omit floor shadows.
 - **Sizes/checks:** 1024×1024 opaque RGBA, exact cream #F2D7A1, 512×512 logical pixels enlarged 2× nearest-neighbor. All twenty passed dimensions, alpha, margin and repeated-pixel checks; both poses were inspected together. The review decoded all 31 images at desktop, phone and both tablet orientations, without overflow or exceptions, external networking blocked. No runtime or version changes.
+
+## 2026-11-07 Performance Review intro (Codex)
+
+- **What:** Unmodified Bullpen day plate plus three 9-to-5er and four Performance Review poses. Native edits reuse head, arm and foot pixels, keeping the clipboard face/chart identical.
+- **Files:** `assets/cutscenes/performance-review/`: plate, seven transparent frames, composite, contact sheet, preview HTML, manifest, edit/prompt record and checks.
+- **For the game:** All PNGs 1920×1080, layers registered at (0,0), three-screen-pixel logical grid. Hero near x672 facing right, boss near x1152 facing left, feet y875, hero 432px tall. Follow manifest's five holds over four seconds. Claude owns playback wiring.
+- **Checks:** Plate byte identity, hard alpha, three-pixel grid and protected clipboard face/chart passed. Preview decoded all eight layers and selected all five timing beats at desktop, phone and both tablet orientations, no overflow or exceptions, network blocked. Art/docs only, no version bump.

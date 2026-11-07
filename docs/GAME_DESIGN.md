@@ -623,3 +623,6 @@ The first character batch pairs a natural full-body pose with an action pose for
 
 ## Supply Closet art handoff (Nov 7, 2026, Codex)
 The current secret hallway uses the badge-reader glitch between Server Room and Executive Wing. The art kit includes red/blink/green reader states, a slate floor plate, a utility door that slides into its frame, shelves, lost-and-found, mop, chair, bulb and concrete floor. Older cabinet art remains supplemental. This delivery does not alter the hallway logic.
+
+## Performance Review intro art (Nov 7, 2026, Codex)
+The four-second introduction uses the original Bullpen day plate, the 9-to-5er at about 35% screen width and the clipboard boss at 60%. Five timed holds show attention, skepticism, a small stomp and a restrained smile. This delivery adds art and a review page, not runtime playback.

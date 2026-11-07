@@ -1708,3 +1708,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami watched the test page and OKed it. The 11:58 PM slide on the real title screen now plays the live scene: breathing, blinking, sipping, steam, monitor flicker, the note corner and Bill stomping.
 - That slide no longer does the slow push-in, so the camera holds still. The scene pauses when the slide fades out or a run starts, and reduced motion keeps it a still picture.
 - New engine file src/live-scene.js (shared with the test page). Scene files live in assets/title-screen/live/late-night/play/.
+
+## 2026-11-07: Flow batch 2 and boss-intro art (Codex)
+- Finished June, six enemies and three bosses, two clean portraits each.
+- Built the seven registered Performance Review intro layers on the unchanged Bullpen day plate.
+- Both review pages passed desktop, phone and both tablet orientations; native checks passed. Runtime integration remains with Claude.

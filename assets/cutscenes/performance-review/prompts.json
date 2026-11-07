@@ -1,0 +1,41 @@
+{
+  "process": "Portrait generation references from Flow batches 1 and 2, then deterministic native pixel assembly and sequential edits. No independently regenerated cutscene frames.",
+  "heroSource": "art/flow-kit/key-art/clean/keyart-9to5er.png",
+  "bossSource": "art/flow-kit/key-art/clean/keyart-performance-review.png",
+  "background": "bg-bullpen-day.png copied byte-for-byte",
+  "steps": [
+    {
+      "frame": "hero-01",
+      "edit": "Remove connected exact-cream background, mirror to face right, fit once to 144 logical pixels high, enlarge 3x."
+    },
+    {
+      "frame": "hero-02",
+      "previous": "hero-01",
+      "edit": "Raise far eyebrow one logical pixel using its dark pixels; tip head one pixel back/up, keep all torso/mug/leg pixels."
+    },
+    {
+      "frame": "hero-03",
+      "previous": "hero-02",
+      "edit": "Return head to level using original head patch; retain quiet smile and lift two corner pixels. Body stays fixed."
+    },
+    {
+      "frame": "review-01",
+      "edit": "Remove connected cream background, fit once to same 144 logical pixel height, face left."
+    },
+    {
+      "frame": "review-02",
+      "previous": "review-01",
+      "edit": "Move isolated arm pixel patches outward 2 and up 5 logical pixels, face and chart protected."
+    },
+    {
+      "frame": "review-03",
+      "previous": "review-02",
+      "edit": "Lift left shoe/foot patch four logical pixels in place."
+    },
+    {
+      "frame": "review-04",
+      "previous": "review-03",
+      "edit": "Return raised shoe, bend knee patch one logical pixel. Clipboard face/chart never changes."
+    }
+  ]
+}

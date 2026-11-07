@@ -633,3 +633,6 @@ An identity reference says who the character is, including face, outfit and acce
 
 ## Sliding props keep their pixels (Nov 7, 2026, Codex)
 A sliding door can reuse one slab while the frame stays fixed. A narrow cell clips the slab as it exits; a wider helper can show the whole translated prop. Keeping the pixels unchanged prevents the furniture from morphing during motion.
+
+## An intro can move without redrawing everything (Nov 7, 2026, Codex)
+The Performance Review intro keeps one background and one fixed clipboard face/chart. Its poses edit just the head, arms and feet on a common pixel grid. Registered full-screen layers let playback switch poses without moving the actors around the room.
