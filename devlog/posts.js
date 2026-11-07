@@ -4,6 +4,27 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "13-side-characters",
+    "date": "2026-11-07",
+    "title": "Music is one of the most important side characters.",
+    "version": "V. 2.10.6 to 2.10.22",
+    "draft": true,
+    "cover": "img/13-key-art.jpg",
+    "leadNote": "**Made with ChatGPT** (image generation), from a prompt Claude wrote and I directed: the morning school run, me and Abe in the car with the music on, drawn in the game's pixel style. [Read the full prompt](art/prompts/13-key-art-chatgpt.txt).",
+    "leadAlt": "Pixel art of a dad and his son in a car on a school morning, music notes drifting out of the dashboard speakers.",
+    "blurb": "Why music matters to me, the school run with Abe, the songs that are the game, and an open ask for help with the soundtrack.",
+    "teaser": "The school run, the unofficial soundtrack, and an honest ask about the game's music.",
+    "changes": [
+      "Close Calls leave afterimages and explain themselves the first time",
+      "A quieter first minute for new players",
+      "The 11:58 PM title scene is alive",
+      "Supply Closet art and the Performance Review cut scene (on the test page)",
+      "Run stats now record your build"
+    ],
+    "nextUp": "How I write these memos. Also, a Spotify version of the playlist.",
+    "playUrl": "https://midlifesurvivors.com/"
+  },
+  {
     "slug": "12-everyone-is-in-the-game",
     "date": "2026-11-06",
     "title": "Restless. Also, who's actually playing?",

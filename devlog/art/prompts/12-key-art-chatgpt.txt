@@ -16,7 +16,7 @@ Make the cover image for Memo 12 of the Midlife Survivors devlog. The memo is ab
     "ipad": "the cream MIDLIFE SURVIVORS memo-style devlog page"
   },
   "rami": {
-    "appearance": "light-skinned Black male, early forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses",
+    "appearance": "olive-skinned Palestinian male, early forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses",
     "clothing": "dark hoodie, comfortable and late-night",
     "pose": "seated in a desk chair, seen three-quarter from behind on the left, one hand on the mouse, leaning toward the code with a tired but happy half smile; the screen glow lights his face and glasses",
     "likeness_notes": "match the attached studio portrait: head shape, beard, glasses and skin tone. No hair on top"

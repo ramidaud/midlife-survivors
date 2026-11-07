@@ -1728,3 +1728,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## Nov 7, 2026: loadout in run stats, cut scene beats (V. 2.10.22)
 - Rami OKed a "build" column: run stats now send the weapons and passives held at the end. The game sends it now; the database column still needs adding (one SQL line, Rami runs it or approves it), and runs save fine without it.
 - Cut scene test page: 7 extra beats you can switch on and off (title card, printer, monitor flicker, clipboard stamp, stomp dust and shake, sweat drop, caption). All drawn in code, no new art.
+
+## Nov 7, 2026: Memo 13 drafted, the music memo
+- Interviewed Rami by voice on a drive to Costco. Memo 13 ("Music is one of the most important side characters.") is drafted in his words: David Byrne's My Madness as the opener, the school run with Abe, seven songs from the Apple Music playlist with a story each, and an open ask for help with the game's soundtrack.
+- It's a draft (`devlog/?drafts=1`) until ChatGPT's cover comes back (the school run, prompt in `devlog/art/prompts/13-key-art-chatgpt.txt`) and Rami gives it a final read.
+- Corrected Rami's description in every art brief: olive-skinned Palestinian male, bald. The old briefs had it wrong.
+- New to-dos: Spotify playlist, an Abdel-tracks option, Ben's note on the original music, and a Paradise-style Instagram reel.

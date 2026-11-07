@@ -13,7 +13,7 @@ Make the cover image for Memo 11 of the Midlife Survivors devlog. The memo is ab
   "style": "crisp 16-bit pixel art like the Midlife Survivors key art, navy outlines, warm upper-left lamp light, cozy and funny, no anti-aliasing",
   "scene": "Late evening in the office mail room, rebuilt as a tiny community clubhouse. A wall of cubby mail slots is labeled with pixel channel tags: #changelog, #devlog, #stats, #art-and-ideas, #playtest-notes. Three small pixel mail-bot couriers (boxy, friendly, antenna lights) zip along a conveyor belt, each dropping a glowing envelope into a slot: a build-notes envelope into #changelog, a memo with a photo into #devlog, a little bar-chart card into #stats. A fourth bot carries a framed painting toward #art-and-ideas.",
   "rami": {
-    "appearance": "light-skinned Black male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses",
+    "appearance": "olive-skinned Palestinian male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses",
     "clothing": "black button-up shirt, sleeves rolled to the forearms, loosened tan knit tie",
     "pose": "standing at the left holding a coffee mug, one eyebrow raised and head tilted, looking at the busy bots with an amused 'I don't fully get this, but it's working' smile",
     "likeness_notes": "match the attached studio portrait: head shape, beard, glasses and skin tone. No hair on top"

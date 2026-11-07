@@ -13,7 +13,7 @@ Make the cover image for Memo 10 of the Midlife Survivors devlog, "This is start
   "style": "crisp 16-bit pixel art like the Midlife Survivors key art, navy outlines, cozy and warm, no anti-aliasing",
   "scene": "3 a.m. in a dark, quiet living room. The only light is a laptop on the coffee table and a small warm lamp. A double bassinet sits beside the couch with two sleeping newborns in soft swaddles (one sage, one cream), tiny and peaceful. On the laptop screen the game's title screen glows, and the cast is stepping out of it at pixel size onto the coffee table: the 9-to-5er raising his coffee mug, the Soccer Dad, the Grad Student, the Coldwar Cowboy tipping his hat, and interns TJ and Derek, with Derek snapping a photo of the twins. A tiny Gold Watch peeks out from behind the laptop.",
   "rami": {
-    "appearance": "light-skinned Black male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses",
+    "appearance": "olive-skinned Palestinian male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses",
     "clothing": "soft gray hoodie with a burp cloth over one shoulder, sweatpants, socks",
     "pose": "sitting on the couch, holding a baby bottle in one hand while the other hand rests on the laptop trackpad, smiling quietly at the little characters, tired but happy",
     "likeness_notes": "match the attached studio portrait: head shape, beard, glasses and skin tone. No hair on top"

@@ -57,7 +57,9 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [ ] Later, if the figurine idea sticks: sculpted figurines via AI image-to-3D plus Blender cleanup (Phase 4, after art direction is final)
 
 ## Devlog to-do (Nov 6)
-- [ ] **Memo 13: the music memo.** Rami sends a voice memo on why music matters to him (teased in Memo 12).
+- [x] **Memo 13: the music memo.** Interviewed Nov 7 (car ride to Costco). Drafted in the devlog (`?drafts=1`), waiting on ChatGPT's school-run cover and Rami's final read.
+- [ ] **Memo 13 follow-ups:** Spotify version of the playlist (Rami rebuilds it from the track list, then a second button on the devlog card); "Abdel's tracks" option in the music settings once he records something; Ben prefers the original tracks (logged, ask him what he misses).
+- [ ] **Side quest:** an Instagram reel of our characters doing the Paradise (Harachan) office-skit video, AI video. Reel only; the song can't go in the game or devlog.
 - [ ] **Memo 14: how I write these memos.** Answer the interview questions in `docs/devlog-plans/how-i-write-these-memos.md` (why your own words matter, what Claude gets wrong in your voice, the edit that mattered most in Memo 12, editing memos vs editing photos, what you're still unsure about).
 
 ## Now (Nov 3)

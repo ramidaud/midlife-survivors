@@ -11,6 +11,8 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 ## Memo ideas queue
 - **Memo 10: Version two** (drafted, waiting on Rami's voice memo).
 - **Memo 11: Discord** (published Nov 4).
+- **Memo 13: music** (drafted Nov 7, waiting on cover).
+- **Memo 14: how I write these memos** (interview questions on file).
 
 ## Add a post
 1. Write `posts/<slug>.md` (casual, Rami's voice). Screenshots go in `img/` and are linked as `img/<file>.jpg`.

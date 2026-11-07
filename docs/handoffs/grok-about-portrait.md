@@ -12,7 +12,7 @@ Then paste the prompt below. Ask for **two images**: a wide scene (3:2) and a sq
 
 Redraw the first image, a portrait of a photographer at his desk, in the exact art style of the second image: a cozy 16-bit pixel-art video game scene with chunky, crisp pixel clusters, bold navy outlines, warm lamplight from the upper left, and no anti-aliasing or smooth gradients.
 
-The man is a light-skinned Black male in his mid-forties. He has a clean-shaven bald head, a full dark beard with a little gray at the chin, round thin wire-frame glasses, and a warm, slightly amused expression. He wears a black button-up shirt with the sleeves rolled to the forearms and a loosened tan knit tie. He is drawn with the same friendly proportions as the game's characters in the second image: a slightly larger head, expressive face, readable at small size.
+The man is a olive-skinned Palestinian male in his mid-forties. He has a clean-shaven bald head, a full dark beard with a little gray at the chin, round thin wire-frame glasses, and a warm, slightly amused expression. He wears a black button-up shirt with the sleeves rolled to the forearms and a loosened tan knit tie. He is drawn with the same friendly proportions as the game's characters in the second image: a slightly larger head, expressive face, readable at small size.
 
 He sits at a wooden desk in his creative studio at night, typing on a laptop and glancing toward the viewer. Around him:
 - a monitor showing a solar eclipse (his space photography);
@@ -41,7 +41,7 @@ Make two versions: a wide 3:2 scene of the whole studio, and a square 1:1 close-
   "style": "cozy 16-bit pixel-art video game scene, chunky crisp pixel clusters, bold navy outlines, warm lamplight from upper left, no anti-aliasing",
   "subject": {
     "who": "Rami, a photographer and first-time game developer",
-    "appearance": "light-skinned Black male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses, warm slightly amused expression",
+    "appearance": "olive-skinned Palestinian male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses, warm slightly amused expression",
     "clothing": "black button-up shirt, sleeves rolled to the forearms, loosened tan knit tie",
     "proportions": "match the game characters in image 2: slightly larger head, expressive face, readable at small size",
     "pose": "seated at a wooden desk typing on a laptop, glancing toward the viewer"

@@ -1,0 +1,34 @@
+Memo 13 cover: the school run (Nov 7, 2026)
+
+Make a cover illustration for Memo 13 of the Midlife Survivors devlog in the project's pixel-art style. Follow the JSON exactly. Use the attached photos only for likeness and the hat; do not copy them. Output one 1536x1024 landscape image. No title, logo or text anywhere in the image.
+
+{
+  "project": "Midlife Survivors devlog cover, Memo 13: Music is one of the most important side characters",
+  "format": "1536x1024 landscape, pixel art, chunky readable pixels, same look as the earlier memo covers",
+  "palette": "navy, slate, teal, sage, cream, coffee orange, russet only. One exception: Rami's hat may use true yellow and blue.",
+  "scene": "Morning school run. Interior of a car seen from the passenger side, slightly behind the front seats, so both people are visible in profile and three-quarter view. Soft morning light through the windshield. Suburban Ohio street outside, a few trees losing their leaves, one school crossing sign in the distance.",
+  "characters": [
+    {
+      "name": "Rami",
+      "role": "driver",
+      "description": "olive-skinned Palestinian male, early 40s, bald, trimmed beard, glasses, relaxed smile. Wearing a yellow brimmed Kent State cap with a blue brim and a capital K in blue on the front (see attached hat photo). Casual jacket and t-shirt. One hand on the wheel, the other tapping the beat on the door."
+    },
+    {
+      "name": "Abe",
+      "role": "front passenger",
+      "description": "Rami's son, 11 years old, olive-skinned with a lighter complexion than his dad, glasses, wearing a hoodie, backpack on his lap (see attached photo for likeness). Looking at his dad mid-laugh, one hand half-raised like he's conducting the song."
+    }
+  ],
+  "details": [
+    "Pixel music notes floating out of the dashboard speakers and drifting between the two of them",
+    "Phone in a dash mount showing a tiny playlist screen, no readable text",
+    "A travel coffee mug in the cup holder, the game's coffee orange",
+    "A clarinet case on the back seat",
+    "A tiny Bill enemy sticker or a sticky note on the dashboard"
+  ],
+  "mood": "warm, quiet joy, a little goofy. A dad and his kid sharing a favorite song. Tongue in cheek but sincere.",
+  "composition": "The two faces and the floating notes are the focus, centered to the right. Keep the left third calm (windshield, sky, soft light) so a title can be overlaid later.",
+  "avoid": "no text, no real logos except the K on the hat, no photorealism, no sad tone, no sunset drama, no extra passengers"
+}
+
+Deliver: devlog/img/13-key-art.jpg (under 400 KB) plus a lossless 2x PNG and a 4:5 portrait crop. Art only, no code changes. Log it in docs/handoffs/chatgpt-changes.md.

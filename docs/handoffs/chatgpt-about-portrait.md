@@ -15,7 +15,7 @@ Please redraw my About-page portrait so it looks like it belongs inside Midlife 
 {
   "subject": {
     "who": "Rami, a photographer and first-time game developer",
-    "appearance": "light-skinned Black male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses, warm and slightly amused expression",
+    "appearance": "olive-skinned Palestinian male, mid-forties, clean-shaven bald head, full dark beard with a little gray at the chin, round thin wire-frame glasses, warm and slightly amused expression",
     "clothing": "black button-up shirt, sleeves rolled to the forearms, loosened tan knit tie",
     "proportions": "same friendly proportions as the game's heroes: slightly larger head, expressive face, readable at small size",
     "likeness_notes": "keep the head shape, beard shape, glasses and skin tone from the reference. Don't lighten or darken the skin, don't add hair on top, don't make the beard short or patchy"

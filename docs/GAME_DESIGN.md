@@ -444,7 +444,9 @@ The shared connection is broad and open-plan with protected 224px routes; promot
 - Also noted: big crowds early, lots of loot on the floor, persistent battle mess, build icons on screen, a clear death banner.
 
 ## Music brief (for Rami's son, Nov 2)
-**The vibe:** office music that slowly loses its mind. Early game sounds like hold music or an elevator ride (calm, a little cheesy). As the run goes on and the swarm grows, it picks up drums, speed and attitude until it's a full rock or chiptune freak-out. Midlife: hard, and also kind of great.
+**The vibe:** office music that slowly loses its mind. Early game sounds like hold music or an elevator ride (calm, a little cheesy). As the run goes on and the swarm grows, it picks up drums, speed and attitude until it's a full rock or chiptune freak-out. Midlife: hard, and also kind of great. Rami, Nov 7: "slightly cacophonous but still joyful and energetic," and it has to sit under the sound effects without fighting them.
+
+**Abdel's part (Nov 7):** no formal assignment. He noodles on the keyboard, records whatever he likes, and he and Rami pick together. Someone with real music chops may be needed to shape his ideas into game loops; Memo 13 asks readers for that help.
 
 **Tracks wanted, in priority order:**
 1. **Main run loop, calm** (ages 40 to 50): 60 to 90 seconds, loops seamlessly.
