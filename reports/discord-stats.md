@@ -1,23 +1,24 @@
-# Play stats: Nov 6 morning (last 24 hours)
-**Fewer runs, deeper runs.** More players reached 50 and 55 than last week, but the first two years got rougher.
+# Play stats: Nov 7 morning (last 24 hours)
+**A quiet Friday night with a clean opening.** Nobody died before 42, and more runs reached 55 than the week before.
 
 **Who played**
-- 55 runs from 12 players, most of them returning
-- All-time: 489 runs from 66 players
-- Desktop 33 runs, phone 14, tablet 8
+- 29 runs from 12 players
+- All-time: 424 runs from 70 players
+- Phone 14 runs, desktop 14
 
 **How far they got**
-- Median run 3.3 min (week before: 3.1), median age 45.1 (was 44.3)
-- Reached 50: 36%, reached 55: 22%, reached 60: 13%, reached 65: 9%
+- Median run 3.2 min (week before: 3.5), median age 44.3 (was 45.0)
+- Reached 45: 38%, reached 50: 24%, reached 55: 21%, reached 60: 14%, reached 65: 7%
+- Highest age reached: 67.6
 
 **Top killers**
-- Bill 10, Late Fee 7, Office Gossip 5
+- Late Fee 5, Bill 3, Back Twinge 3, Snack Attack 2
 
 **Difficulty**
-- 15% of runs died before 42 (week before: 8%)
-- 22% of runs died before 45 (was 27%)
-- Most common age of death: 41
-- Median per run: 18 hits and 31 damage taken
+- Runs that ended in a death before 42: 0 (week before: 38)
+- Over half of deaths happened between 42 and 45
+- Median per run: 17 hits and 20 damage taken
 
 **Lag**
-- Desktop averages 66.8 fps, and no device type averaged under 45 fps
+- Desktop averages 87.5 fps, phone 80.3 fps
+- No device type averaged under 45 fps
