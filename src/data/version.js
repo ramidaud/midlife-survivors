@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.21",
-  displayVersion: "V. 2.10.21",
+  version: "2.10.22",
+  displayVersion: "V. 2.10.22",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 279,
+  build: 280,
   changelog: [
+    {
+      ver: "V. 2.10.22", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "We're taking notes on your loadout.",
+      highlights: [
+        "Run stats now note which weapons and passives you ended with, so we can see which builds make it past 55. No names, nothing personal."
+      ]
+    },
     {
       ver: "V. 2.10.21", date: "Nov 7, 2026", title: "Version Two",
       teaser: "You can see yourself dodge now.",

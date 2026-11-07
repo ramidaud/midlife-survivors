@@ -36,6 +36,7 @@ window.LiveScene = (() => {
       const prev = frame; frame = (frame + 1) % S.frames;
       if (opts.showBoxes) { drawFull(frame); drawDirty(frame, frame); } // debug view: clean redraw so outlines don't pile up
       else drawDirty(frame, prev);
+      if (opts.onFrame) opts.onFrame(frame); // extra effects drawn by the page (Nov 7)
     }
     function play() {
       if (timer || opts.still) return;
@@ -47,7 +48,8 @@ window.LiveScene = (() => {
     return {
       scene: S, play, pause,
       playing: () => !!timer,
-      still(on) { opts.still = on; if (on) { pause(); frame = 0; drawFull(0); } else play(); },
+      still(on) { opts.still = on; if (on) { pause(); frame = 0; drawFull(0); if (opts.onFrame) opts.onFrame(0); } else play(); },
+      frame: () => frame,
       boxes(on) { opts.showBoxes = on; drawFull(frame); },
       stats: () => ({ ...stats, avgMs: stats.draws ? stats.ms / stats.draws : 0, avgPx: stats.draws ? stats.px / stats.draws : 0 })
     };

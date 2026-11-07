@@ -78,7 +78,9 @@ window.Telemetry = (() => {
       version: String((window.GAME_VERSION && GAME_VERSION.displayVersion) || "").slice(0, 24),
       // Coin balance (Nov 5): what the run banked and what it spent in the Lounge.
       coins_earned: typeof runCoins !== "undefined" ? Math.round(runCoins + (window.runCoinsSpent || 0)) : null,
-      coins_spent: Math.round(window.runCoinsSpent || 0)
+      coins_spent: Math.round(window.runCoinsSpent || 0),
+      // Build (Nov 7, Rami's OK): what you were holding. "coffee*,remote|vitamins" (* = evolved).
+      build: (() => { try { const h = window.LOADOUT.held(stats); return (h.weapons.map(w => w.id + (w.evo && w.evo(stats) ? "*" : "")).join(",") + "|" + h.passives.map(p => p.id).join(",")).slice(0, 300); } catch (e) { return null; } })()
     };
     if (DIFFICULTY_DETAIL) {
       let boss = null, ranks = 0, zoom = null;
@@ -105,8 +107,8 @@ window.Telemetry = (() => {
       body: JSON.stringify(r)
     });
     try {
-      // If the database doesn't have the coin columns yet, send the run again without them so the stats aren't lost.
-      post(row).then(res => { if (res && res.status === 400) { const r2 = Object.assign({}, row); delete r2.coins_earned; delete r2.coins_spent; return post(r2); } }).catch(() => {});
+      // If the database doesn't have the newer columns yet, send the run again without them so the stats aren't lost.
+      post(row).then(res => { if (res && res.status === 400) { const r2 = Object.assign({}, row); delete r2.coins_earned; delete r2.coins_spent; delete r2.build; return post(r2); } }).catch(() => {});
     } catch (e) {}
   }
 
