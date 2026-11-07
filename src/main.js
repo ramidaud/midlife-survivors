@@ -759,7 +759,12 @@ function create() {
   xp = 0; level = 1; xpNeeded = LEVELING.firstLevelXp;
   gems = this.physics.add.group();
   coins = this.physics.add.group();
-  window.pizzas = this.physics.add.group();
+  // Heals (pizza, Desk Salad) breathe and glow so they pop off the carpet (Nov 6, Kevin: hard to see on a 4K laptop)
+  window.pizzas = this.physics.add.group({ createCallback: (h) => {
+    if (!h.texture || (h.texture.key !== "pizza" && h.texture.key !== "salad")) return; // this group also holds intern treats
+    if (h.preFX && this.game.renderer.type === Phaser.WEBGL) h.preFX.addGlow(0xFFF0CF, 3, 0, false, 0.1, 10);
+    this.tweens.add({ targets: h, scale: 1.12, duration: 520, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
+  } });
   window.fieldItems = this.physics.add.group(); // Fanny Pack, Energy Drink, PTO Day (src/data/items.js)
   chests = this.physics.add.group();
   this.physics.add.overlap(player, gems, collectGem);

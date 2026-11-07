@@ -1606,3 +1606,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Before switching, guests on the old address now see a "We're moving" note asking them to clock in, because progress saved only on a device can't follow the move. Signed-in players lose nothing.
 - Supabase sign-in now accepts the new address, so Google sign-in will land in the right place.
 - Still to do on switch day: set the custom domain in GitHub's Pages settings, turn on HTTPS, change Supabase's Site URL, and point devlog links at the new address.
+
+## Nov 6, 2026 (evening): Kevin's visibility notes (V2.10.8)
+- Pizza and Desk Salad are about 40% bigger, with a soft glow and a slow "breathe," so heals pop on high-resolution laptops.
+- Group Chat shots are bigger (22 px, was 14) with a pulsing orange ring. Their hitbox didn't change.
+- Still on Kevin's list: an "Active effects" list in the pause menu, a real butterscotch in the Executive Wing, and an original instant-message sound for pings.

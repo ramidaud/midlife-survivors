@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.7",
-  displayVersion: "V. 2.10.7",
+  version: "2.10.8",
+  displayVersion: "V. 2.10.8",
   lastUpdated: "Nov 6, 2026",
   codename: "Version Two",
-  build: 265,
+  build: 266,
   changelog: [
+    {
+      ver: "V. 2.10.8", date: "Nov 6, 2026", title: "Version Two",
+      teaser: "Lunch is easier to find, and the group chat is easier to dodge.",
+      highlights: [
+        "Pizza and Desk Salad are about 40% bigger and gently glow and breathe, so they stand out on the carpet. (Thanks, Kevin.)",
+        "Group Chat shots are bigger and wear a pulsing orange ring, so you can tell what's coming at you."
+      ]
+    },
     {
       ver: "V. 2.10.7", date: "Nov 6, 2026", title: "Version Two",
       teaser: "The office is moving to midlifesurvivors.com.",

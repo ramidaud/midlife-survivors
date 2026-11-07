@@ -14,7 +14,7 @@ window.EnemyArt = (() => {
     calendarInvite: ['calendar-invite', 48, 4, 120, 32],
     groupChat: ['group-chat', 48, 4, 200, 34],
     mathWorksheet: ['math-homework', 48, 4, 170, 34],
-    ping: ['group-chat-ping', 16, 2, 160, 14],
+    ping: ['group-chat-ping', 16, 2, 160, 22], // Nov 6 (Kevin): bigger (was 14) with an orange ring, so shots read at a glance. Hitbox unchanged.
     // Medical Bill (Nov 5, ChatGPT): a Bill flagged entity.medical (src/hustle.js) wears this sheet instead.
     medicalBill: ['medical-bill', 48, 4, 180, 40, 'medical-bill-v1.png']
   };
@@ -85,6 +85,7 @@ window.EnemyArt = (() => {
         if (record.visual) record.visual.destroy();
         if (record.shadow) record.shadow.destroy();
         if (record.glow) record.glow.destroy();
+        if (record.ring) record.ring.destroy();
         entities.delete(record);
       });
     }
@@ -104,6 +105,7 @@ window.EnemyArt = (() => {
           if (record.visual) { record.visual.setVisible(false); record.visual.anims.timeScale = 0; }
           if (record.shadow) record.shadow.setVisible(false);
           if (record.glow) record.glow.setVisible(false);
+          if (record.ring) record.ring.setVisible(false);
           continue;
         }
         const art = entity.medical && ready.has('medicalBill') ? 'medicalBill' : kind; // which sheet to draw
@@ -113,6 +115,10 @@ window.EnemyArt = (() => {
           record.visual = scene.add.sprite(entity.x, entity.y, key(art)).setScale(displaySize / size);
           if (kind !== 'threeAmThought' && kind !== 'ping') {
             record.shadow = scene.add.image(entity.x, entity.y, shadowKey).setDisplaySize(displaySize * 0.65, 7);
+          }
+          if (kind === 'ping') { // Group Chat shots get a pulsing coffee-orange ring so they stand apart from pickups
+            record.ring = scene.add.circle(entity.x, entity.y, displaySize * 0.62, 0xEF9347, 0.5);
+            record.ring.setStrokeStyle(2, 0xFFF0CF, 0.9);
           }
           if (entity.elite) { // elites stand in a pulsing red glow
             record.glow = scene.add.ellipse(entity.x, entity.y, displaySize * 1.05, displaySize * 0.42, 0xff4a2e, 0.38);
@@ -163,6 +169,11 @@ window.EnemyArt = (() => {
         if (record.shadow) {
           record.shadow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.4).setAlpha(entity.alpha);
           if (record.shadow.depth !== entity.depth - 0.1) record.shadow.setDepth(entity.depth - 0.1);
+        }
+        if (record.ring) {
+          record.ring.setVisible(true).setPosition(entity.x, entity.y)
+            .setScale(1 + 0.12 * Math.sin(now / 90)).setAlpha(entity.alpha);
+          if (record.ring.depth !== entity.depth - 0.1) record.ring.setDepth(entity.depth - 0.1);
         }
         if (record.glow) {
           record.glow.setVisible(true).setPosition(entity.x, entity.y + displaySize * 0.38)

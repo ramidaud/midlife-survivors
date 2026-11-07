@@ -8,7 +8,8 @@ window.PickupArt = (() => {
     { url: "assets/weapons/projectiles-v1.png", keys: ["w_remote", "w_floppy", "w_cell", "w_pod", "w_snow"] }
   ];
   // Canvas sizes that change with the art (only plain images, never physics pickups)
-  const SIZE = { w_remote: [24, 24], w_snow: [14, 14] };
+  // Nov 6 (Kevin): heals were hard to see on a 4K laptop, so they're about 40% bigger (24 -> 34)
+  const SIZE = { w_remote: [24, 24], w_snow: [14, 14], salad: [34, 34], pizza: [34, 34] };
   const cells = {}; // key -> { img, sx, sy, sw, sh } (sx..sh = the trimmed, non-transparent part of the idle cell)
   let scene = null;
 
