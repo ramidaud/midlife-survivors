@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.6",
-  displayVersion: "V. 2.10.6",
-  lastUpdated: "Nov 5, 2026",
+  version: "2.10.7",
+  displayVersion: "V. 2.10.7",
+  lastUpdated: "Nov 6, 2026",
   codename: "Version Two",
-  build: 264,
+  build: 265,
   changelog: [
+    {
+      ver: "V. 2.10.7", date: "Nov 6, 2026", title: "Version Two",
+      teaser: "The office is moving to midlifesurvivors.com.",
+      highlights: [
+        "The game is getting its own address: midlifesurvivors.com. Clock in before the move and your coins, shop ranks and unlocks come with you."
+      ]
+    },
     {
       ver: "V. 2.10.6", date: "Nov 6, 2026", title: "Version Two",
       teaser: "These patch notes have their own link now.",

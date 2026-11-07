@@ -28,6 +28,8 @@ window.Account = (() => {
   const esc = t => String(t == null ? "" : t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const signedIn = () => !!(session && session.user);
   let pulledOnce = false;
+  // On the old address while we move to the new one (ACCOUNT.moving)
+  const moving = () => { const m = A().moving; return m && location.hostname === m.from ? m : null; };
 
   // ---------- The supabase-js library (loaded on demand) ----------
   function loadLib() {
@@ -284,13 +286,14 @@ window.Account = (() => {
         <div class="acct-row"><button type="button" class="acct-link" data-acct="resend">Send a new code</button><button type="button" class="acct-link" data-acct="restart">Use a different email</button></div>`;
     } else {
       const asked = ui.prompted; // opened by itself on the title screen (not by tapping the badge)
-      body = `<div class="modal-kicker">HR // BADGE OFFICE</div><h2 class="modal-title" id="acct-title">${asked ? "SAVE YOUR FILE?" : "CLOCK IN"}</h2>
-        <p class="modal-sub">${asked ? "You've got progress worth keeping. Clock in and your coins, unlocks, achievements and a run in progress follow you to your phone, tablet or laptop." : "Optional. Save your employee file to the cloud and pick up on any device: coins, shop ranks, unlocks, achievements and a run in progress."}</p>
+      const mv = asked && moving();
+      body = `<div class="modal-kicker">${mv ? "MEMO // FACILITIES" : "HR // BADGE OFFICE"}</div><h2 class="modal-title" id="acct-title">${mv ? "WE'RE MOVING" : asked ? "SAVE YOUR FILE?" : "CLOCK IN"}</h2>
+        <p class="modal-sub">${mv ? `The office is moving to <b>${esc(mv.to)}</b>. Progress saved only on this device stays behind at the old address. Clock in now and your coins, shop ranks and unlocks come with you.` : asked ? "You've got progress worth keeping. Clock in and your coins, unlocks, achievements and a run in progress follow you to your phone, tablet or laptop." : "Optional. Save your employee file to the cloud and pick up on any device: coins, shop ranks, unlocks, achievements and a run in progress."}</p>
         ${P.google || P.apple ? `<div class="acct-oauth">${P.google ? btn("google", "Continue with Google", P.email ? "" : "primary") : ""}${P.apple ? btn("apple", "Continue with Apple") : ""}</div>${P.email ? `<div class="acct-or">OR GET A CODE BY EMAIL</div>` : ""}` : ""}
         ${P.email ? `<label for="acct-email">EMAIL</label><input id="acct-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" value="${esc(ui.email)}">
         <div class="acct-row">${btn("send", "Email me a code", "primary", " data-acct-enter")}</div>` : ""}
         <div class="acct-row">${btn(asked ? "later" : "close", "Not now")}</div>
-        ${asked ? `<button type="button" class="acct-link" data-acct="never">No thanks, don't ask again</button>` : ""}
+        ${asked && !moving() ? `<button type="button" class="acct-link" data-acct="never">No thanks, don't ask again</button>` : ""}
         <p class="acct-fine">We only use your email to sign you in. No newsletters. Your file still saves on this device either way. <a href="devlog/privacy/" target="_blank" rel="noopener" style="color:#83A89A">Privacy</a></p>`;
     }
     modal.innerHTML = `<div class="modal-card acct-card">${body}${ui.msg ? `<div class="acct-msg">${esc(ui.msg)}</div>` : ""}${ui.err ? `<div class="acct-err" role="alert">${esc(ui.err)}</div>` : ""}</div>`;
@@ -383,7 +386,7 @@ window.Account = (() => {
   function maybePrompt() {
     if (promptedThisVisit || promptTimer || !on() || signedIn() || window.accountModalOpen) return;
     let pref = null; try { pref = localStorage.getItem(PROMPT_KEY); } catch (e) {}
-    if (pref === "never" || (pref && Date.now() < +pref)) return;
+    if (!moving() && (pref === "never" || (pref && Date.now() < +pref))) return; // the moving note shows once per visit regardless
     let authing = false; try { authing = Object.keys(localStorage).some(k => k.startsWith(AUTH_KEY)); } catch (e) {}
     if (authing || /[?&]code=/.test(location.search)) return; // already mid sign-in
     const m = typeof meta !== "undefined" ? meta : null; // only once there's something worth saving (a brand-new player just gets the game)

@@ -11,6 +11,10 @@ window.ACCOUNT = {
   // supabase-js, pinned, loaded only when someone opens the account screen or is already signed in
   lib: "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js",
   table: "player_saves",
+  // The move to our own address (Nov 6, 2026). On the old address only, the "save your file?" pop-up becomes a
+  // "we're moving" note for guests with progress, once per visit, so they clock in before the switch.
+  // Saves on this device belong to the old address and can't follow you; a cloud save can. Set to null after the move.
+  moving: { from: "ramidaud.github.io", to: "midlifesurvivors.com" },
   pushEveryMs: 20000,   // at most one cloud save every 20 seconds during a run (and always when you leave the page)
   // Everything that counts as "your file" besides the main save: name, sound, tips already seen, local scores
   prefKeys: ["ms-player-name", "ms-audio-vol", "ms-audio-mix", "ms-tips-seen-v1", "ms-spotlight-seen-v1", "ms-local-scores-v1", "ms-seen-version"]
