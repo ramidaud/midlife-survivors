@@ -105,6 +105,6 @@ window.Modifiers = (() => {
     const d = pick(); if (d) start(d);
   }
 
-  return { reset, update, fx, active: () => st && st.def, forceStart: id => { const d = DEFS().find(x => x.id === id) || pick(); if (d && st) { if (st.active) end(); start(d); } }, stop: () => { if (st && st.active) end(); }, stats: () => st && st.stats };
+  return { reset, update, fx, active: () => st && st.def, endsAtAge: () => st && st.endsAtAge, forceStart: id => { const d = DEFS().find(x => x.id === id) || pick(); if (d && st) { if (st.active) end(); start(d); } }, stop: () => { if (st && st.active) end(); }, stats: () => st && st.stats };
 })();
 window.modFx = (key, dflt) => (window.Modifiers ? Modifiers.fx(key, dflt) : dflt);

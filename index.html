@@ -956,6 +956,8 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     18% { transform: translate(-50%, -50%) scale(1); } 75% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -56%); } }
   @media (prefers-reduced-motion: reduce) { .center-flash.cf-go { animation: cf-fade 1.9s linear forwards; } @keyframes cf-fade { 0%,75% { opacity: 1; } 100% { opacity: 0; } } }
   /* Pause menu: "Right now" active effects */
+  /* The modifier chip (Ghost Hour, Rent Hike...) hides behind any open menu, so it doesn't sit on the pause title */
+  body:has(.ui-modal:not(.hidden)) #mod-chip { display: none !important; }
   .active-effects { margin: 4px 0 10px; border: 2px solid #3E7775; background: rgba(23,28,53,.6); padding: 6px 10px; text-align: left; }
   .active-effects .ae-head { font-family: "Silkscreen", monospace; font-size: 11px; color: #EF9347; letter-spacing: 1px; margin-bottom: 4px; }
   .active-effects ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
@@ -1671,7 +1673,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <script>
   (function () {
     var s = document.createElement("script");
-    s.src = "src/loader.js?v=267&t=" + Date.now();
+    s.src = "src/loader.js?v=268&t=" + Date.now();
     document.body.appendChild(s);
   })();
 </script>

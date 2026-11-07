@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.9",
-  displayVersion: "V. 2.10.9",
+  version: "2.10.10",
+  displayVersion: "V. 2.10.10",
   lastUpdated: "Nov 6, 2026",
   codename: "Version Two",
-  build: 267,
+  build: 268,
   changelog: [
+    {
+      ver: "V. 2.10.10", date: "Nov 6, 2026", title: "Version Two",
+      teaser: "Ghost Hour, Rent Hike and friends now explain themselves.",
+      highlights: [
+        "The pause menu's RIGHT NOW list shows the life event you're in (Ghost Hour, Rent Hike, Reply-All Tax and the rest), what it does, and how many years it has left. (Thanks, Kevin.)",
+        "The event tag no longer sits on top of the pause menu title."
+      ]
+    },
     {
       ver: "V. 2.10.9", date: "Nov 6, 2026", title: "Version Two",
       teaser: "New address: midlifesurvivors.com.",

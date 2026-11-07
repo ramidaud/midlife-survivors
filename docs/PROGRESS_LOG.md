@@ -1616,3 +1616,9 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - The site now deploys with our own GitHub workflow (faster, smaller upload) and lives at midlifesurvivors.com. Old links forward automatically.
 - Devlog, feed, share cards and Discord links point to the new address. RSS item IDs stay on the old one so readers don't see repeats.
 - Rami's call on saves: guests start fresh (browsers keep saves per address). A one-time "WE MOVED" note on the title screen explains it, apologizes, and offers Clock in for signed-in players.
+
+## Nov 6, 2026: V2.10.10, active effects in the pause menu
+- Kevin's idea: the pause menu's RIGHT NOW list now shows the current life event (Ghost Hour, Rent Hike, Reply-All Tax...), what it does, and years left.
+- The event tag on the HUD now hides when any menu is open, so it no longer covers the pause title.
+- Next from Kevin's list: the Executive Wing butterscotch, then an original instant-message ping.
+
