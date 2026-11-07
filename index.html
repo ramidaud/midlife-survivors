@@ -1613,6 +1613,10 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
   .ts-slide.ultra .ts-img { background-size: contain; background-position: center; }
   .ts-slide.on .ts-img { animation: tsPush var(--ts-run, 12600ms) linear forwards; }
   .ts-slide[data-move="reveal"].on .ts-img { animation-name: tsReveal; }
+  .ts-slide[data-move="still"].on .ts-img { animation: none; }
+  /* live scenes (src/live-scene.js) draw over the still picture, cropped the same way */
+  .ts-live { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ts-slide.ultra .ts-live { object-fit: contain; }
   /* push: drift slowly in toward the focus point. reveal: start tight on it and pull back to show the scene */
   @keyframes tsPush   { from { transform: translateZ(0) scale(1.0); } to { transform: translateZ(0) scale(var(--ts-zoom, 1.12)); } }
   @keyframes tsReveal { from { transform: translateZ(0) scale(var(--ts-zoom, 1.12)); } to { transform: translateZ(0) scale(1.0); } }
@@ -1674,7 +1678,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 277; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 278; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

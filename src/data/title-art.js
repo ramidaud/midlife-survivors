@@ -4,6 +4,8 @@
 //           and the slow motion grows from that point.
 //   move:   "reveal" starts tight on the subject and pulls back; "push" drifts slowly in toward it
 //   pointer: true only for art with the time clock on the left (Punch In points at it)
+//   live:   a folder with a live scene (plate + sprite strips + scene.json, src/live-scene.js). It plays over the still
+//           picture; move "still" turns off the slow push-in so the camera never moves.
 window.TITLE_ART = {
   holdMs: 9000,   // how long each slide stays up
   fadeMs: 2400,   // crossfade length
@@ -20,7 +22,8 @@ window.TITLE_ART = {
     { src: "assets/title-screen/slides/12-happy-50th-desktop.jpg",  srcPortrait: "assets/title-screen/slides/12-happy-50th-portrait-v3.jpg",  name: "Happy 50th",      focus: "74% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false },
     // Rami's favorites, back by request (Nov 4). Desktop art only, so phones show a crop around focusPortrait.
     { src: "assets/title-screen/slides/05-promoted.jpg",    name: "Promoted",         focus: "50% 56%", focusPortrait: "45% 55%", move: "reveal", pointer: false },
-    { src: "assets/title-screen/slides/06-late-night.jpg",  name: "11:58 PM",         focus: "27% 60%", focusPortrait: "24% 62%", move: "push",   pointer: false, art: "Grok" },
+    { src: "assets/title-screen/slides/06-late-night.jpg",  name: "11:58 PM",         focus: "27% 60%", focusPortrait: "24% 62%", move: "still",  pointer: false, art: "Grok",
+      live: "assets/title-screen/live/late-night/play/" }, // a live scene (Nov 7): he breathes, blinks and sips; Bill stomps. No camera motion.
     { src: "assets/title-screen/slides/04-chase.jpg",       name: "The Long Way",     focus: "50% 58%", focusPortrait: "50% 55%", move: "push",   pointer: false },
     { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", focusPortrait: "50% 62%", move: "reveal", pointer: false }
   ],

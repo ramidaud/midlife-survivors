@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.19",
-  displayVersion: "V. 2.10.19",
+  version: "2.10.20",
+  displayVersion: "V. 2.10.20",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 277,
+  build: 278,
   changelog: [
+    {
+      ver: "V. 2.10.20", date: "Nov 7, 2026", title: "Version Two",
+      teaser: "It's 11:58 PM and he's still here.",
+      highlights: [
+        "The 11:58 PM title scene is alive: he breathes, blinks and sips his coffee, the steam curls, the monitor flickers, and Bill stomps in the corner. The camera holds still. (Art by ChatGPT, original scene by Grok.)",
+        "With reduced motion on, it stays a still picture."
+      ]
+    },
     {
       ver: "V. 2.10.19", date: "Nov 7, 2026", title: "Version Two",
       teaser: "Someone finally cleaned up the back hallway.",

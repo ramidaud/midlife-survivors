@@ -2875,11 +2875,28 @@ window.TitleSlides = (() => {
     const ultra = window.innerWidth / window.innerHeight > 1.9;
     el.classList.toggle("ultra", ultra);
     img.style.backgroundPosition = ultra ? "50% 50%" : focus;  // keep the subject in the crop on every screen
+    if (sl.live && window.LiveScene) { // live scene: a canvas over the still picture, cropped the same way
+      let cv = img.querySelector("canvas.ts-live");
+      if (!cv) { cv = document.createElement("canvas"); cv.className = "ts-live"; img.appendChild(cv); }
+      cv.style.objectPosition = ultra ? "50% 50%" : focus;
+    }
     img.style.transformOrigin = focus;                          // and grow the motion out of that same point
     // Punch In only points at the time clock when the time clock is in the picture.
     const modal = document.getElementById("title-modal");
     if (modal) modal.dataset.pointer = sl.pointer ? "1" : "0";
     return el;
+  }
+  // Live scenes start when their slide shows and pause once it has faded out.
+  const lives = {};
+  function liveOn(i) {
+    const sl = window.TITLE_ART.slides[i], el = root.children[i], cv = el.querySelector("canvas.ts-live");
+    if (!sl.live || !cv || !window.LiveScene) return;
+    if (!lives[i]) lives[i] = LiveScene.create(cv, sl.live, { still: still() }).catch(e => { console.warn("Live title scene skipped: " + e.message); return null; });
+    else lives[i].then(s => s && !still() && s.play());
+  }
+  function liveOff(i, delay) {
+    if (!lives[i]) return;
+    setTimeout(() => { if (!root.children[i].classList.contains("on")) lives[i].then(s => s && s.pause()); }, delay || 0);
   }
   function show(i) {
     // The slide on its way out keeps its current framing while it fades, so nothing snaps.
@@ -2888,11 +2905,13 @@ window.TitleSlides = (() => {
       const im = c.firstElementChild;
       im.style.transform = getComputedStyle(im).transform;
       c.classList.remove("on"); c.classList.add("leaving");
+      liveOff([...root.children].indexOf(c), (window.TITLE_ART.fadeMs || 1800) + 100);
       setTimeout(() => { c.classList.remove("leaving"); im.style.transform = ""; }, (window.TITLE_ART.fadeMs || 1800) + 80);
     });
     const el = paint(i);
     el.classList.remove("leaving"); el.firstElementChild.style.transform = "";
     void el.offsetWidth; el.classList.add("on");
+    liveOn(i);
     // warm up the next picture so the fade never shows a blank
     const n = (i + 1) % root.children.length, nx = window.TITLE_ART.slides[n];
     if (!root.children[n].dataset.src) { const im = new Image(); im.src = (phone() && nx.srcPortrait) || nx.src; }
@@ -2916,6 +2935,7 @@ window.TitleSlides = (() => {
   }
   function stop() {
     dropPre();
+    Object.keys(lives).forEach(k => lives[k].then(sc => sc && sc.pause()));
     if (timer) clearInterval(timer); timer = null; running = false;
     if (root) root.hidden = true;
   }

@@ -1703,3 +1703,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - 500 KB for the whole scene, versus 843 KB for the AI video, and about 0.1 ms per pose change. The clock and the note never move.
 - Try it at midlifesurvivors.com/tools/live-scene.html. It is not on the real title screen yet; that is plan step 3 once Rami has watched it.
 - Rami OKed two things for the planned Part-Time Job stage: he can be its playable hero (CLAUDE.md updated), and real Apple lore and inside jokes are welcome (names, logos and exact product designs stay genericized).
+
+## Nov 7, 2026: V2.10.20, the 11:58 PM title scene is live
+- Rami watched the test page and OKed it. The 11:58 PM slide on the real title screen now plays the live scene: breathing, blinking, sipping, steam, monitor flicker, the note corner and Bill stomping.
+- That slide no longer does the slow push-in, so the camera holds still. The scene pauses when the slide fades out or a run starts, and reduced motion keeps it a still picture.
+- New engine file src/live-scene.js (shared with the test page). Scene files live in assets/title-screen/live/late-night/play/.
