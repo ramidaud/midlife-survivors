@@ -1611,3 +1611,8 @@ Newest entries at the bottom. Each work session and weekly check-in adds one ent
 - Pizza and Desk Salad are about 40% bigger, with a soft glow and a slow "breathe," so heals pop on high-resolution laptops.
 - Group Chat shots are bigger (22 px, was 14) with a pulsing orange ring. Their hitbox didn't change.
 - Still on Kevin's list: an "Active effects" list in the pause menu, a real butterscotch in the Executive Wing, and an original instant-message sound for pings.
+
+## Nov 6, 2026 (night): midlifesurvivors.com is live (V2.10.9)
+- The site now deploys with our own GitHub workflow (faster, smaller upload) and lives at midlifesurvivors.com. Old links forward automatically.
+- Devlog, feed, share cards and Discord links point to the new address. RSS item IDs stay on the old one so readers don't see repeats.
+- Rami's call on saves: guests start fresh (browsers keep saves per address). A one-time "WE MOVED" note on the title screen explains it, apologizes, and offers Clock in for signed-in players.
