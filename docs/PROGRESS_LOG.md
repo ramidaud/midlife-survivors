@@ -1754,3 +1754,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Depth: on laptops the memo sits raised with a soft shadow, and the side column sits recessed below it.
 - **Memo 13 published** (Nov 7, Rami's OK).
 - Memo 13 social kit: a 5-slide carousel and a 20-second Reel cut to the beat of the game's chaos track (moving art, word-by-word headline, playlist cards on the beat, the live 11:58 PM scene, the ask).
+
+## Nov 8, 2026: Meshy proof of concept
+- Kevin took the merch sprites and ran them through Meshy Pro's "Storybook" template with no extra prompting. The Medical Bill model (`art/merch/3d/Meshy_Med_Bill.glb`, 685k faces, 4K texture) reads as the character: crumpled bill head, pink gown with the red cross, clipboard, bow on the back. Rounder and more Disney than the game, but a very strong first pass.
+- Kevin then had Meshy's agent build a reusable template, "sixteen-bit-to-voxel-3d": a GPT image step that reinterprets the sprite as an isometric voxel concept, then Meshy's Smart Topology to mesh it at ~3,000 faces. He thinks four source views and more style rules would get it close. Kevin offered his Meshy credits and login so Rami can learn the tool; Rami wants to collab on it.
+- Claude checked the GLB: one mesh, not watertight (normal for AI meshes; needs a Blender or Meshy remesh pass before printing), about 1.4 x 1.9 x 1.0 units. The 4K texture is a fragmented atlas, so painting it by hand is impractical; retexturing from the sprite palette is the better route.
+- Rami's reaction: "I did not expect it to be that good." Next: get it closer to the pixel feel, try it in Blender.
+

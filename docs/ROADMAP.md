@@ -80,7 +80,10 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [ ] Rami replies to Kevin's "what were you thinking": keychains, magnets and stickers first; bobbleheads and fidget toys later
 - [ ] Settle with Kevin who covers material and shipping before any batch becomes a Ko-fi reward
 - [ ] Ask Kevin his build-plate size and whether he wants STL or 3MF (only matters if Claude ends up generating models)
-- [ ] Later, if the figurine idea sticks: sculpted figurines via AI image-to-3D plus Blender cleanup (Phase 4, after art direction is final)
+- [x] First 3D test: Kevin ran the sprites through Meshy Pro (Nov 7). Medical Bill came out great, if a little Disney. GLB saved in `art/merch/3d/`
+- [ ] Kevin builds a Meshy agent ("sixteen-bit-to-voxel-3d") tuned to the game's style; Rami collabs to learn it
+- [ ] Feed the agent front/left/right/back views instead of one sprite (Kevin's suggestion; the bobblehead turnaround prompt already does this)
+- [ ] Get the Medical Bill GLB into Blender: check scale, fix any holes, add a flat base, export STL for a test print
 
 ## Devlog to-do (Nov 6)
 - [x] **Memo 13: the music memo.** Interviewed Nov 7 (car ride to Costco). Published Nov 7 after Darvin's notes and the memo page redesign.
