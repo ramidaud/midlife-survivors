@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.22",
-  displayVersion: "V. 2.10.22",
+  version: "2.10.23",
+  displayVersion: "V. 2.10.23",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 280,
+  build: 281,
   changelog: [
+    {
+      ver: "V. 2.10.23", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Falling behind? The office notices.",
+      highlights: [
+        "Catch-up XP: if you're a few levels behind where most players are at your age, gems give a little extra (up to +60%) until you catch up. Careful players should hit the 50s with a fighting build."
+      ]
+    },
     {
       ver: "V. 2.10.22", date: "Nov 7, 2026", title: "Version Two",
       teaser: "We're taking notes on your loadout.",

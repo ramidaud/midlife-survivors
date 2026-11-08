@@ -1342,7 +1342,25 @@ function collectGem(p, gem) {
 }
 
 // Add XP (fractions carry over) and open the level-up screen if you earned one. Gems and Close Calls both use this.
+// Catch-up XP: the typical level for your age, and how much extra XP you get for being behind it.
+function typicalLevel(age) {
+  const t = (LEVELING.catchUp && LEVELING.catchUp.byAge) || [];
+  if (!t.length) return level;
+  if (age <= t[0][0]) return t[0][1];
+  for (let i = 1; i < t.length; i++) if (age <= t[i][0]) { const [a0, l0] = t[i - 1], [a1, l1] = t[i]; return l0 + (l1 - l0) * (age - a0) / (a1 - a0); }
+  return t[t.length - 1][1];
+}
+function catchUpMult() {
+  const C = LEVELING.catchUp;
+  if (!C || !C.on) return 1;
+  const behind = typicalLevel(currentAge) - level;
+  if (behind < C.startBehind) return 1;
+  return 1 + Math.min(C.max, C.perLevel * (behind - C.startBehind + 1));
+}
+window.catchUpMult = catchUpMult;
+
 function addXp(scene, amount) {
+  amount *= catchUpMult();
   xpFrac += amount;
   xp += Math.floor(xpFrac); xpFrac -= Math.floor(xpFrac);
   if (xp >= xpNeeded && window.Lighting) Lighting.fx("levelUp", player.x, player.y, { follow: player }); // a warm bloom (it plays out after you pick)

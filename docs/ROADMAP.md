@@ -14,6 +14,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **Play and react**
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?
 - [ ] Try one Ben-style run: stay close to the crowd, check your level by 55
+- [ ] Play V. 2.10.23: does catch-up XP get you through the 50s?
 - [ ] Cut scene test page: switch off the extra beats you don't want, tell Claude which stay
 
 **Decide**
@@ -22,7 +23,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Memo 13: Darvin's notes (headers in your words, cover color cooled, memo pages redesigned)
 
 **Do**
-- [ ] Add the `build` column in Supabase (one SQL line, or tell Claude "add the column" and approve the prompt)
+- [x] Add the `build` column in Supabase (done Nov 8)
 - [ ] Optional: a real photo of the school run for a future memo (Darvin's note; you kept the AI cover for 13)
 - [x] Final read and OK on Memo 13, then publish (published Nov 7)
 - [ ] Part-Time Job stage: jot down the Apple lore and inside jokes you want in it

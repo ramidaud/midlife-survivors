@@ -1761,3 +1761,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Claude checked the GLB: one mesh, not watertight (normal for AI meshes; needs a Blender or Meshy remesh pass before printing), about 1.4 x 1.9 x 1.0 units. The 4K texture is a fragmented atlas, so painting it by hand is impractical; retexturing from the sprite palette is the better route.
 - Rami's reaction: "I did not expect it to be that good." Next: get it closer to the pixel feel, try it in Blender.
 
+
+## Nov 8, 2026: catch-up XP (V. 2.10.23)
+- Rami added the `build` column, so run stats now record each player's final loadout.
+- Catch-up XP: when you're 2+ levels behind the typical level for your age (from real runs), gems give +12% per extra level behind, up to +60%. At 59 and level 15 that's +50%; on pace, nothing changes.
+- All the numbers live in `LEVELING.catchUp` in `src/data/pickups.js` (set `on: false` to turn it off).

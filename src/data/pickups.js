@@ -69,5 +69,15 @@ window.FLOOR_LIMITS = {
 window.LEVELING = {
   firstLevelXp: 8,    // 8 gems for Level 2 (lets you play ~15s before the first menu)
   growth: 1.35,       // 35% compound scaling per level
-  stepXp: 4           // +4 flat gem step per level (8 -> 15 -> 24 -> 36 -> 53 -> 76 -> 107...)
+  stepXp: 4,          // +4 flat gem step per level (8 -> 15 -> 24 -> 36 -> 53 -> 76 -> 107...)
+  // Catch-up XP (Nov 7 stats, Rami's pick): if you're behind the level most players have at your age,
+  // gems give a bit more until you catch up. Careful players who kite the edges stop falling behind in the 50s.
+  // byAge comes from real runs: [age, typical level]. Set on: false to turn it off.
+  catchUp: {
+    on: true,
+    byAge: [[40, 1], [41, 3], [43, 6], [45, 9], [50, 12], [55, 17], [60, 21], [65, 24], [75, 26], [100, 30]],
+    startBehind: 2,     // no boost until you're 2+ levels behind
+    perLevel: 0.12,     // then +12% XP for each level behind past that
+    max: 0.6            // never more than +60%
+  }
 };

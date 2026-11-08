@@ -642,3 +642,6 @@ In a survivors game, the swarm is also your XP. Players who stay close to the cr
 
 ## Afterimages are cheap "juice" (Nov 7, 2026)
 "Juice" is feedback that makes an action feel good without changing the rules. A Close Call already gave a speed burst, but nobody could see it. Three fading copies of the hero, drawn a tenth of a second apart, make the burst visible for almost no cost.
+
+## Rubber banding (Nov 8, 2026)
+Racing games quietly speed up the cars in last place so the race stays close. That's called rubber banding. Our catch-up XP is the same idea: if you're behind the level most players have at your age, gems are worth a little more until you catch up. Good players never notice it, and careful players stop hitting a wall in their 50s. The trick is keeping it gentle (a cap of +60%) so it helps without playing the game for you.
