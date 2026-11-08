@@ -1753,3 +1753,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The Spotify playlist link is in Memo 13 and the side playlist card. Share pages got the same hero.
 - Depth: on laptops the memo sits raised with a soft shadow, and the side column sits recessed below it.
 - **Memo 13 published** (Nov 7, Rami's OK).
+- Memo 13 social kit: a 5-slide carousel and a 20-second Reel cut to the beat of the game's chaos track (moving art, word-by-word headline, playlist cards on the beat, the live 11:58 PM scene, the ask).
