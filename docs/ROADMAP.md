@@ -19,7 +19,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **Decide**
 - [ ] Code ping sound: A knock-knock, B desk bell, or C bubble pop (or none of them)
 - [ ] Cut scene in the game: other heroes skip it, or order 9 new poses; add a "Cut scenes" switch in Options?
-- [x] Memo 13: Darvin's notes (headers now in your words, memo pages slimmed, cover color cooled)
+- [x] Memo 13: Darvin's notes (headers in your words, cover color cooled, memo pages redesigned)
 
 **Do**
 - [ ] Add the `build` column in Supabase (one SQL line, or tell Claude "add the column" and approve the prompt)
@@ -83,7 +83,7 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 - [ ] Later, if the figurine idea sticks: sculpted figurines via AI image-to-3D plus Blender cleanup (Phase 4, after art direction is final)
 
 ## Devlog to-do (Nov 6)
-- [x] **Memo 13: the music memo.** Interviewed Nov 7 (car ride to Costco). Drafted in the devlog (`?drafts=1`), waiting on ChatGPT's school-run cover and Rami's final read.
+- [x] **Memo 13: the music memo.** Interviewed Nov 7 (car ride to Costco). Published Nov 7 after Darvin's notes and the memo page redesign.
 - [ ] **Memo 13 follow-ups:** Spotify version of the playlist (Rami rebuilds it from the track list, then a second button on the devlog card); "Abdel's tracks" option in the music settings once he records something; Ben prefers the original tracks (logged, ask him what he misses).
 - [ ] **Side quest:** an Instagram reel of our characters doing the Paradise (Harachan) office-skit video, AI video. Reel only; the song can't go in the game or devlog.
 - [ ] **Memo 14: how I write these memos.** Answer the interview questions in `docs/devlog-plans/how-i-write-these-memos.md` (why your own words matter, what Claude gets wrong in your voice, the edit that mattered most in Memo 12, editing memos vs editing photos, what you're still unsure about).
