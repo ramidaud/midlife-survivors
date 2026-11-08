@@ -30,13 +30,16 @@ function loadPosts() {
   return sandbox.window.DEVLOG_POSTS;
 }
 
-async function send(envName, payload) {
+// editId: change an earlier message from this webhook instead of posting a new one.
+async function send(envName, payload, editId) {
   const url = process.env[envName];
   if (!url) throw new Error(`Missing secret ${envName}`);
+  const target = editId ? `${url}/messages/${editId}` : url + "?wait=true";
+  const method = editId ? "PATCH" : "POST";
   const body = JSON.stringify({ username: "Midlife Survivors", allowed_mentions: { parse: [] }, ...payload });
   for (let attempt = 0; attempt < 4; attempt++) {
-    const res = await fetch(url + "?wait=true", { method: "POST", headers: { "Content-Type": "application/json" }, body });
-    if (res.ok) return;
+    const res = await fetch(target, { method, headers: { "Content-Type": "application/json" }, body });
+    if (res.ok) return res.json().catch(() => ({}));
     if (res.status === 429 || res.status >= 500) {
       const wait = Number(res.headers.get("retry-after")) || attempt + 1;
       await new Promise(r => setTimeout(r, wait * 1000));
@@ -105,14 +108,32 @@ async function postMemos(state, labelFor = () => "New memo") {
   }
 }
 
+// One stats message per day. If the file is fixed later the same day (same title line),
+// the message already in Discord is edited in place instead of posting a second one.
 async function postStats(state) {
   if (!fs.existsSync(STATS_FILE)) return console.log("Stats: no summary file yet");
   const text = fs.readFileSync(STATS_FILE, "utf8").trim();
   const hash = crypto.createHash("sha256").update(text).digest("hex");
   if (hash === state.statsHash) return console.log("Stats: already posted");
   const [first, ...rest] = text.split("\n");
-  await send("DISCORD_WEBHOOK_STATS", { embeds: [{ title: first.replace(/^#+\s*/, "").slice(0, 250), description: rest.join("\n").trim().slice(0, 4000), color: COLORS.stats }] });
+  const title = first.replace(/^#+\s*/, "").slice(0, 250);
+  const payload = { embeds: [{ title, description: rest.join("\n").trim().slice(0, 4000), color: COLORS.stats }] };
+  const sameDay = state.statsTitle === title && state.statsMessageId;
+  if (sameDay) {
+    try {
+      await send("DISCORD_WEBHOOK_STATS", payload, state.statsMessageId);
+      state.statsHash = hash;
+      writeState(state);
+      return console.log("Stats: same day, edited the earlier message");
+    } catch (err) {
+      // Don't post a duplicate if the edit fails; just report it.
+      return console.log(`Stats: edit failed, not posting again (${err.message.slice(0, 200)})`);
+    }
+  }
+  const msg = await send("DISCORD_WEBHOOK_STATS", payload);
   state.statsHash = hash;
+  state.statsTitle = title;
+  state.statsMessageId = msg && msg.id ? msg.id : null;
   writeState(state);
   console.log("Stats: posted");
 }
