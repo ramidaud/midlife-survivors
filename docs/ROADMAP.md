@@ -18,7 +18,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Cut scene test page: switch off the extra beats you don't want, tell Claude which stay
 
 **Decide**
-- [ ] Code ping sound: A knock-knock, B desk bell, or C bubble pop (or none of them)
+- [x] Code ping sound: C, the bubble pop (Nov 8)
 - [ ] Cut scene in the game: other heroes skip it, or order 9 new poses; add a "Cut scenes" switch in Options?
 - [x] Memo 13: Darvin's notes (headers in your words, cover color cooled, memo pages redesigned)
 

@@ -2790,7 +2790,7 @@ function update(time, delta) {
         this.enemyArt.attach(ping, "ping");
         ping.setVelocity(Math.cos(pa) * G.pingSpeed, Math.sin(pa) * G.pingSpeed);
         ping.dieAt = now + G.pingLifeMs; ping.damage = bill.damage;
-        sfx("ring");
+        sfx("ping");
       }
       bill.setFlipX(player.x < bill.x);
       bill.tag.setPosition(bill.x, bill.y - G.size / 2 - 6);

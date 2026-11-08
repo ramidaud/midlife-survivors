@@ -152,6 +152,26 @@ function evoPairNote(up) {
   return "";
 }
 
+// "Evolves next" notes (Nov 8, Rami picked A): try the card on a copy of your stats and see whether it
+// unlocks an evolution now, or would after one more pick of the same card. Teaches "level your weapons
+// and evolve them" instead of filling all six slots with weak ones. Boosts and evolutions are skipped.
+function evoNextNote(up) {
+  try {
+    if (!up || up.isEvolution || up.isConsumable || typeof stats === "undefined" || !stats || !up.apply) return "";
+    const evos = (window.UPGRADES || []).filter(u => u.isEvolution && u.when);
+    const ready = s => new Set(evos.filter(u => { try { return u.when(s); } catch (e) { return false; } }).map(u => u.id));
+    const copy = s => { let c; try { c = structuredClone(s); } catch (e) { c = Object.assign({}, s); } c.perkRanks = Object.assign({}, s.perkRanks || {}); return c; };
+    const before = ready(stats);
+    const once = copy(stats); up.apply(once);
+    const now = evos.find(u => ready(once).has(u.id) && !before.has(u.id));
+    if (now) return { soon: false, name: now.name.replace(/^EVOLVE:\s*/, "") };
+    if (up.when && !up.when(once)) return "";
+    const twice = copy(once); up.apply(twice);
+    const later = evos.find(u => ready(twice).has(u.id) && !before.has(u.id));
+    return later ? { soon: true, name: later.name.replace(/^EVOLVE:\s*/, "") } : "";
+  } catch (e) { return ""; }
+}
+
 // HUD and build-screen slot icons: which atlas card stands for each loadout item (and its evolution).
 const SLOT_CARDS = {
   coffee: ["Extra Shot", "EVOLVE: Cold Brew Concentrate"], dadJoke: ["Unlock: Dad Joke", "EVOLVE: Unhinged Pun Storm"],
@@ -2114,8 +2134,9 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
       : (!up.isConsumable && up.maxRank && up.maxRank > 1 && up.maxRank < 50)
       ? `${plain} · LEVEL ${curRank + 1} OF ${up.maxRank}`
       : plain;
+    const evoNext = evoNextNote(up);
     const card = document.createElement("div");
-    card.className = `perk-card rarity-${info.rarity}`;
+    card.className = `perk-card rarity-${info.rarity}${evoNext && !evoNext.soon ? " evo-next" : ""}`;
     const sty = cat && LO.cats[cat];
     if (sty) { card.dataset.style = cat; card.style.setProperty("--sc", sty.color); card.style.setProperty("--sink", sty.ink); }
     card.innerHTML = `
@@ -2123,7 +2144,7 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
       <div class="perk-ribbon">${rankLabel}</div>
       <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
       <div class="perk-name">${heroWord(up.name)}</div>
-      <div class="perk-desc">${heroWord(up.text)}${evoPairNote(up) ? `<span class="perk-pair">${heroWord(evoPairNote(up))}</span>` : ""}</div>
+      <div class="perk-desc">${evoNext ? `<span class="perk-evo${evoNext.soon ? " soon" : ""}">${evoNext.soon ? "1 MORE PICK TO EVOLVE" : "✨ UNLOCKS AN EVOLUTION"}<b>${heroWord(evoNext.name)}</b></span>` : ""}${heroWord(up.text)}${!evoNext && evoPairNote(up) ? `<span class="perk-pair">${heroWord(evoPairNote(up))}</span>` : ""}</div>
       <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `PRESS [${i + 1}] / SPACE`}</div>
     `;
     bindNavItem(card, 0, e => {

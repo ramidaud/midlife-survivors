@@ -1766,3 +1766,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami added the `build` column, so run stats now record each player's final loadout.
 - Catch-up XP: when you're 2+ levels behind the typical level for your age (from real runs), gems give +12% per extra level behind, up to +60%. At 59 and level 15 that's +50%; on pace, nothing changes.
 - All the numbers live in `LEVELING.catchUp` in `src/data/pickups.js` (set `on: false` to turn it off).
+
+## Nov 8, 2026: evolution hints, Group Chat pop (V. 2.10.24)
+- Rami's two runs on 2.10.23: the 50s feel good; near 60 still feels insane. His build data showed why: six weapons, three with their passive in place, only Coffee evolved.
+- Level-up cards now say "UNLOCKS AN EVOLUTION" (and glow) when that pick triggers one, or "1 MORE PICK TO EVOLVE" when it's close. The game tests each card on a copy of your stats to find out.
+- Group Chat pings play their own soft message pop (Rami picked C) instead of the phone buzz.

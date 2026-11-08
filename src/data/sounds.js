@@ -17,6 +17,7 @@ window.SOUNDS = {
   move:     [[600, 0.03, "triangle"]],                                 // moving between menu choices
   uiHover:  [[1320, 0.018, "sine"]],                                   // the softest tick: hovering a menu option (Nov 3)
   ring:     [[980, 0.05, "square"], [1240, 0.05, "square"]],           // Spam Likely phone ring
+  ping:     [[880, 0.04, "sine"], [1320, 0.05, "sine"]],                // Group Chat message pop (fallback; the real one is sfx-message-pop.mp3)
   overdue:  [[300, 0.06, "sawtooth"], [420, 0.08, "sawtooth"]],        // Bill splits into Late Fees
   bossSpawn:[[220, 0.14, "sawtooth"], [165, 0.24, "sawtooth"]],        // ominous HR arrival
   bossDefeat:[[523, 0.08, "square"], [659, 0.08, "square"], [784, 0.08, "square"], [1047, 0.22, "square"]],
@@ -66,6 +67,7 @@ window.SOUND_VARY = {
   wordNo:   { vary: 0.08, noise: [0.06, 500, 0.6, "lowpass"] },
   overdue:  { vary: 0.06 },
   ring:     { vary: 0.04 },
+  ping:     { vary: 0.05 },
   levelUp:  { vary: 0, important: true },
   bossSpawn:{ vary: 0, important: true, noise: [0.4, 200, 0.7, "lowpass"] },
   bossDefeat:{ vary: 0, important: true, noise: [0.3, 1500, 0.5, "bandpass"] },

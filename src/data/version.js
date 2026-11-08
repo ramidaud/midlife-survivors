@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.23",
-  displayVersion: "V. 2.10.23",
+  version: "2.10.24",
+  displayVersion: "V. 2.10.24",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 281,
+  build: 282,
   changelog: [
+    {
+      ver: "V. 2.10.24", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Your weapons want to grow up.",
+      highlights: [
+        "Level-up cards now tell you when a pick unlocks an evolution (the card glows) or when you're one more pick away. Fewer weapons, fully grown, beat six weak ones.",
+        "Group Chat pings have their own sound now: a soft message pop instead of the phone buzz."
+      ]
+    },
     {
       ver: "V. 2.10.23", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Falling behind? The office notices.",

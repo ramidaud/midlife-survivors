@@ -543,6 +543,13 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
   .id-avatar { overflow: hidden; }
   .perk-name { font-family: var(--font-head); font-size: 12px; color: var(--text-main); line-height: 1.3; margin-bottom: 6px; }
   .perk-desc { font-size: 12px; color: #cbd4f0; line-height: 1.35; flex: 1; }
+  .perk-evo { display: block; margin: 0 auto 6px; width: fit-content; max-width: 100%; text-align: center; font: 10px/1.3 Silkscreen, monospace; letter-spacing: .04em; color: #171C35; background: #F2D7A1; border: 2px solid #EF9347; border-radius: 4px; padding: 4px 8px; } /* Nov 8: evolution coming */
+  .perk-evo b { display: block; font: 700 12px/1.25 "Atkinson Hyperlegible", sans-serif; letter-spacing: 0; color: #874C3B; }
+  .perk-evo.soon { background: transparent; color: #F2D7A1; border-style: dashed; }
+  .perk-evo.soon b { color: #F2D7A1; }
+  .perk-card.evo-next { box-shadow: 0 0 0 2px #EF9347, 0 0 18px rgba(239,147,71,.55); }
+  @media (prefers-reduced-motion: no-preference) { .perk-card.evo-next .perk-evo { animation: evoPulse 1.4s ease-in-out infinite; } }
+  @keyframes evoPulse { 50% { box-shadow: 0 0 10px rgba(239,147,71,.8); } }
   .perk-pair { display: block; width: fit-content; font: 10px Silkscreen, monospace; letter-spacing: .04em; color: #171C35; background: #83A89A; border-radius: 3px; padding: 3px 6px; margin: 6px auto 0; text-align: center; } /* "Evolves Coffee Splash" (Nov 4) */
   .perk-key {
     margin-top: 10px; font-size: 10px; font-weight: 700; color: #12152a;
@@ -1171,6 +1178,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     #ui-layer .perk-ribbon { grid-area: ribbon; }
     #ui-layer .perk-name { grid-area: name; margin: 2px 0 0; }
     #ui-layer .perk-desc { grid-area: desc; }
+    #ui-layer .perk-evo { margin: 2px 0 6px; text-align: left; }
     #ui-layer .perk-key { grid-area: key; margin-top: 4px; white-space: nowrap; }
     #ui-layer .perk-card:hover, #ui-layer .perk-card.selected { transform: none; }
   }
@@ -1678,7 +1686,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 281; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 282; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);
