@@ -26,7 +26,11 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Optional: a real photo of the school run for a future memo (Darvin's note; you kept the AI cover for 13)
 - [x] Final read and OK on Memo 13, then publish (published Nov 7)
 - [ ] Part-Time Job stage: jot down the Apple lore and inside jokes you want in it
-- [ ] Send Kevin the merch zips
+- [x] Send Kevin the merch zips (he already ran them through Meshy)
+
+**Merch (from the 3D chat)**
+- [ ] Run the Medical Bill turnaround prompt in ChatGPT (`art/merch/medical-bill-turnaround-prompt.md`, attach the sprite) and drop the result in `assets/characters/merch/`
+- [ ] Memo 14: answer the interview questions (`docs/devlog-plans/how-i-write-these-memos.md`)
 
 **Waiting on others**
 - ChatGPT: redraw the Performance Review frame with the loose shoe (handoff after the beats are picked)
@@ -76,7 +80,7 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 
 ## Merch with Kevin (Nov 6, side quest)
 - [x] Prep merch-ready sprite files for Kevin: Medical Bill, regular Bill and the four heroes (native PNG, 8x, 16x, silhouette, palette notes) in `art/merch/`
-- [ ] Rami sends `bill-merch-pack.zip` and `heroes-merch-pack.zip` to Kevin once he DMs his email
+- [x] Rami sends `bill-merch-pack.zip` and `heroes-merch-pack.zip` to Kevin
 - [ ] Rami replies to Kevin's "what were you thinking": keychains, magnets and stickers first; bobbleheads and fidget toys later
 - [ ] Settle with Kevin who covers material and shipping before any batch becomes a Ko-fi reward
 - [ ] Ask Kevin his build-plate size and whether he wants STL or 3MF (only matters if Claude ends up generating models)
@@ -87,7 +91,7 @@ V. 2.0 shipped Nov 4: playable start to finish, a hero and a mode to unlock, art
 
 ## Devlog to-do (Nov 6)
 - [x] **Memo 13: the music memo.** Interviewed Nov 7 (car ride to Costco). Published Nov 7 after Darvin's notes and the memo page redesign.
-- [ ] **Memo 13 follow-ups:** Spotify version of the playlist (Rami rebuilds it from the track list, then a second button on the devlog card); "Abdel's tracks" option in the music settings once he records something; Ben prefers the original tracks (logged, ask him what he misses).
+- [ ] **Memo 13 follow-ups:** ~~Spotify playlist~~ (done Nov 7, linked in Memo 13 and the playlist card); "Abdel's tracks" option in the music settings once he records something; Ben prefers the original tracks (logged, ask him what he misses).
 - [ ] **Side quest:** an Instagram reel of our characters doing the Paradise (Harachan) office-skit video, AI video. Reel only; the song can't go in the game or devlog.
 - [ ] **Memo 14: how I write these memos.** Answer the interview questions in `docs/devlog-plans/how-i-write-these-memos.md` (why your own words matter, what Claude gets wrong in your voice, the edit that mattered most in Memo 12, editing memos vs editing photos, what you're still unsure about).
 
