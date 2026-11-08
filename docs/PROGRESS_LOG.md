@@ -1751,3 +1751,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Reading type: shorter lines (62 characters), 19px text, a bigger first paragraph, section headers with an orange bar.
 - Song players and videos sit centered in their own darker card with a small LISTEN or WATCH label.
 - The Spotify playlist link is in Memo 13 and the side playlist card. Share pages got the same hero.
+- Depth: on laptops the memo sits raised with a soft shadow, and the side column sits recessed below it.
