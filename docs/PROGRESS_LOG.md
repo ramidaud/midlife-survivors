@@ -1743,3 +1743,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Headers now use Rami's own lines. Memo pages keep only "What changed", "Next up" and the follow links; everything else stays on the devlog home page.
 - The cover's yellow haze is cooled by hand. Future ChatGPT art asks for neutral color (docs/handoffs/chatgpt-art-notes.md).
 - New: a "Your to-do list" on the roadmap page and in ROADMAP.md.
+- Rami preferred the full side column, so it's back. On computers, each side card now sits dim and lights up on mouse-over (phones and tablets show it normally).

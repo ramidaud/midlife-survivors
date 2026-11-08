@@ -922,7 +922,12 @@ article.post .prose .dropcap {
 .video-embed { position: relative; max-width: 660px; aspect-ratio: 16 / 9; margin: 4px 0 26px; border-radius: 10px; overflow: hidden; background: #000; }
 .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* Memo pages keep only "What changed" and "Next up" (Nov 7, Darvin's note: too much text competing
-   with the memo). The memo list, employee file, poll, builds, leaderboard and playlist live on the
-   devlog home page. Remove the "slim" class in index.html to bring them back. */
-.post-side.slim > .side-card:not(.post-facts):not(.follow) { display: none; }
+/* Memo side column (Nov 7, Rami): every card stays, but sits dim so the memo leads.
+   Mouse over a card (or tab into it) and it lights up. Touch screens skip this: no hover there. */
+@media (hover: hover) and (pointer: fine) {
+  .post-side .side-card { opacity: .42; filter: saturate(.6); transition: opacity .25s ease, filter .25s ease; }
+  .post-side .side-card:hover, .post-side .side-card:focus-within { opacity: 1; filter: none; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) {
+  .post-side .side-card { transition: none; }
+}
