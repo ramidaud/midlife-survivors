@@ -934,9 +934,27 @@ function bankCoins(v) {
 }
 
 // ---------- Achievements (src/data/achievements.js) ----------
-let runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
+let runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40, eggs: {} };
 window.getNewAchievements = () => runAch.newly;
+// Easter egg XP (Nov 8): the first time each egg is found in a run, fill the XP bar the needed number of times.
+function eggBonus(on, d) {
+  const B = window.EGG_BONUS; if (!B || !B.levels || !window.ACHIEVEMENTS || !player || !player.scene) return;
+  runAch.eggs = runAch.eggs || {};
+  ACHIEVEMENTS.forEach(def => {
+    if (!def.egg || def.on !== on || runAch.eggs[def.id]) return;
+    let ok = false; try { ok = def.test(d, runAch, {}); } catch (e) {}
+    if (!ok) return;
+    runAch.eggs[def.id] = true;
+    player.scene.time.delayedCall(1200, () => { // after the ACHIEVED line has its moment
+      let need = 0, x = xp, n = xpNeeded;
+      for (let i = 0; i < B.levels; i++) { need += n - x; x = 0; n = Math.round(n * LEVELING.growth + (LEVELING.stepXp || 4)); }
+      if (window.showLowerThird) window.showLowerThird("win", "SECRET FOUND", `${def.icon} ${def.name}: +${B.levels} level${B.levels > 1 ? "s" : ""}`, 3500);
+      addXp(player.scene, need / catchUpMult()); // exact levels, not boosted by catch-up XP
+    });
+  });
+}
 window.achEvent = (on, d = {}) => {
+  eggBonus(on, d);
   if (!meta || !window.ACHIEVEMENTS) return;
   if (window.DEV && window.DEV.on) return; // dev console: no achievements while testing
   const A = meta.achievements || (meta.achievements = { unlocked: {}, life: {} });

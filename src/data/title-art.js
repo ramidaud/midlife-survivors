@@ -4,6 +4,7 @@
 //           and the slow motion grows from that point.
 //   move:   "reveal" starts tight on the subject and pulls back; "push" drifts slowly in toward it
 //   pointer: true only for art with the time clock on the left (Punch In points at it)
+//   wideOnly: true skips the slide on phones and portrait tablets (art that can't be cropped tall).
 //   live:   a folder with a live scene (plate + sprite strips + scene.json, src/live-scene.js). It plays over the still
 //           picture; move "still" turns off the slow push-in so the camera never moves.
 window.TITLE_ART = {
@@ -24,6 +25,8 @@ window.TITLE_ART = {
     { src: "assets/title-screen/slides/05-promoted.jpg",    name: "Promoted",         focus: "50% 56%", focusPortrait: "45% 55%", move: "reveal", pointer: false },
     { src: "assets/title-screen/slides/06-late-night.jpg",  name: "11:58 PM",         focus: "27% 60%", focusPortrait: "24% 62%", move: "still",  pointer: false, art: "Grok",
       live: "assets/title-screen/live/late-night/play/" }, // a live scene (Nov 7): he breathes, blinks and sips; Bill stomps. No camera motion.
+    { src: "assets/title-screen/slides/11-performance-review.jpg", name: "Performance Review", focus: "55% 50%", move: "still", pointer: false, wideOnly: true,
+      live: "assets/title-screen/live/performance-review/play/" }, // Nov 8 (Rami): the boss intro as a title slide, title card baked in. Wide screens only (a phone crop cuts the card).
     { src: "assets/title-screen/slides/04-chase.jpg",       name: "The Long Way",     focus: "50% 58%", focusPortrait: "50% 55%", move: "push",   pointer: false },
     { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", focusPortrait: "50% 62%", move: "reveal", pointer: false }
   ],

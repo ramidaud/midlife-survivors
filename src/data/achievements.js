@@ -14,11 +14,11 @@ window.ACHIEVEMENTS = [
   { id: "showYourWork",  icon: "📐", name: "Show Your Work",            desc: "Beat Math Homework.",                     reward: 4,  on: "kill", test: d => d.kind === "mathWorksheet" },
   { id: "q3Met",         icon: "📈", name: "Exceeds Expectations",      desc: "Beat the Performance Review.",            reward: 5,  on: "bossKill", test: d => d.kind === "performanceReview" },
   { id: "escrowHero",    icon: "🏠", name: "Initial Here",              desc: "Beat the 30-Year Mortgage.",              reward: 6,  on: "bossKill", test: d => d.kind === "mortgageRefinance" },
-  { id: "yellowNote",    icon: "🟨", name: "There Was A Note",          desc: "Unplug the server rack with the yellow note.", reward: 5, on: "yellowNote", test: () => true },
-  { id: "helpYourself",  icon: "🍬", name: "Help Yourself",             desc: "Take a butterscotch from the Executive Wing credenza.", reward: 3, on: "butterscotch", test: () => true },
-  { id: "caughtInterns", icon: "📸", name: "Caught In The Act",         desc: "Catch TJ or Derek when they run off with a delivery.", reward: 3, on: "internCaught", test: () => true },
-  { id: "earlyBird",     icon: "🛒", name: "Early Bird Special",        desc: "Buy something from the Day One cart before it rolls away.", reward: 3, on: "dayOneCart", test: () => true },
-  { id: "closetBadge",   icon: "🪪", name: "Please Don't Tell IT",      desc: "Talk the glitchy badge reader into opening the Supply Closet.", reward: 5, on: "closetBadge", test: () => true },
+  { id: "yellowNote",    icon: "🟨", name: "There Was A Note",          desc: "Unplug the server rack with the yellow note.", reward: 5, on: "yellowNote", test: () => true, egg: true },
+  { id: "helpYourself",  icon: "🍬", name: "Help Yourself",             desc: "Take a butterscotch from the Executive Wing credenza.", reward: 3, on: "butterscotch", test: () => true, egg: true },
+  { id: "caughtInterns", icon: "📸", name: "Caught In The Act",         desc: "Catch TJ or Derek when they run off with a delivery.", reward: 3, on: "internCaught", test: () => true, egg: true },
+  { id: "earlyBird",     icon: "🛒", name: "Early Bird Special",        desc: "Buy something from the Day One cart before it rolls away.", reward: 3, on: "dayOneCart", test: () => true, egg: true },
+  { id: "closetBadge",   icon: "🪪", name: "Please Don't Tell IT",      desc: "Talk the glitchy badge reader into opening the Supply Closet.", reward: 5, on: "closetBadge", test: () => true, egg: true },
   { id: "fiveOClock",    icon: "⌚", name: "Five O'Clock Somewhere",    desc: "Clock out at 5:00 with the Gold Watch ticking.", reward: 12, on: "bossKill", test: d => d.kind === "goldWatch" },
   { id: "keepReceipt",   icon: "🧾", name: "Keep The Receipt",          desc: "Clock out without the Gold Watch landing a hit.", reward: 20, on: "bossKill", test: d => d.kind === "goldWatchClean" },
   { id: "keepTheSedan",  icon: "🚗", name: "Keep The Sedan",            desc: "Beat the Midlife Crisis V8. Unlocks Sprint.",             reward: 8,  on: "bossKill", test: d => d.kind === "midlifeCrisis" },
@@ -48,6 +48,10 @@ window.ACHIEVEMENTS = [
   { id: "fullAudit",     icon: "🏛️", name: "Full Audit",                desc: "Reach retirement in Midlife at Tax Bracket 5.",  reward: 40, on: "clear", test: d => d.mode === "midlife" && d.taxBracket >= 5 },
   { id: "shopRat",       icon: "💼", name: "Maxed The Match",           desc: "Max out Employer Match in the shop.",     reward: 5,  on: "shopMax", test: d => d.id === "compoundInterest" }
 ];
+
+// Easter eggs pay XP too (Nov 8, Rami): the first time you find each one in a run, you get a free level.
+// Achievements with egg: true count. Change levels to give more (or 0 to turn it off).
+window.EGG_BONUS = { levels: 1 };
 
 // What each achievement means for your next run, shown on the Game Over screen (Gemini, Nov 2).
 window.ACH_END_LINES = {

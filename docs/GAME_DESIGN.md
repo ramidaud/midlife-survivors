@@ -628,3 +628,8 @@ The current secret hallway uses the badge-reader glitch between Server Room and 
 
 ## Performance Review intro art (Nov 7, 2026, Codex)
 The four-second introduction uses the original Bullpen day plate, the 9-to-5er at about 35% screen width and the clipboard boss at 60%. Five timed holds show attention, skepticism, a small stomp and a restrained smile. This delivery adds art and a review page, not runtime playback.
+
+
+## Decided Nov 8, 2026 (Rami)
+- **Cut scenes:** no intro before every boss. At most three in a run: one at the start, one in the middle, one at the end. The Performance Review intro lives on as a title screen slide (wide screens only).
+- **Easter eggs pay XP:** the first time each easter egg is found in a run, the player gets a free level (`EGG_BONUS` in `src/data/achievements.js`).

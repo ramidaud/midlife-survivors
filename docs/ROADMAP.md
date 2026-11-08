@@ -15,11 +15,11 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?
 - [ ] Try one Ben-style run: stay close to the crowd, check your level by 55
 - [ ] Play V. 2.10.23: does catch-up XP get you through the 50s?
-- [ ] Cut scene test page: switch off the extra beats you don't want, tell Claude which stay
+- [x] Cut scene beats: the title card stays, on the new title slide (Nov 8)
 
 **Decide**
 - [x] Code ping sound: C, the bubble pop (Nov 8)
-- [ ] Cut scene in the game: other heroes skip it, or order 9 new poses; add a "Cut scenes" switch in Options?
+- [x] Cut scenes: at most three (start, middle, end); Performance Review became a title slide (Nov 8)
 - [x] Memo 13: Darvin's notes (headers in your words, cover color cooled, memo pages redesigned)
 
 **Do**

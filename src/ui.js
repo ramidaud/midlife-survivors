@@ -2876,6 +2876,7 @@ window.TitleSlides = (() => {
   const still = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   function build() {
     const A = window.TITLE_ART; if (!A || !A.slides.length) return null;
+    if (phone() && A.slides.some(sl => sl.wideOnly)) A.slides = A.slides.filter(sl => !sl.wideOnly); // wide-only art stays off tall screens
     const host = document.getElementById("title-modal"); if (!host || !host.parentNode) return null;
     root = document.createElement("div");
     root.id = "title-slides"; root.setAttribute("aria-hidden", "true");

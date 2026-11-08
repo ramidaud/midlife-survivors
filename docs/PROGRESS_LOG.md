@@ -1771,3 +1771,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami's two runs on 2.10.23: the 50s feel good; near 60 still feels insane. His build data showed why: six weapons, three with their passive in place, only Coffee evolved.
 - Level-up cards now say "UNLOCKS AN EVOLUTION" (and glow) when that pick triggers one, or "1 MORE PICK TO EVOLVE" when it's close. The game tests each card on a copy of your stats to find out.
 - Group Chat pings play their own soft message pop (Rami picked C) instead of the phone buzz.
+
+## Nov 8, 2026: easter egg XP, Performance Review title slide (V. 2.10.25)
+- Rami: the evolution badge "def. helps."
+- Easter eggs now give a free level the first time each one is found in a run (yellow note, butterscotch, caught intern, Day One cart, Supply Closet). The amount lives in `EGG_BONUS` in `src/data/achievements.js`.
+- Decided: no cut scene before every boss. At most three in the game (start, middle, end). The Performance Review intro became a live title slide instead, title card baked in, cast moved up so the title panels don't cover it. Laptops and wide tablets only.

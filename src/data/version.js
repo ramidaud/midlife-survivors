@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.24",
-  displayVersion: "V. 2.10.24",
+  version: "2.10.25",
+  displayVersion: "V. 2.10.25",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 282,
+  build: 283,
   changelog: [
+    {
+      ver: "V. 2.10.25", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Secrets pay now.",
+      highlights: [
+        "Finding an easter egg gives you a free level, once per egg each run: the yellow note, June's butterscotch, a caught intern, the Day One cart and the Supply Closet.",
+        "New title screen slide on laptops: the Performance Review steps up, clipboard first, with its own boss card."
+      ]
+    },
     {
       ver: "V. 2.10.24", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Your weapons want to grow up.",
