@@ -4,7 +4,33 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-04 (Discord posts)
+**Last updated:** 2026-11-07 (Rami's to-do list, V. 2.10.22)
+
+---
+
+## Rami's to-do list (kept current by Claude; updated Nov 7)
+Things only Rami can do. Claude adds items as they come up and checks them off when they're done.
+
+**Play and react**
+- [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?
+- [ ] Try one Ben-style run: stay close to the crowd, check your level by 55
+- [ ] Cut scene test page: switch off the extra beats you don't want, tell Claude which stay
+
+**Decide**
+- [ ] Code ping sound: A knock-knock, B desk bell, or C bubble pop (or none of them)
+- [ ] Cut scene in the game: other heroes skip it, or order 9 new poses; add a "Cut scenes" switch in Options?
+- [x] Memo 13: Darvin's notes (headers now in your words, memo pages slimmed, cover color cooled)
+
+**Do**
+- [ ] Add the `build` column in Supabase (one SQL line, or tell Claude "add the column" and approve the prompt)
+- [ ] Optional: a real photo of the school run for a future memo (Darvin's note; you kept the AI cover for 13)
+- [ ] Final read and OK on Memo 13, then publish
+- [ ] Part-Time Job stage: jot down the Apple lore and inside jokes you want in it
+- [ ] Send Kevin the merch zips
+
+**Waiting on others**
+- ChatGPT: redraw the Performance Review frame with the loose shoe (handoff after the beats are picked)
+- Abe: soundtrack noodling, no deadline
 
 ---
 

@@ -4,7 +4,7 @@ I think that's the whole game, honestly. Midlife Survivors is about steering you
 
 <div class="song-embed"><iframe title="My Madness by David Byrne and Ghost Train Orchestra on Apple Music" loading="lazy" allow="autoplay *; encrypted-media *;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" height="175" style="width:100%;max-width:660px;overflow:hidden;border:0;border-radius:10px;background:transparent" src="https://embed.music.apple.com/us/album/my-madness/6804805262?i=6804805735&amp;theme=dark"></iframe></div>
 
-## The school run
+## Every morning, and again on the way home
 
 Every morning I drive my son to school and we listen to music together. We talk. It's one of my favorite parts of the day, and then we do it all again on the way home.
 
@@ -14,7 +14,7 @@ I know a lot of people will find this relatable. Music has been the soundtrack t
 
 So when I said last time that music is one of the most important side characters in this game, I meant it's been one of the most important side characters in my life, and I want the game to feel that way too.
 
-## The unofficial soundtrack
+## Some of these songs are the game
 
 Which brings me to the playlist. There's a [Midlife Survivors playlist on Apple Music](https://music.apple.com/us/playlist/midlife-survivors/pl.u-D8mPuala4BW), and some of these songs *are* the game to me.
 
@@ -50,7 +50,7 @@ If you want the origin story, **Once Around the Block** by Badly Drawn Boy is th
 
 <div class="song-embed"><iframe title="Once Around the Block by Badly Drawn Boy on Apple Music" loading="lazy" allow="autoplay *; encrypted-media *;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" height="175" style="width:100%;max-width:660px;overflow:hidden;border:0;border-radius:10px;background:transparent" src="https://embed.music.apple.com/us/album/once-around-the-block/1540689690?i=1540690085&amp;theme=dark"></iframe></div>
 
-## The honest part
+## I know what I like. I'm just not sure how to get there.
 
 The game has music in it now, and I like where it's at. Ben told me he liked the original tracks better. I'm not sure I've got it dialed in yet. The truth is I know what I like, I'm just not sure how to get there. I want it slightly cacophonous but still joyful and energetic, something that sits under all the sound effects without fighting them.
 

@@ -1737,3 +1737,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Memo 13 cover is in: ChatGPT's school-run scene (seen from the back seat, left-hand drive this time).
 - Each song in Memo 13 now has Apple's own mini player under its paragraph (album art plus a preview), 8 in all. Nothing copied into the repo. Nick Shoulders' song title corrected to "Appreciatecha".
 - Memo 13: the Paradise music video (YouTube, privacy-friendly embed) now sits under the Paradise player.
+
+## Nov 7, 2026 (evening): Darvin's notes on Memo 13
+- Darvin liked the reading bar, the song players, the citations and the people; disliked "The X" headers, the AI sepia cast and too much text around the memo.
+- Headers now use Rami's own lines. Memo pages keep only "What changed", "Next up" and the follow links; everything else stays on the devlog home page.
+- The cover's yellow haze is cooled by hand. Future ChatGPT art asks for neutral color (docs/handoffs/chatgpt-art-notes.md).
+- New: a "Your to-do list" on the roadmap page and in ROADMAP.md.

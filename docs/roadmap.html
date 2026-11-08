@@ -84,19 +84,23 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
   <section class="clock" aria-label="Progress through the phases">
     <div class="bar" id="bar"></div>
     <div class="ages"><span>Sprint</span><span>Fun Pass</span><span>Next up</span><span>Share</span><span>V2+</span><span>Platforms</span><span>Later</span></div>
-    <p class="now-line">You are here: <b>V. 2.1 · the office map is in · stages next</b> <span id="count"></span></p>
+    <p class="now-line">You are here: <b>V. 2.10 · polish, cut scenes and the music memo · stages next</b> <span id="count"></span></p>
   </section>
 
   <section class="next">
     <h2>This week</h2>
     <ol>
-      <li><strong>Shipped Nov 4: V. 2.0, "Version Two."</strong> Loadout art, Full Life bosses and Father Time, Sprint mode, accounts, the GOTCHA! catch, a cleaner devlog, and Memo 10 published to the devlog and Discord.</li>
-      <li><strong>Done: the office map (V. 2.1).</strong> Find the YOU ARE HERE sign by reception; the corner map fills in as you explore. Tap it or press M for the big view. Real art coming from ChatGPT.</li>
-      <li><strong>Next 2: New stages.</strong> St. Deductible Hospital and the home neighborhood, picked from the title screen and unlocked by achievements.</li>
-      <li><strong>Next 3: Phone apps.</strong> iOS and Android with a Capacitor wrapper, before consoles.</li>
-      <li>Memo 11 (Discord) is drafted from your voice answers. Read it at devlog/?drafts=1.</li>
-      <li>Waiting on you: post the V2 socials, play a Sprint run, the student lounge photo, Abdel's music.</li>
+      <li><strong>Shipped Nov 7: V. 2.10.22.</strong> Close Calls leave afterimages, a quieter first minute, the live 11:58 PM title scene, the Supply Closet, and run stats that record your build.</li>
+      <li><strong>Cut scene test:</strong> the Performance Review intro now has 7 extra beats you can switch on and off, and a letterboxed phone view.</li>
+      <li><strong>Memo 13 (music)</strong> is drafted. Darvin's feedback is next: headers, page clutter, and a real photo for the cover.</li>
+      <li><strong>Next:</strong> new stages (St. Deductible Hospital, the home neighborhood) and the Part-Time Job stage.</li>
     </ol>
+  </section>
+
+  <section class="next todo">
+    <h2>Your to-do list</h2>
+    <p class="meta" style="margin-top:0">Things only you can do. Claude adds to this list and checks things off as they get done. Your checkmarks save in this browser.</p>
+    <div id="todo"></div>
   </section>
 
   <section class="phases" id="phases" aria-label="Phases"></section>
@@ -123,7 +127,7 @@ code{font-size:.9em;background:var(--line);padding:1px 5px}
     </div>
   </section>
 
-  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: ramidaud.github.io/midlife-survivors. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Nov 4, 2026 (V. 2.0, game plan).</p>
+  <p class="meta">Weekly check-in: Sundays at 6:54 pm ET. Play it: midlifesurvivors.com. Source of truth: <code>docs/ROADMAP.md</code> in your Midlife Survivors folder; Claude updates this page after each objective. Your own checkmarks here are saved in this browser only. Last updated Nov 7, 2026 (V. 2.10.22, your to-do list).</p>
 </div>
 
 <script>
@@ -145,6 +149,27 @@ const PHASES = [
     ["Diablo and 3D camera views",0],["Social and Resort stages",0]]}
 ];
 const CURRENT = 4;
+// Rami's to-do list (Nov 7). Mirrors "Rami's to-do list" in docs/ROADMAP.md. [label, done]
+const TODO = [
+  ["Play and react", [
+    ["Play V. 2.10.22: do the Close Call afterimages read clearly?",0],
+    ["Try one Ben-style run: stay close to the crowd, check your level by 55",0],
+    ["Cut scene test page: switch off the extra beats you don't want",0]]],
+  ["Decide", [
+    ["Code ping sound: A knock-knock, B desk bell, or C bubble pop",0],
+    ["Cut scene in the game: other heroes skip it, or 9 new poses? Options switch?",0],
+    ["Memo 13: Darvin's notes (headers, page clutter, AI color cast)",0]]],
+  ["Do", [
+    ["Add the build column in Supabase (or tell Claude to, and approve)",0],
+    ["Shoot a real school-run photo for Memo 13's cover",0],
+    ["Final read on Memo 13, then publish",0],
+    ["Part-Time Job stage: jot down the Apple lore and inside jokes",0],
+    ["Send Kevin the merch zips",0]]]
+];
+function renderTodo(){
+  const box=document.getElementById("todo"); let k=0;
+  box.innerHTML = TODO.map(([group,items])=>`<details open><summary><span class="ph-name">${group}</span></summary><ul class="tasks">${items.map(t=>{const id="todo"+(k++); const c = id in saved ? saved[id] : !!t[1]; return `<li><label><input type="checkbox" id="${id}" ${c?"checked":""}><span>${t[0]}</span></label></li>`;}).join("")}</ul></details>`).join("");
+}
 let saved = {};
 try { saved = JSON.parse(localStorage.getItem("ms-checks-v3") || "{}"); } catch(e) {}
 function save(){ try { localStorage.setItem("ms-checks-v3", JSON.stringify(saved)); } catch(e) {} }
@@ -176,4 +201,6 @@ root.addEventListener("change", e=>{
   }
 });
 render();
+renderTodo();
+document.getElementById("todo").addEventListener("change", e=>{ if(e.target.matches("input[type=checkbox]")){ saved[e.target.id]=e.target.checked; save(); } });
 </script>

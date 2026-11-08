@@ -13,7 +13,7 @@ window.DEVLOG_POSTS = [
     "leadNote": "**Made with ChatGPT** (image generation), from a prompt Claude wrote and I directed: the morning school run, me and Abe in the car with the music on, drawn in the game's pixel style. [Read the full prompt](art/prompts/13-key-art-chatgpt.txt).",
     "leadAlt": "Pixel art from the back seat: a bald, bearded dad in a yellow Kent State cap drives his son to school down a leafy fall street, both laughing as music notes float off the phone on the dash.",
     "blurb": "Why music matters to me, the school run with Abe, the songs that are the game, and an open ask for help with the soundtrack.",
-    "teaser": "The school run, the unofficial soundtrack, and an honest ask about the game's music.",
+    "teaser": "Driving Abe to school, the songs that are the game, and an ask for help with its music.",
     "changes": [
       "Close Calls leave afterimages and explain themselves the first time",
       "A quieter first minute for new players",
