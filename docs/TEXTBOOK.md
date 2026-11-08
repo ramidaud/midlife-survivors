@@ -1853,3 +1853,30 @@ Bill (straight)          3 AM Thought (weave)
 - Both arrive at the same time. Only the path is different.
 - Sideways speed comes from a sine wave: `sideways = cos(time) × weavePx × swing speed`.
 - Rule of thumb: if two enemies look alike when they're tiny, make them move differently.
+
+## Chapter: Rubber banding (catch-up XP, Nov 8, 2026)
+
+Racing games give the car in last place a quiet speed boost so the race stays close. Midlife Survivors does the same with XP.
+
+```
+level
+ 24 |                                   . . typical level (real runs)
+ 20 |                         . .
+ 17 |                  . .            o   <- you at 59, level 15
+ 12 |          . .           o   o
+  9 |     . .        o   o            gap = 5 levels -> gems worth +50%
+  1 |. .
+    +---------------------------------- age
+     40  43  45      50      55      60
+```
+
+| How far behind | Extra XP per gem |
+|---|---|
+| 0 to 1 levels | none |
+| 2 levels | +12% |
+| 3 levels | +24% |
+| 4 levels | +36% |
+| 5 levels | +48% |
+| 6+ levels | +60% (the cap) |
+
+The numbers live in `LEVELING.catchUp` in `src/data/pickups.js`.
