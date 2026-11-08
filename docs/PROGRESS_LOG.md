@@ -1744,3 +1744,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The cover's yellow haze is cooled by hand. Future ChatGPT art asks for neutral color (docs/handoffs/chatgpt-art-notes.md).
 - New: a "Your to-do list" on the roadmap page and in ROADMAP.md.
 - Rami preferred the full side column, so it's back. On computers, each side card now sits dim and lights up on mouse-over (phones and tablets show it normally).
+
+## Nov 7, 2026 (night): memo page redesign, every memo
+- Headline now sits once, on the key art, which runs across both columns with a slow drift and a navy fade. No more repeated title strip.
+- The memo and the side column start on the same line, below the art, with room under the nav.
+- Reading type: shorter lines (62 characters), 19px text, a bigger first paragraph, section headers with an orange bar.
+- Song players and videos sit centered in their own darker card with a small LISTEN or WATCH label.
+- The Spotify playlist link is in Memo 13 and the side playlist card. Share pages got the same hero.

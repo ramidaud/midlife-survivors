@@ -931,3 +931,106 @@ article.post .prose .dropcap {
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) {
   .post-side .side-card { transition: none; }
 }
+
+/* ===== Memo page redesign (Nov 7, Rami + Darvin's notes) ===== */
+/* 1. The hero: key art across both columns, headline on the art. */
+.memo-top { max-width: 1180px; margin: 0 auto; padding: 28px 16px 0; }
+.memo-hero {
+  position: relative; overflow: hidden; border-radius: 10px;
+  border: 3px solid var(--navy); box-shadow: 0 0 0 2px var(--teal);
+  background: var(--navy); aspect-ratio: 2 / 1; isolation: isolate;
+}
+.memo-hero.no-art { aspect-ratio: auto; min-height: 220px; }
+.mh-art, .mh-art .lead-loop { position: absolute; inset: 0; }
+.mh-art img, .mh-art video {
+  width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 45%);
+  display: block; image-rendering: pixelated; transform-origin: var(--focus, 50% 45%);
+  animation: mh-drift 28s ease-in-out infinite alternate;
+}
+@keyframes mh-drift { from { transform: scale(1.02); } to { transform: scale(1.09) translate(-1%, -1%); } }
+/* Scrim: a navy fade from the bottom so the headline always reads, plus faint scanlines for the pixel look. */
+.memo-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(23,28,53,.96) 0%, rgba(23,28,53,.78) 22%, rgba(23,28,53,.25) 48%, rgba(23,28,53,0) 64%),
+    repeating-linear-gradient(to bottom, rgba(23,28,53,.10) 0 1px, transparent 1px 4px);
+}
+.mh-text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 0 40px 30px; max-width: 900px; }
+.mh-stamp {
+  display: inline-block; background: var(--cream); color: var(--navy);
+  font: 12px/1 var(--display); padding: 7px 10px 6px; border-left: 4px solid var(--orange); margin-bottom: 14px;
+  animation: mh-in .5s ease-out both;
+}
+.memo-hero h1 {
+  font-family: var(--body); font-weight: 700; margin: 0 0 14px; color: var(--warm-white);
+  font-size: clamp(32px, 4.4vw, 56px); line-height: 1.06; letter-spacing: -.01em; text-wrap: balance;
+  text-shadow: 3px 3px 0 var(--navy), 0 2px 24px rgba(0,0,0,.55);
+  animation: mh-in .7s .08s ease-out both;
+}
+.memo-hero .post-meta { margin: 0; color: var(--cream); animation: mh-in .7s .16s ease-out both; }
+@keyframes mh-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.mh-under { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-start; justify-content: space-between; margin: 12px 0 0; }
+.mh-cap { margin: 0; flex: 1 1 420px; font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 72ch; }
+.mh-under .cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (prefers-reduced-motion: reduce) {
+  .mh-art img, .mh-art video, .mh-stamp, .memo-hero h1, .memo-hero .post-meta { animation: none; }
+}
+/* Phones: the art keeps its own shape and the headline sits just under it, so faces stay visible. */
+@media (max-width: 719px) {
+  .memo-hero { aspect-ratio: auto; overflow: visible; border-radius: 8px; }
+  .mh-art { position: relative; inset: auto; aspect-ratio: 3 / 2; overflow: hidden; border-radius: 6px 6px 0 0; }
+  .memo-hero::before { display: none; }
+  .mh-text { position: relative; padding: 0 16px 18px; }
+  .mh-stamp { margin-top: -14px; position: relative; }
+  .memo-hero h1 { font-size: clamp(28px, 8vw, 36px); text-shadow: none; }
+}
+
+/* 2. The two columns start at the same line, with room to breathe below the hero. */
+#post-view .wrap.post-grid { padding-top: 32px; }
+#post-view #post-main > article.post:first-child { margin-top: 0; }
+
+/* 3. Reading type: shorter lines, bigger text, clear section breaks. */
+article.post { padding: 40px 48px 36px; }
+article.post .prose { font-size: 19px; line-height: 1.75; }
+article.post .prose > p, article.post .prose > ul, article.post .prose > ol,
+article.post .prose > blockquote, article.post .prose > h2, article.post .prose > h3 { max-width: 62ch; }
+article.post .prose > p:first-of-type { font-size: 22px; line-height: 1.6; color: var(--warm-white); }
+article.post .prose p { margin: 0 0 1.25em; }
+article.post .prose h2 {
+  font-size: 30px; line-height: 1.2; letter-spacing: -.01em; color: var(--warm-white);
+  margin: 64px 0 18px; text-wrap: balance;
+}
+article.post .prose h2::before {
+  content: ""; display: block; width: 56px; height: 5px; background: var(--orange); margin-bottom: 18px;
+}
+article.post .prose h3 { font-size: 22px; color: var(--cream); margin: 40px 0 10px; }
+article.post .prose strong { color: var(--cream); }
+article.post .prose li { margin: 6px 0; }
+article.post .prose .sn-ref { opacity: .7; }
+article.post .prose .sn-ref:hover, article.post .prose .sn-ref[aria-expanded="true"] { opacity: 1; }
+@media (max-width: 719px) {
+  article.post { padding: 26px 18px 24px; }
+  article.post .prose { font-size: 18px; line-height: 1.7; }
+  article.post .prose > p:first-of-type { font-size: 20px; }
+  article.post .prose h2 { font-size: 25px; margin-top: 48px; }
+}
+
+/* 4. Media cards (Nov 7, Rami): song players and videos sit centered in a small card of their own,
+   a shade darker than the memo, with a tiny label. Any .song-embed or .video-embed gets this. */
+article.post .prose .song-embed, article.post .prose .video-embed {
+  position: relative; box-sizing: border-box; max-width: 640px; margin: 30px auto 38px; padding: 34px 14px 14px;
+  background: rgba(10, 13, 28, .55); border: 1px solid var(--line); border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255,240,207,.04), 0 10px 28px rgba(0,0,0,.28);
+  aspect-ratio: auto; overflow: visible;
+}
+article.post .prose .song-embed::before, article.post .prose .video-embed::before {
+  position: absolute; top: 11px; left: 14px; font: 10px/1 var(--display); letter-spacing: .06em; color: var(--sage);
+}
+article.post .prose .song-embed::before { content: "♪ LISTEN"; }
+article.post .prose .video-embed::before { content: "▶ WATCH"; }
+article.post .prose .song-embed iframe { display: block; width: 100%; height: 175px; border-radius: 8px; }
+article.post .prose .video-embed iframe { position: static; display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; }
+@media (max-width: 719px) {
+  article.post .prose .song-embed, article.post .prose .video-embed { margin: 24px -6px 30px; padding: 30px 10px 10px; }
+}
+.mh-under + article.post { margin-top: 28px; }

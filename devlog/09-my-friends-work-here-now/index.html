@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=7">
-<link rel="stylesheet" href="../styles.css?v=40">
+<link rel="stylesheet" href="../styles.css?v=42">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -40,16 +40,19 @@
   <script src="../../assets/ui/ms-nav.js?v=5"></script>
   <div class="wrap">
     <a class="back" href="../">← All memos</a>
-    <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>My friends work here now.</strong></div>
-    <div class="post-header">
-      <h1>My friends work here now.</h1>
-      <div class="post-meta">
-        <time datetime="2026-11-03">Nov 03, 2026</time>
-        <span class="pill">V. 1.48 to 1.67</span>
+    <header class="memo-hero" style="--focus:50% 45%">
+      <div class="mh-art"><div class="lead-loop"><video src="../img/09-cowboy-spotlight.mp4" poster="../img/09-cowboy-spotlight.jpg" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="A Spotlight card in the game: a spotlight opens, the band wipes in, the Coldwar Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, &quot;Back in my day, a gig was a gig. Now hand me that disk.&quot;" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div></div><script>(function(v){if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();v.nextElementSibling.textContent='▶';v.nextElementSibling.setAttribute('aria-label','Play animation');}})(document.currentScript.previousElementSibling.querySelector('video'))</script>
+      <div class="mh-text">
+        <div class="mh-stamp">MEMO 09 · RE:</div>
+        <h1>My friends work here now.</h1>
+        <div class="post-meta">
+          <time datetime="2026-11-03">Nov 03, 2026</time>
+          <span class="pill">V. 1.48 to 1.67</span>
+        </div>
       </div>
-    </div>
-    <figure class="post-lead"><div class="lead-loop"><video src="../img/09-cowboy-spotlight.mp4" poster="../img/09-cowboy-spotlight.jpg" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="A Spotlight card in the game: a spotlight opens, the band wipes in, the Coldwar Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, &quot;Back in my day, a gig was a gig. Now hand me that disk.&quot;" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div><figcaption>A Spotlight card in the game: a spotlight opens, the band wipes in, the Coldwar Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, &quot;Back in my day, a gig was a gig. Now hand me that disk.&quot;</figcaption></figure><script>(function(v){if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();v.nextElementSibling.textContent='▶';v.nextElementSibling.setAttribute('aria-label','Play animation');}})(document.currentScript.previousElementSibling.querySelector('video'))</script>
-    <div class="post-cta">
+    </header>
+    <div class="mh-under">
+      <p class="mh-cap">A Spotlight card in the game: a spotlight opens, the band wipes in, the Coldwar Cowboy hops up and lands in a puff of dust, his name drops in letter by letter, and he says, &quot;Back in my day, a gig was a gig. Now hand me that disk.&quot;</p>
       <div class="cta-row"><a class="btn btn-primary" href="https://midlifesurvivors.com/">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="09-my-friends-work-here-now" data-url="https://midlifesurvivors.com/devlog/09-my-friends-work-here-now/" data-title="My friends work here now." data-text="Midlife Survivors devlog: My friends work here now.">↗ <span class="share-label">Share</span></button></div>
     </div>
     <article class="post"><div class="prose"><p><span class="dropcap" aria-hidden="true">M</span><span class="sr-only">M</span>y friends work here now.</p>

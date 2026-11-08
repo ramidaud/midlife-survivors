@@ -363,35 +363,38 @@
     const leadNote = post.leadNote
       ? `<button class="sn-ref sn-art" type="button" aria-expanded="false" aria-controls="sn-lead" aria-label="How this image was made">ART</button><span class="sn" id="sn-lead" role="note"><span class="sn-head"><b>ART</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">${window.marked ? marked.parseInline(post.leadNote) : esc(post.leadNote)}</span></span>`
       : "";
-    // Every memo opens with a strong visual: a looping gameplay clip if there is one, otherwise the cover.
-    const leadSrc = post.leadVideo || post.cover || "";
-    const lead = post.leadVideo
-      ? `<figure class="post-lead"><div class="lead-loop"><video src="${esc(post.leadVideo)}" poster="${esc(post.cover || "")}" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="${esc(post.leadAlt || post.title)}" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div>${post.leadAlt ? `<figcaption>${esc(post.leadAlt)}</figcaption>` : ""}</figure>`
-      : (post.cover ? `<figure class="post-lead"><img src="${esc(post.cover)}" alt="${esc(post.leadAlt || post.title)}">${post.leadAlt || post.leadNote ? `<figcaption>${esc(post.leadAlt || "")}${leadNote}</figcaption>` : ""}</figure>` : "");
+    // Memo hero (Nov 7, Rami + Darvin): the headline sits on the key art, across both columns, so it isn't
+    // repeated in a strip and again below. The art slowly drifts (off with reduced motion).
+    const media = post.leadVideo
+      ? `<div class="lead-loop"><video src="${esc(post.leadVideo)}" poster="${esc(post.cover || "")}" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="${esc(post.leadAlt || post.title)}" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div>`
+      : (post.cover ? `<img src="${esc(post.cover)}" alt="${esc(post.leadAlt || post.title)}">` : "");
     const nextUp = post.nextUp
       ? `<div class="next-up"><strong>Next up</strong>${esc(post.nextUp)}</div>`
       : "";
 
-    postMain.innerHTML = `
+    const shareBtn = label => `<button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://midlifesurvivors.com/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">${label}</span></button>`;
+    const postTop = document.getElementById("post-top");
+    if (postTop) postTop.innerHTML = `
       <a class="back" href="${draftOnly}">← All memos</a>
-      <div class="memo-strip">
-        <span class="re">MEMO · RE:</span>
-        <strong>${esc(post.title)}</strong>
-      </div>
-      <div class="post-header">
-        <h1>${esc(post.title)}</h1>
-        <div class="post-meta">
-          <span class="memo-num">MEMO ${two(memoNo(post))} <i>of ${two(posts.length)}</i></span>
-          <time class="stamp" data-slug="${esc(post.slug)}" datetime="${esc(post.date)}">${fmt(post.date)}</time>
-          ${!next ? `<span class="pill new">LATEST</span>` : ""}
-          ${post.version ? `<span class="pill">${esc(post.version)}</span>` : ""}
-          ${post.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+      <header class="memo-hero${media ? "" : " no-art"}" style="--focus:${esc(post.leadFocus || "50% 45%")}">
+        ${media ? `<div class="mh-art">${media}</div>` : ""}
+        <div class="mh-text">
+          <div class="mh-stamp">MEMO ${two(memoNo(post))} · RE:</div>
+          <h1>${esc(post.title)}</h1>
+          <div class="post-meta">
+            <time class="stamp" data-slug="${esc(post.slug)}" datetime="${esc(post.date)}">${fmt(post.date)}</time>
+            ${!next ? `<span class="pill new">LATEST</span>` : ""}
+            ${post.version ? `<span class="pill">${esc(post.version)}</span>` : ""}
+            ${post.draft ? `<span class="pill draft">DRAFT</span>` : ""}
+          </div>
         </div>
-      </div>
-      ${lead}
-      <div class="post-cta">
-        <div class="cta-row"><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://midlifesurvivors.com/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">Share</span></button></div>
-      </div>
+      </header>
+      <div class="mh-under">
+        <p class="mh-cap">${esc(post.leadAlt || "")}${leadNote}</p>
+        <div class="cta-row"><a class="btn btn-primary" href="${esc(play)}">▶ Play this build</a>${shareBtn("Share")}</div>
+      </div>`;
+
+    postMain.innerHTML = `
       <article class="post">
         <div class="prose">${html}</div>
         <div class="signoff">
@@ -402,11 +405,11 @@
       </article>
       ${sequel(post, prev, next)}`;
     // Lead clips play like a GIF; respect reduced motion by starting paused.
-    const lv = postMain.querySelector(".lead-loop video");
+    const lv = document.querySelector("#post-top .lead-loop video");
     if (lv && matchMedia("(prefers-reduced-motion: reduce)").matches) { lv.removeAttribute("autoplay"); lv.pause(); lv.nextElementSibling.textContent = "▶"; lv.nextElementSibling.setAttribute("aria-label", "Play animation"); }
     // Respect "reduce motion": clips stay paused until the reader presses play.
     if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.querySelectorAll(".post-lead video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
+      document.querySelectorAll(".memo-hero video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
     postMain.querySelectorAll(".ba-tabs").forEach(box => {
       const chips = [...box.querySelectorAll(".bt-chip")], panels = [...box.querySelectorAll(".ba-post")];
@@ -431,10 +434,10 @@
     renderSeries(post.slug);
     renderStats();
     if (window.DevlogHome) { window.DevlogHome.stampPosts(); window.DevlogHome.postBuilds(post.slug); }
-    if (window.initSidenotes) initSidenotes(postMain);
+    if (window.initSidenotes) { initSidenotes(postMain); if (postTop) initSidenotes(postTop); }
     if (window.initCodeCards) initCodeCards(postMain);
     if (window.initAudioCards) initAudioCards(postMain);
-    if (window.msShareLinks) msShareLinks(postMain);
+    if (window.msShareLinks) { msShareLinks(postMain); if (postTop) msShareLinks(postTop); }
     const facts = document.getElementById("post-facts");
     if (facts) { facts.innerHTML = changes + nextUp; facts.hidden = !(changes || nextUp); }
     window.scrollTo(0, 0);

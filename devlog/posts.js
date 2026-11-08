@@ -21,7 +21,7 @@ window.DEVLOG_POSTS = [
       "Supply Closet art and the Performance Review cut scene (on the test page)",
       "Run stats now record your build"
     ],
-    "nextUp": "How I write these memos. Also, a Spotify version of the playlist.",
+    "nextUp": "How I write these memos.",
     "playUrl": "https://midlifesurvivors.com/"
   },
   {

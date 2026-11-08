@@ -125,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=7">
-<link rel="stylesheet" href="../styles.css?v=40">
+<link rel="stylesheet" href="../styles.css?v=42">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -142,16 +142,19 @@ PAGE = """<!doctype html>
   <script src="../../assets/ui/ms-nav.js?v=5"></script>
   <div class="wrap">
     <a class="back" href="../">← All memos</a>
-    <div class="memo-strip"><span class="re">MEMO · RE:</span> <strong>{title}</strong></div>
-    <div class="post-header">
-      <h1>{title}</h1>
-      <div class="post-meta">
-        <time datetime="{date}">{date_fmt}</time>
-        {version_pill}{draft_pill}
+    <header class="memo-hero{hero_class}" style="--focus:{focus}">
+      {lead}
+      <div class="mh-text">
+        <div class="mh-stamp">MEMO {memo_no} · RE:</div>
+        <h1>{title}</h1>
+        <div class="post-meta">
+          <time datetime="{date}">{date_fmt}</time>
+          {version_pill}{draft_pill}
+        </div>
       </div>
-    </div>
-    {lead}
-    <div class="post-cta">
+    </header>
+    <div class="mh-under">
+      <p class="mh-cap">{caption}</p>
       <div class="cta-row"><a class="btn btn-primary" href="{play}">▶ Play this build</a><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="{slug}" data-url="{share_url}" data-title="{title}" data-text="{share_text}">↗ <span class="share-label">Share</span></button></div>
     </div>
     <article class="post"><div class="prose">{body}</div>
@@ -251,12 +254,13 @@ def main():
         if p.get("leadNote"):
             note_html = md_to_html(p["leadNote"]).strip()
             note_html = re.sub(r"^<p>|</p>$", "", note_html).replace('href="art/', 'href="../art/')
-        cap = (f"<figcaption>{alt}" + (f'<br><span class="lead-note"><b>How this image was made:</b> {note_html}</span>' if note_html else "") + "</figcaption>") if (p.get("leadAlt") or note_html) else ""
+        caption = (f"{alt}" + (f'<br><span class="lead-note"><b>How this image was made:</b> {note_html}</span>' if note_html else "")) if (p.get("leadAlt") or note_html) else ""
+        cap = ""
         if p.get("leadVideo"):
-            lead = (f"""<figure class="post-lead"><div class="lead-loop"><video src="../{html.escape(p["leadVideo"])}" poster="../{html.escape(p.get("cover", ""))}" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="{alt}" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div>{cap}</figure>"""
+            lead = (f"""<div class="mh-art"><div class="lead-loop"><video src="../{html.escape(p["leadVideo"])}" poster="../{html.escape(p.get("cover", ""))}" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto" aria-label="{alt}" onclick="this.paused?this.play():this.pause()" onplay="var b=this.nextElementSibling;b.textContent='❚❚';b.setAttribute('aria-label','Pause animation')" onpause="var b=this.nextElementSibling;b.textContent='▶';b.setAttribute('aria-label','Play animation')"></video><button class="loop-btn" type="button" aria-label="Pause animation" onclick="var v=this.previousElementSibling;v.paused?v.play():v.pause()">❚❚</button></div></div>"""
                     + "<script>(function(v){if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();v.nextElementSibling.textContent='▶';v.nextElementSibling.setAttribute('aria-label','Play animation');}})(document.currentScript.previousElementSibling.querySelector('video'))</script>")
         elif p.get("cover"):
-            lead = f'<figure class="post-lead"><img src="../{html.escape(p["cover"])}" alt="{alt}">{cap}</figure>'
+            lead = f'<div class="mh-art"><img src="../{html.escape(p["cover"])}" alt="{alt}"></div>'
         else:
             lead = ""
         draft_pill = '<span class="pill draft">DRAFT</span>' if p.get("draft") else ""
@@ -264,6 +268,10 @@ def main():
         out_dir = root / slug
         out_dir.mkdir(exist_ok=True)
         page = PAGE.format(
+            hero_class="" if lead else " no-art",
+            focus=html.escape(p.get("leadFocus") or "50% 45%"),
+            memo_no=html.escape(slug[:2]),
+            caption=caption,
             title=html.escape(title),
             description=html.escape(desc),
             og_image=html.escape(og_image),

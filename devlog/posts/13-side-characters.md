@@ -58,4 +58,4 @@ The game has music in it now, and I like where it's at. Ben told me he liked the
 
 And Abe is going to make some tracks. No big assignment, because I don't want to turn the thing he loves into homework. He'll noodle on the keyboard, record whatever he likes, and we'll pick together. If it works, there may be an Abdel playlist in the game one day.
 
-Go listen to [the playlist on Apple Music](https://music.apple.com/us/playlist/midlife-survivors/pl.u-D8mPuala4BW). A Spotify version is coming.
+Go listen to the playlist on [Apple Music](https://music.apple.com/us/playlist/midlife-survivors/pl.u-D8mPuala4BW) or [Spotify](https://open.spotify.com/playlist/3RxJRS3SftPBcHrjGzrNhl).
