@@ -8,7 +8,7 @@ window.DEVLOG_POSTS = [
     "date": "2026-11-07",
     "title": "Music is one of the most important side characters.",
     "version": "V. 2.10.6 to 2.10.22",
-    "draft": true,
+    "draft": false,
     "cover": "img/13-key-art.jpg",
     "leadNote": "**Made with ChatGPT** (image generation), from a prompt Claude wrote and I directed: the morning school run, me and Abe in the car with the music on, drawn in the game's pixel style. [Read the full prompt](art/prompts/13-key-art-chatgpt.txt).",
     "leadAlt": "Pixel art from the back seat: a bald, bearded dad in a yellow Kent State cap drives his son to school down a leafy fall street, both laughing as music notes float off the phone on the dash.",

@@ -24,7 +24,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **Do**
 - [ ] Add the `build` column in Supabase (one SQL line, or tell Claude "add the column" and approve the prompt)
 - [ ] Optional: a real photo of the school run for a future memo (Darvin's note; you kept the AI cover for 13)
-- [ ] Final read and OK on Memo 13, then publish
+- [x] Final read and OK on Memo 13, then publish (published Nov 7)
 - [ ] Part-Time Job stage: jot down the Apple lore and inside jokes you want in it
 - [ ] Send Kevin the merch zips
 
