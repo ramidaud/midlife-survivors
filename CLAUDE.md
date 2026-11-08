@@ -66,6 +66,8 @@ assets/                 art and sound (later)
 - **Discord (Nov 4, Rami's OK):** GitHub Actions posts changelog, memos and stats to Discord through webhooks stored as GitHub secrets. It only reads repo files, and it commits what it posted to `.github/discord-state.json`, so pull before pushing.
 - Published devlog posts also reach the Substack "Midlife Survivors Devlog" section through the RSS feed (a weekly Sunday task drafts them). Keep `feed.xml` full-text.
 - **Rami's words first (Nov 3).** Each post is built from a **voice memo** (a transcript Rami sends) plus a short **interview**: Claude asks 4-5 questions, Rami answers in rough lines. Keep his sentences and his stories; Claude organizes, fixes facts and fills in the build details. Never write posts to evade AI detectors. Posts are openly AI-assisted, and Substack carries a "How I make this" statement.
+- **Headers (Nov 7, Rami's OK, from Darvin's note):** section headers come from Rami's own lines (a phrase he actually said) or are left out. No "The X" label headers.
+- **AI art color (Nov 7, Rami's OK):** every ChatGPT or other AI image request asks for neutral white balance, with no sepia, golden haze or film-look tint.
 
 ## One look (Nov 3, Rami's OK)
 The game and the devlog are one product.
