@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.25",
-  displayVersion: "V. 2.10.25",
+  version: "2.10.26",
+  displayVersion: "V. 2.10.26",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 283,
+  build: 284,
   changelog: [
+    {
+      ver: "V. 2.10.26", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "The title screen shuffles now.",
+      highlights: [ "Title screen slides play in a random order after the first one, so every visit looks a little different." ]
+    },
     {
       ver: "V. 2.10.25", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Secrets pay now.",

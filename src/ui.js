@@ -2954,7 +2954,15 @@ window.TitleSlides = (() => {
       requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.remove("instant"); dropPre(); }));
     } else show(idx);
     const A = window.TITLE_ART;
-    if (A.slides.length > 1) timer = setInterval(() => { idx = (idx + 1) % A.slides.length; show(idx); }, A.holdMs + A.fadeMs);
+    // Random order (Nov 8, Rami): the first slide stays put (index.html pre-paints it so the screen is never blank),
+    // then the rest play shuffled, reshuffled every time through, never the same slide twice in a row.
+    const shuffled = except => { const o = A.slides.map((_, i) => i).filter(i => i !== except); for (let i = o.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [o[i], o[j]] = [o[j], o[i]]; } return o; };
+    let order = A.shuffle === false ? null : shuffled(idx);
+    if (A.slides.length > 1) timer = setInterval(() => {
+      if (!order) idx = (idx + 1) % A.slides.length;
+      else { if (!order.length) { order = shuffled(idx); order.push(idx); } idx = order.shift(); }
+      show(idx);
+    }, A.holdMs + A.fadeMs);
   }
   function stop() {
     dropPre();

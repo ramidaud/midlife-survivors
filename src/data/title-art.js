@@ -11,6 +11,7 @@ window.TITLE_ART = {
   holdMs: 9000,   // how long each slide stays up
   fadeMs: 2400,   // crossfade length
   zoom: 1.08,     // how far the motion travels (1 = none). Small and slow reads smoothest
+  shuffle: true,  // Nov 8 (Rami): after the first slide, play the rest in a random order (false = the order below)
   // V2 key art (ChatGPT, Nov 3): each scene has a desktop version and a separately drawn portrait version for phones,
   // composed so the cast sits where the title screen's UI leaves room (docs/handoffs/chatgpt-key-art-v2.md).
   //   srcPortrait / focusPortrait: used on phones and portrait tablets. focusTablet: the crop on portrait tablets (700 px+ wide),

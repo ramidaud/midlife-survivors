@@ -1776,3 +1776,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami: the evolution badge "def. helps."
 - Easter eggs now give a free level the first time each one is found in a run (yellow note, butterscotch, caught intern, Day One cart, Supply Closet). The amount lives in `EGG_BONUS` in `src/data/achievements.js`.
 - Decided: no cut scene before every boss. At most three in the game (start, middle, end). The Performance Review intro became a live title slide instead, title card baked in, cast moved up so the title panels don't cover it. Laptops and wide tablets only.
+- Title screen slides now play in random order after the Group Photo opener (reshuffled each time through, no repeats back to back). `shuffle: false` in `src/data/title-art.js` restores the fixed order. (V. 2.10.26)
