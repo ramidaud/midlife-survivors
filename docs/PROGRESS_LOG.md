@@ -1777,3 +1777,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Easter eggs now give a free level the first time each one is found in a run (yellow note, butterscotch, caught intern, Day One cart, Supply Closet). The amount lives in `EGG_BONUS` in `src/data/achievements.js`.
 - Decided: no cut scene before every boss. At most three in the game (start, middle, end). The Performance Review intro became a live title slide instead, title card baked in, cast moved up so the title panels don't cover it. Laptops and wide tablets only.
 - Title screen slides now play in random order after the Group Photo opener (reshuffled each time through, no repeats back to back). `shuffle: false` in `src/data/title-art.js` restores the fixed order. (V. 2.10.26)
+
+## Nov 8, 2026: the office map, fixed (V. 2.10.27)
+- Rami: the map felt broken, and the "finding the map" moment was gone. Both true: finding it was once-per-save, and the map drew as a blurry gray blob.
+- Now you grab the YOU ARE HERE sign every run. The map is drawn like an evacuation map: whole rooms reveal as you enter, cream walls, furniture blocks, room names, dashed outlines for rooms you haven't found, locked rooms marked with their age.
+- The corner map is about 40% bigger (desktop and phone), with a tag underneath naming the room you're in.

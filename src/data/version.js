@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.26",
-  displayVersion: "V. 2.10.26",
+  version: "2.10.27",
+  displayVersion: "V. 2.10.27",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 284,
+  build: 285,
   changelog: [
+    {
+      ver: "V. 2.10.27", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Grab the map on your way in.",
+      highlights: [
+        "The office map is back to being found: every run starts without it. Grab the YOU ARE HERE sign by reception on your way in.",
+        "The map looks like a real evacuation map now: crisp rooms, cream walls, desks, room names, and dashed outlines for rooms you haven't found (locked ones show the age they open).",
+        "The corner map is bigger on every screen, with a tag underneath showing which room you're in."
+      ]
+    },
     {
       ver: "V. 2.10.26", date: "Nov 8, 2026", title: "Version Two",
       teaser: "The title screen shuffles now.",

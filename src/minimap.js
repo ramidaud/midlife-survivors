@@ -7,10 +7,11 @@
 window.MINIMAP = {
   poster: { x: 190, y: -440 },  // the evacuation map stand, in the Lobby near where you start
   findRadius: 70,                // walk this close to pick it up
-  revealRadius: 520,             // how far you "see" for the map while exploring (world px)
-  cell: 128,                     // fog grid size (world px)
-  miniWorldWidth: 2200,          // how much of the office the small map shows across
-  colors: { floor: "#526078", floorDim: "#303750", wall: "#171C35", you: "#FFF0CF", doorOpen: "#83A89A", doorLocked: "#C45C4B",
+  revealRadius: 640,             // how far you "see" for the map while exploring (world px). Walking into a room reveals all of it.
+  cell: 128,                     // (old fog grid size; the map now reveals whole floor pieces)
+  miniWorldWidth: 2600,          // how much of the office the small map shows across
+  perRun: true,                  // Nov 8 (Rami): find the map again every run (false = find it once, keep it forever)
+  colors: { floor: "#5E6F92", floorDim: "#303750", unknown: "#3E4A66", wall: "#171C35", you: "#FFF0CF", doorOpen: "#83A89A", doorLocked: "#C45C4B",
     chest: "#EF9347", lounge: "#F2D7A1", intern: "#83A89A", boss: "#C45C4B", frame: "#3E7775", bg: "#171C35" }
 };
 
@@ -18,7 +19,8 @@ window.Minimap = (() => {
   const C = MINIMAP.colors;
   let base = null, baseScale = 0, fog = null, fogCtx = null, cols = 0, rows = 0, B = null;
   let poster = null, posterScene = null, nextReveal = 0, nextDraw = 0, bigOpen = false, el = null, big = null, lastAngle = -Math.PI / 2;
-  const has = () => !!(typeof meta !== "undefined" && meta && meta.mapFound);
+  let runFound = false; // found in this run (MINIMAP.perRun)
+  const has = () => MINIMAP.perRun ? runFound : !!(typeof meta !== "undefined" && meta && meta.mapFound);
   // ChatGPT's art (Nov 4): 9-slice frame, expand/close buttons, 12 px markers, and the YOU ARE HERE sign
   const ART = { frame: "assets/ui/minimap-frame-v1.png", buttons: "assets/ui/minimap-buttons-v1.png", icons: "assets/ui/minimap-icons-v1.png", sign: "assets/stage/props/evac-map-v1.png" };
   const ICON = { you: 0, doorOpen: 1, doorLocked: 2, chest: 3, lounge: 4, intern: 5, boss: 6, map: 7 };
@@ -44,18 +46,46 @@ window.Minimap = (() => {
     }
     cols = Math.ceil(B.width / MINIMAP.cell); rows = Math.ceil(B.height / MINIMAP.cell);
     fog = document.createElement("canvas"); fog.width = cols; fog.height = rows; fogCtx = fog.getContext("2d", { willReadFrequently: true });
+    // Nov 8 redesign: the map reveals whole floor pieces and rooms, drawn crisp like an evacuation map.
+    floors = (lay.floors || []).map((f, i) => ({ i, x: f.x, y: f.y, w: f.width, h: f.height, d: f.district }));
+    rooms = (lay.districts || []).map(d => {
+      const xs = d.polygon.map(p => p[0]), ys = d.polygon.map(p => p[1]);
+      const ph = ((lay.promotions && lay.promotions.phases) || []).find(p => (p.areas || []).includes(d.id));
+      return { id: d.id, name: d.name.replace(/ and .*/, ""), poly: d.polygon, cx: (Math.min(...xs) + Math.max(...xs)) / 2, cy: (Math.min(...ys) + Math.max(...ys)) / 2, age: ph ? ph.age : 40 };
+    });
+    walls = (lay.walls || []).map(w => ({ x: w.x, y: w.y, w: w.width, h: w.height }));
+    furn = (lay.placements || []).map(pl => { const sp = (lay.assetSpecs || {})[pl.prop], fp = sp && sp.footprint; if (!fp || !fp.width) return null;
+      const h = Math.max(24, (fp.back || 0) + (fp.front || 0)); return { x: pl.x - fp.width / 2, y: pl.y - (fp.back || h / 2), w: fp.width, h }; }).filter(Boolean);
     return true;
   }
+  let floors = [], rooms = [], walls = [], furn = [], seenFloor = new Set(), seenRoom = new Set(), seenWalls = [];
+  const inPoly = (x, y, poly) => { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; };
+  const roomAt = (x, y) => rooms.find(r => inPoly(x, y, r.poly));
+  function refreshWalls() { // walls that touch anything you've seen
+    const seen = floors.filter(f => seenFloor.has(f.i)), m = 40;
+    seenWalls = walls.filter(w => seen.some(f => w.x < f.x + f.w + m && w.x + w.w > f.x - m && w.y < f.y + f.h + m && w.y + w.h > f.y - m));
+  }
   function exploredBox() {
+    if (seenFloor.size) { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const f of floors) if (seenFloor.has(f.i)) { x0 = Math.min(x0, f.x); y0 = Math.min(y0, f.y); x1 = Math.max(x1, f.x + f.w); y1 = Math.max(y1, f.y + f.h); } return { x0, y0, x1, y1 }; }
     if (!fogCtx) return null;
     const d = fogCtx.getImageData(0, 0, cols, rows).data; let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
     for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) if (d[(y * cols + x) * 4 + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
     if (x1 < 0) return null; const g = MINIMAP.cell;
     return { x0: B.x + x0 * g, y0: B.y + y0 * g, x1: B.x + (x1 + 1) * g, y1: B.y + (y1 + 1) * g };
   }
-  function resetFog() { if (fogCtx) fogCtx.clearRect(0, 0, cols, rows); }
+  function resetFog() { if (fogCtx) fogCtx.clearRect(0, 0, cols, rows); seenFloor = new Set(); seenRoom = new Set(); seenWalls = []; }
   function reveal(x, y) {
     if (!fogCtx) return;
+    const R = MINIMAP.revealRadius, room = roomAt(x, y); let added = false;
+    if (room && !seenRoom.has(room.id)) { seenRoom.add(room.id); added = true; }
+    for (const f of floors) {
+      if (seenFloor.has(f.i)) continue;
+      const dx = Math.max(f.x - x, 0, x - (f.x + f.w)), dy = Math.max(f.y - y, 0, y - (f.y + f.h));
+      const fr = f.d && rooms.find(r => r.id === f.d), locked = fr && fr.age > (typeof currentAge !== "undefined" ? currentAge : 40);
+      // nearby floor shows up, but not through a locked door: those rooms stay a dashed outline until they open
+      if ((room && f.d === room.id) || (!locked && Math.hypot(dx, dy) < R)) { seenFloor.add(f.i); if (f.d) seenRoom.add(f.d); added = true; }
+    }
+    if (added) refreshWalls();
     const g = MINIMAP.cell, r = MINIMAP.revealRadius / g, cx = (x - B.x) / g, cy = (y - B.y) / g;
     fogCtx.fillStyle = "#fff"; fogCtx.beginPath(); fogCtx.arc(cx, cy, r, 0, Math.PI * 2); fogCtx.fill();
   }
@@ -85,13 +115,14 @@ window.Minimap = (() => {
   }
   function removePoster() { if (poster) { if (poster.blink) poster.blink.remove(); if (poster.label) poster.label.destroy(); poster.destroy(); } poster = null; }
   function find(scene) {
-    meta.mapFound = true; if (typeof saveMeta === "function") saveMeta(meta);
+    const firstEver = !meta.mapFound;
+    runFound = true; meta.mapFound = true; if (typeof saveMeta === "function") saveMeta(meta);
     if (poster && window.burstConfetti) burstConfetti(scene, poster.x, poster.y - 60, 0xf2d7a1, 12);
     removePoster();
     if (window.flashBanner) flashBanner("MAP", "FOUND THE OFFICE MAP", "reward");
-    if (window.showLowerThird) showLowerThird("promo", "MAP", "You found the office map. It fills in as you explore. Tap it, or press M, to see the whole floor.", 6000);
+    if (window.showLowerThird) showLowerThird("promo", "MAP", firstEver ? "You found the office map. It fills in as you explore. Tap it, or press M, to see the whole floor." : "Grabbed the office map. Tap it, or press M, for the whole floor.", firstEver ? 6000 : 3000);
     if (typeof sfx === "function") sfx("levelUp", 0);
-    if (window.Telemetry && Telemetry.event) Telemetry.event("map-found");
+    if (firstEver && window.Telemetry && Telemetry.event) Telemetry.event("map-found");
     mountMini(); nextDraw = 0;
   }
 
@@ -100,15 +131,17 @@ window.Minimap = (() => {
     if (document.getElementById("minimap-css")) return;
     const st = document.createElement("style"); st.id = "minimap-css";
     st.textContent = `
-#minimap{position:fixed;right:10px;top:calc(var(--ms-nav-h,0px) + 66px);z-index:24;width:164px;height:124px;box-sizing:border-box;border:16px solid transparent;border-image:url(${ART.frame}) 16 fill / 16px stretch;image-rendering:pixelated;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.45));cursor:pointer;touch-action:manipulation}
-#minimap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:auto}
+#minimap{position:fixed;right:10px;top:calc(var(--ms-nav-h,0px) + 66px);z-index:24;width:232px;height:184px;box-sizing:border-box;border:16px solid transparent;border-image:url(${ART.frame}) 16 fill / 16px stretch;image-rendering:pixelated;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.45));cursor:pointer;touch-action:manipulation}
+#minimap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:pixelated}
+#minimap .mm-room{position:absolute;left:50%;bottom:-27px;transform:translateX(-50%);white-space:nowrap;font:11px/1 Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#F2D7A1;border:2px solid #171C35;border-left:5px solid #EF9347;padding:4px 8px 3px;box-shadow:2px 2px 0 rgba(0,0,0,.45);pointer-events:none}
+#minimap.mm-min .mm-room{display:none}
 #minimap .mm-btn{position:absolute;top:-14px;width:24px;height:24px;border:0;padding:0;cursor:pointer;background:url(${ART.buttons}) 0 0/48px 24px no-repeat;image-rendering:pixelated;z-index:2}
 #minimap .mm-big{right:14px}
 #minimap .mm-hide{right:-12px;background-position:-24px 0}
 #minimap.mm-min{width:64px;height:40px}
 #minimap.mm-min canvas,#minimap.mm-min .mm-btn{display:none}
 #minimap.hidden{display:none}
-@media (max-width:760px),(orientation:portrait){#minimap{width:124px;height:96px;top:calc(var(--ms-nav-h,0px) + 58px);right:6px;border-width:12px;border-image-width:12px}#minimap .mm-btn{top:-11px}#minimap .mm-hide{right:-9px}#minimap .mm-big{right:13px}}
+@media (max-width:760px),(orientation:portrait){#minimap{width:172px;height:136px;top:calc(var(--ms-nav-h,0px) + 58px);right:6px;border-width:12px;border-image-width:12px}#minimap .mm-room{font-size:10px;bottom:-24px;padding:3px 6px 2px}#minimap .mm-btn{top:-11px}#minimap .mm-hide{right:-9px}#minimap .mm-big{right:13px}}
 #minimap-modal{position:fixed;inset:0;z-index:60;background:rgba(10,12,24,.88);display:flex;align-items:center;justify-content:center;padding:14px}
 #minimap-modal.hidden{display:none}
 #minimap-modal .mmb{position:relative;width:min(960px,96vw);max-height:92vh;background:${C.bg};border:2px solid ${C.frame};border-radius:8px;padding:12px;box-shadow:6px 6px 0 rgba(0,0,0,.5);display:flex;flex-direction:column;gap:8px}
@@ -124,7 +157,7 @@ window.Minimap = (() => {
     css();
     if (!el) {
       el = document.createElement("div"); el.id = "minimap"; el.setAttribute("role", "button"); el.setAttribute("aria-label", "Office map. Tap to open the whole floor.");
-      el.innerHTML = `<canvas width="288" height="208"></canvas><button type="button" class="mm-btn mm-big" aria-label="Open the whole map"></button><button type="button" class="mm-btn mm-hide" aria-label="Hide the map"></button>`;
+      el.innerHTML = `<canvas width="400" height="304"></canvas><div class="mm-room" aria-hidden="true">LOBBY</div><button type="button" class="mm-btn mm-big" aria-label="Open the whole map"></button><button type="button" class="mm-btn mm-hide" aria-label="Hide the map"></button>`;
       document.body.appendChild(el);
       el.addEventListener("pointerdown", e => {
         e.stopPropagation(); e.preventDefault();
@@ -157,16 +190,33 @@ window.Minimap = (() => {
     }
     else { vw = worldW; vh = worldW * H / W; vx = cx - vw / 2; vy = cy - vh / 2; }
     const s = W / vw, X = x => (x - vx) * s, Y = y => (y - vy) * s;
-    // the explored part of the floor plan: draw the plan, then keep only what the fog grid says you've seen
-    const tmp = draw.tmp || (draw.tmp = document.createElement("canvas")); tmp.width = W; tmp.height = H;
-    const t = tmp.getContext("2d");
-    t.imageSmoothingEnabled = true;
-    t.drawImage(base, (vx - B.x) * baseScale, (vy - B.y) * baseScale, vw * baseScale, vh * baseScale, 0, 0, W, H);
-    t.globalCompositeOperation = "destination-in";
-    t.drawImage(fog, (vx - B.x) / MINIMAP.cell, (vy - B.y) / MINIMAP.cell, vw / MINIMAP.cell, vh / MINIMAP.cell, 0, 0, W, H);
-    t.globalCompositeOperation = "source-over";
-    ctx.drawImage(tmp, 0, 0);
-    const seen = (x, y) => { const d = fogCtx.getImageData(Math.floor((x - B.x) / MINIMAP.cell), Math.floor((y - B.y) / MINIMAP.cell), 1, 1).data; return d[3] > 40; };
+    // Nov 8 redesign (Rami: "too simple, reads very small"): an evacuation-map look, crisp, with rooms you
+    // haven't found yet as faint dashed outlines (a lock and the age if they open later).
+    ctx.imageSmoothingEnabled = false;
+    const R = v => Math.round(v);
+    const age = typeof currentAge !== "undefined" ? currentAge : 40;
+    for (const r of rooms) {
+      if (seenRoom.has(r.id)) continue;
+      ctx.beginPath(); r.poly.forEach(([x, y], i) => i ? ctx.lineTo(R(X(x)), R(Y(y))) : ctx.moveTo(R(X(x)), R(Y(y)))); ctx.closePath();
+      ctx.fillStyle = "rgba(62,74,102,.28)"; ctx.fill();
+      ctx.setLineDash([4 * (whole ? 2 : 1), 4 * (whole ? 2 : 1)]); ctx.strokeStyle = C.unknown; ctx.lineWidth = whole ? 2 : 1.5; ctx.stroke(); ctx.setLineDash([]);
+      const locked = r.age > age;
+      ctx.font = `${whole ? 15 : 11}px Silkscreen, monospace`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillStyle = locked ? "rgba(196,92,75,.85)" : "rgba(242,215,161,.6)";
+      ctx.fillText(locked ? `AGE ${r.age}` : "?", R(X(r.cx)), R(Y(r.cy)));
+    }
+    ctx.fillStyle = C.floor;
+    for (const f of floors) if (seenFloor.has(f.i)) ctx.fillRect(R(X(f.x)), R(Y(f.y)), Math.max(1, R(f.w * s)), Math.max(1, R(f.h * s)));
+    const inSeen = (x, y) => floors.some(f => seenFloor.has(f.i) && x >= f.x && x <= f.x + f.w && y >= f.y && y <= f.y + f.h);
+    ctx.fillStyle = "#47567A"; // desks, couches and cabinets, like the furniture blocks on a real evacuation map
+    for (const o of furn) if (inSeen(o.x + o.w / 2, o.y + o.h / 2)) ctx.fillRect(R(X(o.x)), R(Y(o.y)), Math.max(2, R(o.w * s)), Math.max(2, R(o.h * s)));
+    const wt = whole ? 3 : 2.5; ctx.fillStyle = "#E8DCC0"; // walls in cream line art, so the rooms read at a glance
+    for (const w of seenWalls) ctx.fillRect(R(X(w.x)), R(Y(w.y)), Math.max(wt, R(w.w * s)), Math.max(wt, R(w.h * s)));
+    if (whole) { // names of the rooms you've found
+      ctx.font = "15px Silkscreen, monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      for (const r of rooms) if (seenRoom.has(r.id)) { const t = r.name.toUpperCase(), tw = ctx.measureText(t).width; ctx.fillStyle = "rgba(23,28,53,.75)"; ctx.fillRect(R(X(r.cx) - tw / 2 - 6), R(Y(r.cy) - 11), R(tw + 12), 22); ctx.fillStyle = "#F2D7A1"; ctx.fillText(t, R(X(r.cx)), R(Y(r.cy)) + 1); }
+    }
+    const seen = (x, y) => floors.some(f => seenFloor.has(f.i) && x >= f.x - 80 && x <= f.x + f.w + 80 && y >= f.y - 80 && y <= f.y + f.h + 80);
     const icon = (i, x, y, size) => { ctx.imageSmoothingEnabled = false; const s2 = Math.round(size); ctx.drawImage(icons, i * 12, 0, 12, 12, Math.round(X(x) - s2 / 2), Math.round(Y(y) - s2 / 2), s2, s2); };
     const isz = whole ? 26 : 22; // 12 px art at about 2x on the canvas
     const dot = (x, y, r, col, ic) => { if (iconsOk && ic !== undefined) return icon(ic, x, y, isz); ctx.fillStyle = "#171C35"; ctx.beginPath(); ctx.arc(X(x), Y(y), r + 1.5, 0, 7); ctx.fill(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(x), Y(y), r, 0, 7); ctx.fill(); };
@@ -176,7 +226,7 @@ window.Minimap = (() => {
       const gx = g.x + (g.width || 128) / 2, gy = g.y + (g.height || 224) / 2; if (!seen(gx, gy)) continue;
       if (iconsOk) icon(g.opened ? ICON.doorOpen : ICON.doorLocked, gx, gy, isz);
       else { ctx.fillStyle = "#171C35"; ctx.fillRect(X(gx) - 4 * k, Y(gy) - 4 * k, 8 * k, 8 * k); ctx.fillStyle = g.opened ? C.doorOpen : C.doorLocked; ctx.fillRect(X(gx) - 3 * k, Y(gy) - 3 * k, 6 * k, 6 * k); }
-      if (whole && !g.opened) { ctx.font = "bold 11px Silkscreen, monospace"; ctx.fillStyle = "#F2D7A1"; ctx.textAlign = "center"; ctx.fillText("AGE " + g.age, X(gx), Y(gy) - 10); }
+      if (whole && !g.opened) { ctx.font = "13px Silkscreen, monospace"; ctx.fillStyle = "#F2D7A1"; ctx.textAlign = "center"; ctx.fillText("AGE " + g.age, X(gx), Y(gy) - 16); }
     }
     if (window.Lounge && Lounge.spot && Lounge.isOpen && Lounge.isOpen()) { const p = Lounge.spot(); if (p && seen(p.x, p.y)) dot(p.x, p.y, 3.5 * k, C.lounge, ICON.lounge); }
     if (typeof chests !== "undefined" && chests && chests.getChildren) chests.getChildren().forEach(o => { if (o.active) dot(o.x, o.y, 3 * k, C.chest, ICON.chest); });
@@ -227,6 +277,7 @@ window.Minimap = (() => {
 
   // ---------- run hooks ----------
   function reset() {
+    if (MINIMAP.perRun) runFound = false;
     closeBig(); removePoster(); posterScene = null; nextReveal = 0; nextDraw = 0;
     if (!base) buildBase(); resetFog();
   }
@@ -242,7 +293,14 @@ window.Minimap = (() => {
     if (now >= nextReveal) { nextReveal = now + 200; reveal(player.x, player.y); } // exploring counts even before you find the map
     if (!has()) return;
     if (!el) mountMini();
-    if (now >= nextDraw) { nextDraw = now + 120; syncMini(); if (!el.classList.contains("mm-min") && !el.classList.contains("hidden")) draw(el.querySelector("canvas"), player.x, player.y, MINIMAP.miniWorldWidth, false); }
+    if (now >= nextDraw) {
+      nextDraw = now + 120; syncMini();
+      if (!el.classList.contains("mm-min") && !el.classList.contains("hidden")) {
+        draw(el.querySelector("canvas"), player.x, player.y, MINIMAP.miniWorldWidth, false);
+        const r = roomAt(player.x, player.y), tab = el.querySelector(".mm-room"), name = r ? r.name.toUpperCase() : "HALLWAY";
+        if (tab && tab.textContent !== name) tab.textContent = name;
+      }
+    }
   }
   // M opens and closes the big map; Escape closes it. A controller's B closes it too (checked in update).
   window.addEventListener("keydown", e => {

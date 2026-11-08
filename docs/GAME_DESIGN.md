@@ -633,3 +633,4 @@ The four-second introduction uses the original Bullpen day plate, the 9-to-5er a
 ## Decided Nov 8, 2026 (Rami)
 - **Cut scenes:** no intro before every boss. At most three in a run: one at the start, one in the middle, one at the end. The Performance Review intro lives on as a title screen slide (wide screens only).
 - **Easter eggs pay XP:** the first time each easter egg is found in a run, the player gets a free level (`EGG_BONUS` in `src/data/achievements.js`).
+- **Office map (Nov 8, Rami):** found again every run (the YOU ARE HERE sign by reception), not once forever. Drawn as an evacuation map: rooms you've found in full, rooms you haven't as dashed outlines, locked rooms with their opening age. `MINIMAP.perRun` in `src/minimap.js`.
