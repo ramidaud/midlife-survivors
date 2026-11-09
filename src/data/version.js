@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.15.3",
-  displayVersion: "V. 2.15.3",
+  version: "2.15.4",
+  displayVersion: "V. 2.15.4",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 301,
+  build: 302,
   changelog: [
+    {
+      ver: "V. 2.15.4", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The grandkids got dressed up.",
+      highlights: [
+        "The Grandkids' Visit has real grandkids now: a girl in a pink rain jacket and gold boots, a boy in a lavender hoodie with a paper airplane, and a little one in sage overalls with a tiny backpack.",
+        "They run in four directions with their own walk cycles, and keep the pink ring and heart so you can spot them in a crowd."
+      ]
+    },
     {
       ver: "V. 2.15.3", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Your New Boss hits back now.",

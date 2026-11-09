@@ -167,10 +167,15 @@ window.OvertimeBeats = (() => {
 
   // ---- Grandkids' Visit: "The grandkids stopped by the office. They want to play tag. You're it." ----
   const KID_TINTS = [0xffd6e0, 0xe6dcff, 0xd9f2e6, 0xfff0cf, 0xd6ecff];
+  // ChatGPT's grandkid sheets (Nov 9): 56x60 cells, rows down/up/left/right, 8 frames each, drawn at 70% of TJ's height.
+  const KID_SHEETS = ["grandkid-1-v1.png", "grandkid-2-v1.png", "grandkid-3-v1.png"];
+  let kidsAsked = false;
+  function preloadKids(scene) { if (window.ArtSheets) KID_SHEETS.forEach((f, i) => ArtSheets.load(scene, "grandkid_" + (i + 1), "assets/characters/" + f, 56, 60)); }
   function startGrandkids(scene, id) {
     const C = B()[id] || {}, base = C.like ? (B()[C.like] || {}) : {}, cfg = Object.assign({}, base, C);
     grid = buildGrid(scene); if (!grid) return false;
     if (window.Interns && Interns.preload) try { Interns.preload(scene); } catch (e) {}
+    preloadKids(scene);
     cur = { id, cfg, kind: "kids", kids: [], tagged: 0, until: runElapsedMs + (cfg.leadMs || 1200) + (cfg.windowSec || 20) * 1000, spawnAt: runElapsedMs + (cfg.leadMs || 1200), spawned: false, objs: [] };
     ui();
     if (window.showLowerThird) showLowerThird("promo", "GRANDKIDS", cfg.intro || `The grandkids stopped by. Tag all ${cfg.kids || 3} before they get bored.`, 5000);
@@ -190,11 +195,13 @@ window.OvertimeBeats = (() => {
     return pickSpot(grid, player, c.keepMinPx || 260, c.keepMaxPx || 420, null) || { x: player.x, y: player.y };
   }
   function spawnKids(scene) {
-    const c = cur.cfg, n = c.kids || 3, sheets = ["intern2_tj", "intern2_derek"].filter(k => scene.textures.exists(k));
+    const c = cur.cfg, n = c.kids || 3, real = ["grandkid_1", "grandkid_2", "grandkid_3"].filter(k => scene.textures.exists(k));
+    const sheets = real.length ? real : ["intern2_tj", "intern2_derek"].filter(k => scene.textures.exists(k)); // tinted interns until the kids load
     for (let i = 0; i < n; i++) {
       const spot = pickSpot(grid, player, 380, 560, null); if (!spot) continue;
       const key = sheets.length ? sheets[i % sheets.length] : null;
-      const o = key ? scene.physics.add.sprite(spot.x, spot.y, key, 0).setOrigin(0.5, 56 / 60).setScale(c.kidScale || 0.62).setTint(KID_TINTS[i % KID_TINTS.length])
+      const o = key && real.length ? scene.physics.add.sprite(spot.x, spot.y, key, 0).setOrigin(0.5, 56 / 60)
+              : key ? scene.physics.add.sprite(spot.x, spot.y, key, 0).setOrigin(0.5, 56 / 60).setScale(c.kidScale || 0.62).setTint(KID_TINTS[i % KID_TINTS.length])
                     : scene.physics.add.sprite(spot.x, spot.y, "__WHITE").setDisplaySize(16, 24).setTint(KID_TINTS[i % KID_TINTS.length]);
       o.setDepth(4.6); if (key) o.body.setSize(16, 12).setOffset(20, 44);
       if (window.propGroup) o.propCollider = scene.physics.add.collider(o, window.propGroup);
@@ -281,6 +288,7 @@ window.OvertimeBeats = (() => {
     const S = B();
     if (!S.on || typeof player === "undefined" || !player || !player.active) return;
     if (!playing()) { hideUI(); return; }
+    if (!kidsAsked && typeof currentAge !== "undefined" && currentAge >= 60) { kidsAsked = true; preloadKids(scene); } // load the grandkid art well before 66
     if (cur) {
       const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused);
       if (busy) return;

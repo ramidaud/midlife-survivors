@@ -1892,3 +1892,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Your New Boss: 40 to 64 HP, 4.6 s to 3.8 s between dash chains.
 - Boss defeats: the New Boss, Holiday Party and Reorg now fall in their own crash pose with a last line and their own stamp (MEETING ADJOURNED, PARTY'S OVER, POSITION ELIMINATED). The New Boss spills energy drinks, his phone and lanyard.
 - Weapons now pop Group Chat pings: coffee splashes, Dad Joke, "No." and any hit within 40 px of a ping ("LEFT ON READ"). Tested on laptop and phone.
+
+## 2026-11-09 (12:15 PM): V2.15.4, real grandkids
+- ChatGPT's three grandkid sheets are in (pink rain jacket, lavender hoodie with paper airplane, sage overalls). Same 56x60 layout as the interns, shown at native size, no tint. The art loads at 60 so it's ready by 66.
+- Pink ring, glow and heart stay. The 5-kid repeat at 72.5 cycles the three kids. Tested on laptop and phone: all three tagged, score and chest land.
