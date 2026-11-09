@@ -230,6 +230,7 @@ window.Minimap = (() => {
     }
     if (window.Lounge && Lounge.spot && Lounge.isOpen && Lounge.isOpen()) { const p = Lounge.spot(); if (p && seen(p.x, p.y)) dot(p.x, p.y, 3.5 * k, C.lounge, ICON.lounge); }
     if (typeof chests !== "undefined" && chests && chests.getChildren) chests.getChildren().forEach(o => { if (o.active) dot(o.x, o.y, 3 * k, C.chest, ICON.chest); });
+    const em = window.Errands && Errands.mark && Errands.mark(); if (em) dot(em.x, em.y, 4.5 * k, "#EF9347", ICON.map); // the TO-DO errand, always shown
     const it = window.Interns && Interns.active && Interns.active(); if (it && it.o && it.o.active) dot(it.o.x, it.o.y, 3 * k, C.intern, ICON.intern);
     if (typeof bills !== "undefined" && bills && bills.getChildren) bills.getChildren().forEach(b => { if (b.active && b.isBoss && !b.clockOut) dot(b.x, b.y, 4 * k, C.boss, ICON.boss); });
     // you: an arrow pointing the way you're walking

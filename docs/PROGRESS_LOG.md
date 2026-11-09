@@ -1787,3 +1787,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Big week: V. 2.10.20 to 2.10.27 (live title scenes, Supply Closet, Close Call visuals, catch-up XP, evolution hints, easter egg XP, the office map rebuilt), Memo 13 published with the first full social kit, and the memo page redesign.
 - Last 7 days (Rami's runs left out): 453 runs from 81 players, half on phones. Average death age 50; 39% reach 50, 17% reach 60, 5% reach 65. Bills and Late Fees are still the top killers (162 of the deaths).
 - Next up, per the Fun Pass order: Errands.
+
+## Nov 8, 2026: the first Errand (V. 2.11.0)
+- Fun Pass #11 is in: about a minute into a run, a TO-DO card gives one errand (pick up your printing, grab a snack, update the roadmap whiteboard, water the fruit tree, refill your water bottle).
+- A bobbing clipboard marks the spot, an orange arrow at the screen edge points the way, it shows on the map, and a cream chip counts down 45 seconds. Get there for coins, HP or a free level. Missing it costs nothing.
+- Rami writes the errands and jokes in `src/data/errands.js`.

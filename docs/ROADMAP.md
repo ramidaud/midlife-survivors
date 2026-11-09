@@ -52,7 +52,7 @@ One objective per session. Build it, publish it, Rami plays it, then move on.
 9. [x] **Enemy variety:** 3 AM Thought (ghosts in and out), Calendar Invite (straight-line charge), Group Chat (ranged pings), Math Homework (shrinking spiral), plus 3 new swarms (V. 1.17.0)
 10. [x] **More weapons:** TV Remote (boomerang), Spreadsheet (orbit), Podcast at 2x (piercing line), each with level-ups and an evolution (V. 1.18.0)
 - [x] **Scores + leaderboard:** score at Game Over, name entry (no accounts), top-10 board on Game Over and the title screen (V. 1.19.0). Online via Supabase once Rami connects it; on-device until then.
-11. [ ] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third
+11. [x] **First twist: Errands:** a To-Do List marks spots on the map, shown in the lower third (first errand live Nov 8, V. 2.11.0; more errands after Rami plays it)
 12. [ ] **Art direction + bigger world:** Rami's mood board, then a larger, detailed pixel-art office full of funny details, and restyled sprites and UI (including the lower third)
 
 ---

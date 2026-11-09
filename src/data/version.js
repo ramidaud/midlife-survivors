@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.10.27",
-  displayVersion: "V. 2.10.27",
+  version: "2.11.0",
+  displayVersion: "V. 2.11.0",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 285,
+  build: 286,
   changelog: [
+    {
+      ver: "V. 2.11.0", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "You have one errand.",
+      highlights: [
+        "New: Errands. About a minute in, a TO-DO card gives you one errand, like picking up your printing before someone reads it. Follow the orange arrow (and the marker on your map), get there before the timer runs out, and you get a reward. Miss it and nothing bad happens."
+      ]
+    },
     {
       ver: "V. 2.10.27", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Grab the map on your way in.",

@@ -319,6 +319,7 @@ function create() {
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   if (window.Promotions) Promotions.reset();
   if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
+  if (window.Errands) Errands.reset();     // errands: one TO-DO per run (src/errands.js)
   runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; window.runCoinsTapered = 0; window.lastPaycheck = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
@@ -2655,6 +2656,7 @@ function update(time, delta) {
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
   if (window.Minimap) Minimap.update(this, now);         // find the office map, then it fills in as you explore
+  if (window.Errands) Errands.update(this);              // the TO-DO errand (src/errands.js)
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers

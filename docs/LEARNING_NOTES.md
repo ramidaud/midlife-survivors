@@ -645,3 +645,6 @@ In a survivors game, the swarm is also your XP. Players who stay close to the cr
 
 ## Rubber banding (Nov 8, 2026)
 Racing games quietly speed up the cars in last place so the race stays close. That's called rubber banding. Our catch-up XP is the same idea: if you're behind the level most players have at your age, gems are worth a little more until you catch up. Good players never notice it, and careful players stop hitting a wall in their 50s. The trick is keeping it gentle (a cap of +60%) so it helps without playing the game for you.
+
+## Objectives pull players around the map (Nov 8, 2026)
+In a survivors game, the safest move is to circle the edges forever. A small objective (an errand) gives the player a reason to cross the room, which makes them meet the swarm, pick up XP, and actually see the office you built. Good objectives are optional, short, and point the way clearly (marker, map dot, edge arrow), so they feel like a dare rather than a chore.
