@@ -675,3 +675,6 @@ A game keeps its flying things in groups: your coffee splashes in one bag, enemy
 
 ## Rewards that feel like rewards (Nov 9, Errand payoff)
 A reward only lands if you can feel it in the next few seconds. Coins go into a number you don't watch, so the errand felt flat. The fix stacks three things you notice right away: something you see (a shockwave that empties the room), something you feel (15 s of hitting harder) and something that shows up on the bar (bonus XP). A small timer chip tells you the good part is still on, so you play differently while it lasts.
+
+## Exponential curves run away (Nov 9, Performance Bonus)
+Each level needs 35% more XP than the last. That feels great early (levels pop fast) and terrible late: level 25 needs about 1,300 times what level 2 did, so the upgrades simply stop. Games fix this with a second, steady drip that doesn't care about the curve. Here it's a timer: go 75 seconds without a level-up and you get a free pick anyway. The curve still decides your level, and the timer makes sure the fun keeps coming.

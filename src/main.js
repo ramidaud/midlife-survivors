@@ -327,7 +327,7 @@ function create() {
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
   if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
-  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); if (window.Reorg) Reorg.reset(); if (window.Workload) Workload.reset(); if (window.OvertimeBeats) OvertimeBeats.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
+  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); if (window.Reorg) Reorg.reset(); if (window.Workload) Workload.reset(); if (window.PerfBonus) PerfBonus.reset(); if (window.OvertimeBeats) OvertimeBeats.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
@@ -2739,6 +2739,7 @@ function update(time, delta) {
   if (window.Minimap) Minimap.update(this, now);         // find the office map, then it fills in as you explore
   if (window.Workload) Workload.update(this);            // Overtime Workload past 65 (src/workload.js)
   if (window.OvertimeBeats) OvertimeBeats.update(this);  // Overtime events like Open Enrollment (src/overtime-beats.js)
+  if (window.PerfBonus) PerfBonus.update(this);          // free picks when late-game XP dries up (src/perf-bonus.js)
   if (window.Errands) Errands.update(this);              // the TO-DO errand (src/errands.js)
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions

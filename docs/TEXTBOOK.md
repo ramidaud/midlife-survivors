@@ -1932,3 +1932,22 @@ Collision is always the same question: which two groups should care when they to
 | 1 errand per run | Up to 3, two minutes apart, no repeats |
 
 A reward feels good when it changes the next 15 seconds of play, not just a total.
+
+
+## Exponential curves run away (Nov 9, Performance Bonus)
+
+```
+ XP needed per level (×1.35 each time)
+ L2   ▏8
+ L10  ▎~120
+ L15  █▌~600
+ L20  ███████ ~2,700
+ L25  ██████████████████████████████ ~12,000   ← your upgrades stop here
+```
+
+| Drip | What it follows | Late game |
+|---|---|---|
+| Level-ups | the XP curve (runs away) | one every few minutes |
+| **Performance Bonus** | a clock: 75 s with no level-up (35-75 s with Workload) | about one a minute |
+
+When one system slows down on purpose, a steady second drip keeps the choices coming.

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.15.5",
-  displayVersion: "V. 2.15.5",
+  version: "2.16.0",
+  displayVersion: "V. 2.16.0",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 303,
+  build: 304,
   changelog: [
+    {
+      ver: "V. 2.16.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Employee of the Month.",
+      highlights: [
+        "Late in a run, levels take forever, so your upgrades used to dry up right when you were strongest. Now, after 55, if 75 seconds go by with no level-up, the company hands you a free pick: a Performance Bonus, a Spot Bonus, Employee of the Month...",
+        "In Overtime, every Workload pip makes the next bonus come 10 seconds sooner (never faster than every 35 seconds). Crush it, get more perks."
+      ]
+    },
     {
       ver: "V. 2.15.5", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Errands pay off now.",

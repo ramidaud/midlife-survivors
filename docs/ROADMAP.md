@@ -23,7 +23,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)
 - [x] Errand payoff: shockwave, bonus XP on every errand, 15 s CHECKED OFF buff, up to 3 errands per run (V2.15.5)
-- [ ] Late-game XP: bonus perk picks when XP stalls and you're overpowered
+- [x] Late-game XP: Performance Bonus pick every 75 s without a level-up after 55, faster with Workload (V2.16.0)
 - [ ] Polish: coffee table behind Derek, phone vibration sound (bass-drum feel), controller screenshot button
 - [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
 - [ ] Then: Clean Out Your Desk at 68.5 (keepsake icon prompt is with ChatGPT)

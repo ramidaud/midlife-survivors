@@ -79,5 +79,8 @@ window.LEVELING = {
     startBehind: 2,     // no boost until you're 2+ levels behind
     perLevel: 0.12,     // then +12% XP for each level behind past that
     max: 0.6            // never more than +60%
-  }
+  },
+  // Performance Bonus (Nov 9, Rami's playtest, src/perf-bonus.js): past fromAge, go droughtSec seconds without a
+  // level-up and you get a free pick anyway. Each Overtime Workload level cuts the wait by perWorkloadSec (never under minSec).
+  performanceBonus: { on: true, fromAge: 55, droughtSec: 75, perWorkloadSec: 10, minSec: 35, maxPerRun: 30 }
 };

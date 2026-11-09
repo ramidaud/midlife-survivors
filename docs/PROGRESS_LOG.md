@@ -1901,3 +1901,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Answer to Rami's question: only 1 of 5 errands gave XP before (the roadmap one). Now every errand also gives bonus XP (half a level), a shockwave that clears regular enemies within 320 px, and 15 s of CHECKED OFF (+50% damage, +50% gem XP) with a timer chip. Numbers live in src/data/errands.js.
 - Up to 3 errands per run (was 1), 2 minutes apart, no repeats. Tested on laptop and phone: 9 and 15 enemies cleared, buff on, second errand arrives after the gap.
 - ChatGPT's keepsake icons for Clean Out Your Desk saved at native 32 px (assets/ui/keepsakes-v1.png).
+
+## 2026-11-09 (12:45 PM): V2.16.0, Performance Bonus (late-game picks)
+- Rami's note: XP slows so much late that the upgrades stop, and "when you're this overpowered, you get more perks."
+- New src/perf-bonus.js: after 55, 75 s with no level-up hands you a free card pick with a bonus title (Performance Bonus, Spot Bonus, Employee of the Month...). Each Overtime Workload pip cuts the wait by 10 s, never under 35 s. Doesn't change your level number. Numbers in src/data/pickups.js (LEVELING.performanceBonus).
+- A resumed save or a time jump restarts the clock, so it can't fire instantly. Tested on laptop and phone: fires once, menu opens, no stacking.
