@@ -651,3 +651,7 @@ Six Home house fronts use192x224 cells with porch edge y216. Home enemies use48x
 
 ### Cowboy cosmetic draft, 2026-11-09 (Codex)
 The fourth proposed retro-rendered skin preserves the Cowboy v4 identity and56x60 grid, y56 soles and floppy-dust idle. Art only; gameplay and shop integration remain unchanged.
+
+### Maple Hollow step 1 (Nov 9)
+- The Home stage is selectable from the title screen settings (LOCATION) once your best age is 55. Same modes, bosses and Overtime events as the office for now; the office crowd follows you home until the home enemies land (step 4).
+- Office-only systems stay in the office: promotions and doors, the office map, errands, interns, the Lounge, and the office easter eggs.

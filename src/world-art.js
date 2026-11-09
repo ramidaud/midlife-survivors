@@ -98,7 +98,8 @@ window.WorldArt = (() => {
       return 32+Math.floor(now/H.breathMs)%4; // breathing / coffee-sip loop
     }
     async function loadOffice() {
-      if(window.USE_START_AREA && window.StartAreaArt) {
+      const homeStage=window.STAGE_ID==='home'&&window.MapleHollow; // Nov 9: Maple Hollow builds instead of the office
+      if(window.USE_START_AREA && (window.StartAreaArt||homeStage)) {
         const before=new Set(scene.children.list);
         // Quick Retry (the office was built before): keep the view blank for the moment it takes to rebuild,
         // then fade it in, so the old placeholder room never flashes (Fable review #9). 3 s safety net.
@@ -106,7 +107,7 @@ window.WorldArt = (() => {
         const reveal=()=>{if(!alive||cam.alpha===1)return;scene.tweens.add({targets:cam,alpha:1,duration:200});};
         if(veil){cam.setAlpha(0);setTimeout(()=>{if(alive)cam.setAlpha(1);},3000);}
         try {
-          const area=await StartAreaArt.build(scene,refs,{image,propTexture,body,isAlive:()=>alive});
+          const area=await (homeStage?MapleHollow:StartAreaArt).build(scene,refs,{image,propTexture,body,isAlive:()=>alive});
           if(!alive||!area){if(area)area.destroy();reveal();return;}
           refs.props.forEach(p=>p.destroy());refs.props.splice(0,refs.props.length,...pendingProps);pendingProps.length=0;
           window.stagePlatforms.forEach(p=>p.destroy());window.stagePlatforms=[];

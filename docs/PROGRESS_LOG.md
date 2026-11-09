@@ -1945,3 +1945,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 
 ## 2026-11-09 (5:15 PM): V2.18.3, coffee cart on the lounge rug
 - Rami's call: the "coffee table" was the coffee cart (the Lounge counter where Derek stands). Moved it from the north wall (-1792, -48) onto the Break Room lounge rug at (-1610, 590), right of the red coffee table and below the mic stand. The shop spot in front of it is still reachable. Tested on laptop and phone.
+
+## 2026-11-09 (6:30 PM): V2.19.0, Maple Hollow step 1 (the neighborhood is walkable)
+- New stage, built alongside the office without changing it: src/data/maple-hollow.js (layout as numbers) and src/maple-hollow.js (builder). Two streets with sidewalks, lawns, 12 house fronts (6 per row, ChatGPT's houses), driveways, manholes and seeded yard props from the tile kit. Outdoor daylight (no office darkness).
+- It swaps its own layout into START_AREA_LAYOUT, so pathfinding, spawns, Overtime events and bosses work there. Office-only systems (promotions, office map, errands, interns, Lounge, yellow note, butterscotch, supply closet) are off at home for now.
+- Title screen settings: LOCATION (The Office / Maple Hollow, unlocks at best age 55; ?home=1 for testing). Picking rebuilds the world behind the title. Saved runs remember their stage and switch back on resume.
+- Tested: Maple Hollow on laptop and phone with a full swarm; office regression (New Boss defeat, errands) unchanged.

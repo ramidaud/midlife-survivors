@@ -1968,3 +1968,20 @@ When one system slows down on purpose, a steady second drip keeps the choices co
 | steer toward a point | your stuff | a race |
 
 Changing what an enemy wants turns an old sprite into a new problem.
+
+
+## A new level is mostly new data (Nov 9, Maple Hollow)
+
+```
+            ┌───────────── START_AREA_LAYOUT ─────────────┐
+ title pick │  office list:  floors, walls, spawn, rooms  │──► pathfinding
+ ──────────►│  home list:    streets, lawns, houses       │──► enemy spawns
+            └─────────────────────────────────────────────┘──► bosses + events
+   office-only systems ask "isOffice()?"  →  promotions, Lounge, interns, errands
+```
+
+| Piece | Office | Maple Hollow |
+|---|---|---|
+| Data | src/data/start-area.js | src/data/maple-hollow.js |
+| Builder | src/start-area.js | src/maple-hollow.js |
+| Everything else | shared | shared |

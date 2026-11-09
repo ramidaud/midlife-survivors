@@ -26,8 +26,8 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
 - The rest of the enemy list (HOA notices, leaf piles, the neighbor's leaf blower, school pickup line...).
 
 ## Build plan (each one sitting, each ends playable)
-1. **Stage picker on the title screen** (Office, plus a locked Home card that unlocks at 55) and a bare-bones neighborhood you can walk around in, with placeholder art.
-2. **Art direction:** a ChatGPT style board for the neighborhood (peak fall, neutral color, no sepia), then a prop and tile kit.
+1. ✅ (V2.19.0, Nov 9) **Stage picker on the title screen** (Office, plus a locked Home card that unlocks at 55) and a bare-bones neighborhood you can walk around in. Built with the real kit: two streets, 12 houses, yard props.
+2. ✅ **Art direction:** style board, neighbors board, tile and prop kit, six house fronts, four home enemies (Nov 9).
 3. **Your house:** the door, and the inside area it unlocks.
 4. **Enemies, the LEGO hazard, and the Lemonade Stand.**
 5. **The Fifth-Grade Math Homework boss,** plus the Mortgage and the V8 moving in.

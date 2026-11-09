@@ -50,6 +50,7 @@ window.Lighting = (() => {
   function init(sc, r) {
     destroy();
     const L = C(); if (!L.enabled || !window.START_AREA_LAYOUT) return;
+    if (window.STAGE_ID === "home") return; // Maple Hollow is outdoors in daylight (Nov 9)
     scene = sc; refs = r; makeTexture(sc);
     const glowDepth = 3.5; // above the floor and rugs, under people and enemies
     lights = allAnchors(L).map(l => {

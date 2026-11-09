@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.18.3",
-  displayVersion: "V. 2.18.3",
+  version: "2.19.0",
+  displayVersion: "V. 2.19.0",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 312,
+  build: 313,
   changelog: [
+    {
+      ver: "V. 2.19.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Welcome to Maple Hollow.",
+      highlights: [
+        "First look at the second stage: Maple Hollow, a peak-fall neighborhood with two streets, twelve houses (the HOA colonial, the pumpkin overload, the cat-lady cottage, the reno with the dumpster...) and a yard full of gnomes and flamingos.",
+        "Reach age 55 in any run to unlock it, then pick LOCATION in the title screen settings. Your saved run remembers which stage it started on.",
+        "Early build: the office crowd followed you home for now. The neighborhood's own enemies, the Lemonade Stand and getting into your house come next."
+      ]
+    },
     {
       ver: "V. 2.18.3", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The coffee moved to the couch.",

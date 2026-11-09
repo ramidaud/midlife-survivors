@@ -304,6 +304,10 @@ function spawnCoin(x, y, bonusMult = 1) {
 }
 
 // create() runs ONCE when the game starts: build the world.
+// Maple Hollow unlocks once your best age reaches 55 (MAPLE_HOLLOW.unlockAge). ?home=1 opens it for testing.
+window.homeUnlocked = m => !!(window.MAPLE_HOLLOW && ((m && (m.bestAge || 40) >= MAPLE_HOLLOW.unlockAge) || /[?&]home=1/.test(location.search)));
+window.isOffice = () => window.STAGE_ID !== "home";
+
 function create() {
   // Fresh start (this also runs again when you press "Try again").
   gameOver = false; lastHurt = -Infinity; startTime = this.time.now; window.clockingOut = false;
@@ -320,6 +324,12 @@ function create() {
   if (window.Hustle) Hustle.reset();   // Hustle Bonus and Burning the Candle (src/hustle.js)   // the Break Room counter (src/lounge.js)
   if (window.Modifiers) Modifiers.reset(); // age 50+ run modifiers (src/modifiers.js)
   meta = loadMeta();
+  // Nov 9: which stage to build. Maple Hollow (src/maple-hollow.js) swaps in its own layout; everything that reads
+  // START_AREA_LAYOUT (pathfinding, spawns, events) then works there too. Office-only systems check isOffice().
+  if (!window.OFFICE_START_LAYOUT && window.START_AREA_LAYOUT && window.START_AREA_LAYOUT.stage !== "home") window.OFFICE_START_LAYOUT = window.START_AREA_LAYOUT;
+  window.STAGE_ID = (meta.stage === "home" && window.MAPLE_HOLLOW_LAYOUT && window.homeUnlocked && homeUnlocked(meta)) ? "home" : "office";
+  window.START_AREA_LAYOUT = window.STAGE_ID === "home" ? window.MAPLE_HOLLOW_LAYOUT : window.OFFICE_START_LAYOUT;
+  if (window.STAGE_ID === "home") window.START_AREA_GATES = [];
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
   runSprint = !!(meta.sprint && window.isSprintUnlocked && isSprintUnlocked(meta));
@@ -392,9 +402,9 @@ function create() {
   const hpBar = this.add.graphics().setDepth(7);
   WorldArt.init(this, {player, floor, props:stageProps, label, hpBar, clock:()=>runElapsedMs, enemies:()=>bills});
   if (window.Lighting) Lighting.init(this, { player, chests: () => chests, age: () => currentAge, clock: () => runElapsedMs }); // src/lighting.js
-  if (window.YellowNote) YellowNote.init(this); // the rack with the yellow note (src/yellow-note.js)
-  if (window.Butterscotch) Butterscotch.init(this); // June from Legal's candy dish (src/butterscotch.js)
-  if (window.SupplyCloset) SupplyCloset.init(this); // the badge reader and the secret back hallway (src/supply-closet.js)
+  if (window.YellowNote && isOffice()) YellowNote.init(this); // the rack with the yellow note (src/yellow-note.js)
+  if (window.Butterscotch && isOffice()) Butterscotch.init(this); // June from Legal's candy dish (src/butterscotch.js)
+  if (window.SupplyCloset && isOffice()) SupplyCloset.init(this); // the badge reader and the secret back hallway (src/supply-closet.js)
   ltDecadeShown = null; ltLowHpWarned = false; nextSwarmAt = null;
   let hudTick = 0;
   const onPostUpdate = (t, dt) => {
@@ -840,6 +850,7 @@ window.persistActiveRun = () => {
     runSprint,
     char: meta.selectedChar, // Nov 8: a saved run belongs to the hero who started it
     slotBoss: window.runSlotBoss || null, // Nov 9: which boss this run got at 56
+    stage: window.STAGE_ID || "office",    // Nov 9: Office or Maple Hollow
     stats
   });
 };
@@ -1167,6 +1178,10 @@ function showTitleScreen(scene) {
   window.resumeSavedRunFromTitle = () => {
     const saved = loadRunState();
     if (!titleOpen || !saved) return;
+    // Nov 9: a saved run belongs to the stage it started on. If you're looking at the other one, rebuild first.
+    if ((saved.stage || "office") !== (window.STAGE_ID || "office")) {
+      meta.stage = saved.stage || "office"; saveMeta(meta); window.__resumeAfterRebuild = true; hideTitleModal(); scene.scene.restart(); return;
+    }
     unlockAudio();
     sfx("pick");
     titleOpen = false;
@@ -1230,6 +1245,7 @@ function showTitleScreen(scene) {
     scene.time.paused = false;
     setMusicPlaying(true);
   };
+  if (window.__resumeAfterRebuild) { window.__resumeAfterRebuild = false; setTimeout(() => { if (window.resumeSavedRunFromTitle) resumeSavedRunFromTitle(); }, 600); }
 }
 
 // Toggle pause (Spacebar, P, Esc, Right-Click, Controller Start, or Mobile Pause Button).
@@ -2756,18 +2772,19 @@ function update(time, delta) {
   const now = runElapsedMs;
   if (window.NAV) window.NAV.update(this, player, now); // rebuild the "walk around furniture" map a few times a second
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
-  if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
-  if (window.Minimap) Minimap.update(this, now);         // find the office map, then it fills in as you explore
+  const office = isOffice(); // Maple Hollow has no promotions, office map, errands, interns, Lounge or office easter eggs (yet)
+  if (window.Promotions && office) Promotions.update(this, now);   // open promotion doors as you age
+  if (window.Minimap && office) Minimap.update(this, now);         // find the office map, then it fills in as you explore
   if (window.Workload) Workload.update(this);            // Overtime Workload past 65 (src/workload.js)
   if (window.OvertimeBeats) OvertimeBeats.update(this);  // Overtime events like Open Enrollment (src/overtime-beats.js)
   if (window.PerfBonus) PerfBonus.update(this);          // free picks when late-game XP dries up (src/perf-bonus.js)
-  if (window.Errands) Errands.update(this);              // the TO-DO errand (src/errands.js)
-  if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
-  if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions
+  if (window.Errands && office) Errands.update(this);              // the TO-DO errand (src/errands.js)
+  if (window.Interns && office) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
+  if (window.Lounge && office) Lounge.update(this, now);           // the Lounge counter opens after promotions
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
-  if (window.YellowNote) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note
-  if (window.Butterscotch) { Butterscotch.update(this); Butterscotch.sync(); } // help yourself to a butterscotch
-  if (window.SupplyCloset) SupplyCloset.update(this); // please don't tell IT
+  if (window.YellowNote && office) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note
+  if (window.Butterscotch && office) { Butterscotch.update(this); Butterscotch.sync(); } // help yourself to a butterscotch
+  if (window.SupplyCloset && office) SupplyCloset.update(this); // please don't tell IT
   drawShield();
   const startArea = this.worldArt && this.worldArt.startArea;
   const chase = (e, spd) => window.NAV ? window.NAV.steer(this, e, player, spd) : this.physics.moveToObject(e, player, spd);

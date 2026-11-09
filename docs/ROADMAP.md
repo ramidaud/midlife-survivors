@@ -29,7 +29,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
 - [x] Clean Out Your Desk at 68.5 (V2.17.0)
 - [x] The Reunion (V2.18.0)
-- [ ] Then: the polish items
+- [x] Then: the polish items
+- [x] Maple Hollow step 1: walkable neighborhood + LOCATION picker (V2.19.0)
+- [ ] Maple Hollow next: your house (spare key), home enemies + LEGO hazard + Lemonade Stand, then the Math Homework boss
 - [x] Art saved for later builds: Reunion cast, Maple Hollow kit + 6 houses + 4 enemies, retro skins for all 3 heroes, Overtime UI kit
 - [x] Rami decided: Lounge cosmetics are bought in the Lounge, this run only (V2.17.3, Polygon Upgrade)
 

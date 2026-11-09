@@ -2337,7 +2337,15 @@ function renderTitleModal(scene, preserveFocusSelector) {
   const TB = window.TAX_BRACKET, tb = meta.taxBracket || 0;
   const sprintOk = !!(window.SPRINT && window.isSprintUnlocked && isSprintUnlocked(meta)), sprintOn = sprintOk && !!meta.sprint;
   const firstShift = !(meta.runsPlayed > 0); // Gemini Argon (Nov 4): a brand-new player sees just PUNCH IN; Mode and Tax show after the first run
-  const modeRowHtml = `
+  // Nov 9: LOCATION picker. The Office, or Maple Hollow once your best age reaches 55. Picking rebuilds the world behind the title.
+  const homeOk = !!(window.homeUnlocked && homeUnlocked(meta)), here = window.STAGE_ID || "office";
+  const locationRowHtml = window.MAPLE_HOLLOW ? `
+      <div class="title-style-switcher title-location-row"><span>LOCATION:</span>
+        <button class="t-style-btn ${here === "office" ? "active" : ""}" data-loc="office" title="The office. Where it all started.">🏢 THE OFFICE</button>
+        <button class="t-style-btn ${here === "home" ? "active" : ""}" data-loc="home" ${homeOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${MAPLE_HOLLOW.tagline}">${homeOk ? "🍁 MAPLE HOLLOW" : `🔒 MAPLE HOLLOW (AGE ${MAPLE_HOLLOW.unlockAge})`}</button>
+      </div>
+      <div class="title-mode-blurb">${here === "home" ? MAPLE_HOLLOW.tagline + " Early build: the neighborhood is here; its own enemies, the shop and your house come next." : homeOk ? "New: Maple Hollow, the neighborhood stage." : `Reach age ${MAPLE_HOLLOW.unlockAge} in a run to unlock Maple Hollow.`}</div>` : "";
+  const modeRowHtml = locationRowHtml + `
       <div class="title-style-switcher title-mode-row"><span>MODE:</span>
         <button class="t-style-btn ${curMode === "midlife" ? "active" : ""}" data-mode="midlife" title="${RUN_MODES.midlife.blurb}">🗂️ MIDLIFE · 40-65</button>
         <button class="t-style-btn ${curMode === "full" ? "active" : ""}" data-mode="full" ${fullOk ? "" : "disabled style='opacity:0.45;cursor:not-allowed'"} title="${fullOk ? RUN_MODES.full.blurb : RUN_MODES.full.unlockText}">${fullOk ? "🕰️" : "🔒"} FULL LIFE · 40-100</button>
@@ -2605,6 +2613,16 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   });
 
   // Row 6: Mode picker (Midlife or Full Life)
+  modal.querySelectorAll("[data-loc]").forEach(btn => {
+    if (btn.disabled) return;
+    bindNavItem(btn, 9.5, () => {
+      const loc = btn.dataset.loc;
+      sfx("pick");
+      if (loc === (window.STAGE_ID || "office")) return;
+      meta.stage = loc; saveMeta(meta);
+      hideTitleModal(); scene.scene.restart(); // rebuild the world; the title comes back on top of the new place
+    });
+  });
   modal.querySelectorAll("[data-mode]").forEach(btn => {
     if (btn.disabled) return;
     bindNavItem(btn, 9.6, () => {

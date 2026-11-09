@@ -693,3 +693,6 @@ The old coworkers look and move like enemies, but they live outside the enemy gr
 
 ### 2026-11-09: Small prop recognition (Codex)
 A beige square held in a hand can read as a cup. A floppy disk needs its dark shutter and label recess visible even at native sprite size. The Cowboy study was corrected before export.
+
+## A new level is mostly new data (Nov 9, Maple Hollow)
+The office is described by one big list of numbers: where the floors are, where the walls are, where you start. Pathfinding, enemy spawns, bosses and events all read that list instead of knowing about desks. So the neighborhood didn't need new versions of those systems; it needed a new list (streets, lawns, house footprints) and a small builder that paints it. Swap the list, and the same game plays somewhere else. The few things that really are office-only (promotions, the Lounge, interns) just check which stage you're on.
