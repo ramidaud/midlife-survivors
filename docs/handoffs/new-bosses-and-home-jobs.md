@@ -34,6 +34,29 @@ Attach `docs/plans/home-map.png` (layout) and `docs/plans/reference/twin-stones-
 }
 ```
 
+### 3. The Reorg's Hot Desk (prop)
+Attach `assets/bosses/boss-reorg-v1.png` as the style reference, then paste:
+
+> Make one Midlife Survivors prop sheet for the Reorg boss's rolling Hot Desk, matching the attached sheet's pixel style, outline and light. Follow this JSON exactly. Neutral white balance, no sepia, no golden haze, no film-look tint.
+
+```json
+{
+  "game_key": "hotDesk",
+  "name": "Hot Desk (The Reorg's rolling desk)",
+  "file": "prop-hot-desk-v1.png",
+  "sheet": "192x64 logical: 2 cells of 96x64. Cell 0 resting, cell 1 rolling (casters turned, a few cream motion ticks behind it). Footprint is the bottom 96x56; draw the 3/4 top-down view so the desk top shows",
+  "physical_description": {
+    "desk": "a small modern office desk on four navy caster wheels, slate-blue metal legs, a tan laminate top with a thin teal edge band",
+    "on_top": "a closed laptop, a coffee-orange mug, a lavender sticky note, a tiny cream tent card with no text (the 'hot desk' placard)",
+    "mood": "generic, temporary, nobody's desk"
+  },
+  "style": "same as the boss sheets: hard 16-bit pixel clusters, one-pixel navy outline, three tones per material, warm upper-left light",
+  "background": "exact flat opaque magenta #FF00FF, no floor shadow",
+  "color": "neutral white balance, no sepia, no golden haze, no film-look tint",
+  "forbidden": "text, letters, numbers, logos, brands, watermarks"
+}
+```
+
 ---
 
 ## Grok: design specs (its lane: attacks, difficulty, balance)
