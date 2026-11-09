@@ -1,0 +1,33 @@
+# Stage 2: Home (design, Nov 8, Rami)
+
+The players picked it: the devlog poll went **Home 7, Hospital 1**.
+
+## The place (Rami's words)
+- A suburban, tree-lined, northeastern community in **peak fall**. Wide streets, varying styles of homes.
+- **One home is yours, and you can enter it.** Going inside unlocks a new part of the stage.
+- Maybe a **grocery store in a strip mall**.
+- It should feel **bigger and more cohesive** than the office: designed as one place, beautiful, but not too far from the style of the best parts of the office stage.
+
+## Unlock
+- **Reach 55 in the office.** The Home stage then shows on the title screen's stage picker.
+
+## Enemies and hazards
+- **LEGO brick floor hazard** (Rami: "great").
+- **Boss: Fifth-Grade Math Homework.** Your kid needs your help, and the math is not the math you learned.
+- **Moving in from the office:** the 30-Year Mortgage and the Midlife Crisis V8 (they fit the driveway better than the office).
+
+## The shop
+- **The Lemonade Stand** replaces the Lounge: a kid's stand on the sidewalk where you buy boosts.
+
+## Open questions
+- How does going into your house work: a door that opens at an age, a key you find, or an errand?
+- What's inside: kitchen, garage, the kid's room?
+- Which office villains replace the Mortgage and the V8 (10 options in the Nov 8 chat).
+- The rest of the enemy list (HOA notices, leaf piles, the neighbor's leaf blower, school pickup line...).
+
+## Build plan (each one sitting, each ends playable)
+1. **Stage picker on the title screen** (Office, plus a locked Home card that unlocks at 55) and a bare-bones neighborhood you can walk around in, with placeholder art.
+2. **Art direction:** a ChatGPT style board for the neighborhood (peak fall, neutral color, no sepia), then a prop and tile kit.
+3. **Your house:** the door, and the inside area it unlocks.
+4. **Enemies, the LEGO hazard, and the Lemonade Stand.**
+5. **The Fifth-Grade Math Homework boss,** plus the Mortgage and the V8 moving in.

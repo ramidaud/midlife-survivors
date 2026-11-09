@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.11.0",
-  displayVersion: "V. 2.11.0",
+  version: "2.11.1",
+  displayVersion: "V. 2.11.1",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 286,
+  build: 287,
   changelog: [
+    {
+      ver: "V. 2.11.1", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Errands say where to go now.",
+      highlights: [
+        "Errands are clearer: the card names the place (\"the printer in the Bullpen\"), says you have 45 seconds for a bonus, and a TO-DO HERE tag floats over the spot.",
+        "Fixed: an errand could start while a menu was open and get missed. It now waits until you're back in the game."
+      ]
+    },
     {
       ver: "V. 2.11.0", date: "Nov 8, 2026", title: "Version Two",
       teaser: "You have one errand.",

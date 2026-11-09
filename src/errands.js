@@ -2,7 +2,7 @@
 // One errand pops up as a TO-DO card; a marker sits on the floor and on the office map, an arrow at the
 // screen edge points the way, and a chip under the map counts down. Get there in time for a reward.
 window.Errands = (() => {
-  let active = null, doneCount = 0, nextAt = 0, chip = null, arrow = null;
+  let active = null, given = 0, chip = null, arrow = null;
   const S = () => window.ERRAND_SETTINGS || {};
   const playing = () => typeof gameOver !== "undefined" && !gameOver && typeof titleOpen !== "undefined" && !titleOpen;
 
@@ -13,6 +13,7 @@ window.Errands = (() => {
 #errand-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + 128px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,420px);
   background:#F2D7A1;color:#171C35;border:2px solid #171C35;border-left:6px solid #EF9347;box-shadow:3px 3px 0 rgba(0,0,0,.45);padding:6px 10px;font:13px/1.25 'Atkinson Hyperlegible',sans-serif;pointer-events:none}
 #errand-chip b{font:11px/1 Silkscreen,monospace;letter-spacing:.06em;white-space:nowrap}
+#errand-chip i{font-style:normal;font-weight:700}
 #errand-chip .t{font:12px/1 Silkscreen,monospace;margin-left:auto;padding-left:6px;white-space:nowrap}
 #errand-chip.low .t{color:#874C3B}
 #errand-chip.done{background:#83A89A;border-left-color:#3E7775}
@@ -43,7 +44,9 @@ window.Errands = (() => {
     const img = scene.add.image(x, y - 26, markerTexture(scene)).setScale(2).setDepth(y / 10000 + 3);
     scene.tweens.add({ targets: img, y: y - 36, duration: 650, yoyo: true, repeat: -1, ease: "Sine.InOut" });
     scene.tweens.add({ targets: ring, scale: 1.6, alpha: 0, duration: 1100, repeat: -1 });
-    return [ring, img];
+    const tag = scene.add.text(x, y - 74, "TO-DO HERE", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(y / 10000 + 3.1);
+    scene.tweens.add({ targets: tag, y: y - 84, duration: 650, yoyo: true, repeat: -1, ease: "Sine.InOut" });
+    return [ring, img, tag];
   }
   function clear() { if (active && active.objs) active.objs.forEach(o => o.destroy()); active = null; if (chip) chip.className = "hidden"; if (arrow) arrow.className = "hidden"; }
 
@@ -54,12 +57,17 @@ window.Errands = (() => {
     return list.length ? list[Math.floor(Math.random() * list.length)] : null;
   }
   function start(scene) {
-    const e = pick(); if (!e) return;
+    const e = pick(); if (!e) { console.warn("[errands] no errand fits right now"); return false; }
     ui();
     active = { e, until: runElapsedMs + (S().timeSec || 45) * 1000, objs: place(scene, e) };
-    chip.className = ""; chip.innerHTML = `<b>☐ TO-DO</b><span>${e.text}</span><span class="t"></span>`;
-    if (window.showLowerThird) showLowerThird("promo", "TO-DO", e.text + " Follow the arrow.", 4000);
-    if (typeof sfx === "function") sfx("pick");
+    const where = e.place || "the marker";
+    chip.className = ""; chip.innerHTML = `<b>☐ TO-DO</b><span>${e.text}<i> Go to ${where}.</i></span><span class="t"></span>`;
+    // Nov 8 (Rami: "it wasn't clear what it wanted me to do"): say where, say how, and that it's optional
+    if (window.showLowerThird) showLowerThird("promo", "TO-DO", `${e.text} Walk to ${where} (follow the orange arrow) within ${S().timeSec || 45} seconds for a bonus.`, 6500);
+    if (window.flashBanner) flashBanner("TO-DO", "NEW ERRAND", "reward");
+    if (typeof sfx === "function") sfx("levelUp", 0);
+    if (window.Telemetry && Telemetry.event) Telemetry.event("errand-start");
+    return true;
   }
   function rewardText(r) { return r.coins ? `+${r.coins}k` : r.heal ? `+${r.heal} HP` : r.levels ? `+${r.levels} level${r.levels > 1 ? "s" : ""}` : ""; }
   function complete(scene) {
@@ -74,7 +82,7 @@ window.Errands = (() => {
     if (typeof sfx === "function") sfx("levelUp", 0);
     if (window.showLowerThird) showLowerThird("win", "DONE ✓", `${e.done} ${rewardText(r)}`, 3500);
     if (window.Telemetry && Telemetry.event) Telemetry.event("errand-done");
-    doneCount++; clear(); if (chip) { chip.className = "done"; chip.innerHTML = `<b>☑ DONE</b><span>${e.text}</span>`; setTimeout(() => { if (chip && chip.className === "done") chip.className = "hidden"; }, 2200); }
+    clear(); if (chip) { chip.className = "done"; chip.innerHTML = `<b>☑ DONE</b><span>${e.text}</span>`; setTimeout(() => { if (chip && chip.className === "done") chip.className = "hidden"; }, 2200); }
   }
   function miss() {
     const e = active.e; clear();
@@ -91,13 +99,15 @@ window.Errands = (() => {
     arrow.className = ""; arrow.style.left = (px - 13) + "px"; arrow.style.top = (py - 12) + "px"; arrow.style.transform = `rotate(${ang + Math.PI / 2}rad)`;
   }
 
-  function reset() { clear(); doneCount = 0; nextAt = 0; }
+  function reset() { clear(); given = 0; }
   function update(scene) {
     const C = S(); if (!C.on || typeof player === "undefined" || !player || !player.active) return;
     if (!playing()) { if (chip) chip.className = "hidden"; if (arrow) arrow.className = "hidden"; return; }
     if (!active) {
-      if (doneCount >= (C.perRun || 1) || nextAt === -1) return;
-      if (currentAge >= (C.startAge || 41.5)) { nextAt = -1; start(scene); }
+      if (given >= (C.perRun || 1) || currentAge < (C.startAge || 41.5)) return;
+      // wait until no menu, level-up or big map is open, so the errand can't start unseen
+      if ((typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused) || window.minimapOpen) return;
+      if (start(scene)) given++;
       return;
     }
     const left = Math.max(0, active.until - runElapsedMs);

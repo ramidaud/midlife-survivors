@@ -1792,3 +1792,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Fun Pass #11 is in: about a minute into a run, a TO-DO card gives one errand (pick up your printing, grab a snack, update the roadmap whiteboard, water the fruit tree, refill your water bottle).
 - A bobbing clipboard marks the spot, an orange arrow at the screen edge points the way, it shows on the map, and a cream chip counts down 45 seconds. Get there for coins, HP or a free level. Missing it costs nothing.
 - Rami writes the errands and jokes in `src/data/errands.js`.
+
+## Nov 8, 2026 (evening): errand fixes, Home stage designed (V. 2.11.1)
+- Rami: the map "looks great"; the errand wasn't clear, and on his second run it never showed. Errands now name the place, say it's a 45-second bonus, float a TO-DO HERE tag, and wait for menus to close before starting.
+- Home stage designed with Rami (players voted Home 7 to 1): a peak-fall northeastern suburb, your own house to enter, a strip-mall grocery, LEGO hazards, a Fifth-Grade Math Homework boss, the Mortgage and V8 moving in, a Lemonade Stand shop, unlocked by reaching 55. Plan: `docs/plans/home-stage.md`.
