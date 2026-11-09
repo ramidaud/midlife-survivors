@@ -1846,3 +1846,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - His screenshots showed the big DESK SALAD banner over the middle of the screen the whole late game (it fired on every salad). Now the center banner shows the same reward at most once a minute; the lower third still reports each one.
 - The corner map looked empty: it was minimized (the hide button sits next to pause/sound on phones). The minimized map now reads "MAP ▸", and the map hides under the pause menu.
 - Parked for a readability pass: late-game crowd labels and the big white death puffs wash out the screen.
+
+## 2026-11-09 (1:40 AM): Rami's playtest notes on the new bosses and Full Life
+- Your New Boss at 48: "good".
+- The Holiday Party at 56: "not sure I even noticed them". With a strong build she and her tiny dancers melted before the mistletoe mattered.
+- Full Life: "essentially invincible from 65 on", "basically not moving", a long boss-free gap up to 76, "too long with not much variety". He loves the power fantasy but it plateaus.
