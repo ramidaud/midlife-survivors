@@ -24,7 +24,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)
 - [x] Errand payoff: shockwave, bonus XP on every errand, 15 s CHECKED OFF buff, up to 3 errands per run (V2.15.5)
 - [x] Late-game XP: Performance Bonus pick every 75 s without a level-up after 55, faster with Workload (V2.16.0)
-- [ ] Polish: coffee table behind Derek, phone vibration sound (bass-drum feel), controller screenshot button
+- [x] Polish: phone vibration sound and controller screenshot button (V2.18.2)
+- [ ] Coffee table behind Derek: waiting on which table Rami means
 - [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
 - [x] Clean Out Your Desk at 68.5 (V2.17.0)
 - [x] The Reunion (V2.18.0)

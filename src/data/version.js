@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.18.1",
-  displayVersion: "V. 2.18.1",
+  version: "2.18.2",
+  displayVersion: "V. 2.18.2",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 310,
+  build: 311,
   changelog: [
+    {
+      ver: "V. 2.18.2", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Say cheese, for real.",
+      highlights: [
+        "Screenshot button: press Y on a controller (or V on a keyboard) during a run to save what's on screen, stamped with your age. Phones and tablets open the share sheet. You can rebind it under Controls.",
+        "The Spam Likely phone buzz is now two soft bass thumps, like a phone vibrating on a desk, so it sits with the rest of the sounds instead of on top of them."
+      ]
+    },
     {
       ver: "V. 2.18.1", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The Cowboy gets polygons too.",

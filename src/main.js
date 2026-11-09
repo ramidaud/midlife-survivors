@@ -585,6 +585,10 @@ function create() {
       if (code === (c.keyView || "KeyV")) {
         e.preventDefault();
         unlockAudio();
+        if (!window.ENABLE_3D_VIEWS) { // 3D is parked: V saves a screenshot during a run (Nov 9)
+          if (!titleOpen && !gameOver && !paused && !levelUpOpen && window.takeScreenshot) window.takeScreenshot(sc);
+          return;
+        }
         cycleViewMode(sc);
         sfx("pick");
         if (window.controlsModalOpen) renderControlsModal(sc);
@@ -2385,7 +2389,10 @@ function update(time, delta) {
   // Y button (Nov 5 controller pass): it used to switch the parked 3D views, which just redrew the menu and threw the
   // cursor somewhere (Rami: "it jumps around"). Now on the title screen Y is a shortcut to the 401(k) Shop.
   if (padJust("yBtn")) {
-    if (window.ENABLE_3D_VIEWS) {
+    // Nov 9 (Rami's playtest: "keybind a screenshot button on the controller"): Y during a run saves a screenshot.
+    const inRun = !titleOpen && !gameOver && !paused && !levelUpOpen && !window.controlsModalOpen;
+    if (inRun && !window.ENABLE_3D_VIEWS && window.takeScreenshot) window.takeScreenshot(this);
+    else if (window.ENABLE_3D_VIEWS) {
       cycleViewMode(this); sfx("pick");
       if (window.controlsModalOpen) renderControlsModal(this); else if (titleOpen) renderTitleModal(this); else if (paused) renderPauseModal(this, 2);
     } else if (titleOpen && !window.controlsModalOpen && !window.accountModalOpen && !document.getElementById("buyout-modal")) {

@@ -1937,3 +1937,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 
 ## 2026-11-09 (4:45 PM): V2.18.1, Cowboy retro skin
 - ChatGPT/Codex's Cold War Cowboy retro 3D sheet is in; the Lounge's Polygon Upgrade now works for all four heroes. Codex's notes folded into the docs.
+
+## 2026-11-09 (5 PM): V2.18.2, polish (screenshot button, phone thump)
+- Screenshot: Y on a controller / V on a keyboard during a run (the old 3D-view binding, which was parked). Saves the game view with an age + site stamp; phones use the share sheet. Shown as "Screenshot (in a run)" in Controls and rebindable. New file src/screenshot.js.
+- Spam Likely ring: two synthesized bass thumps (sine 140 to 46 Hz) with a low rattle, replacing the buzz recording. Tunable in SOUND_VARY.ring.kick (src/data/sounds.js).
+- Coffee table near Derek: asked Rami which table he meant before moving anything.

@@ -187,6 +187,7 @@ function sfx(name, minGapMs = 40) {
     mult = PENTA[st % 5] * Math.pow(2, Math.floor(st / 5)) * (1 + (Math.random() * 2 - 1) * 0.01);
   }
   const vol = SOUNDS.volume * (V.gain || 1);
+  if (V.kick) return kick(V.kick, vol, mult);
   if (soundStyle === "studio" && sfxBuf[name] && sfxBuf[name].length) {
     const cap = window.SFX_FILES && SFX_FILES.maxAtOnce && SFX_FILES.maxAtOnce[name];
     if (cap && (sfxLive[name] || 0) >= cap) return; // enough of these already ringing // a real recording: same pitch variety, kept in a natural range
@@ -223,6 +224,30 @@ function sfx(name, minGapMs = 40) {
   }
   liveVoices++;
   setTimeout(() => { liveVoices--; }, (end - audioCtx.currentTime) * 1000 + 30);
+}
+
+// A soft bass-drum thump (or a few): a sine that drops in pitch fast, plus a quiet low square "rattle" for the
+// phone-on-a-desk buzz. Used by the Spam Likely ring (Nov 9).
+function kick(K, vol, mult) {
+  let t = audioCtx.currentTime + 0.001;
+  for (let i = 0; i < (K.pulses || 1); i++) {
+    const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+    o.type = "sine";
+    o.frequency.setValueAtTime(K.fromHz * mult, t); o.frequency.exponentialRampToValueAtTime(K.toHz, t + K.len * 0.8);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(Math.min(1, vol * (K.gain || 1)), t + 0.006);
+    g.gain.exponentialRampToValueAtTime(0.001, t + K.len);
+    o.connect(g).connect(sfxBus); o.start(t); o.stop(t + K.len + 0.02);
+    if (K.rattleHz) {
+      const r = audioCtx.createOscillator(), rf = audioCtx.createBiquadFilter(), rg = audioCtx.createGain();
+      r.type = "square"; r.frequency.value = K.rattleHz * mult; rf.type = "lowpass"; rf.frequency.value = 320;
+      rg.gain.setValueAtTime(0.0001, t); rg.gain.exponentialRampToValueAtTime(vol * (K.rattleGain || 0.2), t + 0.01);
+      rg.gain.exponentialRampToValueAtTime(0.001, t + K.len * 0.9);
+      r.connect(rf).connect(rg).connect(sfxBus); r.start(t); r.stop(t + K.len);
+    }
+    t += K.len + (K.gap || 0.05);
+  }
+  liveVoices++;
+  setTimeout(() => { liveVoices--; }, (t - audioCtx.currentTime) * 1000 + 30);
 }
 
 // Sound-off nudge (Nov 5, Rami on iPad + controller: "there's no sound"). Browsers only start audio after a touch,

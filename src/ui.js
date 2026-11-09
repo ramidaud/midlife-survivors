@@ -1883,11 +1883,9 @@ function renderControlsModal(scene, keepSelector) {
             <button class="ctrl-btn ${reb && reb.field === "keyPause" ? "listening" : ""}" id="ctrl-keyPause">
               <span>Pause / Options</span><span class="ctrl-val">${keyBtnLabel("keyPause", "Space")}</span>
             </button>
-${window.ENABLE_3D_VIEWS ? `
             <button class="ctrl-btn ${reb && reb.field === "keyView" ? "listening" : ""}" id="ctrl-keyView">
-              <span>Switch View (2D/3D)</span><span class="ctrl-val">${keyBtnLabel("keyView", "KeyV")}</span>
+              <span>${window.ENABLE_3D_VIEWS ? "Switch View (2D/3D)" : "Screenshot (in a run)"}</span><span class="ctrl-val">${keyBtnLabel("keyView", "KeyV")}</span>
             </button>
-` : ""}<!-- 3D is parked, so its bindings stay hidden (Fable review) -->
             <button class="ctrl-btn ${reb && reb.field === "keyMute" ? "listening" : ""}" id="ctrl-keyMute">
               <span>Mute Audio</span><span class="ctrl-val">${keyBtnLabel("keyMute", "KeyM")}</span>
             </button>
@@ -1905,11 +1903,9 @@ ${window.ENABLE_3D_VIEWS ? `
               <button class="ctrl-btn ${reb && reb.field === "padPauseBtn" ? "listening" : ""}" id="ctrl-padPauseBtn" data-opt-cycle="1">
                 <span>Pause / Options</span><span class="ctrl-val">${padBtnLabel("padPauseBtn", 9)}</span>
               </button>
-${window.ENABLE_3D_VIEWS ? `
               <button class="ctrl-btn ${reb && reb.field === "padViewBtn" ? "listening" : ""}" id="ctrl-padViewBtn" data-opt-cycle="1">
-                <span>Switch 2D/3D View</span><span class="ctrl-val">${padBtnLabel("padViewBtn", 3)}</span>
-              </button>
-` : ""}<!-- 3D is parked, so its bindings stay hidden (Fable review) -->
+                <span>${window.ENABLE_3D_VIEWS ? "Switch 2D/3D View" : "Screenshot (in a run)"}</span><span class="ctrl-val">${padBtnLabel("padViewBtn", 3)}</span>
+              </button><!-- 3D is parked, so its bindings stay hidden (Fable review) -->
               <button class="ctrl-btn ${reb && reb.field === "padMuteBtn" ? "listening" : ""}" id="ctrl-padMuteBtn" data-opt-cycle="1">
                 <span>Mute Audio</span><span class="ctrl-val">${padBtnLabel("padMuteBtn", 2)}</span>
               </button>

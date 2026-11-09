@@ -66,7 +66,9 @@ window.SOUND_VARY = {
   dadJoke:  { vary: 0.05 },
   wordNo:   { vary: 0.08, noise: [0.06, 500, 0.6, "lowpass"] },
   overdue:  { vary: 0.06 },
-  ring:     { vary: 0.04 },
+  // Nov 9 (Rami's playtest: the phone vibration should "fit in with the other sounds ... like a bass drum"):
+  // two soft low thumps, like a phone buzzing on a desk, drawn by sfx() instead of the old buzz recording.
+  ring:     { vary: 0.04, kick: { pulses: 2, fromHz: 140, toHz: 46, len: 0.12, gap: 0.06, gain: 2.2, rattleHz: 95, rattleGain: 0.25 } },
   ping:     { vary: 0.05 },
   levelUp:  { vary: 0, important: true },
   bossSpawn:{ vary: 0, important: true, noise: [0.4, 200, 0.7, "lowpass"] },
