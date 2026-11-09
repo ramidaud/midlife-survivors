@@ -345,7 +345,8 @@ function create() {
   levelUpOpen = false; pendingLevels = 0; levelMenu = null; restartGame = null;
   if (window.Promotions) Promotions.reset();
   if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
-  if (window.Errands) Errands.reset();     // errands: one TO-DO per run (src/errands.js)
+  if (window.Errands) Errands.reset();
+  if (window.KeyHunt) KeyHunt.reset();     // errands: one TO-DO per run (src/errands.js)
   runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; window.runCoinsTapered = 0; window.lastPaycheck = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
@@ -2778,6 +2779,7 @@ function update(time, delta) {
   if (window.Workload) Workload.update(this);            // Overtime Workload past 65 (src/workload.js)
   if (window.OvertimeBeats) OvertimeBeats.update(this);  // Overtime events like Open Enrollment (src/overtime-beats.js)
   if (window.PerfBonus) PerfBonus.update(this);          // free picks when late-game XP dries up (src/perf-bonus.js)
+  if (window.KeyHunt && !office) KeyHunt.update(this);             // Maple Hollow: locked out, find the spare key (src/key-hunt.js)
   if (window.Errands && office) Errands.update(this);              // the TO-DO errand (src/errands.js)
   if (window.Interns && office) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge && office) Lounge.update(this, now);           // the Lounge counter opens after promotions

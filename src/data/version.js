@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.19.0",
-  displayVersion: "V. 2.19.0",
+  version: "2.19.1",
+  displayVersion: "V. 2.19.1",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 313,
+  build: 314,
   changelog: [
+    {
+      ver: "V. 2.19.1", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Locked out of your own house.",
+      highlights: [
+        "Maple Hollow: you're locked out. The spare key is hidden around the block (fake rocks, welcome mats, flower pots, the neighbors' mailboxes), somewhere different every run. Walk over a ? to check it.",
+        "Find the key, then walk to your front door for a bonus chest, half your health back, +1,500 score and the achievement Under The Fake Rock."
+      ]
+    },
     {
       ver: "V. 2.19.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Welcome to Maple Hollow.",

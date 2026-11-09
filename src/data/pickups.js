@@ -13,7 +13,7 @@ window.PICKUPS = {
     size: 24,
     color: 0xf5c542,  // gold chest dropped by bosses; opens the Bonus Chest moment
     // How many rewards (light beams) each boss's chest pays out. Any boss not listed pays 3.
-    tiers: { supplyCloset: 1, performanceReview: 1, newBoss: 1, openEnrollment: 3, annualEnrollment: 3, grandkids: 1, grandkids2: 1, cleanOutDesk: 3, reunion: 1, holidayParty: 3, theReorg: 3, mortgageRefinance: 3, midlifeCrisis: 5, goldWatch: 5, hoaPresident: 3, retirementBoss: 5, pickleballChamp: 5 },
+    tiers: { supplyCloset: 1, performanceReview: 1, newBoss: 1, openEnrollment: 3, annualEnrollment: 3, grandkids: 1, grandkids2: 1, cleanOutDesk: 3, reunion: 1, keyHunt: 3, holidayParty: 3, theReorg: 3, mortgageRefinance: 3, midlifeCrisis: 5, goldWatch: 5, hoaPresident: 3, retirementBoss: 5, pickleballChamp: 5 },
     defaultTier: 3,
     // When your whole loadout is maxed, each chest slot gives one of these instead (no cap, they stack).
     // Nov 9, Derek's Full Life report. damage is a fraction (0.06 = +6% to every hit).

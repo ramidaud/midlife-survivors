@@ -15,7 +15,30 @@ window.MAPLE_HOLLOW = {
   southHouses: [3, 5, 0, 4, 2, 1],
   yourHouse: { row: "north", lot: 2 }, // you start on the sidewalk in front of this one
   // little yard props (frame numbers in maple-hollow-tiles-props-v1.png, 32x32 cells): drawn under everyone, not solid
-  yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+  yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
+  // Locked out (Nov 9, step 3a): you can't get into your own house. The spare key is hidden at one of these spots
+  // (a different one each run). Walk over a spot to check it. Find the key, then walk to your front door.
+  keyHunt: {
+    startAge: 40.4,        // a few seconds into the run
+    checkPx: 40,           // how close counts as checking a spot
+    doorPx: 56,            // how close to your door to unlock it
+    // spots: [row, lot, dx, dy, kind]. dx/dy are from the lot's center at the house front.
+    spots: [
+      ["north", 2, 70, 22, "rock"], ["north", 1, -40, 26, "mat"], ["north", 3, 60, 30, "pot"],
+      ["north", 0, 30, 28, "mailbox"], ["north", 4, -60, 24, "mat"], ["south", 2, -50, 26, "pot"],
+      ["south", 1, 40, 30, "rock"], ["south", 3, -30, 24, "mailbox"]
+    ],
+    notHere: {
+      rock: ["Just a rock. A real one.", "A real rock. Rude."],
+      mat: ["Under the mat: one penny and a spider.", "Under the mat: guilt and dirt."],
+      pot: ["The flower pot. Just dirt and a sad mum.", "Empty pot. Dead mum."],
+      mailbox: ["The mailbox: three catalogs addressed to the last owner.", "Mailbox: a jury duty notice. Not yours. Probably."]
+    },
+    found: "There it is. The spare key, right where you'll never remember putting it.",
+    doorLine: "Locked out of your own house. The spare key is around here somewhere.",
+    openLine: "Home sweet home. Someone left you leftovers. (The inside is still being tidied up. Soon.)",
+    chestKey: "keyHunt", scoreBonus: 1500, healFrac: 0.5
+  }
 };
 
 (() => {

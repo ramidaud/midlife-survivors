@@ -1951,3 +1951,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - It swaps its own layout into START_AREA_LAYOUT, so pathfinding, spawns, Overtime events and bosses work there. Office-only systems (promotions, office map, errands, interns, Lounge, yellow note, butterscotch, supply closet) are off at home for now.
 - Title screen settings: LOCATION (The Office / Maple Hollow, unlocks at best age 55; ?home=1 for testing). Picking rebuilds the world behind the title. Saved runs remember their stage and switch back on resume.
 - Tested: Maple Hollow on laptop and phone with a full swarm; office regression (New Boss defeat, errands) unchanged.
+
+## 2026-11-09 (7 PM): V2.19.1, Maple Hollow step 3a: locked out
+- New src/key-hunt.js (numbers and lines in MAPLE_HOLLOW.keyHunt): at 40.4, eight "?" spots around the block (rock, mat, pot, mailbox); the key is at a random one, never the one nearest your door. Wrong spots get a joke line. With the key, your door (orange ring) opens: tier 3 chest, heal half, +1,500 score, achievement "Under The Fake Rock".
+- Placeholder props drawn in code until ChatGPT's key-hunt sheet and your-house front arrive. The inside (three rooms, Rami's default) is step 3b.
+- Tested on laptop and phone: locked warning, key found, door opens and pays out.
