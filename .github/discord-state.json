@@ -15,7 +15,7 @@
     "12-everyone-is-in-the-game",
     "13-side-characters"
   ],
-  "statsHash": "4e6b98ff0ccc0f39e217cb84d073e2a855e4420d1d6d789ce7e78f213b4ed430",
+  "statsHash": "3629c098f72a73d21adb27caf4110cce0bf29d4678cd603d3e6177909b7b4407",
   "backfill": {
     "changelogDone": [
       "Oct 30, 2026#1",
@@ -35,5 +35,7 @@
     "cast-v1",
     "bosses-v1",
     "props-v1"
-  ]
+  ],
+  "statsTitle": "Play stats: Nov 9 morning (last 24 hours)",
+  "statsMessageId": "1569328216089432077"
 }
