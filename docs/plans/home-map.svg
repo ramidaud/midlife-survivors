@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1120" font-family="Menlo, monospace">
+<defs>
+ <pattern id="grass" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#4f7a5a"/><circle cx="6" cy="8" r="1.5" fill="#83A89A"/><circle cx="17" cy="18" r="1.5" fill="#3E7775"/></pattern>
+ <pattern id="road" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#303750"/></pattern>
+ <pattern id="lot" width="60" height="30" patternUnits="userSpaceOnUse"><rect width="60" height="30" fill="#526078"/><line x1="0" y1="0" x2="0" y2="30" stroke="#B8C0D4" stroke-width="2"/></pattern>
+ <g id="tree"><circle r="18" fill="#C45C4B"/><circle r="12" cx="-6" cy="-5" fill="#EF9347"/></g>
+ <g id="tree2"><circle r="18" fill="#EF9347"/><circle r="11" cx="5" cy="-6" fill="#F2D7A1"/></g>
+ <g id="pine"><polygon points="0,-24 18,14 -18,14" fill="#3E7775"/><polygon points="0,-12 12,14 -12,14" fill="#2c5a58"/></g>
+</defs>
+<rect width="1600" height="1120" fill="#171C35"/>
+<text x="40" y="52" fill="#F2D7A1" font-size="30" font-weight="700">STAGE 2: HOME · MAPLE HOLLOW (working name, layout draft)</text>
+<text x="40" y="82" fill="#B8C0D4" font-size="16">Peak-fall northeastern suburb. Areas open by age, like office promotions. Numbers = the age each area opens.</text>
+
+<g transform="translate(40,110)">
+ <rect width="1520" height="900" fill="url(#grass)" stroke="#83A89A" stroke-width="3"/>
+ <!-- roads -->
+ <rect x="0" y="380" width="1520" height="90" fill="url(#road)"/>
+ <line x1="0" y1="425" x2="1520" y2="425" stroke="#F2D7A1" stroke-width="3" stroke-dasharray="26 18"/>
+ <rect x="700" y="0" width="90" height="900" fill="url(#road)"/>
+ <line x1="745" y1="0" x2="745" y2="900" stroke="#F2D7A1" stroke-width="3" stroke-dasharray="26 18"/>
+ <rect x="0" y="366" width="1520" height="14" fill="#B8C0D4"/><rect x="0" y="470" width="1520" height="14" fill="#B8C0D4"/>
+ <rect x="686" y="0" width="14" height="900" fill="#B8C0D4"/><rect x="790" y="0" width="14" height="900" fill="#B8C0D4"/>
+ <text x="120" y="432" fill="#FFF0CF" font-size="16">MAPLE LANE</text>
+ <text x="752" y="250" fill="#FFF0CF" font-size="16" transform="rotate(90 752 250)">OAK STREET</text>
+
+ <!-- 40: your street (southwest block) -->
+ <rect x="20" y="500" width="650" height="380" fill="none" stroke="#EF9347" stroke-width="4" stroke-dasharray="14 8"/>
+ <rect x="40" y="520" width="150" height="120" fill="#C45C4B" stroke="#171C35" stroke-width="3"/><text x="58" y="586" fill="#FFF0CF" font-size="15">NEIGHBOR</text>
+ <rect x="250" y="520" width="190" height="150" fill="#EF9347" stroke="#FFF0CF" stroke-width="5"/><text x="292" y="590" fill="#171C35" font-size="20" font-weight="700">YOUR</text><text x="285" y="614" fill="#171C35" font-size="20" font-weight="700">HOUSE</text>
+ <rect x="320" y="670" width="50" height="160" fill="#526078"/><text x="378" y="760" fill="#FFF0CF" font-size="13">driveway</text>
+ <rect x="500" y="520" width="150" height="120" fill="#BFA8CF" stroke="#171C35" stroke-width="3"/><text x="518" y="586" fill="#171C35" font-size="15">NEIGHBOR</text>
+ <rect x="560" y="700" width="70" height="44" fill="#F1B5BF" stroke="#171C35" stroke-width="3"/><text x="535" y="770" fill="#FFF0CF" font-size="13">LEMONADE STAND</text>
+ <circle cx="130" cy="780" r="22" fill="#F2D7A1" stroke="#171C35" stroke-width="3"/><text x="70" y="830" fill="#FFF0CF" font-size="13">leaf piles + swing set</text>
+ <text x="30" y="870" fill="#EF9347" font-size="22" font-weight="700">40 · YOUR STREET (start)</text>
+
+ <!-- 45: inside your house -->
+ <rect x="20" y="40" width="440" height="300" fill="#3a2f2a" stroke="#EF9347" stroke-width="4" stroke-dasharray="14 8"/>
+ <rect x="40" y="70" width="190" height="120" fill="#874C3B"/><text x="56" y="135" fill="#FFF0CF" font-size="15">KITCHEN</text>
+ <rect x="240" y="70" width="200" height="120" fill="#874C3B"/><text x="256" y="135" fill="#FFF0CF" font-size="15">LIVING ROOM</text>
+ <rect x="40" y="200" width="190" height="110" fill="#874C3B"/><text x="56" y="250" fill="#FFF0CF" font-size="15">KID'S ROOM</text><text x="56" y="272" fill="#F1B5BF" font-size="12">LEGO floor</text>
+ <rect x="240" y="200" width="200" height="110" fill="#526078"/><text x="256" y="250" fill="#FFF0CF" font-size="15">GARAGE</text><text x="256" y="272" fill="#F2D7A1" font-size="12">V8 lives here</text>
+ <text x="30" y="30" fill="#EF9347" font-size="22" font-weight="700">45 · INSIDE YOUR HOUSE</text>
+ <path d="M345 340 L345 515" stroke="#F2D7A1" stroke-width="3" stroke-dasharray="6 6"/><text x="352" y="470" fill="#F2D7A1" font-size="13">front door</text>
+
+ <!-- 50: strip mall (northeast) -->
+ <rect x="830" y="40" width="660" height="300" fill="none" stroke="#EF9347" stroke-width="4" stroke-dasharray="14 8"/>
+ <rect x="850" y="60" width="300" height="110" fill="#3E7775" stroke="#171C35" stroke-width="3"/><text x="900" y="122" fill="#FFF0CF" font-size="18" font-weight="700">GROCERY STORE</text>
+ <rect x="1160" y="60" width="100" height="110" fill="#526078" stroke="#171C35" stroke-width="3"/><text x="1168" y="122" fill="#FFF0CF" font-size="12">DRY CLEAN</text>
+ <rect x="1270" y="60" width="100" height="110" fill="#C45C4B" stroke="#171C35" stroke-width="3"/><text x="1286" y="122" fill="#FFF0CF" font-size="13">PIZZA</text>
+ <rect x="1380" y="60" width="100" height="110" fill="#BFA8CF" stroke="#171C35" stroke-width="3"/><text x="1388" y="122" fill="#171C35" font-size="12">PHARMACY</text>
+ <rect x="850" y="190" width="630" height="130" fill="url(#lot)"/><text x="860" y="312" fill="#FFF0CF" font-size="13">parking lot · runaway carts</text>
+ <text x="840" y="30" fill="#EF9347" font-size="22" font-weight="700">50 · THE STRIP MALL</text>
+
+ <!-- 55: school (southeast) -->
+ <rect x="830" y="500" width="380" height="380" fill="none" stroke="#EF9347" stroke-width="4" stroke-dasharray="14 8"/>
+ <rect x="850" y="520" width="340" height="150" fill="#D3B78D" stroke="#171C35" stroke-width="3"/><text x="880" y="600" fill="#171C35" font-size="17" font-weight="700">ELEMENTARY SCHOOL</text>
+ <rect x="850" y="690" width="340" height="60" fill="url(#lot)"/><text x="860" y="728" fill="#FFF0CF" font-size="13">pickup line</text>
+ <rect x="850" y="770" width="200" height="90" fill="#83A89A" stroke="#171C35" stroke-width="2"/><text x="860" y="820" fill="#171C35" font-size="13">playground</text>
+ <text x="1060" y="820" fill="#F2D7A1" font-size="13">Math Homework</text><text x="1060" y="838" fill="#F2D7A1" font-size="13">boss arena</text>
+ <text x="840" y="870" fill="#EF9347" font-size="22" font-weight="700">55 · THE SCHOOL</text>
+
+ <!-- 60: the woods (east) -->
+ <rect x="1230" y="500" width="270" height="380" fill="#2c4a3a" stroke="#EF9347" stroke-width="4" stroke-dasharray="14 8"/>
+ <use href="#pine" x="1270" y="560"/><use href="#tree" x="1330" y="600"/><use href="#pine" x="1450" y="560"/><use href="#tree2" x="1290" y="700"/><use href="#tree" x="1460" y="760"/><use href="#pine" x="1400" y="830"/>
+ <circle cx="1350" cy="720" r="16" fill="#9aa0b5" stroke="#171C35" stroke-width="3"/><circle cx="1395" cy="720" r="16" fill="#9aa0b5" stroke="#171C35" stroke-width="3"/>
+ <text x="1305" y="760" fill="#FFF0CF" font-size="13">TWIN STONES</text>
+ <text x="1240" y="870" fill="#EF9347" font-size="22" font-weight="700">60 · THE WOODS</text>
+
+ <!-- hidden: treehouse -->
+ <rect x="470" y="40" width="200" height="140" fill="none" stroke="#BFA8CF" stroke-width="3" stroke-dasharray="4 6"/>
+ <use href="#tree2" x="570" y="100"/><text x="480" y="160" fill="#BFA8CF" font-size="13">HIDDEN · neighbor's</text><text x="480" y="176" fill="#BFA8CF" font-size="13">treehouse (secret)</text>
+
+ <!-- street trees -->
+ <use href="#tree" x="80" y="350"/><use href="#tree2" x="220" y="350"/><use href="#tree" x="520" y="350"/><use href="#tree2" x="640" y="350"/>
+ <use href="#tree2" x="900" y="355"/><use href="#tree" x="1060" y="355"/><use href="#tree2" x="1300" y="355"/><use href="#tree" x="1460" y="355"/>
+ <use href="#tree" x="660" y="500"/><use href="#tree2" x="820" y="495"/>
+</g>
+<text x="40" y="1050" fill="#B8C0D4" font-size="15">Run still goes 40 to 65. Bosses: Mortgage (driveway), Midlife Crisis V8 (garage), Fifth-Grade Math Homework (school). Lemonade Stand = the shop.</text>
+<text x="40" y="1078" fill="#B8C0D4" font-size="15">Hazards: LEGO bricks (kid's room), leaf piles, runaway carts, school pickup line. Everything here is a draft to react to.</text>
+</svg>

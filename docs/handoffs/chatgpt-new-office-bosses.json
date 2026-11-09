@@ -1,0 +1,93 @@
+{
+  "for": "ChatGPT image generation. One boss per chat. Attach assets/bosses/boss-hoa-president-v1.png and boss-performance-review-v1.png as style and grid references.",
+  "shared_rules": {
+    "sheet": "576x456 logical pixels (ideally exported 3x at 1728x1368): 4 columns x 3 rows of 144x152 cells, no grid lines, no labels",
+    "frames": "0-5 walk cycle, 6-7 wind-up, 8-9 attack, 10 hurt (comic, no injury), 11 completely blank",
+    "foot_point": "local (72,148) in every cell; same scale, head size, outfit and camera angle in every cell; 4px clear margin",
+    "style": "hard 16-bit pixel clusters, one-pixel navy outline, three hue-shifted tones per material, warm upper-left light, 3/4 top-down view, big friendly head",
+    "palette_only": ["#171C35", "#303750", "#526078", "#3E7775", "#83A89A", "#D3B78D", "#F2D7A1", "#FFF0CF", "#EF9347", "#C45C4B", "#BFA8CF", "#F1B5BF"],
+    "background": "exact flat opaque magenta #FF00FF everywhere outside the art, no floor, no cast shadow, no glow",
+    "color": "neutral white balance, no sepia, no golden haze, no film-look tint",
+    "forbidden": "text, letters, numbers, logos, brands, watermarks, real people"
+  },
+  "bosses": [
+    {
+      "game_key": "theReorg",
+      "name": "The Reorg",
+      "concept": "A cheerful management consultant who rolls in with a whiteboard org chart and rearranges everything.",
+      "physical_description": {
+        "build": "tall and lanky, long arms, confident forward lean",
+        "head": "big friendly head, slicked-back dark hair with one stubborn cowlick, thin rectangular glasses, wide salesman grin",
+        "outfit": "slate-blue suit jacket over a cream shirt, sleeves rolled to the elbow, teal tie loosened, warm tan trousers, russet loafers",
+        "props": "pushes a rolling whiteboard on a navy stand; the board shows only boxes connected by arrows (no writing); a coffee-orange dry-erase marker in his other hand; a few sticky notes stuck to the board edges",
+        "personality": "upbeat, unbothered, 'exciting changes ahead'"
+      },
+      "poses": {
+        "0-5": "walk pushing the whiteboard, alternating strides, board wheels turning, sticky notes flutter",
+        "6": "wind-up: stops, spins the whiteboard to face forward, raises the marker",
+        "7": "wind-up: marker high, about to slash a big arrow across the chart, eyebrows up",
+        "8": "attack: swings the marker in a big sweep, arrows on the board swap places, sticky notes burst outward",
+        "9": "follow-through: arms wide, 'ta-da' pose, board tilted",
+        "10": "hurt: glasses askew, sticky notes falling off the board, startled"
+      },
+      "telegraph": {
+        "file": "telegraph-reorg-v1.png",
+        "size": "256x128",
+        "look": "two dashed rectangles (cream dashes on magenta) with curved coffee-orange swap arrows between them, like a floor plan being rearranged, no text"
+      },
+      "gameplay_note_for_claude": "reshuffles the room: desks slide, spawn points move"
+    },
+    {
+      "game_key": "holidayParty",
+      "name": "The Holiday Party",
+      "concept": "The coworker who leads the conga line at the office holiday party and will not let you leave.",
+      "physical_description": {
+        "build": "short and round, bouncy, always mid-dance",
+        "head": "big friendly head, rosy cheeks, huge grin, curly russet hair under a lopsided pointed paper party hat (teal with cream stripes)",
+        "outfit": "a chunky ugly holiday sweater in sage and russet with cream snowflakes and a knitted reindeer (generic, no characters or brands), a tinsel scarf in coffee orange, tan khakis, novelty socks in pink and cream",
+        "props": "holds a cup of red punch in one hand, a sprig of mistletoe (green leaves, white berries) dangling from a stick tied to the party hat",
+        "personality": "joyful, relentless, a little too close"
+      },
+      "poses": {
+        "0-5": "conga dance walk: hip bumps, kicks to the side on frames 2 and 5, punch cup held high without spilling",
+        "6": "wind-up: points at you with the punch cup, eyebrows waggle",
+        "7": "wind-up: crouches, arms out, mistletoe swinging forward",
+        "8": "attack: big leaping hug lunge toward the viewer, tinsel flying",
+        "9": "follow-through: lands in a 'come on, one more song' pose, punch sloshes",
+        "10": "hurt: party hat knocked sideways, punch splashes on sweater, shocked"
+      },
+      "telegraph": {
+        "file": "telegraph-holiday-party-v1.png",
+        "size": "192x128",
+        "look": "a circle of mistletoe sprigs and tinsel loops on the floor, with small cream sparkles, no text"
+      },
+      "gameplay_note_for_claude": "conga line of followers; mistletoe zones freeze you for an awkward second"
+    },
+    {
+      "game_key": "newBoss",
+      "name": "Your New Boss (Age 26)",
+      "concept": "Your brand-new manager, half your age, running on energy drinks and motivational quotes.",
+      "physical_description": {
+        "build": "slim and springy, bouncing on the balls of his feet, always too fast",
+        "head": "big friendly head, youthful face, swoopy tousled hair with a slight fade, wireless earbuds, eager wide eyes",
+        "outfit": "a sage quilted fleece vest over a slate hoodie with the collar of a cream button-down poking out, tan joggers, bright white and coffee-orange sneakers, a lanyard badge",
+        "props": "a tall generic energy drink can (lavender and orange, no logo or text) in one hand, a phone in the other",
+        "personality": "relentlessly positive, means well, has never seen a fax machine"
+      },
+      "poses": {
+        "0-5": "fast jogging walk, can swinging, sneakers squeak (big strides)",
+        "6": "wind-up: chugs the energy drink, eyes widen",
+        "7": "wind-up: crushes the can, points both finger-guns forward",
+        "8": "attack: dashing burst toward the viewer, arm thrust out in an encouraging point, little cream speed lines",
+        "9": "follow-through: thumbs up, slides to a stop",
+        "10": "hurt: earbud pops out, phone fumbles, wide-eyed 'oh no'"
+      },
+      "telegraph": {
+        "file": "telegraph-new-boss-v1.png",
+        "size": "256x128",
+        "look": "a straight dash lane of coffee-orange chevrons with cream starbursts at the end, like a pep-talk sprint, no text"
+      },
+      "gameplay_note_for_claude": "fast; every attack comes with a pep talk line"
+    }
+  ]
+}
