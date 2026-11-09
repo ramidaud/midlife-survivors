@@ -97,6 +97,10 @@ window.Lounge = (() => {
       if (!up || (typeof getRank === "function" && getRank(stats, up.id) > 0)) return "OWNED";
       if (window.LOADOUT && LOADOUT.held(stats).weapons.length >= LOADOUT.weaponSlots) return "HANDS FULL";
     }
+    if (it.skin) { // cosmetics: one look per run, and only for heroes that have that skin drawn
+      if (stats.skin === it.skin) return "OWNED";
+      if (!(window.SKIN_FILES && SKIN_FILES[it.skin] && SKIN_FILES[it.skin][meta.selectedChar])) return "SOLD OUT";
+    }
     if (meta.coins < price(it)) return "TOO PRICEY";
     return "";
   }
@@ -174,6 +178,7 @@ window.Lounge = (() => {
     if (it.clearRadius) st.quietHour = it.clearRadius; // applied when you go back to work
     if (it.runMaxHp) { stats.maxHp += it.runMaxHp; hp = Math.min(stats.maxHp, hp + it.runMaxHp); if (typeof drawHpBar === "function") drawHpBar(); } // whole-run perks from the cart
     if (it.runRevive) stats.revives = (stats.revives || 0) + it.runRevive;
+    if (it.skin) stats.skin = it.skin; // cosmetic for this run (src/world-art.js draws it)
     if (it.runSpeedMult) stats.speed = Math.round(stats.speed * it.runSpeedMult);
     if (it.weapon) { const up = (window.UPGRADES || []).find(u => u.id === it.weapon); if (up && typeof applyUpgrade === "function") applyUpgrade(up); } // a Lounge-only weapon
     if (typeof updateHUD === "function") updateHUD();

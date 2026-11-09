@@ -73,6 +73,7 @@ window.INTERNS = {
       { id: "coldBrewCup",  name: "Cold Brew Cup",   price: 10, stock: 1, speedMult: 1.20, durMs: 12000, text: "20% faster for 12 seconds." },
       { id: "loanerBadge",  name: "Loaner Badge",    price: 14, stock: 1, vacuumMs: 4000, text: "Pulls in every gem nearby." },
       { id: "quietHour",    name: "Quiet Hour Pass", price: 22, stock: 1, clearRadius: 220, text: "Small fry near you clock out early." },
+      { id: "retroSkinBuy", name: "🕹️ Polygon Upgrade", price: 20, stock: 1, perRun: 1, skin: "retro3d", text: "COSMETIC. You, rendered in glorious late-'90s 3D. This run only." },
       { id: "bandAidKit",   name: "First-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." },
     ],
     // Day One cart (Nov 5, Rami): for the first two minutes of every run (openMs), the Lounge rolls a cart into the Lobby
@@ -91,6 +92,8 @@ window.INTERNS = {
         { id: "micDropBuy",   name: "🎤 Mic Drop",          price: 45, stock: 1, perRun: 1, weapon: "unlockMicDrop", text: "LOUNGE EXCLUSIVE weapon. Drop the mic, stun the room." },
         { id: "sayCheeseBuy", name: "📸 Say Cheese",        price: 40, stock: 1, perRun: 1, weapon: "unlockSayCheese", text: "LOUNGE EXCLUSIVE weapon. Derek's camera. Everyone freeze." },
         { id: "cushionBuy",   name: "🪑 Ergonomic Cushion", price: 25, stock: 1, perRun: 1, runMaxHp: 2, text: "+2 max health for this whole run. Lumbar approved." },
+        // Nov 9 (Rami): cosmetics come from the Lounge and last for the run you're playing. Purely for looks.
+        { id: "retroSkinBuy", name: "🕹️ Polygon Upgrade", price: 20, stock: 1, perRun: 1, skin: "retro3d", text: "COSMETIC. You, rendered in glorious late-'90s 3D. This run only." },
         { id: "beansBuy",     name: "🫘 Good Beans",        price: 30, stock: 1, perRun: 1, runSpeedMult: 1.08, text: "8% faster for this whole run. Single origin, obviously." },
         // Revive (Nov 5, Rami): one extra get-back-up for this run, on top of the 401(k) Shop's Second Opinion.
         { id: "emergencyContact", name: "🚑 Emergency Contact", price: 100, stock: 1, perRun: 1, runRevive: 1, text: "If a hit would end your run, get back up with half health. Once, this run." }

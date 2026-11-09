@@ -29,7 +29,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Clean Out Your Desk at 68.5 (V2.17.0)
 - [ ] Then: the Reunion (72.5), or the polish items
 - [x] Art saved for later builds: Reunion cast, Maple Hollow kit + 6 houses + 4 enemies, retro skins for all 3 heroes, Overtime UI kit
-- [ ] Rami decides: how Lounge cosmetics unlock (coins? achievements?)
+- [x] Rami decided: Lounge cosmetics are bought in the Lounge, this run only (V2.17.3, Polygon Upgrade)
 
 **Play and react**
 - [ ] Fight the New Boss again (V2.15.3): tough enough now? does the defeat feel good?

@@ -1924,3 +1924,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## 2026-11-09 (3:30 PM): V2.17.2, maxed boss chests fixed (Derek's report)
 - Derek, Full Life: "I didn't get anything from the Boss Chests." His run (V2.16.0, Grad Student, level 29, cleared 100) had everything maxed, so each chest slot paid a "Signing Bonus" of 3 coin faces, cut to 30% by the late-career taper. A tier 5 chest looked empty.
 - Now each maxed slot is an uncapped Seniority perk (+6% damage, or Max HP and a heal). Numbers in src/data/pickups.js (bossChest.seniority). Reproduced and tested with a maxed loadout.
+
+## 2026-11-09 (4 PM): V2.17.3, Lounge cosmetics + Say Cheese nudge (Rami's calls)
+- Rami's calls: Say Cheese knocks back "only slightly"; Lounge cosmetics are bought in the Lounge and last only for the run you're playing.
+- Polygon Upgrade (20k, once per run) at the Lounge cart and the Break Room counter swaps in the retro 3D sheet for the 9-to-5er, Soccer Dad or Grad Student (sold out for the Cowboy, who has no skin yet). Saved with the run, so it survives a resume. Purely cosmetic.
+- Say Cheese: 28 px push away from you, then the freeze (WEAPONS.sayCheese.knockbackPx).

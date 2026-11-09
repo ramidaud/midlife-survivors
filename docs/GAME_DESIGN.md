@@ -643,3 +643,8 @@ Maple Hollow uses 32px terrain modules and isolated small props; curb and corner
 
 ### Home/shop art contracts, 2026-11-09 (Codex)
 Six Home house fronts use192x224 cells with porch edge y216. Home enemies use48x48 cells with base y44. Proposed retro skins preserve56x60 hero cells, Dad sole y56 and Student sole y54; these are cosmetic art drafts only. Overtime icons use32px cells, one populated row in a256x64 atlas.
+
+### Lounge cosmetics (decided Nov 9, Rami)
+- Cosmetics are bought in the Lounge (cart or counter) with 401(k) coins and last only for the current run. No permanent unlocks.
+- First one: Polygon Upgrade (retro 3D skin), 20k. More looks can join the same catalog later.
+- Say Cheese gives a slight knockback (28 px) before its freeze.

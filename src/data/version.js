@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.17.2",
-  displayVersion: "V. 2.17.2",
+  version: "2.17.3",
+  displayVersion: "V. 2.17.3",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 307,
+  build: 308,
   changelog: [
+    {
+      ver: "V. 2.17.3", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "You, in glorious late-'90s 3D.",
+      highlights: [
+        "New in the Lounge: the Polygon Upgrade (20k). Your hero, re-rendered like a 1998 video game, for the rest of the run. Purely cosmetic. Available for the 9-to-5er, the Soccer Dad and the Grad Student, at the Lounge cart and the Break Room counter.",
+        "Say Cheese now gives a slight knockback before everyone freezes for the photo."
+      ]
+    },
     {
       ver: "V. 2.17.2", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Boss chests pay out again, even when you're maxed.",

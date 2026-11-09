@@ -72,6 +72,21 @@ window.WorldArt = (() => {
       img.onerror=()=>{};
       img.src='assets/characters/'+HERO_FILES[id]+'.png?v='+window.BUILD;
     }
+    // Nov 9 (Rami): Lounge cosmetics. A "retro 3D" skin you buy in the Lounge for one run (stats.skin = 'retro3d').
+    // Same 448x300 layout as the v2 sheets. Loaded the first time it's needed.
+    const SKIN_FILES={retro3d:{officeWorker:'office-worker-retro3d-walk-56x60-v1',photographer:'photographer-retro3d-walk-56x60-v1',gradStudent:'gradStudent-retro3d-walk-56x60-v1'}};
+    window.SKIN_FILES=SKIN_FILES;
+    const skinAsked=new Set();
+    function skinKey(id){
+      const sk=typeof stats!=='undefined'&&stats&&stats.skin;if(!sk||!SKIN_FILES[sk]||!SKIN_FILES[sk][id])return null;
+      const k='skin_'+sk+'_'+id;if(scene.textures.exists(k))return k;
+      if(!skinAsked.has(k)){skinAsked.add(k);const img=new Image();img.onload=()=>{if(!alive||img.width!==448||img.height!==300)return;
+        const c=document.createElement('canvas');c.width=448;c.height=300;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(img,0,0);
+        const d=x.getImageData(0,0,448,300);for(let i=0;i<d.data.length;i+=4)if(d.data[i]===255&&d.data[i+1]===0&&d.data[i+2]===255)d.data[i+3]=0;
+        x.putImageData(d,0,0);if(!scene.textures.exists(k)){scene.textures.addSpriteSheet(k,c,{frameWidth:56,frameHeight:60});scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST);}};
+        img.src='assets/characters/'+SKIN_FILES[sk][id]+'.png?v='+window.BUILD;}
+      return null;
+    }
     let stillSince=0,nextFidget=0,walkFrom=0;
     function heroFrame(id,moving,now) {
       const H=window.HERO_ANIM,dirs=['down','up','left','right'];
@@ -198,7 +213,7 @@ window.WorldArt = (() => {
         if(!hero){hero=scene.add.sprite(p.x,feet,heroV2.has(meta.selectedChar)?'walk2_'+meta.selectedChar:'walk_'+meta.selectedChar).setOrigin(.5,1);shadow=scene.add.image(p.x,feet-2,'enemy-art-contact').setDisplaySize(26,9);}
         const dx=p.x-lastX,dy=p.y-lastY;
         if(moving&&now!==lastClock){facing=Math.abs(dx)>Math.abs(dy)?(dx<0?'left':'right'):(dy<0?'up':'down');walked+=Math.hypot(dx,dy);}
-        if(heroV2.has(meta.selectedChar))hero.setTexture('walk2_'+meta.selectedChar,heroFrame(meta.selectedChar,moving,now));
+        if(heroV2.has(meta.selectedChar))hero.setTexture(skinKey(meta.selectedChar)||'walk2_'+meta.selectedChar,heroFrame(meta.selectedChar,moving,now));
         else hero.setTexture('walk_'+meta.selectedChar,CharacterArt.frame(facing,moving?Math.floor(now/(window.HERO_ANIM.walkFrameMs*2)):1));
         p.setVisible(false);hero.setPosition(Math.round(p.x),Math.round(feet)).setAlpha(p.alpha).setDepth(state.active?10000+feet-p.y:5);
         if(p.isTinted){if(p.tintFill)hero.setTintFill(p.tintTopLeft);else hero.setTint(p.tintTopLeft);}else hero.clearTint();

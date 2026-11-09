@@ -187,6 +187,7 @@ window.WEAPONS = {
   sayCheese: {
     name: "Say Cheese",     // DEFENSE: Derek's camera flash. Everything in front of you freezes mid-pose
     fireEveryMs: 4500, range: 230, coneDeg: 70, freezeMs: 1400, damage: 2,
+    knockbackPx: 28, // Nov 9: a slight push before the freeze (Rami: "only slightly")
     words: ["SAY CHEESE!", "ONE MORE!", "BLINKED. AGAIN!", "SMILE!"]
   }
 };
