@@ -1,6 +1,12 @@
 // Causes of death, grouped by what finished you off. One is picked at random.
 // Add your own lines anytime. Keep them warm, never mean.
 window.DEATHS = {
+  // Maple Hollow (Nov 9)
+  lego: ["Stepped on a toy brick in socks. Lay down on the floor. Stayed there.", "A single toy brick. Barefoot. Game over, man."],
+  leafPile: ["Buried in leaves you said you'd rake on Saturday.", "The leaves won. They always win in November."],
+  gutterClog: ["Climbed the ladder to clear the gutter. Did not clear the gutter.", "The gutter overflowed. So did you."],
+  lawnMower: ["The neighbor's mower started at 7 AM. You did not.", "Mowed down by a man who says hi but never waves."],
+  taxNotice: ["The property tax went up again. So did your blood pressure.", "Reassessed. Found wanting."],
   // The Gold Watch (Gemini, Nov 3)
   goldWatch: [
     "You spent twenty minutes staring at the clock waiting for 4:59 to turn into 5:00.",

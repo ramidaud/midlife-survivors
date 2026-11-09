@@ -346,7 +346,8 @@ function create() {
   if (window.Promotions) Promotions.reset();
   if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
   if (window.Errands) Errands.reset();
-  if (window.KeyHunt) KeyHunt.reset();     // errands: one TO-DO per run (src/errands.js)
+  if (window.KeyHunt) KeyHunt.reset();
+  if (window.HomeHazards) HomeHazards.reset();     // errands: one TO-DO per run (src/errands.js)
   runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; window.runCoinsTapered = 0; window.lastPaycheck = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
@@ -2236,6 +2237,12 @@ function ageCurve(table, age) {
 // Pick an enemy type from the current wave's raffle tickets.
 function rollWaveKind() {
   if (window.OvertimeBeats && OvertimeBeats.spamSwap() && ENEMIES.spamCall) return "spamCall"; // Open Enrollment hold music
+  const k0 = rollWaveKindOffice();
+  // Maple Hollow (Nov 9): the neighborhood sends its own crowd some of the time (MAPLE_HOLLOW.enemySwap)
+  if (window.STAGE_ID === "home" && window.MAPLE_HOLLOW && MAPLE_HOLLOW.enemySwap) { const sw = MAPLE_HOLLOW.enemySwap[k0]; if (sw && ENEMIES[sw[0]] && Math.random() < sw[1]) return sw[0]; }
+  return k0;
+}
+function rollWaveKindOffice() {
   const wave = currentWave();
   // Age 50+ modifiers can tilt the everyday mix (src/modifiers.js), e.g. Ghost Hour adds more 3 AM Thoughts.
   const bias = window.modFx ? modFx("waveBias", null) : null;
@@ -2779,10 +2786,11 @@ function update(time, delta) {
   if (window.Workload) Workload.update(this);            // Overtime Workload past 65 (src/workload.js)
   if (window.OvertimeBeats) OvertimeBeats.update(this);  // Overtime events like Open Enrollment (src/overtime-beats.js)
   if (window.PerfBonus) PerfBonus.update(this);          // free picks when late-game XP dries up (src/perf-bonus.js)
-  if (window.KeyHunt && !office) KeyHunt.update(this);             // Maple Hollow: locked out, find the spare key (src/key-hunt.js)
+  if (window.KeyHunt && !office) KeyHunt.update(this);
+  if (window.HomeHazards && !office) HomeHazards.update(this);     // toy bricks on the floor (src/home-hazards.js)             // Maple Hollow: locked out, find the spare key (src/key-hunt.js)
   if (window.Errands && office) Errands.update(this);              // the TO-DO errand (src/errands.js)
   if (window.Interns && office) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
-  if (window.Lounge && office) Lounge.update(this, now);           // the Lounge counter opens after promotions
+  if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions (at home: the Lemonade Stand)
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
   if (window.YellowNote && office) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note
   if (window.Butterscotch && office) { Butterscotch.update(this); Butterscotch.sync(); } // help yourself to a butterscotch

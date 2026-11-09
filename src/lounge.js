@@ -19,13 +19,20 @@ window.Lounge = (() => {
   }
 
   const cartMode = () => !!(st && st.mode === "cart");
-  const catalog = () => (cartMode() ? (C().cart || {}).catalog : C().catalog) || [];
+  // Nov 9 (Maple Hollow step 4): at home the Lounge is your kid's Lemonade Stand on the sidewalk. Same shop screen,
+  // its own menu (INTERNS.lounge.stand), its own spot (MAPLE_HOLLOW.lemonade), and no Break Room rules.
+  const atHome = () => window.STAGE_ID === "home";
+  const ST = () => C().stand || {};
+  const catalog = () => (atHome() ? ST().catalog : cartMode() ? (C().cart || {}).catalog : C().catalog) || [];
+  const shopName = () => atHome() ? "LEMONADE STAND" : "THE LOUNGE";
   function gateOpen() {
+    if (atHome()) return true;
     const gates = window.START_AREA_GATES || [];
     const g = gates.find(g => g.toDistrict === (C().districtId || "breakroom"));
     return g ? !!g.opened : false;
   }
   function spot() {
+    if (atHome() && window.MAPLE_HOLLOW && MAPLE_HOLLOW.lemonade) { const [x, y] = MAPLE_HOLLOW.lemonade.spot; return { x, y }; }
     if (cartMode() && st.cartSpot) return st.cartSpot;
     const p = (window.START_AREA_LAYOUT && START_AREA_LAYOUT.placements || []).find(p => p.prop === "coffee_cart" && p.district === "breakroom");
     let s = p ? { x: p.x, y: p.y + 104 } : Object.assign({}, SPOT_FALLBACK);
@@ -33,6 +40,7 @@ window.Lounge = (() => {
     return s;
   }
   function inBreakRoom(x, y) {
+    if (atHome()) return false;
     const floors = (window.START_AREA_LAYOUT && START_AREA_LAYOUT.floors) || [];
     return floors.some(f => f.district === (C().districtId || "breakroom") && x >= f.x && x <= f.x + f.width && y >= f.y && y <= f.y + f.height);
   }
@@ -47,7 +55,7 @@ window.Lounge = (() => {
     catalog().forEach(it => { st.stock[it.id] = it.stock; });
     if (cartMode()) { st.openUntil = runElapsedMs + ((L.cart && L.cart.openMs) || 120000); st.arrowUntil = 0; } // no arrow: finding it is the fun
     const roster = (window.INTERNS && INTERNS.roster) || [];
-    const r = roster[Math.floor(Math.random() * roster.length)] || { name: "The intern", id: "tj" };
+    const r = atHome() ? { name: ST().staffName || "Your kid", id: "kid" } : roster[Math.floor(Math.random() * roster.length)] || { name: "The intern", id: "tj" };
     st.staff = r;
     // Counter marker: a cream rug with OPEN on it, plus the intern behind it.
     const rug = scene.add.ellipse(s.x, s.y, 104, 44, 0xF2D7A1, 0.22).setStrokeStyle(3, 0xF2D7A1, 0.9).setDepth(2.5);
@@ -67,10 +75,21 @@ window.Lounge = (() => {
     const arrow = scene.add.text(0, 0, "THE LOUNGE ▶", { fontFamily: "Silkscreen, monospace", fontSize: "13px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 6, y: 3 } }).setOrigin(0.5).setDepth(50003).setScrollFactor(0);
     if (cartSprite) { sign.setVisible(false); if (staff) staff.setPosition(s.x + 84, s.y + 14); tag.setPosition(s.x, s.y - 112).setText("LOUNGE CART · " + r.name.toUpperCase()); }
     st.objs = [rug, sign, staff, tag, arrow, cartSprite]; st.arrow = arrow;
+    if (atHome()) { // the stand itself, with your kid behind it
+      rug.setVisible(false); sign.setVisible(false); if (staff) staff.setVisible(false);
+      const stand = scene.textures.exists("mh_stand") ? scene.add.image(s.x, s.y - 4, "mh_stand", 4).setOrigin(0.5, 1).setScale(1.5).setDepth(4.4) : null;
+      const kid = scene.textures.exists("grandkid_2") ? scene.add.sprite(s.x + 46, s.y - 2, "grandkid_2", 0).setOrigin(0.5, 56 / 60).setDepth(4.45) : null;
+      const ring = scene.add.ellipse(s.x, s.y + 16, 96, 30).setStrokeStyle(3, 0xF1B5BF, 0.9).setFillStyle(0xF1B5BF, 0.15).setDepth(2.5);
+      scene.tweens.add({ targets: ring, scale: { from: 0.95, to: 1.08 }, duration: 700, yoyo: true, repeat: -1 });
+      tag.setPosition(s.x, s.y - 196).setText("LEMONADE STAND · " + r.name.toUpperCase());
+      st.objs.push(stand, kid, ring);
+      if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
+    }
     if (st.closedSign) { st.closedSign.forEach(o => o.destroy()); st.closedSign = null; }
     const line = ((cartMode() && L.cart && L.cart.lines && L.cart.lines.open) || (L.lines && L.lines.open) || "{name} is on the Lounge register.").replace("{name}", r.name);
     if (window.Spotlight && Spotlight.lounge) Spotlight.lounge(r, cartMode() ? Math.round(((L.cart && L.cart.openMs) || 120000) / 60000) : 0);
-    if (window.showLowerThird && !cartMode()) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
+    if (window.showLowerThird && atHome()) window.showLowerThird("promo", "LEMONADE", (ST().openLine || "Your kid opened a lemonade stand. Follow the arrow."), 5000);
+    else if (window.showLowerThird && !cartMode()) window.showLowerThird("promo", "THE LOUNGE", line + " Break Room, near the coffee cart.", 5000);
     sfx("coin");
   }
 
@@ -84,7 +103,8 @@ window.Lounge = (() => {
     st.cartSprite = null;
     st.objs.forEach(o => o && o.destroy && o.destroy()); st.objs = []; st.arrow = null;
     if (cartMode()) { st.mode = "counter"; line = (C().cart && C().cart.lines && C().cart.lines.shutter) || line; }
-    if (line && window.showLowerThird) window.showLowerThird("lore", "THE LOUNGE", line, 3000);
+    if (atHome()) line = ST().shutterLine || "The stand closed. Someone has to do homework.";
+    if (line && window.showLowerThird) window.showLowerThird("lore", shopName(), line, 3000);
   }
 
   // ---------- the shop screen ----------
@@ -140,8 +160,8 @@ window.Lounge = (() => {
     const m = ensureModal(), L = C(), r = st.staff || { name: "The intern" };
     const items = catalog().map(it => ({ it, why: canBuy(it) }));
     m.innerHTML = `<div class="lg-card">
-      <div class="lg-head"><span>${cartMode() ? ((L.cart && L.cart.header) || "THE LOUNGE CART") : "THE LOUNGE · BREAK ROOM"}</span><span>401(k): ${meta.coins}k</span></div>
-      <picture class="lg-scene"><source media="(max-width:520px)" srcset="assets/ui/lounge-scene-tall-v1.png?v=${window.BUILD||1}"><img src="assets/ui/lounge-scene-v1.png?v=${window.BUILD||1}" alt="The Student Lounge: futon, paper lamp, collage wall and the desk where TJ and Derek work" width="960" height="360"></picture>
+      <div class="lg-head"><span>${atHome() ? (ST().header || "LEMONADE STAND · CURBSIDE") : cartMode() ? ((L.cart && L.cart.header) || "THE LOUNGE CART") : "THE LOUNGE · BREAK ROOM"}</span><span>401(k): ${meta.coins}k</span></div>
+${atHome() ? "" : `      <picture class="lg-scene"><source media="(max-width:520px)" srcset="assets/ui/lounge-scene-tall-v1.png?v=${window.BUILD||1}"><img src="assets/ui/lounge-scene-v1.png?v=${window.BUILD||1}" alt="The Student Lounge: futon, paper lamp, collage wall and the desk where TJ and Derek work" width="960" height="360"></picture>`}
       <div class="lg-body">
         <div class="lg-say"><b>${r.name}:</b> ${msg || "What can I get you?"}</div>
         <div class="lg-grid">${items.map(({ it, why }, i) => `
@@ -229,11 +249,17 @@ window.Lounge = (() => {
     st.arrow.setPosition(w / 2 + Math.cos(a) * k, h / 2 + Math.sin(a) * k);
     const arrows = ["▶", "◢", "▼", "◣", "◀", "◤", "▲", "◥"];
     const idx = Math.round(((a + Math.PI * 2) % (Math.PI * 2)) / (Math.PI / 4)) % 8;
-    st.arrow.setText("THE LOUNGE " + arrows[idx]);
+    st.arrow.setText((atHome() ? "LEMONADE " : "THE LOUNGE ") + arrows[idx]);
   }
 
   // While it's closed, a dim sign marks the counter so you know where to go next time.
   function closedSign(scene) {
+    if (atHome()) { // the stand sits closed under its cloth until the next window
+      if (st.closedSign || st.state !== "closed" || !scene.textures.exists("mh_stand")) return;
+      const s = spot();
+      st.closedSign = [scene.add.image(s.x, s.y - 4, "mh_stand", 5).setOrigin(0.5, 1).setScale(1.5).setDepth(4.4)];
+      return;
+    }
     if (st.closedSign || st.state !== "closed" || !gateOpen() || cartMode()) return;
     const s = spot();
     const sign = scene.add.text(s.x, s.y - 2, "THE LOUNGE\nOPENS AFTER PROMOTIONS", { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#F2D7A1", backgroundColor: "#171C35cc", padding: { x: 7, y: 4 }, align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(50000).setAlpha(0.75);
@@ -260,6 +286,13 @@ window.Lounge = (() => {
     const L = C(), S = L.safety || {};
     // Arm a window at each promotion age once the Break Room is open.
     // Day One cart: opens in the Lobby right at the start of a fresh run.
+    if (atHome() && !st.cartDone && st.state === "closed" && runElapsedMs > 300) { // the stand opens at the start of a home run too
+      st.cartDone = true;
+      if (window.ArtSheets) { ArtSheets.load(scene, "mh_stand", "assets/stage/home/home-hazards-v1.png", 64, 128); if (window.OvertimeBeats) {} }
+      if (window.ArtSheets) ArtSheets.load(scene, "grandkid_2", "assets/characters/grandkid-2-v1.png", 56, 60);
+      if (runElapsedMs < 3000) { open(scene); st.openUntil = runElapsedMs + (ST().openMs || 120000); }
+      return;
+    }
     if (!st.cartDone && st.state === "closed" && L.cart && runElapsedMs < 3000 && runElapsedMs > 300) {
       st.cartDone = true;
       const cheapest = Math.min(...(L.cart.catalog || []).map(it => it.price));

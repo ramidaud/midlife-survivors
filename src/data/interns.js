@@ -76,6 +76,22 @@ window.INTERNS = {
       { id: "retroSkinBuy", name: "🕹️ Polygon Upgrade", price: 20, stock: 1, perRun: 1, skin: "retro3d", text: "COSMETIC. You, rendered in glorious late-'90s 3D. This run only." },
       { id: "bandAidKit",   name: "First-Aid Kit",    price: 28, stock: 1, perRun: 1, healFrac: 0.28, healMin: 4, text: "Big heal. Once per run." },
     ],
+    // Maple Hollow's Lemonade Stand (Nov 9, step 4): the Lounge at home. Opens at the start of a home run (openMs)
+    // and after each "promotion" age like the Lounge. Your kid runs it. Prices in 401(k) thousands, like the Lounge.
+    stand: {
+      openMs: 120000, staffName: "Your kid", header: "LEMONADE STAND · CURBSIDE",
+      openLine: "Your kid opened a lemonade stand by the curb. Follow the pink arrow. Cash only.",
+      shutterLine: "The stand closed. Someone has homework.",
+      catalog: [
+        { id: "lemonadeSmall", name: "🍋 Small Lemonade",   price: 5,  stock: 3, healFlat: 3, text: "Heals 3. Mostly sugar." },
+        { id: "lemonadeBig",   name: "🍋 Big Lemonade",     price: 12, stock: 1, useSaladFrac: true, text: "Heals like a Desk Salad. Extra ice." },
+        { id: "cookieRush",    name: "🍪 Sugar Cookie",     price: 9,  stock: 2, speedMult: 1.2, durMs: 12000, text: "20% faster for 12 seconds." },
+        { id: "braceletPull",  name: "🧶 Friendship Bracelet", price: 14, stock: 1, vacuumMs: 4000, text: "Pulls in every gem nearby." },
+        { id: "quietTime",     name: "🤫 Quiet Time Coupon", price: 22, stock: 1, clearRadius: 220, text: "Clears the small stuff near you when you leave." },
+        { id: "retroSkinStand", name: "🕹️ Polygon Upgrade",   price: 20, stock: 1, perRun: 1, skin: "retro3d", text: "COSMETIC. You, in glorious late-'90s 3D. This run only." },
+        { id: "emergencyKid",  name: "🚑 Emergency Contact", price: 100, stock: 1, perRun: 1, runRevive: 1, text: "If a hit would end your run, get back up with half health. Once, this run." }
+      ]
+    },
     // Day One cart (Nov 5, Rami): for the first two minutes of every run (openMs), the Lounge rolls a cart into the Lobby
     // (the Break Room is still locked). It sells the Lounge-only weapons, while you still have free hands,
     // and perks that last the whole run. The Break Room counter later sticks to heals and quick buffs.

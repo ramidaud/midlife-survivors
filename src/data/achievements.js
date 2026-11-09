@@ -19,6 +19,7 @@ window.ACHIEVEMENTS = [
   { id: "enrolled",      icon: "🩺", name: "Initial Enrollment Period", desc: "Finish Open Enrollment (all four offices).", reward: 8, on: "otBeat", test: d => d.id === "openEnrollment" },
   { id: "boxOfMemories", icon: "📦", name: "Box of Memories",          desc: "Pack all eight keepsakes when you clean out your desk.", reward: 8, on: "otBeat", test: d => d.id === "cleanOutDesk" && d.all },
   { id: "replyAllInPerson", icon: "📛", name: "Reply All, In Person",   desc: "Catch up with all eight old coworkers at the Reunion.", reward: 6, on: "otBeat", test: d => d.id === "reunion" && d.all },
+  { id: "legoStep",      icon: "🧱", name: "Barefoot Parenting",       desc: "Step on a toy brick in Maple Hollow.", reward: 2, on: "lego", test: () => true, egg: true },
   { id: "spareKey",      icon: "🔑", name: "Under The Fake Rock",      desc: "Find the spare key and get into your house in Maple Hollow.", reward: 5, on: "keyHunt", test: () => true },
   { id: "grandparent",   icon: "💗", name: "World's Okayest Grandparent", desc: "Tag all the grandkids during their visit.", reward: 8, on: "otBeat", test: d => d.id === "grandkids" || d.id === "grandkids2" },
   { id: "escrowHero",    icon: "🏠", name: "Initial Here",              desc: "Beat the 30-Year Mortgage.",              reward: 6,  on: "bossKill", test: d => d.kind === "mortgageRefinance" },

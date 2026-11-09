@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.20.0",
-  displayVersion: "V. 2.20.0",
+  version: "2.21.0",
+  displayVersion: "V. 2.21.0",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 315,
+  build: 316,
   changelog: [
+    {
+      ver: "V. 2.21.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The neighborhood fights back.",
+      highlights: [
+        "Maple Hollow has its own crowd now: Leaf Piles, Gutter Clogs, the neighbor's Lawn Mower (fast, and it does not wave) and Property Tax Notices. They mix in with the office regulars who followed you home.",
+        "Toy bricks on the floor in the kid's room and on your lawn. Step on one: a hit, a limp, and a lot of language.",
+        "Your kid opened a Lemonade Stand by the curb. It's the Lounge at home: lemonade heals, sugar cookies, a friendship bracelet that pulls in gems, the Polygon Upgrade and more. Open at the start of a run and after each promotion age."
+      ]
+    },
     {
       ver: "V. 2.20.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "You can go inside now.",

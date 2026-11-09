@@ -702,3 +702,6 @@ A generated closed/open pair can shift windows and roof pixels. Copying the clos
 
 ## Doors can just be teleports (Nov 9, inside your house)
 The inside of your house isn't inside the house sprite at all. It's built far below the neighborhood, out of sight, and the front door simply moves you there (and the mat moves you back). Lots of classic games do this: Zelda's houses and caves are separate little rooms you jump to. The trick is making the jump feel like a door: the camera snaps, enemies that can't follow you give up, and the boss comes along so it isn't a hiding spot.
+
+## Reskinning a system (Nov 9, the Lemonade Stand)
+The Lemonade Stand isn't new code. It's the Lounge with a different coat of paint: same shop screen, same buying rules, same "opens after a promotion" timer. The Lounge now asks one question, "are we at home?", and if so it swaps in the stand's art, its menu, its spot on the sidewalk and your kid at the register. Reskinning keeps one system to fix and tune instead of two that slowly drift apart.

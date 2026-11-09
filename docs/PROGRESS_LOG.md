@@ -1962,3 +1962,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Your house replaces the split-level on your lot; the door art swaps to open when you unlock it. Key-hunt spots use the real props (the fake rock flips open).
 - Inside: three rooms (living room, kitchen, kid's room) over a hallway, built below the neighborhood (MAPLE_HOLLOW.interior). Walls and big furniture are solid. Walk into the open door to go in, step on the front mat to go out; far-away enemies clock out and bosses come along. Fridge: heal 4, once per run. Garage stays for the V8 pass (Rami).
 - Tested on laptop and phone: in, fridge, out.
+
+## 2026-11-09 (8:30 PM): V2.21.0, Maple Hollow step 4: home enemies, toy bricks, Lemonade Stand
+- Four home enemies from ChatGPT's sheet (cut into one file each): Leaf Pile, Gutter Clog (slow, tough), the neighbor's Lawn Mower (fast) and Property Tax Notice. At home, office spawns swap to them some of the time (MAPLE_HOLLOW.enemySwap), with their own death lines.
+- Toy-brick floor (src/home-hazards.js, MAPLE_HOLLOW.lego): 5 patches in the kid's room and 5 on the lawns; 1 hit plus a 0.7 s limp, 3 s cooldown per patch. Easter-egg achievement "Barefoot Parenting".
+- Lemonade Stand: the Lounge at home (same shop screen), on the sidewalk by your house, run by your kid. Opens at the start of a home run (2 min) and at 45/50/55/60. Menu in INTERNS.lounge.stand (lemonades, cookie, bracelet, quiet-time coupon, Polygon Upgrade, Emergency Contact).
+- Tested on laptop: stand opens and the shop works, a brick hit lands, all four enemies spawn with art.

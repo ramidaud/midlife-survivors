@@ -20,7 +20,12 @@ window.MapleHollow = (() => {
     try { intImg = await H.image(ROOT + "house-interior-v1.png"); intMap = await (await fetch(ROOT + "house-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { intImg = null; }
     if (!H.isAlive()) return null;
     const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
-    if (window.ArtSheets) ArtSheets.load(scene, "kh_sheet", ROOT + "key-hunt-v1.png", 32, 32); // the key hunt's props (src/key-hunt.js)
+    if (window.ArtSheets) { // load early so they're ready when the run starts
+      ArtSheets.load(scene, "kh_sheet", ROOT + "key-hunt-v1.png", 32, 32);          // the key hunt's props (src/key-hunt.js)
+      ArtSheets.load(scene, "mh_haz", ROOT + "home-hazards-v1.png", 32, 32);        // toy bricks (src/home-hazards.js)
+      ArtSheets.load(scene, "mh_stand", ROOT + "home-hazards-v1.png", 64, 128);     // the Lemonade Stand (src/lounge.js)
+      ArtSheets.load(scene, "grandkid_2", "assets/characters/grandkid-2-v1.png", 56, 60); // your kid, at the stand
+    }
 
     // ---- ground: compose a few repeating textures from the 32 px kit ----
     const cell = (c, idx, dx, dy) => c.drawImage(kit, (idx % 8) * 32, Math.floor(idx / 8) * 32, 32, 32, dx, dy, 32, 32);

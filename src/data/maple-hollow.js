@@ -34,6 +34,19 @@ window.MAPLE_HOLLOW = {
   yourHouse: { row: "north", lot: 2 }, // you start on the sidewalk in front of this one
   // little yard props (frame numbers in maple-hollow-tiles-props-v1.png, 32x32 cells): drawn under everyone, not solid
   yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
+  // Step 4 (Nov 9): the neighborhood's own crowd. When the office would spawn one of these, it sometimes sends the
+  // home version instead: [office kind]: [home kind, chance].
+  enemySwap: { bill: ["taxNotice", 0.5], snackAttack: ["leafPile", 0.7], backTwinge: ["gutterClog", 0.6], calendarInvite: ["lawnMower", 0.6], spamCall: ["leafPile", 0.25] },
+  // The toy-brick floor (step 4): step on one and you'll know. [x, y, density 0-3] in world px; "kids" spots are
+  // inside the kid's room (relative to its top-left). One hit per patch every few seconds, plus a short limp.
+  lego: {
+    damage: 1, cooldownMs: 3000, slowMs: 700, hitPx: 18,
+    lines: ["OUCH! LEGO.", "IN SOCKS?!", "WHO LEFT THIS HERE", "SON OF A BRICK"],
+    outdoor: [[880, 470, 1], [990, 488, 2], [1110, 476, 0], [1290, 860, 1], [700, 900, 0]],
+    kids: [[120, 160, 2], [210, 150, 3], [260, 220, 1], [150, 230, 2], [320, 250, 0]]
+  },
+  // The Lemonade Stand (step 4): Maple Hollow's Lounge, on the sidewalk by your house. Items: INTERNS.lounge.stand.
+  lemonade: { spot: [1240, 552] },
   // Locked out (Nov 9, step 3a): you can't get into your own house. The spare key is hidden at one of these spots
   // (a different one each run). Walk over a spot to check it. Find the key, then walk to your front door.
   keyHunt: {
