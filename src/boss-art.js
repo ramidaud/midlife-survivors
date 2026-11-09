@@ -4,6 +4,7 @@ window.BossArt = (() => {
   const FILES = {
     performanceReview: "assets/bosses/boss-performance-review-v1.png",
     newBoss: "assets/bosses/boss-new-boss-v1.png", // Nov 9
+    holidayParty: "assets/bosses/boss-holiday-party-v1.png",
     mortgageRefinance: "assets/bosses/boss-30-year-mortgage-v1.png",
     midlifeCrisis: "assets/bosses/boss-midlife-crisis-v8-v1.png",
     goldWatch: "assets/bosses/boss-gold-watch-v1.png",
@@ -15,6 +16,7 @@ window.BossArt = (() => {
   const MARKERS = {
     performanceReview: ["assets/bosses/telegraph-performance-review-v1.png", 256, 128],
     newBoss: ["assets/bosses/telegraph-new-boss-v1.png", 256, 128],
+    holidayParty: ["assets/bosses/telegraph-holiday-party-v1.png", 192, 128],
     mortgageRefinance: ["assets/bosses/telegraph-30-year-mortgage-v1.png", 192, 128],
     midlifeCrisis: ["assets/bosses/telegraph-midlife-crisis-v8-v1.png", 256, 128],
     goldWatch: ["assets/bosses/telegraph-gold-watch-v1.png", 256, 128],

@@ -311,7 +311,7 @@ function create() {
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
   if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
-  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; window.goldWatchBeat = false; window.goldWatchSeen = false;
+  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
@@ -816,6 +816,7 @@ window.persistActiveRun = () => {
     runTaxBracket,
     runSprint,
     char: meta.selectedChar, // Nov 8: a saved run belongs to the hero who started it
+    slotBoss: window.runSlotBoss || null, // Nov 9: which boss this run got at 56
     stats
   });
 };
@@ -860,6 +861,13 @@ function applyMetaAndChar() {
   hp = stats.maxHp;
 }
 
+// The "middle management" slot (Nov 9, Rami): The Reorg and The Holiday Party take turns, one per run.
+// Only bosses that are built (have attack data) can be picked, so until the Reorg is built it's always the Party.
+function pickSlotBoss() {
+  const list = (modeCfg().bossSlot || []).filter(k => window.ENEMIES && ENEMIES[k] && window.BOSS_ATTACKS && BOSS_ATTACKS[k]);
+  return list.length ? Phaser.Utils.Array.GetRandom(list) : null;
+}
+
 // Start a brand-new run at the selected Decade Checkpoint (40, 50, 60, 70, or 80) with starter upgrades!
 function beginFreshRunAtDecade(scene) {
   clearRunState();
@@ -875,7 +883,8 @@ function beginFreshRunAtDecade(scene) {
   lastAutoSave = 0;
   retire80Prompted = runStartAge >= 80;
   bossesSpawned = {};
-  ["performanceReview", "newBoss", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
+  window.runSlotBoss = pickSlotBoss(); // Nov 9: the age-56 slot picks one boss per run (src/data/modes.js, bossSlot)
+  ["performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
     if (ENEMIES[bk] && ENEMIES[bk].spawnAge < runStartAge) bossesSpawned[bk] = true;
   });
 
@@ -1152,6 +1161,7 @@ function showTitleScreen(scene) {
     runMode = saved.runMode || "full"; // runs saved before modes existed were Full Life runs
     runTaxBracket = saved.runTaxBracket || 0; // resuming keeps the bracket you started with
     runSprint = !!saved.runSprint;
+    window.runSlotBoss = saved.slotBoss !== undefined ? saved.slotBoss : pickSlotBoss();
     lastDividendAge = Math.floor(currentAge / 5) * 5;
     runElapsedMs = saved.runElapsedMs || 0;
     lastAutoSave = runElapsedMs;
@@ -1489,6 +1499,7 @@ function hurtPlayer(p, bill) {
   if (bill.kind === "theReaper") { showGameOver(scene, "theReaper", true); return; } // Reaching Age 100 = CENTENARIAN VICTORY!
   if (bill.ghost) return; // a faded 3 AM Thought can't touch you
   if (now - lastHurt < PLAYER.hurtCooldownMs) return; // still in the safe window
+  if (window.HolidayParty && HolidayParty.safe(now)) return; // caught under the mistletoe: awkward, but nothing hurts
   lastHurt = now;
   if (window.teach && teach.on && !teach.hurtShown && window.FirstMinute) { teach.hurtShown = true; FirstMinute.firstHurt(scene); }
   if (stats.dodge && Math.random() < stats.dodge) { // Fitness Tracker: sidestep the hit
@@ -1748,7 +1759,7 @@ function damageBill(bill, amount) {
       }).setOrigin(0.5, 1.6).setDepth(4);
       for (let i = -2; i <= 2; i++) spawnCoin(bill.x + i * 10, bill.y + 14, 2);
       { const drop = window.BOSS_ATTACKS && BOSS_ATTACKS[bill.kind] && BOSS_ATTACKS[bill.kind].drop; // Nov 9: some bosses leave a pickup (the New Boss: his spare can)
-        if (drop) try { spawnFieldItem(sc, bill.x + 34, bill.y + 6, drop); } catch (e) { console.warn("[boss drop]", e); } }
+        if (drop) try { if (drop === "salad") maybeDropSalad(sc, bill.x + 34, bill.y + 6, { saladChance: 1 }); else spawnFieldItem(sc, bill.x + 34, bill.y + 6, drop); } catch (e) { console.warn("[boss drop]", e); } }
       // Nov 8: this line was behind a switch that never turned on, so nobody ever saw it
       if (window.showLowerThird) window.showLowerThird("win", "SURVIVED", `You outlasted ${E.name}. Your bonus chest is on its way.`, 5000);
     } else if (bill.kind === "officeGossip") {
@@ -2452,9 +2463,11 @@ function update(time, delta) {
 
   // Bosses for this mode, then the ending: Retirement at 65 (Midlife) or Father Time at 100 (Full Life).
   modeCfg().bosses.forEach(bk => {
+    if (!ENEMIES[bk]) return; // listed but not built yet (Nov 9: The Reorg)
     // The Gold Watch always arrives 1.5 years before you retire (so Delayed Retirement moves it too).
     const at = bk === "goldWatch" && window.GoldWatch ? GoldWatch.arrivalAge() : ENEMIES[bk].spawnAge;
     if (bossesSpawned[bk] || currentAge < at) return;
+    if ((modeCfg().bossSlot || []).includes(bk) && bk !== window.runSlotBoss) return; // not this run's slot boss
     // One boss at a time: wait for the one you're fighting (src/data/bosses.js, BOSS_QUEUE), up to a few years.
     const Q = window.BOSS_QUEUE || {};
     const busy = bk !== "goldWatch" && (bills.getChildren().some(o => o.active && o.isBoss && !o.clockOut)
@@ -2554,7 +2567,7 @@ function update(time, delta) {
 
   const buffSpd = Math.max(runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1, window.NearMiss ? window.NearMiss.speedMult() : 1); // Energy Drink / Standing Desk, or a Close Call blip (never both stacked)
   const baseSpd = stats.speed * (window.modFx ? modFx("speedMult", 1) : 1) * (runSprint && window.SPRINT ? SPRINT.playerSpeedMult : 1); // Back Spasm slows the base, drinks still help
-  const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd;
+  const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd * (window.HolidayParty ? HolidayParty.playerSpeedMult() : 1); // mistletoe slows you a moment
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   { // Energy Drink aura: bright while you're moving (shielded), faint when you stop.
@@ -2709,6 +2722,12 @@ function update(time, delta) {
     if (bill.cringeUntil && now < bill.cringeUntil) {
       bill.setVelocity(bill.body.velocity.x * 0.9, bill.body.velocity.y * 0.9);
       if (bill.tag) bill.tag.setPosition(bill.x, bill.y - ((ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24) / 2 - 6);
+      return;
+    }
+
+    // Holiday Party conga dancers follow the leader's exact path (src/holiday-party.js)
+    if (bill.kind === "partyGuest" && window.HolidayParty && HolidayParty.steerGuest(this, bill, now)) {
+      if (bill.tag) bill.tag.setPosition(bill.x, bill.y - 18);
       return;
     }
 

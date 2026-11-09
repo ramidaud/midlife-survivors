@@ -15,6 +15,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Sync the Desktop folder with GitHub (Nov 9: it was already Codex's git copy; now up to date)
 - [x] Build Your New Boss (Age 26) at 48 (V2.12.0)
 - [ ] Play to 48 and fight him: fair? funny? too easy?
+- [x] Age-56 slot + The Holiday Party (V2.13.0)
+- [ ] Reach 56 and meet the Party: is the slow fair? does the conga line read?
+- [ ] Next build: The Reorg (Hot Desks, moving spawns)
 
 **Play and react**
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?

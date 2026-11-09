@@ -657,3 +657,6 @@ Big games don't keep the whole world in memory. They load the part around the pl
 
 ## Punish windows and locked aim (Nov 9, Your New Boss)
 A fair boss gives you a rhythm: dodge, then hit back. Your New Boss locks his aim the moment the arrows appear, so stepping sideways always works, and he never curves to follow you. After his dashes he stands still for about a second (thumbs up, catching his breath). Game designers call that a "punish window": the boss is open, and the player gets rewarded for dodging well. Without it, a fast boss just feels unfair; with it, the fight becomes a little dance.
+
+## Breadcrumb trails (Nov 9, the conga line)
+To make dancers follow the Holiday Party's exact path, the leader drops an invisible breadcrumb every 8 pixels as she walks. Each dancer walks toward the crumb a fixed distance behind (dancer 1 at 34 px, dancer 2 at 68 px, and so on), so the whole line snakes around desks the same way she did. When one dancer drops, the ones behind it pause for half a second, then hurry to close the gap. It's the same trick the classic Snake game uses.

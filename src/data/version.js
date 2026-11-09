@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.12.0",
-  displayVersion: "V. 2.12.0",
+  version: "2.13.0",
+  displayVersion: "V. 2.13.0",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 292,
+  build: 293,
   changelog: [
+    {
+      ver: "V. 2.13.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The Holiday Party will not let you leave.",
+      highlights: [
+        "New boss at age 56: The Holiday Party. The leader chases you slowly while a conga line of ugly-sweater coworkers follows her exact path. Knock a dancer out of line to open a gap.",
+        "Mistletoe circles drop near you. Get caught under one and you slow down for an awkward moment, but nothing can hurt you while it lasts.",
+        "Below half health the line grows to seven, more mistletoe drops, and she adds a Group Hug lunge.",
+        "Age 56 is now a 'middle management' slot: The Holiday Party and The Reorg will take turns, one per run. The Reorg arrives in a later update.",
+        "Beat her for a big bonus chest and a Desk Salad. New achievement: Left Before The Slideshow."
+      ]
+    },
     {
       ver: "V. 2.12.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Meet Your New Boss. He's 26.",

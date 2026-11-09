@@ -120,6 +120,8 @@ const MORE_DEATHS = {
   mathWorksheet: ["New Math: same kid, new rules, old parent.", "Two trains left. You stayed.", "Showing work required. Work declined."],
   performanceReview: ["Q3 synergy remains undiscussed.", "PIP stood for Please Immediately Panic.", "Five-year plan loading... error."],
   newBoss: ["Booked into a walking one-on-one at noon.", "High-fived into early retirement by a 26-year-old.", "You could not match the synergy of a cold-brew habit."],
+  holidayParty: ["Swept away by a runaway accounting conga line.", "Overheated in a three-ply acrylic reindeer sweater.", "Cornered by the punch bowl for forty-five minutes."],
+  partyGuest: ["Conga'd into a corner.", "You were the last one on the dance floor.", "Someone started the Electric Slide."],
   mortgageRefinance: ["Page 83 wanted an initial. You gave up.", "APR did cardio around you.", "Escrow ate the last hit point."],
   midlifeCrisis: ["Leather jacket: approved. Knees: pending.", "The V8 had a better exit strategy.", "Podcast mic on. Common sense off."],
   hoaPresident: ["Trash cans: 4 minutes late to glory.", "Eggshell was never on the palette.", "The ruler does not negotiate."],

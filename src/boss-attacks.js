@@ -100,7 +100,9 @@ window.BossAttacks = (() => {
       return r;
     }
     const D0 = window.BOSS_ATTACKS && BOSS_ATTACKS[boss.kind];
-    const r = D0 && D0.style === "dashChain" ? dashChain(scene, boss, player, now, D0) : step(scene, boss, player, now);
+    const r = D0 && D0.style === "dashChain" ? dashChain(scene, boss, player, now, D0)
+      : D0 && D0.style === "conga" && window.HolidayParty ? HolidayParty.update(scene, boss, player, now) // src/holiday-party.js
+      : step(scene, boss, player, now);
     if (window.BossArt) BossArt.sync(scene, boss, boss._atk ? boss._atk.state : "chase", now);
     return r;
   }

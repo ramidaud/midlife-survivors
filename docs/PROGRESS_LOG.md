@@ -1834,3 +1834,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New boss at 48: dash chain down a lane of ChatGPT's chevrons (aim locks when the arrows appear), winded window after, 3 dashes and a sugar crash below half health. Gemini's pep talks pop up with each dash (not the first one, where the banner explains the rule).
 - Drops a bonus chest and his spare Energy Drink; new achievement "Circle Back Later". The swarm thins during his fight (any boss can now have a swarm block, not just the Gold Watch).
 - Tested at laptop and phone sizes: full fight, phase 2, crash, drops, no errors. The Mortgage and the V8 still attack normally.
+
+## 2026-11-09 (early morning): V2.13.0, The Holiday Party and the age-56 slot
+- New "middle management" slot at 56: The Holiday Party and The Reorg take turns, one per run (saved with the run). Until the Reorg is built, it's always the Party.
+- The Holiday Party: a slow leader with a conga line of 5 small dancers (7 below half health) that follow her exact path; pop one and the ones behind wait, then catch up. Mistletoe circles warn for about 1 s, then arm for 2.4 s; getting caught slows you to 35% for 0.9 s with no damage (Rami's pick). Group Hug lunge below half health.
+- Zones never land on walls, doors or furniture (90 placements tested, 0 on furniture). Big chest, a Desk Salad, achievement "Left Before The Slideshow", Gemini's party lines.
+- Tested on laptop and phone: line, slow, safe window, phase 2, drops, no errors.

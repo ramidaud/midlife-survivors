@@ -11,6 +11,7 @@ window.BOSS_ATTACK_TUNING = {
   minTelegraphMs: 550,          // the warning never gets shorter than this (phones need time to react)
   minTelegraphMsMortgage: 650,  // rings need a beat longer to read the gap
   minTelegraphMsWatch: 700,     // the Gold Watch's Alarm rings (Grok, Nov 3)
+  minTelegraphMsArea: 750,      // mistletoe circles (Nov 9): you have to read a shape and find the way out
   ageRefYear: 40,
   telegraphAgeCutPerYear: 4,    // warnings get a little shorter as you age...
   telegraphTaxCutPerBracket: 25,// ...and with each Tax Bracket
@@ -47,6 +48,25 @@ window.BOSS_ATTACKS = {
       "I booked us a walking one-on-one!", "High fives all around, team!"],
     crashLine: "Sugar crash. Need a minute.",
     bonkWords: ["LOVE THAT ENERGY!", "WE'LL ITERATE!", "GROWTH MOMENT!"]
+  },
+  // The Holiday Party, Nov 9: Grok's spec section 2, party lines by Gemini. Code: src/holiday-party.js.
+  // Mistletoe slows you (Rami's pick) instead of freezing you. You can't be hurt while slowed, or for a beat after.
+  holidayParty: {
+    style: "conga", bannerTitle: "MISTLETOE", bannerSub: "Don't stop under the mistletoe.",
+    telegraphMs: 1000, cooldownMs: 5200, firstAttackDelayMs: 2000, recoverMs: 300,
+    conga: { start: 5, max: 5, joinEveryMs: 8000, spacingPx: 34, crumbEveryPx: 8, waitMs: 500, catchUpMult: 1.6, leaveLineAtPx: 110, guestScale: 0.42 },
+    mistletoe: { zones: 2, radius: 56, nearMinPx: 160, nearMaxPx: 240, minAngleDeg: 100, edgeGapPx: 64, propClearPx: 48,
+                 armedMs: 2400, slowAltMult: 0.35, slowAltMs: 900, safeAfterMs: 400, immuneMs: 2500, noFollowUpMs: 1500,
+                 minGapBetweenFreezesMs: 3000, shoveRadius: 120, shovePx: 80,
+                 awkwardLines: ["...hi.", "Oh! Hey.", "So... how about this weather.", "We should... not."] },
+    phase2: { atHpFrac: 0.5, zones: 3, walkSpeed: 70, congaMax: 7, joinEveryMs: 4000,
+              groupHug: { telegraphMs: 700, chargeSpeed: 300, chargeMaxDist: 200, bodyHalfW: 22, bodyHalfH: 26, damage: 1 } },
+    drop: "salad", // party platter leftovers
+    swarm: { spawnDelayMult: 1.35, packSizeMult: 0.70, maxOnScreenMult: 0.70, eliteChanceMult: 0.6, pauseKinds: ["snackAttack", "calendarInvite"], pauseEvents: true },
+    partyLines: ["Join the conga line, accounting is leading!", "My sweater lights up and plays three songs!", "Secret Santa had a strict fifteen-dollar limit!",
+      "Someone put ginger ale in the cranberry punch!", "Nobody leave until we take the group photo!", "Is this mug from the supply closet?",
+      "Careful, the tinsel on this vest is scratchy!", "Who brought the seven-layer dip from home?", "Grab a paper plate before the shrimp disappears!",
+      "HR says the karaoke machine is plugged in!", "I got another scented candle for Secret Santa!", "Hold my antlers, this song is my jam!"]
   },
   mortgageRefinance: {
     bannerTitle: "RATE LOCK", bannerSub: "Interest expands. Slip into the % gap.",
