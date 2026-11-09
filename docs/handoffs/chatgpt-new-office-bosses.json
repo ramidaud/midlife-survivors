@@ -5,7 +5,20 @@
     "frames": "0-5 walk cycle, 6-7 wind-up, 8-9 attack, 10 hurt (comic, no injury), 11 completely blank",
     "foot_point": "local (72,148) in every cell; same scale, head size, outfit and camera angle in every cell; 4px clear margin",
     "style": "hard 16-bit pixel clusters, one-pixel navy outline, three hue-shifted tones per material, warm upper-left light, 3/4 top-down view, big friendly head",
-    "palette_only": ["#171C35", "#303750", "#526078", "#3E7775", "#83A89A", "#D3B78D", "#F2D7A1", "#FFF0CF", "#EF9347", "#C45C4B", "#BFA8CF", "#F1B5BF"],
+    "palette_only": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#EF9347",
+      "#C45C4B",
+      "#BFA8CF",
+      "#F1B5BF"
+    ],
     "background": "exact flat opaque magenta #FF00FF everywhere outside the art, no floor, no cast shadow, no glow",
     "color": "neutral white balance, no sepia, no golden haze, no film-look tint",
     "forbidden": "text, letters, numbers, logos, brands, watermarks, real people"
@@ -88,6 +101,23 @@
         "look": "a straight dash lane of coffee-orange chevrons with cream starbursts at the end, like a pep-talk sprint, no text"
       },
       "gameplay_note_for_claude": "fast; every attack comes with a pep talk line"
+    }
+  ],
+  "props": [
+    {
+      "game_key": "hotDesk",
+      "name": "Hot Desk (The Reorg's rolling desk)",
+      "file": "prop-hot-desk-v1.png",
+      "sheet": "192x64 logical: 2 cells of 96x64. Cell 0 resting, cell 1 rolling (casters turned, a few cream motion ticks behind it). Footprint is the bottom 96x56; draw the 3/4 top-down view so the desk top shows",
+      "physical_description": {
+        "desk": "a small modern office desk on four navy caster wheels, slate-blue metal legs, a tan laminate top with a thin teal edge band",
+        "on_top": "a closed laptop, a coffee-orange mug, a lavender sticky note, a tiny cream tent card with no text (the 'hot desk' placard)",
+        "mood": "generic, temporary, nobody's desk"
+      },
+      "style": "same as the boss sheets: hard 16-bit pixel clusters, one-pixel navy outline, three tones per material, warm upper-left light",
+      "background": "exact flat opaque magenta #FF00FF, no floor shadow",
+      "color": "neutral white balance, no sepia, no golden haze, no film-look tint",
+      "forbidden": "text, letters, numbers, logos, brands, watermarks"
     }
   ]
 }

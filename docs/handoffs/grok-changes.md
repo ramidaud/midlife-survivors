@@ -99,3 +99,13 @@ Checked at V. 2.1.0, commit 50ec8cd. Numbers only, no game code touched. Claude 
 - Watch: Sticky pick rate and its share of damage. If it's over 40% of damage in runs that take it, the next knob is the Bulk Pack +1 damage per rank, in loadout.js.
 
 [done] All three applied by Claude in V. 2.1.1 (Sprint coins 1.25, Audit hp 260, Pickleball hp 340, Sticky damage 2).
+
+## Nov 8, 2026: Three new office bosses spec (Grok) [spec only]
+Checked at V. 2.11.5 (build 291), commit 86ee92d. No game code touched. Claude applies whatever Rami picks.
+- File: `docs/handoffs/grok-office-bosses-spec.md`.
+- **Your New Boss (Age 26), age 48, every run.** Dash chain: 2 dashes (3 below half HP), 400 px lanes 88 px wide, 520 px/s, a 650 ms first warning and 600 ms follow-ups (550 floor), winded for 1.1 s after each chain, and a 2 s Sugar Crash every third chain in phase 2. A pep-talk bubble comes with every attack; the lane is the rule. HP 40 (1.11x Review), dash damage 1. Drops a tier 1 chest and a guaranteed Energy Drink.
+- **The Holiday Party, slot at 56.** A conga line of 5 to 7 followers (Bill-tough, 34 px apart, the line closes up 500 ms after a dancer drops) plus 2 to 3 mistletoe zones, 56 px radius, 1000 ms warning (new 750 floor), armed for 2.4 s. Freeze: 600 ms stop, no damage for 1.0 s, 2.5 s immunity, no follow-up attack for 1.5 s, and 3 s or more between freezes. Phase 2 adds a short Group Hug lunge. HP 60 (1.67x). Drops a tier 3 chest and a Desk Salad.
+- **The Reorg, slot at 56.** He brings his own rolling Hot Desks (3, or 4 in phase 2) and leaves the baked office desks alone. 2 to 3 desks slide 128 to 224 px along one axis at 240 px/s, with ghost outlines and a 1000 ms warning (750 floor). A desk never lands on the player, never leaves a gap between 1 and 95 px, and must never box you in (flood fill to 2 view edges). The flow field rebuilds the moment a slide ends. New Org Chart: all regular spawns come from one corner for 6 s (phase 2: one edge for 8 s, then one hop), with edge markers 1200 ms ahead. HP 65 (1.81x). Drops a tier 3 chest and a Fanny Pack.
+- **Ages:** the New Boss at 48 fills the 45 to 52 gap before the age-50 swarm jump, where most players still are. 56 is one "middle management" slot that picks the Reorg or the Party each run, after the 55 cake and Executive Wing promotion and well before the V8 at 60. If both have to run every time: 55.5 and 57.5, but I'd expect the old 60 wall to come back.
+- **Every boss gets a swarm-thinning block** (generalize `GoldWatch.duel()`). It pauses Calendar Invites during all three and donuts during the Party. Tax Bracket scaling stays as is.
+- Pending: Rami picks rotation vs both, and stop vs slow for the freeze. Hot Desk art is needed. Then build and phone playtest.
