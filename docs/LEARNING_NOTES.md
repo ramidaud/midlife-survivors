@@ -684,3 +684,6 @@ Most enemies chase you. The Bargain Hunters chase the keepsakes instead, which t
 
 ### 2026-11-09: Tile seams and terrain families (Codex)
 A tile needs matching edge pixels to repeat cleanly. Grass variants share edges with other grass variants; a curb deliberately joins two different materials. A seamless kit therefore includes both repeatable surfaces and directional transition pieces.
+
+### 2026-11-09: Door scale in a modular house kit (Codex)
+A house can fit its pixel cell and still look too small beside a hero. The first broad house study had tiny doors, so the source was revised with taller, narrower facades before export. Proportional scaling then preserves the building shapes.

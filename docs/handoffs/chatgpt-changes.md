@@ -523,3 +523,26 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 
 - **What/Files:** `assets/characters/office-worker-retro3d-walk-56x60-v1.png`, exact 448x300, five row GIFs at approximately 75 ms, 2x sheet check, manifest, prompt and README. DOWN/UP/LEFT/RIGHT plus breathing/blink and glasses-push idle. Soles y56.
 - **Review:** Late-1990s rendered-sprite finish, same outfit/mug/identity; game palette plus six declared intermediate shades. Exact opaque magenta, native dimensions/opacity/palette/40 populated cells checked. Existing heroes and runtime untouched. Saved locally for Rami to review before shop integration.
+
+## 2026-11-09 Maple Hollow house fronts (Codex, review draft)
+
+- **What/Files:** `assets/stage/home/maple-hollow-houses-v1.png`, 1152x224, six 192x224 fronts, porch edge y216 / anchor (96,216). Lawn-and-sidewalk preview, 4x check, manifest, prompts and README included.
+- **Review:** Six requested house identities and jokes. Taller, narrower source revision fixes the first study's small doors; export preserves proportions and a shared scale. Exact twelve-color palette and opaque magenta. Local art only; no placement/collision edits or push.
+
+## 2026-11-09 Maple Hollow enemies (Codex, review draft)
+
+- **What/Files:** `assets/enemies/maple-hollow-enemies-v1.png`, 384x192: Leaf Pile / Gutter Clog / Lawn Mower / Property Tax Notice. Eight 48x48 frames per row, four 100 ms GIFs, 2x check, manifest, prompt and README.
+- **For Claude:** Face right; mirror left. Base y44, three clear pixels below, opaque magenta. No floor shadow. Native dimension/palette/opacity/cell-count checks passed. Local art only, no runtime wiring or balance changes.
+
+## 2026-11-09 Two additional retro rendered skins (Codex, review draft)
+
+- **What/Files:** `assets/characters/photographer-retro3d-walk-56x60-v1.png` (Soccer Dad) and `gradStudent-retro3d-walk-56x60-v1.png`, each 448x300, 56x60 cells. Five row GIFs per hero, 2x checks, frame maps, prompts and READMEs.
+- **For Claude:** DOWN/UP/LEFT/RIGHT/IDLE; idle 0-3 breathe/blink, 4-7 neck rub (Dad) or notebook check (Student). Sole lines y56 and y54 respectively, matching v2. Twelve base colors plus the same six intermediate shades as the 9-to-5er. Native PNG maps target75ms; GIF centisecond encoding may round to70ms.
+- **Review:** Grad Student blink retains glasses after local pixel cleanup. Exact opaque magenta, 40 populated cells per hero, native dimensions/palette/opacity checked. Existing hero sheets unchanged. Local art only, no shop integration or push.
+
+## 2026-11-09 Overtime UI mini-kit (Codex, review draft)
+
+- **What/Files:** `assets/ui/overtime-ui-kit-v1.png`, 256x64, eight 32x32 icons in top row, lower32px intentionally blank magenta. Exact4x export1024x256, manifest, prompt and README.
+- **Review:** Requested plaque/boxes/card/heart/tag/clipboard/envelope. Two-pixel margins; twelve-color palette; no words. Native plaque star reinforced and unintended heart hanging loop removed. Local art only, no UI edits or push.
+
+Review all four jobs at `assets/art-direction/review-nov9-home-shop-v1.html`. Shared native sheet/GIF check report: `assets/art-direction/checks-home-shop-batch-v1.json`.

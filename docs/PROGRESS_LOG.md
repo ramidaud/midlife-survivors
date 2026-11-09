@@ -1916,3 +1916,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - All five kits arrived: Bargain Hunter, knockdown poses for the three new bosses, the Reunion cast (4 old coworkers with walk and wave), the Maple Hollow tile and prop kit, and the "retro 3D" 9-to-5er skin.
 - In the game now: the Bargain Hunter sheet (8 frames, replaces the tinted Late Fee) and the three knockdown poses. The event chip also hides while a level-up menu is open.
 - Saved for their builds: the Reunion cast (next Overtime event), Maple Hollow kit (home stage), retro skin (Lounge cosmetics).
+
+## 2026-11-09 (3 PM): Home and Lounge art drafts (ChatGPT + Codex), approved and saved
+- Six Maple Hollow house fronts, four home-stage enemies (Leaf Pile, Gutter Clog, Lawn Mower, Property Tax Notice), retro 3D skins for the Soccer Dad and the Grad Student, and an 8-icon Overtime UI kit.
+- Reviewed and saved to the repo (art only, no game changes yet). With the 9-to-5er, all three heroes now have a retro skin for a future Lounge cosmetics shop.

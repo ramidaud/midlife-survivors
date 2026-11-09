@@ -640,3 +640,6 @@ The four-second introduction uses the original Bullpen day plate, the 9-to-5er a
 
 ### Native art review contracts, 2026-11-09 (Codex)
 Maple Hollow uses 32px terrain modules and isolated small props; curb and corner tiles are directional transitions. Reunion NPCs use 48px cells. The proposed retro-rendered 9-to-5er is cosmetic only, retaining 56x60 hero cells and the y56 sole line. These local drafts do not change gameplay.
+
+### Home/shop art contracts, 2026-11-09 (Codex)
+Six Home house fronts use192x224 cells with porch edge y216. Home enemies use48x48 cells with base y44. Proposed retro skins preserve56x60 hero cells, Dad sole y56 and Student sole y54; these are cosmetic art drafts only. Overtime icons use32px cells, one populated row in a256x64 atlas.

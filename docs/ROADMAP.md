@@ -28,6 +28,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
 - [x] Clean Out Your Desk at 68.5 (V2.17.0)
 - [ ] Then: the Reunion (72.5), or the polish items
+- [x] Art saved for later builds: Reunion cast, Maple Hollow kit + 6 houses + 4 enemies, retro skins for all 3 heroes, Overtime UI kit
+- [ ] Rami decides: how Lounge cosmetics unlock (coins? achievements?)
 
 **Play and react**
 - [ ] Fight the New Boss again (V2.15.3): tough enough now? does the defeat feel good?
