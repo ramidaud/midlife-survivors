@@ -28,7 +28,7 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
 ## Build plan (each one sitting, each ends playable)
 1. ✅ (V2.19.0, Nov 9) **Stage picker on the title screen** (Office, plus a locked Home card that unlocks at 55) and a bare-bones neighborhood you can walk around in. Built with the real kit: two streets, 12 houses, yard props.
 2. ✅ **Art direction:** style board, neighbors board, tile and prop kit, six house fronts, four home enemies (Nov 9).
-3. **Your house:** the door, and the inside area it unlocks.
+3. ✅ (V2.19.1 + V2.20.0, Nov 9) **Your house:** locked out, find the spare key, then the front door leads inside (living room, kitchen, kid's room). Garage saved for the V8 pass.
 4. **Enemies, the LEGO hazard, and the Lemonade Stand.**
 5. **The Fifth-Grade Math Homework boss,** plus the Mortgage and the V8 moving in.
 

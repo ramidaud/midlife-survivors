@@ -1,0 +1,332 @@
+{
+  "allChecksPassed" : true,
+  "background" : "Exact opaque #FF00FF behind props; floors fully opaque",
+  "file" : "house-interior-v1.png",
+  "floorSeams" : "Wood and lavender variants match within family. Checker tiles use a native8px periodic checker. Hall-runner variants share matching east\/west carpet-band profiles.",
+  "module" : [
+    32,
+    32
+  ],
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "pieces" : [
+    {
+      "id" : "oak-a",
+      "kind" : "floor",
+      "rect" : [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "oak-b",
+      "kind" : "floor",
+      "rect" : [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "kitchen-checker-a",
+      "kind" : "floor",
+      "rect" : [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "kitchen-checker-b",
+      "kind" : "floor",
+      "rect" : [
+        96,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "lavender-carpet-a",
+      "kind" : "floor",
+      "rect" : [
+        128,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "lavender-carpet-b",
+      "kind" : "floor",
+      "rect" : [
+        160,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "hall-runner-a",
+      "kind" : "floor",
+      "rect" : [
+        192,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "hall-runner-b",
+      "kind" : "floor",
+      "rect" : [
+        224,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-horizontal",
+      "kind" : "wall",
+      "rect" : [
+        0,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-vertical",
+      "kind" : "wall",
+      "rect" : [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-corner",
+      "kind" : "wall",
+      "rect" : [
+        64,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-doorway",
+      "kind" : "wall",
+      "rect" : [
+        96,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "sage-couch",
+      "kind" : "living-room",
+      "rect" : [
+        0,
+        64,
+        96,
+        48
+      ]
+    },
+    {
+      "id" : "recliner",
+      "kind" : "living-room",
+      "rect" : [
+        96,
+        64,
+        48,
+        48
+      ]
+    },
+    {
+      "id" : "coffee-table",
+      "kind" : "living-room",
+      "rect" : [
+        160,
+        64,
+        64,
+        32
+      ]
+    },
+    {
+      "id" : "tv-stand",
+      "kind" : "living-room",
+      "rect" : [
+        224,
+        64,
+        64,
+        48
+      ]
+    },
+    {
+      "id" : "laundry-basket",
+      "kind" : "living-room",
+      "rect" : [
+        288,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "floor-lamp",
+      "kind" : "living-room",
+      "rect" : [
+        320,
+        64,
+        32,
+        64
+      ]
+    },
+    {
+      "id" : "sink-counter",
+      "kind" : "kitchen",
+      "rect" : [
+        0,
+        128,
+        128,
+        48
+      ]
+    },
+    {
+      "id" : "fridge",
+      "kind" : "kitchen",
+      "rect" : [
+        128,
+        128,
+        48,
+        64
+      ]
+    },
+    {
+      "id" : "stove",
+      "kind" : "kitchen",
+      "rect" : [
+        192,
+        128,
+        48,
+        48
+      ]
+    },
+    {
+      "id" : "round-table-chairs",
+      "kind" : "kitchen",
+      "rect" : [
+        256,
+        128,
+        96,
+        96
+      ]
+    },
+    {
+      "id" : "junk-drawer",
+      "kind" : "kitchen",
+      "rect" : [
+        352,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "mail-bills",
+      "kind" : "kitchen",
+      "rect" : [
+        384,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "dinosaur-bed",
+      "kind" : "kids-room",
+      "rect" : [
+        0,
+        224,
+        64,
+        96
+      ]
+    },
+    {
+      "id" : "homework-desk",
+      "kind" : "kids-room",
+      "rect" : [
+        64,
+        224,
+        64,
+        48
+      ]
+    },
+    {
+      "id" : "toy-chest",
+      "kind" : "kids-room",
+      "rect" : [
+        128,
+        224,
+        48,
+        48
+      ]
+    },
+    {
+      "id" : "beanbag",
+      "kind" : "kids-room",
+      "rect" : [
+        192,
+        224,
+        48,
+        48
+      ]
+    },
+    {
+      "id" : "bookshelf",
+      "kind" : "kids-room",
+      "rect" : [
+        256,
+        224,
+        64,
+        48
+      ]
+    },
+    {
+      "id" : "ceiling-stars",
+      "kind" : "kids-room",
+      "rect" : [
+        320,
+        224,
+        32,
+        32
+      ]
+    }
+  ],
+  "previewIsPlayableMap" : false,
+  "roomPreview" : "house-interior-rooms-preview-v1.png",
+  "size" : [
+    512,
+    384
+  ]
+}

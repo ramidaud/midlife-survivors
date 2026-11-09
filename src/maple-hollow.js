@@ -15,6 +15,12 @@ window.MapleHollow = (() => {
     let alive = true;
     const kit = await H.image(ROOT + "maple-hollow-tiles-props-v1.png"); if (!H.isAlive()) return null;
     const housesImg = await H.image(ROOT + "maple-hollow-houses-v1.png"); if (!H.isAlive()) return null;
+    let yourImg = null, intImg = null, intMap = null; // your house + the inside (Nov 9); the street still builds if they fail
+    try { yourImg = await H.image(ROOT + "your-house-v1.png"); } catch (e) {}
+    try { intImg = await H.image(ROOT + "house-interior-v1.png"); intMap = await (await fetch(ROOT + "house-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { intImg = null; }
+    if (!H.isAlive()) return null;
+    const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
+    if (window.ArtSheets) ArtSheets.load(scene, "kh_sheet", ROOT + "key-hunt-v1.png", 32, 32); // the key hunt's props (src/key-hunt.js)
 
     // ---- ground: compose a few repeating textures from the 32 px kit ----
     const cell = (c, idx, dx, dy) => c.drawImage(kit, (idx % 8) * 32, Math.floor(idx / 8) * 32, 32, 32, dx, dy, 32, 32);
@@ -30,6 +36,19 @@ window.MapleHollow = (() => {
     const walkKey = ground("mh_sidewalk", 512, 64, (x, y, r) => { const v = r(); return v < 0.72 ? T.sidewalk : v < 0.86 ? T.cracked : T.swLeaves; });
     const streetKey = ground("mh_street", 512, 192, (x, y, r) => y === 96 ? T.dashed : (r() < 0.04 ? T.patched : T.asphalt));
     const keyFor = { mh_grass: grassKey, mh_sidewalk: walkKey, mh_street: streetKey };
+    // inside floors, mixed from the interior kit's two variants per room
+    if (intImg) {
+      const I = M.interior;
+      const roomFloor = (key, ids, h) => {
+        if (scene.textures.exists(key)) return key;
+        const t = scene.textures.createCanvas(key, 256, h), c = t.getContext(); c.imageSmoothingEnabled = false;
+        const r = rng(key.length * 131 + h);
+        for (let y = 0; y < h; y += 32) for (let x = 0; x < 256; x += 32) { const pc = piece(ids[r() < 0.6 ? 0 : 1]); if (pc) c.drawImage(intImg, pc.rect[0], pc.rect[1], 32, 32, x, y, 32, 32); }
+        t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST); return key;
+      };
+      I.rooms.forEach(rm => { keyFor["mh_room_" + rm.id] = roomFloor("mh_room_" + rm.id, rm.floor, 256); });
+      keyFor.mh_hall = roomFloor("mh_hall", ["hall-runner-a", "hall-runner-b"], 64);
+    }
     for (const f of data.floors) {
       const t = scene.add.tileSprite(f.x, f.y, f.width, f.height, keyFor[f.material] || grassKey).setOrigin(0).setDepth(-1000);
       all.push(t);
@@ -53,14 +72,25 @@ window.MapleHollow = (() => {
       const k = "mh_drive"; ground(k, 64, 64, (xx, yy, r) => r() < 0.2 ? T.oil : T.driveway);
       all.push(scene.add.tileSprite(x, y0, 64, y1 - y0, k).setOrigin(0).setDepth(-998));
     };
-    function house(frame, cx, frontY, mine) {
-      const o = scene.add.image(cx, frontY + 8, "mh_house_" + frame).setOrigin(0.5, 1).setDepth(3);
+    if (yourImg) for (let i = 0; i < 2; i++) { // cell 0 door closed, cell 1 door open (only the doorway changes)
+      const k = "mh_yours_" + i; if (scene.textures.exists(k)) continue;
+      const c = document.createElement("canvas"); c.width = 192; c.height = 224;
+      c.getContext("2d").drawImage(yourImg, i * 192, 0, 192, 224, 0, 0, 192, 224);
+      H.propTexture(scene, c, k, 192, 224);
+    }
+    let yourHouse = null;
+    function house(frame, cx, frontY, mine, isYours) {
+      const tex = isYours && scene.textures.exists("mh_yours_0") ? "mh_yours_0" : "mh_house_" + frame;
+      const o = scene.add.image(cx, frontY + 8, tex).setOrigin(0.5, 1).setDepth(3);
+      if (isYours) yourHouse = o;
       H.body(o, { width: 172, back: 196, front: 0 }, "prop_house"); bodies.push(o); items.push(o);
       drive(cx + 40, frontY, frontY + (mine === "south" ? R.sidewalk3 - R.southHouseFront : R.sidewalk1 - R.northHouseFront));
       return o;
     }
-    M.northHouses.forEach((f, i) => house(f, lotX(i), R.northHouseFront, "north"));
-    M.southHouses.forEach((f, i) => house(f, lotX(i), R.southHouseFront, "south"));
+    const yh0 = M.yourHouse;
+    M.northHouses.forEach((f, i) => house(f, lotX(i), R.northHouseFront, "north", yh0.row === "north" && yh0.lot === i));
+    M.southHouses.forEach((f, i) => house(f, lotX(i), R.southHouseFront, "south", yh0.row === "south" && yh0.lot === i));
+    window.MapleHollowDoor = open => { if (yourHouse && yourHouse.active && scene.textures.exists("mh_yours_1")) yourHouse.setTexture(open ? "mh_yours_1" : "mh_yours_0"); };
     { // a little sign on your house
       const yh = M.yourHouse, x = lotX(yh.lot), y = (yh.row === "north" ? R.northHouseFront : R.southHouseFront) - 228;
       all.push(scene.add.text(x, y, "YOUR HOUSE", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5, 1).setDepth(4));
@@ -87,6 +117,45 @@ window.MapleHollow = (() => {
         const idx = [41, 43, 44, 45, 47][Math.floor(r() * 5)];
         all.push(scene.add.image(Math.round(cx - 120 + r() * 240), Math.round(R.sidewalk2End + 50 + r() * 60), propKey(idx)).setScale(1.5).setOrigin(0.5, 1).setDepth(2.5));
       }
+    }
+
+    // ---- inside your house: walls with doorways into the hallway, furniture, room names ----
+    if (intImg) {
+      const I = M.interior, X = I.x, Y = I.y, RW = I.roomW, RH = I.roomH, HW = RW * 3, HH = I.hallH;
+      const cut = id => {
+        const k = "mh_int_" + id; if (scene.textures.exists(k)) return k;
+        const pc = piece(id); if (!pc) return null; const [sx, sy, w, h] = pc.rect;
+        const c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(intImg, sx, sy, w, h, 0, 0, w, h);
+        if (pc.kind === "floor") { scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); }
+        else H.propTexture(scene, c, k, w, h); // walls and furniture: key out the magenta
+        return k;
+      };
+      const wall = (x, y, w, h, id) => {
+        const k = cut(id); if (!k) return;
+        const t = scene.add.tileSprite(x, y, w, h, k).setOrigin(0.5, 1).setDepth(2.9);
+        t.setPosition(x + w / 2, y + h);
+        H.body(t, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(t); items.push(t);
+      };
+      wall(X - 16, Y - 32, HW + 32, 32, "wall-horizontal");                 // back wall
+      wall(X - 16, Y, 16, RH + HH, "wall-vertical");                        // left
+      wall(X + HW, Y, 16, RH + HH, "wall-vertical");                        // right
+      wall(X - 16, Y + RH + HH, HW / 2 - 24 + 16, 16, "wall-horizontal");    // front wall, left of the door
+      wall(X + HW / 2 + 24, Y + RH + HH, HW / 2 - 24 + 16, 16, "wall-horizontal"); // front wall, right of the door
+      for (let i = 1; i < 3; i++) wall(X + i * RW - 8, Y, 16, I.doorGapFromTop, "wall-vertical"); // between rooms, open at the bottom
+      I.rooms.forEach((rm, i) => {
+        const rx = X + i * RW;
+        all.push(scene.add.text(rx + RW / 2, Y + 6, rm.name, { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 4, y: 2 } }).setOrigin(0.5, 0).setDepth(2.95).setAlpha(0.85));
+        rm.furniture.forEach(([id, fx, fy, solid]) => {
+          const k = cut(id); if (!k) return; const pc = piece(id), h = pc.rect[3], w = pc.rect[2];
+          const o = scene.add.image(rx + fx, Y + fy + h / 2, k).setOrigin(0.5, 1).setDepth(id === "ceiling-stars" ? 2.6 : 3);
+          if (solid) { H.body(o, { width: Math.round(w * 0.86), back: Math.round(h * 0.62), front: 0 }, "prop_furniture"); bodies.push(o); }
+          items.push(o);
+          if (id === "fridge") window.MapleHollowFridge = { x: o.x, y: o.y + 10 };
+        });
+      });
+      // the front mat inside (step on it to go back out)
+      const mat = cut("wall-doorway");
+      if (mat) all.push(scene.add.image(I.exitMat[0], I.exitMat[1], mat).setOrigin(0.5, 1).setDepth(2.6));
     }
 
     // ---- camera and the area object the rest of the game talks to ----

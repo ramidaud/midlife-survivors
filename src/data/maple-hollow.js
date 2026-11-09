@@ -11,6 +11,24 @@ window.MAPLE_HOLLOW = {
   // rows: y of each band, top to bottom
   rows: { northHouseFront: 440, sidewalk1: 520, street1: 584, street1End: 776, sidewalk2End: 840,
           southHouseFront: 1256, sidewalk3: 1336, street2: 1400, street2End: 1592, sidewalk4End: 1656, bottom: 1720 },
+  // Inside your house (Nov 9, step 3b): three rooms side by side over a hallway, built below the neighborhood.
+  // You get there through your front door once it's unlocked. Furniture: [piece id, x, y] from each room's top-left;
+  // solid pieces block you like office desks. Art: assets/stage/home/house-interior-v1.png (+ .json frame map).
+  interior: {
+    x: 200, y: 2440, roomW: 384, roomH: 320, hallH: 64, doorGapFromTop: 230, // y: far enough below the street that a phone camera never sees both
+    rooms: [
+      { id: "living",  floor: ["oak-a", "oak-b"], name: "LIVING ROOM",
+        furniture: [["sage-couch", 90, 60, 1], ["recliner", 290, 66, 1], ["coffee-table", 110, 140, 1], ["floor-lamp", 34, 190, 0], ["tv-stand", 110, 268, 1], ["laundry-basket", 300, 262, 0]] },
+      { id: "kitchen", floor: ["kitchen-checker-a", "kitchen-checker-b"], name: "KITCHEN",
+        furniture: [["sink-counter", 100, 50, 1], ["fridge", 236, 52, 1], ["stove", 316, 56, 1], ["round-table-chairs", 180, 200, 1], ["junk-drawer", 46, 130, 0], ["mail-bills", 312, 190, 0]] },
+      { id: "kids",    floor: ["lavender-carpet-a", "lavender-carpet-b"], name: "KID'S ROOM",
+        furniture: [["dinosaur-bed", 70, 82, 1], ["homework-desk", 186, 56, 1], ["bookshelf", 322, 52, 1], ["beanbag", 70, 270, 0], ["toy-chest", 196, 266, 1], ["ceiling-stars", 300, 170, 0]] }
+    ],
+    fridgeHeal: 4,         // the fridge has leftovers: heal this much, once per run
+    fridgeLine: "Leftover lasagna. Cold, perfect, and gone.",
+    enterLine: "Home. It smells like coffee and someone else's laundry.",
+    exitPx: 40
+  },
   northHouses: [0, 1, 2, 3, 4, 5],   // frame order in maple-hollow-houses-v1.png
   southHouses: [3, 5, 0, 4, 2, 1],
   yourHouse: { row: "north", lot: 2 }, // you start on the sidewalk in front of this one
@@ -36,7 +54,7 @@ window.MAPLE_HOLLOW = {
     },
     found: "There it is. The spare key, right where you'll never remember putting it.",
     doorLine: "Locked out of your own house. The spare key is around here somewhere.",
-    openLine: "Home sweet home. Someone left you leftovers. (The inside is still being tidied up. Soon.)",
+    openLine: "Home sweet home. Someone left you leftovers. Walk in the front door any time.",
     chestKey: "keyHunt", scoreBonus: 1500, healFrac: 0.5
   }
 };
@@ -56,11 +74,18 @@ window.MAPLE_HOLLOW = {
   band(R.sidewalk4End, R.bottom, "mh_grass");
   const lotX = i => M.firstLotX + i * M.lotWidth;
   const yh = M.yourHouse, spawnX = lotX(yh.lot), spawnY = (yh.row === "north" ? R.sidewalk1 : R.sidewalk3) + 32;
+  // inside the house: three room floors and the hallway under them
+  const I = M.interior;
+  I.rooms.forEach((r, i) => floors.push({ x: I.x + i * I.roomW, y: I.y, width: I.roomW, height: I.roomH, material: "mh_room_" + r.id, district: "house" }));
+  floors.push({ x: I.x, y: I.y + I.roomH, width: I.roomW * 3, height: I.hallH, material: "mh_hall", district: "house" });
+  I.entry = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH / 2];   // where you appear inside (middle of the hallway)
+  I.exitMat = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH - 6]; // step on the front mat to go back out
   window.MAPLE_HOLLOW_LAYOUT = {
     id: "maple-hollow", version: 1, stage: "home",
     spawn: [spawnX, spawnY],
-    bounds: { x: 0, y: 0, width: W, height: R.bottom },
-    districts: [{ id: "home", name: "Maple Hollow", polygon: [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] }],
+    bounds: { x: 0, y: 0, width: W, height: I.y + I.roomH + I.hallH + 60 },
+    districts: [{ id: "home", name: "Maple Hollow", polygon: [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] },
+                { id: "house", name: "Your House", polygon: [[I.x, I.y], [I.x + I.roomW * 3, I.y], [I.x + I.roomW * 3, I.y + I.roomH + I.hallH], [I.x, I.y + I.roomH + I.hallH]] }],
     floors, walls, gates: [], placements: [], workers: [], lights: [], floorDecor: [], structures: [], labels: [],
     promotions: { phases: [] }, clearSpaces: [], protectedRoutes: [], internalRoutes: []
   };

@@ -31,7 +31,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] The Reunion (V2.18.0)
 - [x] Then: the polish items
 - [x] Maple Hollow step 1: walkable neighborhood + LOCATION picker (V2.19.0)
-- [ ] Maple Hollow next: your house (spare key), home enemies + LEGO hazard + Lemonade Stand, then the Math Homework boss
+- [x] Maple Hollow: locked out + spare key (V2.19.1), inside your house, 3 rooms (V2.20.0)
+- [ ] Maple Hollow next: home enemies + LEGO hazard + Lemonade Stand (step 4), then the Math Homework boss and the V8/Mortgage moving in (step 5)
 - [x] Art saved for later builds: Reunion cast, Maple Hollow kit + 6 houses + 4 enemies, retro skins for all 3 heroes, Overtime UI kit
 - [x] Rami decided: Lounge cosmetics are bought in the Lounge, this run only (V2.17.3, Polygon Upgrade)
 

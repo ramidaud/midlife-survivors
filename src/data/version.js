@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.19.1",
-  displayVersion: "V. 2.19.1",
+  version: "2.20.0",
+  displayVersion: "V. 2.20.0",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 314,
+  build: 315,
   changelog: [
+    {
+      ver: "V. 2.20.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "You can go inside now.",
+      highlights: [
+        "Maple Hollow has your house now: coffee orange, a basketball hoop, a bike on its side, and a fake rock that fools no one. The key hunt uses real props too (fake rocks, welcome mats, tipped flower pots, mailboxes), and the rock flips open when the key is under it.",
+        "Unlock the front door and walk in: a living room, a kitchen and the kid's room, off one hallway. The fridge has leftovers (a heal, once per run). Step on the front mat to go back out. The swarm follows you in, so it isn't a hiding spot."
+      ]
+    },
     {
       ver: "V. 2.19.1", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Locked out of your own house.",

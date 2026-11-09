@@ -696,3 +696,9 @@ A beige square held in a hand can read as a cup. A floppy disk needs its dark sh
 
 ## A new level is mostly new data (Nov 9, Maple Hollow)
 The office is described by one big list of numbers: where the floors are, where the walls are, where you start. Pathfinding, enemy spawns, bosses and events all read that list instead of knowing about desks. So the neighborhood didn't need new versions of those systems; it needed a new list (streets, lawns, house footprints) and a small builder that paints it. Swap the list, and the same game plays somewhere else. The few things that really are office-only (promotions, the Lounge, interns) just check which stage you're on.
+
+### 2026-11-09: Stable state changes (Codex)
+A generated closed/open pair can shift windows and roof pixels. Copying the closed sprite and replacing only its doorway keeps the building steady when it unlocks. The house pair changes649pixels inside one recorded door rectangle.
+
+## Doors can just be teleports (Nov 9, inside your house)
+The inside of your house isn't inside the house sprite at all. It's built far below the neighborhood, out of sight, and the front door simply moves you there (and the mat moves you back). Lots of classic games do this: Zelda's houses and caves are separate little rooms you jump to. The trick is making the jump feel like a door: the camera snaps, enemies that can't follow you give up, and the boss comes along so it isn't a hiding spot.

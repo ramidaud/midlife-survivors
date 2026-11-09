@@ -1,0 +1,95 @@
+{
+  "allChecksPassed" : true,
+  "background" : "Exact opaque #FF00FF behind props; floors fully opaque",
+  "file" : "home-hazards-v1.png",
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "pieces" : [
+    {
+      "id" : "bricks-sparse",
+      "kind" : "non-solid decal",
+      "rect" : [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "bricks-medium",
+      "kind" : "non-solid decal",
+      "rect" : [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "bricks-dense",
+      "kind" : "non-solid decal",
+      "rect" : [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "bricks-very-dense",
+      "kind" : "non-solid decal",
+      "rect" : [
+        96,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "brick-ouch",
+      "kind" : "non-solid decal",
+      "rect" : [
+        128,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "lemonade-open",
+      "kind" : "shop prop",
+      "rect" : [
+        256,
+        0,
+        64,
+        128
+      ]
+    },
+    {
+      "id" : "lemonade-closed",
+      "kind" : "shop prop",
+      "rect" : [
+        320,
+        0,
+        64,
+        128
+      ]
+    }
+  ],
+  "size" : [
+    384,
+    128
+  ]
+}

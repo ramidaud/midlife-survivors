@@ -655,3 +655,6 @@ The fourth proposed retro-rendered skin preserves the Cowboy v4 identity and56x6
 ### Maple Hollow step 1 (Nov 9)
 - The Home stage is selectable from the title screen settings (LOCATION) once your best age is 55. Same modes, bosses and Overtime events as the office for now; the office crowd follows you home until the home enemies land (step 4).
 - Office-only systems stay in the office: promotions and doors, the office map, errands, interns, the Lounge, and the office easter eggs.
+
+### Home three-room art proposal, 2026-11-09 (Codex)
+The current interior art mock-up covers living room, kitchen and kid’s room, with a shared hallway. It includes the generic toy-brick hazard and homework desk. Garage interior remains a future option for the V8 pass. These local art drafts do not alter the playable map, unlock rules or boss placement.

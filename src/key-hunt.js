@@ -21,6 +21,9 @@ window.KeyHunt = (() => {
   setInterval(() => { if (chip && (!playing() || !home())) chip.className = "hidden"; }, 300);
 
   // placeholder art, drawn in code until ChatGPT's key-hunt props arrive (assets/stage/home/key-hunt-v1.png)
+  // ChatGPT's props (Nov 9): assets/stage/home/key-hunt-v1.png, 32x32 cells
+  const SHEET = { rock: 0, rockOpen: 1, mat: 2, pot: 3, mailbox: 5, key: 6 };
+  function texF(scene, kind) { return scene.textures.exists("kh_sheet") && SHEET[kind] !== undefined ? ["kh_sheet", SHEET[kind]] : [tex(scene, kind), 0]; }
   function tex(scene, kind) {
     const key = "kh_" + kind; if (scene.textures.exists(key)) return key;
     const c = document.createElement("canvas"); c.width = 32; c.height = 32; const g = c.getContext("2d");
@@ -38,14 +41,16 @@ window.KeyHunt = (() => {
     const C = K(), M = window.MAPLE_HOLLOW, R = M.rows, lotX = i => M.firstLotX + i * M.lotWidth;
     const front = row => row === "north" ? R.northHouseFront : R.southHouseFront;
     css();
-    const yh = M.yourHouse, door = { x: lotX(yh.lot) - 20, y: front(yh.row) + 18 };
+    if (window.ArtSheets) ArtSheets.load(scene, "kh_sheet", "assets/stage/home/key-hunt-v1.png", 32, 32);
+    const yh = M.yourHouse, door = { x: lotX(yh.lot) - 18, y: front(yh.row) + 18 }; // the steps under your front door
     const spots = (C.spots || []).map(([row, lot, dx, dy, kind]) => ({ x: lotX(lot) + dx, y: front(row) + dy, kind }));
     // the key is never in the spot closest to your door, so you have to look around a little
     const near = spots.reduce((b, s, i) => Math.hypot(s.x - door.x, s.y - door.y) < Math.hypot(spots[b].x - door.x, spots[b].y - door.y) ? i : b, 0);
     let keyAt = Math.floor(Math.random() * spots.length); if (keyAt === near) keyAt = (keyAt + 1) % spots.length;
-    st = { door, spots, keyAt, checked: 0, hasKey: false, open: false, objs: [], doorWarnAt: 0 };
+    st = { door, spots, keyAt, checked: 0, hasKey: false, open: false, objs: [], doorWarnAt: 0, inside: false, armed: true, fridgeUsed: false, entered: false };
     spots.forEach((s, i) => {
-      s.img = scene.add.image(s.x, s.y, tex(scene, s.kind)).setOrigin(0.5, 1).setScale(1.5).setDepth(2.6);
+      const [tk, tf] = texF(scene, s.kind);
+      s.img = scene.add.image(s.x, s.y, tk, tf).setOrigin(0.5, 1).setScale(1.5).setDepth(2.6);
       s.q = scene.add.text(s.x, s.y - 50, "?", { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 4, y: 1 } }).setOrigin(0.5).setDepth(50001);
       scene.tweens.add({ targets: s.q, y: s.y - 56, duration: 600, yoyo: true, repeat: -1, ease: "Sine.InOut" });
       st.objs.push(s.img, s.q);
@@ -73,7 +78,9 @@ window.KeyHunt = (() => {
     s.q.destroy();
     if (i === st.keyAt) {
       st.hasKey = true;
-      const k = scene.add.image(s.x, s.y - 24, tex(scene, "key")).setScale(2).setDepth(50003);
+      if (s.kind === "rock" && scene.textures.exists("kh_sheet")) s.img.setTexture("kh_sheet", SHEET.rockOpen);
+      const [kk, kf] = texF(scene, "key");
+      const k = scene.add.image(s.x, s.y - 24, kk, kf).setScale(2).setDepth(50003);
       scene.tweens.add({ targets: k, y: player.y - 60, x: player.x, scale: 1, alpha: 0, duration: 700, ease: "Quad.In", onComplete: () => k.destroy() });
       if (window.burstConfetti) burstConfetti(scene, s.x, s.y - 20, 0xE6BE58, 14);
       if (typeof sfx === "function") sfx("levelUp", 0);
@@ -101,13 +108,63 @@ window.KeyHunt = (() => {
     if (window.achEvent) achEvent("keyHunt", {});
     if (window.Telemetry && Telemetry.event) Telemetry.event("home-door-open");
     st.doorMark.setStrokeStyle(3, 0x83A89A, 0.9).setFillStyle(0x83A89A, 0.2);
+    if (window.MapleHollowDoor) MapleHollowDoor(true);
+    st.armed = false; // step off the steps once, then the door takes you inside
     draw();
+  }
+
+  // ---- inside your house (Nov 9, step 3b) ----
+  function moveTo(scene, x, y) {
+    player.body.reset(x, y - player.height / 2); player.setVelocity(0, 0);
+    scene.cameras.main.centerOn(player.x, player.y);
+    // anything that can't follow you through the door clocks out; bosses come along
+    const area = scene.worldArt && scene.worldArt.startArea;
+    bills.getChildren().slice().forEach(b => {
+      if (!b.active) return;
+      const far = Math.hypot(b.x - x, b.y - y) > 900;
+      if (!far) return;
+      if (b.isBoss) { const s = area && area.resolveSpawn ? area.resolveSpawn(x + (Math.random() < 0.5 ? -320 : 320), y - 120) : null; if (s) b.body.reset(s[0], s[1]); }
+      else { if (b.tag) b.tag.destroy(); b.destroy(); }
+    });
+    if (typeof pings !== "undefined" && pings) pings.getChildren().slice().forEach(pg => pg.destroy());
+    if (window.NAV && NAV.invalidate) NAV.invalidate();
+  }
+  function goInside(scene) {
+    const I = MAPLE_HOLLOW.interior, C = I;
+    st.inside = true; st.armed = false;
+    moveTo(scene, I.entry[0], I.entry[1]);
+    if (!st.entered) { st.entered = true; if (window.showLowerThird) showLowerThird("promo", "HOME", C.enterLine || "Home.", 4200); if (window.Telemetry && Telemetry.event) Telemetry.event("home-inside"); }
+    if (typeof sfx === "function") sfx("pick", 0);
+  }
+  function goOutside(scene) {
+    st.inside = false; st.armed = false;
+    moveTo(scene, st.door.x, st.door.y + 60);
+    if (typeof sfx === "function") sfx("pick", 0);
+  }
+  function tickHouse(scene, px, py) {
+    const I = MAPLE_HOLLOW.interior;
+    if (!st.inside) {
+      const d = Math.hypot(px - st.door.x, py - st.door.y);
+      if (d > 90) st.armed = true;
+      else if (st.armed && d < (K().doorPx || 56)) goInside(scene);
+      return;
+    }
+    const dm = Math.hypot(px - I.exitMat[0], py - I.exitMat[1]);
+    if (dm > 80) st.armed = true;
+    else if (st.armed && dm < (I.exitPx || 40)) { goOutside(scene); return; }
+    const F = window.MapleHollowFridge;
+    if (F && !st.fridgeUsed && Math.hypot(px - F.x, py - F.y) < 60) {
+      st.fridgeUsed = true;
+      if (typeof hp !== "undefined" && stats) { hp = Math.min(stats.maxHp, hp + (typeof healAmt === "function" ? healAmt(I.fridgeHeal || 4) : (I.fridgeHeal || 4))); if (typeof drawHpBar === "function") drawHpBar(); }
+      pop(scene, F.x, F.y - 40, "+HP · " + (I.fridgeLine || "Leftovers."), "#83A89A");
+      if (typeof sfx === "function") sfx("pick", 0);
+    }
   }
   function update(scene) {
     if (!home() || typeof player === "undefined" || !player || !player.active || !playing()) return;
     if (!st) { if (typeof currentAge !== "undefined" && currentAge >= (K().startAge || 40.4)) start(scene); return; }
-    if (st.open) return;
     const C = K(), px = player.x, py = player.y + player.height / 2;
+    if (st.open) return tickHouse(scene, px, py);
     if (!st.hasKey) st.spots.forEach((s, i) => { if (!s.checked && Math.hypot(px - s.x, py - s.y) < (C.checkPx || 40)) check(scene, i); });
     const dDoor = Math.hypot(px - st.door.x, py - st.door.y);
     if (dDoor < (C.doorPx || 56)) {
@@ -116,5 +173,5 @@ window.KeyHunt = (() => {
     }
   }
   function reset() { if (st) st.objs.forEach(o => o && o.active && o.destroy()); st = null; if (chip) chip.className = "hidden"; }
-  return { update, reset, state: () => st && { hasKey: st.hasKey, open: st.open, checked: st.checked, keyAt: st.spots[st.keyAt] && { x: st.spots[st.keyAt].x, y: st.spots[st.keyAt].y }, door: st.door } };
+  return { update, reset, state: () => st && { inside: st.inside, armed: st.armed, fridgeUsed: st.fridgeUsed, hasKey: st.hasKey, open: st.open, checked: st.checked, keyAt: st.spots[st.keyAt] && { x: st.spots[st.keyAt].x, y: st.spots[st.keyAt].y }, door: st.door } };
 })();

@@ -1956,3 +1956,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New src/key-hunt.js (numbers and lines in MAPLE_HOLLOW.keyHunt): at 40.4, eight "?" spots around the block (rock, mat, pot, mailbox); the key is at a random one, never the one nearest your door. Wrong spots get a joke line. With the key, your door (orange ring) opens: tier 3 chest, heal half, +1,500 score, achievement "Under The Fake Rock".
 - Placeholder props drawn in code until ChatGPT's key-hunt sheet and your-house front arrive. The inside (three rooms, Rami's default) is step 3b.
 - Tested on laptop and phone: locked warning, key found, door opens and pays out.
+
+## 2026-11-09 (7:45 PM): V2.20.0, Maple Hollow step 3b: inside your house
+- ChatGPT's four kits are in the repo: your house (closed/open door), key-hunt props, the three-room interior kit, and the LEGO/Lemonade Stand hazards (saved for step 4). Codex's notes folded in.
+- Your house replaces the split-level on your lot; the door art swaps to open when you unlock it. Key-hunt spots use the real props (the fake rock flips open).
+- Inside: three rooms (living room, kitchen, kid's room) over a hallway, built below the neighborhood (MAPLE_HOLLOW.interior). Walls and big furniture are solid. Walk into the open door to go in, step on the front mat to go out; far-away enemies clock out and bosses come along. Fridge: heal 4, once per run. Garage stays for the V8 pass (Rami).
+- Tested on laptop and phone: in, fridge, out.
