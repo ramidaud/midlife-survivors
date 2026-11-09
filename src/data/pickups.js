@@ -15,6 +15,14 @@ window.PICKUPS = {
     // How many rewards (light beams) each boss's chest pays out. Any boss not listed pays 3.
     tiers: { supplyCloset: 1, performanceReview: 1, newBoss: 1, openEnrollment: 3, annualEnrollment: 3, grandkids: 1, grandkids2: 1, cleanOutDesk: 3, holidayParty: 3, theReorg: 3, mortgageRefinance: 3, midlifeCrisis: 5, goldWatch: 5, hoaPresident: 3, retirementBoss: 5, pickleballChamp: 5 },
     defaultTier: 3,
+    // When your whole loadout is maxed, each chest slot gives one of these instead (no cap, they stack).
+    // Nov 9, Derek's Full Life report. damage is a fraction (0.06 = +6% to every hit).
+    seniority: [
+      { name: "Cost-of-Living Raise", icon: "📈", damage: 0.06, short: "+6% DAMAGE · NO CAP", text: "+6% damage to everything. Forever." },
+      { name: "Comp Time", icon: "🛋️", maxHp: 2, heal: 6, short: "+2 MAX HP · HEAL 6", text: "+2 Max HP and heal 6." },
+      { name: "Tenure", icon: "🏅", damage: 0.04, maxHp: 1, heal: 2, short: "+4% DMG · +1 MAX HP", text: "+4% damage, +1 Max HP, heal 2." },
+      { name: "Corner Office", icon: "🪴", maxHp: 3, heal: 3, short: "+3 MAX HP · HEAL 3", text: "+3 Max HP and heal 3." }
+    ],
     coinMultPerTier: { 1: 4, 3: 10, 5: 18 } // 401(k) payout = coin value x this
   },
   coin401k: {

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.17.1",
-  displayVersion: "V. 2.17.1",
+  version: "2.17.2",
+  displayVersion: "V. 2.17.2",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 306,
+  build: 307,
   changelog: [
+    {
+      ver: "V. 2.17.2", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Boss chests pay out again, even when you're maxed.",
+      highlights: [
+        "Fixed (thanks, Derek): late in Full Life, when every weapon and passive was maxed, a boss chest paid a few coins per slot, which looked like an empty chest.",
+        "Now each of those slots is a Seniority perk with no cap: a Cost-of-Living Raise (+6% damage), Comp Time, Tenure or a Corner Office. They stack, so every chest still makes you stronger."
+      ]
+    },
     {
       ver: "V. 2.17.1", date: "Nov 9, 2026", title: "Version Two",
       teaser: "New faces, new falls.",

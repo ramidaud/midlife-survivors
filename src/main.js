@@ -1340,6 +1340,19 @@ function rollChestRewards(n) {
     if (evos.length) up = Phaser.Utils.Array.GetRandom(evos);
     else if (pool.length) up = Phaser.Utils.Array.GetRandom(pool);
     if (!up) {
+      // Nov 9 (Derek, Full Life: "I didn't get anything from the Boss Chests"): a maxed build used to get a few
+      // tapered coins per slot, which looked like an empty chest. Now each slot is a small permanent Seniority perk
+      // with no cap, so late chests still make you stronger. Numbers: PICKUPS.bossChest.seniority.
+      const SP = (PICKUPS.bossChest && PICKUPS.bossChest.seniority) || [];
+      const s = SP.length ? Phaser.Utils.Array.GetRandom(SP) : null;
+      if (s) {
+        if (s.damage) stats.seniorityDmg = (stats.seniorityDmg || 1) * (1 + s.damage);
+        if (s.maxHp) stats.maxHp += s.maxHp;
+        if (s.heal) hp = Math.min(stats.maxHp, hp + healAmt(s.heal));
+        stats.seniorityPerks = (stats.seniorityPerks || 0) + 1;
+        out.push({ name: s.name, label: s.short || "SENIORITY · NO CAP", text: s.text || "", icon: s.icon || "🏅", evo: false });
+        continue;
+      }
       const rawBonus = window.getCoinYieldInfo().value * 3, bonus = Math.round(rawBonus * window.coinTaper()); window.runCoinsTapered += rawBonus - bonus;
       runCoins += bonus; meta.coins += bonus; window.coinLog("maxed-out level-ups", bonus); saveMeta(meta);
       out.push({ name: `Signing Bonus +${bonus}k`, label: "EVERYTHING'S MAXED", text: "", icon: "💰", evo: false });
@@ -1742,6 +1755,7 @@ function damageBill(bill, amount) {
   const sc = bill.scene;
   if (pings && pings.countActive()) popPingsNear(bill.x, bill.y, 40); // a hit right next to a ping knocks it down too
   if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
+  if (stats.seniorityDmg > 1) amount = Math.ceil(amount * stats.seniorityDmg); // maxed-chest Seniority perks
   let crit = false;
   if (stats.crit && Math.random() < stats.crit) { amount *= 2; crit = true; } // Bifocals
   // The Gold Watch can't be beaten, only wound back: hits push it away and slow its hands (Rami, Nov 3).
