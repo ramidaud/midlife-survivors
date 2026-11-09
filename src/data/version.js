@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.15.1",
-  displayVersion: "V. 2.15.1",
+  version: "2.15.2",
+  displayVersion: "V. 2.15.2",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 299,
+  build: 300,
   changelog: [
+    {
+      ver: "V. 2.15.2", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The grandkids stopped by.",
+      highlights: [
+        "New Overtime event at 66: the Grandkids' Visit. Three kids run in and want to play tag. You're it. They dash through the crowd, so you'll have to dive in after them. Look for the pink hearts.",
+        "Each kid you tag hands you a gift: a crayon drawing (gems), a cookie (health) or Grandpa's lucky coin. Tag them all for a bonus chest, +2,000 score and the achievement World's Okayest Grandparent.",
+        "Runs to 80 get a second visit at 72.5 with five kids."
+      ]
+    },
     {
       ver: "V. 2.15.1", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Your Medicare window is open.",

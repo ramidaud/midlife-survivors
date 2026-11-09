@@ -38,6 +38,8 @@ window.OVERTIME_BEATS = {
   on: true, needsOvertime: true, waitForBossYears: 1, holdSwarmEventsMs: 10000,
   schedule: [
     { age: 64.0, id: "openEnrollment",   minYearsBeforeWatch: 1.0 },
+    { age: 66.0, id: "grandkids",        minYearsBeforeWatch: 1.0 },
+    { age: 72.5, id: "grandkids2",       minYearsBeforeWatch: 1.0 }, // until the Reunion is built, the 72.5 slot is Grandkids II
     { age: 75.8, id: "annualEnrollment", minYearsBeforeWatch: 1.0 }
   ],
   // "Your Medicare window is open. Please visit four different offices, in order."
@@ -50,6 +52,14 @@ window.OVERTIME_BEATS = {
     doneLine: "Enrolled. Your card is in the mail. +2,500 score and a bonus chest.",
     missLine: "You're on hold. We'll call you back."
   },
+  // "The grandkids stopped by the office. They want to play tag. You're it."
+  // They run from you at 65% of your speed, through the swarm (enemies ignore them). Kid sprites: small interns for now.
+  grandkids: {
+    kids: 3, windowSec: 20, leadMs: 1200, speed: 150, keepMinPx: 260, keepMaxPx: 420, swayHz: 0.8, tagPx: 44, kidScale: 0.72,
+    gifts: { drawingGems: 6, cookieHeal: 3, coinPerFace: 4 }, chestKey: "grandkids", scoreBonus: 2000, code: "GK",
+    doneLine: "You tagged them all. +2,000 score and a bonus chest.", missLine: "They had to go. See you at Thanksgiving!"
+  },
+  grandkids2: { like: "grandkids", kids: 5, code: "GK2", intro: "The whole crew is here this time. Tag all five before they get bored." },
   annualEnrollment: {
     like: "openEnrollment", legs: 3, labels: ["PART A", "PLAN COMPARISON", "PART D"], chestKey: "annualEnrollment", code: "AE",
     bannerTitle: "ANNUAL ENROLLMENT", bannerSub: "Three offices. Same forms as last year.", chipTitle: "ANNUAL ENROLLMENT",

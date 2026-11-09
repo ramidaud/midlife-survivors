@@ -1881,3 +1881,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Each office: 5x coin face + 6 gems. All four: big bonus chest, +2,500 score, achievement "Initial Enrollment Period". Miss one: "You're on hold." No penalty. Annual Enrollment (3 offices) at 75.8 in runs to 80.
 - Tested: starts at 64 in a run to 80, not in a run ending at 65; all 4 legs complete on laptop and phone; chest and score land.
 - ChatGPT's Maple Hollow boards: style board v1 and the six-neighbors board, both approved.
+
+## 2026-11-09 (10 AM): V2.15.2, the Grandkids' Visit
+- Overtime event at 66 (and a 5-kid repeat at 72.5 in runs to 80, filling the Reunion's slot until it's built): 3 grandkids run from you at 65% of your speed through the swarm, keeping 260 to 420 px away. Tag each for a gift (gems, a cookie heal, or a lucky coin). All of them: bonus chest, +2,000 score, achievement "World's Okayest Grandparent". 20 s, no penalty for missing.
+- Placeholder art: small tinted interns with a pink ring, pink glow and a big heart, because the dark intern coats read poorly in a crowd. Prompt for real grandkid sprites: docs/handoffs/chatgpt-grandkids-sprites.json.
+- Tested on laptop and phone: kids keep their distance while you stand still, all 3 tagged, score and chest land.

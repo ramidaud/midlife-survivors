@@ -165,8 +165,118 @@ window.OvertimeBeats = (() => {
     if (!waiting && left <= 0) return finish(scene, false);
   }
 
+  // ---- Grandkids' Visit: "The grandkids stopped by the office. They want to play tag. You're it." ----
+  const KID_TINTS = [0xffd6e0, 0xe6dcff, 0xd9f2e6, 0xfff0cf, 0xd6ecff];
+  function startGrandkids(scene, id) {
+    const C = B()[id] || {}, base = C.like ? (B()[C.like] || {}) : {}, cfg = Object.assign({}, base, C);
+    grid = buildGrid(scene); if (!grid) return false;
+    if (window.Interns && Interns.preload) try { Interns.preload(scene); } catch (e) {}
+    cur = { id, cfg, kind: "kids", kids: [], tagged: 0, until: runElapsedMs + (cfg.leadMs || 1200) + (cfg.windowSec || 20) * 1000, spawnAt: runElapsedMs + (cfg.leadMs || 1200), spawned: false, objs: [] };
+    ui();
+    if (window.showLowerThird) showLowerThird("promo", "GRANDKIDS", cfg.intro || `The grandkids stopped by. Tag all ${cfg.kids || 3} before they get bored.`, 5000);
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "GRANDKIDS' VISIT", cfg.bannerSub || "They want to play tag. You're it.", "reward");
+    if (typeof sfx === "function") sfx("levelUp", 0);
+    if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");
+    return true;
+  }
+  function kidGoal(k) { // somewhere open, 260 to 420 px from you, preferably on the far side
+    const c = cur.cfg, away = Math.atan2(k.o.y - player.y, k.o.x - player.x);
+    for (let t = 0; t < 12; t++) {
+      const ang = away + Phaser.Math.FloatBetween(-1.1, 1.1), d = Phaser.Math.Between(c.keepMinPx || 260, c.keepMaxPx || 420);
+      const x = player.x + Math.cos(ang) * d, y = player.y + Math.sin(ang) * d;
+      const i = Math.floor((x - grid.Bd.x) / grid.c), j = Math.floor((y - grid.Bd.y) / grid.c);
+      if (i > 0 && j > 0 && i < grid.W && j < grid.H && grid.dist[j * grid.W + i] >= 0) return { x, y };
+    }
+    return pickSpot(grid, player, c.keepMinPx || 260, c.keepMaxPx || 420, null) || { x: player.x, y: player.y };
+  }
+  function spawnKids(scene) {
+    const c = cur.cfg, n = c.kids || 3, sheets = ["intern2_tj", "intern2_derek"].filter(k => scene.textures.exists(k));
+    for (let i = 0; i < n; i++) {
+      const spot = pickSpot(grid, player, 380, 560, null); if (!spot) continue;
+      const key = sheets.length ? sheets[i % sheets.length] : null;
+      const o = key ? scene.physics.add.sprite(spot.x, spot.y, key, 0).setOrigin(0.5, 56 / 60).setScale(c.kidScale || 0.62).setTint(KID_TINTS[i % KID_TINTS.length])
+                    : scene.physics.add.sprite(spot.x, spot.y, "__WHITE").setDisplaySize(16, 24).setTint(KID_TINTS[i % KID_TINTS.length]);
+      o.setDepth(4.6); if (key) o.body.setSize(16, 12).setOffset(20, 44);
+      if (window.propGroup) o.propCollider = scene.physics.add.collider(o, window.propGroup);
+      const heart = scene.add.text(spot.x, spot.y - 52, "♥", { fontFamily: "Silkscreen, monospace", fontSize: "22px", color: "#F1B5BF", stroke: "#171C35", strokeThickness: 5 }).setOrigin(0.5).setDepth(50001);
+      // a pink ring at their feet and a soft glow, so they read as "friend" even in a crowd (like the interns' green ring)
+      const ring = scene.add.ellipse(spot.x, spot.y, 50, 20).setStrokeStyle(3, 0xF1B5BF, 1).setFillStyle(0xF1B5BF, 0.25).setDepth(4.5);
+      scene.tweens.add({ targets: ring, scaleX: 1.2, scaleY: 1.2, alpha: 0.6, duration: 600, yoyo: true, repeat: -1, ease: "Sine.InOut" });
+      if (window.Lighting && Lighting.follow) try { Lighting.follow(o, "elite", { color: 0xF1B5BF, r: 48, strength: 0.55, glow: 0.45 }); } catch (e) {}
+      const k = { o, heart, ring, key, walked: 0, lastX: spot.x, lastY: spot.y, goal: null, phase: Math.random() * 6, stuck: 0 };
+      k.goal = kidGoal(k);
+      cur.kids.push(k);
+      if (window.burstConfetti) burstConfetti(scene, spot.x, spot.y - 20, 0xF1B5BF, 8);
+    }
+    cur.spawned = true;
+  }
+  function tagKid(scene, k) {
+    const c = cur.cfg, g = c.gifts || {}, roll = Math.random();
+    let label;
+    if (roll < 0.34) { if (typeof gems !== "undefined") for (let i = 0; i < (g.drawingGems || 6); i++) gems.create(k.o.x + Phaser.Math.Between(-24, 24), k.o.y + Phaser.Math.Between(-18, 18), "gem").setDepth(3); label = "A CRAYON DRAWING!"; }
+    else if (roll < 0.67) { if (typeof healAmt === "function" && typeof hp !== "undefined") { hp = Math.min(stats.maxHp, hp + healAmt(g.cookieHeal || 3)); if (typeof drawHpBar === "function") drawHpBar(); } label = "A COOKIE! +HP"; }
+    else { if (typeof spawnCoin === "function") spawnCoin(k.o.x, k.o.y + 8, g.coinPerFace || 4); label = "GRANDPA'S LUCKY COIN!"; }
+    cur.tagged++;
+    const t = scene.add.text(k.o.x, k.o.y - 60, "GOT YOU! " + label, { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#F1B5BF", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(50004);
+    scene.tweens.add({ targets: t, y: t.y - 24, alpha: 0, delay: 700, duration: 600, onComplete: () => t.destroy() });
+    if (window.burstConfetti) burstConfetti(scene, k.o.x, k.o.y - 20, 0xF1B5BF, 12);
+    if (typeof sfx === "function") sfx("pick", 0);
+    kidLeave(scene, k);
+  }
+  function kidLeave(scene, k, line) {
+    k.gone = true; k.heart.destroy(); k.ring.destroy(); if (k.o.propCollider) k.o.propCollider.destroy();
+    if (line) { const t = scene.add.text(k.o.x, k.o.y - 50, line, { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#FFF0CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004); scene.tweens.add({ targets: t, alpha: 0, delay: 900, duration: 500, onComplete: () => t.destroy() }); }
+    k.o.body.enable = false;
+    scene.tweens.add({ targets: k.o, alpha: 0, y: k.o.y - 10, duration: 700, onComplete: () => k.o.destroy() });
+  }
+  function tickKids(scene) {
+    const c = cur.cfg, now = runElapsedMs;
+    if (!cur.spawned) { if (now >= cur.spawnAt) spawnKids(scene); }
+    const left = Math.max(0, cur.until - now), n = c.kids || 3;
+    chip.className = left < 5000 && cur.spawned ? "low" : "";
+    { const e = document.getElementById("errand-chip"); chip.style.marginTop = e && !e.classList.contains("hidden") ? "56px" : "0"; }
+    chip.innerHTML = `<b>♥ GRANDKIDS</b><span>Tag them all · ${cur.tagged}/${n}</span><span class="t">${cur.spawned ? Math.ceil(left / 1000) + "s" : "HERE THEY COME"}</span>`;
+    const spd = (c.speed || 150) * (typeof runSprint !== "undefined" && runSprint && window.SPRINT ? SPRINT.playerSpeedMult : 1);
+    let nearest = null, nd = 1e9;
+    for (const k of cur.kids) {
+      if (k.gone || !k.o.active) continue;
+      const o = k.o, dP = Math.hypot(o.x - player.x, o.y - player.y);
+      if (dP < (c.tagPx || 44)) { tagKid(scene, k); continue; }
+      if (dP < nd) { nd = dP; nearest = k; }
+      // run toward a goal away from you, with a little wobble; pick a new goal when it's reached, blocked or you get close
+      if (!k.goal || Math.hypot(o.x - k.goal.x, o.y - k.goal.y) < 30 || dP < 170 || k.stuck > 12) { k.goal = kidGoal(k); k.stuck = 0; }
+      let ang = Math.atan2(k.goal.y - o.y, k.goal.x - o.x);
+      ang += Math.sin(now / 1000 * Math.PI * 2 * (c.swayHz || 0.8) + k.phase) * 0.35;
+      o.setVelocity(Math.cos(ang) * spd, Math.sin(ang) * spd);
+      if (o.body.blocked && !o.body.blocked.none) k.stuck++;
+      // walk animation (rows: 0 down, 1 up, 2 left, 3 right; 8 frames each)
+      k.walked += Math.hypot(o.x - k.lastX, o.y - k.lastY); k.lastX = o.x; k.lastY = o.y;
+      if (k.key) { const vx = o.body.velocity.x, vy = o.body.velocity.y, row = Math.abs(vx) > Math.abs(vy) ? (vx < 0 ? 2 : 3) : (vy < 0 ? 1 : 0); o.setFrame(row * 8 + Math.floor(k.walked / 6) % 8); }
+      k.heart.setPosition(o.x, o.y - 52 + Math.sin(now / 160 + k.phase) * 3); k.ring.setPosition(o.x, o.y + 2);
+    }
+    if (nearest) aim(scene, nearest.o.x, nearest.o.y); else arrow.className = "hidden";
+    const all = cur.spawned && cur.tagged >= n;
+    if (all || (cur.spawned && left <= 0) || (cur.spawned && !cur.kids.some(k => !k.gone))) finishKids(scene, all);
+  }
+  function finishKids(scene, all) {
+    const c = cur.cfg;
+    cur.kids.forEach(k => { if (!k.gone && k.o.active) kidLeave(scene, k, Phaser.Utils.Array.GetRandom(["SEE YOU AT THANKSGIVING!", "BYE GRANDPA!", "LOVE YOU! BYE!"])); });
+    if (all) {
+      chest(scene, player.x + 60, player.y, c.chestKey || "grandkids");
+      if (typeof stats !== "undefined" && stats) stats.bossPts = (stats.bossPts || 0) + (c.scoreBonus || 2000);
+      if (window.showLowerThird) showLowerThird("win", "BEST GRANDPARENT ✓", c.doneLine || "You tagged them all. +2,000 score and a bonus chest.", 4500);
+      if (window.achEvent) achEvent("otBeat", { id: cur.id });
+      if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + cur.id + "-done");
+    } else {
+      if (window.showLowerThird) showLowerThird("tip", "GRANDKIDS", c.missLine || "They had to go. See you at Thanksgiving!", 3500);
+      if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + cur.id + "-miss");
+    }
+    hideUI(); lastEndAt = runElapsedMs; window.runOtBeats = (window.runOtBeats || "") + (window.runOtBeats ? "," : "") + (c.code || "GK") + cur.tagged;
+    cur = null; grid = null;
+  }
+
   // ---- the schedule ----
-  const RUNNERS = { openEnrollment: startEnrollment, annualEnrollment: startEnrollment };
+  const RUNNERS = { openEnrollment: startEnrollment, annualEnrollment: startEnrollment, grandkids: startGrandkids, grandkids2: startGrandkids };
   function update(scene) {
     const S = B();
     if (!S.on || typeof player === "undefined" || !player || !player.active) return;
@@ -174,7 +284,7 @@ window.OvertimeBeats = (() => {
     if (cur) {
       const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused);
       if (busy) return;
-      return tickEnrollment(scene);
+      return cur.kind === "kids" ? tickKids(scene) : tickEnrollment(scene);
     }
     if (S.needsOvertime && !overtimeRun()) return;
     const watch = window.GoldWatch && GoldWatch.arrivalAge ? GoldWatch.arrivalAge() : 999;
@@ -191,12 +301,13 @@ window.OvertimeBeats = (() => {
   }
   return {
     update,
-    reset: () => { if (cur) cur.objs.forEach(o => o.destroy()); done = {}; cur = null; lastEndAt = -1e9; grid = null; hideUI(); window.runOtBeats = ""; },
+    reset: () => { if (cur) { cur.objs.forEach(o => o.destroy()); (cur.kids || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.heart.active) k.heart.destroy(); if (k.ring.active) k.ring.destroy(); }); } done = {}; cur = null; lastEndAt = -1e9; grid = null; hideUI(); window.runOtBeats = ""; },
     // swarm set pieces wait while an event runs, and for a few seconds either side
     holdEvents: () => !!cur || runElapsedMs - lastEndAt < (B().holdSwarmEventsMs || 10000),
     // Open Enrollment's hold music: some regular spawns become Spam Likely calls
     spamSwap: () => !!(cur && cur.cfg.spamSwapFrac && Math.random() < cur.cfg.spamSwapFrac),
     active: () => cur && cur.id,
+    kids: () => cur && cur.kids && cur.kids.filter(k => !k.gone && k.o.active).map(k => ({ x: k.o.x, y: k.o.y })),
     spot: () => cur && cur.spot && { x: cur.spot.x, y: cur.spot.y, leg: cur.leg, waiting: runElapsedMs < cur.startAt },
     debugStart: (scene, id) => { done[id] = "started"; return RUNNERS[id] ? RUNNERS[id](scene, id) : false; }
   };

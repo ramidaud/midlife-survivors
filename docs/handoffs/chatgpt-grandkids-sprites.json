@@ -1,0 +1,16 @@
+{
+  "for": "ChatGPT image generation. Attach assets/characters/intern-tj-v2.png as the grid and style reference.",
+  "task": "One sprite sheet of 3 different grandkids for Midlife Survivors, in exactly the attached intern sheet's grid, scale and camera",
+  "sheet": "same layout as the attached sheet: 56x60 cells, rows 0 to 3 are 8-frame walk cycles facing down, up, left, right; make one sheet per kid (3 sheets), saved as grandkid-1-v1.png, grandkid-2-v1.png, grandkid-3-v1.png",
+  "kids": [
+    { "look": "a 6-year-old girl with two puffy pigtails, a bright pink rain jacket, yellow rain boots, a big gap-toothed grin" },
+    { "look": "an 8-year-old boy in a lavender hoodie with the hood up, cream sneakers with light-up soles, holding a small paper airplane" },
+    { "look": "a 4-year-old in sage green overalls over a striped shirt, a tiny backpack, cheeks flushed from running" }
+  ],
+  "proportions": "noticeably shorter than the intern (about 70% of his height), big heads, bouncy run cycles with arms swinging, playful and fast",
+  "style": "hard 16-bit pixel clusters, one-pixel navy outline, three hue-shifted tones per material, warm upper-left light, 3/4 top-down view; bright clothing so they stand out against a crowd of gray and brown office enemies",
+  "palette": "game palette first: navy #171C35, slate #303750 #526078, teal #3E7775, sage #83A89A, tan #D3B78D, cream #F2D7A1 #FFF0CF, coffee orange #EF9347, russet #C45C4B, lavender #BFA8CF, pink #F1B5BF",
+  "background": "exact flat opaque magenta #FF00FF outside the art, no floor, no shadow",
+  "color": "neutral white balance, no sepia, no golden haze, no film-look tint",
+  "forbidden": "text, letters, numbers, logos, brands, watermarks, real people"
+}
