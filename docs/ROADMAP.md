@@ -4,12 +4,16 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-07 (Rami's to-do list, V. 2.10.22)
+**Last updated:** 2026-11-08 (V. 2.11.5, new boss art in, Maple Hollow map)
 
 ---
 
 ## Rami's to-do list (kept current by Claude; updated Nov 7)
 Things only Rami can do. Claude adds items as they come up and checks them off when they're done.
+
+**Next session (Rami said yes, Nov 8)**
+- [ ] Link the Desktop folder ("03 Ai/Midlife Survivors") to the GitHub repo so it updates with one command (about 10 minutes, one approval)
+- [ ] Then build Your New Boss (Age 26) at 48
 
 **Play and react**
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?
