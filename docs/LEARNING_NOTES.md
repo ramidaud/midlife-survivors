@@ -666,3 +666,6 @@ A boss is memorable when it makes you change how you play. The first Holiday Par
 
 ## Flood fill (Nov 9, The Reorg's "never boxed in" check)
 Before The Reorg slides a desk, the game pretends the desk is already in its new spot and lays an invisible grid over the screen. It starts at your square and spreads to every open neighbor, like spilled paint, which is called a flood fill. If the paint can reach at least two edges of the screen through a gap two squares wide, the move is safe. If not, he picks a different desk or a different direction. Paint bucket tools in art apps use the same idea.
+
+## Dynamic difficulty (Nov 9, Workload)
+Some games quietly watch how you're doing and adjust. Workload checks three signs every 20 seconds (full health, a quiet room, barely moving), and when you're clearly cruising, it adds a little more work. The key is that it backs off the moment you struggle, and it pays you for the extra effort, so it feels like a promotion, not a punishment. A good rule: show it on screen (the pips) so the player never feels the game cheating behind their back.

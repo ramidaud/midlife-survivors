@@ -327,7 +327,7 @@ function create() {
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
   if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
-  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); if (window.Reorg) Reorg.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
+  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); if (window.Reorg) Reorg.reset(); if (window.Workload) Workload.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
@@ -955,7 +955,7 @@ function collectCoin(p, coin) {
 // Fractions add up over the run instead of being lost.
 let coinFrac = 0, xpFrac = 0;
 function bankCoins(v) {
-  const t = window.coinTaper(), raw = v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1) * (1 + tax("coinMult")) * (runSprint && window.SPRINT ? SPRINT.coinMult : 1);
+  const t = window.coinTaper(), raw = v * ((PICKUPS.coin401k && PICKUPS.coin401k.bankMult) || 1) * ((stats && stats.coinMult) || 1) * (1 + tax("coinMult") + (window.Workload ? Workload.fx("coinMult") : 0)) * (runSprint && window.SPRINT ? SPRINT.coinMult : 1);
   window.runCoinsTapered += raw * (1 - t);
   coinFrac += raw * t;
   const whole = Math.floor(coinFrac); coinFrac -= whole; return whole;
@@ -1536,7 +1536,7 @@ function hurtPlayer(p, bill) {
     return;
   }
   dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
-  { const dmg = (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd"));
+  { const dmg = (bill.damage || ENEMIES.bill.damage) + Math.round(ageCurve((window.INTENSITY || {}).hitDamageByAge, currentAge) || 0) + Math.round(tax("hitDamageAdd") + (window.Workload ? Workload.fx("hitDamageAdd") : 0));
     const dmg2 = Math.max(1, dmg - (stats.armor || 0)); // Lumbar Support
     if (window.Hustle) Hustle.onHit(scene, bill); // a Medical Bill also takes a copay
     hp -= dmg2; runHits++; runDamageTaken += dmg2; } // runHits/runDamageTaken go to the play-stats table
@@ -1744,7 +1744,7 @@ function damageBill(bill, amount) {
         const yr = Math.floor(currentAge);
         if (stats.killYear !== yr) { stats.killYear = yr; stats.killYearN = 0; }
         stats.killYearN++;
-        stats.killPts = (stats.killPts || 0) + (stats.killYearN <= (L.killPointsCapPerYear || 400) ? (L.pointsPerKill || 2) : (L.pointsPerKillOverCap ?? 0.25));
+        stats.killPts = (stats.killPts || 0) + (stats.killYearN <= (L.killPointsCapPerYear || 400) ? (L.pointsPerKill || 2) : (L.pointsPerKillOverCap ?? 0.25)) * (1 + (window.Workload ? Workload.fx("scoreMult") : 0)); // overtime pay
       }
     }
     window.achEvent(bill.isBoss ? "bossKill" : "kill", { kind: bill.kind });
@@ -2120,7 +2120,7 @@ function createEnemy(scene, kind, x, y) {
   const lvlScale = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.hpPerLevel) || 0); // the stronger you get, the tougher they get
   const hpScale = (1 + yrs * perYear + (currentAge >= 80 ? (currentAge - 80) * 0.3 : 0)) * lvlScale; // smooth toughness ramp
   e.kind = kind;
-  e.hp = Math.max(1, Math.round(E.hp * hpScale * (1 + tax("enemyHpMult"))));
+  e.hp = Math.max(1, Math.round(E.hp * hpScale * (1 + tax("enemyHpMult") + (window.Workload ? Workload.fx("enemyHpMult") : 0))));
   e.speed = Math.round(E.speed * (1 + Math.min(0.8, yrs * 0.012)) * (runSprint && window.SPRINT ? SPRINT.enemySpeedMult : 1));
   if (window.modFx) { // age 50+ modifiers: Rent Hike (Bills), Reply-All Tax (Gossip)
     if (kind === "bill") e.hp = Math.ceil(e.hp * modFx("billHpMult", 1));
@@ -2139,7 +2139,7 @@ function createEnemy(scene, kind, x, y) {
   if (window.Lighting && (kind === "spamCall" || kind === "groupChat")) Lighting.follow(e, kind); // phone screens glow; the Group Chat lights up while typing
   const EL = window.INTENSITY && INTENSITY.elites;
   const duelE = window.GoldWatch ? GoldWatch.duel() : null;
-  if (EL && EL.names[kind] && Math.random() < ageCurve(EL.chanceByAge, currentAge) * ((duelE && duelE.eliteChanceMult) || 1)) makeElite(e, E, EL);
+  if (EL && EL.names[kind] && Math.random() < (ageCurve(EL.chanceByAge, currentAge) + (window.Workload ? Workload.fx("eliteChanceAdd") : 0)) * ((duelE && duelE.eliteChanceMult) || 1)) makeElite(e, E, EL);
   return e;
 }
 
@@ -2189,7 +2189,7 @@ function rollWaveKind() {
 function spawnBill(scene) {
   const I = window.INTENSITY || {};
   const duelS = window.GoldWatch ? GoldWatch.duel() : null;
-  const cap = Math.round((ageCurve(I.maxOnScreenByAge, currentAge) || SPAWNING.maxOnScreen) * ((duelS && duelS.maxOnScreenMult) || 1));
+  const cap = Math.round((ageCurve(I.maxOnScreenByAge, currentAge) || SPAWNING.maxOnScreen) * ((duelS && duelS.maxOnScreenMult) || 1) * (1 + (window.Workload ? Workload.fx("maxOnScreenMult") : 0)));
   if (bills.countActive() >= cap) return;
   const T = window.teach, FM = window.FIRST_MINUTE || {};
   if (T && T.on && runElapsedMs < (FM.gentleMs || 20000)) { // teacher Bills: one at a time, walking in from where you're headed
@@ -2209,7 +2209,7 @@ function spawnBill(scene) {
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left
     default: x = view.right + m; y = Phaser.Math.Between(view.top, view.bottom);        // right
   }
-  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + Math.floor(tax("packAdd")) + dynPackAdd() + (window.modFx ? modFx("packAdd", 0) : 0); // stronger you = bigger crowds
+  const pack = Math.max(1, Math.round(ageCurve(I.packSizeByAge, currentAge) || 1)) + Math.floor(Math.max(0, level - 1) * (I.packPerLevel || 0)) + (window.Workload ? Workload.fx("packAdd") : 0) + Math.floor(tax("packAdd")) + dynPackAdd() + (window.modFx ? modFx("packAdd", 0) : 0); // stronger you = bigger crowds
   const packN = duelS ? Math.max(1, Math.round(pack * (duelS.packSizeMult || 1))) : pack;
   for (let i = 0; i < packN && bills.countActive() < cap; i++) {
     createEnemy(scene, rollWaveKind(), x + Phaser.Math.Between(-50, 50), y + Phaser.Math.Between(-50, 50));
@@ -2486,6 +2486,8 @@ function update(time, delta) {
     const at = bk === "goldWatch" && window.GoldWatch ? GoldWatch.arrivalAge() : ENEMIES[bk].spawnAge;
     if (bossesSpawned[bk] || currentAge < at) return;
     if ((modeCfg().bossSlot || []).includes(bk) && bk !== window.runSlotBoss) return; // not this run's slot boss
+    { const OB = modeCfg().id === "midlife" && window.OVERTIME_BOSSES && OVERTIME_BOSSES[bk]; // Nov 9: Overtime-only visitors in Midlife
+      if (OB && !(window.GoldWatch && GoldWatch.arrivalAge && GoldWatch.arrivalAge() - at >= OB.minYearsBeforeWatch)) return; }
     // One boss at a time: wait for the one you're fighting (src/data/bosses.js, BOSS_QUEUE), up to a few years.
     const Q = window.BOSS_QUEUE || {};
     const busy = bk !== "goldWatch" && (bills.getChildren().some(o => o.active && o.isBoss && !o.clockOut)
@@ -2507,7 +2509,9 @@ function update(time, delta) {
   const lvlSpeed = Math.max(0.45, 1 - Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.spawnFasterPerLevel) || 0) - tax("spawnFaster"));
   updateDynamicIntensity();
   const duelS = window.GoldWatch ? GoldWatch.duel() : null; // the Gold Watch fight thins the swarm
-  const wantDelay = Math.round((curW.everyMs + (nextW.everyMs - curW.everyMs) * blend) * lvlSpeed * dynSpawnMult() * (window.modFx ? modFx("spawnDelayMult", 1) : 1) * ((duelS && duelS.spawnDelayMult) || 1));
+  const baseDelay = curW.everyMs + (nextW.everyMs - curW.everyMs) * blend;
+  const wl = window.Workload ? Workload.fx("spawnDelayMult") : 1; // Nov 9: Overtime Workload (never below 30% of the wave's base)
+  const wantDelay = Math.round(Math.max(wl < 1 ? baseDelay * ((window.OVERTIME_WORKLOAD && OVERTIME_WORKLOAD.caps.minSpawnDelayFrac) || 0.3) : 0, baseDelay * lvlSpeed * dynSpawnMult() * (window.modFx ? modFx("spawnDelayMult", 1) : 1) * ((duelS && duelS.spawnDelayMult) || 1) * wl));
   if (wIdx !== currentWaveIdx || Math.abs(spawnTimer.delay - wantDelay) > wantDelay * 0.04) {
     currentWaveIdx = wIdx;
     spawnTimer.reset({ delay: wantDelay, loop: true, callback: spawnTimer.callback });
@@ -2702,6 +2706,7 @@ function update(time, delta) {
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   if (window.Promotions) Promotions.update(this, now);   // open promotion doors as you age
   if (window.Minimap) Minimap.update(this, now);         // find the office map, then it fills in as you explore
+  if (window.Workload) Workload.update(this);            // Overtime Workload past 65 (src/workload.js)
   if (window.Errands) Errands.update(this);              // the TO-DO errand (src/errands.js)
   if (window.Interns) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions

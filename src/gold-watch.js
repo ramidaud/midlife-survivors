@@ -45,11 +45,14 @@ window.GoldWatch = (() => {
   }
 
   // It arrives 1.5 years before you retire, and its phases follow the clock from there.
-  function arrivalAge() { return (typeof modeEndAge === "function" ? modeEndAge() : 65) - (D().arrivesYearsBeforeEnd || 1.5); }
+  // Nov 9 (Grok): Overtime years past 65 are only 25 s, so "1.5 years before the end" shrank the Watch's fight
+  // from 67.5 s to 37.5 s. In Overtime it arrives 2.7 years early instead (the same 67.5 s), with phases to match.
+  const late = () => typeof modeEndAge === "function" && modeEndAge() > 65.01 && typeof modeCfg === "function" && modeCfg().id === "midlife" && D().lateArrivesYearsBeforeEnd;
+  function arrivalAge() { const end = typeof modeEndAge === "function" ? modeEndAge() : 65; return end - (late() ? D().lateArrivesYearsBeforeEnd : (D().arrivesYearsBeforeEnd || 1.5)); }
   function phaseOf(boss) {
-    const P = D().phases || {}, t = currentAge - arrivalAge();
-    if (t >= ((P.lastMinute && P.lastMinute.afterYears) || 1.1)) return 3;
-    if (t >= ((P.overtime && P.overtime.afterYears) || 0.5)) return 2;
+    const P = D().phases || {}, t = currentAge - arrivalAge(), L = late() ? (D().latePhaseAfterYears || {}) : {};
+    if (t >= (L.lastMinute || (P.lastMinute && P.lastMinute.afterYears) || 1.1)) return 3;
+    if (t >= (L.overtime || (P.overtime && P.overtime.afterYears) || 0.5)) return 2;
     return 1;
   }
   function phaseMods(ph) { const d = D(); return ph === 3 ? (d.phase3 || {}) : ph === 2 ? (d.phase2 || {}) : {}; }

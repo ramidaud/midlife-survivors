@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.14.0",
-  displayVersion: "V. 2.14.0",
+  version: "2.15.0",
+  displayVersion: "V. 2.15.0",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 297,
+  build: 298,
   changelog: [
+    {
+      ver: "V. 2.15.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Overtime gets busier.",
+      highlights: [
+        "Workload: past 65 in an Overtime run, if you're cruising (full health, a quiet room, barely moving) the office gives you more work. A WORKLOAD chip with five pips shows it, and a pip blinks before each rise. It eases off the moment your health drops.",
+        "Each Workload level means faster, tougher enemies and hits that sting a little more, plus overtime pay: more score and 401(k) coins.",
+        "The Gold Watch now arrives earlier in Overtime runs, so its fight isn't squeezed by the shorter late years.",
+        "Runs that go to 80 get a visit from the HOA President at 70."
+      ]
+    },
     {
       ver: "V. 2.14.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The Reorg is here. Your desk is now a pod.",

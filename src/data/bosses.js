@@ -109,7 +109,8 @@ window.BOSS_ATTACKS = {
     style: "charge", bannerTitle: "VIOLATION NOTICE", bannerSub: "Grass is 0.2 inches too tall. Sidestep the yardstick.",
     telegraphMs: 650, cooldownMs: 3800, firstAttackDelayMs: 1600, recoverMs: 300,
     chargeSpeed: 430, chargeDurationMs: 1100, chargeMaxDist: 580,
-    bodyHalfW: 22, bodyHalfH: 28, damage: 3
+    bodyHalfW: 22, bodyHalfH: 28, damage: 3,
+    swarm: { spawnDelayMult: 1.30, packSizeMult: 0.75, maxOnScreenMult: 0.75, eliteChanceMult: 1.0, pauseKinds: ["calendarInvite"], pauseEvents: true }
   },
   retirementBoss: {
     style: "rings", bannerTitle: "PAPERWORK AUDIT", bannerSub: "Forms fly out in rings. Slip through the checkbox.",
@@ -128,7 +129,7 @@ window.BOSS_ATTACKS = {
   // The Gold Watch (Grok's numbers, Gemini's words, Nov 3). Fight logic in src/gold-watch.js.
   goldWatch: {
     // It can't be beaten (Rami, Nov 3). It arrives 1.5 years before retirement; phases follow the clock.
-    firstAttackDelayMs: 2000, recoverMs: 280, holdDistance: 200, arrivesYearsBeforeEnd: 1.5,
+    firstAttackDelayMs: 2000, recoverMs: 280, holdDistance: 200, arrivesYearsBeforeEnd: 1.5, lateArrivesYearsBeforeEnd: 2.7, latePhaseAfterYears: { overtime: 0.9, lastMinute: 2.0 }, // Overtime: 67.5 s at 25 s years (Nov 9)
     phases: {
       overtime:   { title: "UNPAID OVERTIME", afterYears: 0.5, bannerSub: "The ticking speeds up. Nobody approved this." },
       lastMinute: { title: "THE LAST MINUTE", afterYears: 1.1, bannerSub: "Every second counts now. Almost five o'clock." }

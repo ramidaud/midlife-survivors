@@ -1868,3 +1868,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - He rolls in 3 Hot Desks (4 below half health, ChatGPT's sprite), never touching the office's own desks. Restructure: ghost outlines and arrows, then 2 or 3 desks slide 128 to 224 px; a desk never lands on you, never leaves a 3 to 95 px pinch, stays on screen, and a flood-fill check makes sure you can still reach two screen edges. A desk stops short if you step in its path. Pathfinding rebuilds the moment slides end.
 - New Org Chart: "NEW ORG CHART" arrows on the screen edges 1.2 s ahead, then every new enemy comes from that corner for 6 s (one edge then the opposite in phase 2).
 - Big chest, Fanny Pack, achievement "Org Chart Survivor", Gemini's memo lines. Tested on laptop and phone: 0 desk-on-hero overlaps, desks roll away on defeat, markers clear.
+
+## 2026-11-09 (morning): V2.15.0, Overtime part 1 (Grok's spec, Rami's calls)
+- Rami's calls: Workload on for everyone in Overtime, +0.3 hit damage per level (not 0.5), the HOA President at 70 in runs to 80, and build the Watch fix + HOA + Workload first.
+- Gold Watch in Overtime now arrives 2.7 years before the end (77.3 in a run to 80), so its fight is 67.5 s again. Runs ending at 65 are unchanged (63.5). Full Life unchanged.
+- HOA President visits Midlife runs to 80 at age 70, with swarm thinning.
+- Workload (src/workload.js, numbers in src/data/overtime.js): past 65 in Overtime, two coasting windows raise it a level (pip blinks first), up to 5; drops when health falls. Faster/tougher enemies, +0.3 hit damage per level, more elites, bigger crowd on desktop only, and overtime pay (+6% score, +4% coins per level). Tested: rises when idle at full health, effects correct, drops at 40% health.
+- Next from the spec: the retirement events (Open Enrollment, Grandkids' Visit, Clean Out Your Desk, Reunion), one per session.
