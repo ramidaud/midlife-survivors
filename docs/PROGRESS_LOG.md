@@ -1942,3 +1942,6 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Screenshot: Y on a controller / V on a keyboard during a run (the old 3D-view binding, which was parked). Saves the game view with an age + site stamp; phones use the share sheet. Shown as "Screenshot (in a run)" in Controls and rebindable. New file src/screenshot.js.
 - Spam Likely ring: two synthesized bass thumps (sine 140 to 46 Hz) with a low rattle, replacing the buzz recording. Tunable in SOUND_VARY.ring.kick (src/data/sounds.js).
 - Coffee table near Derek: asked Rami which table he meant before moving anything.
+
+## 2026-11-09 (5:15 PM): V2.18.3, coffee cart on the lounge rug
+- Rami's call: the "coffee table" was the coffee cart (the Lounge counter where Derek stands). Moved it from the north wall (-1792, -48) onto the Break Room lounge rug at (-1610, 590), right of the red coffee table and below the mic stand. The shop spot in front of it is still reachable. Tested on laptop and phone.

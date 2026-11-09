@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.18.2",
-  displayVersion: "V. 2.18.2",
+  version: "2.18.3",
+  displayVersion: "V. 2.18.3",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 311,
+  build: 312,
   changelog: [
+    {
+      ver: "V. 2.18.3", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The coffee moved to the couch.",
+      highlights: ["The Lounge's coffee cart moved off the Break Room's back wall and onto the lounge rug, right next to the coffee table, so the corner feels like a real hangout. The Lounge still opens there after each promotion."]
+    },
     {
       ver: "V. 2.18.2", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Say cheese, for real.",
