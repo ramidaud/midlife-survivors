@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.13.0",
-  displayVersion: "V. 2.13.0",
+  version: "2.13.1",
+  displayVersion: "V. 2.13.1",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 293,
+  build: 294,
   changelog: [
+    {
+      ver: "V. 2.13.1", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Less clutter late in a run.",
+      highlights: [
+        "The big center banner shows the same reward (like DESK SALAD) at most once a minute, so it doesn't sit over the middle of the screen late in a run. The message at the bottom still tells you every time.",
+        "A minimized corner map now shows a clear MAP button. Tap it to bring the map back.",
+        "The corner map hides while the pause menu is open."
+      ]
+    },
     {
       ver: "V. 2.13.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The Holiday Party will not let you leave.",

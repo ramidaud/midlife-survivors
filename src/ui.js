@@ -882,6 +882,7 @@ function titleNewPop() {
   </aside>`;
 }
 
+const ltFlashAt = {};
 window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
   // While a Spotlight card is up, ordinary messages wait their turn instead of stacking under it (Nov 3, Rami:
   // "the cards still show up in pairs"). Alerts wait too now (Fable review: four messages stacked at 65);
@@ -890,7 +891,10 @@ window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
     setTimeout(() => window.showLowerThird(kind, badge, text, ms, short, (_waited || 0) + 500), 500);
     return;
   }
-  if ((kind === "alert" || kind === "reward") && window.flashBanner) window.flashBanner(badge, short, kind);
+  // Nov 9 (Rami's late-game screenshots: DESK SALAD over the middle of the screen the whole time): the big
+  // center banner shows a reward at most once a minute. The lower third still says it every time.
+  const flashKey = kind + ":" + badge, tNow = performance.now();
+  if ((kind === "alert" || kind === "reward") && window.flashBanner && !(kind === "reward" && tNow - (ltFlashAt[flashKey] || -1e9) < 60000)) { ltFlashAt[flashKey] = tNow; window.flashBanner(badge, short, kind); }
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
   const cur = ltState.current;
   if (!cur) return ltShowNow(msg);

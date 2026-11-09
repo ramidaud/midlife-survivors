@@ -138,8 +138,9 @@ window.Minimap = (() => {
 #minimap .mm-btn{position:absolute;top:-14px;width:24px;height:24px;border:0;padding:0;cursor:pointer;background:url(${ART.buttons}) 0 0/48px 24px no-repeat;image-rendering:pixelated;z-index:2}
 #minimap .mm-big{right:14px}
 #minimap .mm-hide{right:-12px;background-position:-24px 0}
-#minimap.mm-min{width:64px;height:40px}
+#minimap.mm-min{width:84px;height:40px;cursor:pointer}
 #minimap.mm-min canvas,#minimap.mm-min .mm-btn{display:none}
+#minimap.mm-min::after{content:"MAP ▸";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:12px/1 Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#F2D7A1;border-left:5px solid #EF9347} /* Nov 9: a minimized map now says MAP, so it's clearly a button */
 #minimap.hidden{display:none}
 @media (max-width:760px),(orientation:portrait){#minimap{width:172px;height:136px;top:calc(var(--ms-nav-h,0px) + 58px);right:6px;border-width:12px;border-image-width:12px}#minimap .mm-room{font-size:10px;bottom:-24px;padding:3px 6px 2px}#minimap .mm-btn{top:-11px}#minimap .mm-hide{right:-9px}#minimap .mm-big{right:13px}}
 #minimap-modal{position:fixed;inset:0;z-index:60;background:rgba(10,12,24,.88);display:flex;align-items:center;justify-content:center;padding:14px}
@@ -159,6 +160,7 @@ window.Minimap = (() => {
       el = document.createElement("div"); el.id = "minimap"; el.setAttribute("role", "button"); el.setAttribute("aria-label", "Office map. Tap to open the whole floor.");
       el.innerHTML = `<canvas width="400" height="304"></canvas><div class="mm-room" aria-hidden="true">LOBBY</div><button type="button" class="mm-btn mm-big" aria-label="Open the whole map"></button><button type="button" class="mm-btn mm-hide" aria-label="Hide the map"></button>`;
       document.body.appendChild(el);
+      setInterval(syncMini, 250); // the game loop stops while paused, so check on our own
       el.addEventListener("pointerdown", e => {
         e.stopPropagation(); e.preventDefault();
         if (e.target.classList.contains("mm-hide")) { meta.minimapSmall = true; saveMeta(meta); syncMini(); return; }
@@ -171,7 +173,8 @@ window.Minimap = (() => {
   function syncMini() {
     if (!el) return;
     const inRun = typeof titleOpen !== "undefined" && !titleOpen && typeof gameOver !== "undefined" && !gameOver;
-    el.classList.toggle("hidden", !has() || !inRun);
+    const menu = (typeof paused !== "undefined" && paused) || bigOpen; // Nov 9: don't sit on top of the pause menu
+    el.classList.toggle("hidden", !has() || !inRun || menu);
     el.classList.toggle("mm-min", !!meta.minimapSmall);
   }
 

@@ -1840,3 +1840,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The Holiday Party: a slow leader with a conga line of 5 small dancers (7 below half health) that follow her exact path; pop one and the ones behind wait, then catch up. Mistletoe circles warn for about 1 s, then arm for 2.4 s; getting caught slows you to 35% for 0.9 s with no damage (Rami's pick). Group Hug lunge below half health.
 - Zones never land on walls, doors or furniture (90 placements tested, 0 on furniture). Big chest, a Desk Salad, achievement "Left Before The Slideshow", Gemini's party lines.
 - Tested on laptop and phone: line, slow, safe window, phase 2, drops, no errors.
+
+## 2026-11-09 (1:30 AM): V2.13.1, late-run clutter fixes from Rami's phone run
+- Rami's run reached 77.6 (Full Life) and beat both new bosses (Circle Back Later, Left Before The Slideshow).
+- His screenshots showed the big DESK SALAD banner over the middle of the screen the whole late game (it fired on every salad). Now the center banner shows the same reward at most once a minute; the lower third still reports each one.
+- The corner map looked empty: it was minimized (the hide button sits next to pause/sound on phones). The minimized map now reads "MAP ▸", and the map hides under the pause menu.
+- Parked for a readability pass: late-game crowd labels and the big white death puffs wash out the screen.
