@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.13.1",
-  displayVersion: "V. 2.13.1",
+  version: "2.13.2",
+  displayVersion: "V. 2.13.2",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 294,
+  build: 295,
   changelog: [
+    {
+      ver: "V. 2.13.2", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The Holiday Party is harder to ignore.",
+      highlights: [
+        "The conga line now protects her. While three or more dancers are in line she shrugs off most of your damage (look for the tinsel ring). Break the line, then hit her.",
+        "Bigger, sturdier dancers with little party bulbs, and the line rebuilds faster.",
+        "She arrives with a burst of confetti."
+      ]
+    },
     {
       ver: "V. 2.13.1", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Less clutter late in a run.",

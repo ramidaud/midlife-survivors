@@ -175,7 +175,7 @@ window.ENEMIES = {
     label: "",
     tex: "bill",
     speed: 62,
-    hp: 3,
+    hp: 8, // Nov 9: sturdy enough that strong builds still have to work to break the line
     damage: 1,
     size: 24,
     color: 0x83A89A

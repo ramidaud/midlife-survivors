@@ -1704,11 +1704,12 @@ function damageBill(bill, amount) {
   // The Gold Watch can't be beaten, only wound back: hits push it away and slow its hands (Rami, Nov 3).
   if (bill.kind === "goldWatch" && window.GoldWatch) { GoldWatch.wind(sc, bill, amount, player); if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs); return; }
   if (bill.kind === "theReaper") return; // the finish line can't be hurt; walk into it
+  if (bill.kind === "holidayParty" && window.HolidayParty) amount = HolidayParty.shieldDamage(sc, bill, amount); // Nov 9: the conga line protects her
   bill.hp -= amount;
   popDamageNumber(sc, bill.x, bill.y, amount, crit);
   if (bill.hp > 0) {
     sfx("hit");
-    if (bill.isBoss) bill.tag.setText(`${ENEMIES[bill.kind].label}:${bill.hp}`);
+    if (bill.isBoss) bill.tag.setText(`${ENEMIES[bill.kind].label}${bill._shielded ? " 🛡" : ""}:${bill.hp}`);
     bill.setTintFill(0xffffff); // quick white flash so you can see the hit
     // Squash-and-stretch on the drawn sprite plus a small shove (src/juice.js). The hit box never changes size.
     if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs);

@@ -85,9 +85,10 @@ window.HolidayParty = (() => {
   }
   function drawTinsel(g, boss, a) {
     if (!a.line.length) return;
-    g.lineStyle(2, 0xEF9347, 0.75).beginPath(); g.moveTo(boss.x, boss.y);
+    g.lineStyle(3, 0xEF9347, 0.85).beginPath(); g.moveTo(boss.x, boss.y);
     for (const e of a.line) if (e.active && e.inLine) g.lineTo(e.x, e.y);
     g.strokePath();
+    a.line.forEach((e, i) => { if (e.active && e.inLine) g.fillStyle([0xF1B5BF, 0x83A89A, 0xF2D7A1][i % 3], 1).fillCircle(e.x, e.y - 4, 4); }); // little party bulbs
   }
 
   // ---- mistletoe ----
@@ -160,9 +161,29 @@ window.HolidayParty = (() => {
     if (!last || Math.hypot(boss.x - last.x, boss.y - last.y) >= (C.crumbEveryPx || 8)) { a.crumbs.unshift({ x: boss.x, y: boss.y }); if (a.crumbs.length > 80) a.crumbs.length = 80; }
     tidyLine(a, now);
     const maxLine = phase2 ? (P2.congaMax || 7) : (C.max || 5);
-    if (!a.started) { a.started = true; for (let i = 0; i < (C.start || 5); i++) addGuest(scene, boss, a); a.nextJoin = now + (C.joinEveryMs || 8000); }
+    if (!a.started) {
+      a.started = true; for (let i = 0; i < (C.start || 5); i++) addGuest(scene, boss, a); a.nextJoin = now + (C.joinEveryMs || 8000);
+      if (typeof burstConfetti === "function") [0, 200, 400].forEach(t => scene.time.delayedCall(t, () => boss.active && burstConfetti(scene, boss.x + Phaser.Math.Between(-40, 40), boss.y - 40, [0xF1B5BF, 0x83A89A, 0xEF9347][t / 200], 16)));
+      if (window.Lighting && Lighting.fx) try { Lighting.fx("levelUp", boss.x, boss.y); } catch (e) {}
+    }
     else if (now >= a.nextJoin) { a.nextJoin = now + (phase2 ? (P2.joinEveryMs || 4000) : (C.joinEveryMs || 8000)); if (a.line.length < maxLine) addGuest(scene, boss, a); }
     drawTinsel(a.tg, boss, a);
+    // the line protects her (Nov 9): a tinsel ring around her while 3+ dancers are in line
+    const SH = P.shield || {}, inLine = a.line.filter(e => e.active && e.inLine).length, shielded = inLine >= (SH.minLine || 3);
+    if (shielded !== !!boss._shielded) {
+      boss._shielded = shielded;
+      if (boss.tag) boss.tag.setText(`${ENEMIES[boss.kind].label}${shielded ? " 🛡" : ""}:${boss.hp}`);
+      if (!shielded && a.started) { // the line broke: tell the player it's their moment
+        flash(scene, boss, "LINE BROKEN!", "#83A89A");
+        if (typeof sfx === "function") sfx("pick", 0);
+      } else if (shielded && a.brokeOnce) flash(scene, boss, "BACK IN LINE!", "#F1B5BF");
+      if (!shielded) a.brokeOnce = true;
+    }
+    if (shielded) {
+      const pulse = reduceMotion ? 0 : Math.sin(now / 200) * 3, r = 70 + pulse;
+      a.tg.lineStyle(6, 0xEF9347, 0.9).strokeCircle(boss.x, boss.y, r);
+      for (let i = 0; i < 10; i++) { const ang = i / 10 * Math.PI * 2 + now / 900; a.tg.fillStyle(i % 2 ? 0xF1B5BF : 0x83A89A, 1).fillCircle(boss.x + Math.cos(ang) * r, boss.y + Math.sin(ang) * r, 6); }
+    }
 
     // armed zones
     const p = pc(player);
@@ -223,6 +244,16 @@ window.HolidayParty = (() => {
     }
     return false;
   }
+  function flash(scene, boss, text, color) {
+    const t = scene.add.text(boss.x, boss.y - 70, text, { fontFamily: "Silkscreen, monospace", fontSize: "16px", color, stroke: "#171C35", strokeThickness: 4 }).setOrigin(0.5).setDepth(50005);
+    scene.tweens.add({ targets: t, y: t.y - 30, alpha: 0, delay: 500, duration: 700, onComplete: () => t.destroy() });
+  }
+  function shieldDamage(scene, boss, amount) {
+    if (!boss._shielded) return amount;
+    const now = scene.time.now;
+    if (!boss._shieldTipAt || now - boss._shieldTipAt > 4000) { boss._shieldTipAt = now; flash(scene, boss, "BREAK THE LINE!", "#EF9347"); }
+    return Math.max(1, Math.round(amount * ((D().shield || {}).damageMult || 0.25)));
+  }
   function say(scene, boss, text) {
     const t = scene.add.text(boss.x, boss.y - 96, text, { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#FFF0CF", padding: { x: 6, y: 4 }, wordWrap: { width: 220 }, align: "center" }).setOrigin(0.5, 1).setDepth(50005);
     scene.tweens.add({ targets: t, alpha: 0, delay: 1600, duration: 400, onComplete: () => t.destroy() });
@@ -231,7 +262,7 @@ window.HolidayParty = (() => {
   }
 
   return {
-    update, steerGuest,
+    update, steerGuest, shieldDamage,
     playerSpeedMult: () => (runElapsedMs < slowUntil ? ((D().mistletoe || {}).slowAltMult || 0.35) : 1),
     safe: nowT => nowT < safeUntil, // no damage during the awkward moment (and a beat after)
     reset: () => { slowUntil = 0; safeUntil = 0; immuneUntil = 0; lastCatch = -1e9; }

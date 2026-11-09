@@ -1851,3 +1851,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Your New Boss at 48: "good".
 - The Holiday Party at 56: "not sure I even noticed them". With a strong build she and her tiny dancers melted before the mistletoe mattered.
 - Full Life: "essentially invincible from 65 on", "basically not moving", a long boss-free gap up to 76, "too long with not much variety". He loves the power fantasy but it plateaus.
+
+## 2026-11-09 (2 AM, Rami asleep): V2.13.2, the Holiday Party fix
+- The conga line now protects her: with 3+ dancers in line she takes 25% damage (tinsel ring with party bulbs, 🛡 on her tag, "BREAK THE LINE!" pops when you hit her). "LINE BROKEN!" when it drops below 3.
+- Dancers are bigger (0.6 scale), sturdier (8 base HP), start at 6, and rejoin every 5 s (3.5 s below half health, up to 8). She arrives with a confetti burst; the banner and spotlight tip now explain the line.
+- Tested on laptop and phone: shielded hit 25 of 100, open hit 100, line rebuilds; no errors.
+- Rami will think about the Full Life plateau options (new 65-80 content, enemies that keep up with strong builds, shorter late years, or late decades at Home).

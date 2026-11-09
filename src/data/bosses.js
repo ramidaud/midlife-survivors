@@ -52,14 +52,17 @@ window.BOSS_ATTACKS = {
   // The Holiday Party, Nov 9: Grok's spec section 2, party lines by Gemini. Code: src/holiday-party.js.
   // Mistletoe slows you (Rami's pick) instead of freezing you. You can't be hurt while slowed, or for a beat after.
   holidayParty: {
-    style: "conga", bannerTitle: "MISTLETOE", bannerSub: "Don't stop under the mistletoe.",
+    style: "conga", bannerTitle: "MISTLETOE", bannerSub: "Break the conga line to get at her.",
     telegraphMs: 1000, cooldownMs: 5200, firstAttackDelayMs: 2000, recoverMs: 300,
-    conga: { start: 5, max: 5, joinEveryMs: 8000, spacingPx: 34, crumbEveryPx: 8, waitMs: 500, catchUpMult: 1.6, leaveLineAtPx: 110, guestScale: 0.42 },
+    conga: { start: 6, max: 6, joinEveryMs: 5000, spacingPx: 42, crumbEveryPx: 8, waitMs: 500, catchUpMult: 1.6, leaveLineAtPx: 120, guestScale: 0.6 },
+    // Nov 9 (Rami: "not sure I even noticed them"): while 3 or more dancers are in line, she takes only a quarter of
+    // your damage. Break the line to get at her. The line rebuilds over time, so it's a rhythm: break, punish, repeat.
+    shield: { minLine: 3, damageMult: 0.25 },
     mistletoe: { zones: 2, radius: 56, nearMinPx: 160, nearMaxPx: 240, minAngleDeg: 100, edgeGapPx: 64, propClearPx: 48,
                  armedMs: 2400, slowAltMult: 0.35, slowAltMs: 900, safeAfterMs: 400, immuneMs: 2500, noFollowUpMs: 1500,
                  minGapBetweenFreezesMs: 3000, shoveRadius: 120, shovePx: 80,
                  awkwardLines: ["...hi.", "Oh! Hey.", "So... how about this weather.", "We should... not."] },
-    phase2: { atHpFrac: 0.5, zones: 3, walkSpeed: 70, congaMax: 7, joinEveryMs: 4000,
+    phase2: { atHpFrac: 0.5, zones: 3, walkSpeed: 70, congaMax: 8, joinEveryMs: 3500,
               groupHug: { telegraphMs: 700, chargeSpeed: 300, chargeMaxDist: 200, bodyHalfW: 22, bodyHalfH: 26, damage: 1 } },
     drop: "salad", // party platter leftovers
     swarm: { spawnDelayMult: 1.35, packSizeMult: 0.70, maxOnScreenMult: 0.70, eliteChanceMult: 0.6, pauseKinds: ["snackAttack", "calendarInvite"], pauseEvents: true },

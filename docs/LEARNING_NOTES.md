@@ -660,3 +660,6 @@ A fair boss gives you a rhythm: dodge, then hit back. Your New Boss locks his ai
 
 ## Breadcrumb trails (Nov 9, the conga line)
 To make dancers follow the Holiday Party's exact path, the leader drops an invisible breadcrumb every 8 pixels as she walks. Each dancer walks toward the crumb a fixed distance behind (dancer 1 at 34 px, dancer 2 at 68 px, and so on), so the whole line snakes around desks the same way she did. When one dancer drops, the ones behind it pause for half a second, then hurry to close the gap. It's the same trick the classic Snake game uses.
+
+## Making a boss matter (Nov 9, the Holiday Party fix)
+A boss is memorable when it makes you change how you play. The first Holiday Party just soaked damage, so a strong build melted her without noticing. Now her conga line works like a shield: you have to break the line first, then hit her before it rebuilds. Same art and numbers, but a new rule that turns the fight into a little puzzle.
