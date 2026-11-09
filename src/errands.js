@@ -116,5 +116,7 @@ window.Errands = (() => {
     if (left <= 0) return miss();
     aim(scene);
   }
+  // hide the chip and arrow on the game over and title screens (the game loop stops updating us there)
+  setInterval(() => { if (!playing()) { if (chip && chip.className !== "hidden") chip.className = "hidden"; if (arrow) arrow.className = "hidden"; } }, 300);
   return { reset, update, mark: () => active ? { x: active.e.at[0], y: active.e.at[1] } : null, active: () => active };
 })();

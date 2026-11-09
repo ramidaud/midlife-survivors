@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.11.2",
-  displayVersion: "V. 2.11.2",
+  version: "2.11.3",
+  displayVersion: "V. 2.11.3",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 288,
+  build: 289,
   changelog: [
+    {
+      ver: "V. 2.11.3", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "No more dark office.",
+      highlights: [
+        "Fixed: when your computer's graphics hiccup and come back, the office could stay dark with only names and numbers showing. Now the reload card stays up so you can reload and continue your saved run.",
+        "Fixed: the errand chip and arrow could linger on the game over screen."
+      ]
+    },
     {
       ver: "V. 2.11.2", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Your bonus chest always finds you.",

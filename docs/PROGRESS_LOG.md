@@ -1802,3 +1802,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Boss chests are now set up before any effects run, and a ready chest that hasn't reached you in 12 seconds opens wherever it is.
 - Game errors now count in GoatCounter as `js-error-<file>-<line>` (nothing personal), so the next mystery bug leaves a trail.
 - Rami picked three new office bosses: The Reorg, The Holiday Party, Your New Boss (Age 26).
+
+## 2026-11-08 (late): V2.11.3, the dark office fix
+- Rami resumed a save with a different character and the office went dark: no floor or sprites, only names, numbers and the HP bar.
+- Likely cause: the browser briefly took the graphics card away from the game (WebGL "context lost") and then gave it back. Text redraws itself, but the floor and character sheets come back blank. The game already showed a "lights flickered" reload card on loss, but removed it on restore, leaving the broken screen.
+- Fix: the reload card now stays up after restore ("The lights are back. The office needs a reload."). The run is saved at the moment of loss, so reloading continues it. Both events now send telemetry so we can count how often it happens.
+- Also fixed: the errand chip and orange arrow lingered on the game over screen.

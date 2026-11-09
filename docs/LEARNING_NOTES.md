@@ -648,3 +648,6 @@ Racing games quietly speed up the cars in last place so the race stays close. Th
 
 ## Objectives pull players around the map (Nov 8, 2026)
 In a survivors game, the safest move is to circle the edges forever. A small objective (an errand) gives the player a reason to cross the room, which makes them meet the swarm, pick up XP, and actually see the office you built. Good objectives are optional, short, and point the way clearly (marker, map dot, edge arrow), so they feel like a dare rather than a chore.
+
+## Losing the graphics card (WebGL context loss), Nov 8
+The game draws with WebGL, which borrows the computer's graphics card. If the browser needs that memory back (too many tabs, a big new character sheet, a phone going to sleep), it can yank it away mid-game and hand it back a moment later. Anything the game painted itself, like the floor and the character sprites, is gone when it comes back, while text quietly redraws. That's why Rami saw names and numbers floating in a dark office. The safe move is to save the run when the graphics leave and reload the page when they return.

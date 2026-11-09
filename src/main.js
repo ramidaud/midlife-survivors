@@ -2959,7 +2959,13 @@ window.game = new Phaser.Game(config);
       document.body.appendChild(d);
       d.querySelector("#ctx-reload").addEventListener("click", () => location.reload());
     }, false);
-    cv.addEventListener("webglcontextrestored", () => { const d = document.getElementById("ctx-lost"); if (d) d.remove(); }, false);
+    // Nov 8 (Rami's screenshot: a dark office with only names and numbers showing): when the browser hands the
+    // graphics back, the floor and characters don't come with it. So the reload card stays up instead of
+    // disappearing and leaving a broken screen.
+    cv.addEventListener("webglcontextrestored", () => {
+      try { if (window.Telemetry && Telemetry.event) Telemetry.event("webgl-context-restored"); } catch (err) {}
+      const h = document.querySelector("#ctx-lost h2"); if (h) h.textContent = "The lights are back. The office needs a reload.";
+    }, false);
   };
   hook();
 })();
