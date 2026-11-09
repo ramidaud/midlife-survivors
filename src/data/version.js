@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.11.3",
-  displayVersion: "V. 2.11.3",
+  version: "2.11.4",
+  displayVersion: "V. 2.11.4",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 289,
+  build: 290,
   changelog: [
+    {
+      ver: "V. 2.11.4", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "A lighter office, and your hero stays yours.",
+      highlights: [
+        "The office floor now uses about a quarter of the graphics memory it did. Only the part near you is painted, so laptops (especially Safari on a MacBook) are much less likely to go dark.",
+        "A saved run now stays with the hero who started it. Picking someone else on the title screen sets up your next new run instead."
+      ]
+    },
     {
       ver: "V. 2.11.3", date: "Nov 8, 2026", title: "Version Two",
       teaser: "No more dark office.",

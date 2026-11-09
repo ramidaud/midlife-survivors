@@ -170,7 +170,7 @@ window.WorldArt = (() => {
         state.active=true;scene.cameras.main.setRoundPixels(true);update();
       } catch(error){
         if(beforeChildren)scene.children.list.slice().forEach(o=>{if(!beforeChildren.has(o))o.destroy();});
-        pendingProps.length=0;console.warn('Office art fallback: '+error.message);
+        pendingProps.length=0;console.warn('Office art fallback: '+error.message);try{if(window.Telemetry&&Telemetry.event)Telemetry.event('office-fallback');}catch(e){}
       }
     }
     function update() {

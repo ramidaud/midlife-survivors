@@ -651,3 +651,6 @@ In a survivors game, the safest move is to circle the edges forever. A small obj
 
 ## Losing the graphics card (WebGL context loss), Nov 8
 The game draws with WebGL, which borrows the computer's graphics card. If the browser needs that memory back (too many tabs, a big new character sheet, a phone going to sleep), it can yank it away mid-game and hand it back a moment later. Anything the game painted itself, like the floor and the character sprites, is gone when it comes back, while text quietly redraws. That's why Rami saw names and numbers floating in a dark office. The safe move is to save the run when the graphics leave and reload the page when they return.
+
+## Streaming (only load what's near you), Nov 8
+Big games don't keep the whole world in memory. They load the part around the player and let go of the parts far away, which is called streaming. Our office floor used to be painted all at once into 34 big tiles, and Safari on a MacBook ran out of graphics memory. Now the game paints only the tiles near the camera and reuses their canvases as you walk, like laying track just ahead of a moving train.

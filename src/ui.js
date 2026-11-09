@@ -2573,6 +2573,8 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
       if (meta.unlockedChars[ch.id]) {
         meta.selectedChar = ch.id; saveMeta(meta); sfx("pick");
         renderTitleModal(scene, `[data-char="${chId}"]`); updateHUD();
+        { const sr = loadRunState(); if (sr && sr.char && sr.char !== ch.id && window.showLowerThird) { const o = CHARACTERS.find(c => c.id === sr.char);
+          window.showLowerThird("tip", "SAVED RUN", `${ch.name} is ready for your next new run. Your saved run stays with ${o ? o.name : "its hero"}.`, 4500); } }
       } else if (ch.unlock) {
         sfx("hurt"); // achievement unlock only (Ben: finish 10 devlog memos)
         if (window.showLowerThird) window.showLowerThird("tip", "LOCKED", "Finish 10 devlog memos to unlock The Coldwar Cowboy.", 3500);

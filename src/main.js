@@ -815,6 +815,7 @@ window.persistActiveRun = () => {
     runMode,
     runTaxBracket,
     runSprint,
+    char: meta.selectedChar, // Nov 8: a saved run belongs to the hero who started it
     stats
   });
 };
@@ -862,6 +863,7 @@ function applyMetaAndChar() {
 // Start a brand-new run at the selected Decade Checkpoint (40, 50, 60, 70, or 80) with starter upgrades!
 function beginFreshRunAtDecade(scene) {
   clearRunState();
+  if (meta.nextChar) { if (meta.unlockedChars[meta.nextChar]) meta.selectedChar = meta.nextChar; delete meta.nextChar; saveMeta(meta); } // the hero picked while a saved run waited
   applyMetaAndChar();
   runMode = pickRunMode();
   runTaxBracket = meta.taxBracket || 0;
@@ -1140,6 +1142,11 @@ function showTitleScreen(scene) {
     startFromTitle = null;
     hideTitleModal();
 
+    // Nov 8 (Rami: "im not sure players should be able to switch characters mid stream"): a resumed run always
+    // uses the hero who started it. Picking someone else on the title screen only applies to your next new run.
+    if (saved.char && meta.unlockedChars && meta.unlockedChars[saved.char] && meta.selectedChar !== saved.char) {
+      meta.nextChar = meta.selectedChar; meta.selectedChar = saved.char; saveMeta(meta);
+    }
     currentAge = saved.currentAge || 40;
     runStartAge = saved.runStartAge || 40;
     runMode = saved.runMode || "full"; // runs saved before modes existed were Full Life runs

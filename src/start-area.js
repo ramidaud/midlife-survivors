@@ -598,23 +598,42 @@ window.StartAreaArt = (() => {
     const q=best||fallback;if(q)repairedSpawns++;return q;
   }
   // Speed (Nov 2): floor-shadow Graphics are redrawn from scratch every frame in WebGL. They never change, so
-  // paint all of them once into 1024px tiles covering the map, and show the tiles as plain images instead.
+  // paint them once into 1024px tiles and show the tiles as plain images instead.
+  // Memory (Nov 8, Rami's dark office on a MacBook in Safari): painting every tile at once held about 135 MB of
+  // graphics memory. Now only the tiles near the camera are painted (about 9 at a time). Far tiles hand their
+  // canvas back to a small pool, and the source shapes stay in memory (off screen) so any tile can be repainted.
+  const floorTiles=[],floorPool=[],floorSrc=[];let floorDepth=0;const FT=1024;
   try{const chunkG=all.filter(e=>e.bounds&&e.o&&(e.o.type==='Graphics'||e.o.sliceBakeFloor)&&e.o.active).sort((a,b)=>a.o.depth-b.o.depth);
-   if(chunkG.length&&scene.make.renderTexture){const B=data.bounds,T=1024;let n=0;
-    for(let ty=B.y;ty<B.y+B.height;ty+=T)for(let tx=B.x;tx<B.x+B.width;tx+=T){
-     const w=Math.min(T,B.x+B.width-tx),h=Math.min(T,B.y+B.height-ty),key='slice_bake_'+(n++);
+   if(chunkG.length&&scene.make.renderTexture){const B=data.bounds;floorDepth=chunkG[0].o.depth;
+    for(let ty=B.y;ty<B.y+B.height;ty+=FT)for(let tx=B.x;tx<B.x+B.width;tx+=FT){
+     const w=Math.min(FT,B.x+B.width-tx),h=Math.min(FT,B.y+B.height-ty);
      if(!data.floors.some(r=>r.x+r.width>tx&&r.x<tx+w&&r.y+r.height>ty&&r.y<ty+h))continue;
-     if(scene.textures.exists(key))scene.textures.remove(key);
-     const rt=scene.make.renderTexture({x:0,y:0,width:w,height:h},false);
-     for(const e of chunkG){const r=e.bounds;if(r.x+r.width>tx&&r.x<tx+w&&r.y+r.height>ty&&r.y<ty+h)rt.draw(e.o,e.o.sliceBakeFloor?e.o.x-tx:-tx,e.o.sliceBakeFloor?e.o.y-ty:-ty);}
-     rt.saveTexture(key);
-     all.push({o:scene.add.image(tx,ty,key).setOrigin(0).setDepth(chunkG[0].o.depth),bounds:{x:tx,y:ty,width:w,height:h},rt});
+     floorTiles.push({x:tx,y:ty,width:w,height:h,rt:null,src:chunkG.filter(e=>{const r=e.bounds;return r.x+r.width>tx&&r.x<tx+w&&r.y+r.height>ty&&r.y<ty+h;}).map(e=>e.o)});
     }
-    for(const e of chunkG){if(e.o.sliceBakeFloor){const i=captions.indexOf(e.o);if(i>=0)captions[i]={x:e.o.x,y:e.o.y,visible:true,caption:e.o.caption,sliceReadAt:e.o.sliceReadAt};}e.o.destroy();all.splice(all.indexOf(e),1);}
-   }}catch(e){}
+    for(const e of chunkG){if(e.o.sliceBakeFloor){const i=captions.indexOf(e.o);if(i>=0)captions[i]={x:e.o.x,y:e.o.y,visible:true,caption:e.o.caption,sliceReadAt:e.o.sliceReadAt};}
+     scene.children.remove(e.o);floorSrc.push(e.o);all.splice(all.indexOf(e),1);} // kept alive, just not drawn
+    streamFloor(true);
+   }}catch(e){console.warn('Floor tiles: '+e.message);}
+  function paintTile(t){
+   let rt=floorPool.pop();
+   if(!rt){rt=scene.make.renderTexture({x:0,y:0,width:FT,height:FT},false).setOrigin(0);scene.add.existing(rt);}else rt.clear();
+   rt.setPosition(t.x,t.y).setDepth(floorDepth).setVisible(true);
+   for(const o of t.src)rt.draw(o,o.sliceBakeFloor?o.x-t.x:-t.x,o.sliceBakeFloor?o.y-t.y:-t.y);
+   t.rt=rt;
+  }
+  function streamFloor(all){
+   if(!floorTiles.length)return;const v=scene.cameras.main.worldView;let budget=1;
+   const near=(t,m)=>t.x+t.width>v.x-m&&t.x<v.right+m&&t.y+t.height>v.y-m&&t.y<v.bottom+m;
+   for(const t of floorTiles)if(t.rt&&!near(t,FT*0.5)){t.rt.setVisible(false);floorPool.push(t.rt);t.rt=null;}
+   for(const t of floorTiles){if(t.rt)continue;if(near(t,0)||(all&&near(t,FT*0.25)))paintTile(t);else if(budget>0&&near(t,FT*0.25)){paintTile(t);budget--;}}
+   while(floorPool.length>3)floorPool.pop().destroy();
+  }
+  // after the graphics come back from a hiccup, every painted tile is blank: repaint the ones in use
+  const repaintFloor=()=>{for(const t of floorTiles)if(t.rt){floorPool.push(t.rt);t.rt=null;}streamFloor(false);};
+  try{scene.game.renderer.on&&scene.game.renderer.on('restorewebgl',repaintFloor);}catch(e){}
   const state={data,gates,items,bodies,active:true,visibleProps:0,peakVisibleProps:0,spawnPadding,get repairedSpawns(){return repairedSpawns;},resolveSpawn,update,sync,destroy,contains:within};
   function update(){if(!alive)return;const x=p.x,y=p.y+p.height/2;if(!within(x,y)){p.setPosition(...[lastValid[0],lastValid[1]-p.height/2]);p.setVelocity(0,0);p.body.updateFromGameObject();}else lastValid=[x,y];}
-  function sync(){if(!alive)return;const now=refs.clock();updateStanding(standingPeople,now);for(const {light,seed}of blinkLights)if(light.active)light.setVisible((Math.floor(refs.clock()/650)+seed)%3!==0);const v=scene.cameras.main.worldView,cam=scene.cameras.main.id,visible=[];
+  function sync(){if(!alive)return;streamFloor(false);const now=refs.clock();updateStanding(standingPeople,now);for(const {light,seed}of blinkLights)if(light.active)light.setVisible((Math.floor(refs.clock()/650)+seed)%3!==0);const v=scene.cameras.main.worldView,cam=scene.cameras.main.id,visible=[];
    for(const o of items){if(!o.active)continue;const depth=10000+(o.sliceDepth??o.y)-p.y;if(o.depth!==depth)o.setDepth(depth);if(o.sliceShadow)o.sliceShadow.setVisible(o.visible);const shown=o.visible&&o.x+o.displayWidth/2>v.x-96&&o.x-o.displayWidth/2<v.right+96&&o.y>v.y-96&&o.y-o.displayHeight<v.bottom+96;o.cameraFilter=shown?0:cam;if(shown)visible.push(o);}
    if(visible.length>data.maxVisibleProps){
     visible.sort((a,b)=>Math.hypot(a.x-p.x,a.y-p.y)-Math.hypot(b.x-p.x,b.y-p.y));
@@ -625,7 +644,7 @@ window.StartAreaArt = (() => {
    updateCoworkers(animatedWorkers,now,p.x,p.y+p.height/2);
    if(now-lastMemo>6000&&window.showLowerThird)for(const o of captions){if(!o.visible||seen.has(o.caption))continue;if(Math.abs((o.sliceReadAt?.[0]??o.x)-p.x)<110&&Math.abs((o.sliceReadAt?.[1]??o.y)-(p.y+p.height/2))<110){seen.add(o.caption);lastMemo=now;window.showLowerThird('lore','MEMO',o.caption,4500);break;}}
   }
-  function destroy(){alive=false;window.navExtraBlockers=(window.navExtraBlockers||[]).filter(r=>!ownedBlockers.includes(r));if(window.START_AREA_GATES===gates)window.START_AREA_GATES=[];for(const e of all){if(e.o.active)e.o.destroy();if(e.rt)e.rt.destroy();}}
+  function destroy(){alive=false;try{scene.game.renderer.off&&scene.game.renderer.off('restorewebgl',repaintFloor);}catch(e){}for(const t of floorTiles)if(t.rt){t.rt.destroy();t.rt=null;}floorPool.splice(0).forEach(r=>r.destroy());floorSrc.splice(0).forEach(o=>o.destroy());window.navExtraBlockers=(window.navExtraBlockers||[]).filter(r=>!ownedBlockers.includes(r));if(window.START_AREA_GATES===gates)window.START_AREA_GATES=[];for(const e of all){if(e.o.active)e.o.destroy();if(e.rt)e.rt.destroy();}}
   return state;
  }
  return {build,contains:within};

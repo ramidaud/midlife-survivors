@@ -1808,3 +1808,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Likely cause: the browser briefly took the graphics card away from the game (WebGL "context lost") and then gave it back. Text redraws itself, but the floor and character sheets come back blank. The game already showed a "lights flickered" reload card on loss, but removed it on restore, leaving the broken screen.
 - Fix: the reload card now stays up after restore ("The lights are back. The office needs a reload."). The run is saved at the moment of loss, so reloading continues it. Both events now send telemetry so we can count how often it happens.
 - Also fixed: the errand chip and orange arrow lingered on the game over screen.
+
+## 2026-11-08 (night): V2.11.4, a lighter office
+- Rami's details: MacBook, Safari, the "lights flickered" box came 5-10 seconds before the dark screen, and reloading went dark right away. So Safari was running out of graphics memory every time that run loaded.
+- The office floor was painted as 34 big tiles all held at once (about 135 MB). Now only the 5-7 tiles near the camera are painted (10 at most), and the rest repaint as you walk. Screenshots match the old floor exactly.
+- A saved run now remembers its hero. Picking someone else on the title screen sets up your next new run, with a note saying so (Rami: players shouldn't switch mid-run).
+- The backup "old stage" (shown when the new office fails to build) now sends a telemetry event, so we can see how often it happens.
