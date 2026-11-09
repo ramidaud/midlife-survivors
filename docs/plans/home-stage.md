@@ -31,3 +31,7 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
 3. **Your house:** the door, and the inside area it unlocks.
 4. **Enemies, the LEGO hazard, and the Lemonade Stand.**
 5. **The Fifth-Grade Math Homework boss,** plus the Mortgage and the V8 moving in.
+
+## Reference Rami shared (Nov 8): "keep this in the back of your head for the next level"
+- `docs/plans/reference/twin-stones-forest.png`: a top-down pixel forest in peak fall (red, orange and evergreen trees, mushrooms, fireflies, mossy rocks and a fallen log). A spot called "THE TWIN STONES" with two stone markers (I and II) and a "0% · TWO STONES" progress bar. Small framed minimap in the corner.
+- Not a decision yet. Fits the fall, tree-lined look he described for Home.
