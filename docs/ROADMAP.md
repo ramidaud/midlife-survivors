@@ -17,7 +17,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Play to 48 and fight him: fair? funny? too easy?
 - [x] Age-56 slot + The Holiday Party (V2.13.0)
 - [ ] Reach 56 and meet the Party: is the slow fair? does the conga line read?
-- [ ] Next build: The Reorg (Hot Desks, moving spawns)
+- [x] The Reorg (V2.14.0)
+- [ ] Meet the Reorg at 56 (it's a coin flip with the Party): do the desks read? fair?
 
 **Play and react**
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?

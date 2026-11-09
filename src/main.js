@@ -327,7 +327,7 @@ function create() {
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
   if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
-  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
+  bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); if (window.Reorg) Reorg.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState = { leftDown: false, rightDown: false, x: window.innerWidth / 2, y: window.innerHeight / 2, activeCursor: false, overUI: false };
@@ -2202,7 +2202,8 @@ function spawnBill(scene) {
   const view = scene.cameras.main.worldView; // the rectangle of the world you can currently see
   const m = window.viewModeIdx === 1 ? 220 : SPAWNING.offscreenMargin;
   let x, y;
-  switch (Phaser.Math.Between(0, 3)) {
+  const forcedSide = window.Reorg ? Reorg.spawnSide() : null; // Nov 9: The Reorg's New Org Chart sends everyone from one side
+  switch (forcedSide != null ? forcedSide : Phaser.Math.Between(0, 3)) {
     case 0: x = Phaser.Math.Between(view.left, view.right); y = view.top - m; break;    // above
     case 1: x = Phaser.Math.Between(view.left, view.right); y = view.bottom + m; break; // below
     case 2: x = view.left - m; y = Phaser.Math.Between(view.top, view.bottom); break;   // left

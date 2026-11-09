@@ -663,3 +663,6 @@ To make dancers follow the Holiday Party's exact path, the leader drops an invis
 
 ## Making a boss matter (Nov 9, the Holiday Party fix)
 A boss is memorable when it makes you change how you play. The first Holiday Party just soaked damage, so a strong build melted her without noticing. Now her conga line works like a shield: you have to break the line first, then hit her before it rebuilds. Same art and numbers, but a new rule that turns the fight into a little puzzle.
+
+## Flood fill (Nov 9, The Reorg's "never boxed in" check)
+Before The Reorg slides a desk, the game pretends the desk is already in its new spot and lays an invisible grid over the screen. It starts at your square and spreads to every open neighbor, like spilled paint, which is called a flood fill. If the paint can reach at least two edges of the screen through a gap two squares wide, the move is safe. If not, he picks a different desk or a different direction. Paint bucket tools in art apps use the same idea.

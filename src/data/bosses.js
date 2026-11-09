@@ -11,7 +11,8 @@ window.BOSS_ATTACK_TUNING = {
   minTelegraphMs: 550,          // the warning never gets shorter than this (phones need time to react)
   minTelegraphMsMortgage: 650,  // rings need a beat longer to read the gap
   minTelegraphMsWatch: 700,     // the Gold Watch's Alarm rings (Grok, Nov 3)
-  minTelegraphMsArea: 750,      // mistletoe circles (Nov 9): you have to read a shape and find the way out
+  minTelegraphMsArea: 750,      // mistletoe circles and sliding desks (Nov 9): you have to read a shape and find the way out
+  minTelegraphMsEdgeMarker: 900, // The Reorg's spawn-side arrows
   ageRefYear: 40,
   telegraphAgeCutPerYear: 4,    // warnings get a little shorter as you age...
   telegraphTaxCutPerBracket: 25,// ...and with each Tax Bracket
@@ -70,6 +71,25 @@ window.BOSS_ATTACKS = {
       "Someone put ginger ale in the cranberry punch!", "Nobody leave until we take the group photo!", "Is this mug from the supply closet?",
       "Careful, the tinsel on this vest is scratchy!", "Who brought the seven-layer dip from home?", "Grab a paper plate before the shrimp disappears!",
       "HR says the karaoke machine is plugged in!", "I got another scented candle for Secret Santa!", "Hold my antlers, this song is my jam!"]
+  },
+  // The Reorg, Nov 9: Grok's spec section 3, memo lines by Gemini. Code: src/reorg.js.
+  // His own rolling Hot Desks slide around (never onto you, never boxing you in), and New Org Chart sends every
+  // new enemy from one side for a few seconds. Neither attack hurts; the swarm coming through the new layout does.
+  theReorg: {
+    style: "reorg", bannerTitle: "RESTRUCTURING", bannerSub: "Desks are moving. Follow the arrows.",
+    cooldownMs: 5000, firstAttackDelayMs: 2200, recoverMs: 300, weights: { restructure: 60, orgChart: 40 },
+    hotDesks: { count: 3, bodyW: 96, bodyH: 56, placeMinPx: 180, placeMaxPx: 300, placeTelegraphMs: 900, despawnFadeMs: 600 },
+    restructure: { telegraphMs: 1000, moves: 2, slideMinPx: 128, slideMaxPx: 224, slideSpeed: 240,
+                   playerMarginPx: 24, stopShortPx: 8, flushOrMinGapPx: 96, gateClearPx: 64, reachEdgesMin: 2, rerollTries: 3 },
+    orgChart: { markerLeadMs: 1200, durationMs: 6000, edges: 2 },
+    phase2: { atHpFrac: 0.5, hotDeskCount: 4, moves: 3, orgChart: { durationMs: 8000, edges: 1, hopOnce: true } },
+    drop: "fannyPack", // everything consolidated
+    swarm: { spawnDelayMult: 1.30, packSizeMult: 0.75, maxOnScreenMult: 0.75, eliteChanceMult: 0.8, pauseKinds: ["calendarInvite"], pauseEvents: true },
+    memoLines: ["We're flattening the structure. You're the structure.", "Your department is now a cross-functional pod.",
+      "Same desk, three new dotted-line managers.", "We are sunsetting Tuesdays to streamline workflow.", "Your new title is fourteen words long.",
+      "Nothing is changing except the entire org chart.", "Please welcome yourself to the Agile Tiger Team.", "We combined Payroll and Facilities for synergy.",
+      "You now report directly to a shared spreadsheet.", "Consider this a lateral move into the hallway.", "We are right-sizing the breakroom napkin budget.",
+      "Your cube has been promoted to an open concept."]
   },
   mortgageRefinance: {
     bannerTitle: "RATE LOCK", bannerSub: "Interest expands. Slip into the % gap.",

@@ -10,6 +10,8 @@ window.SPOTLIGHT = {
                          tip: "Step off the arrows, then hit him while he catches his breath.", art: "assets/bosses/boss-new-boss-v1.png", edge: "#BFA8CF", band: "#874C3B" },
     holidayParty:      { kicker: "MANDATORY FESTIVITIES", name: "THE HOLIDAY PARTY", line: "Put on your light-up sweater and join the conga line!",
                          tip: "The conga line protects her. Break it, then hit her. Keep moving under the mistletoe.", art: "assets/bosses/boss-holiday-party-v1.png", edge: "#C45C4B", band: "#874C3B" },
+    theReorg:          { kicker: "ORG CHART UPDATE", name: "THE REORG", line: "Good news, you now report to four different pods!",
+                         tip: "Watch the arrows, not the desks. Use a Hot Desk as a wall.", art: "assets/bosses/boss-reorg-v1.png", edge: "#526078", band: "#303750" },
     mortgageRefinance: { kicker: "ESCROW CLOSING", name: "30-YEAR MORTGAGE", line: "Initial here, here, and on all forty-two pages below.",
                          tip: "Keep your distance when it slams to dodge shockwaves.", art: "assets/bosses/boss-30-year-mortgage-v1.png", edge: "#EF9347", band: "#874C3B" },
     midlifeCrisis:     { kicker: "TEST DRIVE", name: "MIDLIFE CRISIS V8", line: "Forget the minivan, we are buying t-tops and leather!",

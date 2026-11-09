@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.13.3",
-  displayVersion: "V. 2.13.3",
+  version: "2.14.0",
+  displayVersion: "V. 2.14.0",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 296,
+  build: 297,
   changelog: [
+    {
+      ver: "V. 2.14.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The Reorg is here. Your desk is now a pod.",
+      highlights: [
+        "New boss at age 56: The Reorg. He takes turns with The Holiday Party, one per run.",
+        "He rolls in his own Hot Desks and slides them around after showing ghost outlines and arrows. A desk never lands on you or boxes you in, and it stops short if you're in the way. Use them as walls.",
+        "New Org Chart: for a few seconds every new enemy comes from one corner. Arrows on the screen edge show where, ahead of time.",
+        "He stands still while he works the whiteboard. That's your chance. Beat him for a big chest and a Fanny Pack. New achievement: Org Chart Survivor."
+      ]
+    },
     {
       ver: "V. 2.13.3", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Overtime moves faster.",

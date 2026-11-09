@@ -122,6 +122,7 @@ const MORE_DEATHS = {
   newBoss: ["Booked into a walking one-on-one at noon.", "High-fived into early retirement by a 26-year-old.", "You could not match the synergy of a cold-brew habit."],
   holidayParty: ["Swept away by a runaway accounting conga line.", "Overheated in a three-ply acrylic reindeer sweater.", "Cornered by the punch bowl for forty-five minutes."],
   partyGuest: ["Conga'd into a corner.", "You were the last one on the dance floor.", "Someone started the Electric Slide."],
+  theReorg: ["Flattened by a brand-new horizontal org chart.", "Moved into a cross-functional pod with no chairs.", "Lost in a dotted-line reporting loop until five."],
   mortgageRefinance: ["Page 83 wanted an initial. You gave up.", "APR did cardio around you.", "Escrow ate the last hit point."],
   midlifeCrisis: ["Leather jacket: approved. Knees: pending.", "The V8 had a better exit strategy.", "Podcast mic on. Common sense off."],
   hoaPresident: ["Trash cans: 4 minutes late to glory.", "Eggshell was never on the palette.", "The ruler does not negotiate."],

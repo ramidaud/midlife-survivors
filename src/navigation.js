@@ -103,6 +103,9 @@
     ready = true;
   }
 
+  // Nov 9: something big moved (The Reorg's Hot Desks): rebuild on the next frame instead of waiting.
+  NAV.invalidate = function () { lastBuild = -1e9; lastPc = -1; };
+
   // Called once per frame from main.js; rebuilds the field when it's stale.
   NAV.update = function (scene, player, now) {
     if (!NAV.enabled || !player) return;

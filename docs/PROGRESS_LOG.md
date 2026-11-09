@@ -1862,3 +1862,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Correction: Rami's 77.6 plateau run was **Midlife with Overtime**, not Full Life. Midlife's last boss is the Gold Watch at 63.5, so 65 to 80 had about 11 minutes with no bosses. 12 of 444 Midlife runs reached 75 in two weeks.
 - Overtime years past 65 now take 25 s instead of 45 (65 to 80 is about 6 minutes). The swarm escalates by age, so the late game also gets busier. Age math is piecewise (`ageAtMs` / `msAtAge`), tested both ways.
 - Wrote `docs/handoffs/grok-late-game-brief.md` for the bigger fixes: Overtime events or a boss for 65 to 80, and pressure that keeps up with very strong builds.
+
+## 2026-11-09 (morning): V2.14.0, The Reorg
+- The Reorg now shares the age-56 slot with the Holiday Party (about 50/50 per run).
+- He rolls in 3 Hot Desks (4 below half health, ChatGPT's sprite), never touching the office's own desks. Restructure: ghost outlines and arrows, then 2 or 3 desks slide 128 to 224 px; a desk never lands on you, never leaves a 3 to 95 px pinch, stays on screen, and a flood-fill check makes sure you can still reach two screen edges. A desk stops short if you step in its path. Pathfinding rebuilds the moment slides end.
+- New Org Chart: "NEW ORG CHART" arrows on the screen edges 1.2 s ahead, then every new enemy comes from that corner for 6 s (one edge then the opposite in phase 2).
+- Big chest, Fanny Pack, achievement "Org Chart Survivor", Gemini's memo lines. Tested on laptop and phone: 0 desk-on-hero overlaps, desks roll away on defeat, markers clear.
