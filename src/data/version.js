@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.11.1",
-  displayVersion: "V. 2.11.1",
+  version: "2.11.2",
+  displayVersion: "V. 2.11.2",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 287,
+  build: 288,
   changelog: [
+    {
+      ver: "V. 2.11.2", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Your bonus chest always finds you.",
+      highlights: [
+        "Beating a boss now says so (\"SURVIVED... your bonus chest is on its way\"). That line had been switched off by mistake.",
+        "Boss chests can't go missing: the chest is set up before any effects run, and if it hasn't reached you 12 seconds after it's ready, it opens wherever it is."
+      ]
+    },
     {
       ver: "V. 2.11.1", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Errands say where to go now.",

@@ -1796,3 +1796,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## Nov 8, 2026 (evening): errand fixes, Home stage designed (V. 2.11.1)
 - Rami: the map "looks great"; the errand wasn't clear, and on his second run it never showed. Errands now name the place, say it's a 45-second bonus, float a TO-DO HERE tag, and wait for menus to close before starting.
 - Home stage designed with Rami (players voted Home 7 to 1): a peak-fall northeastern suburb, your own house to enter, a strip-mall grocery, LEGO hazards, a Fifth-Grade Math Homework boss, the Mortgage and V8 moving in, a Lemonade Stand shop, unlocked by reaching 55. Plan: `docs/plans/home-stage.md`.
+
+## Nov 8, 2026 (night): boss chests hardened (V. 2.11.2)
+- Rami's last run: no chest after the first two bosses, and no "SURVIVED" message. Couldn't reproduce (both bosses dropped chests in tests), but found the SURVIVED line was behind a switch that never turned on, so nobody ever saw it. Fixed.
+- Boss chests are now set up before any effects run, and a ready chest that hasn't reached you in 12 seconds opens wherever it is.
+- Game errors now count in GoatCounter as `js-error-<file>-<line>` (nothing personal), so the next mystery bug leaves a trail.
+- Rami picked three new office bosses: The Reorg, The Holiday Party, Your New Boss (Age 26).

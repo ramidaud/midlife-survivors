@@ -44,6 +44,16 @@ window.Telemetry = (() => {
     fpsLast = t; requestAnimationFrame(fpsLoop);
   })(0);
 
+  // Nov 8: count game errors (file and line only, nothing personal), so bugs like "no chest after the
+  // first two bosses" show up in GoatCounter as game/js-error-<file>-<line>. At most 5 per page load.
+  let errCount = 0; window.MS_ERRORS = [];
+  window.addEventListener("error", ev => {
+    try {
+      const f = String(ev.filename || "").split("/").pop().split("?")[0] || "inline";
+      window.MS_ERRORS.push(`${f}:${ev.lineno} ${String(ev.message).slice(0, 120)}`);
+      if (errCount++ < 5) event(`js-error-${f}-${ev.lineno}`);
+    } catch (e) {}
+  });
   // GoatCounter event (silently skipped if the script didn't load or is blocked)
   function event(name) {
     if (off()) return;

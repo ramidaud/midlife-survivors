@@ -1731,17 +1731,17 @@ function damageBill(bill, amount) {
       window.lastBossDownMs = runElapsedMs; // the next boss gives you a breather to open the chest (BOSS_QUEUE.breatherMs)
       sc.cameras.main.shake(220, 0.012);
       const ch = chests.create(bill.x, bill.y, "chest").setDepth(3);
-      if (window.Lighting) Lighting.fx("lootDrop", bill.x, bill.y);
       ch.bossKind = bill.kind; // decides how many rewards the chest pays (PICKUPS.bossChest.tiers)
       ch.readyAt = runElapsedMs + ((window.BOSS_DOWN && BOSS_DOWN.chestDelayMs) || 2000); // let the defeat animation play before the chest comes to you
-      if (window.Spotlight) Spotlight.tip("chest"); // first boss chest ever
+      // Nov 8 (Rami: no chest after the first two bosses): the chest is set up before anything fancy can fail
+      try { if (window.Lighting) Lighting.fx("lootDrop", bill.x, bill.y); } catch (e) { console.warn("[chest] light", e); }
+      try { if (window.Spotlight) Spotlight.tip("chest"); } catch (e) { console.warn("[chest] tip", e); } // first boss chest ever
       ch.tag = sc.add.text(bill.x, bill.y, "BONUS", {
         fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#EF9347", stroke: "#171C35", strokeThickness: 3
       }).setOrigin(0.5, 1.6).setDepth(4);
       for (let i = -2; i <= 2; i++) spawnCoin(bill.x + i * 10, bill.y + 14, 2);
-      if (window.pushContextEvent) {
-        window.showLowerThird("win", "SURVIVED", `You outlasted ${E.name}. Grab the gold chest.`, 5000);
-      }
+      // Nov 8: this line was behind a switch that never turned on, so nobody ever saw it
+      if (window.showLowerThird) window.showLowerThird("win", "SURVIVED", `You outlasted ${E.name}. Your bonus chest is on its way.`, 5000);
     } else if (bill.kind === "officeGossip") {
       // Elite Reply-All Chain drops 3 Wisdom gems, 2 401(k) Coins (one 2x value!), AND splits into 2 fast Late Fees!
       for (let i = -1; i <= 1; i++) gems.create(bill.x + i * 10, bill.y, "gem").setDepth(3);
@@ -2637,6 +2637,12 @@ function update(time, delta) {
     const runSpeed = (player.body && player.body.speed) || 0;
     this.physics.moveToObject(ch, player, Math.max(W.magnetSpeed * (d < Math.max(magR, 150) ? 0.8 : 0.55), runSpeed + 160));
     if (ch.tag) ch.tag.setPosition(ch.x, ch.y);
+    // Safety net (Nov 8): a ready chest that still hasn't reached you 12 seconds later opens wherever it is.
+    const lateFor = ch.readyAt ? runElapsedMs - ch.readyAt : 0;
+    if (lateFor > 12000 && !levelUpOpen && !(window.BonusChest && BonusChest.isOpen())) {
+      if (window.Telemetry && Telemetry.event) Telemetry.event("chest-late-" + (ch.bossKind || "x"));
+      collectChest(player, ch); return;
+    }
     if (d < 56) {
       // A chest screen that says it's open but isn't on screen while you're playing is stale: let it go.
       if (!levelUpOpen && window.BonusChest && BonusChest.isOpen() && BonusChest.visible && !BonusChest.visible()) BonusChest.abandon();
