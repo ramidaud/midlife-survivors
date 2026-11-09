@@ -1,0 +1,34 @@
+{
+  "id": "hotDesk",
+  "name": "Hot Desk (The Reorg's rolling desk)",
+  "file": "prop-hot-desk-v1.png",
+  "size": [
+    192,
+    64
+  ],
+  "frame": [
+    96,
+    64
+  ],
+  "columns": 2,
+  "rows": 1,
+  "frames": {
+    "resting": 0,
+    "rolling": 1
+  },
+  "footprint": {
+    "x": 0,
+    "y": 8,
+    "w": 96,
+    "h": 56
+  },
+  "anchor": [
+    48,
+    62
+  ],
+  "background": "#FF00FF opaque",
+  "sampling": "nearest",
+  "previewMs": 240,
+  "preview": "prop-hot-desk-v1-preview.gif",
+  "notes": "Art only; frame states are selected by game movement. The two-frame GIF alternates states for review, not prescribed runtime animation."
+}

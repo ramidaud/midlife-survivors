@@ -1,0 +1,40 @@
+{
+  "all_passed" : true,
+  "background" : "#FF00FF",
+  "bottomCasterPixelY" : 61,
+  "cell" : [
+    96,
+    64
+  ],
+  "changedPixels" : 140,
+  "fixedDeskAndAccessoriesUnchanged" : true,
+  "footprint" : [
+    0,
+    8,
+    96,
+    56
+  ],
+  "grid" : [
+    2,
+    1
+  ],
+  "opaque" : true,
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "sheet" : [
+    192,
+    64
+  ]
+}
