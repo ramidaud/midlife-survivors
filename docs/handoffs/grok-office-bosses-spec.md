@@ -411,6 +411,12 @@ If a fight feels wrong, change one knob at a time, in this order:
 
 ---
 
+## Rami's answers (Nov 8)
+1. Take turns at 56 for now; both once the Mortgage and V8 move to Home.
+2. Slow, not stop: `freezeMode: "slow"`.
+3. Hot Desk prompt added to `chatgpt-new-office-bosses.json`.
+4. Build order: Your New Boss first.
+
 ## 11. Open questions for Rami
 1. Rotation slot at 56, or both bosses every run (55.5 and 57.5)?
 2. Freeze as a 600 ms full stop (spec default) or the 0.35x slow?

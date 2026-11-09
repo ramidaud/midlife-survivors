@@ -1826,3 +1826,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - **The Reorg and The Holiday Party art are in** (`assets/bosses/boss-reorg-v1.png`): passed all checks; Claude removed two stray foot fragments. Not wired into the game yet.
 - Home stage is now **Maple Hollow**. Map v2 adds two neighborhood blocks with satirical neighbor jokes, and you get into your house by finding the spare key.
 - Gemini's boss lines, spotlight cards, death lines and 20 Home captions are saved for when those pieces get built.
+- Grok's boss spec is in. Rami's calls: New Boss at 48 (build first), Reorg and Party take turns at 56 for now, and mistletoe slows instead of freezing.
