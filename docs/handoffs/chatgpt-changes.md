@@ -444,3 +444,82 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Files:** `assets/cutscenes/performance-review/`: plate, seven transparent frames, composite, contact sheet, preview HTML, manifest, edit/prompt record and checks.
 - **For the game:** All PNGs 1920×1080, layers registered at (0,0), three-screen-pixel logical grid. Hero near x672 facing right, boss near x1152 facing left, feet y875, hero 432px tall. Follow manifest's five holds over four seconds. Claude owns playback wiring.
 - **Checks:** Plate byte identity, hard alpha, three-pixel grid and protected clipboard face/chart passed. Preview decoded all eight layers and selected all five timing beats at desktop, phone and both tablet orientations, no overflow or exceptions, network blocked. Art/docs only, no version bump.
+
+## 2026-11-08 The Reorg boss art (Codex, review draft)
+
+- **What:** First boss from the three-boss pasted brief, following its one-boss-per-chat rule. Cheerful consultant with wheeled org-chart board and orange marker.
+- **Files:** `assets/bosses/boss-reorg-v1.png` (576×456), exact 3× sibling (1728×1368), `telegraph-reorg-v1.png` (256×128), four state GIFs, check board, manifest, prompts, checks and README.
+- **For Claude:** Frames 0–5 walk, 6–7 wind-up, 8–9 attack, 10 comic hurt, 11 blank. Foot point (72,148), sole last pixel y147, four-pixel margins. Exact twelve-color palette plus opaque magenta. Proposed timings are preview-only. No runtime changes.
+- **Checks:** Dimensions, palette, opaque alpha, blank cell and four-pixel margins passed. Native and comparison board inspected. Walk's second half reuses the first half's upper body/board while reversing lower-leg poses. Saved locally for Rami's review; not committed or pushed in this draft. Holiday Party and Your New Boss remain separate jobs.
+
+## 2026-11-08 The Holiday Party boss art (Codex, review draft)
+
+- **What:** Second boss from the pasted three-boss brief: conga walk, cup-forward/crouch wind-up, leaping hug, landing and comic punch-spill hurt pose. Mistletoe/tinsel floor telegraph included.
+- **Files:** `assets/bosses/boss-holiday-party-v1.png` (576×456), exact 3× sibling (1728×1368), `telegraph-holiday-party-v1.png` (192×128), four state GIFs, check board, manifest, prompts, checks and README.
+- **For Claude:** Four columns × three rows of144×152; frames0–5 walk,6–7 wind-up,8–9 attack,10 hurt,11 blank. Foot point(72,148), solelastpixel147, four-pixel margins. Exact12-colorpalette plus opaque#FF00FF. No runtime changes; GIF timings are preview proposals only.
+- **Checks:** Size, palette, opaque alpha, blank cell and clear margins passed. Native comparison board inspected beside the hero. Saved locally for Rami's review, not committed/pushed. Your New Boss is next.
+
+## 2026-11-08 Your New Boss art (Codex, review draft)
+
+- **What:** Third boss in the pasted brief: youthful manager with sage vest, slate hoodie, phone and lavender/orange energy can. Jog, chug/finger-gun wind-up, dash, thumbs-up and phone/earbud fumble. Chevron/starburst floor marker included.
+- **Files:** `assets/bosses/boss-new-boss-v1.png` (576×456), exact3× sibling (1728×1368), `telegraph-new-boss-v1.png` (256×128), four GIF previews, check board, manifest, prompts, validation and README.
+- **For Claude:** 4×3 cells of144×152. Frames0–5 jog,6–7 wind-up,8–9 attack,10 hurt,11 blank; footpoint(72,148), soleslastpixel147,4px margins. Walk second half preserves upper body/props and reverses lower-leg poses. Exact12-colorpalette plus opaque#FF00FF. Preview timings do not change gameplay.
+- **Checks:** Dimensions, palette, opaque alpha, clear margins and blank cell passed; native comparison board inspected beside hero. No runtime edits. All three new boss kits are now saved locally for Rami's review, not committed or pushed.
+
+## 2026-11-08 Hot Desk prop (Codex, review draft)
+
+- **What:** The Reorg's generic rolling desk, closed laptop, orange mug, lavender note and blank cream tent card.
+- **Files:** `assets/stage/props/prop-hot-desk-v1.png` (192×64, two96×64 cells),6× PNG preview,3× GIF, manifest, prompts, checks and README.
+- **For Claude:** Rest frame0, rolling frame1. Bottom96×56 footprint at(0,8), anchor(48,62), caster soles lastpixel61. Exact12-colorpalette plus opaque#FF00FF. Only caster patches and cream motion ticks change; fixed desk/accessories remain pixel-identical. Select state from movement; GIF240ms is review-only.
+- **Checks:** Dimensions, palette, opacity and fixed-pixel checks passed;6× sheet inspected. Art only, no runtime changes; saved locally for review, not committed/pushed.
+
+## 2026-11-09 Home / Maple Hollow style board (Codex, review draft)
+
+- **What:** One neighborhood concept board with slate colonial, coffee-orange player house, russet split-level and sage cape cod; fall maples/oaks and evergreens, open street/sidewalks and suburban yard details. Twelve isolated prop studies beneath, in the requested order.
+- **Files:** `assets/art-direction/home-style-board-v1.png` plus prompt/reference record. Read `docs/plans/home-stage.md` and map v2; forest reference supplies fall foliage atmosphere, office key art supplies game style.
+- **For Claude/Rami:** Art-direction concept only, not a painted runtime map or production prop atlas. Props are leaf pile, toy bricks, mailbox, pumpkin trio, bins, bike, lemonade stand, hydrant, hoop, rake/fence, cart, crossing sign. No readable text or people. Palette targets include game colors plus harmonious autumn reds/golds.
+- **Review:** Visually checked all four house types and twelve separate studies. Saved locally, not committed or pushed. Review the direction before starting modular floor/house/prop kits. No game files changed.
+
+## 2026-11-09 Maple Hollow neighbor jokes board (Codex, review draft)
+
+- **What:** Six neighboring houses in one continuous row, matching the first Home board: leaf-covered boat/trailer, six deflated yard ghosts, blank for-sale sign with rider/overgrowth, box tower taller than the door, indoor exercise bike draped with laundry, open garage with drum kit/three guitars/chair/cooler.
+- **Files:** `assets/art-direction/home-neighbors-board-v1.png` and prompt record.
+- **Review:** Inspected all six properties, counted six deflated ghosts and four instrument groups, checked blank signs/no people. Same fall palette/camera as first board. Concept art only, saved locally, not committed/pushed. No game files changed.
+
+## 2026-11-09 Grandkids sprites (Codex, review draft)
+
+- **What:** Three child world sheets: pigtailed girl/pink rain jacket/gold boots, boy/lavender hoodie/paper airplane/light-up soles, toddler/sage overalls/striped shirt/backpack.
+- **Files:** `assets/characters/grandkid-1-v1.png` through `grandkid-3-v1.png`, twelve directional GIFs, `check-grandkids-final-v1.png`, manifest, prompts, native checks and README.
+- **For Claude:** Each448×240, eight columns × four rows of56×60; DOWN/UP/LEFT/RIGHT,32frames, no idle row. Footpoint(28,56). Target visible heights37/38/36px, roughly70%of TJ. Exact opaque#FF00FF, twelve-color game palette with muted gold#E6BE58 only for girl's boots. Key background, nearest-neighbor.
+- **Review:** Native sheets and final comparison inspected; dimensions, palette, opacity and baseline checks passed. Girl's neighboring-row source fragments removed before export. Saved locally, not committed/pushed. No runtime files changed.
+
+## 2026-11-09 Clean Out Your Desk inventory icons (Codex, review draft)
+
+- **What:** Eight icons in requested order: stapler, chipped banded mug, abstract family photo, granola bar, cactus, good pen, rubber-band ball and coupon/scissors.
+- **Files:** `assets/ui/clean-out-your-desk-icons-v1.png` (1024×512), JSON cell map/checks and prompt record. Native32×32 cells,4×2 grid, enlarged exactly8×.
+- **Checks:** Exact8×8 pixel blocks, requested nine-color palette plus opaque#FF00FF, equal3nativepixelminimum padding and dimensions passed. Final sheet inspected; navy silhouette edges and scissors pictogram cleaned. No text/logos or floor shadows; mug's ring is part of its icon. Saved locally for review, no runtime changes or push.
+
+## 2026-11-09 Bargain Hunter (Codex, review draft)
+
+- **What/Files:** `assets/enemies/` now has `enemy-bargain-hunter-v1.png`, 100 ms GIF, prompt record, checks/manifest and README. Eight right-facing 48x48 cells, 384x48 total, requested seven-color palette, opaque magenta. Anchor (24,45), soles y44.
+- **For Claude/Rami:** Eager bucket-hat shopper with sage cardigan, tote and coin. Art only, no runtime changes. Saved locally for review, not pushed.
+
+## 2026-11-09 Three new office boss knockdowns (Codex, review draft)
+
+- **What/Files:** `assets/bosses/boss-knockdown-new-office-v1.png`, native 432x152, 3x export, check image, prompt, manifest and README. New Boss / Holiday Party / Reorg, in that order. Three 144x152 cells, floor anchor (72,148), four-pixel clearance.
+- **Review:** Palette/opacity/dimensions/populated cells passed; final native export visually inspected. Comic poses with stars, no injury. Party hat droops to one side rather than lying completely flat. Art only, local review draft.
+
+## 2026-11-09 Reunion NPC sheet (Codex, review draft)
+
+- **What/Files:** `assets/characters/old-coworkers-reunion-v1.png`, 480x192, four 10-frame rows, four 110 ms GIFs, 2x check, prompt, manifest and README. Accountant / manager / IT / receptionist. Walk 0-7, wave 8-9; 48x48 cells, soles y44.
+- **Review:** Twelve-color palette, exact opaque magenta, dimension/opacity/population checks passed. Source neighbor fragments and tiny disconnected native specks removed. No game integration; local review draft.
+
+## 2026-11-09 Maple Hollow native tile kit (Codex, review draft)
+
+- **What/Files:** `assets/stage/home/`: 48-cell native 256x192 atlas, exact 3x PNG, 6x6 tiling check, manifest, prompt and README. Cell 32x32, terrain rows 0-2, prop rows 3-5.
+- **Review:** Twelve-color palette, opaque terrain, exact magenta behind props and 2px prop padding passed. 122 compatible terrain pairs checked at both seams. Directional curb/corner tiles require matching terrain orientation. No collision or placement changes; local review draft.
+
+## 2026-11-09 Retro rendered 9-to-5er skin (Codex, review draft)
+
+- **What/Files:** `assets/characters/office-worker-retro3d-walk-56x60-v1.png`, exact 448x300, five row GIFs at approximately 75 ms, 2x sheet check, manifest, prompt and README. DOWN/UP/LEFT/RIGHT plus breathing/blink and glasses-push idle. Soles y56.
+- **Review:** Late-1990s rendered-sprite finish, same outfit/mug/identity; game palette plus six declared intermediate shades. Exact opaque magenta, native dimensions/opacity/palette/40 populated cells checked. Existing heroes and runtime untouched. Saved locally for Rami to review before shop integration.

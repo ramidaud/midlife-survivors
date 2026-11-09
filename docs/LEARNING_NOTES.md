@@ -681,3 +681,6 @@ Each level needs 35% more XP than the last. That feels great early (levels pop f
 
 ## A race instead of a fight (Nov 9, Clean Out Your Desk)
 Most enemies chase you. The Bargain Hunters chase the keepsakes instead, which turns the screen into a race: every second you spend walking to one item, a hunter is closing in on another. It's the same steering math as a normal enemy, just with a different target. Changing what an enemy wants is one of the cheapest ways to make a familiar sprite feel like a new kind of problem.
+
+### 2026-11-09: Tile seams and terrain families (Codex)
+A tile needs matching edge pixels to repeat cleanly. Grass variants share edges with other grass variants; a curb deliberately joins two different materials. A seamless kit therefore includes both repeatable surfaces and directional transition pieces.
