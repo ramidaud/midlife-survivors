@@ -690,3 +690,6 @@ A house can fit its pixel cell and still look too small beside a hero. The first
 
 ## Friendly sprites don't need to be enemies (Nov 9, the Reunion)
 The old coworkers look and move like enemies, but they live outside the enemy group, so nothing makes them hurt you and your weapons ignore them. They borrow the enemies' pathfinding to walk toward you around desks, and the game only asks one question each frame: are you close enough to say hi? Keeping "things that move" separate from "things that fight" is what lets the same tools make both a swarm and a party.
+
+### 2026-11-09: Small prop recognition (Codex)
+A beige square held in a hand can read as a cup. A floppy disk needs its dark shutter and label recess visible even at native sprite size. The Cowboy study was corrected before export.

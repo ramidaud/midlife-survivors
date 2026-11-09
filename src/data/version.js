@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.18.0",
-  displayVersion: "V. 2.18.0",
+  version: "2.18.1",
+  displayVersion: "V. 2.18.1",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 309,
+  build: 310,
   changelog: [
+    {
+      ver: "V. 2.18.1", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The Cowboy gets polygons too.",
+      highlights: ["The Polygon Upgrade in the Lounge now works for the Cold War Cowboy too, floppy disk and all. All four heroes can go late-'90s 3D for a run."]
+    },
     {
       ver: "V. 2.18.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Your old coworkers are all here.",

@@ -546,3 +546,9 @@ Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads
 - **Review:** Requested plaque/boxes/card/heart/tag/clipboard/envelope. Two-pixel margins; twelve-color palette; no words. Native plaque star reinforced and unintended heart hanging loop removed. Local art only, no UI edits or push.
 
 Review all four jobs at `assets/art-direction/review-nov9-home-shop-v1.html`. Shared native sheet/GIF check report: `assets/art-direction/checks-home-shop-batch-v1.json`.
+
+## 2026-11-09 Cold War Cowboy retro rendered skin (Codex, review draft)
+
+- **What/Files:** `assets/characters/coldWarCowboy-retro3d-walk-56x60-v1.png`, exact448x300,56x60 cells,40frames. Five row GIFs,2x check, JSON frame map, prompts, validation report and README included. Added to the Home/shop review gallery.
+- **For Claude:** DOWN/UP/LEFT/RIGHT/IDLE. Idle0-3 breathe/blink,4-7 floppy-dust fidget. Sole line y56 verified against current v4 in all40cells. Target75ms; GIF may encode70ms due to centisecond rounding. Exact opaque magenta and same18-color retro palette as9-to-5er.
+- **Review:** Brown hair, mature tired face and original outfit preserved. Held disk corrected with dark shutter/label recess so it does not read as a cup. Native sheet inspected; dimensions/palette/opacity/GIF counts/timings passed. Art and docs only, current v4/runtime untouched. Local review draft, not pushed.

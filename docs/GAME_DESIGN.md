@@ -648,3 +648,6 @@ Six Home house fronts use192x224 cells with porch edge y216. Home enemies use48x
 - Cosmetics are bought in the Lounge (cart or counter) with 401(k) coins and last only for the current run. No permanent unlocks.
 - First one: Polygon Upgrade (retro 3D skin), 20k. More looks can join the same catalog later.
 - Say Cheese gives a slight knockback (28 px) before its freeze.
+
+### Cowboy cosmetic draft, 2026-11-09 (Codex)
+The fourth proposed retro-rendered skin preserves the Cowboy v4 identity and56x60 grid, y56 soles and floppy-dust idle. Art only; gameplay and shop integration remain unchanged.

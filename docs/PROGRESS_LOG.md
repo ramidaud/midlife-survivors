@@ -1934,3 +1934,6 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Overtime event (Grok's spec 1.5, ChatGPT's cast): 8 old coworkers (4 sheet rows x 2 names) form a ring up to 420 px out and walk in at 60 px/s along the pathfinding. Friendly, no contact damage. Pass within 64 px to catch up: their line, 3 gems, a wave and they leave. 20 s.
 - 6+: tier 1 chest and +1,500 score. All 8: achievement "Reply All, In Person". Name-tag icon from the new UI kit floats over each head, with a sage ring at their feet.
 - Schedule: Reunion at 70 when the Watch is under 3 years away (no HOA that run), otherwise at 72.5; if it ran at 70, 72.5 is Grandkids II. Tested on laptop: 8/8 caught, score and chest land.
+
+## 2026-11-09 (4:45 PM): V2.18.1, Cowboy retro skin
+- ChatGPT/Codex's Cold War Cowboy retro 3D sheet is in; the Lounge's Polygon Upgrade now works for all four heroes. Codex's notes folded into the docs.

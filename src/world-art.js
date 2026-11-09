@@ -74,7 +74,7 @@ window.WorldArt = (() => {
     }
     // Nov 9 (Rami): Lounge cosmetics. A "retro 3D" skin you buy in the Lounge for one run (stats.skin = 'retro3d').
     // Same 448x300 layout as the v2 sheets. Loaded the first time it's needed.
-    const SKIN_FILES={retro3d:{officeWorker:'office-worker-retro3d-walk-56x60-v1',photographer:'photographer-retro3d-walk-56x60-v1',gradStudent:'gradStudent-retro3d-walk-56x60-v1'}};
+    const SKIN_FILES={retro3d:{officeWorker:'office-worker-retro3d-walk-56x60-v1',photographer:'photographer-retro3d-walk-56x60-v1',gradStudent:'gradStudent-retro3d-walk-56x60-v1',coldWarCowboy:'coldWarCowboy-retro3d-walk-56x60-v1'}};
     window.SKIN_FILES=SKIN_FILES;
     const skinAsked=new Set();
     function skinKey(id){
