@@ -30,3 +30,29 @@ window.OVERTIME_WORKLOAD = {
 window.OVERTIME_BOSSES = {
   hoaPresident: { minYearsBeforeWatch: 3.0 } // age 70, so only in runs that go to 80 (Watch at 77.3)
 };
+
+// OVERTIME BEATS (Nov 9): little events between 64 and 80, only in Overtime runs. Built so far: Open Enrollment
+// and Annual Enrollment. Grandkids' Visit, Clean Out Your Desk and the Reunion come next (see Grok's spec).
+// A beat skips itself if the Gold Watch is due within minYearsBeforeWatch, and waits up to a year for a boss.
+window.OVERTIME_BEATS = {
+  on: true, needsOvertime: true, waitForBossYears: 1, holdSwarmEventsMs: 10000,
+  schedule: [
+    { age: 64.0, id: "openEnrollment",   minYearsBeforeWatch: 1.0 },
+    { age: 75.8, id: "annualEnrollment", minYearsBeforeWatch: 1.0 }
+  ],
+  // "Your Medicare window is open. Please visit four different offices, in order."
+  openEnrollment: {
+    legs: 4, labels: ["PART A", "PART B", "PART C", "PART D"], legSec: 10, legMinPx: 450, legMaxPx: 800, reachPx: 80, leadMs: 1500,
+    spamSwapFrac: 0.30,   // hold music: 30% of regular spawns become Spam Likely calls while it runs
+    legCoinsPerFace: 5, legGems: 6, chestKey: "openEnrollment", scoreBonus: 2500, code: "OE",
+    bannerTitle: "OPEN ENROLLMENT", bannerSub: "Four offices. Ten seconds each. Go.", badge: "MEDICARE", chipTitle: "OPEN ENROLLMENT",
+    intro: "Your Medicare window is open. Visit each office in order. Follow the purple arrow.",
+    doneLine: "Enrolled. Your card is in the mail. +2,500 score and a bonus chest.",
+    missLine: "You're on hold. We'll call you back."
+  },
+  annualEnrollment: {
+    like: "openEnrollment", legs: 3, labels: ["PART A", "PLAN COMPARISON", "PART D"], chestKey: "annualEnrollment", code: "AE",
+    bannerTitle: "ANNUAL ENROLLMENT", bannerSub: "Three offices. Same forms as last year.", chipTitle: "ANNUAL ENROLLMENT",
+    intro: "Annual enrollment. The forms changed slightly. Visit each office in order."
+  }
+};

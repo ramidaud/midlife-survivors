@@ -48,3 +48,7 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
   - The houses are drawn front-on while the street is top-down. That's fine for a walkable yard (like the office walls), but the real stage needs separate pieces: house fronts, yards, driveways and street tiles that line up on one grid.
   - Add the satirical neighbor details from the map (the boat that never moves, the deflated yard ghosts, the for-sale sign, the delivery box tower, and so on).
   - The toy bricks should stay generic (no brand look).
+
+## Neighbors board v1 (Nov 9, ChatGPT): `assets/art-direction/home-neighbors-board-v1.png`
+- **Approved.** All six jokes read at a glance: the boat under a leaf-covered tarp, the deflated yard ghosts (with their fan boxes), the overgrown lawn with a blank for-sale sign, the delivery box tower, the exercise bike used as a laundry rack, and the garage band (drums, three guitars, a lawn chair and a cooler).
+- Same style and palette as the first board, so the two can sit on one street.

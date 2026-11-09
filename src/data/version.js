@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.15.0",
-  displayVersion: "V. 2.15.0",
+  version: "2.15.1",
+  displayVersion: "V. 2.15.1",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 298,
+  build: 299,
   changelog: [
+    {
+      ver: "V. 2.15.1", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Your Medicare window is open.",
+      highlights: [
+        "New Overtime event at 64: Open Enrollment. Visit four offices in order (Part A, B, C, D), ten seconds each, while spam calls play hold music. Follow the purple arrow.",
+        "Each office pays coins and gems. Finish all four for a big bonus chest, +2,500 score and the achievement Initial Enrollment Period. Miss one and you're just on hold. No penalty.",
+        "Runs that go to 80 get Annual Enrollment at 75.8: three offices, same forms as last year."
+      ]
+    },
     {
       ver: "V. 2.15.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Overtime gets busier.",

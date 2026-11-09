@@ -1875,3 +1875,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - HOA President visits Midlife runs to 80 at age 70, with swarm thinning.
 - Workload (src/workload.js, numbers in src/data/overtime.js): past 65 in Overtime, two coasting windows raise it a level (pip blinks first), up to 5; drops when health falls. Faster/tougher enemies, +0.3 hit damage per level, more elites, bigger crowd on desktop only, and overtime pay (+6% score, +4% coins per level). Tested: rises when idle at full health, effects correct, drops at 40% health.
 - Next from the spec: the retirement events (Open Enrollment, Grandkids' Visit, Clean Out Your Desk, Reunion), one per session.
+
+## 2026-11-09 (morning): V2.15.1, Open Enrollment (first Overtime event)
+- New event scheduler for Overtime (src/overtime-beats.js). First event: Open Enrollment at 64 in Overtime runs. Visit 4 offices (Part A to D) in order, 10 s each, picked 450 to 800 px apart in different rooms on reachable floor. Lavender marker, chip and edge arrow; 30% of spawns become Spam Likely ("hold music"); swarm events wait while it runs.
+- Each office: 5x coin face + 6 gems. All four: big bonus chest, +2,500 score, achievement "Initial Enrollment Period". Miss one: "You're on hold." No penalty. Annual Enrollment (3 offices) at 75.8 in runs to 80.
+- Tested: starts at 64 in a run to 80, not in a run ending at 65; all 4 legs complete on laptop and phone; chest and score land.
+- ChatGPT's Maple Hollow boards: style board v1 and the six-neighbors board, both approved.
