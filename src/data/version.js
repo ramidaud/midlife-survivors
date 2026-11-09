@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.15.4",
-  displayVersion: "V. 2.15.4",
+  version: "2.15.5",
+  displayVersion: "V. 2.15.5",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 302,
+  build: 303,
   changelog: [
+    {
+      ver: "V. 2.15.5", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Errands pay off now.",
+      highlights: [
+        "Finishing an errand sets off a shockwave that clears the regular enemies around you (bosses and elites stay).",
+        "Every errand now gives bonus XP, plus 15 seconds of CHECKED OFF: +50% damage and +50% XP from gems. A chip shows the timer.",
+        "Up to three errands per run now, two minutes apart, and never the same one twice."
+      ]
+    },
     {
       ver: "V. 2.15.4", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The grandkids got dressed up.",

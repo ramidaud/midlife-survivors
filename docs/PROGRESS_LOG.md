@@ -1896,3 +1896,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## 2026-11-09 (12:15 PM): V2.15.4, real grandkids
 - ChatGPT's three grandkid sheets are in (pink rain jacket, lavender hoodie with paper airplane, sage overalls). Same 56x60 layout as the interns, shown at native size, no tint. The art loads at 60 so it's ready by 66.
 - Pink ring, glow and heart stay. The 5-kid repeat at 72.5 cycles the three kids. Tested on laptop and phone: all three tagged, score and chest land.
+
+## 2026-11-09 (12:30 PM): V2.15.5, Errand payoff
+- Answer to Rami's question: only 1 of 5 errands gave XP before (the roadmap one). Now every errand also gives bonus XP (half a level), a shockwave that clears regular enemies within 320 px, and 15 s of CHECKED OFF (+50% damage, +50% gem XP) with a timer chip. Numbers live in src/data/errands.js.
+- Up to 3 errands per run (was 1), 2 minutes apart, no repeats. Tested on laptop and phone: 9 and 15 enemies cleared, buff on, second errand arrives after the gap.
+- ChatGPT's keepsake icons for Clean Out Your Desk saved at native 32 px (assets/ui/keepsakes-v1.png).

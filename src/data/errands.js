@@ -5,11 +5,20 @@
 // place is where it is, in plain words (shown on the card), reward is one of { coins: N } (thousands, like the 401k), { heal: N } (HP), { levels: N }.
 window.ERRAND_SETTINGS = {
   on: true,
-  perRun: 1,          // how many errands each run (1 for the first test)
+  perRun: 3,          // how many errands each run (was 1; Nov 9, Rami: "open that up a little more")
+  gapSec: 120,        // seconds of quiet after one errand ends before the next can show up
   startAge: 41.5,     // the first errand shows up at this age (about a minute in)
   timeSec: 45,        // seconds to get there
   minDistance: 1100,  // pick an errand at least this far from you, so it's a walk
-  reachPx: 80         // how close counts as "there"
+  reachPx: 80,        // how close counts as "there"
+  // Nov 9 (Rami's playtest): every finished errand also pays this, on top of its own reward.
+  payoff: {
+    clearRadius: 320,   // a shockwave clears regular enemies this close to you (bosses and elites stay)
+    xpLevelFrac: 0.5,   // bonus XP: half of what your current level needs
+    buffMs: 15000,      // "CHECKED OFF": 15 seconds of...
+    damageMult: 1.5,    // ...+50% damage
+    xpMult: 1.5         // ...and +50% XP from gems
+  }
 };
 
 window.ERRANDS = [

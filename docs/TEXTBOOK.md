@@ -1916,3 +1916,19 @@ A boss feels fair when you can always read what's coming (the warning) and you a
 | Everything else | A hit on an enemy pops pings right next to it |
 
 Collision is always the same question: which two groups should care when they touch?
+
+
+## Rewards that feel like rewards (Nov 9, Errand payoff)
+
+```
+ reach the errand ──► 💥 shockwave (320 px) ──► room empties      SEE it
+                  ├─► bar jumps (+half a level of XP)               WATCH it
+                  └─► ☑ CHECKED OFF 15s: +50% dmg, +50% gem XP     FEEL it
+```
+
+| Before | After |
+|---|---|
+| +40k coins (a number in the menu) | Same coins, plus three things you notice right now |
+| 1 errand per run | Up to 3, two minutes apart, no repeats |
+
+A reward feels good when it changes the next 15 seconds of play, not just a total.

@@ -672,3 +672,6 @@ Some games quietly watch how you're doing and adjust. Workload checks three sign
 
 ## Shooting bullets out of the air (Nov 9, hittable pings)
 A game keeps its flying things in groups: your coffee splashes in one bag, enemy pings in another. Collision is just asking "is anything in bag A touching anything in bag B?" The game already asked that for splashes vs. enemies and pings vs. you, so letting you shoot pings down only took one new question: splashes vs. pings. Area weapons like Dad Joke don't fly, so for those the game checks distance instead: any ping inside the circle pops.
+
+## Rewards that feel like rewards (Nov 9, Errand payoff)
+A reward only lands if you can feel it in the next few seconds. Coins go into a number you don't watch, so the errand felt flat. The fix stacks three things you notice right away: something you see (a shockwave that empties the room), something you feel (15 s of hitting harder) and something that shows up on the bar (bonus XP). A small timer chip tells you the good part is still on, so you play differently while it lasts.

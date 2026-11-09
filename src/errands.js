@@ -2,7 +2,7 @@
 // One errand pops up as a TO-DO card; a marker sits on the floor and on the office map, an arrow at the
 // screen edge points the way, and a chip under the map counts down. Get there in time for a reward.
 window.Errands = (() => {
-  let active = null, given = 0, chip = null, arrow = null;
+  let active = null, given = 0, chip = null, arrow = null, nextAt = 0, usedIds = [];
   const S = () => window.ERRAND_SETTINGS || {};
   const playing = () => typeof gameOver !== "undefined" && !gameOver && typeof titleOpen !== "undefined" && !titleOpen;
 
@@ -48,17 +48,19 @@ window.Errands = (() => {
     scene.tweens.add({ targets: tag, y: y - 84, duration: 650, yoyo: true, repeat: -1, ease: "Sine.InOut" });
     return [ring, img, tag];
   }
-  function clear() { if (active && active.objs) active.objs.forEach(o => o.destroy()); active = null; if (chip) chip.className = "hidden"; if (arrow) arrow.className = "hidden"; }
+  function clear() { if (active) nextAt = runElapsedMs + (S().gapSec || 0) * 1000; if (active && active.objs) active.objs.forEach(o => o.destroy()); active = null; if (chip) chip.className = "hidden"; if (arrow) arrow.className = "hidden"; }
 
   function pick() {
     const open = id => { const lay = window.START_AREA_LAYOUT; const ph = lay && lay.promotions && lay.promotions.phases.find(p => (p.areas || []).includes(id)); return !ph || ph.age <= currentAge; };
-    const far = (window.ERRANDS || []).filter(e => open(e.room) && Math.hypot(e.at[0] - player.x, e.at[1] - player.y) >= (S().minDistance || 0));
-    const list = far.length ? far : (window.ERRANDS || []).filter(e => open(e.room));
+    const fresh = e => !usedIds.includes(e.id); // no repeats in one run
+    const far = (window.ERRANDS || []).filter(e => fresh(e) && open(e.room) && Math.hypot(e.at[0] - player.x, e.at[1] - player.y) >= (S().minDistance || 0));
+    const list = far.length ? far : (window.ERRANDS || []).filter(e => fresh(e) && open(e.room));
     return list.length ? list[Math.floor(Math.random() * list.length)] : null;
   }
   function start(scene) {
     const e = pick(); if (!e) { console.warn("[errands] no errand fits right now"); return false; }
     ui();
+    usedIds.push(e.id);
     active = { e, until: runElapsedMs + (S().timeSec || 45) * 1000, objs: place(scene, e) };
     const where = e.place || "the marker";
     chip.className = ""; chip.innerHTML = `<b>☐ TO-DO</b><span>${e.text}<i> Go to ${where}.</i></span><span class="t"></span>`;
@@ -75,14 +77,51 @@ window.Errands = (() => {
     if (r.coins) { meta.coins += r.coins; runCoins += r.coins; if (window.coinLog) coinLog("errands", r.coins); saveMeta(meta); }
     if (r.heal) { hp = Math.min(stats.maxHp, hp + healAmt(r.heal)); if (typeof drawHpBar === "function") drawHpBar(); }
     if (r.levels) { let need = 0, x = xp, n = xpNeeded; for (let i = 0; i < r.levels; i++) { need += n - x; x = 0; n = Math.round(n * LEVELING.growth + (LEVELING.stepXp || 4)); } addXp(scene, need / (window.catchUpMult ? catchUpMult() : 1)); }
+    payoff(scene);
     if (typeof updateHUD === "function") updateHUD();
     if (window.burstConfetti) burstConfetti(scene, e.at[0], e.at[1] - 30, 0x83a89a, 14);
     const pop = scene.add.text(e.at[0], e.at[1] - 70, "✓ " + rewardText(r), { fontFamily: "Silkscreen, monospace", fontSize: "16px", color: "#FFF0CF", stroke: "#171C35", strokeThickness: 4 }).setOrigin(0.5).setDepth(9);
     scene.tweens.add({ targets: pop, y: pop.y - 40, alpha: 0, duration: 1400, onComplete: () => pop.destroy() });
     if (typeof sfx === "function") sfx("levelUp", 0);
-    if (window.showLowerThird) showLowerThird("win", "DONE ✓", `${e.done} ${rewardText(r)}`, 3500);
+    if (window.showLowerThird) showLowerThird("win", "DONE ✓", `${e.done} ${rewardText(r)} + bonus XP, and 15 s of CHECKED OFF.`, 3800);
     if (window.Telemetry && Telemetry.event) Telemetry.event("errand-done");
     clear(); if (chip) { chip.className = "done"; chip.innerHTML = `<b>☑ DONE</b><span>${e.text}</span>`; setTimeout(() => { if (chip && chip.className === "done") chip.className = "hidden"; }, 2200); }
+  }
+  // Nov 9 (Rami: "an errand should also give you a little buff for it ... clears the immediate area"):
+  // a sage shockwave, bonus XP, and 15 seconds of CHECKED OFF (+50% damage, +50% gem XP).
+  function payoff(scene) {
+    const P = S().payoff || {}; if (!P) return;
+    const r = P.clearRadius || 0, px = player.x, py = player.y;
+    if (r) {
+      const ring = scene.add.circle(px, py, 20, 0x83A89A, 0.22).setStrokeStyle(5, 0x83A89A).setDepth(50000);
+      scene.tweens.add({ targets: ring, radius: r, alpha: 0, duration: 420, ease: "Quad.Out", onComplete: () => ring.destroy() });
+      scene.cameras.main.shake(140, 0.006);
+      bills.getChildren().slice().forEach(b => { if (b.active && !b.isBoss && !b.elite && Math.hypot(b.x - px, b.y - py) <= r) { b.ghost = false; damageBill(b, 99999); } });
+      if (window.popPingsNear) popPingsNear(px, py, r);
+    }
+    if (P.xpLevelFrac && typeof addXp === "function") addXp(scene, xpNeeded * P.xpLevelFrac / (window.catchUpMult ? catchUpMult() : 1));
+    if (P.buffMs && typeof buffs !== "undefined") {
+      const until = runElapsedMs + P.buffMs;
+      buffs.damageUntil = Math.max(buffs.damageUntil, until); buffs.damageMult = Math.max(runElapsedMs < buffs.damageUntil ? buffs.damageMult : 1, P.damageMult || 1);
+      buffs.xpUntil = Math.max(buffs.xpUntil, until); buffs.xpMult = Math.max(runElapsedMs < buffs.xpUntil ? buffs.xpMult : 1, P.xpMult || 1);
+      buffChip(P.buffMs);
+    }
+  }
+  // a small timer chip so you know the buff is on
+  let bChip = null, bTimer = null;
+  function buffChip(ms) {
+    if (!bChip) {
+      const st = document.createElement("style");
+      st.textContent = `#errand-buff{position:fixed;left:12px;top:calc(var(--ms-nav-h,0px) + 118px);z-index:22;background:#171C35;color:#83A89A;border:2px solid #83A89A;padding:4px 8px;font:11px/1 Silkscreen,monospace;letter-spacing:.05em;pointer-events:none;box-shadow:2px 2px 0 rgba(0,0,0,.45)}
+#errand-buff.hidden{display:none}#errand-buff b{color:#FFF0CF;font-weight:normal}`;
+      document.head.appendChild(st);
+      bChip = document.createElement("div"); bChip.id = "errand-buff"; bChip.className = "hidden"; document.body.appendChild(bChip);
+    }
+    const end = runElapsedMs + ms; clearInterval(bTimer);
+    const tick = () => { const left = end - runElapsedMs;
+      if (left <= 0 || !playing()) { bChip.className = "hidden"; clearInterval(bTimer); return; }
+      bChip.className = ""; bChip.innerHTML = `☑ <b>CHECKED OFF</b> +50% DMG · XP ${Math.ceil(left / 1000)}s`; };
+    tick(); bTimer = setInterval(tick, 250);
   }
   function miss() {
     const e = active.e; clear();
@@ -99,12 +138,12 @@ window.Errands = (() => {
     arrow.className = ""; arrow.style.left = (px - 13) + "px"; arrow.style.top = (py - 12) + "px"; arrow.style.transform = `rotate(${ang + Math.PI / 2}rad)`;
   }
 
-  function reset() { clear(); given = 0; }
+  function reset() { clear(); given = 0; nextAt = 0; usedIds = []; if (bChip) bChip.className = "hidden"; clearInterval(bTimer); }
   function update(scene) {
     const C = S(); if (!C.on || typeof player === "undefined" || !player || !player.active) return;
     if (!playing()) { if (chip) chip.className = "hidden"; if (arrow) arrow.className = "hidden"; return; }
     if (!active) {
-      if (given >= (C.perRun || 1) || currentAge < (C.startAge || 41.5)) return;
+      if (given >= (C.perRun || 1) || currentAge < (C.startAge || 41.5) || runElapsedMs < nextAt) return;
       // wait until no menu, level-up or big map is open, so the errand can't start unseen
       if ((typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused) || window.minimapOpen) return;
       if (start(scene)) given++;
