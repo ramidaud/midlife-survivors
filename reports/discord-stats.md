@@ -1,24 +1,23 @@
-# Play stats: Nov 8 morning (last 24 hours)
-**A quiet Saturday, but runs went deeper.** More players reached their 60s than the week before, and 3 runs made it to retirement.
+# Play stats: Nov 9 morning (last 24 hours)
+**Runs went deeper again.** 70% of runs reached 45 (the week before: 49%), and nobody died before 42.
 
 **Who played**
-- 19 runs from 11 players
-- All-time: 443 runs from 79 players
-- Desktop 14 of 19 runs
+- 23 runs from 11 players
+- All-time: 466 runs from 86 players, 13 retirements
+- Phones 13 of 23 runs
 
 **How far they got**
-- Median run 4.4 min (week before: 3.4), median age 45.9 (was 44.8)
-- Reached 45: 53%, reached 50: 37%, reached 55: 26%, reached 60: 21%, reached 65: 16%
-- 3 retirements
-- Highest age reached: 80.1, best score 451,240
+- Median run 5.3 min (week before: 3.5), median age 46.7 (was 44.8)
+- Reached 45: 70%, reached 50: 48%, reached 55: 30%, reached 60: 22%, reached 65: 4%
+- No retirements today
+- Highest age reached: 77.6, best score 380,218
 
 **Top killers**
-- Snack Attack 6, Bill 4, Late Fee 4, Math Worksheet 1
+- Bill 4, Snack Attack 3, Group Chat 3
 
 **Difficulty**
-- Runs that ended in a death before 42: 3 (week before: 38)
-- 10 of 15 deaths happened between 41 and 46
-- Median per run: 25 hits and 37 damage taken (higher because runs lasted longer)
+- Runs that ended in a death before 42: 0 (week before: 41)
+- Median per run: 26 hits and 40 damage taken (higher because runs lasted longer)
 
 **Lag**
-- Desktop averages 72.6 fps across all runs
+- Phones average 61 fps, no lag flags
