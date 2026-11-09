@@ -1,0 +1,76 @@
+{
+  "name": "Your New Boss (Age26)",
+  "gameKey": "newBoss",
+  "sheet": "boss-new-boss-v1.png",
+  "sheetSize": [
+    576,
+    456
+  ],
+  "largeSheet": "boss-new-boss-v1-3x.png",
+  "largeSize": [
+    1728,
+    1368
+  ],
+  "frame": [
+    144,
+    152
+  ],
+  "columns": 4,
+  "rows": 3,
+  "footPoint": [
+    72,
+    148
+  ],
+  "clearMargin": 4,
+  "background": "#FF00FF opaque",
+  "states": {
+    "walk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "previewMs": 150
+    },
+    "windUp": {
+      "frames": [
+        6,
+        7
+      ],
+      "previewMs": 220
+    },
+    "attack": {
+      "frames": [
+        8,
+        9
+      ],
+      "previewMs": 170
+    },
+    "hurt": {
+      "frames": [
+        10
+      ],
+      "previewMs": 350
+    }
+  },
+  "blankFrame": 11,
+  "telegraph": {
+    "file": "telegraph-new-boss-v1.png",
+    "size": [
+      256,
+      128
+    ]
+  },
+  "previews": [
+    "boss-new-boss-walk-preview-v1.gif",
+    "boss-new-boss-wind-up-preview-v1.gif",
+    "boss-new-boss-attack-preview-v1.gif",
+    "boss-new-boss-hurt-preview-v1.gif"
+  ],
+  "check": "check-new-boss-v1.png",
+  "status": "Art only, awaiting review. Timing proposals are for previews; no gameplay changes.",
+  "walkNotes": "Frames3-5 reuse upper body and reverse lower-leg poses from0-2 for opposing strides."
+}
