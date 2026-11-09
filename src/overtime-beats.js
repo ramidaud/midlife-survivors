@@ -378,13 +378,13 @@ window.OvertimeBeats = (() => {
     const e = typeof createEnemy === "function" ? createEnemy(scene, "haggler", x, y) : null;
     if (!e) return;
     e.haggling = true; cur.hagglers.push(e);
-    if (scene.enemyArt && e.artRecord && e.artRecord.kind === "haggler") e.artRecord = null;
     if (e.tag) e.tag.setText("50¢").setColor("#F2D7A1");
   }
   // Called from the main enemy loop for each haggler. Returns true when it steered it.
   function steerHaggler(scene, h) {
     if (!h.haggling) return false;
-    if (h.tintTopLeft !== 0xF2D7A1) h.setTint(0xF2D7A1);
+    if (!(h.artRecord && h.artRecord.shown)) { if (h.tintTopLeft !== 0xF2D7A1) h.setTint(0xF2D7A1); } // cream Late Fee until the real art shows
+    else if (h.isTinted && !h.tintFill) h.clearTint();
     if (!cur || cur.kind !== "desk") { h.haggling = false; return false; } // event over: they wander off
     const live = liveItems().filter(k => k.landed);
     if (!live.length) { h.setVelocity(0, 0); return true; }
@@ -439,7 +439,7 @@ window.OvertimeBeats = (() => {
     if (!kidsAsked && typeof currentAge !== "undefined" && currentAge >= 60) { kidsAsked = true; preloadKids(scene); preloadKeepsakes(scene); } // load the grandkid art well before 66
     if (cur) {
       const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused);
-      if (busy) return;
+      if (busy) { hideUI(); return; } // the level-up menu sits on top; the chip comes back next frame
       return cur.kind === "kids" ? tickKids(scene) : cur.kind === "desk" ? tickDesk(scene) : tickEnrollment(scene);
     }
     if (S.needsOvertime && !overtimeRun()) return;

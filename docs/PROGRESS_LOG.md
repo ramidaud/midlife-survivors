@@ -1911,3 +1911,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Overtime event at 68.5 (Grok's spec 1.3, ChatGPT's keepsake icons): 8 keepsakes arc out and land 200 to 500 px away (70% of that on phones), at least 96 px apart. Walk over them to pack (no magnet). The 15 s clock starts when the first one lands.
 - Bargain Hunters ("50¢", tinted Late Fee for now) spawn every 2.5 s at the screen edge and walk to the nearest keepsake; reaching it sells it (+1 coin). They're killable and leave when the event ends.
 - Each packed: 3 gems + coins. 6+: bonus chest. All 8: +2,000 score and the achievement "Box of Memories". Tested on laptop and phone (8/8 and 7/8 runs).
+
+## 2026-11-09 (2 PM): V2.17.1, ChatGPT's art batch (5 kits)
+- All five kits arrived: Bargain Hunter, knockdown poses for the three new bosses, the Reunion cast (4 old coworkers with walk and wave), the Maple Hollow tile and prop kit, and the "retro 3D" 9-to-5er skin.
+- In the game now: the Bargain Hunter sheet (8 frames, replaces the tinted Late Fee) and the three knockdown poses. The event chip also hides while a level-up menu is open.
+- Saved for their builds: the Reunion cast (next Overtime event), Maple Hollow kit (home stage), retro skin (Lounge cosmetics).

@@ -16,7 +16,8 @@ window.EnemyArt = (() => {
     mathWorksheet: ['math-homework', 48, 4, 170, 34],
     ping: ['group-chat-ping', 16, 2, 160, 22], // Nov 6 (Kevin): bigger (was 14) with an orange ring, so shots read at a glance. Hitbox unchanged.
     // Medical Bill (Nov 5, ChatGPT): a Bill flagged entity.medical (src/hustle.js) wears this sheet instead.
-    medicalBill: ['medical-bill', 48, 4, 180, 40, 'medical-bill-v1.png']
+    medicalBill: ['medical-bill', 48, 4, 180, 40, 'medical-bill-v1.png'],
+    haggler: ['bargain-hunter', 48, 4, 200, 34, 'enemy-bargain-hunter-v1.png'] // Nov 9 (ChatGPT): Clean Out Your Desk's Bargain Hunter, 8 frames
   };
   const key = kind => 'enemy-art-' + kind;
   // Frames per sheet and ms per frame for the art version in use. v2 has twice the frames at half the time each,

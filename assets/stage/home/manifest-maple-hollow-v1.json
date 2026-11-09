@@ -1,0 +1,369 @@
+{
+  "background" : "Ground opaque; props exact opaque #FF00FF",
+  "cell" : [
+    32,
+    32
+  ],
+  "checks" : {
+    "compatibleSeamPairs" : 122,
+    "opaque" : true,
+    "palette" : true,
+    "propMargin2px" : true
+  },
+  "export3x" : [
+    768,
+    576
+  ],
+  "file" : "maple-hollow-tiles-props-v1.png",
+  "grid" : [
+    8,
+    6
+  ],
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "patchIds" : [
+    "grass-a",
+    "grass-b",
+    "grass-leaves-a",
+    "grass-leaves-b",
+    "grass-overgrown",
+    "grass-mowed",
+    "grass-dead-patch",
+    "flower-bed",
+    "grass-a",
+    "stepping-stones",
+    "grass-b",
+    "grass-leaves-a",
+    "sidewalk",
+    "sidewalk-cracked",
+    "sidewalk-leaves",
+    "sidewalk",
+    "sidewalk-cracked",
+    "sidewalk-leaves",
+    "curb-horizontal",
+    "curb-horizontal",
+    "curb-horizontal",
+    "curb-horizontal",
+    "curb-horizontal",
+    "storm-drain",
+    "asphalt",
+    "manhole",
+    "asphalt-patched",
+    "asphalt",
+    "manhole",
+    "asphalt-patched",
+    "asphalt-dashed",
+    "asphalt-dashed",
+    "asphalt-dashed",
+    "asphalt-dashed",
+    "asphalt-dashed",
+    "asphalt-dashed"
+  ],
+  "size" : [
+    256,
+    192
+  ],
+  "tiles" : [
+    {
+      "column" : 0,
+      "id" : "grass-a",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 1,
+      "id" : "grass-b",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 2,
+      "id" : "grass-leaves-a",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 3,
+      "id" : "grass-leaves-b",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 4,
+      "id" : "grass-overgrown",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 5,
+      "id" : "grass-mowed",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 6,
+      "id" : "grass-dead-patch",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 7,
+      "id" : "flower-bed",
+      "kind" : "ground",
+      "row" : 0
+    },
+    {
+      "column" : 0,
+      "id" : "sidewalk",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 1,
+      "id" : "sidewalk-cracked",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 2,
+      "id" : "sidewalk-leaves",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 3,
+      "id" : "sidewalk-corner",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 4,
+      "id" : "curb-horizontal",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 5,
+      "id" : "curb-vertical",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 6,
+      "id" : "curb-corner",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 7,
+      "id" : "stepping-stones",
+      "kind" : "ground",
+      "row" : 1
+    },
+    {
+      "column" : 0,
+      "id" : "asphalt",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 1,
+      "id" : "asphalt-dashed",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 2,
+      "id" : "manhole",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 3,
+      "id" : "asphalt-patched",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 4,
+      "id" : "driveway",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 5,
+      "id" : "driveway-oil",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 6,
+      "id" : "driveway-edge",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 7,
+      "id" : "storm-drain",
+      "kind" : "ground",
+      "row" : 2
+    },
+    {
+      "column" : 0,
+      "id" : "fence-horizontal",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 1,
+      "id" : "fence-vertical",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 2,
+      "id" : "fence-corner",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 3,
+      "id" : "fence-gate",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 4,
+      "id" : "hedge-horizontal",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 5,
+      "id" : "hedge-vertical",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 6,
+      "id" : "hedge-corner",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 7,
+      "id" : "hedge-overgrown",
+      "kind" : "prop",
+      "row" : 3
+    },
+    {
+      "column" : 0,
+      "id" : "mailbox",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 1,
+      "id" : "gnome",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 2,
+      "id" : "flamingo",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 3,
+      "id" : "trash-bin",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 4,
+      "id" : "recycling-bin",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 5,
+      "id" : "sprinkler",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 6,
+      "id" : "leaf-pile",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 7,
+      "id" : "yard-sign",
+      "kind" : "prop",
+      "row" : 4
+    },
+    {
+      "column" : 0,
+      "id" : "pumpkin",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 1,
+      "id" : "hay-bale",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 2,
+      "id" : "rake",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 3,
+      "id" : "kiddie-pool",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 4,
+      "id" : "hose-coil",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 5,
+      "id" : "birdbath",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 6,
+      "id" : "hydrant",
+      "kind" : "prop",
+      "row" : 5
+    },
+    {
+      "column" : 7,
+      "id" : "maple-sapling",
+      "kind" : "prop",
+      "row" : 5
+    }
+  ],
+  "tiling" : "Grass variants, solid paving variants and asphalt variants share exact edges within each family. Curbs and corners are directional transition tiles; rotate and place to match their visible terrain edges. Not arbitrary adjacency across unlike terrain types."
+}

@@ -29,9 +29,11 @@ window.BossDown = (() => {
   // ChatGPT art (Nov 4): one knockdown pose per boss (144x152, feet at y=148) and a russet stamp plate (9-slice).
   const KO_KEY = "boss_knockdown", KO_ORDER = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp"];
   const PLATE_KEY = "stamp_plate";
+  const KO2_KEY = "boss_knockdown2", KO2_ORDER = ["newBoss", "holidayParty", "theReorg"];
   function preload(scene) {
     if (!window.ArtSheets) return;
     ArtSheets.load(scene, KO_KEY, "assets/bosses/boss-knockdown-v1.png", 144, 152);
+    ArtSheets.load(scene, KO2_KEY, "assets/bosses/boss-knockdown-new-office-v1.png", 144, 152); // Nov 9: New Boss, Holiday Party, Reorg
     ArtSheets.load(scene, PLATE_KEY, "assets/ui/stamp-plate-v1.png", 48, 24);
     ArtSheets.load(scene, "bonk_crack", "assets/bosses/bonk-crack-v1.png", 48, 48);   // wall bonk (src/boss-attacks.js)
     ArtSheets.load(scene, "dizzy_stars", "assets/bosses/dizzy-stars-v1.png", 16, 16); // 6 star frames + 2 bird frames
@@ -62,10 +64,11 @@ window.BossDown = (() => {
       scene.time.delayedCall(520, () => {
         if (!body.active) return;
         body.clearTint();
-        const ko = KO_ORDER.indexOf(boss.kind);
-        if (ko >= 0 && scene.textures.exists(KO_KEY)) { // drop into the knockdown pose: land with a squash, lie there dazed, then fade
+        let ko = KO_ORDER.indexOf(boss.kind), koKey = KO_KEY;
+        if (ko < 0 && KO2_ORDER.includes(boss.kind) && scene.textures.exists(KO2_KEY)) { ko = KO2_ORDER.indexOf(boss.kind); koKey = KO2_KEY; }
+        if (ko >= 0 && scene.textures.exists(koKey)) { // drop into the knockdown pose: land with a squash, lie there dazed, then fade
           const feetY = v === boss ? y + (boss.displayHeight || 0) * 0.42 : y;
-          body.setTexture(KO_KEY, ko).setOrigin(0.5, 148 / 152).setPosition(x, feetY).setAngle(0).setFlipX(Math.random() < 0.5).setScale(calm ? 1 : 1.22, calm ? 1 : 0.72);
+          body.setTexture(koKey, ko).setOrigin(0.5, 148 / 152).setPosition(x, feetY).setAngle(0).setFlipX(Math.random() < 0.5).setScale(calm ? 1 : 1.22, calm ? 1 : 0.72);
           if (typeof burstConfetti === "function") burstConfetti(scene, x, feetY - 10, 0xD3B78D, 12); // thud of dust
           if (!calm) scene.cameras.main.shake(140, 0.008);
           scene.tweens.add({ targets: body, scaleX: 1, scaleY: 1, duration: 280, ease: "Back.Out",

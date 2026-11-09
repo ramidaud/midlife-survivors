@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.17.0",
-  displayVersion: "V. 2.17.0",
+  version: "2.17.1",
+  displayVersion: "V. 2.17.1",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 305,
+  build: 306,
   changelog: [
+    {
+      ver: "V. 2.17.1", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "New faces, new falls.",
+      highlights: [
+        "The Bargain Hunters have their own look now: bucket hat, sage cardigan, tote bag and one coin held high, speed-walking for your stapler.",
+        "Your New Boss, the Holiday Party and the Reorg each get a proper knockout pose: spiral eyes and a spilled can, a flattened party hat, and a man face-down on his own org chart."
+      ]
+    },
     {
       ver: "V. 2.17.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Twenty-five years of desk. One cardboard box.",
