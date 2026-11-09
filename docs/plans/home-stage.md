@@ -41,3 +41,10 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
 - **Layout v2** (`docs/plans/home-map.png`): three columns. Your street and your house on the left, **two neighborhood blocks in the middle** (Elm Court opens at 40, Birch Circle with a cul-de-sac at 50), the strip mall, school and woods on the right. Rami: "cute, funny, satirical details" in the neighbor homes (draft list of 12 on the map).
 - **Getting inside your house: a key.** You're locked out. The spare key is hidden somewhere (under the fake rock, with a neighbor, in the minivan), and finding it opens the front door. Probably built on the errand system.
 - Order (street, house, mall, school, woods) is fine.
+
+## Style board v1 (Nov 9, ChatGPT): `assets/art-direction/home-style-board-v1.png`
+- **Approved as the direction:** peak fall without a sepia cast, four distinct houses (slate colonial, your coffee-orange house with the hoop, bike and two-car garage, the brick split-level, the sage cape cod), a lemonade stand with a blank pink sign, and all 12 props underneath.
+- **For the next art pass:**
+  - The houses are drawn front-on while the street is top-down. That's fine for a walkable yard (like the office walls), but the real stage needs separate pieces: house fronts, yards, driveways and street tiles that line up on one grid.
+  - Add the satirical neighbor details from the map (the boat that never moves, the deflated yard ghosts, the for-sale sign, the delivery box tower, and so on).
+  - The toy bricks should stay generic (no brand look).
