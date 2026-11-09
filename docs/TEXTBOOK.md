@@ -1880,3 +1880,19 @@ level
 | 6+ levels | +60% (the cap) |
 
 The numbers live in `LEVELING.catchUp` in `src/data/pickups.js`.
+
+## Punish windows and locked aim (Nov 9, Your New Boss)
+
+```
+ chase ──► WARNING (arrows, aim LOCKS) ──► DASH ──► WARNING ──► DASH ──► WINDED (thumbs up) ──► chase
+            "step sideways"                                          "your turn: hit him!"
+                                                         below half health: 3 dashes, and every 3rd chain = SUGAR CRASH (2 s)
+```
+
+| Moment | What he does | What you do |
+|---|---|---|
+| Warning (0.55-0.65 s) | Plants his feet, chugs, finger guns. Arrows show the exact lane. | Step sideways out of the lane (44 px is enough). |
+| Dash | Runs straight down the lane. He can't turn. | Stay out of it. |
+| Winded (1.1 s) | Stands still, thumbs up. | Hit him: this is the **punish window**. |
+
+A boss feels fair when you can always read what's coming (the warning) and you always get a moment to hit back (the punish window).
