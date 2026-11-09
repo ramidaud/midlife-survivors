@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.16.0",
-  displayVersion: "V. 2.16.0",
+  version: "2.17.0",
+  displayVersion: "V. 2.17.0",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 304,
+  build: 305,
   changelog: [
+    {
+      ver: "V. 2.17.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Twenty-five years of desk. One cardboard box.",
+      highlights: [
+        "New Overtime event at 68.5: Clean Out Your Desk. Your drawer bursts and eight keepsakes scatter across the floor: the stapler, the World's Okayest mug, the family photo, the emergency granola bar, the cactus, the good pen, the rubber band ball and a 2009 coupon.",
+        "Walk over them to pack them. Magnets don't work here; some things you carry by hand. You have 15 seconds.",
+        "Bargain Hunters (50¢) race you to them. If one gets there first, it's SOLD. Pack 6 for a bonus chest, all 8 for +2,000 score and the achievement Box of Memories."
+      ]
+    },
     {
       ver: "V. 2.16.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Employee of the Month.",

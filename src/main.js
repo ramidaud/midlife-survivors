@@ -2781,6 +2781,12 @@ function update(time, delta) {
       return;
     }
 
+    // Bargain Hunters race you to your keepsakes (Clean Out Your Desk, src/overtime-beats.js)
+    if (bill.kind === "haggler" && window.OvertimeBeats && OvertimeBeats.steerHaggler(this, bill)) {
+      if (bill.tag) bill.tag.setPosition(bill.x, bill.y - 15);
+      return;
+    }
+
     // Holiday Party conga dancers follow the leader's exact path (src/holiday-party.js)
     if (bill.kind === "partyGuest" && window.HolidayParty && HolidayParty.steerGuest(this, bill, now)) {
       if (bill.tag) bill.tag.setPosition(bill.x, bill.y - 18);

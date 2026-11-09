@@ -1951,3 +1951,20 @@ A reward feels good when it changes the next 15 seconds of play, not just a tota
 | **Performance Bonus** | a clock: 75 s with no level-up (35-75 s with Workload) | about one a minute |
 
 When one system slows down on purpose, a steady second drip keeps the choices coming.
+
+
+## A race instead of a fight (Nov 9, Clean Out Your Desk)
+
+```
+   🧍 you ───────► 📎            normal enemy:  target = YOU
+          ╲
+           ╲ 🧺 "50¢" ───► ☕     Bargain Hunter: target = nearest keepsake
+                                 gets there first → SOLD! 50¢
+```
+
+| Same code | Different target | New feeling |
+|---|---|---|
+| steer toward a point | you | a fight |
+| steer toward a point | your stuff | a race |
+
+Changing what an enemy wants turns an old sprite into a new problem.

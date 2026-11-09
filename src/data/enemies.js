@@ -182,6 +182,18 @@ window.ENEMIES = {
     color: 0x526078
   },
   // A conga dancer: a regular enemy (not a boss), drawn as a small copy of the party leader.
+  // Nov 9: Bargain Hunters from Clean Out Your Desk (src/overtime-beats.js). They race you to your keepsakes.
+  // Drawn with the Late Fee art in a cream tint.
+  haggler: {
+    name: "Bargain Hunter",
+    label: "50¢",
+    tex: "lateFee",
+    speed: 150,
+    hp: 1,
+    damage: 1,
+    size: 18,
+    color: 0xF2D7A1
+  },
   partyGuest: {
     name: "Conga Coworker",
     label: "",

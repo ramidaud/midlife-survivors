@@ -39,6 +39,7 @@ window.OVERTIME_BEATS = {
   schedule: [
     { age: 64.0, id: "openEnrollment",   minYearsBeforeWatch: 1.0 },
     { age: 66.0, id: "grandkids",        minYearsBeforeWatch: 1.0 },
+    { age: 68.5, id: "cleanOutDesk",     minYearsBeforeWatch: 1.0 },
     { age: 72.5, id: "grandkids2",       minYearsBeforeWatch: 1.0 }, // until the Reunion is built, the 72.5 slot is Grandkids II
     { age: 75.8, id: "annualEnrollment", minYearsBeforeWatch: 1.0 }
   ],
@@ -60,6 +61,24 @@ window.OVERTIME_BEATS = {
     doneLine: "You tagged them all. +2,000 score and a bonus chest.", missLine: "They had to go. See you at Thanksgiving!"
   },
   grandkids2: { like: "grandkids", kids: 5, code: "GK2", intro: "The whole crew is here this time. Tag all five before they get bored." },
+  // "Twenty-five years of desk. One cardboard box. Bargain hunters incoming." (Grok's spec 1.3, ChatGPT's icons)
+  // Your keepsakes fly out across the floor. Walk over them to pack them; magnets don't work ("some things you carry
+  // by hand"). Bargain Hunters race you to them. 15 seconds.
+  cleanOutDesk: {
+    windowSec: 15, flyMs: 1000, leadMs: 1200, minPx: 200, maxPx: 500, gapPx: 96, packPx: 40,
+    hagglerEveryMs: 2500, hagglerReachPx: 22, scale: 1.5,
+    perItemGems: 3, perItemCoinFace: 1, chestAt: 6, chestKey: "cleanOutDesk", scoreBonus: 2000, code: "CD",
+    items: [ // frame order in assets/ui/keepsakes-v1.png
+      { id: "stapler", name: "THE STAPLER" }, { id: "mug", name: "WORLD'S OKAYEST MUG" }, { id: "photo", name: "FAMILY PHOTO" },
+      { id: "granola", name: "EMERGENCY GRANOLA" }, { id: "cactus", name: "DESK CACTUS" }, { id: "pen", name: "THE GOOD PEN" },
+      { id: "bands", name: "RUBBER BAND BALL" }, { id: "coupon", name: "2009 COUPON" }
+    ],
+    bannerTitle: "DOWNSIZING", bannerSub: "Pack your keepsakes before the bargain hunters do.",
+    intro: "Twenty-five years of desk. One cardboard box. Walk over your keepsakes to pack them. Bargain hunters incoming.",
+    soldLines: ["SOLD! 50¢", "SOLD! 25¢", "SOLD AS IS!", "SOLD! NO RETURNS"],
+    doneLine: "Every last thing. +2,000 score and the box.", boxLine: "Packed enough to fill the box. Bonus chest!",
+    missLine: "The rest went in the yard sale. That's OK. You kept what mattered."
+  },
   annualEnrollment: {
     like: "openEnrollment", legs: 3, labels: ["PART A", "PLAN COMPARISON", "PART D"], chestKey: "annualEnrollment", code: "AE",
     bannerTitle: "ANNUAL ENROLLMENT", bannerSub: "Three offices. Same forms as last year.", chipTitle: "ANNUAL ENROLLMENT",

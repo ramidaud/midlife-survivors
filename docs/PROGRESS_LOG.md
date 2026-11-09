@@ -1906,3 +1906,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami's note: XP slows so much late that the upgrades stop, and "when you're this overpowered, you get more perks."
 - New src/perf-bonus.js: after 55, 75 s with no level-up hands you a free card pick with a bonus title (Performance Bonus, Spot Bonus, Employee of the Month...). Each Overtime Workload pip cuts the wait by 10 s, never under 35 s. Doesn't change your level number. Numbers in src/data/pickups.js (LEVELING.performanceBonus).
 - A resumed save or a time jump restarts the clock, so it can't fire instantly. Tested on laptop and phone: fires once, menu opens, no stacking.
+
+## 2026-11-09 (1 PM): V2.17.0, Clean Out Your Desk
+- Overtime event at 68.5 (Grok's spec 1.3, ChatGPT's keepsake icons): 8 keepsakes arc out and land 200 to 500 px away (70% of that on phones), at least 96 px apart. Walk over them to pack (no magnet). The 15 s clock starts when the first one lands.
+- Bargain Hunters ("50¢", tinted Late Fee for now) spawn every 2.5 s at the screen edge and walk to the nearest keepsake; reaching it sells it (+1 coin). They're killable and leave when the event ends.
+- Each packed: 3 gems + coins. 6+: bonus chest. All 8: +2,000 score and the achievement "Box of Memories". Tested on laptop and phone (8/8 and 7/8 runs).

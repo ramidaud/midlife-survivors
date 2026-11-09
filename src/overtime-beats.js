@@ -283,16 +283,164 @@ window.OvertimeBeats = (() => {
   }
 
   // ---- the schedule ----
-  const RUNNERS = { openEnrollment: startEnrollment, annualEnrollment: startEnrollment, grandkids: startGrandkids, grandkids2: startGrandkids };
+
+  // ---- Clean Out Your Desk: "Twenty-five years of desk. One cardboard box. Bargain hunters incoming." ----
+  function preloadKeepsakes(scene) { if (window.ArtSheets) ArtSheets.load(scene, "keepsakes", "assets/ui/keepsakes-v1.png", 32, 32); }
+  function keepsakeTex(scene) { // drawn-in-code stand-in if the sheet isn't there: a little cream box
+    if (scene.textures.exists("keepsakes")) return "keepsakes";
+    if (!scene.textures.exists("keepsake_box")) {
+      const c = document.createElement("canvas"); c.width = 16; c.height = 16; const g = c.getContext("2d");
+      g.fillStyle = "#171C35"; g.fillRect(1, 3, 14, 12); g.fillStyle = "#F2D7A1"; g.fillRect(2, 4, 12, 10); g.fillStyle = "#EF9347"; g.fillRect(2, 7, 12, 2);
+      scene.textures.addCanvas("keepsake_box", c);
+    }
+    return "keepsake_box";
+  }
+  function startDesk(scene, id) {
+    const C = B()[id] || {}, base = C.like ? (B()[C.like] || {}) : {}, cfg = Object.assign({}, base, C);
+    grid = buildGrid(scene); if (!grid) return false;
+    preloadKeepsakes(scene);
+    const items = cfg.items || [], spots = [], tex = keepsakeTex(scene);
+    const near = Math.min(window.innerWidth, window.innerHeight) < 600 ? 0.7 : 1; // phones see less floor: keep them closer
+    for (let i = 0; i < items.length; i++) {
+      let spot = null;
+      for (let t = 0; t < 30 && !spot; t++) {
+        const sp = pickSpot(grid, player, (cfg.minPx || 200) * near, (cfg.maxPx || 500) * near, null);
+        if (sp && spots.every(o => Math.hypot(o.x - sp.x, o.y - sp.y) >= (cfg.gapPx || 96))) spot = sp;
+      }
+      if (!spot) spot = pickSpot(grid, player, 120, 700, null);
+      if (spot) spots.push({ x: spot.x + Phaser.Math.Between(-12, 12), y: spot.y + Phaser.Math.Between(-12, 12), i });
+    }
+    if (spots.length < 4) return false;
+    cur = { id, cfg, kind: "desk", items: [], packed: 0, sold: 0, landAt: runElapsedMs + (cfg.leadMs || 1200) + (cfg.flyMs || 1000), until: 0, nextHaggler: 0, hagglers: [], objs: [] };
+    cur.until = null; cur.nextHaggler = Infinity;
+    // the drawer bursts: each keepsake arcs out from you and lands on open floor
+    const sx = player.x, sy = player.y, sc = (cfg.scale || 1.5) * (tex === "keepsakes" ? 1 : 2);
+    spots.forEach((sp, n) => {
+      const it = items[sp.i];
+      const o = scene.add.image(sx, sy - 20, tex, tex === "keepsakes" ? sp.i : 0).setScale(sc * 0.6).setDepth(50002).setAlpha(0);
+      const ring = scene.add.ellipse(sp.x, sp.y + 14, 44, 16).setStrokeStyle(2, 0xEF9347, 0.9).setFillStyle(0xEF9347, 0.18).setDepth(sp.y / 10000 + 2).setVisible(false);
+      const k = { o, ring, x: sp.x, y: sp.y, name: it.name, landed: false, gone: false, frame: sp.i };
+      cur.items.push(k);
+      const delay = (cfg.leadMs || 1200) + n * 60, dur = (cfg.flyMs || 1000) - n * 60;
+      scene.tweens.add({ targets: o, alpha: 1, delay: delay - 1, duration: 1 });
+      scene.tweens.add({ targets: o, x: sp.x, scale: sc, delay, duration: dur, ease: "Linear" });
+      scene.tweens.add({ targets: o, y: Math.min(sy, sp.y) - 110, delay, duration: dur * 0.45, ease: "Quad.Out",
+        onComplete: () => scene.tweens.add({ targets: o, y: sp.y, duration: dur * 0.55, ease: "Bounce.Out", onComplete: () => {
+          if (!cur || k.gone) return;
+          k.landed = true; o.setDepth(sp.y / 10000 + 3); ring.setVisible(true);
+          if (o.texture.key !== "keepsakes" && scene.textures.exists("keepsakes")) o.setTexture("keepsakes", sp.i).setScale(cfg.scale || 1.5); // the art arrived late
+          if (cur.until == null) { cur.until = runElapsedMs + (cfg.windowSec || 15) * 1000; cur.nextHaggler = runElapsedMs + 800; } // the clock starts when the first one lands
+          scene.tweens.add({ targets: o, y: sp.y - 6, duration: 600, yoyo: true, repeat: -1, ease: "Sine.InOut" });
+          scene.tweens.add({ targets: ring, scaleX: 1.2, scaleY: 1.2, alpha: 0.6, duration: 600, yoyo: true, repeat: -1 });
+        } }) });
+      scene.tweens.add({ targets: o, angle: Phaser.Math.Between(-360, 360), delay, duration: dur * 0.6, onComplete: () => o.setAngle(0) });
+    });
+    if (window.burstConfetti) scene.time.delayedCall(cfg.leadMs || 1200, () => burstConfetti(scene, player.x, player.y - 20, 0xF2D7A1, 16));
+    ui();
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "DOWNSIZING", cfg.bannerSub || "Pack your keepsakes before the bargain hunters do.", "alert");
+    if (window.showLowerThird) showLowerThird("promo", "DOWNSIZING", cfg.intro || "Walk over your keepsakes to pack them.", 6000);
+    if (typeof sfx === "function") sfx("levelUp", 0);
+    if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");
+    return true;
+  }
+  function liveItems() { return cur && cur.items ? cur.items.filter(k => !k.gone) : []; }
+  function removeItem(scene, k, packed) {
+    k.gone = true; scene.tweens.killTweensOf(k.o); scene.tweens.killTweensOf(k.ring); k.ring.destroy();
+    if (packed) scene.tweens.add({ targets: k.o, x: player.x, y: player.y - 20, scale: 0.3, alpha: 0, duration: 260, onComplete: () => k.o.destroy() });
+    else scene.tweens.add({ targets: k.o, y: k.o.y - 30, alpha: 0, duration: 500, onComplete: () => k.o.destroy() });
+  }
+  function packItem(scene, k) {
+    const c = cur.cfg;
+    removeItem(scene, k, true); k.packedFlag = true; cur.packed++;
+    if (typeof gems !== "undefined") for (let i = 0; i < (c.perItemGems || 3); i++) gems.create(k.x + Phaser.Math.Between(-20, 20), k.y + Phaser.Math.Between(-16, 16), "gem").setDepth(3);
+    if (typeof spawnCoin === "function") spawnCoin(k.x, k.y + 10, c.perItemCoinFace || 1);
+    const t = scene.add.text(k.x, k.y - 40, "PACKED: " + k.name, { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(50004);
+    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, delay: 600, duration: 500, onComplete: () => t.destroy() });
+    if (typeof sfx === "function") sfx("pick", 0);
+  }
+  function sellItem(scene, k, h) {
+    const c = cur.cfg;
+    removeItem(scene, k, false); cur.sold++;
+    if (typeof spawnCoin === "function") spawnCoin(k.x, k.y + 8, 1);
+    const t = scene.add.text(k.x, k.y - 36, Phaser.Utils.Array.GetRandom(c.soldLines || ["SOLD! 50¢"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#FFF0CF", backgroundColor: "#C45C4B", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(50004).setAngle(-6);
+    scene.tweens.add({ targets: t, y: t.y - 20, alpha: 0, delay: 700, duration: 500, onComplete: () => t.destroy() });
+    hagglerLeave(scene, h);
+  }
+  function hagglerLeave(scene, h) {
+    if (!h || !h.active) return;
+    if (window.burstConfetti) burstConfetti(scene, h.x, h.y, 0xF2D7A1, 6);
+    if (h.tag) h.tag.destroy(); h.destroy();
+  }
+  function spawnHaggler(scene) {
+    const v = scene.cameras.main.worldView, side = Phaser.Math.Between(0, 3), m = 30;
+    const x = side === 0 ? v.x - m : side === 1 ? v.right + m : Phaser.Math.Between(v.x, v.right);
+    const y = side === 2 ? v.y - m : side === 3 ? v.bottom + m : Phaser.Math.Between(v.y, v.bottom);
+    const e = typeof createEnemy === "function" ? createEnemy(scene, "haggler", x, y) : null;
+    if (!e) return;
+    e.haggling = true; cur.hagglers.push(e);
+    if (scene.enemyArt && e.artRecord && e.artRecord.kind === "haggler") e.artRecord = null;
+    if (e.tag) e.tag.setText("50¢").setColor("#F2D7A1");
+  }
+  // Called from the main enemy loop for each haggler. Returns true when it steered it.
+  function steerHaggler(scene, h) {
+    if (!h.haggling) return false;
+    if (h.tintTopLeft !== 0xF2D7A1) h.setTint(0xF2D7A1);
+    if (!cur || cur.kind !== "desk") { h.haggling = false; return false; } // event over: they wander off
+    const live = liveItems().filter(k => k.landed);
+    if (!live.length) { h.setVelocity(0, 0); return true; }
+    let best = null, bd = 1e9;
+    for (const k of live) { const d = Math.hypot(k.x - h.x, k.y - h.y); if (d < bd) { bd = d; best = k; } }
+    if (bd < (cur.cfg.hagglerReachPx || 22)) { sellItem(scene, best, h); return true; }
+    const a = Math.atan2(best.y - h.y, best.x - h.x);
+    h.setVelocity(Math.cos(a) * h.speed, Math.sin(a) * h.speed); h.setFlipX(Math.cos(a) < 0);
+    return true;
+  }
+  function tickDesk(scene) {
+    const c = cur.cfg, now = runElapsedMs, n = cur.items.length;
+    const flying = cur.until == null, left = flying ? 0 : Math.max(0, cur.until - now);
+    if (flying && now > cur.landAt + 8000) cur.until = now; // safety: never wait forever
+    chip.className = left < 4000 && !flying ? "low" : "";
+    { const e = document.getElementById("errand-chip"); chip.style.marginTop = e && !e.classList.contains("hidden") ? "56px" : "0"; }
+    chip.innerHTML = `<b>📦 DOWNSIZING</b><span>Packed ${cur.packed}/${n}${cur.sold ? ` · sold ${cur.sold}` : ""}</span><span class="t">${flying ? "INCOMING" : Math.ceil(left / 1000) + "s"}</span>`;
+    let nearest = null, nd = 1e9;
+    for (const k of cur.items) {
+      if (k.gone || !k.landed) continue;
+      const d = Math.hypot(player.x - k.x, player.y - k.y);
+      if (d < (c.packPx || 40) + 16) { packItem(scene, k); continue; }
+      if (d < nd) { nd = d; nearest = k; }
+    }
+    if (!flying && now >= cur.nextHaggler && liveItems().length) { cur.nextHaggler = now + (c.hagglerEveryMs || 2500); spawnHaggler(scene); }
+    if (nearest) aim(scene, nearest.x, nearest.y); else arrow.className = "hidden";
+    if (!flying && (left <= 0 || !liveItems().length)) finishDesk(scene);
+  }
+  function finishDesk(scene) {
+    const c = cur.cfg, n = cur.items.length, all = cur.packed >= n;
+    liveItems().forEach(k => removeItem(scene, k, false));
+    cur.hagglers.forEach(h => hagglerLeave(scene, h));
+    if (cur.packed >= (c.chestAt || 6)) chest(scene, player.x + 60, player.y, c.chestKey || "cleanOutDesk");
+    if (all) {
+      if (typeof stats !== "undefined" && stats) stats.bossPts = (stats.bossPts || 0) + (c.scoreBonus || 2000);
+      if (window.showLowerThird) showLowerThird("win", "BOX PACKED ✓", c.doneLine || "Every last thing.", 4500);
+      if (window.achEvent) achEvent("otBeat", { id: cur.id, all: true });
+    } else if (cur.packed >= (c.chestAt || 6)) {
+      if (window.showLowerThird) showLowerThird("win", "BOX PACKED", c.boxLine || "Packed enough to fill the box. Bonus chest!", 4000);
+    } else if (window.showLowerThird) showLowerThird("tip", "YARD SALE", c.missLine || "The rest went in the yard sale.", 3800);
+    if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + cur.id + (all ? "-done" : "-" + cur.packed));
+    window.runKeepsakes = cur.items.filter(k => k.packedFlag).map(k => k.frame);
+    hideUI(); lastEndAt = runElapsedMs; window.runOtBeats = (window.runOtBeats || "") + (window.runOtBeats ? "," : "") + (c.code || cur.id) + cur.packed;
+    cur = null; grid = null;
+  }
+
+  const RUNNERS = { openEnrollment: startEnrollment, annualEnrollment: startEnrollment, grandkids: startGrandkids, grandkids2: startGrandkids, cleanOutDesk: startDesk };
   function update(scene) {
     const S = B();
     if (!S.on || typeof player === "undefined" || !player || !player.active) return;
     if (!playing()) { hideUI(); return; }
-    if (!kidsAsked && typeof currentAge !== "undefined" && currentAge >= 60) { kidsAsked = true; preloadKids(scene); } // load the grandkid art well before 66
+    if (!kidsAsked && typeof currentAge !== "undefined" && currentAge >= 60) { kidsAsked = true; preloadKids(scene); preloadKeepsakes(scene); } // load the grandkid art well before 66
     if (cur) {
       const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused);
       if (busy) return;
-      return cur.kind === "kids" ? tickKids(scene) : tickEnrollment(scene);
+      return cur.kind === "kids" ? tickKids(scene) : cur.kind === "desk" ? tickDesk(scene) : tickEnrollment(scene);
     }
     if (S.needsOvertime && !overtimeRun()) return;
     const watch = window.GoldWatch && GoldWatch.arrivalAge ? GoldWatch.arrivalAge() : 999;
@@ -309,12 +457,15 @@ window.OvertimeBeats = (() => {
   }
   return {
     update,
-    reset: () => { if (cur) { cur.objs.forEach(o => o.destroy()); (cur.kids || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.heart.active) k.heart.destroy(); if (k.ring.active) k.ring.destroy(); }); } done = {}; cur = null; lastEndAt = -1e9; grid = null; hideUI(); window.runOtBeats = ""; },
+    reset: () => { if (cur) { cur.objs.forEach(o => o.destroy()); (cur.kids || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.heart.active) k.heart.destroy(); if (k.ring.active) k.ring.destroy(); }); (cur.items || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.ring.active) k.ring.destroy(); }); } done = {}; cur = null; lastEndAt = -1e9; grid = null; hideUI(); window.runOtBeats = ""; },
     // swarm set pieces wait while an event runs, and for a few seconds either side
     holdEvents: () => !!cur || runElapsedMs - lastEndAt < (B().holdSwarmEventsMs || 10000),
     // Open Enrollment's hold music: some regular spawns become Spam Likely calls
     spamSwap: () => !!(cur && cur.cfg.spamSwapFrac && Math.random() < cur.cfg.spamSwapFrac),
     active: () => cur && cur.id,
+    steerHaggler,
+    items: () => cur && cur.items && cur.items.filter(k => !k.gone).map(k => ({ x: k.x, y: k.y, landed: k.landed })),
+    desk: () => cur && cur.kind === "desk" && { packed: cur.packed, sold: cur.sold, hagglers: cur.hagglers.filter(h => h.active).length },
     kids: () => cur && cur.kids && cur.kids.filter(k => !k.gone && k.o.active).map(k => ({ x: k.o.x, y: k.o.y })),
     spot: () => cur && cur.spot && { x: cur.spot.x, y: cur.spot.y, leg: cur.leg, waiting: runElapsedMs < cur.startAt },
     debugStart: (scene, id) => { done[id] = "started"; return RUNNERS[id] ? RUNNERS[id](scene, id) : false; }

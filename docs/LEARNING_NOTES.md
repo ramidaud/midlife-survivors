@@ -678,3 +678,6 @@ A reward only lands if you can feel it in the next few seconds. Coins go into a 
 
 ## Exponential curves run away (Nov 9, Performance Bonus)
 Each level needs 35% more XP than the last. That feels great early (levels pop fast) and terrible late: level 25 needs about 2,400 times what level 2 did (roughly 19,000 gems), so the upgrades simply stop. Games fix this with a second, steady drip that doesn't care about the curve. Here it's a timer: go 75 seconds without a level-up and you get a free pick anyway. The curve still decides your level, and the timer makes sure the fun keeps coming.
+
+## A race instead of a fight (Nov 9, Clean Out Your Desk)
+Most enemies chase you. The Bargain Hunters chase the keepsakes instead, which turns the screen into a race: every second you spend walking to one item, a hunter is closing in on another. It's the same steering math as a normal enemy, just with a different target. Changing what an enemy wants is one of the cheapest ways to make a familiar sprite feel like a new kind of problem.

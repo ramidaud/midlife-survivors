@@ -26,7 +26,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Late-game XP: Performance Bonus pick every 75 s without a level-up after 55, faster with Workload (V2.16.0)
 - [ ] Polish: coffee table behind Derek, phone vibration sound (bass-drum feel), controller screenshot button
 - [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
-- [ ] Then: Clean Out Your Desk at 68.5 (keepsake icon prompt is with ChatGPT)
+- [x] Clean Out Your Desk at 68.5 (V2.17.0)
+- [ ] Then: the Reunion (72.5), or the polish items
 
 **Play and react**
 - [ ] Fight the New Boss again (V2.15.3): tough enough now? does the defeat feel good?
