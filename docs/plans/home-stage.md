@@ -22,7 +22,7 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
 ## Open questions
 - How does going into your house work: a door that opens at an age, a key you find, or an errand?
 - What's inside: kitchen, garage, the kid's room?
-- Which office villains replace the Mortgage and the V8 (10 options in the Nov 8 chat).
+- Office replacements for the Mortgage and the V8: Rami picked The Reorg, The Holiday Party and Your New Boss (Age 26) (see GAME_DESIGN).
 - The rest of the enemy list (HOA notices, leaf piles, the neighbor's leaf blower, school pickup line...).
 
 ## Build plan (each one sitting, each ends playable)
