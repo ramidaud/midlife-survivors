@@ -109,3 +109,21 @@ Checked at V. 2.11.5 (build 291), commit 86ee92d. No game code touched. Claude a
 - **Ages:** the New Boss at 48 fills the 45 to 52 gap before the age-50 swarm jump, where most players still are. 56 is one "middle management" slot that picks the Reorg or the Party each run, after the 55 cake and Executive Wing promotion and well before the V8 at 60. If both have to run every time: 55.5 and 57.5, but I'd expect the old 60 wall to come back.
 - **Every boss gets a swarm-thinning block** (generalize `GoldWatch.duel()`). It pauses Calendar Invites during all three and donuts during the Party. Tax Bracket scaling stays as is.
 - Pending: Rami picks rotation vs both, and stop vs slow for the freeze. Hot Desk art is needed. Then build and phone playtest.
+
+## Nov 9, 2026: Overtime plateau spec (Grok) [spec only]
+Checked at V. 2.13.3 (build 296), commit 635a667. No game code touched. Claude applies whatever Rami picks.
+- File: `docs/handoffs/grok-overtime-plateau-spec.md` (answers `grok-late-game-brief.md`).
+- **Found in the code:** in Overtime the Gold Watch isn't at 63.5. It arrives 1.5 years before the end (68.5, 73.5 or 78.5), so the last boss before it is the V8 at 60. With 25 s years its window also shrank from 67.5 s to 37.5 s. Fix: `goldWatch.lateArrivesYearsBeforeEnd: 2.7` (67.5 s) plus late phase thresholds 0.9 and 2.0.
+- **Overtime beats (`OVERTIME_BEATS`), one every 50 to 65 s past 64, skipped if the Watch is too close:**
+  - **Open Enrollment** at 64 (4 timed errand legs of 10 s each, 450 to 800 px apart, Spam Likely hold music; tier 3 chest and +2,500 score). Comes back as 3-leg Annual Enrollment at 75.8.
+  - **Grandkids' Visit** at 66: tag 3 kids running at 150 px/s through the swarm in 20 s; gifts, tier 1 chest, +2,000.
+  - **Clean Out Your Desk** at 68.5: pack 8 keepsakes by hand (no magnet) in 15 s before hagglers sell them; tier 3 chest at 6.
+  - **HOA President** reused at 70 (runs ending at 80 only).
+  - **Reunion** at 70 or 72.5: walk past 8 old coworkers to catch up; tier 1 chest at 6.
+- **Workload (`OVERTIME_WORKLOAD`), past 65 in Overtime only:**
+  - Every 20 s window checks three signs: health never below 70%, room at or below 35% full, moving at or below 70 px/s. 2 of 3 means coasting.
+  - Two coasting windows raise it 1 level, up to 5. It drops at once below 50% health.
+  - Per level: spawn delay down to 0.68x, up to +2 pack, +8% enemy HP, +0.5 hit damage (cap +3), more elites. The crowd cap only grows on desktop.
+  - Shown as a chip with 5 pips and a 3 s warning before each rise, plus "overtime pay" of +6% score and +4% coins per level.
+- **Stats:** new run-row fields (workload max, beats done, post-65 kills/s, damage/min, min health, movement, Watch arrival and kill), plus targets for clear rate, beat completion, quiet gaps and phone frame rate.
+- Pending: Rami's calls on Workload opt-in, hit damage per level, HOA reuse, grandkid art and overtime pay. Then build and playtest an Overtime run to 80.
