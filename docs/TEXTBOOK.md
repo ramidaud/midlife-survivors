@@ -1896,3 +1896,23 @@ The numbers live in `LEVELING.catchUp` in `src/data/pickups.js`.
 | Winded (1.1 s) | Stands still, thumbs up. | Hit him: this is the **punish window**. |
 
 A boss feels fair when you can always read what's coming (the warning) and you always get a moment to hit back (the punish window).
+
+
+## Shooting bullets out of the air (Nov 9, hittable pings)
+
+```
+  BAG: splashes ─┬─ touches ─► BAG: enemies   → damage        (since day one)
+                 └─ touches ─► BAG: pings     → pop! "LEFT ON READ"   (new)
+  BAG: pings ───── touches ─► YOU             → you get hurt  (unchanged)
+
+  Dad Joke / "No."    ( ·  ·  YOU  ·  · )  every ping inside the circle pops
+  Any hit on an enemy      [enemy]•ping  → pings within 40 px pop too
+```
+
+| Weapon type | How it finds pings |
+|---|---|
+| Flying (coffee splash) | Physics overlap between two groups |
+| Pulse (Dad Joke, "No.") | Distance check: inside the radius? |
+| Everything else | A hit on an enemy pops pings right next to it |
+
+Collision is always the same question: which two groups should care when they touch?

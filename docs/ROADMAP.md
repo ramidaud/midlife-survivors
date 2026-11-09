@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-08 (V. 2.11.5, new boss art in, Maple Hollow map)
+**Last updated:** 2026-11-09 (V. 2.15.3, Boss bite: tougher New Boss, better boss defeats, hittable pings)
 
 ---
 
@@ -14,13 +14,22 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **Next session (Rami said yes, Nov 8)**
 - [x] Sync the Desktop folder with GitHub (Nov 9: it was already Codex's git copy; now up to date)
 - [x] Build Your New Boss (Age 26) at 48 (V2.12.0)
-- [ ] Play to 48 and fight him: fair? funny? too easy?
+- [x] Play to 48 and fight him: fair? funny? too easy? (Nov 9 playtest: too easy, lame defeat; fixed in V2.15.3)
 - [x] Age-56 slot + The Holiday Party (V2.13.0)
 - [ ] Reach 56 and meet the Party: is the slow fair? does the conga line read?
 - [x] The Reorg (V2.14.0)
 - [ ] Meet the Reorg at 56 (it's a coin flip with the Party): do the desks read? fair?
 
+**From the Nov 9 playtest notes (Claude builds, in this order)**
+- [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)
+- [ ] Errand payoff: short buff + shockwave that clears nearby enemies; confirm bonus XP lands
+- [ ] Late-game XP: bonus perk picks when XP stalls and you're overpowered
+- [ ] Polish: coffee table behind Derek, phone vibration sound (bass-drum feel), controller screenshot button
+- [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
+- [ ] Then: Clean Out Your Desk at 68.5 (keepsake icon prompt is with ChatGPT)
+
 **Play and react**
+- [ ] Fight the New Boss again (V2.15.3): tough enough now? does the defeat feel good?
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?
 - [ ] Try one Ben-style run: stay close to the crowd, check your level by 55
 - [ ] Play V. 2.10.23: does catch-up XP get you through the 50s?

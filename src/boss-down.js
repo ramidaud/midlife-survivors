@@ -12,7 +12,16 @@ window.BOSS_DOWN = {
     goldWatch: "OFF THE CLOCK",
     hoaPresident: "VARIANCE APPROVED",
     retirementBoss: "AUDIT PASSED",
-    pickleballChamp: "GAME, SET, MATCH"
+    pickleballChamp: "GAME, SET, MATCH",
+    newBoss: "MEETING ADJOURNED",   // Nov 9 (Rami: "his defeat animation is kind of lame")
+    holidayParty: "PARTY'S OVER",
+    theReorg: "POSITION ELIMINATED"
+  },
+  // Nov 9: bosses without a drawn knockdown pose fall in their own "crash" frame and get a last word.
+  lastWords: {
+    newBoss: ["Let's... circle back... on me.", "Can we... take this offline?", "I need... a mental health day.", "Tell HR... I pivoted."],
+    holidayParty: ["Who turned the lights on?", "Same time next year?", "I'll... get my coat."],
+    theReorg: ["This was always the plan.", "Your new manager... is you.", "Effective... immediately..."]
   },
   defaultStamp: "DEFEATED"
 };
@@ -63,12 +72,26 @@ window.BossDown = (() => {
             onComplete: () => scene.tweens.add({ targets: body, alpha: 0, delay: 1300, duration: 550, ease: "Quad.In", onComplete: () => body.destroy() }) });
           return;
         }
+        // Our own sheets (src/boss-art.js) have a crash/stagger pose at frame 10: fall in that instead of the walk frame.
+        const tex = body.texture;
+        if (tex && tex.frameTotal > 11 && tex.has && tex.has(10)) body.setFrame(10);
         const dir = Math.random() < 0.5 ? -1 : 1;
         scene.tweens.add({ targets: body, angle: dir * 78, x: x + dir * 18, y: y + 8, duration: calm ? 1 : 520, ease: "Back.In",
           onComplete: () => { if (typeof burstConfetti === "function") burstConfetti(scene, body.x, body.y, 0xD3B78D, 10); // it lands with a puff of dust
             scene.tweens.add({ targets: body, alpha: 0, y: body.y + 14, scaleY: body.scaleY * 0.7, delay: 260, duration: 520, ease: "Quad.In", onComplete: () => body.destroy() }); } });
       });
     }
+    // 3b. A last word in a speech bubble, for the bosses that have one.
+    const lines = C.lastWords && C.lastWords[boss.kind];
+    if (lines && lines.length) {
+      const say = scene.add.text(x + 34, y - 26, Phaser.Utils.Array.GetRandom(lines), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35",
+        backgroundColor: "#FFF0CF", padding: { x: 6, y: 4 } }).setOrigin(0, 1).setDepth(50009).setAlpha(0);
+      { const vw = scene.cameras.main.worldView, m = 8; say.x = Math.max(vw.x + m, Math.min(say.x, vw.right - say.width - m)); } // keep it on screen
+      scene.tweens.add({ targets: say, alpha: 1, delay: calm ? 0 : 560, duration: 160,
+        onComplete: () => scene.tweens.add({ targets: say, alpha: 0, y: say.y - 10, delay: 1700, duration: 400, onComplete: () => say.destroy() }) });
+    }
+    // 3c. Your New Boss: his energy drinks, phone and lanyard go flying.
+    if (boss.kind === "newBoss" && !calm) spill(scene, x, y);
     // 4. Confetti in three waves, in the boss's color and the game's orange and cream.
     if (typeof burstConfetti === "function") [0, 260, 620].forEach((t, i) => scene.time.delayedCall(t, () =>
       burstConfetti(scene, x + (i - 1) * 26, y - 30, [color || 0xEF9347, 0xEF9347, 0xF2D7A1][i], 18)));
@@ -100,6 +123,27 @@ window.BossDown = (() => {
         scene.tweens.add({ targets: pts, alpha: 1, y: pts.y + 4, delay: 220, duration: 200, ease: "Back.Out",
           onComplete: () => scene.tweens.add({ targets: pts, alpha: 0, y: pts.y - 14, delay: 1200, duration: 450, onComplete: () => pts.destroy() }) });
       }
+    });
+  }
+  // Little flat-drawn props that pop out of the New Boss, arc up and bounce. No art needed.
+  function spill(scene, x, y) {
+    const key = "boss_spill_bits";
+    if (!scene.textures.exists(key)) {
+      const c = document.createElement("canvas"); c.width = 48; c.height = 16; const g = c.getContext("2d");
+      g.fillStyle = "#171C35"; g.fillRect(0, 0, 10, 16); g.fillStyle = "#3E8E8A"; g.fillRect(1, 1, 8, 14); g.fillStyle = "#F2D7A1"; g.fillRect(1, 5, 8, 3); // can
+      g.fillStyle = "#171C35"; g.fillRect(16, 1, 10, 15); g.fillStyle = "#303750"; g.fillRect(17, 2, 8, 13); g.fillStyle = "#8FA98A"; g.fillRect(18, 3, 6, 9); // phone
+      g.fillStyle = "#EF9347"; g.fillRect(32, 0, 2, 9); g.fillRect(44, 0, 2, 9); g.fillRect(34, 8, 10, 2); g.fillStyle = "#F2D7A1"; g.fillRect(35, 9, 8, 7); g.fillStyle = "#171C35"; g.fillRect(36, 11, 6, 1); // lanyard + badge
+      scene.textures.addCanvas(key, c);
+      const t = scene.textures.get(key); t.add(0, 0, 0, 0, 10, 16); t.add(1, 0, 16, 0, 10, 16); t.add(2, 0, 32, 0, 16, 16);
+    }
+    [0, 0, 1, 2, 0].forEach((f, i) => {
+      const o = scene.add.image(x, y - 20, key, f).setDepth(50006).setScale(2);
+      const dx = (i - 2) * Phaser.Math.Between(26, 40) + Phaser.Math.Between(-8, 8), up = Phaser.Math.Between(70, 120), land = y + Phaser.Math.Between(10, 34);
+      scene.tweens.add({ targets: o, x: x + dx, duration: 700, ease: "Linear" });
+      scene.tweens.add({ targets: o, y: y - 20 - up, duration: 300, ease: "Quad.Out",
+        onComplete: () => scene.tweens.add({ targets: o, y: land, duration: 400, ease: "Bounce.Out",
+          onComplete: () => scene.tweens.add({ targets: o, alpha: 0, delay: 1400, duration: 500, onComplete: () => o.destroy() }) }) });
+      scene.tweens.add({ targets: o, angle: Phaser.Math.Between(-540, 540), duration: 700 });
     });
   }
   function reset() { clearTimeout(slowTimer); }

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.15.2",
-  displayVersion: "V. 2.15.2",
-  lastUpdated: "Nov 7, 2026",
+  version: "2.15.3",
+  displayVersion: "V. 2.15.3",
+  lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 300,
+  build: 301,
   changelog: [
+    {
+      ver: "V. 2.15.3", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Your New Boss hits back now.",
+      highlights: [
+        "Your New Boss has more health and dashes more often. He was going down too fast.",
+        "He goes down in style now: he crashes in his own pose, gets one last line, and his energy drinks, phone and lanyard go flying under a MEETING ADJOURNED stamp. The Holiday Party and the Reorg get their own stamps and last words too.",
+        "Your weapons can knock Group Chat pings out of the air, just like in Vampire Survivors. Coffee, Dad Jokes, \"No.\" and any hit next to a ping will leave it on read."
+      ]
+    },
     {
       ver: "V. 2.15.2", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The grandkids stopped by.",

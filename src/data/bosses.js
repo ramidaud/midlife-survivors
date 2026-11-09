@@ -34,7 +34,7 @@ window.BOSS_ATTACKS = {
   // After a chain he's winded (your chance to hit him). Below half health, every third chain ends in a Sugar Crash.
   newBoss: {
     style: "dashChain", bannerTitle: "QUICK SYNC", bannerSub: "He's dashing. Step off the arrows.",
-    telegraphMs: 650, chainTelegraphMs: 600, cooldownMs: 4600, firstAttackDelayMs: 1800,
+    telegraphMs: 650, chainTelegraphMs: 600, cooldownMs: 3800, firstAttackDelayMs: 1800, // cooldown was 4600 (Nov 9: too easy)
     dashSpeed: 520, dashMaxDist: 400, dashMaxViewFrac: 0.8, chainCount: 2, laneWidth: 88,
     windedMs: 1100, bodyHalfW: 20, bodyHalfH: 24, damage: 1,
     phase2: { atHpFrac: 0.5, chainCount: 3, dashSpeedMult: 1.10, walkSpeedMult: 1.10, crashEvery: 3, crashMs: 2000 },

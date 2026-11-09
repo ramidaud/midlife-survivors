@@ -1886,3 +1886,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Overtime event at 66 (and a 5-kid repeat at 72.5 in runs to 80, filling the Reunion's slot until it's built): 3 grandkids run from you at 65% of your speed through the swarm, keeping 260 to 420 px away. Tag each for a gift (gems, a cookie heal, or a lucky coin). All of them: bonus chest, +2,000 score, achievement "World's Okayest Grandparent". 20 s, no penalty for missing.
 - Placeholder art: small tinted interns with a pink ring, pink glow and a big heart, because the dark intern coats read poorly in a crowd. Prompt for real grandkid sprites: docs/handoffs/chatgpt-grandkids-sprites.json.
 - Tested on laptop and phone: kids keep their distance while you stand still, all 3 tagged, score and chest land.
+
+## 2026-11-09 (noon): V2.15.3, Boss bite (from Rami's Granola playtest notes)
+- Rami's 11 AM run: age 80, 410,762 points (leaderboard top is 451,240). Notes: New Boss too easy with a lame defeat, pings should be hittable, errands should buff and clear, XP stalls late, Lounge closed, HOA lady and the car belong at home, coffee table, phone vibration sound, controller screenshot. Fix order is in ROADMAP.
+- Your New Boss: 40 to 64 HP, 4.6 s to 3.8 s between dash chains.
+- Boss defeats: the New Boss, Holiday Party and Reorg now fall in their own crash pose with a last line and their own stamp (MEETING ADJOURNED, PARTY'S OVER, POSITION ELIMINATED). The New Boss spills energy drinks, his phone and lanyard.
+- Weapons now pop Group Chat pings: coffee splashes, Dad Joke, "No." and any hit within 40 px of a ping ("LEFT ON READ"). Tested on laptop and phone.

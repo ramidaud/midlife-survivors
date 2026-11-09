@@ -152,7 +152,7 @@ window.ENEMIES = {
     tex: "performanceReview", // fallback; the drawn sheet is assets/bosses/boss-new-boss-v1.png
     spawnAge: 48,
     speed: 100,
-    hp: 40,
+    hp: 64, // Nov 9 (Rami: "really easy to beat"): was 40, now sits between the Performance Review (36) and the Mortgage (85)
     damage: 1,
     size: 52,
     color: 0xBFA8CF

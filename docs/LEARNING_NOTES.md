@@ -669,3 +669,6 @@ Before The Reorg slides a desk, the game pretends the desk is already in its new
 
 ## Dynamic difficulty (Nov 9, Workload)
 Some games quietly watch how you're doing and adjust. Workload checks three signs every 20 seconds (full health, a quiet room, barely moving), and when you're clearly cruising, it adds a little more work. The key is that it backs off the moment you struggle, and it pays you for the extra effort, so it feels like a promotion, not a punishment. A good rule: show it on screen (the pips) so the player never feels the game cheating behind their back.
+
+## Shooting bullets out of the air (Nov 9, hittable pings)
+A game keeps its flying things in groups: your coffee splashes in one bag, enemy pings in another. Collision is just asking "is anything in bag A touching anything in bag B?" The game already asked that for splashes vs. enemies and pings vs. you, so letting you shoot pings down only took one new question: splashes vs. pings. Area weapons like Dad Joke don't fly, so for those the game checks distance instead: any ping inside the circle pops.

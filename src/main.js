@@ -766,6 +766,9 @@ function create() {
       p.scene.tweens.add({ targets: t, y: t.y - 20, alpha: 0, duration: 900, onComplete: () => t.destroy() });
     } if (window.Telemetry && Telemetry.note) Telemetry.note("ping");
   });
+  // Nov 9 (Rami: "maybe I should be able to hit those with my weapons as well, just like Vampire Survivors"):
+  // coffee splashes knock pings out of the air (the splash keeps going). Dad Joke, "No." and any hit near a ping pop it too.
+  this.physics.add.overlap(splashes, pings, (sp, ping) => popPing(ping));
   if (window.propGroup) {
     this.physics.add.overlap(splashes, window.propGroup, hitProp);
   }
@@ -1710,10 +1713,34 @@ function burstConfetti(sc, x, y, baseColor, count = 6) {
 }
 
 // Apply damage to one enemy (shared by all weapons so gems, chests, flashes and sounds always match).
+// Knock a Group Chat ping out of the air. A little puff, and now and then a "LEFT ON READ" so you know it was you.
+let lastPingPopTextAt = -1e9;
+function popPing(ping) {
+  if (!ping || !ping.active) return;
+  const sc = ping.scene, x = ping.x, y = ping.y;
+  ping.destroy();
+  if (!sc || !sc.add) return;
+  if (typeof burstConfetti === "function") burstConfetti(sc, x, y, 0x8ff0a8, 5);
+  if (runElapsedMs - lastPingPopTextAt > 1800) {
+    lastPingPopTextAt = runElapsedMs;
+    const t = sc.add.text(x, y - 14, "LEFT ON READ", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#8ff0a8", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
+    sc.tweens.add({ targets: t, y: t.y - 16, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+  }
+  stats.pingsPopped = (stats.pingsPopped || 0) + 1;
+}
+// Pop every ping within r px of (x, y). Used by area weapons and by any hit on an enemy.
+function popPingsNear(x, y, r) {
+  if (!pings) return;
+  const r2 = r * r;
+  pings.getChildren().slice().forEach(pg => { if (pg.active && (pg.x - x) ** 2 + (pg.y - y) ** 2 <= r2) popPing(pg); });
+}
+window.popPingsNear = popPingsNear;
+
 function damageBill(bill, amount) {
   if (!bill.active) return;
   if (bill.ghost) return; // faded 3 AM Thoughts ignore auras too
   const sc = bill.scene;
+  if (pings && pings.countActive()) popPingsNear(bill.x, bill.y, 40); // a hit right next to a ping knocks it down too
   if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
   let crit = false;
   if (stats.crit && Math.random() < stats.crit) { amount *= 2; crit = true; } // Bifocals
@@ -1976,6 +2003,7 @@ function fireDadJoke(scene) {
     if (typeof speakDadJoke === "function") speakDadJoke(line, currentAge >= 80 ? 0.84 : 0.94, 1.05);
   }
 
+  popPingsNear(player.x, player.y, r);
   bills.getChildren().slice().forEach(bill => {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
     if (d <= r) {
@@ -2033,6 +2061,7 @@ function fireWordNo(scene) {
   }).setOrigin(0.5).setDepth(16);
   scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
   if (healPulse) { hp = Math.min(stats.maxHp, hp + healAmt(N.healthyHealAmt || 1)); drawHpBar(); }
+  popPingsNear(player.x, player.y, r);
 
   bills.getChildren().slice().forEach(bill => {
     const d = Phaser.Math.Distance.Between(player.x, player.y, bill.x, bill.y);
