@@ -1939,10 +1939,10 @@ A reward feels good when it changes the next 15 seconds of play, not just a tota
 ```
  XP needed per level (×1.35 each time)
  L2   ▏8
- L10  ▎~120
- L15  █▌~600
- L20  ███████ ~2,700
- L25  ██████████████████████████████ ~12,000   ← your upgrades stop here
+ L10  ▎~200
+ L15  █▌~950
+ L20  ███████ ~4,300
+ L25  ██████████████████████████████ ~19,000   ← your upgrades stop here
 ```
 
 | Drip | What it follows | Late game |
