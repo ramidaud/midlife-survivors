@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.17.3",
-  displayVersion: "V. 2.17.3",
+  version: "2.18.0",
+  displayVersion: "V. 2.18.0",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 308,
+  build: 309,
   changelog: [
+    {
+      ver: "V. 2.18.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Your old coworkers are all here.",
+      highlights: [
+        "New Overtime event: the Reunion (at 72.5, or at 70 when the HOA isn't coming). Eight old coworkers walk in from every side wearing name tags: Gary from accounting with his cake, Linda the office manager, Dale from IT with his cables, Pat with every photo she ever took, and friends.",
+        "They're friendly and can't hurt you. Walk past each one to catch up (\"Dale! Did you try turning retirement off and on?\"). You have 20 seconds.",
+        "Catch up with 6 for a bonus chest and +1,500 score; all 8 earns the achievement Reply All, In Person."
+      ]
+    },
     {
       ver: "V. 2.17.3", date: "Nov 9, 2026", title: "Version Two",
       teaser: "You, in glorious late-'90s 3D.",

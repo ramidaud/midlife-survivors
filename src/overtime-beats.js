@@ -431,39 +431,150 @@ window.OvertimeBeats = (() => {
     cur = null; grid = null;
   }
 
-  const RUNNERS = { openEnrollment: startEnrollment, annualEnrollment: startEnrollment, grandkids: startGrandkids, grandkids2: startGrandkids, cleanOutDesk: startDesk };
+
+  // ---- The Reunion: "Your old coworkers are all here. You will have to say hi to every single one." ----
+  function preloadReunion(scene) {
+    if (!window.ArtSheets) return;
+    ArtSheets.load(scene, "reunion_cast", "assets/characters/old-coworkers-reunion-v1.png", 48, 48);
+    ArtSheets.load(scene, "otui", "assets/ui/overtime-ui-kit-v1.png", 32, 32); // frame 5 = the name tag
+  }
+  function startReunion(scene, id) {
+    const C = B()[id] || {}, cfg = Object.assign({}, C);
+    grid = buildGrid(scene); if (!grid) return false;
+    preloadReunion(scene);
+    const n = cfg.count || 8, v = scene.cameras.main.worldView, R = Math.min(cfg.maxRingPx || 420, Math.hypot(v.width, v.height) / 2 - (cfg.ringPad || 60)); // around the edge of the view
+    const ppl = []; (cfg.people || []).forEach(p => (p.lines || []).forEach(l => ppl.push({ row: p.row, line: l })));
+    Phaser.Utils.Array.Shuffle(ppl);
+    cur = { id, cfg, kind: "reunion", folks: [], caught: 0, until: runElapsedMs + (cfg.leadMs || 1200) + (cfg.windowSec || 20) * 1000, spawnAt: runElapsedMs + (cfg.leadMs || 1200), spawned: false, objs: [], ppl, ring: R };
+    ui();
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "REUNION", cfg.bannerSub || "Say hi to everyone before they leave.", "reward");
+    if (window.showLowerThird) showLowerThird("promo", "REUNION", cfg.intro || "Walk past each one to catch up.", 6000);
+    if (typeof sfx === "function") sfx("levelUp", 0);
+    if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");
+    return true;
+  }
+  function openAt(x, y) {
+    const i = Math.floor((x - grid.Bd.x) / grid.c), j = Math.floor((y - grid.Bd.y) / grid.c);
+    return i > 0 && j > 0 && i < grid.W && j < grid.H && grid.dist[j * grid.W + i] >= 0;
+  }
+  function spawnFolks(scene) {
+    const c = cur.cfg, n = Math.min(c.count || 8, cur.ppl.length), real = scene.textures.exists("reunion_cast"), tag = scene.textures.exists("otui");
+    const a0 = Math.random() * Math.PI * 2;
+    for (let k = 0; k < n; k++) {
+      const ang = a0 + k / n * Math.PI * 2;
+      let x = 0, y = 0, ok = false;
+      for (let r = cur.ring; r >= 160 && !ok; r -= 40) { x = player.x + Math.cos(ang) * r; y = player.y + Math.sin(ang) * r; ok = openAt(x, y); }
+      if (!ok) { const sp = pickSpot(grid, player, 200, 520, null); if (!sp) continue; x = sp.x; y = sp.y; }
+      const who = cur.ppl[k];
+      const o = real ? scene.physics.add.sprite(x, y, "reunion_cast", who.row * 10).setOrigin(0.5, 45 / 48).setScale(c.scale || 1.25)
+                     : scene.physics.add.sprite(x, y, "__WHITE").setDisplaySize(18, 26).setTint(0x83A89A);
+      o.setDepth(4.6); if (real) o.body.setSize(16, 10).setOffset(16, 34);
+      if (window.propGroup) o.propCollider = scene.physics.add.collider(o, window.propGroup);
+      const badge = tag ? scene.add.image(x, y - 50, "otui", 5).setScale(0.75).setDepth(50001)
+                        : scene.add.text(x, y - 50, "HI!", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 3, y: 2 } }).setOrigin(0.5).setDepth(50001);
+      const ring = scene.add.ellipse(x, y, 46, 18).setStrokeStyle(3, 0x83A89A, 1).setFillStyle(0x83A89A, 0.22).setDepth(4.5);
+      scene.tweens.add({ targets: ring, scaleX: 1.2, scaleY: 1.2, alpha: 0.6, duration: 650, yoyo: true, repeat: -1, ease: "Sine.InOut" });
+      cur.folks.push({ o, badge, ring, row: who.row, line: who.line, real, phase: Math.random() * 6 });
+      if (window.burstConfetti) burstConfetti(scene, x, y - 20, 0x83A89A, 6);
+    }
+    cur.spawned = true;
+  }
+  function folkLeave(scene, f, line, happy) {
+    f.gone = true; f.badge.destroy(); f.ring.destroy(); if (f.o.propCollider) f.o.propCollider.destroy();
+    f.o.body.enable = false;
+    if (f.real) { let w = 0; f.waveT = scene.time.addEvent({ delay: 150, repeat: 7, callback: () => { if (f.o.active) f.o.setFrame(f.row * 10 + 8 + (w++ % 2)); } }); }
+    if (line) {
+      const t = scene.add.text(f.o.x, f.o.y - 58, line, { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: happy ? "#F2D7A1" : "#D3B78D", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(50004);
+      { const vw = scene.cameras.main.worldView; t.x = Math.max(vw.x + t.width / 2 + 6, Math.min(t.x, vw.right - t.width / 2 - 6)); }
+      scene.tweens.add({ targets: t, y: t.y - 18, alpha: 0, delay: 1100, duration: 500, onComplete: () => t.destroy() });
+    }
+    scene.tweens.add({ targets: f.o, alpha: 0, delay: 1200, duration: 600, onComplete: () => f.o.destroy() });
+  }
+  function catchUp(scene, f) {
+    const c = cur.cfg;
+    cur.caught++;
+    if (typeof gems !== "undefined") for (let i = 0; i < (c.perPersonGems || 3); i++) gems.create(f.o.x + Phaser.Math.Between(-20, 20), f.o.y + Phaser.Math.Between(-16, 16), "gem").setDepth(3);
+    if (window.burstConfetti) burstConfetti(scene, f.o.x, f.o.y - 20, 0xF2D7A1, 10);
+    if (typeof sfx === "function") sfx("pick", 0);
+    folkLeave(scene, f, f.line, true);
+  }
+  function tickReunion(scene) {
+    const c = cur.cfg, now = runElapsedMs, n = c.count || 8;
+    if (!cur.spawned) { if (now >= cur.spawnAt) spawnFolks(scene); }
+    const left = Math.max(0, cur.until - now);
+    chip.className = left < 5000 && cur.spawned ? "low" : "";
+    { const e = document.getElementById("errand-chip"); chip.style.marginTop = e && !e.classList.contains("hidden") ? "56px" : "0"; }
+    chip.innerHTML = `<b>📛 REUNION</b><span>Caught up · ${cur.caught}/${cur.folks.length || n}</span><span class="t">${cur.spawned ? Math.ceil(left / 1000) + "s" : "ARRIVING"}</span>`;
+    let nearest = null, nd = 1e9;
+    for (const f of cur.folks) {
+      if (f.gone || !f.o.active) continue;
+      const o = f.o, d = Math.hypot(o.x - player.x, o.y - player.y);
+      if (d < (c.catchPx || 64)) { catchUp(scene, f); continue; }
+      if (d < nd) { nd = d; nearest = f; }
+      if (window.NAV && NAV.steer) NAV.steer(scene, o, player, c.speed || 60);
+      else { const a = Math.atan2(player.y - o.y, player.x - o.x); o.setVelocity(Math.cos(a) * (c.speed || 60), Math.sin(a) * (c.speed || 60)); }
+      if (f.real) { const vx = o.body.velocity.x; o.setFlipX(vx < 0); o.setFrame(f.row * 10 + Math.floor((now / 120 + f.phase)) % 8); }
+      f.badge.setPosition(o.x, o.y - 50 + Math.sin(now / 200 + f.phase) * 2); f.ring.setPosition(o.x, o.y + 2);
+    }
+    if (nearest) aim(scene, nearest.o.x, nearest.o.y); else arrow.className = "hidden";
+    const total = cur.folks.length;
+    if (cur.spawned && (left <= 0 || !cur.folks.some(f => !f.gone))) finishReunion(scene, total && cur.caught >= total);
+  }
+  function finishReunion(scene, all) {
+    const c = cur.cfg;
+    cur.folks.forEach(f => { if (!f.gone && f.o.active) folkLeave(scene, f, Phaser.Utils.Array.GetRandom(c.leaveLines || ["We should get lunch sometime!"]), false); });
+    if (cur.caught >= (c.chestAt || 6)) {
+      chest(scene, player.x + 60, player.y, c.chestKey || "reunion");
+      if (typeof stats !== "undefined" && stats) stats.bossPts = (stats.bossPts || 0) + (c.scoreBonus || 1500);
+    }
+    if (all) {
+      if (window.showLowerThird) showLowerThird("win", "CAUGHT UP ✓", c.doneLine || "You caught up with everyone.", 4500);
+      if (window.achEvent) achEvent("otBeat", { id: cur.id, all: true });
+    } else if (cur.caught >= (c.chestAt || 6)) { if (window.showLowerThird) showLowerThird("win", "REUNION", c.someLine || "Good to see the old crew.", 4000); }
+    else if (window.showLowerThird) showLowerThird("tip", "REUNION", c.missLine || "We should really get lunch sometime.", 3800);
+    if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + cur.id + "-" + cur.caught);
+    hideUI(); lastEndAt = runElapsedMs; window.runOtBeats = (window.runOtBeats || "") + (window.runOtBeats ? "," : "") + (c.code || cur.id) + cur.caught;
+    cur = null; grid = null;
+  }
+
+  const RUNNERS = { openEnrollment: startEnrollment, annualEnrollment: startEnrollment, grandkids: startGrandkids, grandkids2: startGrandkids, cleanOutDesk: startDesk, reunion: startReunion };
   function update(scene) {
     const S = B();
     if (!S.on || typeof player === "undefined" || !player || !player.active) return;
     if (!playing()) { hideUI(); return; }
-    if (!kidsAsked && typeof currentAge !== "undefined" && currentAge >= 60) { kidsAsked = true; preloadKids(scene); preloadKeepsakes(scene); } // load the grandkid art well before 66
+    if (!kidsAsked && typeof currentAge !== "undefined" && currentAge >= 60) { kidsAsked = true; preloadKids(scene); preloadKeepsakes(scene); preloadReunion(scene); } // load the grandkid art well before 66
     if (cur) {
       const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused);
       if (busy) { hideUI(); return; } // the level-up menu sits on top; the chip comes back next frame
-      return cur.kind === "kids" ? tickKids(scene) : cur.kind === "desk" ? tickDesk(scene) : tickEnrollment(scene);
+      return cur.kind === "kids" ? tickKids(scene) : cur.kind === "desk" ? tickDesk(scene) : cur.kind === "reunion" ? tickReunion(scene) : tickEnrollment(scene);
     }
     if (S.needsOvertime && !overtimeRun()) return;
     const watch = window.GoldWatch && GoldWatch.arrivalAge ? GoldWatch.arrivalAge() : 999;
     for (const e of S.schedule || []) {
-      const id = e.id; if (!id || done[id] || !RUNNERS[id]) continue;
+      const id = e.id, key = e.key || id; if (!id || done[key] || !RUNNERS[id]) continue;
       if (currentAge < e.age) continue;
-      if (watch - currentAge < (e.minYearsBeforeWatch ?? 1)) { done[id] = "skipped"; continue; }
-      if (currentAge > e.age + (S.waitForBossYears ?? 1)) { done[id] = "skipped"; continue; }
+      if (e.unlessDone && done[e.unlessDone] === "started") { done[key] = "skipped"; continue; }
+      if (e.onlyIfDone && done[e.onlyIfDone] !== "started") { done[key] = "skipped"; continue; }
+      if (e.onlyIfWatchWithin && watch - currentAge >= e.onlyIfWatchWithin) { done[key] = "skipped"; continue; }
+      if (watch - currentAge < (e.minYearsBeforeWatch ?? 1)) { done[key] = "skipped"; continue; }
+      if (currentAge > e.age + (S.waitForBossYears ?? 1)) { done[key] = "skipped"; continue; }
       if (bossAlive() || (typeof levelUpOpen !== "undefined" && levelUpOpen) || window.minimapOpen) return; // wait for the boss (up to a year)
-      done[id] = "started";
-      if (!RUNNERS[id](scene, id)) done[id] = "failed";
+      done[key] = "started";
+      if (!RUNNERS[id](scene, id)) done[key] = "failed";
       return;
     }
   }
   return {
     update,
-    reset: () => { if (cur) { cur.objs.forEach(o => o.destroy()); (cur.kids || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.heart.active) k.heart.destroy(); if (k.ring.active) k.ring.destroy(); }); (cur.items || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.ring.active) k.ring.destroy(); }); } done = {}; cur = null; lastEndAt = -1e9; grid = null; hideUI(); window.runOtBeats = ""; },
+    reset: () => { if (cur) { cur.objs.forEach(o => o.destroy()); (cur.kids || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.heart.active) k.heart.destroy(); if (k.ring.active) k.ring.destroy(); }); (cur.items || []).forEach(k => { if (k.o.active) k.o.destroy(); if (k.ring.active) k.ring.destroy(); }); (cur.folks || []).forEach(f => { if (f.o.active) f.o.destroy(); if (f.badge.active) f.badge.destroy(); if (f.ring.active) f.ring.destroy(); }); } done = {}; cur = null; lastEndAt = -1e9; grid = null; hideUI(); window.runOtBeats = ""; },
     // swarm set pieces wait while an event runs, and for a few seconds either side
     holdEvents: () => !!cur || runElapsedMs - lastEndAt < (B().holdSwarmEventsMs || 10000),
     // Open Enrollment's hold music: some regular spawns become Spam Likely calls
     spamSwap: () => !!(cur && cur.cfg.spamSwapFrac && Math.random() < cur.cfg.spamSwapFrac),
     active: () => cur && cur.id,
     steerHaggler,
+    folks: () => cur && cur.folks && cur.folks.filter(f => !f.gone && f.o.active).map(f => ({ x: f.o.x, y: f.o.y })),
+    reunion: () => cur && cur.kind === "reunion" && { caught: cur.caught, n: cur.folks.length, spawned: cur.spawned },
     items: () => cur && cur.items && cur.items.filter(k => !k.gone).map(k => ({ x: k.x, y: k.y, landed: k.landed })),
     desk: () => cur && cur.kind === "desk" && { packed: cur.packed, sold: cur.sold, hagglers: cur.hagglers.filter(h => h.active).length },
     kids: () => cur && cur.kids && cur.kids.filter(k => !k.gone && k.o.active).map(k => ({ x: k.o.x, y: k.o.y })),

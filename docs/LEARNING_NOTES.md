@@ -687,3 +687,6 @@ A tile needs matching edge pixels to repeat cleanly. Grass variants share edges 
 
 ### 2026-11-09: Door scale in a modular house kit (Codex)
 A house can fit its pixel cell and still look too small beside a hero. The first broad house study had tiny doors, so the source was revised with taller, narrower facades before export. Proportional scaling then preserves the building shapes.
+
+## Friendly sprites don't need to be enemies (Nov 9, the Reunion)
+The old coworkers look and move like enemies, but they live outside the enemy group, so nothing makes them hurt you and your weapons ignore them. They borrow the enemies' pathfinding to walk toward you around desks, and the game only asks one question each frame: are you close enough to say hi? Keeping "things that move" separate from "things that fight" is what lets the same tools make both a swarm and a party.

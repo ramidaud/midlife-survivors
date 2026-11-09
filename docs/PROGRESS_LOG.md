@@ -1929,3 +1929,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami's calls: Say Cheese knocks back "only slightly"; Lounge cosmetics are bought in the Lounge and last only for the run you're playing.
 - Polygon Upgrade (20k, once per run) at the Lounge cart and the Break Room counter swaps in the retro 3D sheet for the 9-to-5er, Soccer Dad or Grad Student (sold out for the Cowboy, who has no skin yet). Saved with the run, so it survives a resume. Purely cosmetic.
 - Say Cheese: 28 px push away from you, then the freeze (WEAPONS.sayCheese.knockbackPx).
+
+## 2026-11-09 (4:30 PM): V2.18.0, the Reunion
+- Overtime event (Grok's spec 1.5, ChatGPT's cast): 8 old coworkers (4 sheet rows x 2 names) form a ring up to 420 px out and walk in at 60 px/s along the pathfinding. Friendly, no contact damage. Pass within 64 px to catch up: their line, 3 gems, a wave and they leave. 20 s.
+- 6+: tier 1 chest and +1,500 score. All 8: achievement "Reply All, In Person". Name-tag icon from the new UI kit floats over each head, with a sage ring at their feet.
+- Schedule: Reunion at 70 when the Watch is under 3 years away (no HOA that run), otherwise at 72.5; if it ran at 70, 72.5 is Grandkids II. Tested on laptop: 8/8 caught, score and chest land.

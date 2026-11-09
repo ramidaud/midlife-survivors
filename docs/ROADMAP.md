@@ -27,7 +27,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Polish: coffee table behind Derek, phone vibration sound (bass-drum feel), controller screenshot button
 - [ ] Later: HOA President and Midlife Crisis car move to Maple Hollow; Lounge cosmetics shop (Rami's "64-bit" look idea)
 - [x] Clean Out Your Desk at 68.5 (V2.17.0)
-- [ ] Then: the Reunion (72.5), or the polish items
+- [x] The Reunion (V2.18.0)
+- [ ] Then: the polish items
 - [x] Art saved for later builds: Reunion cast, Maple Hollow kit + 6 houses + 4 enemies, retro skins for all 3 heroes, Overtime UI kit
 - [x] Rami decided: Lounge cosmetics are bought in the Lounge, this run only (V2.17.3, Polygon Upgrade)
 

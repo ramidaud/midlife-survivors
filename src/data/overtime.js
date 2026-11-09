@@ -40,7 +40,11 @@ window.OVERTIME_BEATS = {
     { age: 64.0, id: "openEnrollment",   minYearsBeforeWatch: 1.0 },
     { age: 66.0, id: "grandkids",        minYearsBeforeWatch: 1.0 },
     { age: 68.5, id: "cleanOutDesk",     minYearsBeforeWatch: 1.0 },
-    { age: 72.5, id: "grandkids2",       minYearsBeforeWatch: 1.0 }, // until the Reunion is built, the 72.5 slot is Grandkids II
+    // The Reunion (Nov 9): at 70 when the HOA President isn't coming (the Watch is under 3 years away), else at 72.5.
+    // If it already ran at 70, the 72.5 slot is Grandkids II.
+    { age: 70.0, id: "reunion", key: "reunionEarly", minYearsBeforeWatch: 1.0, onlyIfWatchWithin: 3.0 },
+    { age: 72.5, id: "reunion", key: "reunionLate",  minYearsBeforeWatch: 1.0, unlessDone: "reunionEarly" },
+    { age: 72.5, id: "grandkids2",       minYearsBeforeWatch: 1.0, onlyIfDone: "reunionEarly" },
     { age: 75.8, id: "annualEnrollment", minYearsBeforeWatch: 1.0 }
   ],
   // "Your Medicare window is open. Please visit four different offices, in order."
@@ -78,6 +82,24 @@ window.OVERTIME_BEATS = {
     soldLines: ["SOLD! 50¢", "SOLD! 25¢", "SOLD AS IS!", "SOLD! NO RETURNS"],
     doneLine: "Every last thing. +2,000 score and the box.", boxLine: "Packed enough to fill the box. Bonus chest!",
     missLine: "The rest went in the yard sale. That's OK. You kept what mattered."
+  },
+  // "Your old coworkers are all here. You will have to say hi to every single one." (Grok's spec 1.5, ChatGPT's cast)
+  // Friendly: they walk toward you slowly and can't hurt you. Pass close to one to catch up. 20 seconds.
+  reunion: {
+    count: 8, windowSec: 20, leadMs: 1200, speed: 60, catchPx: 64, ringPad: 60, scale: 1.25,
+    perPersonGems: 3, chestAt: 6, chestKey: "reunion", scoreBonus: 1500, code: "RU",
+    // one entry per sheet row (assets/characters/old-coworkers-reunion-v1.png): two names each, so 8 people
+    people: [
+      { row: 0, lines: ["Gary! Still doing taxes for fun?", "Ron! How's the boat?"] },
+      { row: 1, lines: ["Linda! Who orders the cakes now?", "Deb! You still have the label maker?"] },
+      { row: 2, lines: ["Dale! Did you try turning retirement off and on?", "Stu! Is the server still in the closet?"] },
+      { row: 3, lines: ["Pat! You kept every photo, didn't you?", "Joyce! How are the grandkids?"] }
+    ],
+    bannerTitle: "REUNION", bannerSub: "Say hi to everyone before they leave.",
+    intro: "Your old coworkers are all here. Walk past each one to catch up. They don't bite.",
+    leaveLines: ["We should get lunch sometime!", "Let's not wait ten years!", "Call me!"],
+    doneLine: "You caught up with everyone. +1,500 score and a little something.", someLine: "Good to see the old crew. Bonus chest!",
+    missLine: "They had to go. We should really get lunch sometime."
   },
   annualEnrollment: {
     like: "openEnrollment", legs: 3, labels: ["PART A", "PLAN COMPARISON", "PART D"], chestKey: "annualEnrollment", code: "AE",
