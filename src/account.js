@@ -16,7 +16,7 @@ window.Account = (() => {
   const SYNC_KEY = "ms-cloud-sync", AUTH_KEY = "ms-auth";
   // The sign-in pop-up (Nov 4, Rami: "the login gets buried on the iPhone screen"). It opens by itself on the title
   // screen for players with some progress who haven't signed in or said no. "Not now" waits 2 days; "don't ask again" is forever.
-  const PROMPT_KEY = "ms-acct-prompt", SNOOZE_MS = 2 * 24 * 3600 * 1000, PROMPT_DELAY_MS = 1600;
+  const PROMPT_KEY = "ms-acct-prompt", SEEN_KEY = "ms-acct-seen", SNOOZE_MS = 7 * 24 * 3600 * 1000, PROMPT_DELAY_MS = 1600;
   let promptTimer = null, promptedThisVisit = false;
   let sb = null, libPromise = null, session = null, applying = false, pushTimer = null, lastPush = 0, lastPull = 0, changedSince = 0;
   let ui = { step: "start", email: "", busy: false, msg: "", err: "", conflict: null };
@@ -50,6 +50,7 @@ window.Account = (() => {
     });
     sb.auth.onAuthStateChange((ev, s) => {
       session = s;
+      if (s && s.user) { try { localStorage.setItem(SEEN_KEY, "1"); } catch (e) {} } // this device has clocked in before: never pop the prompt here again
       if (ev === "SIGNED_IN") setTimeout(() => pull(true), 0);
       if (ev === "SIGNED_OUT") { render(); refreshTitle(); } // keep the last account id, so signing back in to the same one doesn't ask again
     });
@@ -339,6 +340,8 @@ window.Account = (() => {
   }
   function close() {
     if (ui.step === "conflict") return; // you have to pick one
+    // Nov 8 (Rami: the sign-in box came up every third visit): closing the pop-up any way (X, Escape) counts as "Not now"
+    if (ui.prompted && !signedIn()) { try { if (localStorage.getItem(PROMPT_KEY) !== "never") localStorage.setItem(PROMPT_KEY, String(Date.now() + SNOOZE_MS)); } catch (e) {} }
     ui.prompted = false;
     if (modal) modal.classList.add("hidden");
     window.accountModalOpen = false;
@@ -387,6 +390,8 @@ window.Account = (() => {
     if (promptedThisVisit || promptTimer || !on() || signedIn() || window.accountModalOpen) return;
     let pref = null; try { pref = localStorage.getItem(PROMPT_KEY); } catch (e) {}
     if (!moving() && (pref === "never" || (pref && Date.now() < +pref))) return; // the moving note shows once per visit regardless
+    let seen = false; try { seen = localStorage.getItem(SEEN_KEY) === "1"; } catch (e) {}
+    if (seen) return; // signed in on this device before (even if that session ended): the badge is enough
     let authing = false; try { authing = Object.keys(localStorage).some(k => k.startsWith(AUTH_KEY)); } catch (e) {}
     if (authing || /[?&]code=/.test(location.search)) return; // already mid sign-in
     const m = typeof meta !== "undefined" ? meta : null; // only once there's something worth saving (a brand-new player just gets the game)
@@ -395,7 +400,8 @@ window.Account = (() => {
       promptTimer = null;
       const onMain = typeof titleOpen !== "undefined" && titleOpen && document.querySelector('.title-poster[data-view="main"]');
       const busy = window.changelogModalOpen || window.controlsModalOpen || window.loreModalOpen;
-      if (!onMain || busy || signedIn() || window.accountModalOpen) return;
+      let authNow = false; try { authNow = Object.keys(localStorage).some(k => k.startsWith(AUTH_KEY)) || localStorage.getItem(SEEN_KEY) === "1"; } catch (e) {}
+      if (!onMain || busy || signedIn() || authNow || window.accountModalOpen) return;
       promptedThisVisit = true; ui.prompted = true; ui.step = "start";
       open();
     }, PROMPT_DELAY_MS);

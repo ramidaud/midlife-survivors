@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.11.4",
-  displayVersion: "V. 2.11.4",
+  version: "2.11.5",
+  displayVersion: "V. 2.11.5",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 290,
+  build: 291,
   changelog: [
+    {
+      ver: "V. 2.11.5", date: "Nov 8, 2026", title: "Version Two",
+      teaser: "Fewer sign-in pop-ups.",
+      highlights: [
+        "The 'Save your file?' sign-in box no longer pops up on a device that has signed in before. The badge on the title screen still works anytime.",
+        "Closing that box any way (X or Escape) now means 'not now' for a week, instead of coming back next visit."
+      ]
+    },
     {
       ver: "V. 2.11.4", date: "Nov 8, 2026", title: "Version Two",
       teaser: "A lighter office, and your hero stays yours.",

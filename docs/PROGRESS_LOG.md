@@ -1814,3 +1814,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The office floor was painted as 34 big tiles all held at once (about 135 MB). Now only the 5-7 tiles near the camera are painted (10 at most), and the rest repaint as you walk. Screenshots match the old floor exactly.
 - A saved run now remembers its hero. Picking someone else on the title screen sets up your next new run, with a note saying so (Rami: players shouldn't switch mid-run).
 - The backup "old stage" (shown when the new office fails to build) now sends a telemetry event, so we can see how often it happens.
+
+## 2026-11-08 (late night): V2.11.5, fewer sign-in pop-ups
+- Rami: the Google sign-in box showed up about every third visit, and once after he was already signed in.
+- The account data showed no new sign-ins since Nov 7, so he was being asked while signed in somewhere (most likely a different browser on the same Mac; each browser keeps its own sign-in).
+- Now the box never pops up on a browser that has signed in before. "Not now" lasts a week instead of 2 days. The title badge still lets anyone sign in anytime.
+- www.midlifesurvivors.com now forwards to midlifesurvivors.com, so sign-ins and saves live at one address.

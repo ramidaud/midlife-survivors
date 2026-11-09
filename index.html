@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Midlife Survivors</title>
+<script>/* www-to-apex: one address, so your sign-in and saves live in one place */ if (location.hostname === "www.midlifesurvivors.com") location.replace("https://midlifesurvivors.com" + location.pathname + location.search + location.hash);</script>
 <!-- First title slide starts downloading at first paint (Fable review #4). Keep in sync with slides[0] in src/data/title-art.js. -->
 <link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-portrait-v3.jpg" media="(orientation: portrait), (max-width: 760px)">
 <link rel="preload" as="image" href="assets/title-screen/slides/08-group-photo-desktop.jpg" media="(orientation: landscape) and (min-width: 761px)">
@@ -1686,7 +1687,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 290; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 291; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);
