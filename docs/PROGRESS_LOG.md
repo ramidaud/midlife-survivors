@@ -1857,3 +1857,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Dancers are bigger (0.6 scale), sturdier (8 base HP), start at 6, and rejoin every 5 s (3.5 s below half health, up to 8). She arrives with a confetti burst; the banner and spotlight tip now explain the line.
 - Tested on laptop and phone: shielded hit 25 of 100, open hit 100, line rebuilds; no errors.
 - Rami will think about the Full Life plateau options (new 65-80 content, enemies that keep up with strong builds, shorter late years, or late decades at Home).
+
+## 2026-11-09 (8 AM): V2.13.3, Overtime goes faster
+- Correction: Rami's 77.6 plateau run was **Midlife with Overtime**, not Full Life. Midlife's last boss is the Gold Watch at 63.5, so 65 to 80 had about 11 minutes with no bosses. 12 of 444 Midlife runs reached 75 in two weeks.
+- Overtime years past 65 now take 25 s instead of 45 (65 to 80 is about 6 minutes). The swarm escalates by age, so the late game also gets busier. Age math is piecewise (`ageAtMs` / `msAtAge`), tested both ways.
+- Wrote `docs/handoffs/grok-late-game-brief.md` for the bigger fixes: Overtime events or a boss for 65 to 80, and pressure that keeps up with very strong builds.

@@ -9,6 +9,8 @@ window.RUN_MODES = {
     startAge: 40,
     endAge: 65,              // Retirement arrives here (Overtime in the shop pushes it back)
     secondsPerYear: 45,      // 45 real seconds = 1 year
+    lateFromAge: 65,         // Nov 9 (Rami's 77.6 run): Overtime years past 65 are shorter, so the late
+    lateSecondsPerYear: 25,  //   power-fantasy stretch doesn't drag (65 to 80 went from 11 minutes to about 6)
     bosses: ["performanceReview", "newBoss", "mortgageRefinance", "holidayParty", "theReorg", "midlifeCrisis", "goldWatch"],
     bossSlot: ["holidayParty", "theReorg"], // Nov 9 (Rami): these two take turns at 56, one per run
     overtimeYearsPerRank: 5, // each "Delayed Retirement" rank adds 5 years (65 -> 70 -> 75 -> 80)

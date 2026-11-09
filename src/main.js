@@ -245,9 +245,25 @@ function modeEndAge() {
 }
 window.getRunMode = () => runMode;
 function secsPerYear() { return modeCfg().secondsPerYear / (runSprint && window.SPRINT ? SPRINT.yearsMult : 1); } // Sprint makes the years fly
+// Nov 9 (Rami: "essentially invincible from 65 on... too long with not much variety"): Overtime years past 65 go
+// faster. lateFromAge / lateSecondsPerYear in src/data/modes.js. These two turn run time into age and back.
+function lateYears() { const m = modeCfg(); return m.lateFromAge && m.lateSecondsPerYear ? { from: m.lateFromAge, secs: m.lateSecondsPerYear / (runSprint && window.SPRINT ? SPRINT.yearsMult : 1) } : null; }
+function ageAtMs(ms) {
+  const L = lateYears(), base = secsPerYear(), t = ms / 1000;
+  if (!L || runStartAge >= L.from) return runStartAge + t / (L && runStartAge >= L.from ? L.secs : base);
+  const tLate = (L.from - runStartAge) * base;
+  return t <= tLate ? runStartAge + t / base : L.from + (t - tLate) / L.secs;
+}
+function msAtAge(age) {
+  const L = lateYears(), base = secsPerYear();
+  if (!L || runStartAge >= L.from) return (age - runStartAge) * (L && runStartAge >= L.from ? L.secs : base) * 1000;
+  if (age <= L.from) return (age - runStartAge) * base * 1000;
+  return ((L.from - runStartAge) * base + (age - L.from) * L.secs) * 1000;
+}
+window.msAtAge = msAtAge;
 window.secsPerYear = secsPerYear;
 window.isSprintRun = () => runSprint;
-window.getRunEndMs = () => (modeEndAge() - runStartAge) * secsPerYear() * 1000; // when the ending arrives, in run time
+window.getRunEndMs = () => msAtAge(modeEndAge()); // when the ending arrives, in run time
 window.refreshRunMode = () => { runMode = pickRunMode(); runStartAge = modeStartAge(); currentAge = runStartAge; };
 
 // Calculate current 401(k) Coin value & drop chance based on how long you have survived and your Age!
@@ -2383,7 +2399,7 @@ function update(time, delta) {
     else { if (spawnTimer) spawnTimer.paused = true; if (window.FirstMinute) FirstMinute.waiting(this); }
   }
   if (!window.awaitFirstMove) { runElapsedMs += (delta || 16.6); if (window.Hustle) Hustle.update(this, delta); }
-  currentAge = runStartAge + (runElapsedMs / 1000) / secsPerYear(); // 45 s/year in Midlife, 60 in Full Life
+  currentAge = ageAtMs(runElapsedMs); // 45 s/year in Midlife, 60 in Full Life (Overtime past 65 goes faster)
   if (Math.floor(currentAge) > runAch.lastAge) { runAch.lastAge = Math.floor(currentAge); window.achEvent("age", { age: currentAge }); }
 
   // 5-Year 401(k) Compound Interest Dividend! The longer you survive, the larger your automatic dividend payout!

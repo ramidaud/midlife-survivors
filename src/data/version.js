@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.13.2",
-  displayVersion: "V. 2.13.2",
+  version: "2.13.3",
+  displayVersion: "V. 2.13.3",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 295,
+  build: 296,
   changelog: [
+    {
+      ver: "V. 2.13.3", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Overtime moves faster.",
+      highlights: [
+        "In Midlife, Overtime years past 65 now take 25 seconds instead of 45, so 65 to 80 is about 6 minutes instead of 11. The swarm ramps up faster too, so the late game stays busy."
+      ]
+    },
     {
       ver: "V. 2.13.2", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The Holiday Party is harder to ignore.",
