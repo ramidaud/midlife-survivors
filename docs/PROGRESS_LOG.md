@@ -1782,3 +1782,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami: the map felt broken, and the "finding the map" moment was gone. Both true: finding it was once-per-save, and the map drew as a blurry gray blob.
 - Now you grab the YOU ARE HERE sign every run. The map is drawn like an evacuation map: whole rooms reveal as you enter, cream walls, furniture blocks, room names, dashed outlines for rooms you haven't found, locked rooms marked with their age.
 - The corner map is about 40% bigger (desktop and phone), with a tag underneath naming the room you're in.
+
+## Nov 8, 2026: Weekly check-in
+- Big week: V. 2.10.20 to 2.10.27 (live title scenes, Supply Closet, Close Call visuals, catch-up XP, evolution hints, easter egg XP, the office map rebuilt), Memo 13 published with the first full social kit, and the memo page redesign.
+- Last 7 days (Rami's runs left out): 453 runs from 81 players, half on phones. Average death age 50; 39% reach 50, 17% reach 60, 5% reach 65. Bills and Late Fees are still the top killers (162 of the deaths).
+- Next up, per the Fun Pass order: Errands.
