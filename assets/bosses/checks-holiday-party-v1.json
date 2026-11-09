@@ -1,0 +1,46 @@
+{
+  "all_passed" : true,
+  "anchor" : [
+    72,
+    148
+  ],
+  "background" : "#FF00FF opaque",
+  "blankFrame" : 11,
+  "cell" : [
+    144,
+    152
+  ],
+  "clearMargin" : 4,
+  "grid" : [
+    4,
+    3
+  ],
+  "large" : [
+    1728,
+    1368
+  ],
+  "marker" : [
+    192,
+    128
+  ],
+  "native" : [
+    576,
+    456
+  ],
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "sixFrameWalk" : "six conga poses, side kicks at frames 2 and 5",
+  "soleLastPixelY" : 147
+}

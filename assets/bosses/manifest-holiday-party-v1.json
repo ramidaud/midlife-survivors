@@ -1,0 +1,76 @@
+{
+  "name": "The Holiday Party",
+  "gameKey": "holidayParty",
+  "sheet": "boss-holiday-party-v1.png",
+  "sheetSize": [
+    576,
+    456
+  ],
+  "largeSheet": "boss-holiday-party-v1-3x.png",
+  "largeSize": [
+    1728,
+    1368
+  ],
+  "frame": [
+    144,
+    152
+  ],
+  "columns": 4,
+  "rows": 3,
+  "footPoint": [
+    72,
+    148
+  ],
+  "clearMargin": 4,
+  "background": "#FF00FF opaque",
+  "states": {
+    "walk": {
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "previewMs": 150
+    },
+    "windUp": {
+      "frames": [
+        6,
+        7
+      ],
+      "previewMs": 220
+    },
+    "attack": {
+      "frames": [
+        8,
+        9
+      ],
+      "previewMs": 170
+    },
+    "hurt": {
+      "frames": [
+        10
+      ],
+      "previewMs": 350
+    }
+  },
+  "blankFrame": 11,
+  "telegraph": {
+    "file": "telegraph-holiday-party-v1.png",
+    "size": [
+      192,
+      128
+    ]
+  },
+  "previews": [
+    "boss-holiday-party-walk-preview-v1.gif",
+    "boss-holiday-party-wind-up-preview-v1.gif",
+    "boss-holiday-party-attack-preview-v1.gif",
+    "boss-holiday-party-hurt-preview-v1.gif"
+  ],
+  "check": "check-holiday-party-v1.png",
+  "status": "Art only, awaiting review. Timing proposals are for previews; no gameplay changes.",
+  "walkNotes": "Conga hip bumps, cup held high, side kicks at frames2and5."
+}
