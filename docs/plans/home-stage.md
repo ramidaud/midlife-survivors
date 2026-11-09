@@ -35,3 +35,9 @@ The players picked it: the devlog poll went **Home 7, Hospital 1**.
 ## Reference Rami shared (Nov 8): "keep this in the back of your head for the next level"
 - `docs/plans/reference/twin-stones-forest.png`: a top-down pixel forest in peak fall (red, orange and evergreen trees, mushrooms, fireflies, mossy rocks and a fallen log). A spot called "THE TWIN STONES" with two stone markers (I and II) and a "0% · TWO STONES" progress bar. Small framed minimap in the corner.
 - Not a decision yet. Fits the fall, tree-lined look he described for Home.
+
+## Decisions (Nov 8, Rami)
+- **Name: Maple Hollow.**
+- **Layout v2** (`docs/plans/home-map.png`): three columns. Your street and your house on the left, **two neighborhood blocks in the middle** (Elm Court opens at 40, Birch Circle with a cul-de-sac at 50), the strip mall, school and woods on the right. Rami: "cute, funny, satirical details" in the neighbor homes (draft list of 12 on the map).
+- **Getting inside your house: a key.** You're locked out. The spare key is hidden somewhere (under the fake rock, with a neighbor, in the minivan), and finding it opens the front door. Probably built on the errand system.
+- Order (street, house, mall, school, woods) is fine.

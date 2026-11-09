@@ -1820,3 +1820,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The account data showed no new sign-ins since Nov 7, so he was being asked while signed in somewhere (most likely a different browser on the same Mac; each browser keeps its own sign-in).
 - Now the box never pops up on a browser that has signed in before. "Not now" lasts a week instead of 2 days. The title badge still lets anyone sign in anytime.
 - www.midlifesurvivors.com now forwards to midlifesurvivors.com, so sign-ins and saves live at one address.
+
+## 2026-11-08 (late night): art for the new bosses and Maple Hollow
+- Wrote ChatGPT sprite prompts for The Reorg, The Holiday Party and Your New Boss (Age 26), plus jobs for Grok, Gemini and Muse.
+- **The Reorg's art is in** (`assets/bosses/boss-reorg-v1.png`): passed all checks; Claude removed two stray foot fragments. Not wired into the game yet.
+- Home stage is now **Maple Hollow**. Map v2 adds two neighborhood blocks with satirical neighbor jokes, and you get into your house by finding the spare key.
+- Gemini's boss lines, spotlight cards, death lines and 20 Home captions are saved for when those pieces get built.
