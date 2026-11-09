@@ -6,6 +6,8 @@ window.SPOTLIGHT = {
   bosses: {
     performanceReview: { kicker: "ANNUAL EVALUATION", name: "PERFORMANCE REVIEW", line: "I brought a five-page rubric and a very sharp red pen.",
                          tip: "Sidestep when the clipboard flashes before it charges.", art: "assets/bosses/boss-performance-review-v1.png", edge: "#C45C4B", band: "#874C3B" },
+    newBoss:           { kicker: "NEW MANAGEMENT", name: "YOUR NEW BOSS (26)", line: "Hey fam, let's disrupt Q3 and sync on your vibes!",
+                         tip: "Step off the arrows, then hit him while he catches his breath.", art: "assets/bosses/boss-new-boss-v1.png", edge: "#BFA8CF", band: "#874C3B" },
     mortgageRefinance: { kicker: "ESCROW CLOSING", name: "30-YEAR MORTGAGE", line: "Initial here, here, and on all forty-two pages below.",
                          tip: "Keep your distance when it slams to dodge shockwaves.", art: "assets/bosses/boss-30-year-mortgage-v1.png", edge: "#EF9347", band: "#874C3B" },
     midlifeCrisis:     { kicker: "TEST DRIVE", name: "MIDLIFE CRISIS V8", line: "Forget the minivan, we are buying t-tops and leather!",

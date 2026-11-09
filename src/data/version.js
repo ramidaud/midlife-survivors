@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.11.5",
-  displayVersion: "V. 2.11.5",
+  version: "2.12.0",
+  displayVersion: "V. 2.12.0",
   lastUpdated: "Nov 7, 2026",
   codename: "Version Two",
-  build: 291,
+  build: 292,
   changelog: [
+    {
+      ver: "V. 2.12.0", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Meet Your New Boss. He's 26.",
+      highlights: [
+        "New boss at age 48: Your New Boss (Age 26). He chugs an energy drink, then dashes at you down a lane of arrows, twice in a row. Step off the arrows, then hit him while he catches his breath.",
+        "Below half health he dashes three times, and sometimes hits a sugar crash. Every attack comes with a pep talk.",
+        "Beat him for a bonus chest and his spare energy drink. New achievement: Circle Back Later.",
+        "The swarm eases off a little while he's around, so the fight stays readable."
+      ]
+    },
     {
       ver: "V. 2.11.5", date: "Nov 8, 2026", title: "Version Two",
       teaser: "Fewer sign-in pop-ups.",

@@ -145,6 +145,18 @@ window.ENEMIES = {
     size: 52,
     color: 0xd94f6a
   },
+  // Nov 9 (Rami's pick, Grok's numbers: docs/handoffs/grok-office-bosses-spec.md). Art by ChatGPT, attack in src/boss-attacks.js.
+  newBoss: {
+    name: "Your New Boss (Age 26)",
+    label: "MGR",
+    tex: "performanceReview", // fallback; the drawn sheet is assets/bosses/boss-new-boss-v1.png
+    spawnAge: 48,
+    speed: 100,
+    hp: 40,
+    damage: 1,
+    size: 52,
+    color: 0xBFA8CF
+  },
   mortgageRefinance: {
     name: "The 30-Year Mortgage",
     label: "APR",
@@ -234,7 +246,7 @@ window.ENEMY_SCALE = { regular: 1.4, boss: 2.3, bossHitbox: 0.5 };
 // Name tags (FLAKE!, TAPAS, 9PM BED...) turn into a wall of tiny text when the screen fills up (Fable review #7).
 // Past this many enemies, regular enemies hide their tags. Bosses, elites and the Group Chat's "typing..." always keep theirs.
 window.ENEMY_TAGS = { hideOverPhone: 25, hideOverDesktop: 60 };
-window.BOSS_KINDS = ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
+window.BOSS_KINDS = ["performanceReview", "newBoss", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
 for (const [kind, E] of Object.entries(window.ENEMIES)) {
   E.scale = window.BOSS_KINDS.includes(kind) ? window.ENEMY_SCALE.boss : window.ENEMY_SCALE.regular;
   E.size = Math.round(E.size * E.scale); // labels, weapon reach and Close Calls read this

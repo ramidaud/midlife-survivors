@@ -1828,3 +1828,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Gemini's boss lines, spotlight cards, death lines and 20 Home captions are saved for when those pieces get built.
 - Grok's boss spec is in. Rami's calls: New Boss at 48 (build first), Reorg and Party take turns at 56 for now, and mistletoe slows instead of freezing.
 - All three new boss sheets are in (Reorg, Holiday Party, New Boss); Hot Desk art still to come.
+
+## 2026-11-09 (just after midnight): V2.12.0, Your New Boss (Age 26)
+- Synced Rami's Desktop folder with GitHub. It was Codex's git copy, 60 updates behind. All local work is saved on a backup branch, and the 61 local edits were put back.
+- New boss at 48: dash chain down a lane of ChatGPT's chevrons (aim locks when the arrows appear), winded window after, 3 dashes and a sugar crash below half health. Gemini's pep talks pop up with each dash (not the first one, where the banner explains the rule).
+- Drops a bonus chest and his spare Energy Drink; new achievement "Circle Back Later". The swarm thins during his fight (any boss can now have a swarm block, not just the Gold Watch).
+- Tested at laptop and phone sizes: full fight, phase 2, crash, drops, no errors. The Mortgage and the V8 still attack normally.

@@ -654,3 +654,6 @@ The game draws with WebGL, which borrows the computer's graphics card. If the br
 
 ## Streaming (only load what's near you), Nov 8
 Big games don't keep the whole world in memory. They load the part around the player and let go of the parts far away, which is called streaming. Our office floor used to be painted all at once into 34 big tiles, and Safari on a MacBook ran out of graphics memory. Now the game paints only the tiles near the camera and reuses their canvases as you walk, like laying track just ahead of a moving train.
+
+## Punish windows and locked aim (Nov 9, Your New Boss)
+A fair boss gives you a rhythm: dodge, then hit back. Your New Boss locks his aim the moment the arrows appear, so stepping sideways always works, and he never curves to follow you. After his dashes he stands still for about a second (thumbs up, catching his breath). Game designers call that a "punish window": the boss is open, and the player gets rewarded for dodging well. Without it, a fast boss just feels unfair; with it, the fight becomes a little dance.

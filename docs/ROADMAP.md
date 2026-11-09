@@ -12,8 +12,9 @@ Weekly check-in: Sundays, evening (automatic).
 Things only Rami can do. Claude adds items as they come up and checks them off when they're done.
 
 **Next session (Rami said yes, Nov 8)**
-- [ ] Link the Desktop folder ("03 Ai/Midlife Survivors") to the GitHub repo so it updates with one command (about 10 minutes, one approval)
-- [ ] Then build Your New Boss (Age 26) at 48
+- [x] Sync the Desktop folder with GitHub (Nov 9: it was already Codex's git copy; now up to date)
+- [x] Build Your New Boss (Age 26) at 48 (V2.12.0)
+- [ ] Play to 48 and fight him: fair? funny? too easy?
 
 **Play and react**
 - [ ] Play V. 2.10.22: do the Close Call afterimages read clearly?

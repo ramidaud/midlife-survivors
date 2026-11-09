@@ -78,7 +78,8 @@ window.BossAttacks = (() => {
     scene.cameras.main.shake(160, 0.006); sfx("wallBonk", 0);
     // Comic bonk (Nov 4, Rami): the word pops in big and wobbly, the boss splats flat (src/boss-art.js reads _bonkAt),
     // a crack appears in the wall, and stars circle the boss's head while it's dizzy.
-    const t = scene.add.text(boss.x, boss.y - 76, Phaser.Utils.Array.GetRandom(B.words || ["BONK!", "OOF!", "THUD!"]), { fontFamily: "Silkscreen, monospace", fontSize: "18px", color: "#FFF0CF", backgroundColor: "#C45C4B", padding: { x: 6, y: 3 }, stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004).setScale(0.3).setAngle(Phaser.Math.Between(-14, 14));
+    const Dk = (window.BOSS_ATTACKS && BOSS_ATTACKS[boss.kind]) || {};
+    const t = scene.add.text(boss.x, boss.y - 76, Phaser.Utils.Array.GetRandom((Dk.bonkWords && Math.random() < 0.6 ? Dk.bonkWords : null) || B.words || ["BONK!", "OOF!", "THUD!"]), { fontFamily: "Silkscreen, monospace", fontSize: "18px", color: "#FFF0CF", backgroundColor: "#C45C4B", padding: { x: 6, y: 3 }, stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50004).setScale(0.3).setAngle(Phaser.Math.Between(-14, 14));
     scene.tweens.add({ targets: t, scale: 1.25, duration: 120, ease: "Back.Out", onComplete: () => scene.tweens.add({ targets: t, scale: 1, duration: 90,
       onComplete: () => scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, delay: 420, duration: 420, ease: "Cubic.easeIn", onComplete: () => t.destroy() }) }) });
     boss._bonkAt = now; boss._bonkFlat = Math.abs(Math.cos(a.aim)) >= Math.abs(Math.sin(a.aim)) ? "x" : "y"; // which way it flattens
@@ -98,7 +99,8 @@ window.BossAttacks = (() => {
       if (window.BossArt) BossArt.sync(scene, boss, st === "float" ? "chase" : st, now);
       return r;
     }
-    const r = step(scene, boss, player, now);
+    const D0 = window.BOSS_ATTACKS && BOSS_ATTACKS[boss.kind];
+    const r = D0 && D0.style === "dashChain" ? dashChain(scene, boss, player, now, D0) : step(scene, boss, player, now);
     if (window.BossArt) BossArt.sync(scene, boss, boss._atk ? boss._atk.state : "chase", now);
     return r;
   }
@@ -217,6 +219,99 @@ window.BossAttacks = (() => {
     if (a.state === "recover") {
       if (now - a.startedAt > (D.recoverMs || 300)) { a.state = "chase"; a.nextAt = now + D.cooldownMs; }
       return false; // a slowed normal chase
+    }
+    return false;
+  }
+
+  // Your New Boss (Age 26), Nov 9. chase -> telegraph (lane of arrows, aim locked) -> dash -> next dash in the chain
+  // -> winded (he stands still, thumbs up: hit him now) -> chase. Below half health: 3 dashes, a bit faster, and every
+  // third chain ends in a 2 s Sugar Crash. Every warning comes with a pep talk; the lane is the real warning.
+  function pep(scene, boss, a, text) {
+    if (!a.pep || !a.pep.active) {
+      a.pep = scene.add.text(0, 0, "", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#FFF0CF", padding: { x: 6, y: 4 },
+        wordWrap: { width: 220 }, align: "center" }).setOrigin(0.5, 1).setDepth(50005);
+      a.pepEdge = scene.add.graphics().setDepth(50004.9);
+      boss.once("destroy", () => { if (a.pep) a.pep.destroy(); if (a.pepEdge) a.pepEdge.destroy(); });
+    }
+    a.pep.setText(text).setVisible(true).setAlpha(1); a.pepUntil = null;
+  }
+  function placePep(scene, boss, a, now) {
+    if (!a.pep || !a.pep.visible) { if (a.pepEdge) a.pepEdge.clear(); return; }
+    if (a.pepUntil && now > a.pepUntil) { a.pep.setVisible(false); a.pepEdge.clear(); return; }
+    const v = scene.cameras.main.worldView, w = a.pep.width, h = a.pep.height;
+    const x = Phaser.Math.Clamp(boss.x, v.x + w / 2 + 6, v.right - w / 2 - 6), y = Phaser.Math.Clamp(boss.y - 92, v.y + h + 46, v.bottom - 90);
+    a.pep.setPosition(Math.round(x), Math.round(y));
+    if (a.pepUntil) a.pep.setAlpha(Math.max(0, (a.pepUntil - now) / 300));
+    a.pepEdge.clear().lineStyle(2, 0xEF9347, a.pep.alpha).strokeRect(a.pep.x - w / 2, a.pep.y - h, w, h);
+  }
+  function dashChain(scene, boss, player, now, D) {
+    const a = boss._atk || (boss._atk = { state: "chase", nextAt: now + D.firstAttackDelayMs, announced: false, chains: 0, pepBag: [], skids: [] });
+    const g = gfx(scene, a); g.clear();
+    if (!boss.once_cleanup) { boss.once_cleanup = true; boss.once("destroy", () => { if (a.g) a.g.destroy(); if (a.skidG) a.skidG.destroy(); }); }
+    const S = scaling(), P2 = D.phase2 || {}, phase2 = boss.hpMax && boss.hp / boss.hpMax <= (P2.atHpFrac || 0.5);
+    const baseSpeed = boss._baseSpeed || (boss._baseSpeed = boss.speed);
+    boss.speed = baseSpeed * (phase2 ? (P2.walkSpeedMult || 1) : 1);
+    placePep(scene, boss, a, now);
+    const nextPep = () => { if (!a.pepBag.length) a.pepBag = Phaser.Utils.Array.Shuffle((D.pepTalks || ["Let's sync!"]).slice()); return a.pepBag.pop(); };
+    const startTelegraph = (first) => {
+      const v = scene.cameras.main.worldView;
+      a.state = "telegraph"; a.startedAt = now;
+      a.until = now + S.tele(first ? D.telegraphMs : D.chainTelegraphMs, T().minTelegraphMs || 550);
+      a.aim = Math.atan2(player.y - boss.y, player.x - boss.x); // locked now: no leading, no tracking
+      a.len = Math.min(D.dashMaxDist, (D.dashMaxViewFrac || 0.8) * Math.min(v.width, v.height));
+      boss.setVelocity(0, 0); boss.setTint(0xff6b7a);
+      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(D.bannerTitle, D.bannerSub, "alert"); } // the banner explains the first one
+      else pep(scene, boss, a, nextPep());
+      sfx(first ? "bossSpawn" : "pick", 0);
+    };
+
+    if (a.state === "chase") {
+      if (now < a.nextAt || !onScreen(scene, boss) || gameOver) return false;
+      a.left = phase2 ? (P2.chainCount || 3) : (D.chainCount || 2);
+      startTelegraph(true);
+    }
+    if (a.state === "telegraph") {
+      boss.setVelocity(0, 0);
+      const k = (now - a.startedAt) / Math.max(1, a.until - a.startedAt), blink = reduceMotion ? 0.6 : 0.35 + 0.35 * Math.abs(Math.sin(now / 70));
+      const ex = boss.x + Math.cos(a.aim) * a.len, ey = boss.y + Math.sin(a.aim) * a.len, lw = D.laneWidth || 88;
+      const nx = -Math.sin(a.aim) * lw / 2, ny = Math.cos(a.aim) * lw / 2;
+      g.fillStyle(0xef9347, 0.14 + 0.12 * k).fillPoints([{ x: boss.x + nx, y: boss.y + ny }, { x: ex + nx, y: ey + ny }, { x: ex - nx, y: ey - ny }, { x: boss.x - nx, y: boss.y - ny }], true);
+      g.lineStyle(2, 0xef9347, blink).lineBetween(boss.x + nx, boss.y + ny, ex + nx, ey + ny).lineBetween(boss.x - nx, boss.y - ny, ex - nx, ey - ny);
+      if (window.BossArt) BossArt.marker(scene, boss, (boss.x + ex) / 2, (boss.y + ey) / 2, a.aim, a.len / 256, lw / 128 * 1.1, 0.35 + 0.5 * k); // ChatGPT's chevrons along the lane
+      if (now >= a.until) {
+        if (window.BossArt) BossArt.hideMarker(boss);
+        a.state = "attack"; a.startedAt = now; a.sx = boss.x; a.sy = boss.y; a.lastX = null; boss.clearTint(); pass(boss, true);
+      }
+      return true;
+    }
+    if (a.state === "attack") {
+      const t = now - a.startedAt, spd = D.dashSpeed * S.speed * (phase2 ? (P2.dashSpeedMult || 1) : 1);
+      const b = boss.body, stalled = a.lastX != null && Math.hypot(boss.x - a.lastX, boss.y - a.lastY) < 0.5;
+      if (t > 60 && (wallHit(scene, boss, D) || (((b && !b.blocked.none) || (t > 140 && stalled)) && wallHit(scene, boss, D, null, null, 40)))) {
+        bonk(scene, boss, a, now); a.chains++; if (a.pep) a.pepUntil = now + 300; return true; // a wall ends the chain
+      }
+      a.lastX = boss.x; a.lastY = boss.y;
+      boss.setVelocity(Math.cos(a.aim) * spd, Math.sin(a.aim) * spd);
+      if (touches(player, boss.x, boss.y, D.bodyHalfW, D.bodyHalfH)) hit(player, boss, D.damage);
+      g.lineStyle(D.bodyHalfW * 2, 0xef9347, 0.12).lineBetween(a.sx, a.sy, boss.x, boss.y);
+      if (Math.hypot(boss.x - a.sx, boss.y - a.sy) >= a.len || t > a.len / spd * 1000 + 400) {
+        boss.setVelocity(0, 0); pass(boss, false); a.left--;
+        if (a.left > 0) { startTelegraph(false); return true; }
+        a.chains++;
+        const crash = phase2 && P2.crashEvery && a.chains % P2.crashEvery === 0;
+        a.state = crash ? "crash" : "winded"; a.startedAt = now;
+        if (crash) pep(scene, boss, a, D.crashLine || "Sugar crash."); else if (a.pep) a.pepUntil = now + 300;
+      }
+      return true;
+    }
+    if (a.state === "winded" || a.state === "crash") {
+      boss.setVelocity(0, 0);
+      const dur = a.state === "crash" ? (P2.crashMs || 2000) : (D.windedMs || 1100);
+      if (now - a.startedAt > dur) { if (a.pep && !a.pepUntil) a.pepUntil = now + 300; a.state = "chase"; a.nextAt = now + D.cooldownMs; return false; }
+      return true;
+    }
+    if (a.state === "stagger") { // bounced off a wall mid-dash: same wobble as the other bosses (shared code in step())
+      return step(scene, boss, player, now);
     }
     return false;
   }

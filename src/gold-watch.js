@@ -254,8 +254,9 @@ window.GoldWatch = (() => {
   // While a Gold Watch is alive, the everyday swarm thins out (Grok: a duel with light office weather).
   function duel() {
     if (typeof bills === "undefined" || !bills) return null;
-    const on = bills.getChildren().some(b => b.active && b.isBoss && b.kind === "goldWatch");
-    return on ? (D().swarm || null) : null;
+    // Nov 9 (Grok): any boss with a swarm block thins the swarm, not just the Watch
+    const A = window.BOSS_ATTACKS || {}, b = bills.getChildren().find(o => o.active && o.isBoss && !o.clockOut && A[o.kind] && A[o.kind].swarm);
+    return b ? A[b.kind].swarm : null;
   }
 
   // Your hits wind it back: a shove away from you (bigger hits shove more, up to a cap) and slower hands for a moment.

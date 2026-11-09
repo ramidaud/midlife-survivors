@@ -27,6 +27,27 @@ window.BOSS_ATTACKS = {
     chargeSpeed: 400, chargeDurationMs: 1100, chargeMaxDist: 560,
     bodyHalfW: 22, bodyHalfH: 28, damage: 2
   },
+  // Your New Boss (Age 26), Nov 9: Grok's spec (docs/handoffs/grok-office-bosses-spec.md), pep talks by Gemini.
+  // He plants his feet, chugs, then dashes down a lane of arrows. Twice in a row (three times below half health).
+  // After a chain he's winded (your chance to hit him). Below half health, every third chain ends in a Sugar Crash.
+  newBoss: {
+    style: "dashChain", bannerTitle: "QUICK SYNC", bannerSub: "He's dashing. Step off the arrows.",
+    telegraphMs: 650, chainTelegraphMs: 600, cooldownMs: 4600, firstAttackDelayMs: 1800,
+    dashSpeed: 520, dashMaxDist: 400, dashMaxViewFrac: 0.8, chainCount: 2, laneWidth: 88,
+    windedMs: 1100, bodyHalfW: 20, bodyHalfH: 24, damage: 1,
+    phase2: { atHpFrac: 0.5, chainCount: 3, dashSpeedMult: 1.10, walkSpeedMult: 1.10, crashEvery: 3, crashMs: 2000 },
+    drop: "energyDrink", // he left his spare can
+    swarm: { spawnDelayMult: 1.25, packSizeMult: 0.80, maxOnScreenMult: 0.80, eliteChanceMult: 1.0, pauseKinds: ["calendarInvite"], pauseEvents: true },
+    pepTalks: ["Let's circle back on your energy!", "Love the hustle, let's pivot faster!", "My dad has that exact cardigan!",
+      "Let's double-click on your growth mindset!", "Fail fast, learn faster, keep sprinting!", "I brought oat milk for everyone!",
+      "You were born in the nineteen-hundreds?", "Let's disrupt how we dodge projectiles!", "Quick vibe check on Q4 deliverables!",
+      "No bad ideas in this brainstorm!", "We are building the plane mid-flight!", "Let's take this energy to eleven!",
+      "Have you tried a standing desk?", "We're not a team, we're family!", "Send me a voice note later!",
+      "Let's unpack that blocker together, fam!", "Crush those goals and stay hydrated!", "Let's ideate on your posture today!",
+      "I booked us a walking one-on-one!", "High fives all around, team!"],
+    crashLine: "Sugar crash. Need a minute.",
+    bonkWords: ["LOVE THAT ENERGY!", "WE'LL ITERATE!", "GROWTH MOMENT!"]
+  },
   mortgageRefinance: {
     bannerTitle: "RATE LOCK", bannerSub: "Interest expands. Slip into the % gap.",
     telegraphMs: 850, cooldownMs: 5200, firstAttackDelayMs: 1800, recoverMs: 300,

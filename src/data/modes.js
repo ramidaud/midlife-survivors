@@ -9,7 +9,7 @@ window.RUN_MODES = {
     startAge: 40,
     endAge: 65,              // Retirement arrives here (Overtime in the shop pushes it back)
     secondsPerYear: 45,      // 45 real seconds = 1 year
-    bosses: ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch"],
+    bosses: ["performanceReview", "newBoss", "mortgageRefinance", "midlifeCrisis", "goldWatch"],
     overtimeYearsPerRank: 5, // each "Delayed Retirement" rank adds 5 years (65 -> 70 -> 75 -> 80)
     endBossLabel: "RETIREMENT",
     endBossName: "Your Retirement Party",
@@ -24,7 +24,7 @@ window.RUN_MODES = {
     startAge: null,          // uses the START AT age picked in Extras
     endAge: 100,
     secondsPerYear: 60,
-    bosses: ["performanceReview", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp"],
+    bosses: ["performanceReview", "newBoss", "mortgageRefinance", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp"],
     endBossLabel: null,      // Father Time, as before
     table: "scores",
     clearBonus: 25000,

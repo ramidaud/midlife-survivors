@@ -3,6 +3,7 @@
 window.BossArt = (() => {
   const FILES = {
     performanceReview: "assets/bosses/boss-performance-review-v1.png",
+    newBoss: "assets/bosses/boss-new-boss-v1.png", // Nov 9
     mortgageRefinance: "assets/bosses/boss-30-year-mortgage-v1.png",
     midlifeCrisis: "assets/bosses/boss-midlife-crisis-v8-v1.png",
     goldWatch: "assets/bosses/boss-gold-watch-v1.png",
@@ -13,6 +14,7 @@ window.BossArt = (() => {
   };
   const MARKERS = {
     performanceReview: ["assets/bosses/telegraph-performance-review-v1.png", 256, 128],
+    newBoss: ["assets/bosses/telegraph-new-boss-v1.png", 256, 128],
     mortgageRefinance: ["assets/bosses/telegraph-30-year-mortgage-v1.png", 192, 128],
     midlifeCrisis: ["assets/bosses/telegraph-midlife-crisis-v8-v1.png", 256, 128],
     goldWatch: ["assets/bosses/telegraph-gold-watch-v1.png", 256, 128],
@@ -51,7 +53,8 @@ window.BossArt = (() => {
       return;
     }
     let frame;
-    if (state === "stagger") frame = 10; // bonked into a wall: the hurt pose while he wobbles
+    if (state === "stagger" || state === "crash") frame = 10; // bonked into a wall (or a sugar crash): the hurt pose
+    else if (state === "winded") frame = 9; // catching his breath after a dash chain: thumbs up
     else if (boss.hitAt && now - boss.hitAt < 160 && state === "chase") frame = 10;
     else if (state === "telegraph") frame = 6 + (Math.floor(now / 220) % 2);
     else if (state === "attack") frame = 8 + (Math.floor(now / 130) % 2);

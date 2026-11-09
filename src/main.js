@@ -875,7 +875,7 @@ function beginFreshRunAtDecade(scene) {
   lastAutoSave = 0;
   retire80Prompted = runStartAge >= 80;
   bossesSpawned = {};
-  ["performanceReview", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
+  ["performanceReview", "newBoss", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
     if (ENEMIES[bk] && ENEMIES[bk].spawnAge < runStartAge) bossesSpawned[bk] = true;
   });
 
@@ -1747,6 +1747,8 @@ function damageBill(bill, amount) {
         fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#EF9347", stroke: "#171C35", strokeThickness: 3
       }).setOrigin(0.5, 1.6).setDepth(4);
       for (let i = -2; i <= 2; i++) spawnCoin(bill.x + i * 10, bill.y + 14, 2);
+      { const drop = window.BOSS_ATTACKS && BOSS_ATTACKS[bill.kind] && BOSS_ATTACKS[bill.kind].drop; // Nov 9: some bosses leave a pickup (the New Boss: his spare can)
+        if (drop) try { spawnFieldItem(sc, bill.x + 34, bill.y + 6, drop); } catch (e) { console.warn("[boss drop]", e); } }
       // Nov 8: this line was behind a switch that never turned on, so nobody ever saw it
       if (window.showLowerThird) window.showLowerThird("win", "SURVIVED", `You outlasted ${E.name}. Your bonus chest is on its way.`, 5000);
     } else if (bill.kind === "officeGossip") {

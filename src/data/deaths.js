@@ -119,6 +119,7 @@ const MORE_DEATHS = {
   groupChat: ["Who's bringing ice? History will remember.", "412 reactions. Zero exits.", "Muted in app. Unmuted in fate."],
   mathWorksheet: ["New Math: same kid, new rules, old parent.", "Two trains left. You stayed.", "Showing work required. Work declined."],
   performanceReview: ["Q3 synergy remains undiscussed.", "PIP stood for Please Immediately Panic.", "Five-year plan loading... error."],
+  newBoss: ["Booked into a walking one-on-one at noon.", "High-fived into early retirement by a 26-year-old.", "You could not match the synergy of a cold-brew habit."],
   mortgageRefinance: ["Page 83 wanted an initial. You gave up.", "APR did cardio around you.", "Escrow ate the last hit point."],
   midlifeCrisis: ["Leather jacket: approved. Knees: pending.", "The V8 had a better exit strategy.", "Podcast mic on. Common sense off."],
   hoaPresident: ["Trash cans: 4 minutes late to glory.", "Eggshell was never on the palette.", "The ruler does not negotiate."],
