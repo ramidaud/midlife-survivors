@@ -779,3 +779,6 @@ The Row was built in B2 for Settings. B3 used the same part for the Lounge and L
 
 ## When everything is orange, nothing is (Nov 10, design system B4)
 The old shop had a bright orange BUY button on every upgrade. Nine "press me" buttons in a column all shout at the same volume, so the eye can't tell which one matters. Now the price is a calm cream tag and the whole row is the button. The one orange thing on a screen is a promise: this is the main thing to do here.
+
+## Tab bars (Nov 10, design system B5)
+Most phone apps keep their main places in a bar along the bottom (Instagram, Messages, the App Store), because that's where the thumb already is. A menu at the top of a phone takes a stretch to reach and scrolls sideways when it's too long. The title now does the same on phones: five tabs at the bottom, and the site menu hides while you're there. The tabs press the same buttons the tiles already had, so nothing behaves differently, it's just closer.

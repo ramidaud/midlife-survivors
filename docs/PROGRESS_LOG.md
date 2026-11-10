@@ -2111,3 +2111,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The 401(k) Shop shows YOUR 401(K) big at the top, then one Row per upgrade (icon, name, level pips, effect, price tag).
 - Nine orange BUY buttons are gone: the whole row buys. Maxed rows get a check, locked rows say how to unlock.
 - Phone: balance plus six upgrades visible without scrolling (the spec asked for three).
+
+## 2026-11-10 (10:25 PM): V2.27.3, design system step B5
+- Title: PUNCH IN is the only orange fill on phone, iPad and desktop (the nav's current-page button, TO-DO labels, the shift tile and the poll pill stopped being orange).
+- The shift chip under PUNCH IN names your stage: "SHIFT The Office · Midlife 40-65 · Tax 0".
+- Phones: a bottom tab bar (Shop, Scores, Extras, Settings, Devlog) replaces the site's top nav on the title. Settings is no longer below the fold.
