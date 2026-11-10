@@ -27,6 +27,11 @@ playing on."
 - The devlog site (`devlog/`) shares fonts and colors: `assets/ui/ms-bar.css`, `assets/ui/ms-nav.*`.
 - Current rules: CLAUDE.md "One look (Nov 3)": Silkscreen for short labels and headings, Atkinson Hyperlegible for reading text, the devlog palette only (navy, slate, teal, sage, cream, coffee orange, russet), cream "MEMO · RE:" strips, teal-bordered tiles, the shared progress bar.
 
+## Read these first if they exist
+- `docs/handoffs/grok-ui-attention-budget-reply.md`: every in-run message, how dense they get, what collides, a proposed attention budget.
+- `docs/handoffs/gemini-ui-references-reply.md`: how other games solve this, Apple HIG translated for pixel art, accessibility.
+- `docs/handoffs/gemini-maple-voice-reply.md` part 2: a draft UI voice guide (read Claude's fact-check at the bottom).
+
 ## Your job, in order
 1. **Audit (deliver first).** Run the game headless (Playwright; serve the repo with `python3 -m http.server`, add `?nostats=1` so no stats are sent, block supabase/goatcounter requests, and never post to the leaderboard). Capture **every surface** at phone 390x844, iPad 820x1180 and 1180x820, and desktop 1440x900. Make one review page: each surface in a row across the device sizes, with notes on what's inconsistent (type, spacing, radius, color, motion, placement), what competes for attention, and what doesn't adapt to the device. Publish it as an artifact and give Rami the link.
 2. **Design system (deliver second), as a spec for Rami to approve before anything is built:**
