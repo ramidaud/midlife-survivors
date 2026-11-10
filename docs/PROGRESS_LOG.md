@@ -1979,3 +1979,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Home lineup in MAPLE_HOLLOW.bosses: 45 Fifth-Grade Math Homework (Performance Review stands in until built), 48 HOA President (HP x0.35, built for 70), 52 Mortgage, 56 Holiday Party (no coin flip at home), 60 Midlife Crisis V8, then the Gold Watch (Midlife) or Retirement/Pickleball (Full Life). Office lineup unchanged.
 - Rami's note for later: check the office doesn't feel light on bosses now that the Mortgage and the V8 also live at home.
 - Waiting on ChatGPT: the Math Homework boss sheet and the garage interior (V8 bursts out of it).
+
+## 2026-11-09 (11:59 PM): V2.21.3, Kevin's age-275 fixes
+- A fully maxed build could open the Performance Bonus menu with zero cards and freeze the game. An empty pick now skips the menu and grants a Seniority perk with a banner.
+- A save resumed past the finish line had "end boss spawned" set but no punch clock, so the run never ended. If you're half a year past the end with no clock-out boss on the field, it spawns again.
+- ChatGPT/Codex art landed in the repo: the Math Homework boss (walk, wind-up, paper-airplane attack, hurt, plus extras) and the 20-piece garage kit. Not wired in yet.

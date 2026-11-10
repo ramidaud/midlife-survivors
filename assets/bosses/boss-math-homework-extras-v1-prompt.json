@@ -1,0 +1,8 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Five small attack assets for Midlife Survivors Fifth-Grade Math Homework boss, exact16-bit pixel finish of reference. Source study THREE COLUMNS x TWO ROWS, five populated cells row-major, last cell blank magenta. Final export five32x32 cells across one160x32 PNG. Flat exact opaque #FF00FF background, no shadows. Items:1 folded cream paper airplane facing right, clean triangular folded wing and navy fold edges;2 SAME airplane slight wing tilt/flap next motion frame, still right;3 eraser crumb cluster, pink and cream little chunks;4 crumpled school-paper BALL, cream paper with slate creases;5 crooked GOLD STAR sticker using cream/tan/coffee-orange tones. Do NOT include knockdown character or thumbnail. Keep each centered2px native margin. One-native-pixel navy outline,2-3tones, warm upper-left light, palette only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. No extra colors, text, scribbled letters, numbers, logos, brands, blur, AA, sepia, gold haze, film tint or people.",
+  "references": [
+    "assets/bosses/boss-performance-review-v1.png"
+  ],
+  "nativeProcess": "Proportional native sampling, palette mapping, exact grid/rectangle packing, background and seam checks."
+}

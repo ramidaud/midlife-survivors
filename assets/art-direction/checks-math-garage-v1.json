@@ -1,0 +1,50 @@
+{
+  "allPassed": true,
+  "files": [
+    {
+      "file": "assets/bosses/boss-math-homework-v1.png",
+      "size": [
+        576,
+        456
+      ],
+      "passed": true
+    },
+    {
+      "file": "assets/bosses/boss-math-homework-v1-3x.png",
+      "size": [
+        1728,
+        1368
+      ],
+      "passed": true
+    },
+    {
+      "file": "assets/bosses/boss-math-homework-extras-v1.png",
+      "size": [
+        160,
+        32
+      ],
+      "passed": true
+    },
+    {
+      "file": "assets/stage/home/garage-interior-v1.png",
+      "size": [
+        384,
+        256
+      ],
+      "passed": true
+    }
+  ],
+  "garagePieceCount": 20,
+  "garageRectsInBounds": true,
+  "garageRectsNonOverlapping": true,
+  "bossPopulatedFrames": 11,
+  "bossBlankFrame": 11,
+  "bossAnchor": [
+    72,
+    148
+  ],
+  "bossMargins": 4,
+  "nativePaletteAndOpaqueMagenta": "Per-pixel assertions passed during native export",
+  "concreteSeams": "Compatible floor edge profiles matched during export",
+  "runtimeChanged": false
+}

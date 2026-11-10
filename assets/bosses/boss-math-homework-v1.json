@@ -1,0 +1,151 @@
+{
+  "anchor": [
+    72,
+    148
+  ],
+  "background": "exact opaque #FF00FF",
+  "blankCells": [
+    11
+  ],
+  "cell": [
+    144,
+    152
+  ],
+  "checks": {
+    "blankLastBossCell": true,
+    "bossMargin4px": true,
+    "dimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "boss-math-homework-v1.png",
+  "grid": [
+    4,
+    3
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells": 11,
+  "size": [
+    576,
+    456
+  ],
+  "states": {
+    "walk": [
+      0,
+      5
+    ],
+    "windUp": [
+      6,
+      7
+    ],
+    "attack": [
+      8,
+      9
+    ],
+    "hurt": [
+      10,
+      10
+    ]
+  },
+  "previewDelayMs": {
+    "walk": 140,
+    "windUp": 180,
+    "attack": 100,
+    "hurt": 250
+  },
+  "previewTimingOnly": true,
+  "export3x": {
+    "file": "boss-math-homework-v1-3x.png",
+    "size": [
+      1728,
+      1368
+    ]
+  },
+  "frameRects": [
+    [
+      0,
+      0,
+      144,
+      152
+    ],
+    [
+      144,
+      0,
+      144,
+      152
+    ],
+    [
+      288,
+      0,
+      144,
+      152
+    ],
+    [
+      432,
+      0,
+      144,
+      152
+    ],
+    [
+      0,
+      152,
+      144,
+      152
+    ],
+    [
+      144,
+      152,
+      144,
+      152
+    ],
+    [
+      288,
+      152,
+      144,
+      152
+    ],
+    [
+      432,
+      152,
+      144,
+      152
+    ],
+    [
+      0,
+      304,
+      144,
+      152
+    ],
+    [
+      144,
+      304,
+      144,
+      152
+    ],
+    [
+      288,
+      304,
+      144,
+      152
+    ],
+    [
+      432,
+      304,
+      144,
+      152
+    ]
+  ]
+}

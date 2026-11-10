@@ -1,0 +1,101 @@
+{
+  "anchor": [
+    16,
+    16
+  ],
+  "background": "exact opaque #FF00FF",
+  "blankCells": [],
+  "cell": [
+    32,
+    32
+  ],
+  "checks": {
+    "dimensions": true,
+    "opaque": true,
+    "palette": true,
+    "margin2px": true
+  },
+  "file": "boss-math-homework-extras-v1.png",
+  "grid": [
+    5,
+    1
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells": 5,
+  "size": [
+    160,
+    32
+  ],
+  "ids": [
+    "paper-airplane-a",
+    "paper-airplane-b",
+    "eraser-crumbs",
+    "crumpled-ball",
+    "gold-star"
+  ],
+  "airplaneFrames": [
+    0,
+    1
+  ],
+  "previewDelayMs": 100,
+  "pieces": [
+    {
+      "id": "paper-airplane-a",
+      "rect": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "paper-airplane-b",
+      "rect": [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "eraser-crumbs",
+      "rect": [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "crumpled-ball",
+      "rect": [
+        96,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "gold-star",
+      "rect": [
+        128,
+        0,
+        32,
+        32
+      ]
+    }
+  ]
+}

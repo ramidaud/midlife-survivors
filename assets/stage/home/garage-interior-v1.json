@@ -1,0 +1,237 @@
+{
+  "background" : "Floor cells opaque; all props on exact opaque #FF00FF",
+  "checks" : {
+    "dimensions" : true,
+    "floorSeams" : true,
+    "opaque" : true,
+    "palette" : true
+  },
+  "doorStudy" : "Low128x32 wall strips corrected separately to preserve intended wall-module proportions.",
+  "file" : "garage-interior-v1.png",
+  "module" : [
+    32,
+    32
+  ],
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "pieces" : [
+    {
+      "id" : "concrete-a",
+      "kind" : "floor",
+      "rect" : [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "concrete-b",
+      "kind" : "floor",
+      "rect" : [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "concrete-oil",
+      "kind" : "floor",
+      "rect" : [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "concrete-tire-marks",
+      "kind" : "floor",
+      "rect" : [
+        96,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "parking-line",
+      "kind" : "floor",
+      "rect" : [
+        128,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-pegboard-horizontal",
+      "kind" : "wall",
+      "rect" : [
+        0,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-vertical",
+      "kind" : "wall",
+      "rect" : [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "wall-corner",
+      "kind" : "wall",
+      "rect" : [
+        64,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "workbench",
+      "kind" : "prop",
+      "rect" : [
+        192,
+        64,
+        96,
+        48
+      ]
+    },
+    {
+      "id" : "tool-pegboard",
+      "kind" : "prop",
+      "rect" : [
+        288,
+        64,
+        64,
+        48
+      ]
+    },
+    {
+      "id" : "family-minivan",
+      "kind" : "prop",
+      "rect" : [
+        0,
+        64,
+        96,
+        160
+      ]
+    },
+    {
+      "id" : "car-dust-outline",
+      "kind" : "non-solid decal",
+      "rect" : [
+        96,
+        64,
+        96,
+        160
+      ]
+    },
+    {
+      "id" : "holiday-bins",
+      "kind" : "prop",
+      "rect" : [
+        192,
+        128,
+        64,
+        64
+      ]
+    },
+    {
+      "id" : "lawn-mower",
+      "kind" : "prop",
+      "rect" : [
+        256,
+        128,
+        48,
+        48
+      ]
+    },
+    {
+      "id" : "sad-box",
+      "kind" : "prop",
+      "rect" : [
+        320,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "dartboard",
+      "kind" : "prop",
+      "rect" : [
+        352,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id" : "mini-fridge",
+      "kind" : "prop",
+      "rect" : [
+        256,
+        176,
+        32,
+        48
+      ]
+    },
+    {
+      "id" : "kids-bike",
+      "kind" : "prop",
+      "rect" : [
+        288,
+        176,
+        48,
+        32
+      ]
+    },
+    {
+      "id" : "garage-door-closed",
+      "kind" : "door state",
+      "rect" : [
+        0,
+        224,
+        128,
+        32
+      ]
+    },
+    {
+      "id" : "garage-door-open",
+      "kind" : "door state",
+      "rect" : [
+        128,
+        224,
+        128,
+        32
+      ]
+    }
+  ],
+  "previewIsPlayableMap" : false,
+  "roomPreview" : "garage-room-preview-v1.png",
+  "size" : [
+    384,
+    256
+  ]
+}

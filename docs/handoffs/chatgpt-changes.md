@@ -559,3 +559,16 @@ Review all four jobs at `assets/art-direction/review-nov9-home-shop-v1.html`. Sh
 - **Files:** `assets/stage/home/your-house-v1.png`384x224; `key-hunt-v1.png`256x64; `house-interior-v1.png`512x384; `home-hazards-v1.png`384x128. Each has prompt and JSON map; shared README/check report, room mock-up and HTML review at `assets/art-direction/review-home-unlock-interior-v1.html`.
 - **For Claude:** House cells192x224, porch anchor(96,216), closed0/open1. Open state changes only door rect(67,143,22,45),649pixels; everything else identical. Key props eight32px cells across top row, lower half blank. Interior has30named rectangles, including18furniture pieces;48px furniture dimensions use padded module allocations. Floors opaque, props exact opaque#FF00FF. Hazards: five32px decals atx0..128; stand states64x128 atx256/320.
 - **Review:** All native dimensions,12-color palette and opacity passed. Interior rectangles in bounds with no overlap; compatible floor seams checked. Room assembly is an art/scale mock-up, not a tested playable plan. No runtime/nav/spawn/gate/balance/version changes. Saved locally, not committed or pushed.
+
+## 2026-11-09 Fifth-Grade Math Homework boss (Codex, review draft)
+
+- **What/Files:** `assets/bosses/boss-math-homework-v1.png`576x456, exact3x export1728x1368. Eleven active144x152 poses plus blank cell11: walk0-5, wind-up6-7, attack8-9, hurt10. Anchor(72,148),4px clear margins. Walk/wind-up/attack/hurt GIFs, size comparison, prompt and JSON frame map included.
+- **Extras:** `boss-math-homework-extras-v1.png`,160x32: airplaneA/B, eraser crumbs, crumpled ball, star. Airplane GIF100ms. No knockdown thumbnail. All exact12-color palette plus opaque#FF00FF; native grid/palette/opacity/margins/blank checks passed. Review cadences are not gameplay timing changes.
+- **For Claude/Rami:** Huge living paper worksheet, fold legs, abstract diagrams/scribbles only, orange empty work box, pencil lance, folded-plane attack and falling star hurt. Local art only; runtime, boss stats and attacks unchanged. Not pushed.
+
+## 2026-11-09 Garage interior kit (Codex, review draft)
+
+- **What/Files:** `assets/stage/home/garage-interior-v1.png`,384x256,20named rectangles in JSON map: five floors, three walls, ten props/decals and two128x32 door states. Includes96x160 family minivan and car-shaped dust outline.3x atlas check,640x448 room mock-up, prompt/correction record and README.
+- **Review:** Low garage-door strips corrected from the original tall elevations. Slate concrete avoids lavender cast and shares clean repeating edges. Dust decal has magenta center; minivan is unbranded. Native dimensions/palette/opacity/seams and atlas bounds/non-overlap checked. Mock-up is not a runtime layout or pathing test; Claude handles V8 emergence, door clearance and navigation. No runtime changes/version bump/push.
+
+Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `assets/art-direction/checks-math-garage-v1.json`.
