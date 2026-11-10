@@ -2013,3 +2013,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - 8:03 AM: the 40-to-65 board also capped age at 81; Rami cleared at 82.5 (Overtime + finish line). With his OK, raised to 101 (same as Full Life). His 509,188 run posts on his next refresh via the retry.
 - 8:12 AM, V2.24.4: the retry spent its 3 tries on the age limit a minute before it was raised. A second one-time rescue re-queues 40-to-65 scores over 500k or past age 81.
 - 8:08 AM: confirmed. Rami's 509,188 (age 82.5) posted and is #1 on the 40-to-65 board. The rescue also found an older 406,219 run (age 84, V2.21.2) that had bounced, now #7.
+- 8:35 AM: UI/UX audit approved. Handed to a separate chat (Rami: Fable 5.2) with docs/handoffs/fable-uiux-audit-brief.md: audit + design system spec only, no game code.
