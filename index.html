@@ -1291,6 +1291,29 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
   #ui-layer .settings-sheet .ms-legend { margin-bottom: var(--ms-space-3, 12px); }
   @media (min-width: 900px) { #ui-layer .pause-grid.with-hero { grid-template-columns: minmax(170px, 0.62fr) minmax(0, 1.1fr) minmax(0, 1.2fr); }
     #ui-layer .pause-grid:not(.with-hero) { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } } /* B2: the settings tile moved to Settings */
+  /* 401(k) shop on Rows (design system B4): the balance up top, one row per upgrade, no orange BUY buttons */
+  #ui-layer .shop-head { display: flex; flex-direction: column; gap: var(--ms-space-1, 4px); margin: 0 0 var(--ms-space-3, 12px); text-align: left; }
+  #ui-layer .shop-bal { display: flex; align-items: baseline; gap: var(--ms-space-3, 12px); }
+  #ui-layer .shop-bal span { font: var(--ms-label-m, 13px)/1 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-text-quiet); }
+  #ui-layer .shop-head .ms-sheet-help { font: 600 var(--ms-body-s, 14px)/1.35 var(--ms-font-read) !important; color: var(--ms-text-quiet) !important; margin: 0 !important; }
+  #ui-layer .shop-bal b { font: 700 var(--ms-display-s, 22px)/1 var(--ms-font-label); color: var(--ms-paper); font-variant-numeric: tabular-nums; }
+  #ui-layer .shop-rows { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--ms-space-2, 8px); }
+  @media (min-width: 600px) { #ui-layer .shop-rows { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) { #ui-layer .shop-rows { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  #ui-layer .ms-row.shop-r { grid-template-columns: 44px minmax(0, 1fr) auto; min-height: 64px; }
+  #ui-layer .shop-r-ic { width: 44px; height: 44px; display: grid; place-items: center; font-size: 26px; background: var(--ms-surface); border-radius: var(--ms-radius-m, 4px); }
+  #ui-layer .shop-r-pips { display: flex; gap: 3px; margin: 4px 0 2px; }
+  #ui-layer .shop-r-pips i { width: 10px; height: 6px; background: var(--ms-line); border-radius: 1px; }
+  #ui-layer .shop-r-pips i.on { background: var(--ms-ok); }
+  #ui-layer .shop-r-tag { font: var(--ms-label-m, 13px)/1 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-surface); background: var(--ms-paper);
+    padding: 7px 9px; border-radius: var(--ms-radius-s, 2px); white-space: nowrap; }
+  #ui-layer .ms-row.shop-r.short .shop-r-tag { background: transparent; color: var(--ms-paper); border: 1px solid var(--ms-line); }
+  #ui-layer .ms-row.shop-r.done .shop-r-tag { background: transparent; color: var(--ms-ok); border: 1px solid var(--ms-ok); }
+  #ui-layer .ms-row.shop-r.done .shop-r-tag::before { content: "\2713 "; }
+  #ui-layer .ms-row.shop-r.locked { background: rgba(48, 55, 80, .55); cursor: default; }
+  #ui-layer .ms-row.shop-r.locked .ms-row-title { opacity: .6; }
+  #ui-layer .ms-row.shop-r.locked .shop-r-ic { background: var(--ms-surface) linear-gradient(var(--ms-text-quiet), var(--ms-text-quiet)) 50% 60%/14px 10px no-repeat; }
+  #ui-layer .ms-row.shop-r.locked .shop-r-tag { background: transparent; color: var(--ms-text-quiet); border: 1px solid var(--ms-line); }
   /* ===== Poster title screen (Nov 3): the key art is the hero, the menu lives inside the picture ===== */
   #title-modal[data-view="main"] { align-items: stretch; justify-content: stretch; padding: 0; overflow-y: auto; }
   .title-poster { position: relative; width: 100%; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
@@ -1764,7 +1787,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 339; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 340; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

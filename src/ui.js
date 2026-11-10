@@ -2388,16 +2388,16 @@ function renderTitleModal(scene, preserveFocusSelector) {
     const maxed = rank >= item.maxRank;
     const cost = shopPrice(item, meta);
     const canBuy = !locked && !maxed && meta.coins >= cost;
+    // Design system B4: one Row per upgrade. The whole row buys; the tag on the right says the price, MAXED or why it's locked.
+    const state = locked ? "locked" : maxed ? "done" : canBuy ? "" : "short";
     return `
-      <div class="shop-row ${maxed ? "maxed" : ""} ${canBuy ? "affordable" : ""} ${locked ? "shop-locked" : ""}" data-shop="${item.id}">
-        <div class="shop-art" aria-hidden="true">${locked ? "🔒" : (item.icon || "🪙")}</div>
-        <div class="shop-info">
-          <span class="shop-name">${item.name}</span>
-          <span class="shop-pips">${"■".repeat(rank)}${"□".repeat(item.maxRank - rank)}</span>
-          <span class="shop-desc">${locked ? (item.lockedDesc || "Locked.") : item.desc}</span>
-        </div>
-        <button class="shop-buy-btn" tabindex="-1">${locked ? "LOCKED" : maxed ? "MAXED" : `BUY ${cost}k`}</button>
-      </div>
+      <button type="button" class="ms-row shop-r ${state}" data-shop="${item.id}" ${locked || maxed ? 'aria-disabled="true"' : ""}>
+        <span class="shop-r-ic" aria-hidden="true">${locked ? "" : (item.icon || "🪙")}</span>
+        <span><span class="ms-row-title">${item.name}</span>
+          <span class="shop-r-pips" aria-label="Level ${rank} of ${item.maxRank}">${Array.from({ length: item.maxRank }, (_, i) => `<i class="${i < rank ? "on" : ""}"></i>`).join("")}</span>
+          <span class="ms-row-sub">${locked ? (item.lockedDesc || "Locked.") : item.desc}</span></span>
+        <span class="shop-r-tag">${locked ? "LOCKED" : maxed ? "MAXED" : `${cost}k`}</span>
+      </button>
     `;
   }).join("");
 
@@ -2495,12 +2495,15 @@ function renderTitleModal(scene, preserveFocusSelector) {
   if (view === "shop") {
     markShopSeen(meta); // opening the shop clears the NEW tag
     bodyHtml = `
-      <div class="title-subhead">🪙 401(k) SHOP <span class="title-subnote">Permanent upgrades. You have <b>${meta.coins}k</b>.</span></div>
-      <div class="shop-list">${shopRowsHtml}${(window.SHOP_COMING_SOON || []).map(c => `
-        <div class="shop-row shop-mystery" aria-label="Coming soon">
-          <div class="shop-art" aria-hidden="true">?</div>
-          <div class="shop-info"><span class="shop-name">Classified Benefit</span><span class="shop-pips">COMING SOON</span><span class="shop-desc">${c.hint}</span></div>
-          <button class="shop-buy-btn" tabindex="-1" disabled>🔒 LOCKED</button>
+      <div class="shop-head">
+        <div class="shop-bal"><span>YOUR 401(K)</span><b>${meta.coins}k</b></div>
+        <p class="ms-sheet-help">Permanent upgrades. They carry into every run. Tap one to buy it.</p>
+      </div>
+      <div class="ms-rows shop-rows">${shopRowsHtml}${(window.SHOP_COMING_SOON || []).map(c => `
+        <div class="ms-row shop-r locked shop-mystery" aria-label="Coming soon">
+          <span class="shop-r-ic" aria-hidden="true">?</span>
+          <span><span class="ms-row-title">Classified benefit</span><span class="ms-row-sub">${c.hint}</span></span>
+          <span class="shop-r-tag">SOON</span>
         </div>`).join("")}</div>
       ${shopSpent > 0 ? `<div class="shop-refund-note">Changed your mind? Get back every coin you've spent (${shopSpent}k) and buy different upgrades.</div>` : ""}
       <div class="title-secondary">${shopSpent > 0 ? `<button class="t-style-btn shop-refund-btn" id="shop-refund-btn">↺ REFUND ALL (${shopSpent}k)</button>` : ""}${backBtn}</div>`;
@@ -2660,7 +2663,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
     meta.coins += shopSpent;
     META_SHOP.forEach(item => { meta.ranks[item.id] = 0; }); meta.shopInflationPaid = 0;
     saveMeta(meta); sfx("billPaid");
-    renderTitleModal(scene, ".shop-row"); updateHUD();
+    renderTitleModal(scene, ".shop-r"); updateHUD();
   });
   const backEl = document.getElementById("title-back-btn");
   // Top bar links (Devlog, Art Room, Discord...) sit above everything as row -1. Bound once; the bar outlives re-renders.
@@ -2757,10 +2760,11 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   });
 
   // Rows 3..6: 401(k) Shop Upgrades
-  modal.querySelectorAll(".shop-row:not(.shop-mystery)").forEach((el, idx) => {
+  const shopCols = matchMedia("(min-width:1024px)").matches ? 3 : matchMedia("(min-width:600px)").matches ? 2 : 1;
+  modal.querySelectorAll(".shop-r:not(.shop-mystery)").forEach((el, idx) => {
     const shopId = el.dataset.shop;
     if (idx === 0 && view === "shop") el.classList.add("nav-default");
-    bindNavItem(el, 3 + idx, () => {
+    bindNavItem(el, 3 + Math.floor(idx / shopCols), () => {
       const item = META_SHOP.find(it => it.id === shopId);
       if (!item) return;
       const rank = meta.ranks[item.id] || 0;

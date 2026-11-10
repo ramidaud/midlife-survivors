@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.1",
-  displayVersion: "V. 2.27.1",
+  version: "2.27.2",
+  displayVersion: "V. 2.27.2",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 339,
+  build: 340,
   changelog: [
+    {
+      ver: "V. 2.27.2", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your 401(k), front and center.",
+      highlights: [
+        "The 401(k) Shop shows your balance big at the top, then one row per upgrade: what it does, your level, and a price tag.",
+        "No more wall of orange BUY buttons. Tap a row to buy it. Maxed upgrades get a check, locked ones say how to unlock them.",
+        "On a phone you can see your balance and six upgrades without scrolling."
+      ]
+    },
     {
       ver: "V. 2.27.1", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The Lounge got a menu you can actually read.",
