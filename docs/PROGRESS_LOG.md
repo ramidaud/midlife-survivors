@@ -2072,3 +2072,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The chips share one look: navy plate, edge color by kind, readable text. The to-do chip now just says where to go and the time left.
 - Phones: the row sits beside the minimap and under the loadout slots, so everything ends by about 245 px and the hero keeps the middle.
 - GitHub Pages timed out three times on V2.26.4 (their side); this push redeploys everything.
+
+## 2026-11-10 (6:10 PM): V2.26.6, design system step A6
+- Holds: errands and the Lounge wait for no boss and 0.6 years clear of 45, 50, 55, 60. Swarm events wait for any boss. The numbers live in `src/data/pacing.js`.
+- Merges: turning 50 or 60 is one bottom-bar line (decade, cake, dividend). Rewards stay in the bottom bar. The promotion's LIFE line waits for 20 s of quiet.
+- First life modifier at 50.8. Only danger can cut in on the bottom bar, and it pauses while a Spotlight band is up.
+- Tested ages 45 and 50 on a phone: never more than one headline and one bottom line; one birthday line at 50.

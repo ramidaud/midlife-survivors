@@ -758,3 +758,6 @@ A boss intro used to darken the floor for six seconds, right when the boss was d
 
 ## Priority lists (Nov 10, design system A5)
 When several things want the same spot, write down who wins, once, as a list: Workload first, then a modifier, then the buff. The code just walks down the list and shows the first one that's switched on; the rest wait. Changing the order later is editing one line, not hunting through four files. It's the same idea as the message queue from A2, but for things that stay on screen instead of popping up.
+
+## Pacing: hold it, merge it, or drop it (Nov 10, design system A6)
+A queue (A2) makes messages take turns, but if eight things happen in the same second, a polite line is still eight messages long. Pacing fixes it at the source. Some things are **held** (an errand just doesn't start during a boss or right on your 50th birthday). Some are **merged** (the decade line, the cake and the dividend become one sentence). Some are **dropped** (a reward never needs the big headline; the bottom bar is enough). The rules live in one small data file, so changing "0.6 years" to "1 year" is a one-number edit.

@@ -706,3 +706,9 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - North row: the top hedge is solid. South row: steps in the hedge lead up to the street behind.
 - Your house sits in the middle of the north row; front door left, garage right. The Lemonade Stand is one house over to the west.
 - The old v1 layout stays in the code behind a data switch (`MAPLE_HOLLOW.v2.on`).
+
+### Message pacing (decided Nov 10, design system A6)
+- Errands and the Lounge never start during a boss, or within 0.6 years of 45, 50, 55 or 60. Swarm events wait for any boss.
+- Milestone birthdays at 50 and 60 are one bottom-bar line: the decade, the cake and the dividend.
+- Rewards use the bottom bar only. Flavor lines (LIFE after a promotion) wait for 20 seconds of quiet. First life modifier at 50.8.
+- Numbers: `src/data/pacing.js`.
