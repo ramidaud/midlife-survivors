@@ -2019,3 +2019,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami's calls on Grok's spec: All-Hands replaces the V8 in the office at 60, Sprint also unlocks from it, a few enemies follow you upstairs, the desk gives a buff plus a free level, the HOA sprinkler only pushes.
 - Built the All-Hands from Grok's numbers: podium + projector screen, Bar Chart, Pie Chart, Line Graph, and a phase-2 Q&A with two following spotlights. Stand-in shape until his art lands.
 - Gemini's voice pass and Grok's spec are saved in docs/handoffs with fact-checks. Maple v2 art is with ChatGPT; Rami runs the Fable UI/UX audit after that.
+
+## 2026-11-10 (9:10 AM): Maple Hollow v2 art draft (ChatGPT/Codex), house photos
+- Codex delivered the v2 kit locally: six bigger houses, your townhouse, wide streets with parked cars, seven connected backyards, both measured floors, the desk. Not in the game yet.
+- Rami sent 17 photos of his home. The repo is public, so photos live only in `private/home-photos/` on his Mac (gitignored), never in git. The photo with family asleep was left out.
+- Next: an interior revision from the photos (desk is downstairs in the dining nook; upstairs neon room), then wiring v2 into the game.

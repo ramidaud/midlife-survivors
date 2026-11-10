@@ -685,9 +685,16 @@ Maple Hollow ground v2 art contract:832x320 street bands,512px lawns,64x256 driv
 - Ground: street plates A/B (832 repeat), lawn A/B checkerboard, driveway strip, 8 lawn stickers scattered by seed. Config: MAPLE_HOLLOW.ground2 (on: false returns to the v1 tiles).
 - Title: slides 13 and 14 carry stage "home". Picking Maple Hollow opens on one and puts both first; otherwise they mix into the shuffle as a teaser.
 
+<<<<<<< ours
 ### Decisions, Nov 10 (Rami, on Grok's Maple v2 + office boss spec)
 - Office 60: **The Quarterly All-Hands replaces the V8** (built V2.25.0). The V8 is home-only, bursting out of the garage. Beating either unlocks Sprint.
 - Maple v2 upstairs: **a few enemies follow** (walkers within 220 px, max 6, after 1.2 s); bosses always follow.
 - Rami's desk: **"Ship It" buff** (weapons 15% faster for 20 s, 90 s cooldown) **plus a free level on the first visit**.
 - HOA yard sprinkler: **push only**, no damage.
 - Full numbers: docs/handoffs/grok-maple-v2-reply.md.
+=======
+
+## 2026-11-10: Maple Hollow v2 art (Codex)
+
+Maple Hollow v2 art contract:416px lots,832x512 streets,64px side paths and yard gate gaps. Printed home dimensions24px/ft,16px walls; existing hero56px projection retained. Single10′11″ ×20′ garage confirmed by Rami. Measured floor canvases416x1392 and416x928; see data maps for inferred undimensioned areas.
+>>>>>>> theirs

@@ -584,3 +584,10 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 
 - **What:** Removed the stacked extra tire from scene 14 desktop. Normal four-wheel configuration, far rear wheel occluded; wheelie and rear dust kept. Only a 105x105 patch at (1656,312) changed.
 - **Shipped (Claude):** V2.24.1 as `assets/title-screen/slides/14-not-the-minivan-desktop-v2.jpg`; PNG kept as `assets/art-direction/title-maple-v1/14-not-the-minivan-desktop-master-wheel-fix-v2.png`. The portrait version already had four wheels.
+
+## 2026-11-10 Maple Hollow v2 larger-scale art kit (Codex, review draft)
+
+- **What/Files:** `assets/stage/home/v2/` contains six neighbor houses2496x384, player townhouse400x400, wide streets A/B832x512, six yards2496x448 plus player yard416x448, measured floors416x1392 and416x928, real desk240x140 and wall strip240x96. Prompt JSONs, manifest, per-file/native checks, streetA/B/A and six-yard seam boards, block mock-up and `review.html` included.
+- **For Claude:** Lots416px, roads repeat832. Top apronx288 and704,64px wide. Neighbor side strips64px; yard gate gaps y224..287. Player frontage336px plus64px side path in400px image, positionedx16 within lot. The240px garage bay band includes jambs. Twelve-color binary-alpha RGBA; ground opaque, outside isolated pieces/floor outlines transparent. v1/v2 prior art kept.
+- **Rami’s decision:** Actual garage10′11″ ×20′, single-car, minivan only. Printed room dimensions converted at24px/ft. This makes floors taller than rough estimates. Undimensioned partitions inferred; diagonal wall/door details rectangularized. Room/wall/door/furniture rectangles come from the same data used to paint the floors. Hero remains56px projected art height.
+- **Checks/limits:** Palette, dimensions, binary alpha, shared street and yard boundary pixels pass; floor rectangles in bounds and door/wall openings checked. Native hero shown in three-lot mock-up. No runtime navigation or collision test: baked yard props and parked cars need Claude’s integration. No game code, balance, version, commits or push. Reference photos not copied into output. Local review only.

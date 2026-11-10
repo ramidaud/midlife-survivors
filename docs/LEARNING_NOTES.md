@@ -729,5 +729,12 @@ Small tiles (32 px squares) are flexible but repetitive: shuffle a few squares a
 ## Retry queues (Nov 10, the 500k cap)
 When something you send can fail, don't just show an error and forget it: keep it in a small "outbox" and try again later. The leaderboard now does that. A turned-away score waits on your device, gets re-sent next time you open the game, and gives up after three real refusals so a truly bad score can't retry forever. It's the same idea as an email sitting in your outbox until the Wi-Fi comes back.
 
+<<<<<<< ours
 ## Telegraphs (Nov 10, the All-Hands)
 A telegraph is the warning before an attack: the dashed shape on the floor that says "this spot is about to hurt." The All-Hands shows the same slide twice, as a big icon on his projector screen (flavor) and as a dashed outline on the floor (the rule). Good telegraphs are readable at a glance, last long enough to react (about 0.75 s for area attacks here), and are honest: the red shape that goes live is exactly the dashed shape you saw.
+=======
+
+## 2026-11-10: Maple Hollow v2 art (Codex)
+
+A rendered sprite height and a floor-plan unit are different measurements. Keep the56px hero art, convert known room dimensions to24px per foot, and record inferred partitions separately. Shared edge pixels prove tiles meet; they do not prove a player can navigate the props, which needs a runtime test.
+>>>>>>> theirs
