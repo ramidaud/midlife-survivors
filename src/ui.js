@@ -434,7 +434,7 @@ function initGameUI(scene) {
 
     <!-- CLEAN SCREEN HUD (Objective 1): XP bar, age, coins, loadout, pause/mute -->
     <!-- Center flash: big, short notices for things that change the fight (boss, Comfort Zone Tax, buffs). -->
-    <div class="center-flash hidden" id="center-flash" aria-live="polite"><div class="cf-title"></div><div class="cf-sub"></div></div>
+    <div class="center-flash hidden" id="center-flash" role="status" aria-live="polite"><div class="cf-text"><div class="cf-title"></div><div class="cf-sub"></div></div></div>
     <div class="vs-hud hidden" id="vs-hud">
       <div class="vs-xp ms-bar"><div class="vs-xp-fill ms-fill" id="vs-xp-fill"></div><span class="vs-lv" id="vs-lv">LV 1</span></div>
       <div class="vs-row">
@@ -809,8 +809,8 @@ setInterval(() => {
   }
 }, 100);
 
-// Big, short notice near the middle of the screen, so players never have to look away from the fight.
-// (Playtest: the bottom bar is too far from the action to read mid-run.) The full sentence still goes to the bottom bar.
+// The headline plate (design system A3): short alarms right under the HUD, on a solid backing.
+// (It used to sit in the middle of the floor; the full sentence still goes to the bottom bar.)
 let cfTimer = null, cfShowing = false;
 function flashBannerNow(title, sub, kind) {
   const el = document.getElementById("center-flash");
@@ -819,12 +819,12 @@ function flashBannerNow(title, sub, kind) {
   el.querySelector(".cf-sub").textContent = sub || "";
   el.dataset.kind = kind || "alert";
   el.classList.remove("hidden", "cf-go"); void el.offsetWidth; el.classList.add("cf-go");
-  clearTimeout(cfTimer); cfShowing = true;
-  cfTimer = setTimeout(() => { el.classList.add("hidden"); cfShowing = false; MsgRouter.headlineDone(); }, 1900);
+  clearTimeout(cfTimer); cfShowing = true; document.documentElement.classList.add("ms-headline");
+  cfTimer = setTimeout(() => { el.classList.add("hidden"); cfShowing = false; document.documentElement.classList.remove("ms-headline"); MsgRouter.headlineDone(); }, 2400);
 }
 function flashBannerCut() { // something bigger took the middle of the screen: end the flash now
   const el = document.getElementById("center-flash");
-  clearTimeout(cfTimer); if (el) el.classList.add("hidden"); cfShowing = false;
+  clearTimeout(cfTimer); if (el) el.classList.add("hidden"); cfShowing = false; document.documentElement.classList.remove("ms-headline");
 }
 
 // Design system A2 (Nov 10): the message router. One HEADLINE at a time in the middle (center flash, Spotlight

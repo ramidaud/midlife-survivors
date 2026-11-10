@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.2",
-  displayVersion: "V. 2.26.2",
+  version: "2.26.3",
+  displayVersion: "V. 2.26.3",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 330,
+  build: 331,
   changelog: [
+    {
+      ver: "V. 2.26.3", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Big notices moved out of your way.",
+      highlights: [
+        "The big notices no longer float over the middle of the floor. They drop into a solid plate right under the HUD, so you can read them on any carpet and still see where you're walking.",
+        "Each kind has its own edge: a red ! for danger, a cream checkbox for to-dos, an orange star for rewards.",
+        "On phones, the minimap steps aside for a moment while a notice is up."
+      ]
+    },
     {
       ver: "V. 2.26.2", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Messages now take a number and wait their turn.",

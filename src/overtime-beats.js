@@ -108,7 +108,7 @@ window.OvertimeBeats = (() => {
     if (!grid) return false;
     cur = { id, cfg, leg: 0, labels: cfg.labels || ["PART A", "PART B", "PART C", "PART D"], spot: null, objs: [], until: 0, startAt: runElapsedMs + (cfg.leadMs || 1500), prevRoom: null };
     ui();
-    if (window.flashBanner) flashBanner(cfg.bannerTitle || "OPEN ENROLLMENT", cfg.bannerSub || "Four offices. Ten seconds each. Go.", "alert");
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "OPEN ENROLLMENT", cfg.bannerSub || "Four offices. Ten seconds each. Go.", "objective");
     if (window.showLowerThird) showLowerThird("promo", cfg.badge || "MEDICARE", cfg.intro || "Your Medicare window is open. Visit each office in order. Follow the purple arrow.", 6000);
     if (typeof sfx === "function") sfx("levelUp", 0);
     if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");
@@ -179,7 +179,7 @@ window.OvertimeBeats = (() => {
     cur = { id, cfg, kind: "kids", kids: [], tagged: 0, until: runElapsedMs + (cfg.leadMs || 1200) + (cfg.windowSec || 20) * 1000, spawnAt: runElapsedMs + (cfg.leadMs || 1200), spawned: false, objs: [] };
     ui();
     if (window.showLowerThird) showLowerThird("promo", "GRANDKIDS", cfg.intro || `The grandkids stopped by. Tag all ${cfg.kids || 3} before they get bored.`, 5000);
-    if (window.flashBanner) flashBanner(cfg.bannerTitle || "GRANDKIDS' VISIT", cfg.bannerSub || "They want to play tag. You're it.", "reward");
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "GRANDKIDS' VISIT", cfg.bannerSub || "They want to play tag. You're it.", "objective");
     if (typeof sfx === "function") sfx("levelUp", 0);
     if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");
     return true;
@@ -337,7 +337,7 @@ window.OvertimeBeats = (() => {
     });
     if (window.burstConfetti) scene.time.delayedCall(cfg.leadMs || 1200, () => burstConfetti(scene, player.x, player.y - 20, 0xF2D7A1, 16));
     ui();
-    if (window.flashBanner) flashBanner(cfg.bannerTitle || "DOWNSIZING", cfg.bannerSub || "Pack your keepsakes before the bargain hunters do.", "alert");
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "DOWNSIZING", cfg.bannerSub || "Pack your keepsakes before the bargain hunters do.", "objective");
     if (window.showLowerThird) showLowerThird("promo", "DOWNSIZING", cfg.intro || "Walk over your keepsakes to pack them.", 6000);
     if (typeof sfx === "function") sfx("levelUp", 0);
     if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");
@@ -447,7 +447,7 @@ window.OvertimeBeats = (() => {
     Phaser.Utils.Array.Shuffle(ppl);
     cur = { id, cfg, kind: "reunion", folks: [], caught: 0, until: runElapsedMs + (cfg.leadMs || 1200) + (cfg.windowSec || 20) * 1000, spawnAt: runElapsedMs + (cfg.leadMs || 1200), spawned: false, objs: [], ppl, ring: R };
     ui();
-    if (window.flashBanner) flashBanner(cfg.bannerTitle || "REUNION", cfg.bannerSub || "Say hi to everyone before they leave.", "reward");
+    if (window.flashBanner) flashBanner(cfg.bannerTitle || "REUNION", cfg.bannerSub || "Say hi to everyone before they leave.", "objective");
     if (window.showLowerThird) showLowerThird("promo", "REUNION", cfg.intro || "Walk past each one to catch up.", 6000);
     if (typeof sfx === "function") sfx("levelUp", 0);
     if (window.Telemetry && Telemetry.event) Telemetry.event("ot-" + id + "-start");

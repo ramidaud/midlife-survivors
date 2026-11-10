@@ -66,7 +66,7 @@ window.Errands = (() => {
     chip.className = ""; chip.innerHTML = `<b>☐ TO-DO</b><span>${e.text}<i> Go to ${where}.</i></span><span class="t"></span>`;
     // Nov 8 (Rami: "it wasn't clear what it wanted me to do"): say where, say how, and that it's optional
     if (window.showLowerThird) showLowerThird("promo", "TO-DO", `${e.text} Walk to ${where} (follow the orange arrow) within ${S().timeSec || 45} seconds for a bonus.`, 6500);
-    if (window.flashBanner) flashBanner("TO-DO", "NEW ERRAND", "reward");
+    if (window.flashBanner) flashBanner("TO-DO", "NEW ERRAND", "objective");
     if (typeof sfx === "function") sfx("levelUp", 0);
     if (window.Telemetry && Telemetry.event) Telemetry.event("errand-start");
     return true;
