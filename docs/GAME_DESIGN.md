@@ -712,3 +712,8 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - Milestone birthdays at 50 and 60 are one bottom-bar line: the decade, the cake and the dividend.
 - Rewards use the bottom bar only. Flavor lines (LIFE after a promotion) wait for 20 seconds of quiet. First life modifier at 50.8.
 - Numbers: `src/data/pacing.js`.
+
+### HUD and camera (decided Nov 10, design system A8)
+- The HUD leads with your age (big, coffee orange), with the run clock under it. Empty item slots only appear in the level-up menu.
+- The camera keeps the hero at least 48 px tall on screen. On phones this means zoom 0.95 (was 0.75), about 20% less floor visible. Tunable: `VIEW.minHeroPx` in `src/main.js`.
+- Phone held sideways: one HUD row, small minimap, short message bar.

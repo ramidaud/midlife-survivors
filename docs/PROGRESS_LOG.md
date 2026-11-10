@@ -2084,3 +2084,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Bottom bar labels by kind: red ! for danger, cream for to-dos and chapters, orange for rewards, sage for tips.
 - One speech-bubble style (cream paper, navy reading text) for Dad Jokes, interns and boss last words. The Dad Joke bubble now floats above furniture.
 - At most 6 pickup pop-ups (+HP, coins, DODGED!) float at once (`src/world-text.js`).
+
+## 2026-11-10 (7:30 PM): V2.26.8, design system step A8 (Part A done)
+- HUD: your age is the big number with the clock under it; pause and sound are 44 px; empty slots only show in the level-up menu. All sizes come from the tokens.
+- Phones: the camera sits a little closer (zoom 0.75 to 0.95) so the hero is never under 48 px tall. You see about 20% less floor; one number (`VIEW.minHeroPx` in main.js) to tune after Rami plays.
+- Phone sideways: one HUD row, small minimap, short message bar.
+- Part A ("where should I be looking") is done. Next: Rami's phone playtest, then Part B (menus).

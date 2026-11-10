@@ -764,3 +764,6 @@ A queue (A2) makes messages take turns, but if eight things happen in the same s
 
 ## Thumb zones (Nov 10, design system A7)
 On a phone held in portrait, your thumb lives in the bottom third of the screen, and whatever's under it is invisible. Apple and Google both design around this: things you *tap* go where the thumb rests, things you *read* stay out of its way. The bottom bar was 18 px from the edge, right under the joystick thumb, so it now sits 96 px up. Same idea as putting a car's speedometer above the steering wheel instead of behind your hands.
+
+## Visual hierarchy (Nov 10, design system A8)
+Every screen has one thing the eye should land on first. In a game about getting older, that's your age, so it's now the biggest, brightest number in the HUD, and the clock (which used to be bigger) sits quietly underneath. Hierarchy is made with size, color and position: the most important thing gets the most of all three. If two things are equally loud, the eye bounces between them and reads neither.
