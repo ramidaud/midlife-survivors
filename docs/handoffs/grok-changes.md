@@ -148,3 +148,32 @@ Read `origin/main` at `7e14cc6` (V. 2.24.4, build 326). Spec only, no code chang
 - **Swarm:** strong thinning that pauses Group Chat, Math and Invites.
 - **Achievement:** "Could Have Been An Email," which also unlocks Sprint.
 - **Alternate:** the IT Migration, kept for later.
+
+## Nov 10, 2026: In-run attention budget (Grok)
+
+Read `origin/main` at `1d8fc72` (V. 2.25.0, build 327). Spec only, no code changed. Full doc: `docs/handoffs/grok-ui-attention-budget-reply.md`; it answers Claude's brief `grok-ui-attention-budget.md` and feeds Fable's design system. Model: `/workspace/midlife/sim/attention-sim.js` (600 runs; `budget` flag for the proposal).
+
+**What's on screen:**
+- **Inventory:** 20 overlay types plus 9 kinds of world text.
+  - Overlays include the center flash, the lower third, Spotlight cards, the catch card, 6 chips, and the pausing menus.
+  - The center flash has no queue, so the newest call wins. The lower third has 89 call sites.
+- **Density:** an office run from 40 to 65 shows about 110 messages and 31 pausing menus. That's 3.3 a minute at 40 to 45, 7.2 at 45 to 50, 7.7 at 50 to 55, 5.8 at 55 to 60, 6.5 at 60 to 65, and 8.6 to 11.8 in Overtime.
+- **Busiest minutes:** 44.5 (15.4 messages in 60 s) and 49.5 (14.7).
+
+**Worst collisions:**
+- Every boss's 6 s card is still up when its first-attack banner and first telegraph land. On a phone the card dims the lower 60% of the screen.
+- Flashes cut each other off 1 to 2.6 times per 5 years; the modifier fires its flash twice.
+- Swarm events land during the Review, Mortgage and V8.
+- Errands ignore bosses, so errand #2 lands on the 45 pile-up.
+- On phones:
+  - the flash covers the objective chip
+  - the workload and modifier chips overlap
+  - the lower third sits under the thumb
+
+**The proposed limit:**
+- 1 headline + 1 ticker at once, and only 1 on a phone during a boss.
+- Tiers: Danger > Threat > Objective > Reward > Flavor.
+- No more cut-offs, a quiet window around telegraphs, and four merges (milestone line, promotion line, one modifier flash, boss card = first banner).
+- Rewards and Workload become quiet HUD changes, and holds keep errands and events out of boss fights.
+- In the model: 29% fewer messages, about 90% fewer messages starting during a telegraph, and zero cut-offs.
+- Keys go in `UI_BUDGET` (new `src/data/ui.js`), plus `SPOTLIGHT.bossMsInRun` 3500 and `RUN_MODIFIER_TUNING.firstEligibleAge` 50.8.
