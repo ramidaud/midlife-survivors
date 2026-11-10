@@ -127,3 +127,24 @@ Checked at V. 2.13.3 (build 296), commit 635a667. No game code touched. Claude a
   - Shown as a chip with 5 pips and a 3 s warning before each rise, plus "overtime pay" of +6% score and +4% coins per level.
 - **Stats:** new run-row fields (workload max, beats done, post-65 kills/s, damage/min, min health, movement, Watch arrival and kill), plus targets for clear rate, beat completion, quiet gaps and phone frame rate.
 - Pending: Rami's calls on Workload opt-in, hit damage per level, HOA reuse, grandkid art and overtime pay. Then build and playtest an Overtime run to 80.
+
+## Nov 10, 2026: Maple Hollow v2 play spec + office boss for 60 (Grok)
+
+Read `origin/main` at `7e14cc6` (V. 2.24.4, build 326). Spec only, no code changed. Full doc: `docs/handoffs/grok-maple-v2-reply.md`; it answers Claude's brief `grok-maple-v2-and-office-boss.md`.
+
+**Maple v2 play:**
+- **Street spawns:** left 35 / right 35 / top 15 / bottom 15. Top and bottom snap to sidewalks and aprons only, never closer than 260 px. Mowers drive along the street.
+- **Parked cars:** 1 to 2 per plate, 104x56, never blocking a driveway.
+- **Side paths (64 px):** one open end always (no spawns behind you within 96 px of a path). Cap 6 per path and 4 per gate, elites count 2. Path cells cost 2.0x, so the swarm prefers the street.
+- **Backyards:** the escape loop (about 1,250 px). 80% of spawns come in through the paths; the row cap is 40% of on-screen.
+- **Upstairs:** walkers within 220 px follow after 1.2 s, max 6, with a 6 s leash. Bosses follow after 2.5 s, with a 1.0 s creak marker. Floor 2 spawns only via the stairs at 50% rate, cap 12, back to 100% after 20 s of hiding. Floor 1 spawns only via doors (entry 40, back 40, garage 20), cap 18.
+- **Yards:** trampoline (1.2 s airborne, 20 s), tomatoes (+3, 60 s), grill (+20% damage for 15 s, 45 s), tall grass (enemies 0.6x), koi coins plus a sprinkler (3 coins, 60 s), candy bowl (8 gems, 75 s), patio fire pit (+1 per 3 s, max 6, 60 s).
+- **Desk:** "Push to Production": sit 1 s for 15% faster weapons for 20 s, cooldown 90 s, and +1 level on the first visit. Not a safe spot.
+
+**Office 60 boss: The Quarterly All-Hands, replacing the V8 in the office** (the V8 keeps its garage burst at home):
+- **Slides:** Bar Chart (4 bars, 72x300, 950/750 floor), Pie Chart (12 slices, 4 live, 240 px, 950/750), Line Graph ("Up and to the Right", 28 px line, 800/550).
+- **Phase 2 at 50% HP:** Q&A spotlights (2, radius 64, 150 px/s, 800 ms dwell = 2 damage).
+- **Numbers:** hp 170 (4.72x the Review, below the V8's 200), speed 54, tier 5 chest plus a Desk Salad.
+- **Swarm:** strong thinning that pauses Group Chat, Math and Invites.
+- **Achievement:** "Could Have Been An Email," which also unlocks Sprint.
+- **Alternate:** the IT Migration, kept for later.
