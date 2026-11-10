@@ -1249,6 +1249,34 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     .vs-hud .vs-btn { width: 48px; height: 48px; font-size: 20px; }
     .lt-text { font-size: 19px; } .lt-badge { font-size: 13px; }
   }
+  /* The HUD (design system A8, Nov 10): age first, the timer under it; 44 px round buttons; only what you own;
+     every size from the tokens, so it scales by screen class (compact 1, regular 1.12, wide 1.25). */
+  #vs-hud.vs-hud .vs-center { gap: var(--ms-space-1, 4px); }
+  #vs-hud.vs-hud .vs-age { font: 700 var(--ms-display-s, 22px)/1 var(--ms-font-label); color: var(--ms-accent); letter-spacing: var(--ms-label-track); text-shadow: 2px 2px 0 var(--ms-surface); }
+  #vs-hud.vs-hud .vs-timer { font: 400 var(--ms-label-m, 13px)/1 var(--ms-font-label); color: var(--ms-text-quiet); font-variant-numeric: tabular-nums; letter-spacing: var(--ms-label-track); text-shadow: 1px 1px 0 var(--ms-surface); }
+  #vs-hud.vs-hud .vs-timer-final { color: var(--ms-accent); }
+  #vs-hud.vs-hud .vs-score, #vs-hud.vs-hud .vs-coins { font: 400 var(--ms-label-m, 13px)/1.1 var(--ms-font-label); font-variant-numeric: tabular-nums; text-shadow: 1px 1px 0 var(--ms-surface); }
+  #vs-hud.vs-hud .vs-score { color: var(--ms-text); margin-bottom: 0; }
+  #vs-hud.vs-hud .vs-coins { color: var(--ms-paper); }
+  #vs-hud.vs-hud .vs-btn { width: var(--ms-touch, 44px); height: var(--ms-touch, 44px); font-size: calc(16px * var(--ms-scale, 1)); border: var(--ms-border-w, 2px) solid var(--ms-border);
+    background: var(--ms-plate); color: var(--ms-text); box-shadow: var(--ms-shadow-button); }
+  #vs-hud.vs-hud .vs-btn:focus-visible { outline: 3px solid var(--ms-paper); outline-offset: 2px; }
+  #vs-hud.vs-hud .lo-slot { width: calc(22px * var(--ms-scale, 1)); height: calc(22px * var(--ms-scale, 1)); }
+  #vs-hud.vs-hud .lo-slot.empty { display: none; }              /* empty slots only show in the level-up menu */
+  #vs-hud.vs-hud .vs-year.ms-bar { width: clamp(110px, 16vw, 200px); }
+  /* phone held sideways (the short flag): one row, age and timer side by side, loadout tucked away */
+  @media (max-height: 499px) {
+    #vs-hud.vs-hud .vs-row { align-items: center; margin-top: var(--ms-space-1, 4px); }
+    #vs-hud.vs-hud .vs-left { flex-direction: row; align-items: center; gap: var(--ms-space-3, 12px); }
+    #vs-hud.vs-hud .vs-loadout { display: none; }
+    #vs-hud.vs-hud .vs-center { flex-direction: row; align-items: baseline; gap: var(--ms-space-2, 8px); }
+    #vs-hud.vs-hud .vs-year.ms-bar { display: none; }
+    html #minimap { width: 136px; height: 108px; border-width: 12px; border-image-width: 12px; }
+    html #minimap .mm-room { font-size: 10px; bottom: -22px; padding: 2px 5px 1px; }
+    .lt-strip { width: min(60vw, 560px); bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
+    .lt-strip .lt-text { font-size: var(--ms-body-s, 14px); -webkit-line-clamp: 2; }
+    .lt-strip .lt-body { padding: 6px 10px; }
+  }
   /* ===== Poster title screen (Nov 3): the key art is the hero, the menu lives inside the picture ===== */
   #title-modal[data-view="main"] { align-items: stretch; justify-content: stretch; padding: 0; overflow-y: auto; }
   .title-poster { position: relative; width: 100%; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
@@ -1722,7 +1750,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 335; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 336; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

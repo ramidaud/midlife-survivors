@@ -444,8 +444,8 @@ function initGameUI(scene) {
           <div class="vs-loadout" id="vs-loadout"></div>
         </div>
         <div class="vs-center">
-          <div class="vs-timer" id="vs-timer">00:00</div>
           <div class="vs-age" id="vs-age">AGE 40</div>
+          <div class="vs-timer" id="vs-timer">00:00</div>
           <div class="vs-year ms-bar year" title="Progress through this year"><div class="vs-year-fill ms-fill" id="vs-year-fill"></div></div>
           <div class="vs-combo hidden" id="vs-combo" aria-live="off"></div>
         </div>

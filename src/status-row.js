@@ -37,6 +37,7 @@ ${ids.join(",")}{position:static!important;transform:none!important;left:auto!im
 @media (prefers-reduced-motion:reduce){#status-row .low .t{animation:none!important}}
 /* centered, but never under the corner map (172 wide on portrait screens, 232 elsewhere) */
 @media (max-width:760px),(orientation:portrait){#status-row{width:min(560px,calc(100vw - 2 * (172px + 6px + var(--ms-space-4,16px))))}}
+@media (max-height:499px){#status-row{width:min(560px,calc(100vw - 2 * (136px + 10px + var(--ms-space-4,16px))))}} /* sideways phone: the small map (A8) */
 /* phone: beside the corner map (full width before you find it); it steps aside while a headline is up */
 @media (max-width:599px){#status-row{width:auto;left:var(--ms-space-2,8px);right:var(--ms-space-2,8px);transform:none;
     top:calc(var(--ms-nav-h,0px) + max(var(--ms-hud-b,122px), var(--ms-hud-left-b,118px)))} /* under the loadout slots too */

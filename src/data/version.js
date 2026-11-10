@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.7",
-  displayVersion: "V. 2.26.7",
+  version: "2.26.8",
+  displayVersion: "V. 2.26.8",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 335,
+  build: 336,
   changelog: [
+    {
+      ver: "V. 2.26.8", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your age is the big number now. As it should be.",
+      highlights: [
+        "The HUD leads with your age, with the clock tucked underneath. Pause and sound are bigger, easier buttons, and empty item slots only show up when you level up.",
+        "On phones the camera sits a little closer, so your hero is never smaller than a fingertip.",
+        "Phone held sideways: the HUD fits in one row, the minimap shrinks, and the message bar stays short, so most of the screen is the floor."
+      ]
+    },
     {
       ver: "V. 2.26.7", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your thumb was sitting on the news.",

@@ -198,10 +198,11 @@ window.addEventListener("touchstart", e => {
 // screen, in quarter steps. 720p laptop = 1x, 1080p = 1.5x, 1440p = 2.25x, 4K = 3.25x.
 // Phones may zoom out to minZoom so they see more of the office (Grok, Nov 3: phone runs ended ~10 years earlier;
 // at 1x a phone only showed about 390 px of floor). If things look too tiny, raise minZoom to 0.85.
-const VIEW = { targetShortSide: 640, maxZoom: 4, minZoom: 0.75 };
+const VIEW = { targetShortSide: 640, maxZoom: 4, minZoom: 0.75, minHeroPx: 48, heroPx: 52 }; // A8: hero never under 48 px tall on screen
 function viewZoomFor(w, h) {
   const z = Math.floor((Math.min(w, h) / VIEW.targetShortSide) * 4) / 4;
-  return Math.max(VIEW.minZoom, Math.min(VIEW.maxZoom, z));
+  const heroFloor = VIEW.minHeroPx ? Math.ceil((VIEW.minHeroPx / VIEW.heroPx) * 20) / 20 : 0; // design system A8 (Nov 10): 0.95 today
+  return Math.max(VIEW.minZoom, heroFloor, Math.min(VIEW.maxZoom, z));
 }
 window.viewZoomFor = viewZoomFor;
 function resetInputState(scene) {
@@ -1489,7 +1490,7 @@ function measureHudEdges() {
   if (!c || !r || !l) return;
   const cb = c.getBoundingClientRect(), rb = r.getBoundingClientRect(), lb = l.getBoundingClientRect();
   if (!cb.height || !rb.height) return; // HUD hidden (title, game over): keep the last numbers
-  const W = window.innerWidth, H = window.innerHeight, mmW = (W <= 760 || H > W) ? 172 : 232; // the minimap's two sizes (src/minimap.js)
+  const W = window.innerWidth, H = window.innerHeight, mmW = H < 500 ? 136 : (W <= 760 || H > W) ? 172 : 232; // the minimap's sizes (src/minimap.js; 136 on a sideways phone, A8)
   let right = rb.bottom; if (cb.right > W - mmW - 16) right = Math.max(right, cb.bottom); // narrow screens: the age bar is above the map too
   const set = (k, v) => { v = Math.round(v) + "px"; const st = document.documentElement.style; if (st.getPropertyValue(k) !== v) st.setProperty(k, v); };
   set("--ms-hud-b", cb.bottom + 8); set("--ms-mm-top", right + 14); set("--ms-hud-left-b", lb.bottom + 8);
