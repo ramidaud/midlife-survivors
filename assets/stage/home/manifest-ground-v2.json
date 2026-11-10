@@ -1,0 +1,222 @@
+{
+  "version": 2,
+  "assets": [
+    {
+      "id": "street-band-v2-a",
+      "file": "street-band-v2-a.png",
+      "size": [
+        832,
+        320
+      ],
+      "repeat": "x",
+      "seamCheck": "street-band-v2-a-seam-check.png",
+      "solid": false
+    },
+    {
+      "id": "street-band-v2-b",
+      "file": "street-band-v2-b.png",
+      "size": [
+        832,
+        320
+      ],
+      "repeat": "x",
+      "seamCheck": "street-band-v2-b-seam-check.png",
+      "solid": false
+    },
+    {
+      "id": "lawn-v2-a",
+      "file": "lawn-v2-a.png",
+      "size": [
+        512,
+        512
+      ],
+      "repeat": "xy",
+      "seamCheck": "lawn-v2-a-seam-check.png",
+      "solid": false
+    },
+    {
+      "id": "lawn-v2-b",
+      "file": "lawn-v2-b.png",
+      "size": [
+        512,
+        512
+      ],
+      "repeat": "xy",
+      "seamCheck": "lawn-v2-b-seam-check.png",
+      "solid": false
+    },
+    {
+      "id": "driveway-v2",
+      "file": "driveway-v2.png",
+      "size": [
+        64,
+        256
+      ],
+      "repeat": "y",
+      "seamCheck": "driveway-v2-seam-check.png",
+      "solid": false
+    },
+    {
+      "id": "lawn-details-v2",
+      "file": "lawn-details-v2.png",
+      "size": [
+        512,
+        64
+      ],
+      "repeat": null,
+      "solid": false,
+      "frames": [
+        {
+          "id": "leaf-drift",
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "mulch-mums",
+          "rect": [
+            64,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "stepping-stones",
+          "rect": [
+            128,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "raked-leaves-rake",
+          "rect": [
+            192,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "chalk-hopscotch",
+          "rect": [
+            256,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "tipped-scooter",
+          "rect": [
+            320,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "puddle-leaves",
+          "rect": [
+            384,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        },
+        {
+          "id": "sprinkler-wet-patch",
+          "rect": [
+            448,
+            0,
+            64,
+            64
+          ],
+          "margin": 4
+        }
+      ]
+    }
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "backgrounds": {
+    "plates": "Opaque floor colors",
+    "stickers": "Opaque exact #FF00FF"
+  },
+  "street": {
+    "approvedWidth": 832,
+    "reason": "Rami approved 832 instead of 800 so the 64px dash cycle repeats exactly.",
+    "crossSection": {
+      "topSidewalk": [
+        0,
+        64
+      ],
+      "road": [
+        64,
+        256
+      ],
+      "bottomSidewalk": [
+        256,
+        320
+      ]
+    },
+    "topAprons": [
+      [
+        280,
+        0,
+        64,
+        64
+      ],
+      [
+        680,
+        0,
+        64,
+        64
+      ]
+    ],
+    "dash": {
+      "y": [
+        158,
+        162
+      ],
+      "length": 32,
+      "gap": 32,
+      "phase": 16
+    },
+    "edgeCompatibility": "Both variants have identical left and right edge columns."
+  },
+  "checks": {
+    "nativeSizes": true,
+    "palette": true,
+    "opaque": true,
+    "streetEdges": true,
+    "lawnEdges": true,
+    "drivewayEdges": true,
+    "stickerMargins": true
+  },
+  "runtime": "Art only. Claude owns placement; retain v1 fallback. Update the runtime repeat width to 832, not the original 800."
+}

@@ -16,6 +16,7 @@ window.TITLE_ART = {
   // composed so the cast sits where the title screen's UI leaves room (docs/handoffs/chatgpt-key-art-v2.md).
   //   srcPortrait / focusPortrait: used on phones and portrait tablets. focusTablet: the crop on portrait tablets (700 px+ wide),
   //   which show more of the top and bottom, so the cast needs nudging up to clear Punch In.
+  //   stage:  "home" marks Maple Hollow art. When Maple Hollow is picked, those slides lead; otherwise they mix in as a teaser.
   slides: [
     { src: "assets/title-screen/slides/08-group-photo-desktop.jpg", srcPortrait: "assets/title-screen/slides/08-group-photo-portrait-v3.jpg", name: "Group Photo",    focus: "74% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false },
     { src: "assets/title-screen/slides/09-reboot-desktop.jpg",      srcPortrait: "assets/title-screen/slides/09-reboot-portrait-v3.jpg",      name: "Off and On Again", focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false },
@@ -29,7 +30,10 @@ window.TITLE_ART = {
     { src: "assets/title-screen/slides/11-performance-review.jpg", name: "Performance Review", focus: "55% 50%", move: "still", pointer: false, wideOnly: true,
       live: "assets/title-screen/live/performance-review/play/" }, // Nov 8 (Rami): the boss intro as a title slide, title card baked in. Wide screens only (a phone crop cuts the card).
     { src: "assets/title-screen/slides/04-chase.jpg",       name: "The Long Way",     focus: "50% 58%", focusPortrait: "50% 55%", move: "push",   pointer: false },
-    { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", focusPortrait: "50% 62%", move: "reveal", pointer: false }
+    { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", focusPortrait: "50% 62%", move: "reveal", pointer: false },
+    // Maple Hollow (Nov 10, ChatGPT/Codex): drawn for the title layout, desktop + portrait.
+    { src: "assets/title-screen/slides/13-maple-hollow-desktop.jpg",    srcPortrait: "assets/title-screen/slides/13-maple-hollow-portrait.jpg",    name: "Welcome to Maple Hollow", focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false, stage: "home" },
+    { src: "assets/title-screen/slides/14-not-the-minivan-desktop.jpg", srcPortrait: "assets/title-screen/slides/14-not-the-minivan-portrait.jpg", name: "That's Not the Minivan",  focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false, stage: "home" }
   ],
   // V1 slides still retired (Nov 3: the title UI covers their main characters). Move any back into slides[] to reuse it.
   retired: [

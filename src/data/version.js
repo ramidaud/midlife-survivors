@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.23.0",
-  displayVersion: "V. 2.23.0",
+  version: "2.24.0",
+  displayVersion: "V. 2.24.0",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 321,
+  build: 322,
   changelog: [
+    {
+      ver: "V. 2.24.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "New sidewalks. Same HOA.",
+      highlights: [
+        "Maple Hollow's ground is redrawn to match the houses: clean sidewalk slabs with chalk drawings, storm drains, leaves in the gutters, a lost mitten, and lawns with real leaf drifts, mums and stepping stones.",
+        "Two new title-screen pictures: Welcome to Maple Hollow, and That's Not the Minivan. Pick Maple Hollow and the title opens on your town."
+      ]
+    },
     {
       ver: "V. 2.23.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "That's not the minivan.",

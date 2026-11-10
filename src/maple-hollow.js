@@ -21,6 +21,10 @@ window.MapleHollow = (() => {
     try { intImg = await H.image(ROOT + "house-interior-v1.png"); intMap = await (await fetch(ROOT + "house-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { intImg = null; }
     let garImg = null, garMap = null; // the garage (Nov 10)
     try { garImg = await H.image(ROOT + "garage-interior-v1.png"); garMap = await (await fetch(ROOT + "garage-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { garImg = null; }
+    const G2 = M.ground2 && M.ground2.on ? M.ground2 : null, g2 = {}; // ground v2 plates (Nov 10)
+    if (G2) try {
+      [g2.sa, g2.sb, g2.la, g2.lb, g2.dw, g2.dt] = await Promise.all([G2.street[0], G2.street[1], G2.lawn[0], G2.lawn[1], G2.driveway, G2.details].map(f => H.image(ROOT + f)));
+    } catch (e) { g2.sa = null; }
     if (!H.isAlive()) return null;
     const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
     if (window.ArtSheets) { // load early so they're ready when the run starts
@@ -68,12 +72,37 @@ window.MapleHollow = (() => {
       t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
     }
     if (garImg) keyFor.mh_garage = "mh_garage";
+    const v2 = !!(G2 && g2.sa);
+    if (v2) { // ---- ground v2: one street-band picture (both streets use it) and a two-variant lawn ----
+      const drives = []; for (let i = 0; i < 6; i++) drives.push(M.firstLotX + i * M.lotWidth + 40);
+      if (!scene.textures.exists("mh_band2")) {
+        const t = scene.textures.createCanvas("mh_band2", W, 320), c = t.getContext(); c.imageSmoothingEnabled = false;
+        const [r0, r1] = G2.curbRows, aw = G2.apronW;
+        for (let k = 0, x = 0; x < W; k++, x += G2.streetStep) {
+          const img = k % 2 ? g2.sb : g2.sa; c.drawImage(img, x, 0);
+          // patch over the plate's own curb cuts with plain curb from 128 px away (same slab rhythm)
+          G2.plateAprons.forEach(ax => { const from = ax + 128 + aw <= G2.streetStep ? ax + 128 : ax - 128; c.drawImage(img, from, r0, aw, r1 - r0, x + ax, r0, aw, r1 - r0); });
+        }
+        // and cut new ones where the driveways really are
+        drives.forEach(dx => c.drawImage(g2.sa, G2.plateAprons[0], r0, aw, r1 - r0, dx, r0, aw, r1 - r0));
+        t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
+      }
+      if (!scene.textures.exists("mh_lawn2")) { // A/B checkerboard so the same leaf drift doesn't line up in rows
+        const t = scene.textures.createCanvas("mh_lawn2", 1024, 1024), c = t.getContext(); c.imageSmoothingEnabled = false;
+        [[0, 0, g2.la], [512, 0, g2.lb], [0, 512, g2.lb], [512, 512, g2.la]].forEach(([x, y, im]) => c.drawImage(im, x, y));
+        t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
+      }
+      if (!scene.textures.exists("mh_drive2")) { const t = scene.textures.createCanvas("mh_drive2", 64, 256); t.getContext().drawImage(g2.dw, 0, 0); t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST); }
+      keyFor.mh_grass = "mh_lawn2";
+      [R.sidewalk1, R.sidewalk3].forEach(y => all.push(scene.add.image(0, y, "mh_band2").setOrigin(0).setDepth(-1000)));
+    }
     for (const f of data.floors) {
+      if (v2 && (f.material === "mh_sidewalk" || f.material === "mh_street")) continue; // drawn by the street bands above
       const t = scene.add.tileSprite(f.x, f.y, f.width, f.height, keyFor[f.material] || grassKey).setOrigin(0).setDepth(-1000);
       all.push(t);
     }
-    // a manhole or two on each street
-    [[620, R.street1 + 32], [1880, R.street1 + 128], [1240, R.street2 + 32]].forEach(([x, y]) => {
+    // a manhole or two on each street (v1 only: the v2 plates have their own)
+    if (!v2) [[620, R.street1 + 32], [1880, R.street1 + 128], [1240, R.street2 + 32]].forEach(([x, y]) => {
       const k = "mh_tile_" + T.manhole;
       if (!scene.textures.exists(k)) { const t = scene.textures.createCanvas(k, 32, 32); t.getContext().imageSmoothingEnabled = false; cell(t.getContext(), T.manhole, 0, 0); t.refresh(); }
       all.push(scene.add.image(x, y, k).setOrigin(0).setDepth(-999));
@@ -88,7 +117,7 @@ window.MapleHollow = (() => {
     }
     const lotX = i => M.firstLotX + i * M.lotWidth;
     const drive = (x, y0, y1) => {
-      const k = "mh_drive"; ground(k, 64, 64, (xx, yy, r) => r() < 0.2 ? T.oil : T.driveway);
+      const k = v2 ? "mh_drive2" : "mh_drive"; if (!v2) ground(k, 64, 64, (xx, yy, r) => r() < 0.2 ? T.oil : T.driveway);
       all.push(scene.add.tileSprite(x, y0, 64, y1 - y0, k).setOrigin(0).setDepth(-998));
     };
     if (yourImg) for (let i = 0; i < 2; i++) { // cell 0 door closed, cell 1 door open (only the doorway changes)
@@ -136,6 +165,22 @@ window.MapleHollow = (() => {
         const idx = [41, 43, 44, 45, 47][Math.floor(r() * 5)];
         all.push(scene.add.image(Math.round(cx - 120 + r() * 240), Math.round(R.sidewalk2End + 50 + r() * 60), propKey(idx)).setScale(1.5).setOrigin(0.5, 1).setDepth(2.5));
       }
+    }
+
+    // ---- lawn details v2: flat stickers (leaf drifts, mums, stepping stones, a tipped scooter...) under everyone ----
+    if (v2 && g2.dt) {
+      const dKey = i => {
+        const k = "mh_det2_" + i; if (scene.textures.exists(k)) return k;
+        const c = document.createElement("canvas"); c.width = 64; c.height = 64; c.getContext("2d").drawImage(g2.dt, i * 64, 0, 64, 64, 0, 0, 64, 64);
+        H.propTexture(scene, c, k, 64, 64); return k;
+      };
+      const r2 = rng(2026), put = (x, y) => all.push(scene.add.image(Math.round(x), Math.round(y), dKey(Math.floor(r2() * 8))).setOrigin(0.5, 1).setDepth(2.4));
+      for (let i = 0; i < 6; i++) {
+        const cx = lotX(i);
+        for (let k = 0; k < G2.detailsPerYard; k++) { put(cx - 150 + r2() * 90, R.northHouseFront + 72); put(cx - 150 + r2() * 90, R.southHouseFront + 72); }
+        for (let k = 0; k < G2.detailsPerBackyard; k++) put(cx - 140 + r2() * 280, R.sidewalk2End + 90 + r2() * 80);
+      }
+      for (let k = 0; k < G2.detailsUpTop; k++) put(80 + r2() * (W - 160), 60 + r2() * 150);
     }
 
     // ---- inside your house: walls with doorways into the hallway, furniture, room names ----

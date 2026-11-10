@@ -572,3 +572,10 @@ Review all four jobs at `assets/art-direction/review-nov9-home-shop-v1.html`. Sh
 - **Review:** Low garage-door strips corrected from the original tall elevations. Slate concrete avoids lavender cast and shares clean repeating edges. Dust decal has magenta center; minivan is unbranded. Native dimensions/palette/opacity/seams and atlas bounds/non-overlap checked. Mock-up is not a runtime layout or pathing test; Claude handles V8 emergence, door clearance and navigation. No runtime changes/version bump/push.
 
 Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `assets/art-direction/checks-math-garage-v1.json`.
+
+## 2026-11-10 Maple Hollow title slides and ground v2 (Codex, review draft)
+
+- **What/Files:** Four new JPG title slides (13 Maple Hollow, 14 Not the Minivan, desktop1920x1080/phone1080x1920), prompt records, 12-color PNG masters and guide checks in `assets/art-direction/title-maple-v1/`. Phone scenes composed separately; proportional crop only, exact3px blocks. No squeezing.
+- **Ground:** Six native PNGs in `assets/stage/home/`: street A/B832x320, lawn A/B512x512, driveway64x256, eight64px decals on512x64. Manifest, prompts, repeated and mixed seam checks, README. Palette/opacity/native dimensions checked; street edges shared A/B, lawns compatible all sides, driveway top/bottom equal, sticker margins4px.
+- **For Claude:** Rami explicitly approved **832px street width instead of800**. Repeat step832; 13 complete64px dash/gap cycles, phase16. Top64px aprons x280 and680. All new dressing non-solid; keep v1 fallback. Recommend home slides lead for Maple Hollow selection, with occasional teaser use elsewhere, pending Rami's choice.
+- **Review/Notes:** `assets/art-direction/review-maple-title-ground-v2.html`. Title guide checks show placement for menu review, not a runtime UI test. Bright sage lawn and broad slate road replace noise; deliberate baked chalk/leaves/grates/stains. No runtime, navigation, balance, version or slideshow edits. Local art/docs draft, not committed or pushed.

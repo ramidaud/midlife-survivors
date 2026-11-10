@@ -1,0 +1,14 @@
+{
+  "key": "street-a",
+  "file": "street-band-v2-a.png",
+  "prompt": "Midlife Survivors MAPLE HOLLOW GROUND V2 production art. Match HOUSE reference's clean handmade16-bit pixel art: broad flat color shapes,2-3 shades, crisp readable details, hard pixel clusters. One-pixel-equivalent navy outline on OBJECTS only, not on grass blades. Top-down with slight3/4 depth. NO speckled noise, grit overlay, photographic texture, pointillism, blur, antialiasing, sepia, golden haze or film tint. Neutral white balance. Palette ONLY #F2D7A1 #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #EF9347 #FFF0CF #C45C4B #BFA8CF #F1B5BF. No text, letters, numbers, logos, brands, UI, characters, houses or vehicles. House images are STYLE references only; screenshot with noisy grass is a NEGATIVE EXAMPLE, NEVER copy its noise or UI. STREET BAND variantA, exact832x320 (Rami approved updated width), seamless LEFT-TO-RIGHT. FIRST reference is the exact structural guide, preserve its cross-section and curb cuts. TOP sidewalk y0-64; ROAD y64-256; BOTTOM sidewalk y256-320. Continuous cream concrete slabs, expansion joints every64px. Raised curb lip at both road edges, navy edge and khaki face. TOP DRIVEWAY APRONS exactly x280-344 andx680-744,64px each, curb lowered flush to asphalt. Matte slate-blue #526078 road, broad very subtle wear patches, NOT noise. Cream center dashes at y160,32px long and32px gaps, sharing the guide's phase. Darker gutter strips, a few readable orange/russet maple leaf drifts. Keep LEFT and RIGHT outer24px free of decorative objects and identical between variants; all road/curb/slab lines must continue at joins.\nDetails spaced widely, no crowding: storm-drain grate near top curb aroundx180; round manhole aroundx430,y110; patched pothole aroundx620,y210; tiny faded tire skid; chalk SUN on upper sidewalk aroundx80; bottom-sidewalk flower doodle without writing; a crack with one weed; acorn cluster nearx460; one small dropped mitten near bottomx720.\nDraw ONE complete continuous street plate filling canvas, NOT an atlas, no lawn bands, no borders/labels. Thin top-down decorative contact shading belongs to objects, no large cast shadows across road. Much of road and sidewalk remains flat quiet color.",
+  "refs": [
+    "/tmp/maple-street-832-structure.png",
+    "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/docs/handoffs/img/maple-hollow-houses-zoom.png",
+    "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/your-house-v1.png",
+    "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/docs/handoffs/img/maple-hollow-ground-now.png"
+  ],
+  "brief": "docs/handoffs/chatgpt-maple-hollow-ground-v2.md",
+  "approvedOverride": "Street plates are 832x320, explicitly approved by Rami so 13 full 64px dash/gap cycles fit.",
+  "export": "Native pixels; shared 12-color quantization; deterministic edge and curb alignment; sticker extraction on opaque exact magenta."
+}

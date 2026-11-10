@@ -1,0 +1,13 @@
+{
+  "key": "lawn-b",
+  "file": "lawn-v2-b.png",
+  "prompt": "Midlife Survivors MAPLE HOLLOW GROUND V2 production art. Match HOUSE reference's clean handmade16-bit pixel art: broad flat color shapes,2-3 shades, crisp readable details, hard pixel clusters. One-pixel-equivalent navy outline on OBJECTS only, not on grass blades. Top-down with slight3/4 depth. NO speckled noise, grit overlay, photographic texture, pointillism, blur, antialiasing, sepia, golden haze or film tint. Neutral white balance. Palette ONLY #F2D7A1 #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #EF9347 #FFF0CF #C45C4B #BFA8CF #F1B5BF. No text, letters, numbers, logos, brands, UI, characters, houses or vehicles. House images are STYLE references only; screenshot with noisy grass is a NEGATIVE EXAMPLE, NEVER copy its noise or UI. LAWN PLATE variantB, exact512x512 SQUARE, seamless on ALL FOUR EDGES and compatible with other variant. About75% is clear flat BRIGHT SAGE #83A89A grass base, not dark teal. A few larger hand-drawn blade CLUMPS and curved tufts in teal #3E7775, each cluster readable, widely separated. NO evenly distributed tiny specks, dither, fine texture or repeated32px grid. Peak-fall leaf DRIFTS in coffee-orange and russet, clover PATCHES, one worn khaki dirt spot, a few cream dandelion PUFFS. Use different arrangement: broad crescent leaf drift lower right, smaller leaf patch upper left, clover near center-right, small dirt spot upper-middle, dandelions left-middle. Keep outer24px mostly flat base sage with sparse unobtrusive tufts, so edges repeat without clipped motifs. No navy outline around the tile or grass, no shadows vignette or border. ONE full square of lawn, no detached props or houses, not a scene.",
+  "refs": [
+    "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/docs/handoffs/img/maple-hollow-houses-zoom.png",
+    "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/your-house-v1.png",
+    "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/docs/handoffs/img/maple-hollow-ground-now.png"
+  ],
+  "brief": "docs/handoffs/chatgpt-maple-hollow-ground-v2.md",
+  "approvedOverride": "Street plates are 832x320, explicitly approved by Rami so 13 full 64px dash/gap cycles fit.",
+  "export": "Native pixels; shared 12-color quantization; deterministic edge and curb alignment; sticker extraction on opaque exact magenta."
+}

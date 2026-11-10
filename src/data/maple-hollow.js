@@ -51,6 +51,15 @@ window.MAPLE_HOLLOW = {
   southHouses: [3, 5, 0, 4, 2, 1],
   yourHouse: { row: "north", lot: 2 }, // you start on the sidewalk in front of this one
   // little yard props (frame numbers in maple-hollow-tiles-props-v1.png, 32x32 cells): drawn under everyone, not solid
+  // Ground v2 (Nov 10, Rami: "match the houses, more details baked in"). Big hand-drawn plates by ChatGPT/Codex replace
+  // the 32 px tile mix. Street plates are 832 wide (13 whole dash cycles) and alternate A/B; their own curb cuts get
+  // patched over and new ones are stamped where each driveway really meets the sidewalk. Set on: false to go back to v1.
+  ground2: {
+    on: true,
+    street: ["street-band-v2-a.png", "street-band-v2-b.png"], streetStep: 832, plateAprons: [280, 680], apronW: 64, curbRows: [36, 64],
+    lawn: ["lawn-v2-a.png", "lawn-v2-b.png"], driveway: "driveway-v2.png",
+    details: "lawn-details-v2.png", detailsPerYard: 1, detailsPerBackyard: 1, detailsUpTop: 6
+  },
   yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
   // Step 4 (Nov 9): the neighborhood's own crowd. When the office would spawn one of these, it sometimes sends the
   // home version instead: [office kind]: [home kind, chance].

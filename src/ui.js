@@ -2959,7 +2959,9 @@ window.TitleSlides = (() => {
     const n = (i + 1) % root.children.length, nx = window.TITLE_ART.slides[n];
     if (!root.children[n].dataset.src) { const im = new Image(); im.src = (phone() && nx.srcPortrait) || nx.src; }
   }
-  let first = true;
+  let first = true, lastStage = "office";
+  const homeLead = () => window.STAGE_ID === "home" || (typeof meta !== "undefined" && meta.stage === "home" && typeof homeUnlocked === "function" && homeUnlocked(meta));
+  const homeIdx = () => window.TITLE_ART.slides.map((s, i) => s.stage === "home" ? i : -1).filter(i => i >= 0);
   function dropPre() { const pre = document.getElementById("title-slides-pre"); if (pre) pre.remove(); }
   function start() {
     if (!root && !build()) { dropPre(); return; }
@@ -2969,15 +2971,29 @@ window.TitleSlides = (() => {
     if (first) {
       // The very first slide appears with no fade, on top of the static copy index.html already painted (Fable review #4).
       first = false;
-      const el = root.children[idx]; el.classList.add("instant");
+      const h = homeLead() ? homeIdx() : [];
+      if (h.length) { // Nov 10: Maple Hollow players open on their town. The office pre-paint stays up until it has loaded.
+        idx = h[Math.floor(Math.random() * h.length)];
+        const sl = window.TITLE_ART.slides[idx], im = new Image(); let done = false;
+        const go = () => { if (done) return; done = true; const el = root.children[idx]; el.classList.add("instant"); show(idx); requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.remove("instant"); dropPre(); })); };
+        im.onload = im.onerror = go; setTimeout(go, 1500); im.src = (phone() && sl.srcPortrait) || sl.src;
+      } else {
+        const el = root.children[idx]; el.classList.add("instant");
+        show(idx);
+        requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.remove("instant"); dropPre(); }));
+      }
+    } else {
+      // Nov 10: just switched to Maple Hollow? Open on one of its slides.
+      if (homeLead() && lastStage !== "home") { const h = homeIdx(); if (h.length) idx = h[Math.floor(Math.random() * h.length)]; }
       show(idx);
-      requestAnimationFrame(() => requestAnimationFrame(() => { el.classList.remove("instant"); dropPre(); }));
-    } else show(idx);
+    }
+    lastStage = homeLead() ? "home" : "office";
     const A = window.TITLE_ART;
     // Random order (Nov 8, Rami): the first slide stays put (index.html pre-paints it so the screen is never blank),
     // then the rest play shuffled, reshuffled every time through, never the same slide twice in a row.
     const shuffled = except => { const o = A.slides.map((_, i) => i).filter(i => i !== except); for (let i = o.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [o[i], o[j]] = [o[j], o[i]]; } return o; };
     let order = A.shuffle === false ? null : shuffled(idx);
+    if (order && homeLead()) order = homeIdx().filter(i => i !== idx).concat(order.filter(i => !homeIdx().includes(i))); // Maple Hollow art leads
     if (A.slides.length > 1) timer = setInterval(() => {
       if (!order) idx = (idx + 1) % A.slides.length;
       else { if (!order.length) { order = shuffled(idx); order.push(idx); } idx = order.shift(); }

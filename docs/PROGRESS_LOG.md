@@ -1996,3 +1996,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The V8 sits parked over a car-shaped dust outline all run. From 59.4 it revs ("vroom...") and the car shudders.
 - At 60 it bursts out of the garage if you're inside, or down your driveway if you're on the street. Doors swing open; after you beat it, a line about the dust outline.
 - Maple Hollow step 5 is done. Next: Rami plays a home run to 60 and checks how the homework boss and the garage feel.
+
+## 2026-11-10 (2:50 AM): V2.24.0, Maple Hollow ground v2 and title art
+- Rami didn't like the grass, road and sidewalk. ChatGPT/Codex redrew them as big plates in the houses' style: street bands (832 wide, two variants), two lawns, a driveway, eight lawn stickers.
+- The plates' own curb cuts get patched over, and new ones are stamped where each driveway really meets the sidewalk.
+- Two new title slides (Welcome to Maple Hollow, That's Not the Minivan), desktop and phone. Maple Hollow players open on them; office players see them mixed in as a teaser.

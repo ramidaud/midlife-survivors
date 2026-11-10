@@ -717,3 +717,11 @@ A game can have more than one clock. Phaser keeps its own scene time, but Midlif
 
 ## Hooks (Nov 10, the garage)
 The boss code already knew how to spawn the V8; it just picked a spot off the right edge of the screen. Instead of rewriting that, we added a hook: right before a boss appears, the game asks the garage "do you want to choose where this one shows up?" The garage says yes only for the V8 at home and answers "your driveway" or "the garage bay." A hook lets new content change one moment of old code without touching how everything else works.
+
+
+## 2026-11-10: Maple Hollow art review (Codex)
+
+A repeating road must fit whole dash-and-gap cycles.832px holds13 cycles of64px;800px would shift the center line at each join. Ground v2 uses shared boundary pixels and mixed-variant seam checks.
+
+## Tiles vs. plates (Nov 10, Maple Hollow ground v2)
+Small tiles (32 px squares) are flexible but repetitive: shuffle a few squares across a big map and the eye spots the pattern, and every square has to be busy enough to hide the seams, which reads as noise. Plates are big hand-drawn pictures (here 832 x 320, a whole street) that repeat far less often, so they can be calm and carry real details like a chalk sun or a lost mitten. The trade-off is that a plate's details sit in fixed places, so things like curb cuts had to be patched to line up with where the driveways actually are.

@@ -675,3 +675,12 @@ Fifth-Grade Math Homework has native worksheet-monster poses with a paper-plane 
 - Fourth room at the end of the hallway. The Midlife Crisis V8 is parked in the empty bay all run, over its dust outline.
 - From 59.4 it revs ("vroom...", "VROOM.", "...vrrRRRM"). At 60 it bursts out: from the garage if you're inside, down your driveway if you're outside. The garage doors open.
 - Numbers and lines: MAPLE_HOLLOW.garage. Code: src/garage.js.
+
+
+## 2026-11-10: Maple Hollow art review (Codex)
+
+Maple Hollow ground v2 art contract:832x320 street bands,512px lawns,64x256 driveway, eight64px non-solid decals. Repeat step832 explicitly approved to preserve64px road dash phase. Runtime integration pending review.
+
+### Maple Hollow ground v2 and title slides (Nov 10)
+- Ground: street plates A/B (832 repeat), lawn A/B checkerboard, driveway strip, 8 lawn stickers scattered by seed. Config: MAPLE_HOLLOW.ground2 (on: false returns to the v1 tiles).
+- Title: slides 13 and 14 carry stage "home". Picking Maple Hollow opens on one and puts both first; otherwise they mix into the shuffle as a teaser.
