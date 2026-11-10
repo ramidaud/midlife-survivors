@@ -131,7 +131,7 @@ window.Minimap = (() => {
     if (document.getElementById("minimap-css")) return;
     const st = document.createElement("style"); st.id = "minimap-css";
     st.textContent = `
-#minimap{position:fixed;right:10px;top:calc(var(--ms-nav-h,0px) + 66px);z-index:24;width:232px;height:184px;box-sizing:border-box;border:16px solid transparent;border-image:url(${ART.frame}) 16 fill / 16px stretch;image-rendering:pixelated;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.45));cursor:pointer;touch-action:manipulation}
+#minimap{position:fixed;right:10px;top:calc(var(--ms-nav-h,0px) + var(--ms-mm-top,91px));z-index:24;width:232px;height:184px;box-sizing:border-box;border:16px solid transparent;border-image:url(${ART.frame}) 16 fill / 16px stretch;image-rendering:pixelated;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.45));cursor:pointer;touch-action:manipulation}
 #minimap canvas{position:absolute;inset:0;width:100%;height:100%;display:block;image-rendering:pixelated}
 #minimap .mm-room{position:absolute;left:50%;bottom:-27px;transform:translateX(-50%);white-space:nowrap;font:11px/1 Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#F2D7A1;border:2px solid #171C35;border-left:5px solid #EF9347;padding:4px 8px 3px;box-shadow:2px 2px 0 rgba(0,0,0,.45);pointer-events:none}
 #minimap.mm-min .mm-room{display:none}
@@ -142,7 +142,7 @@ window.Minimap = (() => {
 #minimap.mm-min canvas,#minimap.mm-min .mm-btn{display:none}
 #minimap.mm-min::after{content:"MAP ▸";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:12px/1 Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#F2D7A1;border-left:5px solid #EF9347} /* Nov 9: a minimized map now says MAP, so it's clearly a button */
 #minimap.hidden{display:none}
-@media (max-width:760px),(orientation:portrait){#minimap{width:172px;height:136px;top:calc(var(--ms-nav-h,0px) + 58px);right:6px;border-width:12px;border-image-width:12px}#minimap .mm-room{font-size:10px;bottom:-24px;padding:3px 6px 2px}#minimap .mm-btn{top:-11px}#minimap .mm-hide{right:-9px}#minimap .mm-big{right:13px}}
+@media (max-width:760px),(orientation:portrait){#minimap{width:172px;height:136px;top:calc(var(--ms-nav-h,0px) + var(--ms-mm-top,108px));right:6px;border-width:12px;border-image-width:12px}#minimap .mm-room{font-size:10px;bottom:-24px;padding:3px 6px 2px}#minimap .mm-btn{top:-11px}#minimap .mm-hide{right:-9px}#minimap .mm-big{right:13px}}
 #minimap-modal{position:fixed;inset:0;z-index:60;background:rgba(10,12,24,.88);display:flex;align-items:center;justify-content:center;padding:14px}
 #minimap-modal.hidden{display:none}
 #minimap-modal .mmb{position:relative;width:min(960px,96vw);max-height:92vh;background:${C.bg};border:2px solid ${C.frame};border-radius:8px;padding:12px;box-shadow:6px 6px 0 rgba(0,0,0,.5);display:flex;flex-direction:column;gap:8px}

@@ -66,6 +66,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"><!-- Nov 4: Bungee, Chakra Petch, Cinzel and Press Start 2P were only fallbacks or for the parked 3D themes (Fable review) -->
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
+<link rel="stylesheet" href="assets/ui/ms-tokens.css?v=1">
 <link rel="stylesheet" href="assets/ui/ms-nav.css?v=7">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
@@ -1365,6 +1366,12 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     .tp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   /* Universal nav (assets/ui/ms-nav.*): menus leave room for it; it disappears during a run */
+  /* Design system A1 (Nov 10): the nav is hidden during a run, so it takes up no room (it used to push every chip 57 px down) */
+  html.ms-playing { --ms-nav-h: 0px !important; }
+  /* ...and while a menu is open (level-up, chest, Lounge, pause, big map), the status layer and minimap step back */
+  html.ms-sheet #minimap, html.ms-sheet #errand-chip, html.ms-sheet #errand-arrow, html.ms-sheet #errand-buff,
+  html.ms-sheet #keyhunt-chip, html.ms-sheet #otb-chip, html.ms-sheet #otb-arrow, html.ms-sheet #workload-chip,
+  html.ms-sheet #mod-chip, html.ms-sheet .reorg-edge { visibility: hidden !important; }
   .title-poster { padding-top: calc(var(--ms-nav-h, 0px) + max(16px, env(safe-area-inset-top))) !important; }
   .ui-modal:not(#title-modal) { padding-top: calc(var(--ms-nav-h, 0px) + 10px); }
   /* Cards fit in the space under the nav, so a tall one (the exit interview, the retirement party) never tucks its top under it (Fable review) */
@@ -1687,7 +1694,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 328; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 329; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

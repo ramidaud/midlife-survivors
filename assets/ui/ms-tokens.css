@@ -1,0 +1,58 @@
+/* Midlife Survivors design tokens, v1 (Nov 10, 2026). Spec: docs/design/design-system-v1.md, section 2.
+   One file for the game and the devlog. New code uses these names, never raw hex, px sizes or z-index numbers.
+   Step A1 only adds the names: nothing reads them yet, so nothing looks different. */
+:root {
+  /* 2.1 color roles */
+  --ms-bg: #10142A;
+  --ms-surface: #171C35;
+  --ms-raised: #303750;
+  --ms-line: #526078;
+  --ms-border: #3E7775;
+  --ms-text: #FFF0CF;
+  --ms-text-quiet: #B8C0D4;
+  --ms-paper: #F2D7A1;
+  --ms-accent: #EF9347;
+  --ms-ok: #83A89A;
+  --ms-danger: #C45C4B;
+  --ms-scrim: rgba(16, 20, 42, .78);
+
+  /* 2.2 type: two fonts, ten sizes (phone values x --ms-scale) */
+  --ms-font-label: 'Silkscreen', monospace;
+  --ms-font-read: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --ms-label-track: .06em;
+  --ms-scale: 1;
+  --ms-label-s: calc(11px * var(--ms-scale));
+  --ms-label-m: calc(13px * var(--ms-scale));
+  --ms-label-l: calc(16px * var(--ms-scale));
+  --ms-display-s: calc(22px * var(--ms-scale));
+  --ms-display-l: calc(32px * var(--ms-scale) * var(--ms-display-boost, 1));
+  --ms-body-s: calc(14px * var(--ms-scale));
+  --ms-body: calc(16px * var(--ms-scale));
+  --ms-body-l: calc(18px * var(--ms-scale));
+  --ms-title: calc(22px * var(--ms-scale));
+  --ms-headline: calc(28px * var(--ms-scale));
+
+  /* 2.3 space, shape, depth */
+  --ms-space-1: 4px; --ms-space-2: 8px; --ms-space-3: 12px; --ms-space-4: 16px;
+  --ms-space-5: 24px; --ms-space-6: 32px; --ms-space-7: 48px;
+  --ms-radius-s: 2px; --ms-radius-m: 4px; --ms-radius-l: 8px;
+  --ms-border-w: 2px; --ms-border-w-strong: 3px;
+  --ms-shadow-button: 0 3px 0 #0B0E1D;
+  --ms-shadow-card: 4px 4px 0 rgba(0, 0, 0, .45);
+  --ms-plate: rgba(23, 28, 53, .94);
+  --ms-touch: 44px; --ms-touch-primary: 48px;
+
+  /* 2.4 motion */
+  --ms-fast: 120ms; --ms-base: 200ms; --ms-slow: 320ms; --ms-moment: 600ms;
+  --ms-ease: cubic-bezier(.2, .8, .2, 1);
+  --ms-ease-reward: cubic-bezier(.2, 1.5, .4, 1);
+
+  /* 2.5 layers */
+  --ms-z-world: 0; --ms-z-hud: 10; --ms-z-status: 20; --ms-z-ticker: 30; --ms-z-headline: 40;
+  --ms-z-sheet: 50; --ms-z-moment: 60; --ms-z-system: 70; --ms-z-dev: 90;
+}
+/* section 4: three size classes (compact is the default above) */
+@media (min-width: 600px) { :root { --ms-scale: 1.12; --ms-display-boost: 1.23; } }   /* regular: display-l 44 */
+@media (min-width: 1024px) { :root { --ms-scale: 1.25; --ms-display-boost: 1.4; } }   /* wide: display-l 56 */
+@media (max-height: 499px) { :root { --ms-scale: 1; --ms-display-boost: 1; } }        /* short flag: phone held sideways */
+@media (prefers-reduced-motion: reduce) { :root { --ms-base: 120ms; --ms-slow: 120ms; --ms-moment: 120ms; --ms-ease-reward: var(--ms-ease); } }

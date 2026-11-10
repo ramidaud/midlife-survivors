@@ -69,12 +69,16 @@ assets/                 art and sound (later)
 - **Headers (Nov 7, Rami's OK, from Darvin's note):** section headers come from Rami's own lines (a phrase he actually said) or are left out. No "The X" label headers.
 - **AI art color (Nov 7, Rami's OK):** every ChatGPT or other AI image request asks for neutral white balance, with no sepia, golden haze or film-look tint.
 
-## One look (Nov 3, Rami's OK)
-The game and the devlog are one product.
-- **Fonts:** Silkscreen for short labels and headings, Atkinson Hyperlegible for anything you read.
-- **Colors:** the devlog palette only (navy, slate, teal, sage, cream, coffee orange, russet). No off-palette blues or yellows.
-- **Building blocks:** cream "MEMO · RE:" strips, tiles with teal borders, the shared progress bar (`assets/ui/ms-bar.css`) and the universal nav (`assets/ui/ms-nav.*`).
-- **Every screen is checked** at phone, iPad (both orientations) and desktop sizes before it ships.
+## One look (design system v1, Nov 2026, Rami's OK)
+The game and the devlog are one product. The full spec is `docs/design/design-system-v1.md`.
+- **Tokens only.** Colors, type sizes, spacing, corners, layers and timings come from `assets/ui/ms-tokens.css`. No new hex values, pixel sizes or z-index numbers in code.
+- **Fonts:** Silkscreen for labels of four words or fewer, in caps. Atkinson Hyperlegible for anything you read. Nothing you read is under 14 px. Nothing you tap is under 44 px.
+- **Colors:** the devlog palette only (navy, slate, teal, sage, cream, coffee orange, russet). Coffee orange fill means the one primary button on a screen. Russet and teal never carry small text.
+- **Eight parts:** Button, Row, Card, Sheet, Banner, Toast, Chip, Memo. A new surface is built from these. If it can't be, raise it with Rami before inventing a ninth.
+- **In-run messages go through the router.** Alarms show in the headline slot under the HUD, story in the ticker at the bottom. One of each at most, and one total on a phone during a boss. Only sheets and moments pause the game. Nothing covers the floor around the hero during a boss.
+- **Three size classes:** compact (under 600 px wide), regular, wide (1024 and up), plus a short flag for phones held sideways. No other breakpoints.
+- **Voice:** plain verbs on buttons, the joke in the line underneath. No emoji in gameplay text.
+- **Every screen is checked** at phone, iPad (both orientations) and desktop sizes, with touch, keyboard and a controller, before it ships.
 - **Devlog memos (Nov 6):** "What changed" and "Next up" live in the right column (below the memo on phones and share pages), and every memo opens with a pixel-font drop cap.
 - **Social post images (Nov 6):** every memo gets a 1080x1350 (4:5) image in this style: cream "MEMO NN · RE:" strip, the cover art full width, a coffee-orange rule, the title in Silkscreen caps on navy, the teaser in Atkinson, and a footer with "READ IT + PLAY FREE" and the site address. `devlog/scripts/share_cards.py` (`make_social_post`) builds it automatically into `devlog/img/social/`.
 - **Social kit for every memo (Nov 7, Rami's OK):** when a memo is published, also make a 5-slide 4:5 carousel and a 15-20 second 9:16 Reel, then send Rami the files. The Reel moves: cut on the beat of one of the game's own tracks, moving key art, word-by-word headlines, real game footage or a live scene, and an ending ask with the site address. Text stays inside Instagram's safe area. Start from `devlog/scripts/memo13_social.py` (copy it to `memoNN_social.py`). Also draft the captions (Instagram Reel, Instagram carousel, Facebook, LinkedIn) in Rami's voice, built from his own lines in the memo, in `docs/social/NN-posts.md`.

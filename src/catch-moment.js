@@ -12,7 +12,7 @@ window.CatchMoment = (() => {
     if (document.getElementById("catch-css")) return;
     const st = document.createElement("style"), A = window.SPOTLIGHT_ROOT || ""; st.id = "catch-css";
     st.textContent = `
-#catch-moment{position:fixed;left:50%;top:calc(var(--ms-nav-h,0px) + 14%);z-index:46;pointer-events:none;transform:translateX(-50%);width:min(340px,86vw)}
+#catch-moment{position:fixed;left:50%;top:max(calc(var(--ms-nav-h,0px) + 14%), var(--ms-hud-b,122px));z-index:46;pointer-events:none;transform:translateX(-50%);width:min(340px,86vw)}
 #catch-moment .cm-flash{position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 55%,rgba(255,240,207,.85),rgba(239,147,71,.25) 45%,transparent 70%);animation:cmFlash .45s ease-out forwards}
 #catch-moment .cm-card{position:relative;background:none;border:24px solid transparent;border-image:url(${A}assets/ui/gotcha-frame-v1.png) 24 fill / 24px / 0 stretch;image-rendering:pixelated;filter:drop-shadow(6px 6px 0 rgba(0,0,0,.45)) drop-shadow(0 0 18px rgba(239,147,71,.4));padding:0;margin:-8px;animation:cmIn .42s cubic-bezier(.2,1.6,.4,1) both}
 #catch-moment.out .cm-card{animation:cmOut .3s ease-in forwards}

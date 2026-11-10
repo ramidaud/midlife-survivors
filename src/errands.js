@@ -10,7 +10,7 @@ window.Errands = (() => {
     if (document.getElementById("errand-css")) return;
     const st = document.createElement("style"); st.id = "errand-css";
     st.textContent = `
-#errand-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + 128px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,420px);
+#errand-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,122px) + 28px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,420px);
   background:#F2D7A1;color:#171C35;border:2px solid #171C35;border-left:6px solid #EF9347;box-shadow:3px 3px 0 rgba(0,0,0,.45);padding:6px 10px;font:13px/1.25 'Atkinson Hyperlegible',sans-serif;pointer-events:none}
 #errand-chip b{font:11px/1 Silkscreen,monospace;letter-spacing:.06em;white-space:nowrap}
 #errand-chip i{font-style:normal;font-weight:700}
@@ -19,7 +19,7 @@ window.Errands = (() => {
 #errand-chip.done{background:#83A89A;border-left-color:#3E7775}
 #errand-chip.hidden,#errand-arrow.hidden{display:none}
 #errand-arrow{position:fixed;z-index:22;width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:24px solid #EF9347;filter:drop-shadow(0 0 0 #171C35) drop-shadow(2px 2px 0 rgba(0,0,0,.5));pointer-events:none;transform-origin:50% 60%}
-@media (max-width:760px),(orientation:portrait){#errand-chip{top:calc(var(--ms-nav-h,0px) + 236px);left:8px;right:8px;transform:none;max-width:none;font-size:12px;padding:5px 8px}} /* below the corner map on phones */`;
+@media (max-width:760px),(orientation:portrait){#errand-chip{top:calc(var(--ms-nav-h,0px) + var(--ms-mm-top,108px) + 178px);left:8px;right:8px;transform:none;max-width:none;font-size:12px;padding:5px 8px}} /* below the corner map on phones */`;
     document.head.appendChild(st);
   }
   function ui() {
@@ -112,7 +112,7 @@ window.Errands = (() => {
   function buffChip(ms) {
     if (!bChip) {
       const st = document.createElement("style");
-      st.textContent = `#errand-buff{position:fixed;left:12px;top:calc(var(--ms-nav-h,0px) + 118px);z-index:22;background:#171C35;color:#83A89A;border:2px solid #83A89A;padding:4px 8px;font:11px/1 Silkscreen,monospace;letter-spacing:.05em;pointer-events:none;box-shadow:2px 2px 0 rgba(0,0,0,.45)}
+      st.textContent = `#errand-buff{position:fixed;left:12px;top:calc(var(--ms-nav-h,0px) + var(--ms-hud-left-b,134px));z-index:22;background:#171C35;color:#83A89A;border:2px solid #83A89A;padding:4px 8px;font:11px/1 Silkscreen,monospace;letter-spacing:.05em;pointer-events:none;box-shadow:2px 2px 0 rgba(0,0,0,.45)}
 #errand-buff.hidden{display:none}#errand-buff b{color:#FFF0CF;font-weight:normal}`;
       document.head.appendChild(st);
       bChip = document.createElement("div"); bChip.id = "errand-buff"; bChip.className = "hidden"; document.body.appendChild(bChip);

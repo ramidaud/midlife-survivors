@@ -16,14 +16,14 @@ window.OvertimeBeats = (() => {
   function ui() {
     if (!document.getElementById("otb-css")) {
       const st = document.createElement("style"); st.id = "otb-css";
-      st.textContent = `#otb-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + 128px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,440px);
+      st.textContent = `#otb-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,122px) + 28px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,440px);
   background:#F2D7A1;color:#171C35;border:2px solid #171C35;border-left:6px solid #BFA8CF;box-shadow:3px 3px 0 rgba(0,0,0,.45);padding:6px 10px;font:13px/1.25 'Atkinson Hyperlegible',sans-serif;pointer-events:none}
 #otb-chip b{font:11px/1 Silkscreen,monospace;letter-spacing:.06em;white-space:nowrap}
 #otb-chip .t{font:12px/1 Silkscreen,monospace;margin-left:auto;padding-left:6px;white-space:nowrap}
 #otb-chip.low .t{color:#874C3B}
 #otb-chip.hidden,#otb-arrow.hidden{display:none}
 #otb-arrow{position:fixed;z-index:22;width:0;height:0;border-left:13px solid transparent;border-right:13px solid transparent;border-bottom:24px solid #BFA8CF;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.5));pointer-events:none;transform-origin:50% 60%}
-@media (max-width:760px),(orientation:portrait){#otb-chip{top:calc(var(--ms-nav-h,0px) + 236px);left:8px;right:8px;transform:none;max-width:none;font-size:12px;padding:5px 8px}}`;
+@media (max-width:760px),(orientation:portrait){#otb-chip{top:calc(var(--ms-nav-h,0px) + var(--ms-mm-top,108px) + 178px);left:8px;right:8px;transform:none;max-width:none;font-size:12px;padding:5px 8px}}`;
       document.head.appendChild(st);
     }
     if (!chip) { chip = document.createElement("div"); chip.id = "otb-chip"; chip.className = "hidden"; document.body.appendChild(chip); }

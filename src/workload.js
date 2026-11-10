@@ -51,7 +51,7 @@ window.Workload = (() => {
   function css() {
     if (document.getElementById("workload-css")) return;
     const st = document.createElement("style"); st.id = "workload-css";
-    st.textContent = `#workload-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + 100px);z-index:22;display:flex;align-items:center;gap:7px;
+    st.textContent = `#workload-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,122px));z-index:22;display:flex;align-items:center;gap:7px;
   background:#171C35;color:#F2D7A1;border:2px solid #EF9347;padding:4px 9px;font:11px/1 Silkscreen,monospace;letter-spacing:.05em;pointer-events:none;box-shadow:2px 2px 0 rgba(0,0,0,.45)}
 #workload-chip.hidden{display:none}
 #workload-chip .p{display:inline-block;width:8px;height:10px;background:#303750;margin-left:2px}
@@ -59,7 +59,7 @@ window.Workload = (() => {
 #workload-chip .p.next{animation:wl-blink .4s steps(2) infinite}
 @keyframes wl-blink{50%{background:#F2D7A1}}
 @media (prefers-reduced-motion:reduce){#workload-chip .p.next{animation:none;background:#F2D7A1}}
-@media (max-width:760px),(orientation:portrait){#workload-chip{top:calc(var(--ms-nav-h,0px) + 92px);font-size:10px}}`;
+@media (max-width:760px),(orientation:portrait){#workload-chip{top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,102px));font-size:10px}}`;
     document.head.appendChild(st);
   }
   function draw() {

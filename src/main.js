@@ -415,7 +415,11 @@ function create() {
     const vsHud = document.getElementById("vs-hud");
     if (vsHud) vsHud.classList.toggle("hidden", !!(titleOpen || gameOver)); // no HUD peeking behind title or Game Over
     { const playing = !titleOpen && !gameOver && !paused; // the universal nav hides during a run (level-ups and chests included)
-      if (playing !== window._msPlaying) { window._msPlaying = playing; document.documentElement.classList.toggle("ms-playing", playing); } }
+      if (playing !== window._msPlaying) { window._msPlaying = playing; document.documentElement.classList.toggle("ms-playing", playing); }
+      // design system A1: a menu that pauses the run hides the chips and minimap (index.html, html.ms-sheet)
+      const sheet = !titleOpen && (!!paused || !!gameOver || !!levelUpOpen || !!(this.physics.world && this.physics.world.isPaused) || !!(window.BonusChest && BonusChest.isOpen()) || !!(window.Minimap && Minimap.isOpen && Minimap.isOpen()));
+      if (sheet !== window._msSheet) { window._msSheet = sheet; document.documentElement.classList.toggle("ms-sheet", sheet); } }
+    if (!(t - (window._msHudAt || -1e9) < 500)) { window._msHudAt = t; measureHudEdges(); } // twice a second: where the HUD really ends
     if (!player || !stats || titleOpen) return;
     // Health bar under the hero, drawn like the shared ms-bar (navy frame, teal ring, bevel, pixel segments).
     const w = 52, h = 8;
@@ -1476,6 +1480,18 @@ function grantSeniority() {
 window.grantSeniority = grantSeniority;
 
 // The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
+// Design system A1 (Nov 10): the minimap and chips sit just under the HUD, measured, not guessed. Sets three CSS variables:
+// --ms-hud-b (under the age bar), --ms-mm-top (under whatever is above the minimap's corner), --ms-hud-left-b (under the loadout).
+function measureHudEdges() {
+  const q = s => document.querySelector(s), c = q("#vs-hud .vs-center"), r = q("#vs-hud .vs-right"), l = q("#vs-hud .vs-left");
+  if (!c || !r || !l) return;
+  const cb = c.getBoundingClientRect(), rb = r.getBoundingClientRect(), lb = l.getBoundingClientRect();
+  if (!cb.height || !rb.height) return; // HUD hidden (title, game over): keep the last numbers
+  const W = window.innerWidth, H = window.innerHeight, mmW = (W <= 760 || H > W) ? 172 : 232; // the minimap's two sizes (src/minimap.js)
+  let right = rb.bottom; if (cb.right > W - mmW - 16) right = Math.max(right, cb.bottom); // narrow screens: the age bar is above the map too
+  const set = (k, v) => { v = Math.round(v) + "px"; const st = document.documentElement.style; if (st.getPropertyValue(k) !== v) st.setProperty(k, v); };
+  set("--ms-hud-b", cb.bottom + 8); set("--ms-mm-top", right + 14); set("--ms-hud-left-b", lb.bottom + 8);
+}
 function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   levelUpOpen = true;
   // Keys/stick you were holding to walk shouldn't scroll the perk cards. Ignore them until released and pressed again.
@@ -3063,11 +3079,11 @@ function startShiftBriefing(scene) {
   el.innerHTML = `<div class="sb-card"><span class="sb-kick">TODAY'S SHIFT</span><p class="sb-goal">${goal}${sprint ? " ⚡ Sprint: the years fly by." : ""}</p><p class="sb-how">Everything fires on its own. Just keep moving.</p>${window.newHireRun ? `<p class="sb-how sb-newhire">🪪 New Hire Orientation: +2 health and easier Bills until 43, for your first ${(ENEMIES.bill.newHire || {}).runs || 2} shifts.</p>` : ""}<span class="sb-go">${(window.matchMedia && matchMedia("(pointer:coarse)").matches) ? "TAP ANYWHERE TO CLOCK IN" : "PRESS ANY KEY TO CLOCK IN"}</span></div>`;
   if (!document.getElementById("shift-briefing-css")) {
     const st = document.createElement("style"); st.id = "shift-briefing-css";
-    st.textContent = `#shift-briefing{position:fixed;left:0;right:0;top:calc(var(--ms-nav-h,0px) + 15%);z-index:47;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
+    st.textContent = `#shift-briefing{position:fixed;left:0;right:0;top:max(calc(var(--ms-nav-h,0px) + 15%), var(--ms-hud-b,122px));z-index:47;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
 #shift-briefing .sb-card{max-width:440px;width:100%;background:#FFF0CF;color:#171C35;border:3px solid #171C35;border-radius:6px;box-shadow:5px 5px 0 rgba(0,0,0,.45);padding:12px 14px;text-align:center;animation:sbIn .35s cubic-bezier(.2,1.5,.4,1) both}
 #shift-briefing .sb-kick{display:inline-block;font:10px Silkscreen,monospace;letter-spacing:.1em;background:#171C35;color:#F2D7A1;padding:3px 8px;border-radius:2px}
 #shift-briefing .sb-goal{font:700 18px/1.25 'Atkinson Hyperlegible',sans-serif;margin:8px 0 2px}
-@media (max-width:760px){#shift-briefing{top:calc(var(--ms-nav-h,0px) + 12%)}#shift-briefing .sb-card{padding:9px 12px}#shift-briefing .sb-goal{font-size:16px;margin-top:6px}#shift-briefing .sb-how{font-size:13px;margin-bottom:6px}}
+@media (max-width:760px){#shift-briefing{top:max(calc(var(--ms-nav-h,0px) + 12%), var(--ms-hud-b,122px))}#shift-briefing .sb-card{padding:9px 12px}#shift-briefing .sb-goal{font-size:16px;margin-top:6px}#shift-briefing .sb-how{font-size:13px;margin-bottom:6px}}
 #shift-briefing .sb-how{font:14px/1.3 'Atkinson Hyperlegible',sans-serif;margin:0 0 8px;color:#303750}
 #shift-briefing .sb-go{display:inline-block;font:11px Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#EF9347;padding:6px 10px;border-radius:3px;animation:sbPulse 1.1s ease-in-out infinite}
 @keyframes sbIn{from{transform:translateY(-12px) scale(.9);opacity:0}to{transform:none;opacity:1}}

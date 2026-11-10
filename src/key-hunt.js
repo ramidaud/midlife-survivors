@@ -10,11 +10,11 @@ window.KeyHunt = (() => {
   function css() {
     if (document.getElementById("keyhunt-css")) return;
     const s = document.createElement("style"); s.id = "keyhunt-css";
-    s.textContent = `#keyhunt-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + 128px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,460px);
+    s.textContent = `#keyhunt-chip{position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,122px) + 28px);z-index:23;display:flex;align-items:center;gap:8px;max-width:min(92vw,460px);
   background:#F2D7A1;color:#171C35;border:2px solid #171C35;border-left:6px solid #EF9347;box-shadow:3px 3px 0 rgba(0,0,0,.45);padding:6px 10px;font:13px/1.25 'Atkinson Hyperlegible',sans-serif;pointer-events:none}
 #keyhunt-chip b{font:11px/1 Silkscreen,monospace;letter-spacing:.06em;white-space:nowrap}
 #keyhunt-chip.hidden{display:none}
-@media (max-width:760px),(orientation:portrait){#keyhunt-chip{top:calc(var(--ms-nav-h,0px) + 236px);left:8px;right:8px;transform:none;max-width:none;font-size:12px;padding:5px 8px}}`;
+@media (max-width:760px),(orientation:portrait){#keyhunt-chip{top:calc(var(--ms-nav-h,0px) + var(--ms-mm-top,108px) + 178px);left:8px;right:8px;transform:none;max-width:none;font-size:12px;padding:5px 8px}}`;
     document.head.appendChild(s);
     chip = document.createElement("div"); chip.id = "keyhunt-chip"; chip.className = "hidden"; document.body.appendChild(chip);
   }

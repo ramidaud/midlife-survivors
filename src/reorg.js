@@ -147,7 +147,7 @@ window.Reorg = (() => {
       st.textContent = `.reorg-edge{position:fixed;z-index:21;pointer-events:none;display:flex;align-items:center;justify-content:center;gap:10px;font:12px/1 Silkscreen,monospace;color:#171C35}
 .reorg-edge b{background:#EF9347;padding:5px 8px;border:2px solid #171C35;box-shadow:2px 2px 0 rgba(0,0,0,.45)}
 .reorg-edge i{width:0;height:0;border:12px solid transparent}
-.reorg-edge.T{top:calc(var(--ms-nav-h,0px) + 112px);left:0;right:0}.reorg-edge.B{bottom:96px;left:0;right:0}
+.reorg-edge.T{top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,122px) + 12px);left:0;right:0}.reorg-edge.B{bottom:96px;left:0;right:0}
 .reorg-edge.L{left:6px;top:0;bottom:0;flex-direction:column}.reorg-edge.R{right:6px;top:0;bottom:0;flex-direction:column}
 .reorg-edge.T i{border-top-color:#EF9347;border-bottom:0}.reorg-edge.B i{border-bottom-color:#EF9347;border-top:0}
 .reorg-edge.L i{border-left-color:#EF9347;border-right:0}.reorg-edge.R i{border-right-color:#EF9347;border-left:0}

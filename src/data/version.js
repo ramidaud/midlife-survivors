@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.0",
-  displayVersion: "V. 2.26.0",
+  version: "2.26.1",
+  displayVersion: "V. 2.26.1",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 328,
+  build: 329,
   changelog: [
+    {
+      ver: "V. 2.26.1", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your map moved up. It was standing in the wrong spot.",
+      highlights: [
+        "The minimap and to-do chips now sit right under the HUD on every screen size, instead of 57 pixels too low and drifting toward your hero.",
+        "Level-ups, the bonus chest, shops and the big map now get the screen to themselves. Chips and the minimap step back while a menu is open.",
+        "Behind the scenes: the first piece of the new design system. Nothing else should look different yet."
+      ]
+    },
     {
       ver: "V. 2.26.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The neighborhood got a lot bigger. So did the houses.",

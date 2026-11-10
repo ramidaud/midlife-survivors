@@ -30,7 +30,7 @@ window.Modifiers = (() => {
       chip = document.createElement("div");
       chip.id = "mod-chip";
       chip.setAttribute("role", "status");
-      chip.style.cssText = "position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + 112px);z-index:30;pointer-events:none;" +
+      chip.style.cssText = "position:fixed;left:50%;transform:translateX(-50%);top:calc(var(--ms-nav-h,0px) + var(--ms-hud-b,122px) + 12px);z-index:30;pointer-events:none;" +
         "font:11px Silkscreen,monospace;letter-spacing:.05em;padding:4px 10px;border-radius:999px;background:rgba(23,28,53,.88);color:#F2D7A1;border:2px solid #EF9347;display:none";
       document.body.appendChild(chip);
     }
