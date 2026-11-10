@@ -32,7 +32,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration A4 (V2.26.4): boss cards 3.5 s, no floor dim, compact on phones, first-attack notice skipped while the card is up
 - [x] Migration A5 (V2.26.5): one status row, one objective chip + one status chip; beside the minimap on phones
 - [x] Migration A6 (V2.26.6): holds and merges; errands, Lounge and swarms wait their turn, one birthday line, modifier at 50.8
-- [ ] Next: A7, ticker position and world text (lifted on touch phones, one bubble style, caps on pop-ups)
+- [x] Migration A7 (V2.26.7): ticker lifted above the thumb on touch phones, one speech-bubble style, at most 6 pop-ups at once
+- [ ] Next: A8, the HUD (age first, 44 px buttons, owned slots only, scaled by screen size; phone landscape check)
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)

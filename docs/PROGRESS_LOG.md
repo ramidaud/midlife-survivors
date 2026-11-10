@@ -2078,3 +2078,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Merges: turning 50 or 60 is one bottom-bar line (decade, cake, dividend). Rewards stay in the bottom bar. The promotion's LIFE line waits for 20 s of quiet.
 - First life modifier at 50.8. Only danger can cut in on the bottom bar, and it pauses while a Spotlight band is up.
 - Tested ages 45 and 50 on a phone: never more than one headline and one bottom line; one birthday line at 50.
+
+## 2026-11-10 (6:50 PM): V2.26.7, design system step A7
+- The bottom message bar is 96 px higher on touch phones, so a thumb on the joystick doesn't cover it. Phones get 16 px text and up to three lines so the whole sentence fits.
+- Bottom bar labels by kind: red ! for danger, cream for to-dos and chapters, orange for rewards, sage for tips.
+- One speech-bubble style (cream paper, navy reading text) for Dad Jokes, interns and boss last words. The Dad Joke bubble now floats above furniture.
+- At most 6 pickup pop-ups (+HP, coins, DODGED!) float at once (`src/world-text.js`).

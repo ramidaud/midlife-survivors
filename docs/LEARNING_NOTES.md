@@ -761,3 +761,6 @@ When several things want the same spot, write down who wins, once, as a list: Wo
 
 ## Pacing: hold it, merge it, or drop it (Nov 10, design system A6)
 A queue (A2) makes messages take turns, but if eight things happen in the same second, a polite line is still eight messages long. Pacing fixes it at the source. Some things are **held** (an errand just doesn't start during a boss or right on your 50th birthday). Some are **merged** (the decade line, the cake and the dividend become one sentence). Some are **dropped** (a reward never needs the big headline; the bottom bar is enough). The rules live in one small data file, so changing "0.6 years" to "1 year" is a one-number edit.
+
+## Thumb zones (Nov 10, design system A7)
+On a phone held in portrait, your thumb lives in the bottom third of the screen, and whatever's under it is invisible. Apple and Google both design around this: things you *tap* go where the thumb rests, things you *read* stay out of its way. The bottom bar was 18 px from the edge, right under the joystick thumb, so it now sits 96 px up. Same idea as putting a car's speedometer above the steering wheel instead of behind your hands.
