@@ -71,6 +71,11 @@ window.DEATHS = {
     "Tried to learn skateboarding at 48 without knee pads.",
     "Started a podcast instead of going to therapy."
   ],
+  mathHomework: [
+    "Tried to explain long division the way you learned it. Wrong.",
+    "Paper-cut by a word problem about two trains.",
+    "Spent ninety minutes on one fraction. The fraction won."
+  ],
   hoaPresident: [
     "Cited by the HOA for leaving your trash cans out 4 minutes past noon.",
     "Fined into oblivion for painting your mailbox 'Non-Approved Eggshell'.",
@@ -131,6 +136,7 @@ const MORE_DEATHS = {
   theReorg: ["Flattened by a brand-new horizontal org chart.", "Moved into a cross-functional pod with no chairs.", "Lost in a dotted-line reporting loop until five."],
   mortgageRefinance: ["Page 83 wanted an initial. You gave up.", "APR did cardio around you.", "Escrow ate the last hit point."],
   midlifeCrisis: ["Leather jacket: approved. Knees: pending.", "The V8 had a better exit strategy.", "Podcast mic on. Common sense off."],
+  mathHomework: ["Showed your work. It was wrong.", "New math: 1. You: 0.", "Grounded until the worksheet is done."],
   hoaPresident: ["Trash cans: 4 minutes late to glory.", "Eggshell was never on the palette.", "The ruler does not negotiate."],
   retirementBoss: ["Password hint: your first pet's Wi-Fi.", "Slideshow outlasted the retiree.", "RMD math without coffee: classified hazard."],
   pickleballChamp: ["Muriel sends her regards. And a visor.", "Dink shot: small ball, big feelings.", "Line call disputed. Hamstring settled it."],

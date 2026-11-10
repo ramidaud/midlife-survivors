@@ -247,6 +247,18 @@ window.ENEMIES = {
     size: 58,
     color: 0xff2e4c
   },
+  // Maple Hollow's first boss (Nov 10, art by ChatGPT/Codex). Attack code: src/math-homework.js.
+  mathHomework: {
+    name: "Fifth-Grade Math Homework",
+    label: "SHOW WORK",
+    tex: "performanceReview", // fallback shape; the drawn sheet replaces it
+    spawnAge: 45,
+    speed: 64,
+    hp: 40,
+    damage: 2,
+    size: 54,
+    color: 0xF2D7A1
+  },
   hoaPresident: {
     name: "The HOA Board President", // drawn by ChatGPT (Nov 4): assets/bosses/boss-hoa-president-v1.png; tex is the fallback
     label: "HOA",
@@ -301,7 +313,7 @@ window.ENEMY_SCALE = { regular: 1.4, boss: 2.3, bossHitbox: 0.5 };
 // Name tags (FLAKE!, TAPAS, 9PM BED...) turn into a wall of tiny text when the screen fills up (Fable review #7).
 // Past this many enemies, regular enemies hide their tags. Bosses, elites and the Group Chat's "typing..." always keep theirs.
 window.ENEMY_TAGS = { hideOverPhone: 25, hideOverDesktop: 60 };
-window.BOSS_KINDS = ["performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
+window.BOSS_KINDS = ["mathHomework", "performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
 for (const [kind, E] of Object.entries(window.ENEMIES)) {
   E.scale = window.BOSS_KINDS.includes(kind) ? window.ENEMY_SCALE.boss : window.ENEMY_SCALE.regular;
   E.size = Math.round(E.size * E.scale); // labels, weapon reach and Close Calls read this

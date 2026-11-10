@@ -1984,3 +1984,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - A fully maxed build could open the Performance Bonus menu with zero cards and freeze the game. An empty pick now skips the menu and grants a Seniority perk with a banner.
 - A save resumed past the finish line had "end boss spawned" set but no punch clock, so the run never ended. If you're half a year past the end with no clock-out boss on the field, it spawns again.
 - ChatGPT/Codex art landed in the repo: the Math Homework boss (walk, wind-up, paper-airplane attack, hurt, plus extras) and the 20-piece garage kit. Not wired in yet.
+
+## 2026-11-10 (12:40 AM): V2.22.0, the Fifth-Grade Math Homework boss
+- Maple Hollow's 45 boss is real now (the Performance Review stand-in is retired at home). Art by ChatGPT/Codex.
+- "Pop Quiz": he stops and scribbles while dotted lines fan out, then throws paper airplanes down the lines. Stand in a gap.
+- Below half health: a second fan in the gaps of the first, plus three crumpled pages lobbed onto red circles near you.
+- Spotlight card, stamp ("A+ · SEE ME"), last words, deaths and a "Carried the One" achievement. Next: the garage and the V8 at 60.

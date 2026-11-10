@@ -711,3 +711,6 @@ The closest palette color can turn gray concrete lavender. Mapping the floor mat
 
 ## Empty states (Nov 9, Kevin's age-275 run)
 Every menu needs a plan for "there's nothing to show." The perk screen always assumed it would find three cards, so when a maxed build had none left, it opened an empty box and waited forever for a click that couldn't happen. The fix is a guard at the top: if the list is empty, don't open the screen at all, give a reward another way, and keep the game moving. Saved games have the same trap in a different shape: a save can remember "the boss already came" without remembering the boss itself, so the game checks what's really on the field instead of trusting the note.
+
+## Two clocks (Nov 10, the Math Homework boss)
+A game can have more than one clock. Phaser keeps its own scene time, but Midlife Survivors runs on "run time," which stops when you pause or pick a perk. The paper balls first used the wrong clock, so the game thought they'd been flying for minutes and they landed the instant they were thrown. The rule: anything that has to line up with something else (a throw and its landing) must read the same clock.

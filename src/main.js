@@ -920,7 +920,7 @@ function beginFreshRunAtDecade(scene) {
   retire80Prompted = runStartAge >= 80;
   bossesSpawned = {};
   window.runSlotBoss = pickSlotBoss(); // Nov 9: the age-56 slot picks one boss per run (src/data/modes.js, bossSlot)
-  ["performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
+  ["mathHomework", "performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"].forEach(bk => {
     if (ENEMIES[bk] && ENEMIES[bk].spawnAge < runStartAge) bossesSpawned[bk] = true;
   });
 

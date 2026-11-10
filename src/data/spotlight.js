@@ -19,6 +19,8 @@ window.SPOTLIGHT = {
     goldWatch:         { kicker: "YEARS OF SERVICE", name: "THE GOLD WATCH", line: "Forty years of watching the clock, now it watches you.",
                          tip: "You can't stop it. Hit it to buy time until 65.", art: "assets/bosses/boss-gold-watch-v1.png", edge: "#D9A441", band: "#874C3B" },
     // Full Life bosses (Nov 4, art by ChatGPT)
+    mathHomework:      { kicker: "DUE TOMORROW", name: "5TH-GRADE MATH HOMEWORK", line: "Show your work. No, the new way. Not how YOU learned it.",
+                         tip: "When the dotted lines appear, stand in a gap.", art: "assets/bosses/boss-math-homework-v1.png", edge: "#EF9347", band: "#874C3B" },
     hoaPresident:      { kicker: "BOARD MEETING", name: "THE HOA PRESIDENT", line: "Your mailbox is two inches too festive. We need to talk.",
                          tip: "Sidestep when the yardstick goes up before it charges.", art: "assets/bosses/boss-hoa-president-v1.png", edge: "#EF9347", band: "#874C3B" },
     retirementBoss:    { kicker: "FINAL PAPERWORK", name: "RETIREMENT AUDIT", line: "Please verify every pension statement since 1987.",

@@ -3,6 +3,7 @@
 window.BossArt = (() => {
   const FILES = {
     performanceReview: "assets/bosses/boss-performance-review-v1.png",
+    mathHomework: "assets/bosses/boss-math-homework-v1.png", // Nov 10, Maple Hollow at 45
     newBoss: "assets/bosses/boss-new-boss-v1.png", // Nov 9
     holidayParty: "assets/bosses/boss-holiday-party-v1.png",
     theReorg: "assets/bosses/boss-reorg-v1.png",
@@ -35,6 +36,7 @@ window.BossArt = (() => {
     ArtSheets.load(scene, "bossart_clockOut", CLOCK_OUT, 144, 152);
     ArtSheets.load(scene, "bossart_fatherTime", FATHER_TIME, 144, 152);
     for (const [k, f] of Object.entries(FILES)) ArtSheets.load(scene, "bossart_" + k, f, 144, 152);
+    if (window.MathHomework) MathHomework.preload(scene); // paper airplanes and friends
     for (const [k, [f, w, h]] of Object.entries(MARKERS)) ArtSheets.load(scene, "bossmark_" + k, f, w, h);
   }
   // state: chase | telegraph | attack | recover

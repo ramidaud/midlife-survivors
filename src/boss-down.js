@@ -15,12 +15,14 @@ window.BOSS_DOWN = {
     pickleballChamp: "GAME, SET, MATCH",
     newBoss: "MEETING ADJOURNED",   // Nov 9 (Rami: "his defeat animation is kind of lame")
     holidayParty: "PARTY'S OVER",
-    theReorg: "POSITION ELIMINATED"
+    theReorg: "POSITION ELIMINATED",
+    mathHomework: "A+ · SEE ME"
   },
   // Nov 9: bosses without a drawn knockdown pose fall in their own "crash" frame and get a last word.
   lastWords: {
     newBoss: ["Let's... circle back... on me.", "Can we... take this offline?", "I need... a mental health day.", "Tell HR... I pivoted."],
     holidayParty: ["Who turned the lights on?", "Same time next year?", "I'll... get my coat."],
+    mathHomework: ["Carry... the... one...", "Put me... on the fridge.", "Extra credit... please...", "Is this... going to be... on the test?"],
     theReorg: ["This was always the plan.", "Your new manager... is you.", "Effective... immediately..."]
   },
   defaultStamp: "DEFEATED"

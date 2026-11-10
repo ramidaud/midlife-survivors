@@ -95,6 +95,19 @@ window.BOSS_ATTACKS = {
       "You now report directly to a shared spreadsheet.", "Consider this a lateral move into the hallway.", "We are right-sizing the breakroom napkin budget.",
       "Your cube has been promoted to an open concept."]
   },
+  // Fifth-Grade Math Homework (Maple Hollow, 45), Nov 10. Code: src/math-homework.js. He scribbles while dotted lines
+  // show the fan, then throws paper airplanes down those lines. Below half health: a second fan in the gaps of the
+  // first, plus crumpled paper balls lobbed onto marked circles.
+  mathHomework: {
+    style: "planes", bannerTitle: "POP QUIZ", bannerSub: "Paper airplanes. Stand between the dotted lines.",
+    telegraphMs: 850, cooldownMs: 4000, firstAttackDelayMs: 1800, recoverMs: 300, attackPoseMs: 450,
+    planes: 5, spreadDeg: 64, planeSpeed: 250, planeRange: 600, planeHalf: 10, damage: 1,
+    phase2: { atHpFrac: 0.5, planes: 6, spreadDeg: 70, volleys: 2, volleyGapMs: 380,
+              bannerTitle: "SHOW YOUR WORK", bannerSub: "Two fans now, and he's crumpling pages.",
+              balls: { count: 3, flightMs: 900, staggerMs: 160, radius: 34, scatterMinPx: 70, scatterMaxPx: 150, damage: 1 } },
+    drop: "salad",
+    swarm: { spawnDelayMult: 1.25, packSizeMult: 0.80, maxOnScreenMult: 0.80, eliteChanceMult: 1.0, pauseKinds: ["calendarInvite"], pauseEvents: true }
+  },
   mortgageRefinance: {
     bannerTitle: "RATE LOCK", bannerSub: "Interest expands. Slip into the % gap.",
     telegraphMs: 850, cooldownMs: 5200, firstAttackDelayMs: 1800, recoverMs: 300,

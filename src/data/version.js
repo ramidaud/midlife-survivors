@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.21.3",
-  displayVersion: "V. 2.21.3",
-  lastUpdated: "Nov 9, 2026",
+  version: "2.22.0",
+  displayVersion: "V. 2.22.0",
+  lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 319,
+  build: 320,
   changelog: [
+    {
+      ver: "V. 2.22.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Show your work. No, the new way.",
+      highlights: [
+        "Maple Hollow's first boss arrives at 45: the Fifth-Grade Math Homework. He scribbles, dotted lines fan out, and then the paper airplanes fly. Stand in a gap.",
+        "Below half health he throws a second fan into the gaps of the first and lobs crumpled pages onto marked circles. New achievement: Carried the One."
+      ]
+    },
     {
       ver: "V. 2.21.3", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Nothing left to give? Have a raise.",

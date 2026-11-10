@@ -48,7 +48,7 @@ window.MAPLE_HOLLOW = {
   // The Lemonade Stand (step 4): Maple Hollow's Lounge, on the sidewalk by your house. Items: INTERNS.lounge.stand.
   lemonade: { spot: [1240, 552] },
   // Step 5 (Nov 9, Rami: "line up looks good"): Maple Hollow's own boss lineup. No 56 coin flip at home.
-  // "mathHomework" is the new Fifth-Grade Math Homework boss; until its art and attacks land, fallback stands in.
+  // "mathHomework" is the Fifth-Grade Math Homework boss (built Nov 10). fallback only matters if a boss is ever missing.
   bosses: {
     midlife: ["mathHomework", "hoaPresident", "mortgageRefinance", "holidayParty", "midlifeCrisis", "goldWatch"],
     full:    ["mathHomework", "hoaPresident", "mortgageRefinance", "holidayParty", "midlifeCrisis", "retirementBoss", "pickleballChamp"],
