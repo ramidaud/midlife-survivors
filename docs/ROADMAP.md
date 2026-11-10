@@ -37,7 +37,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] **Part A (where to look) done.** Rami to playtest on his phone, then Part B (menus)
 - [x] Migration B1 (V2.26.9): Button + Sheet parts; level-up and Performance Bonus with one orange PICK; A picks, X rerolls, Y skips
 - [x] Migration B2 (V2.27.0): one Settings sheet (Sound, Game, Controls) from Pause and the title; slimmer pause
-- [ ] Next: B3, the Row part on the Lounge and Lemonade Stand
+- [x] Migration B3 (V2.27.1): Lounge and Lemonade Stand as a Sheet of Rows; price tags, locked reasons, balance at the top
+- [ ] Next: B4, the 401(k) shop on Rows with the balance in the header
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)

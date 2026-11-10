@@ -2101,3 +2101,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Pause is calmer: RESUME (the one orange button), Settings, Save & exit, Start over, and the run summary.
 - New Row part (`ms-parts.css`): title, help line and a value on the right, the whole row is the tap target. B3 reuses it for the Lounge.
 - On phones, the title's SETTINGS button is still below the fold; B5 (title screen) moves it.
+
+## 2026-11-10 (9:20 PM): V2.27.1, design system step B3
+- The Lounge and the Lemonade Stand are now a Sheet of Rows: icon, name, one help line, a price tag. The whole row is the button (64 px or taller).
+- Items you can't buy show why with a lock (too pricey, sold out); owned items get a check. Your 401(k) balance is in the header.
+- One column on phones, two on iPad and desktop. BACK TO WORK is the one orange button.

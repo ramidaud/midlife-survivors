@@ -773,3 +773,6 @@ A component is a part you design once and reuse everywhere, like a LEGO brick. B
 
 ## One source of truth (Nov 10, design system B2)
 Before, sound settings lived inside the pause menu's own code, and the title had no way to reach them. Now there's one Settings screen and both places open it. A change made from the title shows up in a run and the other way around, because there's only one copy of the screen and one copy of the saved values. When the same thing exists in two places, sooner or later the two copies disagree.
+
+## Reuse pays off (Nov 10, design system B3)
+The Row was built in B2 for Settings. B3 used the same part for the Lounge and Lemonade Stand and only added what a shop needs on top: an icon slot and a price tag. That's why this step took less code than the last one, and why B4 (the 401(k) shop) and B8 (leaderboard, credits) will be faster still. Each new screen built from the kit gets cheaper, and they all look like they belong together.
