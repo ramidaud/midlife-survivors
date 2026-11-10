@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.21.2",
-  displayVersion: "V. 2.21.2",
+  version: "2.21.3",
+  displayVersion: "V. 2.21.3",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 318,
+  build: 319,
   changelog: [
+    {
+      ver: "V. 2.21.3", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Nothing left to give? Have a raise.",
+      highlights: [
+        "Fixed (thanks again, Kevin, at age 275): a fully maxed build could open \"YOU'VE EARNED A PERK!\" with no cards and freeze the game. Now it skips the menu and hands you a Seniority perk on the spot.",
+        "Fixed: resuming a saved run past the finish line could leave the punch clock (or Father Time) missing, so the run never ended. It comes back now."
+      ]
+    },
     {
       ver: "V. 2.21.2", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The neighbors have opinions.",

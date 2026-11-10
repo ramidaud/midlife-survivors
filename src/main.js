@@ -1365,13 +1365,8 @@ function rollChestRewards(n) {
       // Nov 9 (Derek, Full Life: "I didn't get anything from the Boss Chests"): a maxed build used to get a few
       // tapered coins per slot, which looked like an empty chest. Now each slot is a small permanent Seniority perk
       // with no cap, so late chests still make you stronger. Numbers: PICKUPS.bossChest.seniority.
-      const SP = (PICKUPS.bossChest && PICKUPS.bossChest.seniority) || [];
-      const s = SP.length ? Phaser.Utils.Array.GetRandom(SP) : null;
+      const s = grantSeniority();
       if (s) {
-        if (s.damage) stats.seniorityDmg = (stats.seniorityDmg || 1) * (1 + s.damage);
-        if (s.maxHp) stats.maxHp += s.maxHp;
-        if (s.heal) hp = Math.min(stats.maxHp, hp + healAmt(s.heal));
-        stats.seniorityPerks = (stats.seniorityPerks || 0) + 1;
         out.push({ name: s.name, label: s.short || "SENIORITY · NO CAP", text: s.text || "", icon: s.icon || "🏅", evo: false });
         continue;
       }
@@ -1466,6 +1461,19 @@ function addXp(scene, amount) {
 }
 window.addXp = addXp;
 
+// One small permanent Seniority perk (no cap). Used by maxed boss chests and by a level-up with nothing left to offer.
+function grantSeniority() {
+  const SP = (PICKUPS.bossChest && PICKUPS.bossChest.seniority) || [];
+  const s = SP.length ? Phaser.Utils.Array.GetRandom(SP) : null;
+  if (!s) return null;
+  if (s.damage) stats.seniorityDmg = (stats.seniorityDmg || 1) * (1 + s.damage);
+  if (s.maxHp) stats.maxHp += s.maxHp;
+  if (s.heal) hp = Math.min(stats.maxHp, hp + healAmt(s.heal));
+  stats.seniorityPerks = (stats.seniorityPerks || 0) + 1;
+  return s;
+}
+window.grantSeniority = grantSeniority;
+
 // The level-up screen: pause the world and offer 3 vertical Perk Cards in the HTML/CSS overlay!
 function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   levelUpOpen = true;
@@ -1493,6 +1501,21 @@ function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   // Boosts fill empty slots when regular cards run out, and after 50 one sometimes takes the third slot.
   while (choices.length < 3 && boosts.length) choices.push(boosts.shift());
   if (choices.length === 3 && boosts.length && !choices.some(c => c.isConsumable) && currentAge >= 50 && Math.random() < 0.3) choices[2] = boosts.shift();
+
+  // Nov 9 (Kevin, age 275): a fully maxed build had zero cards left, so "YOU'VE EARNED A PERK!" opened empty and the
+  // game froze. Now an empty pick turns into a Seniority perk on the spot, with a banner, and play goes on.
+  if (!choices.length) {
+    pendingLevels = Math.max(0, pendingLevels - 1);
+    levelUpOpen = false;
+    scene.physics.resume();
+    scene.time.paused = false;
+    const s = grantSeniority();
+    if (s && window.showLowerThird) window.showLowerThird("win", customTitle || "SENIORITY", s.name, 3500);
+    else if (!s) { hp = Math.min(stats.maxHp, hp + healAmt(2)); }
+    updateHUD();
+    if (pendingLevels > 0) scene.time.delayedCall(400, () => { if (!levelUpOpen && !gameOver) showLevelUp(scene); });
+    return;
+  }
 
   const pick = up => {
     sfx("pick");
@@ -2574,6 +2597,10 @@ function update(time, delta) {
     if (busy && currentAge < at + (Q.maxWaitYears || 3)) return;
     spawnBoss(this, bk);
   });
+  // Nov 9 (Kevin, resumed at 275): a save made after the finish line said "already spawned" but the punch clock
+  // wasn't saved with it, so the run never ended. If we're past the end and no clock-out boss exists, bring it back.
+  if (bossesSpawned.theReaper && currentAge >= modeEndAge() + 0.5 && !gameOver && !window.clockingOut
+      && !bills.getChildren().some(o => o.active && o.clockOut)) bossesSpawned.theReaper = false;
   if (!bossesSpawned.theReaper && currentAge >= modeEndAge()) {
     if (window.GoldWatch) GoldWatch.clockOut(this); // 5:00: the watch stops on its own when you retire
     spawnBoss(this, "theReaper");
