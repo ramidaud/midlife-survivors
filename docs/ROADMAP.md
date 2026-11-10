@@ -41,7 +41,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration B4 (V2.27.2): 401(k) shop on Rows, balance up top; six upgrades visible on a phone without scrolling
 - [x] Migration B5 (V2.27.3): PUNCH IN the only orange thing; shift chip names the stage; phone tab bar replaces the site nav on the title
 - [x] Migration B6 (V2.27.4): game over and retirement as Moments; score, age and RETRY above the fold everywhere; pay stub folded
-- [ ] Next: B7, chest, briefing, account prompt, We Moved, retire at 80 on the Sheet/Moment shell
+- [x] Migration B7 (V2.27.5): chest, briefing, account prompt, We Moved and retire at 80 share the Sheet/Moment shells; one orange button each
+- [ ] Next: B8, achievements, leaderboard, credits, extras, patch notes, lore (no repeated logo, nothing under 14 px)
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)

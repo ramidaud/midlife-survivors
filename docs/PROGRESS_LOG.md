@@ -2121,3 +2121,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Game over and retirement are now Moments: a short picture, the headline, then SCORE and AGE big, side by side.
 - RETRY (the one orange button) sits right under them with Shop and Title; POST SCORE is an outline button below.
 - The pay stub (stat pills, paycheck, goals, score breakdown) folds into a drawer. Score, age and RETRY fit without scrolling on phone, iPad and desktop.
+
+## 2026-11-10 (11:40 PM): V2.27.5, design system step B7
+- The bonus chest, retire at 80, the account prompt, the We Moved note and the shift briefing now share one shell: solid scrim, one card style, the memo strip header, one orange button each.
+- Retire at 80 is a plain choice: KEEP GOING (20 bonus years) or RETIRE (claim the win at 80).
+- Every small header now follows one pattern: DEPARTMENT · RE: Subject.

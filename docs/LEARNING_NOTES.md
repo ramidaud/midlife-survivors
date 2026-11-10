@@ -785,3 +785,6 @@ Most phone apps keep their main places in a bar along the bottom (Instagram, Mes
 
 ## Progressive disclosure (Nov 10, design system B6)
 Show the few things everyone needs first, and tuck the details one tap away. After a run, everyone wants to know "how did I do?" and "go again?", but only some players want the paycheck math and the next goals. So the score, age and RETRY come first, and the pay stub is a drawer you can open. Nothing was removed; it was just put in the order people ask for it.
+
+## Shells (Nov 10, design system B7)
+A shell is the frame a screen sits in: the dark backdrop, the card, the header strip and where the buttons go. The content inside each pop-up stayed the same (the chest still has its art, the account prompt still signs you in), but they all sit in the same frame now. That's most of what makes an app feel like one product instead of five: the same frame, used every time, so your eye knows where the title and the buttons will be before you read anything.
