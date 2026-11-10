@@ -20,6 +20,14 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] The Reorg (V2.14.0)
 - [ ] Meet the Reorg at 56 (it's a coin flip with the Party): do the desks read? fair?
 
+**UI/UX pass (Nov 10, design lead chat)**
+- [x] Audit: 60 surfaces at 4 device sizes (`docs/design/ui-audit-2026-11.md`)
+- [x] Rami's 8 open decisions: yes to all, with a headline slot under the HUD for the phone banner
+- [x] Design system spec, wireframes and before/after mockups: **ready for review** (`docs/design/design-system-v1.md`)
+- [x] Rami: yes to the boss health bar and the phone bottom bar
+- [ ] Rami: yes or no on the new "One look" text for CLAUDE.md (spec section 10)
+- [ ] After that: migration step A1 (tokens file, the 57 px nav bug, chips hidden under menus)
+
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)
 - [x] Errand payoff: shockwave, bonus XP on every errand, 15 s CHECKED OFF buff, up to 3 errands per run (V2.15.5)

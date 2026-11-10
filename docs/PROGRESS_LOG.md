@@ -2036,3 +2036,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Each house has a side path to its backyard, and the yards connect through gates; hedges keep you from walking off the top of the map.
 - The key hunt and garage use your new front door and driveway. The Lemonade Stand moved one house over (it sat on your driveway and opened its menu every time you walked out).
 - Next: the two-floor inside from the v3 art (desk downstairs, Abe's room upstairs).
+
+## 2026-11-10 (2:25 PM): UI/UX audit and design system spec (design lead chat, no game code)
+- Audit done: every screen photographed at phone, iPad (both ways) and desktop. Main finding: each message picked its own spot and nothing decides who talks.
+- Rami said yes to all 8 open decisions. The phone banner goes in a slot right under the HUD, and the minimap steps aside for it.
+- Design system v1 is ready for review: two homes for in-run words (alarms up top, story at the bottom), eight parts, three screen sizes, one orange button per screen.
+- Also in `docs/design/`: wireframes for 11 screens, two before/after mockups, and a 19-sitting migration plan that starts with in-run messages. Rami also said yes to a boss health bar and a phone bottom bar.
+- Still open: the new "One look" text for CLAUDE.md. Two quick fixes are waiting in step A1 (everything in a run sits 57 px low; chips draw over level-ups).

@@ -24,6 +24,9 @@
 | 6 | First modifier roll at 50.8 | Yes |
 | 7 | Phone center banner | **Not 18%.** A slot directly under the HUD with a backing plate. The minimap gives way while a headline is up. |
 | 8 | Button labels | Plain verbs (PAUSE, REROLL, SKIP). The joke goes in the line under the button. |
+| 9 | Boss health bar under the HUD (new) | Yes |
+| 10 | Bottom bar on the phone title screen, replacing the in-game top nav | Yes, try it |
+| 11 | New "One look" text for CLAUDE.md (section 10) | **Still open** |
 
 ---
 
@@ -281,7 +284,7 @@ The one container for every menu that pauses.
 - **Meter:** XP across the top, health under the hero.
 - **Slot:** 28 px, shows what you own. Empty slots appear only in the level-up sheet.
 - **Round button:** pause and sound, 44 px.
-- **Boss meter (new):** the boss's name and a health bar under the HUD for the whole fight. Today you have to find the tag over the boss's head. Needs Rami's OK.
+- **Boss meter (new):** the boss's name and a health bar under the HUD for the whole fight. Today you have to find the tag over the boss's head. Approved by Rami, Nov 10.
 
 ---
 
@@ -452,5 +455,5 @@ That is 19 sittings. Part A is the one that answers "where should I be looking."
 - **Safe areas** need Rami's phone. Headless browsers have no notch.
 - **The Workload chip** was read from code. It joins the status row in A5.
 - **Maple Hollow v2** adds yard sparkles (rung 0), stair transitions (a 320 ms fade, no words), a desk buff (status chip) and yard gag pop-ups (world text, one at a time). None need a new part.
-- **Two new things need a yes or no:** the boss meter (5.9) and the phone bottom bar (below).
-- **Site nav on the title screen:** on phones it costs 57 px and scrolls sideways. The wireframes replace it with a brand mark and a bottom bar. This changes a shared devlog part, so it needs Rami's eye.
+- **Approved by Rami, Nov 10:** the boss meter (5.9) and the phone bottom bar (below).
+- **Site nav on the title screen:** on phones it costs 57 px and scrolls sideways. The wireframes replace it with a brand mark and a bottom bar. The devlog keeps its own nav. Approved to try.
