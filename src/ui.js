@@ -811,17 +811,69 @@ setInterval(() => {
 
 // Big, short notice near the middle of the screen, so players never have to look away from the fight.
 // (Playtest: the bottom bar is too far from the action to read mid-run.) The full sentence still goes to the bottom bar.
-let cfTimer = null;
-window.flashBanner = function(title, sub, kind) {
+let cfTimer = null, cfShowing = false;
+function flashBannerNow(title, sub, kind) {
   const el = document.getElementById("center-flash");
   if (!el) return;
   el.querySelector(".cf-title").textContent = title;
   el.querySelector(".cf-sub").textContent = sub || "";
   el.dataset.kind = kind || "alert";
   el.classList.remove("hidden", "cf-go"); void el.offsetWidth; el.classList.add("cf-go");
-  clearTimeout(cfTimer);
-  cfTimer = setTimeout(() => el.classList.add("hidden"), 1900);
-};
+  clearTimeout(cfTimer); cfShowing = true;
+  cfTimer = setTimeout(() => { el.classList.add("hidden"); cfShowing = false; MsgRouter.headlineDone(); }, 1900);
+}
+function flashBannerCut() { // something bigger took the middle of the screen: end the flash now
+  const el = document.getElementById("center-flash");
+  clearTimeout(cfTimer); if (el) el.classList.add("hidden"); cfShowing = false;
+}
+
+// Design system A2 (Nov 10): the message router. One HEADLINE at a time in the middle (center flash, Spotlight
+// card, catch card), one TICKER at a time at the bottom (the lower third, which already queues itself).
+// Anything that wants the headline asks here first. Rules (spec section 3.2):
+//   - no cutting in: a new headline waits for the one on screen, it never replaces it
+//   - 1.2 s gap between headlines; the same headline at most once a minute
+//   - waiting has a shelf life: alarms 4 s, objectives 10 s, rewards 8 s, then they're dropped
+//   - the clock only runs while you're playing (a level-up or pause holds the line)
+window.MsgRouter = (() => {
+  const TIER = { alert: 1, objective: 2, promo: 2, reward: 3 };          // lower number = more important
+  const SHELF = { 1: 4000, 2: 10000, 3: 8000 };
+  const GAP = 1200, REPEAT = 60000;
+  let queue = [], lastEnd = -1e9, lastSaid = {}, activeMs = 0, lastTick = performance.now();
+  const busy = except => (except !== "flash" && cfShowing) ||
+    (except !== "spotlight" && !!(window.Spotlight && Spotlight.isShowing && Spotlight.isShowing())) ||
+    (except !== "catch" && !!(window.CatchMoment && CatchMoment.isShowing && CatchMoment.isShowing()));
+  function flash(title, sub, kind) {
+    const key = title + "|" + (sub || ""), t = TIER[kind] || 2;
+    if (activeMs - (lastSaid[key] ?? -1e9) < REPEAT) return;            // said this a moment ago
+    if (queue.some(m => m.key === key)) return;
+    if (!busy() && activeMs - lastEnd >= GAP && !ltMenuOpen()) { lastSaid[key] = activeMs; return flashBannerNow(title, sub, kind); }
+    queue.push({ key, title, sub, kind, t, at: activeMs });
+    queue.sort((a, b) => a.t - b.t || a.at - b.at);
+    if (queue.length > 4) queue.length = 4;
+  }
+  setInterval(() => {
+    const now = performance.now(), dt = now - lastTick; lastTick = now;
+    if (ltMenuOpen()) return;                                           // a menu holds the line; nobody goes stale
+    activeMs += dt;
+    queue = queue.filter(m => activeMs - m.at < SHELF[m.t]);
+    if (!queue.length || busy() || activeMs - lastEnd < GAP) return;
+    // a more important Spotlight card is waiting (a boss is tier 1): it goes first
+    const cardTier = window.Spotlight && Spotlight.waitingTier ? Spotlight.waitingTier() : 9;
+    if (cardTier < queue[0].t) return;
+    const m = queue.shift(); lastSaid[m.key] = activeMs; flashBannerNow(m.title, m.sub, m.kind);
+  }, 100);
+  return {
+    flash,
+    busy,                                     // busy("spotlight") = is anything ELSE holding the headline?
+    // Spotlight asks this too: keep the breather, and let alarms or objectives that were already waiting go first
+    blocked(who, tier) { return busy(who) || activeMs - lastEnd < GAP || queue.some(m => m.t <= (tier || 2)); },
+    headlineDone() { lastEnd = activeMs; },   // the Spotlight and catch card call this when they leave
+    cutFlash() { if (cfShowing) { flashBannerCut(); lastEnd = activeMs - GAP; } },
+    waiting: () => queue.map(m => m.title),
+    reset() { queue = []; lastSaid = {}; lastEnd = -1e9; flashBannerCut(); }
+  };
+})();
+window.flashBanner = function(title, sub, kind) { MsgRouter.flash(title, sub, kind); };
 
 // Title screen version line and the "what's new" bubble (Nov 3).
 // The bubble shows the newest changelog entry's teaser (or its first highlight) once per version.

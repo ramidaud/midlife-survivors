@@ -336,6 +336,7 @@ function create() {
   runStartAge = modeStartAge();
   currentAge = runStartAge; lastDividendAge = Math.floor(runStartAge / 5) * 5;
   this._dmgPool = []; this._dmgFrame = -1; // damage-number pool: the last run's objects are gone after a restart
+  if (window.MsgRouter) MsgRouter.reset(); // design system A2: no headlines carried over from the last run
   if (window.Spotlight && Spotlight.newRun) Spotlight.newRun(); // Quick Retry too: no cards or tip counts carried over from the last run (Fable review)
   bossesSpawned = {}; slowUntil = 0; currentWaveIdx = 0; if (window.HolidayParty) HolidayParty.reset(); if (window.Reorg) Reorg.reset(); if (window.Workload) Workload.reset(); if (window.PerfBonus) PerfBonus.reset(); if (window.OvertimeBeats) OvertimeBeats.reset(); window.goldWatchBeat = false; window.goldWatchSeen = false;
   paused = false; pauseParts = [];

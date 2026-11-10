@@ -53,7 +53,17 @@ window.CatchMoment = (() => {
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
 
   // r: the intern (roster entry), line: what they say, treat: { id, name, text, color }, icons: { id: dataURL }
-  function show(scene, r, line, treat, icons, hits) {
+  function show(scene, r, line, treat, icons, hits, _waited) {
+    // Design system A2: one headline at a time. A boss card or a center flash finishes first (up to 4 s);
+    // a smaller Spotlight card (hire, room, tip) steps aside, because you just caught someone.
+    if (window.MsgRouter && (_waited || 0) < 4000) {
+      const bossCard = window.Spotlight && Spotlight.isShowing() && document.querySelector("#spotlight.boss");
+      if (bossCard || MsgRouter.busy("catch") && !(window.Spotlight && Spotlight.isShowing())) {
+        return setTimeout(() => show(scene, r, line, treat, icons, hits, (_waited || 0) + 250), 250);
+      }
+    }
+    if (window.Spotlight && Spotlight.isShowing()) Spotlight.hide();
+    if (window.MsgRouter) MsgRouter.cutFlash();
     clear(); css();
     const calm = still(), ROOT = window.SPOTLIGHT_ROOT || "";
     // 1. hit-pause: the world slows for a beat (physics and tweens), then eases back
@@ -94,7 +104,7 @@ window.CatchMoment = (() => {
     }
     if (window.__catchHold) return; // tests: keep the card up for a screenshot
     later(() => root && root.classList.add("out"), calm ? 2400 : 2500);
-    later(clear, calm ? 2750 : 2850);
+    later(() => { clear(); if (window.MsgRouter) MsgRouter.headlineDone(); }, calm ? 2750 : 2850);
   }
   return { show, clear, isShowing: () => !!root };
 })();

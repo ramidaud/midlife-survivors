@@ -152,7 +152,8 @@ window.Spotlight = (() => {
   //   - a boss bumps whatever lower card is up, and the bumped card is dropped, not replayed
   //   - each card waits only so long (maxWaitMs); if it's stale by then it's skipped
   //   - the Lounge card shows once per run, and not right after a room card (that card's tip already points there)
-  const PRI = { boss: 3, event: 3, hire: 2, room: 1, lounge: 1, tip: 0 }; // event: one-off moments (clocking out, the yellow note)
+  const PRI = { boss: 3, event: 3, hire: 2, room: 1, lounge: 1, tip: 0 };
+  const TIER = { boss: 1, event: 1, hire: 2, room: 2, lounge: 2, tip: 3 }; // design system A2: the router's tiers (1 = most important) // event: one-off moments (clocking out, the yellow note)
   const PACE = { maxTipsPerRun: 2, gapMs: 15000, maxWaitMs: { event: 15000, hire: 20000, room: 40000, lounge: 60000, tip: 20000, boss: 15000 } };
   let lastHiddenAt = -1e9, lastShownKind = null, run = { lounge: false, lastRoomAt: -1e9 };
 
@@ -164,6 +165,7 @@ window.Spotlight = (() => {
     setTimeout(() => { if (!showing) { r.innerHTML = ""; r.className = ""; } }, 380);
     showing = null;
     lastHiddenAt = performance.now();
+    if (window.MsgRouter) MsgRouter.headlineDone(); // design system A2: the headline is free again
   }
 
   function show(card) {
@@ -204,6 +206,8 @@ window.Spotlight = (() => {
     // One message at a time (Nov 5, Rami: cards and memo lines kept landing on each other). Memo lines already wait
     // for cards; now cards also wait for a memo line on screen to finish. Bosses still cut in.
     if (next.kind !== "boss" && window._ltState && window._ltState.current) return;
+    // Design system A2: one headline at a time. Even a boss waits for a center flash or catch card to finish (2 s at most).
+    if (window.MsgRouter && MsgRouter.blocked("spotlight", TIER[next.kind] || 3)) return;
     showing = next; queue = queue.filter(c => c !== next);
     if (showing.seenKey) remember(showing.seenKey);
     if (showing.kind === "tip") run.tips = (run.tips || 0) + 1; // once-ever cards count as seen only when they actually show
@@ -303,6 +307,7 @@ window.Spotlight = (() => {
     // One-off moments are "event" cards: they cut in like a boss and never count against the two-tips-per-run limit
     // (before Nov 4 they defaulted to tips, so the FIVE O'CLOCK card could be dropped after two tips).
     custom(c) { show(Object.assign({ kind: "event", art: c.hero ? heroArt(c.hero) : null, artType: "hero", edge: "#D9A441", band: "#303750", ms: 6500 }, c)); return true; },
-    hide, texUrl, isShowing: () => !!showing, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
+    hide, texUrl, isShowing: () => !!showing,
+    waitingTier: () => { const now = performance.now(); return queue.filter(c => !c.notBefore || c.notBefore <= now).reduce((t, c) => Math.min(t, TIER[c.kind] || 3), 9); }, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
   };
 })();

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.1",
-  displayVersion: "V. 2.26.1",
+  version: "2.26.2",
+  displayVersion: "V. 2.26.2",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 329,
+  build: 330,
   changelog: [
+    {
+      ver: "V. 2.26.2", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Messages now take a number and wait their turn.",
+      highlights: [
+        "Big center notices, Spotlight cards and the GOTCHA card now take turns. Only one of them is ever on screen at once.",
+        "The most important one goes first: a boss card beats a reward, and alarms that were already waiting go before newer cards.",
+        "If a notice waits too long it's skipped instead of showing up late, and the same notice never repeats within a minute."
+      ]
+    },
     {
       ver: "V. 2.26.1", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your map moved up. It was standing in the wrong spot.",
