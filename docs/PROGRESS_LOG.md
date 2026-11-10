@@ -2090,3 +2090,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Phones: the camera sits a little closer (zoom 0.75 to 0.95) so the hero is never under 48 px tall. You see about 20% less floor; one number (`VIEW.minHeroPx` in main.js) to tune after Rami plays.
 - Phone sideways: one HUD row, small minimap, short message bar.
 - Part A ("where should I be looking") is done. Next: Rami's phone playtest, then Part B (menus).
+
+## 2026-11-10 (8:05 PM): V2.26.9, design system step B1
+- New shared parts file (`assets/ui/ms-parts.css`): the Button (one orange primary per screen, outline secondaries, focus ring) and the Sheet's memo-strip header, bottom action bar and legend.
+- Level-up and Performance Bonus: SKIP and REROLL on the left, one orange PICK on the right that names the selected card. Cards are still the tap targets.
+- Controller: A picks, X rerolls, Y skips (X is still mute everywhere else). Keyboard R rerolls. A small legend shows only for a controller or keyboard.

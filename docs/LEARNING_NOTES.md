@@ -767,3 +767,6 @@ On a phone held in portrait, your thumb lives in the bottom third of the screen,
 
 ## Visual hierarchy (Nov 10, design system A8)
 Every screen has one thing the eye should land on first. In a game about getting older, that's your age, so it's now the biggest, brightest number in the HUD, and the clock (which used to be bigger) sits quietly underneath. Hierarchy is made with size, color and position: the most important thing gets the most of all three. If two things are equally loud, the eye bounces between them and reads neither.
+
+## Components (Nov 10, design system B1)
+A component is a part you design once and reuse everywhere, like a LEGO brick. Before, every menu built its own buttons with its own colors and sizes, so nothing matched. Now there's one Button with a few kinds (primary, secondary, quiet) and a few states (focused, pressed, disabled), written once in `assets/ui/ms-parts.css`. When the level-up menu wants a button it says "secondary button" instead of describing one from scratch, and a later fix to the Button fixes it in every menu at once.
