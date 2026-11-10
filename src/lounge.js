@@ -147,10 +147,34 @@ window.Lounge = (() => {
       #lounge-modal .lg-item.nav-focused,#lounge-modal .lg-item:hover{border-color:#EF9347}
       #lounge-modal .lg-leave{font:13px Silkscreen,monospace;background:#EF9347;color:#171C35;border:2px solid #171C35;border-radius:6px;min-height:44px;cursor:pointer}
       #lounge-modal .lg-leave.nav-focused{outline:3px solid #FFF0CF}
-      #lounge-modal .lg-note{font-size:12px;color:#B8C0D4}`;
+      #lounge-modal .lg-note{font-size:12px;color:#B8C0D4}
+      /* design system B3 (Nov 10): the shop is a Sheet of Rows */
+      #lounge-modal .lg-card.ms-sheet{padding:0;border-color:var(--ms-border)}
+      @media (min-width:600px){#lounge-modal .lg-card.ms-sheet{width:min(820px,94vw)}}
+      #lounge-modal .ms-row.lg-row.no-ic{grid-template-columns:minmax(0,1fr) auto}
+      #lounge-modal .lg-top{padding:var(--ms-space-4,16px) var(--ms-space-4,16px) 0;display:flex;flex-direction:column;gap:var(--ms-space-2,8px)}
+      #lounge-modal .lg-top .lg-bal{font:var(--ms-label-m,13px)/1 var(--ms-font-label);color:var(--ms-paper);letter-spacing:var(--ms-label-track)}
+      #lounge-modal .lg-body{padding:var(--ms-space-3,12px) var(--ms-space-4,16px) 0}
+      #lounge-modal .lg-say{font:600 var(--ms-body,16px)/1.35 var(--ms-font-read)}
+      #lounge-modal .lg-say b{color:var(--ms-ok)}
+      #lounge-modal .ms-rows.lg-rows{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--ms-space-2,8px)}
+      @media (min-width:600px){#lounge-modal .ms-rows.lg-rows{grid-template-columns:repeat(2,minmax(0,1fr))}}
+      #lounge-modal .ms-row.lg-row{grid-template-columns:40px minmax(0,1fr) auto;min-height:64px}
+      #lounge-modal .lg-ic{width:40px;height:40px;display:grid;place-items:center;font-size:24px;background:var(--ms-surface);border-radius:var(--ms-radius-m,4px)}
+      #lounge-modal .lg-tag{font:var(--ms-label-m,13px)/1 var(--ms-font-label);letter-spacing:var(--ms-label-track);color:var(--ms-surface);background:var(--ms-paper);
+        padding:6px 8px;border-radius:var(--ms-radius-s,2px);white-space:nowrap;text-align:center}
+      #lounge-modal .lg-tag small{display:block;font:600 11px/1.1 var(--ms-font-read);letter-spacing:0;margin-top:3px;color:var(--ms-surface);opacity:.8}
+      #lounge-modal .ms-row.locked{background:rgba(48,55,80,.55)}
+      #lounge-modal .ms-row.locked .ms-row-title,#lounge-modal .ms-row.locked .lg-ic{opacity:.55}
+      #lounge-modal .ms-row.locked .lg-tag{background:transparent;color:var(--ms-text-quiet);border:1px solid var(--ms-line)}
+      #lounge-modal .ms-row.locked .lg-tag::before{content:"";display:inline-block;width:8px;height:9px;margin-right:6px;vertical-align:-1px;
+        background:linear-gradient(var(--ms-text-quiet),var(--ms-text-quiet)) 0 4px/8px 5px no-repeat;border:2px solid var(--ms-text-quiet);border-bottom:0;border-radius:4px 4px 0 0;box-sizing:border-box}
+      #lounge-modal .ms-row.done .lg-tag{background:transparent;color:var(--ms-ok);border:1px solid var(--ms-ok)}
+      #lounge-modal .ms-row.done .lg-tag::before{content:"\\2713 "}
+      #lounge-modal .ms-sheet-actions{padding-left:var(--ms-space-4,16px);padding-right:var(--ms-space-4,16px)}`;
     document.head.appendChild(css);
     m = document.createElement("div");
-    m.className = "ui-modal hidden"; m.id = "lounge-modal";
+    m.className = "ui-modal hidden ms-sheet-host"; m.id = "lounge-modal";
     m.setAttribute("role", "dialog"); m.setAttribute("aria-label", "The Lounge");
     (document.getElementById("ui-layer") || document.body).appendChild(m);
     return m;
@@ -159,22 +183,31 @@ window.Lounge = (() => {
   function renderModal(scene, msg) {
     const m = ensureModal(), L = C(), r = st.staff || { name: "The intern" };
     const items = catalog().map(it => ({ it, why: canBuy(it) }));
-    m.innerHTML = `<div class="lg-card">
-      <div class="lg-head"><span>${atHome() ? (ST().header || "LEMONADE STAND · CURBSIDE") : cartMode() ? ((L.cart && L.cart.header) || "THE LOUNGE CART") : "THE LOUNGE · BREAK ROOM"}</span><span>401(k): ${meta.coins}k</span></div>
+    // Design system B3: a Sheet of Rows. Icon, name and one help line, a price tag on the right; the whole row buys.
+    const head = atHome() ? (ST().header || "LEMONADE STAND · CURBSIDE") : cartMode() ? ((L.cart && L.cart.header) || "THE LOUNGE CART") : "THE LOUNGE · BREAK ROOM";
+    const [dept, place] = head.split("·").map(x => x.trim());
+    const strip = place ? `${place} · RE: <b>${dept.charAt(0) + dept.slice(1).toLowerCase()}</b>` : `BREAK ROOM · RE: <b>${head.charAt(0) + head.slice(1).toLowerCase()}</b>`;
+    const split = name => { const mm = String(name).match(/^(\p{Extended_Pictographic}[\uFE0F\u200D\p{Extended_Pictographic}]*)\s*(.*)$/u); return mm ? [mm[1], mm[2]] : ["", name]; };
+    const tag = (it, why) => why === "OWNED" ? "OWNED" : why ? why : `${price(it)}k${st.stock[it.id] > 1 ? `<small>${st.stock[it.id]} left</small>` : ""}`;
+    m.innerHTML = `<div class="lg-card ms-sheet">
+      <div class="lg-top"><div class="ms-sheet-strip">${strip}</div><div class="lg-bal">YOUR 401(K): ${meta.coins}k</div></div>
 ${atHome() ? "" : `      <picture class="lg-scene"><source media="(max-width:520px)" srcset="assets/ui/lounge-scene-tall-v1.png?v=${window.BUILD||1}"><img src="assets/ui/lounge-scene-v1.png?v=${window.BUILD||1}" alt="The Student Lounge: futon, paper lamp, collage wall and the desk where TJ and Derek work" width="960" height="360"></picture>`}
       <div class="lg-body">
         <div class="lg-say"><b>${r.name}:</b> ${msg || "What can I get you?"}</div>
-        <div class="lg-grid">${items.map(({ it, why }, i) => `
-          <button type="button" class="lg-item${why ? " off" : ""}" data-id="${it.id}" ${why ? 'aria-disabled="true"' : ""}>
-            <span class="nm">${it.name}</span><span class="tx">${it.text || ""}</span>
-            <span class="pr">${why || price(it) + "k"}${!why && st.stock[it.id] > 1 ? " · " + st.stock[it.id] + " left" : ""}</span>
-          </button>`).join("")}</div>
-        <button type="button" class="lg-leave" id="lg-leave">BACK TO WORK</button>
-        <div class="lg-note">The game is paused while you shop. Prices come out of your 401(k).</div>
-      </div></div>`;
+        <p class="ms-sheet-help">The game is paused while you shop. Prices come out of your 401(k).</p>
+        <div class="ms-rows lg-rows">${items.map(({ it, why }) => { const [ic, nm] = split(it.name); return `
+          <button type="button" class="ms-row lg-row${ic ? "" : " no-ic"}${why === "OWNED" ? " done" : why ? " locked" : ""}" data-id="${it.id}" ${why ? 'aria-disabled="true"' : ""}>
+            ${ic ? `<span class="lg-ic" aria-hidden="true">${ic}</span>` : ""}
+            <span><span class="ms-row-title">${nm}</span><span class="ms-row-sub">${it.text || ""}</span></span>
+            <span class="lg-tag">${tag(it, why)}</span>
+          </button>`; }).join("")}</div>
+      </div>
+      <div class="ms-sheet-actions"><div class="ms-left"></div>
+        <button type="button" class="ms-btn primary lg-leave" id="lg-leave"><span class="ms-btn-label">BACK TO WORK</span></button></div>
+    </div>`;
     m.classList.remove("hidden");
-    const row = (i) => Math.floor(i / 2);
-    m.querySelectorAll(".lg-item").forEach((b, i) => window.bindNavItem ? bindNavItem(b, row(i), () => buy(scene, b.dataset.id), i === 0) : b.addEventListener("click", () => buy(scene, b.dataset.id)));
+    const cols = matchMedia("(min-width:600px)").matches ? 2 : 1, row = (i) => Math.floor(i / cols);
+    m.querySelectorAll(".lg-row").forEach((b, i) => window.bindNavItem ? bindNavItem(b, row(i), () => buy(scene, b.dataset.id), i === 0) : b.addEventListener("click", () => buy(scene, b.dataset.id)));
     const leave = m.querySelector("#lg-leave");
     if (window.bindNavItem) bindNavItem(leave, 10, () => closeBrowse(scene, true)); else leave.addEventListener("click", () => closeBrowse(scene, true));
     if (window.menuNav) window.menuNav.refresh();
@@ -332,5 +365,6 @@ ${atHome() ? "" : `      <picture class="lg-scene"><source media="(max-width:520
   }
 
   return { reset, update, isBrowsing: () => !!(st && st.state === "browsing"), isOpen: () => !!(st && st.state !== "closed"),
-           forceOpen: (scene) => { if (st && st.state === "closed") open(scene); }, spot };
+           forceOpen: (scene) => { if (st && st.state === "closed") open(scene); }, spot,
+           browse: (scene) => { if (st && st.state === "closed") open(scene); if (st) startBrowse(scene); } }; // tests and the dev console
 })();

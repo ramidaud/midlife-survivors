@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.0",
-  displayVersion: "V. 2.27.0",
+  version: "2.27.1",
+  displayVersion: "V. 2.27.1",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 338,
+  build: 339,
   changelog: [
+    {
+      ver: "V. 2.27.1", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The Lounge got a menu you can actually read.",
+      highlights: [
+        "The Lounge and the Lemonade Stand list each item as one big tappable row: what it is, what it does, and a price tag on the right.",
+        "Things you can't buy say why (too pricey, sold out) with a little lock. Your 401(k) balance sits right at the top.",
+        "Same layout on phone, iPad and desktop, and one orange button: BACK TO WORK."
+      ]
+    },
     {
       ver: "V. 2.27.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "All your settings, in one drawer.",
