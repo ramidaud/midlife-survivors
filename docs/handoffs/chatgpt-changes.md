@@ -579,3 +579,8 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 - **Ground:** Six native PNGs in `assets/stage/home/`: street A/B832x320, lawn A/B512x512, driveway64x256, eight64px decals on512x64. Manifest, prompts, repeated and mixed seam checks, README. Palette/opacity/native dimensions checked; street edges shared A/B, lawns compatible all sides, driveway top/bottom equal, sticker margins4px.
 - **For Claude:** Rami explicitly approved **832px street width instead of800**. Repeat step832; 13 complete64px dash/gap cycles, phase16. Top64px aprons x280 and680. All new dressing non-solid; keep v1 fallback. Recommend home slides lead for Maple Hollow selection, with occasional teaser use elsewhere, pending Rami's choice.
 - **Review/Notes:** `assets/art-direction/review-maple-title-ground-v2.html`. Title guide checks show placement for menu review, not a runtime UI test. Bright sage lawn and broad slate road replace noise; deliberate baked chalk/leaves/grates/stains. No runtime, navigation, balance, version or slideshow edits. Local art/docs draft, not committed or pushed.
+
+## 2026-11-10 V8 title-art wheel repair (Codex) [done]
+
+- **What:** Removed the stacked extra tire from scene 14 desktop. Normal four-wheel configuration, far rear wheel occluded; wheelie and rear dust kept. Only a 105x105 patch at (1656,312) changed.
+- **Shipped (Claude):** V2.24.1 as `assets/title-screen/slides/14-not-the-minivan-desktop-v2.jpg`; PNG kept as `assets/art-direction/title-maple-v1/14-not-the-minivan-desktop-master-wheel-fix-v2.png`. The portrait version already had four wheels.
