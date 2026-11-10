@@ -749,3 +749,6 @@ Every chip and the minimap used to be placed with a fixed number like "128 px fr
 
 ## A message queue (Nov 10, design system A2)
 A queue is a line, like at the deli counter. Before, every notice in the game just showed itself, so at age 45 three of them landed in the same second on top of each other. Now there's one gatekeeper (the "router") for the middle of the screen: a notice asks for a turn, and if someone's already there it takes a number and waits. Each waiting notice has a tier (boss warnings 1, to-dos 2, rewards 3) so the important one goes first, and a shelf life so a warning that's 5 seconds late gets thrown out instead of confusing you.
+
+## Shape and color together (Nov 10, design system A3)
+The headline plate says what kind of message it is three ways at once: the edge color, a little mark (!, a checkbox, a star) and the label. That's on purpose. About 1 in 12 men can't easily tell red from green, and in the middle of a fight nobody reads carefully anyway. A shape you can recognize from the corner of your eye works for everyone. It's the same reason a stop sign is an octagon and not just red.

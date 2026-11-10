@@ -2056,3 +2056,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Most important first (a boss card beats a reward), 1.2 s breather between them, stale ones are skipped, no repeats within a minute. The clock holds while a menu is open.
 - Tested: two flashes 200 ms apart (the second waits), a catch during a boss card (it waits), and the real age-45 pile-up (three alarms now arrive one by one).
 - Same look as before. A3 moves the headline under the HUD.
+
+## 2026-11-10 (4:05 PM): V2.26.3, design system step A3
+- The center flash is now the headline plate: a solid navy plate right under the HUD, so it reads on any floor and stays off the hero's space.
+- Three kinds, each with its own edge and mark: danger (red !), to-do (cream checkbox), reward (orange star). To-dos and Overtime beats use the new to-do kind.
+- On phones the minimap and chips step aside while a headline is up. First step built only from the new tokens.
