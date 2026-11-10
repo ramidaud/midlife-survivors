@@ -91,8 +91,8 @@ window.BossDown = (() => {
     // 3b. A last word in a speech bubble, for the bosses that have one.
     const lines = C.lastWords && C.lastWords[boss.kind];
     if (lines && lines.length) {
-      const say = scene.add.text(x + 34, y - 26, Phaser.Utils.Array.GetRandom(lines), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35",
-        backgroundColor: "#FFF0CF", padding: { x: 6, y: 4 } }).setOrigin(0, 1).setDepth(50009).setAlpha(0);
+      const say = scene.add.text(x + 34, y - 26, Phaser.Utils.Array.GetRandom(lines), window.WorldText ? WorldText.bubbleStyle({ align: "left" })
+        : { fontFamily: "'Atkinson Hyperlegible', sans-serif", fontSize: "14px", fontStyle: "bold", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 5 } }).setOrigin(0, 1).setDepth(50009).setAlpha(0); // A7: the one bubble style
       { const vw = scene.cameras.main.worldView, m = 8; say.x = Math.max(vw.x + m, Math.min(say.x, vw.right - say.width - m)); } // keep it on screen
       scene.tweens.add({ targets: say, alpha: 1, delay: calm ? 0 : 560, duration: 160,
         onComplete: () => scene.tweens.add({ targets: say, alpha: 0, y: say.y - 10, delay: 1700, duration: 400, onComplete: () => say.destroy() }) });

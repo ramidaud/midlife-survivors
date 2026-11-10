@@ -117,10 +117,10 @@ window.Interns = (() => {
   }
 
   function bubble(scene, x, y, text) {
-    const t = scene.add.text(x, y, text, {
-      fontFamily: "'Atkinson Hyperlegible', sans-serif", fontSize: "13px", fontStyle: "bold", color: "#171C35",
-      backgroundColor: "#FFF0CF", padding: { x: 6, y: 4 }, wordWrap: { width: 190 }
-    }).setOrigin(0.5, 1).setDepth(50002);
+    const t = scene.add.text(x, y, text, window.WorldText ? WorldText.bubbleStyle({ wordWrap: { width: 190, useAdvancedWrap: true } }) : {
+      fontFamily: "'Atkinson Hyperlegible', sans-serif", fontSize: "14px", fontStyle: "bold", color: "#171C35",
+      backgroundColor: "#F2D7A1", padding: { x: 8, y: 5 }, wordWrap: { width: 190 }
+    }).setOrigin(0.5, 1).setDepth(50002); // A7: the one bubble style
     scene.tweens.add({ targets: t, y: y - 18, alpha: 0, delay: 1800, duration: 600, onComplete: () => t.destroy() });
   }
 

@@ -786,7 +786,7 @@ function create() {
     hurtPlayer(p, { kind: "groupChat", damage: ping.damage || 1 });
     if (hp < hpBefore) { // say what hit you
       const t = p.scene.add.text(p.x, p.y - 58, "PING! GROUP CHAT", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#8ff0a8", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
-      p.scene.tweens.add({ targets: t, y: t.y - 20, alpha: 0, duration: 900, onComplete: () => t.destroy() });
+      (window.WorldText && WorldText.cap(t)), p.scene.tweens.add({ targets: t, y: t.y - 20, alpha: 0, duration: 900, onComplete: () => t.destroy() });
     } if (window.Telemetry && Telemetry.note) Telemetry.note("ping");
   });
   // Nov 9 (Rami: "maybe I should be able to hit those with my weapons as well, just like Vampire Survivors"):
@@ -974,7 +974,7 @@ function collectCoin(p, coin) {
     stroke: "#12152a",
     strokeThickness: 3
   }).setOrigin(0.5).setDepth(16);
-  p.scene.tweens.add({ targets: txt, y: txt.y - 22, alpha: 0, duration: 520, onComplete: () => txt.destroy() });
+  (window.WorldText && WorldText.cap(txt)), p.scene.tweens.add({ targets: txt, y: txt.y - 22, alpha: 0, duration: 520, onComplete: () => txt.destroy() });
 }
 
 // You picked up a slice of Leftover Breakroom Pizza (dropped from smashing potted plants): heals +2 HP!
@@ -1156,7 +1156,7 @@ function collectPizza(p, pz) {
     const st = p.scene.add.text(sp.x, sp.y - 18, `+${sHeal} HP (SALAD!)`, {
       fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#83A89A", stroke: "#12152a", strokeThickness: 3
     }).setOrigin(0.5).setDepth(16);
-    p.scene.tweens.add({ targets: st, y: st.y - 24, alpha: 0, duration: 700, onComplete: () => st.destroy() });
+    (window.WorldText && WorldText.cap(st)), p.scene.tweens.add({ targets: st, y: st.y - 24, alpha: 0, duration: 700, onComplete: () => st.destroy() });
     if (sHeal >= 6 && window.showLowerThird) window.showLowerThird("reward", "DESK SALAD", `Actual vegetables. +${sHeal} HP.`, 3200);
     return;
   }
@@ -1170,7 +1170,7 @@ function collectPizza(p, pz) {
   const txt = p.scene.add.text(pt.x, pt.y - 18, `+${pzHeal} HP (PIZZA!)`, {
     fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#6fbf73", stroke: "#12152a", strokeThickness: 3
   }).setOrigin(0.5).setDepth(16);
-  p.scene.tweens.add({ targets: txt, y: txt.y - 24, alpha: 0, duration: 600, onComplete: () => txt.destroy() });
+  (window.WorldText && WorldText.cap(txt)), p.scene.tweens.add({ targets: txt, y: txt.y - 24, alpha: 0, duration: 600, onComplete: () => txt.destroy() });
 }
 
 // The Title Screen: renders the HTML/CSS Executive Dossier, Character Select, Decade Checkpoints, and 401(k) Shop!
@@ -1600,19 +1600,19 @@ function hurtPlayer(p, bill) {
   if (window.teach && teach.on && !teach.hurtShown && window.FirstMinute) { teach.hurtShown = true; FirstMinute.firstHurt(scene); }
   if (stats.dodge && Math.random() < stats.dodge) { // Fitness Tracker: sidestep the hit
     const t = scene.add.text(p.x, p.y - 44, Phaser.Utils.Array.GetRandom(["DODGED!", "10,000 STEPS!", "NOT TODAY!"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#BFA8CF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
-    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+    (window.WorldText && WorldText.cap(t)), scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
     return;
   }
   if (drinkShieldUp(p)) { // Energy Drink: too wired to be hit while you keep moving (src/data/items.js)
     const t = scene.add.text(p.x, p.y - 44, Phaser.Utils.Array.GetRandom(["TOO WIRED!", "CAN'T STOP!", "CAFFEINATED!", "ZOOM!"]), { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#6BE2FF", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
-    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 650, onComplete: () => t.destroy() });
+    (window.WorldText && WorldText.cap(t)), scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 650, onComplete: () => t.destroy() });
     return;
   }
   if (shield.hits > 0 && runElapsedMs < shield.until) { // a shield soaks the hit (interns, Headphones, Cardigan)
     shield.hits--; shield.flashAt = runElapsedMs; sfx("wordNo");
     if (window.MoreWeapons) MoreWeapons.onBlock(scene, p); // the Headphones pop
     const t = scene.add.text(p.x, p.y - 44, shield.hits ? "BLOCKED!" : "SHIELD BROKE!", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#83A89A", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
-    scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+    (window.WorldText && WorldText.cap(t)), scene.tweens.add({ targets: t, y: t.y - 22, alpha: 0, duration: 700, onComplete: () => t.destroy() });
     return;
   }
   dyn.lastHitAt = runElapsedMs; dyn.comfortUntil = 0; // any hit ends the Comfort Zone Tax
@@ -1626,7 +1626,7 @@ function hurtPlayer(p, bill) {
     const msg = scene.add.text(p.x, p.y - 30, isSenior ? "3 PM DINNER NAP!" : "SUGAR CRASH!", {
       fontFamily: "monospace", fontSize: "12px", color: "#f078b8"
     }).setOrigin(0.5);
-    scene.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 700, onComplete: () => msg.destroy() });
+    (window.WorldText && WorldText.cap(msg)), scene.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 700, onComplete: () => msg.destroy() });
   }
   sfx("hurt");
   if (window.NearMiss) window.NearMiss.onHurt(); // a real hit breaks the Close Call streak
@@ -1801,7 +1801,7 @@ function popPing(ping) {
   if (runElapsedMs - lastPingPopTextAt > 1800) {
     lastPingPopTextAt = runElapsedMs;
     const t = sc.add.text(x, y - 14, "LEFT ON READ", { fontFamily: "Silkscreen, monospace", fontSize: "10px", color: "#8ff0a8", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5).setDepth(50002);
-    sc.tweens.add({ targets: t, y: t.y - 16, alpha: 0, duration: 700, onComplete: () => t.destroy() });
+    (window.WorldText && WorldText.cap(t)), sc.tweens.add({ targets: t, y: t.y - 16, alpha: 0, duration: 700, onComplete: () => t.destroy() });
   }
   stats.pingsPopped = (stats.pingsPopped || 0) + 1;
 }
@@ -1982,7 +1982,7 @@ function damagePlant(prop, amount) {
     const msg = sc.add.text(pt.x, pt.y - 12, popupTxt, {
       fontFamily: "monospace", fontSize: "12px", fontStyle: "bold", color: "#ffe042", stroke: "#12152a", strokeThickness: 3
     }).setOrigin(0.5).setDepth(16);
-    sc.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 650, onComplete: () => msg.destroy() });
+    (window.WorldText && WorldText.cap(msg)), sc.tweens.add({ targets: msg, y: msg.y - 22, alpha: 0, duration: 650, onComplete: () => msg.destroy() });
   }
 }
 
@@ -2005,18 +2005,9 @@ let playerSpeech = null, lastJokeToldAt = 0;
 function showPlayerSpeechBubble(scene, text, color = "#ffe042", holdMs = 2300) {
   if (playerSpeech && playerSpeech.active) playerSpeech.destroy();
   const pt = project3DToPhaserWorld(scene, player.x, (player.elev || 0) + 68, player.y);
-  playerSpeech = scene.add.text(pt.x, pt.y - 52, `💬 "${text}"`, {
-    fontFamily: "monospace",
-    fontSize: "15px",
-    align: "center",
-    wordWrap: { width: Math.min(280, scene.scale.width - 40), useAdvancedWrap: true },
-    fontStyle: "bold",
-    color,
-    backgroundColor: "#12152aee",
-    padding: { x: 10, y: 6 },
-    stroke: "#090b14",
-    strokeThickness: 3
-  }).setOrigin(0.5, 1).setDepth(60);
+  // design system A7: the one speech-bubble style (cream paper, navy reading text), no emoji
+  playerSpeech = scene.add.text(pt.x, pt.y - 52, `"${text}"`, window.WorldText ? WorldText.bubbleStyle({ wordWrap: { width: Math.min(260, scene.scale.width - 40), useAdvancedWrap: true } })
+    : { fontFamily: "'Atkinson Hyperlegible', sans-serif", fontSize: "14px", fontStyle: "bold", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 8, y: 5 } }).setOrigin(0.5, 1).setDepth(50002); // above furniture, like the other bubbles
   playerSpeech.holdUntil = runElapsedMs + holdMs;
   playerSpeech.fadeEnd = runElapsedMs + holdMs + 550;
   scene.tweens.add({ targets: playerSpeech, scaleX: { from: 0.85, to: 1 }, scaleY: { from: 0.85, to: 1 }, duration: 140, ease: "Back.easeOut" });
@@ -2047,7 +2038,7 @@ function punchlineBlast(scene, x, y, r, J) {
     const a = Math.random() * Math.PI * 2, w = Phaser.Utils.Array.GetRandom(words);
     const t = scene.add.text(x, y - 10, w, { fontFamily: "monospace", fontSize: w.length > 4 ? "13px" : "18px", fontStyle: "bold",
       color: "#ffe042", stroke: "#3a2a00", strokeThickness: 4 }).setOrigin(0.5).setDepth(depth + 1).setAngle(Phaser.Math.Between(-18, 18));
-    scene.tweens.add({ targets: t, x: x + Math.cos(a) * r * 0.9, y: y + Math.sin(a) * r * 0.9 - 14, alpha: 0, scale: 1.25,
+    (window.WorldText && WorldText.cap(t)), scene.tweens.add({ targets: t, x: x + Math.cos(a) * r * 0.9, y: y + Math.sin(a) * r * 0.9 - 14, alpha: 0, scale: 1.25,
       duration: 650, ease: "Quad.Out", onComplete: () => t.destroy() });
   }
   if (B.shake) scene.cameras.main.shake(80, B.shake);
@@ -2136,7 +2127,7 @@ function fireWordNo(scene) {
   const shout = scene.add.text(pt.x, pt.y - 28, healPulse ? "NO! (+1 HP)" : (stats.healthyBoundaries ? "NO!" : "NO."), {
     fontFamily: "monospace", fontSize: "16px", color: "#6fd9c4"
   }).setOrigin(0.5).setDepth(16);
-  scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
+  (window.WorldText && WorldText.cap(shout)), scene.tweens.add({ targets: shout, y: shout.y - 20, alpha: 0, duration: 500, onComplete: () => shout.destroy() });
   if (healPulse) { hp = Math.min(stats.maxHp, hp + healAmt(N.healthyHealAmt || 1)); drawHpBar(); }
   popPingsNear(player.x, player.y, r);
 
@@ -2540,7 +2531,7 @@ function update(time, delta) {
       fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#ffe042", backgroundColor: "#12152aee",
       padding: { x: 8, y: 4 }, stroke: "#090b14", strokeThickness: 3
     }).setOrigin(0.5).setDepth(20);
-    this.tweens.add({ targets: dMsg, y: dMsg.y - 28, alpha: 0, duration: 1500, onComplete: () => dMsg.destroy() });
+    (window.WorldText && WorldText.cap(dMsg)), this.tweens.add({ targets: dMsg, y: dMsg.y - 28, alpha: 0, duration: 1500, onComplete: () => dMsg.destroy() });
     // Birthday cake rides along with the dividend (Nov 3). One card for both, so neither gets skipped.
     const cake = milestoneHealAmount(lastDividendAge);
     let cakeHeal = 0;
@@ -2550,7 +2541,7 @@ function update(time, delta) {
       const ck = this.add.text(pt.x, pt.y - 48, `🎂 +${cakeHeal} HP`, {
         fontFamily: "monospace", fontSize: "13px", fontStyle: "bold", color: "#83A89A", stroke: "#12152a", strokeThickness: 3
       }).setOrigin(0.5).setDepth(20);
-      this.tweens.add({ targets: ck, y: ck.y - 28, alpha: 0, duration: 1600, onComplete: () => ck.destroy() });
+      (window.WorldText && WorldText.cap(ck)), this.tweens.add({ targets: ck, y: ck.y - 28, alpha: 0, duration: 1600, onComplete: () => ck.destroy() });
     }
     if (cake && window.showLowerThird) {
       const M = HEALING.milestones;

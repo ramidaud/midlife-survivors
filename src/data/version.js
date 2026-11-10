@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.6",
-  displayVersion: "V. 2.26.6",
+  version: "2.26.7",
+  displayVersion: "V. 2.26.7",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 334,
+  build: 335,
   changelog: [
+    {
+      ver: "V. 2.26.7", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your thumb was sitting on the news.",
+      highlights: [
+        "On touch phones the bottom message bar sits higher, so your thumb on the joystick doesn't cover it. The full sentence fits now too.",
+        "Speech bubbles all look the same: cream paper, easy-to-read text. Your Dad Jokes finally float above the furniture.",
+        "No more than six little pop-ups (+HP, coins, DODGED!) float at once, so a big pickup moment doesn't bury your hero in text."
+      ]
+    },
     {
       ver: "V. 2.26.6", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your birthdays got a lot less crowded.",

@@ -1228,6 +1228,20 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
   .lt-strip[data-kind="tip"]     { --lt-accent: #83A89A; }
   .lt-strip[data-kind="chapter"] { --lt-accent: #F2D7A1; }
   .lt-strip[data-kind="reward"], .lt-strip[data-kind="promo"] { --lt-accent: #83A89A; }
+  /* The ticker as the spec's Toast (design system A7): label colors by kind, reading size from tokens, and on touch
+     phones it sits 96 px up so a thumb on the joystick doesn't cover it. */
+  .lt-strip { border-radius: var(--ms-radius-m, 4px); box-shadow: 0 0 0 2px var(--ms-border), var(--ms-shadow-card); background: var(--ms-plate); }
+  .lt-text { font: 700 var(--ms-body-l, 18px)/1.3 var(--ms-font-read); color: var(--ms-text); }
+  .lt-badge { font: var(--ms-label-s, 11px)/1.1 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-surface); }
+  .lt-strip[data-kind="tip"], .lt-strip[data-kind="lore"] { --lt-accent: var(--ms-ok); }
+  .lt-strip[data-kind="promo"], .lt-strip[data-kind="chapter"], .lt-strip[data-kind="errand"] { --lt-accent: var(--ms-paper); }
+  .lt-strip[data-kind="reward"], .lt-strip[data-kind="win"] { --lt-accent: var(--ms-accent); }
+  .lt-strip[data-kind="alert"] { --lt-accent: var(--ms-danger); }
+  .lt-strip[data-kind="alert"] .lt-badge { background: var(--ms-surface); color: var(--ms-text); box-shadow: inset 4px 0 0 var(--ms-danger); }
+  .lt-strip[data-kind="alert"] .lt-badge::before { content: "!"; display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 6px;
+    background: var(--ms-danger); color: var(--ms-surface); border-radius: var(--ms-radius-s, 2px); }
+  @media (max-width: 599px) and (pointer: coarse) { .lt-strip { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); } }
+  @media (max-width: 599px) { .lt-text { font-size: var(--ms-body, 16px); -webkit-line-clamp: 3; } .lt-badge { padding: 0 8px; } .lt-body { padding: 8px 10px; } }
   /* iPad: bigger HUD text at arm's length */
   @media (min-width: 700px) and (pointer: coarse) {
     .vs-hud .vs-timer { font-size: 28px; } .vs-hud .vs-age { font-size: 24px; }
@@ -1708,7 +1722,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 334; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 335; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);
