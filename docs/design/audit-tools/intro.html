@@ -1,0 +1,34 @@
+<header class="hero">
+  <div><span class="memo"><span class="re">UI/UX PASS · RE:</span><strong>Where should I be looking?</strong></span></div>
+  <h1>Midlife Survivors UI audit</h1>
+  <p class="lede">I ran V. 2.25.0 on a phone, an iPad both ways, and a desktop, and photographed <b>{{TOTAL}} surfaces</b> at each size. Each piece is well made. They were built one at a time, so each one chose its own spot, shape and volume, and <b>nothing decides which one gets to speak</b>. That is why it is hard to know where to look.</p>
+  <div class="count" aria-label="Counts from the code and the captures">
+    <div><b>11</b><span>different containers for a message during a run</span><small>flash, lower third, band, strip, 2 chips, card...</small></div>
+    <div><b>30</b><span>font sizes in the game's CSS</span><small>most between 8 and 13 px</small></div>
+    <div><b>12</b><span>corner radii</span><small>2, 3, 4, 5, 6, 8, 9, 10, 12 px...</small></div>
+    <div><b>29</b><span>stacking layers (z-index values)</span><small>chips still land on top of menus</small></div>
+    <div><b>13</b><span>screen-width breakpoints</span><small>480 to 1800 px, no shared set</small></div>
+    <div><b>110</b><span>messages in a typical office run</span><small>Grok's model, plus 31 pausing menus</small></div>
+  </div>
+  <div class="cols">
+    <section class="panel"><h2>How to read this page</h2><ul>
+      <li>One row per surface. Left to right: phone, iPad portrait, iPad landscape, desktop.</li>
+      <li>Tap any picture to enlarge it.</li>
+      <li><b>Look</b> is type, color, shape. <b>Attention</b> is what fights for your eyes. <b>Device fit</b> is how it adapts.</li>
+      <li>The ranked <a href="#top10">top 10</a> is at the end, with links back to the evidence.</li>
+    </ul></section>
+    <section class="panel"><h2>Worth keeping</h2><ul>
+      <li>The <b>lower third</b>. One bar, color-coded label, already queued. It should become the main voice.</li>
+      <li>The <b>cream memo strip</b> and the devlog's reading sizes.</li>
+      <li>The <b>Spotlight band</b>. It has the most character. It needs a smaller job.</li>
+      <li>The <b>level-up cards</b> and the <b>bonus chest</b> as a full-screen moment.</li>
+      <li>The <b>title key art</b> and one big PUNCH IN on a phone.</li>
+    </ul></section>
+    <section class="panel"><h2>How it was captured</h2><ul>
+      <li>Headless Chromium against the repo at V. 2.25.0 (build 327), with <code>?nostats=1</code>. Stats, sign-in and the leaderboard were blocked. Nothing was posted.</li>
+      <li>A test save with coins, unlocks and 14 runs, so returning-player screens show.</li>
+      <li>In-run states were called through the game's own functions. The age 45 row is the untouched game.</li>
+      <li>No game code was changed.</li>
+    </ul></section>
+  </div>
+</header>
