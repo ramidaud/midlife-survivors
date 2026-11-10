@@ -48,6 +48,21 @@ Plus one from Gemini's references: plain verbs on buttons (PAUSE, REROLL, SKIP) 
 - **The Quarterly All-Hands** (office boss at 60, V2.25.0) is live: dashed floor shapes, a projector screen, a Q&A with spotlights.
 - Another Claude session keeps building while you work. Always `git pull --rebase` before you push, and only touch `docs/design/`.
 
+## Every surface in scope (audit all of them)
+**Out of the game (menus and pages)**
+- Title screen: the slideshow, logo and version, Punch In, the employee-file feed (to-dos), the shift and mode picker, the LOCATION picker, the devlog memo card, the account/save prompt
+- Title sub-views (`ui.js` `renderTitleModal` views): 401(k) shop, Extras, Performance record (achievements), Leaderboard, Credits
+- Options/settings, Controls, What's New (changelog), Lore archive, Pause, Game over + score posting, the Retirement screen, the shift briefing
+- The sound nudge, the "move to start" hint, the screenshot control
+- **The website:** the devlog index and each memo page (`devlog/`), the Art Room (`devlog/art`), About (`devlog/about`), the shared top nav (`assets/ui/ms-nav.*`) and progress bar (`assets/ui/ms-bar.css`), share pages, and the Discord link
+**In the game**
+- The HUD (XP bar, age and timer, score, 401(k) coins, loadout slots, pause and sound buttons), the minimap and its big view
+- The center flash, the lower third, Spotlight cards (hire, boss, room, lounge, tip, event), boss toasts, the catch card (GOTCHA!)
+- Chips: errand + arrow, "checked off" buff, modifier, Workload, key hunt, Overtime beats
+- Menus that pause: level-up, Performance Bonus, bonus chest, the Lounge / Lemonade Stand
+- World text: damage numbers, Close Calls, speech bubbles, pickup pops, name tags, boss labels
+- Touch controls (the floating joystick) and controller focus on every menu
+
 ## Your job, in order
 1. **Audit (deliver first).** Run the game headless (Playwright; serve the repo with `python3 -m http.server`, add `?nostats=1` so no stats are sent, block supabase/goatcounter requests, and never post to the leaderboard). Capture **every surface** at phone 390x844, iPad 820x1180 and 1180x820, and desktop 1440x900. Make one review page: each surface in a row across the device sizes, with notes on what's inconsistent (type, spacing, radius, color, motion, placement), what competes for attention, and what doesn't adapt to the device. Publish it as an artifact and give Rami the link.
 2. **Design system (deliver second), as a spec for Rami to approve before anything is built:**
@@ -65,6 +80,15 @@ Plus one from Gemini's references: plain verbs on buttons (PAUSE, REROLL, SKIP) 
 - Show, don't describe: screenshots and side-by-side pictures beat paragraphs.
 - Pushes: only docs and the audit page (in `docs/design/`). Never change game code, version numbers, Supabase or the leaderboard. Commit with a clear message.
 - **Instruction check:** the design system will replace the "One look (Nov 3)" section of CLAUDE.md. Propose the new text, ask Rami yes or no, and don't change CLAUDE.md without his OK.
+
+## What you hand back at the end
+1. **The audit page** (published artifact + `docs/design/ui-audit-2026-11.md`): every surface above, screenshotted at phone, iPad portrait, iPad landscape and desktop, with notes. Ends with a **top 10 problems**, ranked by how much each hurts "where should I be looking."
+2. **The design system spec** (`docs/design/design-system-v1.md` + a published visual version): tokens, components with states, the attention ladder, size classes, a voice-for-UI section (button labels, banners, empty states).
+3. **Wireframes** (published artifact, `docs/design/wireframes-v1.html`): simple gray-box layouts, no final art, built from the new components. One per key screen, each at phone, iPad and desktop: the title screen, the 401(k) shop, the leaderboard, options, the level-up menu, pause, game over, the in-run HUD with the headline / ticker / status-row slots marked, a boss arrival moment, the devlog memo page and the Art Room. Label every region (what goes there, what tier of message, what the thumb or controller does).
+4. **A before/after mockup** of two screens in real colors: the in-run HUD during a boss, and the title screen. Enough for Rami to feel the direction.
+5. **A ranked list of recommendations,** each tagged by effort (S/M/L), what it fixes from the top 10, and which surfaces it touches.
+6. **A migration plan,** one surface per 45-90 minute session, in order, each with a "done when" test.
+7. **The proposed CLAUDE.md text** that replaces "One look (Nov 3)," plus the instruction-check question for Rami.
 
 ## Deliverables
 - `docs/design/ui-audit-2026-11.md` plus the published audit page.
