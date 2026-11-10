@@ -3097,12 +3097,12 @@ function startShiftBriefing(scene) {
   if (!document.getElementById("shift-briefing-css")) {
     const st = document.createElement("style"); st.id = "shift-briefing-css";
     st.textContent = `#shift-briefing{position:fixed;left:0;right:0;top:max(calc(var(--ms-nav-h,0px) + 15%), var(--ms-hud-b,122px));z-index:47;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
-#shift-briefing .sb-card{max-width:440px;width:100%;background:#FFF0CF;color:#171C35;border:3px solid #171C35;border-radius:6px;box-shadow:5px 5px 0 rgba(0,0,0,.45);padding:12px 14px;text-align:center;animation:sbIn .35s cubic-bezier(.2,1.5,.4,1) both}
+#shift-briefing .sb-card{max-width:440px;width:100%;background:var(--ms-paper,#F2D7A1);color:var(--ms-surface,#171C35);border:2px solid var(--ms-surface,#171C35);border-left:6px solid var(--ms-accent,#EF9347);border-radius:var(--ms-radius-l,8px);box-shadow:var(--ms-shadow-card,4px 4px 0 rgba(0,0,0,.45));padding:12px 14px;text-align:center;animation:sbIn .35s cubic-bezier(.2,1.5,.4,1) both}
 #shift-briefing .sb-kick{display:inline-block;font:10px Silkscreen,monospace;letter-spacing:.1em;background:#171C35;color:#F2D7A1;padding:3px 8px;border-radius:2px}
 #shift-briefing .sb-goal{font:700 18px/1.25 'Atkinson Hyperlegible',sans-serif;margin:8px 0 2px}
 @media (max-width:760px){#shift-briefing{top:max(calc(var(--ms-nav-h,0px) + 12%), var(--ms-hud-b,122px))}#shift-briefing .sb-card{padding:9px 12px}#shift-briefing .sb-goal{font-size:16px;margin-top:6px}#shift-briefing .sb-how{font-size:13px;margin-bottom:6px}}
 #shift-briefing .sb-how{font:14px/1.3 'Atkinson Hyperlegible',sans-serif;margin:0 0 8px;color:#303750}
-#shift-briefing .sb-go{display:inline-block;font:11px Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#EF9347;padding:6px 10px;border-radius:3px;animation:sbPulse 1.1s ease-in-out infinite}
+#shift-briefing .sb-go{display:inline-block;font:var(--ms-label-m,13px) Silkscreen,monospace;letter-spacing:.06em;color:#171C35;background:#EF9347;padding:8px 14px;border-radius:var(--ms-radius-m,4px);box-shadow:var(--ms-shadow-button,0 3px 0 #0B0E1D);animation:sbPulse 1.1s ease-in-out infinite}
 @keyframes sbIn{from{transform:translateY(-12px) scale(.9);opacity:0}to{transform:none;opacity:1}}
 @keyframes sbPulse{50%{transform:scale(1.05)}}
 @media (prefers-reduced-motion:reduce){#shift-briefing *{animation:none!important}}`;

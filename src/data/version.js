@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.4",
-  displayVersion: "V. 2.27.4",
+  version: "2.27.5",
+  displayVersion: "V. 2.27.5",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 342,
+  build: 343,
   changelog: [
+    {
+      ver: "V. 2.27.5", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The little pop-ups got the memo.",
+      highlights: [
+        "The bonus chest, retiring at 80, the sign-in prompt and the We Moved note now look like they're from the same office: one card, one memo strip, one orange button.",
+        "At 80 it's a simple choice: KEEP GOING (20 bonus years) or RETIRE (claim the win). The joke is in the line underneath.",
+        "The shift briefing card matches the new colors too."
+      ]
+    },
     {
       ver: "V. 2.27.4", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The end of a run, without the paperwork.",

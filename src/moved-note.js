@@ -6,7 +6,7 @@ window.MovedNote = (() => {
     host: "midlifesurvivors.com",
     until: "2027-01-01",                 // stop showing after this date
     seenKey: "ms-moved-note-seen-v1",
-    kicker: "MEMO // FACILITIES",
+    kicker: "FACILITIES · RE: <b>We moved</b>", // B7: one strip pattern
     title: "WE MOVED",
     body: "Welcome to <b>midlifesurvivors.com</b>, the office's new address. If you played as a guest before the move, your coins, shop ranks and medals stayed behind at the old address. Sorry about that, and thank you for playing. Your leaderboard scores made the move.",
     signedOut: "Were you signed in before? Clock in and your file comes right back.",
@@ -19,7 +19,7 @@ window.MovedNote = (() => {
     if (el) return;
     const signedIn = window.Account && Account.signedIn && Account.signedIn();
     el = document.createElement("div");
-    el.id = "moved-note"; el.className = "ui-modal";
+    el.id = "moved-note"; el.className = "ui-modal ms-sheet-host";
     el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-labelledby", "moved-title");
     el.innerHTML = `<style>
 #moved-note .mv-card{max-width:440px;width:min(440px,calc(100vw - 32px));text-align:left}
@@ -28,14 +28,14 @@ window.MovedNote = (() => {
 #moved-note .mv-btn.primary{background:#EF9347;border-color:#EF9347;color:#171C35}
 #moved-note .mv-btn:focus-visible,#moved-note .mv-btn:hover{outline:2px solid #FFF0CF;outline-offset:2px}
 </style>
-<div class="modal-card mv-card">
-  <div class="modal-kicker">${NOTE.kicker}</div>
+<div class="modal-card mv-card ms-shell">
+  <div class="ms-sheet-strip">${NOTE.kicker}</div>
   <h2 class="modal-title" id="moved-title">${NOTE.title}</h2>
   <p class="modal-sub">${NOTE.body}</p>
   ${signedIn ? "" : `<p class="modal-sub">${NOTE.signedOut}</p>`}
-  <div class="mv-row">
-    ${signedIn ? "" : `<button type="button" class="mv-btn" data-mv="clockin">Clock in</button>`}
-    <button type="button" class="mv-btn primary" data-mv="ok">Got it</button>
+  <div class="mv-row ms-shell-actions">
+    ${signedIn ? "" : `<button type="button" class="ms-btn secondary mv-btn" data-mv="clockin"><span class="ms-btn-label">CLOCK IN</span><span class="ms-btn-sub">Keep your file everywhere</span></button>`}
+    <button type="button" class="ms-btn primary mv-btn" data-mv="ok"><span class="ms-btn-label">GOT IT</span></button>
   </div>
 </div>`;
     (document.getElementById("ui-layer") || document.body).appendChild(el);

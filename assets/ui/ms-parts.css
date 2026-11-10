@@ -77,3 +77,19 @@
 /* the overlay behind a Sheet: solid scrim, no blur (spec 2.3: no glass) */
 #ui-layer .ui-modal.ms-sheet-host { background: var(--ms-scrim); -webkit-backdrop-filter: none; backdrop-filter: none; }
 @media (max-width: 599px) { #ui-layer .ui-modal.ms-sheet-host { padding: 0; align-items: flex-end; } }
+
+/* Shells (design system B7): every small pop-up uses one of two. A Sheet card for prompts (account, We moved),
+   a Moment card for the big beats (retire at 80, the bonus chest). Same surface, border, corners, strip and buttons. */
+#ui-layer .ms-shell.ms-shell, body > .ui-modal .ms-shell.ms-shell { background: var(--ms-surface) !important; border: var(--ms-border-w, 2px) solid var(--ms-border) !important;
+  border-radius: var(--ms-radius-l, 8px) !important; box-shadow: var(--ms-shadow-card) !important; padding: var(--ms-space-5, 24px) !important; color: var(--ms-text);
+  width: min(560px, calc(100vw - 2 * var(--ms-space-4, 16px))); max-width: none; box-sizing: border-box; display: flex; flex-direction: column; gap: var(--ms-space-2, 8px); }
+#ui-layer .ms-shell.ms-moment { width: min(640px, calc(100vw - 2 * var(--ms-space-4, 16px))); text-align: center; }
+#ui-layer .ms-shell .ms-sheet-strip, body > .ui-modal .ms-shell .ms-sheet-strip { margin: 0 0 var(--ms-space-1, 4px); }
+#ui-layer .ms-shell.ms-moment .ms-sheet-strip { align-self: center; }
+#ui-layer .ms-shell .modal-title, body > .ui-modal .ms-shell .modal-title { font: 700 var(--ms-display-s, 22px)/1.15 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track);
+  color: var(--ms-text) !important; text-shadow: none !important; margin: 0 !important; }
+#ui-layer .ms-shell .modal-sub, #ui-layer .ms-shell .gameover-cause, body > .ui-modal .ms-shell .modal-sub { font: 600 var(--ms-body, 16px)/1.4 var(--ms-font-read) !important; color: var(--ms-text-quiet) !important; margin: 0 !important; font-style: normal !important; }
+#ui-layer .ms-shell .ms-shell-actions { display: flex; gap: var(--ms-space-2, 8px); margin-top: var(--ms-space-3, 12px); }
+#ui-layer .ms-shell .ms-shell-actions .ms-btn { flex: 1 1 0; }
+#ui-layer .ms-shell .ms-shell-actions .ms-btn.primary { order: 2; }
+@media (max-width: 599px) { #ui-layer .ms-shell .ms-shell-actions { flex-direction: column; } #ui-layer .ms-shell .ms-shell-actions .ms-btn.primary { order: -1; } }

@@ -112,7 +112,7 @@ window.BonusChest = (() => {
       }`;
     document.head.appendChild(style);
     modal = document.createElement("div");
-    modal.className = "ui-modal hidden";
+    modal.className = "ui-modal hidden ms-sheet-host";
     modal.id = "bonus-modal";
     modal.innerHTML = `
       <div class="bonus-card art" role="dialog" aria-labelledby="bonus-title"><div class="bonus-stamp" aria-hidden="true"></div>
@@ -125,7 +125,7 @@ window.BonusChest = (() => {
         </div>
         <div class="bonus-total" id="bonus-total" hidden>0<small>k 401(k)</small></div>
         <ul class="bonus-list" id="bonus-list"></ul>
-        <button class="bonus-btn" id="bonus-btn" type="button">OPEN</button>
+        <button class="bonus-btn ms-btn primary" id="bonus-btn" type="button">OPEN</button>
       </div>`;
     const host = document.getElementById("levelup-modal");
     (host && host.parentNode ? host.parentNode : document.body).appendChild(modal);

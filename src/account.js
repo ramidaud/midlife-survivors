@@ -211,7 +211,7 @@ window.Account = (() => {
   let modal = null;
   function ensureModal() {
     if (modal) return modal;
-    modal = document.createElement("div"); modal.id = "account-modal"; modal.className = "ui-modal hidden";
+    modal = document.createElement("div"); modal.id = "account-modal"; modal.className = "ui-modal hidden ms-sheet-host";
     modal.setAttribute("role", "dialog"); modal.setAttribute("aria-modal", "true"); modal.setAttribute("aria-labelledby", "acct-title");
     (document.getElementById("ui-layer") || document.body).appendChild(modal);
     const st = document.createElement("style"); st.textContent = `
@@ -264,13 +264,13 @@ window.Account = (() => {
     if (ui.step === "conflict" && ui.conflict) {
       const a = summary(ui.conflict.local), b = summary(ui.conflict.row);
       const col = (h, x) => `<div><h4>${h}</h4><p>Oldest age <b>${x.age}</b></p><p>401(k) <b>${x.coins.toLocaleString("en-US")}k</b></p><p>Shifts <b>${x.shifts}</b></p><p>Achievements <b>${x.ach}</b></p><p>Saved run <b>${x.run != null ? "age " + x.run : "none"}</b></p></div>`;
-      body = `<div class="modal-kicker">HR // RECORDS CONFLICT</div><h2 class="modal-title" id="acct-title">TWO EMPLOYEE FILES</h2>
+      body = `<div class="ms-sheet-strip">HR · RE: <b>Records conflict</b></div><h2 class="modal-title" id="acct-title">TWO EMPLOYEE FILES</h2>
         <p class="modal-sub">This device and the cloud both have progress. Which one should we keep? The other one is replaced.</p>
         <div class="acct-cmp">${col("THIS DEVICE", a)}${col("CLOUD (" + esc(ago(ui.conflict.row.updated_at)) + ")", b)}</div>
         <div class="acct-row">${btn("keepLocal", "Keep this device")}${btn("useCloud", "Use the cloud file", "primary")}</div>`;
     } else if (signedIn()) {
       const u = session.user, via = (u.app_metadata && u.app_metadata.provider) || "email";
-      body = `<div class="modal-kicker">HR // BADGE OFFICE</div><h2 class="modal-title" id="acct-title">CLOCKED IN</h2>
+      body = `<div class="ms-sheet-strip">HR · RE: <b>Badge office</b></div><h2 class="modal-title" id="acct-title">CLOCKED IN</h2>
         <div class="acct-badge"><div class="ph">☁</div><div><b>EMPLOYEE BADGE · ${esc(via.toUpperCase())}</b><span>${esc(u.email || "Signed in")}</span>
           <em>${ui.busy ? "Checking the cloud..." : s.dirty ? "Saving soon..." : "Cloud save: " + esc(ago(s.at))}</em></div></div>
         <p class="modal-sub">Your coins, shop ranks, unlocks, achievements, name, settings and a run in progress follow you to any device where you clock in.</p>
@@ -278,7 +278,7 @@ window.Account = (() => {
         <div class="acct-row">${btn("signOut", "Clock out")}</div>
         <button type="button" class="acct-link" data-acct="deleteCloud">Delete my cloud save</button>`;
     } else if (ui.step === "code") {
-      body = `<div class="modal-kicker">HR // BADGE OFFICE</div><h2 class="modal-title" id="acct-title">CHECK YOUR EMAIL</h2>
+      body = `<div class="ms-sheet-strip">HR · RE: <b>Badge office</b></div><h2 class="modal-title" id="acct-title">CHECK YOUR EMAIL</h2>
         <p class="modal-sub">We sent a sign-in email to <b>${esc(ui.email)}</b>. It can take a minute, and it might land in spam.</p>
         <p class="modal-sub"><b>Has a link?</b> Open it on this device, in this browser. <b>Has a code?</b> Type it here.</p>
         <label for="acct-code">YOUR CODE</label>
@@ -288,7 +288,7 @@ window.Account = (() => {
     } else {
       const asked = ui.prompted; // opened by itself on the title screen (not by tapping the badge)
       const mv = asked && moving();
-      body = `<div class="modal-kicker">${mv ? "MEMO // FACILITIES" : "HR // BADGE OFFICE"}</div><h2 class="modal-title" id="acct-title">${mv ? "WE'RE MOVING" : asked ? "SAVE YOUR FILE?" : "CLOCK IN"}</h2>
+      body = `<div class="ms-sheet-strip">${mv ? "FACILITIES · RE: <b>We're moving</b>" : "HR · RE: <b>Badge office</b>"}</div><h2 class="modal-title" id="acct-title">${mv ? "WE'RE MOVING" : asked ? "SAVE YOUR FILE?" : "CLOCK IN"}</h2>
         <p class="modal-sub">${mv ? `The office is moving to <b>${esc(mv.to)}</b>. Progress saved only on this device stays behind at the old address. Clock in now and your coins, shop ranks and unlocks come with you.` : asked ? "You've got progress worth keeping. Clock in and your coins, unlocks, achievements and a run in progress follow you to your phone, tablet or laptop." : "Optional. Save your employee file to the cloud and pick up on any device: coins, shop ranks, unlocks, achievements and a run in progress."}</p>
         ${P.google || P.apple ? `<div class="acct-oauth">${P.google ? btn("google", "Continue with Google", P.email ? "" : "primary") : ""}${P.apple ? btn("apple", "Continue with Apple") : ""}</div>${P.email ? `<div class="acct-or">OR GET A CODE BY EMAIL</div>` : ""}` : ""}
         ${P.email ? `<label for="acct-email">EMAIL</label><input id="acct-email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" value="${esc(ui.email)}">
@@ -297,7 +297,7 @@ window.Account = (() => {
         ${asked && !moving() ? `<button type="button" class="acct-link" data-acct="never">No thanks, don't ask again</button>` : ""}
         <p class="acct-fine">We only use your email to sign you in. No newsletters. Your file still saves on this device either way. <a href="devlog/privacy/" target="_blank" rel="noopener" style="color:#83A89A">Privacy</a></p>`;
     }
-    modal.innerHTML = `<div class="modal-card acct-card">${body}${ui.msg ? `<div class="acct-msg">${esc(ui.msg)}</div>` : ""}${ui.err ? `<div class="acct-err" role="alert">${esc(ui.err)}</div>` : ""}</div>`;
+    modal.innerHTML = `<div class="modal-card acct-card ms-shell">${body}${ui.msg ? `<div class="acct-msg">${esc(ui.msg)}</div>` : ""}${ui.err ? `<div class="acct-err" role="alert">${esc(ui.err)}</div>` : ""}</div>`;
     modal.querySelectorAll("[data-acct]").forEach((b, i) => {
       const act = b.dataset.acct;
       if (window.bindNavItem) bindNavItem(b, 20 + i, () => onAct(act)); else b.addEventListener("click", () => onAct(act));

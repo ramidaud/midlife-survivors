@@ -573,18 +573,14 @@ function initGameUI(scene) {
     <div class="ui-modal hidden" id="lore-modal"></div>
 
     <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
-    <div class="ui-modal hidden" id="retire80-modal">
-      <div class="modal-card win-box">
-        <div class="modal-kicker">🎉 MILESTONE UNLOCKED // +15k 401(k) BONUS AWARDED!</div>
-        <h2 class="modal-title">HAPPY 80th! YOU REACHED FULL RETIREMENT!</h2>
+    <div class="ui-modal hidden ms-sheet-host" id="retire80-modal">
+      <div class="modal-card ms-shell ms-moment">
+        <div class="ms-sheet-strip">HR · RE: <b>Age 80. +15k bonus</b></div>
+        <h2 class="modal-title">HAPPY 80TH</h2>
         <p class="gameover-cause">You survived 40 years of Bills, HR Reviews, Mortgages, and the HOA! Do you want to retire in peace, or push into the <b>20 Bonus Senior Life Rounds (Age 80 to 100)</b> against Early-Bird Buffets, Sciatica, and 6AM Pickleball Champions?</p>
-        <div class="gameover-actions">
-          <button class="cta-btn" id="retire80-senior-btn">🔥 ENTER BONUS SENIOR ROUNDS (AGE 80 -> 100!)</button>
-          <button class="cta-btn secondary-btn" id="retire80-claim-btn">🏖️ RETIRE AT 80 & CLAIM VICTORY</button>
-        </div>
-        <div class="nav-hint-bar">
-          <span><b>▲▼◀▶</b> Arrow / D-Pad / Mouse: Select</span>
-          <span><b>Space / Enter / Click / A</b>: Confirm</span>
+        <div class="ms-shell-actions">
+          <button type="button" class="ms-btn secondary" id="retire80-claim-btn"><span class="ms-btn-label">RETIRE</span><span class="ms-btn-sub">Claim the win at 80</span></button>
+          <button type="button" class="ms-btn primary" id="retire80-senior-btn"><span class="ms-btn-label">KEEP GOING</span><span class="ms-btn-sub">20 bonus years, 80 to 100</span></button>
         </div>
       </div>
     </div>
