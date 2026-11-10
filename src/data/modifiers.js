@@ -2,7 +2,7 @@
 // After 50, short "life happens" weather patterns roll in: one at a time, a couple per run, announced with a banner.
 // Tune weights before strengths. If nobody sees any between 50 and 65, raise chancePerRoll to 0.65 first.
 window.RUN_MODIFIER_TUNING = {
-  firstEligibleAge: 50,
+  firstEligibleAge: 50.8,        // design system A6 (Nov 10): clear of the age-50 birthday
   rollEveryYears: 2.5,            // Midlife: about 112 s between roll attempts
   chancePerRoll: 0.55,
   heatChanceAddPerBracket: 0.06,  // Tax Bracket makes them more frequent...

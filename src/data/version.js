@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.5",
-  displayVersion: "V. 2.26.5",
+  version: "2.26.6",
+  displayVersion: "V. 2.26.6",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 333,
+  build: 334,
   changelog: [
+    {
+      ver: "V. 2.26.6", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your birthdays got a lot less crowded.",
+      highlights: [
+        "Errands and the Lounge now wait until there's no boss and you're a little past the big birthdays (45, 50, 55, 60). Swarm events wait for the boss to go down.",
+        "Turning 50 or 60 is one line now: the new decade, the cake and the dividend together.",
+        "Rewards stay in the bottom bar instead of the top. The first life modifier waits until 50.8, and a boss card or the bottom bar never talk over each other."
+      ]
+    },
     {
       ver: "V. 2.26.5", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The little reminders got their own shelf.",

@@ -799,6 +799,7 @@ setInterval(() => {
   const el = document.getElementById("lt-strip");
   if (!el) return;
   if (ltMenuOpen()) { el.classList.remove("show"); return; }   // hold the message while a menu is up
+  if (window.Spotlight && Spotlight.isShowing && Spotlight.isShowing()) { el.classList.remove("show"); return; } // A6: the band borrows the ticker's spot; the line waits
   if (ltState.current) {
     el.classList.add("show");
     ltState.remaining -= 100;
@@ -843,6 +844,8 @@ window.MsgRouter = (() => {
     (except !== "spotlight" && !!(window.Spotlight && Spotlight.isShowing && Spotlight.isShowing())) ||
     (except !== "catch" && !!(window.CatchMoment && CatchMoment.isShowing && CatchMoment.isShowing()));
   function flash(title, sub, kind, opts) {
+    // A6: rewards never take the headline; every reward already has its line in the bottom ticker
+    if (kind === "reward" && (window.MSG_PACING || {}).rewardsInTickerOnly !== false) return;
     // A4: a boss's first-attack banner is skipped while its arrival card is up; the card already says how to dodge
     if (opts && opts.bossFirst && window.Spotlight && Spotlight.bossUp && Spotlight.bossUp()) return;
     const key = title + "|" + (sub || ""), t = TIER[kind] || 2;
@@ -876,6 +879,29 @@ window.MsgRouter = (() => {
   };
 })();
 window.flashBanner = function(title, sub, kind, opts) { MsgRouter.flash(title, sub, kind, opts); };
+
+// Design system A6: holds. Errands, the Lounge and swarm events ask here before they start.
+window.Pacing = {
+  P: () => window.MSG_PACING || {},
+  bossUp: () => typeof bills !== "undefined" && !!bills && bills.getChildren().some(b => b.active && b.isBoss),
+  nearMilestone() { const P = this.P(); if (typeof currentAge === "undefined") return false;
+    return (P.milestoneAges || []).some(m => Math.abs(currentAge - m) < (P.clearYears || 0)); },
+  clearForErrand() { const P = this.P(); return !(P.holdErrandsForBoss && this.bossUp()) && !this.nearMilestone(); },
+  clearForLounge() { const P = this.P(); return !(P.holdLoungeForBoss && this.bossUp()) && !this.nearMilestone(); },
+  holdSwarm() { return !!(this.P().holdSwarmsForBoss && this.bossUp()); },
+  // Flavor lines (tier 4): only after a stretch of quiet, never during a boss, dropped if late. Run clock, so menus don't count.
+  flavor(badge, text, ms) {
+    const P = this.P(), start = typeof runElapsedMs !== "undefined" ? runElapsedMs : 0;
+    let quietSince = start;
+    const iv = setInterval(() => {
+      if (typeof runElapsedMs === "undefined" || (typeof gameOver !== "undefined" && gameOver) || runElapsedMs < start) return clearInterval(iv); // run ended or restarted
+      const busy = (window._ltState && _ltState.current) || this.bossUp() || (window.MsgRouter && MsgRouter.busy());
+      if (busy) quietSince = runElapsedMs;
+      if (runElapsedMs - start > (P.flavorMaxWaitMs || 90000)) return clearInterval(iv);
+      if (runElapsedMs - quietSince >= (P.flavorQuietMs || 20000)) { clearInterval(iv); window.showLowerThird("lore", badge, text, ms); }
+    }, 500);
+  }
+};
 
 // Title screen version line and the "what's new" bubble (Nov 3).
 // The bubble shows the newest changelog entry's teaser (or its first highlight) once per version.
@@ -952,7 +978,7 @@ window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
   const cur = ltState.current;
   if (!cur) return ltShowNow(msg);
-  if (msg.p > cur.p) {                               // more urgent: take over...
+  if (msg.p > cur.p && kind === "alert") {          // only danger takes over (design system A6: no cutting in); the rest wait in line...
     if (cur.p >= 2 && !cur.requeued) {                // ...and put the interrupted message back in line (Nov 2: promotions got lost)
       ltState.queue.unshift(Object.assign({}, cur, { requeued: true, ms: Math.max(2500, ltState.remaining) }));
       ltState.queue.sort((a, b) => b.p - a.p);

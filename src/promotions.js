@@ -36,7 +36,7 @@ window.Promotions = (() => {
           else window.showLowerThird("promo", "PROMOTED", (ph && ph.message) || "New areas unlocked.", 5000);
         }
         const life = PROMOTIONS.lifeLines && PROMOTIONS.lifeLines[g.age];
-        if (!quiet && life && window.showLowerThird) setTimeout(() => window.showLowerThird("promo", "LIFE", life, 5500), spot ? 12000 : 0);
+        if (!quiet && life && window.Pacing) Pacing.flavor("LIFE", life, 5500); // design system A6: flavor waits for a quiet stretch
         if (!quiet) sfx("levelUp", 0);
       }
     }

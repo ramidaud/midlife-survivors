@@ -146,6 +146,7 @@ window.Errands = (() => {
       if (given >= (C.perRun || 1) || currentAge < (C.startAge || 41.5) || runElapsedMs < nextAt) return;
       // wait until no menu, level-up or big map is open, so the errand can't start unseen
       if ((typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused) || window.minimapOpen) return;
+      if (window.Pacing && !Pacing.clearForErrand()) return; // design system A6: not during a boss, not near 45/50/55/60
       if (start(scene)) given++;
       return;
     }

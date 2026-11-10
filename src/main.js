@@ -448,7 +448,8 @@ function create() {
       if (decade > ltDecadeShown) {
         ltDecadeShown = decade;
         const line = window.CHAPTER_CARDS && window.CHAPTER_CARDS[decade];
-        if (line) window.showLowerThird("chapter", `AGE ${decade}`, line, 5000);
+        // A6: at 50 and 60 the birthday cake says this too (one line, not two); see the dividend block below
+        if (line && !(typeof milestoneHealAmount === "function" && milestoneHealAmount(decade))) window.showLowerThird("chapter", `AGE ${decade}`, line, 5000);
       }
       const hpPct = hp / stats.maxHp;
       if (hpPct <= 0.3 && !ltLowHpWarned) { ltLowHpWarned = true; if (!(window.Spotlight && Spotlight.tip("lowHp"))) window.showLowerThird("alert", "LOW HP", (window.ALERTS && window.ALERTS.lowHp) || "Low health!", 4000); }
@@ -2368,6 +2369,7 @@ function maybeRunSwarmEvent(scene) {
   if (nextSwarmAt === null) nextSwarmAt = runElapsedMs + gap;
   if (runElapsedMs < nextSwarmAt) return;
   if (window.OvertimeBeats && OvertimeBeats.holdEvents()) { nextSwarmAt = runElapsedMs + 5000; return; } // not during an Overtime event
+  if (window.Pacing && Pacing.holdSwarm()) { nextSwarmAt = runElapsedMs + ((window.MSG_PACING || {}).swarmRetryMs || 5000); return; } // A6: not during a boss
   nextSwarmAt = runElapsedMs + gap;
   const pool = (window.SWARM_EVENTS || []).filter(ev => currentAge >= ev.minAge && ENEMIES[ev.kind] || (ev.kind === "mixed" && currentAge >= ev.minAge));
   if (!pool.length) return;
@@ -2552,8 +2554,14 @@ function update(time, delta) {
     }
     if (cake && window.showLowerThird) {
       const M = HEALING.milestones;
-      const line = cakeHeal ? (lastDividendAge % 10 === 0 ? M.bannerDecade : M.bannerNormal).replace("{n}", cakeHeal) : M.bannerFull;
-      window.showLowerThird("reward", M.bannerBadge, `${line} Plus a +${divBonus}k dividend.`, 4200);
+      const chapter = lastDividendAge % 10 === 0 && window.CHAPTER_CARDS && window.CHAPTER_CARDS[lastDividendAge];
+      if (chapter) { // A6: one birthday line at 50 and 60: the chapter, the cake and the dividend together
+        const gift = cakeHeal ? `Cake: +${cakeHeal} HP, +${divBonus}k.` : `Cake (you're full) and +${divBonus}k.`;
+        window.showLowerThird("chapter", `AGE ${lastDividendAge}`, `${chapter} ${gift}`, 5000);
+      } else {
+        const line = cakeHeal ? (lastDividendAge % 10 === 0 ? M.bannerDecade : M.bannerNormal).replace("{n}", cakeHeal) : M.bannerFull;
+        window.showLowerThird("reward", M.bannerBadge, `${line} Plus a +${divBonus}k dividend.`, 4200);
+      }
     } else if (window.pushContextEvent) {
       window.showLowerThird("reward", "401(k)", `Age ${lastDividendAge} dividend: +${divBonus}k deposited.`, 3800);
     }

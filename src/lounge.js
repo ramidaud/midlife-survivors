@@ -306,7 +306,7 @@ ${atHome() ? "" : `      <picture class="lg-scene"><source media="(max-width:520
     }
     if (runElapsedMs >= 3000) st.cartDone = true; // resumed runs skip the cart
     (L.promotionAges || []).forEach(age => { if (!st.done[age] && currentAge >= age) { st.done[age] = true; st.pendingAge = age; } });
-    if (st.state === "closed" && !cartMode() && st.pendingAge && gateOpen() && !bossAlive() && !taxOn()) { st.pendingAge = 0; open(scene); }
+    if (st.state === "closed" && !cartMode() && st.pendingAge && gateOpen() && !bossAlive() && !taxOn() && !(window.Pacing && !Pacing.clearForLounge())) { st.pendingAge = 0; open(scene); } // A6: clear of milestone birthdays too
     if (st.staffReal && st.objs[2] && st.objs[2].active) st.objs[2].setFrame(32 + Math.floor(now / 185) % 4); // counter wave / register tap
     if (st.state === "open") {
       if (now > st.openUntil || bossAlive() || taxOn()) return shutter(scene, (L.lines && L.lines.shutter) || "Break's over.");
