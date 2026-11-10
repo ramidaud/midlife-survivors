@@ -514,6 +514,7 @@ function create() {
         closeControlsModal(sc);
         return;
       }
+      if (window.settingsModalOpen) { sfx("pick"); closeSettingsModal(sc); return; } // B2
       if (paused) {
         sfx("pick");
         togglePause(sc);
@@ -621,7 +622,7 @@ function create() {
         unlockAudio();
         toggleMute();
         if (typeof syncMuteButtons === "function") syncMuteButtons();
-        if (paused && !window.controlsModalOpen) renderPauseModal(sc, 3);
+        if (window.settingsModalOpen) renderSettingsModal(sc, "set-sound"); // B2: Sound lives in Settings now
         return;
       }
 
@@ -652,6 +653,9 @@ function create() {
           } else if (window.controlsModalOpen) {
             sfx("pick");
             closeControlsModal(sc);
+          } else if (window.settingsModalOpen) {
+            sfx("pick");
+            closeSettingsModal(sc); // B2
           } else if (paused) {
             togglePause(sc);
           } else if (titleBackAvailable()) {
@@ -662,7 +666,7 @@ function create() {
         if (code === "Space" || code === "Enter" || code === "NumpadEnter") {
           e.preventDefault(); unlockAudio(); window.menuNav.activate(); return;
         }
-        if ((code === "KeyP" || code === (c.keyPause || "Space")) && paused && !window.controlsModalOpen) {
+        if ((code === "KeyP" || code === (c.keyPause || "Space")) && paused && !window.controlsModalOpen && !window.settingsModalOpen) {
           e.preventDefault(); unlockAudio(); togglePause(sc); return;
         }
         if (levelUpOpen && window.levelMenu && code === "KeyR" && window.levelMenu.reroll) { e.preventDefault(); window.levelMenu.reroll(); return; } // B1
@@ -1265,6 +1269,7 @@ function togglePause(scene) {
   if (window.controlsModalOpen && typeof closeControlsModal === "function") {
     closeControlsModal(scene);
   }
+  if (window.settingsModalOpen) { window.settingsModalOpen = false; const sm = document.getElementById("settings-modal"); if (sm) { sm.classList.add("hidden"); sm.innerHTML = ""; } } // B2
   paused = !paused;
   touch = { active: false, startX: 0, startY: 0, dx: 0, dy: 0, isTouch: false, curX: 0, curY: 0 };
   mouseState.leftDown = false;
@@ -2471,7 +2476,7 @@ function update(time, delta) {
     toggleMute();
     if (typeof syncMuteButtons === "function") syncMuteButtons();
     sfx("pick");
-    if (paused && !window.controlsModalOpen) renderPauseModal(this, 3);
+    if (window.settingsModalOpen) renderSettingsModal(this, "set-sound"); // B2
   }
 
   // Universal Controller Navigation across ALL menus (Controls Config, Title, Level-Up, Pause/Options, Age 80, Game Over):
@@ -2479,7 +2484,7 @@ function update(time, delta) {
   if (activeModal) {
     const stepDir = performance.now() < (window.menuInputGateUntil || 0) ? null : getPadMenuStep(performance.now());
     if (stepDir) window.menuNav.move(stepDir);
-    if (padJust("a") || (!paused && !window.controlsModalOpen && !window.changelogModalOpen && !window.loreModalOpen && padJust("start"))) {
+    if (padJust("a") || (!paused && !window.controlsModalOpen && !window.settingsModalOpen && !window.changelogModalOpen && !window.loreModalOpen && padJust("start"))) {
       window.menuNav.activate();
     } else if (window.loreModalOpen && (padJust("b") || padJust("start"))) {
       sfx("pick");
@@ -2490,6 +2495,9 @@ function update(time, delta) {
     } else if (window.controlsModalOpen && (padJust("b") || padJust("start"))) {
       sfx("pick");
       closeControlsModal(this);
+    } else if (window.settingsModalOpen && (padJust("b") || padJust("start"))) {
+      sfx("pick");
+      closeSettingsModal(this); // B2
     } else if (paused && (padJust("b") || padJust("start"))) {
       togglePause(this);
     } else if (window.accountModalOpen && padJust("b")) {

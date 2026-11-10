@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.9",
-  displayVersion: "V. 2.26.9",
+  version: "2.27.0",
+  displayVersion: "V. 2.27.0",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 337,
+  build: 338,
   changelog: [
+    {
+      ver: "V. 2.27.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "All your settings, in one drawer.",
+      highlights: [
+        "New Settings screen: sound, music and effects volume, sound style, the Dad Joke voice, game tips and controls, all in one place.",
+        "It's the same screen from the pause menu and from the title (the old OPTIONS button), so a change in one shows in the other.",
+        "The pause menu is calmer: RESUME, Settings, Save & exit, Start over, and your run at a glance."
+      ]
+    },
     {
       ver: "V. 2.26.9", date: "Nov 10, 2026", title: "Version Two",
       teaser: "One orange button. You know what it does.",

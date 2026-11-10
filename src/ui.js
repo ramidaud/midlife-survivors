@@ -249,7 +249,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["account-modal", "lore-modal", "changelog-modal", "controls-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["account-modal", "lore-modal", "changelog-modal", "controls-modal", "settings-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -564,6 +564,7 @@ function initGameUI(scene) {
 
     <!-- MODAL 2B: INPUT & CONTROLS CONFIGURATION OVERLAY (Keyboard, Mouse, Touch, Controller) -->
     <div class="ui-modal hidden" id="controls-modal"></div>
+    <div class="ui-modal hidden ms-sheet-host" id="settings-modal"></div>
 
     <!-- MODAL 2C: VERSION HISTORY & RELEASE NOTES OVERLAY -->
     <div class="ui-modal hidden" id="changelog-modal"></div>
@@ -1510,10 +1511,11 @@ function renderPauseModal(scene, keepRowIdx) {
       <div class="modal-kicker">✓ AUTO-SAVED · ${verInfo.displayVersion}</div>
       <h2 class="modal-title">ON BREAK</h2>
       <p class="modal-sub">The swarm will wait. It always does.</p>
-      <div class="pause-actions">
-        <button class="opt-btn primary-opt pa-resume" id="pause-resume-btn">▶ RESUME SHIFT</button>
-        <button class="opt-btn pa-small" id="pause-savequit-btn"><span>💾 SAVE & EXIT</span><span class="opt-val">RESUME LATER</span></button>
-        <button class="opt-btn pa-small" id="pause-restart-btn"><span>🔄 START FRESH</span><span class="opt-val">AGE ${typeof modeStartAge === "function" ? modeStartAge() : 40}</span></button>
+      <div class="pause-actions ms-pause-actions">
+        <button class="ms-btn primary pa-resume" id="pause-resume-btn"><span class="ms-btn-label">RESUME</span><span class="ms-btn-sub">Back to work</span></button>
+        <button class="ms-btn secondary" id="pause-settings-btn"><span class="ms-btn-label">SETTINGS</span><span class="ms-btn-sub">Sound, tips, controls</span></button>
+        <button class="ms-btn secondary" id="pause-savequit-btn"><span class="ms-btn-label">SAVE &amp; EXIT</span><span class="ms-btn-sub">Pick it up later</span></button>
+        <button class="ms-btn secondary" id="pause-restart-btn"><span class="ms-btn-label">START OVER</span><span class="ms-btn-sub">Back to age ${typeof modeStartAge === "function" ? modeStartAge() : 40}</span></button>
       </div>
       <div class="pause-grid ${pauseHeroHtml() ? "with-hero" : ""}">
         ${pauseHeroHtml() ? `<section class="pause-tile pt-hero">
@@ -1539,26 +1541,8 @@ function renderPauseModal(scene, keepRowIdx) {
           <div class="pt-tag">YOUR LOADOUT</div>
           ${loadout ? `<ul class="pause-loadout">${loadout}</ul>` : `<p class="pt-empty">Just you and your coffee so far. Level up to pick perks.</p>`}
         </section>
-        <section class="pause-tile pt-settings">
-          <div class="pt-tag">SETTINGS</div>
-          <div class="options-list">
-            <button class="opt-btn" id="pause-controls-btn"><span>🎮 Controls</span><span class="opt-val">KEYS · TOUCH · PAD ▶</span></button>
-            <button class="opt-btn" id="pause-style-btn" data-opt-cycle="1"><span>💡 Game tips</span><span class="opt-val">◀ ${window.tipsEnabled() ? "ON" : "OFF"} ▶</span></button>
-            <button class="opt-btn" id="pause-audio-btn" data-opt-cycle="1"><span>🔊 Sound</span><span class="opt-val">◀ ${muted ? "MUTED" : "ON"} ▶</span></button>
-            <button class="opt-btn" id="pause-music-vol-btn" data-opt-cycle="1"><span>🎵 Music</span><span class="opt-val">◀ ${volBar(getVolume("music"))} ▶</span></button>
-            <button class="opt-btn" id="pause-sfx-vol-btn" data-opt-cycle="1"><span>💥 Effects</span><span class="opt-val">◀ ${volBar(getVolume("sfx"))} ▶</span></button>
-            <button class="opt-btn" id="pause-style-snd-btn" data-opt-cycle="1"><span>🎛️ Sound style</span><span class="opt-val">◀ ${typeof getSoundStyle === "function" && getSoundStyle() === "classic" ? "CLASSIC BEEPS" : "STUDIO"} ▶</span></button>
-            ${typeof hasAudioSession === "function" && hasAudioSession() ? `<button class="opt-btn" id="pause-mix-btn" data-opt-cycle="1"><span>📱 Your music</span><span class="opt-val">◀ ${getAudioMix() === "mix" ? "KEEP PLAYING" : "GAME ONLY"} ▶</span></button>` : ""}
-            <button class="opt-btn" id="pause-voice-btn" data-opt-cycle="1"><span>🗣️ Dad Joke voice</span><span class="opt-val">◀ ${voiced ? "SPOKEN" : "TEXT"} ▶</span></button>
-          </div>
-        </section>
       </div>
-      <div class="nav-hint-bar">
-        <span><b>Arrows / D-Pad</b> move</span>
-        <span><b>◀▶</b> change a setting</span>
-        <span><b>Space / Enter / A</b> select</span>
-        <span><b>Esc / B / Start</b> resume</span>
-      </div>
+      <div class="ms-legend"><span><kbd>Esc</kbd><kbd>B</kbd><kbd>Start</kbd>Resume</span></div>
     </div>
   `;
 
@@ -1567,65 +1551,7 @@ function renderPauseModal(scene, keepRowIdx) {
     togglePause(scene);
   }, keepRowIdx === undefined || keepRowIdx === 0);
 
-  bindNavItem(document.getElementById("pause-controls-btn"), 1, () => {
-    sfx("pick");
-    openControlsModal(scene);
-  }, keepRowIdx === 1);
-
-  bindNavItem(document.getElementById("pause-style-btn"), 2, () => {
-    // Row 2 is now the Game Tips switch (the Visual Engine row went away while 3D is parked).
-    window.setTipsEnabled(!window.tipsEnabled());
-    sfx("pick");
-    renderPauseModal(scene, 2);
-  }, keepRowIdx === 2);
-
-  bindNavItem(document.getElementById("pause-audio-btn"), 3, () => {
-    toggleMute();
-    syncMuteButtons();
-    sfx("pick");
-    renderPauseModal(scene, 3);
-  }, keepRowIdx === 3);
-
-  // Volume rows: left/right (or arrows on a controller) step by 10%; a tap steps up and wraps around.
-  [["pause-music-vol-btn", "music", 3.3], ["pause-sfx-vol-btn", "sfx", 3.6]].forEach(([id, which, row]) => {
-    const el = document.getElementById(id);
-    bindNavItem(el, row, () => {
-      const dir = el.dataset.dirHint, cur = getVolume(which);
-      let v = Math.round((dir === "left" ? cur - 0.1 : cur + 0.1) * 10) / 10;
-      if (!dir && cur >= 0.999) v = 0; // tapping past full wraps to off
-      setVolume(which, Math.max(0, Math.min(1, v)));
-      if (which === "sfx") sfx("billPaid", 0); else sfx("pick");
-      renderPauseModal(scene, row);
-    }, keepRowIdx === row);
-  });
-
-  bindNavItem(document.getElementById("pause-voice-btn"), 4, () => {
-    if (typeof toggleVoice === "function") toggleVoice();
-    sfx("pick");
-    renderPauseModal(scene, 4);
-  }, keepRowIdx === 4);
-
-  const styleSndBtn = document.getElementById("pause-style-snd-btn");
-  if (styleSndBtn) bindNavItem(styleSndBtn, 3.8, () => {
-    toggleSoundStyle(); sfx("billPaid", 0);
-    renderPauseModal(scene, 3.8);
-  }, keepRowIdx === 3.8);
-
-  const mixBtn = document.getElementById("pause-mix-btn");
-  if (mixBtn) bindNavItem(mixBtn, 3.9, () => {
-    toggleAudioMix(); sfx("pick");
-    renderPauseModal(scene, 3.9);
-  }, keepRowIdx === 3.9);
-
-  bindNavItem(document.getElementById("pause-lore-btn"), 5, () => {
-    sfx("pick");
-    openLoreModal(scene);
-  }, keepRowIdx === 5);
-
-  bindNavItem(document.getElementById("pause-changelog-btn"), 6, () => {
-    sfx("pick");
-    openChangelogModal(scene);
-  }, keepRowIdx === 6);
+  bindNavItem(document.getElementById("pause-settings-btn"), 0, () => { sfx("pick"); openSettingsModal(scene); }, keepRowIdx === 1); // B2
 
   bindNavItem(document.getElementById("pause-savequit-btn"), 0, () => {
     sfx("pick");
@@ -1875,6 +1801,78 @@ const PAD_DEADZONE_MODES = [
   { val: 0.35, label: "35% Anti-Drift" }
 ];
 
+// ============================================================================
+// SETTINGS (design system B2, Nov 10): one sheet with Sound, Game and Controls, opened from Pause and from the title.
+// ============================================================================
+function openSettingsModal(scene) {
+  window.settingsModalOpen = true;
+  const m = document.getElementById("settings-modal"); if (!m) return;
+  m.classList.remove("hidden");
+  renderSettingsModal(scene || uiScene);
+}
+function closeSettingsModal(scene) {
+  window.settingsModalOpen = false;
+  const m = document.getElementById("settings-modal"); if (m) { m.classList.add("hidden"); m.innerHTML = ""; }
+  const sc = scene || uiScene;
+  if (titleOpen) renderTitleModal(sc, "#title-controls-btn");
+  else if (paused) renderPauseModal(sc, 1);
+  else window.menuNav.refresh();
+}
+function renderSettingsModal(scene, keepId) {
+  const m = document.getElementById("settings-modal"); if (!m) return;
+  const muted = isMuted(), voiced = typeof isVoiceEnabled === "function" ? isVoiceEnabled() : true;
+  const meter = v => `<span class="ms-meter" aria-hidden="true">${Array.from({ length: 10 }, (_, i) => `<i class="${i < Math.round(v * 10) ? "on" : ""}"></i>`).join("")}</span>`;
+  const row = (id, title, sub, val, cls, cycle) => `<button type="button" class="ms-row" id="${id}"${cycle ? ' data-opt-cycle="1"' : ""}>
+      <span><span class="ms-row-title">${title}</span>${sub ? `<span class="ms-row-sub">${sub}</span>` : ""}</span><span class="ms-row-val ${cls || ""}">${val}</span></button>`;
+  const pct = v => Math.round(v * 100) + "%";
+  const session = typeof hasAudioSession === "function" && hasAudioSession();
+  m.innerHTML = `
+    <div class="modal-card ms-sheet settings-sheet" role="dialog" aria-label="Settings">
+      <div class="ms-sheet-strip">HR · RE: <b>Settings</b></div>
+      <h2 class="ms-sheet-title">SETTINGS</h2>
+      <p class="ms-sheet-help">Saved on this device.</p>
+      <div class="ms-section-head">Sound</div>
+      <div class="ms-rows">
+        ${row("set-sound", "Sound", "Everything at once", muted ? "OFF" : "ON", muted ? "off" : "on", true)}
+        ${row("set-music", "Music", "◀ ▶ to change", pct(getVolume("music")) + meter(getVolume("music")), "", true)}
+        ${row("set-sfx", "Effects", "◀ ▶ to change", pct(getVolume("sfx")) + meter(getVolume("sfx")), "", true)}
+        ${row("set-style", "Sound style", "How the game's noises sound", typeof getSoundStyle === "function" && getSoundStyle() === "classic" ? "CLASSIC BEEPS" : "STUDIO", "", true)}
+        ${session ? row("set-mix", "Your music", "Keep a podcast or playlist going", getAudioMix() === "mix" ? "KEEP PLAYING" : "GAME ONLY", "", true) : ""}
+        ${row("set-voice", "Dad Joke voice", "Read the jokes out loud", voiced ? "SPOKEN" : "TEXT ONLY", "", true)}
+      </div>
+      <div class="ms-section-head">Game</div>
+      <div class="ms-rows">
+        ${row("set-tips", "Game tips", "First-time hints during a run", window.tipsEnabled() ? "ON" : "OFF", window.tipsEnabled() ? "on" : "off", true)}
+      </div>
+      <div class="ms-section-head">Controls</div>
+      <div class="ms-rows">
+        ${row("set-controls", "Controls", "Keyboard, touch and controller", "›", "")}
+      </div>
+      <div class="ms-sheet-actions"><div class="ms-left"></div>
+        <button type="button" class="ms-btn primary" id="set-done"><span class="ms-btn-label">DONE</span></button></div>
+      <div class="ms-legend"><span><kbd>◀</kbd><kbd>▶</kbd>Change</span><span><kbd>Esc</kbd><kbd>B</kbd>Back</span></div>
+    </div>`;
+  const again = id => renderSettingsModal(scene, id);
+  const bind = (id, rowN, fn) => { const el = document.getElementById(id); if (el) bindNavItem(el, rowN, () => fn(el), keepId ? keepId === id : rowN === 0); };
+  bind("set-sound", 0, () => { toggleMute(); if (typeof syncMuteButtons === "function") syncMuteButtons(); sfx("pick"); again("set-sound"); });
+  [["set-music", "music", 1], ["set-sfx", "sfx", 2]].forEach(([id, which, n]) => bind(id, n, el => {
+    const dir = el.dataset.dirHint, cur = getVolume(which);
+    let v = Math.round((dir === "left" ? cur - 0.1 : cur + 0.1) * 10) / 10;
+    if (!dir && cur >= 0.999) v = 0; // a tap past full wraps to off
+    setVolume(which, Math.max(0, Math.min(1, v)));
+    if (which === "sfx") sfx("billPaid", 0); else sfx("pick");
+    again(id);
+  }));
+  bind("set-style", 3, () => { toggleSoundStyle(); sfx("billPaid", 0); again("set-style"); });
+  bind("set-mix", 4, () => { toggleAudioMix(); sfx("pick"); again("set-mix"); });
+  bind("set-voice", 5, () => { if (typeof toggleVoice === "function") toggleVoice(); sfx("pick"); again("set-voice"); });
+  bind("set-tips", 6, () => { window.setTipsEnabled(!window.tipsEnabled()); sfx("pick"); again("set-tips"); });
+  bind("set-controls", 7, () => { sfx("pick"); openControlsModal(scene); });
+  bind("set-done", 8, () => { sfx("pick"); closeSettingsModal(scene); });
+  window.menuNav.refresh();
+}
+window.openSettingsModal = openSettingsModal; window.closeSettingsModal = closeSettingsModal;
+
 function openControlsModal(scene) {
   window.rebindState = null;
   window.controlsModalOpen = true;
@@ -1891,7 +1889,9 @@ function closeControlsModal(scene) {
   if (modal) modal.classList.add("hidden");
   syncControlHUDHints();
   const sc = scene || uiScene;
-  if (titleOpen) {
+  if (window.settingsModalOpen) {
+    renderSettingsModal(sc, "set-controls");   // B2: Controls lives inside Settings now
+  } else if (titleOpen) {
     renderTitleModal(sc, "#title-controls-btn");
   } else if (paused) {
     renderPauseModal(sc, 1);
@@ -2483,7 +2483,7 @@ function renderTitleModal(scene, preserveFocusSelector) {
         </aside>
         <div class="title-secondary tp-links">
           <button class="t-style-btn" id="title-shop-btn">🪙 401(k) SHOP${shopBadgeHtml(meta)}</button>
-          <button class="t-style-btn" id="title-controls-btn">⚙️ OPTIONS</button>
+          <button class="t-style-btn" id="title-controls-btn">⚙️ SETTINGS</button>
           <button class="t-style-btn" id="title-extras-btn">✨ EXTRAS</button>
           <button class="t-style-btn" id="title-leaders-btn">🏆 LEADERBOARD</button>
           <button class="t-style-btn t-coffee-btn" id="title-coffee-btn">☕ BUY THE DEV A COFFEE</button>
@@ -2791,7 +2791,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   if (titleCtrlBtn) {
     bindNavItem(titleCtrlBtn, 10, () => {
       sfx("pick");
-      openControlsModal(scene);
+      openSettingsModal(scene); // B2: one Settings sheet (Controls is a row inside it)
     });
   }
 

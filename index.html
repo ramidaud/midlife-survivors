@@ -1284,6 +1284,13 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
   #ui-layer .levelup-box .perk-card.armed .perk-key { background: var(--ms-paper) !important; color: var(--ms-surface) !important; border-color: var(--ms-paper); }
   #ui-layer .levelup-box .modal-sub { font: 600 var(--ms-body-s, 14px)/1.35 var(--ms-font-read); color: var(--ms-text-quiet); }
   #ui-layer .levelup-box #lv-kicker { margin: 0 auto var(--ms-space-2, 8px); }
+  /* Pause (design system B2): RESUME is the one orange button; Settings, Save & exit, Start over beside it */
+  #ui-layer .pause-actions.ms-pause-actions { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  #ui-layer .pause-actions.ms-pause-actions .pa-resume { font-size: inherit; letter-spacing: 0; box-shadow: var(--ms-shadow-button); }
+  @media (max-width: 760px) { #ui-layer .pause-actions.ms-pause-actions { grid-template-columns: 1fr 1fr 1fr; } #ui-layer .pause-actions.ms-pause-actions .pa-resume { grid-column: 1 / -1; } }
+  #ui-layer .settings-sheet .ms-legend { margin-bottom: var(--ms-space-3, 12px); }
+  @media (min-width: 900px) { #ui-layer .pause-grid.with-hero { grid-template-columns: minmax(170px, 0.62fr) minmax(0, 1.1fr) minmax(0, 1.2fr); }
+    #ui-layer .pause-grid:not(.with-hero) { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } } /* B2: the settings tile moved to Settings */
   /* ===== Poster title screen (Nov 3): the key art is the hero, the menu lives inside the picture ===== */
   #title-modal[data-view="main"] { align-items: stretch; justify-content: stretch; padding: 0; overflow-y: auto; }
   .title-poster { position: relative; width: 100%; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
@@ -1757,7 +1764,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 337; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 338; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);
