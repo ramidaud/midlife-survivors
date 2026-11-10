@@ -1,0 +1,19 @@
+.mk .wide .hud{padding:10px max(20px,calc(50% - 600px))} .mk .wide .stat{font-size:16px} .mk .wide .stat.q{font-size:13px} .mk .wide .age b{font-size:30px} .mk .wide .age span{font-size:16px}
+.mk .wide .rb{width:48px;height:48px} .mk .wide .slots i{width:28px;height:28px} .mk .wide .bossm span{font-size:13px} .mk .wide .bossm div{height:10px}
+.mk .wide .band{padding:12px 28px 12px max(20px,calc(50% - 460px));gap:22px} .mk .wide .band img{width:144px;height:152px;margin:-64px 0 -12px} .mk .wide .band .k{font-size:13px} .mk .wide .band .nm{font-size:34px;margin:6px 0} .mk .wide .band .tp{font-size:20px}
+.mmap{position:absolute;right:max(20px,calc(50% - 600px));top:112px;width:232px;height:184px;background:#5A6898;border:4px solid var(--ms-surface);outline:2px solid var(--ms-border);border-radius:2px;display:grid;place-items:end center;font:11px var(--label);color:var(--ms-ink)}
+.mmap::after{content:"";position:absolute;inset:26px 40px 44px 30px;border:3px solid var(--ms-text);border-bottom-width:3px}
+.mmap.ph{right:16px;top:148px;width:120px;height:96px} .mmap.ph::after{inset:14px 22px 26px 16px;border-width:2px}
+.tshade{position:absolute;inset:0;background:linear-gradient(#171C3500 30%,#171C35e6 52%,#171C35 62%)}
+.tstack{position:absolute;left:16px;right:16px;bottom:76px;display:grid;gap:10px}
+.logo{font:700 46px/.92 var(--label);letter-spacing:.02em;display:grid} .logo span:first-child{color:var(--ms-accent)} .logo span:last-child{color:var(--ms-paper)} .logo span{text-shadow:0 4px 0 var(--ms-shadow)}
+.tag2{font:16px/1.3 var(--read);color:var(--ms-text)} .btn.big{min-height:60px;font-size:18px;letter-spacing:.1em}
+.bdgs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px} .bdg{background:var(--ms-surface);border:2px solid var(--ms-border);border-radius:8px;padding:4px 4px 6px;text-align:center}
+.bdg img{width:48px;height:56px;image-rendering:pixelated;display:block;margin:0 auto} .bdg span{font:11px/1.1 var(--label);display:block} .bdg.sel{border:3px solid var(--ms-accent);padding:3px 3px 5px}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:64px;background:var(--ms-bg);border-top:2px solid var(--ms-border);display:grid;grid-template-columns:repeat(5,1fr);align-items:center;text-align:center}
+.tabbar span{font:11px var(--label);letter-spacing:.03em;color:var(--ms-text-quiet);display:grid;gap:5px;justify-items:center} .tabbar i{width:20px;height:20px;border:2px solid currentColor;border-radius:2px;display:block} .tabbar .on{color:var(--ms-accent)}
+.tnav{position:absolute;left:0;right:0;top:0;height:56px;background:var(--ms-bg);border-bottom:2px solid var(--ms-border);display:flex;gap:28px;align-items:center;padding:0 32px;font:13px var(--label);letter-spacing:.06em;color:var(--ms-text-quiet)} .tnav b{color:var(--ms-text);margin-right:auto;font-weight:400}
+.tside{position:absolute;left:0;top:56px;bottom:0;width:640px;background:linear-gradient(90deg,#171C35 0,#171C35f2 70%,#171C3500)}
+.tcol{position:absolute;left:56px;top:120px;width:440px;display:grid;gap:16px} .tcol .logo{font-size:72px} .tcol .tag2{font-size:20px} .tcol .btn.big{min-height:72px;font-size:22px} .tcol .row .t{font-size:20px} .tcol .row .d{font-size:16px}
+.tcol .bdg img{width:72px;height:84px} .tcol .bdg span{font-size:13px} .last{font-size:16px;color:var(--ms-text-quiet)}
+.tmemo{position:absolute;right:56px;bottom:48px;width:360px;transform:rotate(-1.2deg)} .tmemo h5{font-size:22px} .tmemo p{font-size:16px}

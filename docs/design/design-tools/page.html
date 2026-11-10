@@ -1,0 +1,274 @@
+<div class="wrap">
+<header>
+  <div><span class="strip"><span class="re">DESIGN · RE:</span><strong>One look, one voice</strong></span></div>
+  <h1>Midlife Survivors design system, v1</h1>
+  <p class="lede">A proposal for your approval. Nothing here is built yet. It gives in-run messages <b>two homes</b>, replaces the pile of one-off boxes with <b>eight parts</b>, and makes the interface <b>grow with the screen</b>.</p>
+  <div class="four">
+    <div><b>Two homes for words</b><span>Alarms up top under the HUD. Story at the bottom. One of each at most. On a phone during a boss, one total.</span></div>
+    <div><b>One kit of parts</b><span>10 type sizes (from 30). 3 corner sizes (from 12). 9 layers (from 29). 3 screen classes (from 13 breakpoints).</span></div>
+    <div><b>One orange button</b><span>Coffee orange fill means "press this." It appears once per screen.</span></div>
+    <div><b>Read at arm's length</b><span>Nothing you read is under 14 px. Nothing you tap is under 44 px. The hero never shrinks below 48 px.</span></div>
+  </div>
+</header>
+<nav class="jump" aria-label="Sections"><a href="#feel">Before and after</a><a href="#ladder">Attention ladder</a><a href="#tokens">Tokens</a><a href="#sizes">Size classes</a><a href="#parts">Components</a><a href="#voice">Voice</a><a href="#map">Mapping</a><a href="#plan">Plan</a><a class="hot" href="#ask">Your call</a></nav>
+
+<section class="sec" id="feel">
+  <div class="shead"><h2>Before and after</h2><p>Two screens in real colors, to feel the direction. The right side is a mockup, not the game.</p></div>
+  <div class="ba">
+    <div>
+      <h3 class="sub">A boss arrives, phone</h3>
+      <div class="pair ph">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/phone/c20-boss-card-flash-lower-third.jpg" alt="Today: boss card, flash, lower third, errand-sized clutter over the fight"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption>{{M_HUD_PH}}</figure>
+      </div>
+      <ul class="calls">
+        <li><b>One message.</b> The band says who it is and how to dodge. The flash, the speech bubble and the tip strip are gone, and the ticker waits.</li>
+        <li><b>The floor is clear.</b> No dim. You can see the orange charge line the whole time.</li>
+        <li><b>The band is gone in 3.5 seconds.</b> A thin boss health bar stays under the HUD so you never have to hunt for it.</li>
+        <li><b>The age is the big number.</b> It is the goal of the run, so it leads. The timer sits under it.</li>
+        <li><b>The minimap steps aside</b> while a headline or band is up, then comes back.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub">A boss arrives, desktop</h3>
+      <div class="pair">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/desk/c20-boss-card-flash-lower-third.jpg" alt="Today on desktop"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption>{{M_HUD_DK}}</figure>
+      </div>
+      <ul class="calls"><li>Same parts, scaled 1.25. The HUD stays within a 1200 px column so your eyes don't travel edge to edge.</li><li>The band keeps its character and its portrait. It loses the floor dim and the extra bubble.</li></ul>
+    </div>
+    <div>
+      <h3 class="sub">Title screen, phone</h3>
+      <div class="pair ph">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/phone/b01-title-returning.jpg" alt="Today: title screen for a returning player on a phone"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption>{{M_TITLE_PH}}</figure>
+      </div>
+      <ul class="calls">
+        <li><b>PUNCH IN is the only orange thing</b>, and it sits where your thumb is.</li>
+        <li><b>Today's shift is one visible row.</b> You can see the stage and mode you picked. Tapping it opens a sheet with location, mode, sprint and tax.</li>
+        <li><b>All four employees fit on one line.</b> No scrolling to choose.</li>
+        <li><b>A bottom bar replaces the scrolling top nav</b> and the link row. Shop, records, devlog and settings are one tap away. This changes a part the devlog shares, so it needs your eye.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub">Title screen, desktop</h3>
+      <div class="pair">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/desk/b01-title-returning.jpg" alt="Today: title screen on desktop"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption>{{M_TITLE_DK}}</figure>
+      </div>
+      <ul class="calls"><li>The art gets the room. One column of actions on the left, in the same order as the phone.</li><li>The devlog memo stays as a cream card, the one place paper appears.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ladder">
+  <div class="shead"><h2>The attention ladder</h2><p>Each rung is louder and rarer than the one below. Only the top two pause the game.</p></div>
+  <div class="grid2">
+    <div class="ladder">
+      <div class="p"><b>6</b><div><h4>Moment <em>PAUSES</em></h4><p>The whole screen. Bonus chest, game over, retirement, retire at 80.</p></div></div>
+      <div class="p"><b>5</b><div><h4>Sheet <em>PAUSES</em></h4><p>A menu over a solid scrim. Level-up, Performance Bonus, Lounge, big map, pause.</p></div></div>
+      <div><b>4</b><div><h4>Headline</h4><p>A plate under the HUD, or the spotlight band. Boss arrival, swarm, modifier start, errand start, GOTCHA.</p></div></div>
+      <div><b>3</b><div><h4>Ticker</h4><p>One bar at the bottom. Tips, rewards, promoted, achievements, lore.</p></div></div>
+      <div><b>2</b><div><h4>Status row</h4><p>Chips under the HUD. At most one objective and one status.</p></div></div>
+      <div><b>1</b><div><h4>HUD pulse</h4><p>A number or slot blinks. No words. Cake, coins, a buff ending.</p></div></div>
+      <div><b>0</b><div><h4>World</h4><p>Drawn on the floor. Telegraphs, SAFE labels, damage numbers. Danger lives here.</p></div></div>
+    </div>
+    <div class="prose">
+      <h3 class="sub" style="margin-top:0">Two homes</h3>
+      <p><b>Top, under the HUD: alarms.</b> At rest this zone holds the status row and the minimap. When a headline arrives on a phone they step aside until it leaves.</p>
+      <p><b>Bottom: story.</b> The ticker. The spotlight band uses the same home and replaces the ticker while it is up.</p>
+      <p><b>The middle belongs to the game.</b> No text, dim or card covers the floor around the hero during a boss.</p>
+      <p>On touch phones the ticker floats 96 px above the bottom, so your thumb rests under it and not on it.</p>
+    </div>
+  </div>
+  <div class="pair ph" style="margin-top:22px">
+    <figure><figcaption>An alarm and a tip (not during a boss)</figcaption>{{HOME_ALARM}}</figure>
+    <figure><figcaption>At rest</figcaption>{{HOME_REST}}</figure>
+  </div>
+  <h3 class="sub">The queue</h3>
+  {{T32}}
+  <div class="grid3" style="margin-top:16px">
+    <div class="panel"><h4>No cutting in</h4><p class="note" style="margin-top:0">A message never replaces one of equal or higher tier. It waits, or it is dropped when stale. A late warning is wrong information.</p></div>
+    <div class="panel"><h4>Quiet window</h4><p class="note" style="margin-top:0">Nothing new starts while a boss is winding up or attacking, plus 300 ms. Low health is the one exception.</p></div>
+    <div class="panel"><h4>Targets</h4><p class="note" style="margin-top:0">4 messages a minute on average. 6 in any minute at most. 40% of every minute with only the HUD on screen.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="tokens">
+  <div class="shead"><h2>Tokens</h2><p>Named values in one file, shared by the game and the devlog</p></div>
+  <h3 class="sub" style="margin-top:0">Color: the palette mapped to roles</h3>
+  <div class="sw-grid">
+    <div class="swt"><i style="background:#10142A"></i><div><b>Background</b><span>deep navy #10142A. Page and scrim</span></div></div>
+    <div class="swt"><i style="background:#171C35"></i><div><b>Surface</b><span>navy #171C35. Cards, sheets, plates</span></div></div>
+    <div class="swt"><i style="background:#303750"></i><div><b>Raised</b><span>slate #303750. Rows, wells</span></div></div>
+    <div class="swt"><i style="background:#3E7775"></i><div><b>Border</b><span>teal #3E7775. Borders only, 3.3:1</span></div></div>
+    <div class="swt"><i style="background:#FFF0CF"></i><div><b>Text</b><span>warm white #FFF0CF. 14.8:1 on navy</span></div></div>
+    <div class="swt"><i style="background:#B8C0D4"></i><div><b>Text, quiet</b><span>#B8C0D4. Captions, 9.2:1</span></div></div>
+    <div class="swt"><i style="background:#F2D7A1"></i><div><b>Paper</b><span>cream #F2D7A1. Memo strips, focus ring</span></div></div>
+    <div class="swt"><i style="background:#EF9347"></i><div><b>Accent</b><span>coffee #EF9347. The one primary, 7.1:1</span></div></div>
+    <div class="swt"><i style="background:#83A89A"></i><div><b>Success</b><span>sage #83A89A. Done, buffs, tips, 6.4:1</span></div></div>
+    <div class="swt"><i style="background:#C45C4B"></i><div><b>Danger</b><span>russet #C45C4B. A shape, never small text (4.0:1)</span></div></div>
+  </div>
+  <p class="note">Russet marks an alert with an edge and a "!" while the words stay warm white. That also means red is never the only signal. Teal on cream (today's "RE:" label) measures 3.7:1 and becomes navy.</p>
+
+  <div class="grid2" style="margin-top:8px">
+    <div>
+      <h3 class="sub">Type: two fonts, ten sizes (phone sizes shown)</h3>
+      <div class="ty">
+        <div><small>display-l 32</small><span style="font:700 32px/1 var(--label);color:var(--ms-accent)">AGE 45</span></div>
+        <div><small>display-s 22</small><span style="font:700 22px/1.1 var(--label)">PERFORMANCE REVIEW</span></div>
+        <div><small>label-l 16</small><span style="font:16px var(--label);letter-spacing:.06em">TODAY'S SHIFT</span></div>
+        <div><small>label-m 13</small><span style="font:13px var(--label);letter-spacing:.06em">PUNCH IN · REROLL · SKIP</span></div>
+        <div><small>label-s 11</small><span style="font:11px var(--label);letter-spacing:.06em">PAIRS WITH GOOD NIGHT'S SLEEP</span></div>
+        <div><small>headline 28</small><span style="font:700 28px/1.15 var(--read)">Burnout. Shift ended.</span></div>
+        <div><small>title 22</small><span style="font:700 22px/1.2 var(--read)">Your 401(k)</span></div>
+        <div><small>body-l 18</small><span style="font:700 18px/1.3 var(--read)">Elites drop bigger gems.</span></div>
+        <div><small>body 16</small><span style="font:16px/1.45 var(--read)">Everything fires on its own. Just keep moving.</span></div>
+        <div><small>body-s 14</small><span style="font:14px/1.4 var(--read);color:var(--ms-text-quiet)">The floor. Nothing you read is smaller than this.</span></div>
+      </div>
+      <p class="note">Silkscreen is for labels of four words or fewer, in caps. Anything longer is Atkinson. Tablet sizes are 1.12 times these, desktop 1.25.</p>
+    </div>
+    <div>
+      <h3 class="sub">Space</h3>
+      <div class="sp"><div><i style="width:4px;height:4px"></i>4</div><div><i style="width:8px;height:8px"></i>8</div><div><i style="width:12px;height:12px"></i>12</div><div><i style="width:16px;height:16px"></i>16</div><div><i style="width:24px;height:24px"></i>24</div><div><i style="width:32px;height:32px"></i>32</div><div><i style="width:48px;height:48px"></i>48</div></div>
+      <h3 class="sub">Corners and depth</h3>
+      <div class="rad"><div style="border-radius:2px">2 px<br>strips, chips</div><div style="border-radius:4px;box-shadow:0 3px 0 #0B0E1D">4 px<br>buttons, rows</div><div style="border-radius:8px;box-shadow:4px 4px 0 rgba(0,0,0,.45)">8 px<br>cards, sheets</div></div>
+      <p class="note">Hard pixel shadows, no blur. Menus sit on a solid scrim. No glass: blur smears the pixel art and costs frames on phones.</p>
+      <h3 class="sub">Motion</h3>
+      <div class="tw"><table><tbody><tr><td class="n"><b>120 ms</b></td><td>press, focus, hover, every exit</td></tr><tr><td class="n"><b>200 ms</b></td><td>chips, banners, toasts entering</td></tr><tr><td class="n"><b>320 ms</b></td><td>sheets and cards entering</td></tr><tr><td class="n"><b>600 ms</b></td><td>full-screen moments only</td></tr></tbody></table></div>
+      <p class="note">Alarms drop from the top. Story rises from the bottom. With reduce motion on, every entrance is a 120 ms fade.</p>
+    </div>
+  </div>
+  <h3 class="sub">Layers: who draws on top</h3>
+  <div class="grid2">
+    <div class="layers">
+      <div><b>90</b><em>dev</em><span>dev console</span></div>
+      <div><b>70</b><em>system</em><span>sound prompt, account prompt, site nav</span></div>
+      <div><b>60</b><em>moment</em><span>chest, game over, retirement</span></div>
+      <div><b>50</b><em>sheet</em><span>scrim and any menu that pauses</span></div>
+      <div class="hide"><b>40</b><em>headline</em><span>headline plate</span></div>
+      <div class="hide"><b>30</b><em>ticker</em><span>ticker, spotlight band</span></div>
+      <div class="hide"><b>20</b><em>status</em><span>chips, edge arrows</span></div>
+      <div><b>10</b><em>hud</em><span>HUD, minimap</span></div>
+      <div><b>0</b><em>world</em><span>the game, telegraphs, world text</span></div>
+    </div>
+    <div class="prose"><p><b>One rule fixes the chips-over-menus problem.</b> When anything at sheet or above opens, the three marked layers hide, and the minimap hides with them.</p><p>Nine values replace the 29 in the code today.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="sizes">
+  <div class="shead"><h2>Size classes</h2><p>Three classes and one flag replace 13 breakpoints</p></div>
+  <div class="sc">
+    <div><b>Compact</b><em>under 600 wide · scale 1</em><span>Phone, portrait. Sheets rise from the bottom. Actions in thumb reach.</span></div>
+    <div><b>Regular</b><em>600 to 1023 · scale 1.12</em><span>iPad portrait, small windows. Sheets are centered cards.</span></div>
+    <div><b>Wide</b><em>1024 and up · scale 1.25</em><span>iPad landscape, laptop, desktop. Content stays in a centered column.</span></div>
+    <div><b>Short</b><em>flag: under 500 tall</em><span>Phone held sideways. One-row HUD, one-line messages, full-screen sheets.</span></div>
+  </div>
+  <p class="note">Input is separate from size: touch, pointer or pad. The UI follows the last one used.</p>
+  <details open><summary>How each surface lays out</summary>{{T4B}}</details>
+  <div class="grid3" style="margin-top:16px">
+    <div class="panel"><h4>Safe areas</h4><p class="note" style="margin-top:0">Every edge-anchored part adds the device inset. The HUD adds the top, the ticker and sheet action bars add the bottom.</p></div>
+    <div class="panel"><h4>Thumb reach</h4><p class="note" style="margin-top:0">On touch phones the bottom 35% is for thumbs. Primary buttons live there. Nothing you need to read sits there for long.</p></div>
+    <div class="panel"><h4>Controllers</h4><p class="note" style="margin-top:0">One focus ring everywhere: 3 px cream outside a 2 px navy gap. Button hints sit in one footer legend, never inside a label.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="parts">
+  <div class="shead"><h2>Components</h2><p>Eight parts, live on this page, each with its states</p></div>
+  <div class="grid2">
+    <div class="panel"><h4>1. Button</h4>
+      <div class="spec"><span class="cap">Primary: one per screen</span><button class="btn pri">Punch in</button><button class="btn pri hov">Hover</button><button class="btn pri foc">Focus</button><button class="btn pri prs">Pressed</button><button class="btn pri dis" disabled>Disabled</button>
+      <span class="cap">Secondary, quiet, danger</span><button class="btn">Reroll</button><button class="btn foc">Focus</button><button class="btn quiet">Not now</button><button class="btn dng">Erase everything</button></div>
+      <p class="note">A plain verb, one to three words. No emoji, no key lists. Danger always asks twice.</p></div>
+    <div class="panel"><h4>2. Row</h4>
+      <div class="row sel"><span class="ic"></span><span><span class="t">Home Espresso <span class="pips"><i class="on"></i><i></i><i></i><i></i><i></i></span></span><br><span class="d">+10% starting move and fire speed</span></span><span class="price">37k</span></div>
+      <div class="row"><span class="ic"></span><span><span class="t">Continuing Ed</span><br><span class="d">+8% Wisdom from every gem</span></span><span class="price no">160k</span></div>
+      <div class="row"><span class="ic"></span><span><span class="t">Game tips</span><br><span class="d">Short hints the first time something happens</span></span><span class="sw"></span></div>
+      <div class="row lock"><span class="ic"></span><span><span class="t">Sleep On It</span><br><span class="d">Locked. Reach age 55 in any run.</span></span><span class="val">LOCKED</span></div>
+      <p class="note">The whole row is the tap target. The trailing slot is a price, a switch, a stepper, a value or a chevron. No button inside a row.</p></div>
+    <div class="panel"><h4>3. Card</h4>
+      <div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+        <div class="card sel"><div class="kick">New weapon</div><h5>Dad Joke</h5><p>A punchline blast hits everything around you.</p><span class="pair-tag">PAIRS WITH READING GLASSES</span></div>
+        <div class="card"><div class="kick">Upgrade · 2 of 5</div><h5>Long Pour</h5><p>Coffee flies 25% farther.</p></div>
+        <div class="card memo"><div class="kick">Devlog · Memo 13</div><h5>Music is a side character.</h5><p>The memo variant: cream paper, navy text.</p></div>
+      </div>
+      <p class="note">Selected gets a 3 px coffee border. The card itself is the tap target.</p></div>
+    <div class="panel"><h4>4. Sheet</h4>
+      <div class="sheet"><div><span class="strip"><span class="re">HR · RE:</span><strong>Promotion, level 7</strong></span></div><div class="ttl">PICK A PERK</div>
+        <div class="row sel"><span class="ic"></span><span><span class="t">Dad Joke</span><br><span class="d">A punchline blast around you</span></span><span class="val">NEW</span></div>
+        <div class="row"><span class="ic"></span><span><span class="t">Long Pour</span><br><span class="d">Coffee flies 25% farther</span></span><span class="val">2 OF 5</span></div>
+        <div class="bar"><span class="lft"><button class="btn">Skip</button><button class="btn">Reroll 2</button></span><button class="btn pri">Pick</button></div>
+        <div class="legend"><span><kbd>A</kbd>Pick</span><span><kbd>X</kbd>Reroll</span><span><kbd>Y</kbd>Skip</span></div></div>
+      <p class="note">Strip, title, body, one action bar pinned at the bottom, one legend. Rises from the bottom on phones, a centered card elsewhere.</p></div>
+    <div class="panel"><h4>5. Banner (the headline)</h4>
+      <div style="display:grid;gap:10px">
+        <div class="plate"><span class="mark">!</span><div><div class="k">Tax season</div><div class="ln">A wall of bills from the east. Pick a gap.</div></div></div>
+        <div class="plate obj"><span class="mark">&#9744;</span><div><div class="k">To-do</div><div class="ln">Grab your printing before someone reads it.</div></div></div>
+        <div class="plate rew"><span class="mark">&#9733;</span><div><div class="k">Gotcha</div><div class="ln">TJ handed over a coffee. Shield up.</div></div></div>
+        <div style="margin-top:24px"><div class="band" style="position:relative"><img src="mock/boss.png" alt=""><div><span class="k">ANNUAL EVALUATION</span><div class="nm">PERFORMANCE REVIEW</div><div class="tp">Sidestep when the clipboard flashes.</div></div></div></div>
+      </div>
+      <p class="note">Plate under the HUD for alarms, objectives and catches. Band at the bottom for bosses (3.5 s), hires, promotions and the Lounge (5 s).</p></div>
+    <div class="panel"><h4>6. Toast (the ticker)</h4>
+      <div style="display:grid;gap:10px">
+        <div class="toast"><span class="lb">Tip</span><span class="tx">Elites drop bigger gems. Circle back for them.</span></div>
+        <div class="toast obj"><span class="lb">Promoted</span><span class="tx">Senior Associate. New rooms are open.</span></div>
+        <div class="toast rew"><span class="lb">Age 50</span><span class="tx">The knees start talking. +5 HP cake, +12k dividend.</span></div>
+        <div class="toast alert"><span class="lb">!</span><span class="tx">Low health. Find the pizza.</span></div>
+      </div>
+      <p class="note">Today's lower third, kept. One sentence, two lines at most. The third example is a birthday merged into one line.</p></div>
+    <div class="panel"><h4>7. Chip</h4>
+      <div class="spec"><span class="cap">Objective: at most one</span><span class="chip"><i class="bx"></i>Printer · Bullpen <b>40s</b></span><span class="chip"><i class="bx"></i>Spare key · 2 of 8</span><span class="arrow" title="the one edge arrow"></span>
+      <span class="cap">Status: at most one</span><span class="chip mod">Reading glasses <b>1:32</b></span><span class="chip buff">Checked off <b>15s</b></span><span class="chip warn">Workload 3</span></div>
+      <p class="note">28 px tall, one row under the HUD, never stacked. The full sentence goes to the ticker once. Every "go here" arrow is the same coffee triangle.</p></div>
+    <div class="panel"><h4>8. Memo</h4>
+      <div class="spec"><span class="strip"><span class="re">HR · RE:</span><strong>Your 401(k)</strong></span><span class="strip"><span class="re">FACILITIES · RE:</span><strong>We moved</strong></span></div>
+      <div class="card memo" style="margin-top:12px"><div class="kick">Today's shift</div><h5>Survive to 65 and clock out.</h5><p>Everything fires on its own. Just keep moving.</p></div>
+      <p class="note">One naming pattern: DEPARTMENT · RE: Subject. Paper is for memos only.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="voice">
+  <div class="shead"><h2>Voice for UI</h2><p>Plain controls, warm lines. The joke lives under the button.</p></div>
+  {{T6}}
+</section>
+
+<section class="sec" id="map">
+  <div class="shead"><h2>Every surface and what it becomes</h2><p>All 60 audited surfaces, plus the ones I couldn't photograph</p></div>
+  <details open><summary>In a run</summary>{{T7A}}</details>
+  <details><summary>Out of a run</summary>{{T7B}}</details>
+</section>
+
+<section class="sec" id="plan">
+  <div class="shead"><h2>Recommendations and plan</h2><p>Effort: S is one sitting, M is two or three, L is more. "Fixes" points at the audit's top 10.</p></div>
+  {{T8}}
+  <h3 class="sub">Migration: one surface per 45 to 90 minute sitting</h3>
+  <details open><summary>Part A: where to look (8 sittings)</summary>{{T9A}}</details>
+  <details><summary>Part B: menus (8 sittings)</summary>{{T9B}}</details>
+  <details><summary>Part C: memos and the devlog (3 sittings)</summary>{{T9C}}</details>
+</section>
+
+<section class="sec" id="ask">
+  <div class="shead"><h2>Your call</h2><p>Three things I need from you</p></div>
+  <blockquote>
+    <h4>One look (design system v1, Nov 2026)</h4>
+    The game and the devlog are one product. The full spec is <code>docs/design/design-system-v1.md</code>.
+    <ul>
+      <li><b>Tokens only.</b> Colors, type sizes, spacing, corners, layers and timings come from <code>assets/ui/ms-tokens.css</code>. No new hex values, pixel sizes or z-index numbers in code.</li>
+      <li><b>Fonts:</b> Silkscreen for labels of four words or fewer, in caps. Atkinson Hyperlegible for anything you read. Nothing you read is under 14 px. Nothing you tap is under 44 px.</li>
+      <li><b>Colors:</b> the devlog palette only. Coffee orange fill means the one primary button on a screen. Russet and teal never carry small text.</li>
+      <li><b>Eight parts:</b> Button, Row, Card, Sheet, Banner, Toast, Chip, Memo. If a new surface can't be built from these, raise it with Rami before inventing a ninth.</li>
+      <li><b>In-run messages go through the router.</b> Alarms in the headline slot under the HUD, story in the ticker at the bottom. One of each at most, one total on a phone during a boss. Only sheets and moments pause. Nothing covers the floor around the hero during a boss.</li>
+      <li><b>Three size classes:</b> compact, regular, wide, plus a short flag for phones held sideways. No other breakpoints.</li>
+      <li><b>Voice:</b> plain verbs on buttons, the joke in the line underneath. No emoji in gameplay text.</li>
+      <li><b>Every screen is checked</b> at phone, iPad (both orientations) and desktop sizes, with touch, keyboard and a controller, before it ships.</li>
+      <li>The devlog memo, social image and social kit bullets stay as they are.</li>
+    </ul>
+  </blockquote>
+  <div class="ask"><p><b>Instruction check:</b> the text above would replace the first four bullets of "One look (Nov 3)" in CLAUDE.md. Yes or no?</p></div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="panel"><h4>Two more questions</h4><ul class="calls" style="margin-top:0"><li><b>The bottom bar on the phone title screen.</b> It replaces the scrolling top nav inside the game. The devlog keeps its nav. OK to try?</li><li><b>A boss health bar under the HUD.</b> It is new. It replaces hunting for the tag over the boss's head. Want it?</li></ul></div>
+    <div class="panel"><h4>Still open</h4><ul class="calls" style="margin-top:0"><li>Phone landscape is specified but was never photographed. It needs a real device.</li><li>Safe areas need your phone. Test browsers have no notch.</li><li>Maple Hollow v2's new bits (yard sparkles, stairs, desk buff, yard gags) all fit existing rungs. No new part needed.</li></ul></div>
+  </div>
+  <p class="foot">Spec v1, Nov 10, 2026. Based on the audit of V. 2.25.0 and on Grok's attention budget. The mockups use real game frames and art with proposed UI drawn over them. Wireframes for 11 key screens are a separate page.</p>
+</section>
+</div>

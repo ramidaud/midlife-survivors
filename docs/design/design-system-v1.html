@@ -1,0 +1,452 @@
+<title>Midlife Survivors Design System</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap">
+<style>/* Layout: one reading column. Each section pairs a short rule with a live specimen built from the tokens below, so the page is its own proof. Single dark look, the game's palette. */
+:root{
+  --ms-bg:#10142A; --ms-surface:#171C35; --ms-raised:#303750; --ms-line:#526078; --ms-border:#3E7775;
+  --ms-text:#FFF0CF; --ms-text-quiet:#B8C0D4; --ms-paper:#F2D7A1; --ms-accent:#EF9347; --ms-ok:#83A89A; --ms-danger:#C45C4B;
+  --ms-scrim:rgba(16,20,42,.78); --ms-ink:#171C35; --ms-shadow:#0B0E1D;
+  --label:'Silkscreen',ui-monospace,Menlo,monospace; --read:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ms-surface);color:var(--ms-text);font:17px/1.55 var(--read);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ms-bg)}
+.wrap{max-width:1240px;margin:0 auto;padding-block:28px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4,p{margin:0} h1,h2,h3{text-wrap:balance}
+a{color:var(--ms-paper)} :focus-visible{outline:3px solid var(--ms-paper);outline-offset:2px}
+code{font:14px ui-monospace,Menlo,monospace;background:var(--ms-bg);padding:1px 5px;border-radius:2px}
+.strip{display:inline-flex;gap:8px;align-items:baseline;flex-wrap:wrap;background:var(--ms-paper);color:var(--ms-ink);border-left:4px solid var(--ms-accent);padding:6px 12px;border-radius:2px}
+.strip .re{font:11px var(--label);letter-spacing:.06em} .strip strong{font-size:14px}
+h1{font:700 clamp(30px,5vw,46px)/1.08 var(--read);margin-top:14px}
+.lede{font-size:clamp(18px,2.2vw,21px);line-height:1.5;max-width:62ch;margin-top:14px} .lede b{color:var(--ms-paper)}
+.four{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:26px}
+.four div{border-top:3px solid var(--ms-accent);padding-top:10px;min-width:0}
+.four b{display:block;font:700 19px/1.25 var(--read);color:var(--ms-paper)} .four span{display:block;font-size:15.5px;color:var(--ms-text-quiet);margin-top:5px;line-height:1.45}
+.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;overflow-x:auto;background:var(--ms-surface);padding:10px 0;margin-top:30px;border-bottom:2px solid var(--ms-line);scrollbar-width:thin}
+.jump a{flex:none;font:11px var(--label);letter-spacing:.05em;text-transform:uppercase;text-decoration:none;color:var(--ms-text);border:2px solid var(--ms-border);border-radius:4px;padding:8px 10px}
+.jump a:hover{background:var(--ms-border)} .jump a.hot{background:var(--ms-accent);border-color:var(--ms-accent);color:var(--ms-ink)}
+section.sec{margin-top:52px}
+.shead{display:flex;gap:6px 16px;align-items:baseline;flex-wrap:wrap;border-bottom:2px solid var(--ms-accent);padding-bottom:8px;margin-bottom:20px}
+.shead h2{font:700 clamp(23px,3vw,29px)/1.15 var(--read)} .shead p{color:var(--ms-text-quiet);font-size:16px}
+h3.sub{font:12px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--ms-ok);margin:28px 0 12px}
+.prose{max-width:66ch} .prose p+p{margin-top:10px} .prose ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.panel{background:var(--ms-bg);border:2px solid #3a4262;border-radius:8px;padding:16px 18px;min-width:0}
+.panel>h4{font:12px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--ms-ok);margin-bottom:12px}
+.note{font-size:15px;color:var(--ms-text-quiet);line-height:1.45;margin-top:10px}
+.tw{overflow-x:auto} table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{font:11px var(--label);letter-spacing:.06em;text-transform:uppercase;color:var(--ms-ok);text-align:left;padding:8px 10px;border-bottom:2px solid var(--ms-line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid #3a4262;vertical-align:top} td b{color:var(--ms-paper)} td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
+.tag{font:10px var(--label);letter-spacing:.05em;padding:3px 6px;border-radius:2px;background:var(--ms-border);color:var(--ms-text);white-space:nowrap}
+.tag.s{background:var(--ms-ok);color:var(--ms-ink)} .tag.m{background:var(--ms-paper);color:var(--ms-ink)} .tag.l{background:var(--ms-accent);color:var(--ms-ink)}
+details{border:2px solid #3a4262;border-radius:8px;background:var(--ms-bg);margin-top:14px} summary{cursor:pointer;padding:12px 16px;font:12px var(--label);letter-spacing:.06em;text-transform:uppercase} details>.tw{padding:0 8px 8px}
+/* before / after */
+.ba{display:grid;gap:26px;margin-top:8px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.pair.ph{max-width:820px}
+.pair figure{margin:0;min-width:0} .pair figcaption{font:11px var(--label);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;color:var(--ms-text-quiet)}
+.pair figcaption b{color:var(--ms-accent);font-weight:400}
+.pair img.before{display:block;width:100%;height:auto;border:2px solid #3a4262;border-radius:4px}
+.fit{position:relative;width:100%;border:2px solid var(--ms-paper);border-radius:4px;overflow:hidden;background:#000}
+.fit>.mk{position:absolute;left:0;top:0;transform-origin:0 0}
+.calls{margin:12px 0 0;padding-left:20px;display:grid;gap:5px;font-size:15.5px;max-width:70ch}
+@media (max-width:640px){.pair,.pair.ph{grid-template-columns:1fr}}
+/* ---------- mock + component kit (the proposed system itself) ---------- */
+.mk{font-family:var(--read);color:var(--ms-text);overflow:hidden;background-size:cover;background-position:center}
+.mk *{box-sizing:border-box}
+.xp{position:absolute;left:0;right:0;top:0;height:6px;background:var(--ms-bg)} .xp i{display:block;height:100%;width:46%;background:var(--ms-accent)}
+.hud{position:absolute;left:0;right:0;top:6px;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;padding:8px 12px;background:linear-gradient(#10142Aee,#10142A99 70%,#10142A00)}
+.hud .l{display:grid;gap:4px;justify-items:start} .hud .r{display:flex;gap:8px;justify-content:flex-end}
+.stat{font:13px var(--label);letter-spacing:.04em;display:flex;gap:6px;align-items:center;font-variant-numeric:tabular-nums}
+.stat i{width:10px;height:10px;background:var(--ms-accent);border-radius:50%;display:block} .stat.q{color:var(--ms-text-quiet);font-size:11px}
+.age{text-align:center} .age b{display:block;font:700 22px/1 var(--label);color:var(--ms-accent);letter-spacing:.04em;text-shadow:0 2px 0 var(--ms-shadow)} .age span{font:13px var(--label);color:var(--ms-text-quiet);font-variant-numeric:tabular-nums}
+.rb{width:44px;height:44px;border-radius:50%;background:var(--ms-surface);border:2px solid var(--ms-border);display:grid;place-items:center}
+.rb i{display:block} .rb .pz{width:10px;height:12px;border-left:4px solid var(--ms-text);border-right:4px solid var(--ms-text)} .rb .sp{width:6px;height:8px;background:var(--ms-text);position:relative;margin-left:-8px} .rb .sp::after{content:"";position:absolute;left:0;top:-5px;border:9px solid transparent;border-right-color:var(--ms-text);border-left-width:0}
+.slots{display:flex;gap:4px} .slots i{width:22px;height:22px;background:var(--ms-raised);border:2px solid var(--ms-border);border-radius:2px;display:block} .slots i:nth-child(1){background:var(--ms-accent)} .slots i:nth-child(2){background:var(--ms-ok)} .slots i:nth-child(3){background:var(--ms-paper)}
+.bossm{position:absolute;left:16px;right:16px;display:grid;gap:4px}
+.bossm span{font:11px var(--label);letter-spacing:.06em;text-shadow:0 2px 0 var(--ms-shadow)} .bossm div{height:8px;background:var(--ms-bg);border:2px solid var(--ms-bg);border-radius:2px} .bossm div i{display:block;height:100%;width:82%;background:var(--ms-danger)}
+.band{position:absolute;left:0;right:0;display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;background:var(--ms-danger);border-top:3px solid var(--ms-bg);border-bottom:3px solid var(--ms-bg);padding:8px 14px 8px 8px;color:var(--ms-text)}
+.band img{width:72px;height:76px;image-rendering:pixelated;margin:-22px 0 -8px;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.4))}
+.band .k{font:11px var(--label);letter-spacing:.06em;background:var(--ms-bg);color:var(--ms-paper);padding:2px 6px;border-radius:2px;display:inline-block}
+.band .nm{font:700 20px/1.05 var(--label);letter-spacing:.03em;margin:4px 0 3px;text-shadow:0 2px 0 var(--ms-shadow)} .band .tp{font:700 15px/1.25 var(--read);color:var(--ms-bg)}
+.band.teal{background:var(--ms-border)} .band.teal .tp{color:var(--ms-text)}
+/* components */
+.btn{font:13px var(--label);letter-spacing:.06em;text-transform:uppercase;min-height:44px;padding:0 16px;border-radius:4px;border:2px solid var(--ms-border);background:transparent;color:var(--ms-text);display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:transform 120ms var(--ease),box-shadow 120ms var(--ease),background 120ms var(--ease)}
+.btn.pri{background:var(--ms-accent);border-color:var(--ms-ink);color:var(--ms-ink);min-height:48px;box-shadow:0 3px 0 var(--ms-shadow);font-weight:700}
+.btn.pri:hover,.btn.pri.hov{background:#F5A765} .btn:hover,.btn.hov{background:rgba(62,119,117,.35)}
+.btn:active,.btn.prs{transform:translateY(2px);box-shadow:0 1px 0 var(--ms-shadow)}
+.btn.foc{outline:3px solid var(--ms-paper);outline-offset:2px}
+.btn.quiet{border-color:transparent;text-decoration:underline;text-underline-offset:4px;color:var(--ms-text-quiet)}
+.btn.dng{border-color:var(--ms-danger)} .btn[disabled],.btn.dis{opacity:.4;cursor:not-allowed}
+.btn.block{display:flex;width:100%}
+.spec{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center} .spec .cap{flex-basis:100%;font:10px var(--label);letter-spacing:.06em;text-transform:uppercase;color:var(--ms-text-quiet);margin-top:8px}
+.spec .cap:first-child{margin-top:0}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;min-height:56px;padding:8px 12px;background:var(--ms-raised);border:2px solid transparent;border-radius:4px}
+.row+.row{margin-top:6px} .row .ic{width:32px;height:32px;border-radius:2px;background:var(--ms-surface);border:2px solid var(--ms-border)}
+.row .t{font:700 18px/1.2 var(--read)} .row .d{font-size:14px;color:var(--ms-text-quiet);line-height:1.3}
+.row.sel{border-color:var(--ms-accent)} .row.foc{outline:3px solid var(--ms-paper);outline-offset:2px} .row.lock{opacity:.5}
+.price{font:13px var(--label);letter-spacing:.04em;color:var(--ms-accent);border:2px solid var(--ms-accent);border-radius:2px;padding:4px 8px;white-space:nowrap} .price.no{color:var(--ms-text-quiet);border-color:var(--ms-line)}
+.val{font:13px var(--label);color:var(--ms-text-quiet);white-space:nowrap} .sw{width:44px;height:24px;border-radius:2px;background:var(--ms-ok);position:relative;display:block} .sw::after{content:"";position:absolute;right:3px;top:3px;width:18px;height:18px;background:var(--ms-ink);border-radius:2px}
+.pips{display:inline-flex;gap:3px;margin-left:8px;vertical-align:middle} .pips i{width:8px;height:8px;border:2px solid var(--ms-accent);display:block} .pips i.on{background:var(--ms-accent)}
+.card{background:var(--ms-surface);border:2px solid var(--ms-border);border-radius:8px;padding:16px;box-shadow:4px 4px 0 rgba(0,0,0,.45);min-width:0}
+.card.sel{border:3px solid var(--ms-accent);padding:15px} .card.lock{opacity:.5} .card .kick{font:11px var(--label);letter-spacing:.06em;color:var(--ms-ok);text-transform:uppercase}
+.card h5{font:700 18px/1.2 var(--read);margin:6px 0 4px} .card p{font-size:14px;color:var(--ms-text-quiet);line-height:1.4}
+.card .pair-tag{display:inline-block;margin-top:10px;font:11px var(--label);letter-spacing:.05em;color:var(--ms-ink);background:var(--ms-ok);padding:3px 6px;border-radius:2px}
+.card.memo{background:var(--ms-paper);color:var(--ms-ink);border-color:var(--ms-ink)} .card.memo p{color:#303750} .card.memo .kick{color:var(--ms-ink)}
+.plate{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;background:rgba(23,28,53,.94);border:2px solid var(--ms-danger);border-left-width:6px;border-radius:4px;padding:8px 12px;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+.plate .mark{width:24px;height:24px;display:grid;place-items:center;font:700 16px var(--label);background:var(--ms-danger);color:var(--ms-bg);border-radius:2px}
+.plate .k{font:13px var(--label);letter-spacing:.06em;text-transform:uppercase} .plate .ln{font:700 16px/1.25 var(--read)}
+.plate.obj{border-color:var(--ms-paper)} .plate.obj .mark{background:var(--ms-paper)} .plate.rew{border-color:var(--ms-accent)} .plate.rew .mark{background:var(--ms-accent)}
+.toast{display:grid;grid-template-columns:auto 1fr;background:rgba(23,28,53,.94);border:2px solid var(--ms-border);border-radius:4px;overflow:hidden;box-shadow:4px 4px 0 rgba(0,0,0,.45)}
+.toast .lb{font:11px var(--label);letter-spacing:.06em;text-transform:uppercase;display:grid;place-items:center;padding:0 10px;background:var(--ms-ok);color:var(--ms-ink);min-width:64px}
+.toast .tx{font:700 16px/1.3 var(--read);padding:9px 12px} .toast.obj .lb{background:var(--ms-paper)} .toast.rew .lb{background:var(--ms-accent)}
+.toast.alert{border-color:var(--ms-danger);border-left-width:6px} .toast.alert .lb{background:var(--ms-bg);color:var(--ms-text)}
+.chip{display:inline-flex;gap:8px;align-items:center;height:28px;padding:0 8px;border-radius:2px;background:rgba(23,28,53,.94);border:2px solid var(--ms-paper);font:11px var(--label);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.chip b{font-weight:400;color:var(--ms-paper);font-variant-numeric:tabular-nums} .chip.mod{border-color:var(--ms-accent)} .chip.buff{border-color:var(--ms-ok)} .chip.warn{border-color:var(--ms-danger);border-left-width:6px}
+.chip .bx{width:10px;height:10px;border:2px solid var(--ms-paper);display:block}
+.arrow{width:0;height:0;border:10px solid transparent;border-left:16px solid var(--ms-accent);display:inline-block}
+.legend{font:11px var(--label);letter-spacing:.05em;color:var(--ms-text-quiet);display:flex;gap:14px;flex-wrap:wrap} .legend kbd{font:11px var(--label);background:var(--ms-raised);color:var(--ms-text);border-radius:2px;padding:2px 6px;margin-right:4px}
+.sheet{background:var(--ms-surface);border:2px solid var(--ms-border);border-radius:8px;box-shadow:4px 4px 0 rgba(0,0,0,.45);display:grid;gap:12px;padding:14px}
+.sheet .ttl{font:700 22px/1.1 var(--label);letter-spacing:.03em} .sheet .bar{display:flex;gap:8px;justify-content:space-between;align-items:center;border-top:2px solid #3a4262;padding-top:12px}
+.sheet .bar .lft{display:flex;gap:8px}
+/* swatches */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:10px}
+.swt{border:2px solid #3a4262;border-radius:4px;overflow:hidden;background:var(--ms-bg)} .swt i{display:block;height:54px} .swt div{padding:8px 10px}
+.swt b{display:block;font:12px var(--label);letter-spacing:.05em;text-transform:uppercase} .swt span{display:block;font-size:13.5px;color:var(--ms-text-quiet);line-height:1.35;margin-top:2px}
+.ty{display:grid;gap:10px} .ty>div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;align-items:baseline;border-bottom:1px solid #3a4262;padding-bottom:8px}
+.ty small{font:10px var(--label);letter-spacing:.05em;color:var(--ms-text-quiet);text-transform:uppercase} .ty span{min-width:0;overflow-wrap:anywhere}
+.sp{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap} .sp div{text-align:center;font:10px var(--label);color:var(--ms-text-quiet)} .sp i{display:block;background:var(--ms-accent);margin:0 auto 6px}
+.rad{display:flex;gap:16px;flex-wrap:wrap} .rad div{width:92px;height:60px;border:2px solid var(--ms-border);background:var(--ms-surface);display:grid;place-items:center;font:10px var(--label);color:var(--ms-text-quiet);text-align:center}
+.layers{display:grid;gap:4px} .layers div{display:grid;grid-template-columns:34px 90px 1fr;gap:10px;align-items:center;background:var(--ms-raised);border-radius:2px;padding:6px 10px;font-size:15px}
+.layers b{font:12px var(--label);color:var(--ms-accent);font-variant-numeric:tabular-nums} .layers em{font:11px var(--label);font-style:normal;text-transform:uppercase;letter-spacing:.05em}
+.layers .hide{box-shadow:inset 4px 0 0 var(--ms-paper)}
+/* ladder */
+.ladder{display:grid;gap:6px} .ladder>div{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:center;border-radius:4px;padding:10px 12px;background:var(--ms-bg);border-left:6px solid var(--ms-line)}
+.ladder b{font:700 20px var(--label);color:var(--ms-paper)} .ladder h4{font:700 17px/1.2 var(--read)} .ladder p{font-size:14.5px;color:var(--ms-text-quiet);line-height:1.4}
+.ladder .p{border-left-color:var(--ms-accent)} .ladder em{font:10px var(--label);font-style:normal;letter-spacing:.05em;background:var(--ms-accent);color:var(--ms-ink);padding:2px 6px;border-radius:2px;margin-left:8px;vertical-align:middle}
+.homes{position:relative}
+.zone{position:absolute;left:8px;right:8px;border:2px dashed var(--ms-paper);border-radius:4px;display:grid;place-items:center;text-align:center;font:11px var(--label);letter-spacing:.05em;text-transform:uppercase;background:rgba(16,20,42,.55);padding:4px}
+.zone.floor{border-color:var(--ms-ok);background:rgba(131,168,154,.12);color:var(--ms-text)} .zone.thumb{border-style:dotted;border-color:var(--ms-line);color:var(--ms-text-quiet);background:none}
+.sc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px} .sc div{background:var(--ms-bg);border:2px solid #3a4262;border-radius:8px;padding:14px}
+.sc b{display:block;font:700 20px var(--label);color:var(--ms-paper)} .sc span{display:block;font-size:14.5px;color:var(--ms-text-quiet);margin-top:4px;line-height:1.4} .sc em{font:11px var(--label);font-style:normal;color:var(--ms-accent)}
+blockquote{margin:0;background:var(--ms-paper);color:var(--ms-ink);border-left:6px solid var(--ms-accent);border-radius:2px;padding:16px 18px;font-size:16px;line-height:1.5} blockquote ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px} blockquote h4{font:700 19px var(--read);margin-bottom:4px} blockquote code{background:rgba(23,28,53,.12)}
+.ask{margin-top:14px;border:3px solid var(--ms-accent);border-radius:8px;padding:14px 16px;background:var(--ms-bg)} .ask b{color:var(--ms-accent)}
+.foot{color:var(--ms-text-quiet);font-size:14.5px;margin-top:34px;max-width:75ch}
+.mk .wide .hud{padding:10px max(20px,calc(50% - 600px))} .mk .wide .stat{font-size:16px} .mk .wide .stat.q{font-size:13px} .mk .wide .age b{font-size:30px} .mk .wide .age span{font-size:16px}
+.mk .wide .rb{width:48px;height:48px} .mk .wide .slots i{width:28px;height:28px} .mk .wide .bossm span{font-size:13px} .mk .wide .bossm div{height:10px}
+.mk .wide .band{padding:12px 28px 12px max(20px,calc(50% - 460px));gap:22px} .mk .wide .band img{width:144px;height:152px;margin:-64px 0 -12px} .mk .wide .band .k{font-size:13px} .mk .wide .band .nm{font-size:34px;margin:6px 0} .mk .wide .band .tp{font-size:20px}
+.mmap{position:absolute;right:max(20px,calc(50% - 600px));top:112px;width:232px;height:184px;background:#5A6898;border:4px solid var(--ms-surface);outline:2px solid var(--ms-border);border-radius:2px;display:grid;place-items:end center;font:11px var(--label);color:var(--ms-ink)}
+.mmap::after{content:"";position:absolute;inset:26px 40px 44px 30px;border:3px solid var(--ms-text);border-bottom-width:3px}
+.mmap.ph{right:16px;top:148px;width:120px;height:96px} .mmap.ph::after{inset:14px 22px 26px 16px;border-width:2px}
+.tshade{position:absolute;inset:0;background:linear-gradient(#171C3500 30%,#171C35e6 52%,#171C35 62%)}
+.tstack{position:absolute;left:16px;right:16px;bottom:76px;display:grid;gap:10px}
+.logo{font:700 46px/.92 var(--label);letter-spacing:.02em;display:grid} .logo span:first-child{color:var(--ms-accent)} .logo span:last-child{color:var(--ms-paper)} .logo span{text-shadow:0 4px 0 var(--ms-shadow)}
+.tag2{font:16px/1.3 var(--read);color:var(--ms-text)} .btn.big{min-height:60px;font-size:18px;letter-spacing:.1em}
+.bdgs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px} .bdg{background:var(--ms-surface);border:2px solid var(--ms-border);border-radius:8px;padding:4px 4px 6px;text-align:center}
+.bdg img{width:48px;height:56px;image-rendering:pixelated;display:block;margin:0 auto} .bdg span{font:11px/1.1 var(--label);display:block} .bdg.sel{border:3px solid var(--ms-accent);padding:3px 3px 5px}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:64px;background:var(--ms-bg);border-top:2px solid var(--ms-border);display:grid;grid-template-columns:repeat(5,1fr);align-items:center;text-align:center}
+.tabbar span{font:11px var(--label);letter-spacing:.03em;color:var(--ms-text-quiet);display:grid;gap:5px;justify-items:center} .tabbar i{width:20px;height:20px;border:2px solid currentColor;border-radius:2px;display:block} .tabbar .on{color:var(--ms-accent)}
+.tnav{position:absolute;left:0;right:0;top:0;height:56px;background:var(--ms-bg);border-bottom:2px solid var(--ms-border);display:flex;gap:28px;align-items:center;padding:0 32px;font:13px var(--label);letter-spacing:.06em;color:var(--ms-text-quiet)} .tnav b{color:var(--ms-text);margin-right:auto;font-weight:400}
+.tside{position:absolute;left:0;top:56px;bottom:0;width:640px;background:linear-gradient(90deg,#171C35 0,#171C35f2 70%,#171C3500)}
+.tcol{position:absolute;left:56px;top:120px;width:440px;display:grid;gap:16px} .tcol .logo{font-size:72px} .tcol .tag2{font-size:20px} .tcol .btn.big{min-height:72px;font-size:22px} .tcol .row .t{font-size:20px} .tcol .row .d{font-size:16px}
+.tcol .bdg img{width:72px;height:84px} .tcol .bdg span{font-size:13px} .last{font-size:16px;color:var(--ms-text-quiet)}
+.tmemo{position:absolute;right:56px;bottom:48px;width:360px;transform:rotate(-1.2deg)} .tmemo h5{font-size:22px} .tmemo p{font-size:16px}
+</style>
+<div class="wrap">
+<header>
+  <div><span class="strip"><span class="re">DESIGN &#183; RE:</span><strong>One look, one voice</strong></span></div>
+  <h1>Midlife Survivors design system, v1</h1>
+  <p class="lede">A proposal for your approval. Nothing here is built yet. It gives in-run messages <b>two homes</b>, replaces the pile of one-off boxes with <b>eight parts</b>, and makes the interface <b>grow with the screen</b>.</p>
+  <div class="four">
+    <div><b>Two homes for words</b><span>Alarms up top under the HUD. Story at the bottom. One of each at most. On a phone during a boss, one total.</span></div>
+    <div><b>One kit of parts</b><span>10 type sizes (from 30). 3 corner sizes (from 12). 9 layers (from 29). 3 screen classes (from 13 breakpoints).</span></div>
+    <div><b>One orange button</b><span>Coffee orange fill means "press this." It appears once per screen.</span></div>
+    <div><b>Read at arm's length</b><span>Nothing you read is under 14 px. Nothing you tap is under 44 px. The hero never shrinks below 48 px.</span></div>
+  </div>
+</header>
+<nav class="jump" aria-label="Sections"><a href="#feel">Before and after</a><a href="#ladder">Attention ladder</a><a href="#tokens">Tokens</a><a href="#sizes">Size classes</a><a href="#parts">Components</a><a href="#voice">Voice</a><a href="#map">Mapping</a><a href="#plan">Plan</a><a class="hot" href="#ask">Your call</a></nav>
+
+<section class="sec" id="feel">
+  <div class="shead"><h2>Before and after</h2><p>Two screens in real colors, to feel the direction. The right side is a mockup, not the game.</p></div>
+  <div class="ba">
+    <div>
+      <h3 class="sub">A boss arrives, phone</h3>
+      <div class="pair ph">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/phone/c20-boss-card-flash-lower-third.jpg" alt="Today: boss card, flash, lower third, errand-sized clutter over the fight"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption><div class="fit" data-w="390" data-h="844" style="aspect-ratio:390/844"><div class="mk" style="width:390px;height:844px;background-image:url(mock/boss-phone.jpg)"><div class="xp"><i></i></div><div class="hud "><div class="l"><span class="stat"><i></i>641k</span><span class="stat q">SCORE 3,017</span><span class="slots"><i></i><i></i><i></i></span></div><div class="age"><b>AGE 45</b><span>03:47</span></div><div class="r"><span class="rb"><i class="pz"></i></span><span class="rb"><i class="sp"></i></span></div></div><div class="bossm" style="top:108px"><span>PERFORMANCE REVIEW</span><div><i></i></div></div><div class="band" style="bottom:96px"><img src="mock/boss.png" alt=""><div><span class="k">ANNUAL EVALUATION</span><div class="nm">PERFORMANCE REVIEW</div><div class="tp">Sidestep when the clipboard flashes.</div></div></div></div></div></figure>
+      </div>
+      <ul class="calls">
+        <li><b>One message.</b> The band says who it is and how to dodge. The flash, the speech bubble and the tip strip are gone, and the ticker waits.</li>
+        <li><b>The floor is clear.</b> No dim. You can see the orange charge line the whole time.</li>
+        <li><b>The band is gone in 3.5 seconds.</b> A thin boss health bar stays under the HUD so you never have to hunt for it.</li>
+        <li><b>The age is the big number.</b> It is the goal of the run, so it leads. The timer sits under it.</li>
+        <li><b>The minimap steps aside</b> while a headline or band is up, then comes back.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub">A boss arrives, desktop</h3>
+      <div class="pair">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/desk/c20-boss-card-flash-lower-third.jpg" alt="Today on desktop"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption><div class="fit" data-w="1440" data-h="900" style="aspect-ratio:1440/900"><div class="mk" style="width:1440px;height:900px;background-image:url(mock/boss-desk.jpg)"><div class="wide"><div class="xp"><i></i></div><div class="hud "><div class="l"><span class="stat"><i></i>641k</span><span class="stat q">SCORE 3,017</span><span class="slots"><i></i><i></i><i></i></span></div><div class="age"><b>AGE 45</b><span>03:47</span></div><div class="r"><span class="rb"><i class="pz"></i></span><span class="rb"><i class="sp"></i></span></div></div><div class="bossm" style="top:112px;left:420px;right:420px"><span>PERFORMANCE REVIEW</span><div><i></i></div></div><div class="mmap">BULLPEN</div><div class="band" style="bottom:28px"><img src="mock/boss.png" alt=""><div><span class="k">ANNUAL EVALUATION</span><div class="nm">PERFORMANCE REVIEW</div><div class="tp">Sidestep when the clipboard flashes.</div></div></div></div></div></div></figure>
+      </div>
+      <ul class="calls"><li>Same parts, scaled 1.25. The HUD stays within a 1200 px column so your eyes don't travel edge to edge.</li><li>The band keeps its character and its portrait. It loses the floor dim and the extra bubble.</li></ul>
+    </div>
+    <div>
+      <h3 class="sub">Title screen, phone</h3>
+      <div class="pair ph">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/phone/b01-title-returning.jpg" alt="Today: title screen for a returning player on a phone"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption><div class="fit" data-w="390" data-h="844" style="aspect-ratio:390/844"><div class="mk" style="width:390px;height:844px;background-image:url(mock/title-portrait.jpg)"><div class="tshade"></div><div class="tstack"><div><span class="strip"><span class="re">HR &#183; RE:</span><strong>Surviving 40 to 65</strong></span></div>
+<div class="logo"><span>MIDLIFE</span><span>SURVIVORS</span></div><p class="tag2">Survive from 40 to 65. Retirement is waiting.</p>
+<button class="btn pri block big">PUNCH IN</button><div class="row"><span class="ic"></span><span><span class="t">Today's shift</span><br><span class="d">The Office &#183; Midlife, 40 to 65 &#183; Tax 0</span></span><span class="val">CHANGE &#8250;</span></div><div class="bdgs"><div class="bdg sel"><img src="mock/hero.png" alt=""><span>9-to-5er</span></div><div class="bdg"><img src="mock/dad.png" alt=""><span>Soccer Dad</span></div><div class="bdg"><img src="mock/grad.png" alt=""><span>Grad Student</span></div><div class="bdg"><img src="mock/cowboy.png" alt=""><span>Cowboy</span></div></div></div>
+<div class="tabbar"><span class="on"><i></i>PLAY</span><span><i></i>SHOP</span><span><i></i>RECORDS</span><span><i></i>DEVLOG</span><span><i></i>SETTINGS</span></div></div></div></figure>
+      </div>
+      <ul class="calls">
+        <li><b>PUNCH IN is the only orange thing</b>, and it sits where your thumb is.</li>
+        <li><b>Today's shift is one visible row.</b> You can see the stage and mode you picked. Tapping it opens a sheet with location, mode, sprint and tax.</li>
+        <li><b>All four employees fit on one line.</b> No scrolling to choose.</li>
+        <li><b>A bottom bar replaces the scrolling top nav</b> and the link row. Shop, records, devlog and settings are one tap away. This changes a part the devlog shares, so it needs your eye.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="sub">Title screen, desktop</h3>
+      <div class="pair">
+        <figure><figcaption>Today</figcaption><img class="before" loading="lazy" src="audit-shots/desk/b01-title-returning.jpg" alt="Today: title screen on desktop"></figure>
+        <figure><figcaption><b>Proposed</b></figcaption><div class="fit" data-w="1440" data-h="900" style="aspect-ratio:1440/900"><div class="mk" style="width:1440px;height:900px;background-image:url(mock/title-desk.jpg)"><div class="wide"><div class="tnav"><b>MIDLIFE SURVIVORS</b><span>SHOP</span><span>RECORDS</span><span>DEVLOG</span><span>ART ROOM</span><span>SETTINGS</span></div><div class="tside"></div>
+<div class="tcol"><div><span class="strip"><span class="re">HR &#183; RE:</span><strong>Surviving 40 to 65</strong></span></div>
+<div class="logo"><span>MIDLIFE</span><span>SURVIVORS</span></div><p class="tag2">Survive from 40 to 65. Retirement is waiting.</p>
+<button class="btn pri block big">PUNCH IN</button><div class="row"><span class="ic"></span><span><span class="t">Today's shift</span><br><span class="d">The Office &#183; Midlife, 40 to 65 &#183; Tax 0</span></span><span class="val">CHANGE &#8250;</span></div><div class="bdgs"><div class="bdg sel"><img src="mock/hero.png" alt=""><span>9-to-5er</span></div><div class="bdg"><img src="mock/dad.png" alt=""><span>Soccer Dad</span></div><div class="bdg"><img src="mock/grad.png" alt=""><span>Grad Student</span></div><div class="bdg"><img src="mock/cowboy.png" alt=""><span>Cowboy</span></div></div><p class="last">Last shift: you reached 58.4 before the 30-Year Mortgage got you.</p></div>
+<div class="card memo tmemo"><div class="kick">DEVLOG &#183; MEMO 13</div><h5>Music is one of the most important side characters.</h5><p>Why music matters to me, the school run with Abe, and the songs that are the game.</p><span class="btn" style="margin-top:12px;border-color:#171C35;color:#171C35">READ IT</span></div></div></div></div></figure>
+      </div>
+      <ul class="calls"><li>The art gets the room. One column of actions on the left, in the same order as the phone.</li><li>The devlog memo stays as a cream card, the one place paper appears.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ladder">
+  <div class="shead"><h2>The attention ladder</h2><p>Each rung is louder and rarer than the one below. Only the top two pause the game.</p></div>
+  <div class="grid2">
+    <div class="ladder">
+      <div class="p"><b>6</b><div><h4>Moment <em>PAUSES</em></h4><p>The whole screen. Bonus chest, game over, retirement, retire at 80.</p></div></div>
+      <div class="p"><b>5</b><div><h4>Sheet <em>PAUSES</em></h4><p>A menu over a solid scrim. Level-up, Performance Bonus, Lounge, big map, pause.</p></div></div>
+      <div><b>4</b><div><h4>Headline</h4><p>A plate under the HUD, or the spotlight band. Boss arrival, swarm, modifier start, errand start, GOTCHA.</p></div></div>
+      <div><b>3</b><div><h4>Ticker</h4><p>One bar at the bottom. Tips, rewards, promoted, achievements, lore.</p></div></div>
+      <div><b>2</b><div><h4>Status row</h4><p>Chips under the HUD. At most one objective and one status.</p></div></div>
+      <div><b>1</b><div><h4>HUD pulse</h4><p>A number or slot blinks. No words. Cake, coins, a buff ending.</p></div></div>
+      <div><b>0</b><div><h4>World</h4><p>Drawn on the floor. Telegraphs, SAFE labels, damage numbers. Danger lives here.</p></div></div>
+    </div>
+    <div class="prose">
+      <h3 class="sub" style="margin-top:0">Two homes</h3>
+      <p><b>Top, under the HUD: alarms.</b> At rest this zone holds the status row and the minimap. When a headline arrives on a phone they step aside until it leaves.</p>
+      <p><b>Bottom: story.</b> The ticker. The spotlight band uses the same home and replaces the ticker while it is up.</p>
+      <p><b>The middle belongs to the game.</b> No text, dim or card covers the floor around the hero during a boss.</p>
+      <p>On touch phones the ticker floats 96 px above the bottom, so your thumb rests under it and not on it.</p>
+    </div>
+  </div>
+  <div class="pair ph" style="margin-top:22px">
+    <figure><figcaption>An alarm and a tip (not during a boss)</figcaption><div class="fit" data-w="390" data-h="844" style="aspect-ratio:390/844"><div class="mk" style="width:390px;height:844px;background-image:url(mock/boss-phone.jpg)"><div class="xp"><i></i></div><div class="hud "><div class="l"><span class="stat"><i></i>641k</span><span class="stat q">SCORE 3,017</span><span class="slots"><i></i><i></i><i></i></span></div><div class="age"><b>AGE 45</b><span>03:47</span></div><div class="r"><span class="rb"><i class="pz"></i></span><span class="rb"><i class="sp"></i></span></div></div><div style="position:absolute;left:16px;right:16px;top:108px"><div class="plate"><span class="mark">!</span><div><div class="k">Tax season</div><div class="ln">A wall of bills from the east. Pick a gap.</div></div></div></div>
+<div class="zone floor" style="top:200px;height:440px">The floor<br>nothing covers it</div>
+<div style="position:absolute;left:16px;right:16px;bottom:96px"><div class="toast"><span class="lb">Tip</span><span class="tx">Elites drop bigger gems. Circle back.</span></div></div>
+<div class="zone thumb" style="bottom:8px;height:80px">thumb</div></div></div></figure>
+    <figure><figcaption>At rest</figcaption><div class="fit" data-w="390" data-h="844" style="aspect-ratio:390/844"><div class="mk" style="width:390px;height:844px;background-image:url(mock/boss-phone.jpg)"><div class="xp"><i></i></div><div class="hud "><div class="l"><span class="stat"><i></i>641k</span><span class="stat q">SCORE 3,017</span><span class="slots"><i></i><i></i><i></i></span></div><div class="age"><b>AGE 45</b><span>03:47</span></div><div class="r"><span class="rb"><i class="pz"></i></span><span class="rb"><i class="sp"></i></span></div></div><div style="position:absolute;left:16px;right:16px;top:108px;display:flex;gap:6px"><span class="chip"><i class="bx"></i>Printer &#183; Bullpen <b>40s</b></span><span class="chip mod">Glasses <b>1:32</b></span></div>
+<div class="mmap ph">BULLPEN</div>
+<div class="zone floor" style="top:250px;height:390px">The floor</div>
+<div class="zone thumb" style="bottom:8px;height:80px">thumb</div></div></div></figure>
+  </div>
+  <h3 class="sub">The queue</h3>
+  <div class='tw'><table><thead><tr><th>Tier</th><th>What</th><th>Where</th><th>Rule</th></tr></thead><tbody><tr><td>T0 Danger</td><td>telegraphs, LOW HP</td><td>world, HUD</td><td>never queued, never covered</td></tr><tr><td>T1 Threat</td><td>boss arrival, swarm, modifier start, Comfort Zone Tax (first time)</td><td>headline</td><td>waits 4 s at most, then dropped</td></tr><tr><td>T2 Objective</td><td>errand, beat, key hunt, promotion</td><td>headline once, then status row</td><td>stale after 10 s</td></tr><tr><td>T3 Reward</td><td>cake, treats, buffs, achievements</td><td>ticker only</td><td>stale after 8 s</td></tr><tr><td>T4 Flavor</td><td>chapter lines, lore, chatter</td><td>ticker only, after 20 s of quiet, never during a boss</td><td>dropped if late</td></tr></tbody></table></div>
+  <div class="grid3" style="margin-top:16px">
+    <div class="panel"><h4>No cutting in</h4><p class="note" style="margin-top:0">A message never replaces one of equal or higher tier. It waits, or it is dropped when stale. A late warning is wrong information.</p></div>
+    <div class="panel"><h4>Quiet window</h4><p class="note" style="margin-top:0">Nothing new starts while a boss is winding up or attacking, plus 300 ms. Low health is the one exception.</p></div>
+    <div class="panel"><h4>Targets</h4><p class="note" style="margin-top:0">4 messages a minute on average. 6 in any minute at most. 40% of every minute with only the HUD on screen.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="tokens">
+  <div class="shead"><h2>Tokens</h2><p>Named values in one file, shared by the game and the devlog</p></div>
+  <h3 class="sub" style="margin-top:0">Color: the palette mapped to roles</h3>
+  <div class="sw-grid">
+    <div class="swt"><i style="background:#10142A"></i><div><b>Background</b><span>deep navy #10142A. Page and scrim</span></div></div>
+    <div class="swt"><i style="background:#171C35"></i><div><b>Surface</b><span>navy #171C35. Cards, sheets, plates</span></div></div>
+    <div class="swt"><i style="background:#303750"></i><div><b>Raised</b><span>slate #303750. Rows, wells</span></div></div>
+    <div class="swt"><i style="background:#3E7775"></i><div><b>Border</b><span>teal #3E7775. Borders only, 3.3:1</span></div></div>
+    <div class="swt"><i style="background:#FFF0CF"></i><div><b>Text</b><span>warm white #FFF0CF. 14.8:1 on navy</span></div></div>
+    <div class="swt"><i style="background:#B8C0D4"></i><div><b>Text, quiet</b><span>#B8C0D4. Captions, 9.2:1</span></div></div>
+    <div class="swt"><i style="background:#F2D7A1"></i><div><b>Paper</b><span>cream #F2D7A1. Memo strips, focus ring</span></div></div>
+    <div class="swt"><i style="background:#EF9347"></i><div><b>Accent</b><span>coffee #EF9347. The one primary, 7.1:1</span></div></div>
+    <div class="swt"><i style="background:#83A89A"></i><div><b>Success</b><span>sage #83A89A. Done, buffs, tips, 6.4:1</span></div></div>
+    <div class="swt"><i style="background:#C45C4B"></i><div><b>Danger</b><span>russet #C45C4B. A shape, never small text (4.0:1)</span></div></div>
+  </div>
+  <p class="note">Russet marks an alert with an edge and a "!" while the words stay warm white. That also means red is never the only signal. Teal on cream (today's "RE:" label) measures 3.7:1 and becomes navy.</p>
+
+  <div class="grid2" style="margin-top:8px">
+    <div>
+      <h3 class="sub">Type: two fonts, ten sizes (phone sizes shown)</h3>
+      <div class="ty">
+        <div><small>display-l 32</small><span style="font:700 32px/1 var(--label);color:var(--ms-accent)">AGE 45</span></div>
+        <div><small>display-s 22</small><span style="font:700 22px/1.1 var(--label)">PERFORMANCE REVIEW</span></div>
+        <div><small>label-l 16</small><span style="font:16px var(--label);letter-spacing:.06em">TODAY'S SHIFT</span></div>
+        <div><small>label-m 13</small><span style="font:13px var(--label);letter-spacing:.06em">PUNCH IN &#183; REROLL &#183; SKIP</span></div>
+        <div><small>label-s 11</small><span style="font:11px var(--label);letter-spacing:.06em">PAIRS WITH GOOD NIGHT'S SLEEP</span></div>
+        <div><small>headline 28</small><span style="font:700 28px/1.15 var(--read)">Burnout. Shift ended.</span></div>
+        <div><small>title 22</small><span style="font:700 22px/1.2 var(--read)">Your 401(k)</span></div>
+        <div><small>body-l 18</small><span style="font:700 18px/1.3 var(--read)">Elites drop bigger gems.</span></div>
+        <div><small>body 16</small><span style="font:16px/1.45 var(--read)">Everything fires on its own. Just keep moving.</span></div>
+        <div><small>body-s 14</small><span style="font:14px/1.4 var(--read);color:var(--ms-text-quiet)">The floor. Nothing you read is smaller than this.</span></div>
+      </div>
+      <p class="note">Silkscreen is for labels of four words or fewer, in caps. Anything longer is Atkinson. Tablet sizes are 1.12 times these, desktop 1.25.</p>
+    </div>
+    <div>
+      <h3 class="sub">Space</h3>
+      <div class="sp"><div><i style="width:4px;height:4px"></i>4</div><div><i style="width:8px;height:8px"></i>8</div><div><i style="width:12px;height:12px"></i>12</div><div><i style="width:16px;height:16px"></i>16</div><div><i style="width:24px;height:24px"></i>24</div><div><i style="width:32px;height:32px"></i>32</div><div><i style="width:48px;height:48px"></i>48</div></div>
+      <h3 class="sub">Corners and depth</h3>
+      <div class="rad"><div style="border-radius:2px">2 px<br>strips, chips</div><div style="border-radius:4px;box-shadow:0 3px 0 #0B0E1D">4 px<br>buttons, rows</div><div style="border-radius:8px;box-shadow:4px 4px 0 rgba(0,0,0,.45)">8 px<br>cards, sheets</div></div>
+      <p class="note">Hard pixel shadows, no blur. Menus sit on a solid scrim. No glass: blur smears the pixel art and costs frames on phones.</p>
+      <h3 class="sub">Motion</h3>
+      <div class="tw"><table><tbody><tr><td class="n"><b>120 ms</b></td><td>press, focus, hover, every exit</td></tr><tr><td class="n"><b>200 ms</b></td><td>chips, banners, toasts entering</td></tr><tr><td class="n"><b>320 ms</b></td><td>sheets and cards entering</td></tr><tr><td class="n"><b>600 ms</b></td><td>full-screen moments only</td></tr></tbody></table></div>
+      <p class="note">Alarms drop from the top. Story rises from the bottom. With reduce motion on, every entrance is a 120 ms fade.</p>
+    </div>
+  </div>
+  <h3 class="sub">Layers: who draws on top</h3>
+  <div class="grid2">
+    <div class="layers">
+      <div><b>90</b><em>dev</em><span>dev console</span></div>
+      <div><b>70</b><em>system</em><span>sound prompt, account prompt, site nav</span></div>
+      <div><b>60</b><em>moment</em><span>chest, game over, retirement</span></div>
+      <div><b>50</b><em>sheet</em><span>scrim and any menu that pauses</span></div>
+      <div class="hide"><b>40</b><em>headline</em><span>headline plate</span></div>
+      <div class="hide"><b>30</b><em>ticker</em><span>ticker, spotlight band</span></div>
+      <div class="hide"><b>20</b><em>status</em><span>chips, edge arrows</span></div>
+      <div><b>10</b><em>hud</em><span>HUD, minimap</span></div>
+      <div><b>0</b><em>world</em><span>the game, telegraphs, world text</span></div>
+    </div>
+    <div class="prose"><p><b>One rule fixes the chips-over-menus problem.</b> When anything at sheet or above opens, the three marked layers hide, and the minimap hides with them.</p><p>Nine values replace the 29 in the code today.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="sizes">
+  <div class="shead"><h2>Size classes</h2><p>Three classes and one flag replace 13 breakpoints</p></div>
+  <div class="sc">
+    <div><b>Compact</b><em>under 600 wide &#183; scale 1</em><span>Phone, portrait. Sheets rise from the bottom. Actions in thumb reach.</span></div>
+    <div><b>Regular</b><em>600 to 1023 &#183; scale 1.12</em><span>iPad portrait, small windows. Sheets are centered cards.</span></div>
+    <div><b>Wide</b><em>1024 and up &#183; scale 1.25</em><span>iPad landscape, laptop, desktop. Content stays in a centered column.</span></div>
+    <div><b>Short</b><em>flag: under 500 tall</em><span>Phone held sideways. One-row HUD, one-line messages, full-screen sheets.</span></div>
+  </div>
+  <p class="note">Input is separate from size: touch, pointer or pad. The UI follows the last one used.</p>
+  <details open><summary>How each surface lays out</summary><div class='tw'><table><thead><tr><th>Surface</th><th>Compact</th><th>Short (phone landscape)</th><th>Regular</th><th>Wide</th></tr></thead><tbody><tr><td>HUD</td><td>one row + XP bar, 96 px tall, buttons 44 px</td><td>one row, 44 px</td><td>scaled 1.12</td><td>scaled 1.25, max 1200 px wide, centered</td></tr><tr><td>Status row</td><td>full width under HUD</td><td>inside the HUD row</td><td>centered, max 560</td><td>centered, max 560</td></tr><tr><td>Minimap</td><td>120 x 96, yields to headlines</td><td>96 x 72</td><td>184 x 146</td><td>232 x 184</td></tr><tr><td>Headline plate</td><td>full width minus 16 px margins</td><td>one line, max 60% width</td><td>centered, max 560</td><td>centered, max 560</td></tr><tr><td>Ticker</td><td>96 px above the bottom on touch</td><td>one line, bottom, max 60%</td><td>bottom, max 640</td><td>bottom, max 720</td></tr><tr><td>Spotlight band</td><td>compact: name + tip, 88 px</td><td>name only, 56 px</td><td>full band</td><td>full band</td></tr><tr><td>Sheet</td><td>bottom sheet, full width, up to 88% tall, actions pinned at the bottom</td><td>full screen, two columns</td><td>centered card, max 640</td><td>centered card, max 880</td></tr><tr><td>Choice cards</td><td>stacked rows</td><td>3 across</td><td>3 across</td><td>3 across</td></tr><tr><td>Lists (shop, settings)</td><td>1 column</td><td>2 columns</td><td>2 columns</td><td>3 columns</td></tr><tr><td>Title</td><td>art on top, PUNCH IN in thumb reach, bottom bar</td><td>art left, actions right</td><td>art on top, two columns below</td><td>art left 60%, actions right</td></tr><tr><td>Moments</td><td>full screen</td><td>full screen</td><td>full screen, content max 640</td><td>full screen, content max 880</td></tr></tbody></table></div></details>
+  <div class="grid3" style="margin-top:16px">
+    <div class="panel"><h4>Safe areas</h4><p class="note" style="margin-top:0">Every edge-anchored part adds the device inset. The HUD adds the top, the ticker and sheet action bars add the bottom.</p></div>
+    <div class="panel"><h4>Thumb reach</h4><p class="note" style="margin-top:0">On touch phones the bottom 35% is for thumbs. Primary buttons live there. Nothing you need to read sits there for long.</p></div>
+    <div class="panel"><h4>Controllers</h4><p class="note" style="margin-top:0">One focus ring everywhere: 3 px cream outside a 2 px navy gap. Button hints sit in one footer legend, never inside a label.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="parts">
+  <div class="shead"><h2>Components</h2><p>Eight parts, live on this page, each with its states</p></div>
+  <div class="grid2">
+    <div class="panel"><h4>1. Button</h4>
+      <div class="spec"><span class="cap">Primary: one per screen</span><button class="btn pri">Punch in</button><button class="btn pri hov">Hover</button><button class="btn pri foc">Focus</button><button class="btn pri prs">Pressed</button><button class="btn pri dis" disabled>Disabled</button>
+      <span class="cap">Secondary, quiet, danger</span><button class="btn">Reroll</button><button class="btn foc">Focus</button><button class="btn quiet">Not now</button><button class="btn dng">Erase everything</button></div>
+      <p class="note">A plain verb, one to three words. No emoji, no key lists. Danger always asks twice.</p></div>
+    <div class="panel"><h4>2. Row</h4>
+      <div class="row sel"><span class="ic"></span><span><span class="t">Home Espresso <span class="pips"><i class="on"></i><i></i><i></i><i></i><i></i></span></span><br><span class="d">+10% starting move and fire speed</span></span><span class="price">37k</span></div>
+      <div class="row"><span class="ic"></span><span><span class="t">Continuing Ed</span><br><span class="d">+8% Wisdom from every gem</span></span><span class="price no">160k</span></div>
+      <div class="row"><span class="ic"></span><span><span class="t">Game tips</span><br><span class="d">Short hints the first time something happens</span></span><span class="sw"></span></div>
+      <div class="row lock"><span class="ic"></span><span><span class="t">Sleep On It</span><br><span class="d">Locked. Reach age 55 in any run.</span></span><span class="val">LOCKED</span></div>
+      <p class="note">The whole row is the tap target. The trailing slot is a price, a switch, a stepper, a value or a chevron. No button inside a row.</p></div>
+    <div class="panel"><h4>3. Card</h4>
+      <div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px">
+        <div class="card sel"><div class="kick">New weapon</div><h5>Dad Joke</h5><p>A punchline blast hits everything around you.</p><span class="pair-tag">PAIRS WITH READING GLASSES</span></div>
+        <div class="card"><div class="kick">Upgrade &#183; 2 of 5</div><h5>Long Pour</h5><p>Coffee flies 25% farther.</p></div>
+        <div class="card memo"><div class="kick">Devlog &#183; Memo 13</div><h5>Music is a side character.</h5><p>The memo variant: cream paper, navy text.</p></div>
+      </div>
+      <p class="note">Selected gets a 3 px coffee border. The card itself is the tap target.</p></div>
+    <div class="panel"><h4>4. Sheet</h4>
+      <div class="sheet"><div><span class="strip"><span class="re">HR &#183; RE:</span><strong>Promotion, level 7</strong></span></div><div class="ttl">PICK A PERK</div>
+        <div class="row sel"><span class="ic"></span><span><span class="t">Dad Joke</span><br><span class="d">A punchline blast around you</span></span><span class="val">NEW</span></div>
+        <div class="row"><span class="ic"></span><span><span class="t">Long Pour</span><br><span class="d">Coffee flies 25% farther</span></span><span class="val">2 OF 5</span></div>
+        <div class="bar"><span class="lft"><button class="btn">Skip</button><button class="btn">Reroll 2</button></span><button class="btn pri">Pick</button></div>
+        <div class="legend"><span><kbd>A</kbd>Pick</span><span><kbd>X</kbd>Reroll</span><span><kbd>Y</kbd>Skip</span></div></div>
+      <p class="note">Strip, title, body, one action bar pinned at the bottom, one legend. Rises from the bottom on phones, a centered card elsewhere.</p></div>
+    <div class="panel"><h4>5. Banner (the headline)</h4>
+      <div style="display:grid;gap:10px">
+        <div class="plate"><span class="mark">!</span><div><div class="k">Tax season</div><div class="ln">A wall of bills from the east. Pick a gap.</div></div></div>
+        <div class="plate obj"><span class="mark">&#9744;</span><div><div class="k">To-do</div><div class="ln">Grab your printing before someone reads it.</div></div></div>
+        <div class="plate rew"><span class="mark">&#9733;</span><div><div class="k">Gotcha</div><div class="ln">TJ handed over a coffee. Shield up.</div></div></div>
+        <div style="margin-top:24px"><div class="band" style="position:relative"><img src="mock/boss.png" alt=""><div><span class="k">ANNUAL EVALUATION</span><div class="nm">PERFORMANCE REVIEW</div><div class="tp">Sidestep when the clipboard flashes.</div></div></div></div>
+      </div>
+      <p class="note">Plate under the HUD for alarms, objectives and catches. Band at the bottom for bosses (3.5 s), hires, promotions and the Lounge (5 s).</p></div>
+    <div class="panel"><h4>6. Toast (the ticker)</h4>
+      <div style="display:grid;gap:10px">
+        <div class="toast"><span class="lb">Tip</span><span class="tx">Elites drop bigger gems. Circle back for them.</span></div>
+        <div class="toast obj"><span class="lb">Promoted</span><span class="tx">Senior Associate. New rooms are open.</span></div>
+        <div class="toast rew"><span class="lb">Age 50</span><span class="tx">The knees start talking. +5 HP cake, +12k dividend.</span></div>
+        <div class="toast alert"><span class="lb">!</span><span class="tx">Low health. Find the pizza.</span></div>
+      </div>
+      <p class="note">Today's lower third, kept. One sentence, two lines at most. The third example is a birthday merged into one line.</p></div>
+    <div class="panel"><h4>7. Chip</h4>
+      <div class="spec"><span class="cap">Objective: at most one</span><span class="chip"><i class="bx"></i>Printer &#183; Bullpen <b>40s</b></span><span class="chip"><i class="bx"></i>Spare key &#183; 2 of 8</span><span class="arrow" title="the one edge arrow"></span>
+      <span class="cap">Status: at most one</span><span class="chip mod">Reading glasses <b>1:32</b></span><span class="chip buff">Checked off <b>15s</b></span><span class="chip warn">Workload 3</span></div>
+      <p class="note">28 px tall, one row under the HUD, never stacked. The full sentence goes to the ticker once. Every "go here" arrow is the same coffee triangle.</p></div>
+    <div class="panel"><h4>8. Memo</h4>
+      <div class="spec"><span class="strip"><span class="re">HR &#183; RE:</span><strong>Your 401(k)</strong></span><span class="strip"><span class="re">FACILITIES &#183; RE:</span><strong>We moved</strong></span></div>
+      <div class="card memo" style="margin-top:12px"><div class="kick">Today's shift</div><h5>Survive to 65 and clock out.</h5><p>Everything fires on its own. Just keep moving.</p></div>
+      <p class="note">One naming pattern: DEPARTMENT &#183; RE: Subject. Paper is for memos only.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="voice">
+  <div class="shead"><h2>Voice for UI</h2><p>Plain controls, warm lines. The joke lives under the button.</p></div>
+  <div class='tw'><table><thead><tr><th>Where</th><th>Rule</th><th>Example</th></tr></thead><tbody><tr><td>Buttons</td><td>plain verb, 1 to 3 words</td><td>PUNCH IN, RESUME, REROLL, SKIP, BUY, BACK</td></tr><tr><td>Line under a button</td><td>this is where the joke goes</td><td>"Keep your loadout. Heal 2 HP."</td></tr><tr><td>Memo strip</td><td><code>DEPARTMENT &#183; RE: Subject</code>, one pattern</td><td>HR &#183; RE: Your 401(k)</td></tr><tr><td>Headline kicker</td><td>1 to 3 words, caps</td><td>TAX SEASON</td></tr><tr><td>Headline line</td><td>one sentence, 45 characters, says what to do</td><td>"A wall of bills from the east. Pick a gap."</td></tr><tr><td>Ticker</td><td>one or two sentences, 90 characters</td><td>"Fueled up. +3 HP and 15 s of Checked Off."</td></tr><tr><td>Chip</td><td>a noun and a number</td><td>PRINTER &#183; BULLPEN 40s</td></tr><tr><td>Empty state</td><td>warm, never blames, says the next step</td><td>"No scores yet. Punch in and set one."</td></tr><tr><td>Locked</td><td>say how to unlock</td><td>"Reach age 55 to open Maple Hollow."</td></tr><tr><td>Errors</td><td>what happened, then what to do</td><td>"Couldn't reach sign-in. Your file is still saved on this device."</td></tr><tr><td>Settings</td><td>name what the player sees</td><td>"Confirm: A" (not "BTN 0"), "Saved on this device" (not "LOCALSTORAGE")</td></tr></tbody></table></div>
+</section>
+
+<section class="sec" id="map">
+  <div class="shead"><h2>Every surface and what it becomes</h2><p>All 60 audited surfaces, plus the ones I couldn't photograph</p></div>
+  <details open><summary>In a run</summary><div class='tw'><table><thead><tr><th>Today</th><th>Becomes</th><th>Rung</th></tr></thead><tbody><tr><td>Center flash (<code>flashBanner</code>)</td><td>Banner, plate</td><td>4</td></tr><tr><td>Boss toast</td><td>removed (Banner covers it)</td><td></td></tr><tr><td>Spotlight: boss</td><td>Banner, band, 3.5 s, compact on phones</td><td>4</td></tr><tr><td>Spotlight: hire, room, Lounge</td><td>Banner, band, 5 s</td><td>4</td></tr><tr><td>Spotlight: tip</td><td>Toast with a TIP label (band only in a player's first 3 runs)</td><td>3</td></tr><tr><td>Lower third</td><td>Toast</td><td>3</td></tr><tr><td>Catch card (GOTCHA!)</td><td>Banner, plate with portrait, reward tier, slow motion kept</td><td>4</td></tr><tr><td>Boss down stamp</td><td>world art (kept) + one Toast</td><td>0 + 3</td></tr><tr><td>Errand strip, key hunt strip, Overtime beat strip</td><td>Chip, objective</td><td>2</td></tr><tr><td>"Checked off" buff, modifier chip, Workload chip, Comfort Zone Tax</td><td>Chip, status</td><td>2</td></tr><tr><td>Errand, Lounge and reorg arrows</td><td>the one edge arrow</td><td>2</td></tr><tr><td>Cake, dividend, treats, salad</td><td>HUD pulse + world text + one Toast</td><td>1 + 3</td></tr><tr><td>Shift briefing</td><td>Sheet (compact memo), with the hire band under it</td><td>5</td></tr><tr><td>"Move to start" hint</td><td>Toast, held until you move</td><td>3</td></tr><tr><td>Sound nudge</td><td>system prompt, bottom on phones, never over the HUD</td><td>system</td></tr><tr><td>Level-up, Performance Bonus</td><td>Sheet + 3 choice Cards + action bar</td><td>5</td></tr><tr><td>Lounge, Lemonade Stand</td><td>Sheet + Rows</td><td>5</td></tr><tr><td>Big map</td><td>Sheet</td><td>5</td></tr><tr><td>Pause</td><td>Sheet (resume, run summary, 3 rows)</td><td>5</td></tr><tr><td>Bonus chest</td><td>Moment</td><td>6</td></tr><tr><td>Retire at 80</td><td>Moment with two Buttons</td><td>6</td></tr><tr><td>Game over, retirement</td><td>Moment + Rows for the pay stub</td><td>6</td></tr><tr><td>Damage numbers, Close Calls, name tags, speech bubbles</td><td>World text: one bubble style (cream paper, navy text), caps on count</td><td>0</td></tr><tr><td>HUD</td><td>HUD parts</td><td>1</td></tr><tr><td>Minimap</td><td>HUD part, yields on phones</td><td>1</td></tr></tbody></table></div></details>
+  <details><summary>Out of a run</summary><div class='tw'><table><thead><tr><th>Today</th><th>Becomes</th></tr></thead><tbody><tr><td>Title: logo, strip, PUNCH IN</td><td>Memo strip + <code>display-l</code> + the one primary Button</td></tr><tr><td>Title: settings chip (location, mode, sprint, tax)</td><td>a Row, "Today's shift", that opens a Sheet</td></tr><tr><td>Title: employee picker</td><td>4 Cards, tile variant</td></tr><tr><td>Title: employee file feed</td><td>a Card with 3 Rows at most</td></tr><tr><td>Title: devlog memo</td><td>Card, memo variant</td></tr><tr><td>Title: link row</td><td>bottom bar on phones, the top nav elsewhere</td></tr><tr><td>What's New bubble</td><td>Toast on the title (bottom on phones, top right on wide)</td></tr><tr><td>Account prompt, We Moved</td><td>Sheet, small</td></tr><tr><td>401(k) Shop</td><td>Sheet + Rows, balance in the header</td></tr><tr><td>Extras</td><td>Sheet + Rows, grouped. Reset Progress moves into Settings under a divider</td></tr><tr><td>Achievements</td><td>Sheet + Cards, record variant</td></tr><tr><td>Leaderboard</td><td>Sheet + Rows</td></tr><tr><td>Credits</td><td>Sheet + Rows, names in Atkinson</td></tr><tr><td>Options and controls, plus the settings inside Pause</td><td><b>one</b> Settings Sheet with three sections: Sound, Game, Controls</td></tr><tr><td>Patch notes, Lore</td><td>Sheet + memo Cards</td></tr><tr><td>Devlog index, memo, Art Room, About</td><td>unchanged layout, moved onto the tokens file</td></tr></tbody></table></div></details>
+</section>
+
+<section class="sec" id="plan">
+  <div class="shead"><h2>Recommendations and plan</h2><p>Effort: S is one sitting, M is two or three, L is more. "Fixes" points at the audit's top 10.</p></div>
+  <div class='tw'><table><thead><tr><th>#</th><th>Recommendation</th><th>Effort</th><th>Fixes</th><th>Touches</th></tr></thead><tbody><tr><td>1</td><td>Clear <code>--ms-nav-h</code> when a run starts</td><td><span class='tag s'>S</span></td><td>6</td><td>minimap, every chip, briefing, catch card</td></tr><tr><td>2</td><td>Hide the status layer and minimap whenever a sheet or moment is open</td><td><span class='tag s'>S</span></td><td>4</td><td>level-up, chest, Lounge, big map</td></tr><tr><td>3</td><td>One message router with a headline slot and a ticker slot, tiers, no cutting in</td><td><span class='tag l'>L</span></td><td>1, 2</td><td>every in-run message (about 110 call sites)</td></tr><tr><td>4</td><td>Headline plate under the HUD replaces the center flash. Minimap yields on phones</td><td><span class='tag m'>M</span></td><td>2, 3</td><td>center flash, boss toast, catch card</td></tr><tr><td>5</td><td>Boss arrival: 3.5 s, compact on phones, no floor dim, skip the first-attack banner</td><td><span class='tag s'>S</span></td><td>1, 3</td><td>every boss</td></tr><tr><td>6</td><td>One status row for errands, key hunt, beats, modifier, Workload, buff</td><td><span class='tag m'>M</span></td><td>5, 8</td><td>six chips in six files</td></tr><tr><td>7</td><td>Holds and merges from the budget (errands, swarm events, milestones, promotion, modifier at 50.8)</td><td><span class='tag m'>M</span></td><td>1</td><td>errands, promotions, modifiers, swarms</td></tr><tr><td>8</td><td>Tokens file and size classes. Type never under 14 px. HUD buttons 44 px</td><td><span class='tag m'>M</span></td><td>7, 8</td><td>everything, gradually</td></tr><tr><td>9</td><td>Keep the hero at least 48 px tall on every device</td><td><span class='tag s'>S</span></td><td>7</td><td>camera zoom, world text</td></tr><tr><td>10</td><td>Sheet and Button family on level-up first: one primary, cards as the tap targets</td><td><span class='tag m'>M</span></td><td>8, 9</td><td>level-up, Performance Bonus</td></tr><tr><td>11</td><td>One Settings sheet. Pause keeps only resume, summary and three rows</td><td><span class='tag m'>M</span></td><td>10</td><td>pause, options</td></tr><tr><td>12</td><td>Shop and Lounge on the Row. Balance in the header</td><td><span class='tag m'>M</span></td><td>9, 8</td><td>401(k) shop, Lounge, Lemonade Stand</td></tr><tr><td>13</td><td>Title: PUNCH IN is the only orange thing at every size. Stage and mode become one visible row</td><td><span class='tag m'>M</span></td><td>9, 10</td><td>title screen</td></tr><tr><td>14</td><td>Game over and retirement as moments: score and age first, RETRY primary, pay stub folded</td><td><span class='tag m'>M</span></td><td>9</td><td>game over, retirement</td></tr><tr><td>15</td><td>Wording pass: plain verbs, one strip pattern, no developer words, no emoji in gameplay</td><td><span class='tag s'>S</span></td><td>10</td><td>all menus</td></tr><tr><td>16</td><td>Palette cleanup: off-palette colors, russet text, teal text</td><td><span class='tag s'>S</span></td><td>8</td><td>HUD, chips, strips</td></tr></tbody></table></div>
+  <h3 class="sub">Migration: one surface per 45 to 90 minute sitting</h3>
+  <details open><summary>Part A: where to look (8 sittings)</summary><div class='tw'><table><thead><tr><th>#</th><th>Session</th><th>Done when</th></tr></thead><tbody><tr><td>A1</td><td>Foundations: add the tokens file (no visual change), fix <code>--ms-nav-h</code>, hide chips and minimap under menus</td><td>On a phone the minimap sits right under the HUD. Open a level-up during an errand: nothing draws over it</td></tr><tr><td>A2</td><td>Message router: one queue behind <code>flashBanner</code>, <code>showLowerThird</code>, <code>Spotlight</code> and the catch card. Same look</td><td>Fire two flashes 200 ms apart: the second waits. Never more than one headline and one ticker on screen</td></tr><tr><td>A3</td><td>Headline plate under the HUD, with a backing plate. Minimap yields on phones</td><td>A swarm alert on the tan floor is readable. On a phone the plate never touches the hero's band</td></tr><tr><td>A4</td><td>Boss arrival: 3.5 s, compact phone band, no dim, first-attack banner skipped</td><td>Spawn each boss: the floor is never dimmed, the band is gone before the second attack</td></tr><tr><td>A5</td><td>Status row: one objective chip + one status chip</td><td>Errand + modifier + buff at once on a phone: no overlap, minimap untouched</td></tr><tr><td>A6</td><td>Holds and merges (data + small code)</td><td>Age 45 on a phone: at most one headline and one ticker at any time. At 50: one birthday line</td></tr><tr><td>A7</td><td>Ticker position and world text: lifted on touch phones, one bubble style, caps on pop-ups</td><td>Play with your thumb down: you can read every ticker line</td></tr><tr><td>A8</td><td>HUD: age first, 44 px buttons, owned slots only, scaled by size class</td><td>On iPad the HUD and hero are comfortably readable from a lap</td></tr></tbody></table></div></details>
+  <details><summary>Part B: menus (8 sittings)</summary><div class='tw'><table><thead><tr><th>#</th><th>Session</th><th>Done when</th></tr></thead><tbody><tr><td>B1</td><td>Button and Sheet parts, used on level-up and Performance Bonus</td><td>One orange button. A controller picks with A, rerolls with X, skips with Y</td></tr><tr><td>B2</td><td>Pause slimmed down + the one Settings sheet</td><td>Sound is in one place, reachable from pause and from the title</td></tr><tr><td>B3</td><td>Row part, used on the Lounge and Lemonade Stand</td><td>Looks the same on phone and iPad, rows are easy to tap</td></tr><tr><td>B4</td><td>401(k) shop on Rows, balance in the header</td><td>You can see your balance and three items without scrolling on a phone</td></tr><tr><td>B5</td><td>Title screen</td><td>PUNCH IN is the only orange thing on every device. You can see which stage you picked</td></tr><tr><td>B6</td><td>Game over and retirement moments</td><td>Score and age are visible without scrolling. RETRY is under your thumb</td></tr><tr><td>B7</td><td>Chest, briefing, account prompt, We Moved, retire at 80</td><td>All share the Sheet or Moment shell</td></tr><tr><td>B8</td><td>Achievements, leaderboard, credits, extras, patch notes, lore</td><td>No screen repeats the game logo. No text under 14 px</td></tr></tbody></table></div></details>
+  <details><summary>Part C: memos and the devlog (3 sittings)</summary><div class='tw'><table><thead><tr><th>#</th><th>Session</th><th>Done when</th></tr></thead><tbody><tr><td>C1</td><td>Devlog and nav move onto the tokens file. Strip label contrast fixed</td><td>Game and devlog read from one file. Nothing looks different except the strip label</td></tr><tr><td>C2</td><td>Wording pass across the game</td><td>No developer words, no key lists in buttons</td></tr><tr><td>C3</td><td>Re-run the audit capture and compare</td><td>The top 10 list is retired or re-ranked</td></tr></tbody></table></div></details>
+</section>
+
+<section class="sec" id="ask">
+  <div class="shead"><h2>Your call</h2><p>Three things I need from you</p></div>
+  <blockquote>
+    <h4>One look (design system v1, Nov 2026)</h4>
+    The game and the devlog are one product. The full spec is <code>docs/design/design-system-v1.md</code>.
+    <ul>
+      <li><b>Tokens only.</b> Colors, type sizes, spacing, corners, layers and timings come from <code>assets/ui/ms-tokens.css</code>. No new hex values, pixel sizes or z-index numbers in code.</li>
+      <li><b>Fonts:</b> Silkscreen for labels of four words or fewer, in caps. Atkinson Hyperlegible for anything you read. Nothing you read is under 14 px. Nothing you tap is under 44 px.</li>
+      <li><b>Colors:</b> the devlog palette only. Coffee orange fill means the one primary button on a screen. Russet and teal never carry small text.</li>
+      <li><b>Eight parts:</b> Button, Row, Card, Sheet, Banner, Toast, Chip, Memo. If a new surface can't be built from these, raise it with Rami before inventing a ninth.</li>
+      <li><b>In-run messages go through the router.</b> Alarms in the headline slot under the HUD, story in the ticker at the bottom. One of each at most, one total on a phone during a boss. Only sheets and moments pause. Nothing covers the floor around the hero during a boss.</li>
+      <li><b>Three size classes:</b> compact, regular, wide, plus a short flag for phones held sideways. No other breakpoints.</li>
+      <li><b>Voice:</b> plain verbs on buttons, the joke in the line underneath. No emoji in gameplay text.</li>
+      <li><b>Every screen is checked</b> at phone, iPad (both orientations) and desktop sizes, with touch, keyboard and a controller, before it ships.</li>
+      <li>The devlog memo, social image and social kit bullets stay as they are.</li>
+    </ul>
+  </blockquote>
+  <div class="ask"><p><b>Instruction check:</b> the text above would replace the first four bullets of "One look (Nov 3)" in CLAUDE.md. Yes or no?</p></div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="panel"><h4>Two more questions</h4><ul class="calls" style="margin-top:0"><li><b>The bottom bar on the phone title screen.</b> It replaces the scrolling top nav inside the game. The devlog keeps its nav. OK to try?</li><li><b>A boss health bar under the HUD.</b> It is new. It replaces hunting for the tag over the boss's head. Want it?</li></ul></div>
+    <div class="panel"><h4>Still open</h4><ul class="calls" style="margin-top:0"><li>Phone landscape is specified but was never photographed. It needs a real device.</li><li>Safe areas need your phone. Test browsers have no notch.</li><li>Maple Hollow v2's new bits (yard sparkles, stairs, desk buff, yard gags) all fit existing rungs. No new part needed.</li></ul></div>
+  </div>
+  <p class="foot">Spec v1, Nov 10, 2026. Based on the audit of V. 2.25.0 and on Grok's attention budget. The mockups use real game frames and art with proposed UI drawn over them. Wireframes for 11 key screens are a separate page.</p>
+</section>
+</div>
+
+<script>(function(){
+  function fitAll(){document.querySelectorAll('.fit').forEach(function(f){var w=+f.dataset.w,m=f.firstElementChild;if(!w||!m)return;m.style.transform='scale('+(f.clientWidth/w)+')';});}
+  fitAll(); window.addEventListener('resize',fitAll); if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);
+})();
+</script>
