@@ -95,6 +95,20 @@ window.BOSS_ATTACKS = {
       "You now report directly to a shared spreadsheet.", "Consider this a lateral move into the hallway.", "We are right-sizing the breakroom napkin budget.",
       "Your cube has been promoted to an open concept."]
   },
+  // The Quarterly All-Hands (office, 60), Nov 10. Spec: docs/handoffs/grok-maple-v2-reply.md part 2. Code: src/all-hands.js.
+  // He plants at a podium and clicks through slides: Bar Chart, Pie Chart, Line Graph (never the same twice in a row).
+  // Phase 2 (half health): every third slide is a Q&A with two spotlights that follow you.
+  allHands: {
+    style: "deck", bannerTitle: "ALL-HANDS", bannerSub: "Read the slide on the floor. Walk out of the shapes.",
+    cooldownMs: 4200, firstAttackDelayMs: 2000, standPx: 200,
+    barChart:  { telegraphMs: 950, floor: "area", bars: 4, barW: 72, barH: 300, gapPx: 104, staggerMs: 150, liveMs: 600, damage: 2, title: "Q3 RESULTS" },
+    pieChart:  { telegraphMs: 950, floor: "area", slices: 12, armed: 4, radius: 240, liveMs: 700, damage: 2, title: "BUDGET BREAKDOWN" },
+    lineGraph: { telegraphMs: 800, floor: "line", halfW: 14, nearPlayerPx: 80, drawSpeed: 600, liveMs: 400, damage: 2, title: "UP AND TO THE RIGHT" },
+    phase2: { atHpFrac: 0.5, cooldownMs: 3600, pieArmed: 5, qaEvery: 3,
+              qa: { radius: 64, startPx: 200, speed: 150, durMs: 5000, dwellMs: 800, damage: 2, dimMs: 1500, line: "So, what do YOU think?" } },
+    drop: "salad",
+    swarm: { spawnDelayMult: 1.40, packSizeMult: 0.70, maxOnScreenMult: 0.70, eliteChanceMult: 0.7, pauseKinds: ["groupChat", "mathWorksheet", "calendarInvite"], pauseEvents: true }
+  },
   // Fifth-Grade Math Homework (Maple Hollow, 45), Nov 10. Code: src/math-homework.js. He scribbles while dotted lines
   // show the fan, then throws paper airplanes down those lines. Below half health: a second fan in the gaps of the
   // first, plus crumpled paper balls lobbed onto marked circles.

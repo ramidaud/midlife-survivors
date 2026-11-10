@@ -11,7 +11,7 @@ window.RUN_MODES = {
     secondsPerYear: 45,      // 45 real seconds = 1 year
     lateFromAge: 65,         // Nov 9 (Rami's 77.6 run): Overtime years past 65 are shorter, so the late
     lateSecondsPerYear: 25,  //   power-fantasy stretch doesn't drag (65 to 80 went from 11 minutes to about 6)
-    bosses: ["performanceReview", "newBoss", "mortgageRefinance", "holidayParty", "theReorg", "midlifeCrisis", "hoaPresident", "goldWatch"], // the HOA only in Overtime runs to 80 (src/data/overtime.js)
+    bosses: ["performanceReview", "newBoss", "mortgageRefinance", "holidayParty", "theReorg", "allHands", "hoaPresident", "goldWatch"], // Nov 10: the All-Hands replaces the V8 in the office (the V8 lives in your garage now). The HOA only in Overtime runs to 80 (src/data/overtime.js)
     bossSlot: ["holidayParty", "theReorg"], // Nov 9 (Rami): these two take turns at 56, one per run
     overtimeYearsPerRank: 5, // each "Delayed Retirement" rank adds 5 years (65 -> 70 -> 75 -> 80)
     endBossLabel: "RETIREMENT",
@@ -28,7 +28,7 @@ window.RUN_MODES = {
     endAge: 100,
     secondsPerYear: 60,
     bossSlot: ["holidayParty", "theReorg"],
-    bosses: ["performanceReview", "newBoss", "mortgageRefinance", "holidayParty", "theReorg", "midlifeCrisis", "hoaPresident", "retirementBoss", "pickleballChamp"],
+    bosses: ["performanceReview", "newBoss", "mortgageRefinance", "holidayParty", "theReorg", "allHands", "hoaPresident", "retirementBoss", "pickleballChamp"],
     endBossLabel: null,      // Father Time, as before
     table: "scores",
     clearBonus: 25000,
@@ -48,7 +48,9 @@ window.SPRINT = {
   enemySpeedMult: 1.25,
   coinMult: 1.25,     // +25% 401(k) coins (Grok, Nov 4: 1.5 made Sprint the only way to farm)
   unlockAchievement: "keepTheSedan",
+  alsoUnlockedBy: ["couldBeAnEmail"],
   unlockText: "Beat the Midlife Crisis V8 to unlock Sprint.",
   blurb: "Years pass 2x faster. Everyone moves 25% faster. +25% 401(k) coins."
 };
-window.isSprintUnlocked = m => !!(m && m.achievements && m.achievements.unlocked && m.achievements.unlocked[SPRINT.unlockAchievement]);
+// Nov 10: beating the All-Hands (office) also unlocks Sprint, since the V8 now only shows up at home.
+window.isSprintUnlocked = m => !!(m && m.achievements && m.achievements.unlocked && [SPRINT.unlockAchievement].concat(SPRINT.alsoUnlockedBy || []).some(k => m.achievements.unlocked[k]));

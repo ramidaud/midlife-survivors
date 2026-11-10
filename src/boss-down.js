@@ -16,12 +16,14 @@ window.BOSS_DOWN = {
     newBoss: "MEETING ADJOURNED",   // Nov 9 (Rami: "his defeat animation is kind of lame")
     holidayParty: "PARTY'S OVER",
     theReorg: "POSITION ELIMINATED",
-    mathHomework: "A+ · SEE ME"
+    mathHomework: "A+ · SEE ME",
+    allHands: "LET'S TAKE THIS OFFLINE"
   },
   // Nov 9: bosses without a drawn knockdown pose fall in their own "crash" frame and get a last word.
   lastWords: {
     newBoss: ["Let's... circle back... on me.", "Can we... take this offline?", "I need... a mental health day.", "Tell HR... I pivoted."],
     holidayParty: ["Who turned the lights on?", "Same time next year?", "I'll... get my coat."],
+    allHands: ["The meeting ended five minutes early. A miracle.", "Let's circle back... next quarter.", "Any... final... questions?", "I'll send the deck around."],
     mathHomework: ["Carry... the... one...", "Put me... on the fridge.", "Extra credit... please...", "Is this... going to be... on the test?"],
     theReorg: ["This was always the plan.", "Your new manager... is you.", "Effective... immediately..."]
   },

@@ -247,6 +247,18 @@ window.ENEMIES = {
     size: 58,
     color: 0xff2e4c
   },
+  // The office's 60 boss (Nov 10, Grok's spec; replaces the V8 in the office). Attack code: src/all-hands.js.
+  allHands: {
+    name: "The Quarterly All-Hands",
+    label: "Q3",
+    tex: "performanceReview", // stand-in shape until his art lands
+    spawnAge: 60,
+    speed: 54,
+    hp: 170,
+    damage: 2,
+    size: 58,
+    color: 0x526078
+  },
   // Maple Hollow's first boss (Nov 10, art by ChatGPT/Codex). Attack code: src/math-homework.js.
   mathHomework: {
     name: "Fifth-Grade Math Homework",
@@ -313,7 +325,7 @@ window.ENEMY_SCALE = { regular: 1.4, boss: 2.3, bossHitbox: 0.5 };
 // Name tags (FLAKE!, TAPAS, 9PM BED...) turn into a wall of tiny text when the screen fills up (Fable review #7).
 // Past this many enemies, regular enemies hide their tags. Bosses, elites and the Group Chat's "typing..." always keep theirs.
 window.ENEMY_TAGS = { hideOverPhone: 25, hideOverDesktop: 60 };
-window.BOSS_KINDS = ["mathHomework", "performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
+window.BOSS_KINDS = ["mathHomework", "allHands", "performanceReview", "newBoss", "holidayParty", "theReorg", "mortgageRefinance", "midlifeCrisis", "goldWatch", "hoaPresident", "retirementBoss", "pickleballChamp", "theReaper"];
 for (const [kind, E] of Object.entries(window.ENEMIES)) {
   E.scale = window.BOSS_KINDS.includes(kind) ? window.ENEMY_SCALE.boss : window.ENEMY_SCALE.regular;
   E.size = Math.round(E.size * E.scale); // labels, weapon reach and Close Calls read this

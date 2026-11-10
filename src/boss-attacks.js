@@ -103,6 +103,7 @@ window.BossAttacks = (() => {
     const r = D0 && D0.style === "dashChain" ? dashChain(scene, boss, player, now, D0)
       : D0 && D0.style === "conga" && window.HolidayParty ? HolidayParty.update(scene, boss, player, now) // src/holiday-party.js
       : D0 && D0.style === "reorg" && window.Reorg ? Reorg.update(scene, boss, player, now) // src/reorg.js
+      : D0 && D0.style === "deck" && window.AllHands ? AllHands.update(scene, boss, player, now) // src/all-hands.js
       : D0 && D0.style === "planes" && window.MathHomework ? MathHomework.update(scene, boss, player, now) // src/math-homework.js
       : step(scene, boss, player, now);
     if (window.BossArt) BossArt.sync(scene, boss, boss._atk ? boss._atk.state : "chase", now);

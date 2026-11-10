@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.24.4",
-  displayVersion: "V. 2.24.4",
+  version: "2.25.0",
+  displayVersion: "V. 2.25.0",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 326,
+  build: 327,
   changelog: [
+    {
+      ver: "V. 2.25.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "This meeting could have been an email.",
+      highlights: [
+        "New office boss at 60: The Quarterly All-Hands. He plants at a podium and clicks through slides, and every slide is a hazard on the floor: a bar chart, a pie chart, and a line that goes Up and to the Right.",
+        "At half health he opens the floor to questions. Two spotlights follow you around. Stand still too long and you get Called On.",
+        "The Midlife Crisis V8 now lives only in Maple Hollow, where it bursts out of your garage. Beating either one unlocks Sprint. New achievement: Could Have Been An Email."
+      ]
+    },
     {
       ver: "V. 2.24.4", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Second notice: your high score is approved.",
