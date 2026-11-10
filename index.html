@@ -68,7 +68,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
 <link rel="stylesheet" href="assets/ui/ms-tokens.css?v=1">
 <link rel="stylesheet" href="assets/ui/ms-parts.css?v=1">
-<link rel="stylesheet" href="assets/ui/ms-nav.css?v=7">
+<link rel="stylesheet" href="assets/ui/ms-nav.css?v=8">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
   html, body { height: 100%; margin: 0; background: #1b1f38; overflow: hidden; touch-action: none; color-scheme: dark; font-family: 'Atkinson Hyperlegible', sans-serif; }
@@ -1314,6 +1314,31 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
   #ui-layer .ms-row.shop-r.locked .ms-row-title { opacity: .6; }
   #ui-layer .ms-row.shop-r.locked .shop-r-ic { background: var(--ms-surface) linear-gradient(var(--ms-text-quiet), var(--ms-text-quiet)) 50% 60%/14px 10px no-repeat; }
   #ui-layer .ms-row.shop-r.locked .shop-r-tag { background: transparent; color: var(--ms-text-quiet); border: 1px solid var(--ms-line); }
+  /* Title screen (design system B5): PUNCH IN is the only orange thing; the shift chip names your stage; phones get a tab bar */
+  .tp-fi.todo .tp-ft { background: var(--ms-paper) !important; color: var(--ms-surface) !important; }
+  .title-poster.punch-in-tile .tp-crew { border-color: var(--ms-border) !important; box-shadow: var(--ms-shadow-card) !important; }
+  .title-poster.punch-in-tile .tp-shift-tag { color: var(--ms-paper) !important; }
+  #ui-layer .tp-settings-chip { font: 400 var(--ms-label-s, 11px)/1.2 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track); color: var(--ms-text) !important;
+    border: var(--ms-border-w, 2px) solid var(--ms-border) !important; border-radius: var(--ms-radius-m, 4px) !important; min-height: var(--ms-touch, 44px); padding: 8px 12px !important; }
+  #ui-layer .tp-settings-chip b { font: 700 var(--ms-body-s, 14px)/1 var(--ms-font-read); color: var(--ms-paper); letter-spacing: 0; text-transform: none; }
+  #ui-layer .tp-settings-chip .tp-chip-k { color: var(--ms-text-quiet); }
+  .tp-tabbar { display: none; }
+  @media (orientation: portrait), (max-width: 760px) { #ui-layer .tp-poll-pop:not(.open) { background: var(--ms-border) !important; } #ui-layer .tp-poll-pop:not(.open) .tp-poll-pill { color: var(--ms-text) !important; } }
+  @media (max-width: 599px) {
+    html.ms-title .ms-nav, html.ms-title .ms-nav-tab { display: none !important; }
+    html.ms-title { --ms-nav-h: 0px !important; }
+    #ui-layer .tp-tabbar { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+      background: var(--ms-surface); border-top: var(--ms-border-w, 2px) solid var(--ms-border); padding: 4px 4px calc(4px + env(safe-area-inset-bottom, 0px)); }
+    #ui-layer .tp-tab { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: 52px; background: transparent; border: 0; border-radius: var(--ms-radius-m, 4px);
+      color: var(--ms-text-quiet); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    #ui-layer .tp-tab .tp-tab-ic { font-size: 20px; line-height: 1; }
+    #ui-layer .tp-tab .tp-tab-l { font: var(--ms-label-s, 11px)/1 var(--ms-font-label); letter-spacing: var(--ms-label-track); }
+    #ui-layer .tp-tab.on { color: var(--ms-paper); background: var(--ms-raised); }
+    #ui-layer #title-modal { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important; }
+    #ui-layer .tp-band .tp-links { display: none !important; }   /* the tab bar replaces this row on phones */
+    html.ms-title .tp-poll-pop:not(.open) { bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important; }
+    html.ms-title .tp-poll-pop.open { bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important; }
+  }
   /* ===== Poster title screen (Nov 3): the key art is the hero, the menu lives inside the picture ===== */
   #title-modal[data-view="main"] { align-items: stretch; justify-content: stretch; padding: 0; overflow-y: auto; }
   .title-poster { position: relative; width: 100%; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
@@ -1787,7 +1812,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 340; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 341; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

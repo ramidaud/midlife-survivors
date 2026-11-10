@@ -418,6 +418,7 @@ function create() {
     if (vsHud) vsHud.classList.toggle("hidden", !!(titleOpen || gameOver)); // no HUD peeking behind title or Game Over
     { const playing = !titleOpen && !gameOver && !paused; // the universal nav hides during a run (level-ups and chests included)
       if (playing !== window._msPlaying) { window._msPlaying = playing; document.documentElement.classList.toggle("ms-playing", playing); }
+      if (!!titleOpen !== window._msTitle) { window._msTitle = !!titleOpen; document.documentElement.classList.toggle("ms-title", !!titleOpen); } // B5: the phone tab bar
       // design system A1: a menu that pauses the run hides the chips and minimap (index.html, html.ms-sheet)
       const sheet = !titleOpen && (!!paused || !!gameOver || !!levelUpOpen || !!(this.physics.world && this.physics.world.isPaused) || !!(window.BonusChest && BonusChest.isOpen()) || !!(window.Minimap && Minimap.isOpen && Minimap.isOpen()));
       if (sheet !== window._msSheet) { window._msSheet = sheet; document.documentElement.classList.toggle("ms-sheet", sheet); } }

@@ -2491,6 +2491,11 @@ function renderTitleModal(scene, preserveFocusSelector) {
       </div>
 `;
   const bandTail = `</div>`;
+  // Design system B5 (approved Nov 10): on phones a bottom bar replaces the site's top nav while you're on the title.
+  const tabBar = `<nav class="tp-tabbar" id="tp-tabbar" aria-label="Title menu">
+      ${[["shop", "title-shop-btn", "Shop", "🪙"], ["leaders", "title-leaders-btn", "Scores", "🏆"], ["extras", "title-extras-btn", "Extras", "✨"], ["settings", "title-controls-btn", "Settings", "⚙️"], ["devlog", "title-devlog-btn", "Devlog", "📝"]]
+        .map(([v, target, label, ic]) => `<button type="button" class="tp-tab${view === v ? " on" : ""}" data-tab-target="${target}"><span class="tp-tab-ic" aria-hidden="true">${ic}</span><span class="tp-tab-l">${label}</span></button>`).join("")}
+    </nav>`;
   let bodyHtml = "";
   if (view === "shop") {
     markShopSeen(meta); // opening the shop clears the NEW tag
@@ -2569,15 +2574,16 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="tp-punch">
         <button class="cta-btn clock-in-btn" id="title-clockin-btn"><span class="tp-punch-ico" aria-hidden="true">⏱</span> PUNCH IN${startAge !== 40 ? ` AT ${startAge}` : ""}</button>
         ${resumeBannerHtml}
-${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}">⚙ ${curMode === "full" ? "Full Life · 40-100" : "Midlife · 40-65"}${sprintOn ? " · ⚡ Sprint" : ""} · Tax ${tb} ${settingsOpen ? "▲" : "▼"}</button>`}
+${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen ? "active" : ""}" id="title-settings-btn" aria-expanded="${settingsOpen}"><span class="tp-chip-k">SHIFT</span> <b>${here === "home" ? "Maple Hollow" : "The Office"}</b> · ${curMode === "full" ? "Full Life 40-100" : "Midlife 40-65"}${sprintOn ? " · Sprint" : ""} · Tax ${tb} ${settingsOpen ? "▴" : "▾"}</button>`}
         ${settingsOpen && !firstShift ? `<div class="tp-settings">${modeRowHtml}</div>` : ""}
       </div>
       ${bandHtml}${bandTail}`;
   }
 
   modal.dataset.view = view;
+  document.documentElement.classList.add("ms-title"); window._msTitle = true; // B5 (the game loop clears it when a run starts)
   modal.innerHTML = view === "main" ? `
-    <div class="title-poster" data-view="main">${bodyHtml}${titleNewPop() || titlePollPop()}</div>
+    <div class="title-poster" data-view="main">${bodyHtml}${titleNewPop() || titlePollPop()}</div>${tabBar}
   ` : `
     <div class="title-poster sub-view" data-view="${view}">
     <div class="modal-card title-box title-clean tp-panel" data-view="${view}">
@@ -2588,9 +2594,12 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
     ${bandHtml}${bandTail}
-    </div>
+    </div>${tabBar}
   `;
   fillTitleMemo();
+  // B5: the phone tab bar presses the same buttons the tiles have (one action, two doors)
+  modal.querySelectorAll(".tp-tab").forEach(t => t.addEventListener("click", e => { e.stopPropagation(); const el = document.getElementById(t.dataset.tabTarget);
+    if (el) { sfx("pick"); el.dispatchEvent(new Event("nav-activate", { bubbles: true })); } }));
   if (window.MSPoll) MSPoll.mountAll(modal);
   if (view === "main") placeTitlePunch();
   if (window.TitleSlides) TitleSlides.start(); // the art keeps playing behind every title panel

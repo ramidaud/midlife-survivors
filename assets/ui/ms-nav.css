@@ -83,3 +83,7 @@ a, button, [role="button"], summary, label, select, .nav-item, .perk-card, .doss
 .ms-poll-lbl b { color: #EF9347; font-weight: 700; }
 .ms-poll-row .ms-bar { grid-area: bar; } .ms-poll-n { grid-area: n; font-family: "Silkscreen", monospace; font-size: 12px; text-align: right; color: #F2D7A1; }
 .ms-poll-foot { margin-top: 8px; font-size: 12px; color: #83A89A; }
+
+/* Design system B5 (Nov 10): the page you're on is marked by an outline, not orange, so the game's one orange button stands alone */
+.ms-nav-btn.primary[aria-current="page"] { background: transparent; color: #F2D7A1; border-color: #3E7775; }
+.ms-nav-btn.primary[aria-current="page"]:hover { background: rgba(255,240,207,.06); color: #F2D7A1; }

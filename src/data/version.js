@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.2",
-  displayVersion: "V. 2.27.2",
+  version: "2.27.3",
+  displayVersion: "V. 2.27.3",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 340,
+  build: 341,
   changelog: [
+    {
+      ver: "V. 2.27.3", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "One orange button on the title. You know which one.",
+      highlights: [
+        "PUNCH IN is now the only orange thing on the title screen, on every device.",
+        "The shift chip under it says where you're working today (The Office or Maple Hollow), plus your mode and tax bracket.",
+        "On phones, a bar along the bottom keeps Shop, Scores, Extras, Settings and the Devlog one tap away, and the site menu gets out of the way."
+      ]
+    },
     {
       ver: "V. 2.27.2", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your 401(k), front and center.",
