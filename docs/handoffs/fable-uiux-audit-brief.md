@@ -32,6 +32,22 @@ playing on."
 - `docs/handoffs/gemini-ui-references-reply.md`: how other games solve this, Apple HIG translated for pixel art, accessibility.
 - `docs/handoffs/gemini-maple-voice-reply.md` part 2: a draft UI voice guide (read Claude's fact-check at the bottom).
 
+## Open decisions (Rami hasn't answered yet; treat these as proposals)
+From Grok's attention budget, section 8, with Claude's suggested answers:
+1. 1 headline + 1 ticker at a time, only 1 on phones during a boss: **yes**.
+2. Boss intro card 3.5 s (vs. delaying first attacks): **shorten**.
+3. Rewards (cake, buffs, salad) never take the center: **yes**.
+4. Hold errands during bosses and off milestone ages: **yes**.
+5. Pause swarm events during the Review, Mortgage and V8: **yes**.
+6. First modifier roll at 50.8: **yes**.
+7. Phone center banner at 18% height: **your call after the audit**.
+Plus one from Gemini's references: plain verbs on buttons (PAUSE, REROLL, SKIP) with the joke in a subtitle, vs. joke labels ("TAKE PTO"). Claude suggests plain verbs. Present your recommendation and let Rami decide.
+
+## Coming soon (design for it, don't audit it)
+- **Maple Hollow v2** is about to be wired in: bigger houses, a wide street, connected backyards with one interactive thing each (trampoline, grill, fire pit...), a two-floor house with stairs, Rami's desk (a "Ship It" buff) and Abe's room. Art: `assets/stage/home/v2/`. Play spec: `docs/handoffs/grok-maple-v2-reply.md`. New surfaces it adds: yard "ready" sparkles, stair transitions, a desk buff chip, yard gag pop-ups.
+- **The Quarterly All-Hands** (office boss at 60, V2.25.0) is live: dashed floor shapes, a projector screen, a Q&A with spotlights.
+- Another Claude session keeps building while you work. Always `git pull --rebase` before you push, and only touch `docs/design/`.
+
 ## Your job, in order
 1. **Audit (deliver first).** Run the game headless (Playwright; serve the repo with `python3 -m http.server`, add `?nostats=1` so no stats are sent, block supabase/goatcounter requests, and never post to the leaderboard). Capture **every surface** at phone 390x844, iPad 820x1180 and 1180x820, and desktop 1440x900. Make one review page: each surface in a row across the device sizes, with notes on what's inconsistent (type, spacing, radius, color, motion, placement), what competes for attention, and what doesn't adapt to the device. Publish it as an artifact and give Rami the link.
 2. **Design system (deliver second), as a spec for Rami to approve before anything is built:**
