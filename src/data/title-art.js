@@ -33,7 +33,7 @@ window.TITLE_ART = {
     { src: "assets/title-screen/slides/02-swarm.jpg",       name: "The Swarm",        focus: "48% 60%", focusPortrait: "50% 62%", move: "reveal", pointer: false },
     // Maple Hollow (Nov 10, ChatGPT/Codex): drawn for the title layout, desktop + portrait.
     { src: "assets/title-screen/slides/13-maple-hollow-desktop.jpg",    srcPortrait: "assets/title-screen/slides/13-maple-hollow-portrait.jpg",    name: "Welcome to Maple Hollow", focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "reveal", pointer: false, stage: "home" },
-    { src: "assets/title-screen/slides/14-not-the-minivan-desktop.jpg", srcPortrait: "assets/title-screen/slides/14-not-the-minivan-portrait.jpg", name: "That's Not the Minivan",  focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false, stage: "home" }
+    { src: "assets/title-screen/slides/14-not-the-minivan-desktop-v2.jpg", /* v2 Nov 10: four wheels, not six */ srcPortrait: "assets/title-screen/slides/14-not-the-minivan-portrait.jpg", name: "That's Not the Minivan",  focus: "72% 26%", focusPortrait: "50% 62%", focusTablet: "50% 96%", move: "push",   pointer: false, stage: "home" }
   ],
   // V1 slides still retired (Nov 3: the title UI covers their main characters). Move any back into slides[] to reuse it.
   retired: [

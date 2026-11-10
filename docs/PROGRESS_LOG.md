@@ -2001,3 +2001,5 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami didn't like the grass, road and sidewalk. ChatGPT/Codex redrew them as big plates in the houses' style: street bands (832 wide, two variants), two lawns, a driveway, eight lawn stickers.
 - The plates' own curb cuts get patched over, and new ones are stamped where each driveway really meets the sidewalk.
 - Two new title slides (Welcome to Maple Hollow, That's Not the Minivan), desktop and phone. Maple Hollow players open on them; office players see them mixed in as a teaser.
+
+- 6:45 AM, V2.24.1: Rami spotted six wheels on the V8 in title slide 14. ChatGPT fixed the desktop version (the phone version was fine); renamed to -v2 so browsers skip the cached copy.

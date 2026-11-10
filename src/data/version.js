@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.24.0",
-  displayVersion: "V. 2.24.0",
+  version: "2.24.1",
+  displayVersion: "V. 2.24.1",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 322,
+  build: 323,
   changelog: [
+    {
+      ver: "V. 2.24.1", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Four wheels. Like a normal midlife crisis.",
+      highlights: [
+        "The V8 on the \"That's Not the Minivan\" title picture had six wheels. It has four now (thanks, Rami)."
+      ]
+    },
     {
       ver: "V. 2.24.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "New sidewalks. Same HOA.",
