@@ -2803,7 +2803,7 @@ function titleFileTile() {
   const ago = last && last.at ? (() => { const m = Math.round((Date.now() - last.at) / 60000); return m < 60 ? `${Math.max(1, m)} min ago` : m < 2880 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} days ago`; })() : "";
   const head = returning ? `Welcome back${name ? `, ${esc(name)}` : ""}.` : "Welcome, new hire.";
   const C = window.TITLE_COPY || {}, pick = a => a && a.length ? a[Math.floor(Math.random() * a.length)] : "";
-  const line = !returning ? "Your first shift starts at 8:59. You only move. Everything else is automatic."
+  const line = !returning ? (window.STAGE_ID === "home" ? "You're home. You only move. Everything else is automatic." : "Your first shift starts at 8:59. You only move. Everything else is automatic.")
     : (pick(C.welcomeBack) || "Good to see you again. The Bills missed you.");
   const lastLine = returning && last ? (last.win ? `Last shift (${ago}): retired at ${last.age}. Show-off.` : `Last shift (${ago}): reached ${last.age} before ${esc(last.killer || "life")} got you.`) : "";
   // The feed (Nov 4, Rami: "to-dos mixed with news and status things"): status first, then news, then to-dos.
@@ -2816,7 +2816,10 @@ function titleFileTile() {
   if (returning && latest.teaser) feed.push({ t: "news", h: `<b>${esc(latest.ver || V.displayVersion || "")}:</b> ${esc(latest.teaser)}`, go: "whatsnew", cta: "What's new" });
   if (returning && got < all) feed.push({ t: "todo", h: `🏅 <b>${got} of ${all}</b> achievements earned.`, go: "achievements", cta: "See them all" });
   titleNudge(returning).forEach(h => feed.push({ t: "todo", h }));
-  if (!returning) feed.push({ t: "todo", h: "📋 Survive your first <b>Performance Review</b> at 45." });
+  // Nov 10 (Rami's OK): the first to-do follows the stage. At home the 45 boss is the Math Homework, and the V8 waits in the garage.
+  const atHome = window.STAGE_ID === "home", gotA = (meta.achievements && meta.achievements.unlocked) || {};
+  if (atHome) feed.push({ t: "todo", h: !gotA.carryTheOne ? "✏️ Finish the <b>Fifth-Grade Math Homework</b> at 45. Show your work." : "🚗 Something in your garage turns over at <b>60</b>. Be ready." });
+  else if (!returning) feed.push({ t: "todo", h: "📋 Survive your first <b>Performance Review</b> at 45." });
   // Mix them so every page has a bit of each: status, news, to-do, status, news, to-do...
   { const by = { status: [], news: [], todo: [] }; feed.forEach(f => by[f.t].push(f)); feed.length = 0;
     while (by.status.length || by.news.length || by.todo.length) ["status", "news", "todo"].forEach(k => { if (by[k].length) feed.push(by[k].shift()); }); }

@@ -2003,3 +2003,5 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Two new title slides (Welcome to Maple Hollow, That's Not the Minivan), desktop and phone. Maple Hollow players open on them; office players see them mixed in as a teaser.
 
 - 6:45 AM, V2.24.1: Rami spotted six wheels on the V8 in title slide 14. ChatGPT fixed the desktop version (the phone version was fine); renamed to -v2 so browsers skip the cached copy.
+
+- 7:45 AM, V2.24.2: the title-screen to-do follows the stage. Home says "Finish the Fifth-Grade Math Homework at 45" (then a garage hint at 60 once it is beaten), and the welcome line says "You're home."
