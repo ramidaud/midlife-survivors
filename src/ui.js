@@ -3230,40 +3230,53 @@ function renderGameOverModal(scene, cause, isWin, killer) {
     ? "👑 CENTENNIAL LEGEND! YOU REACHED AGE 100!"
     : (isWin ? (mode === "midlife" ? `🏆 RETIRED AT ${Math.round(currentAge)}!${window.justUnlockedFull ? " FULL LIFE UNLOCKED" : ""}` : "🏆 YOU SURVIVED TO RETIREMENT!") : "📋 BURNOUT! SHIFT ENDED");
 
+  // Design system B6 (Nov 10): game over and retirement are Moments. Order: a short picture, the headline,
+  // SCORE and AGE big, then RETRY (the one orange button) with Shop and Title, then posting your score.
+  // The pay stub (paycheck, goals, the stat pills, the score breakdown) folds into a drawer.
+  const touchUI = window.matchMedia && matchMedia("(pointer: coarse)").matches;
+  const plainHead = isCentennial ? "AGE 100. A LEGEND." : isWin ? (mode === "midlife" ? `RETIRED AT ${Math.round(currentAge)}` : "YOU MADE IT TO RETIREMENT") : "SHIFT ENDED";
+  const strip = isWin ? `HR · RE: <b>Your retirement</b>` : `HR · RE: <b>Exit interview</b>`;
   modal.innerHTML = `
-    <div class="modal-card gameover-box ${isWin ? "win-box" : "loss-box"}">
-      ${isWin ? retirementPartyHtml(isCentennial) : koSceneHtml(killer)}
-      <div class="modal-kicker">${isWin ? "OFFICIAL RETIREMENT & PENSION CERTIFICATE" : "HR EXIT INTERVIEW // PROGRESS SAVED"}</div>
-      <h2 class="modal-title">${headline}</h2>
-      <p class="gameover-cause">"${cause}"</p>
-      <div class="gameover-stats">
-        <div class="stat-pill"><span>REACHED AGE</span><b>${currentAge.toFixed(1)} (Best: ${(meta.bestAge || currentAge).toFixed(1)})</b></div>
-        <div class="stat-pill"><span>SENIORITY</span><b>Level ${level}</b></div>
-        <div class="stat-pill"><span>401(k) SAVED</span><b>+${runCoins}k (Bank: ${meta.coins}k)</b></div>
+    <div class="modal-card gameover-box mo-box ${isWin ? "win-box" : "loss-box"}">
+      <div class="mo-art">${isWin ? retirementPartyHtml(isCentennial) : koSceneHtml(killer)}</div>
+      <div class="ms-sheet-strip mo-strip">${strip}</div>
+      <h2 class="mo-title">${plainHead}</h2>
+      ${isWin && window.justUnlockedFull ? `<div class="mo-unlock">Full Life unlocked</div>` : ""}
+      <p class="mo-cause">${cause}</p>
+      <div class="mo-numbers">
+        <div class="mo-num mo-score"><span>SCORE</span><b>${runScore.toLocaleString()}</b></div>
+        <div class="mo-num mo-age"><span>AGE</span><b>${currentAge.toFixed(1)}</b><small>Best ${(meta.bestAge || currentAge).toFixed(1)}</small></div>
       </div>
-      ${runSummaryHtml()}
-      <div class="score-panel">
-        <div class="score-big">SCORE <b>${runScore.toLocaleString()}</b></div>
-        <div class="score-break">${Math.max(0, currentAge - runStartAge).toFixed(1)} years · ${runKills} beaten · ${runCoins}k saved${window.getRunTaxBracket && window.getRunTaxBracket() ? ` · Tax Bracket ${window.getRunTaxBracket()}` : ""}</div>
+      <div class="ms-sheet-actions mo-actions gameover-actions">
+        <div class="ms-left">
+          <button type="button" class="ms-btn secondary" id="go-shop-btn"><span class="ms-btn-label">SHOP</span><span class="ms-btn-sub">${meta.coins}k to spend</span></button>
+          <button type="button" class="ms-btn secondary go-title-btn" id="go-title-btn"><span class="ms-btn-label">TITLE</span><span class="ms-btn-sub">Change your shift</span></button>
+        </div>
+        <button type="button" class="ms-btn primary" id="go-retry-btn"><span class="ms-btn-label">RETRY</span><span class="ms-btn-sub">${isWin ? "Do it all again" : "Back on the clock"}</span></button>
+      </div>
+      ${touchUI ? "" : `<div class="ms-legend"><span><kbd>Space</kbd><kbd>Enter</kbd><kbd>A</kbd>Retry</span></div>`}
+      <div class="mo-post score-panel">
         <form class="score-form" id="score-form" autocomplete="off">
           <input id="score-name" maxlength="16" placeholder="Your name" value="${(window.lbSavedName ? window.lbSavedName() : "").replace(/"/g, "")}" aria-label="Your name for the leaderboard">
-          <button type="submit" class="cta-btn score-post-btn" id="score-post-btn">🏆 POST SCORE</button>
+          <button type="submit" class="ms-btn secondary score-post-btn" id="score-post-btn"><span class="ms-btn-label">POST SCORE</span></button>
         </form>
         <div class="score-names hidden" id="score-names" aria-label="Pick a name"></div>
         <div class="score-msg" id="score-msg"></div>
       </div>
-      <!-- Retry sits above the leaderboard so it's on the first screen on phones (Fable review #1, Nov 3) -->
-      <div class="gameover-actions">
-        <button class="cta-btn" id="go-retry-btn">🔄 QUICK RETRY${(window.matchMedia && matchMedia("(pointer: coarse)").matches) ? "" : " (Space / Enter / A)"}</button>
-        <button class="cta-btn secondary-btn" id="go-shop-btn">🪙 401(k) SHOP</button>
-        <button class="cta-btn secondary-btn go-title-btn" id="go-title-btn">🏠 BACK TO TITLE SCREEN</button>
-      </div>
+      <details class="mo-stub">
+        <summary><span class="ms-row-title">Pay stub</span><span class="ms-row-sub">+${runCoins}k saved · level ${level} · ${runKills} beaten</span></summary>
+        <div class="mo-stub-body">
+          <div class="gameover-stats">
+            <div class="stat-pill"><span>REACHED AGE</span><b>${currentAge.toFixed(1)} (Best: ${(meta.bestAge || currentAge).toFixed(1)})</b></div>
+            <div class="stat-pill"><span>SENIORITY</span><b>Level ${level}</b></div>
+            <div class="stat-pill"><span>401(k) SAVED</span><b>+${runCoins}k (Bank: ${meta.coins}k)</b></div>
+          </div>
+          ${runSummaryHtml()}
+          <div class="score-break">${Math.max(0, currentAge - runStartAge).toFixed(1)} years · ${runKills} beaten · ${runCoins}k saved${window.getRunTaxBracket && window.getRunTaxBracket() ? ` · Tax Bracket ${window.getRunTaxBracket()}` : ""}</div>
+        </div>
+      </details>
       <div class="score-panel go-board"><div id="go-leaderboard"></div></div>
-      <div class="go-coffee">Midlife Survivors is free. If it made you laugh, <a href="https://ko-fi.com/ramidaud" target="_blank" rel="noopener">buy the developer a coffee</a> ☕</div>
-      <div class="nav-hint-bar">
-        <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Option</span>
-        <span><b>Space / Enter / Click / A</b>: Confirm</span>
-      </div>
+      <div class="go-coffee">Midlife Survivors is free. If it made you laugh, <a href="https://ko-fi.com/ramidaud" target="_blank" rel="noopener">buy the developer a coffee</a>.</div>
     </div>
   `;
 

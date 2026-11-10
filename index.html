@@ -1339,6 +1339,39 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     html.ms-title .tp-poll-pop:not(.open) { bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important; }
     html.ms-title .tp-poll-pop.open { bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important; }
   }
+  /* Game over and retirement as Moments (design system B6): picture, headline, SCORE + AGE, RETRY, then the rest */
+  #ui-layer .mo-box { text-align: center; }
+  #ui-layer .mo-box .mo-art .ko-scene { height: clamp(150px, 22vh, 260px); margin: -4px -4px var(--ms-space-3, 12px); }
+  #ui-layer .mo-box .mo-strip { align-self: center; margin: var(--ms-space-2, 8px) auto 0; }
+  #ui-layer .mo-box .mo-title { font: 700 var(--ms-display-s, 22px)/1.1 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-text); margin: var(--ms-space-2, 8px) 0 var(--ms-space-1, 4px); }
+  #ui-layer .mo-box .mo-unlock { font: var(--ms-label-m, 13px)/1 var(--ms-font-label); color: var(--ms-ok); letter-spacing: var(--ms-label-track); margin-bottom: 4px; }
+  #ui-layer .mo-box .mo-cause { font: 600 var(--ms-body-s, 14px)/1.35 var(--ms-font-read); color: var(--ms-text-quiet); margin: 0 auto var(--ms-space-3, 12px); max-width: 52ch; font-style: italic; }
+  #ui-layer .mo-numbers { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--ms-space-2, 8px); margin: 0 0 var(--ms-space-2, 8px); }
+  #ui-layer .mo-num { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: var(--ms-space-3, 12px) var(--ms-space-2, 8px);
+    background: var(--ms-raised); border-radius: var(--ms-radius-l, 8px); }
+  #ui-layer .mo-num span { font: var(--ms-label-s, 11px)/1 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-text-quiet); }
+  #ui-layer .mo-num b { font: 700 var(--ms-display-l, 32px)/1 var(--ms-font-label); color: var(--ms-paper); font-variant-numeric: tabular-nums; }
+  #ui-layer .mo-num.mo-age b { color: var(--ms-text); }
+  #ui-layer .mo-num small { font: 600 var(--ms-body-s, 14px)/1 var(--ms-font-read); color: var(--ms-text-quiet); }
+  #ui-layer .mo-box .mo-actions { position: sticky; bottom: 0; flex-direction: row !important; margin-top: var(--ms-space-2, 8px); }
+  #ui-layer .mo-box .mo-actions .ms-btn.primary { min-width: 160px; }
+  #ui-layer .mo-box .mo-actions .ms-left .ms-btn, #ui-layer .mo-box .gameover-actions .go-title-btn { flex: 1 1 0 !important; min-width: 0; padding-top: var(--ms-space-2, 8px); padding-bottom: var(--ms-space-2, 8px); }
+  #ui-layer .mo-box .mo-post .score-form input { border-radius: var(--ms-radius-m, 4px); }
+  #ui-layer .mo-box .mo-stub { text-align: left; margin: var(--ms-space-3, 12px) 0; background: var(--ms-raised); border-radius: var(--ms-radius-m, 4px); }
+  #ui-layer .mo-box .mo-stub summary { list-style: none; cursor: pointer; padding: var(--ms-space-3, 12px); min-height: 56px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
+  #ui-layer .mo-box .mo-stub summary::-webkit-details-marker { display: none; }
+  #ui-layer .mo-box .mo-stub summary .ms-row-title::after { content: " ▾"; color: var(--ms-text-quiet); }
+  #ui-layer .mo-box .mo-stub[open] summary .ms-row-title::after { content: " ▴"; }
+  #ui-layer .mo-box .mo-stub summary .ms-row-title { font: 700 var(--ms-body-l, 18px)/1.2 var(--ms-font-read); }
+  #ui-layer .mo-box .mo-stub summary .ms-row-sub { font: 600 var(--ms-body-s, 14px)/1.3 var(--ms-font-read); color: var(--ms-text-quiet); }
+  #ui-layer .mo-box .mo-stub-body { padding: 0 var(--ms-space-3, 12px) var(--ms-space-3, 12px); }
+  @media (max-width: 599px) {
+    #ui-layer .mo-box .mo-art .ko-scene { height: 150px; }
+    #ui-layer .mo-box .mo-art .rt-crowd { width: 100%; aspect-ratio: 320 / 96; background-image: url(assets/ui/retire-party-v1-alpha.png); }
+    #ui-layer .mo-box .mo-art .rt-gifts { display: none; }
+    #ui-layer .mo-num b { font-size: 28px; }
+    #ui-layer .mo-box .mo-actions { flex-wrap: wrap; }
+  }
   /* ===== Poster title screen (Nov 3): the key art is the hero, the menu lives inside the picture ===== */
   #title-modal[data-view="main"] { align-items: stretch; justify-content: stretch; padding: 0; overflow-y: auto; }
   .title-poster { position: relative; width: 100%; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
@@ -1812,7 +1845,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 341; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 342; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

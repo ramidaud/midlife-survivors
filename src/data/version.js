@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.3",
-  displayVersion: "V. 2.27.3",
+  version: "2.27.4",
+  displayVersion: "V. 2.27.4",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 341,
+  build: 342,
   changelog: [
+    {
+      ver: "V. 2.27.4", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The end of a run, without the paperwork.",
+      highlights: [
+        "Game over and retirement lead with what you want to know: your score and your age, big, side by side.",
+        "RETRY is right under them (and under your thumb on a phone), with Shop and Title beside it.",
+        "The pay stub, goals and paycheck details fold into a drawer you can open when you're curious."
+      ]
+    },
     {
       ver: "V. 2.27.3", date: "Nov 10, 2026", title: "Version Two",
       teaser: "One orange button on the title. You know which one.",
