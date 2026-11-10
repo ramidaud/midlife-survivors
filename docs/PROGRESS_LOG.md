@@ -2050,3 +2050,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The 57 px bug is fixed the safe way: the game measures where the HUD really ends and puts the minimap and chips there. Zeroing it alone made the minimap cover the age on phones.
 - Chips, arrows and the minimap now hide while a level-up, chest, shop, pause or big map is open.
 - CLAUDE.md "One look" replaced with the design system text. The Project instructions on claude.ai need the same paste.
+
+## 2026-11-10 (3:40 PM): V2.26.2, design system step A2
+- One message router now guards the middle of the screen: center flashes, Spotlight cards and the GOTCHA card take turns, one at a time.
+- Most important first (a boss card beats a reward), 1.2 s breather between them, stale ones are skipped, no repeats within a minute. The clock holds while a menu is open.
+- Tested: two flashes 200 ms apart (the second waits), a catch during a boss card (it waits), and the real age-45 pile-up (three alarms now arrive one by one).
+- Same look as before. A3 moves the headline under the HUD.

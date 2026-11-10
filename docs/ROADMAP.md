@@ -27,7 +27,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami: yes to the boss health bar and the phone bottom bar
 - [x] Rami approved the design system and the new "One look" text for CLAUDE.md (spec section 10)
 - [x] Migration A1 (V2.26.1): tokens file, minimap and chips placed from the HUD's real bottom, hidden under menus, new "One look" in CLAUDE.md
-- [ ] Next: A2, one message queue behind the flashes, lower thirds, spotlights and the catch card (same look)
+- [x] Migration A2 (V2.26.2): one message router; center flashes, Spotlight cards and the catch card take turns by importance
+- [ ] Next: A3, the headline plate under the HUD (replaces the center flash), minimap steps aside on phones
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)

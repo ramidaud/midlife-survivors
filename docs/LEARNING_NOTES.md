@@ -746,3 +746,6 @@ The new neighborhood didn't replace the old code. It's a block of numbers in `sr
 
 ## Measure, don't guess (Nov 10, design system A1)
 Every chip and the minimap used to be placed with a fixed number like "128 px from the top," picked by eye while a hidden 57 px was secretly being added. Remove the hidden part and every guess is wrong at once. Now the game measures where the HUD actually ends, twice a second, and stores it in a CSS variable (a named value the page's styles can read, like `--ms-hud-b`). The minimap and chips are placed from that number, so they land right under the HUD on a phone, an iPad or a laptop, even if the HUD changes size later.
+
+## A message queue (Nov 10, design system A2)
+A queue is a line, like at the deli counter. Before, every notice in the game just showed itself, so at age 45 three of them landed in the same second on top of each other. Now there's one gatekeeper (the "router") for the middle of the screen: a notice asks for a turn, and if someone's already there it takes a number and waits. Each waiting notice has a tier (boss warnings 1, to-dos 2, rewards 3) so the important one goes first, and a shelf life so a warning that's 5 seconds late gets thrown out instead of confusing you.
