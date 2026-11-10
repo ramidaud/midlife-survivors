@@ -25,8 +25,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami's 8 open decisions: yes to all, with a headline slot under the HUD for the phone banner
 - [x] Design system spec, wireframes and before/after mockups: **ready for review** (`docs/design/design-system-v1.md`)
 - [x] Rami: yes to the boss health bar and the phone bottom bar
-- [ ] Rami: yes or no on the new "One look" text for CLAUDE.md (spec section 10)
-- [ ] After that: migration step A1 (tokens file, the 57 px nav bug, chips hidden under menus)
+- [x] Rami approved the design system and the new "One look" text for CLAUDE.md (spec section 10)
+- [ ] Next for the build session: migration step A1 (tokens file, the 57 px nav bug, chips hidden under menus, and the CLAUDE.md "One look" edit)
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)

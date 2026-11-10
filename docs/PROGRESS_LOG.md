@@ -2043,3 +2043,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Design system v1 is ready for review: two homes for in-run words (alarms up top, story at the bottom), eight parts, three screen sizes, one orange button per screen.
 - Also in `docs/design/`: wireframes for 11 screens, two before/after mockups, and a 19-sitting migration plan that starts with in-run messages. Rami also said yes to a boss health bar and a phone bottom bar.
 - Still open: the new "One look" text for CLAUDE.md. Two quick fixes are waiting in step A1 (everything in a run sits 57 px low; chips draw over level-ups).
+- 2:22 PM: Rami approved the design system and the new "One look" text. The build session starts at step A1 and makes the CLAUDE.md edit there.

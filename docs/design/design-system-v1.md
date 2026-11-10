@@ -1,6 +1,6 @@
-# Midlife Survivors design system, v1 (spec for approval)
+# Midlife Survivors design system, v1 (approved Nov 10, 2026)
 
-**Status:** proposal. Nothing here is built. The other Claude session migrates one surface at a time after Rami approves.
+**Status:** approved by Rami on Nov 10, 2026. Nothing here is built yet. The build session migrates one surface at a time, starting at step A1 in section 9, and makes the CLAUDE.md edit in section 10 as part of A1.
 **Based on:** `ui-audit-2026-11.md` (V. 2.25.0), Grok's attention budget, Gemini's references.
 **Visual version:** https://claude.ai/artifact/5jaXT3oLSEqrpabEq3QneM (source: `design-system-v1.html`, with the two before/after mockups). **Wireframes:** https://claude.ai/artifact/1YifCvzjZZHWYtuNssN4pa (source: `wireframes-v1.html`). **Audit:** https://claude.ai/artifact/UH1Uc4GaGXHiwsmB9sq8a7
 
@@ -26,7 +26,7 @@
 | 8 | Button labels | Plain verbs (PAUSE, REROLL, SKIP). The joke goes in the line under the button. |
 | 9 | Boss health bar under the HUD (new) | Yes |
 | 10 | Bottom bar on the phone title screen, replacing the in-game top nav | Yes, try it |
-| 11 | New "One look" text for CLAUDE.md (section 10) | **Still open** |
+| 11 | New "One look" text for CLAUDE.md (section 10) | Yes |
 
 ---
 
@@ -445,7 +445,7 @@ That is 19 sittings. Part A is the one that answers "where should I be looking."
 > - **Every screen is checked** at phone, iPad (both orientations) and desktop sizes, with touch, keyboard and a controller, before it ships.
 > - **Devlog memos, social post images and the social kit:** unchanged from Nov 6 and Nov 7 (keep those three bullets as they are).
 
-**Instruction check:** this replaces the first four bullets of "One look (Nov 3)" and keeps the three devlog and social bullets as they are. Yes or no?
+**Instruction check, answered:** Rami said yes on Nov 10. This replaces the first four bullets of "One look (Nov 3)" and keeps the three devlog and social bullets as they are. The Project's custom instructions on claude.ai need the same text pasted in by Rami.
 
 ---
 
