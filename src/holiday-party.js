@@ -211,7 +211,7 @@ window.HolidayParty = (() => {
         const zones = placeZones(scene, boss, a, player, phase2 ? (P2.zones || 3) : (M.zones || 2));
         zones.forEach(z => { z.bornAt = now; z.armAt = a.until; z.dieAt = a.until + (M.armedMs || 2400); a.zones.push(z); });
       }
-      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(P.bannerTitle, P.bannerSub, "alert"); }
+      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(P.bannerTitle, P.bannerSub, "alert", { bossFirst: true }); }
       else if (P.partyLines && Math.random() < 0.6) say(scene, boss, Phaser.Utils.Array.GetRandom(P.partyLines));
       sfx("bossSpawn", 0);
     }

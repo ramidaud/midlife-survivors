@@ -842,7 +842,9 @@ window.MsgRouter = (() => {
   const busy = except => (except !== "flash" && cfShowing) ||
     (except !== "spotlight" && !!(window.Spotlight && Spotlight.isShowing && Spotlight.isShowing())) ||
     (except !== "catch" && !!(window.CatchMoment && CatchMoment.isShowing && CatchMoment.isShowing()));
-  function flash(title, sub, kind) {
+  function flash(title, sub, kind, opts) {
+    // A4: a boss's first-attack banner is skipped while its arrival card is up; the card already says how to dodge
+    if (opts && opts.bossFirst && window.Spotlight && Spotlight.bossUp && Spotlight.bossUp()) return;
     const key = title + "|" + (sub || ""), t = TIER[kind] || 2;
     if (activeMs - (lastSaid[key] ?? -1e9) < REPEAT) return;            // said this a moment ago
     if (queue.some(m => m.key === key)) return;
@@ -873,7 +875,7 @@ window.MsgRouter = (() => {
     reset() { queue = []; lastSaid = {}; lastEnd = -1e9; flashBannerCut(); }
   };
 })();
-window.flashBanner = function(title, sub, kind) { MsgRouter.flash(title, sub, kind); };
+window.flashBanner = function(title, sub, kind, opts) { MsgRouter.flash(title, sub, kind, opts); };
 
 // Title screen version line and the "what's new" bubble (Nov 3).
 // The bubble shows the newest changelog entry's teaser (or its first highlight) once per version.

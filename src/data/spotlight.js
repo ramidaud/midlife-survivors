@@ -3,6 +3,7 @@
 // line: max ~60 characters. tip: max ~55. Edit freely.
 window.SPOTLIGHT = {
   durationMs: 6000,
+  bossMs: 3500,       // boss arrival cards (design system A4, Nov 10): short, so the band is gone before the second attack
   bosses: {
     performanceReview: { kicker: "ANNUAL EVALUATION", name: "PERFORMANCE REVIEW", line: "I brought a five-page rubric and a very sharp red pen.",
                          tip: "Sidestep when the clipboard flashes before it charges.", art: "assets/bosses/boss-performance-review-v1.png", edge: "#C45C4B", band: "#874C3B" },

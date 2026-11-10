@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.3",
-  displayVersion: "V. 2.26.3",
+  version: "2.26.4",
+  displayVersion: "V. 2.26.4",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 331,
+  build: 332,
   changelog: [
+    {
+      ver: "V. 2.26.4", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Bosses still make an entrance. They just don't turn the lights off anymore.",
+      highlights: [
+        "Boss arrival cards are shorter (3.5 seconds) and no longer dim the floor, so you can see the first attack being drawn while the boss introduces itself.",
+        "On phones the boss card is a compact band with the name and the one dodge tip. No speech bubble over the action.",
+        "The boss's own first-attack notice is skipped while its card is up, since the card already tells you how to dodge."
+      ]
+    },
     {
       ver: "V. 2.26.3", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Big notices moved out of your way.",

@@ -102,7 +102,7 @@ window.MathHomework = (() => {
       a.n = p2 ? C.phase2.planes : C.planes; a.spread = p2 ? C.phase2.spreadDeg : C.spreadDeg;
       a.volleys = p2 ? C.phase2.volleys : 1;
       boss.setVelocity(0, 0);
-      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(C.bannerTitle, C.bannerSub, "alert"); }
+      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(C.bannerTitle, C.bannerSub, "alert", { bossFirst: true }); }
       if (window.sfx) sfx("bossSpawn", 0);
       if (p2 && !a.p2Said && window.flashBanner) { a.p2Said = true; flashBanner(C.phase2.bannerTitle, C.phase2.bannerSub, "alert"); }
     }

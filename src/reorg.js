@@ -205,7 +205,7 @@ window.Reorg = (() => {
         edgeMarkers(sides, true);
         a.until = now + lead;
       }
-      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(P.bannerTitle, P.bannerSub, "alert"); }
+      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(P.bannerTitle, P.bannerSub, "alert", { bossFirst: true }); }
       else if (P.memoLines && Math.random() < 0.6) say(scene, boss, Phaser.Utils.Array.GetRandom(P.memoLines));
       sfx("bossSpawn", 0);
     }

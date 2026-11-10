@@ -136,7 +136,7 @@ window.BossAttacks = (() => {
         a.theta = Math.atan2(boss.y - a.cy, boss.x - a.cx); a.dir = -side; a.traveled = 0; a.lastSkid = 0;
       }
       boss.setVelocity(0, 0); boss.setTint(0xff6b7a);
-      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(D.bannerTitle, D.bannerSub, "alert"); }
+      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(D.bannerTitle, D.bannerSub, "alert", { bossFirst: true }); }
       sfx("bossSpawn", 0);
     }
 
@@ -265,7 +265,7 @@ window.BossAttacks = (() => {
       a.aim = Math.atan2(player.y - boss.y, player.x - boss.x); // locked now: no leading, no tracking
       a.len = Math.min(D.dashMaxDist, (D.dashMaxViewFrac || 0.8) * Math.min(v.width, v.height));
       boss.setVelocity(0, 0); boss.setTint(0xff6b7a);
-      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(D.bannerTitle, D.bannerSub, "alert"); } // the banner explains the first one
+      if (!a.announced) { a.announced = true; if (window.flashBanner) flashBanner(D.bannerTitle, D.bannerSub, "alert", { bossFirst: true }); } // the banner explains the first one
       else pep(scene, boss, a, nextPep());
       sfx(first ? "bossSpawn" : "pick", 0);
     };

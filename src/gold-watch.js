@@ -71,7 +71,7 @@ window.GoldWatch = (() => {
   // First-time banners for each attack and phase (taught once per run).
   function teach(a, key, title, sub) {
     if (a.taught[key]) return; a.taught[key] = true;
-    if (window.flashBanner) flashBanner(title, sub, "alert");
+    if (window.flashBanner) flashBanner(title, sub, "alert", { bossFirst: true });
   }
 
   function update(scene, boss, player, now) {

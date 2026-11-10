@@ -99,7 +99,7 @@ window.AllHands = (() => {
       else if (slide === "lineGraph") a.plan = planLine(scene, SC);
       else a.plan = { spots: [-1, 1].map(s => ({ x: p.x + s * C.phase2.qa.startPx, y: p.y, dwell: 0, dimUntil: 0 })) };
       a.until = slide === "qa" ? now + C.phase2.qa.durMs : now + S.tele(SC.telegraphMs, floorMs(SC.floor));
-      if (!a.seen[slide] && window.flashBanner) { a.seen[slide] = true; flashBanner(slide === "qa" ? "Q&A" : SC.title, slide === "qa" ? "Keep moving." : C.bannerSub, "alert"); }
+      if (!a.seen[slide] && window.flashBanner) { a.seen[slide] = true; flashBanner(slide === "qa" ? "Q&A" : SC.title, slide === "qa" ? "Keep moving." : C.bannerSub, "alert", { bossFirst: true }); }
       if (window.sfx) sfx("pick", 0);
       a.state = slide === "qa" ? "qa" : "telegraph";
     }

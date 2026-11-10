@@ -71,6 +71,9 @@ window.Spotlight = (() => {
  #spotlight.has-bio .sp-artwrap,#spotlight.has-bio .sp-puff{bottom:calc(86px * var(--s) + var(--lift))}
  #spotlight.has-bio .sp-tip{bottom:calc(20px * var(--s) + var(--lift))}
 }
+/* Design system A4 (Nov 10): a boss card never covers the floor. No dim, no flash, no letterbox (dropped from the markup);
+   on phones it's just the compact band (name + the one dodge tip), no speech bubble. */
+@media (max-width:599px){#spotlight.boss .sp-say{display:none}}
 @media (orientation:portrait) and (min-width:600px){#spotlight{--s:.9;--lift:96px}#spotlight .sp-name{font-size:36px}#spotlight .sp-bio{font-size:16px}#spotlight .sp-text{left:calc(var(--L) + var(--aw) * .9)}}
 @keyframes spFade{from{opacity:0}to{opacity:1}}
 @keyframes spGone{to{opacity:0}}
@@ -134,9 +137,8 @@ window.Spotlight = (() => {
     const puff = [[-46, -10], [-30, 14], [-12, 22], [12, 22], [30, 14], [46, -10]].map(([x, y]) => `<i style="--dx:${x}px;--dy:${-y}px"></i>`).join("");
     const artStyle = c.art ? `background-image:url(${JSON.stringify(c.art).slice(1, -1)})` : "";
     root.innerHTML = `
-      <div class="sp-dim"></div>
-      ${c.boss ? `<div class="sp-bar t"></div><div class="sp-bar b"></div><div class="sp-flash"></div>` : ""}
-      ${c.art ? `<div class="sp-beam"></div><div class="sp-glow"></div>` : ""}
+      ${c.boss ? "" : `<div class="sp-dim"></div>`}
+      ${c.art ? `${c.boss ? "" : `<div class="sp-beam"></div>`}<div class="sp-glow"></div>` : ""}
       <div class="sp-band"><div class="sp-edgebar"></div><div class="sp-glint"></div></div>
       ${c.art ? `<div class="sp-artwrap${c.art2 ? " duo" : ""}"><div class="sp-art ${c.artType}" style="${artStyle}"></div>${c.art2 ? `<div class="sp-art ${c.artType} b" style="background-image:url(${JSON.stringify(c.art2).slice(1, -1)})"></div>` : ""}</div><div class="sp-puff">${puff}</div>` : ""}
       <div class="sp-say" title="Tap to dismiss" aria-label="${esc(c.line)}"><span aria-hidden="true">${sayHtml}</span></div>
@@ -239,7 +241,7 @@ window.Spotlight = (() => {
   return {
     boss(kind) {
       const B = (S().bosses || {})[kind]; if (!B) return false;
-      show({ kind: "boss", boss: true, kicker: B.kicker, name: B.name, line: B.line, tip: B.tip, art: texUrl("bossart_" + kind, B.art), artType: "boss", edge: B.edge, band: B.band });
+      show({ kind: "boss", boss: true, ms: S().bossMs || 3500, kicker: B.kicker, name: B.name, line: B.line, tip: B.tip, art: texUrl("bossart_" + kind, B.art), artType: "boss", edge: B.edge, band: B.band }); // design system A4: 3.5 s
       return true;
     },
     room(area) {
@@ -308,6 +310,7 @@ window.Spotlight = (() => {
     // (before Nov 4 they defaulted to tips, so the FIVE O'CLOCK card could be dropped after two tips).
     custom(c) { show(Object.assign({ kind: "event", art: c.hero ? heroArt(c.hero) : null, artType: "hero", edge: "#D9A441", band: "#303750", ms: 6500 }, c)); return true; },
     hide, texUrl, isShowing: () => !!showing,
+    bossUp: () => !!(showing && showing.kind === "boss") || queue.some(c => c.kind === "boss"),
     waitingTier: () => { const now = performance.now(); return queue.filter(c => !c.notBefore || c.notBefore <= now).reduce((t, c) => Math.min(t, TIER[c.kind] || 3), 9); }, reset: () => { queue = []; hide(); }, newRun: () => { queue = []; hide(); lastHiddenAt = -1e9; run = { lounge: false, lastRoomAt: -1e9 }; }, resetSeen: () => { seen = {}; try { localStorage.removeItem("ms-spotlight-seen-v1"); } catch (e) {} }
   };
 })();
