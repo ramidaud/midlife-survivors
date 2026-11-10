@@ -2024,3 +2024,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Codex delivered the v2 kit locally: six bigger houses, your townhouse, wide streets with parked cars, seven connected backyards, both measured floors, the desk. Not in the game yet.
 - Rami sent 17 photos of his home. The repo is public, so photos live only in `private/home-photos/` on his Mac (gitignored), never in git. The photo with family asleep was left out.
 - Next: an interior revision from the photos (desk is downstairs in the dining nook; upstairs neon room), then wiring v2 into the game.
+- 9:13 AM: the upstairs neon room is Abe's room (noted in the interior brief).
