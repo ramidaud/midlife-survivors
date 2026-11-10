@@ -2061,3 +2061,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The center flash is now the headline plate: a solid navy plate right under the HUD, so it reads on any floor and stays off the hero's space.
 - Three kinds, each with its own edge and mark: danger (red !), to-do (cream checkbox), reward (orange star). To-dos and Overtime beats use the new to-do kind.
 - On phones the minimap and chips step aside while a headline is up. First step built only from the new tokens.
+
+## 2026-11-10 (4:35 PM): V2.26.4, design system step A4
+- Boss arrival cards: 3.5 seconds, no floor dim, no red flash or letterbox bars. You can see the first attack being drawn while the card is up.
+- Phones get the compact band (name + dodge tip), no speech bubble.
+- The boss's first-attack notice is skipped while its card is up. Tested all 10 bosses on a phone: card gone by about 3.9 s, before the second attack.

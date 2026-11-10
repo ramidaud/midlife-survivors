@@ -29,7 +29,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration A1 (V2.26.1): tokens file, minimap and chips placed from the HUD's real bottom, hidden under menus, new "One look" in CLAUDE.md
 - [x] Migration A2 (V2.26.2): one message router; center flashes, Spotlight cards and the catch card take turns by importance
 - [x] Migration A3 (V2.26.3): headline plate under the HUD with a solid backing; minimap steps aside on phones
-- [ ] Next: A4, boss arrival (3.5 s card, compact on phones, no floor dim, first-attack banner skipped)
+- [x] Migration A4 (V2.26.4): boss cards 3.5 s, no floor dim, compact on phones, first-attack notice skipped while the card is up
+- [ ] Next: A5, one status row (one objective chip + one status chip)
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)

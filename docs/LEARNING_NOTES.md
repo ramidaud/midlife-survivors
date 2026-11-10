@@ -752,3 +752,6 @@ A queue is a line, like at the deli counter. Before, every notice in the game ju
 
 ## Shape and color together (Nov 10, design system A3)
 The headline plate says what kind of message it is three ways at once: the edge color, a little mark (!, a checkbox, a star) and the label. That's on purpose. About 1 in 12 men can't easily tell red from green, and in the middle of a fight nobody reads carefully anyway. A shape you can recognize from the corner of your eye works for everyone. It's the same reason a stop sign is an octagon and not just red.
+
+## Never cover the danger (Nov 10, design system A4)
+A boss intro used to darken the floor for six seconds, right when the boss was drawing its first attack. A dramatic entrance that hides the danger is a trap, not a moment. The rule now is that the floor is sacred: anything with words goes in the plate at the top or the band at the bottom, and the space around the hero stays bright. The drama comes from the band, the name dropping in and the portrait, not from dimming the screen.
