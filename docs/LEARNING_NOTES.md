@@ -740,3 +740,6 @@ A rendered sprite height and a floor-plan unit are different measurements. Keep 
 ## 2026-11-10: Photo-based home interior (Codex)
 
 Recognizable room art comes from the combination of specific objects and their relationships: the racing rig between sofas and TV, the desk beside the dining window, and the twin bassinet next to the bed. Geometry can stay fixed while modular furniture changes the identity. A public review should show derived game art without loading its private reference photographs.
+
+## Switching a whole map from data (Nov 10, Maple Hollow v2)
+The new neighborhood didn't replace the old code. It's a block of numbers in `src/data/maple-hollow.js` (lot width, where each row of houses and streets starts) with an on/off switch. When it's on, those numbers overwrite the old ones before anything is built, and every system that asks "where is the front door?" or "where is the driveway?" gets the new answer for free. Walls you can't see are just invisible rectangles with a solid body, laid along fences and house fronts, with gaps left where the gates are. Flip the switch off and the old town comes back, which makes a big change much less scary.

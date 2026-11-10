@@ -36,6 +36,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Maple Hollow boss lineup (V2.21.2): HOA 48, Mortgage 52, Holiday Party 56, V8 60
 - [x] Maple Hollow step 5a: Fifth-Grade Math Homework boss at 45 (V2.22.0)
 - [x] Maple Hollow step 5b: the garage, and the V8 bursting out of it at 60 (V2.23.0)
+- [x] Maple Hollow v2 step 1: the outside at twice the scale, side paths, connected backyards, your real house (V2.26.0)
+- [ ] Maple Hollow v2 step 2: the two-floor inside (your desk downstairs, Abe's room upstairs, stairs)
+- [ ] Maple Hollow v2 step 3: one thing to do in each backyard, the desk's Ship It buff, Grok's spawn rules
 - [ ] Later (Rami): make sure the office doesn't feel light on bosses
 - [x] Art saved for later builds: Reunion cast, Maple Hollow kit + 6 houses + 4 enemies, retro skins for all 3 heroes, Overtime UI kit
 - [x] Rami decided: Lounge cosmetics are bought in the Lounge, this run only (V2.17.3, Polygon Upgrade)

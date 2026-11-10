@@ -700,3 +700,9 @@ Maple Hollow v2 art contract:416px lots,832x512 streets,64px side paths and yard
 ## 2026-11-10: Photo-based home interior (Codex)
 
 Home interior identity corrected from Rami’s photo brief: work desk in downstairs dining/window nook; upstairs front room is Abe’s music/cars/games bedroom. Living room has cream L sofas, sim rig, baby swings and mirrored fireplace. Master includes crib and twin bassinet. Private photos are reference-only, never public assets.
+
+### Maple Hollow v2 outside (built Nov 10, V2.26.0)
+- Three street plates wide (2,496 px), two rows of three lots. Each lot: house front, a 64 px side path, a fenced backyard behind with a gate in each shared fence.
+- North row: the top hedge is solid. South row: steps in the hedge lead up to the street behind.
+- Your house sits in the middle of the north row; front door left, garage right. The Lemonade Stand is one house over to the west.
+- The old v1 layout stays in the code behind a data switch (`MAPLE_HOLLOW.v2.on`).

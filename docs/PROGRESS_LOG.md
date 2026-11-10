@@ -2030,3 +2030,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Codex redrew both floors from Rami's photos (desk downstairs, Abe's neon room upstairs, galley kitchen, sim rig, bassinets). Photos stayed private; only pixel-art props went into assets.
 - Grok's attention budget is in: about 110 messages + 31 pausing menus per office run, worst at 44.5 and 49.5; proposes 1 headline + 1 ticker, quiet windows around telegraphs, merges and holds. Seven decisions for Rami.
 - All three helper replies (Gemini voice + UI references, Grok attention budget) are in, so the Fable UI/UX audit can start.
+
+## 2026-11-10 (10:40 AM): V2.26.0, Maple Hollow v2 outside
+- The neighborhood is rebuilt at twice the scale from Codex's v2 art: six bigger houses, your real townhouse, a wide street with parked cars.
+- Each house has a side path to its backyard, and the yards connect through gates; hedges keep you from walking off the top of the map.
+- The key hunt and garage use your new front door and driveway. The Lemonade Stand moved one house over (it sat on your driveway and opened its menu every time you walked out).
+- Next: the two-floor inside from the v3 art (desk downstairs, Abe's room upstairs).
