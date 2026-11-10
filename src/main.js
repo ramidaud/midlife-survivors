@@ -665,6 +665,7 @@ function create() {
         if ((code === "KeyP" || code === (c.keyPause || "Space")) && paused && !window.controlsModalOpen) {
           e.preventDefault(); unlockAudio(); togglePause(sc); return;
         }
+        if (levelUpOpen && window.levelMenu && code === "KeyR" && window.levelMenu.reroll) { e.preventDefault(); window.levelMenu.reroll(); return; } // B1
         if (levelUpOpen && window.levelMenu && (e.key === "1" || e.key === "2" || e.key === "3")) {
           e.preventDefault();
           unlockAudio();
@@ -1564,7 +1565,9 @@ function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
     count: choices.length,
     highlight: idx => uiCtrl && uiCtrl.highlight(idx),
     close: () => uiCtrl && uiCtrl.close(),
-    pickSelected: () => pick(choices[levelMenu.sel])
+    pickSelected: () => pick(choices[levelMenu.sel]),
+    reroll: () => !!(uiCtrl && uiCtrl.reroll && uiCtrl.reroll()),  // design system B1: controller X, keyboard R
+    skip: () => !!(uiCtrl && uiCtrl.skip && uiCtrl.skip())         // controller Y
   };
   window.levelMenu = levelMenu;
   levelMenu.highlight(0);
@@ -2449,7 +2452,11 @@ function update(time, delta) {
   readPad(this);
   // Y button (Nov 5 controller pass): it used to switch the parked 3D views, which just redrew the menu and threw the
   // cursor somewhere (Rami: "it jumps around"). Now on the title screen Y is a shortcut to the 401(k) Shop.
-  if (padJust("yBtn")) {
+  // Design system B1: on the level-up menu, X rerolls and Y skips (elsewhere X is mute and Y a screenshot)
+  const lvPad = levelUpOpen && window.levelMenu && !window.controlsModalOpen;
+  if (lvPad && padJust("xBtn") && window.levelMenu.reroll) { window.levelMenu.reroll(); }
+  else if (lvPad && padJust("yBtn") && window.levelMenu.skip) { window.levelMenu.skip(); }
+  else if (padJust("yBtn")) {
     // Nov 9 (Rami's playtest: "keybind a screenshot button on the controller"): Y during a run saves a screenshot.
     const inRun = !titleOpen && !gameOver && !paused && !levelUpOpen && !window.controlsModalOpen;
     if (inRun && !window.ENABLE_3D_VIEWS && window.takeScreenshot) window.takeScreenshot(this);
@@ -2460,7 +2467,7 @@ function update(time, delta) {
       window.titleView = window.titleView === "shop" ? "main" : "shop"; sfx("pick"); renderTitleModal(this);
     }
   }
-  if (padJust("xBtn")) {
+  if (!lvPad && padJust("xBtn")) {
     toggleMute();
     if (typeof syncMuteButtons === "function") syncMuteButtons();
     sfx("pick");

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.8",
-  displayVersion: "V. 2.26.8",
+  version: "2.26.9",
+  displayVersion: "V. 2.26.9",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 336,
+  build: 337,
   changelog: [
+    {
+      ver: "V. 2.26.9", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "One orange button. You know what it does.",
+      highlights: [
+        "The level-up menu has a proper bottom bar: SKIP and REROLL on the left, one orange PICK button on the right that names the card you're on.",
+        "On a phone, tap a card, then tap PICK (or the card again). On a controller: A picks, X rerolls, Y skips.",
+        "Buttons say what they do in plain words; the joke moved to the line underneath."
+      ]
+    },
     {
       ver: "V. 2.26.8", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your age is the big number now. As it should be.",

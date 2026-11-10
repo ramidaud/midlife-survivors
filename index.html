@@ -67,6 +67,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"><!-- Nov 4: Bungee, Chakra Petch, Cinzel and Press Start 2P were only fallbacks or for the parked 3D themes (Fable review) -->
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=1">
 <link rel="stylesheet" href="assets/ui/ms-tokens.css?v=1">
+<link rel="stylesheet" href="assets/ui/ms-parts.css?v=1">
 <link rel="stylesheet" href="assets/ui/ms-nav.css?v=7">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
@@ -1277,6 +1278,12 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
     .lt-strip .lt-text { font-size: var(--ms-body-s, 14px); -webkit-line-clamp: 2; }
     .lt-strip .lt-body { padding: 6px 10px; }
   }
+  /* Level-up as a Sheet (design system B1): the cards are the tap targets, PICK is the one orange button */
+  #ui-layer .levelup-box .perk-key { background: transparent !important; color: var(--ms-text-quiet) !important; border: 1px solid var(--ms-line);
+    font: var(--ms-label-s, 11px)/1 var(--ms-font-label) !important; padding: 3px 8px !important; border-radius: var(--ms-radius-s, 2px); }
+  #ui-layer .levelup-box .perk-card.armed .perk-key { background: var(--ms-paper) !important; color: var(--ms-surface) !important; border-color: var(--ms-paper); }
+  #ui-layer .levelup-box .modal-sub { font: 600 var(--ms-body-s, 14px)/1.35 var(--ms-font-read); color: var(--ms-text-quiet); }
+  #ui-layer .levelup-box #lv-kicker { margin: 0 auto var(--ms-space-2, 8px); }
   /* ===== Poster title screen (Nov 3): the key art is the hero, the menu lives inside the picture ===== */
   #title-modal[data-view="main"] { align-items: stretch; justify-content: stretch; padding: 0; overflow-y: auto; }
   .title-poster { position: relative; width: 100%; min-height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 10px;
@@ -1750,7 +1757,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 336; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 337; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

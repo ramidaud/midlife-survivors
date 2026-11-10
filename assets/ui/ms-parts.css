@@ -1,0 +1,44 @@
+/* Midlife Survivors parts, v1 (design system B1, Nov 10, 2026). Spec: docs/design/design-system-v1.md, section 5.
+   Built only from assets/ui/ms-tokens.css. B1 adds the Button and the Sheet's header, action bar and legend;
+   later steps add the Row, Card and the rest. */
+
+/* 5.1 Button: one primary (coffee fill) per screen; secondary is an outline; quiet is text only. */
+.ms-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: var(--ms-touch, 44px); padding: var(--ms-space-2, 8px) var(--ms-space-4, 16px); box-sizing: border-box;
+  border-radius: var(--ms-radius-m, 4px); border: var(--ms-border-w, 2px) solid var(--ms-border); background: transparent;
+  color: var(--ms-text); cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--ms-fast, 120ms) var(--ms-ease), box-shadow var(--ms-fast, 120ms) var(--ms-ease), background var(--ms-fast, 120ms); }
+.ms-btn .ms-btn-label { font: var(--ms-label-m, 13px)/1.1 var(--ms-font-label); letter-spacing: var(--ms-label-track); text-transform: uppercase; }
+.ms-btn .ms-btn-sub { font: 600 var(--ms-body-s, 14px)/1.2 var(--ms-font-read); color: var(--ms-text-quiet); }
+.ms-btn.primary { min-height: var(--ms-touch-primary, 48px); background: var(--ms-accent); border-color: var(--ms-accent); color: var(--ms-surface); box-shadow: var(--ms-shadow-button); }
+.ms-btn.primary .ms-btn-sub { color: var(--ms-surface); opacity: .8; }
+.ms-btn.quiet { border-color: transparent; }
+.ms-btn.quiet:focus-visible .ms-btn-label, .ms-btn.quiet.nav-focused .ms-btn-label { text-decoration: underline; }
+@media (hover: hover) { .ms-btn:hover { background: rgba(255, 240, 207, .06); } .ms-btn.primary:hover { background: #F3A766; } }
+.ms-btn:active, .ms-btn.pressed { transform: translateY(2px); box-shadow: none; }
+.ms-btn[disabled], .ms-btn.disabled { opacity: .4; cursor: default; transform: none; }
+/* the one focus ring: 3 px cream outside a 2 px navy gap, so it shows on any color */
+.ms-btn:focus-visible, #ui-layer .ms-btn.ms-btn.nav-focused { outline: 3px solid var(--ms-paper) !important; outline-offset: 2px !important;
+  box-shadow: 0 0 0 2px var(--ms-surface) !important; transform: none !important; border-color: var(--ms-border) !important; }
+#ui-layer .ms-btn.primary.ms-btn.nav-focused { border-color: var(--ms-accent) !important; }
+
+/* 5.4 Sheet: header (memo strip + title + one help line), body, action bar pinned at the bottom, legend */
+.ms-sheet-strip { display: inline-flex; align-items: center; gap: var(--ms-space-2, 8px); align-self: flex-start;
+  background: var(--ms-paper); color: var(--ms-surface); border-left: 4px solid var(--ms-accent); border-radius: var(--ms-radius-s, 2px);
+  padding: 4px 10px; font: var(--ms-label-s, 11px)/1.2 var(--ms-font-label); letter-spacing: var(--ms-label-track); text-transform: uppercase; }
+.ms-sheet-strip b { font: 700 var(--ms-body-s, 14px)/1.2 var(--ms-font-read); text-transform: none; letter-spacing: 0; }
+.ms-sheet-actions { position: sticky; bottom: 0; z-index: 2; display: flex; align-items: stretch; gap: var(--ms-space-2, 8px);
+  margin-top: var(--ms-space-4, 16px); padding: var(--ms-space-3, 12px) 0 calc(var(--ms-space-1, 4px) + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(rgba(23, 28, 53, 0), var(--ms-surface) 24%); }
+.ms-sheet-actions .ms-left { display: flex; gap: var(--ms-space-2, 8px); flex: 1 1 auto; min-width: 0; }
+.ms-sheet-actions .ms-left .ms-btn { flex: 1 1 0; min-width: 0; }
+.ms-sheet-actions .ms-btn.primary { flex: 0 0 auto; min-width: 128px; }
+.ms-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin-top: var(--ms-space-2, 8px);
+  font: var(--ms-label-s, 11px)/1.4 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-text-quiet); }
+.ms-legend kbd { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 4px; margin-right: 4px;
+  border: 1px solid var(--ms-line); border-radius: var(--ms-radius-s, 2px); font: inherit; color: var(--ms-text); }
+@media (max-width: 599px) {
+  .ms-sheet-actions { flex-wrap: wrap; }
+  .ms-sheet-actions .ms-btn.primary { flex: 1 1 100%; order: -1; }   /* phone: PICK full width, right under the thumb */
+}
+@media (prefers-reduced-motion: reduce) { .ms-btn { transition: none; } .ms-btn:active, .ms-btn.pressed { transform: none; } }

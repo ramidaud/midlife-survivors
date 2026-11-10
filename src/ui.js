@@ -282,6 +282,8 @@ window.menuNav = {
         const isMatch = c === el;
         c.classList.toggle("selected", isMatch);
         if (isMatch && window.levelMenu) window.levelMenu.sel = idx;
+        if (isMatch) { const pk = document.getElementById("lv-pick"), nm = c.querySelector(".perk-name"); // B1: PICK names the card you're on
+          if (pk && nm && !pk.disabled) pk.querySelector(".ms-btn-sub").textContent = nm.textContent.replace(/^Unlock:\s*/, "").trim(); }
       });
     }
     if (!noScroll) try { el.scrollIntoView({ block: "nearest", inline: "nearest" }); } catch (e) {} // mouse hover never scrolls (Nov 4)
@@ -2188,7 +2190,9 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
   const grid = document.getElementById("lv-cards");
   if (!modal || !grid) return;
 
-  kicker.textContent = customTitle ? "EXECUTIVE BONUS // TAX-FREE REWARD" : `HR BENEFITS DEPT // PROMOTION LEVEL ${level - pendingLevels + 1}`;
+  // B1 (design system): the Sheet header is a memo strip, one naming pattern: DEPARTMENT · RE: Subject
+  kicker.className = "modal-kicker ms-sheet-strip";
+  kicker.innerHTML = customTitle ? "PAYROLL · RE: <b>Performance bonus</b>" : `HR · RE: <b>Promotion level ${level - pendingLevels + 1}</b>`;
   title.textContent = customTitle || "SELECT YOUR MIDLIFE PERK";
   grid.innerHTML = "";
   ensureLoadoutCss();
@@ -2225,7 +2229,7 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
       <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
       <div class="perk-name">${heroWord(up.name)}</div>
       <div class="perk-desc">${evoNext ? `<span class="perk-evo${evoNext.soon ? " soon" : ""}">${evoNext.soon ? "1 MORE PICK TO EVOLVE" : "✨ UNLOCKS AN EVOLUTION"}<b>${heroWord(evoNext.name)}</b></span>` : ""}${heroWord(up.text)}${!evoNext && evoPairNote(up) ? `<span class="perk-pair">${heroWord(evoPairNote(up))}</span>` : ""}</div>
-      <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `PRESS [${i + 1}] / SPACE`}</div>
+      <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `${i + 1}`}</div>
     `;
     bindNavItem(card, 0, e => {
       // Ignore taps in the first moment after the menu appears, so a finger that was steering doesn't grab a perk.
@@ -2235,7 +2239,9 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
       if (pt && pt !== "mouse" && armed !== card) {
         cardEls.forEach(c => { c.classList.remove("armed"); c.querySelector(".perk-key").textContent = "TAP TO SELECT"; });
         armed = card; card.classList.add("armed");
-        card.querySelector(".perk-key").textContent = "TAP AGAIN TO PICK";
+        card.querySelector(".perk-key").textContent = "TAP AGAIN OR PICK";
+        window.menuNav.focus(card, false, true);
+        if (pickEl) { pickEl.disabled = false; pickEl.classList.remove("disabled"); pickEl.querySelector(".ms-btn-sub").textContent = heroWord(up.name).replace(/<[^>]+>/g, "").replace(/^Unlock:\s*/, ""); }
         sfx("move");
         return;
       }
@@ -2246,36 +2252,43 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
     return card;
   });
 
-  // Skip and Sleep On It share one row above the cards.
-  let actions = document.getElementById("lv-actions");
-  if (actions) actions.remove();
-  actions = document.createElement("div"); actions.id = "lv-actions";
-  actions.style.cssText = "display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:-4px auto 16px";
-  grid.parentNode.insertBefore(actions, grid);
-  // Skip button under the cards (only when a choice would add something new to your loadout)
-  let skipEl = document.getElementById("lv-skip");
-  if (skipEl) skipEl.remove();
+  // Design system B1: the Sheet's action bar, pinned at the bottom. Secondaries on the left (SKIP, REROLL),
+  // the one primary on the right (PICK = the selected card). Plain verbs; the joke goes in the line underneath.
+  ["lv-actions", "lv-skip", "lv-reroll", "lv-legend"].forEach(id => { const o = document.getElementById(id); if (o) o.remove(); });
+  const actions = document.createElement("div"); actions.id = "lv-actions"; actions.className = "ms-sheet-actions";
+  actions.innerHTML = `<div class="ms-left"></div>`;
+  grid.parentNode.insertBefore(actions, grid.nextSibling);
+  const left = actions.querySelector(".ms-left");
+  const btn = (id, cls, label, sub) => { const b = document.createElement("button"); b.type = "button"; b.id = id; b.className = "ms-btn " + cls;
+    b.innerHTML = `<span class="ms-btn-label">${label}</span><span class="ms-btn-sub">${sub}</span>`; return b; };
+  const done = () => { modal.classList.add("hidden"); actions.remove(); const lg = document.getElementById("lv-legend"); if (lg) lg.remove(); };
+  // SKIP (only when a choice would add something new to your loadout)
   const anyNew = window.LOADOUT && choices.some(up => { const k = LOADOUT.kindOf(up); return (k === "weapon" && up.name.startsWith("Unlock:")) || (k === "passive" && !((stats.perkRanks || {})[up.id] > 0)); });
+  let skipEl = null, rerollEl = null, pickEl = null;
+  const doSkip = () => { if (!skipEl || performance.now() - openedAt < 450) return false; done(); onPick(skip); return true; };
+  const doReroll = () => { if (!rerollEl || performance.now() - openedAt < 450) return false; actions.remove(); reroll.go(); return true; };
   if (skip && anyNew) {
-    skipEl = document.createElement("button"); skipEl.type = "button"; skipEl.id = "lv-skip"; skipEl.className = "lv-skip";
-    skipEl.innerHTML = `<b>SKIP</b> Keep my loadout · +2 HP`;
-    if (!document.getElementById("lv-skip-css")) { const st = document.createElement("style"); st.id = "lv-skip-css";
-      st.textContent = `.lv-skip{display:block;margin:-4px auto 16px;padding:7px 14px;min-height:38px;border-radius:5px;border:2px dashed #526078;background:rgba(23,28,53,.7);color:#B8C0D4;font:14px 'Atkinson Hyperlegible',sans-serif;cursor:pointer}.lv-skip b{font:11px Silkscreen,monospace;letter-spacing:.06em;color:#F2D7A1;margin-right:6px}.lv-skip:hover,.lv-skip.nav-focused{border-style:solid;border-color:#F2D7A1;color:#FFF0CF}`;
-      document.head.appendChild(st); }
-    skipEl.style.margin = "0"; actions.appendChild(skipEl); // above the cards, so it never scrolls off a phone screen
-    bindNavItem(skipEl, 1, () => { if (performance.now() - openedAt < 450) return; modal.classList.add("hidden"); actions.remove(); onPick(skip); });
+    skipEl = btn("lv-skip", "secondary", "SKIP", "Keep my loadout. Heal 2 HP.");
+    left.appendChild(skipEl); bindNavItem(skipEl, 1, doSkip);
   }
-  // Sleep On It (Nov 5): reroll all three cards. Charges come from the 401(k) shop, unlocked at age 55.
-  let rerollEl = document.getElementById("lv-reroll");
-  if (rerollEl) rerollEl.remove();
+  // REROLL (Sleep On It, Nov 5): new cards. Charges come from the 401(k) shop, unlocked at age 55.
   if (reroll && reroll.left > 0) {
-    rerollEl = document.createElement("button"); rerollEl.type = "button"; rerollEl.id = "lv-reroll"; rerollEl.className = "lv-skip lv-reroll";
-    rerollEl.innerHTML = `<b>💤 SLEEP ON IT</b> New cards · ${reroll.left} left`;
-    if (!document.getElementById("lv-reroll-css")) { const st = document.createElement("style"); st.id = "lv-reroll-css";
-      st.textContent = `.lv-reroll{border-color:#3E7775}.lv-reroll b{color:#83A89A}`;
-      document.head.appendChild(st); }
-    rerollEl.style.margin = "0"; actions.appendChild(rerollEl);
-    bindNavItem(rerollEl, 1, () => { if (performance.now() - openedAt < 450) return; actions.remove(); reroll.go(); });
+    rerollEl = btn("lv-reroll", "secondary", "REROLL", `Sleep on it. ${reroll.left} left.`);
+    left.appendChild(rerollEl); bindNavItem(rerollEl, 1, doReroll);
+  }
+  // PICK: confirms the selected card. On touch it waits until you've tapped one.
+  const selected = () => armed || cardEls.find(c => c.classList.contains("selected")) || (isTouchUI ? null : cardEls[0]);
+  const doPick = () => { const c = selected(); if (!c || performance.now() - openedAt < 450) return false; done(); onPick(choices[cardEls.indexOf(c)]); return true; };
+  pickEl = btn("lv-pick", "primary", "PICK", isTouchUI ? "Tap a card first" : "The selected card");
+  if (isTouchUI) { pickEl.disabled = true; pickEl.classList.add("disabled"); }
+  actions.appendChild(pickEl); bindNavItem(pickEl, 1, doPick);
+  // Footer legend: only for a controller or a keyboard
+  const padOn = !!(navigator.getGamepads && Array.from(navigator.getGamepads() || []).some(g => g && g.connected));
+  if (padOn || !isTouchUI) {
+    const lg = document.createElement("div"); lg.id = "lv-legend"; lg.className = "ms-legend";
+    lg.innerHTML = padOn ? `<span><kbd>A</kbd>Pick</span>${rerollEl ? "<span><kbd>X</kbd>Reroll</span>" : ""}${skipEl ? "<span><kbd>Y</kbd>Skip</span>" : ""}`
+      : `<span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd>Pick</span><span><kbd>Enter</kbd>Confirm</span>${rerollEl ? "<span><kbd>R</kbd>Reroll</span>" : ""}`;
+    actions.parentNode.insertBefore(lg, actions.nextSibling);
   }
 
   function highlightCard(idx) {
@@ -2285,13 +2298,15 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
 
   // Short, device-appropriate hint instead of listing every input method.
   const sub = modal.querySelector(".modal-sub");
-  if (sub) sub.innerHTML = isTouchUI ? "Tap a card, then tap again to pick it." : "Pick with <b>1 2 3</b>, arrows + <b>Space</b>, the mouse, or a controller.";
+  if (sub) sub.innerHTML = isTouchUI ? "Tap a card, then tap PICK." : "Choose one card."; // B1: the keys live in the legend
   modal.classList.remove("hidden");
   window.menuNav.refresh();
 
   return {
     highlight: highlightCard,
-    close: () => modal.classList.add("hidden")
+    close: () => modal.classList.add("hidden"),
+    reroll: doReroll,   // controller X, keyboard R
+    skip: doSkip        // controller Y
   };
 }
 
