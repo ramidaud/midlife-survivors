@@ -63,7 +63,7 @@ window.Errands = (() => {
     usedIds.push(e.id);
     active = { e, until: runElapsedMs + (S().timeSec || 45) * 1000, objs: place(scene, e) };
     const where = e.place || "the marker";
-    chip.className = ""; chip.innerHTML = `<b>☐ TO-DO</b><span>${e.text}<i> Go to ${where}.</i></span><span class="t"></span>`;
+    chip.className = ""; chip.innerHTML = `<b>☐ TO-DO</b><span>Go to ${where}</span><span class="t"></span>`; // design system A5: the chip says where; the full sentence is in the ticker
     // Nov 8 (Rami: "it wasn't clear what it wanted me to do"): say where, say how, and that it's optional
     if (window.showLowerThird) showLowerThird("promo", "TO-DO", `${e.text} Walk to ${where} (follow the orange arrow) within ${S().timeSec || 45} seconds for a bonus.`, 6500);
     if (window.flashBanner) flashBanner("TO-DO", "NEW ERRAND", "objective");

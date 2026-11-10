@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.26.4",
-  displayVersion: "V. 2.26.4",
+  version: "2.26.5",
+  displayVersion: "V. 2.26.5",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 332,
+  build: 333,
   changelog: [
+    {
+      ver: "V. 2.26.5", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The little reminders got their own shelf.",
+      highlights: [
+        "To-dos, modifiers, Workload and buffs now live in one row under the HUD: at most one thing to do and one thing that's on you. No more chips stacked on top of each other.",
+        "The to-do chip just says where to go and how long you have. The full sentence still shows once at the bottom.",
+        "On phones the row sits next to the minimap instead of under it, so your hero has the middle of the screen to themselves."
+      ]
+    },
     {
       ver: "V. 2.26.4", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Bosses still make an entrance. They just don't turn the lights off anymore.",
