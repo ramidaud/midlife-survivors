@@ -1968,3 +1968,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Toy-brick floor (src/home-hazards.js, MAPLE_HOLLOW.lego): 5 patches in the kid's room and 5 on the lawns; 1 hit plus a 0.7 s limp, 3 s cooldown per patch. Easter-egg achievement "Barefoot Parenting".
 - Lemonade Stand: the Lounge at home (same shop screen), on the sidewalk by your house, run by your kid. Opens at the start of a home run (2 min) and at 45/50/55/60. Menu in INTERNS.lounge.stand (lemonades, cookie, bracelet, quiet-time coupon, Polygon Upgrade, Emergency Contact).
 - Tested on laptop: stand opens and the shop works, a brick hit lands, all four enemies spawn with art.
+
+## 2026-11-09 (9 PM): V2.21.1, Kevin's 1%er run (side quest)
+- Kevin (Discord, V2.17) idled a Full Life run to age 213: he never walked into Father Time, and Sticky Notes plus the new "any hit near a ping pops it" rule made him untouchable.
+- The finish line (punch clock / Father Time) now waits 1 year, then walks to you (70 px/s + 90 per extra year, max 320) and arrives at 4 years. Numbers in FINISH_LINE (src/data/bosses.js). Tested: waits, walks, run ends.
+- Pings: removed the "any hit within 40 px pops a ping" rule; only coffee splashes, Dad Joke and "No." pop them now.
+- GitHub Pages deploy of V2.21.0 timed out twice on GitHub's side (syncing files); retried with this push.

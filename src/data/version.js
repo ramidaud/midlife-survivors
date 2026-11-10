@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.21.0",
-  displayVersion: "V. 2.21.0",
+  version: "2.21.1",
+  displayVersion: "V. 2.21.1",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 316,
+  build: 317,
   changelog: [
+    {
+      ver: "V. 2.21.1", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "Father Time doesn't wait forever.",
+      highlights: [
+        "Fixed (thanks, Kevin, who idled a run to age 213): the punch clock at 65 and Father Time at 100 wait one year for you. After that they walk over to you, faster each year, and after four years they simply arrive.",
+        "Group Chat pings get through again. Coffee, Dad Jokes and \"No.\" still knock them out of the air, but area weapons like Sticky Notes no longer act as a force field around you."
+      ]
+    },
     {
       ver: "V. 2.21.0", date: "Nov 9, 2026", title: "Version Two",
       teaser: "The neighborhood fights back.",

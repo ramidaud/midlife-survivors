@@ -5,6 +5,10 @@
 // The Gold Watch and the retirement clock are tied to the end of the run, so they never wait.
 window.BOSS_QUEUE = { maxWaitYears: 3, breatherMs: 8000 }; // breather: after a boss falls, the next one waits 8 s so you can open the chest
 
+// The end of a run (the punch clock at 65, Father Time at 100) waits for you to walk into it. Nov 9 (Kevin idled a run
+// to age 213): after waitYears it walks to you, speeding up each year, and after forceYears it just arrives.
+window.FINISH_LINE = { waitYears: 1, walkSpeed: 70, speedPerYear: 90, maxSpeed: 320, forceYears: 4,
+  line: "You kept him waiting. He's coming to you." };
 window.BOSS_ATTACK_TUNING = {
   // Charging into a wall (Nov 4): bounce back, wobble, then chase again.
   wallBonk: { bounceSpeed: 260, bounceMs: 320, dizzyMs: 850, crackMs: 3500, words: ["BONK!", "OOF!", "THUD!", "WHO PUT A WALL HERE?", "LOAD-BEARING!", "NOT IN THE BUDGET"] },

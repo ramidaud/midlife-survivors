@@ -1775,7 +1775,6 @@ function damageBill(bill, amount) {
   if (!bill.active) return;
   if (bill.ghost) return; // faded 3 AM Thoughts ignore auras too
   const sc = bill.scene;
-  if (pings && pings.countActive()) popPingsNear(bill.x, bill.y, 40); // a hit right next to a ping knocks it down too
   if (runElapsedMs < buffs.damageUntil) amount = Math.ceil(amount * buffs.damageMult); // Focus Block
   if (stats.seniorityDmg > 1) amount = Math.ceil(amount * stats.seniorityDmg); // maxed-chest Seniority perks
   let crit = false;
@@ -2980,8 +2979,17 @@ function update(time, delta) {
     }
 
     // Default behavior (Bills, Late Fees, Snacks, Twinge lunge, Elites, Bosses): head for you, walking around furniture.
-    if (bill.clockOut) bill.setVelocity(0, 0); // the punch clock waits for you
-    else chase(bill, bill.speed || ENEMIES.bill.speed);
+    if (bill.clockOut) {
+      // Nov 9 (Kevin left a run idling to age 213): the finish line waits a year, then comes to you, faster each year,
+      // and after FINISH_LINE.forceYears it simply arrives. No more endless runs past 65 or 100.
+      const F = window.FINISH_LINE || {}, late = currentAge - modeEndAge() - (F.waitYears ?? 1);
+      if (late <= 0) bill.setVelocity(0, 0); // the punch clock waits for you
+      else {
+        if (!bill.comingSaid) { bill.comingSaid = true; if (window.showLowerThird) showLowerThird("alert", modeCfg().endBossLabel ? "CLOCK OUT" : "FATHER TIME", F.line || "You kept him waiting. He's coming to you.", 4000); if (bill.tag) bill.tag.setText(modeCfg().endBossLabel ? "COMING TO YOU ▼" : "HERE HE COMES ▼"); }
+        if (currentAge - modeEndAge() >= (F.forceYears || 4)) bill.body.reset(player.x, player.y);
+        else chase(bill, Math.min(F.maxSpeed || 320, (F.walkSpeed || 70) + late * (F.speedPerYear || 90)));
+      }
+    } else chase(bill, bill.speed || ENEMIES.bill.speed);
     bill.setFlipX(player.x < bill.x);
     const sz = (ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24;
     bill.tag.setPosition(bill.x, bill.clockOut ? bill.y - 100 : bill.y - sz / 2 - 6);
