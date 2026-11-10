@@ -695,3 +695,8 @@ Maple Hollow ground v2 art contract:832x320 street bands,512px lawns,64x256 driv
 ## 2026-11-10: Maple Hollow v2 art (Codex)
 
 Maple Hollow v2 art contract:416px lots,832x512 streets,64px side paths and yard gate gaps. Printed home dimensions24px/ft,16px walls; existing hero56px projection retained. Single10′11″ ×20′ garage confirmed by Rami. Measured floor canvases416x1392 and416x928; see data maps for inferred undimensioned areas.
+
+
+## 2026-11-10: Photo-based home interior (Codex)
+
+Home interior identity corrected from Rami’s photo brief: work desk in downstairs dining/window nook; upstairs front room is Abe’s music/cars/games bedroom. Living room has cream L sofas, sim rig, baby swings and mirrored fireplace. Master includes crib and twin bassinet. Private photos are reference-only, never public assets.

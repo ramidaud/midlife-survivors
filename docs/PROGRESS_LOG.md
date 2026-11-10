@@ -2025,3 +2025,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami sent 17 photos of his home. The repo is public, so photos live only in `private/home-photos/` on his Mac (gitignored), never in git. The photo with family asleep was left out.
 - Next: an interior revision from the photos (desk is downstairs in the dining nook; upstairs neon room), then wiring v2 into the game.
 - 9:13 AM: the upstairs neon room is Abe's room (noted in the interior brief).
+
+## 2026-11-10 (9:50 AM): interior v3 from photos, attention budget
+- Codex redrew both floors from Rami's photos (desk downstairs, Abe's neon room upstairs, galley kitchen, sim rig, bassinets). Photos stayed private; only pixel-art props went into assets.
+- Grok's attention budget is in: about 110 messages + 31 pausing menus per office run, worst at 44.5 and 49.5; proposes 1 headline + 1 ticker, quiet windows around telegraphs, merges and holds. Seven decisions for Rami.
+- All three helper replies (Gemini voice + UI references, Grok attention budget) are in, so the Fable UI/UX audit can start.
