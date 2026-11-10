@@ -782,3 +782,6 @@ The old shop had a bright orange BUY button on every upgrade. Nine "press me" bu
 
 ## Tab bars (Nov 10, design system B5)
 Most phone apps keep their main places in a bar along the bottom (Instagram, Messages, the App Store), because that's where the thumb already is. A menu at the top of a phone takes a stretch to reach and scrolls sideways when it's too long. The title now does the same on phones: five tabs at the bottom, and the site menu hides while you're there. The tabs press the same buttons the tiles already had, so nothing behaves differently, it's just closer.
+
+## Progressive disclosure (Nov 10, design system B6)
+Show the few things everyone needs first, and tuck the details one tap away. After a run, everyone wants to know "how did I do?" and "go again?", but only some players want the paycheck math and the next goals. So the score, age and RETRY come first, and the pay stub is a drawer you can open. Nothing was removed; it was just put in the order people ask for it.

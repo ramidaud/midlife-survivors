@@ -2116,3 +2116,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Title: PUNCH IN is the only orange fill on phone, iPad and desktop (the nav's current-page button, TO-DO labels, the shift tile and the poll pill stopped being orange).
 - The shift chip under PUNCH IN names your stage: "SHIFT The Office · Midlife 40-65 · Tax 0".
 - Phones: a bottom tab bar (Shop, Scores, Extras, Settings, Devlog) replaces the site's top nav on the title. Settings is no longer below the fold.
+
+## 2026-11-10 (11:00 PM): V2.27.4, design system step B6
+- Game over and retirement are now Moments: a short picture, the headline, then SCORE and AGE big, side by side.
+- RETRY (the one orange button) sits right under them with Shop and Title; POST SCORE is an outline button below.
+- The pay stub (stat pills, paycheck, goals, score breakdown) folds into a drawer. Score, age and RETRY fit without scrolling on phone, iPad and desktop.
