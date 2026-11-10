@@ -17,7 +17,7 @@
   --ms-scrim: rgba(16, 20, 42, .78);
 
   /* 2.2 type: two fonts, ten sizes (phone values x --ms-scale) */
-  --ms-font-label: 'Silkscreen', monospace;
+  --ms-font-label: 'Silkscreen', 'Courier New', monospace;
   --ms-font-read: 'Atkinson Hyperlegible', system-ui, sans-serif;
   --ms-label-track: .06em;
   --ms-scale: 1;

@@ -139,7 +139,7 @@ def make_social_post(root: Path, post: dict) -> str | None:
     d.rectangle([0, 0, SW, 104], fill=CREAM)
     d.rectangle([0, 0, 14, 104], fill=COFFEE)
     num = post["slug"].split("-")[0]
-    d.text((52, 34), f"MEMO {num} · RE:", font=silk(30), fill=TEAL)
+    d.text((52, 34), f"MEMO {num} · RE:", font=silk(30), fill=NAVY)
     tag = "MIDLIFE SURVIVORS DEVLOG"
     d.text((SW - 52 - d.textlength(tag, font=silk(24)), 38), tag, font=silk(24), fill=NAVY)
     # 2. Cover art, 16:9, full width
@@ -184,7 +184,7 @@ def make_slide(root: Path, out: Path, strip_left: str, art, title: str, caption:
     im = Image.new("RGB", (SW, SH), NAVY)
     d = ImageDraw.Draw(im, "RGBA")
     d.rectangle([0, 0, SW, 104], fill=CREAM); d.rectangle([0, 0, 14, 104], fill=COFFEE)
-    d.text((52, 34), strip_left, font=silk(30), fill=TEAL)
+    d.text((52, 34), strip_left, font=silk(30), fill=NAVY)
     tag = "MIDLIFE SURVIVORS DEVLOG"
     d.text((SW - 52 - d.textlength(tag, font=silk(24)), 38), tag, font=silk(24), fill=NAVY)
     art = art.convert("RGB")

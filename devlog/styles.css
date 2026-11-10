@@ -1,28 +1,31 @@
+/* Colors and fonts come from the shared tokens file (design system C1, Nov 10). The names below are the devlog's old
+   nicknames for the same tokens; khaki, skin, donut and lavender are art colors that only the devlog uses. */
+@import url("../assets/ui/ms-tokens.css?v=2");
 /* VT323 (SIL OFL, self-hosted): a pixel font with serifs, used for the big first letter of each memo */
 @font-face { font-family: "VT323"; src: url("fonts/vt323-latin-400.woff2") format("woff2"); font-display: swap; }
 /* Midlife Survivors Devlog mockup — palette from assets/art-direction/STYLE_GUIDE.md */
 :root {
-  --navy: #171C35;
-  --slate: #303750;
-  --muted-blue: #526078;
-  --teal: #3E7775;
-  --sage: #83A89A;
+  --navy: var(--ms-surface, #171C35);
+  --slate: var(--ms-raised, #303750);
+  --muted-blue: var(--ms-line, #526078);
+  --teal: var(--ms-border, #3E7775);
+  --sage: var(--ms-ok, #83A89A);
   --khaki: #D3B78D;
-  --cream: #F2D7A1;
-  --warm-white: #FFF0CF;
+  --cream: var(--ms-paper, #F2D7A1);
+  --warm-white: var(--ms-text, #FFF0CF);
   --russet: #874C3B;
-  --tie: #C45C4B;
-  --orange: #EF9347;
+  --tie: var(--ms-danger, #C45C4B);
+  --orange: var(--ms-accent, #EF9347);
   --skin: #E5A995;
   --donut: #F1B5BF;
   --lavender: #BFA8CF;
-  --fg: #FFF0CF;
-  --muted: #B8C0D4;
-  --line: #303750;
+  --fg: var(--ms-text, #FFF0CF);
+  --muted: var(--ms-text-quiet, #B8C0D4);
+  --line: var(--ms-raised, #303750);
   --surface: #1f2640;
   --surface-2: #262e4d;
-  --display: "Silkscreen", "Courier New", monospace;
-  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --display: var(--ms-font-label, "Silkscreen", "Courier New", monospace);
+  --body: var(--ms-font-read, "Atkinson Hyperlegible", system-ui, sans-serif);
   --radius: 6px;
   --shadow: 0 12px 40px rgba(0,0,0,.45);
 }
@@ -171,7 +174,7 @@ a:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
   transform: rotate(-1.5deg);
 }
 .hero-memo .memo-eyebrow {
-  font-family: var(--display); font-size: 10px; color: var(--teal);
+  font-family: var(--display); font-size: 10px; color: var(--navy);
   text-transform: uppercase; margin-bottom: 6px;
 }
 .hero-memo h1 {
@@ -322,7 +325,7 @@ a:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
   font-size: 14px;
 }
 .memo-strip .re {
-  font-family: var(--display); font-size: 11px; color: var(--teal);
+  font-family: var(--display); font-size: 11px; color: var(--navy);
 }
 .memo-strip strong { font-weight: 700; }
 .post-header h1 {

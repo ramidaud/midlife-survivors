@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.5",
-  displayVersion: "V. 2.27.5",
+  version: "2.27.6",
+  displayVersion: "V. 2.27.6",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 343,
+  build: 344,
   changelog: [
+    {
+      ver: "V. 2.27.6", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The game and the devlog now share one paint can.",
+      highlights: [
+        "The devlog and the top bar read their colors and fonts from the same file as the game, so a color change now happens everywhere at once.",
+        "The little \"MEMO · RE:\" label on cream strips is navy now instead of teal, so it's easier to read."
+      ]
+    },
     {
       ver: "V. 2.27.5", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The little pop-ups got the memo.",

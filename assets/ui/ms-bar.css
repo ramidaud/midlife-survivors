@@ -1,3 +1,4 @@
+@import url("ms-tokens.css?v=2");
 /* Midlife Survivors progress bar (Nov 3). One component for the devlog AND the game:
    the devlog reading bar, XP, the year bar and anything else that fills up.
    Thickness follows the screen: about 10px on phones, 13px on iPad, 16px on desktop.
@@ -5,12 +6,12 @@
 :root { --msbar-h: clamp(10px, calc(0.55vw + 8px), 16px); }
 .ms-bar {
   position: relative; height: var(--msbar-h); overflow: hidden; border-radius: 3px;
-  background: #0d1124; border: 2px solid #171C35;
+  background: #0d1124; border: 2px solid var(--ms-surface, #171C35);
   box-shadow: 0 0 0 1px rgba(62, 119, 117, 0.9), 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 .ms-bar > .ms-fill {
   position: relative; display: block; height: 100%; width: 0;
-  background: linear-gradient(90deg, #3E7775, #EF9347);
+  background: linear-gradient(90deg, var(--ms-border, #3E7775), var(--ms-accent, #EF9347));
   box-shadow: 0 0 12px rgba(239, 147, 71, 0.55);
   transition: width 0.15s linear;
 }
@@ -25,8 +26,8 @@
   background: repeating-linear-gradient(90deg, transparent 0 calc(var(--msbar-h) * 1.25),
     rgba(23, 28, 53, 0.55) calc(var(--msbar-h) * 1.25) calc(var(--msbar-h) * 1.25 + 2px));
 }
-.ms-bar.year > .ms-fill { background: linear-gradient(90deg, #83A89A, #F2D7A1); box-shadow: 0 0 10px rgba(242, 215, 161, 0.45); }
-.ms-bar.hp > .ms-fill { background: linear-gradient(90deg, #874C3B, #C45C4B 55%, #EF9347); box-shadow: 0 0 10px rgba(196, 92, 75, 0.6); }
+.ms-bar.year > .ms-fill { background: linear-gradient(90deg, var(--ms-ok, #83A89A), var(--ms-paper, #F2D7A1)); box-shadow: 0 0 10px rgba(242, 215, 161, 0.45); }
+.ms-bar.hp > .ms-fill { background: linear-gradient(90deg, #874C3B, var(--ms-danger, #C45C4B) 55%, var(--ms-accent, #EF9347)); box-shadow: 0 0 10px rgba(196, 92, 75, 0.6); }
 .ms-bar.low > .ms-fill { animation: msBarLow 0.6s ease-in-out infinite alternate; }
 @keyframes msBarLow { to { filter: brightness(1.6); } }
 @media (prefers-reduced-motion: reduce) { .ms-bar > .ms-fill { transition: none; } .ms-bar.low > .ms-fill { animation: none; } }
