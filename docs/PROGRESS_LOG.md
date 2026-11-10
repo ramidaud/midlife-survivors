@@ -2095,3 +2095,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New shared parts file (`assets/ui/ms-parts.css`): the Button (one orange primary per screen, outline secondaries, focus ring) and the Sheet's memo-strip header, bottom action bar and legend.
 - Level-up and Performance Bonus: SKIP and REROLL on the left, one orange PICK on the right that names the selected card. Cards are still the tap targets.
 - Controller: A picks, X rerolls, Y skips (X is still mute everywhere else). Keyboard R rerolls. A small legend shows only for a controller or keyboard.
+
+## 2026-11-10 (8:45 PM): V2.27.0, design system step B2
+- One Settings screen (Sound, Game, Controls), the same one from the pause menu and from the title (the old OPTIONS button, now SETTINGS). Sound settings used to live only in pause.
+- Pause is calmer: RESUME (the one orange button), Settings, Save & exit, Start over, and the run summary.
+- New Row part (`ms-parts.css`): title, help line and a value on the right, the whole row is the tap target. B3 reuses it for the Lounge.
+- On phones, the title's SETTINGS button is still below the fold; B5 (title screen) moves it.

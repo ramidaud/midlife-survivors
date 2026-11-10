@@ -36,7 +36,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration A8 (V2.26.8): HUD with age first, 44 px buttons, owned slots only, hero at least 48 px on phones, sideways-phone layout
 - [x] **Part A (where to look) done.** Rami to playtest on his phone, then Part B (menus)
 - [x] Migration B1 (V2.26.9): Button + Sheet parts; level-up and Performance Bonus with one orange PICK; A picks, X rerolls, Y skips
-- [ ] Next: B2, Pause slimmed down + one Settings sheet
+- [x] Migration B2 (V2.27.0): one Settings sheet (Sound, Game, Controls) from Pause and the title; slimmer pause
+- [ ] Next: B3, the Row part on the Lounge and Lemonade Stand
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)
