@@ -743,3 +743,6 @@ Recognizable room art comes from the combination of specific objects and their r
 
 ## Switching a whole map from data (Nov 10, Maple Hollow v2)
 The new neighborhood didn't replace the old code. It's a block of numbers in `src/data/maple-hollow.js` (lot width, where each row of houses and streets starts) with an on/off switch. When it's on, those numbers overwrite the old ones before anything is built, and every system that asks "where is the front door?" or "where is the driveway?" gets the new answer for free. Walls you can't see are just invisible rectangles with a solid body, laid along fences and house fronts, with gaps left where the gates are. Flip the switch off and the old town comes back, which makes a big change much less scary.
+
+## Measure, don't guess (Nov 10, design system A1)
+Every chip and the minimap used to be placed with a fixed number like "128 px from the top," picked by eye while a hidden 57 px was secretly being added. Remove the hidden part and every guess is wrong at once. Now the game measures where the HUD actually ends, twice a second, and stores it in a CSS variable (a named value the page's styles can read, like `--ms-hud-b`). The minimap and chips are placed from that number, so they land right under the HUD on a phone, an iPad or a laptop, even if the HUD changes size later.

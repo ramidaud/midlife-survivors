@@ -2044,3 +2044,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Also in `docs/design/`: wireframes for 11 screens, two before/after mockups, and a 19-sitting migration plan that starts with in-run messages. Rami also said yes to a boss health bar and a phone bottom bar.
 - Still open: the new "One look" text for CLAUDE.md. Two quick fixes are waiting in step A1 (everything in a run sits 57 px low; chips draw over level-ups).
 - 2:22 PM: Rami approved the design system and the new "One look" text. The build session starts at step A1 and makes the CLAUDE.md edit there.
+
+## 2026-11-10 (2:45 PM): V2.26.1, design system step A1
+- Rami approved the design system (Fable chat). A1 is in: a shared tokens file (`assets/ui/ms-tokens.css`) that nothing reads yet, so nothing looks different.
+- The 57 px bug is fixed the safe way: the game measures where the HUD really ends and puts the minimap and chips there. Zeroing it alone made the minimap cover the age on phones.
+- Chips, arrows and the minimap now hide while a level-up, chest, shop, pause or big map is open.
+- CLAUDE.md "One look" replaced with the design system text. The Project instructions on claude.ai need the same paste.
