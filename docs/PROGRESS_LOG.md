@@ -2066,3 +2066,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Boss arrival cards: 3.5 seconds, no floor dim, no red flash or letterbox bars. You can see the first attack being drawn while the card is up.
 - Phones get the compact band (name + dodge tip), no speech bubble.
 - The boss's first-attack notice is skipped while its card is up. Tested all 10 bosses on a phone: card gone by about 3.9 s, before the second attack.
+
+## 2026-11-10 (5:20 PM): V2.26.5, design system step A5
+- One status row under the HUD: at most one thing to do (Overtime beat, key hunt or errand) and one thing on you (Workload, modifier or buff). The others wait their turn.
+- The chips share one look: navy plate, edge color by kind, readable text. The to-do chip now just says where to go and the time left.
+- Phones: the row sits beside the minimap and under the loadout slots, so everything ends by about 245 px and the hero keeps the middle.
+- GitHub Pages timed out three times on V2.26.4 (their side); this push redeploys everything.

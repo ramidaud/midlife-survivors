@@ -755,3 +755,6 @@ The headline plate says what kind of message it is three ways at once: the edge 
 
 ## Never cover the danger (Nov 10, design system A4)
 A boss intro used to darken the floor for six seconds, right when the boss was drawing its first attack. A dramatic entrance that hides the danger is a trap, not a moment. The rule now is that the floor is sacred: anything with words goes in the plate at the top or the band at the bottom, and the space around the hero stays bright. The drama comes from the band, the name dropping in and the portrait, not from dimming the screen.
+
+## Priority lists (Nov 10, design system A5)
+When several things want the same spot, write down who wins, once, as a list: Workload first, then a modifier, then the buff. The code just walks down the list and shows the first one that's switched on; the rest wait. Changing the order later is editing one line, not hunting through four files. It's the same idea as the message queue from A2, but for things that stay on screen instead of popping up.
