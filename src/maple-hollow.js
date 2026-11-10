@@ -25,6 +25,11 @@ window.MapleHollow = (() => {
     if (G2) try {
       [g2.sa, g2.sb, g2.la, g2.lb, g2.dw, g2.dt] = await Promise.all([G2.street[0], G2.street[1], G2.lawn[0], G2.lawn[1], G2.driveway, G2.details].map(f => H.image(ROOT + f)));
     } catch (e) { g2.sa = null; }
+    const MV = M.v2 && M.v2.on ? M.v2 : null, v3 = {}; // Maple Hollow v2 art (Nov 10): bigger houses, wide street, backyards
+    if (MV) try {
+      [v3.houses, v3.yours, v3.sa, v3.sb, v3.yards, v3.yourYard] = await Promise.all(["houses-v2.png", "your-house-v2.png", "street-wide-v2-a.png", "street-wide-v2-b.png", "backyards-v2.png", "your-backyard-v2.png"].map(f => H.image(ROOT + "v2/" + f)));
+    } catch (e) { v3.houses = null; console.warn("Maple Hollow v2 art missing, using v1", e); }
+    const NEW = !!(MV && v3.houses);
     if (!H.isAlive()) return null;
     const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
     if (window.ArtSheets) { // load early so they're ready when the run starts
@@ -73,7 +78,15 @@ window.MapleHollow = (() => {
     }
     if (garImg) keyFor.mh_garage = "mh_garage";
     const v2 = !!(G2 && g2.sa);
-    if (v2) { // ---- ground v2: one street-band picture (both streets use it) and a two-variant lawn ----
+    if (NEW) { // one street-band picture, two 832 px plates side by side (lots are 416, so the curb cuts already line up)
+      if (!scene.textures.exists("mh_band3")) {
+        const t = scene.textures.createCanvas("mh_band3", W, 512), c = t.getContext(); c.imageSmoothingEnabled = false;
+        for (let k = 0, x = 0; x < W; k++, x += 832) c.drawImage(k % 2 ? v3.sb : v3.sa, x, 0);
+        t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
+      }
+      [R.sidewalk1, R.sidewalk3].forEach(y => all.push(scene.add.image(0, y, "mh_band3").setOrigin(0).setDepth(-1000)));
+    }
+    if (v2 && !NEW) { // ---- ground v2: one street-band picture (both streets use it) and a two-variant lawn ----
       const drives = []; for (let i = 0; i < 6; i++) drives.push(M.firstLotX + i * M.lotWidth + 40);
       if (!scene.textures.exists("mh_band2")) {
         const t = scene.textures.createCanvas("mh_band2", W, 320), c = t.getContext(); c.imageSmoothingEnabled = false;
@@ -96,20 +109,34 @@ window.MapleHollow = (() => {
       keyFor.mh_grass = "mh_lawn2";
       [R.sidewalk1, R.sidewalk3].forEach(y => all.push(scene.add.image(0, y, "mh_band2").setOrigin(0).setDepth(-1000)));
     }
+    if (NEW && v2) { // the lawn still comes from ground v2
+      if (!scene.textures.exists("mh_lawn2")) {
+        const t = scene.textures.createCanvas("mh_lawn2", 1024, 1024), c = t.getContext(); c.imageSmoothingEnabled = false;
+        [[0, 0, g2.la], [512, 0, g2.lb], [0, 512, g2.lb], [512, 512, g2.la]].forEach(([x, y, im]) => c.drawImage(im, x, y));
+        t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
+      }
+      keyFor.mh_grass = "mh_lawn2";
+    }
     for (const f of data.floors) {
-      if (v2 && (f.material === "mh_sidewalk" || f.material === "mh_street")) continue; // drawn by the street bands above
+      if ((v2 || NEW) && (f.material === "mh_sidewalk" || f.material === "mh_street")) continue; // drawn by the street bands above
       const t = scene.add.tileSprite(f.x, f.y, f.width, f.height, keyFor[f.material] || grassKey).setOrigin(0).setDepth(-1000);
       all.push(t);
     }
+    if (NEW && v2) { // v2 puts the inside of your house below the town: cover the gap so the office backdrop never shows
+      const by = R.bottom, bh = (data.bounds ? data.bounds.y + data.bounds.height : M.interior.y + 1200) - by + 400;
+      all.push(scene.add.rectangle(-400, by, M.width + 800, bh, 0x303750).setOrigin(0).setDepth(-1001));
+    }
     // a manhole or two on each street (v1 only: the v2 plates have their own)
-    if (!v2) [[620, R.street1 + 32], [1880, R.street1 + 128], [1240, R.street2 + 32]].forEach(([x, y]) => {
+    if (!v2 && !NEW) [[620, R.street1 + 32], [1880, R.street1 + 128], [1240, R.street2 + 32]].forEach(([x, y]) => {
       const k = "mh_tile_" + T.manhole;
       if (!scene.textures.exists(k)) { const t = scene.textures.createCanvas(k, 32, 32); t.getContext().imageSmoothingEnabled = false; cell(t.getContext(), T.manhole, 0, 0); t.refresh(); }
       all.push(scene.add.image(x, y, k).setOrigin(0).setDepth(-999));
     });
 
+    let yourHouse = null;
+    if (NEW) buildV2();
     // ---- houses: six fronts, each on a lot with a driveway ----
-    for (let i = 0; i < 6; i++) {
+    if (!NEW) for (let i = 0; i < 6; i++) {
       const k = "mh_house_" + i; if (scene.textures.exists(k)) continue;
       const c = document.createElement("canvas"); c.width = 192; c.height = 224;
       c.getContext("2d").drawImage(housesImg, i * 192, 0, 192, 224, 0, 0, 192, 224);
@@ -126,7 +153,6 @@ window.MapleHollow = (() => {
       c.getContext("2d").drawImage(yourImg, i * 192, 0, 192, 224, 0, 0, 192, 224);
       H.propTexture(scene, c, k, 192, 224);
     }
-    let yourHouse = null;
     function house(frame, cx, frontY, mine, isYours) {
       const tex = isYours && scene.textures.exists("mh_yours_0") ? "mh_yours_0" : "mh_house_" + frame;
       const o = scene.add.image(cx, frontY + 8, tex).setOrigin(0.5, 1).setDepth(3);
@@ -136,16 +162,19 @@ window.MapleHollow = (() => {
       return o;
     }
     const yh0 = M.yourHouse;
+    if (!NEW) {
     M.northHouses.forEach((f, i) => house(f, lotX(i), R.northHouseFront, "north", yh0.row === "north" && yh0.lot === i));
     M.southHouses.forEach((f, i) => house(f, lotX(i), R.southHouseFront, "south", yh0.row === "south" && yh0.lot === i));
     window.MapleHollowDoor = open => { if (yourHouse && yourHouse.active && scene.textures.exists("mh_yours_1")) yourHouse.setTexture(open ? "mh_yours_1" : "mh_yours_0"); };
-    { // a little sign on your house
+    }
+    if (!NEW) { // a little sign on your house
       const yh = M.yourHouse, x = lotX(yh.lot), y = (yh.row === "north" ? R.northHouseFront : R.southHouseFront) - 228;
       all.push(scene.add.text(x, y, "YOUR HOUSE", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5, 1).setDepth(4));
     }
 
     // ---- yard props: flat decorations under everyone, scattered on lawns (seeded) ----
     const r = rng(1979);
+    if (!NEW) {
     const propKey = idx => {
       const k = "mh_prop_" + idx; if (scene.textures.exists(k)) return k;
       const c = document.createElement("canvas"); c.width = 32; c.height = 32;
@@ -167,8 +196,9 @@ window.MapleHollow = (() => {
       }
     }
 
+    }
     // ---- lawn details v2: flat stickers (leaf drifts, mums, stepping stones, a tipped scooter...) under everyone ----
-    if (v2 && g2.dt) {
+    if (v2 && g2.dt && !NEW) {
       const dKey = i => {
         const k = "mh_det2_" + i; if (scene.textures.exists(k)) return k;
         const c = document.createElement("canvas"); c.width = 64; c.height = 64; c.getContext("2d").drawImage(g2.dt, i * 64, 0, 64, 64, 0, 0, 64, 64);
@@ -250,6 +280,51 @@ window.MapleHollow = (() => {
       // the front mat inside (step on it to go back out)
       const mat = cut("wall-doorway");
       if (mat) all.push(scene.add.image(I.exitMat[0], I.exitMat[1], mat).setOrigin(0.5, 1).setDepth(2.6));
+    }
+
+    // ---- Maple Hollow v2 (Nov 10): backyards, houses with side paths, your house, fences ----
+    function buildV2() {
+      const [CW, CH] = MV.houseCell, [fx, fy, fw, fh] = MV.facade, [YW, YH] = MV.backyard, F = MV.fence, yh = M.yourHouse;
+      const lotLeft = i => i * M.lotWidth;
+      const crop = (key, img, sx, sy, w, h, keyOut) => {
+        if (scene.textures.exists(key)) return key;
+        const c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(img, sx, sy, w, h, 0, 0, w, h);
+        if (keyOut) H.propTexture(scene, c, key, w, h); else { scene.textures.addCanvas(key, c); scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST); }
+        return key;
+      };
+      // an invisible wall (fences, hedges)
+      const block = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
+      const rows = [["north", R.northHouseTop, M.northHouses], ["south", R.southHouseTop, M.southHouses]];
+      rows.forEach(([row, top, frames]) => {
+        const yardTop = top - YH;
+        frames.forEach((f, i) => {
+          const L = lotLeft(i), mine = yh.row === row && yh.lot === i;
+          // the backyard behind the house
+          const yk = mine ? crop("mh3_yard_you", v3.yourYard, 0, 0, YW, YH) : crop("mh3_yard_" + f, v3.yards, (MV.yardOrder[f] || 0) * YW, 0, YW, YH);
+          all.push(scene.add.image(L, yardTop, yk).setOrigin(0).setDepth(-999));
+          // fences on both sides with a gate gap in the middle; the hedge along the top has steps (south row only: the north row's top is the edge of the map)
+          [L, L + YW - F.w].forEach(x => { block(x, yardTop + F.top, F.w, F.gate[0] - F.top); block(x, yardTop + F.gate[1], F.w, YH - F.gate[1]); });
+          if (row === "south") { block(L, yardTop, F.steps[0], F.top); block(L + F.steps[1], yardTop, YW - F.steps[1], F.top); }
+          else block(L, yardTop, YW, F.top); // the north row's top hedge is the edge of the map
+          // the house: the whole cell under everyone (side path, front steps), and the front itself as a solid sprite
+          if (mine) {
+            const k = crop("mh3_yours", v3.yours, 0, 0, 400, 400, true), kf = crop("mh3_yours_front", v3.yours, 0, 0, 336, 400, true);
+            all.push(scene.add.image(L + 16, top + CH - 400, k).setOrigin(0).setDepth(2.45));
+            const o = scene.add.image(L + 16 + 168, top + CH, kf).setOrigin(0.5, 1).setDepth(3);
+            H.body(o, { width: 320, back: 360, front: 0 }, "prop_house"); bodies.push(o); items.push(o); yourHouse = o;
+            // the open door: a dark doorway painted over the closed one (src/key-hunt.js opens it)
+            const [dx, dy, dw, dh] = yh.door;
+            const doorway = scene.add.rectangle(L + 16 + dx + dw / 2, top + CH - 400 + dy + dh / 2, dw - 6, dh - 6, 0x171C35, 1).setDepth(3.05).setVisible(false); all.push(doorway);
+            window.MapleHollowDoor = open => { if (doorway.active) doorway.setVisible(!!open); };
+            all.push(scene.add.text(L + 16 + 168, top + 4, "YOUR HOUSE", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5, 0).setDepth(4));
+          } else {
+            const k = crop("mh3_house_" + f, v3.houses, f * CW, 0, CW, CH, true), kf = crop("mh3_front_" + f, v3.houses, f * CW + fx, fy, fw, fh, true);
+            all.push(scene.add.image(L, top, k).setOrigin(0).setDepth(2.45));
+            const o = scene.add.image(L + fx + fw / 2, top + fy + fh, kf).setOrigin(0.5, 1).setDepth(3);
+            H.body(o, { width: fw - 16, back: fh - 12, front: 0 }, "prop_house"); bodies.push(o); items.push(o);
+          }
+        });
+      });
     }
 
     // ---- camera and the area object the rest of the game talks to ----

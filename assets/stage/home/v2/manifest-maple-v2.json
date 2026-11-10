@@ -1,0 +1,583 @@
+{
+  "project": "Maple Hollow v2 art review draft",
+  "date": "2026-11-10",
+  "lotWidth": 416,
+  "streetRepeat": 832,
+  "streetHeight": 512,
+  "worldUnits": {
+    "planPixelsPerFoot": 24,
+    "heroSpriteHeight": 56,
+    "note": "Plan distances and projected sprite height are separate measures, per supplied brief. Street cross-section follows specified pixel bands; it is not a road-engineering scale drawing."
+  },
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "background": "RGBA, binary alpha. Ground plates opaque; isolated props and floor exteriors transparent. No magenta in final art.",
+  "assets": [
+    {
+      "colorsUsed": 12,
+      "file": "houses-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        2496,
+        384
+      ],
+      "transparentPixels": 198631
+    },
+    {
+      "colorsUsed": 12,
+      "file": "your-house-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        400,
+        400
+      ],
+      "transparentPixels": 23975
+    },
+    {
+      "colorsUsed": 12,
+      "file": "street-wide-v2-a.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        832,
+        512
+      ],
+      "transparentPixels": 0
+    },
+    {
+      "colorsUsed": 12,
+      "file": "street-wide-v2-b.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        832,
+        512
+      ],
+      "transparentPixels": 0
+    },
+    {
+      "colorsUsed": 12,
+      "file": "backyards-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        2496,
+        448
+      ],
+      "transparentPixels": 0
+    },
+    {
+      "colorsUsed": 12,
+      "file": "your-backyard-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        416,
+        448
+      ],
+      "transparentPixels": 0
+    },
+    {
+      "colorsUsed": 12,
+      "file": "interior-floor1-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        416,
+        1392
+      ],
+      "transparentPixels": 70176
+    },
+    {
+      "colorsUsed": 12,
+      "file": "interior-floor2-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        416,
+        928
+      ],
+      "transparentPixels": 0
+    },
+    {
+      "colorsUsed": 12,
+      "file": "rami-desk-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        240,
+        140
+      ],
+      "transparentPixels": 8491
+    },
+    {
+      "colorsUsed": 12,
+      "file": "rami-desk-wall-v2.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        240,
+        96
+      ],
+      "transparentPixels": 10716
+    }
+  ],
+  "houses": {
+    "file": "houses-v2.png",
+    "cell": [
+      416,
+      384
+    ],
+    "frames": [
+      {
+        "id": "young-family",
+        "rect": [
+          0,
+          0,
+          416,
+          384
+        ],
+        "facadeRect": [
+          8,
+          16,
+          336,
+          352
+        ],
+        "sideRoute": [
+          352,
+          0,
+          64,
+          384
+        ],
+        "openGateClearance": 64,
+        "frontEdgeY": 368
+      },
+      {
+        "id": "retirees",
+        "rect": [
+          416,
+          0,
+          416,
+          384
+        ],
+        "facadeRect": [
+          424,
+          16,
+          336,
+          352
+        ],
+        "sideRoute": [
+          768,
+          0,
+          64,
+          384
+        ],
+        "openGateClearance": 64,
+        "frontEdgeY": 368
+      },
+      {
+        "id": "grill-master",
+        "rect": [
+          832,
+          0,
+          416,
+          384
+        ],
+        "facadeRect": [
+          840,
+          16,
+          336,
+          352
+        ],
+        "sideRoute": [
+          1184,
+          0,
+          64,
+          384
+        ],
+        "openGateClearance": 64,
+        "frontEdgeY": 368
+      },
+      {
+        "id": "fixer-upper",
+        "rect": [
+          1248,
+          0,
+          416,
+          384
+        ],
+        "facadeRect": [
+          1256,
+          16,
+          336,
+          352
+        ],
+        "sideRoute": [
+          1600,
+          0,
+          64,
+          384
+        ],
+        "openGateClearance": 64,
+        "frontEdgeY": 368
+      },
+      {
+        "id": "hoa-president",
+        "rect": [
+          1664,
+          0,
+          416,
+          384
+        ],
+        "facadeRect": [
+          1672,
+          16,
+          336,
+          352
+        ],
+        "sideRoute": [
+          2016,
+          0,
+          64,
+          384
+        ],
+        "openGateClearance": 64,
+        "frontEdgeY": 368
+      },
+      {
+        "id": "halloween",
+        "rect": [
+          2080,
+          0,
+          416,
+          384
+        ],
+        "facadeRect": [
+          2088,
+          16,
+          336,
+          352
+        ],
+        "sideRoute": [
+          2432,
+          0,
+          64,
+          384
+        ],
+        "openGateClearance": 64,
+        "frontEdgeY": 368
+      }
+    ]
+  },
+  "yourHouse": {
+    "file": "your-house-v2.png",
+    "size": [
+      400,
+      400
+    ],
+    "facadeBand": [
+      0,
+      0,
+      336,
+      400
+    ],
+    "sidePath": [
+      336,
+      0,
+      64,
+      400
+    ],
+    "placementIn416Lot": [
+      16,
+      0
+    ],
+    "garageBayBand": [
+      96,
+      222,
+      240,
+      146
+    ],
+    "entryLeft": true,
+    "garageRight": true,
+    "note": "Facade panels registered to reserve the64px side route.240px is the garage bay band including jambs; painted opening sits inside it."
+  },
+  "backyards": {
+    "file": "backyards-v2.png",
+    "cell": [
+      416,
+      448
+    ],
+    "frames": [
+      {
+        "id": "young-family",
+        "rect": [
+          0,
+          0,
+          416,
+          448
+        ],
+        "openGates": [
+          [
+            0,
+            224,
+            16,
+            64
+          ],
+          [
+            400,
+            224,
+            16,
+            64
+          ]
+        ],
+        "sidePathConnection": [
+          352,
+          384,
+          64,
+          64
+        ]
+      },
+      {
+        "id": "retirees",
+        "rect": [
+          416,
+          0,
+          416,
+          448
+        ],
+        "openGates": [
+          [
+            416,
+            224,
+            16,
+            64
+          ],
+          [
+            816,
+            224,
+            16,
+            64
+          ]
+        ],
+        "sidePathConnection": [
+          768,
+          384,
+          64,
+          64
+        ]
+      },
+      {
+        "id": "grill-master",
+        "rect": [
+          832,
+          0,
+          416,
+          448
+        ],
+        "openGates": [
+          [
+            832,
+            224,
+            16,
+            64
+          ],
+          [
+            1232,
+            224,
+            16,
+            64
+          ]
+        ],
+        "sidePathConnection": [
+          1184,
+          384,
+          64,
+          64
+        ]
+      },
+      {
+        "id": "fixer-upper",
+        "rect": [
+          1248,
+          0,
+          416,
+          448
+        ],
+        "openGates": [
+          [
+            1248,
+            224,
+            16,
+            64
+          ],
+          [
+            1648,
+            224,
+            16,
+            64
+          ]
+        ],
+        "sidePathConnection": [
+          1600,
+          384,
+          64,
+          64
+        ]
+      },
+      {
+        "id": "hoa-president",
+        "rect": [
+          1664,
+          0,
+          416,
+          448
+        ],
+        "openGates": [
+          [
+            1664,
+            224,
+            16,
+            64
+          ],
+          [
+            2064,
+            224,
+            16,
+            64
+          ]
+        ],
+        "sidePathConnection": [
+          2016,
+          384,
+          64,
+          64
+        ]
+      },
+      {
+        "id": "halloween",
+        "rect": [
+          2080,
+          0,
+          416,
+          448
+        ],
+        "openGates": [
+          [
+            2080,
+            224,
+            16,
+            64
+          ],
+          [
+            2480,
+            224,
+            16,
+            64
+          ]
+        ],
+        "sidePathConnection": [
+          2432,
+          384,
+          64,
+          64
+        ]
+      }
+    ],
+    "separatePlayerYard": "your-backyard-v2.png",
+    "backgroundsAreOpaque": true,
+    "note": "The gate gaps are64px high. Fence/prop collision placement remains Claude\u2019s work; baked backyard furniture has not been navigation-tested."
+  },
+  "street": {
+    "files": [
+      "street-wide-v2-a.png",
+      "street-wide-v2-b.png"
+    ],
+    "size": [
+      832,
+      512
+    ],
+    "sections": {
+      "topSidewalk": [
+        0,
+        64
+      ],
+      "topParkway": [
+        64,
+        96
+      ],
+      "road": [
+        96,
+        416
+      ],
+      "bottomParkway": [
+        416,
+        448
+      ],
+      "bottomSidewalk": [
+        448,
+        512
+      ]
+    },
+    "topAprons": [
+      [
+        288,
+        0,
+        64,
+        100
+      ],
+      [
+        704,
+        0,
+        64,
+        100
+      ]
+    ],
+    "dash": {
+      "period": 64,
+      "on": 32,
+      "off": 32,
+      "phase": 16,
+      "y": [
+        254,
+        258
+      ]
+    },
+    "checks": {
+      "matchingAandBEdgeColumns": true,
+      "sameVariantEdges": true
+    },
+    "seamCheck": "street-wide-v2-mixed-seam-check.png"
+  },
+  "floorMaps": [
+    "interior-floor1-v2.json",
+    "interior-floor2-v2.json"
+  ],
+  "desk": {
+    "file": "rami-desk-v2.png",
+    "size": [
+      240,
+      140
+    ],
+    "wallFile": "rami-desk-wall-v2.png",
+    "wallSize": [
+      240,
+      96
+    ]
+  },
+  "approvedChange": "Single-car garage10ft11in by20ft with the minivan. No second bay.",
+  "integration": "Art only. No runtime, gates, navigation, spawn, collision, version, commit or push. Keep all earlier art as fallback."
+}

@@ -42,7 +42,7 @@ window.KeyHunt = (() => {
     const front = row => row === "north" ? R.northHouseFront : R.southHouseFront;
     css();
     if (window.ArtSheets) ArtSheets.load(scene, "kh_sheet", "assets/stage/home/key-hunt-v1.png", 32, 32);
-    const yh = M.yourHouse, door = { x: lotX(yh.lot) - 18, y: front(yh.row) + 18 }; // the steps under your front door
+    const yh = M.yourHouse, door = { x: lotX(yh.lot) + (yh.doorDx != null ? yh.doorDx : -18), y: front(yh.row) + 18 }; // the steps under your front door
     const spots = (C.spots || []).map(([row, lot, dx, dy, kind]) => ({ x: lotX(lot) + dx, y: front(row) + dy, kind }));
     // the key is never in the spot closest to your door, so you have to look around a little
     const near = spots.reduce((b, s, i) => Math.hypot(s.x - door.x, s.y - door.y) < Math.hypot(spots[b].x - door.x, spots[b].y - door.y) ? i : b, 0);

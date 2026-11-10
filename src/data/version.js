@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.25.0",
-  displayVersion: "V. 2.25.0",
+  version: "2.26.0",
+  displayVersion: "V. 2.26.0",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 327,
+  build: 328,
   changelog: [
+    {
+      ver: "V. 2.26.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The neighborhood got a lot bigger. So did the houses.",
+      highlights: [
+        "Maple Hollow is rebuilt at twice the scale: six bigger houses, each with its own personality, and a street wide enough for parked cars.",
+        "Every house has a side path to its backyard, and the backyards connect through gates, so you can cut through the whole block.",
+        "Your house is the real one now: front door on the left, garage on the right, spare key under the fat gray rock. Your kid moved the lemonade stand one house over."
+      ]
+    },
     {
       ver: "V. 2.25.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "This meeting could have been an email.",

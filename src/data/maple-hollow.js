@@ -60,6 +60,25 @@ window.MAPLE_HOLLOW = {
     lawn: ["lawn-v2-a.png", "lawn-v2-b.png"], driveway: "driveway-v2.png",
     details: "lawn-details-v2.png", detailsPerYard: 1, detailsPerBackyard: 1, detailsUpTop: 6
   },
+  // Maple Hollow v2 (Nov 10, step 1 of the rebuild: the outside). Art by ChatGPT/Codex in assets/stage/home/v2/.
+  // Bigger houses (416 px lots) with a stone side path to each backyard, backyards joined by gates, and a 512 px street
+  // band (sidewalk, parkway, a 320 px road with parked cars, parkway, sidewalk). When on, these numbers replace the v1
+  // layout above. Set on: false to go back to v1. The two-floor house inside comes in the next step.
+  v2: {
+    on: true,
+    width: 2496, lotWidth: 416, firstLotX: 176,      // firstLotX = the center of lot 0's house front
+    rows: { northHouseTop: 448, northHouseFront: 816, sidewalk1: 832, street1: 928, street1End: 1248, sidewalk2End: 1344,
+            southHouseTop: 1792, southHouseFront: 2160, sidewalk3: 2176, street2: 2272, street2End: 2592, sidewalk4End: 2688, bottom: 2752 },
+    houseCell: [416, 384], facade: [8, 16, 336, 352], backyard: [416, 448],
+    fence: { w: 16, top: 40, gate: [224, 288], steps: [184, 236] }, // side fences with a gate gap; the top hedge has steps in the middle
+    yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
+    interiorY: 3500,                                  // the inside of your house, far below the neighborhood
+    yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png
+    lemonade: [620, 930],                            // one house over from yours, on the parkway
+    lego: [[600, 250, 1], [700, 180, 2], [1300, 300, 0], [1150, 1560, 1], [1900, 1650, 0]],
+    keyHuntSpots: [["north", 2, -130, 22, "rock"], ["north", 1, 0, 30, "mat"], ["north", 3, 90, 30, "pot"], ["north", 0, -100, 32, "mailbox"],
+                   ["north", 4, -40, 30, "mat"], ["south", 2, -60, 30, "pot"], ["south", 1, 40, 30, "rock"], ["south", 3, -30, 30, "mailbox"]]
+  },
   yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
   // Step 4 (Nov 9): the neighborhood's own crowd. When the office would spawn one of these, it sometimes sends the
   // home version instead: [office kind]: [home kind, chance].
@@ -109,6 +128,12 @@ window.MAPLE_HOLLOW = {
 };
 
 (() => {
+  const M0 = window.MAPLE_HOLLOW, V = M0.v2;
+  if (V && V.on) { // v2: swap in the bigger layout before anything is generated
+    M0.width = V.width; M0.lotWidth = V.lotWidth; M0.firstLotX = V.firstLotX; M0.rows = V.rows;
+    M0.interior.y = V.interiorY; Object.assign(M0.yourHouse, V.yourHouse);
+    M0.lemonade.spot = V.lemonade; M0.lego.outdoor = V.lego; M0.keyHunt.spots = V.keyHuntSpots;
+  }
   const M = window.MAPLE_HOLLOW, R = M.rows, W = M.width;
   const floors = [], walls = [];
   const band = (y0, y1, material) => floors.push({ x: 0, y: y0, width: W, height: y1 - y0, material, district: "home" });

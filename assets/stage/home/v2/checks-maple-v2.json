@@ -1,0 +1,117 @@
+{
+  "assets" : [
+    {
+      "colorsUsed" : 12,
+      "file" : "houses-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        2496,
+        384
+      ],
+      "transparentPixels" : 198631
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "your-house-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        400,
+        400
+      ],
+      "transparentPixels" : 23975
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "street-wide-v2-a.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        832,
+        512
+      ],
+      "transparentPixels" : 0
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "street-wide-v2-b.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        832,
+        512
+      ],
+      "transparentPixels" : 0
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "backyards-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        2496,
+        448
+      ],
+      "transparentPixels" : 0
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "your-backyard-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        416,
+        448
+      ],
+      "transparentPixels" : 0
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "interior-floor1-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        416,
+        1392
+      ],
+      "transparentPixels" : 70176
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "interior-floor2-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        416,
+        928
+      ],
+      "transparentPixels" : 0
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "rami-desk-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        240,
+        140
+      ],
+      "transparentPixels" : 8491
+    },
+    {
+      "colorsUsed" : 12,
+      "file" : "rami-desk-wall-v2.png",
+      "hardAlpha" : true,
+      "palette" : true,
+      "size" : [
+        240,
+        96
+      ],
+      "transparentPixels" : 10716
+    }
+  ],
+  "backyardEdges" : true,
+  "runtimeChanged" : false,
+  "streetMixedEdges" : true
+}

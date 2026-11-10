@@ -11,7 +11,7 @@ window.Garage = (() => {
   function driveway() {
     const M = MAPLE_HOLLOW, yh = M.yourHouse, cx = M.firstLotX + yh.lot * M.lotWidth;
     const front = yh.row === "north" ? M.rows.northHouseFront : M.rows.southHouseFront;
-    return [cx + 72, front + 44];
+    return [cx + (yh.garageDx != null ? yh.garageDx : 72), front + 44];
   }
   function pop(scene, x, y, text, bg) {
     const t = scene.add.text(x, y, text, { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: bg || "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5).setDepth(50004);
