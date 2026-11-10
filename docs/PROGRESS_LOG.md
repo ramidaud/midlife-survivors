@@ -2106,3 +2106,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The Lounge and the Lemonade Stand are now a Sheet of Rows: icon, name, one help line, a price tag. The whole row is the button (64 px or taller).
 - Items you can't buy show why with a lock (too pricey, sold out); owned items get a check. Your 401(k) balance is in the header.
 - One column on phones, two on iPad and desktop. BACK TO WORK is the one orange button.
+
+## 2026-11-10 (9:50 PM): V2.27.2, design system step B4
+- The 401(k) Shop shows YOUR 401(K) big at the top, then one Row per upgrade (icon, name, level pips, effect, price tag).
+- Nine orange BUY buttons are gone: the whole row buys. Maxed rows get a check, locked rows say how to unlock.
+- Phone: balance plus six upgrades visible without scrolling (the spec asked for three).

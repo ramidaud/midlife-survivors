@@ -776,3 +776,6 @@ Before, sound settings lived inside the pause menu's own code, and the title had
 
 ## Reuse pays off (Nov 10, design system B3)
 The Row was built in B2 for Settings. B3 used the same part for the Lounge and Lemonade Stand and only added what a shop needs on top: an icon slot and a price tag. That's why this step took less code than the last one, and why B4 (the 401(k) shop) and B8 (leaderboard, credits) will be faster still. Each new screen built from the kit gets cheaper, and they all look like they belong together.
+
+## When everything is orange, nothing is (Nov 10, design system B4)
+The old shop had a bright orange BUY button on every upgrade. Nine "press me" buttons in a column all shout at the same volume, so the eye can't tell which one matters. Now the price is a calm cream tag and the whole row is the button. The one orange thing on a screen is a promise: this is the main thing to do here.
