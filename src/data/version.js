@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.22.0",
-  displayVersion: "V. 2.22.0",
+  version: "2.23.0",
+  displayVersion: "V. 2.23.0",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 320,
+  build: 321,
   changelog: [
+    {
+      ver: "V. 2.23.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "That's not the minivan.",
+      highlights: [
+        "Your house has a garage now, at the end of the hallway: the family minivan, a workbench, holiday bins, a lawn mower, and one very shiny convertible parked over a car-shaped patch of dust.",
+        "A little before 60 you'll hear it turning over. At 60 the Midlife Crisis V8 bursts out: through the garage if you're home, down your driveway if you're out on the street."
+      ]
+    },
     {
       ver: "V. 2.22.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Show your work. No, the new way.",

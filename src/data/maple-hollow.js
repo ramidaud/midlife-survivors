@@ -29,6 +29,24 @@ window.MAPLE_HOLLOW = {
     enterLine: "Home. It smells like coffee and someone else's laundry.",
     exitPx: 40
   },
+  // The garage (Nov 10, step 5b): a fourth room to the right of the kid's room, reached from the end of the hallway.
+  // Art: assets/stage/home/garage-interior-v1.png (+ .json). The Midlife Crisis V8 sits parked in the empty bay all
+  // run. At 60 it bursts out: from the garage if you're inside, from your driveway if you're out on the street.
+  // Pieces: [id, x, y, solid], x = center, y = top, from the garage's top-left.
+  garage: {
+    w: 384, name: "GARAGE",
+    floor: { "concrete-a": 0.55, "concrete-b": 0.33, "concrete-oil": 0.06, "concrete-tire-marks": 0.06 },
+    pieces: [["workbench", 76, 10, 1], ["tool-pegboard", 76, -14, 0], ["dartboard", 262, 6, 0], ["holiday-bins", 336, 18, 1],
+             ["sad-box", 274, 52, 1], ["mini-fridge", 352, 100, 1], ["kids-bike", 196, 96, 0],
+             ["family-minivan", 96, 132, 1], ["car-dust-outline", 268, 132, 0], ["lawn-mower", 350, 236, 1]],
+    parkAt: [268, 300],          // where the V8 sits (feet), over the dust outline
+    doors: [96, 268],            // garage door centers along the front wall, one per bay
+    teaseAge: 59.4,              // the engine starts turning over a little before 60
+    teaseLines: ["vroom...", "VROOM.", "...vrrRRRM"],
+    burstLine: "The garage door is going up. That's not the minivan.",
+    burstLineInside: "Something in the garage just turned the key.",
+    goneLine: "It left a car-shaped outline in the dust. And your dignity."
+  },
   northHouses: [0, 1, 2, 3, 4, 5],   // frame order in maple-hollow-houses-v1.png
   southHouses: [3, 5, 0, 4, 2, 1],
   yourHouse: { row: "north", lot: 2 }, // you start on the sidewalk in front of this one
@@ -100,6 +118,8 @@ window.MAPLE_HOLLOW = {
   const I = M.interior;
   I.rooms.forEach((r, i) => floors.push({ x: I.x + i * I.roomW, y: I.y, width: I.roomW, height: I.roomH, material: "mh_room_" + r.id, district: "house" }));
   floors.push({ x: I.x, y: I.y + I.roomH, width: I.roomW * 3, height: I.hallH, material: "mh_hall", district: "house" });
+  const G = M.garage; G.x = I.x + I.roomW * 3; G.y = I.y; G.h = I.roomH + I.hallH; // the garage: full height, open to the hallway's end
+  floors.push({ x: G.x, y: G.y, width: G.w, height: G.h, material: "mh_garage", district: "house" });
   I.entry = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH / 2];   // where you appear inside (middle of the hallway)
   I.exitMat = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH - 6]; // step on the front mat to go back out
   window.MAPLE_HOLLOW_LAYOUT = {
@@ -107,7 +127,7 @@ window.MAPLE_HOLLOW = {
     spawn: [spawnX, spawnY],
     bounds: { x: 0, y: 0, width: W, height: I.y + I.roomH + I.hallH + 60 },
     districts: [{ id: "home", name: "Maple Hollow", polygon: [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] },
-                { id: "house", name: "Your House", polygon: [[I.x, I.y], [I.x + I.roomW * 3, I.y], [I.x + I.roomW * 3, I.y + I.roomH + I.hallH], [I.x, I.y + I.roomH + I.hallH]] }],
+                { id: "house", name: "Your House", polygon: [[I.x, I.y], [G.x + G.w, I.y], [G.x + G.w, I.y + I.roomH + I.hallH], [I.x, I.y + I.roomH + I.hallH]] }],
     floors, walls, gates: [], placements: [], workers: [], lights: [], floorDecor: [], structures: [], labels: [],
     promotions: { phases: [] }, clearSpaces: [], protectedRoutes: [], internalRoutes: []
   };

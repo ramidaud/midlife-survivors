@@ -347,6 +347,7 @@ function create() {
   if (window.Minimap) Minimap.reset();     // the office map: fog resets each run (src/minimap.js)
   if (window.Errands) Errands.reset();
   if (window.KeyHunt) KeyHunt.reset();
+  if (window.Garage) Garage.reset();
   if (window.HomeHazards) HomeHazards.reset();     // errands: one TO-DO per run (src/errands.js)
   runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; window.runCoinsTapered = 0; window.lastPaycheck = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
@@ -2372,6 +2373,7 @@ function spawnBoss(scene, bossKind) {
     const spot = scene.worldArt.startArea.resolveSpawn(x, y);
     if (spot) [x, y] = spot;
   }
+  { const g = window.Garage && Garage.bossSpot(bossKind); if (g) [x, y] = g; } // Maple Hollow: the V8 comes out of your garage
   const boss = bills.create(x, y, P.tex || bossKind).setDepth(4).setScale(P.scale || 1);
   { // big to look at, smaller to bump into (so a huge boss can still get between desks)
     const hb = (window.ENEMY_SCALE && ENEMY_SCALE.bossHitbox) || 1, fw = boss.frame.width, fh = boss.frame.height;
@@ -2389,6 +2391,7 @@ function spawnBoss(scene, bossKind) {
   boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult * (1 + tax("enemyHpMult"))); // bosses scale with your level AND your age
   { const HM = window.STAGE_ID === "home" && window.MAPLE_HOLLOW && MAPLE_HOLLOW.bosses && MAPLE_HOLLOW.bosses.hpMult; if (HM && HM[bossKind] && !isEnd) boss.hp = Math.max(1, Math.round(boss.hp * HM[bossKind])); } // Maple Hollow's earlier HOA
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
+  if (window.Garage) Garage.onBossSpawn(scene, boss); // the garage door goes up (src/garage.js)
   boss.speed = P.speed * (runSprint && window.SPRINT ? SPRINT.enemySpeedMult : 1);
   boss.damage = P.damage;
   if (isEnd) { // the finish waits near you instead of chasing you: the punch clock at 65, Father Time at 100 (ChatGPT art, Nov 4)
@@ -2817,6 +2820,7 @@ function update(time, delta) {
   if (window.OvertimeBeats) OvertimeBeats.update(this);  // Overtime events like Open Enrollment (src/overtime-beats.js)
   if (window.PerfBonus) PerfBonus.update(this);          // free picks when late-game XP dries up (src/perf-bonus.js)
   if (window.KeyHunt && !office) KeyHunt.update(this);
+  if (window.Garage && !office) Garage.update(this); // the V8 in your garage (src/garage.js)
   if (window.HomeHazards && !office) HomeHazards.update(this);     // toy bricks on the floor (src/home-hazards.js)             // Maple Hollow: locked out, find the spare key (src/key-hunt.js)
   if (window.Errands && office) Errands.update(this);              // the TO-DO errand (src/errands.js)
   if (window.Interns && office) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)

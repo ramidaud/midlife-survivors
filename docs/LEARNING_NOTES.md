@@ -714,3 +714,6 @@ Every menu needs a plan for "there's nothing to show." The perk screen always as
 
 ## Two clocks (Nov 10, the Math Homework boss)
 A game can have more than one clock. Phaser keeps its own scene time, but Midlife Survivors runs on "run time," which stops when you pause or pick a perk. The paper balls first used the wrong clock, so the game thought they'd been flying for minutes and they landed the instant they were thrown. The rule: anything that has to line up with something else (a throw and its landing) must read the same clock.
+
+## Hooks (Nov 10, the garage)
+The boss code already knew how to spawn the V8; it just picked a spot off the right edge of the screen. Instead of rewriting that, we added a hook: right before a boss appears, the game asks the garage "do you want to choose where this one shows up?" The garage says yes only for the V8 at home and answers "your driveway" or "the garage bay." A hook lets new content change one moment of old code without touching how everything else works.

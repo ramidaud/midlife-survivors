@@ -11,6 +11,7 @@ window.MapleHollow = (() => {
 
   async function build(scene, refs, H) {
     const M = window.MAPLE_HOLLOW, R = M.rows, data = window.MAPLE_HOLLOW_LAYOUT, W = M.width;
+    window.MapleHollowGarage = null;
     const items = [], bodies = [], all = [];
     let alive = true;
     const kit = await H.image(ROOT + "maple-hollow-tiles-props-v1.png"); if (!H.isAlive()) return null;
@@ -18,6 +19,8 @@ window.MapleHollow = (() => {
     let yourImg = null, intImg = null, intMap = null; // your house + the inside (Nov 9); the street still builds if they fail
     try { yourImg = await H.image(ROOT + "your-house-v1.png"); } catch (e) {}
     try { intImg = await H.image(ROOT + "house-interior-v1.png"); intMap = await (await fetch(ROOT + "house-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { intImg = null; }
+    let garImg = null, garMap = null; // the garage (Nov 10)
+    try { garImg = await H.image(ROOT + "garage-interior-v1.png"); garMap = await (await fetch(ROOT + "garage-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { garImg = null; }
     if (!H.isAlive()) return null;
     const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
     if (window.ArtSheets) { // load early so they're ready when the run starts
@@ -54,6 +57,17 @@ window.MapleHollow = (() => {
       I.rooms.forEach(rm => { keyFor["mh_room_" + rm.id] = roomFloor("mh_room_" + rm.id, rm.floor, 256); });
       keyFor.mh_hall = roomFloor("mh_hall", ["hall-runner-a", "hall-runner-b"], 64);
     }
+    const gPiece = id => garMap && (garMap.pieces || []).find(p => p.id === id);
+    if (garImg && !scene.textures.exists("mh_garage")) { // concrete, mostly plain, now and then an oil stain or tire marks
+      const t = scene.textures.createCanvas("mh_garage", 256, 256), c = t.getContext(); c.imageSmoothingEnabled = false;
+      const r = rng(4242), F = Object.entries(M.garage.floor);
+      for (let y = 0; y < 256; y += 32) for (let x = 0; x < 256; x += 32) {
+        let v = r(), id = F[0][0]; for (const [k, w] of F) { if (v < w) { id = k; break; } v -= w; }
+        const pc = gPiece(id); if (pc) c.drawImage(garImg, pc.rect[0], pc.rect[1], 32, 32, x, y, 32, 32);
+      }
+      t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
+    }
+    if (garImg) keyFor.mh_garage = "mh_garage";
     for (const f of data.floors) {
       const t = scene.add.tileSprite(f.x, f.y, f.width, f.height, keyFor[f.material] || grassKey).setOrigin(0).setDepth(-1000);
       all.push(t);
@@ -141,11 +155,40 @@ window.MapleHollow = (() => {
         t.setPosition(x + w / 2, y + h);
         H.body(t, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(t); items.push(t);
       };
+      function buildGarage(G) {
+        const gcut = id => {
+          const k = "mh_gar_" + id; if (scene.textures.exists(k)) return k;
+          const pc = gPiece(id); if (!pc) return null; const [sx, sy, w, h] = pc.rect;
+          const c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(garImg, sx, sy, w, h, 0, 0, w, h);
+          H.propTexture(scene, c, k, w, h); return k;
+        };
+        // pegboard back wall over the garage, its own right wall
+        const pk = gcut("wall-pegboard-horizontal");
+        if (pk) { const t = scene.add.tileSprite(G.x + G.w / 2 + 8, G.y, G.w + 16, 32, pk).setOrigin(0.5, 1).setDepth(2.92); H.body(t, { width: G.w + 16, back: 32, front: 0 }, "prop_wall"); bodies.push(t); items.push(t); }
+        wall(G.x + G.w, G.y, 16, G.h, "wall-vertical");
+        all.push(scene.add.text(G.x + G.w / 2, G.y + 6, G.name, { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 4, y: 2 } }).setOrigin(0.5, 0).setDepth(2.95).setAlpha(0.85));
+        G.pieces.forEach(([id, fx, fy, solid]) => {
+          const k = gcut(id); if (!k) return; const pc = gPiece(id), w = pc.rect[2], h = pc.rect[3];
+          const decal = id === "car-dust-outline" || id === "tool-pegboard" || id === "dartboard";
+          const o = scene.add.image(G.x + fx, G.y + fy + h, k).setOrigin(0.5, 1).setDepth(decal ? 2.6 : 3);
+          if (solid) { H.body(o, { width: Math.round(w * 0.86), back: Math.round(h * 0.62), front: 0 }, "prop_furniture"); bodies.push(o); }
+          items.push(o);
+        });
+        // garage doors along the front wall (closed until the V8 leaves)
+        const dk = [gcut("garage-door-closed"), gcut("garage-door-open")];
+        const doors = G.doors.map(dx => { const o = scene.add.image(G.x + dx, G.y + G.h + 16, dk[0]).setOrigin(0.5, 1).setDepth(2.95); all.push(o); return o; });
+        // the V8, parked in the empty bay (src/garage.js wakes it up at 60)
+        let parked = null;
+        if (scene.textures.exists("bossart_midlifeCrisis")) { parked = scene.add.image(G.x + G.parkAt[0], G.y + G.parkAt[1], "bossart_midlifeCrisis", 0).setOrigin(0.5, 148 / 152).setDepth(3.1); all.push(parked); }
+        window.MapleHollowGarage = { x: G.x, y: G.y, w: G.w, h: G.h, park: [G.x + G.parkAt[0], G.y + G.parkAt[1]], parked,
+          setOpen: open => doors.forEach(d => d.active && d.setTexture(open ? dk[1] : dk[0])) };
+      }
       wall(X - 16, Y - 32, HW + 32, 32, "wall-horizontal");                 // back wall
       wall(X - 16, Y, 16, RH + HH, "wall-vertical");                        // left
-      wall(X + HW, Y, 16, RH + HH, "wall-vertical");                        // right
+      const G = M.garage, GW = garImg ? G.w : 0;
+      wall(X + HW, Y, 16, garImg ? RH - 40 : RH + HH, "wall-vertical");     // right (with a garage: it stops short, so the hallway runs straight into the garage)
       wall(X - 16, Y + RH + HH, HW / 2 - 24 + 16, 16, "wall-horizontal");    // front wall, left of the door
-      wall(X + HW / 2 + 24, Y + RH + HH, HW / 2 - 24 + 16, 16, "wall-horizontal"); // front wall, right of the door
+      wall(X + HW / 2 + 24, Y + RH + HH, HW / 2 - 24 + 16 + GW, 16, "wall-horizontal"); // front wall, right of the door (and under the garage)
       for (let i = 1; i < 3; i++) wall(X + i * RW - 8, Y, 16, I.doorGapFromTop, "wall-vertical"); // between rooms, open at the bottom
       I.rooms.forEach((rm, i) => {
         const rx = X + i * RW;
@@ -158,6 +201,7 @@ window.MapleHollow = (() => {
           if (id === "fridge") window.MapleHollowFridge = { x: o.x, y: o.y + 10 };
         });
       });
+      if (garImg) buildGarage(G);
       // the front mat inside (step on it to go back out)
       const mat = cut("wall-doorway");
       if (mat) all.push(scene.add.image(I.exitMat[0], I.exitMat[1], mat).setOrigin(0.5, 1).setDepth(2.6));

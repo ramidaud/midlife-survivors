@@ -1990,3 +1990,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - "Pop Quiz": he stops and scribbles while dotted lines fan out, then throws paper airplanes down the lines. Stand in a gap.
 - Below half health: a second fan in the gaps of the first, plus three crumpled pages lobbed onto red circles near you.
 - Spotlight card, stamp ("A+ · SEE ME"), last words, deaths and a "Carried the One" achievement. Next: the garage and the V8 at 60.
+
+## 2026-11-10 (1:15 AM): V2.23.0, the garage and the V8
+- A fourth room at the end of the hallway, built from ChatGPT/Codex's garage kit: minivan, workbench, bins, mower, bike, mini-fridge, garage doors.
+- The V8 sits parked over a car-shaped dust outline all run. From 59.4 it revs ("vroom...") and the car shudders.
+- At 60 it bursts out of the garage if you're inside, or down your driveway if you're on the street. Doors swing open; after you beat it, a line about the dust outline.
+- Maple Hollow step 5 is done. Next: Rami plays a home run to 60 and checks how the homework boss and the garage feel.

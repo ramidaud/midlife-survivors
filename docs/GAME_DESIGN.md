@@ -670,3 +670,8 @@ Fifth-Grade Math Homework has native worksheet-monster poses with a paper-plane 
 - Move: "Pop Quiz." Wind-up with dotted fan lines, then a fan of paper airplanes (5 lanes). Planes keep flying after he goes back to walking.
 - Below half health: 6-lane fan plus a second fan in its gaps, and 3 crumpled pages lobbed onto marked circles around you.
 - Stamp "A+ · SEE ME". Achievement "Carried the One" (5k). Numbers: BOSS_ATTACKS.mathHomework.
+
+### The garage (Maple Hollow), built Nov 10
+- Fourth room at the end of the hallway. The Midlife Crisis V8 is parked in the empty bay all run, over its dust outline.
+- From 59.4 it revs ("vroom...", "VROOM.", "...vrrRRRM"). At 60 it bursts out: from the garage if you're inside, down your driveway if you're outside. The garage doors open.
+- Numbers and lines: MAPLE_HOLLOW.garage. Code: src/garage.js.
