@@ -2364,6 +2364,7 @@ function spawnBoss(scene, bossKind) {
   const lvlMult = 1 + Math.max(0, level - 1) * ((window.INTENSITY && window.INTENSITY.bossHpPerLevel) || 0);
   const ageMult = 1 + Math.max(0, currentAge - 40) * ((window.INTENSITY && window.INTENSITY.bossHpPerYear) || 0.10);
   boss.hp = isEnd ? P.hp : Math.round(P.hp * lvlMult * ageMult * (1 + tax("enemyHpMult"))); // bosses scale with your level AND your age
+  { const HM = window.STAGE_ID === "home" && window.MAPLE_HOLLOW && MAPLE_HOLLOW.bosses && MAPLE_HOLLOW.bosses.hpMult; if (HM && HM[bossKind] && !isEnd) boss.hp = Math.max(1, Math.round(boss.hp * HM[bossKind])); } // Maple Hollow's earlier HOA
   boss.hpMax = boss.hp; // phases (Gold Watch) read health as a fraction
   boss.speed = P.speed * (runSprint && window.SPRINT ? SPRINT.enemySpeedMult : 1);
   boss.damage = P.damage;
@@ -2555,13 +2556,16 @@ function update(time, delta) {
   }
 
   // Bosses for this mode, then the ending: Retirement at 65 (Midlife) or Father Time at 100 (Full Life).
-  modeCfg().bosses.forEach(bk => {
+  // Nov 9: Maple Hollow has its own lineup (MAPLE_HOLLOW.bosses): its own ages, no 56 coin flip, no Overtime-only rule.
+  const HB = window.STAGE_ID === "home" && window.MAPLE_HOLLOW && MAPLE_HOLLOW.bosses;
+  ((HB && HB[modeCfg().id]) || modeCfg().bosses).forEach(bk0 => {
+    const bk = ENEMIES[bk0] ? bk0 : (HB && HB.fallback && HB.fallback[bk0]) || bk0;
     if (!ENEMIES[bk]) return; // listed but not built yet (Nov 9: The Reorg)
     // The Gold Watch always arrives 1.5 years before you retire (so Delayed Retirement moves it too).
-    const at = bk === "goldWatch" && window.GoldWatch ? GoldWatch.arrivalAge() : ENEMIES[bk].spawnAge;
+    const at = bk === "goldWatch" && window.GoldWatch ? GoldWatch.arrivalAge() : (HB && HB.ages && HB.ages[bk0]) || ENEMIES[bk].spawnAge;
     if (bossesSpawned[bk] || currentAge < at) return;
-    if ((modeCfg().bossSlot || []).includes(bk) && bk !== window.runSlotBoss) return; // not this run's slot boss
-    { const OB = modeCfg().id === "midlife" && window.OVERTIME_BOSSES && OVERTIME_BOSSES[bk]; // Nov 9: Overtime-only visitors in Midlife
+    if (!HB && (modeCfg().bossSlot || []).includes(bk) && bk !== window.runSlotBoss) return; // not this run's slot boss
+    if (!HB) { const OB = modeCfg().id === "midlife" && window.OVERTIME_BOSSES && OVERTIME_BOSSES[bk]; // Nov 9: Overtime-only visitors in Midlife
       if (OB && !(window.GoldWatch && GoldWatch.arrivalAge && GoldWatch.arrivalAge() - at >= OB.minYearsBeforeWatch)) return; }
     // One boss at a time: wait for the one you're fighting (src/data/bosses.js, BOSS_QUEUE), up to a few years.
     const Q = window.BOSS_QUEUE || {};

@@ -658,3 +658,7 @@ The fourth proposed retro-rendered skin preserves the Cowboy v4 identity and56x6
 
 ### Home three-room art proposal, 2026-11-09 (Codex)
 The current interior art mock-up covers living room, kitchen and kid’s room, with a shared hallway. It includes the generic toy-brick hazard and homework desk. Garage interior remains a future option for the V8 pass. These local art drafts do not alter the playable map, unlock rules or boss placement.
+
+### Maple Hollow boss lineup (decided Nov 9, Rami)
+- 45 Fifth-Grade Math Homework (new), 48 HOA President, 52 30-Year Mortgage, 56 Holiday Party, 60 Midlife Crisis V8 (out of your garage), 63.5 Gold Watch. Full Life adds the Retirement and Pickleball bosses as in the office.
+- Open for later: the office may feel light on bosses; revisit its lineup.

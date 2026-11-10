@@ -1974,3 +1974,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The finish line (punch clock / Father Time) now waits 1 year, then walks to you (70 px/s + 90 per extra year, max 320) and arrives at 4 years. Numbers in FINISH_LINE (src/data/bosses.js). Tested: waits, walks, run ends.
 - Pings: removed the "any hit within 40 px pops a ping" rule; only coffee splashes, Dad Joke and "No." pop them now.
 - GitHub Pages deploy of V2.21.0 timed out twice on GitHub's side (syncing files); retried with this push.
+
+## 2026-11-09 (9:30 PM): V2.21.2, Maple Hollow boss lineup (Rami: "line up looks good")
+- Home lineup in MAPLE_HOLLOW.bosses: 45 Fifth-Grade Math Homework (Performance Review stands in until built), 48 HOA President (HP x0.35, built for 70), 52 Mortgage, 56 Holiday Party (no coin flip at home), 60 Midlife Crisis V8, then the Gold Watch (Midlife) or Retirement/Pickleball (Full Life). Office lineup unchanged.
+- Rami's note for later: check the office doesn't feel light on bosses now that the Mortgage and the V8 also live at home.
+- Waiting on ChatGPT: the Math Homework boss sheet and the garage interior (V8 bursts out of it).

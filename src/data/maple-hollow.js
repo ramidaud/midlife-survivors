@@ -47,6 +47,15 @@ window.MAPLE_HOLLOW = {
   },
   // The Lemonade Stand (step 4): Maple Hollow's Lounge, on the sidewalk by your house. Items: INTERNS.lounge.stand.
   lemonade: { spot: [1240, 552] },
+  // Step 5 (Nov 9, Rami: "line up looks good"): Maple Hollow's own boss lineup. No 56 coin flip at home.
+  // "mathHomework" is the new Fifth-Grade Math Homework boss; until its art and attacks land, fallback stands in.
+  bosses: {
+    midlife: ["mathHomework", "hoaPresident", "mortgageRefinance", "holidayParty", "midlifeCrisis", "goldWatch"],
+    full:    ["mathHomework", "hoaPresident", "mortgageRefinance", "holidayParty", "midlifeCrisis", "retirementBoss", "pickleballChamp"],
+    ages: { mathHomework: 45, hoaPresident: 48, holidayParty: 56 },   // spawn ages that differ from the office
+    hpMult: { hoaPresident: 0.35 },   // the HOA was built for 70; at 48 he's closer to Your New Boss
+    fallback: { mathHomework: "performanceReview" }
+  },
   // Locked out (Nov 9, step 3a): you can't get into your own house. The spare key is hidden at one of these spots
   // (a different one each run). Walk over a spot to check it. Find the key, then walk to your front door.
   keyHunt: {

@@ -2,12 +2,17 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.21.1",
-  displayVersion: "V. 2.21.1",
+  version: "2.21.2",
+  displayVersion: "V. 2.21.2",
   lastUpdated: "Nov 9, 2026",
   codename: "Version Two",
-  build: 317,
+  build: 318,
   changelog: [
+    {
+      ver: "V. 2.21.2", date: "Nov 9, 2026", title: "Version Two",
+      teaser: "The neighbors have opinions.",
+      highlights: ["Maple Hollow has its own boss lineup: the HOA President at 48, the 30-Year Mortgage at 52, the Holiday Party at 56 (at your place this time), and the Midlife Crisis V8 at 60. The Fifth-Grade Math Homework boss takes 45 soon; the Performance Review is filling in until then."]
+    },
     {
       ver: "V. 2.21.1", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Father Time doesn't wait forever.",
