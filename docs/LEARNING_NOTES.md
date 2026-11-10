@@ -725,3 +725,6 @@ A repeating road must fit whole dash-and-gap cycles.832px holds13 cycles of64px;
 
 ## Tiles vs. plates (Nov 10, Maple Hollow ground v2)
 Small tiles (32 px squares) are flexible but repetitive: shuffle a few squares across a big map and the eye spots the pattern, and every square has to be busy enough to hide the seams, which reads as noise. Plates are big hand-drawn pictures (here 832 x 320, a whole street) that repeat far less often, so they can be calm and carry real details like a chalk sun or a lost mitten. The trade-off is that a plate's details sit in fixed places, so things like curb cuts had to be patched to line up with where the driveways actually are.
+
+## Retry queues (Nov 10, the 500k cap)
+When something you send can fail, don't just show an error and forget it: keep it in a small "outbox" and try again later. The leaderboard now does that. A turned-away score waits on your device, gets re-sent next time you open the game, and gives up after three real refusals so a truly bad score can't retry forever. It's the same idea as an email sitting in your outbox until the Wi-Fi comes back.

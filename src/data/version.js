@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.24.2",
-  displayVersion: "V. 2.24.2",
+  version: "2.24.3",
+  displayVersion: "V. 2.24.3",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 324,
+  build: 325,
   changelog: [
+    {
+      ver: "V. 2.24.3", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your high score finally gets its paperwork.",
+      highlights: [
+        "The 40-to-65 leaderboard had an old 500,000 cap, and Maple Hollow runs blew past it. The cap is 5,000,000 now.",
+        "Scores the online board turned away are kept and re-sent the next time you open the game, so big runs from before this fix show up too."
+      ]
+    },
     {
       ver: "V. 2.24.2", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your to-do list knows where you live.",

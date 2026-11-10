@@ -61,9 +61,14 @@ async function lbSubmit(entry) {
   if (window.DEV && window.DEV.on) return { online: false, reason: "dev" }; // dev console runs never post
   lbAddLocal(entry);
   if (!lbConfigured()) return { online: false, reason: "not-set-up" };
+  const res = await lbPost(entry, lbTable());
+  if (!res.online) lbQueue(entry, lbTable()); // Nov 10: try again later instead of losing it
+  return res;
+}
+async function lbPost(entry, table) {
   const L = window.LEADERBOARD;
   try {
-    const res = await fetch(`${L.supabaseUrl}/rest/v1/${lbTable()}`, {
+    const res = await fetch(`${L.supabaseUrl}/rest/v1/${table}`, {
       method: "POST", headers: Object.assign(lbHeaders(), { Prefer: "return=minimal" }),
       body: JSON.stringify({ name: entry.name, score: entry.score, age: entry.age, start_age: entry.startAge, character: entry.character, version: entry.version })
     });
@@ -72,6 +77,40 @@ async function lbSubmit(entry) {
     return { online: false, reason: "offline" };
   }
 }
+
+// ---- Scores the board turned away get another try (Nov 10) ----
+// Rami's 500k+ Maple Hollow run bounced off an old 500,000 cap on the 40-to-65 board. The cap is 5,000,000 now, and any
+// score that didn't post waits here and is re-sent the next time the game opens (up to 3 tries; offline doesn't count).
+const LB_PENDING_KEY = "ms-lb-pending-v1";
+function lbPending() { try { return JSON.parse(localStorage.getItem(LB_PENDING_KEY) || "[]"); } catch (e) { return []; } }
+function lbSetPending(list) { try { localStorage.setItem(LB_PENDING_KEY, JSON.stringify(list.slice(-10))); } catch (e) {} }
+function lbQueue(entry, table) {
+  if (!table || !entry || !entry.name) return;
+  const list = lbPending(); if (list.some(p => p.e.name === entry.name && p.e.score === entry.score)) return;
+  list.push({ e: { name: entry.name, score: entry.score, age: entry.age, startAge: entry.startAge, character: entry.character, version: entry.version }, table, tries: 0 });
+  lbSetPending(list);
+}
+async function lbRetryPending() {
+  if (!lbConfigured() || (window.DEV && window.DEV.on) || window.TELEMETRY_OFF || /[?&]nostats=1/.test(location.search)) return;
+  // One-time rescue: 40-to-65 scores over the old cap were saved on this device but never posted, so queue them now.
+  try {
+    if (!localStorage.getItem("ms-lb-rescue-nov10")) {
+      localStorage.setItem("ms-lb-rescue-nov10", "1");
+      const t = window.RUN_MODES && RUN_MODES.midlife && RUN_MODES.midlife.table;
+      if (t) lbAllLocal().filter(r => (r.mode || "midlife") === "midlife" && r.score > 500000 && r.name && r.startAge != null).forEach(r => lbQueue(r, t));
+    }
+  } catch (e) {}
+  const keep = [];
+  for (const p of lbPending()) {
+    const res = await lbPost(p.e, p.table);
+    if (res.online) continue;
+    if (res.reason !== "offline") p.tries = (p.tries || 0) + 1;
+    if (p.tries < 3) keep.push(p);
+  }
+  lbSetPending(keep);
+}
+window.lbRetryPending = lbRetryPending;
+setTimeout(() => { lbRetryPending(); }, 6000); // quietly, a few seconds after the game opens
 
 // Top scores. Falls back to this device's scores if the online board can't be reached.
 async function lbFetchTop() {

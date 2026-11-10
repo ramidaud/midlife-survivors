@@ -2005,3 +2005,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - 6:45 AM, V2.24.1: Rami spotted six wheels on the V8 in title slide 14. ChatGPT fixed the desktop version (the phone version was fine); renamed to -v2 so browsers skip the cached copy.
 
 - 7:45 AM, V2.24.2: the title-screen to-do follows the stage. Home says "Finish the Fifth-Grade Math Homework at 45" (then a garage hint at 60 once it is beaten), and the welcome line says "You're home."
+
+## 2026-11-10 (8:10 AM): V2.24.3, the 500k cap
+- Rami's 500k+ Maple Hollow score bounced: the 40-to-65 board (scores_midlife) still had a 500,000 cap. With his OK, raised it to 5,000,000 (same as Full Life).
+- Scores the board turns away now wait on the device and are re-sent next time the game opens (3 tries). A one-time rescue re-sends old 40-to-65 scores over 500k, so Rami's run will post.
+- Rami's next: replay the office to judge whether it feels light on bosses.
