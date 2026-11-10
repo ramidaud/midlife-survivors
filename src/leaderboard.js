@@ -94,10 +94,12 @@ async function lbRetryPending() {
   if (!lbConfigured() || (window.DEV && window.DEV.on) || window.TELEMETRY_OFF || /[?&]nostats=1/.test(location.search)) return;
   // One-time rescue: 40-to-65 scores over the old cap were saved on this device but never posted, so queue them now.
   try {
-    if (!localStorage.getItem("ms-lb-rescue-nov10")) {
-      localStorage.setItem("ms-lb-rescue-nov10", "1");
+    // v2 (Nov 10, 8:10 AM): the board also capped age at 81 (now 101). Rami's 82.5 run used up its 3 tries before that
+    // was fixed, so this pass re-queues 40-to-65 scores over the old score OR age limits.
+    if (!localStorage.getItem("ms-lb-rescue-nov10b")) {
+      localStorage.setItem("ms-lb-rescue-nov10b", "1");
       const t = window.RUN_MODES && RUN_MODES.midlife && RUN_MODES.midlife.table;
-      if (t) lbAllLocal().filter(r => (r.mode || "midlife") === "midlife" && r.score > 500000 && r.name && r.startAge != null).forEach(r => lbQueue(r, t));
+      if (t) lbAllLocal().filter(r => (r.mode || "midlife") === "midlife" && (r.score > 500000 || r.age > 81) && r.name && r.startAge != null).forEach(r => lbQueue(r, t));
     }
   } catch (e) {}
   const keep = [];

@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.24.3",
-  displayVersion: "V. 2.24.3",
+  version: "2.24.4",
+  displayVersion: "V. 2.24.4",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 325,
+  build: 326,
   changelog: [
+    {
+      ver: "V. 2.24.4", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Second notice: your high score is approved.",
+      highlights: [
+        "The 40-to-65 board also turned away runs that went past 81 (Overtime plus the walk to the punch clock). It takes up to 101 now, and those scores get re-sent once more."
+      ]
+    },
     {
       ver: "V. 2.24.3", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your high score finally gets its paperwork.",
