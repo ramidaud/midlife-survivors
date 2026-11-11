@@ -2188,3 +2188,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Found why the yards feel bad: gates are 64 px and the hedge steps 52 px for a 48 px wide hero, and all the yard furniture is painted into the ground, so you walk over it.
 - Tree boundary is decided and added to Codex's Job 3, along with yard furniture as separate sprites. The three-kinds rule (wall, breakable, walk-through) and 96 px gaps are proposed, waiting on Rami.
 - Looked at how other pixel art games handle scene and sprite; notes are in the chat and feed the rules.
+
+## 2026-11-11 (6:30 AM): V2.29.1, wider gates; world rules approved
+- Rami said yes to the world rules (wall, breakable, walk-through; 96 px gaps; two exits; trees contain the level). They're in CLAUDE.md.
+- Backyard quick fix: gates between yards and the hedge steps are 96 px wide (were 64 and 52). Tested: the hero walks through both, and the fence still blocks above and below the gap.
+- The drawn gates are still 64 px, so the opening is a little wider than it looks until Codex's Job 3 art.
+- Codex finished Job 1 (heroes and Bill) on Rami's Mac. Not in the repo yet, so not reviewed.

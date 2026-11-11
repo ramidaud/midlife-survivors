@@ -70,7 +70,7 @@ window.MAPLE_HOLLOW = {
     rows: { northHouseTop: 448, northHouseFront: 816, sidewalk1: 832, street1: 928, street1End: 1248, sidewalk2End: 1344,
             southHouseTop: 1792, southHouseFront: 2160, sidewalk3: 2176, street2: 2272, street2End: 2592, sidewalk4End: 2688, bottom: 2752 },
     houseCell: [416, 384], facade: [8, 16, 336, 352], backyard: [416, 448],
-    fence: { w: 16, top: 40, gate: [224, 288], steps: [184, 236] }, // side fences with a gate gap; the top hedge has steps in the middle
+    fence: { w: 16, top: 40, gate: [208, 304], steps: [162, 258] }, // side fences with a gate gap; the top hedge has steps in the middle. World rules (Nov 11): gaps are 96 px (were 64 and 52, too tight for a 48 px hero)
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
     yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png

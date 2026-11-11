@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.0",
-  displayVersion: "V. 2.29.0",
+  version: "2.29.1",
+  displayVersion: "V. 2.29.1",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 351,
+  build: 352,
   changelog: [
+    {
+      ver: "V. 2.29.1", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "The neighbors widened their gates. Finally.",
+      highlights: [
+        "Maple Hollow backyards are easier to get around: the gates between yards and the steps through the hedge are 96 px wide (they were barely wider than you)."
+      ]
+    },
     {
       ver: "V. 2.29.0", date: "Nov 11, 2026", title: "Version Two",
       teaser: "Somebody finally cleaned their glasses.",

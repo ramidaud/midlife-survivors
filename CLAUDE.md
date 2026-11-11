@@ -91,6 +91,16 @@ From the level art audit (`docs/design/level-art-audit-2026-11.md`). "One look" 
 - **Density target per room.** Every room has a target number of objects per screen and is compared side by side with its reference art before it ships.
 - **Art sized to its space.** Ask for art at the size of the space it fills. Don't stretch a room or scatter small props to cover a gap.
 
+## World rules: what blocks, what breaks, what you walk through (Nov 11, Rami's OK)
+- **Three kinds of object, and the art shows which is which.**
+  - **Wall:** taller than the hero, full dark outline, heavy shadow. Never passable; you can walk behind its top part. Trees, fences, hedges, cars, big furniture.
+  - **Breakable:** hero height or smaller, a cream highlight on top. Blocks until smashed, then drops loot.
+  - **Walk-through:** flat on the ground, no outline, no shadow. Never blocks. Leaves, chalk, rugs, low flowers.
+- **Nothing solid is painted into a ground picture.** Anything the hero should bump into or walk behind is its own sprite with a foot point and a footprint.
+- **Gaps are at least 96 px** wherever the player is meant to pass (the hero's body is 48 px wide). Main routes stay 224 px.
+- **Two ways out** of every room and yard, so a swarm can't corner you in a dead end.
+- **Trees contain the level.** Outdoor stages end in a solid tree wall on every side, and the camera never shows past it.
+
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
 
