@@ -61,7 +61,7 @@ window.Modifiers = (() => {
     st.active = def.id; st.def = def; st.endsAtAge = currentAge + yrs;
     st.intensity = 1 + (T().heatIntensityAddPerBracket || 0) * (typeof runTaxBracket !== "undefined" ? runTaxBracket : 0);
     st.stats.hits++; st.stats.byId[def.id] = (st.stats.byId[def.id] || 0) + 1;
-    if (window.flashBanner) window.flashBanner(def.title, def.sub, def.kind);
+    // the headline comes from showLowerThird below: an alert says its piece once (audit round 2)
     if (window.showLowerThird) window.showLowerThird(def.kind === "reward" ? "reward" : "alert", def.title, def.sub, 4000, def.sub);
     if (window.Spotlight) setTimeout(() => Spotlight.tip("modifier"), 4500); // first surprise ever, after its own banner
     if (typeof sfx === "function") sfx("pick");

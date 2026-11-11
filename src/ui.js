@@ -813,6 +813,8 @@ setInterval(() => {
 // (It used to sit in the middle of the floor; the full sentence still goes to the bottom bar.)
 let cfTimer = null, cfShowing = false;
 function flashBannerNow(title, sub, kind) {
+  // a headline with a sentence stays up long enough to read it (about 60 ms a character, 2.4 to 4.5 s)
+  const showMs = sub ? Math.min(4500, Math.max(2400, 1500 + sub.length * 60)) : 2400;
   const el = document.getElementById("center-flash");
   if (!el) return;
   el.querySelector(".cf-title").textContent = title;
@@ -820,7 +822,7 @@ function flashBannerNow(title, sub, kind) {
   el.dataset.kind = kind || "alert";
   el.classList.remove("hidden", "cf-go"); void el.offsetWidth; el.classList.add("cf-go");
   clearTimeout(cfTimer); cfShowing = true; document.documentElement.classList.add("ms-headline");
-  cfTimer = setTimeout(() => { el.classList.add("hidden"); cfShowing = false; document.documentElement.classList.remove("ms-headline"); MsgRouter.headlineDone(); }, 2400);
+  cfTimer = setTimeout(() => { el.classList.add("hidden"); cfShowing = false; document.documentElement.classList.remove("ms-headline"); MsgRouter.headlineDone(); }, showMs);
 }
 function flashBannerCut() { // something bigger took the middle of the screen: end the flash now
   const el = document.getElementById("center-flash");
@@ -842,24 +844,27 @@ window.MsgRouter = (() => {
   const busy = except => (except !== "flash" && cfShowing) ||
     (except !== "spotlight" && !!(window.Spotlight && Spotlight.isShowing && Spotlight.isShowing())) ||
     (except !== "catch" && !!(window.CatchMoment && CatchMoment.isShowing && CatchMoment.isShowing()));
+  // Returns what happened, so callers know if the headline took it: "shown", "queued" or "skipped".
+  // opts.onDrop runs if a queued message goes stale before it gets the slot (the ticker can say it instead).
   function flash(title, sub, kind, opts) {
     // A6: rewards never take the headline; every reward already has its line in the bottom ticker
-    if (kind === "reward" && (window.MSG_PACING || {}).rewardsInTickerOnly !== false) return;
+    if (kind === "reward" && (window.MSG_PACING || {}).rewardsInTickerOnly !== false) return "skipped";
     // A4: a boss's first-attack banner is skipped while its arrival card is up; the card already says how to dodge
-    if (opts && opts.bossFirst && window.Spotlight && Spotlight.bossUp && Spotlight.bossUp()) return;
+    if (opts && opts.bossFirst && window.Spotlight && Spotlight.bossUp && Spotlight.bossUp()) return "skipped";
     const key = title + "|" + (sub || ""), t = TIER[kind] || 2;
-    if (activeMs - (lastSaid[key] ?? -1e9) < REPEAT) return;            // said this a moment ago
-    if (queue.some(m => m.key === key)) return;
-    if (!busy() && activeMs - lastEnd >= GAP && !ltMenuOpen()) { lastSaid[key] = activeMs; return flashBannerNow(title, sub, kind); }
-    queue.push({ key, title, sub, kind, t, at: activeMs });
+    if (activeMs - (lastSaid[key] ?? -1e9) < REPEAT) return "skipped";  // said this a moment ago
+    if (queue.some(m => m.key === key)) return "queued";
+    if (!busy() && activeMs - lastEnd >= GAP && !ltMenuOpen()) { lastSaid[key] = activeMs; flashBannerNow(title, sub, kind); return "shown"; }
+    queue.push({ key, title, sub, kind, t, at: activeMs, onDrop: opts && opts.onDrop });
     queue.sort((a, b) => a.t - b.t || a.at - b.at);
-    if (queue.length > 4) queue.length = 4;
+    if (queue.length > 4) queue.splice(4).forEach(m => m.onDrop && m.onDrop());
+    return "queued";
   }
   setInterval(() => {
     const now = performance.now(), dt = now - lastTick; lastTick = now;
     if (ltMenuOpen()) return;                                           // a menu holds the line; nobody goes stale
     activeMs += dt;
-    queue = queue.filter(m => activeMs - m.at < SHELF[m.t]);
+    queue = queue.filter(m => { const ok = activeMs - m.at < SHELF[m.t]; if (!ok && m.onDrop) m.onDrop(); return ok; });
     if (!queue.length || busy() || activeMs - lastEnd < GAP) return;
     // a more important Spotlight card is waiting (a boss is tier 1): it goes first
     const cardTier = window.Spotlight && Spotlight.waitingTier ? Spotlight.waitingTier() : 9;
@@ -877,7 +882,7 @@ window.MsgRouter = (() => {
     reset() { queue = []; lastSaid = {}; lastEnd = -1e9; flashBannerCut(); }
   };
 })();
-window.flashBanner = function(title, sub, kind, opts) { MsgRouter.flash(title, sub, kind, opts); };
+window.flashBanner = function(title, sub, kind, opts) { return MsgRouter.flash(title, sub, kind, opts); };
 
 // Design system A6: holds. Errands, the Lounge and swarm events ask here before they start.
 window.Pacing = {
@@ -962,18 +967,25 @@ function titleNewPop() {
 }
 
 const ltFlashAt = {};
-window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited) {
+window.showLowerThird = function(kind, badge, text, ms = 4500, short, _waited, _waited_alert) {
   // While a Spotlight card is up, ordinary messages wait their turn instead of stacking under it (Nov 3, Rami:
   // "the cards still show up in pairs"). Alerts wait too now (Fable review: four messages stacked at 65);
   // only LOW HP goes out right away, because it can save the run. Gives up after ~15 s.
   if (badge !== "LOW HP" && badge !== "SECOND OPINION" && window.Spotlight && Spotlight.isShowing && Spotlight.isShowing() && (_waited || 0) < 15000) {
-    setTimeout(() => window.showLowerThird(kind, badge, text, ms, short, (_waited || 0) + 500), 500);
+    setTimeout(() => window.showLowerThird(kind, badge, text, ms, short, (_waited || 0) + 500, _waited_alert), 500);
     return;
   }
   // Nov 9 (Rami's late-game screenshots: DESK SALAD over the middle of the screen the whole time): the big
   // center banner shows a reward at most once a minute. The lower third still says it every time.
   const flashKey = kind + ":" + badge, tNow = performance.now();
-  if ((kind === "alert" || kind === "reward") && window.flashBanner && !(kind === "reward" && tNow - (ltFlashAt[flashKey] || -1e9) < 60000)) { ltFlashAt[flashKey] = tNow; window.flashBanner(badge, short, kind); }
+  // Nov 10 (audit round 2): an alert says its piece ONCE, in the headline under the HUD, title plus sentence.
+  // It only falls back to the ticker if the headline can't take it (said a moment ago, or it waited too long).
+  if (kind === "alert" && !_waited_alert && window.MsgRouter) {
+    const line = text && text.length <= 80 ? text : (short || text);   // the full sentence when it fits
+    const r = MsgRouter.flash(badge, line, "alert", { onDrop: () => window.showLowerThird(kind, badge, text, ms, short, _waited, true) });
+    if (r === "shown" || r === "queued") return;
+  }
+  if (kind === "reward" && window.flashBanner && tNow - (ltFlashAt[flashKey] || -1e9) >= 60000) { ltFlashAt[flashKey] = tNow; window.flashBanner(badge, short, kind); }
   const msg = { kind, badge, text, ms, p: LT_PRIORITY[kind] ?? 1 };
   const cur = ltState.current;
   if (!cur) return ltShowNow(msg);

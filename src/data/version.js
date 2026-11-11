@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.7",
-  displayVersion: "V. 2.27.7",
+  version: "2.27.8",
+  displayVersion: "V. 2.27.8",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 345,
+  build: 346,
   changelog: [
+    {
+      ver: "V. 2.27.8", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Warnings now say it once.",
+      highlights: [
+        "An alert like TAX SEASON or RENT HIKE shows up one time, right under the HUD, with the full sentence. It used to repeat itself in the bar at the bottom too.",
+        "Longer warnings stay up a little longer so you can finish reading them."
+      ]
+    },
     {
       ver: "V. 2.27.7", date: "Nov 10, 2026", title: "Version Two",
       teaser: "IT finally translated the controls screen.",
