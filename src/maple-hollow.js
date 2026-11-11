@@ -137,7 +137,7 @@ window.MapleHollow = (() => {
     }
     if (NEW && v2) { // v2 puts the inside of your house below the town: cover the gap so the office backdrop never shows
       const by = R.bottom, bh = (data.bounds ? data.bounds.y + data.bounds.height : M.interior.y + 1200) - by + 400;
-      all.push(scene.add.rectangle(-400, by, M.width + 800, bh, 0x303750).setOrigin(0).setDepth(-1001));
+      all.push(scene.add.rectangle(-400, by, Math.max(M.width, data.bounds ? data.bounds.width : 0) + 800, bh, 0x303750).setOrigin(0).setDepth(-1001)); // wide enough for upstairs too
     }
     // a manhole or two on each street (v1 only: the v2 plates have their own)
     if (!v2 && !NEW) [[620, R.street1 + 32], [1880, R.street1 + 128], [1240, R.street2 + 32]].forEach(([x, y]) => {
