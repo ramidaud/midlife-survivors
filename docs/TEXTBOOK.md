@@ -2043,3 +2043,20 @@ Things are drawn back to front. A bigger depth number goes on top.
 |---|---|---|
 | Doorway, before | fixed, small | always under the house |
 | Doorway, after | follows the house | shows when the door opens |
+
+## Baked in vs. separate objects (Nov 11, your backyard)
+
+```
+ OLD: one picture                 NEW: ground + objects
+ +---------------------+          +---------------------+
+ | grass, goal, pit,   |          | grass, path, dirt   |  <- ground picture
+ | chairs all painted  |          +---------------------+
+ | into one image      |             [goal]  [chair][pit]   <- each its own sprite
+ +---------------------+             [tree]                    with a base that blocks
+```
+
+| | Baked in | Separate objects |
+|---|---|---|
+| Blocks you | no, or by an invisible box | at its base |
+| Walk behind it | no | yes |
+| Move or swap it | repaint the yard | change one line of data |

@@ -818,3 +818,6 @@ The world is bigger than the screen, and the camera is a window that follows the
 
 ## Draw order (Nov 11, the front door)
 Everything on screen is drawn in a set order, back to front, like stacking paper cutouts. Each thing has a depth number, and bigger numbers go on top. In this game the depth changes every frame so that whoever stands lower on the screen is drawn in front. The open doorway had a small fixed number, so the house was always stacked on top of it and the door never looked open. The fix was to give the doorway the house's number plus a hair.
+
+## Baked in vs. separate objects (Nov 11, your backyard)
+The old backyards were one picture each, with the swing set and the fire pit painted right into the grass. The game had no idea they were there, so you walked straight over them, or hit an invisible wall where nothing was drawn. The rebuilt yard is a plain ground picture plus separate objects. Each object knows where its base is, so it blocks you there and nowhere else, and it can be drawn in front of you or behind you depending on where you stand.

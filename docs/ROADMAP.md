@@ -39,7 +39,13 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Codex corner redo approved and live (V2.29.6). Batch A is done
 - [x] Codex Batch B reviewed (PR #4): furniture, yard props, key-hunt props, toy bricks, leaf decals, gates and straight fence runs pass
 - [ ] Codex Batch B fixes: lawns (two flat tones, visible cut lines), side-on fence pieces and corners (drawn at an angle, won't stack), one grass color on all seven yard plates, and the street end piece (missing)
-- [ ] Rami: pick the one grass color for Maple Hollow (sage teal like today, or the lighter green)
+- [x] Rami picked the lighter green (#9BAE73) as the one grass color for Maple Hollow
+- [x] Street ends reviewed (PR #4): both painted dead ends and barricades pass. Not wired in yet
+- [x] Your backyard rebuilt (V2.29.10): plain ground plus separate goal, fire pit, chair and maple tree
+- [ ] Rami: walk your backyard. Easy to get around? Anything you bump into that looks walkable?
+- [ ] Rebuild the other eleven yards the same way (after Rami's OK on yours and Codex's fixes)
+- [ ] Wire in the two street ends
+- [ ] Move the lawns and street parkways to the lighter green (waits for Codex's lawn repaint)
 - [x] Rami walked the edge (Nov 11): tight by the end houses, the street needs a dead end, the front door is confusing after the key hunt
 - [x] Breathing room (V2.29.7): a grass strip between the end houses and the forest, 96 px to walk in
 - [x] Front door (V2.29.8): swings open after you take the key-hunt bonus, then you walk straight in

@@ -34,6 +34,12 @@ window.MapleHollow = (() => {
       [v3.houses, v3.yours, v3.sa, v3.sb, v3.yards, v3.yourYard] = await Promise.all(["houses-v2.png", "your-house-v2.png", "street-wide-v2-a.png", "street-wide-v2-b.png", "backyards-v2.png", "your-backyard-v2.png"].map(f => H.image(ROOT + "v2/" + f)));
     } catch (e) { v3.houses = null; console.warn("Maple Hollow v2 art missing, using v1", e); }
     const NEW = !!(MV && v3.houses);
+    const YD = NEW && MV.yards && MV.yards.you ? MV.yards : null, yd = {}; // your rebuilt backyard (Nov 11): plain ground + separate sprites
+    if (YD) try {
+      yd.ground = await H.image(ROOT + YD.dir + YD.you.ground);
+      yd.pieces = await Promise.all(YD.you.pieces.map(q => H.image(ROOT + YD.dir + q[0])));
+    } catch (e) { yd.ground = null; console.warn("yard art missing", e); }
+    if (!H.isAlive()) return null;
     const TW = NEW && MV.treeWall && MV.treeWall.on ? MV.treeWall : null, tw = {}; // the tree wall around the town (Nov 11)
     if (TW) try {
       [tw.north, tw.south, tw.west, tw.east, tw.southTop, tw.westTop, tw.eastTop] = await Promise.all(["north-v4", "south-v4", "west-v4", "east-v4", "south-v4-canopy", "west-v4-canopy", "east-v4-canopy"].map(f => H.image(ROOT + TW.dir + "tree-wall-" + f + ".png")));
@@ -384,8 +390,16 @@ window.MapleHollow = (() => {
         frames.forEach((f, i) => {
           const L = lotLeft(i), mine = yh.row === row && yh.lot === i;
           // the backyard behind the house
-          const yk = mine ? crop("mh3_yard_you", v3.yourYard, 0, 0, YW, YH) : crop("mh3_yard_" + f, v3.yards, (MV.yardOrder[f] || 0) * YW, 0, YW, YH);
+          const rebuilt = mine && YD && yd.ground;
+          const yk = rebuilt ? crop("mh4_yard_you", yd.ground, 0, 0, YW, YH) : mine ? crop("mh3_yard_you", v3.yourYard, 0, 0, YW, YH) : crop("mh3_yard_" + f, v3.yards, (MV.yardOrder[f] || 0) * YW, 0, YW, YH);
           all.push(scene.add.image(L, yardTop, yk).setOrigin(0).setDepth(-999));
+          if (rebuilt) YD.you.pieces.forEach(([file, x, y, bw, bd], n) => {
+            const img = yd.pieces[n], w = img.width, h = img.height, solid = bw > 0;
+            const k = crop("mh4_piece_" + file, img, 0, 0, w, h, solid);
+            if (!solid) { all.push(scene.add.image(L + x, yardTop + y, k).setOrigin(0).setDepth(-998)); return; } // flat: you walk over it
+            const o = scene.add.image(L + x + w / 2, yardTop + y + h, k).setOrigin(0.5, 1).setDepth(3); // stands up: sorted with the hero, blocks at its base
+            H.body(o, { width: bw, back: bd, front: 0 }, "prop_wall"); bodies.push(o); items.push(o);
+          });
           // fences on both sides with a gate gap in the middle; the hedge along the top has steps (south row only: the north row's top is the edge of the map)
           [L, L + YW - F.w].forEach(x => { block(x, yardTop + F.top, F.w, F.gate[0] - F.top); block(x, yardTop + F.gate[1], F.w, YH - F.gate[1]); });
           if (row === "south") { block(L, yardTop, F.steps[0], F.top); block(L + F.steps[1], yardTop, YW - F.steps[1], F.top); }

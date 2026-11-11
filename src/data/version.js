@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.9",
-  displayVersion: "V. 2.29.9",
+  version: "2.29.10",
+  displayVersion: "V. 2.29.10",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 360,
+  build: 361,
   changelog: [
+    {
+      ver: "V. 2.29.10", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "Your backyard got furniture you can actually walk around.",
+      highlights: [
+        "Your backyard in Maple Hollow was rebuilt: the soccer goal, fire pit, chair and maple tree are now their own painted objects. You bump into what looks solid, and you can walk behind the tree.",
+        "It is greener than the neighbors' yards for now. They are next."
+      ]
+    },
     {
       ver: "V. 2.29.9", date: "Nov 11, 2026", title: "Version Two",
       teaser: "The door waits for its moment.",

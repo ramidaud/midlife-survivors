@@ -2268,3 +2268,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The yard plates use two different grass colors. Rami needs to pick one.
 - The cul-de-sac piece wasn't in the batch.
 - Nothing wired into the game yet.
+
+## 2026-11-11 (3:15 PM): V2.29.10, your backyard rebuilt
+- Rami picked the lighter green as Maple Hollow's one grass color.
+- Codex added two painted street ends with barricades. They pass review and join the street cleanly.
+- Your backyard is the first rebuilt yard: a plain ground picture, with the soccer goal, fire pit, chair and maple tree as separate objects that block at their base.
+- Tested: the lane between the side gates is clear, the goal, pit and trunk block, and the tree fades when you stand behind it.
+- It looks greener than everything around it until the lawns and the other yards switch over.

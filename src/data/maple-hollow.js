@@ -76,6 +76,25 @@ window.MAPLE_HOLLOW = {
     // The camera stops at the outside of the forest, so nothing past it ever shows. Corner pieces (corners: true) are Codex's
     // repaint; with corners: false the side strips cover the corners instead. Set on: false to go back to the open edge.
     treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true, margin: 136 }, // margin: a strip of grass between the end houses and the forest (136 - 40 = 96 px to walk in, the World rules minimum) // edge: how far in from the map edge the hero is stopped
+    // Rebuilt yards (Nov 11, World rules): a plain ground picture plus each thing as its own sprite, so what blocks you is
+    // an object you can see and walk around or behind. Painted by Codex (Batch A trees, Batch B furniture).
+    // Each piece: [file, x, y, solid width, solid depth]. x and y are the top-left corner inside the 416 x 448 yard.
+    // Solid width and depth describe the part on the ground that blocks you (leave them out for flat things you walk over).
+    // Keep y 200 to 310 clear: that is the lane between the two side gates.
+    yards: {
+      dir: "v4/yard/",
+      you: {
+        ground: "ground-player-v4.png",
+        pieces: [
+          ["soccer-goal-v4.png", 20, 70, 154, 35],
+          ["adirondack-chair-v4.png", 228, 36, 58, 23],
+          ["fire-pit-v4.png", 296, 56, 84, 43],
+          ["tree-maple-orange-v4.png", 8, 276, 24, 25],
+          ["decal-leaf-drift-v4.png", 150, 340],
+          ["decal-scattered-maple-v4.png", 250, 262]
+        ]
+      }
+    },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
     yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png

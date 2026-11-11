@@ -734,6 +734,7 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 ### The boundary and world rules (Nov 11, Rami)
 - **Decided: trees contain the level.** A solid tree wall on all four sides of Maple Hollow is the ultimate boundary. The player never sees past it (no void, no hedge edge). Live in V2.29.5 with Codex's painted Batch A wall sides (corners pending a redo).
 - **Decided (Nov 11): streets end in a cul-de-sac or dead end** where they meet the forest, and a grass strip separates the end houses from the trees.
+- **Decided (Nov 11): Maple Hollow's one grass color is the lighter green (#9BAE73).** Yards, lawns and parkways all move to it.
 - **Decided (Nov 11): the front door opens with an animation when the key-hunt loot is collected**, and you can walk straight in.
 - **Approved Nov 11 (now in CLAUDE.md, "World rules"):** three kinds of object, each with its own look.
   - **Wall:** taller than the hero, full outline, heavy shadow. Never passable. You can walk behind the top part.
