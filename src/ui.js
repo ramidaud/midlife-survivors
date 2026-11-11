@@ -567,10 +567,10 @@ function initGameUI(scene) {
     <div class="ui-modal hidden ms-sheet-host" id="settings-modal"></div>
 
     <!-- MODAL 2C: VERSION HISTORY & RELEASE NOTES OVERLAY -->
-    <div class="ui-modal hidden" id="changelog-modal"></div>
+    <div class="ui-modal hidden ms-sheet-host" id="changelog-modal"></div>
 
     <!-- MODAL 2D: MYTHOS, SUBJECTS & SCENARIOS LORE ARCHIVE OVERLAY -->
-    <div class="ui-modal hidden" id="lore-modal"></div>
+    <div class="ui-modal hidden ms-sheet-host" id="lore-modal"></div>
 
     <!-- MODAL 3: AGE 80 RETIREMENT MILESTONE (Retire or Enter 80-100 Senior Bonus Rounds!) -->
     <div class="ui-modal hidden ms-sheet-host" id="retire80-modal">
@@ -1644,7 +1644,7 @@ function renderLoreModal(scene, tab, keepSelector) {
     contentHtml = (wm.chapters || []).map(ch => `
       <div class="lore-card">
         <div class="lore-card-head">
-          <span class="lore-card-code">FORM W-40 // WORLD MYTHOS</span>
+          <span class="lore-card-code">FORM W-40 · MYTHOS</span>
         </div>
         <div class="lore-card-title">${ch.heading}</div>
         <div class="lore-card-body">${ch.body}</div>
@@ -1662,8 +1662,8 @@ function renderLoreModal(scene, tab, keepSelector) {
           </div>
           <div class="lore-card-title">${s.icon} ${s.name} (${s.archetype})</div>
           <div class="lore-card-body">${s.backstory}</div>
-          <div class="lore-card-meta">⚔️ SIGNATURE RELIC: ${s.relic}</div>
-          <div class="lore-card-meta" style="color:#5fb3f0;">🎯 TACTICAL EDGE: ${s.edge}</div>
+          <div class="lore-card-meta"><b>Signature relic:</b> ${s.relic}</div>
+          <div class="lore-card-meta"><b>Edge:</b> ${s.edge}</div>
           <div class="lore-card-quote">${s.quote}</div>
         </div>
       `;
@@ -1681,7 +1681,7 @@ function renderLoreModal(scene, tab, keepSelector) {
           <div class="lore-card-title">${sc.name}</div>
           <div class="lore-card-body">${sc.lore}</div>
           <ul class="changelog-notes">${mList}</ul>
-          <div class="lore-card-meta">💡 SURVIVAL NOTE: ${sc.survivalTip}</div>
+          <div class="lore-card-meta"><b>Survival note:</b> ${sc.survivalTip}</div>
         </div>
       `;
     }).join("");
@@ -1690,7 +1690,7 @@ function renderLoreModal(scene, tab, keepSelector) {
     contentHtml = bList.map(b => `
       <div class="lore-card">
         <div class="lore-card-head">
-          <span class="lore-card-code">MILESTONE NEMESIS // ${b.age}</span>
+          <span class="lore-card-code">MILESTONE · AGE ${b.age}</span>
           <span class="changelog-date">${b.stage}</span>
         </div>
         <div class="lore-card-title">${b.name}</div>
@@ -1700,22 +1700,17 @@ function renderLoreModal(scene, tab, keepSelector) {
   }
 
   modal.innerHTML = `
-    <div class="modal-card lore-box">
-      <div class="modal-kicker">BUREAU OF ACTUARIAL SURVIVAL // FORM W-40 ARCHIVE</div>
-      <h2 class="modal-title">📖 MYTHOS, SUBJECTS & SCENARIOS</h2>
-      <p class="modal-sub">Explore the origin of <b>The Great Compounding</b>, the 3 Playable Subjects, and the 5 Life Scenarios.</p>
-      <div class="lore-tabs">
-        <button class="lore-tab-btn ${currentLoreTab === "mythos" ? "active" : ""}" data-ltab="mythos">🌐 1. WORLD MYTHOS</button>
-        <button class="lore-tab-btn ${currentLoreTab === "subjects" ? "active" : ""}" data-ltab="subjects">🪪 2. SUBJECT DOSSIERS</button>
-        <button class="lore-tab-btn ${currentLoreTab === "scenarios" ? "active" : ""}" data-ltab="scenarios">🗺️ 3. LIFE SCENARIOS</button>
-        <button class="lore-tab-btn ${currentLoreTab === "bosses" ? "active" : ""}" data-ltab="bosses">👹 4. BOSS REGISTRY</button>
+    <div class="modal-card lore-box ms-sheet ms-b8">
+      <div class="ms-sheet-strip">RECORDS · RE: <b>Office history</b></div>
+      <h2 class="ms-sheet-title">LORE</h2>
+      <p class="ms-sheet-help">How the Great Compounding started, who you play, and who's waiting at each age.</p>
+      <div class="lore-tabs" role="tablist">
+        ${[["mythos", "MYTHOS"], ["subjects", "PEOPLE"], ["scenarios", "LIFE STAGES"], ["bosses", "BOSSES"]]
+          .map(([k, l]) => `<button class="lore-tab-btn ${currentLoreTab === k ? "active" : ""}" data-ltab="${k}" role="tab" aria-selected="${currentLoreTab === k}">${l}</button>`).join("")}
       </div>
       <div class="lore-content">${contentHtml}</div>
-      <button class="cta-btn" id="lore-close-btn">BACK</button>
-      <div class="nav-hint-bar">
-        <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Lore Tab</span>
-        <span><b>Space / Enter / Esc / A / B</b>: Select or Close</span>
-      </div>
+      <div class="ms-sheet-actions"><button class="ms-btn primary" id="lore-close-btn"><span class="ms-btn-label">BACK</span></button></div>
+      <div class="ms-legend"><span><kbd>◀▶</kbd>tabs</span><span><kbd>Esc</kbd>back</span></div>
     </div>
   `;
 
@@ -1744,8 +1739,8 @@ function renderChangelogModal(scene) {
     return `
       <div class="changelog-entry ${idx === 0 ? "latest" : ""}">
         <div class="changelog-header">
-          <span class="changelog-ver">${entry.ver}${idx === 0 ? " // CURRENT BUILD" : ""}</span>
-          <span class="changelog-date">Last updated on: ${entry.date}</span>
+          <span class="changelog-ver">${entry.ver}${idx === 0 ? " · YOU'RE HERE" : ""}</span>
+          <span class="changelog-date">${entry.date}</span>
         </div>
         <div class="changelog-title">${entry.title}</div>
         <ul class="changelog-notes">${notesHtml}</ul>
@@ -1754,15 +1749,13 @@ function renderChangelogModal(scene) {
   }).join("");
 
   modal.innerHTML = `
-    <div class="modal-card changelog-box">
-      <div class="modal-kicker">OFFICIAL BUILD LOG // ${verInfo.displayVersion} (${verInfo.codename.toUpperCase()})</div>
-      <h2 class="modal-title">📜 VERSION HISTORY & PATCH NOTES</h2>
-      <p class="modal-sub">Current Version: <b>${verInfo.displayVersion}</b> &bull; Last updated on: <b>${verInfo.lastUpdated}</b> (Build #${verInfo.build})</p>
+    <div class="modal-card changelog-box ms-sheet ms-b8">
+      <div class="ms-sheet-strip">IT · RE: <b>Patch notes</b></div>
+      <h2 class="ms-sheet-title">PATCH NOTES</h2>
+      <p class="ms-sheet-help">You're on ${verInfo.displayVersion}, updated ${verInfo.lastUpdated}. Newest first.</p>
       <div class="changelog-list">${entriesHtml}</div>
-      <button class="cta-btn" id="changelog-close-btn">BACK</button>
-      <div class="nav-hint-bar">
-        <span><b>Space / Enter / Esc / Click / A / B</b>: Close Patch Notes</span>
-      </div>
+      <div class="ms-sheet-actions"><button class="ms-btn primary" id="changelog-close-btn"><span class="ms-btn-label">BACK</span></button></div>
+      <div class="ms-legend"><span><kbd>Esc</kbd>back</span></div>
     </div>
   `;
 
@@ -2523,7 +2516,6 @@ function renderTitleModal(scene, preserveFocusSelector) {
       <div class="title-secondary">${shopSpent > 0 ? `<button class="t-style-btn shop-refund-btn" id="shop-refund-btn">↺ REFUND ALL (${shopSpent}k)</button>` : ""}${backBtn}</div>`;
   } else if (view === "leaders") {
     bodyHtml = `
-      <div class="title-subhead">🏆 LEADERBOARD</div>
       <div id="title-leaderboard"></div>
       <div class="title-secondary">${backBtn}</div>`;
   } else if (view === "achievements") {
@@ -2531,13 +2523,12 @@ function renderTitleModal(scene, preserveFocusSelector) {
     const list = window.ACHIEVEMENTS || [];
     const n = list.filter(a => got[a.id]).length;
     bodyHtml = `
-      <div class="title-subhead">🏅 ACHIEVEMENTS · ${n} of ${list.length}</div>
       <div class="ach-grid">${list.map(a => `
         <div class="ach-tile ${got[a.id] ? "got" : "locked"}">
           <div class="ach-icon">${got[a.id] ? a.icon : "🔒"}</div>
           <div class="ach-name">${a.name}</div>
           <div class="ach-desc">${a.desc}</div>
-          <div class="ach-reward">${got[a.id] ? "✓ EARNED" : `+${a.reward}k`}</div>
+          <div class="ach-reward">${got[a.id] ? "EARNED" : `+${a.reward}k`}</div>
         </div>`).join("")}</div>
       <div class="title-secondary">${backBtn}</div>`;
   } else if (view === "credits") {
@@ -2548,26 +2539,25 @@ function renderTitleModal(scene, preserveFocusSelector) {
         ${sec.names.map(n => `<div class="credit-name">${n}</div>`).join("")}
       </div>`).join("");
     bodyHtml = `
-      <div class="title-subhead">🎬 ${C.title}</div>
       <div class="credits-list">${secs}</div>
       <div class="credit-closing">${C.closing}</div>
       <div class="title-secondary">${backBtn}</div>`;
   } else if (view === "extras") {
     bodyHtml = `
-      <div class="title-subhead">✨ EXTRAS</div>
       <div class="title-poll-tile" data-ms-poll="stage-first-v1"></div>
       <div class="title-style-switcher"><span>START AT (FULL LIFE):</span>${decadeBtnsHtml}</div>
       ${window.SHOW_STAGE_PICKER ? `<div class="title-style-switcher" style="margin-top:6px;"><span>LOCATION:</span>${stageBtnsHtml}</div>` : ""}<!-- hidden until a second stage exists (Fable review) -->
-      <div class="title-secondary">
-        <button class="t-style-btn" id="title-lore-btn">📖 LORE</button>
-        <button class="t-style-btn" id="title-changelog-btn">📜 PATCH NOTES</button>
-        <button class="t-style-btn" id="title-credits-btn">🎬 CREDITS</button>
-        <button class="t-style-btn" id="title-ach-btn">🏅 ACHIEVEMENTS</button>
-        <button class="t-style-btn" id="title-discord-btn">💬 DISCORD</button>
-        <button class="t-style-btn danger-btn" id="title-reset-btn">🗑️ RESET PROGRESS</button>
-        <button class="t-style-btn" id="title-art-test-btn">🎨 ART ROOM</button>
-        ${backBtn}
-      </div>`;
+      <div class="ms-rows extras-rows">
+        ${[["title-ach-btn", "Achievements", (() => { const g = (meta.achievements && meta.achievements.unlocked) || {}, L = window.ACHIEVEMENTS || []; return `${L.filter(a => g[a.id]).length} of ${L.length} earned`; })()],
+           ["title-lore-btn", "Lore", "Four folders of office history"],
+           ["title-changelog-btn", "Patch notes", "What changed, version by version"],
+           ["title-credits-btn", "Credits", "The people behind the game"],
+           ["title-art-test-btn", "Art Room", "Sprites, sketches and art in progress"],
+           ["title-discord-btn", "Discord", "Talk to other survivors"],
+           ["title-reset-btn", "Reset progress", "Start over from zero. Asks twice.", " danger"]]
+          .map(([id, t, sub, cls]) => `<button type="button" class="ms-row${cls || ""}" id="${id}"><span><span class="ms-row-title">${t}</span><span class="ms-row-sub">${sub}</span></span><span class="ms-row-val" aria-hidden="true">›</span></button>`).join("")}
+      </div>
+      <div class="title-secondary">${backBtn}</div>`;
   } else {
     // Poster title (Nov 3): the key art is the hero. Punch In sits by the time clock, the swarm stays visible,
     // the character pick is a row of ID badges, and a pinned memo makes this the front door to the devlog.
@@ -2596,9 +2586,11 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   ` : `
     <div class="title-poster sub-view" data-view="${view}">
     <div class="modal-card title-box title-clean tp-panel" data-view="${view}">
-      <div class="memo-strip"><span class="re">INTERNAL MEMO · RE:</span><strong>${({ main: "Surviving 40 to 65", shop: "Your 401(k)", extras: "Extras", achievements: "Performance record", leaders: "Leaderboard", credits: "Credits" })[view] || "Surviving 40 to 65"}</strong></div>
-      <h1 class="game-logo">MIDLIFE SURVIVORS</h1>
-      <p class="game-tagline">${curMode === "full" ? "Survive from 40 to 100. Death is patient." : "Survive from 40 to 65. Retirement is waiting."}</p>
+      ${(() => { // B8: every sub-screen opens the same way (strip, title, one help line); the logo lives on the title only
+        const H = { shop: ["BENEFITS", "Your 401(k)", "401(K) SHOP", ""], extras: ["HR", "Extras", "EXTRAS", "Odds and ends from the file room."],
+          achievements: ["HR", "Performance record", "ACHIEVEMENTS", (() => { const g = (meta.achievements && meta.achievements.unlocked) || {}, L = window.ACHIEVEMENTS || []; return `${L.filter(a => g[a.id]).length} of ${L.length} earned. Each one pays into your 401(k).`; })()],
+          leaders: ["HR", "Leaderboard", "LEADERBOARD", "The best runs this fiscal year."], credits: ["HR", "Credits", "CREDITS", "The people behind the game."] }[view] || ["HR", "Memo", "", ""];
+        return `<div class="ms-sheet-strip">${H[0]} · RE: <b>${H[1]}</b></div>${H[2] ? `<h2 class="ms-sheet-title tp-sub-title">${H[2]}</h2>` : ""}${H[3] ? `<p class="ms-sheet-help tp-sub-help">${H[3]}</p>` : ""}`; })()}
       ${bodyHtml}
       <div class="title-version">${verInfo.displayVersion}</div>
     </div>
@@ -2667,7 +2659,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
   // Reset Progress: tap twice (no pop-up dialogs). Clears coins, shop, unlocks and achievements; keeps your leaderboard name.
   const resetBtn = document.getElementById("title-reset-btn");
   if (resetBtn) bindNavItem(resetBtn, 10, () => {
-    if (!resetBtn.dataset.armed) { resetBtn.dataset.armed = "1"; resetBtn.textContent = "⚠️ TAP AGAIN TO ERASE EVERYTHING"; sfx("move"); return; }
+    if (!resetBtn.dataset.armed) { resetBtn.dataset.armed = "1"; const t = resetBtn.querySelector(".ms-row-title"); if (t) { t.textContent = "Tap again to erase everything"; resetBtn.querySelector(".ms-row-sub").textContent = "This can't be undone."; } else resetBtn.textContent = "TAP AGAIN TO ERASE EVERYTHING"; sfx("move"); return; }
     try { localStorage.removeItem("midlife_survivors_save_v1"); localStorage.removeItem("midlife_survivors_active_run_v1"); } catch (e) {}
     location.reload();
   });

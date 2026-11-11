@@ -93,3 +93,54 @@
 #ui-layer .ms-shell .ms-shell-actions .ms-btn { flex: 1 1 0; }
 #ui-layer .ms-shell .ms-shell-actions .ms-btn.primary { order: 2; }
 @media (max-width: 599px) { #ui-layer .ms-shell .ms-shell-actions { flex-direction: column; } #ui-layer .ms-shell .ms-shell-actions .ms-btn.primary { order: -1; } }
+
+/* B8 (Nov 10): the title's sub-screens, patch notes and lore. One header (strip, title, help line), no repeated logo,
+   nothing you read under 14 px (body-s), labels on the label tokens. */
+#ui-layer .tp-panel .tp-sub-title { font: 700 var(--ms-display-s, 22px)/1.1 var(--ms-font-label); letter-spacing: var(--ms-label-track); color: var(--ms-text); margin: var(--ms-space-3, 12px) 0 var(--ms-space-1, 4px); text-align: center; }
+#ui-layer .tp-panel .tp-sub-help { font: 600 var(--ms-body-s, 14px)/1.35 var(--ms-font-read); color: var(--ms-text-quiet); margin: 0 0 var(--ms-space-3, 12px); text-align: center; }
+#ui-layer .tp-panel > .ms-sheet-strip { align-self: center; }
+#ui-layer #title-modal .title-version { font: 600 var(--ms-body-s, 14px)/1.3 var(--ms-font-read) !important; color: var(--ms-text-quiet) !important; }
+#ui-layer #title-modal .tp-band-toggle { font: var(--ms-label-s, 11px)/1 var(--ms-font-label) !important; min-height: var(--ms-touch, 44px); }
+#ui-layer #title-modal .title-style-switcher > span { font: var(--ms-label-s, 11px)/1.2 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track); }
+#ui-layer #title-modal .ms-poll-opt, #ui-layer #title-modal .ms-poll-foot { font-size: var(--ms-body-s, 14px) !important; }
+/* Extras as Rows */
+#ui-layer .extras-rows { margin: var(--ms-space-2, 8px) 0 var(--ms-space-4, 16px); }
+#ui-layer .extras-rows .ms-row-val { font-size: var(--ms-label-l, 16px); color: var(--ms-text-quiet); }
+#ui-layer .extras-rows .ms-row.danger { border-left: 4px solid var(--ms-danger); }
+@media (min-width: 600px) { #ui-layer .extras-rows { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ms-space-2, 8px); } }
+/* Achievements */
+#ui-layer #title-modal .ach-name { font: 700 var(--ms-body, 16px)/1.25 var(--ms-font-read) !important; }
+#ui-layer #title-modal .ach-desc { font: 600 var(--ms-body-s, 14px)/1.35 var(--ms-font-read) !important; color: var(--ms-text-quiet) !important; }
+#ui-layer #title-modal .ach-reward { font: var(--ms-label-s, 11px)/1.2 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track); color: var(--ms-ok) !important; }
+#ui-layer #title-modal .ach-tile.locked .ach-reward { color: var(--ms-paper) !important; }
+/* Leaderboard */
+#ui-layer #title-leaderboard th { font: var(--ms-label-s, 11px)/1.2 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track); }
+#ui-layer #title-leaderboard td, #ui-layer #title-leaderboard .lb-status { font-size: var(--ms-body-s, 14px) !important; font-family: var(--ms-font-read) !important; }
+#ui-layer #title-leaderboard .lb-empty { font: 600 var(--ms-body, 16px)/1.4 var(--ms-font-read) !important; }
+#ui-layer #title-leaderboard .lb-scope-btn { min-height: var(--ms-touch, 44px); font: var(--ms-label-s, 11px)/1 var(--ms-font-label) !important; }
+/* Credits */
+#ui-layer #title-modal .credit-role { font: var(--ms-label-s, 11px)/1.3 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track); color: var(--ms-text-quiet) !important; text-transform: uppercase; }
+#ui-layer #title-modal .credit-name { font: 700 var(--ms-body, 16px)/1.35 var(--ms-font-read) !important; }
+#ui-layer #title-modal .credit-closing { font: 600 var(--ms-body-s, 14px)/1.4 var(--ms-font-read) !important; }
+/* Patch notes and lore on the Sheet */
+#ui-layer .ms-sheet.ms-b8 { width: min(760px, 94vw) !important; max-width: none !important; background: var(--ms-surface) !important; border: var(--ms-border-w, 2px) solid var(--ms-border) !important;
+  border-radius: var(--ms-radius-l, 8px) !important; box-shadow: var(--ms-shadow-card) !important; padding: var(--ms-space-5, 24px) var(--ms-space-5, 24px) 0 !important; }
+#ui-layer .ms-b8 .changelog-list, #ui-layer .ms-b8 .lore-content { max-height: none !important; overflow: visible !important; margin-top: var(--ms-space-3, 12px); }
+#ui-layer .ms-b8 .changelog-entry, #ui-layer .ms-b8 .lore-card { background: var(--ms-raised) !important; border: 0 !important; border-left: 4px solid var(--ms-line) !important; border-radius: var(--ms-radius-m, 4px) !important;
+  box-shadow: none !important; padding: var(--ms-space-3, 12px) var(--ms-space-4, 16px) !important; margin-bottom: var(--ms-space-2, 8px) !important; }
+#ui-layer .ms-b8 .changelog-entry.latest { border-left-color: var(--ms-accent) !important; }
+#ui-layer .ms-b8 .changelog-ver, #ui-layer .ms-b8 .lore-card-code { font: var(--ms-label-s, 11px)/1.3 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track); color: var(--ms-paper) !important; }
+#ui-layer .ms-b8 .changelog-date { font: 600 var(--ms-body-s, 14px)/1.3 var(--ms-font-read) !important; color: var(--ms-text-quiet) !important; }
+#ui-layer .ms-b8 .changelog-title, #ui-layer .ms-b8 .lore-card-title { font: 700 var(--ms-body-l, 18px)/1.25 var(--ms-font-read) !important; color: var(--ms-text) !important; margin: var(--ms-space-1, 4px) 0 !important; }
+#ui-layer .ms-b8 .changelog-notes li, #ui-layer .ms-b8 .lore-card-body, #ui-layer .ms-b8 .lore-card-meta, #ui-layer .ms-b8 .lore-card-quote {
+  font-family: var(--ms-font-read) !important; font-size: var(--ms-body-s, 14px) !important; line-height: 1.45 !important; color: var(--ms-text) !important; }
+#ui-layer .ms-b8 .lore-card-body { font-size: var(--ms-body, 16px) !important; }
+#ui-layer .ms-b8 .lore-card-quote { color: var(--ms-text-quiet) !important; font-style: italic; }
+#ui-layer .ms-b8 .lore-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--ms-space-2, 8px); margin-top: var(--ms-space-3, 12px); }
+#ui-layer .ms-b8 .lore-tab-btn { min-height: var(--ms-touch, 44px); font: var(--ms-label-m, 13px)/1.1 var(--ms-font-label) !important; letter-spacing: var(--ms-label-track);
+  background: transparent !important; color: var(--ms-text) !important; border: var(--ms-border-w, 2px) solid var(--ms-border) !important; border-radius: var(--ms-radius-m, 4px) !important; box-shadow: none !important; }
+#ui-layer .ms-b8 .lore-tab-btn.active { background: var(--ms-paper) !important; color: var(--ms-surface) !important; border-color: var(--ms-paper) !important; }
+@media (max-width: 599px) { #ui-layer .ms-b8 .lore-tabs { grid-template-columns: 1fr 1fr; } #ui-layer .ms-sheet.ms-b8 { width: 100vw !important; padding: var(--ms-space-4, 16px) var(--ms-space-4, 16px) 0 !important; } }
+#ui-layer .ms-b8 .changelog-ver { background: transparent !important; padding: 0 !important; border: 0 !important; }
+#ui-layer .ms-b8 .ms-sheet-actions { justify-content: flex-end; }
+#ui-layer #title-modal .title-style-switcher .t-style-btn { font: var(--ms-label-s, 11px)/1.1 var(--ms-font-label) !important; min-height: var(--ms-touch, 44px); }

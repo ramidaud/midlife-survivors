@@ -67,7 +67,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"><!-- Nov 4: Bungee, Chakra Petch, Cinzel and Press Start 2P were only fallbacks or for the parked 3D themes (Fable review) -->
 <link rel="stylesheet" href="assets/ui/ms-bar.css?v=2">
 <link rel="stylesheet" href="assets/ui/ms-tokens.css?v=2">
-<link rel="stylesheet" href="assets/ui/ms-parts.css?v=1">
+<link rel="stylesheet" href="assets/ui/ms-parts.css?v=4">
 <link rel="stylesheet" href="assets/ui/ms-nav.css?v=9">
 <style>
   * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
@@ -1845,7 +1845,7 @@ if (!gcSkip && !window.TELEMETRY_OFF && !/[?&]nostats=1/.test(location.search)) 
 <!-- Game code loads through src/loader.js, fetched fresh every time, so a cached page can never mix old and new files. -->
 <script>
   (function () {
-    window.PAGE_BUILD = 346; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
+    window.PAGE_BUILD = 347; // bump with BUILD in src/loader.js; if they ever disagree, this page is a stale copy
     var s = document.createElement("script");
     s.src = "src/loader.js?v=" + window.PAGE_BUILD + "&t=" + Date.now();
     document.body.appendChild(s);

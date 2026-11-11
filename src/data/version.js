@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.8",
-  displayVersion: "V. 2.27.8",
+  version: "2.27.9",
+  displayVersion: "V. 2.27.9",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 346,
+  build: 347,
   changelog: [
+    {
+      ver: "V. 2.27.9", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The back office got the memo too.",
+      highlights: [
+        "Extras, Achievements, Scores, Credits, Patch notes and Lore all open the same way now: a memo strip, a title and one line. The big logo stays on the title screen.",
+        "Extras is a simple list: tap a row to open it. Reset progress still asks twice.",
+        "Bigger text on every one of these screens, so nothing is smaller than the rest of the game.",
+        "Lore tabs are plain: Mythos, People, Life stages, Bosses."
+      ]
+    },
     {
       ver: "V. 2.27.8", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Warnings now say it once.",
