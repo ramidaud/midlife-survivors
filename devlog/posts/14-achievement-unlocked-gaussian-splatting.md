@@ -36,6 +36,8 @@ Here's how it went, step by step.
 
 Processing time was the hardest part. I had to do a relatively low resolution pass to share it out today. Much larger and it would have killed my laptop.
 
+If you'd like to help me get there, you can [buy me a coffee on Ko-fi](https://ko-fi.com/ramidaud) or chip in on [Substack](https://ramidaud.substack.com).
+
 The first cut of the reel also put the headline right across Abdel's face. Lesson learned: plan where the words go before you plan the camera moves.
 
 ## Sidequest for sure
