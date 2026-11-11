@@ -2027,3 +2027,19 @@ The camera is a window that follows the hero. Bounds are the rectangle the windo
 | The hero | 40 px inside the town's edge |
 | The screen | the outside of the forest |
 | The art | the outside of the forest |
+
+## Draw order (Nov 11, the front door)
+Things are drawn back to front. A bigger depth number goes on top.
+
+```
+ before                      after
+ hero        (top)           hero        (top)
+ house front                 doorway     <- house's number + a hair
+ doorway     <- hidden       house front
+ lawn        (bottom)        lawn        (bottom)
+```
+
+| Thing | Depth | Result |
+|---|---|---|
+| Doorway, before | fixed, small | always under the house |
+| Doorway, after | follows the house | shows when the door opens |

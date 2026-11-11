@@ -40,7 +40,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Rami: tell Codex to start Batch B (yard furniture as separate sprites, plain yards, props, fences, lawns)
 - [x] Rami walked the edge (Nov 11): tight by the end houses, the street needs a dead end, the front door is confusing after the key hunt
 - [x] Breathing room (V2.29.7): a grass strip between the end houses and the forest, 96 px to walk in
-- [ ] Front door: open it with a small animation right when you get the key-hunt loot, and let you walk straight in (no walking away and back)
+- [x] Front door (V2.29.8): swings open after you take the key-hunt bonus, then you walk straight in
 - [ ] Street ends: a cul-de-sac or dead end where each street meets the forest (needs art from Codex, added to the Batch B ask)
 - [ ] Place the new trees and shrubs as their own sprites (waits for Batch B's plain yards; today's trees are painted into the yard pictures)
 - [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions

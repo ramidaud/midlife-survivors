@@ -142,7 +142,8 @@ window.MAPLE_HOLLOW = {
     },
     found: "There it is. The spare key, right where you'll never remember putting it.",
     doorLine: "Locked out of your own house. The spare key is around here somewhere.",
-    openLine: "Home sweet home. Someone left you leftovers. Walk in the front door any time.",
+    openLine: "Home sweet home. Someone left you leftovers. Grab your bonus and walk right in.",
+    lootWaitMs: 6000, doorSwingMs: 380, // the door swings open once you take the bonus chest (or after this long), then you can walk straight in
     chestKey: "keyHunt", scoreBonus: 1500, healFrac: 0.5
   }
 };

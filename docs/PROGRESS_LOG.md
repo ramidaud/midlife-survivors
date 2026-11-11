@@ -2244,3 +2244,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Cause: the solid edge I added left 32 px beside the last house's side path. The hero is 48 px wide.
 - Fix: a 136 px grass strip on the left and right ends of town, between the houses and the forest. 96 px of it is walkable.
 - Rami's other notes: the streets should end in a cul-de-sac or dead end, and the front door should open on its own after the key hunt.
+
+## 2026-11-11 (2:00 PM): V2.29.8, the front door
+- Rami: after the key hunt you had to walk away from the door and come back to get inside. Confusing.
+- Now the door stays shut until you take the bonus chest, then swings open with a "COME IN" sign. Walk at it and you're in. Standing still on the steps won't pull you inside.
+- Found on the way: the open doorway was drawn underneath the house, so the door never looked open. Fixed.
+- Tested at laptop and phone sizes: stand still (stays out), take the chest, walk in (goes in).

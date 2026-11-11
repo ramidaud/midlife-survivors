@@ -815,3 +815,6 @@ There are two ways an AI can make a sprite. An image model paints it, the way a 
 
 ## Camera bounds (Nov 11, the tree wall)
 The world is bigger than the screen, and the camera is a window that follows the hero. Camera bounds are a rectangle the window is not allowed to leave. The hero can walk right up to the edge of the map, but the window stops early, so you never see the empty space past the art. The tree wall is 192 px thick and the bounds sit at its outside edge. That is why the forest always fills the screen edge and never ends.
+
+## Draw order (Nov 11, the front door)
+Everything on screen is drawn in a set order, back to front, like stacking paper cutouts. Each thing has a depth number, and bigger numbers go on top. In this game the depth changes every frame so that whoever stands lower on the screen is drawn in front. The open doorway had a small fixed number, so the house was always stacked on top of it and the door never looked open. The fix was to give the doorway the house's number plus a hair.

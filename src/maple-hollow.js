@@ -398,8 +398,16 @@ window.MapleHollow = (() => {
             H.body(o, { width: 320, back: 360, front: 0 }, "prop_house"); bodies.push(o); items.push(o); yourHouse = o;
             // the open door: a dark doorway painted over the closed one (src/key-hunt.js opens it)
             const [dx, dy, dw, dh] = yh.door;
-            const doorway = scene.add.rectangle(L + 16 + dx + dw / 2, top + CH - 400 + dy + dh / 2, dw - 6, dh - 6, 0x171C35, 1).setDepth(3.05).setVisible(false); all.push(doorway);
-            window.MapleHollowDoor = open => { if (doorway.active) doorway.setVisible(!!open); };
+            const doorway = scene.add.rectangle(L + 16 + dx + 3, top + CH - 400 + dy + dh / 2, dw - 6, dh - 6, 0x171C35, 1).setOrigin(0, 0.5).setDepth(3.05).setVisible(false); all.push(doorway);
+            // open with a time (ms) swings it: the dark doorway widens from the hinge side
+            window.MapleHollowDoor = (open, ms) => {
+              if (!doorway.active) return;
+              scene.tweens.killTweensOf(doorway); doorway.setVisible(!!open).setScale(1, 1);
+              if (open && ms) { doorway.scaleX = 0; scene.tweens.add({ targets: doorway, scaleX: 1, duration: ms, ease: "Sine.easeOut" }); }
+            };
+            // The house front is depth-sorted with the hero every frame, so the doorway rides just above it (it used to sit underneath and never showed).
+            const ride = () => { if (!doorway.active || !o.active) { scene.events.off("postupdate", ride); return; } if (doorway.visible) doorway.setDepth(o.depth + 0.01); };
+            scene.events.on("postupdate", ride);
             all.push(scene.add.text(L + 16 + 168, top + 4, "YOUR HOUSE", { fontFamily: "Silkscreen, monospace", fontSize: "12px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 5, y: 3 } }).setOrigin(0.5, 0).setDepth(4));
           } else {
             const k = crop("mh3_house_" + f, v3.houses, f * CW, 0, CW, CH, true), kf = crop("mh3_front_" + f, v3.houses, f * CW + fx, fy, fw, fh, true);

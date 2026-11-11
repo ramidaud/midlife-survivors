@@ -97,7 +97,7 @@ window.KeyHunt = (() => {
   function openDoor(scene) {
     const C = K(); st.open = true;
     if (typeof chests !== "undefined" && chests) {
-      const ch = chests.create(st.door.x + 70, st.door.y + 30, "chest").setDepth(3); ch.bossKind = C.chestKey || "keyHunt"; ch.readyAt = runElapsedMs + 800;
+      const ch = chests.create(st.door.x + 70, st.door.y + 30, "chest").setDepth(3); ch.bossKind = C.chestKey || "keyHunt"; ch.readyAt = runElapsedMs + 800; st.chest = ch;
       ch.tag = scene.add.text(ch.x, ch.y, "BONUS", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#EF9347", stroke: "#171C35", strokeThickness: 3 }).setOrigin(0.5, 1.6).setDepth(4);
     }
     if (typeof hp !== "undefined" && stats) { hp = Math.min(stats.maxHp, hp + Math.max(2, Math.round(stats.maxHp * (C.healFrac || 0.5)))); if (typeof drawHpBar === "function") drawHpBar(); }
@@ -108,8 +108,9 @@ window.KeyHunt = (() => {
     if (window.achEvent) achEvent("keyHunt", {});
     if (window.Telemetry && Telemetry.event) Telemetry.event("home-door-open");
     st.doorMark.setStrokeStyle(3, 0x83A89A, 0.9).setFillStyle(0x83A89A, 0.2);
-    if (window.MapleHollowDoor) MapleHollowDoor(true);
-    st.armed = false; // step off the steps once, then the door takes you inside
+    // The door stays shut until you pick up the bonus chest (or a few seconds pass), then it swings open and you can
+    // walk straight in. (Nov 11, Rami: having to walk away and come back was confusing.)
+    st.armed = false; st.lootUntil = runElapsedMs + (C.lootWaitMs || 6000);
     draw();
   }
 
@@ -129,6 +130,16 @@ window.KeyHunt = (() => {
     if (typeof pings !== "undefined" && pings) pings.getChildren().slice().forEach(pg => pg.destroy());
     if (window.NAV && NAV.invalidate) NAV.invalidate();
   }
+  // The door swings open (the doorway widens from its hinge), with a little "COME IN" sign.
+  function swingDoor(scene) {
+    const ms = K().doorSwingMs || 380;
+    st.lootUntil = 0; st.swinging = true;
+    if (window.MapleHollowDoor) MapleHollowDoor(true, ms);
+    if (typeof sfx === "function") sfx("pick", 0);
+    pop(scene, st.door.x, st.door.y - 40, "COME IN", "#83A89A");
+    scene.time.delayedCall(ms, () => { if (st) { st.swinging = false; st.walkIn = true; } });
+  }
+
   // Walking through a door (Maple v2 step 2, Rami: "animate them going into the house"): you shrink a little and fade
   // into the doorway while the screen fades, then step through on the other side. Nothing can hit you meanwhile.
   function walkThrough(scene, goingIn) {
@@ -202,8 +213,12 @@ window.KeyHunt = (() => {
     const I = MAPLE_HOLLOW.interior;
     if (!st.inside) {
       const d = Math.hypot(px - st.door.x, py - st.door.y);
+      if (st.lootUntil && (!st.chest || !st.chest.active || runElapsedMs > st.lootUntil)) swingDoor(scene);
+      if (st.lootUntil || st.swinging) return;
       if (d > 90) st.armed = true;
-      else if (st.armed && d < (K().doorPx || 56)) walkThrough(scene, true);
+      // walkIn: right after the door swings open you can walk straight in, but standing still on the steps won't pull you inside
+      const moving = player.body && (Math.abs(player.body.velocity.x) + Math.abs(player.body.velocity.y)) > 10;
+      if (d < (K().doorPx || 56) && (st.armed || (st.walkIn && moving))) { st.walkIn = false; walkThrough(scene, true); }
       return;
     }
     const dm = Math.hypot(px - I.exitMat[0], py - I.exitMat[1]);

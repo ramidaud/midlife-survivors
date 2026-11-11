@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.7",
-  displayVersion: "V. 2.29.7",
+  version: "2.29.8",
+  displayVersion: "V. 2.29.8",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 358,
+  build: 359,
   changelog: [
+    {
+      ver: "V. 2.29.8", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "The front door finally learned some manners.",
+      highlights: [
+        "After the key hunt, your front door swings open once you take the bonus, and you can walk right in. No more stepping away and coming back.",
+        "The open doorway now actually shows. It was hiding behind the house."
+      ]
+    },
     {
       ver: "V. 2.29.7", date: "Nov 11, 2026", title: "Version Two",
       teaser: "A little elbow room at the end of the block.",
