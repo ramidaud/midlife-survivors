@@ -1,23 +1,24 @@
-# Play stats: Nov 10 morning (last 24 hours)
-**A quiet day of long lives.** 6 of 8 runs ended in retirement, and nobody died.
+# Play stats: Nov 11 morning (last 24 hours)
+**A small day with a new high score.** 12 runs, 3 retirements, and a best score of 2,486,392, the highest yet.
 
 **Who played**
-- 8 runs from 5 players
-- All-time: 474 runs from 88 players, 19 retirements
+- 12 runs in the last 24 hours (week before: 295)
+- All-time: 486 runs from 88 players, 22 retirements
 
 **How far they got**
-- Median run 19.1 min (week before: 3.6), median age 73 (was 45.2)
-- Reached 45, 50, 55, 60 and 65: 75% each (the other runs were quits at the menu)
-- 6 retirements, including a Full Life run to 100
-- Highest age reached: 144.1, best score 1,266,990
+- Median run 3.2 min, average 11.4 min (week before: 4.4 and 7.6)
+- Median age 48.6 (week before: 45.9)
+- Reached 45: 58%, 50: 50%, 55: 33%, 60: 25%, 65: 25%
+- 3 retirements, including a Full Life run past 100
+- Highest age reached: 101.7, best score 2,486,392
 
 **Top killers**
-- No deaths in the last 24 hours
-- Week before: Bill 106, Snack Attack 51, Late Fee 48, Group Chat 35, Spam Call 21
+- Last 24 hours: 4 deaths, one each to Bill, Snack Attack, Office Gossip and 3 AM Thought
+- Week before: Bill 68, Snack Attack 41, Group Chat 30, Late Fee 27, then Back Twinge, Office Gossip and Spam Call at 10 each
 
 **Difficulty**
-- Runs that ended in a death before 42: 0 (week before: 38)
-- Median per run: 51.5 hits and 227 damage taken (higher because runs lasted much longer)
+- Runs that ended in a death before 42: 1 (week before: 23)
+- Median per run: 14.5 hits and 38.5 damage taken
 
 **Lag**
-- No lag flags across all runs
+- No lag flags in the last 24 hours
