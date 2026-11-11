@@ -1,0 +1,24 @@
+{
+  "brief": "docs/handoffs/codex-level-art-pass.md Job 3",
+  "approvedGreens": {
+    "lawnLight": "#9BAE73",
+    "lawnShadow": "#6D895B",
+    "evergreen": "#315B4B"
+  },
+  "approval": "Rami confirmed the proposal before production",
+  "study": {
+    "prompt": "Midlife Survivors Maple Hollow OUTDOOR TREE STYLE STUDY. Reference1 neighborhood board defines crisp 16-bit topdown3/4 game style, reference2 existing native houses defines pixel density. ONE board of NINE isolated tree sprites, 3x3, transparent, no ground or cast shadow. Row0 red maple160x192 feel, orange maple144x176 feel, broad gold oak160x192 feel. Row1 cream-barked yellow birch128x160 feel, bare branchy oak128x160 feel, half-green half-orange maple144x176 feel. Row2 evergreen pine small64x96 feel, medium80x120 feel, large96x144 feel. Each complete trunk/root base visible and centered below asymmetrical layered canopy. Large deliberate chunky leaf clusters, jagged maple lobes, a few branch gaps, NOT circular broccoli blobs, NOT fine random speckle. One-native-pixel navy outer silhouette, 2-3 hue-shifted material tones, upper-left light, neutral white balance, no golden haze/sepia/film tint. Exact approved palette: navy171C35 slate303750 mutedblue526078 teal3E7775 sage83A89A shadowtanA88B70 tanD3B78D creamF2D7A1 whiteFFF0CF russet874C3B redC45C4B orangeEF9347 peachE5A995 pinkF1B5BF lavenderBFA8CF brownB97A58 darkbrown70402F PLUS APPROVED greens lawnlight9BAE73 lawnshadow6D895B evergreen315B4B. Bark brown/darkbrown/tan; maple red russet/red/peach highlights; orange orange/brown/cream; oak tan/cream/brown; birch bark warmwhite/slate. No text labels letters numbers logos people brands. This is shape/material reference for direct native-pixel production, not a painted map.",
+    "method": "Built-in image generation for shape/material study only. Final pixels drawn directly at native resolution, not downsampled from the study.",
+    "references": [
+      "assets/art-direction/home-style-board-v1.png",
+      "assets/stage/home/v2/houses-v2.png"
+    ]
+  },
+  "nativeProduction": {
+    "trees": "Six broadleaf species plus three pine sizes, 1 px navy outer silhouette, brown bark planes, colored leaf masses, upper-left light. Canopy not part of the solid trunk footprint.",
+    "lawns": "Two 512x512 matte plates: approved lawn light base, approved lawn shadow in sparse multi-blade clumps. Common quiet edge strip, exact compatible a/b borders; no random fine speckle.",
+    "smallProps": "Redraw the 16 existing lawn props, eight key-hunt spots and five toy-brick patches directly in 48x48 cells. Same subjects, no resampling old 32px sprites.",
+    "fences": "Picket and wood: 64px horizontal, vertical, corner, post, gate closed and gate open modules. Main footprint and both open-gate post footprints recorded.",
+    "rules": "20-color outdoor palette only, transparent hard alpha on isolated sprites, opaque lawns, no magenta, no text/letters/numbers/logos/brands/real faces. Native scale1, 4x display checks only."
+  }
+}

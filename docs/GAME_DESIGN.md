@@ -739,3 +739,15 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
   - **Walk-through:** flat on the ground, no outline, no shadow. Never blocks.
 - **Approved:** every gap the player is meant to use is at least 96 px wide, and every yard has two ways out. Backyard gates and hedge steps widened to 96 px in V. 2.29.1 (were 64 and 52).
 - **Found:** backyard furniture is painted into the ground picture, so you walk over it and can never pass behind it. Job 3 asks for it as separate sprites.
+
+### 2026-11-11: Job 1 art candidate (Codex, pending review)
+Native-size repaint candidates for four heroes and Bill are in `assets/art-direction/level-art-job-1/`. They preserve source silhouettes, frame layouts and timings. No gameplay or collision changes; Rami review is required before integration.
+
+### 2026-11-11: Larger house dressing candidate (Codex, pending review)
+The Job 2 kit groups native furniture with room-sized rugs and reusable wall modules. Suggested kitchen placement uses a peninsula to preserve the aisle; garage side shelving hugs the wall. Review and full collision testing precede integration. No gameplay change.
+
+### 2026-11-11: Outdoor palette proposal only (Codex)
+Three outdoor additions are proposed, not approved or applied: lawn light #9BAE73, lawn shadow #6D895B, evergreen #315B4B. The existing 17-color palette remains unchanged.
+
+### 2026-11-11: Outdoor greens approved (Codex)
+Rami approved #9BAE73 lawn light, #6D895B lawn shadow and #315B4B evergreen. They extend the outdoor art palette to 20 colors; the shared 17 colors and runtime palette remain unchanged. The Job 3 candidate kit uses trunk footprints with canopy overlap, interchangeable 512 px lawns, 64 px fences and native 48 px yard props. Integration awaits review.

@@ -2194,3 +2194,37 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Backyard quick fix: gates between yards and the hedge steps are 96 px wide (were 64 and 52). Tested: the hero walks through both, and the fence still blocks above and below the gap.
 - The drawn gates are still 64 px, so the opening is a little wider than it looks until Codex's Job 3 art.
 - Codex finished Job 1 (heroes and Bill) on Rami's Mac. Not in the repo yet, so not reviewed.
+
+## 2026-11-11: Job 1 native heroes and Bill repaint (Codex, awaiting review)
+
+- What: repainted the four hero sheets and Bill at native size with explicit material colors; reduced idle color flicker. Job 1 only.
+- Files: hero v4 sheets, Cowboy v5, Bill v3, adjacent manifests/prompts; `assets/art-direction/level-art-job-1/` contains the animated before/after review, 4× checks and validation.
+- For the game: art only, not integrated. Original layout, masks, foot positions and animation timings retained. No runtime/version edits.
+- Sizes: heroes 448×300, 56×60 cells; Bill 384×48, 48×48 cells. Zero foreground-mask mismatch across 168 frames, binary alpha, palette pass. Idle-row maxima: 124/129/93/168 changed pixels, all ≤5% of cell area; separate breathing/fidget wraparounds pass too.
+- Notes for Claude or Rami: review Cowboy’s held interior colors and floppy gesture. Contact footprints in manifests are visual extents, not new collision boxes. Latest main pulled to 62c6b89. Saved locally; waiting for Rami before integration or further jobs.
+
+## 2026-11-11: Job 2 house fill kit (Codex, awaiting review)
+
+- What: 50 native pieces for the larger house: sized rugs, kitchen/breakfast furniture, garage storage, wall depth, plants and small lived-in details. Job 2 only.
+- Files: `assets/stage/home/v2/house2-fill-v1.png`, manifest, saved prompt, suggested placement JSON, two-floor before/after previews, 4× hero checks and `review-house2-fill-v1.html`.
+- For the game: art and suggested data only. Existing furniture is reused at 1×; no runtime, room, door, navigation, spawn or version edits. Kitchen island is placed as a peninsula to retain the aisle. Photos stay private.
+- Sizes/checks: 2048×1024 transparent atlas, 17 colors, binary alpha. Door overlap and bounds checks pass; representative 96 px garage/hall lanes remain clear. Native desktop/phone review controls checked. Full collision/pathing still needs integration testing.
+- Notes for Claude or Rami: density report distinguishes decor from solid furniture: main garage view 19/14, living+dining 44/25. Review the denser wall dressing before adopting every placement. Saved locally, no commit or push; stop for Rami review before Job 3.
+
+## 2026-11-11: Outdoor green proposal (Codex, awaiting approval)
+
+- Job 3 step 1 only: lawn light #9BAE73, lawn shadow #6D895B, evergreen #315B4B. Existing 17 colors unchanged.
+- Files: `assets/stage/home/v3/outdoor-greens-proposal-v1.png`, JSON prompt/color record and README. Native house fronts copied at 1× for comparison.
+- No outdoor production kit, runtime, version, commit or push. Stop for Rami approval as required by the Job 3 brief.
+
+## 2026-11-11: Job 3 outdoor kit (Codex, awaiting art review)
+
+- What: after Rami approved the three greens, completed 69 native pieces in 18 PNGs: trees, pines, tree line, shrubs, leaves, lawns, fences and 48 px yard/key/toy props.
+- Files: `assets/stage/home/v3/`, including `manifest-outdoors-v3.json`, saved prompts, `review-outdoors-v3.html`, all 69 hero comparison checks and a suggested 416 px lot.
+- For the game: local art only. Existing house fronts and hero are reused at 1× in reviews; source assets, navigation, spawning and runtime/version files are unchanged. Claude still wires placement, canopy occlusion and trunk collisions.
+- Checks: 20-color outdoor palette (17 existing + 3 approved), hard alpha, no magenta; four A/B lawn pairings on both axes pass, as does the 832 px tree-line horizontal seam. Native frames/manifest bounds and all check files verified; review family/scale/backdrop controls checked.
+- Notes for Claude or Rami: gate-open entries include both post footprints. Lawn plates are opaque; isolated art is transparent. Stop for art review; nothing committed, pushed or integrated.
+
+## 2026-11-11: Published existing Jobs 1/2/3 art (Codex)
+- Art packages, manifests, prompts and review pages published at Rami’s request on latest main V2.29.1. No gameplay/runtime changes.
+- Job 3’s newer boundary/backyard/world-category/96 px gate requirements remain a follow-up, not a completed part of this delivery.

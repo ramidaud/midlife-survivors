@@ -1,0 +1,3664 @@
+[
+  {
+    "cell" : [
+      56,
+      60
+    ],
+    "changedPixels" : {
+      "after-breathing" : [
+        66,
+        70,
+        1,
+        124
+      ],
+      "after-fidget" : [
+        129,
+        71,
+        85,
+        17
+      ],
+      "after-idle-row" : [
+        10,
+        70,
+        1,
+        124,
+        63,
+        71,
+        85,
+        17
+      ],
+      "before-breathing" : [
+        420,
+        423,
+        4,
+        540
+      ],
+      "before-fidget" : [
+        534,
+        413,
+        440,
+        38
+      ],
+      "before-idle-row" : [
+        12,
+        423,
+        4,
+        540,
+        405,
+        413,
+        440,
+        38
+      ]
+    },
+    "frames" : [
+      {
+        "bounds" : [
+          8,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 0,
+        "occupied" : 1124
+      },
+      {
+        "bounds" : [
+          8,
+          5,
+          36,
+          52
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 1,
+        "occupied" : 1131
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 2,
+        "occupied" : 1163
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 3,
+        "occupied" : 1167
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 4,
+        "occupied" : 1131
+      },
+      {
+        "bounds" : [
+          8,
+          5,
+          36,
+          52
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 5,
+        "occupied" : 1133
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 6,
+        "occupied" : 1163
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 7,
+        "occupied" : 1164
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 8,
+        "occupied" : 1159
+      },
+      {
+        "bounds" : [
+          10,
+          3,
+          37,
+          54
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 9,
+        "occupied" : 1167
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 10,
+        "occupied" : 1202
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 11,
+        "occupied" : 1208
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          30,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 12,
+        "occupied" : 1174
+      },
+      {
+        "bounds" : [
+          10,
+          3,
+          37,
+          54
+        ],
+        "floorFootprint" : [
+          30,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 13,
+        "occupied" : 1174
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 14,
+        "occupied" : 1202
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 15,
+        "occupied" : 1200
+      },
+      {
+        "bounds" : [
+          6,
+          3,
+          40,
+          54
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 16,
+        "occupied" : 1154
+      },
+      {
+        "bounds" : [
+          6,
+          4,
+          39,
+          53
+        ],
+        "floorFootprint" : [
+          16,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 17,
+        "occupied" : 1104
+      },
+      {
+        "bounds" : [
+          7,
+          3,
+          37,
+          54
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 18,
+        "occupied" : 1056
+      },
+      {
+        "bounds" : [
+          8,
+          3,
+          35,
+          54
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 19,
+        "occupied" : 1100
+      },
+      {
+        "bounds" : [
+          8,
+          3,
+          35,
+          54
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 20,
+        "occupied" : 1123
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          16,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 21,
+        "occupied" : 1082
+      },
+      {
+        "bounds" : [
+          7,
+          3,
+          37,
+          54
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 22,
+        "occupied" : 1060
+      },
+      {
+        "bounds" : [
+          6,
+          3,
+          39,
+          54
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 23,
+        "occupied" : 1121
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          39,
+          55
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 24,
+        "occupied" : 1183
+      },
+      {
+        "bounds" : [
+          11,
+          3,
+          38,
+          54
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 25,
+        "occupied" : 1135
+      },
+      {
+        "bounds" : [
+          12,
+          2,
+          36,
+          55
+        ],
+        "floorFootprint" : [
+          22,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 26,
+        "occupied" : 1077
+      },
+      {
+        "bounds" : [
+          13,
+          2,
+          34,
+          55
+        ],
+        "floorFootprint" : [
+          16,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 27,
+        "occupied" : 1118
+      },
+      {
+        "bounds" : [
+          13,
+          2,
+          34,
+          55
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 28,
+        "occupied" : 1147
+      },
+      {
+        "bounds" : [
+          13,
+          3,
+          34,
+          54
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 29,
+        "occupied" : 1106
+      },
+      {
+        "bounds" : [
+          12,
+          2,
+          36,
+          55
+        ],
+        "floorFootprint" : [
+          22,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 30,
+        "occupied" : 1081
+      },
+      {
+        "bounds" : [
+          11,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          16,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 31,
+        "occupied" : 1146
+      },
+      {
+        "bounds" : [
+          10,
+          6,
+          33,
+          51
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 32,
+        "occupied" : 1067
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          33,
+          52
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 33,
+        "occupied" : 1100
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          33,
+          52
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 34,
+        "occupied" : 1100
+      },
+      {
+        "bounds" : [
+          10,
+          7,
+          33,
+          50
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 35,
+        "occupied" : 1034
+      },
+      {
+        "bounds" : [
+          10,
+          8,
+          33,
+          49
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 36,
+        "occupied" : 1001
+      },
+      {
+        "bounds" : [
+          10,
+          7,
+          33,
+          50
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 37,
+        "occupied" : 1035
+      },
+      {
+        "bounds" : [
+          10,
+          6,
+          33,
+          51
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 38,
+        "occupied" : 1083
+      },
+      {
+        "bounds" : [
+          10,
+          6,
+          33,
+          51
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          12,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 39,
+        "occupied" : 1076
+      }
+    ],
+    "grid" : [
+      8,
+      5
+    ],
+    "nonBinaryAlphaPixels" : 0,
+    "offPaletteColors" : [
+
+    ],
+    "output" : "assets\/characters\/office-worker-walk-56x60-v4.png",
+    "silhouetteMismatchPixels" : 0,
+    "size" : [
+      448,
+      300
+    ],
+    "source" : "assets\/characters\/office-worker-walk-56x60-v3.png"
+  },
+  {
+    "cell" : [
+      56,
+      60
+    ],
+    "changedPixels" : {
+      "after-breathing" : [
+        65,
+        69,
+        0,
+        129
+      ],
+      "after-fidget" : [
+        113,
+        66,
+        97,
+        36
+      ],
+      "after-idle-row" : [
+        2,
+        69,
+        0,
+        129,
+        67,
+        66,
+        97,
+        36
+      ],
+      "before-breathing" : [
+        437,
+        470,
+        6,
+        607
+      ],
+      "before-fidget" : [
+        573,
+        426,
+        471,
+        52
+      ],
+      "before-idle-row" : [
+        9,
+        470,
+        6,
+        607,
+        425,
+        426,
+        471,
+        52
+      ]
+    },
+    "frames" : [
+      {
+        "bounds" : [
+          9,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 0,
+        "occupied" : 1165
+      },
+      {
+        "bounds" : [
+          9,
+          3,
+          38,
+          54
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 1,
+        "occupied" : 1175
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 2,
+        "occupied" : 1213
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 3,
+        "occupied" : 1211
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 4,
+        "occupied" : 1169
+      },
+      {
+        "bounds" : [
+          9,
+          3,
+          38,
+          54
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 5,
+        "occupied" : 1177
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 6,
+        "occupied" : 1213
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 7,
+        "occupied" : 1209
+      },
+      {
+        "bounds" : [
+          9,
+          1,
+          37,
+          56
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 8,
+        "occupied" : 1156
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 9,
+        "occupied" : 1163
+      },
+      {
+        "bounds" : [
+          9,
+          1,
+          37,
+          56
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 10,
+        "occupied" : 1201
+      },
+      {
+        "bounds" : [
+          9,
+          1,
+          37,
+          56
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 11,
+        "occupied" : 1197
+      },
+      {
+        "bounds" : [
+          9,
+          1,
+          37,
+          56
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 12,
+        "occupied" : 1150
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 13,
+        "occupied" : 1161
+      },
+      {
+        "bounds" : [
+          9,
+          1,
+          37,
+          56
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 14,
+        "occupied" : 1201
+      },
+      {
+        "bounds" : [
+          9,
+          1,
+          37,
+          56
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 15,
+        "occupied" : 1201
+      },
+      {
+        "bounds" : [
+          8,
+          2,
+          38,
+          55
+        ],
+        "floorFootprint" : [
+          10,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 16,
+        "occupied" : 1227
+      },
+      {
+        "bounds" : [
+          8,
+          3,
+          37,
+          54
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 17,
+        "occupied" : 1169
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          35,
+          55
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 18,
+        "occupied" : 1109
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          34,
+          55
+        ],
+        "floorFootprint" : [
+          26,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 19,
+        "occupied" : 1149
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          33,
+          55
+        ],
+        "floorFootprint" : [
+          10,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 20,
+        "occupied" : 1172
+      },
+      {
+        "bounds" : [
+          9,
+          3,
+          34,
+          54
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 21,
+        "occupied" : 1132
+      },
+      {
+        "bounds" : [
+          9,
+          2,
+          35,
+          55
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 22,
+        "occupied" : 1112
+      },
+      {
+        "bounds" : [
+          8,
+          2,
+          37,
+          55
+        ],
+        "floorFootprint" : [
+          26,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 23,
+        "occupied" : 1187
+      },
+      {
+        "bounds" : [
+          11,
+          3,
+          35,
+          54
+        ],
+        "floorFootprint" : [
+          14,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 24,
+        "occupied" : 1171
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          34,
+          53
+        ],
+        "floorFootprint" : [
+          30,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 25,
+        "occupied" : 1117
+      },
+      {
+        "bounds" : [
+          13,
+          3,
+          33,
+          54
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 26,
+        "occupied" : 1053
+      },
+      {
+        "bounds" : [
+          14,
+          3,
+          32,
+          54
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 27,
+        "occupied" : 1092
+      },
+      {
+        "bounds" : [
+          14,
+          3,
+          32,
+          54
+        ],
+        "floorFootprint" : [
+          14,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 28,
+        "occupied" : 1114
+      },
+      {
+        "bounds" : [
+          14,
+          4,
+          32,
+          53
+        ],
+        "floorFootprint" : [
+          30,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 29,
+        "occupied" : 1076
+      },
+      {
+        "bounds" : [
+          13,
+          3,
+          33,
+          54
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 30,
+        "occupied" : 1056
+      },
+      {
+        "bounds" : [
+          12,
+          3,
+          34,
+          54
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 31,
+        "occupied" : 1130
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          35,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 32,
+        "occupied" : 1159
+      },
+      {
+        "bounds" : [
+          10,
+          1,
+          35,
+          56
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 33,
+        "occupied" : 1189
+      },
+      {
+        "bounds" : [
+          10,
+          1,
+          35,
+          56
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 34,
+        "occupied" : 1189
+      },
+      {
+        "bounds" : [
+          10,
+          3,
+          35,
+          54
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 35,
+        "occupied" : 1125
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 36,
+        "occupied" : 1091
+      },
+      {
+        "bounds" : [
+          10,
+          3,
+          35,
+          54
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 37,
+        "occupied" : 1125
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          36,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 38,
+        "occupied" : 1168
+      },
+      {
+        "bounds" : [
+          10,
+          2,
+          35,
+          55
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 39,
+        "occupied" : 1159
+      }
+    ],
+    "grid" : [
+      8,
+      5
+    ],
+    "nonBinaryAlphaPixels" : 0,
+    "offPaletteColors" : [
+
+    ],
+    "output" : "assets\/characters\/soccer-dad-walk-56x60-v4.png",
+    "silhouetteMismatchPixels" : 0,
+    "size" : [
+      448,
+      300
+    ],
+    "source" : "assets\/characters\/soccer-dad-walk-56x60-v3.png"
+  },
+  {
+    "cell" : [
+      56,
+      60
+    ],
+    "changedPixels" : {
+      "after-breathing" : [
+        46,
+        50,
+        1,
+        93
+      ],
+      "after-fidget" : [
+        89,
+        47,
+        46,
+        0
+      ],
+      "after-idle-row" : [
+        0,
+        50,
+        1,
+        93,
+        47,
+        47,
+        46,
+        0
+      ],
+      "before-breathing" : [
+        381,
+        387,
+        4,
+        471
+      ],
+      "before-fidget" : [
+        463,
+        374,
+        381,
+        70
+      ],
+      "before-idle-row" : [
+        34,
+        387,
+        4,
+        471,
+        365,
+        374,
+        381,
+        70
+      ]
+    },
+    "frames" : [
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 0,
+        "occupied" : 972
+      },
+      {
+        "bounds" : [
+          13,
+          5,
+          30,
+          52
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 1,
+        "occupied" : 980
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 2,
+        "occupied" : 1011
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 3,
+        "occupied" : 1009
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 4,
+        "occupied" : 977
+      },
+      {
+        "bounds" : [
+          13,
+          5,
+          30,
+          52
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 5,
+        "occupied" : 982
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 6,
+        "occupied" : 1011
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 7,
+        "occupied" : 1006
+      },
+      {
+        "bounds" : [
+          15,
+          3,
+          29,
+          54
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 8,
+        "occupied" : 966
+      },
+      {
+        "bounds" : [
+          15,
+          4,
+          29,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 9,
+        "occupied" : 973
+      },
+      {
+        "bounds" : [
+          15,
+          3,
+          29,
+          54
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 10,
+        "occupied" : 997
+      },
+      {
+        "bounds" : [
+          15,
+          3,
+          29,
+          54
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 11,
+        "occupied" : 993
+      },
+      {
+        "bounds" : [
+          15,
+          3,
+          29,
+          54
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 12,
+        "occupied" : 962
+      },
+      {
+        "bounds" : [
+          15,
+          4,
+          29,
+          53
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 13,
+        "occupied" : 968
+      },
+      {
+        "bounds" : [
+          15,
+          3,
+          29,
+          54
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 14,
+        "occupied" : 997
+      },
+      {
+        "bounds" : [
+          15,
+          3,
+          29,
+          54
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          29,
+          56
+        ],
+        "index" : 15,
+        "occupied" : 996
+      },
+      {
+        "bounds" : [
+          9,
+          5,
+          32,
+          52
+        ],
+        "floorFootprint" : [
+          9,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          24,
+          56
+        ],
+        "index" : 16,
+        "occupied" : 1005
+      },
+      {
+        "bounds" : [
+          10,
+          6,
+          31,
+          51
+        ],
+        "floorFootprint" : [
+          12,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 17,
+        "occupied" : 971
+      },
+      {
+        "bounds" : [
+          11,
+          5,
+          30,
+          52
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 18,
+        "occupied" : 931
+      },
+      {
+        "bounds" : [
+          12,
+          5,
+          29,
+          52
+        ],
+        "floorFootprint" : [
+          25,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 19,
+        "occupied" : 971
+      },
+      {
+        "bounds" : [
+          9,
+          5,
+          32,
+          52
+        ],
+        "floorFootprint" : [
+          9,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          24,
+          56
+        ],
+        "index" : 20,
+        "occupied" : 1009
+      },
+      {
+        "bounds" : [
+          12,
+          6,
+          29,
+          51
+        ],
+        "floorFootprint" : [
+          12,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 21,
+        "occupied" : 965
+      },
+      {
+        "bounds" : [
+          11,
+          5,
+          30,
+          52
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 22,
+        "occupied" : 934
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          31,
+          52
+        ],
+        "floorFootprint" : [
+          25,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          25,
+          56
+        ],
+        "index" : 23,
+        "occupied" : 979
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          32,
+          53
+        ],
+        "floorFootprint" : [
+          14,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 24,
+        "occupied" : 1029
+      },
+      {
+        "bounds" : [
+          13,
+          5,
+          32,
+          52
+        ],
+        "floorFootprint" : [
+          30,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 25,
+        "occupied" : 993
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 26,
+        "occupied" : 963
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          30,
+          53
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 27,
+        "occupied" : 995
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          14,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 28,
+        "occupied" : 1035
+      },
+      {
+        "bounds" : [
+          13,
+          5,
+          30,
+          52
+        ],
+        "floorFootprint" : [
+          30,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 29,
+        "occupied" : 997
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 30,
+        "occupied" : 964
+      },
+      {
+        "bounds" : [
+          13,
+          4,
+          32,
+          53
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 31,
+        "occupied" : 999
+      },
+      {
+        "bounds" : [
+          14,
+          4,
+          28,
+          51
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 32,
+        "occupied" : 931
+      },
+      {
+        "bounds" : [
+          14,
+          3,
+          28,
+          52
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 33,
+        "occupied" : 959
+      },
+      {
+        "bounds" : [
+          14,
+          3,
+          28,
+          52
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 34,
+        "occupied" : 959
+      },
+      {
+        "bounds" : [
+          14,
+          5,
+          28,
+          50
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 35,
+        "occupied" : 903
+      },
+      {
+        "bounds" : [
+          14,
+          6,
+          28,
+          49
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 36,
+        "occupied" : 876
+      },
+      {
+        "bounds" : [
+          14,
+          5,
+          28,
+          50
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 37,
+        "occupied" : 903
+      },
+      {
+        "bounds" : [
+          14,
+          4,
+          28,
+          51
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 38,
+        "occupied" : 931
+      },
+      {
+        "bounds" : [
+          14,
+          4,
+          28,
+          51
+        ],
+        "floorFootprint" : [
+          23,
+          51,
+          11,
+          4
+        ],
+        "footPoint" : [
+          27,
+          54
+        ],
+        "index" : 39,
+        "occupied" : 931
+      }
+    ],
+    "grid" : [
+      8,
+      5
+    ],
+    "nonBinaryAlphaPixels" : 0,
+    "offPaletteColors" : [
+
+    ],
+    "output" : "assets\/characters\/grad-student-walk-56x60-v4.png",
+    "silhouetteMismatchPixels" : 0,
+    "size" : [
+      448,
+      300
+    ],
+    "source" : "assets\/characters\/grad-student-walk-56x60-v3.png"
+  },
+  {
+    "cell" : [
+      56,
+      60
+    ],
+    "changedPixels" : {
+      "after-breathing" : [
+        82,
+        120,
+        105,
+        109
+      ],
+      "after-fidget" : [
+        115,
+        168,
+        150,
+        155
+      ],
+      "after-idle-row" : [
+        76,
+        120,
+        105,
+        109,
+        125,
+        168,
+        150,
+        155
+      ],
+      "before-breathing" : [
+        676,
+        844,
+        712,
+        762
+      ],
+      "before-fidget" : [
+        614,
+        922,
+        859,
+        837
+      ],
+      "before-idle-row" : [
+        621,
+        844,
+        712,
+        762,
+        691,
+        922,
+        859,
+        837
+      ]
+    },
+    "frames" : [
+      {
+        "bounds" : [
+          12,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 0,
+        "occupied" : 1133
+      },
+      {
+        "bounds" : [
+          12,
+          5,
+          31,
+          52
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 1,
+        "occupied" : 1145
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 2,
+        "occupied" : 1182
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 3,
+        "occupied" : 1186
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 4,
+        "occupied" : 1148
+      },
+      {
+        "bounds" : [
+          12,
+          5,
+          31,
+          52
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 5,
+        "occupied" : 1152
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 6,
+        "occupied" : 1182
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          31,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 7,
+        "occupied" : 1178
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 8,
+        "occupied" : 1138
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          35,
+          52
+        ],
+        "floorFootprint" : [
+          17,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 9,
+        "occupied" : 1146
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 10,
+        "occupied" : 1180
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 11,
+        "occupied" : 1183
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 12,
+        "occupied" : 1145
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          35,
+          52
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          9,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 13,
+        "occupied" : 1149
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          19,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 14,
+        "occupied" : 1180
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          18,
+          53,
+          18,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 15,
+        "occupied" : 1180
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          38,
+          53
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 16,
+        "occupied" : 1221
+      },
+      {
+        "bounds" : [
+          8,
+          5,
+          37,
+          52
+        ],
+        "floorFootprint" : [
+          16,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 17,
+        "occupied" : 1171
+      },
+      {
+        "bounds" : [
+          9,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 18,
+        "occupied" : 1135
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          33,
+          53
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 19,
+        "occupied" : 1159
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          33,
+          53
+        ],
+        "floorFootprint" : [
+          13,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 20,
+        "occupied" : 1186
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          33,
+          52
+        ],
+        "floorFootprint" : [
+          16,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 21,
+        "occupied" : 1146
+      },
+      {
+        "bounds" : [
+          9,
+          4,
+          35,
+          53
+        ],
+        "floorFootprint" : [
+          23,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 22,
+        "occupied" : 1134
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          37,
+          53
+        ],
+        "floorFootprint" : [
+          29,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          26,
+          56
+        ],
+        "index" : 23,
+        "occupied" : 1188
+      },
+      {
+        "bounds" : [
+          9,
+          4,
+          39,
+          53
+        ],
+        "floorFootprint" : [
+          12,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 24,
+        "occupied" : 1286
+      },
+      {
+        "bounds" : [
+          10,
+          5,
+          38,
+          52
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 25,
+        "occupied" : 1236
+      },
+      {
+        "bounds" : [
+          11,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 26,
+        "occupied" : 1189
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          34,
+          53
+        ],
+        "floorFootprint" : [
+          15,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 27,
+        "occupied" : 1211
+      },
+      {
+        "bounds" : [
+          12,
+          4,
+          34,
+          53
+        ],
+        "floorFootprint" : [
+          12,
+          53,
+          30,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 28,
+        "occupied" : 1240
+      },
+      {
+        "bounds" : [
+          12,
+          5,
+          34,
+          52
+        ],
+        "floorFootprint" : [
+          28,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 29,
+        "occupied" : 1202
+      },
+      {
+        "bounds" : [
+          11,
+          4,
+          36,
+          53
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 30,
+        "occupied" : 1189
+      },
+      {
+        "bounds" : [
+          10,
+          4,
+          38,
+          53
+        ],
+        "floorFootprint" : [
+          15,
+          53,
+          11,
+          4
+        ],
+        "footPoint" : [
+          28,
+          56
+        ],
+        "index" : 31,
+        "occupied" : 1244
+      },
+      {
+        "bounds" : [
+          12,
+          6,
+          32,
+          51
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 32,
+        "occupied" : 1241
+      },
+      {
+        "bounds" : [
+          12,
+          5,
+          32,
+          52
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          16,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 33,
+        "occupied" : 1267
+      },
+      {
+        "bounds" : [
+          12,
+          5,
+          31,
+          52
+        ],
+        "floorFootprint" : [
+          20,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 34,
+        "occupied" : 1246
+      },
+      {
+        "bounds" : [
+          12,
+          6,
+          31,
+          51
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          16,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 35,
+        "occupied" : 1208
+      },
+      {
+        "bounds" : [
+          11,
+          6,
+          33,
+          51
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          16,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 36,
+        "occupied" : 1256
+      },
+      {
+        "bounds" : [
+          11,
+          5,
+          34,
+          52
+        ],
+        "floorFootprint" : [
+          22,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 37,
+        "occupied" : 1298
+      },
+      {
+        "bounds" : [
+          11,
+          5,
+          33,
+          52
+        ],
+        "floorFootprint" : [
+          21,
+          53,
+          17,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 38,
+        "occupied" : 1287
+      },
+      {
+        "bounds" : [
+          12,
+          6,
+          32,
+          51
+        ],
+        "floorFootprint" : [
+          22,
+          53,
+          16,
+          4
+        ],
+        "footPoint" : [
+          27,
+          56
+        ],
+        "index" : 39,
+        "occupied" : 1217
+      }
+    ],
+    "grid" : [
+      8,
+      5
+    ],
+    "nonBinaryAlphaPixels" : 0,
+    "offPaletteColors" : [
+
+    ],
+    "output" : "assets\/characters\/cold-war-cowboy-walk-56x60-v5.png",
+    "silhouetteMismatchPixels" : 0,
+    "size" : [
+      448,
+      300
+    ],
+    "source" : "assets\/characters\/cold-war-cowboy-walk-56x60-v4.png"
+  },
+  {
+    "cell" : [
+      48,
+      48
+    ],
+    "changedPixels" : {
+
+    },
+    "frames" : [
+      {
+        "bounds" : [
+          6,
+          5,
+          36,
+          41
+        ],
+        "floorFootprint" : [
+          29,
+          42,
+          8,
+          4
+        ],
+        "footPoint" : [
+          23,
+          45
+        ],
+        "index" : 0,
+        "occupied" : 831
+      },
+      {
+        "bounds" : [
+          8,
+          5,
+          33,
+          41
+        ],
+        "floorFootprint" : [
+          18,
+          42,
+          15,
+          4
+        ],
+        "footPoint" : [
+          24,
+          45
+        ],
+        "index" : 1,
+        "occupied" : 847
+      },
+      {
+        "bounds" : [
+          8,
+          4,
+          32,
+          42
+        ],
+        "floorFootprint" : [
+          18,
+          42,
+          7,
+          4
+        ],
+        "footPoint" : [
+          23,
+          45
+        ],
+        "index" : 2,
+        "occupied" : 794
+      },
+      {
+        "bounds" : [
+          8,
+          6,
+          33,
+          40
+        ],
+        "floorFootprint" : [
+          16,
+          42,
+          14,
+          4
+        ],
+        "footPoint" : [
+          24,
+          45
+        ],
+        "index" : 3,
+        "occupied" : 785
+      },
+      {
+        "bounds" : [
+          6,
+          5,
+          36,
+          41
+        ],
+        "floorFootprint" : [
+          12,
+          42,
+          21,
+          4
+        ],
+        "footPoint" : [
+          23,
+          45
+        ],
+        "index" : 4,
+        "occupied" : 824
+      },
+      {
+        "bounds" : [
+          7,
+          6,
+          35,
+          40
+        ],
+        "floorFootprint" : [
+          17,
+          42,
+          15,
+          4
+        ],
+        "footPoint" : [
+          24,
+          45
+        ],
+        "index" : 5,
+        "occupied" : 830
+      },
+      {
+        "bounds" : [
+          7,
+          5,
+          34,
+          41
+        ],
+        "floorFootprint" : [
+          19,
+          42,
+          8,
+          4
+        ],
+        "footPoint" : [
+          23,
+          45
+        ],
+        "index" : 6,
+        "occupied" : 788
+      },
+      {
+        "bounds" : [
+          7,
+          5,
+          35,
+          41
+        ],
+        "floorFootprint" : [
+          19,
+          42,
+          18,
+          4
+        ],
+        "footPoint" : [
+          24,
+          45
+        ],
+        "index" : 7,
+        "occupied" : 809
+      }
+    ],
+    "grid" : [
+      8,
+      1
+    ],
+    "nonBinaryAlphaPixels" : 0,
+    "offPaletteColors" : [
+
+    ],
+    "output" : "assets\/enemies\/enemy-bill-v3.png",
+    "silhouetteMismatchPixels" : 0,
+    "size" : [
+      384,
+      48
+    ],
+    "source" : "assets\/enemies\/enemy-bill-v2.png"
+  }
+]

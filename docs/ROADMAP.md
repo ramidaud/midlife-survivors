@@ -477,3 +477,18 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [x] Flow portrait batch 2, twenty clean PNGs and review page.
 - [x] Seven Performance Review intro layers, unchanged plate and four-second preview.
 - [ ] Rami reviews both art sets; Claude wires the intro playback.
+
+### 2026-11-11: Native character art review (Codex)
+Job 1 of `codex-level-art-pass.md` is prepared locally for Rami review. Four heroes and Bill only; integration and Jobs 2/3 remain pending. Review: `assets/art-direction/level-art-job-1/README.md`.
+
+### 2026-11-11: House fill art review (Codex)
+Job 2 of `codex-level-art-pass.md` is prepared locally: native 50-piece kit, placements and two-floor review. Await Rami review before integration. Job 3 remains untouched.
+
+### 2026-11-11: Outdoor colors awaiting approval (Codex)
+Job 3 step 1 swatch board is ready in `assets/stage/home/v3/`. Await approval of the three new greens before trees, lawn plates or yard props.
+
+### 2026-11-11: Outdoor kit ready for review (Codex)
+Rami approved the three greens. Job 3 now has 69 native pieces, seam checks and a 416 px lot example in `assets/stage/home/v3/`. Await art review before integration; wider office density work has not started.
+
+### 2026-11-11: Art packages published, integration pending (Codex)
+Jobs 1/2 and the original-scope Job 3 candidate are published as art/docs only. The updated V2.29.1 boundary/backyard/world-affordance/96 px gate requirements remain pending in Job 3; no game code or version bump in this package.
