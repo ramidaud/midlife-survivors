@@ -1,0 +1,967 @@
+{
+  "cell": [
+    56,
+    60
+  ],
+  "changedPixels": {
+    "after-breathing": [
+      82,
+      120,
+      105,
+      109
+    ],
+    "after-fidget": [
+      115,
+      168,
+      150,
+      155
+    ],
+    "after-idle-row": [
+      76,
+      120,
+      105,
+      109,
+      125,
+      168,
+      150,
+      155
+    ],
+    "before-breathing": [
+      676,
+      844,
+      712,
+      762
+    ],
+    "before-fidget": [
+      614,
+      922,
+      859,
+      837
+    ],
+    "before-idle-row": [
+      621,
+      844,
+      712,
+      762,
+      691,
+      922,
+      859,
+      837
+    ]
+  },
+  "frames": [
+    {
+      "bounds": [
+        12,
+        4,
+        31,
+        53
+      ],
+      "floorFootprint": [
+        18,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 0,
+      "occupied": 1133
+    },
+    {
+      "bounds": [
+        12,
+        5,
+        31,
+        52
+      ],
+      "floorFootprint": [
+        18,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 1,
+      "occupied": 1145
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        31,
+        53
+      ],
+      "floorFootprint": [
+        19,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 2,
+      "occupied": 1182
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        31,
+        53
+      ],
+      "floorFootprint": [
+        19,
+        53,
+        18,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 3,
+      "occupied": 1186
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        31,
+        53
+      ],
+      "floorFootprint": [
+        29,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 4,
+      "occupied": 1148
+    },
+    {
+      "bounds": [
+        12,
+        5,
+        31,
+        52
+      ],
+      "floorFootprint": [
+        29,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 5,
+      "occupied": 1152
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        31,
+        53
+      ],
+      "floorFootprint": [
+        20,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 6,
+      "occupied": 1182
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        31,
+        53
+      ],
+      "floorFootprint": [
+        19,
+        53,
+        18,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 7,
+      "occupied": 1178
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        17,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 8,
+      "occupied": 1138
+    },
+    {
+      "bounds": [
+        10,
+        5,
+        35,
+        52
+      ],
+      "floorFootprint": [
+        17,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 9,
+      "occupied": 1146
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        18,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 10,
+      "occupied": 1180
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        18,
+        53,
+        18,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 11,
+      "occupied": 1183
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        28,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 12,
+      "occupied": 1145
+    },
+    {
+      "bounds": [
+        10,
+        5,
+        35,
+        52
+      ],
+      "floorFootprint": [
+        28,
+        53,
+        9,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 13,
+      "occupied": 1149
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        19,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 14,
+      "occupied": 1180
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        18,
+        53,
+        18,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 15,
+      "occupied": 1180
+    },
+    {
+      "bounds": [
+        8,
+        4,
+        38,
+        53
+      ],
+      "floorFootprint": [
+        13,
+        53,
+        30,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 16,
+      "occupied": 1221
+    },
+    {
+      "bounds": [
+        8,
+        5,
+        37,
+        52
+      ],
+      "floorFootprint": [
+        16,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 17,
+      "occupied": 1171
+    },
+    {
+      "bounds": [
+        9,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        23,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 18,
+      "occupied": 1135
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        33,
+        53
+      ],
+      "floorFootprint": [
+        29,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 19,
+      "occupied": 1159
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        33,
+        53
+      ],
+      "floorFootprint": [
+        13,
+        53,
+        30,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 20,
+      "occupied": 1186
+    },
+    {
+      "bounds": [
+        10,
+        5,
+        33,
+        52
+      ],
+      "floorFootprint": [
+        16,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 21,
+      "occupied": 1146
+    },
+    {
+      "bounds": [
+        9,
+        4,
+        35,
+        53
+      ],
+      "floorFootprint": [
+        23,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 22,
+      "occupied": 1134
+    },
+    {
+      "bounds": [
+        8,
+        4,
+        37,
+        53
+      ],
+      "floorFootprint": [
+        29,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        26,
+        56
+      ],
+      "index": 23,
+      "occupied": 1188
+    },
+    {
+      "bounds": [
+        9,
+        4,
+        39,
+        53
+      ],
+      "floorFootprint": [
+        12,
+        53,
+        30,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 24,
+      "occupied": 1286
+    },
+    {
+      "bounds": [
+        10,
+        5,
+        38,
+        52
+      ],
+      "floorFootprint": [
+        28,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 25,
+      "occupied": 1236
+    },
+    {
+      "bounds": [
+        11,
+        4,
+        36,
+        53
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 26,
+      "occupied": 1189
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        34,
+        53
+      ],
+      "floorFootprint": [
+        15,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 27,
+      "occupied": 1211
+    },
+    {
+      "bounds": [
+        12,
+        4,
+        34,
+        53
+      ],
+      "floorFootprint": [
+        12,
+        53,
+        30,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 28,
+      "occupied": 1240
+    },
+    {
+      "bounds": [
+        12,
+        5,
+        34,
+        52
+      ],
+      "floorFootprint": [
+        28,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 29,
+      "occupied": 1202
+    },
+    {
+      "bounds": [
+        11,
+        4,
+        36,
+        53
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 30,
+      "occupied": 1189
+    },
+    {
+      "bounds": [
+        10,
+        4,
+        38,
+        53
+      ],
+      "floorFootprint": [
+        15,
+        53,
+        11,
+        4
+      ],
+      "footPoint": [
+        28,
+        56
+      ],
+      "index": 31,
+      "occupied": 1244
+    },
+    {
+      "bounds": [
+        12,
+        6,
+        32,
+        51
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 32,
+      "occupied": 1241
+    },
+    {
+      "bounds": [
+        12,
+        5,
+        32,
+        52
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        16,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 33,
+      "occupied": 1267
+    },
+    {
+      "bounds": [
+        12,
+        5,
+        31,
+        52
+      ],
+      "floorFootprint": [
+        20,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 34,
+      "occupied": 1246
+    },
+    {
+      "bounds": [
+        12,
+        6,
+        31,
+        51
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        16,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 35,
+      "occupied": 1208
+    },
+    {
+      "bounds": [
+        11,
+        6,
+        33,
+        51
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        16,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 36,
+      "occupied": 1256
+    },
+    {
+      "bounds": [
+        11,
+        5,
+        34,
+        52
+      ],
+      "floorFootprint": [
+        22,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 37,
+      "occupied": 1298
+    },
+    {
+      "bounds": [
+        11,
+        5,
+        33,
+        52
+      ],
+      "floorFootprint": [
+        21,
+        53,
+        17,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 38,
+      "occupied": 1287
+    },
+    {
+      "bounds": [
+        12,
+        6,
+        32,
+        51
+      ],
+      "floorFootprint": [
+        22,
+        53,
+        16,
+        4
+      ],
+      "footPoint": [
+        27,
+        56
+      ],
+      "index": 39,
+      "occupied": 1217
+    }
+  ],
+  "grid": [
+    8,
+    5
+  ],
+  "nonBinaryAlphaPixels": 0,
+  "offPaletteColors": [],
+  "output": "assets/characters/cold-war-cowboy-walk-56x60-v5.png",
+  "silhouetteMismatchPixels": 0,
+  "size": [
+    448,
+    300
+  ],
+  "source": "assets/characters/cold-war-cowboy-walk-56x60-v4.png",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F"
+  ],
+  "animations": [
+    {
+      "name": "walk down",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "ms": 95
+    },
+    {
+      "name": "walk up",
+      "frames": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "ms": 95
+    },
+    {
+      "name": "walk left",
+      "frames": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "ms": 95
+    },
+    {
+      "name": "walk right",
+      "frames": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "ms": 95
+    },
+    {
+      "name": "idle (breathing)",
+      "frames": [
+        32,
+        33,
+        34,
+        35
+      ],
+      "ms": 320
+    },
+    {
+      "name": "fidget",
+      "frames": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "ms": 170
+    }
+  ],
+  "alpha": "RGBA, binary 0/255, no magenta",
+  "footprintNote": "floorFootprint is visible lower-four-row contact extent, not a replacement gameplay hitbox. Source silhouette and foot placement unchanged.",
+  "review": "assets/art-direction/level-art-job-1/check-3-4x.png"
+}
