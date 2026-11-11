@@ -275,7 +275,11 @@
     const t = document.createElement("div");
     t.className = "read-toast";
     t.setAttribute("role", "status");
-    t.innerHTML = n >= goal
+    // A memo can carry its own achievement (posts.js "unlocks": the achievement name), Memo 14 first.
+    const cur = posts.find(p => p.slug === currentSlug);
+    t.innerHTML = cur && cur.unlocks
+      ? `<b>✓ Memo finished.</b> <em>Achievement unlocked: ${esc(cur.unlocks)}.</em> Clock in to claim it.`
+      : n >= goal
       ? `<b>✓ Memo finished.</b> ${n} read. <em>Required Reading unlocked:</em> clock in to claim it.`
       : `<b>✓ Memo finished.</b> ${n} of ${goal} toward <em>Required Reading</em>.`;
     document.body.appendChild(t);

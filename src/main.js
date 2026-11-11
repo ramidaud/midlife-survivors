@@ -362,8 +362,8 @@ function create() {
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
   window._padUsedThisRun = false;
-  // Devlog memos finished in this browser (the devlog saves them under "devlog-read"): Required Reading achievement.
-  try { const readN = JSON.parse(localStorage.getItem("devlog-read") || "[]").length; if (readN) setTimeout(() => window.achEvent("devlog", { read: readN }), 1500); } catch (e) {}
+  // Devlog memos finished in this browser (the devlog saves their slugs under "devlog-read"): Required Reading, plus per-memo achievements like Gaussian Splatting.
+  try { const readList = JSON.parse(localStorage.getItem("devlog-read") || "[]"); if (readList.length) setTimeout(() => window.achEvent("devlog", { read: readList.length, slugs: readList }), 1500); } catch (e) {}
   dyn = { lastHitAt: 0, comfortUntil: 0, mercyUntil: 0 };
   coinFrac = 0; xpFrac = 0;
   if (window.NearMiss) window.NearMiss.reset(); // Close Call streak starts fresh every run

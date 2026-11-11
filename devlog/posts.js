@@ -56,6 +56,7 @@ window.DEVLOG_POSTS = [
       ]
     },
     "nextUp": "How I write these memos.",
+    "unlocks": "Gaussian Splatting",
     "playUrl": "https://midlifesurvivors.com/"
   },
   {

@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.3",
-  displayVersion: "V. 2.29.3",
+  version: "2.29.4",
+  displayVersion: "V. 2.29.4",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 354,
+  build: 355,
   changelog: [
+    {
+      ver: "V. 2.29.4", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "Read the memo, get the achievement.",
+      highlights: [
+        "New achievement: Gaussian Splatting (+3k). Read Memo 14 on the devlog all the way to the end, then clock in."
+      ]
+    },
     {
       ver: "V. 2.29.3", date: "Nov 11, 2026", title: "Version Two",
       teaser: "Bill got his face back.",

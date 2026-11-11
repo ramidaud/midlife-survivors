@@ -2218,3 +2218,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The still for cards and link previews is the clean island, cropped to 16:9. New optional `leadPoster` field so a loop's first frame can differ from the cover.
 - Rami's correction: the orbit should be of Abe. New lead loop: the Blender view circles Abe (the world turns behind him), then the sweep line turns him into dots and it settles there. 10.8 s, 2.7 MB.
 - Rami picked the Memo 14 title: "Achievement Unlocked: Gaussian Splatting." ("It all felt like photography" stays as a section header.)
+
+## Nov 11, 2026: Gaussian Splatting achievement (V2.29.4)
+- Rami said yes: finishing Memo 14 on the devlog unlocks "Gaussian Splatting" (+3k) the next time you clock in, like Required Reading.
+- Any memo can carry its own achievement now (`unlocks` in posts.js), and the "memo finished" toast names it.
+- Tested on laptop and phone sizes: unlocks on the next run, Required Reading stays locked, no errors.
+
