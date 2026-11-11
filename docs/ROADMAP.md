@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-11 (V. 2.29.1, wider backyard gates; world rules approved)
+**Last updated:** 2026-11-11 (V. 2.29.2, repainted heroes; art redo brief out)
 
 ---
 
@@ -29,7 +29,11 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Rami: hand Codex `docs/handoffs/codex-level-art-pass.md` (Job 1 heroes and Bill, Job 2 house fill, Job 3 Maple Hollow trees and greens), one job at a time
 - [x] World rules approved (wall, breakable, walk-through; 96 px gaps; two exits; trees contain the level), in CLAUDE.md
 - [x] Backyard quick fix (V2.29.1): gates and hedge steps 96 px wide
-- [ ] Codex Job 1 (heroes and Bill) is done on Rami's Mac: Codex pushes it, Claude reviews and wires it in
+- [x] Codex Job 1: four hero sheets approved and live (V2.29.2). Bill goes back for a third try
+- [x] Codex Jobs 2 and 3 reviewed and rejected: built from code shapes, flat. PR #1 stays unmerged
+- [x] New rule in CLAUDE.md: world art is painted, then reduced by a whole number
+- [ ] Rami: send Codex `docs/handoffs/codex-level-art-redo.md` (a sample of eight first, then stop)
+- [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions
 - [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged
 - [ ] Sitting 3: heroes and Bill. Colors by material (the khaki slacks), then a clean-up round on the Sprite Board
 - [ ] Sitting 4: fill the big house (same as Maple v2 step 2c), with art sized to the rooms

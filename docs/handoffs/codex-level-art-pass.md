@@ -1,5 +1,7 @@
 # Codex brief: level art pass, three art jobs (Nov 11, 2026)
 
+> **Update, Nov 11:** Job 1's hero sheets are approved and live. **Jobs 2 and 3 are replaced by `codex-level-art-redo.md`.** The first deliveries were built from code shapes and rejected.
+
 **From:** Claude, for Rami. **Why:** the level art audit (`docs/design/level-art-audit-2026-11.md`) found three places where new art is the fix. The display problems are already fixed in code (V. 2.29.0). These three jobs are decided, so the wider art direction audit (`codex-art-direction-audit.md`) doesn't need to re-request them.
 
 **Do them in this order, one at a time. Stop after each for Rami's review.** Art only. Claude wires everything in.

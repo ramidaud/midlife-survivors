@@ -2194,3 +2194,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Backyard quick fix: gates between yards and the hedge steps are 96 px wide (were 64 and 52). Tested: the hero walks through both, and the fence still blocks above and below the gap.
 - The drawn gates are still 64 px, so the opening is a little wider than it looks until Codex's Job 3 art.
 - Codex finished Job 1 (heroes and Bill) on Rami's Mac. Not in the repo yet, so not reviewed.
+
+## 2026-11-11 (8:30 AM): V2.29.2, repainted heroes; art redo
+- Codex delivered all three jobs. Rami: the heroes' greens are fine, but the flamingo, gnome, mailbox and bins are "major steps backwards."
+- Cause: Claude's brief said "draw at native size, nothing shrunk," so Codex built the final sprites from code shapes instead of painting them. Flat fills, no shading.
+- Kept: the four hero sheets (recolors of the existing sprites; khaki slacks are back). Live in V2.29.2, checked in the game for all four heroes.
+- Rejected: Bill's flat repaint (third try asked for), the house fill and the outdoor kit. PR #1 stays unmerged. The outdoor kit also skipped the tree wall and the separate yard furniture.
+- New rule (Rami's yes): world art is painted, then reduced by a whole number. New brief asks Codex for a sample of eight pieces first.

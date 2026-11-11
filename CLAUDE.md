@@ -90,6 +90,7 @@ From the level art audit (`docs/design/level-art-audit-2026-11.md`). "One look" 
 - **Colors by material.** When art is reduced to the palette, map each material on purpose (slacks to khaki, paper to cream). Never rely on nearest-color matching alone. Coffee orange stays with the hero's mug and weapons.
 - **Density target per room.** Every room has a target number of objects per screen and is compared side by side with its reference art before it ships.
 - **Art sized to its space.** Ask for art at the size of the space it fills. Don't stretch a room or scatter small props to cover a gap.
+- **Painted, then reduced.** World art is painted (by an artist or an image model) at a whole-number multiple of its final size and reduced by that number, keeping at least three tones per material. Never built from code shapes. New art is compared with the old sprite of the same subject at real size before it ships.
 
 ## World rules: what blocks, what breaks, what you walk through (Nov 11, Rami's OK)
 - **Three kinds of object, and the art shows which is which.**

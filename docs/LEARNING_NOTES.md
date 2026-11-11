@@ -809,3 +809,6 @@ Accessibility guidelines say a screen shouldn't flash more than 3 times a second
 
 ## Whole-number scaling (Nov 11, the crisp pass)
 Pixel art is a grid of little squares. Show it at 2x and every square becomes a neat 2 by 2 block. Show it at 1.5x and the screen has to cheat: one square gets 1 screen pixel, the next gets 2, so outlines wobble and glasses go lopsided. Screens with extra-fine pixels (MacBooks, phones) add a second problem: the browser enlarges the whole picture and, unless told otherwise, smooths it like a photo. The fix is two rules: only zoom by whole numbers, and always enlarge with hard edges.
+
+## Painted vs. drawn with code (Nov 11, the art redo)
+There are two ways an AI can make a sprite. An image model paints it, the way a person would, and gets shading, texture and character for free, but it can't hit exact pixels, so the picture has to be reduced afterward. A coding agent can place every pixel exactly, but it only thinks in shapes: rectangles, lines, flat fills. Ask it for "exact pixels, no shrinking" and you get a flamingo made of an oval and four sticks. The good pipeline uses both: paint big at a whole-number multiple, reduce cleanly, then fix the few pixels that broke.
