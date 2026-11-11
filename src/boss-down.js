@@ -42,7 +42,7 @@ window.BossDown = (() => {
     ArtSheets.load(scene, "bonk_crack", "assets/bosses/bonk-crack-v1.png", 48, 48);   // wall bonk (src/boss-attacks.js)
     ArtSheets.load(scene, "dizzy_stars", "assets/bosses/dizzy-stars-v1.png", 16, 16); // 6 star frames + 2 bird frames
   }
-  const reduced = () => { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } };
+  const reduced = () => !!(window.reduceFlashing && reduceFlashing()); // Settings > Reduce flashing, or the device's Reduce Motion
   let slowTimer = null;
   function play(scene, boss, color) {
     if (!scene || !scene.add) return;
@@ -53,7 +53,7 @@ window.BossDown = (() => {
     let body = null;
     if (v.texture && v.texture.key !== "__MISSING") {
       body = scene.add.image(x, y, v.texture.key, v.frame.name).setOrigin(v.originX, v.originY)
-        .setScale(v.scaleX, v.scaleY).setFlipX(v.flipX).setDepth(50005).setTintFill(0xFFFFFF);
+        .setScale(v.scaleX, v.scaleY).setFlipX(v.flipX).setDepth(50005); if (!calm) body.setTintFill(0xFFFFFF);
     }
     // 2. Slow motion for a beat, with a shake and a warm flash.
     if (!calm) {
@@ -64,7 +64,7 @@ window.BossDown = (() => {
     }
     // 3. Flicker white, then topple over and sink away.
     if (body) {
-      [90, 180, 270, 360, 450].forEach((t, i) => scene.time.delayedCall(t, () => { if (!body.active) return; if (i % 2) body.setTintFill(0xFFFFFF); else body.clearTint(); }));
+      if (!calm) [90, 180, 270, 360, 450].forEach((t, i) => scene.time.delayedCall(t, () => { if (!body.active) return; if (i % 2) body.setTintFill(0xFFFFFF); else body.clearTint(); }));
       scene.time.delayedCall(520, () => {
         if (!body.active) return;
         body.clearTint();

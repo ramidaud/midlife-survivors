@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.28.1",
-  displayVersion: "V. 2.28.1",
-  lastUpdated: "Nov 10, 2026",
+  version: "2.28.2",
+  displayVersion: "V. 2.28.2",
+  lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 349,
+  build: 350,
   changelog: [
+    {
+      ver: "V. 2.28.2", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "Easier on the eyes when the whole department shows up.",
+      highlights: [
+        "New: Reduce flashing, in Settings under Game. No screen flashes, no white kill pops, no boss flicker, and gentler shakes. It's on already if your device asks for reduced motion.",
+        "A flashing lights warning the first time you open the game, with the same switch right there.",
+        "For everyone: the screen can flash at most once every 0.6 seconds, and big kill streaks only flash a few enemies white at a time. Thanks to Kevin for flagging the strobe at high levels."
+      ]
+    },
     {
       ver: "V. 2.28.1", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The baby gate is down. Go upstairs.",

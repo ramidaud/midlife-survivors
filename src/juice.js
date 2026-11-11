@@ -6,11 +6,23 @@ window.JUICE = {
   ring: true,          // a quick shockwave ring on each kill
   maxEffects: 45,      // cap on death effects at once, so huge fights stay smooth
   dust: true,          // little dust puffs at your feet while you walk
-  dustEveryMs: 120
+  dustEveryMs: 120,
+  // Photosensitivity (Nov 11, Kevin's playtest): a big kill streak used to turn the floor into a white strobe.
+  // At most this many white pops and rings per beat; the rest still squash and pop, just without the white.
+  whitePopsPerBeat: 4,
+  beatMs: 333
 };
 
 window.Juice = (() => {
-  let live = 0, lastDust = 0;
+  let live = 0, lastDust = 0, beatAt = 0, beatPops = 0;
+  // May this kill flash white? Never with Reduce flashing on; otherwise a few per beat.
+  function whiteOK(boss) {
+    if (window.reduceFlashing && reduceFlashing()) return false;
+    const now = performance.now();
+    if (now - beatAt > JUICE.beatMs) { beatAt = now; beatPops = 0; }
+    if (boss) return true;
+    return beatPops++ < JUICE.whitePopsPerBeat;
+  }
 
   // A hit: squash the drawn sprite (enemy-art reads hitAt) and shove the enemy away from you a little.
   function hit(scene, e, player, now) {
@@ -27,9 +39,11 @@ window.Juice = (() => {
     const v = e.artRecord && e.artRecord.visual && e.artRecord.visual.visible ? e.artRecord.visual : e;
     if (!v.texture) return;
     live++;
+    const white = whiteOK(e.isBoss);
     const sx = Math.abs(v.scaleX), sy = Math.abs(v.scaleY), big = e.isBoss ? 1.6 : 1;
     const img = scene.add.image(e.x, e.y, v.texture.key, v.frame.name)
-      .setScale(sx, sy).setFlipX(v.flipX).setDepth((v.depth || 4) + 0.5).setTintFill(0xffffff);
+      .setScale(sx, sy).setFlipX(v.flipX).setDepth((v.depth || 4) + 0.5);
+    if (white) img.setTintFill(0xffffff);
     scene.tweens.add({
       targets: img, scaleX: sx * 1.35 * big, scaleY: sy * 0.62, duration: 70, ease: "Quad.Out",
       onComplete: () => {
@@ -43,7 +57,7 @@ window.Juice = (() => {
         });
       }
     });
-    if (JUICE.ring) {
+    if (JUICE.ring && white) {
       const r = Math.max(10, (e.displayWidth || 30) * 0.45);
       const ring = scene.add.circle(e.x, e.y, r).setStrokeStyle(e.isBoss ? 4 : 2, 0xffffff, 0.85).setDepth((v.depth || 4) + 0.4);
       scene.tweens.add({ targets: ring, scale: e.isBoss ? 3.2 : 2.1, alpha: 0, duration: e.isBoss ? 420 : 230, ease: "Quad.Out", onComplete: () => ring.destroy() });

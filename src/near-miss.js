@@ -6,7 +6,7 @@
 // main.js calls NearMiss.reset() at run start, scan() every frame, and onHurt() when you take damage.
 window.NearMiss = (() => {
   const N = () => window.NEAR_MISS || {};
-  const reducedMotion = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reducedMotion = () => !!(window.reduceFlashing && reduceFlashing());
   let combo, nmStats, xpLog, popupLog, lastShakeAt, lastLine, scoreUnits, gfx, burstUntil, burstMult, ghostsUntil = 0;
 
   function reset() {

@@ -5,7 +5,7 @@
 // main.js picks and applies the rewards; this file only puts on the show. Placeholder art until ChatGPT's chest sheets land.
 window.BonusChest = (() => {
   let modal = null, state = null;
-  const reduceMotion = () => window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = () => !!(window.reduceFlashing && reduceFlashing());
 
   function texUrl(scene, key) {
     try { if (scene && scene.textures.exists(key)) return scene.textures.getBase64(key); } catch (e) {}

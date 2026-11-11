@@ -16,7 +16,7 @@
 window.GoldWatch = (() => {
   const D = () => (window.BOSS_ATTACKS && BOSS_ATTACKS.goldWatch) || {};
   const T = () => window.BOSS_ATTACK_TUNING || {};
-  const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reduceMotion = () => !!(window.reduceFlashing && reduceFlashing()); // Settings > Reduce flashing, or the device setting
   const UP = -Math.PI / 2; // 12 o'clock
   const wrap = a => Phaser.Math.Angle.Wrap(a);
 
@@ -112,7 +112,7 @@ window.GoldWatch = (() => {
 
     if (a.state === "telegraph") {
       const k = (now - a.startedAt) / Math.max(1, a.until - a.startedAt);
-      const blink = reduceMotion ? 0.6 : 0.35 + 0.35 * Math.abs(Math.sin(now / 70));
+      const blink = reduceMotion() ? 0.6 : 0.35 + 0.35 * Math.abs(Math.sin(now / 160));
       if (window.BossArt) BossArt.marker(scene, boss, boss.x, boss.y + 30, 0, 1.4, 1.4, 0.25 + 0.5 * k);
       if (a.kind === "minuteHand" || a.kind === "hourHand") {
         const H = d[a.kind], len = H.handLength;
@@ -232,7 +232,7 @@ window.GoldWatch = (() => {
       if (q.x < v.x + 12 || q.x > v.right - 12) { q.vx *= -1; q.x = Phaser.Math.Clamp(q.x, v.x + 12, v.right - 12); }
       if (q.y < v.y + 12 || q.y > v.bottom - 12) { q.vy *= -1; q.y = Phaser.Math.Clamp(q.y, v.y + 12, v.bottom - 12); }
       q.o.setPosition(q.x, q.y);
-      if (q.o.setFrame && !reduceMotion) q.o.setFrame(Math.floor(now / 90) % 4);
+      if (q.o.setFrame && !reduceMotion()) q.o.setFrame(Math.floor(now / 90) % 4);
       const left = q.dieAt - now; if (left < 600) q.o.setAlpha(left / 600);
       if (Math.hypot(p.x - q.x, p.y - q.y) <= G.gearSize / 2 + 16) { hit(player, boss, G.damage); q.o.destroy(); return false; }
       return true;
@@ -270,7 +270,7 @@ window.GoldWatch = (() => {
     a.pvx = (a.pvx || 0) + dx / len * add; a.pvy = (a.pvy || 0) + dy / len * add;
     const cap = W.maxPushSpeed || 240, sp = Math.hypot(a.pvx, a.pvy); if (sp > cap) { a.pvx *= cap / sp; a.pvy *= cap / sp; }
     a.slowUntil = runElapsedMs + (W.handSlowMs || 400);
-    if (popDamageNumber && !(a.lastPop > runElapsedMs - 250)) { a.lastPop = runElapsedMs; boss.setTintFill(0xfff0cf); scene.time.delayedCall(50, () => { if (boss.active) boss.clearTint(); }); }
+    if (popDamageNumber && !(a.lastPop > runElapsedMs - 250)) { a.lastPop = runElapsedMs; if (!reduceFlashing()) boss.setTintFill(0xfff0cf); scene.time.delayedCall(50, () => { if (boss.active) boss.clearTint(); }); }
   }
 
   // You reached retirement: the hands stop at 5:00 on their own. The keepsake, the chest and the bonus are yours.

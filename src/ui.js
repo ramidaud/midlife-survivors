@@ -249,7 +249,7 @@ window.menuNav = {
   focusedEl: null,
 
   getActiveModal() {
-    const order = ["account-modal", "lore-modal", "changelog-modal", "controls-modal", "settings-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
+    const order = ["comfort-modal", "account-modal", "lore-modal", "changelog-modal", "controls-modal", "settings-modal", "bonus-modal", "lounge-modal", "levelup-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal"];
     for (const id of order) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains("hidden")) return el;
@@ -1844,6 +1844,7 @@ function renderSettingsModal(scene, keepId) {
       <div class="ms-section-head">Game</div>
       <div class="ms-rows">
         ${row("set-tips", "Game tips", "First-time hints during a run", window.tipsEnabled() ? "ON" : "OFF", window.tipsEnabled() ? "on" : "off", true)}
+        ${row("set-flash", "Reduce flashing", "No screen flashes, softer hits and shakes", window.reduceFlashing() ? "ON" : "OFF", window.reduceFlashing() ? "on" : "off", true)}
       </div>
       <div class="ms-section-head">Controls</div>
       <div class="ms-rows">
@@ -1868,8 +1869,9 @@ function renderSettingsModal(scene, keepId) {
   bind("set-mix", 4, () => { toggleAudioMix(); sfx("pick"); again("set-mix"); });
   bind("set-voice", 5, () => { if (typeof toggleVoice === "function") toggleVoice(); sfx("pick"); again("set-voice"); });
   bind("set-tips", 6, () => { window.setTipsEnabled(!window.tipsEnabled()); sfx("pick"); again("set-tips"); });
-  bind("set-controls", 7, () => { sfx("pick"); openControlsModal(scene); });
-  bind("set-done", 8, () => { sfx("pick"); closeSettingsModal(scene); });
+  bind("set-flash", 7, () => { window.setReduceFlashing(!window.reduceFlashing()); sfx("pick"); again("set-flash"); });
+  bind("set-controls", 8, () => { sfx("pick"); openControlsModal(scene); });
+  bind("set-done", 9, () => { sfx("pick"); closeSettingsModal(scene); });
   window.menuNav.refresh();
 }
 window.openSettingsModal = openSettingsModal; window.closeSettingsModal = closeSettingsModal;

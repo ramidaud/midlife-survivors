@@ -10,7 +10,7 @@
 window.AllHands = (() => {
   const T = () => window.BOSS_ATTACK_TUNING || {};
   const D = () => (window.BOSS_ATTACKS && BOSS_ATTACKS.allHands) || {};
-  const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reduceMotion = () => !!(window.reduceFlashing && reduceFlashing()); // Settings > Reduce flashing, or the device setting
   const COL = { dash: 0xFFF0CF, edge: 0x171C35, live: 0xC45C4B, pie: 0xBFA8CF, screen: 0xF2D7A1, spot: 0xFFF0CF };
   const SLIDES = ["barChart", "pieChart", "lineGraph"];
 
@@ -108,7 +108,7 @@ window.AllHands = (() => {
       boss.setVelocity(0, 0);
       drawScreen(g, boss, a.slide, 1);
       const SC = C[a.slide], k = Math.min(1, (now - a.startedAt) / Math.max(1, a.until - a.startedAt));
-      const ta = reduceMotion ? 0.8 : 0.35 + 0.55 * k;
+      const ta = reduceMotion() ? 0.8 : 0.35 + 0.55 * k;
       if (a.state === "telegraph" && now >= a.until) { a.state = "live"; a.liveAt = now; if (window.sfx) sfx("bossSpawn", 0); }
       const live = a.state === "live", t = live ? now - a.liveAt : 0;
       if (a.slide === "barChart") {

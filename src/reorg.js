@@ -9,7 +9,7 @@
 window.Reorg = (() => {
   const T = () => window.BOSS_ATTACK_TUNING || {};
   const D = () => (window.BOSS_ATTACKS && BOSS_ATTACKS.theReorg) || {};
-  const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reduceMotion = () => !!(window.reduceFlashing && reduceFlashing()); // Settings > Reduce flashing, or the device setting
   let spawnPlan = null, edgeEls = [];
 
   function scaling() {
@@ -126,7 +126,7 @@ window.Reorg = (() => {
     return plans;
   }
   function drawGhost(g, r, k, now) { // dashed outline: furniture is about to move here
-    const dash = 10, gap = 7, alpha = reduceMotion ? 0.85 : 0.55 + 0.35 * Math.abs(Math.sin(now / 120));
+    const dash = 10, gap = 7, alpha = reduceMotion() ? 0.85 : 0.55 + 0.35 * Math.abs(Math.sin(now / 120));
     g.lineStyle(3, 0xF2D7A1, alpha);
     const edge = (x1, y1, x2, y2) => { const len = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / len, uy = (y2 - y1) / len; for (let s = 0; s < len; s += dash + gap) { const e = Math.min(len, s + dash); g.lineBetween(x1 + ux * s, y1 + uy * s, x1 + ux * e, y1 + uy * e); } };
     edge(r.x, r.y, r.x + r.w, r.y); edge(r.x + r.w, r.y, r.x + r.w, r.y + r.h); edge(r.x + r.w, r.y + r.h, r.x, r.y + r.h); edge(r.x, r.y + r.h, r.x, r.y);

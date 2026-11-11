@@ -45,6 +45,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration C1 (V2.27.6): the devlog and the top bar read colors and fonts from the game's tokens file; the cream strip label is navy
 - [x] Migration C2 (V2.27.7): wording pass; no developer words or key lists on buttons (controls screen rewritten)
 - [x] Migration C3: audit rerun. 6 of the first top 10 retired, 3 better, 1 (old CSS underneath) unchanged. New list in docs/design/ui-audit-c3-2026-11.md
+- [x] Photosensitivity (V2.28.2, Kevin's playtest note): flashing lights warning on first visit, Reduce flashing in Settings > Game, and a flash cap for everyone (one screen flash per 0.6 s, a few white kill pops per beat)
+- [ ] Rami: check a maxed-out late run with Reduce flashing off, then on. Still strobing anywhere?
+- [ ] Settings sheet draws behind the title tiles on desktop (seen in a headless test, also on V2.28.1). Confirm in a real browser
 - [x] Alerts say it once (V2.27.8): headline only, ticker as a fallback
 - [ ] Next: iPad nav overlap (brand under TITLE SCREEN); then old CSS cleanup; then Maple Hollow v2 step 2
 - [x] Migration B8 (V2.27.9): extras, achievements, scores, credits, patch notes and lore on one header; no repeated logo; nothing under 14 px. Part B done

@@ -33,7 +33,7 @@ window.Breakables = (() => {
     const b = o.brk; if (!b || b.state >= 2) return;
     b.hp -= amount;
     o.hitAt = now;
-    o.setTintFill(0xffffff); scene.time.delayedCall(60, () => { if (o.active) o.clearTint(); });
+    if (!(window.reduceFlashing && reduceFlashing())) o.setTintFill(0xffffff); scene.time.delayedCall(60, () => { if (o.active) o.clearTint(); });
     const sx = o.scaleX, sy = o.scaleY;
     scene.tweens.add({ targets: o, scaleX: sx * 1.1, scaleY: sy * 0.92, duration: 55, yoyo: true, onComplete: () => { if (o.active) o.setScale(sx, sy); } });
     if (b.hp <= 0) return smash(scene, o, now);

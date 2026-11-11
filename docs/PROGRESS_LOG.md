@@ -2156,3 +2156,11 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Walk onto the stairs to climb: a few hops, a fade, and you come out on the other floor. Tested both ways.
 - The toy bricks moved to Abe's room (the test stepped on one and earned Barefoot Parenting).
 - Still to confirm in a real browser: walkers near the stairs following you. Rami asked why it was slow: each headless test runs the game at about 10 fps, so one house walk-through takes 6 to 8 minutes.
+
+## 2026-11-11 (12:30 AM): V2.28.2, flashing lights
+- Kevin on Discord: an epilepsy warning is worth adding before a bigger audience, since maxed-out middle management makes the screen strobe. Rami: "I'll add it in sooner than later."
+- The first time you open the game, a Health and safety sheet warns about flashing lights, with a Reduce flashing switch and GOT IT. It shows once per device.
+- Reduce flashing (Settings > Game, or automatic with the device's Reduce Motion): no full-screen flashes, no white kill pops or rings, no boss knockdown flicker, a soft red tint when you're hurt instead of a solid red flash, shakes at about a third.
+- For everyone: one full-screen flash per 0.6 seconds at most, and only 4 enemies per third of a second get the white death pop. The rest still squash and pop. The Gold Watch and Holiday Party blinks slowed to about 2 a second.
+- Tested headless at phone and desktop sizes: the warning shows once, the switch saves, no errors. Not yet felt in a real late run.
+- Found along the way (already in V2.28.1): the Settings sheet draws behind the title tiles on desktop. Logged for later.

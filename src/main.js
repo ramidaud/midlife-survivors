@@ -1188,6 +1188,7 @@ function showTitleScreen(scene) {
   scene.time.paused = true;
 
   renderTitleModal(scene);
+  if (window.Comfort) Comfort.maybeWarn(() => renderTitleModal(scene)); // Nov 11: photosensitivity warning, first visit only
   { const tm = document.getElementById("title-modal"); if (tm) tm.scrollTop = 0; } // open at the top on short windows
   setTimeout(() => { if (titleOpen && window.Buyout) Buyout.maybeOffer(); }, 900); // once a fiscal year: the Corporate Buyout offer
 
@@ -1643,7 +1644,7 @@ function hurtPlayer(p, bill) {
   if (window.NearMiss) window.NearMiss.onHurt(); // a real hit breaks the Close Call streak
   scene.cameras.main.shake(120, 0.009); // screen shake when you take contact damage!
   drawHpBar();
-  p.setTintFill(0xe0564f); // flash red
+  if (window.reduceFlashing && reduceFlashing()) p.setTint(0xe0564f); else p.setTintFill(0xe0564f); // flash red (a soft tint when reducing flashing)
   scene.time.delayedCall(100, () => p.clearTint());
   // Ben's quirk (Nov 3): once a run, when health drops to a quarter, he power-cycles everything.
   if (stats.reboot && hp > 0 && hp <= stats.maxHp * 0.25) {
@@ -1841,7 +1842,7 @@ function damageBill(bill, amount) {
   if (bill.hp > 0) {
     sfx("hit");
     if (bill.isBoss) bill.tag.setText(`${ENEMIES[bill.kind].label}${bill._shielded ? " 🛡" : ""}:${bill.hp}`);
-    bill.setTintFill(0xffffff); // quick white flash so you can see the hit
+    if (!(window.reduceFlashing && reduceFlashing())) bill.setTintFill(0xffffff); // quick white flash so you can see the hit
     // Squash-and-stretch on the drawn sprite plus a small shove (src/juice.js). The hit box never changes size.
     if (window.Juice) Juice.hit(sc, bill, player, runElapsedMs);
     sc.time.delayedCall(60, () => { if (bill.active) bill.clearTint(); });
@@ -1939,7 +1940,7 @@ function damagePlant(prop, amount) {
   prop.hp = (prop.hp || 2) - amount;
   if (prop.hp > 0) {
     sfx("hit");
-    prop.setTintFill(0xffffff);
+    if (!(window.reduceFlashing && reduceFlashing())) prop.setTintFill(0xffffff);
     sc.tweens.add({ targets: prop, scaleX: 1.18, scaleY: 0.85, duration: 55, yoyo: true });
     sc.time.delayedCall(60, () => { if (prop.active) prop.clearTint(); });
   } else {

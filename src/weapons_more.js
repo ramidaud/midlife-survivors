@@ -332,7 +332,7 @@ window.MoreWeapons = (() => {
           else {
             // Nov 9 (Rami, from Derek's question): a slight knockback before the freeze
             if (d > 0 && typeof shoveEnemy === "function") shoveEnemy(b, (b.x - x) / d, (b.y - y) / d, SC.knockbackPx || 0);
-            b.cringeUntil = Math.max(b.cringeUntil || 0, runElapsedMs + stats.cheeseFreezeMs); if (b.body) b.setVelocity(0, 0); b.setTintFill && b.setTintFill(0xFFFFFF); scene.time.delayedCall(90, () => b.active && b.clearTint && b.clearTint()); }
+            b.cringeUntil = Math.max(b.cringeUntil || 0, runElapsedMs + stats.cheeseFreezeMs); if (b.body) b.setVelocity(0, 0); b.setTintFill && !(window.reduceFlashing && reduceFlashing()) && b.setTintFill(0xFFFFFF); scene.time.delayedCall(90, () => b.active && b.clearTint && b.clearTint()); }
           if (!b.isBoss && has(scene, "ws_pose") && b.active) { // a little pose sticker while frozen (peace sign, blink bar, sparkle, flash outline)
             const st = scene.add.image(b.x + 10, b.y - size(b) - 6, "ws_pose", Phaser.Math.Between(0, 3)).setDepth((b.depth || 5) + 0.02);
             scene.tweens.add({ targets: st, alpha: 0, delay: stats.cheeseFreezeMs - 250, duration: 250, onComplete: () => st.destroy() });

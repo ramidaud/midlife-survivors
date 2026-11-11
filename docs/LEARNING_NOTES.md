@@ -803,3 +803,6 @@ The house layout isn't typed by hand. A small script reads Codex's floor plan, s
 
 ## Two floors, one world (Nov 10, upstairs)
 Upstairs isn't stacked on top of downstairs. It's a second floor plan sitting far off to the right in the same world, out of sight. Taking the stairs is really a teleport hidden behind an animation: you hop up the steps, the screen fades, and you're moved to the other floor plan. Games do this all the time (Zelda houses, Pokemon buildings) because it's simpler than real height, and with the fade your brain fills in "I went upstairs."
+
+## Flash budgets (Nov 11, flashing lights)
+Accessibility guidelines say a screen shouldn't flash more than 3 times a second. One white flash per kill is fine early on, but with 40 kills a second those flashes add up to a strobe. The fix is a budget: each third of a second, only the first 4 kills get the white pop, and everything after that pops without it. Same idea for the camera: one full-screen flash, then a 0.6 second cooldown. A budget keeps the feel of a hit without letting a crowd turn it into a strobe.

@@ -6,7 +6,7 @@
 window.HolidayParty = (() => {
   const T = () => window.BOSS_ATTACK_TUNING || {};
   const D = () => (window.BOSS_ATTACKS && BOSS_ATTACKS.holidayParty) || {};
-  const reduceMotion = !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const reduceMotion = () => !!(window.reduceFlashing && reduceFlashing()); // Settings > Reduce flashing, or the device setting
   const TINTS = [0xffffff, 0xd9efe6, 0xffe1e6, 0xe6e0ff, 0xfff0cf, 0xe0f0ff, 0xf6e6d2];
   let slowUntil = 0, safeUntil = 0, immuneUntil = 0, lastCatch = -1e9;
 
@@ -118,7 +118,7 @@ window.HolidayParty = (() => {
       for (let i = 0; i < segs; i += 2) { g.beginPath(); g.arc(z.x, z.y, rr, i / segs * Math.PI * 2, (i + 1) / segs * Math.PI * 2); g.strokePath(); }
       g.fillStyle(pink, 0.10 + 0.10 * k).fillCircle(z.x, z.y, rr);
     } else { // solid: live
-      const pulse = reduceMotion ? 0 : Math.sin(now / 160) * 2;
+      const pulse = reduceMotion() ? 0 : Math.sin(now / 160) * 2;
       g.fillStyle(pink, 0.22).fillCircle(z.x, z.y, z.r);
       g.lineStyle(4, lav, 0.95).strokeCircle(z.x, z.y, z.r + pulse);
     }
@@ -180,7 +180,7 @@ window.HolidayParty = (() => {
       if (!shielded) a.brokeOnce = true;
     }
     if (shielded) {
-      const pulse = reduceMotion ? 0 : Math.sin(now / 200) * 3, r = 70 + pulse;
+      const pulse = reduceMotion() ? 0 : Math.sin(now / 200) * 3, r = 70 + pulse;
       a.tg.lineStyle(6, 0xEF9347, 0.9).strokeCircle(boss.x, boss.y, r);
       for (let i = 0; i < 10; i++) { const ang = i / 10 * Math.PI * 2 + now / 900; a.tg.fillStyle(i % 2 ? 0xF1B5BF : 0x83A89A, 1).fillCircle(boss.x + Math.cos(ang) * r, boss.y + Math.sin(ang) * r, 6); }
     }
@@ -221,7 +221,7 @@ window.HolidayParty = (() => {
         const H = P2.groupHug || {}, k = (now - a.startedAt) / Math.max(1, a.until - a.startedAt), len = H.chargeMaxDist || 200, w = (H.bodyHalfW || 22) * 2 + 24;
         const ex = boss.x + Math.cos(a.aim) * len, ey = boss.y + Math.sin(a.aim) * len;
         g.lineStyle(w, 0xF1B5BF, 0.18 + 0.14 * k).lineBetween(boss.x, boss.y, ex, ey);
-        g.lineStyle(3, 0xBFA8CF, reduceMotion ? 0.7 : 0.4 + 0.4 * Math.abs(Math.sin(now / 70))).lineBetween(boss.x, boss.y, ex, ey);
+        g.lineStyle(3, 0xBFA8CF, reduceMotion() ? 0.7 : 0.4 + 0.4 * Math.abs(Math.sin(now / 160))).lineBetween(boss.x, boss.y, ex, ey);
       }
       if (now >= a.until) {
         boss.clearTint();
