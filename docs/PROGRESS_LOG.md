@@ -2256,3 +2256,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The scan was slimmed from 609k to 350k splats (about 5 MB) so it loads on a phone, and it only loads when you tap.
 - The link preview, cover and social image now show Abe facing the camera instead of his back.
 - Tested at laptop and phone sizes; live at midlifesurvivors.com.
+
+## 2026-11-11 (2:15 PM): V2.29.9, door timing
+- Rami never saw the door open. The swing started the moment the chest was picked up, so it played behind the bonus screen.
+- Now it waits for the bonus screen to close, pauses about half a second, then swings over 0.8 seconds (was 0.4).

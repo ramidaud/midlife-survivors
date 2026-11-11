@@ -143,7 +143,7 @@ window.MAPLE_HOLLOW = {
     found: "There it is. The spare key, right where you'll never remember putting it.",
     doorLine: "Locked out of your own house. The spare key is around here somewhere.",
     openLine: "Home sweet home. Someone left you leftovers. Grab your bonus and walk right in.",
-    lootWaitMs: 6000, doorSwingMs: 380, // the door swings open once you take the bonus chest (or after this long), then you can walk straight in
+    lootWaitMs: 6000, doorBeatMs: 450, doorSwingMs: 800, // doorBeatMs: the pause after the bonus screen closes, so the swing isn't missed; // the door swings open once you take the bonus chest (or after this long), then you can walk straight in
     chestKey: "keyHunt", scoreBonus: 1500, healFrac: 0.5
   }
 };

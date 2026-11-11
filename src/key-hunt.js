@@ -132,7 +132,7 @@ window.KeyHunt = (() => {
   }
   // The door swings open (the doorway widens from its hinge), with a little "COME IN" sign.
   function swingDoor(scene) {
-    const ms = K().doorSwingMs || 380;
+    const ms = K().doorSwingMs || 800;
     st.lootUntil = 0; st.swinging = true;
     if (window.MapleHollowDoor) MapleHollowDoor(true, ms);
     if (typeof sfx === "function") sfx("pick", 0);
@@ -213,7 +213,12 @@ window.KeyHunt = (() => {
     const I = MAPLE_HOLLOW.interior;
     if (!st.inside) {
       const d = Math.hypot(px - st.door.x, py - st.door.y);
-      if (st.lootUntil && (!st.chest || !st.chest.active || runElapsedMs > st.lootUntil)) swingDoor(scene);
+      // Wait for the bonus screen (and any level-up) to close, then a short beat, so you actually see the door open.
+      const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (window.BonusChest && BonusChest.isOpen());
+      if (st.lootUntil && !busy && (!st.chest || !st.chest.active || runElapsedMs > st.lootUntil)) {
+        if (!st.swingAt) st.swingAt = runElapsedMs + (K().doorBeatMs || 450);
+        else if (runElapsedMs >= st.swingAt) swingDoor(scene);
+      }
       if (st.lootUntil || st.swinging) return;
       if (d > 90) st.armed = true;
       // walkIn: right after the door swings open you can walk straight in, but standing still on the steps won't pull you inside
