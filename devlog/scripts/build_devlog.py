@@ -161,7 +161,7 @@ PAGE = """<!doctype html>
       <div class="signoff"><div class="silk">Filed by Rami.</div>Survived to {version}. Screenshots are from the real game at the time.</div>
       <div class="share-end"><button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="{slug}" data-url="{share_url}" data-title="{title}" data-text="{share_text}">↗ <span class="share-label">Share this memo</span></button></div>
     </article>
-    <div class="post-facts post-facts-end">{changes}{next_up}</div>
+    <div class="post-facts post-facts-end">{changes}{side_card}{next_up}</div>
   </div>
   <footer class="site-footer">© 2026 Rami Daud. Written by <a href="../about/">Rami Daud</a>. Built with <a href="https://claude.ai" rel="noopener">Claude</a>, <a href="https://gemini.google.com" rel="noopener">Gemini</a>, <a href="https://chatgpt.com" rel="noopener">ChatGPT</a> and <a href="https://grok.com" rel="noopener">Grok</a>. Screenshots and clips are from the actual builds at the time. Enjoying it? <a href="https://ko-fi.com/ramidaud" rel="noopener">Buy Rami a coffee</a> ☕ or <a href="https://discord.gg/E6N9j5tZe" rel="noopener">join the Discord</a></footer>
 <script src="../share.js?v=2"></script><script src="../sidenotes.js"></script><script src="../code.js?v=2"></script><script src="../audio.js?v=1"></script><script src="../post-layout.js?v=1"></script><script>initSidenotes(document);initCodeCards(document);if(window.initAudioCards)initAudioCards(document);initPostLayout(document);</script>
@@ -244,6 +244,11 @@ def main():
         if p.get("changes"):
             lis = "".join(f"<li>{html.escape(c)}</li>" for c in p["changes"])
             changes = f'<div class="changes-box"><h3>What changed</h3><ul>{lis}</ul></div>'
+        side_card = ""
+        sc = p.get("sideCard") or {}
+        if sc.get("rows"):
+            lis = "".join(f"<li><b>{html.escape(r[0])}:</b> {html.escape(r[1])}</li>" for r in sc["rows"])
+            side_card = f'<div class="changes-box side-facts"><h3>{html.escape(sc.get("title") or "Details")}</h3><ul>{lis}</ul></div>'
         next_up = ""
         if p.get("nextUp"):
             next_up = f'<div class="next-up"><strong>Next up</strong>{html.escape(p["nextUp"])}</div>'
@@ -286,6 +291,7 @@ def main():
             lead=lead,
             draft_pill=draft_pill,
             changes=changes,
+            side_card=side_card,
             next_up=next_up,
             body=body,
             version=html.escape(version or "the next build"),
@@ -315,6 +321,8 @@ def main():
         fchanges = ""
         if p.get("changes"):
             fchanges = "<h3>What changed</h3><ul>" + "".join(f"<li>{html.escape(c)}</li>" for c in p["changes"]) + "</ul>"
+        if sc.get("rows"):
+            fchanges += f"<h3>{html.escape(sc.get('title') or 'Details')}</h3><ul>" + "".join(f"<li><b>{html.escape(r[0])}:</b> {html.escape(r[1])}</li>" for r in sc["rows"]) + "</ul>"
         fnext = f"<p><strong>Next up:</strong> {html.escape(p['nextUp'])}</p>" if p.get("nextUp") else ""
         fplay = f'<p><a href="{html.escape(play)}">Play Midlife Survivors free in your browser</a>' + (f" ({html.escape(version)})" if version else "") + "</p>"
         full = (flead + fbody + fchanges + fnext + fplay).replace("]]>", "]]&gt;")

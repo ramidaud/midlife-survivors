@@ -2208,3 +2208,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Checked in the game at laptop and phone sizes with no errors.
 - Two notes for the next batch: the lawn shows a repeat grid when tiled, and Bill's mouth reads a little blocky (fine for now).
 - Next: Codex paints Batch A (tree wall and trees), then Batch B (yard furniture as its own sprites).
+
+## Nov 11, 2026: Memo 14 drafted, "It all felt like photography"
+- A sidequest memo: Rami's first Gaussian splat (212 photos of Abdel on the Z9), built from his own answers. Memo 14 now; "how I write these memos" moves to 15.
+- Lead visual is a 20-second, 1.7 MB orbit of the floating grass patch, rendered in Blender from the splat, with Abdel in the right third so the title sits clear.
+- New optional `sideCard` field shows the camera settings in the right column, using the What changed card style. The Instagram reel is embedded, and the handoff file is hosted at `devlog/files/`.
+- Found that a link inside a sidenote breaks it; README corrected. Draft stays hidden until Rami's OK.
+

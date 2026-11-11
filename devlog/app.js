@@ -371,6 +371,12 @@
     const nextUp = post.nextUp
       ? `<div class="next-up"><strong>Next up</strong>${esc(post.nextUp)}</div>`
       : "";
+    // Optional sideCard (Nov 11, Memo 14): a small facts card in the right column, styled like What changed.
+    // posts.js: "sideCard": {"title": "Camera settings", "rows": [["Camera", "Nikon Z9"], ...]}
+    const sc = post.sideCard;
+    const sideCard = sc && Array.isArray(sc.rows) && sc.rows.length
+      ? `<div class="changes-box side-facts"><h3>${esc(sc.title || "Details")}</h3><ul>${sc.rows.map(r => `<li><b>${esc(r[0])}:</b> ${esc(r[1])}</li>`).join("")}</ul></div>`
+      : "";
 
     const shareBtn = label => `<button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://midlifesurvivors.com/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">${label}</span></button>`;
     const postTop = document.getElementById("post-top");
@@ -439,7 +445,7 @@
     if (window.initAudioCards) initAudioCards(postMain);
     if (window.msShareLinks) { msShareLinks(postMain); if (postTop) msShareLinks(postTop); }
     const facts = document.getElementById("post-facts");
-    if (facts) { facts.innerHTML = changes + nextUp; facts.hidden = !(changes || nextUp); }
+    if (facts) { facts.innerHTML = changes + sideCard + nextUp; facts.hidden = !(changes || sideCard || nextUp); }
     window.scrollTo(0, 0);
     updateProgress();
   }

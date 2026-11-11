@@ -4,6 +4,60 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "14-it-all-felt-like-photography",
+    "date": "2026-11-11",
+    "title": "It all felt like photography.",
+    "version": "V. 2.29.3",
+    "draft": true,
+    "cover": "img/14-key-art.jpg",
+    "leadVideo": "img/14-island-orbit.mp4",
+    "leadFocus": "62% 55%",
+    "leadNote": "**Made from my own photos**, no image generation: 212 frames on a Nikon Z9, turned into a Gaussian splat in Brush, cleaned in SuperSplat, then a slow 360° orbit rendered in Blender with Claude's help.",
+    "leadAlt": "A slow orbit around a floating patch of grass in the dark. My son Abdel sits in a chair in the middle, a 3D scene made from 212 photos.",
+    "blurb": "I turned 212 photos of my son into a 3D scene, and it still felt like photography. Plus a handoff file so you can try it.",
+    "teaser": "212 photos of Abdel, a 3D scene I can fly a camera through, and a prompt so you can try it.",
+    "changes": [
+      "First Gaussian splat: 212 photos of Abdel turned into a 3D scene",
+      "An animated reel cut from it, timed to the beat",
+      "A handoff file so anyone can try the same process"
+    ],
+    "sideCard": {
+      "title": "Camera settings",
+      "rows": [
+        [
+          "Camera",
+          "Nikon Z9"
+        ],
+        [
+          "Lens",
+          "NIKKOR Z 24-70mm f/2.8 S at 24mm"
+        ],
+        [
+          "Exposure",
+          "f/8, 1/500 s, ISO 1600"
+        ],
+        [
+          "Mode",
+          "Manual exposure, manual white balance, no flash"
+        ],
+        [
+          "Frames",
+          "212 in 54 seconds, about 4 per second"
+        ],
+        [
+          "Files",
+          "JPEG and NEF raw; the splat used JPEGs at 1920 px"
+        ],
+        [
+          "Training",
+          "Brush on a 14-inch MacBook Pro (M3 Pro), 30,000 steps"
+        ]
+      ]
+    },
+    "nextUp": "How I write these memos.",
+    "playUrl": "https://midlifesurvivors.com/"
+  },
+  {
     "slug": "13-side-characters",
     "date": "2026-11-07",
     "title": "Music is one of the most important side characters.",

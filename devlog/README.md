@@ -12,7 +12,8 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - **Memo 10: Version two** (drafted, waiting on Rami's voice memo).
 - **Memo 11: Discord** (published Nov 4).
 - **Memo 13: music** (published Nov 7).
-- **Memo 14: how I write these memos** (interview questions on file).
+- **Memo 14: It all felt like photography** (Gaussian splatting, drafted Nov 11).
+- **Memo 15: how I write these memos** (interview questions on file).
 
 ## Add a post
 1. Write `posts/<slug>.md` (casual, Rami's voice). Screenshots go in `img/` and are linked as `img/<file>.jpg`.
@@ -38,7 +39,7 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 ## Sidenotes (inline references)
 - Write `^[your note]` right after a word or sentence. It becomes a small orange number.
 - Click (or tap) the number and the note pops in as a card under that line, like hankgreen.com. X, Escape or a click elsewhere closes it.
-- Notes can include links: `^[More on this in [post 1](?post=01-never-made-a-game).]`
+- Notes are plain text: a link inside `^[...]` breaks the note (the closing bracket ends it early). Put links in the sentence instead.
 
 ## Code snippets
 - Write a fenced block with the language and the file it came from:
