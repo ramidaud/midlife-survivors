@@ -44,7 +44,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration B7 (V2.27.5): chest, briefing, account prompt, We Moved and retire at 80 share the Sheet/Moment shells; one orange button each
 - [x] Migration C1 (V2.27.6): the devlog and the top bar read colors and fonts from the game's tokens file; the cream strip label is navy
 - [x] Migration C2 (V2.27.7): wording pass; no developer words or key lists on buttons (controls screen rewritten)
-- [ ] C3: rerun the audit capture and compare with the top 10
+- [x] Migration C3: audit rerun. 6 of the first top 10 retired, 3 better, 1 (old CSS underneath) unchanged. New list in docs/design/ui-audit-c3-2026-11.md
+- [ ] Next up from C3: alerts show twice (headline and ticker); then B8; iPad nav overlap; old CSS cleanup
 - [ ] B8 (skipped for now): achievements, leaderboard, credits, extras, patch notes, lore (no repeated logo, nothing under 14 px)
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**

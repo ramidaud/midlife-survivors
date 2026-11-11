@@ -791,3 +791,6 @@ A shell is the frame a screen sits in: the dark backdrop, the card, the header s
 
 ## Aliases and a pixel diff (Nov 10, design system C1)
 The devlog had its own color names (--navy, --cream, --teal). Instead of renaming them everywhere, each one now points at the game's token: `--navy: var(--ms-surface)`. That's an alias, a second name for the same thing, so old code keeps working while the real value lives in one file. To prove nothing changed, we screenshotted the old and new pages and compared them pixel by pixel. Only the strip label changed, which was the point. A pixel diff is the cheapest way to show a refactor (a change to how code is organized, not what it does) didn't break anything.
+
+## Re-auditing with the same tool (Nov 10, design system C3)
+The best way to know if a redesign worked is to measure it the same way twice. We kept the exact script that took the first 60 screenshots and ran it again, so every "before" has an "after" taken from the same spot in the same moment of the game. It also measures positions (where the map starts, where chips sit), so "better" becomes a number: the phone map moved up from y 115 to y 96. It caught things a quick look misses, like an alert appearing in two places at once.

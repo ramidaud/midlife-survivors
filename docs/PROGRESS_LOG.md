@@ -2132,3 +2132,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - C1: the devlog and the top bar now read their colors and fonts from the game's tokens file. A pixel diff of four devlog pages at phone and desktop showed only one change: the "MEMO · RE:" label on cream strips is navy instead of teal.
 - C2: the Controls screen was rewritten in plain words (no "BTN 9" or "LOCALSTORAGE"), buttons say DONE, RESET ALL, BACK and CLOSE, and old patch notes lost their developer talk. A scan of 14 menus at phone and desktop found none left.
 - GitHub's deploy hiccupped on C1 (it couldn't find its own upload); the C2 deploy carried both.
+
+## 2026-11-10 (9:30 PM): design system C3, the audit rerun
+- Reran the Nov 10 audit capture on V2.27.7 and compared it shot by shot with the first one.
+- Six of the top 10 are retired: one home per message type, nothing over menus, chips beside the map, no 57 px drop, no floor dim during bosses, one orange button per screen.
+- Still open: an alert shows twice (headline and ticker), the B8 screens are old style, the iPad nav overlaps itself, and the old CSS is still underneath (the style counts didn't drop).
+- Report and before/after sheets: docs/design/ui-audit-c3-2026-11.md.
