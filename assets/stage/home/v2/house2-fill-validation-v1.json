@@ -1,0 +1,104 @@
+{
+  "nativeSize": [
+    2048,
+    1024
+  ],
+  "pieceCount": 50,
+  "paletteCount": 17,
+  "alpha": "binary 0/255, checked by native renderer",
+  "offPaletteForegroundColors": 0,
+  "magentaPixels": 0,
+  "resizingUsed": false,
+  "runtimeFilesChanged": false,
+  "layoutSource": "src/data/house-v2.js",
+  "doorsChanged": false,
+  "roomsChanged": false,
+  "checks": [
+    {
+      "floor": 1,
+      "proposedPieces": 88,
+      "newSolidFurnishings": 27,
+      "doorFootprintOverlaps": [],
+      "outOfCanvasPieces": [],
+      "representative96pxLane": [
+        [
+          584,
+          1472,
+          96,
+          516
+        ]
+      ],
+      "newSolidLaneOverlaps": [],
+      "screenCounts1280x720": [
+        {
+          "cameraTop": 0,
+          "visibleForegroundPieces": 44,
+          "visibleSolidFurnishings": 25
+        },
+        {
+          "cameraTop": 360,
+          "visibleForegroundPieces": 42,
+          "visibleSolidFurnishings": 19
+        },
+        {
+          "cameraTop": 720,
+          "visibleForegroundPieces": 42,
+          "visibleSolidFurnishings": 18
+        },
+        {
+          "cameraTop": 1080,
+          "visibleForegroundPieces": 31,
+          "visibleSolidFurnishings": 17
+        },
+        {
+          "cameraTop": 1440,
+          "visibleForegroundPieces": 19,
+          "visibleSolidFurnishings": 14
+        },
+        {
+          "cameraTop": 1800,
+          "visibleForegroundPieces": 10,
+          "visibleSolidFurnishings": 7
+        }
+      ]
+    },
+    {
+      "floor": 2,
+      "proposedPieces": 76,
+      "newSolidFurnishings": 11,
+      "doorFootprintOverlaps": [],
+      "outOfCanvasPieces": [],
+      "representative96pxLane": [
+        [
+          224,
+          496,
+          96,
+          400
+        ]
+      ],
+      "newSolidLaneOverlaps": [],
+      "screenCounts1280x720": [
+        {
+          "cameraTop": 0,
+          "visibleForegroundPieces": 25,
+          "visibleSolidFurnishings": 14
+        },
+        {
+          "cameraTop": 360,
+          "visibleForegroundPieces": 31,
+          "visibleSolidFurnishings": 14
+        },
+        {
+          "cameraTop": 720,
+          "visibleForegroundPieces": 32,
+          "visibleSolidFurnishings": 13
+        },
+        {
+          "cameraTop": 1080,
+          "visibleForegroundPieces": 16,
+          "visibleSolidFurnishings": 6
+        }
+      ]
+    }
+  ]
+}

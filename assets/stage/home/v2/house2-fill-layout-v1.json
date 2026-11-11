@@ -1,0 +1,3623 @@
+{
+  "atlas": "house2-fill-v1.png",
+  "runtimeChanged": false,
+  "sourceLayout": "src/data/house-v2.js at 62c6b89",
+  "floor1": [
+    {
+      "id": "rug-living-1",
+      "key": "rug-living",
+      "at": [
+        96,
+        128
+      ],
+      "size": [
+        320,
+        200
+      ],
+      "room": "living",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "abstract-photo-frames-2",
+      "key": "abstract-photo-frames",
+      "at": [
+        192,
+        26
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "living",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "book-plant-shelf-3",
+      "key": "book-plant-shelf",
+      "at": [
+        416,
+        28
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "living",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-clock-4",
+      "key": "wall-clock",
+      "at": [
+        464,
+        26
+      ],
+      "size": [
+        32,
+        40
+      ],
+      "room": "living",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-3-5",
+      "key": "plant-3",
+      "at": [
+        720,
+        252
+      ],
+      "size": [
+        64,
+        88
+      ],
+      "room": "living",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        16,
+        65,
+        32,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "woven-basket-6",
+      "key": "woven-basket",
+      "at": [
+        176,
+        311
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "room": "living",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        5,
+        18,
+        30,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "id": "toy-bin-7",
+      "key": "toy-bin",
+      "at": [
+        704,
+        304
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "room": "living",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        22,
+        44,
+        17
+      ],
+      "note": ""
+    },
+    {
+      "id": "rug-dining-8",
+      "key": "rug-dining",
+      "at": [
+        280,
+        480
+      ],
+      "size": [
+        280,
+        200
+      ],
+      "room": "dining",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "high-chair-9",
+      "key": "high-chair",
+      "at": [
+        436,
+        607
+      ],
+      "size": [
+        32,
+        48
+      ],
+      "room": "dining",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        4,
+        26,
+        25,
+        20
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-1-10",
+      "key": "plant-1",
+      "at": [
+        448,
+        368
+      ],
+      "size": [
+        32,
+        48
+      ],
+      "room": "dining",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        8,
+        25,
+        16,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "book-plant-shelf-11",
+      "key": "book-plant-shelf",
+      "at": [
+        376,
+        368
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "dining",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-clock-12",
+      "key": "wall-clock",
+      "at": [
+        336,
+        368
+      ],
+      "size": [
+        32,
+        40
+      ],
+      "room": "dining",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "woven-basket-13",
+      "key": "woven-basket",
+      "at": [
+        600,
+        584
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "room": "dining",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        5,
+        18,
+        30,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "id": "table-lamp-14",
+      "key": "table-lamp",
+      "at": [
+        734,
+        407
+      ],
+      "size": [
+        24,
+        40
+      ],
+      "room": "downstairs-desk-nook",
+      "solid": false,
+      "layer": "decal",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "abstract-photo-frames-15",
+      "key": "abstract-photo-frames",
+      "at": [
+        600,
+        543
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "downstairs-desk-nook",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "floor-lamp-16",
+      "key": "floor-lamp",
+      "at": [
+        616,
+        548
+      ],
+      "size": [
+        32,
+        64
+      ],
+      "room": "downstairs-desk-nook",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        7,
+        57,
+        18,
+        6
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-2-17",
+      "key": "plant-2",
+      "at": [
+        728,
+        584
+      ],
+      "size": [
+        48,
+        64
+      ],
+      "room": "downstairs-desk-nook",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        12,
+        41,
+        24,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "kitchen-island-stools-18",
+      "key": "kitchen-island-stools",
+      "at": [
+        424,
+        935
+      ],
+      "size": [
+        160,
+        72
+      ],
+      "room": "kitchen",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        8,
+        22,
+        144,
+        49
+      ],
+      "note": "Peninsula against the left counter run; right-side walking route is preserved."
+    },
+    {
+      "id": "cabinet-upper-19",
+      "key": "cabinet-upper",
+      "at": [
+        448,
+        700
+      ],
+      "size": [
+        64,
+        40
+      ],
+      "room": "kitchen",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "cabinet-upper-20",
+      "key": "cabinet-upper",
+      "at": [
+        512,
+        700
+      ],
+      "size": [
+        64,
+        40
+      ],
+      "room": "kitchen",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "cabinet-glass-21",
+      "key": "cabinet-glass",
+      "at": [
+        576,
+        700
+      ],
+      "size": [
+        64,
+        40
+      ],
+      "room": "kitchen",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "cabinet-lower-22",
+      "key": "cabinet-lower",
+      "at": [
+        664,
+        700
+      ],
+      "size": [
+        64,
+        56
+      ],
+      "room": "kitchen",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        1,
+        24,
+        62,
+        24
+      ],
+      "note": ""
+    },
+    {
+      "id": "fruit-bowl-23",
+      "key": "fruit-bowl",
+      "at": [
+        480,
+        941
+      ],
+      "size": [
+        24,
+        20
+      ],
+      "room": "kitchen",
+      "solid": false,
+      "layer": "decal",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "fridge-magnets-24",
+      "key": "fridge-magnets",
+      "at": [
+        744,
+        736
+      ],
+      "size": [
+        32,
+        40
+      ],
+      "room": "kitchen",
+      "solid": false,
+      "layer": "decal",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "chore-chart-25",
+      "key": "chore-chart",
+      "at": [
+        680,
+        828
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "kitchen",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "breakfast-table-four-chairs-26",
+      "key": "breakfast-table-four-chairs",
+      "at": [
+        400,
+        1132
+      ],
+      "size": [
+        96,
+        80
+      ],
+      "room": "breakfast-nook",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        16,
+        92,
+        61
+      ],
+      "note": ""
+    },
+    {
+      "id": "high-chair-27",
+      "key": "high-chair",
+      "at": [
+        512,
+        1148
+      ],
+      "size": [
+        32,
+        48
+      ],
+      "room": "breakfast-nook",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        4,
+        26,
+        25,
+        20
+      ],
+      "note": ""
+    },
+    {
+      "id": "window-plant-shelf-28",
+      "key": "window-plant-shelf",
+      "at": [
+        432,
+        1058
+      ],
+      "size": [
+        96,
+        64
+      ],
+      "room": "breakfast-nook",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-2-29",
+      "key": "plant-2",
+      "at": [
+        600,
+        1208
+      ],
+      "size": [
+        48,
+        64
+      ],
+      "room": "breakfast-nook",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        12,
+        41,
+        24,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "abstract-photo-frames-30",
+      "key": "abstract-photo-frames",
+      "at": [
+        568,
+        1060
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "breakfast-nook",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "mat-entry-31",
+      "key": "mat-entry",
+      "at": [
+        48,
+        1160
+      ],
+      "size": [
+        96,
+        64
+      ],
+      "room": "entry",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "coat-hooks-umbrella-32",
+      "key": "coat-hooks-umbrella",
+      "at": [
+        24,
+        1138
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "entry",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-mirror-33",
+      "key": "wall-mirror",
+      "at": [
+        112,
+        1138
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "entry",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "shoes-pair-34",
+      "key": "shoes-pair",
+      "at": [
+        96,
+        1280
+      ],
+      "size": [
+        48,
+        24
+      ],
+      "room": "entry",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "runner-hall-35",
+      "key": "runner-hall",
+      "at": [
+        236,
+        735
+      ],
+      "size": [
+        64,
+        400
+      ],
+      "room": "circulation",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "lone-sock-36",
+      "key": "lone-sock",
+      "at": [
+        304,
+        1016
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "room": "circulation",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "single-toy-brick-37",
+      "key": "single-toy-brick",
+      "at": [
+        212,
+        1170
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "room": "circulation",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "laundry-picture-gag-38",
+      "key": "laundry-picture-gag",
+      "at": [
+        728,
+        1060
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "room": "laundry-closet",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "laundry-pile-39",
+      "key": "laundry-pile",
+      "at": [
+        728,
+        1184
+      ],
+      "size": [
+        48,
+        32
+      ],
+      "room": "laundry-closet",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-mirror-40",
+      "key": "wall-mirror",
+      "at": [
+        56,
+        704
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "half-bath",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "book-plant-shelf-41",
+      "key": "book-plant-shelf",
+      "at": [
+        112,
+        832
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "half-bath",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-shelf-1-42",
+      "key": "garage-shelf-1",
+      "at": [
+        258,
+        1424
+      ],
+      "size": [
+        128,
+        96
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        72,
+        124,
+        23
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-shelf-2-43",
+      "key": "garage-shelf-2",
+      "at": [
+        258,
+        1904
+      ],
+      "size": [
+        128,
+        96
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        72,
+        124,
+        23
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-shelf-3-44",
+      "key": "garage-shelf-3",
+      "at": [
+        656,
+        1334
+      ],
+      "size": [
+        128,
+        96
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        72,
+        124,
+        23
+      ],
+      "note": ""
+    },
+    {
+      "id": "tool-pegboard-45",
+      "key": "tool-pegboard",
+      "at": [
+        280,
+        1328
+      ],
+      "size": [
+        128,
+        64
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "recycling-bins-46",
+      "key": "recycling-bins",
+      "at": [
+        720,
+        1800
+      ],
+      "size": [
+        64,
+        56
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        3,
+        26,
+        58,
+        29
+      ],
+      "note": ""
+    },
+    {
+      "id": "storage-totes-47",
+      "key": "storage-totes",
+      "at": [
+        272,
+        1744
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        6,
+        44,
+        52,
+        19
+      ],
+      "note": ""
+    },
+    {
+      "id": "chest-freezer-48",
+      "key": "chest-freezer",
+      "at": [
+        688,
+        1904
+      ],
+      "size": [
+        96,
+        64
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        28,
+        92,
+        34
+      ],
+      "note": ""
+    },
+    {
+      "id": "oil-stain-49",
+      "key": "oil-stain",
+      "at": [
+        400,
+        1832
+      ],
+      "size": [
+        96,
+        64
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "tire-marks-50",
+      "key": "tire-marks",
+      "at": [
+        488,
+        1868
+      ],
+      "size": [
+        64,
+        160
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "bicycle-1-51",
+      "key": "bicycle-1",
+      "at": [
+        688,
+        1512
+      ],
+      "size": [
+        80,
+        64
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        3,
+        43,
+        74,
+        13
+      ],
+      "note": ""
+    },
+    {
+      "id": "bicycle-2-52",
+      "key": "bicycle-2",
+      "at": [
+        272,
+        1608
+      ],
+      "size": [
+        80,
+        64
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        3,
+        43,
+        74,
+        13
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-clock-53",
+      "key": "wall-clock",
+      "at": [
+        608,
+        1330
+      ],
+      "size": [
+        32,
+        40
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "coat-hooks-umbrella-54",
+      "key": "coat-hooks-umbrella",
+      "at": [
+        688,
+        1448
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-side-shelf-55",
+      "key": "garage-side-shelf",
+      "at": [
+        720,
+        1600
+      ],
+      "size": [
+        64,
+        96
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        40,
+        72,
+        22,
+        23
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-side-shelf-56",
+      "key": "garage-side-shelf",
+      "at": [
+        720,
+        1704
+      ],
+      "size": [
+        64,
+        96
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        40,
+        72,
+        22,
+        23
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-tool-cabinet-57",
+      "key": "garage-tool-cabinet",
+      "at": [
+        264,
+        1664
+      ],
+      "size": [
+        64,
+        56
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        30,
+        60,
+        25
+      ],
+      "note": ""
+    },
+    {
+      "id": "garage-tool-cabinet-58",
+      "key": "garage-tool-cabinet",
+      "at": [
+        264,
+        1832
+      ],
+      "size": [
+        64,
+        56
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        30,
+        60,
+        25
+      ],
+      "note": ""
+    },
+    {
+      "id": "tool-case-59",
+      "key": "tool-case",
+      "at": [
+        336,
+        1668
+      ],
+      "size": [
+        32,
+        24
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        13,
+        28,
+        10
+      ],
+      "note": ""
+    },
+    {
+      "id": "tool-case-60",
+      "key": "tool-case",
+      "at": [
+        336,
+        1836
+      ],
+      "size": [
+        32,
+        24
+      ],
+      "room": "garage",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        13,
+        28,
+        10
+      ],
+      "note": ""
+    },
+    {
+      "id": "oil-stain-61",
+      "key": "oil-stain",
+      "at": [
+        644,
+        1808
+      ],
+      "size": [
+        96,
+        64
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "tire-marks-62",
+      "key": "tire-marks",
+      "at": [
+        640,
+        1608
+      ],
+      "size": [
+        64,
+        160
+      ],
+      "room": "garage",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-63",
+      "key": "wall-face-north",
+      "at": [
+        0,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-64",
+      "key": "wall-face-north",
+      "at": [
+        200,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-65",
+      "key": "wall-face-north",
+      "at": [
+        264,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-66",
+      "key": "wall-face-north",
+      "at": [
+        328,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-67",
+      "key": "wall-face-north",
+      "at": [
+        392,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-68",
+      "key": "wall-face-north",
+      "at": [
+        456,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-69",
+      "key": "wall-face-north",
+      "at": [
+        520,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-70",
+      "key": "wall-face-north",
+      "at": [
+        584,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-71",
+      "key": "wall-face-north",
+      "at": [
+        648,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-72",
+      "key": "wall-face-north",
+      "at": [
+        712,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-73",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-74",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-75",
+      "key": "wall-face-north",
+      "at": [
+        144,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-76",
+      "key": "wall-face-north",
+      "at": [
+        208,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-77",
+      "key": "wall-face-north",
+      "at": [
+        272,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-78",
+      "key": "wall-face-north",
+      "at": [
+        336,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-79",
+      "key": "wall-face-north",
+      "at": [
+        400,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-80",
+      "key": "wall-face-north",
+      "at": [
+        592,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-81",
+      "key": "wall-face-north",
+      "at": [
+        656,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-82",
+      "key": "wall-face-north",
+      "at": [
+        720,
+        1307
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-83",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        683
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-84",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        683
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-85",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        971
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-86",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        971
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-87",
+      "key": "wall-face-north",
+      "at": [
+        664,
+        1031
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-88",
+      "key": "wall-face-north",
+      "at": [
+        664,
+        1191
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    }
+  ],
+  "floor2": [
+    {
+      "id": "rug-bedroom-1",
+      "key": "rug-bedroom",
+      "at": [
+        248,
+        190
+      ],
+      "size": [
+        300,
+        180
+      ],
+      "room": "master-bedroom",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "abstract-photo-frames-2",
+      "key": "abstract-photo-frames",
+      "at": [
+        96,
+        24
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "master-bedroom",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "book-plant-shelf-3",
+      "key": "book-plant-shelf",
+      "at": [
+        536,
+        28
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "master-bedroom",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-clock-4",
+      "key": "wall-clock",
+      "at": [
+        672,
+        32
+      ],
+      "size": [
+        32,
+        40
+      ],
+      "room": "master-bedroom",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "floor-lamp-5",
+      "key": "floor-lamp",
+      "at": [
+        704,
+        32
+      ],
+      "size": [
+        32,
+        64
+      ],
+      "room": "master-bedroom",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        7,
+        57,
+        18,
+        6
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-3-6",
+      "key": "plant-3",
+      "at": [
+        704,
+        304
+      ],
+      "size": [
+        64,
+        88
+      ],
+      "room": "master-bedroom",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        16,
+        65,
+        32,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "woven-basket-7",
+      "key": "woven-basket",
+      "at": [
+        192,
+        310
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "room": "master-bedroom",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        5,
+        18,
+        30,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "id": "laundry-pile-8",
+      "key": "laundry-pile",
+      "at": [
+        536,
+        310
+      ],
+      "size": [
+        48,
+        32
+      ],
+      "room": "master-bedroom",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "toy-bin-9",
+      "key": "toy-bin",
+      "at": [
+        160,
+        250
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "room": "master-bedroom",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        22,
+        44,
+        17
+      ],
+      "note": ""
+    },
+    {
+      "id": "cabinet-lower-10",
+      "key": "cabinet-lower",
+      "at": [
+        704,
+        461
+      ],
+      "size": [
+        64,
+        56
+      ],
+      "room": "walk-in-closet",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        1,
+        24,
+        62,
+        24
+      ],
+      "note": ""
+    },
+    {
+      "id": "woven-basket-11",
+      "key": "woven-basket",
+      "at": [
+        400,
+        651
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "room": "walk-in-closet",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        5,
+        18,
+        30,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "id": "shoes-pair-12",
+      "key": "shoes-pair",
+      "at": [
+        584,
+        664
+      ],
+      "size": [
+        48,
+        24
+      ],
+      "room": "walk-in-closet",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-mirror-13",
+      "key": "wall-mirror",
+      "at": [
+        372,
+        464
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "walk-in-closet",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "laundry-pile-14",
+      "key": "laundry-pile",
+      "at": [
+        488,
+        664
+      ],
+      "size": [
+        48,
+        32
+      ],
+      "room": "walk-in-closet",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-mirror-15",
+      "key": "wall-mirror",
+      "at": [
+        416,
+        794
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "bathroom",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "book-plant-shelf-16",
+      "key": "book-plant-shelf",
+      "at": [
+        584,
+        728
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "bathroom",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-1-17",
+      "key": "plant-1",
+      "at": [
+        376,
+        864
+      ],
+      "size": [
+        32,
+        48
+      ],
+      "room": "bathroom",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        8,
+        25,
+        16,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "runner-hall-18",
+      "key": "runner-hall",
+      "at": [
+        236,
+        496
+      ],
+      "size": [
+        64,
+        400
+      ],
+      "room": "hall",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "lone-sock-19",
+      "key": "lone-sock",
+      "at": [
+        310,
+        920
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "room": "hall",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "abstract-photo-frames-20",
+      "key": "abstract-photo-frames",
+      "at": [
+        208,
+        447
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "hall",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "rug-bedroom-21",
+      "key": "rug-bedroom",
+      "at": [
+        400,
+        1120
+      ],
+      "size": [
+        300,
+        180
+      ],
+      "room": "abe-room",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "abstract-photo-frames-22",
+      "key": "abstract-photo-frames",
+      "at": [
+        472,
+        956
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "abe-room",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "book-plant-shelf-23",
+      "key": "book-plant-shelf",
+      "at": [
+        704,
+        968
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "room": "abe-room",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "toy-bin-24",
+      "key": "toy-bin",
+      "at": [
+        704,
+        1268
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "room": "abe-room",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        2,
+        22,
+        44,
+        17
+      ],
+      "note": ""
+    },
+    {
+      "id": "plant-2-25",
+      "key": "plant-2",
+      "at": [
+        736,
+        1044
+      ],
+      "size": [
+        48,
+        64
+      ],
+      "room": "abe-room",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        12,
+        41,
+        24,
+        22
+      ],
+      "note": ""
+    },
+    {
+      "id": "shoes-pair-26",
+      "key": "shoes-pair",
+      "at": [
+        406,
+        1318
+      ],
+      "size": [
+        48,
+        24
+      ],
+      "room": "abe-room",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "laundry-pile-27",
+      "key": "laundry-pile",
+      "at": [
+        184,
+        1296
+      ],
+      "size": [
+        48,
+        32
+      ],
+      "room": "abe-room",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "single-toy-brick-28",
+      "key": "single-toy-brick",
+      "at": [
+        240,
+        1072
+      ],
+      "size": [
+        16,
+        16
+      ],
+      "room": "abe-room",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "floor-lamp-29",
+      "key": "floor-lamp",
+      "at": [
+        448,
+        1008
+      ],
+      "size": [
+        32,
+        64
+      ],
+      "room": "abe-room",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        7,
+        57,
+        18,
+        6
+      ],
+      "note": ""
+    },
+    {
+      "id": "shoes-pair-30",
+      "key": "shoes-pair",
+      "at": [
+        96,
+        1296
+      ],
+      "size": [
+        48,
+        24
+      ],
+      "room": "abe-closet",
+      "solid": false,
+      "layer": "floor",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "woven-basket-31",
+      "key": "woven-basket",
+      "at": [
+        96,
+        1192
+      ],
+      "size": [
+        40,
+        32
+      ],
+      "room": "abe-closet",
+      "solid": true,
+      "layer": "furniture",
+      "foot": [
+        5,
+        18,
+        30,
+        12
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-32",
+      "key": "wall-face-north",
+      "at": [
+        0,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-33",
+      "key": "wall-face-north",
+      "at": [
+        64,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-34",
+      "key": "wall-face-north",
+      "at": [
+        128,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-35",
+      "key": "wall-face-north",
+      "at": [
+        192,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-36",
+      "key": "wall-face-north",
+      "at": [
+        256,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-37",
+      "key": "wall-face-north",
+      "at": [
+        320,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-38",
+      "key": "wall-face-north",
+      "at": [
+        384,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-39",
+      "key": "wall-face-north",
+      "at": [
+        448,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-40",
+      "key": "wall-face-north",
+      "at": [
+        512,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-41",
+      "key": "wall-face-north",
+      "at": [
+        576,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-42",
+      "key": "wall-face-north",
+      "at": [
+        640,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-43",
+      "key": "wall-face-north",
+      "at": [
+        704,
+        0
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-44",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-45",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-46",
+      "key": "wall-face-north",
+      "at": [
+        304,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-47",
+      "key": "wall-face-north",
+      "at": [
+        368,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-48",
+      "key": "wall-face-north",
+      "at": [
+        432,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-49",
+      "key": "wall-face-north",
+      "at": [
+        496,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-50",
+      "key": "wall-face-north",
+      "at": [
+        560,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-51",
+      "key": "wall-face-north",
+      "at": [
+        624,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-52",
+      "key": "wall-face-north",
+      "at": [
+        688,
+        419
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-53",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        611
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-54",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        611
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-55",
+      "key": "wall-face-north",
+      "at": [
+        360,
+        443
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-56",
+      "key": "wall-face-north",
+      "at": [
+        424,
+        443
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-57",
+      "key": "wall-face-north",
+      "at": [
+        488,
+        443
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-58",
+      "key": "wall-face-north",
+      "at": [
+        552,
+        443
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-59",
+      "key": "wall-face-north",
+      "at": [
+        616,
+        443
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-60",
+      "key": "wall-face-north",
+      "at": [
+        680,
+        443
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-61",
+      "key": "wall-face-north",
+      "at": [
+        360,
+        707
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-62",
+      "key": "wall-face-north",
+      "at": [
+        424,
+        707
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-63",
+      "key": "wall-face-north",
+      "at": [
+        488,
+        707
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-64",
+      "key": "wall-face-north",
+      "at": [
+        552,
+        707
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-65",
+      "key": "wall-face-north",
+      "at": [
+        616,
+        707
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-66",
+      "key": "wall-face-north",
+      "at": [
+        680,
+        707
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-67",
+      "key": "wall-face-north",
+      "at": [
+        360,
+        935
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-68",
+      "key": "wall-face-north",
+      "at": [
+        424,
+        935
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-69",
+      "key": "wall-face-north",
+      "at": [
+        488,
+        935
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-70",
+      "key": "wall-face-north",
+      "at": [
+        552,
+        935
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-71",
+      "key": "wall-face-north",
+      "at": [
+        616,
+        935
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-72",
+      "key": "wall-face-north",
+      "at": [
+        680,
+        935
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-73",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        923
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-74",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        923
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-75",
+      "key": "wall-face-north",
+      "at": [
+        16,
+        1091
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    },
+    {
+      "id": "wall-face-north-76",
+      "key": "wall-face-north",
+      "at": [
+        80,
+        1091
+      ],
+      "size": [
+        64,
+        32
+      ],
+      "room": "wall-modules",
+      "solid": false,
+      "layer": "wall",
+      "foot": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "note": ""
+    }
+  ],
+  "notes": [
+    "Suggested placement data only. Claude integrates.",
+    "Keep original rooms, doors, stairs and art at 1x.",
+    "Wall depth is placed only over existing horizontal solid segments, never over a doorway.",
+    "Photos are private references only. No photographs or personal text included."
+  ]
+}

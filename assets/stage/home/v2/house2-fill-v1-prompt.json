@@ -1,0 +1,41 @@
+{
+  "brief": "docs/handoffs/codex-level-art-pass.md Job 2",
+  "output": "assets/stage/home/v2/house2-fill-v1.png",
+  "imageGeneration": {
+    "mode": "built-in",
+    "role": "Furniture material and shape study only, not resampled into final atlas",
+    "prompt": "Use case: stylized-concept. Midlife Survivors Job 2, furniture and floor dressing STYLE STUDY, not a map. Reference 1 is existing native furniture atlas, reference 2 is actual 56x60 hero for pixel density and scale. Make one transparent atlas-like study with clean separated props: large slate/cream patterned living-room rug, sage/pink geometric dining rug, lavender bedroom rug, long narrow hall runner; white kitchen island with wood trim and two tucked stools; modular white/oak upper and lower cabinets with handles; a round wooden breakfast table with four cream chairs plus separate high chair; garage metal wall shelves with boxes/paper bins, tool pegboard, stacked totes, chest freezer, two adult bicycles; a little cluster of monstera/fern/snake plants, a woven basket, laundry pile with one lone sock, toy bin, shoes; cream wall module with sage baseboard and tiny abstract framed pictures. Top-down three-quarter matching existing kit exactly, crisp native 1px navy silhouette, 2-3 broad deliberate tones per material, no noisy speckle or dithering. NATIVE game-art appearance, not smooth vector mockups or realistic illustration. Materials explicitly white cabinetry FFF0CF/F2D7A1, wood D3B78D/A88B70/70402F, metal526078/303750, plants83A89A/3E7775, textiles muted slate/sage/lavender. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F. Upper-left light, neutral white balance. No text, letters, digits, labels, logos, faces, people, photography, brands, floor behind objects or cast shadows outside objects. Full complete objects separated with space, transparent background.",
+    "references": [
+      "assets/stage/home/v2/house2-floor1-pieces.png",
+      "assets/characters/office-worker-walk-56x60-v4.png"
+    ]
+  },
+  "nativeConstruction": {
+    "canvas": [
+      2048,
+      1024
+    ],
+    "method": "Explicit native integer pixel geometry, material-assigned palette; no resizing or nearest-color snapping",
+    "palette": [
+      "#171C35",
+      "#303750",
+      "#526078",
+      "#3E7775",
+      "#83A89A",
+      "#A88B70",
+      "#D3B78D",
+      "#F2D7A1",
+      "#FFF0CF",
+      "#874C3B",
+      "#C45C4B",
+      "#EF9347",
+      "#E5A995",
+      "#F1B5BF",
+      "#BFA8CF",
+      "#B97A58",
+      "#70402F"
+    ],
+    "constraints": "1 px navy outlines, upper-left light, transparent binary alpha, neutral white balance, no text/letters/numbers/brands/real faces. Rugs and north-wall modules drawn to declared native dimensions. Existing reference art reused at 1x only in assembled review."
+  },
+  "privateReference": "Photo brief text plus private/home-photos/02-kitchen.jpg viewed locally only; no photographs copied into delivery."
+}

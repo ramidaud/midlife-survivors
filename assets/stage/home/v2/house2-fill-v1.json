@@ -1,0 +1,1506 @@
+{
+  "alpha" : "transparent RGBA, binary 0\/255; no magenta",
+  "file" : "house2-fill-v1.png",
+  "footprintNote" : "Coordinates local to each art rectangle. Floor and wall pieces have no collision footprint. Proposed furniture footprints exclude upper silhouettes. Claude integrates and playtests.",
+  "native" : true,
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F"
+  ],
+  "pieces" : [
+    {
+      "footPoint" : [
+        160,
+        199
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "rug-living",
+      "layer" : "floor",
+      "rect" : [
+        4,
+        4,
+        320,
+        200
+      ],
+      "rooms" : [
+        "living"
+      ],
+      "size" : [
+        320,
+        200
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        140,
+        199
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "rug-dining",
+      "layer" : "floor",
+      "rect" : [
+        328,
+        4,
+        280,
+        200
+      ],
+      "rooms" : [
+        "dining"
+      ],
+      "size" : [
+        280,
+        200
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        150,
+        179
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "rug-bedroom",
+      "layer" : "floor",
+      "rect" : [
+        612,
+        4,
+        300,
+        180
+      ],
+      "rooms" : [
+        "master-bedroom"
+      ],
+      "size" : [
+        300,
+        180
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        399
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "runner-hall",
+      "layer" : "floor",
+      "rect" : [
+        916,
+        4,
+        64,
+        400
+      ],
+      "rooms" : [
+        "circulation",
+        "hall"
+      ],
+      "size" : [
+        64,
+        400
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        48,
+        63
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "mat-entry",
+      "layer" : "floor",
+      "rect" : [
+        984,
+        4,
+        96,
+        64
+      ],
+      "rooms" : [
+        "entry"
+      ],
+      "size" : [
+        96,
+        64
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        39
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "cabinet-upper",
+      "layer" : "wall",
+      "rect" : [
+        1084,
+        4,
+        64,
+        40
+      ],
+      "rooms" : [
+        "kitchen",
+        "breakfast-nook"
+      ],
+      "size" : [
+        64,
+        40
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        1,
+        24,
+        62,
+        24
+      ],
+      "id" : "cabinet-lower",
+      "layer" : "furniture",
+      "rect" : [
+        1152,
+        4,
+        64,
+        56
+      ],
+      "rooms" : [
+        "kitchen",
+        "breakfast-nook"
+      ],
+      "size" : [
+        64,
+        56
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        1,
+        24,
+        62,
+        24
+      ],
+      "id" : "cabinet-sink",
+      "layer" : "furniture",
+      "rect" : [
+        1220,
+        4,
+        64,
+        56
+      ],
+      "rooms" : [
+        "kitchen",
+        "breakfast-nook"
+      ],
+      "size" : [
+        64,
+        56
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        32,
+        39
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "cabinet-glass",
+      "layer" : "wall",
+      "rect" : [
+        1288,
+        4,
+        64,
+        40
+      ],
+      "rooms" : [
+        "kitchen",
+        "breakfast-nook"
+      ],
+      "size" : [
+        64,
+        40
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        80,
+        70
+      ],
+      "footprint" : [
+        8,
+        22,
+        144,
+        49
+      ],
+      "id" : "kitchen-island-stools",
+      "layer" : "furniture",
+      "rect" : [
+        1356,
+        4,
+        160,
+        72
+      ],
+      "rooms" : [
+        "kitchen"
+      ],
+      "size" : [
+        160,
+        72
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        12,
+        19
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "fruit-bowl",
+      "layer" : "decal",
+      "rect" : [
+        1520,
+        4,
+        24,
+        20
+      ],
+      "rooms" : [
+        "kitchen",
+        "breakfast-nook"
+      ],
+      "size" : [
+        24,
+        20
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        16,
+        39
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "fridge-magnets",
+      "layer" : "decal",
+      "rect" : [
+        1548,
+        4,
+        32,
+        40
+      ],
+      "rooms" : [
+        "kitchen"
+      ],
+      "size" : [
+        32,
+        40
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        48,
+        76
+      ],
+      "footprint" : [
+        2,
+        16,
+        92,
+        61
+      ],
+      "id" : "breakfast-table-four-chairs",
+      "layer" : "furniture",
+      "rect" : [
+        1584,
+        4,
+        96,
+        80
+      ],
+      "rooms" : [
+        "breakfast-nook"
+      ],
+      "size" : [
+        96,
+        80
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        16,
+        45
+      ],
+      "footprint" : [
+        4,
+        26,
+        25,
+        20
+      ],
+      "id" : "high-chair",
+      "layer" : "furniture",
+      "rect" : [
+        1684,
+        4,
+        32,
+        48
+      ],
+      "rooms" : [
+        "breakfast-nook",
+        "dining"
+      ],
+      "size" : [
+        32,
+        48
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        48,
+        63
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "window-plant-shelf",
+      "layer" : "wall",
+      "rect" : [
+        1720,
+        4,
+        96,
+        64
+      ],
+      "rooms" : [
+        "breakfast-nook",
+        "dining"
+      ],
+      "size" : [
+        96,
+        64
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        64,
+        94
+      ],
+      "footprint" : [
+        2,
+        72,
+        124,
+        23
+      ],
+      "id" : "garage-shelf-1",
+      "layer" : "furniture",
+      "rect" : [
+        1820,
+        4,
+        128,
+        96
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        128,
+        96
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        64,
+        94
+      ],
+      "footprint" : [
+        2,
+        72,
+        124,
+        23
+      ],
+      "id" : "garage-shelf-2",
+      "layer" : "furniture",
+      "rect" : [
+        4,
+        408,
+        128,
+        96
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        128,
+        96
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        64,
+        94
+      ],
+      "footprint" : [
+        2,
+        72,
+        124,
+        23
+      ],
+      "id" : "garage-shelf-3",
+      "layer" : "furniture",
+      "rect" : [
+        136,
+        408,
+        128,
+        96
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        128,
+        96
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        64,
+        63
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "tool-pegboard",
+      "layer" : "wall",
+      "rect" : [
+        268,
+        408,
+        128,
+        64
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        128,
+        64
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        54
+      ],
+      "footprint" : [
+        3,
+        26,
+        58,
+        29
+      ],
+      "id" : "recycling-bins",
+      "layer" : "furniture",
+      "rect" : [
+        400,
+        408,
+        64,
+        56
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        64,
+        56
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        32,
+        62
+      ],
+      "footprint" : [
+        6,
+        44,
+        52,
+        19
+      ],
+      "id" : "storage-totes",
+      "layer" : "furniture",
+      "rect" : [
+        468,
+        408,
+        64,
+        64
+      ],
+      "rooms" : [
+        "garage",
+        "walk-in-closet"
+      ],
+      "size" : [
+        64,
+        64
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        48,
+        61
+      ],
+      "footprint" : [
+        2,
+        28,
+        92,
+        34
+      ],
+      "id" : "chest-freezer",
+      "layer" : "furniture",
+      "rect" : [
+        536,
+        408,
+        96,
+        64
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        96,
+        64
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        48,
+        63
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "oil-stain",
+      "layer" : "floor",
+      "rect" : [
+        636,
+        408,
+        96,
+        64
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        96,
+        64
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        159
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "tire-marks",
+      "layer" : "floor",
+      "rect" : [
+        736,
+        408,
+        64,
+        160
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        64,
+        160
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        40,
+        55
+      ],
+      "footprint" : [
+        3,
+        43,
+        74,
+        13
+      ],
+      "id" : "bicycle-1",
+      "layer" : "furniture",
+      "rect" : [
+        804,
+        408,
+        80,
+        64
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        80,
+        64
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        40,
+        55
+      ],
+      "footprint" : [
+        3,
+        43,
+        74,
+        13
+      ],
+      "id" : "bicycle-2",
+      "layer" : "furniture",
+      "rect" : [
+        888,
+        408,
+        80,
+        64
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        80,
+        64
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "abstract-photo-frames",
+      "layer" : "wall",
+      "rect" : [
+        972,
+        408,
+        64,
+        48
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "kitchen",
+        "entry",
+        "master-bedroom",
+        "abe-room",
+        "walk-in-closet",
+        "bathroom"
+      ],
+      "size" : [
+        64,
+        48
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "book-plant-shelf",
+      "layer" : "wall",
+      "rect" : [
+        1040,
+        408,
+        64,
+        48
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "kitchen",
+        "entry",
+        "master-bedroom",
+        "abe-room",
+        "walk-in-closet",
+        "bathroom"
+      ],
+      "size" : [
+        64,
+        48
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "coat-hooks-umbrella",
+      "layer" : "wall",
+      "rect" : [
+        1108,
+        408,
+        64,
+        48
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "kitchen",
+        "entry",
+        "master-bedroom",
+        "abe-room",
+        "walk-in-closet",
+        "bathroom"
+      ],
+      "size" : [
+        64,
+        48
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "wall-mirror",
+      "layer" : "wall",
+      "rect" : [
+        1176,
+        408,
+        64,
+        48
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "kitchen",
+        "entry",
+        "master-bedroom",
+        "abe-room",
+        "walk-in-closet",
+        "bathroom"
+      ],
+      "size" : [
+        64,
+        48
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        47
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "chore-chart",
+      "layer" : "wall",
+      "rect" : [
+        1244,
+        408,
+        64,
+        48
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "kitchen",
+        "entry",
+        "master-bedroom",
+        "abe-room",
+        "walk-in-closet",
+        "bathroom"
+      ],
+      "size" : [
+        64,
+        48
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        16,
+        39
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "wall-clock",
+      "layer" : "wall",
+      "rect" : [
+        1312,
+        408,
+        32,
+        40
+      ],
+      "rooms" : [
+        "kitchen",
+        "dining",
+        "living",
+        "garage"
+      ],
+      "size" : [
+        32,
+        40
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        31
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "wall-face-north",
+      "layer" : "wall",
+      "rect" : [
+        1348,
+        408,
+        64,
+        32
+      ],
+      "rooms" : [
+        "all"
+      ],
+      "size" : [
+        64,
+        32
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        16,
+        31
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "wall-face-corner",
+      "layer" : "wall",
+      "rect" : [
+        1416,
+        408,
+        32,
+        32
+      ],
+      "rooms" : [
+        "all"
+      ],
+      "size" : [
+        32,
+        32
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        7
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "baseboard-shadow",
+      "layer" : "floor",
+      "rect" : [
+        1452,
+        408,
+        64,
+        8
+      ],
+      "rooms" : [
+        "all"
+      ],
+      "size" : [
+        64,
+        8
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        16,
+        46
+      ],
+      "footprint" : [
+        8,
+        25,
+        16,
+        22
+      ],
+      "id" : "plant-1",
+      "layer" : "furniture",
+      "rect" : [
+        1520,
+        408,
+        32,
+        48
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "breakfast-nook",
+        "master-bedroom",
+        "abe-room"
+      ],
+      "size" : [
+        32,
+        48
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        24,
+        62
+      ],
+      "footprint" : [
+        12,
+        41,
+        24,
+        22
+      ],
+      "id" : "plant-2",
+      "layer" : "furniture",
+      "rect" : [
+        1556,
+        408,
+        48,
+        64
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "breakfast-nook",
+        "master-bedroom",
+        "abe-room"
+      ],
+      "size" : [
+        48,
+        64
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        32,
+        86
+      ],
+      "footprint" : [
+        16,
+        65,
+        32,
+        22
+      ],
+      "id" : "plant-3",
+      "layer" : "furniture",
+      "rect" : [
+        1608,
+        408,
+        64,
+        88
+      ],
+      "rooms" : [
+        "living",
+        "dining",
+        "breakfast-nook",
+        "master-bedroom",
+        "abe-room"
+      ],
+      "size" : [
+        64,
+        88
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        16,
+        62
+      ],
+      "footprint" : [
+        7,
+        57,
+        18,
+        6
+      ],
+      "id" : "floor-lamp",
+      "layer" : "furniture",
+      "rect" : [
+        1676,
+        408,
+        32,
+        64
+      ],
+      "rooms" : [
+        "living",
+        "master-bedroom",
+        "abe-room"
+      ],
+      "size" : [
+        32,
+        64
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        12,
+        39
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "table-lamp",
+      "layer" : "decal",
+      "rect" : [
+        1712,
+        408,
+        24,
+        40
+      ],
+      "rooms" : [
+        "living",
+        "master-bedroom",
+        "abe-room"
+      ],
+      "size" : [
+        24,
+        40
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        20,
+        29
+      ],
+      "footprint" : [
+        5,
+        18,
+        30,
+        12
+      ],
+      "id" : "woven-basket",
+      "layer" : "furniture",
+      "rect" : [
+        1740,
+        408,
+        40,
+        32
+      ],
+      "rooms" : [
+        "living",
+        "master-bedroom",
+        "entry"
+      ],
+      "size" : [
+        40,
+        32
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        24,
+        38
+      ],
+      "footprint" : [
+        2,
+        22,
+        44,
+        17
+      ],
+      "id" : "toy-bin",
+      "layer" : "furniture",
+      "rect" : [
+        1784,
+        408,
+        48,
+        40
+      ],
+      "rooms" : [
+        "living",
+        "abe-room"
+      ],
+      "size" : [
+        48,
+        40
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        24,
+        31
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "laundry-pile",
+      "layer" : "floor",
+      "rect" : [
+        1836,
+        408,
+        48,
+        32
+      ],
+      "rooms" : [
+        "master-bedroom",
+        "laundry-closet",
+        "abe-room"
+      ],
+      "size" : [
+        48,
+        32
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        24,
+        23
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "shoes-pair",
+      "layer" : "floor",
+      "rect" : [
+        1888,
+        408,
+        48,
+        24
+      ],
+      "rooms" : [
+        "entry",
+        "walk-in-closet",
+        "abe-room"
+      ],
+      "size" : [
+        48,
+        24
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        8,
+        15
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "lone-sock",
+      "layer" : "floor",
+      "rect" : [
+        1940,
+        408,
+        16,
+        16
+      ],
+      "rooms" : [
+        "circulation",
+        "laundry-closet",
+        "master-bedroom"
+      ],
+      "size" : [
+        16,
+        16
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        8,
+        15
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "single-toy-brick",
+      "layer" : "floor",
+      "rect" : [
+        1960,
+        408,
+        16,
+        16
+      ],
+      "rooms" : [
+        "circulation",
+        "abe-room"
+      ],
+      "size" : [
+        16,
+        16
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        24,
+        39
+      ],
+      "footprint" : [
+        0,
+        0,
+        0,
+        0
+      ],
+      "id" : "laundry-picture-gag",
+      "layer" : "wall",
+      "rect" : [
+        1980,
+        408,
+        48,
+        40
+      ],
+      "rooms" : [
+        "laundry-closet",
+        "circulation"
+      ],
+      "size" : [
+        48,
+        40
+      ],
+      "solid" : false
+    },
+    {
+      "footPoint" : [
+        32,
+        94
+      ],
+      "footprint" : [
+        40,
+        72,
+        22,
+        23
+      ],
+      "id" : "garage-side-shelf",
+      "layer" : "furniture",
+      "rect" : [
+        4,
+        572,
+        64,
+        96
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        64,
+        96
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        32,
+        54
+      ],
+      "footprint" : [
+        2,
+        30,
+        60,
+        25
+      ],
+      "id" : "garage-tool-cabinet",
+      "layer" : "furniture",
+      "rect" : [
+        72,
+        572,
+        64,
+        56
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        64,
+        56
+      ],
+      "solid" : true
+    },
+    {
+      "footPoint" : [
+        16,
+        22
+      ],
+      "footprint" : [
+        2,
+        13,
+        28,
+        10
+      ],
+      "id" : "tool-case",
+      "layer" : "furniture",
+      "rect" : [
+        140,
+        572,
+        32,
+        24
+      ],
+      "rooms" : [
+        "garage"
+      ],
+      "size" : [
+        32,
+        24
+      ],
+      "solid" : true
+    }
+  ],
+  "scale" : 1,
+  "size" : [
+    2048,
+    1024
+  ]
+}

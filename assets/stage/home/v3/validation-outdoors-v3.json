@@ -1,0 +1,210 @@
+{
+  "files" : [
+    {
+      "file" : "tree-maple-red-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 15386,
+      "partialAlpha" : 0,
+      "size" : [
+        160,
+        192
+      ]
+    },
+    {
+      "file" : "tree-maple-orange-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 12911,
+      "partialAlpha" : 0,
+      "size" : [
+        144,
+        176
+      ]
+    },
+    {
+      "file" : "tree-oak-gold-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 15131,
+      "partialAlpha" : 0,
+      "size" : [
+        160,
+        192
+      ]
+    },
+    {
+      "file" : "tree-birch-yellow-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 9884,
+      "partialAlpha" : 0,
+      "size" : [
+        128,
+        160
+      ]
+    },
+    {
+      "file" : "tree-oak-bare-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 4009,
+      "partialAlpha" : 0,
+      "size" : [
+        128,
+        160
+      ]
+    },
+    {
+      "file" : "tree-maple-half-turned-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 12911,
+      "partialAlpha" : 0,
+      "size" : [
+        144,
+        176
+      ]
+    },
+    {
+      "file" : "pine-small-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 2296,
+      "partialAlpha" : 0,
+      "size" : [
+        64,
+        96
+      ]
+    },
+    {
+      "file" : "pine-medium-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 3217,
+      "partialAlpha" : 0,
+      "size" : [
+        80,
+        120
+      ]
+    },
+    {
+      "file" : "pine-large-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 4278,
+      "partialAlpha" : 0,
+      "size" : [
+        96,
+        144
+      ]
+    },
+    {
+      "file" : "tree-line-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 62622,
+      "partialAlpha" : 0,
+      "size" : [
+        832,
+        160
+      ]
+    },
+    {
+      "file" : "lawn-v3-a.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 262144,
+      "partialAlpha" : 0,
+      "size" : [
+        512,
+        512
+      ]
+    },
+    {
+      "file" : "lawn-v3-b.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 262144,
+      "partialAlpha" : 0,
+      "size" : [
+        512,
+        512
+      ]
+    },
+    {
+      "file" : "shrubs-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 12797,
+      "partialAlpha" : 0,
+      "size" : [
+        512,
+        64
+      ]
+    },
+    {
+      "file" : "leaf-decals-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 3301,
+      "partialAlpha" : 0,
+      "size" : [
+        768,
+        64
+      ]
+    },
+    {
+      "file" : "fences-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 20426,
+      "partialAlpha" : 0,
+      "size" : [
+        384,
+        128
+      ]
+    },
+    {
+      "file" : "yard-props-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 13544,
+      "partialAlpha" : 0,
+      "size" : [
+        384,
+        96
+      ]
+    },
+    {
+      "file" : "key-hunt-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 6726,
+      "partialAlpha" : 0,
+      "size" : [
+        384,
+        48
+      ]
+    },
+    {
+      "file" : "toy-bricks-v3.png",
+      "magenta" : 0,
+      "offPalette" : 0,
+      "opaquePixels" : 4248,
+      "partialAlpha" : 0,
+      "size" : [
+        240,
+        48
+      ]
+    }
+  ],
+  "lawnDirectionalPairChecks" : 8,
+  "namedPieces" : 69,
+  "nativeScale" : 1,
+  "paletteCount" : 20,
+  "runtimeFilesEdited" : false,
+  "sourceHeroScaleInChecks" : 1,
+  "sourceHouseScaleInLot" : 1,
+  "treeLineHorizontalRGBASeam" : true
+}

@@ -1,0 +1,2079 @@
+{
+  "alpha": "RGBA binary 0/255; isolated sprites transparent, lawns opaque",
+  "approvedGreens": {
+    "evergreen": "#315B4B",
+    "lawnLight": "#9BAE73",
+    "lawnShadow": "#6D895B"
+  },
+  "files": [
+    {
+      "file": "tree-maple-red-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            80,
+            189
+          ],
+          "footprint": [
+            67,
+            179,
+            26,
+            11
+          ],
+          "id": "tree-maple-red-v3",
+          "layer": "tree",
+          "notes": "Only the root/trunk base is solid; canopy overlaps objects behind it.",
+          "rect": [
+            0,
+            0,
+            160,
+            192
+          ],
+          "size": [
+            160,
+            192
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        160,
+        192
+      ]
+    },
+    {
+      "file": "tree-maple-orange-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            72,
+            173
+          ],
+          "footprint": [
+            59,
+            163,
+            26,
+            11
+          ],
+          "id": "tree-maple-orange-v3",
+          "layer": "tree",
+          "notes": "Only the root/trunk base is solid; canopy overlaps objects behind it.",
+          "rect": [
+            0,
+            0,
+            144,
+            176
+          ],
+          "size": [
+            144,
+            176
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        144,
+        176
+      ]
+    },
+    {
+      "file": "tree-oak-gold-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            80,
+            189
+          ],
+          "footprint": [
+            67,
+            179,
+            26,
+            11
+          ],
+          "id": "tree-oak-gold-v3",
+          "layer": "tree",
+          "notes": "Only the root/trunk base is solid; canopy overlaps objects behind it.",
+          "rect": [
+            0,
+            0,
+            160,
+            192
+          ],
+          "size": [
+            160,
+            192
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        160,
+        192
+      ]
+    },
+    {
+      "file": "tree-birch-yellow-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            64,
+            157
+          ],
+          "footprint": [
+            51,
+            147,
+            26,
+            11
+          ],
+          "id": "tree-birch-yellow-v3",
+          "layer": "tree",
+          "notes": "Only the root/trunk base is solid; canopy overlaps objects behind it.",
+          "rect": [
+            0,
+            0,
+            128,
+            160
+          ],
+          "size": [
+            128,
+            160
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        128,
+        160
+      ]
+    },
+    {
+      "file": "tree-oak-bare-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            64,
+            157
+          ],
+          "footprint": [
+            51,
+            147,
+            26,
+            11
+          ],
+          "id": "tree-oak-bare-v3",
+          "layer": "tree",
+          "notes": "Only the root/trunk base is solid; canopy overlaps objects behind it.",
+          "rect": [
+            0,
+            0,
+            128,
+            160
+          ],
+          "size": [
+            128,
+            160
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        128,
+        160
+      ]
+    },
+    {
+      "file": "tree-maple-half-turned-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            72,
+            173
+          ],
+          "footprint": [
+            59,
+            163,
+            26,
+            11
+          ],
+          "id": "tree-maple-half-turned-v3",
+          "layer": "tree",
+          "notes": "Only the root/trunk base is solid; canopy overlaps objects behind it.",
+          "rect": [
+            0,
+            0,
+            144,
+            176
+          ],
+          "size": [
+            144,
+            176
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        144,
+        176
+      ]
+    },
+    {
+      "file": "pine-small-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            32,
+            93
+          ],
+          "footprint": [
+            22,
+            84,
+            20,
+            10
+          ],
+          "id": "pine-small-v3",
+          "layer": "tree",
+          "notes": "Solid trunk only; separate canopy overlap during integration.",
+          "rect": [
+            0,
+            0,
+            64,
+            96
+          ],
+          "size": [
+            64,
+            96
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        64,
+        96
+      ]
+    },
+    {
+      "file": "pine-medium-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            40,
+            117
+          ],
+          "footprint": [
+            30,
+            108,
+            20,
+            10
+          ],
+          "id": "pine-medium-v3",
+          "layer": "tree",
+          "notes": "Solid trunk only; separate canopy overlap during integration.",
+          "rect": [
+            0,
+            0,
+            80,
+            120
+          ],
+          "size": [
+            80,
+            120
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        80,
+        120
+      ]
+    },
+    {
+      "file": "pine-large-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            48,
+            141
+          ],
+          "footprint": [
+            38,
+            132,
+            20,
+            10
+          ],
+          "id": "pine-large-v3",
+          "layer": "tree",
+          "notes": "Solid trunk only; separate canopy overlap during integration.",
+          "rect": [
+            0,
+            0,
+            96,
+            144
+          ],
+          "size": [
+            96,
+            144
+          ],
+          "solid": true
+        }
+      ],
+      "size": [
+        96,
+        144
+      ]
+    },
+    {
+      "file": "tree-line-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            416,
+            159
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "tree-line-v3",
+          "layer": "background",
+          "notes": "Repeats left/right at 832px. Decorative background; use map bounds rather than this picture as collision.",
+          "rect": [
+            0,
+            0,
+            832,
+            160
+          ],
+          "size": [
+            832,
+            160
+          ],
+          "solid": false
+        }
+      ],
+      "size": [
+        832,
+        160
+      ]
+    },
+    {
+      "file": "lawn-v3-a.png",
+      "frames": [
+        {
+          "footPoint": [
+            0,
+            0
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "lawn-v3-a",
+          "layer": "floor",
+          "notes": "512px seamless plate; interchangeable with variant b on every edge.",
+          "rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "size": [
+            512,
+            512
+          ],
+          "solid": false
+        }
+      ],
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "file": "lawn-v3-b.png",
+      "frames": [
+        {
+          "footPoint": [
+            0,
+            0
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "lawn-v3-b",
+          "layer": "floor",
+          "notes": "512px seamless plate; interchangeable with variant a on every edge.",
+          "rect": [
+            0,
+            0,
+            512,
+            512
+          ],
+          "size": [
+            512,
+            512
+          ],
+          "solid": false
+        }
+      ],
+      "size": [
+        512,
+        512
+      ]
+    },
+    {
+      "cell": [
+        64,
+        64
+      ],
+      "file": "shrubs-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            2,
+            44,
+            60,
+            17
+          ],
+          "id": "shrub-hedge-horizontal-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            21,
+            4,
+            24,
+            58
+          ],
+          "id": "shrub-hedge-vertical-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            64,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            4,
+            40,
+            56,
+            20
+          ],
+          "id": "shrub-hedge-corner-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            128,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            2,
+            44,
+            60,
+            17
+          ],
+          "id": "shrub-flowering-mums-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            192,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            2,
+            44,
+            60,
+            17
+          ],
+          "id": "shrub-foundation-planting-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            256,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            2,
+            44,
+            60,
+            17
+          ],
+          "id": "shrub-tall-shrub-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            320,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            2,
+            44,
+            60,
+            17
+          ],
+          "id": "shrub-round-shrub-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            384,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            61
+          ],
+          "footprint": [
+            2,
+            44,
+            60,
+            17
+          ],
+          "id": "shrub-scruffy-shrub-v3",
+          "layer": "shrub",
+          "notes": "64px module; keep canopy and footprint separate.",
+          "rect": [
+            448,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        }
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "size": [
+        512,
+        64
+      ]
+    },
+    {
+      "cell": [
+        96,
+        64
+      ],
+      "file": "leaf-decals-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            48,
+            47
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-leaf-drift-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            0,
+            0,
+            96,
+            48
+          ],
+          "size": [
+            96,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            32,
+            47
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-raked-scatter-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            96,
+            0,
+            64,
+            48
+          ],
+          "size": [
+            64,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            31
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-scattered-maple-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            192,
+            0,
+            48,
+            32
+          ],
+          "size": [
+            48,
+            32
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            16,
+            31
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-single-maple-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            288,
+            0,
+            32,
+            32
+          ],
+          "size": [
+            32,
+            32
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            48,
+            31
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-gutter-leaves-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            384,
+            0,
+            96,
+            32
+          ],
+          "size": [
+            96,
+            32
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            32,
+            31
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-wind-row-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            480,
+            0,
+            64,
+            32
+          ],
+          "size": [
+            64,
+            32
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            47
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-dry-oak-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            576,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            16,
+            47
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "decal-twigs-leaves-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            672,
+            0,
+            32,
+            48
+          ],
+          "size": [
+            32,
+            48
+          ],
+          "solid": false
+        }
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "size": [
+        768,
+        64
+      ]
+    },
+    {
+      "cell": [
+        64,
+        64
+      ],
+      "file": "fences-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            0,
+            49,
+            64,
+            12
+          ],
+          "id": "picket-horizontal-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            0,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            24,
+            3,
+            16,
+            58
+          ],
+          "id": "picket-vertical-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            64,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            0,
+            49,
+            64,
+            12
+          ],
+          "id": "picket-corner-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            128,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            27,
+            49,
+            6,
+            12
+          ],
+          "id": "picket-post-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            192,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            0,
+            49,
+            64,
+            12
+          ],
+          "id": "picket-gate-closed-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            256,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            2,
+            49,
+            12,
+            12
+          ],
+          "footprints": [
+            [
+              2,
+              49,
+              6,
+              12
+            ],
+            [
+              56,
+              49,
+              6,
+              12
+            ]
+          ],
+          "id": "picket-gate-open-v3",
+          "layer": "fence",
+          "notes": "Use both post footprints; the gap between posts is open. Main footprint is the hinge/post only.",
+          "rect": [
+            320,
+            0,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            0,
+            49,
+            64,
+            12
+          ],
+          "id": "wood-horizontal-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            0,
+            64,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            24,
+            3,
+            16,
+            58
+          ],
+          "id": "wood-vertical-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            64,
+            64,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            0,
+            49,
+            64,
+            12
+          ],
+          "id": "wood-corner-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            128,
+            64,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            27,
+            49,
+            6,
+            12
+          ],
+          "id": "wood-post-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            192,
+            64,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            0,
+            49,
+            64,
+            12
+          ],
+          "id": "wood-gate-closed-v3",
+          "layer": "fence",
+          "notes": "64px module; use the declared floor footprint.",
+          "rect": [
+            256,
+            64,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            32,
+            60
+          ],
+          "footprint": [
+            2,
+            49,
+            12,
+            12
+          ],
+          "footprints": [
+            [
+              2,
+              49,
+              6,
+              12
+            ],
+            [
+              56,
+              49,
+              6,
+              12
+            ]
+          ],
+          "id": "wood-gate-open-v3",
+          "layer": "fence",
+          "notes": "Use both post footprints; the gap between posts is open. Main footprint is the hinge/post only.",
+          "rect": [
+            320,
+            64,
+            64,
+            64
+          ],
+          "size": [
+            64,
+            64
+          ],
+          "solid": true
+        }
+      ],
+      "grid": [
+        6,
+        2
+      ],
+      "size": [
+        384,
+        128
+      ]
+    },
+    {
+      "cell": [
+        48,
+        48
+      ],
+      "file": "yard-props-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            22,
+            39,
+            7,
+            7
+          ],
+          "id": "yard-mailbox-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            0,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-garden-gnome-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            48,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-plastic-flamingo-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            96,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-trash-bin-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            144,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-recycling-bin-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            192,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-lawn-sprinkler-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            240,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-leaf-pile-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            288,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            22,
+            40,
+            5,
+            6
+          ],
+          "id": "yard-blank-yard-sign-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            336,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-carved-pumpkin-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            0,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-hay-bale-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            48,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-rake-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            96,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-kiddie-pool-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            144,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            5,
+            31,
+            39,
+            14
+          ],
+          "id": "yard-garden-hose-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            192,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-birdbath-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            240,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            6,
+            34,
+            36,
+            12
+          ],
+          "id": "yard-fire-hydrant-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            288,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            18,
+            40,
+            12,
+            6
+          ],
+          "id": "yard-maple-sapling-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            336,
+            48,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        }
+      ],
+      "grid": [
+        8,
+        2
+      ],
+      "size": [
+        384,
+        96
+      ]
+    },
+    {
+      "cell": [
+        48,
+        48
+      ],
+      "file": "key-hunt-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            5,
+            32,
+            38,
+            13
+          ],
+          "id": "key-fake-rock-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            0,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            5,
+            32,
+            38,
+            13
+          ],
+          "id": "key-fake-rock-open-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            48,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "key-lifted-mat-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            96,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            5,
+            32,
+            38,
+            13
+          ],
+          "id": "key-tipped-pot-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            144,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            5,
+            32,
+            38,
+            13
+          ],
+          "id": "key-mirror-key-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            192,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            22,
+            39,
+            7,
+            7
+          ],
+          "id": "key-neighbor-mailbox-v3",
+          "layer": "prop",
+          "notes": "",
+          "rect": [
+            240,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": true
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "key-house-key-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            288,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "key-blank-note-v3",
+          "layer": "floor",
+          "notes": "",
+          "rect": [
+            336,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        }
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "size": [
+        384,
+        48
+      ]
+    },
+    {
+      "cell": [
+        48,
+        48
+      ],
+      "file": "toy-bricks-v3.png",
+      "frames": [
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "bricks-sparse-v3",
+          "layer": "floor",
+          "notes": "Non-solid decal. Claude retains the existing toy-brick hazard behavior.",
+          "rect": [
+            0,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "bricks-medium-v3",
+          "layer": "floor",
+          "notes": "Non-solid decal. Claude retains the existing toy-brick hazard behavior.",
+          "rect": [
+            48,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "bricks-dense-v3",
+          "layer": "floor",
+          "notes": "Non-solid decal. Claude retains the existing toy-brick hazard behavior.",
+          "rect": [
+            96,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "bricks-very-dense-v3",
+          "layer": "floor",
+          "notes": "Non-solid decal. Claude retains the existing toy-brick hazard behavior.",
+          "rect": [
+            144,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        },
+        {
+          "footPoint": [
+            24,
+            45
+          ],
+          "footprint": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "id": "bricks-ouch-v3",
+          "layer": "floor",
+          "notes": "Non-solid decal. Claude retains the existing toy-brick hazard behavior.",
+          "rect": [
+            192,
+            0,
+            48,
+            48
+          ],
+          "size": [
+            48,
+            48
+          ],
+          "solid": false
+        }
+      ],
+      "grid": [
+        5,
+        1
+      ],
+      "size": [
+        240,
+        48
+      ]
+    }
+  ],
+  "job": "Maple Hollow outdoor kit v3",
+  "notes": [
+    "Trees collide at trunks only; canopy overlap needs separate render ordering or occlusion in integration.",
+    "Never scale 32px props to 1.5x. These 48px props are redrawn at 1x.",
+    "Native dimensions and 64px fence modules are intentional. No gameplay changes included."
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B"
+  ],
+  "scale": 1,
+  "status": "Published art candidate; not integrated",
+  "briefRevision": "Produced from 62c6b89, before V2.29.1 expanded the Job 3 brief",
+  "pendingUpdatedBriefRequirements": [
+    "Four-sided two-row tree boundary plates and four corners",
+    "Separate backyard furniture and seven plain ground yard plates",
+    "WALL/BREAKABLE/WALK-THROUGH categories and visual affordances",
+    "96px gate and gap art"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "approved by Rami before production",
+  "job": "Job 3, step 1 only",
+  "brief": "docs/handoffs/codex-level-art-pass.md",
+  "board": "outdoor-greens-proposal-v1.png",
+  "size": [
+    1360,
+    1120
+  ],
+  "colors": [
+    {
+      "role": "lawn light",
+      "hex": "#9BAE73",
+      "intent": "Brighter muted grass green; warm enough beside fall leaves without turning yellow."
+    },
+    {
+      "role": "lawn shadow",
+      "hex": "#6D895B",
+      "intent": "Deeper green for deliberate grass clumps and worn edges, without speckled noise."
+    },
+    {
+      "role": "evergreen",
+      "hex": "#315B4B",
+      "intent": "Deep pine green; existing teal and sage can supply highlights, navy the darkest edges."
+    }
+  ],
+  "existingPaletteUnchanged": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F"
+  ],
+  "reference": "assets/stage/home/v2/houses-v2.png",
+  "construction": "Native flat swatches and existing house facade crops at exact 1x. First two comparison panels use the same house. Third shows evergreen beside a cream facade. At proposal creation no production art or game data had changed. Approved production is described in README-outdoors-v3.md.",
+  "prompt": "Propose exactly three outdoor greens for Maple Hollow: lawn light, lawn shadow and evergreen. Show their hex codes beside the unchanged 17-color palette and native houses-v2 fronts. Neutral white balance. Stop for Rami approval before making any outdoor production art.",
+  "approvalDate": "2026-11-11"
+}
