@@ -35,8 +35,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami: send Codex `docs/handoffs/codex-level-art-redo.md` (a sample of eight first, then stop)
 - [x] Sample of eight approved (PR #2). The painted Bill is live (V2.29.3)
 - [x] Codex Batch A reviewed (PR #3): trees, pines, shrubs and the four wall sides approved. Corners go back (trees twice the size of the sides, hard seams)
-- [x] Tree wall live on all four sides of Maple Hollow, camera locked inside it (V2.29.5). Corners are plain side pieces for now
-- [ ] Codex: corner redo in PR #3, then Batch B (yard furniture as separate sprites, plain yards, props, fences, lawns)
+- [x] Tree wall live on all four sides of Maple Hollow, camera locked inside it (V2.29.5). Corners were plain side pieces until V2.29.6
+- [x] Codex corner redo approved and live (V2.29.6). Batch A is done
+- [ ] Rami: tell Codex to start Batch B (yard furniture as separate sprites, plain yards, props, fences, lawns)
 - [ ] Rami: walk the edge of Maple Hollow. Does the forest feel like the end of the world, or does the street running into trees look odd?
 - [ ] Place the new trees and shrubs as their own sprites (waits for Batch B's plain yards; today's trees are painted into the yard pictures)
 - [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions

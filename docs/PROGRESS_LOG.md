@@ -2232,3 +2232,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The hero stops 40 px in from the edge so he doesn't vanish under the leaves. The corners use plain side pieces until the redo arrives.
 - Rami approved one new color in Codex's chat: autumn gold #D8AD4A.
 - Not done: the new single trees and shrubs. The yards' trees are painted into the yard pictures, so they wait for Batch B.
+
+## 2026-11-11 (1:00 PM): V2.29.6, forest corners
+- Codex repainted the four corners at the same tree size as the sides, with ragged inner edges. Approved and live.
+- Each strip starts at a corner, so that join is clean. The far end of each side is cut mid-strip because the town isn't a whole number of strips long. It shows as a faint line at three corners (worst at the bottom right).
+- Fix if it bothers Rami: two short filler pieces from Codex (704 px for top and bottom, 128 px for the sides).
+- Batch A is finished. Next is Batch B.

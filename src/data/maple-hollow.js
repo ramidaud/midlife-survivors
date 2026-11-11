@@ -73,9 +73,9 @@ window.MAPLE_HOLLOW = {
     fence: { w: 16, top: 40, gate: [208, 304], steps: [162, 258] }, // side fences with a gate gap; the top hedge has steps in the middle. World rules (Nov 11): gaps are 96 px (were 64 and 52, too tight for a 48 px hero)
     // The tree wall (Nov 11, World rules: trees contain the level). Painted by Codex, Batch A. Each side is one 832 px
     // strip repeated along the edge: 192 px of solid forest outside the map and a 64 px leafy fringe that hangs over it.
-    // The camera stops at the outside of the forest, so nothing past it ever shows. Corners are plain side pieces
-    // until Codex's corner redo lands. Set on: false to go back to the open edge.
-    treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40 }, // edge: how far in from the map edge the hero is stopped
+    // The camera stops at the outside of the forest, so nothing past it ever shows. Corner pieces (corners: true) are Codex's
+    // repaint; with corners: false the side strips cover the corners instead. Set on: false to go back to the open edge.
+    treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true }, // edge: how far in from the map edge the hero is stopped
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
     yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png

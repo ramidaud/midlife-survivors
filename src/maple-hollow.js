@@ -37,6 +37,7 @@ window.MapleHollow = (() => {
     const TW = NEW && MV.treeWall && MV.treeWall.on ? MV.treeWall : null, tw = {}; // the tree wall around the town (Nov 11)
     if (TW) try {
       [tw.north, tw.south, tw.west, tw.east, tw.southTop, tw.westTop, tw.eastTop] = await Promise.all(["north-v4", "south-v4", "west-v4", "east-v4", "south-v4-canopy", "west-v4-canopy", "east-v4-canopy"].map(f => H.image(ROOT + TW.dir + "tree-wall-" + f + ".png")));
+      if (TW.corners) tw.corners = await Promise.all(["north-west", "north-east", "south-west", "south-east"].flatMap(c => [c + "-v4", c + "-v4-canopy"]).map(f => H.image(ROOT + TW.dir + "tree-wall-" + f + ".png")));
     } catch (e) { tw.north = null; console.warn("tree wall art missing", e); }
     if (!H.isAlive()) return null;
     if (!H.isAlive()) return null;
@@ -419,16 +420,23 @@ window.MapleHollow = (() => {
       const put = (k, x, y, depth, cw, ch) => { const o = scene.add.image(x, y, k).setOrigin(0).setDepth(depth); if (cw || ch) o.setCrop(0, 0, cw || o.width, ch || o.height); all.push(o); };
       const kn = tex("mh_wall_n", tw.north), ks = tex("mh_wall_s", tw.south), kw = tex("mh_wall_w", tw.west), ke = tex("mh_wall_e", tw.east);
       const kst = tex("mh_wall_s_top", tw.southTop), kwt = tex("mh_wall_w_top", tw.westTop), ket = tex("mh_wall_e_top", tw.eastTop);
-      for (let x = -S; x < W + S; x += S) {
-        put(kn, x, -C, -998);
-        put(ks, x, B - Fr, -998);
-        if (x >= 0 && x < W) put(kst, x, B - Fr, OVER, Math.min(S, W - x));
+      // With corner pieces: each strip starts where a corner ends (Fr px in from the map edge), so that join is seamless.
+      // Without them the top and bottom strips run one piece past each end and the side strips sit on top.
+      const K = tw.corners ? Fr : 0, x0 = K ? K : -S, x1 = K ? W - K : W + S;
+      for (let x = x0; x < x1; x += S) {
+        const w = Math.min(S, x1 - x);
+        put(kn, x, -C, -998, w);
+        put(ks, x, B - Fr, -998, w);
+        if (x + w > 0 && x < W) put(kst, x, B - Fr, OVER, w);
       }
-      for (let y = 0; y < B; y += S) {
-        const h = Math.min(S, B - y);
+      for (let y = K; y < B - K; y += S) {
+        const h = Math.min(S, B - K - y);
         put(kw, -C, y, -997, 0, h); put(ke, W - Fr, y, -997, 0, h);
         put(kwt, -C, y, OVER, 0, h); put(ket, W - Fr, y, OVER, 0, h);
       }
+      if (K) [[-C, -C], [W - Fr, -C], [-C, B - Fr], [W - Fr, B - Fr]].forEach(([x, y], i) => {
+        put(tex("mh_wall_c" + i, tw.corners[i * 2]), x, y, -996); put(tex("mh_wall_c" + i + "_top", tw.corners[i * 2 + 1]), x, y, OVER);
+      });
       // Solid edge: the hero stops a little inside the leaves instead of disappearing under them (the north side already has its hedge).
       const E = TW.edge, wall = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
       if (E) { wall(0, 0, E, B); wall(W - E, 0, E, B); wall(E, B - E, W - 2 * E, E); }
