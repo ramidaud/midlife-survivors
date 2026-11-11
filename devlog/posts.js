@@ -4,9 +4,9 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
-    "slug": "14-it-all-felt-like-photography",
+    "slug": "14-achievement-unlocked-gaussian-splatting",
     "date": "2026-11-11",
-    "title": "It all felt like photography.",
+    "title": "Achievement Unlocked: Gaussian Splatting.",
     "version": "V. 2.29.3",
     "draft": true,
     "cover": "img/14-key-art.jpg",
