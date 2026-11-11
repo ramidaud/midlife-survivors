@@ -1,0 +1,94 @@
+{
+  "reviewOnly": true,
+  "runtimeChanged": false,
+  "lane": [
+    0,
+    224,
+    416,
+    96
+  ],
+  "rightReturn": [
+    320,
+    320,
+    96,
+    128
+  ],
+  "recipes": {
+    "young-family": [
+      [
+        "trampoline",
+        20,
+        45
+      ],
+      [
+        "swing-set",
+        236,
+        45
+      ],
+      [
+        "kiddie-pool",
+        16,
+        342
+      ],
+      [
+        "sandbox",
+        170,
+        350
+      ]
+    ],
+    "retirees": [
+      [
+        "raised-garden-bed",
+        20,
+        65
+      ],
+      [
+        "tomato-trellis",
+        235,
+        35
+      ],
+      [
+        "wicker-chair",
+        24,
+        340
+      ],
+      [
+        "wicker-table",
+        100,
+        370
+      ],
+      [
+        "bird-bath",
+        235,
+        345
+      ]
+    ],
+    "grill-master": [
+      [
+        "patio-table",
+        30,
+        80
+      ],
+      [
+        "grill",
+        220,
+        70
+      ],
+      [
+        "smoker",
+        340,
+        40
+      ],
+      [
+        "adirondack-chair",
+        26,
+        345
+      ],
+      [
+        "fire-pit",
+        160,
+        350
+      ]
+    ]
+  }
+}

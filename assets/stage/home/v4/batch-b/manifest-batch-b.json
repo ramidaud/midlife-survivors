@@ -1,0 +1,3942 @@
+{
+  "status": "Batch B art-only review",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "method": "Built-in imagegen paintings, proportional fit/canvas normalization to exact8x working rasters, exact8x8 RGBA blockmode, material-family palette mapping. Approved sample props reused unchanged.",
+  "sourceSizeCaveat": "Imagegen does not honor exact requested dimensions; original rasters/actualsizes and8x working canvases retained. Same normalization as approved sample.",
+  "pieces": [
+    {
+      "id": "trampoline",
+      "file": "trampoline-v4.png",
+      "size": [
+        160,
+        128
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        80,
+        124
+      ],
+      "footprints": [
+        [
+          3,
+          105,
+          154,
+          20
+        ]
+      ],
+      "source": "sources/play-garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "working": "working-8x/trampoline-8x.png",
+      "crop": [
+        71,
+        112,
+        444,
+        429
+      ],
+      "fit": [
+        66,
+        24,
+        1148,
+        976
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/trampoline-comparison.png"
+    },
+    {
+      "id": "swing-set",
+      "file": "swing-set-v4.png",
+      "size": [
+        160,
+        160
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        80,
+        156
+      ],
+      "footprints": [
+        [
+          3,
+          137,
+          154,
+          20
+        ]
+      ],
+      "source": "sources/play-garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "working": "working-8x/swing-set-8x.png",
+      "crop": [
+        31,
+        90,
+        464,
+        437
+      ],
+      "fit": [
+        24,
+        269,
+        1232,
+        987
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/swing-set-comparison.png"
+    },
+    {
+      "id": "kiddie-pool",
+      "file": "kiddie-pool-v4.png",
+      "size": [
+        128,
+        80
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        76
+      ],
+      "footprints": [
+        [
+          6,
+          26,
+          116,
+          48
+        ]
+      ],
+      "source": "sources/play-garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "working": "working-8x/kiddie-pool-8x.png",
+      "crop": [
+        73,
+        121,
+        429,
+        402
+      ],
+      "fit": [
+        137,
+        24,
+        750,
+        592
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/kiddie-pool-comparison.png"
+    },
+    {
+      "id": "sandbox",
+      "file": "sandbox-v4.png",
+      "size": [
+        96,
+        80
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        76
+      ],
+      "footprints": [
+        [
+          6,
+          26,
+          84,
+          48
+        ]
+      ],
+      "source": "sources/play-garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "working": "working-8x/sandbox-8x.png",
+      "crop": [
+        71,
+        122,
+        424,
+        400
+      ],
+      "fit": [
+        24,
+        49,
+        720,
+        567
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/sandbox-comparison.png"
+    },
+    {
+      "id": "raised-garden-bed",
+      "file": "raised-garden-bed-v4.png",
+      "size": [
+        128,
+        80
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        76
+      ],
+      "footprints": [
+        [
+          6,
+          26,
+          116,
+          48
+        ]
+      ],
+      "source": "sources/play-garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "working": "working-8x/raised-garden-bed-8x.png",
+      "crop": [
+        54,
+        101,
+        456,
+        422
+      ],
+      "fit": [
+        141,
+        24,
+        741,
+        592
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/raised-garden-bed-comparison.png"
+    },
+    {
+      "id": "tomato-trellis",
+      "file": "tomato-trellis-v4.png",
+      "size": [
+        96,
+        144
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        140
+      ],
+      "footprints": [
+        [
+          3,
+          121,
+          90,
+          20
+        ]
+      ],
+      "source": "sources/play-garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "working": "working-8x/tomato-trellis-8x.png",
+      "crop": [
+        65,
+        11,
+        406,
+        454
+      ],
+      "fit": [
+        24,
+        193,
+        720,
+        935
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/tomato-trellis-comparison.png"
+    },
+    {
+      "id": "fire-pit",
+      "file": "fire-pit-v4.png",
+      "size": [
+        96,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        60
+      ],
+      "footprints": [
+        [
+          6,
+          21,
+          84,
+          37
+        ]
+      ],
+      "source": "sources/patio-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "working": "working-8x/fire-pit-8x.png",
+      "crop": [
+        68,
+        125,
+        445,
+        390
+      ],
+      "fit": [
+        54,
+        24,
+        660,
+        464
+      ],
+      "oldNote": "New subject: no previous standalone sprite exists."
+    },
+    {
+      "id": "adirondack-chair",
+      "file": "adirondack-chair-v4.png",
+      "size": [
+        64,
+        80
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        76
+      ],
+      "footprints": [
+        [
+          3,
+          57,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/patio-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "working": "working-8x/adirondack-chair-8x.png",
+      "crop": [
+        73,
+        53,
+        406,
+        461
+      ],
+      "fit": [
+        24,
+        47,
+        464,
+        569
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/adirondack-chair-comparison.png"
+    },
+    {
+      "id": "wicker-chair",
+      "file": "wicker-chair-v4.png",
+      "size": [
+        64,
+        72
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        68
+      ],
+      "footprints": [
+        [
+          3,
+          49,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/patio-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "working": "working-8x/wicker-chair-8x.png",
+      "crop": [
+        92,
+        63,
+        415,
+        444
+      ],
+      "fit": [
+        32,
+        24,
+        448,
+        528
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/wicker-chair-comparison.png"
+    },
+    {
+      "id": "wicker-table",
+      "file": "wicker-table-v4.png",
+      "size": [
+        64,
+        48
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/patio-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "working": "working-8x/wicker-table-8x.png",
+      "crop": [
+        104,
+        137,
+        410,
+        405
+      ],
+      "fit": [
+        64,
+        24,
+        384,
+        336
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/wicker-table-comparison.png"
+    },
+    {
+      "id": "grill",
+      "file": "grill-v4.png",
+      "size": [
+        96,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        92
+      ],
+      "footprints": [
+        [
+          3,
+          73,
+          90,
+          20
+        ]
+      ],
+      "source": "sources/patio-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "working": "working-8x/grill-8x.png",
+      "crop": [
+        50,
+        57,
+        462,
+        447
+      ],
+      "fit": [
+        24,
+        62,
+        720,
+        682
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/grill-comparison.png"
+    },
+    {
+      "id": "smoker",
+      "file": "smoker-v4.png",
+      "size": [
+        64,
+        112
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        108
+      ],
+      "footprints": [
+        [
+          3,
+          89,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/patio-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "working": "working-8x/smoker-8x.png",
+      "crop": [
+        151,
+        39,
+        388,
+        454
+      ],
+      "fit": [
+        24,
+        60,
+        464,
+        812
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/smoker-comparison.png"
+    },
+    {
+      "id": "patio-table",
+      "file": "patio-table-v4.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        92
+      ],
+      "footprints": [
+        [
+          3,
+          73,
+          122,
+          20
+        ]
+      ],
+      "source": "sources/garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "working": "working-8x/patio-table-8x.png",
+      "crop": [
+        57,
+        89,
+        453,
+        455
+      ],
+      "fit": [
+        122,
+        24,
+        779,
+        720
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/patio-table-comparison.png"
+    },
+    {
+      "id": "bird-feeder",
+      "file": "bird-feeder-v4.png",
+      "size": [
+        48,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        24,
+        92
+      ],
+      "footprints": [
+        [
+          3,
+          73,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "working": "working-8x/bird-feeder-8x.png",
+      "crop": [
+        129,
+        37,
+        347,
+        471
+      ],
+      "fit": [
+        24,
+        75,
+        336,
+        669
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/bird-feeder-comparison.png"
+    },
+    {
+      "id": "bird-bath",
+      "file": "bird-bath-v4.png",
+      "size": [
+        64,
+        80
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        76
+      ],
+      "footprints": [
+        [
+          3,
+          57,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "working": "working-8x/bird-bath-8x.png",
+      "crop": [
+        112,
+        95,
+        398,
+        436
+      ],
+      "fit": [
+        24,
+        63,
+        464,
+        553
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/bird-bath-comparison.png"
+    },
+    {
+      "id": "koi-pond",
+      "file": "koi-pond-v4.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        92
+      ],
+      "footprints": [
+        [
+          6,
+          32,
+          116,
+          58
+        ]
+      ],
+      "source": "sources/garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "working": "working-8x/koi-pond-8x.png",
+      "crop": [
+        20,
+        92,
+        488,
+        413
+      ],
+      "fit": [
+        24,
+        75,
+        976,
+        669
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/koi-pond-comparison.png"
+    },
+    {
+      "id": "stone-lantern",
+      "file": "stone-lantern-v4.png",
+      "size": [
+        48,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        24,
+        92
+      ],
+      "footprints": [
+        [
+          3,
+          73,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "working": "working-8x/stone-lantern-8x.png",
+      "crop": [
+        142,
+        44,
+        370,
+        448
+      ],
+      "fit": [
+        24,
+        149,
+        336,
+        595
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/stone-lantern-comparison.png"
+    },
+    {
+      "id": "wheelbarrow",
+      "file": "wheelbarrow-v4.png",
+      "size": [
+        96,
+        80
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        76
+      ],
+      "footprints": [
+        [
+          3,
+          57,
+          90,
+          20
+        ]
+      ],
+      "source": "sources/garden-generated.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceRect": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "working": "working-8x/wheelbarrow-8x.png",
+      "crop": [
+        42,
+        69,
+        483,
+        429
+      ],
+      "fit": [
+        24,
+        28,
+        720,
+        588
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/wheelbarrow-comparison.png"
+    },
+    {
+      "id": "pallet-pile",
+      "file": "pallet-pile-v4.png",
+      "size": [
+        96,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        60
+      ],
+      "footprints": [
+        [
+          3,
+          41,
+          90,
+          20
+        ]
+      ],
+      "source": "sources/maintenance-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        0,
+        0,
+        724,
+        724
+      ],
+      "working": "working-8x/pallet-pile-8x.png",
+      "crop": [
+        79,
+        122,
+        649,
+        658
+      ],
+      "fit": [
+        137,
+        24,
+        493,
+        464
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/pallet-pile-comparison.png"
+    },
+    {
+      "id": "cinder-blocks",
+      "file": "cinder-blocks-v4.png",
+      "size": [
+        64,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        32,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/maintenance-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        724,
+        0,
+        1448,
+        724
+      ],
+      "working": "working-8x/cinder-blocks-8x.png",
+      "crop": [
+        83,
+        172,
+        564,
+        585
+      ],
+      "fit": [
+        60,
+        24,
+        391,
+        336
+      ],
+      "oldNote": "Old baked-yard crop; ground and neighboring details remain for context.",
+      "oldFile": "old/cinder-blocks-comparison.png"
+    },
+    {
+      "id": "soccer-goal",
+      "file": "soccer-goal-v4.png",
+      "size": [
+        160,
+        112
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        80,
+        108
+      ],
+      "footprints": [
+        [
+          3,
+          90,
+          14,
+          18
+        ],
+        [
+          143,
+          90,
+          14,
+          18
+        ],
+        [
+          3,
+          77,
+          154,
+          12
+        ]
+      ],
+      "source": "sources/maintenance-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        1448,
+        0,
+        2172,
+        724
+      ],
+      "working": "working-8x/soccer-goal-8x.png",
+      "crop": [
+        0,
+        114,
+        675,
+        637
+      ],
+      "fit": [
+        93,
+        24,
+        1094,
+        848
+      ],
+      "oldNote": "New subject: no previous standalone sprite exists."
+    },
+    {
+      "id": "yard-mailbox",
+      "file": "yard-mailbox-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        45
+      ],
+      "footprints": [
+        [
+          8,
+          32,
+          32,
+          14
+        ]
+      ],
+      "source": "sources/approved-mailbox.png",
+      "approvedSampleUnchanged": true,
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          0,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-mailbox-comparison.png"
+    },
+    {
+      "id": "yard-garden-gnome",
+      "file": "yard-garden-gnome-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        45
+      ],
+      "footprints": [
+        [
+          8,
+          32,
+          32,
+          14
+        ]
+      ],
+      "source": "sources/approved-gnome.png",
+      "approvedSampleUnchanged": true,
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          48,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-garden-gnome-comparison.png"
+    },
+    {
+      "id": "yard-plastic-flamingo",
+      "file": "yard-plastic-flamingo-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        45
+      ],
+      "footprints": [
+        [
+          8,
+          32,
+          32,
+          14
+        ]
+      ],
+      "source": "sources/approved-flamingo.png",
+      "approvedSampleUnchanged": true,
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          96,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-plastic-flamingo-comparison.png"
+    },
+    {
+      "id": "yard-trash-bin",
+      "file": "yard-trash-bin-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        45
+      ],
+      "footprints": [
+        [
+          8,
+          32,
+          32,
+          14
+        ]
+      ],
+      "source": "sources/approved-trash-bin.png",
+      "approvedSampleUnchanged": true,
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          144,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-trash-bin-comparison.png"
+    },
+    {
+      "id": "yard-recycling-bin",
+      "file": "yard-recycling-bin-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        0,
+        0,
+        362,
+        362
+      ],
+      "working": "working-8x/yard-recycling-bin-8x.png",
+      "crop": [
+        77,
+        53,
+        314,
+        327
+      ],
+      "fit": [
+        46,
+        24,
+        291,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          192,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-recycling-bin-comparison.png"
+    },
+    {
+      "id": "yard-lawn-sprinkler",
+      "file": "yard-lawn-sprinkler-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        362,
+        0,
+        724,
+        362
+      ],
+      "working": "working-8x/yard-lawn-sprinkler-8x.png",
+      "crop": [
+        41,
+        90,
+        320,
+        316
+      ],
+      "fit": [
+        24,
+        88,
+        336,
+        272
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          240,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-lawn-sprinkler-comparison.png"
+    },
+    {
+      "id": "yard-leaf-pile",
+      "file": "yard-leaf-pile-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        724,
+        0,
+        1086,
+        362
+      ],
+      "working": "working-8x/yard-leaf-pile-8x.png",
+      "crop": [
+        20,
+        106,
+        333,
+        312
+      ],
+      "fit": [
+        24,
+        139,
+        336,
+        221
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          288,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-leaf-pile-comparison.png"
+    },
+    {
+      "id": "yard-blank-yard-sign",
+      "file": "yard-blank-yard-sign-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        1086,
+        0,
+        1448,
+        362
+      ],
+      "working": "working-8x/yard-blank-yard-sign-8x.png",
+      "crop": [
+        52,
+        53,
+        296,
+        334
+      ],
+      "fit": [
+        46,
+        24,
+        292,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          336,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-blank-yard-sign-comparison.png"
+    },
+    {
+      "id": "yard-carved-pumpkin",
+      "file": "yard-carved-pumpkin-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        0,
+        362,
+        362,
+        724
+      ],
+      "working": "working-8x/yard-carved-pumpkin-8x.png",
+      "crop": [
+        56,
+        34,
+        324,
+        308
+      ],
+      "fit": [
+        27,
+        24,
+        329,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          0,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-carved-pumpkin-comparison.png"
+    },
+    {
+      "id": "yard-hay-bale",
+      "file": "yard-hay-bale-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        362,
+        362,
+        724,
+        724
+      ],
+      "working": "working-8x/yard-hay-bale-8x.png",
+      "crop": [
+        26,
+        74,
+        337,
+        284
+      ],
+      "fit": [
+        24,
+        133,
+        336,
+        227
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          48,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-hay-bale-comparison.png"
+    },
+    {
+      "id": "yard-rake",
+      "file": "yard-rake-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        724,
+        362,
+        1086,
+        724
+      ],
+      "working": "working-8x/yard-rake-8x.png",
+      "crop": [
+        55,
+        20,
+        274,
+        318
+      ],
+      "fit": [
+        68,
+        24,
+        247,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          96,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-rake-comparison.png"
+    },
+    {
+      "id": "yard-kiddie-pool",
+      "file": "yard-kiddie-pool-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        1086,
+        362,
+        1448,
+        724
+      ],
+      "working": "working-8x/yard-kiddie-pool-8x.png",
+      "crop": [
+        9,
+        84,
+        314,
+        279
+      ],
+      "fit": [
+        24,
+        145,
+        336,
+        215
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          144,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-kiddie-pool-comparison.png"
+    },
+    {
+      "id": "yard-garden-hose",
+      "file": "yard-garden-hose-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        0,
+        724,
+        362,
+        1086
+      ],
+      "working": "working-8x/yard-garden-hose-8x.png",
+      "crop": [
+        49,
+        58,
+        337,
+        287
+      ],
+      "fit": [
+        24,
+        93,
+        336,
+        267
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          192,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-garden-hose-comparison.png"
+    },
+    {
+      "id": "yard-birdbath",
+      "file": "yard-birdbath-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        362,
+        724,
+        724,
+        1086
+      ],
+      "working": "working-8x/yard-birdbath-8x.png",
+      "crop": [
+        50,
+        20,
+        311,
+        301
+      ],
+      "fit": [
+        36,
+        24,
+        312,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          240,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-birdbath-comparison.png"
+    },
+    {
+      "id": "yard-fire-hydrant",
+      "file": "yard-fire-hydrant-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        724,
+        724,
+        1086,
+        1086
+      ],
+      "working": "working-8x/yard-fire-hydrant-8x.png",
+      "crop": [
+        65,
+        14,
+        274,
+        300
+      ],
+      "fit": [
+        69,
+        24,
+        246,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          288,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-fire-hydrant-comparison.png"
+    },
+    {
+      "id": "yard-maple-sapling",
+      "file": "yard-maple-sapling-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/yard-props-generated.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceRect": [
+        1086,
+        724,
+        1448,
+        1086
+      ],
+      "working": "working-8x/yard-maple-sapling-8x.png",
+      "crop": [
+        34,
+        5,
+        309,
+        299
+      ],
+      "fit": [
+        35,
+        24,
+        314,
+        336
+      ],
+      "atlas": {
+        "file": "yard-props-v4.png",
+        "cell": [
+          336,
+          48,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/yard-maple-sapling-comparison.png"
+    },
+    {
+      "id": "key-fake-rock",
+      "file": "key-fake-rock-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "working": "working-8x/key-fake-rock-8x.png",
+      "crop": [
+        61,
+        104,
+        394,
+        362
+      ],
+      "fit": [
+        8,
+        26,
+        224,
+        174
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          0,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-fake-rock-comparison.png"
+    },
+    {
+      "id": "key-fake-rock-open",
+      "file": "key-fake-rock-open-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "working": "working-8x/key-fake-rock-open-8x.png",
+      "crop": [
+        64,
+        49,
+        378,
+        400
+      ],
+      "fit": [
+        34,
+        8,
+        172,
+        192
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          48,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-fake-rock-open-comparison.png"
+    },
+    {
+      "id": "key-lifted-mat",
+      "file": "key-lifted-mat-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "working": "working-8x/key-lifted-mat-8x.png",
+      "crop": [
+        24,
+        128,
+        402,
+        357
+      ],
+      "fit": [
+        24,
+        156,
+        336,
+        204
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          96,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-lifted-mat-comparison.png"
+    },
+    {
+      "id": "key-tipped-pot",
+      "file": "key-tipped-pot-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "working": "working-8x/key-tipped-pot-8x.png",
+      "crop": [
+        37,
+        91,
+        396,
+        377
+      ],
+      "fit": [
+        24,
+        92,
+        336,
+        268
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          144,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-tipped-pot-comparison.png"
+    },
+    {
+      "id": "key-mirror-key",
+      "file": "key-mirror-key-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "working": "working-8x/key-mirror-key-8x.png",
+      "crop": [
+        40,
+        83,
+        414,
+        349
+      ],
+      "fit": [
+        24,
+        121,
+        336,
+        239
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          192,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-mirror-key-comparison.png"
+    },
+    {
+      "id": "key-neighbor-mailbox",
+      "file": "key-neighbor-mailbox-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "BREAKABLE",
+      "footPoint": [
+        24,
+        44
+      ],
+      "footprints": [
+        [
+          3,
+          25,
+          42,
+          20
+        ]
+      ],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "working": "working-8x/key-neighbor-mailbox-8x.png",
+      "crop": [
+        91,
+        24,
+        351,
+        399
+      ],
+      "fit": [
+        75,
+        24,
+        233,
+        336
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          240,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-neighbor-mailbox-comparison.png"
+    },
+    {
+      "id": "key-house-key",
+      "file": "key-house-key-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "working": "working-8x/key-house-key-8x.png",
+      "crop": [
+        40,
+        73,
+        385,
+        353
+      ],
+      "fit": [
+        8,
+        47,
+        208,
+        169
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          288,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-house-key-comparison.png"
+    },
+    {
+      "id": "key-blank-note",
+      "file": "key-blank-note-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/key-hunt-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "working": "working-8x/key-blank-note-8x.png",
+      "crop": [
+        45,
+        40,
+        356,
+        374
+      ],
+      "fit": [
+        15,
+        8,
+        194,
+        208
+      ],
+      "atlas": {
+        "file": "key-hunt-v4.png",
+        "cell": [
+          336,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/key-blank-note-comparison.png"
+    },
+    {
+      "id": "bricks-sparse",
+      "file": "bricks-sparse-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/toy-bricks-generated.png",
+      "sourceSize": [
+        1717,
+        916
+      ],
+      "sourceRect": [
+        0,
+        0,
+        343,
+        916
+      ],
+      "working": "working-8x/bricks-sparse-8x.png",
+      "crop": [
+        57,
+        328,
+        274,
+        578
+      ],
+      "fit": [
+        36,
+        8,
+        167,
+        192
+      ],
+      "atlas": {
+        "file": "toy-bricks-v4.png",
+        "cell": [
+          0,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/bricks-sparse-comparison.png"
+    },
+    {
+      "id": "bricks-medium",
+      "file": "bricks-medium-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/toy-bricks-generated.png",
+      "sourceSize": [
+        1717,
+        916
+      ],
+      "sourceRect": [
+        343,
+        0,
+        687,
+        916
+      ],
+      "working": "working-8x/bricks-medium-8x.png",
+      "crop": [
+        62,
+        322,
+        275,
+        582
+      ],
+      "fit": [
+        45,
+        8,
+        197,
+        240
+      ],
+      "atlas": {
+        "file": "toy-bricks-v4.png",
+        "cell": [
+          48,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/bricks-medium-comparison.png"
+    },
+    {
+      "id": "bricks-dense",
+      "file": "bricks-dense-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/toy-bricks-generated.png",
+      "sourceSize": [
+        1717,
+        916
+      ],
+      "sourceRect": [
+        687,
+        0,
+        1030,
+        916
+      ],
+      "working": "working-8x/bricks-dense-8x.png",
+      "crop": [
+        34,
+        311,
+        302,
+        599
+      ],
+      "fit": [
+        33,
+        8,
+        253,
+        272
+      ],
+      "atlas": {
+        "file": "toy-bricks-v4.png",
+        "cell": [
+          96,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/bricks-dense-comparison.png"
+    },
+    {
+      "id": "bricks-very-dense",
+      "file": "bricks-very-dense-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/toy-bricks-generated.png",
+      "sourceSize": [
+        1717,
+        916
+      ],
+      "sourceRect": [
+        1030,
+        0,
+        1374,
+        916
+      ],
+      "working": "working-8x/bricks-very-dense-8x.png",
+      "crop": [
+        18,
+        295,
+        324,
+        603
+      ],
+      "fit": [
+        25,
+        8,
+        302,
+        304
+      ],
+      "atlas": {
+        "file": "toy-bricks-v4.png",
+        "cell": [
+          144,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/bricks-very-dense-comparison.png"
+    },
+    {
+      "id": "bricks-ouch",
+      "file": "bricks-ouch-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/toy-bricks-generated.png",
+      "sourceSize": [
+        1717,
+        916
+      ],
+      "sourceRect": [
+        1374,
+        0,
+        1717,
+        916
+      ],
+      "working": "working-8x/bricks-ouch-8x.png",
+      "crop": [
+        48,
+        337,
+        310,
+        550
+      ],
+      "fit": [
+        8,
+        32,
+        128,
+        104
+      ],
+      "atlas": {
+        "file": "toy-bricks-v4.png",
+        "cell": [
+          192,
+          0,
+          48,
+          48
+        ],
+        "artOffset": [
+          0,
+          0
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/bricks-ouch-comparison.png"
+    },
+    {
+      "id": "decal-leaf-drift",
+      "file": "decal-leaf-drift-v4.png",
+      "size": [
+        96,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        48,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        0,
+        0,
+        543,
+        362
+      ],
+      "working": "working-8x/decal-leaf-drift-8x.png",
+      "crop": [
+        70,
+        105,
+        543,
+        300
+      ],
+      "fit": [
+        24,
+        63,
+        720,
+        297
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          0,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          0,
+          8
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-leaf-drift-comparison.png"
+    },
+    {
+      "id": "decal-raked-scatter",
+      "file": "decal-raked-scatter-v4.png",
+      "size": [
+        64,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        32,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        543,
+        0,
+        1086,
+        362
+      ],
+      "working": "working-8x/decal-raked-scatter-8x.png",
+      "crop": [
+        0,
+        86,
+        543,
+        305
+      ],
+      "fit": [
+        24,
+        173,
+        464,
+        187
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          96,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          16,
+          8
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-raked-scatter-comparison.png"
+    },
+    {
+      "id": "decal-scattered-maple",
+      "file": "decal-scattered-maple-v4.png",
+      "size": [
+        48,
+        32
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        31
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        1086,
+        0,
+        1629,
+        362
+      ],
+      "working": "working-8x/decal-scattered-maple-8x.png",
+      "crop": [
+        0,
+        97,
+        543,
+        305
+      ],
+      "fit": [
+        24,
+        103,
+        336,
+        129
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          192,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          24,
+          16
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-scattered-maple-comparison.png"
+    },
+    {
+      "id": "decal-single-maple",
+      "file": "decal-single-maple-v4.png",
+      "size": [
+        32,
+        32
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        16,
+        31
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        1629,
+        0,
+        2172,
+        362
+      ],
+      "working": "working-8x/decal-single-maple-8x.png",
+      "crop": [
+        0,
+        111,
+        401,
+        278
+      ],
+      "fit": [
+        24,
+        145,
+        208,
+        87
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          288,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          32,
+          16
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-single-maple-comparison.png"
+    },
+    {
+      "id": "decal-gutter-leaves",
+      "file": "decal-gutter-leaves-v4.png",
+      "size": [
+        96,
+        32
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        48,
+        31
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        0,
+        362,
+        543,
+        724
+      ],
+      "working": "working-8x/decal-gutter-leaves-8x.png",
+      "crop": [
+        67,
+        126,
+        543,
+        223
+      ],
+      "fit": [
+        24,
+        85,
+        720,
+        147
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          384,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          0,
+          16
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-gutter-leaves-comparison.png"
+    },
+    {
+      "id": "decal-wind-row",
+      "file": "decal-wind-row-v4.png",
+      "size": [
+        64,
+        32
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        32,
+        31
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        543,
+        362,
+        1086,
+        724
+      ],
+      "working": "working-8x/decal-wind-row-8x.png",
+      "crop": [
+        0,
+        125,
+        543,
+        223
+      ],
+      "fit": [
+        24,
+        148,
+        464,
+        84
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          480,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          16,
+          16
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-wind-row-comparison.png"
+    },
+    {
+      "id": "decal-dry-oak",
+      "file": "decal-dry-oak-v4.png",
+      "size": [
+        48,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        24,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        1086,
+        362,
+        1629,
+        724
+      ],
+      "working": "working-8x/decal-dry-oak-8x.png",
+      "crop": [
+        0,
+        47,
+        543,
+        284
+      ],
+      "fit": [
+        24,
+        213,
+        336,
+        147
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          576,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          24,
+          8
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-dry-oak-comparison.png"
+    },
+    {
+      "id": "decal-twigs-leaves",
+      "file": "decal-twigs-leaves-v4.png",
+      "size": [
+        32,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        16,
+        47
+      ],
+      "footprints": [],
+      "source": "sources/leaf-decals-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceRect": [
+        1629,
+        362,
+        2172,
+        724
+      ],
+      "working": "working-8x/decal-twigs-leaves-8x.png",
+      "crop": [
+        0,
+        41,
+        423,
+        266
+      ],
+      "fit": [
+        24,
+        249,
+        208,
+        111
+      ],
+      "atlas": {
+        "file": "leaf-decals-v4.png",
+        "cell": [
+          672,
+          0,
+          96,
+          64
+        ],
+        "artOffset": [
+          32,
+          8
+        ]
+      },
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/decal-twigs-leaves-comparison.png"
+    },
+    {
+      "id": "picket-horizontal",
+      "file": "picket-horizontal-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          0,
+          44,
+          64,
+          20
+        ]
+      ],
+      "source": "sources/picket-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        0,
+        585,
+        435
+      ],
+      "working": "working-8x/picket-horizontal-8x.png",
+      "crop": [
+        65,
+        120,
+        501,
+        376
+      ],
+      "fit": [
+        0,
+        211,
+        512,
+        301
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/picket-horizontal-comparison.png"
+    },
+    {
+      "id": "picket-vertical",
+      "file": "picket-vertical-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          22,
+          0,
+          20,
+          64
+        ]
+      ],
+      "source": "sources/picket-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        585,
+        0,
+        1171,
+        435
+      ],
+      "working": "working-8x/picket-vertical-8x.png",
+      "crop": [
+        52,
+        25,
+        447,
+        419
+      ],
+      "fit": [
+        0,
+        1,
+        512,
+        511
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/picket-vertical-comparison.png"
+    },
+    {
+      "id": "picket-corner",
+      "file": "picket-corner-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          3,
+          41,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/picket-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        1171,
+        0,
+        1774,
+        435
+      ],
+      "working": "working-8x/picket-corner-8x.png",
+      "crop": [
+        41,
+        63,
+        506,
+        410
+      ],
+      "fit": [
+        0,
+        130,
+        512,
+        382
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/picket-corner-comparison.png"
+    },
+    {
+      "id": "picket-post",
+      "file": "picket-post-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          24,
+          44,
+          16,
+          20
+        ]
+      ],
+      "source": "sources/picket-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        444,
+        319,
+        887
+      ],
+      "working": "working-8x/picket-post-8x.png",
+      "crop": [
+        88,
+        64,
+        240,
+        400
+      ],
+      "fit": [
+        140,
+        0,
+        232,
+        512
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/picket-post-comparison.png"
+    },
+    {
+      "id": "picket-gate-closed",
+      "file": "picket-gate-closed-v4.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        95
+      ],
+      "footprints": [
+        [
+          0,
+          80,
+          128,
+          16
+        ]
+      ],
+      "source": "sources/picket-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        319,
+        444,
+        940,
+        887
+      ],
+      "working": "working-8x/picket-gate-closed-8x.png",
+      "crop": [
+        56,
+        28,
+        621,
+        416
+      ],
+      "fit": [
+        0,
+        65,
+        1024,
+        703
+      ],
+      "gateSpan": 96,
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/picket-gate-closed-comparison.png"
+    },
+    {
+      "id": "picket-gate-open",
+      "file": "picket-gate-open-v4.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        95
+      ],
+      "footprints": [
+        [
+          0,
+          80,
+          16,
+          16
+        ],
+        [
+          112,
+          80,
+          16,
+          16
+        ]
+      ],
+      "source": "sources/picket-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        976,
+        444,
+        1774,
+        887
+      ],
+      "working": "working-8x/picket-gate-open-8x.png",
+      "crop": [
+        69,
+        28,
+        741,
+        416
+      ],
+      "fit": [
+        0,
+        177,
+        1024,
+        591
+      ],
+      "clearSpan": {
+        "axis": "x",
+        "start": 16,
+        "size": 96
+      },
+      "cleanup": "Open state composed from its painted post components at exact96px separation; no generated geometry.",
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/picket-gate-open-comparison.png"
+    },
+    {
+      "id": "wood-horizontal",
+      "file": "wood-horizontal-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          0,
+          44,
+          64,
+          20
+        ]
+      ],
+      "source": "sources/wood-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        0,
+        585,
+        435
+      ],
+      "working": "working-8x/wood-horizontal-8x.png",
+      "crop": [
+        73,
+        111,
+        504,
+        381
+      ],
+      "fit": [
+        0,
+        191,
+        512,
+        321
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/wood-horizontal-comparison.png"
+    },
+    {
+      "id": "wood-vertical",
+      "file": "wood-vertical-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          22,
+          0,
+          20,
+          64
+        ]
+      ],
+      "source": "sources/wood-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        585,
+        0,
+        1171,
+        435
+      ],
+      "working": "working-8x/wood-vertical-8x.png",
+      "crop": [
+        102,
+        12,
+        456,
+        427
+      ],
+      "fit": [
+        37,
+        0,
+        437,
+        512
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/wood-vertical-comparison.png"
+    },
+    {
+      "id": "wood-corner",
+      "file": "wood-corner-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          3,
+          41,
+          58,
+          20
+        ]
+      ],
+      "source": "sources/wood-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        1171,
+        0,
+        1774,
+        435
+      ],
+      "working": "working-8x/wood-corner-8x.png",
+      "crop": [
+        37,
+        75,
+        467,
+        409
+      ],
+      "fit": [
+        0,
+        114,
+        512,
+        398
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/wood-corner-comparison.png"
+    },
+    {
+      "id": "wood-post",
+      "file": "wood-post-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        60
+      ],
+      "footprints": [
+        [
+          24,
+          44,
+          16,
+          20
+        ]
+      ],
+      "source": "sources/wood-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        0,
+        444,
+        426,
+        887
+      ],
+      "working": "working-8x/wood-post-8x.png",
+      "crop": [
+        178,
+        74,
+        284,
+        384
+      ],
+      "fit": [
+        168,
+        0,
+        175,
+        512
+      ],
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/wood-post-comparison.png"
+    },
+    {
+      "id": "wood-gate-closed",
+      "file": "wood-gate-closed-v4.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        95
+      ],
+      "footprints": [
+        [
+          0,
+          80,
+          128,
+          16
+        ]
+      ],
+      "source": "sources/wood-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        426,
+        444,
+        1029,
+        887
+      ],
+      "working": "working-8x/wood-gate-closed-8x.png",
+      "crop": [
+        59,
+        30,
+        562,
+        397
+      ],
+      "fit": [
+        0,
+        21,
+        1024,
+        747
+      ],
+      "gateSpan": 96,
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/wood-gate-closed-comparison.png"
+    },
+    {
+      "id": "wood-gate-open",
+      "file": "wood-gate-open-v4.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        95
+      ],
+      "footprints": [
+        [
+          0,
+          80,
+          16,
+          16
+        ],
+        [
+          112,
+          80,
+          16,
+          16
+        ]
+      ],
+      "source": "sources/wood-fence-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceRect": [
+        1064,
+        444,
+        1774,
+        887
+      ],
+      "working": "working-8x/wood-gate-open-8x.png",
+      "crop": [
+        41,
+        30,
+        622,
+        431
+      ],
+      "fit": [
+        0,
+        61,
+        1024,
+        707
+      ],
+      "clearSpan": {
+        "axis": "x",
+        "start": 16,
+        "size": 96
+      },
+      "cleanup": "Open state composed from its painted post components at exact96px separation; no generated geometry.",
+      "oldNote": "Rejected v3 native sprite versus painted v4.",
+      "oldFile": "old/wood-gate-open-comparison.png"
+    },
+    {
+      "id": "ground-young-family",
+      "file": "ground-young-family-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-young-family-generated.png",
+      "sourceSize": [
+        1209,
+        1300
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1209,
+        1300
+      ],
+      "working": "working-8x/ground-young-family-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        2,
+        0,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-young-family-comparison.png"
+    },
+    {
+      "id": "ground-retirees",
+      "file": "ground-retirees-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-retirees-generated.png",
+      "sourceSize": [
+        1211,
+        1299
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1211,
+        1299
+      ],
+      "working": "working-8x/ground-retirees-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        6,
+        0,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-retirees-comparison.png"
+    },
+    {
+      "id": "ground-grill-master",
+      "file": "ground-grill-master-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-grill-master-generated.png",
+      "sourceSize": [
+        1209,
+        1301
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1209,
+        1301
+      ],
+      "working": "working-8x/ground-grill-master-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        1,
+        0,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-grill-master-comparison.png"
+    },
+    {
+      "id": "ground-fixer-upper",
+      "file": "ground-fixer-upper-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-fixer-upper-generated.png",
+      "sourceSize": [
+        1208,
+        1302
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1208,
+        1302
+      ],
+      "working": "working-8x/ground-fixer-upper-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        1,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-fixer-upper-comparison.png"
+    },
+    {
+      "id": "ground-hoa-president",
+      "file": "ground-hoa-president-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-hoa-president-generated.png",
+      "sourceSize": [
+        1209,
+        1300
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1209,
+        1300
+      ],
+      "working": "working-8x/ground-hoa-president-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        2,
+        0,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-hoa-president-comparison.png"
+    },
+    {
+      "id": "ground-halloween",
+      "file": "ground-halloween-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-halloween-generated.png",
+      "sourceSize": [
+        1209,
+        1300
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1209,
+        1300
+      ],
+      "working": "working-8x/ground-halloween-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        2,
+        0,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-halloween-comparison.png"
+    },
+    {
+      "id": "ground-player",
+      "file": "ground-player-v4.png",
+      "size": [
+        416,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        208,
+        447
+      ],
+      "footprints": [],
+      "source": "sources/yard-player-generated.png",
+      "sourceSize": [
+        1210,
+        1300
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1210,
+        1300
+      ],
+      "working": "working-8x/ground-player-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        4,
+        0,
+        3328,
+        3584
+      ],
+      "wholeCanvas": true,
+      "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
+      "oldNote": "Old yard with baked furniture versus new ground-only plate.",
+      "oldFile": "old/ground-player-comparison.png"
+    },
+    {
+      "id": "lawn-a",
+      "file": "lawn-a-v4.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "source": "sources/lawn-a-redo-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "working": "working-8x/lawn-a-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        0,
+        4096,
+        4096
+      ],
+      "wholeCanvas": true,
+      "seamCleanup": "Shared painted edge strips joined by irregular minimum-error pixel cuts; no blur or procedural grass shapes. Common endpoint ring for all A/B pairs.",
+      "oldNote": "Old painted lawn v2 versus new512px lawn.",
+      "oldFile": "old/lawn-a-comparison.png"
+    },
+    {
+      "id": "lawn-b",
+      "file": "lawn-b-v4.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "source": "sources/lawn-b-redo-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceRect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "working": "working-8x/lawn-b-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        0,
+        4096,
+        4096
+      ],
+      "wholeCanvas": true,
+      "seamCleanup": "Shared painted edge strips joined by irregular minimum-error pixel cuts; no blur or procedural grass shapes. Common endpoint ring for all A/B pairs.",
+      "oldNote": "Old painted lawn v2 versus new512px lawn.",
+      "oldFile": "old/lawn-b-comparison.png"
+    }
+  ]
+}

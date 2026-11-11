@@ -2238,3 +2238,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Each strip starts at a corner, so that join is clean. The far end of each side is cut mid-strip because the town isn't a whole number of strips long. It shows as a faint line at three corners (worst at the bottom right).
 - Fix if it bothers Rami: two short filler pieces from Codex (704 px for top and bottom, 128 px for the sides).
 - Batch A is finished. Next is Batch B.
+
+## 2026-11-11: Painted backyard kit ready for review (Codex)
+- Batch B contains 79 pieces with separate furniture and plain yard grounds, plus two 512px lawns.
+- Review includes native old/new comparisons, hero scale, 96px gates and self/mixed lawn repeats.
+- Art and docs only, on a review branch. Claude integrates after Rami approves.

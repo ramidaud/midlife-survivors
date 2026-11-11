@@ -1,0 +1,926 @@
+{
+  "pieces": [
+    {
+      "id": "trampoline",
+      "size": [
+        160,
+        128
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "swing-set",
+      "size": [
+        160,
+        160
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 20,
+      "opaque": false
+    },
+    {
+      "id": "kiddie-pool",
+      "size": [
+        128,
+        80
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 18,
+      "opaque": false
+    },
+    {
+      "id": "sandbox",
+      "size": [
+        96,
+        80
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "raised-garden-bed",
+      "size": [
+        128,
+        80
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 18,
+      "opaque": false
+    },
+    {
+      "id": "tomato-trellis",
+      "size": [
+        96,
+        144
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 19,
+      "opaque": false
+    },
+    {
+      "id": "fire-pit",
+      "size": [
+        96,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 18,
+      "opaque": false
+    },
+    {
+      "id": "adirondack-chair",
+      "size": [
+        64,
+        80
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "wicker-chair",
+      "size": [
+        64,
+        72
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 13,
+      "opaque": false
+    },
+    {
+      "id": "wicker-table",
+      "size": [
+        64,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "grill",
+      "size": [
+        96,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 12,
+      "opaque": false
+    },
+    {
+      "id": "smoker",
+      "size": [
+        64,
+        112
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 11,
+      "opaque": false
+    },
+    {
+      "id": "patio-table",
+      "size": [
+        128,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "bird-feeder",
+      "size": [
+        48,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "bird-bath",
+      "size": [
+        64,
+        80
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "koi-pond",
+      "size": [
+        128,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 18,
+      "opaque": false
+    },
+    {
+      "id": "stone-lantern",
+      "size": [
+        48,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 15,
+      "opaque": false
+    },
+    {
+      "id": "wheelbarrow",
+      "size": [
+        96,
+        80
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "pallet-pile",
+      "size": [
+        96,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "cinder-blocks",
+      "size": [
+        64,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 15,
+      "opaque": false
+    },
+    {
+      "id": "soccer-goal",
+      "size": [
+        160,
+        112
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 19,
+      "opaque": false
+    },
+    {
+      "id": "yard-mailbox",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 15,
+      "opaque": false
+    },
+    {
+      "id": "yard-garden-gnome",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 18,
+      "opaque": false
+    },
+    {
+      "id": "yard-plastic-flamingo",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "yard-trash-bin",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 10,
+      "opaque": false
+    },
+    {
+      "id": "yard-recycling-bin",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": false
+    },
+    {
+      "id": "yard-lawn-sprinkler",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 12,
+      "opaque": false
+    },
+    {
+      "id": "yard-leaf-pile",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 6,
+      "opaque": false
+    },
+    {
+      "id": "yard-blank-yard-sign",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "yard-carved-pumpkin",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "yard-hay-bale",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 10,
+      "opaque": false
+    },
+    {
+      "id": "yard-rake",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "yard-kiddie-pool",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "yard-garden-hose",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 15,
+      "opaque": false
+    },
+    {
+      "id": "yard-birdbath",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 12,
+      "opaque": false
+    },
+    {
+      "id": "yard-fire-hydrant",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 13,
+      "opaque": false
+    },
+    {
+      "id": "yard-maple-sapling",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 13,
+      "opaque": false
+    },
+    {
+      "id": "key-fake-rock",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 10,
+      "opaque": false
+    },
+    {
+      "id": "key-fake-rock-open",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 13,
+      "opaque": false
+    },
+    {
+      "id": "key-lifted-mat",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 12,
+      "opaque": false
+    },
+    {
+      "id": "key-tipped-pot",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 11,
+      "opaque": false
+    },
+    {
+      "id": "key-mirror-key",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 15,
+      "opaque": false
+    },
+    {
+      "id": "key-neighbor-mailbox",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "key-house-key",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "key-blank-note",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 10,
+      "opaque": false
+    },
+    {
+      "id": "bricks-sparse",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "bricks-medium",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "bricks-dense",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "bricks-very-dense",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "bricks-ouch",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": false
+    },
+    {
+      "id": "decal-leaf-drift",
+      "size": [
+        96,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 10,
+      "opaque": false
+    },
+    {
+      "id": "decal-raked-scatter",
+      "size": [
+        64,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": false
+    },
+    {
+      "id": "decal-scattered-maple",
+      "size": [
+        48,
+        32
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 5,
+      "opaque": false
+    },
+    {
+      "id": "decal-single-maple",
+      "size": [
+        32,
+        32
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 6,
+      "opaque": false
+    },
+    {
+      "id": "decal-gutter-leaves",
+      "size": [
+        96,
+        32
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": false
+    },
+    {
+      "id": "decal-wind-row",
+      "size": [
+        64,
+        32
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": false
+    },
+    {
+      "id": "decal-dry-oak",
+      "size": [
+        48,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 8,
+      "opaque": false
+    },
+    {
+      "id": "decal-twigs-leaves",
+      "size": [
+        32,
+        48
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 2,
+      "opaque": false
+    },
+    {
+      "id": "picket-horizontal",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 20,
+      "opaque": false
+    },
+    {
+      "id": "picket-vertical",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 18,
+      "opaque": false
+    },
+    {
+      "id": "picket-corner",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "picket-post",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "picket-gate-closed",
+      "size": [
+        128,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 20,
+      "opaque": false
+    },
+    {
+      "id": "picket-gate-open",
+      "size": [
+        128,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": false
+    },
+    {
+      "id": "wood-horizontal",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "wood-vertical",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "wood-corner",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "wood-post",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "wood-gate-closed",
+      "size": [
+        128,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": false
+    },
+    {
+      "id": "wood-gate-open",
+      "size": [
+        128,
+        96
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 14,
+      "opaque": false
+    },
+    {
+      "id": "ground-young-family",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 15,
+      "opaque": true
+    },
+    {
+      "id": "ground-retirees",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": true
+    },
+    {
+      "id": "ground-grill-master",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": true
+    },
+    {
+      "id": "ground-fixer-upper",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": true
+    },
+    {
+      "id": "ground-hoa-president",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 16,
+      "opaque": true
+    },
+    {
+      "id": "ground-halloween",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": true
+    },
+    {
+      "id": "ground-player",
+      "size": [
+        416,
+        448
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 17,
+      "opaque": true
+    },
+    {
+      "id": "lawn-a",
+      "size": [
+        512,
+        512
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": true
+    },
+    {
+      "id": "lawn-b",
+      "size": [
+        512,
+        512
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "colorsUsed": 7,
+      "opaque": true
+    }
+  ],
+  "lawnSeams": [
+    {
+      "from": "a",
+      "to": "a",
+      "axis": "x",
+      "equalRGBA": true
+    },
+    {
+      "from": "a",
+      "to": "a",
+      "axis": "y",
+      "equalRGBA": true
+    },
+    {
+      "from": "a",
+      "to": "b",
+      "axis": "x",
+      "equalRGBA": true
+    },
+    {
+      "from": "a",
+      "to": "b",
+      "axis": "y",
+      "equalRGBA": true
+    },
+    {
+      "from": "b",
+      "to": "a",
+      "axis": "x",
+      "equalRGBA": true
+    },
+    {
+      "from": "b",
+      "to": "a",
+      "axis": "y",
+      "equalRGBA": true
+    },
+    {
+      "from": "b",
+      "to": "b",
+      "axis": "x",
+      "equalRGBA": true
+    },
+    {
+      "from": "b",
+      "to": "b",
+      "axis": "y",
+      "equalRGBA": true
+    }
+  ],
+  "gateClearSpan96": true,
+  "runtimeChanged": false,
+  "visualChecks": "Native contacts, old/new1x4x, separate-prop assembled yards, self/mixed2x2 and mixed4x4 lawns. Static art mockups only."
+}

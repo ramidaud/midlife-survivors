@@ -490,3 +490,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [x] Flow portrait batch 2, twenty clean PNGs and review page.
 - [x] Seven Performance Review intro layers, unchanged plate and four-second preview.
 - [ ] Rami reviews both art sets; Claude wires the intro playback.
+
+### Codex art review, Nov 11
+- [x] Paint Batch B backyard furniture, plain ground, props, gates and two 512px lawns; prepare comparisons.
+- [ ] Rami reviews Batch B PR before Claude integrates it.

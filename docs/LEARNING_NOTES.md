@@ -815,3 +815,6 @@ There are two ways an AI can make a sprite. An image model paints it, the way a 
 
 ## Camera bounds (Nov 11, the tree wall)
 The world is bigger than the screen, and the camera is a window that follows the hero. Camera bounds are a rectangle the window is not allowed to leave. The hero can walk right up to the edge of the map, but the window stops early, so you never see the empty space past the art. The tree wall is 192 px thick and the bounds sit at its outside edge. That is why the forest always fills the screen edge and never ends.
+
+## 2026-11-11: Ground and objects have different jobs (Codex)
+Keeping furniture separate lets the game sort feet behind objects and assign accurate floor footprints. A plain ground plate adds texture without hiding a solid obstacle inside a picture. Matching tile edges is only a technical check: an assembled repeat preview reveals patterns and joins that numbers cannot judge.
