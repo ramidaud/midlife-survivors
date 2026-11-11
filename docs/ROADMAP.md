@@ -84,6 +84,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Maple Hollow v2 step 2a (V2.28.0): the big house ground floor (option C, rooms 2x wide) and the front-door walk-through
 - [x] Maple Hollow v2 step 2b (V2.28.1): upstairs (Abe's room, the main bedroom) and the stair climb both ways
 - [ ] Check in a real browser: do the walkers near the stairs follow you up? (the slow test browser couldn't show it)
+- [ ] Rami: hand Codex the art direction audit brief (docs/handoffs/codex-art-direction-audit.md): sprites in motion, effects, bosses, UI over art, and an art request list
 - [ ] Maple Hollow v2 step 2c: fill the big rooms (rugs, plants, lamps, shelves, from Rami's photos) and your desk's Ship It buff
 - [ ] Maple Hollow v2 step 3: one thing to do in each backyard, the desk's Ship It buff, Grok's spawn rules
 - [ ] Later (Rami): make sure the office doesn't feel light on bosses

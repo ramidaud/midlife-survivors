@@ -2171,3 +2171,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New Camera setting on big monitors: CLOSE (default) or WIDE. Rami wasn't sure which, so he can try both and pick the default.
 - Rami said yes to "Pixel rules for the world" in CLAUDE.md.
 - Tested at laptop, 1080p, MacBook and phone sizes in both stages. Not yet seen on a real device.
+
+## 2026-11-11 (12:50 AM): art direction audit brief for Codex
+- Rami: "I want every pixel in this game to be stunning and to play well with the sprites and on-screen effects and UI/UX."
+- Wrote a Codex brief that builds on the level art audit instead of repeating it: sprites in motion, weapons and effects, bosses, UI over art, stages, and a ready-to-send art request list with exact sizes.
+- Applied the V2.28.2 flashing patch from another session. A second session shipped V2.29.0 (the crisp pass) at the same time as this one built the same fix; this session's copy is kept on the branch backup/pixel-rules-dup. One session at a time from here.
