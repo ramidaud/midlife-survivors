@@ -812,3 +812,7 @@ Pixel art is a grid of little squares. Show it at 2x and every square becomes a 
 
 ## Painted vs. drawn with code (Nov 11, the art redo)
 There are two ways an AI can make a sprite. An image model paints it, the way a person would, and gets shading, texture and character for free, but it can't hit exact pixels, so the picture has to be reduced afterward. A coding agent can place every pixel exactly, but it only thinks in shapes: rectangles, lines, flat fills. Ask it for "exact pixels, no shrinking" and you get a flamingo made of an oval and four sticks. The good pipeline uses both: paint big at a whole-number multiple, reduce cleanly, then fix the few pixels that broke.
+
+
+## Review the reduced painting (Nov 11, 2026, Codex)
+An enlarged painting can carry material shading that disappears at native size. An exact 8x8 block-mode reduction keeps hard edges; the final sprite still needs a native-size check for tiny eyes, teeth and wire legs. Save the original source size when an image tool ignores the requested dimensions.

@@ -1,0 +1,177 @@
+{
+  "checks": [
+    {
+      "id": "flamingo",
+      "size": [
+        48,
+        48
+      ],
+      "offPalette": 0,
+      "colorsUsed": 14,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "gnome",
+      "size": [
+        48,
+        48
+      ],
+      "offPalette": 0,
+      "colorsUsed": 18,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "mailbox",
+      "size": [
+        48,
+        48
+      ],
+      "offPalette": 0,
+      "colorsUsed": 15,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "trash-bin",
+      "size": [
+        48,
+        48
+      ],
+      "offPalette": 0,
+      "colorsUsed": 10,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "red-maple",
+      "size": [
+        160,
+        192
+      ],
+      "offPalette": 0,
+      "colorsUsed": 14,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "lawn-patch",
+      "size": [
+        128,
+        128
+      ],
+      "offPalette": 0,
+      "colorsUsed": 10,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "bicycle",
+      "size": [
+        96,
+        64
+      ],
+      "offPalette": 0,
+      "colorsUsed": 19,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    },
+    {
+      "id": "bill",
+      "size": [
+        384,
+        48
+      ],
+      "offPalette": 0,
+      "colorsUsed": 13,
+      "partialAlpha": 0,
+      "workingExactly8x": true
+    }
+  ],
+  "lawnHorizontalEdge": true,
+  "lawnVerticalEdge": true,
+  "billMouthRepairs": [
+    {
+      "frame": 0,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 1,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 2,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 3,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 4,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 5,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 6,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    },
+    {
+      "frame": 7,
+      "rect": [
+        23,
+        29,
+        11,
+        4
+      ],
+      "teeth": 3
+    }
+  ],
+  "runtimeChanged": false
+}

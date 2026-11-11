@@ -481,3 +481,8 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [x] Flow portrait batch 2, twenty clean PNGs and review page.
 - [x] Seven Performance Review intro layers, unchanged plate and four-second preview.
 - [ ] Rami reviews both art sets; Claude wires the intro playback.
+
+
+## 2026-11-11: Painted redo checkpoint (Codex)
+- [x] Prepare Step 0 eight-piece painted sample with native/4x comparisons and source/working rasters.
+- [ ] Rami reviews the Step 0 PR before any replacement outdoor or house kit proceeds.

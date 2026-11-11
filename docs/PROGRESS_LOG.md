@@ -2201,3 +2201,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Kept: the four hero sheets (recolors of the existing sprites; khaki slacks are back). Live in V2.29.2, checked in the game for all four heroes.
 - Rejected: Bill's flat repaint (third try asked for), the house fill and the outdoor kit. PR #1 stays unmerged. The outdoor kit also skipped the tree wall and the separate yard furniture.
 - New rule (Rami's yes): world art is painted, then reduced by a whole number. New brief asks Codex for a sample of eight pieces first.
+
+
+## 2026-11-11: Painted Step 0 sample (Codex)
+- Pulled V2.29.2 and prepared only the eight redo samples, with old/new native and 4x checks. Previous boundary work remains safely stashed.
+- Source paintings and exact 8x working rasters are retained, with the image-tool size limitation disclosed. Final size/palette/alpha and lawn seam checks pass.
+- Art/docs review branch only. No existing sprites, runtime or version changed; await Rami review before full kits.

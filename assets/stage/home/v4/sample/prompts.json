@@ -1,0 +1,53 @@
+{
+  "style": "Paint a finished Midlife Survivors game asset, not a geometry diagram. Match the provided old v1 prop atlas: charming handmade 16-bit pixel clusters, top-down three-quarter camera, visible three-tone shading per material, upper-left light, navy silhouette outline 8 pixels thick at this 8x working resolution. Neutral white balance, no sepia or haze. Exact flat #FF00FF background, no cast shadow, no text/logos. At least three hue-shifted shades for each material. Palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B. Final raster will be reduced by exact 8x8 block mode. Draw coherent clusters aligned to that intended logical grid.",
+  "generationMethod": "Eight separate built-in image generation requests. Original generated raster sizes retained. Proportional nearest-neighbor fit to exact 8x working canvases, then exact mode of each 8x8 RGB block, semantic material palette mapping, hard-alpha magenta key. See manifest for source sizes and fit rectangles.",
+  "pieces": [
+    {
+      "id": "flamingo",
+      "source": "sources/flamingo-generated.png",
+      "subjectPrompt": "384x384 working request, 48x48 final. Pink plastic flamingo on two thin wire legs in grass, curved neck, dark beak tip, sun-faded plastic shine."
+    },
+    {
+      "id": "gnome",
+      "source": "sources/gnome-generated.png",
+      "subjectPrompt": "384x384 working request, 48x48 final. Ceramic gnome, tall russet pointed hat, full cream beard, teal coat, round nose, chipped paint, grass."
+    },
+    {
+      "id": "mailbox",
+      "source": "sources/mailbox-generated.png",
+      "subjectPrompt": "384x384 working request, 48x48 final. Rounded slate mailbox on weathered wooden post, raised russet flag, grass."
+    },
+    {
+      "id": "trash-bin",
+      "source": "sources/trash-bin-generated.png",
+      "subjectPrompt": "384x384 working request, 48x48 final. Three-quarter teal wheeled bin, hinged lid, two wheels, molded ribs, scuffs and dent."
+    },
+    {
+      "id": "red-maple",
+      "source": "sources/red-maple-generated.png",
+      "subjectPrompt": "1280x1536 working request, 160x192 final. Full maple, layered red/russet/peach leaf clusters, gaps and branches, thick trunk/root flare, falling leaves."
+    },
+    {
+      "id": "lawn-patch",
+      "source": "sources/lawn-patch-generated.png",
+      "subjectPrompt": "1024x1024 working request, 128x128 seamless final. Quiet lawn, broad approved greens, clumps, clover, sparse russet leaves. No outlines or noise."
+    },
+    {
+      "id": "bicycle",
+      "source": "sources/bicycle-generated.png",
+      "subjectPrompt": "768x512 working request, 96x64 final. Kid bicycle on kickstand, teal frame, cream tires/tread, spokes, basket, three-quarter right."
+    },
+    {
+      "id": "bill",
+      "source": "sources/bill-generated.png",
+      "subjectPrompt": "3072x384 working request, eight48x48 cells final. Shaded v2 paper with clear v3 brows and three separate teeth. Eight waddle phases. Same local foot line."
+    }
+  ],
+  "references": [
+    "assets/stage/home/maple-hollow-tiles-props-v1.png",
+    "assets/stage/home/maple-hollow-houses-v1.png",
+    "assets/stage/home/lawn-v2-a.png",
+    "assets/enemies/enemy-bill-v2.png",
+    "assets/enemies/enemy-bill-v3.png"
+  ]
+}

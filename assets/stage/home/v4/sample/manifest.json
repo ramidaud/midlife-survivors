@@ -1,0 +1,394 @@
+{
+  "status": "Step 0 only; awaiting review",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B"
+  ],
+  "pieces": [
+    {
+      "id": "flamingo",
+      "file": "flamingo-v1.png",
+      "size": [
+        48,
+        48
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "workingSize": [
+        384,
+        384
+      ],
+      "working": "working-8x/flamingo-8x.png",
+      "source": "sources/flamingo-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "BREAKABLE",
+      "sourceCrop": [
+        257,
+        145,
+        951,
+        1106
+      ],
+      "workingFit": [
+        70,
+        24,
+        243,
+        336
+      ],
+      "handFix": "Slate highlight on existing thin wire-leg pixels, no silhouette changes."
+    },
+    {
+      "id": "gnome",
+      "file": "gnome-v1.png",
+      "size": [
+        48,
+        48
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "workingSize": [
+        384,
+        384
+      ],
+      "working": "working-8x/gnome-8x.png",
+      "source": "sources/gnome-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "BREAKABLE",
+      "sourceCrop": [
+        298,
+        96,
+        935,
+        1145
+      ],
+      "workingFit": [
+        90,
+        24,
+        204,
+        336
+      ],
+      "handFix": "Two eye pixels under hat brim."
+    },
+    {
+      "id": "mailbox",
+      "file": "mailbox-v1.png",
+      "size": [
+        48,
+        48
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "workingSize": [
+        384,
+        384
+      ],
+      "working": "working-8x/mailbox-8x.png",
+      "source": "sources/mailbox-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "BREAKABLE",
+      "sourceCrop": [
+        340,
+        137,
+        864,
+        1104
+      ],
+      "workingFit": [
+        101,
+        24,
+        182,
+        336
+      ]
+    },
+    {
+      "id": "trash-bin",
+      "file": "trash-bin-v1.png",
+      "size": [
+        48,
+        48
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "workingSize": [
+        384,
+        384
+      ],
+      "working": "working-8x/trash-bin-8x.png",
+      "source": "sources/trash-bin-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "BREAKABLE",
+      "sourceCrop": [
+        274,
+        166,
+        970,
+        1081
+      ],
+      "workingFit": [
+        64,
+        24,
+        256,
+        336
+      ]
+    },
+    {
+      "id": "red-maple",
+      "file": "red-maple-v1.png",
+      "size": [
+        160,
+        192
+      ],
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "workingSize": [
+        1280,
+        1536
+      ],
+      "working": "working-8x/red-maple-8x.png",
+      "source": "sources/red-maple-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "WALL",
+      "sourceCrop": [
+        19,
+        150,
+        1008,
+        1390
+      ],
+      "workingFit": [
+        46,
+        24,
+        1187,
+        1488
+      ]
+    },
+    {
+      "id": "lawn-patch",
+      "file": "lawn-patch-v1.png",
+      "size": [
+        128,
+        128
+      ],
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "working": "working-8x/lawn-patch-8x.png",
+      "source": "sources/lawn-patch-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "WALK-THROUGH"
+    },
+    {
+      "id": "bicycle",
+      "file": "bicycle-v1.png",
+      "size": [
+        96,
+        64
+      ],
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "workingSize": [
+        768,
+        512
+      ],
+      "working": "working-8x/bicycle-8x.png",
+      "source": "sources/bicycle-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "WALL",
+      "sourceCrop": [
+        214,
+        103,
+        1310,
+        924
+      ],
+      "workingFit": [
+        74,
+        24,
+        619,
+        464
+      ]
+    },
+    {
+      "id": "bill",
+      "file": "bill-v1.png",
+      "size": [
+        384,
+        48
+      ],
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "workingSize": [
+        3072,
+        384
+      ],
+      "working": "working-8x/bill-8x.png",
+      "source": "sources/bill-generated.png",
+      "reduction": 8,
+      "method": "mode of exact 8x8 RGBA block, then material-aware palette mapping",
+      "category": "ENEMY",
+      "frameFits": [
+        {
+          "sourceCrop": [
+            30,
+            241,
+            244,
+            495
+          ],
+          "workingFit": [
+            50,
+            24,
+            283,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            38,
+            246,
+            239,
+            491
+          ],
+          "workingFit": [
+            54,
+            24,
+            276,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            37,
+            242,
+            240,
+            494
+          ],
+          "workingFit": [
+            56,
+            24,
+            271,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            34,
+            252,
+            241,
+            488
+          ],
+          "workingFit": [
+            44,
+            24,
+            295,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            29,
+            241,
+            240,
+            493
+          ],
+          "workingFit": [
+            51,
+            24,
+            281,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            31,
+            252,
+            240,
+            488
+          ],
+          "workingFit": [
+            43,
+            24,
+            298,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            36,
+            247,
+            244,
+            497
+          ],
+          "workingFit": [
+            52,
+            24,
+            280,
+            336
+          ]
+        },
+        {
+          "sourceCrop": [
+            36,
+            243,
+            243,
+            491
+          ],
+          "workingFit": [
+            52,
+            24,
+            280,
+            336
+          ]
+        }
+      ],
+      "handFix": "Three separated teeth in each existing mouth."
+    }
+  ],
+  "goldProposal": null,
+  "sourceSizeCaveat": "Image generation did not honor requested raster sizes. Sources are retained unchanged. Each painted subject is fitted proportionally with nearest-neighbor into an exact 8x working canvas before exact block-mode reduction. No code geometry is used to construct subjects.",
+  "lawnSeamRepair": "Duplicate first/last edge row and column after reduction; interior unchanged.",
+  "oldReferences": {
+    "fourSmallProps": "Painted v1 atlas row4, native32x32; rejected v3 also included.",
+    "red-maple": "Prior rejected v3 native160x192",
+    "lawn-patch": "128x128 crop of painted lawn-v2-a; rejected v3 also included.",
+    "bicycle": "Prior rejected house2-fill bicycle-1, native80x64",
+    "bill": "enemy-bill-v2, native48x48 cells"
+  }
+}
