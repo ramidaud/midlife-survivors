@@ -1,0 +1,10 @@
+{
+  "task": "Job 1 native material repaint only",
+  "brief": "docs/handoffs/codex-level-art-pass.md",
+  "source": "assets/characters/grad-student-walk-56x60-v3.png",
+  "output": "assets/characters/grad-student-walk-56x60-v4.png",
+  "rules": "Keep source alpha mask, layout, frame order, shoe lines and timing. Paint directly at native resolution inside existing silhouette. Assign palette by material, never nearest-color snapping or downsampled generation. Upper-left light, neutral white balance, one-pixel navy silhouette, transparent binary alpha. Hold idle clothing and head color fields steady; retain hand/prop/blink changes. No gameplay or runtime edits.",
+  "materials": "Lavender hoodie, brown bun and backpack, slate gray streak, glasses, dark pants, notebook and orange mug",
+  "process": "Generated five-character material pose study, then explicit native-pixel repaint using original sheet masks; generation study never resampled into export. Idle colors stabilized at fixed pixel coordinates.",
+  "study": "01a19480-9eee-76b1-beaf-6583e4d453d7/exec-8acb25c1-1755-483c-abb7-b7ee24f58fca.png"
+}
