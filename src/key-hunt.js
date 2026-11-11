@@ -129,6 +129,29 @@ window.KeyHunt = (() => {
     if (typeof pings !== "undefined" && pings) pings.getChildren().slice().forEach(pg => pg.destroy());
     if (window.NAV && NAV.invalidate) NAV.invalidate();
   }
+  // Walking through a door (Maple v2 step 2, Rami: "animate them going into the house"): you shrink a little and fade
+  // into the doorway while the screen fades, then step through on the other side. Nothing can hit you meanwhile.
+  function walkThrough(scene, goingIn) {
+    const P = MAPLE_HOLLOW.house2, ms = P && P.on && MAPLE_HOLLOW.interior.h2 ? (P.transitMs || 520) : 0;
+    if (!ms) return goingIn ? goInside(scene) : goOutside(scene);
+    if (window.homeTransit) return;
+    window.homeTransit = true; st.armed = false;
+    setTimeout(() => { window.homeTransit = false; }, ms * 4); // backstop: a pause mid-door can never leave you stuck
+    const cam = scene.cameras.main, sx = player.scaleX, sy = player.scaleY, half = Math.round(ms / 2);
+    scene.tweens.add({ targets: player, alpha: 0, scaleX: sx * 0.82, scaleY: sy * 0.82, duration: Math.round(half * 0.85) });
+    cam.fadeOut(half, 23, 28, 53);
+    scene.time.delayedCall(half, () => {
+      if (goingIn) goInside(scene); else goOutside(scene);
+      const x0 = player.x, y0 = player.y, dx = goingIn ? 34 : 0, dy = goingIn ? 0 : 30;
+      player.body.reset(x0 - dx, y0 - dy); player.setFlipX(false);
+      cam.fadeIn(half, 23, 28, 53);
+      const step = { t: 0 };
+      scene.tweens.add({ targets: player, alpha: 1, scaleX: sx, scaleY: sy, duration: half });
+      scene.tweens.add({ targets: step, t: 1, duration: half, ease: "Sine.easeOut",
+        onUpdate: () => player.body.reset(x0 - dx * (1 - step.t), y0 - dy * (1 - step.t)),
+        onComplete: () => { window.homeTransit = false; } });
+    });
+  }
   function goInside(scene) {
     const I = MAPLE_HOLLOW.interior, C = I;
     st.inside = true; st.armed = false;
@@ -146,12 +169,14 @@ window.KeyHunt = (() => {
     if (!st.inside) {
       const d = Math.hypot(px - st.door.x, py - st.door.y);
       if (d > 90) st.armed = true;
-      else if (st.armed && d < (K().doorPx || 56)) goInside(scene);
+      else if (st.armed && d < (K().doorPx || 56)) walkThrough(scene, true);
       return;
     }
     const dm = Math.hypot(px - I.exitMat[0], py - I.exitMat[1]);
     if (dm > 80) st.armed = true;
-    else if (st.armed && dm < (I.exitPx || 40)) { goOutside(scene); return; }
+    else if (st.armed && dm < (I.exitPx || 40)) { walkThrough(scene, false); return; }
+    const BG = window.MapleHollowGate; // the baby gate on the stairs (until upstairs opens)
+    if (BG && Math.hypot(px - BG.x, py - BG.y) < 70 && runElapsedMs - (st.gateSaid || -1e9) > 20000) { st.gateSaid = runElapsedMs; pop(scene, BG.x, BG.y - 60, BG.line, "#F2D7A1"); }
     const F = window.MapleHollowFridge;
     if (F && !st.fridgeUsed && Math.hypot(px - F.x, py - F.y) < 60) {
       st.fridgeUsed = true;

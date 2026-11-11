@@ -1589,6 +1589,7 @@ function drinkShieldUp(p) {
 function hurtPlayer(p, bill) {
   const scene = p.scene, now = scene.time.now;
   if (gameOver) return;
+  if (window.homeTransit) return; // nobody gets hit mid-doorway
   if (bill.clockOut) { // you reached the punch clock at 65: punch the golden card, confetti, then retirement
     if (!bill.punchAt) {
       bill.punchAt = runElapsedMs; window.clockingOut = true; p.setVelocity(0, 0);
@@ -2732,6 +2733,7 @@ function update(time, delta) {
   const buffSpd = Math.max(runElapsedMs < buffs.speedUntil ? buffs.speedMult : 1, window.NearMiss ? window.NearMiss.speedMult() : 1); // Energy Drink / Standing Desk, or a Close Call blip (never both stacked)
   const baseSpd = stats.speed * (window.modFx ? modFx("speedMult", 1) : 1) * (runSprint && window.SPRINT ? SPRINT.playerSpeedMult : 1); // Back Spasm slows the base, drinks still help
   const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd * (window.HolidayParty ? HolidayParty.playerSpeedMult() : 1); // mistletoe slows you a moment
+  if (window.homeTransit) { x = 0; y = 0; } // walking through a door (Maple v2): the animation moves you
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   { // Energy Drink aura: bright while you're moving (shielded), faint when you stop.

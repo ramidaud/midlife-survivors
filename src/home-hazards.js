@@ -18,8 +18,8 @@ window.HomeHazards = (() => {
     if (window.ArtSheets) ArtSheets.load(scene, "mh_haz", "assets/stage/home/home-hazards-v1.png", 32, 32);
     patches = [];
     (C.outdoor || []).forEach(([x, y, d]) => patches.push({ x, y, d, next: 0 }));
-    const kx = I.x + I.roomW * 2, ky = I.y; // the kid's room is the third room
-    (C.kids || []).forEach(([x, y, d]) => patches.push({ x: kx + x, y: ky + y, d, next: 0 }));
+    const kx = I.x + I.roomW * 2, ky = I.y; // the kid's room is the third room (v1 only: in the big house it's upstairs, step 2)
+    if (!I.h2) (C.kids || []).forEach(([x, y, d]) => patches.push({ x: kx + x, y: ky + y, d, next: 0 }));
     patches.forEach(p => { const [k, f] = tex(scene, p.d); p.img = scene.add.image(p.x, p.y, k, f).setScale(1.5).setDepth(2.55); objs.push(p.img); });
   }
   function update(scene) {

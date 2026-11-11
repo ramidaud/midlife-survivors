@@ -79,6 +79,17 @@ window.MAPLE_HOLLOW = {
     keyHuntSpots: [["north", 2, -130, 22, "rock"], ["north", 1, 0, 30, "mat"], ["north", 3, 90, 30, "pot"], ["north", 0, -100, 32, "mailbox"],
                    ["north", 4, -40, 30, "mat"], ["south", 2, -60, 30, "pot"], ["south", 1, 40, 30, "rock"], ["south", 3, -30, 30, "mailbox"]]
   },
+  // The big house (Nov 10, Maple v2 step 2, Rami picked option C "spread out"): Codex's measured ground floor with the
+  // rooms twice as wide and 1.5x as tall, furniture at its drawn size. Layout: src/data/house-v2.js, built by
+  // tools/build_house_v2.py. Upstairs comes next; until then a baby gate blocks the stairs. on: false = the v1 rooms.
+  house2: {
+    on: true,
+    entryDx: 72,                 // where you appear inside, this far in from the front door
+    exitPx: 34,                  // step this close to the front door (inside) to go back out
+    gateLine: "Baby gate. Upstairs opens in the next update.",
+    parkDx: 150,                 // the V8 parks this far right of the minivan's center
+    transitMs: 520               // the walk in or out of a door (you can't be hit while it plays)
+  },
   yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
   // Step 4 (Nov 9): the neighborhood's own crowd. When the office would spawn one of these, it sometimes sends the
   // home version instead: [office kind]: [home kind, chance].
@@ -150,18 +161,33 @@ window.MAPLE_HOLLOW = {
   const yh = M.yourHouse, spawnX = lotX(yh.lot), spawnY = (yh.row === "north" ? R.sidewalk1 : R.sidewalk3) + 32;
   // inside the house: three room floors and the hallway under them
   const I = M.interior;
+  const H2 = M.house2 && M.house2.on && window.HOUSE_V2 ? window.HOUSE_V2 : null;
+  if (H2) { // the big house (step 2): floors from house-v2.js; walls and furniture are built in src/maple-hollow.js
+    const X = I.x, Y = I.y, add = (r, mat) => floors.push({ x: X + r[0], y: Y + r[1], width: r[2], height: r[3], material: mat, district: "house" });
+    H2.base.forEach(b => add(b.rect, "mh2_" + b.floor));
+    H2.rooms.forEach(r => add(r.rect, r.id === "stairs" ? "mh2_" + H2.base[0].floor : "mh2_" + r.floor));
+    const fe = H2.doors.find(d => d.id === "front-entry").rect, gar = H2.rooms.find(r => r.id === "garage").rect;
+    const doorFeet = Y + fe[1] + fe[3] / 2 + 24;                 // feet level when you stand in the front door
+    I.entry = [X + fe[0] + fe[2] + M.house2.entryDx, doorFeet];
+    I.exitMat = [X + fe[0] + fe[2] + 6, doorFeet];
+    I.exitPx = M.house2.exitPx;
+    I.h2 = { x: X, y: Y, w: H2.size[0], h: H2.size[1] };
+    const G = M.garage; G.x = X + gar[0]; G.y = Y + gar[1]; G.w = gar[2]; G.h = gar[3];
+  } else {
   I.rooms.forEach((r, i) => floors.push({ x: I.x + i * I.roomW, y: I.y, width: I.roomW, height: I.roomH, material: "mh_room_" + r.id, district: "house" }));
   floors.push({ x: I.x, y: I.y + I.roomH, width: I.roomW * 3, height: I.hallH, material: "mh_hall", district: "house" });
   const G = M.garage; G.x = I.x + I.roomW * 3; G.y = I.y; G.h = I.roomH + I.hallH; // the garage: full height, open to the hallway's end
   floors.push({ x: G.x, y: G.y, width: G.w, height: G.h, material: "mh_garage", district: "house" });
   I.entry = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH / 2];   // where you appear inside (middle of the hallway)
   I.exitMat = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH - 6]; // step on the front mat to go back out
+  }
+  const houseBottom = I.h2 ? I.h2.y + I.h2.h : I.y + I.roomH + I.hallH, houseRight = I.h2 ? I.h2.x + I.h2.w : M.garage.x + M.garage.w;
   window.MAPLE_HOLLOW_LAYOUT = {
     id: "maple-hollow", version: 1, stage: "home",
     spawn: [spawnX, spawnY],
-    bounds: { x: 0, y: 0, width: W, height: I.y + I.roomH + I.hallH + 60 },
+    bounds: { x: 0, y: 0, width: W, height: houseBottom + 60 },
     districts: [{ id: "home", name: "Maple Hollow", polygon: [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] },
-                { id: "house", name: "Your House", polygon: [[I.x, I.y], [G.x + G.w, I.y], [G.x + G.w, I.y + I.roomH + I.hallH], [I.x, I.y + I.roomH + I.hallH]] }],
+                { id: "house", name: "Your House", polygon: [[I.x, I.y], [houseRight, I.y], [houseRight, houseBottom], [I.x, houseBottom]] }],
     floors, walls, gates: [], placements: [], workers: [], lights: [], floorDecor: [], structures: [], labels: [],
     promotions: { phases: [] }, clearSpaces: [], protectedRoutes: [], internalRoutes: []
   };

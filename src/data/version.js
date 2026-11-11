@@ -2,12 +2,23 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.9",
-  displayVersion: "V. 2.27.9",
+  version: "2.28.0",
+  displayVersion: "V. 2.28.0",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 347,
+  build: 348,
   changelog: [
+    {
+      ver: "V. 2.28.0", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "Your house got a lot bigger on the inside.",
+      highlights: [
+        "Maple Hollow: the whole ground floor of your house. Living room with the fireplace and the racing rig, your desk by the window, the galley kitchen, the half bath, the laundry closet and the garage with the minivan.",
+        "The rooms are twice as wide as before, so there's space to dodge in your own living room.",
+        "Walking through your front door now has a little animation, in and out. Nothing can hit you while you're in the doorway.",
+        "The stairs are there, but there's a baby gate across them. Upstairs is next.",
+        "The V8 still waits in the garage for your 60th."
+      ]
+    },
     {
       ver: "V. 2.27.9", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The back office got the memo too.",
