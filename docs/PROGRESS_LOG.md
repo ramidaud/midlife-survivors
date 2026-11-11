@@ -2224,4 +2224,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Any memo can carry its own achievement now (`unlocks` in posts.js), and the "memo finished" toast names it.
 - Tested on laptop and phone sizes: unlocks on the next run, Required Reading stays locked, no errors.
 - Memo 14 social kit for Rami's review: 5-slide carousel, a 20 s Reel on the game's title track (achievement card, the 212 photos, the Blender orbit of Abe, the dots, the ask), a 3-frame Story and captions (docs/social/14-posts.md). The Reel and Story videos are too big for the repo (51 MB and 38 MB); they live on Rami's Mac in the shoot's social folder. Publish waits on his OK.
-
+- **Memo 14 published** (Nov 11, Rami's OK). Share page, feed and one-post feed built; the handoff link uses the full address so it works on the share page too.

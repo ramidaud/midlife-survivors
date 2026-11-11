@@ -12,7 +12,7 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - **Memo 10: Version two** (drafted, waiting on Rami's voice memo).
 - **Memo 11: Discord** (published Nov 4).
 - **Memo 13: music** (published Nov 7).
-- **Memo 14: Achievement Unlocked: Gaussian Splatting** (Gaussian splatting, drafted Nov 11).
+- **Memo 14: Achievement Unlocked: Gaussian Splatting** (Gaussian splatting, published Nov 11).
 - **Memo 15: how I write these memos** (interview questions on file).
 
 ## Add a post
