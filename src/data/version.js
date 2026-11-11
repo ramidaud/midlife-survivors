@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.4",
-  displayVersion: "V. 2.29.4",
+  version: "2.29.5",
+  displayVersion: "V. 2.29.5",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 355,
+  build: 356,
   changelog: [
+    {
+      ver: "V. 2.29.5", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "Maple Hollow grew a forest overnight. Nobody told the HOA.",
+      highlights: [
+        "Maple Hollow is now ringed by a painted fall forest on all four sides. The map ends in trees, and the camera never looks past them.",
+        "You stop at the edge of the leaves, so you can't vanish under the canopy."
+      ]
+    },
     {
       ver: "V. 2.29.4", date: "Nov 11, 2026", title: "Version Two",
       teaser: "Read the memo, get the achievement.",

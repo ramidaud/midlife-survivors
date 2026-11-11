@@ -34,6 +34,11 @@ window.MapleHollow = (() => {
       [v3.houses, v3.yours, v3.sa, v3.sb, v3.yards, v3.yourYard] = await Promise.all(["houses-v2.png", "your-house-v2.png", "street-wide-v2-a.png", "street-wide-v2-b.png", "backyards-v2.png", "your-backyard-v2.png"].map(f => H.image(ROOT + "v2/" + f)));
     } catch (e) { v3.houses = null; console.warn("Maple Hollow v2 art missing, using v1", e); }
     const NEW = !!(MV && v3.houses);
+    const TW = NEW && MV.treeWall && MV.treeWall.on ? MV.treeWall : null, tw = {}; // the tree wall around the town (Nov 11)
+    if (TW) try {
+      [tw.north, tw.south, tw.west, tw.east, tw.southTop, tw.westTop, tw.eastTop] = await Promise.all(["north-v4", "south-v4", "west-v4", "east-v4", "south-v4-canopy", "west-v4-canopy", "east-v4-canopy"].map(f => H.image(ROOT + TW.dir + "tree-wall-" + f + ".png")));
+    } catch (e) { tw.north = null; console.warn("tree wall art missing", e); }
+    if (!H.isAlive()) return null;
     if (!H.isAlive()) return null;
     const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
     if (window.ArtSheets) { // load early so they're ready when the run starts
@@ -148,6 +153,7 @@ window.MapleHollow = (() => {
 
     let yourHouse = null;
     if (NEW) buildV2();
+    const town = NEW && TW && tw.north ? buildTreeWall() : null; // the rectangle the camera stays inside while you're outdoors
     // ---- houses: six fronts, each on a lot with a driveway ----
     if (!NEW) for (let i = 0; i < 6; i++) {
       const k = "mh_house_" + i; if (scene.textures.exists(k)) continue;
@@ -404,13 +410,46 @@ window.MapleHollow = (() => {
       });
     }
 
+    // ---- the tree wall (Nov 11): solid forest on all four sides of the town ----
+    // Top and bottom strips run one piece past each end so they fill the corners; the side strips sit on top of them.
+    // The leafy inside edge of the bottom and side strips is drawn again above everyone, so you walk under the leaves.
+    function buildTreeWall() {
+      const S = TW.step, C = TW.core, Fr = TW.fringe, W = M.width, B = R.bottom, OVER = 30000;
+      const tex = (k, img) => { if (!scene.textures.exists(k)) { scene.textures.addImage(k, img); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } return k; };
+      const put = (k, x, y, depth, cw, ch) => { const o = scene.add.image(x, y, k).setOrigin(0).setDepth(depth); if (cw || ch) o.setCrop(0, 0, cw || o.width, ch || o.height); all.push(o); };
+      const kn = tex("mh_wall_n", tw.north), ks = tex("mh_wall_s", tw.south), kw = tex("mh_wall_w", tw.west), ke = tex("mh_wall_e", tw.east);
+      const kst = tex("mh_wall_s_top", tw.southTop), kwt = tex("mh_wall_w_top", tw.westTop), ket = tex("mh_wall_e_top", tw.eastTop);
+      for (let x = -S; x < W + S; x += S) {
+        put(kn, x, -C, -998);
+        put(ks, x, B - Fr, -998);
+        if (x >= 0 && x < W) put(kst, x, B - Fr, OVER, Math.min(S, W - x));
+      }
+      for (let y = 0; y < B; y += S) {
+        const h = Math.min(S, B - y);
+        put(kw, -C, y, -997, 0, h); put(ke, W - Fr, y, -997, 0, h);
+        put(kwt, -C, y, OVER, 0, h); put(ket, W - Fr, y, OVER, 0, h);
+      }
+      // Solid edge: the hero stops a little inside the leaves instead of disappearing under them (the north side already has its hedge).
+      const E = TW.edge, wall = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
+      if (E) { wall(0, 0, E, B); wall(W - E, 0, E, B); wall(E, B - E, W - 2 * E, E); }
+      return { x: -C, y: -C, width: W + 2 * C, height: B + 2 * C, bottom: B };
+    }
+
     // ---- camera and the area object the rest of the game talks to ----
     const cam = scene.cameras.main;
-    cam.setBounds(data.bounds.x - 200, data.bounds.y - 200, data.bounds.width + 400, data.bounds.height + 400);
+    // Outdoors the camera stays inside the tree wall. Indoors (the house sits far below the town) it uses the old wide bounds.
+    let camIn = null;
+    const fitCam = () => {
+      const inTown = !!town && p.y < town.bottom + 200;
+      if (inTown === camIn) return; camIn = inTown;
+      if (inTown) cam.setBounds(town.x, town.y, town.width, town.height);
+      else cam.setBounds(data.bounds.x - 200, data.bounds.y - 200, data.bounds.width + 400, data.bounds.height + 400);
+    };
     cam.setBackgroundColor("#3E7775");
     const p = refs.player;
     const within = (x, y) => data.floors.some(f => x >= f.x && x < f.x + f.width && y >= f.y && y < f.y + f.height);
     p.setPosition(data.spawn[0], data.spawn[1] - p.height / 2); p.body.updateFromGameObject();
+    fitCam();
     for (const o of bodies) o.body.updateFromGameObject();
     let lastValid = data.spawn.slice();
     const spawnPadding = 20;
@@ -430,6 +469,7 @@ window.MapleHollow = (() => {
       const x = p.x, y = p.y + p.height / 2;
       if (!within(x, y)) { p.setPosition(lastValid[0], lastValid[1] - p.height / 2); p.setVelocity(0, 0); p.body.updateFromGameObject(); }
       else lastValid = [x, y];
+      fitCam();
     }
     function destroy() { alive = false; all.forEach(o => o.destroy()); items.forEach(o => o.destroy()); }
     return { data, gates: [], items, bodies, active: true, visibleProps: 0, peakVisibleProps: 0, spawnPadding, repairedSpawns: 0,
