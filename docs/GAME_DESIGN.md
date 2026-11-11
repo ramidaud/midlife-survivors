@@ -717,3 +717,9 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - The HUD leads with your age (big, coffee orange), with the run clock under it. Empty item slots only appear in the level-up menu.
 - The camera keeps the hero at least 48 px tall on screen. On phones this means zoom 0.95 (was 0.75), about 20% less floor visible. Tunable: `VIEW.minHeroPx` in `src/main.js`.
 - Phone held sideways: one HUD row, small minimap, short message bar.
+
+### The big house (decided and built Nov 10, V2.28.0)
+- Rami: the house should feel like "a substantial part of the stage in terms of scale," not a narrow strip. Of three mock-ups he picked **C, spread out**: Codex's measured floor plan with the rooms 2x wide and 1.5x tall, every piece at its drawn size. The ground floor is 800 x 2,069 px including the garage.
+- Walking through the front door animates (shrink and fade into the doorway, screen fade, step through). Planned: the same for the stairs.
+- Mood for filling the bigger rooms (step 2c), from Rami's photos: patterned rugs under each sitting area, plants in corners, warm lamps, wall shelves. Photos stay reference only.
+- Layout: src/data/house-v2.js, built by tools/build_house_v2.py. Switch: MAPLE_HOLLOW.house2.on.

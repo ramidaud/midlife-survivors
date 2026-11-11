@@ -2144,3 +2144,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - B8: Extras, Achievements, Scores, Credits, Patch notes and Lore all open with the same strip, title and help line. No repeated logo, and no reading text under 14 px at phone, iPad or desktop.
 - Extras is a list of Rows now; Reset progress still asks twice.
 - That finishes Parts A, B and C of the design system migration. Left from the audit: the iPad nav overlap and an old-CSS cleanup.
+
+## 2026-11-10 (11:45 PM): V2.28.0, the big house (Maple v2 step 2a)
+- Rami wanted the house to feel like a real part of the stage, not a narrow strip. He picked option C: Codex's real floor plan with the rooms twice as wide, furniture at its drawn size.
+- The whole ground floor is in: living room, the desk by the window, galley kitchen, half bath, laundry, entry and the garage with the minivan (the V8 still waits there for 60).
+- Walking through the front door animates now, in and out, and nothing can hit you mid-doorway.
+- A baby gate blocks the stairs until upstairs (step 2b). Step 2c fills the bigger rooms using Rami's cozy photos as the mood: rugs, plants, lamps, shelves.

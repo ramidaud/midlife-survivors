@@ -797,3 +797,6 @@ The best way to know if a redesign worked is to measure it the same way twice. W
 
 ## Return values (Nov 10, alerts say it once)
 The double alert happened because one function shouted into two places without asking whether the first one heard it. The fix was to have the headline answer back: "shown", "queued" or "skipped". That answer is called a return value, what a function hands back to whoever called it. Now the alert code reads the answer and only falls back to the ticker when the headline says "skipped". Small change, but it turns two separate voices into a conversation.
+
+## Generated data (Nov 10, the big house)
+The house layout isn't typed by hand. A small script reads Codex's floor plan, stretches the rooms, keeps each piece of furniture its drawn size, cuts every piece out cleanly, and writes the result as a data file the game loads. If we want the rooms wider or a different set of pieces to move together, we change one number or one list in the script and run it again, instead of moving 35 pieces by hand. That's the difference between building a thing and building the machine that builds the thing.
