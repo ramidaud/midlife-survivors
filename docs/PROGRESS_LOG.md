@@ -2138,3 +2138,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Six of the top 10 are retired: one home per message type, nothing over menus, chips beside the map, no 57 px drop, no floor dim during bosses, one orange button per screen.
 - Still open: an alert shows twice (headline and ticker), the B8 screens are old style, the iPad nav overlaps itself, and the old CSS is still underneath (the style counts didn't drop).
 - Report and before/after sheets: docs/design/ui-audit-c3-2026-11.md.
+
+## 2026-11-10 (10:30 PM): V2.27.8 and V2.27.9, alerts once and B8
+- Alerts (TAX SEASON, RENT HIKE, LOW HP) now show once, in the headline under the HUD, with the full sentence. The ticker only gets one if the headline can't.
+- B8: Extras, Achievements, Scores, Credits, Patch notes and Lore all open with the same strip, title and help line. No repeated logo, and no reading text under 14 px at phone, iPad or desktop.
+- Extras is a list of Rows now; Reset progress still asks twice.
+- That finishes Parts A, B and C of the design system migration. Left from the audit: the iPad nav overlap and an old-CSS cleanup.

@@ -794,3 +794,6 @@ The devlog had its own color names (--navy, --cream, --teal). Instead of renamin
 
 ## Re-auditing with the same tool (Nov 10, design system C3)
 The best way to know if a redesign worked is to measure it the same way twice. We kept the exact script that took the first 60 screenshots and ran it again, so every "before" has an "after" taken from the same spot in the same moment of the game. It also measures positions (where the map starts, where chips sit), so "better" becomes a number: the phone map moved up from y 115 to y 96. It caught things a quick look misses, like an alert appearing in two places at once.
+
+## Return values (Nov 10, alerts say it once)
+The double alert happened because one function shouted into two places without asking whether the first one heard it. The fix was to have the headline answer back: "shown", "queued" or "skipped". That answer is called a return value, what a function hands back to whoever called it. Now the alert code reads the answer and only falls back to the ticker when the headline says "skipped". Small change, but it turns two separate voices into a conversation.

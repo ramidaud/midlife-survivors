@@ -45,8 +45,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Migration C1 (V2.27.6): the devlog and the top bar read colors and fonts from the game's tokens file; the cream strip label is navy
 - [x] Migration C2 (V2.27.7): wording pass; no developer words or key lists on buttons (controls screen rewritten)
 - [x] Migration C3: audit rerun. 6 of the first top 10 retired, 3 better, 1 (old CSS underneath) unchanged. New list in docs/design/ui-audit-c3-2026-11.md
-- [ ] Next up from C3: alerts show twice (headline and ticker); then B8; iPad nav overlap; old CSS cleanup
-- [ ] B8 (skipped for now): achievements, leaderboard, credits, extras, patch notes, lore (no repeated logo, nothing under 14 px)
+- [x] Alerts say it once (V2.27.8): headline only, ticker as a fallback
+- [ ] Next: iPad nav overlap (brand under TITLE SCREEN); then old CSS cleanup; then Maple Hollow v2 step 2
+- [x] Migration B8 (V2.27.9): extras, achievements, scores, credits, patch notes and lore on one header; no repeated logo; nothing under 14 px. Part B done
 
 **From the Nov 9 playtest notes (Claude builds, in this order)**
 - [x] Boss bite: New Boss tougher, real defeat moment, weapons pop Group Chat pings (V2.15.3)
