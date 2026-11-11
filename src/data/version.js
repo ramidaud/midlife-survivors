@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.6",
-  displayVersion: "V. 2.29.6",
+  version: "2.29.7",
+  displayVersion: "V. 2.29.7",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 357,
+  build: 358,
   changelog: [
+    {
+      ver: "V. 2.29.7", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "A little elbow room at the end of the block.",
+      highlights: [
+        "Maple Hollow has a strip of grass between the end houses and the forest, so you can get around the last house without getting pinned against the trees."
+      ]
+    },
     {
       ver: "V. 2.29.6", date: "Nov 11, 2026", title: "Version Two",
       teaser: "The forest got its corners.",

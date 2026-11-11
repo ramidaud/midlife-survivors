@@ -2238,3 +2238,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Each strip starts at a corner, so that join is clean. The far end of each side is cut mid-strip because the town isn't a whole number of strips long. It shows as a faint line at three corners (worst at the bottom right).
 - Fix if it bothers Rami: two short filler pieces from Codex (704 px for top and bottom, 128 px for the sides).
 - Batch A is finished. Next is Batch B.
+
+## 2026-11-11 (1:30 PM): V2.29.7, breathing room
+- Rami played the tree wall. The forest edge was too tight by the end houses, and players could get stuck.
+- Cause: the solid edge I added left 32 px beside the last house's side path. The hero is 48 px wide.
+- Fix: a 136 px grass strip on the left and right ends of town, between the houses and the forest. 96 px of it is walkable.
+- Rami's other notes: the streets should end in a cul-de-sac or dead end, and the front door should open on its own after the key hunt.

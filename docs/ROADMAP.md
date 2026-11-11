@@ -38,7 +38,10 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Tree wall live on all four sides of Maple Hollow, camera locked inside it (V2.29.5). Corners were plain side pieces until V2.29.6
 - [x] Codex corner redo approved and live (V2.29.6). Batch A is done
 - [ ] Rami: tell Codex to start Batch B (yard furniture as separate sprites, plain yards, props, fences, lawns)
-- [ ] Rami: walk the edge of Maple Hollow. Does the forest feel like the end of the world, or does the street running into trees look odd?
+- [x] Rami walked the edge (Nov 11): tight by the end houses, the street needs a dead end, the front door is confusing after the key hunt
+- [x] Breathing room (V2.29.7): a grass strip between the end houses and the forest, 96 px to walk in
+- [ ] Front door: open it with a small animation right when you get the key-hunt loot, and let you walk straight in (no walking away and back)
+- [ ] Street ends: a cul-de-sac or dead end where each street meets the forest (needs art from Codex, added to the Batch B ask)
 - [ ] Place the new trees and shrubs as their own sprites (waits for Batch B's plain yards; today's trees are painted into the yard pictures)
 - [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions
 - [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged

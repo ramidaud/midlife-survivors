@@ -422,25 +422,27 @@ window.MapleHollow = (() => {
       const kst = tex("mh_wall_s_top", tw.southTop), kwt = tex("mh_wall_w_top", tw.westTop), ket = tex("mh_wall_e_top", tw.eastTop);
       // With corner pieces: each strip starts where a corner ends (Fr px in from the map edge), so that join is seamless.
       // Without them the top and bottom strips run one piece past each end and the side strips sit on top.
-      const K = tw.corners ? Fr : 0, x0 = K ? K : -S, x1 = K ? W - K : W + S;
+      // L and Rt are the left and right ends of the walkable ground: the town plus a grass margin on each side.
+      const mg = TW.margin || 0, L = -mg, Rt = W + mg;
+      const K = tw.corners ? Fr : 0, x0 = K ? L + K : L - S, x1 = K ? Rt - K : Rt + S;
       for (let x = x0; x < x1; x += S) {
         const w = Math.min(S, x1 - x);
         put(kn, x, -C, -998, w);
         put(ks, x, B - Fr, -998, w);
-        if (x + w > 0 && x < W) put(kst, x, B - Fr, OVER, w);
+        if (x + w > L && x < Rt) put(kst, x, B - Fr, OVER, w);
       }
       for (let y = K; y < B - K; y += S) {
         const h = Math.min(S, B - K - y);
-        put(kw, -C, y, -997, 0, h); put(ke, W - Fr, y, -997, 0, h);
-        put(kwt, -C, y, OVER, 0, h); put(ket, W - Fr, y, OVER, 0, h);
+        put(kw, L - C, y, -997, 0, h); put(ke, Rt - Fr, y, -997, 0, h);
+        put(kwt, L - C, y, OVER, 0, h); put(ket, Rt - Fr, y, OVER, 0, h);
       }
-      if (K) [[-C, -C], [W - Fr, -C], [-C, B - Fr], [W - Fr, B - Fr]].forEach(([x, y], i) => {
+      if (K) [[L - C, -C], [Rt - Fr, -C], [L - C, B - Fr], [Rt - Fr, B - Fr]].forEach(([x, y], i) => {
         put(tex("mh_wall_c" + i, tw.corners[i * 2]), x, y, -996); put(tex("mh_wall_c" + i + "_top", tw.corners[i * 2 + 1]), x, y, OVER);
       });
       // Solid edge: the hero stops a little inside the leaves instead of disappearing under them (the north side already has its hedge).
       const E = TW.edge, wall = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
-      if (E) { wall(0, 0, E, B); wall(W - E, 0, E, B); wall(E, B - E, W - 2 * E, E); }
-      return { x: -C, y: -C, width: W + 2 * C, height: B + 2 * C, bottom: B };
+      if (E) { wall(L, 0, E, B); wall(Rt - E, 0, E, B); wall(L + E, B - E, Rt - L - 2 * E, E); if (mg) { wall(L + E, 0, mg - E, E); wall(W, 0, mg - E, E); } }
+      return { x: L - C, y: -C, width: Rt - L + 2 * C, height: B + 2 * C, bottom: B };
     }
 
     // ---- camera and the area object the rest of the game talks to ----

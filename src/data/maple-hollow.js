@@ -75,7 +75,7 @@ window.MAPLE_HOLLOW = {
     // strip repeated along the edge: 192 px of solid forest outside the map and a 64 px leafy fringe that hangs over it.
     // The camera stops at the outside of the forest, so nothing past it ever shows. Corner pieces (corners: true) are Codex's
     // repaint; with corners: false the side strips cover the corners instead. Set on: false to go back to the open edge.
-    treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true }, // edge: how far in from the map edge the hero is stopped
+    treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true, margin: 136 }, // margin: a strip of grass between the end houses and the forest (136 - 40 = 96 px to walk in, the World rules minimum) // edge: how far in from the map edge the hero is stopped
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
     yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png
@@ -166,6 +166,8 @@ window.MAPLE_HOLLOW = {
   band(R.street2, R.street2End, "mh_street");
   band(R.street2End, R.sidewalk4End, "mh_sidewalk");
   band(R.sidewalk4End, R.bottom, "mh_grass");
+  const TWm = V && V.on && V.treeWall && V.treeWall.on ? (V.treeWall.margin || 0) : 0; // breathing room at the left and right ends (Nov 11)
+  if (TWm) [-TWm, W].forEach(x => floors.push({ x, y: 0, width: TWm, height: R.bottom, material: "mh_grass", district: "home" }));
   const lotX = i => M.firstLotX + i * M.lotWidth;
   const yh = M.yourHouse, spawnX = lotX(yh.lot), spawnY = (yh.row === "north" ? R.sidewalk1 : R.sidewalk3) + 32;
   // inside the house: three room floors and the hallway under them
