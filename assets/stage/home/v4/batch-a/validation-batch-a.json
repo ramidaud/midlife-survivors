@@ -243,7 +243,7 @@
       ],
       "palette": true,
       "partialAlpha": 0,
-      "colors": 15,
+      "colors": 19,
       "magenta": 0,
       "coreHoles": 0
     },
@@ -255,7 +255,7 @@
       ],
       "palette": true,
       "partialAlpha": 0,
-      "colors": 18,
+      "colors": 19,
       "magenta": 0,
       "coreHoles": 0
     },
@@ -279,83 +279,9 @@
       ],
       "palette": true,
       "partialAlpha": 0,
-      "colors": 17,
+      "colors": 18,
       "magenta": 0,
       "coreHoles": 0
-    }
-  ],
-  "wallSeams": [
-    {
-      "from": "north",
-      "to": "north",
-      "axis": "x",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "south",
-      "to": "south",
-      "axis": "x",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "west",
-      "to": "west",
-      "axis": "y",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "east",
-      "to": "east",
-      "axis": "y",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "north-west",
-      "to": "north",
-      "axis": "x",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "north",
-      "to": "north-east",
-      "axis": "x",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "south-west",
-      "to": "south",
-      "axis": "x",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "south",
-      "to": "south-east",
-      "axis": "x",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "north-west",
-      "to": "west",
-      "axis": "y",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "west",
-      "to": "south-west",
-      "axis": "y",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "north-east",
-      "to": "east",
-      "axis": "y",
-      "mismatchedPixels": 0
-    },
-    {
-      "from": "east",
-      "to": "south-east",
-      "axis": "y",
-      "mismatchedPixels": 0
     }
   ],
   "hedgeHorizontalRepeat": true,
@@ -363,5 +289,19 @@
   "approvedRedMapleUnchanged": true,
   "v3BoundaryUsedAsInput": false,
   "runtimeChanged": false,
-  "previewNote": "Desktop/phone images are native-sized static art mockups, not game tests."
+  "previewNote": "Desktop/phone images are native-sized static art mockups, not game tests.",
+  "cornerRevisionV2": {
+    "visualJoinReview": "Four512x512 neighboring-side assemblies and full unmarked1344x1344 assembly inspected; corner trees at side scale, continued branching/foliage across joins and ragged inner edges. Edge-pixel equality is not the acceptance test.",
+    "approvedArtHashesUnchanged": true,
+    "approvedArtProtectedFiles": 26,
+    "cropToEnlarge": false,
+    "guideNativeSize": [
+      512,
+      512
+    ],
+    "cornerNativeSize": [
+      256,
+      256
+    ]
+  }
 }

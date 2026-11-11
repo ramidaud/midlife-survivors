@@ -1,0 +1,74 @@
+[
+  {
+    "side": "north-west",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "contextLogicalSize": [
+      512,
+      512
+    ],
+    "targetQuadrant": [
+      0,
+      0,
+      256,
+      256
+    ],
+    "cropToEnlarge": false
+  },
+  {
+    "side": "north-east",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "contextLogicalSize": [
+      512,
+      512
+    ],
+    "targetQuadrant": [
+      256,
+      0,
+      256,
+      256
+    ],
+    "cropToEnlarge": false
+  },
+  {
+    "side": "south-west",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "contextLogicalSize": [
+      512,
+      512
+    ],
+    "targetQuadrant": [
+      0,
+      256,
+      256,
+      256
+    ],
+    "cropToEnlarge": false
+  },
+  {
+    "side": "south-east",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "contextLogicalSize": [
+      512,
+      512
+    ],
+    "targetQuadrant": [
+      256,
+      256,
+      256,
+      256
+    ],
+    "cropToEnlarge": false
+  }
+]

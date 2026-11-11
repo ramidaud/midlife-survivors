@@ -491,3 +491,9 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [x] Prepare fresh tree wall, six fall trees, three pines and eight shrub/hedge modules, with native/4x comparisons.
 - [ ] Rami reviews Batch A PR before integration or Batch B.
 - [ ] Batch B: separate backyard furniture, plain yards, props, keys, toy bricks, fences/gates, decals and two512px lawns without a visible repeat grid.
+
+
+## 2026-11-11: Batch A corner correction (Codex)
+- [x] Rami approved Batch A trees, pines, shrubs and four sides.
+- [x] Repaint four corners at side scale and inspect assembled joins visually.
+- [ ] Rami reviews the corner update in PR3; Batch B waits.

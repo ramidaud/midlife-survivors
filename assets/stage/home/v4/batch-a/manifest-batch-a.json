@@ -24,7 +24,7 @@
     "#D8AD4A"
   ],
   "goldApproval": "Rami approved #D8AD4A in this chat before use",
-  "method": "New imagegen paintings, proportional fit/cover to exact 8x working rasters, exact mode of each8x8 RGBA block, material-family palette mapping; painted core gap cleanup and one-pixel seam alignment only",
+  "method": "Approved sides/trees/shrubs preserved. Revised four corners painted separately in fixed512px neighboring-side context, normalized uniformly to4096px then exact8x8 block-mode reduction of target quadrant. No crop-to-enlarge or edge-pixel matching for corners.",
   "sourceSizeCaveat": "Imagegen does not honor exact requested raster sizes; unchanged original sizes and working transforms retained. Same normalization method as approved Step0.",
   "notUsed": "No v3/boundary files used as inputs",
   "pieces": [
@@ -996,54 +996,45 @@
       ],
       "kind": "WALL",
       "footPoint": [
-        191,
-        191
+        167,
+        167
       ],
       "footprints": [
         [
           0,
           0,
           256,
-          192
+          168
         ],
         [
           0,
-          192,
-          192,
-          64
+          168,
+          168,
+          88
         ]
       ],
-      "source": "sources/corners-generated.png",
+      "source": "sources/north-west-corner-painted-v2.png",
       "sourceSize": [
         1254,
         1254
       ],
-      "sourceCell": [
+      "sourceCell": null,
+      "working": "working-8x/wall-north-west-corner-v2-8x.png",
+      "crop": null,
+      "fit": null,
+      "inward": "diagonal toward playable center",
+      "canopyFile": "tree-wall-north-west-v4-canopy.png",
+      "collisionNote": "Proposed continuous corner core follows dense painted wood/foliage; optional ragged canopy remains non-solid. No runtime changes.",
+      "oldComparisonNote": "Before correction versus repainted corner. Adjacent sides remain unchanged; inspect the full assembled join views.",
+      "oldFile": "old/wall-north-west-before-correction.png",
+      "revision": "Corner-only v2: painted in fixed512px neighbor context; target quadrant extracted without zoom or silhouette-fit crop. Adjacent approved sides untouched.",
+      "contextCrop": [
         0,
         0,
-        627,
-        627
-      ],
-      "working": "working-8x/wall-north-west-8x.png",
-      "crop": [
-        7,
-        4,
-        345,
-        345
-      ],
-      "fit": [
-        9,
-        0,
-        2030,
+        2048,
         2048
       ],
-      "inward": "diagonal toward playable center",
-      "coreGapPixelsPatchedFromPainting": 4550,
-      "canopyFile": "tree-wall-north-west-v4-canopy.png",
-      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
-      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
-      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
-      "oldFile": "old/wall-north-west-comparison.png"
+      "visualReview": "Tree scale compared to adjacent unchanged sides in512x512 local assemblies and1344x1344 full assembly. No cropped enlargement or edge-pixel equality test."
     },
     {
       "id": "wall-north-east",
@@ -1071,37 +1062,28 @@
           64
         ]
       ],
-      "source": "sources/corners-generated.png",
+      "source": "sources/north-east-corner-painted-v2.png",
       "sourceSize": [
         1254,
         1254
       ],
-      "sourceCell": [
-        627,
+      "sourceCell": null,
+      "working": "working-8x/wall-north-east-corner-v2-8x.png",
+      "crop": null,
+      "fit": null,
+      "inward": "diagonal toward playable center",
+      "canopyFile": "tree-wall-north-east-v4-canopy.png",
+      "collisionNote": "Proposed continuous corner core follows dense painted wood/foliage; optional ragged canopy remains non-solid. No runtime changes.",
+      "oldComparisonNote": "Before correction versus repainted corner. Adjacent sides remain unchanged; inspect the full assembled join views.",
+      "oldFile": "old/wall-north-east-before-correction.png",
+      "revision": "Corner-only v2: painted in fixed512px neighbor context; target quadrant extracted without zoom or silhouette-fit crop. Adjacent approved sides untouched.",
+      "contextCrop": [
+        2048,
         0,
-        1254,
-        627
-      ],
-      "working": "working-8x/wall-north-east-8x.png",
-      "crop": [
-        0,
-        3,
-        339,
-        345
-      ],
-      "fit": [
-        9,
-        0,
-        2030,
+        2048,
         2048
       ],
-      "inward": "diagonal toward playable center",
-      "coreGapPixelsPatchedFromPainting": 4989,
-      "canopyFile": "tree-wall-north-east-v4-canopy.png",
-      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
-      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
-      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
-      "oldFile": "old/wall-north-east-comparison.png"
+      "visualReview": "Tree scale compared to adjacent unchanged sides in512x512 local assemblies and1344x1344 full assembly. No cropped enlargement or edge-pixel equality test."
     },
     {
       "id": "wall-south-west",
@@ -1112,54 +1094,45 @@
       ],
       "kind": "WALL",
       "footPoint": [
-        191,
-        64
+        183,
+        72
       ],
       "footprints": [
         [
           0,
-          64,
+          72,
           256,
-          192
+          184
         ],
         [
           0,
           0,
-          192,
-          64
+          184,
+          72
         ]
       ],
-      "source": "sources/corners-generated.png",
+      "source": "sources/south-west-corner-painted-v2.png",
       "sourceSize": [
         1254,
         1254
       ],
-      "sourceCell": [
-        0,
-        627,
-        627,
-        1254
-      ],
-      "working": "working-8x/wall-south-west-8x.png",
-      "crop": [
-        7,
-        0,
-        345,
-        337
-      ],
-      "fit": [
-        0,
-        6,
-        2048,
-        2042
-      ],
+      "sourceCell": null,
+      "working": "working-8x/wall-south-west-corner-v2-8x.png",
+      "crop": null,
+      "fit": null,
       "inward": "diagonal toward playable center",
-      "coreGapPixelsPatchedFromPainting": 3227,
       "canopyFile": "tree-wall-south-west-v4-canopy.png",
-      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
-      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
-      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
-      "oldFile": "old/wall-south-west-comparison.png"
+      "collisionNote": "Proposed continuous corner core follows dense painted wood/foliage; optional ragged canopy remains non-solid. No runtime changes.",
+      "oldComparisonNote": "Before correction versus repainted corner. Adjacent sides remain unchanged; inspect the full assembled join views.",
+      "oldFile": "old/wall-south-west-before-correction.png",
+      "revision": "Corner-only v2: painted in fixed512px neighbor context; target quadrant extracted without zoom or silhouette-fit crop. Adjacent approved sides untouched.",
+      "contextCrop": [
+        0,
+        2048,
+        2048,
+        2048
+      ],
+      "visualReview": "Tree scale compared to adjacent unchanged sides in512x512 local assemblies and1344x1344 full assembly. No cropped enlargement or edge-pixel equality test."
     },
     {
       "id": "wall-south-east",
@@ -1187,37 +1160,28 @@
           64
         ]
       ],
-      "source": "sources/corners-generated.png",
+      "source": "sources/south-east-corner-painted-v2.png",
       "sourceSize": [
         1254,
         1254
       ],
-      "sourceCell": [
-        627,
-        627,
-        1254,
-        1254
-      ],
-      "working": "working-8x/wall-south-east-8x.png",
-      "crop": [
-        0,
-        0,
-        339,
-        337
-      ],
-      "fit": [
-        0,
-        12,
-        2048,
-        2036
-      ],
+      "sourceCell": null,
+      "working": "working-8x/wall-south-east-corner-v2-8x.png",
+      "crop": null,
+      "fit": null,
       "inward": "diagonal toward playable center",
-      "coreGapPixelsPatchedFromPainting": 3008,
       "canopyFile": "tree-wall-south-east-v4-canopy.png",
-      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
-      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
-      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
-      "oldFile": "old/wall-south-east-comparison.png"
+      "collisionNote": "Proposed continuous corner core follows dense painted wood/foliage; optional ragged canopy remains non-solid. No runtime changes.",
+      "oldComparisonNote": "Before correction versus repainted corner. Adjacent sides remain unchanged; inspect the full assembled join views.",
+      "oldFile": "old/wall-south-east-before-correction.png",
+      "revision": "Corner-only v2: painted in fixed512px neighbor context; target quadrant extracted without zoom or silhouette-fit crop. Adjacent approved sides untouched.",
+      "contextCrop": [
+        2048,
+        2048,
+        2048,
+        2048
+      ],
+      "visualReview": "Tree scale compared to adjacent unchanged sides in512x512 local assemblies and1344x1344 full assembly. No cropped enlargement or edge-pixel equality test."
     }
   ],
   "joinPairs": [

@@ -2232,3 +2232,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami approved #D8AD4A autumn gold. Exported25 native pieces with footprints, canopy layers, source paintings and old/new comparisons.
 - Dimensions, palette, alpha, zero core gaps and12 exact wall joins pass. Static hero mockups at desktop/phone sizes and gallery loading checked; no gameplay claim.
 - Art/docs PR for review only. Batch B remains pending; lawns need irregular flowers/bare spots and two512px variants.
+
+
+## 2026-11-11: Batch A corner review correction (Codex)
+- Rami approved the trees, pines, shrubs and four wall sides. Repainted the four corners only against fixed neighboring-side guides.
+- Compared the unmarked full assembly and four join close-ups for consistent tree scale, continued crowns/trunks and a ragged inner edge. No crop enlargement or edge-pixel acceptance test.
+- Approved production images remain byte-identical. Art/docs update to PR3 only; stop for review before Batch B.

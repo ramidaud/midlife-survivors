@@ -607,3 +607,10 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 - Sizes: sides 832x256 / 256x832; corners256x256; trees128x160 to160x192; pines64x96 to96x144; shrubs64x64. Rami approved autumn gold #D8AD4A before use.
 - Checks: final/working dimensions, 21-color palette, binary alpha, no core holes, 12 exact wall joins and unchanged approved maple pass. All109 gallery images load; controls and native desktop/phone art mockups checked, no browser errors. These are static art checks, not game tests.
 - Notes: imagegen source-size normalization follows approved Step0 and is disclosed. Fresh painted forest clusters patch core gaps; painted side fringes shape corner interiors. Stop for Rami review before Batch B, including its two unevenly scattered512px lawn variants.
+
+
+## 2026-11-11: Batch A corner-only correction (Codex) [review]
+- Repainted only the four256x256 corners in fixed guides showing their approved neighboring sides. No crop-to-enlarge; tree scale follows the sides.
+- Reviewed all eight joins by eye in the full assembly and four512px close-ups, checking tree continuations and ragged inner edges. Pixel-edge equality is no longer the corner acceptance criterion.
+- Updated corner overlays, proposed core footprints, comparisons, source paintings/prompts and review page in `assets/stage/home/v4/batch-a/`. Hashes confirm all26 approved production images (including side overlays/atlas) remain unchanged. No game code changed.
+- PR3 updated for Rami review; Batch B remains pending.

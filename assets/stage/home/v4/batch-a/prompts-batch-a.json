@@ -68,5 +68,21 @@
     "status": "Approved by Rami in this chat before use"
   },
   "scope": "Batch A only; do not start Batch B",
-  "sourceSizing": "Original imagegen rasters did not honor requested sizes. Proportional fitting/cover-crop onto exact8x working canvases followed by exact8x8 block-mode reduction. No v3 boundary input."
+  "sourceSizing": "Original imagegen rasters did not honor requested sizes. Proportional fitting/cover-crop onto exact8x working canvases followed by exact8x8 block-mode reduction. No v3 boundary input.",
+  "cornerRevisionV2": {
+    "targets": [
+      "north-west",
+      "north-east",
+      "south-west",
+      "south-east"
+    ],
+    "guide": "Each4096x4096 8x guide represents512x512 native; corner256x256 quadrant plus two fixed neighboring sides. Continue cut branches/crowns/trunks at identical side scale. Several medium trees, never enlarged. Ragged inner leaf edge, no square bite. Paint only target corner, preserve adjacent sides.",
+    "sourceFiles": [
+      "sources/north-west-corner-painted-v2.png",
+      "sources/north-east-corner-painted-v2.png",
+      "sources/south-west-corner-painted-v2.png",
+      "sources/south-east-corner-painted-v2.png"
+    ],
+    "processing": "Uniform whole-context normalization and exact quadrant extraction; no zoom crop, no edge matching."
+  }
 }
