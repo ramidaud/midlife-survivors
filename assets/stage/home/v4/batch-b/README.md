@@ -16,7 +16,7 @@ Fence modules are 64px. Open gate art uses the painted pillar components with a 
 
 The seven 416x448 yard plates contain only ground, flat paths, patios and dirt. Furniture is independent. Suggested layouts leave a 96px cross-yard lane and a 96px right return, with two exits. These review recipes do not alter the game.
 
-Both 512px lawns were repainted after rejecting evenly spaced tufts. Uneven grass islands, flowers and bare flecks come from the paintings. Continuous painted edge bands use irregular minimum-error pixel cuts to share seamless edges, with no smoothing, gradients or procedural foliage. Inspect the mixed 4x4 board as well as self repeats: matching edge pixels alone is not the visual acceptance test.
+Both 512px lawns were repainted again for this review: small interwoven grass clusters replace the rejected large two-tone islands. Three grass material tones are retained: #9BAE73 base, #83A89A middle and #6D895B shaded blades. Continuous painted edge strips use narrow irregular pixel cuts, with no smoothing or procedural foliage. Inspect mixed 4x4 as well as self repeats: matching edge pixels alone is not the visual acceptance test.
 
 ## Validation and limits
 
@@ -29,3 +29,11 @@ Desktop 1280x800 and phone 390x844 images are static native art mockups. No runt
 Two 512x512 dead-end ground caps, street-end-left-v4.png and street-end-right-v4.png, plus two separately extracted transparent barricades. Total native export count is now 83. The 512px band retains its 64/32/320/32/64 cross-section. Matching painted connector strips come from the existing street-wide-v2-a.png; generated native art forms the curved ends. No solid barricade remains baked into the exported ground. Assembly positions and proposed solid footprints are in the manifest. Claude must close the outer curved map boundary during integration.
 
 Both cap connections match the existing band, and the full left-cap/street/right-cap preview was inspected visually. Sources, full prompts, exact 8x working images, native/4x comparisons and joined 1x/2x previews are included. New-subject comparisons show the existing band only as material and scale context.
+
+## PR #4 review corrections
+
+Rami confirmed #9BAE73 as the shared grass base on all seven yard plates and both lawns. Existing paths, patios, soil, leaves and yard layouts remain. The base is a material remap of the paintings, including grass previously exported as slate. The repaint uses the same proportional normalization and exact 8x block reduction described above. New source paintings and full prompts are in sources/revision-*.png and revision-prompts.json. Earlier studies remain only for provenance.
+
+Vertical fences are repainted as straight north-south grid pieces. Their cell-height painted spines stack at x32; corners join those spines to painted halves of the approved horizontal runs at the original frontface height. The assembled fence board verifies the joins visually. Sprinkler and house key are repainted to occupy about40px of their original48px cells, with native hero comparisons.
+
+Checks include prior-PR versus fix at1x/4x, fence-joins-2x.png, readability-fixes-2x.png and shared-grass-nine-plates.png, plus refreshed full comparisons and mixed lawn repeats. Hash validation confirms all other approved native sprites, including both street-end caps and barricades, are unchanged. The two affected convenience atlases were refreshed. No game code or version changes.

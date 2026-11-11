@@ -294,7 +294,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 12,
+      "colorsUsed": 15,
       "opaque": false
     },
     {
@@ -481,7 +481,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 14,
+      "colorsUsed": 11,
       "opaque": false
     },
     {
@@ -657,7 +657,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 18,
+      "colorsUsed": 9,
       "opaque": false
     },
     {
@@ -668,7 +668,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 17,
+      "colorsUsed": 19,
       "opaque": false
     },
     {
@@ -723,7 +723,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 16,
+      "colorsUsed": 11,
       "opaque": false
     },
     {
@@ -734,7 +734,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 16,
+      "colorsUsed": 13,
       "opaque": false
     },
     {
@@ -778,7 +778,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 15,
+      "colorsUsed": 12,
       "opaque": true
     },
     {
@@ -789,7 +789,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 16,
+      "colorsUsed": 13,
       "opaque": true
     },
     {
@@ -800,7 +800,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 17,
+      "colorsUsed": 14,
       "opaque": true
     },
     {
@@ -811,7 +811,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 17,
+      "colorsUsed": 14,
       "opaque": true
     },
     {
@@ -822,7 +822,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 16,
+      "colorsUsed": 13,
       "opaque": true
     },
     {
@@ -833,7 +833,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 17,
+      "colorsUsed": 14,
       "opaque": true
     },
     {
@@ -844,7 +844,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
-      "colorsUsed": 17,
+      "colorsUsed": 14,
       "opaque": true
     },
     {
@@ -877,6 +877,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
+      "colorsUsed": 17,
       "opaque": true
     },
     {
@@ -887,6 +888,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
+      "colorsUsed": 13,
       "opaque": false
     },
     {
@@ -897,6 +899,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
+      "colorsUsed": 18,
       "opaque": true
     },
     {
@@ -907,6 +910,7 @@
       ],
       "palette": true,
       "binaryAlpha": true,
+      "colorsUsed": 17,
       "opaque": false
     }
   ],
@@ -963,15 +967,44 @@
   "gateClearSpan96": true,
   "runtimeChanged": false,
   "visualChecks": "Native contacts, old/new1x4x, separate-prop assembled yards, self/mixed2x2 and mixed4x4 lawns. Static art mockups only.",
-  "streetEndJoins": {
-    "left": true,
-    "right": true,
-    "nativeCap": [
-      512,
-      512
+  "reviewFixes": {
+    "grassBase": "#9BAE73",
+    "grassToneCounts": {
+      "lawn-a": {
+        "#9BAE73": 224253,
+        "#83A89A": 24151,
+        "#6D895B": 13441
+      },
+      "lawn-b": {
+        "#9BAE73": 230158,
+        "#83A89A": 20029,
+        "#6D895B": 11630
+      }
+    },
+    "changedNativePieces": [
+      "lawn-a",
+      "lawn-b",
+      "picket-vertical",
+      "picket-corner",
+      "wood-vertical",
+      "wood-corner",
+      "yard-lawn-sprinkler",
+      "key-house-key",
+      "ground-young-family",
+      "ground-retirees",
+      "ground-grill-master",
+      "ground-fixer-upper",
+      "ground-hoa-president",
+      "ground-halloween",
+      "ground-player"
     ],
-    "streetBandHeight": 512,
-    "roadWidth": 320,
-    "barricadesSeparate": true
+    "approvedOtherNativeFilesUnchanged": true,
+    "streetEndsRetainedUnchanged": true,
+    "visualChecks": [
+      "mixed2x2 and4x4 lawns inspected",
+      "straight stacked vertical fences and corners assembled",
+      "seven yard plates and two lawns compared",
+      "sprinkler and key at native scale beside hero"
+    ]
   }
 }

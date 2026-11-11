@@ -610,3 +610,8 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 - **What/Files:** Two painted 512x512 left/right dead-end caps in `assets/stage/home/v4/batch-b/`, plus separate transparent barricades. Sources, prompts, native/4x comparisons, joined 1x/2x preview and manifest updated.
 - **For Claude:** Same 512px cross-section: 64 sidewalk, 32 parkway, 320 road, 32 parkway, 64 sidewalk. Place barricades at manifest assembly coordinates; ground stays non-solid. Close the curved outer map boundary in integration.
 - **Checks:** Palette, dimensions, binary alpha and both joins pass; assembled street inspected by eye. Total native pieces83. Art and docs only; PR #4 remains for Rami review.
+
+## 2026-11-11: PR #4 review fixes (Codex)
+- **What:** Repainted both512px lawns with three interwoven grass tones, straight north-south fences and true grid corners; enlarged the48px sprinkler and house key. All seven yard plates and both lawns now use Rami-approved #9BAE73 as grass base.
+- **Files/checks:** Batch B manifest, sources/prompts, affected atlases, prior-PR/fix comparisons, nine-ground board, native hero readability and assembled fence joins. Full83-piece palette/alpha/size checks and eight lawn pairings pass. Mixed lawns and joined fences inspected by eye.
+- **For Claude/Rami:** Both512px street ends and separate barricades remain included. Other approved native pieces are hash-identical. Art and docs only, no runtime/version changes; PR #4 waits for review.

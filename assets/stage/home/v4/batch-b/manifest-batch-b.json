@@ -1248,29 +1248,29 @@
         47
       ],
       "footprints": [],
-      "source": "sources/yard-props-generated.png",
+      "source": "sources/revision-readable-generated.png",
       "sourceSize": [
-        1448,
-        1086
+        1774,
+        887
       ],
       "sourceRect": [
-        362,
         0,
-        724,
-        362
+        0,
+        887,
+        887
       ],
       "working": "working-8x/yard-lawn-sprinkler-8x.png",
       "crop": [
-        41,
-        90,
-        320,
-        316
+        52,
+        155,
+        837,
+        771
       ],
       "fit": [
-        24,
-        88,
-        336,
-        272
+        32,
+        66,
+        320,
+        251
       ],
       "atlas": {
         "file": "yard-props-v4.png",
@@ -1286,7 +1286,8 @@
         ]
       },
       "oldNote": "Rejected v3 native sprite versus painted v4.",
-      "oldFile": "old/yard-lawn-sprinkler-comparison.png"
+      "oldFile": "old/yard-lawn-sprinkler-comparison.png",
+      "revision": "Repainted larger40px silhouette within unchanged48px native cell."
     },
     {
       "id": "yard-leaf-pile",
@@ -2233,29 +2234,29 @@
         47
       ],
       "footprints": [],
-      "source": "sources/key-hunt-generated.png",
+      "source": "sources/revision-readable-generated.png",
       "sourceSize": [
         1774,
         887
       ],
       "sourceRect": [
         887,
-        444,
-        1330,
+        0,
+        1774,
         887
       ],
       "working": "working-8x/key-house-key-8x.png",
       "crop": [
-        40,
-        73,
-        385,
-        353
+        46,
+        129,
+        854,
+        789
       ],
       "fit": [
-        8,
-        47,
-        208,
-        169
+        32,
+        61,
+        320,
+        261
       ],
       "atlas": {
         "file": "key-hunt-v4.png",
@@ -2271,7 +2272,8 @@
         ]
       },
       "oldNote": "Rejected v3 native sprite versus painted v4.",
-      "oldFile": "old/key-house-key-comparison.png"
+      "oldFile": "old/key-house-key-comparison.png",
+      "revision": "Repainted larger40px silhouette within unchanged48px native cell."
     },
     {
       "id": "key-blank-note",
@@ -3076,22 +3078,22 @@
       ],
       "footprints": [
         [
-          22,
+          27,
           0,
-          20,
+          10,
           64
         ]
       ],
-      "source": "sources/picket-fence-generated.png",
+      "source": "sources/revision-fence-generated.png",
       "sourceSize": [
-        1774,
-        887
+        1254,
+        1254
       ],
       "sourceRect": [
-        585,
         0,
-        1171,
-        435
+        0,
+        627,
+        627
       ],
       "working": "working-8x/picket-vertical-8x.png",
       "crop": [
@@ -3100,14 +3102,15 @@
         447,
         419
       ],
-      "fit": [
-        0,
-        1,
-        512,
-        511
-      ],
+      "fit": "whole square cell at exact8x; no bounding-box enlargement",
       "oldNote": "Rejected v3 native sprite versus painted v4.",
-      "oldFile": "old/picket-vertical-comparison.png"
+      "oldFile": "old/picket-vertical-comparison.png",
+      "gridJoin": {
+        "verticalCenterX": 32,
+        "horizontalBaselineY": 63
+      },
+      "revision": "Repainted orthographic north-south run / ninety-degree top-to-right corner.",
+      "cleanup": "Full painted vertical crop normalized to64px height without diagonal scaling; extends to both cell edges."
     },
     {
       "id": "picket-corner",
@@ -3123,22 +3126,28 @@
       ],
       "footprints": [
         [
-          3,
-          41,
-          58,
+          27,
+          0,
+          10,
+          64
+        ],
+        [
+          32,
+          44,
+          32,
           20
         ]
       ],
-      "source": "sources/picket-fence-generated.png",
+      "source": "sources/revision-fence-generated.png",
       "sourceSize": [
-        1774,
-        887
+        1254,
+        1254
       ],
       "sourceRect": [
-        1171,
+        627,
         0,
-        1774,
-        435
+        1254,
+        627
       ],
       "working": "working-8x/picket-corner-8x.png",
       "crop": [
@@ -3147,14 +3156,15 @@
         506,
         410
       ],
-      "fit": [
-        0,
-        130,
-        512,
-        382
-      ],
+      "fit": "whole square cell at exact8x; no bounding-box enlargement",
       "oldNote": "Rejected v3 native sprite versus painted v4.",
-      "oldFile": "old/picket-corner-comparison.png"
+      "oldFile": "old/picket-corner-comparison.png",
+      "gridJoin": {
+        "verticalCenterX": 32,
+        "horizontalBaselineY": 63
+      },
+      "revision": "Repainted orthographic north-south run / ninety-degree top-to-right corner.",
+      "cleanup": "Painted vertical spine joined to right half of approved horizontal run, keeping its exact frontface height and baseline. No code-drawn geometry."
     },
     {
       "id": "picket-post",
@@ -3371,22 +3381,22 @@
       ],
       "footprints": [
         [
-          22,
+          27,
           0,
-          20,
+          10,
           64
         ]
       ],
-      "source": "sources/wood-fence-generated.png",
+      "source": "sources/revision-fence-generated.png",
       "sourceSize": [
-        1774,
-        887
+        1254,
+        1254
       ],
       "sourceRect": [
-        585,
         0,
-        1171,
-        435
+        627,
+        627,
+        1254
       ],
       "working": "working-8x/wood-vertical-8x.png",
       "crop": [
@@ -3395,14 +3405,15 @@
         456,
         427
       ],
-      "fit": [
-        37,
-        0,
-        437,
-        512
-      ],
+      "fit": "whole square cell at exact8x; no bounding-box enlargement",
       "oldNote": "Rejected v3 native sprite versus painted v4.",
-      "oldFile": "old/wood-vertical-comparison.png"
+      "oldFile": "old/wood-vertical-comparison.png",
+      "gridJoin": {
+        "verticalCenterX": 32,
+        "horizontalBaselineY": 63
+      },
+      "revision": "Repainted orthographic north-south run / ninety-degree top-to-right corner.",
+      "cleanup": "Full painted vertical crop normalized to64px height without diagonal scaling; extends to both cell edges."
     },
     {
       "id": "wood-corner",
@@ -3418,22 +3429,28 @@
       ],
       "footprints": [
         [
-          3,
-          41,
-          58,
+          27,
+          0,
+          10,
+          64
+        ],
+        [
+          32,
+          44,
+          32,
           20
         ]
       ],
-      "source": "sources/wood-fence-generated.png",
+      "source": "sources/revision-fence-generated.png",
       "sourceSize": [
-        1774,
-        887
+        1254,
+        1254
       ],
       "sourceRect": [
-        1171,
-        0,
-        1774,
-        435
+        627,
+        627,
+        1254,
+        1254
       ],
       "working": "working-8x/wood-corner-8x.png",
       "crop": [
@@ -3442,14 +3459,15 @@
         467,
         409
       ],
-      "fit": [
-        0,
-        114,
-        512,
-        398
-      ],
+      "fit": "whole square cell at exact8x; no bounding-box enlargement",
       "oldNote": "Rejected v3 native sprite versus painted v4.",
-      "oldFile": "old/wood-corner-comparison.png"
+      "oldFile": "old/wood-corner-comparison.png",
+      "gridJoin": {
+        "verticalCenterX": 32,
+        "horizontalBaselineY": 63
+      },
+      "revision": "Repainted orthographic north-south run / ninety-degree top-to-right corner.",
+      "cleanup": "Painted vertical spine joined to right half of approved horizontal run, keeping its exact frontface height and baseline. No code-drawn geometry."
     },
     {
       "id": "wood-post",
@@ -3640,7 +3658,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-young-family-comparison.png"
+      "oldFile": "old/ground-young-family-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "ground-retirees",
@@ -3677,7 +3697,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-retirees-comparison.png"
+      "oldFile": "old/ground-retirees-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "ground-grill-master",
@@ -3714,7 +3736,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-grill-master-comparison.png"
+      "oldFile": "old/ground-grill-master-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "ground-fixer-upper",
@@ -3751,7 +3775,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-fixer-upper-comparison.png"
+      "oldFile": "old/ground-fixer-upper-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "ground-hoa-president",
@@ -3788,7 +3814,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-hoa-president-comparison.png"
+      "oldFile": "old/ground-hoa-president-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "ground-halloween",
@@ -3825,7 +3853,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-halloween-comparison.png"
+      "oldFile": "old/ground-halloween-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "ground-player",
@@ -3862,7 +3892,9 @@
       "wholeCanvas": true,
       "placementNote": "Opaque flat ground only. No collision. Suggested side exits96px high at y224..320; placement remains data-driven.",
       "oldNote": "Old yard with baked furniture versus new ground-only plate.",
-      "oldFile": "old/ground-player-comparison.png"
+      "oldFile": "old/ground-player-comparison.png",
+      "grassBase": "#9BAE73",
+      "materialCleanup": "Dominant lawn material remapped to approved lightgreen; paths, patios, soil and leaves preserved."
     },
     {
       "id": "lawn-a",
@@ -3877,7 +3909,7 @@
         511
       ],
       "footprints": [],
-      "source": "sources/lawn-a-redo-generated.png",
+      "source": "sources/revision-a-generated.png",
       "sourceSize": [
         1254,
         1254
@@ -3889,7 +3921,7 @@
         1254
       ],
       "working": "working-8x/lawn-a-8x.png",
-      "fit": "proportional cover crop; inward edge preserved",
+      "fit": "whole square cell at exact8x; no bounding-box enlargement",
       "cropAtWorking": [
         0,
         0,
@@ -3899,7 +3931,9 @@
       "wholeCanvas": true,
       "seamCleanup": "Shared painted edge strips joined by irregular minimum-error pixel cuts; no blur or procedural grass shapes. Common endpoint ring for all A/B pairs.",
       "oldNote": "Old painted lawn v2 versus new512px lawn.",
-      "oldFile": "old/lawn-a-comparison.png"
+      "oldFile": "old/lawn-a-comparison.png",
+      "grassBase": "#9BAE73",
+      "revision": "Repainted with small interwoven three-tone grass, no large tone islands."
     },
     {
       "id": "lawn-b",
@@ -3914,7 +3948,7 @@
         511
       ],
       "footprints": [],
-      "source": "sources/lawn-b-redo-generated.png",
+      "source": "sources/revision-b-generated.png",
       "sourceSize": [
         1254,
         1254
@@ -3926,7 +3960,7 @@
         1254
       ],
       "working": "working-8x/lawn-b-8x.png",
-      "fit": "proportional cover crop; inward edge preserved",
+      "fit": "whole square cell at exact8x; no bounding-box enlargement",
       "cropAtWorking": [
         0,
         0,
@@ -3936,7 +3970,9 @@
       "wholeCanvas": true,
       "seamCleanup": "Shared painted edge strips joined by irregular minimum-error pixel cuts; no blur or procedural grass shapes. Common endpoint ring for all A/B pairs.",
       "oldNote": "Old painted lawn v2 versus new512px lawn.",
-      "oldFile": "old/lawn-b-comparison.png"
+      "oldFile": "old/lawn-b-comparison.png",
+      "grassBase": "#9BAE73",
+      "revision": "Repainted with small interwoven three-tone grass, no large tone islands."
     },
     {
       "id": "street-end-left",
@@ -3984,7 +4020,7 @@
         ]
       },
       "placementNote": "Ground only. Claude closes the street boundary at the curved end; separate painted barricade is solid.",
-      "oldNote": "New street-end subject; existing street band shown only as scale/material context."
+      "oldNote": "New subject: no previous standalone sprite exists."
     },
     {
       "id": "street-end-left-barricade",
@@ -4012,7 +4048,7 @@
         1254
       ],
       "cleanup": "Painted barricade extracted from normalized native painting; underlying asphalt repaired with adjacent painted asphalt.",
-      "oldNote": "New subject; no earlier standalone street end existed."
+      "oldNote": "New subject: no previous standalone sprite exists."
     },
     {
       "id": "street-end-right",
@@ -4060,7 +4096,7 @@
         ]
       },
       "placementNote": "Ground only. Claude closes the street boundary at the curved end; separate painted barricade is solid.",
-      "oldNote": "New street-end subject; existing street band shown only as scale/material context."
+      "oldNote": "New subject: no previous standalone sprite exists."
     },
     {
       "id": "street-end-right-barricade",
@@ -4088,7 +4124,9 @@
         1254
       ],
       "cleanup": "Painted barricade extracted from normalized native painting; underlying asphalt repaired with adjacent painted asphalt.",
-      "oldNote": "New subject; no earlier standalone street end existed."
+      "oldNote": "New subject: no previous standalone sprite exists."
     }
-  ]
+  ],
+  "grassBase": "#9BAE73",
+  "revision": "PR4 review fixes: lawns, grid fences, shared grass, readable sprinkler and key. Street ends retained."
 }

@@ -2247,3 +2247,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## 2026-11-11: Street ends added to Batch B (Codex)
 - Painted both ends of the 512px street band and separated their barricades from the ground.
 - Native joined-street preview and manifest added to PR #4. No game changes; awaits Rami review.
+
+## 2026-11-11: Batch B review corrections (Codex)
+- Repainted lawns and grid fences; shared light grass base #9BAE73 confirmed by Rami.
+- Made the sprinkler and key larger. Street ends retained, other approved native sprites unchanged.
+- Updated comparisons and validation in PR #4. No game changes; stop for review.

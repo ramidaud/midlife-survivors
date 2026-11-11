@@ -496,3 +496,6 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [ ] Rami reviews Batch B PR before Claude integrates it.
 
 - [x] Add left/right 512px street ends to Batch B art PR, with separate barricades and assembled check.
+
+- [x] Correct Batch B lawns, grid fences, shared #9BAE73 grass and sprinkler/key readability in PR #4.
+- [ ] Rami reviews corrected Batch B before integration.
