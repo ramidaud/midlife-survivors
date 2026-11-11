@@ -2275,3 +2275,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Your backyard is the first rebuilt yard: a plain ground picture, with the soccer goal, fire pit, chair and maple tree as separate objects that block at their base.
 - Tested: the lane between the side gates is clear, the goal, pit and trunk block, and the tree fades when you stand behind it.
 - It looks greener than everything around it until the lawns and the other yards switch over.
+
+## 2026-11-11 (4:00 PM): Batch B approved
+- Codex's fixes pass: the lawns have three tones and no blobs or cut lines, every ground piece shares the lighter green, and the sprinkler and key read clearly.
+- The side-on fences now stack into a straight line and meet the corners. They are thin (6 px), which is true to the view but reads light next to the front-on fence.
+- The two lawn tiles are close to identical, so a small flower repeats every 512 px. Minor.
+- All of Batch A and Batch B is approved. What's left is wiring: eleven yards, the street ends, and the green lawns.

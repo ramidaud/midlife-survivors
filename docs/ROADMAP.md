@@ -38,7 +38,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Tree wall live on all four sides of Maple Hollow, camera locked inside it (V2.29.5). Corners were plain side pieces until V2.29.6
 - [x] Codex corner redo approved and live (V2.29.6). Batch A is done
 - [x] Codex Batch B reviewed (PR #4): furniture, yard props, key-hunt props, toy bricks, leaf decals, gates and straight fence runs pass
-- [ ] Codex Batch B fixes: lawns (two flat tones, visible cut lines), side-on fence pieces and corners (drawn at an angle, won't stack), one grass color on all seven yard plates, and the street end piece (missing)
+- [x] Codex Batch B fixes reviewed (PR #4): three-tone lawns, straight fences with corners, one grass color on every ground piece, clearer sprinkler and key. Batch B is approved
 - [x] Rami picked the lighter green (#9BAE73) as the one grass color for Maple Hollow
 - [x] Street ends reviewed (PR #4): both painted dead ends and barricades pass. Not wired in yet
 - [x] Your backyard rebuilt (V2.29.10): plain ground plus separate goal, fire pit, chair and maple tree
