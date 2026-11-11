@@ -1031,6 +1031,7 @@ article.post .prose .song-embed::before, article.post .prose .video-embed::befor
 }
 article.post .prose .song-embed::before { content: "♪ LISTEN"; }
 article.post .prose .video-embed::before { content: "▶ WATCH"; }
+article.post .prose .video-embed.explore::before { content: "◆ EXPLORE"; }  /* interactive 3D viewer (Memo 14) */
 article.post .prose .song-embed iframe { display: block; width: 100%; height: 175px; border-radius: 8px; }
 article.post .prose .video-embed iframe { position: static; display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; }
 @media (max-width: 719px) {

@@ -9,7 +9,7 @@ window.DEVLOG_POSTS = [
     "title": "Achievement Unlocked: Gaussian Splatting.",
     "version": "V. 2.29.4",
     "draft": false,
-    "cover": "img/14-key-art.jpg",
+    "cover": "img/14-key-art-front.jpg",
     "leadVideo": "img/14-abe-orbit.mp4",
     "leadPoster": "img/14-abe-orbit-poster.jpg",
     "leadFocus": "50% 85%",

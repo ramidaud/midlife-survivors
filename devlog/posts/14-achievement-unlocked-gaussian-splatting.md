@@ -6,6 +6,10 @@ I've been curious about Gaussian splatting since the [original paper](https://ar
 
 Here's the short version of what it is. Instead of building a surface out of triangles, splatting fills the space with millions of soft, colored blobs (the splats) that blend into an image from any angle. It looks like a photograph you can walk around in.
 
+Here it is. Tap Explore in 3D, then drag to spin Abe around.
+
+<div class="video-embed explore"><iframe title="Abe as a Gaussian splat, interactive 3D viewer" loading="lazy" src="https://midlifesurvivors.com/devlog/viewer/14/" allow="fullscreen"></iframe></div>
+
 ## Even with a scan that went wrong
 
 What surprised me most was how good it turned out, even with a scan that went wrong in several ways. I didn't make enough passes around him, and Abdel moved more than the software would like. The processing took a little time and some work in Terminal, but it was a relatively easy process to follow.

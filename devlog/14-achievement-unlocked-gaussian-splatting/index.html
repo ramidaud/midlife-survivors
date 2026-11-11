@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=9">
-<link rel="stylesheet" href="../styles.css?v=45">
+<link rel="stylesheet" href="../styles.css?v=46">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -60,6 +60,9 @@
 
 <p>I've been curious about Gaussian splatting since the <a href="https://arxiv.org/abs/2308.04079">original paper</a> came out in August 2023.<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-1" aria-label="Note 1">1</button><span class="sn" id="sn-1" role="note"><span class="sn-head"><b>1</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">3D Gaussian Splatting for Real-Time Radiance Field Rendering, by Bernhard Kerbl, Georgios Kopanas, Thomas Leimkühler and George Drettakis, presented at SIGGRAPH 2023.</span></span> A team at Inria in France showed you could turn a set of ordinary photos into a 3D scene that renders in real time. It made waves, and I always assumed it was a little too far outside my skill set. Lately it keeps showing up in my Instagram feed, and that got me curious enough to try.</p>
 <p>Here's the short version of what it is. Instead of building a surface out of triangles, splatting fills the space with millions of soft, colored blobs (the splats) that blend into an image from any angle. It looks like a photograph you can walk around in.</p>
+<p>Here it is. Tap Explore in 3D, then drag to spin Abe around.</p>
+<div class="video-embed explore"><iframe title="Abe as a Gaussian splat, interactive 3D viewer" loading="lazy" src="https://midlifesurvivors.com/devlog/viewer/14/" allow="fullscreen"></iframe></div>
+
 <h2>Even with a scan that went wrong</h2>
 <p>What surprised me most was how good it turned out, even with a scan that went wrong in several ways. I didn't make enough passes around him, and Abdel moved more than the software would like. The processing took a little time and some work in Terminal, but it was a relatively easy process to follow.</p>
 <p>Now I want to experiment with depth of field, lensing and lighting.</p>

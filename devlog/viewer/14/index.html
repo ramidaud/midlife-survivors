@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abe in 3D · Memo 14 · Midlife Survivors Devlog</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="../../../assets/ui/ms-tokens.css">
+<style>
+  /* Memo 14's interactive splat. Lives in an iframe inside the memo; loads nothing heavy until tapped. */
+  html, body { margin: 0; height: 100%; background: var(--ms-bg); color: var(--ms-text); overflow: hidden;
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+  #stage canvas:active { cursor: grabbing; }
+  #poster { position: absolute; inset: 0; background: center / cover no-repeat url(poster.jpg); }
+  #poster::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 45%, rgba(16, 20, 42, .85)); }
+  #start { position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); z-index: 2; text-align: center; }
+  .btn { white-space: nowrap; font: 700 16px/1 "Silkscreen", monospace; letter-spacing: .06em; min-height: 48px; padding: 0 22px;
+    border: 0; border-radius: 6px; cursor: pointer; background: var(--ms-accent); color: var(--ms-bg);
+    box-shadow: 0 4px 0 #8a4a1f; }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #8a4a1f; }
+  .help { margin-top: 10px; font-size: 15px; white-space: nowrap; color: var(--ms-text); text-shadow: 0 1px 2px #000; }
+  #bar { position: absolute; left: 12%; right: 12%; bottom: 10%; height: 14px; border: 2px solid var(--ms-border);
+    background: var(--ms-surface); display: none; z-index: 3; }
+  #bar i { display: block; height: 100%; width: 0; background: var(--ms-accent); transition: width .2s; }
+  #hint, #reset { position: absolute; z-index: 3; font: 400 14px/1 "Silkscreen", monospace; letter-spacing: .04em; }
+  #hint { left: 50%; bottom: 16px; transform: translateX(-50%); padding: 10px 14px; background: rgba(16, 20, 42, .82);
+    border: 2px solid var(--ms-border); border-radius: 6px; transition: opacity .6s; white-space: nowrap; }
+  #reset { right: 10px; top: 10px; min-height: 44px; min-width: 44px; padding: 0 12px; background: rgba(16, 20, 42, .82);
+    color: var(--ms-text); border: 2px solid var(--ms-border); border-radius: 6px; cursor: pointer; display: none; }
+  #err { position: absolute; inset: auto 8% 12% 8%; text-align: center; font-size: 16px; display: none; z-index: 3; }
+  @media (prefers-reduced-motion: reduce) { .btn, #hint { transition: none; } }
+  @media (max-width: 480px), (max-height: 280px) {
+    .btn { font-size: 13px; min-height: 44px; padding: 0 14px; }
+    .help { font-size: 14px; margin-top: 6px; }
+    .help .long { display: none; }
+    #start { bottom: 5%; }
+  }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "../../vendor/three/three.module.js",
+  "three/addons/": "../../vendor/three/addons/",
+  "@sparkjsdev/spark": "../../vendor/spark/spark.module.min.js"
+} }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<div id="poster" role="img" aria-label="Abe sitting in a chair on a floating patch of grass, a Gaussian splat made from 212 photos"></div>
+<div id="start">
+  <button class="btn" id="go" type="button">EXPLORE IN 3D</button>
+  <div class="help">Drag to spin Abe around.<span class="long"> Loads about 5 MB.</span></div>
+</div>
+<div id="bar" aria-hidden="true"><i></i></div>
+<button id="reset" type="button" aria-label="Reset the view">RESET</button>
+<div id="hint">DRAG TO SPIN · PINCH TO ZOOM</div>
+<div id="err">The 3D view needs WebGL2, which this browser doesn't have. The loop at the top of the memo shows the same scene.</div>
+
+<script type="module">
+// The splat came out of Brush with camera-solve axes (Y points down). LEVEL stands it up: the ground
+// plane's normal, a point under Abe and his height, all measured from the splat itself.
+const LEVEL = { normal: [-0.06768, -0.99678, -0.04310], base: [-1.00038, 0.28775, 0.14081], height: 0.7447 };
+const ABE_HEIGHT = 1.3;  // scene units Abe should stand in the viewer
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = id => document.getElementById(id);
+const hint = $("hint"); hint.style.opacity = 0;
+
+$("go").addEventListener("click", start, { once: true });
+
+async function start() {
+  $("start").style.display = "none"; $("bar").style.display = "block";
+  let THREE, OrbitControls, Spark;
+  try {
+    THREE = await import("three");
+    ({ OrbitControls } = await import("three/addons/controls/OrbitControls.js"));
+    Spark = await import("@sparkjsdev/spark");
+  } catch (e) { return fail(e); }
+  const gl = document.createElement("canvas").getContext("webgl2");
+  if (!gl) return fail(new Error("no webgl2"));
+
+  const stage = $("stage");
+  const renderer = new THREE.WebGLRenderer({ antialias: false });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(stage.clientWidth, stage.clientHeight);
+  renderer.setClearColor(0x10142a);
+  stage.appendChild(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, stage.clientWidth / stage.clientHeight, 0.05, 100);
+  scene.add(new Spark.SparkRenderer({ renderer }));
+
+  // Level the splat: rotate its "up" onto +Y, put the floor under Abe at the origin, scale him to size.
+  const s = ABE_HEIGHT / LEVEL.height;
+  const q = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(...LEVEL.normal).normalize(), new THREE.Vector3(0, 1, 0));
+  const base = new THREE.Vector3(...LEVEL.base).applyQuaternion(q).multiplyScalar(s);
+  const splat = new Spark.SplatMesh({
+    url: "abe.spz",
+    onProgress: ev => { if (ev.total) $("bar").firstElementChild.style.width = Math.round(100 * ev.loaded / ev.total) + "%"; }
+  });
+  splat.quaternion.copy(q); splat.scale.setScalar(s); splat.position.copy(base).multiplyScalar(-1);
+  scene.add(splat);
+  try { await splat.initialized; } catch (e) { return fail(e); }
+
+  const target = new THREE.Vector3(0, ABE_HEIGHT * 0.45, 0);
+  const home = new THREE.Vector3(0, 1.55, -3.6);  // starts in front of Abe
+  camera.position.copy(home);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.copy(target); controls.enableDamping = true; controls.dampingFactor = 0.08;
+  controls.minDistance = 1.4; controls.maxDistance = 7; controls.maxPolarAngle = Math.PI * 0.49; controls.enablePan = false;
+  controls.autoRotate = !reduceMotion; controls.autoRotateSpeed = 0.9;
+  controls.addEventListener("start", () => { controls.autoRotate = false; hint.style.opacity = 0; $("reset").style.display = "block"; });
+  $("reset").addEventListener("click", () => { camera.position.copy(home); controls.target.copy(target); controls.autoRotate = !reduceMotion; });
+
+  $("bar").style.display = "none";
+  $("poster").style.transition = reduceMotion ? "none" : "opacity .5s"; $("poster").style.opacity = 0;
+  setTimeout(() => $("poster").remove(), 600);
+  hint.style.opacity = 1; setTimeout(() => (hint.style.opacity = 0), 4500);
+
+  const resize = () => { renderer.setSize(stage.clientWidth, stage.clientHeight); camera.aspect = stage.clientWidth / stage.clientHeight; camera.updateProjectionMatrix(); };
+  addEventListener("resize", resize);
+  // Only draw while the viewer is on screen (saves phone batteries when scrolled past).
+  let visible = true;
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(stage);
+  renderer.setAnimationLoop(() => { if (!visible) return; controls.update(); renderer.render(scene, camera); });
+  window.__viewer = { THREE, camera, controls, splat };
+}
+
+function fail(e) {
+  console.warn("viewer", e);
+  $("bar").style.display = "none"; $("err").style.display = "block";
+}
+</script>
+</body>
+</html>
