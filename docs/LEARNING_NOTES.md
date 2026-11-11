@@ -800,3 +800,6 @@ The double alert happened because one function shouted into two places without a
 
 ## Generated data (Nov 10, the big house)
 The house layout isn't typed by hand. A small script reads Codex's floor plan, stretches the rooms, keeps each piece of furniture its drawn size, cuts every piece out cleanly, and writes the result as a data file the game loads. If we want the rooms wider or a different set of pieces to move together, we change one number or one list in the script and run it again, instead of moving 35 pieces by hand. That's the difference between building a thing and building the machine that builds the thing.
+
+## Two floors, one world (Nov 10, upstairs)
+Upstairs isn't stacked on top of downstairs. It's a second floor plan sitting far off to the right in the same world, out of sight. Taking the stairs is really a teleport hidden behind an animation: you hop up the steps, the screen fades, and you're moved to the other floor plan. Games do this all the time (Zelda houses, Pokemon buildings) because it's simpler than real height, and with the fade your brain fills in "I went upstairs."

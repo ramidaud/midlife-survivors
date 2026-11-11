@@ -67,7 +67,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Maple Hollow step 5b: the garage, and the V8 bursting out of it at 60 (V2.23.0)
 - [x] Maple Hollow v2 step 1: the outside at twice the scale, side paths, connected backyards, your real house (V2.26.0)
 - [x] Maple Hollow v2 step 2a (V2.28.0): the big house ground floor (option C, rooms 2x wide) and the front-door walk-through
-- [ ] Maple Hollow v2 step 2b: upstairs (Abe's room, the master bedroom) and the stair-climb animation; a few enemies follow
+- [x] Maple Hollow v2 step 2b (V2.28.1): upstairs (Abe's room, the main bedroom) and the stair climb both ways
+- [ ] Check in a real browser: do the walkers near the stairs follow you up? (the slow test browser couldn't show it)
 - [ ] Maple Hollow v2 step 2c: fill the big rooms (rugs, plants, lamps, shelves, from Rami's photos) and your desk's Ship It buff
 - [ ] Maple Hollow v2 step 3: one thing to do in each backyard, the desk's Ship It buff, Grok's spawn rules
 - [ ] Later (Rami): make sure the office doesn't feel light on bosses

@@ -2150,3 +2150,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The whole ground floor is in: living room, the desk by the window, galley kitchen, half bath, laundry, entry and the garage with the minivan (the V8 still waits there for 60).
 - Walking through the front door animates now, in and out, and nothing can hit you mid-doorway.
 - A baby gate blocks the stairs until upstairs (step 2b). Step 2c fills the bigger rooms using Rami's cozy photos as the mood: rugs, plants, lamps, shelves.
+
+## 2026-11-10 (11:45 PM): V2.28.1, upstairs (Maple v2 step 2b)
+- Upstairs is in: Abe's room (bed, music desk, guitar, TV, posters, hoop closet), the main bedroom with the crib and twin bassinet, the walk-in, the bath and the hall.
+- Walk onto the stairs to climb: a few hops, a fade, and you come out on the other floor. Tested both ways.
+- The toy bricks moved to Abe's room (the test stepped on one and earned Barefoot Parenting).
+- Still to confirm in a real browser: walkers near the stairs following you. Rami asked why it was slow: each headless test runs the game at about 10 fps, so one house walk-through takes 6 to 8 minutes.
