@@ -2216,4 +2216,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Found that a link inside a sidenote breaks it; README corrected. Draft stays hidden until Rami's OK.
 - Memo 14 cover (Rami's ask): the lead loop is now a speed-ramped screen recording of the orbit inside Blender (viewport, camera gizmo, outliner, timeline), 11 s and 2.4 MB, ramping from real speed to about 2.6x and back so it loops cleanly. Captured frame by frame from Blender's own window.
 - The still for cards and link previews is the clean island, cropped to 16:9. New optional `leadPoster` field so a loop's first frame can differ from the cover.
-
+- Rami's correction: the orbit should be of Abe. New lead loop: the Blender view circles Abe (the world turns behind him), then the sweep line turns him into dots and it settles there. 10.8 s, 2.7 MB.
