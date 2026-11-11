@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.28.0",
-  displayVersion: "V. 2.28.0",
+  version: "2.28.1",
+  displayVersion: "V. 2.28.1",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 348,
+  build: 349,
   changelog: [
+    {
+      ver: "V. 2.28.1", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "The baby gate is down. Go upstairs.",
+      highlights: [
+        "Upstairs in Maple Hollow: Abe's room (his bed, music desk, guitar, TV and posters), the main bedroom with the crib and the twin bassinet, the walk-in closet, the bath and the hall.",
+        "Walk onto the stairs to climb them. You hop up the steps and come out on the other floor. Same thing going down.",
+        "A few enemies near the stairs follow you up or down a moment later. Bosses always do.",
+        "Watch your step in Abe's room. The toy bricks moved up there."
+      ]
+    },
     {
       ver: "V. 2.28.0", date: "Nov 10, 2026", title: "Version Two",
       teaser: "Your house got a lot bigger on the inside.",

@@ -120,7 +120,7 @@ window.KeyHunt = (() => {
     // anything that can't follow you through the door clocks out; bosses come along
     const area = scene.worldArt && scene.worldArt.startArea;
     bills.getChildren().slice().forEach(b => {
-      if (!b.active) return;
+      if (!b.active || b.stairFollow) return; // the ones following you up or down the stairs arrive on their own
       const far = Math.hypot(b.x - x, b.y - y) > 900;
       if (!far) return;
       if (b.isBoss) { const s = area && area.resolveSpawn ? area.resolveSpawn(x + (Math.random() < 0.5 ? -320 : 320), y - 120) : null; if (s) b.body.reset(s[0], s[1]); }
@@ -152,6 +152,40 @@ window.KeyHunt = (() => {
         onComplete: () => { window.homeTransit = false; } });
     });
   }
+  // The stairs (Maple v2 step 2b, Rami: "animate them ... climbing stairs"). You hop up (or down) the steps, the screen
+  // fades, and you come out beside the stairs on the other floor. A few nearby walkers follow a moment later; bosses always.
+  function climb(scene, goingUp) {
+    const S = window.MapleHollowStairs, P = MAPLE_HOLLOW.house2, F = P.follow || {}, ms = P.climbMs || 700;
+    if (!S || window.homeTransit) return;
+    window.homeTransit = true; setTimeout(() => { window.homeTransit = false; }, ms * 4); // backstop
+    const [ax, ay, aw, ah] = goingUp ? S.down : S.up, arrive = goingUp ? S.arriveUp : S.arriveDown;
+    const half = player.height / 2, x0 = player.x, y0 = player.y, fx = ax + aw / 2;
+    const toY = (goingUp ? ay + 26 : ay + ah - 6) - half;     // walk to the far end of the flight
+    const followers = bills.getChildren().filter(b => b.active && !b.isBoss && Math.hypot(b.x - x0, b.y - y0) < (F.radius || 220)).slice(0, F.max || 6);
+    followers.forEach(b => { b.stairFollow = true; });
+    const sx = player.scaleX, sy = player.scaleY, cam = scene.cameras.main, t = { k: 0 }, hops = 5, walk = Math.round(ms * 0.7);
+    if (typeof sfx === "function") sfx("pick", 0);
+    scene.tweens.add({ targets: t, k: 1, duration: walk, onUpdate: () => {
+      const k = t.k, hop = Math.abs(Math.sin(k * Math.PI * hops)) * 7; // one little hop per step
+      player.body.reset(Phaser.Math.Linear(x0, fx, Math.min(1, k * 3)), Phaser.Math.Linear(y0, toY, k) - hop);
+      const sc = goingUp ? 1 - 0.14 * k : 1; player.setScale(sx * sc, sy * sc); player.setAlpha(k > 0.6 ? 1 - (k - 0.6) / 0.4 : 1);
+    } });
+    scene.time.delayedCall(Math.round(walk * 0.55), () => cam.fadeOut(Math.round(walk * 0.45), 23, 28, 53));
+    scene.time.delayedCall(walk, () => {
+      moveTo(scene, arrive[0] - 30, arrive[1]);
+      player.setScale(sx, sy); player.setFlipX(false); cam.fadeIn(Math.round(ms * 0.35), 23, 28, 53);
+      const a0 = player.x, step = { t: 0 };
+      scene.tweens.add({ targets: player, alpha: 1, duration: Math.round(ms * 0.3) });
+      scene.tweens.add({ targets: step, t: 1, duration: Math.round(ms * 0.35), ease: "Sine.easeOut",
+        onUpdate: () => player.body.reset(a0 + 30 * step.t, player.y), onComplete: () => { window.homeTransit = false; } });
+      st.floor = goingUp ? 2 : 1;
+      scene.time.delayedCall(F.delayMs || 1200, () => followers.forEach((b, i) => {
+        if (!b.active) return; b.stairFollow = false;
+        const ang = Math.PI * (0.6 + 0.8 * (i / Math.max(1, followers.length - 1))); // fan out behind you, toward the stairs
+        b.body.reset(arrive[0] + Math.cos(ang) * 70, arrive[1] - 30 + Math.sin(ang) * 50);
+      }));
+    });
+  }
   function goInside(scene) {
     const I = MAPLE_HOLLOW.interior, C = I;
     st.inside = true; st.armed = false;
@@ -160,7 +194,7 @@ window.KeyHunt = (() => {
     if (typeof sfx === "function") sfx("pick", 0);
   }
   function goOutside(scene) {
-    st.inside = false; st.armed = false;
+    st.inside = false; st.armed = false; st.floor = 1;
     moveTo(scene, st.door.x, st.door.y + 60);
     if (typeof sfx === "function") sfx("pick", 0);
   }
@@ -175,6 +209,20 @@ window.KeyHunt = (() => {
     const dm = Math.hypot(px - I.exitMat[0], py - I.exitMat[1]);
     if (dm > 80) st.armed = true;
     else if (st.armed && dm < (I.exitPx || 40)) { walkThrough(scene, false); return; }
+    const S = window.MapleHollowStairs; // the stairs: step onto either flight to climb it (step off before it fires again)
+    if (S && !window.homeTransit) {
+      const on = r => px > r[0] + 6 && px < r[0] + r[2] - 6 && py > r[1] + 8 && py < r[1] + r[3] - 4;
+      const onDown = on(S.down), onUp = on(S.up);
+      if (!onDown && !onUp) st.stairArmed = true;
+      else if (st.stairArmed) { st.stairArmed = false; climb(scene, onDown); return; }
+    }
+    // bosses can't walk between floors: one left far behind walks back in near you
+    if (S && runElapsedMs - (st.bossCheck || 0) > 1500) {
+      st.bossCheck = runElapsedMs;
+      const area = scene.worldArt && scene.worldArt.startArea;
+      bills.getChildren().forEach(b => { if (b.active && b.isBoss && Math.hypot(b.x - px, b.y - py) > 1100 && area && area.resolveSpawn) {
+        const q = area.resolveSpawn(px + (Math.random() < 0.5 ? -300 : 300), py - 100); if (q) b.body.reset(q[0], q[1]); } });
+    }
     const BG = window.MapleHollowGate; // the baby gate on the stairs (until upstairs opens)
     if (BG && Math.hypot(px - BG.x, py - BG.y) < 70 && runElapsedMs - (st.gateSaid || -1e9) > 20000) { st.gateSaid = runElapsedMs; pop(scene, BG.x, BG.y - 60, BG.line, "#F2D7A1"); }
     const F = window.MapleHollowFridge;
@@ -198,5 +246,5 @@ window.KeyHunt = (() => {
     }
   }
   function reset() { if (st) st.objs.forEach(o => o && o.active && o.destroy()); st = null; if (chip) chip.className = "hidden"; }
-  return { update, reset, state: () => st && { inside: st.inside, armed: st.armed, fridgeUsed: st.fridgeUsed, hasKey: st.hasKey, open: st.open, checked: st.checked, keyAt: st.spots[st.keyAt] && { x: st.spots[st.keyAt].x, y: st.spots[st.keyAt].y }, door: st.door } };
+  return { update, reset, state: () => st && { inside: st.inside, floor: st.floor || 1, stairArmed: !!st.stairArmed, armed: st.armed, fridgeUsed: st.fridgeUsed, hasKey: st.hasKey, open: st.open, checked: st.checked, keyAt: st.spots[st.keyAt] && { x: st.spots[st.keyAt].x, y: st.spots[st.keyAt].y }, door: st.door } };
 })();

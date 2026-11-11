@@ -87,6 +87,10 @@ window.MAPLE_HOLLOW = {
     entryDx: 72,                 // where you appear inside, this far in from the front door
     exitPx: 34,                  // step this close to the front door (inside) to go back out
     gateLine: "Baby gate. Upstairs opens in the next update.",
+    upstairs: true,              // Maple v2 step 2b: the stairs work (false = the baby gate stays)
+    upstairsGap: 1400,           // upstairs sits this far to the right of the ground floor (far enough that no camera sees both)
+    climbMs: 700,                // the stair climb animation
+    follow: { radius: 220, max: 6, delayMs: 1200 }, // decided Nov 10: a few walkers follow you up or down; bosses always do
     parkDx: 150,                 // the V8 parks this far right of the minivan's center
     transitMs: 520               // the walk in or out of a door (you can't be hit while it plays)
   },
@@ -172,6 +176,14 @@ window.MAPLE_HOLLOW = {
     I.exitMat = [X + fe[0] + fe[2] + 6, doorFeet];
     I.exitPx = M.house2.exitPx;
     I.h2 = { x: X, y: Y, w: H2.size[0], h: H2.size[1] };
+    const U = H2.floor2;
+    if (U && M.house2.upstairs) { // upstairs, to the right of the ground floor
+      const UX = X + H2.size[0] + M.house2.upstairsGap, addU = (r, mat) => floors.push({ x: UX + r[0], y: Y + r[1], width: r[2], height: r[3], material: mat, district: "house" });
+      U.base.forEach(b => addU(b.rect, "mh2_" + b.floor));
+      U.rooms.forEach(r => addU(r.rect, r.id === "stairs" ? "mh2_" + U.base[0].floor : "mh2_" + r.floor));
+      I.h2.up = { x: UX, y: Y, w: U.size[0], h: U.size[1] };
+      const ab = U.rooms.find(r => r.id === "abe-room"); if (ab) I.h2.abe = [UX + ab.rect[0], Y + ab.rect[1], ab.rect[2], ab.rect[3]];
+    }
     const G = M.garage; G.x = X + gar[0]; G.y = Y + gar[1]; G.w = gar[2]; G.h = gar[3];
   } else {
   I.rooms.forEach((r, i) => floors.push({ x: I.x + i * I.roomW, y: I.y, width: I.roomW, height: I.roomH, material: "mh_room_" + r.id, district: "house" }));
@@ -181,11 +193,11 @@ window.MAPLE_HOLLOW = {
   I.entry = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH / 2];   // where you appear inside (middle of the hallway)
   I.exitMat = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH - 6]; // step on the front mat to go back out
   }
-  const houseBottom = I.h2 ? I.h2.y + I.h2.h : I.y + I.roomH + I.hallH, houseRight = I.h2 ? I.h2.x + I.h2.w : M.garage.x + M.garage.w;
+  const houseBottom = I.h2 ? I.h2.y + I.h2.h : I.y + I.roomH + I.hallH, houseRight = I.h2 ? (I.h2.up ? I.h2.up.x + I.h2.up.w : I.h2.x + I.h2.w) : M.garage.x + M.garage.w;
   window.MAPLE_HOLLOW_LAYOUT = {
     id: "maple-hollow", version: 1, stage: "home",
     spawn: [spawnX, spawnY],
-    bounds: { x: 0, y: 0, width: W, height: houseBottom + 60 },
+    bounds: { x: 0, y: 0, width: Math.max(W, houseRight + 60), height: houseBottom + 60 },
     districts: [{ id: "home", name: "Maple Hollow", polygon: [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] },
                 { id: "house", name: "Your House", polygon: [[I.x, I.y], [houseRight, I.y], [houseRight, houseBottom], [I.x, houseBottom]] }],
     floors, walls, gates: [], placements: [], workers: [], lights: [], floorDecor: [], structures: [], labels: [],

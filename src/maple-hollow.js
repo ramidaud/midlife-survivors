@@ -11,7 +11,7 @@ window.MapleHollow = (() => {
 
   async function build(scene, refs, H) {
     const M = window.MAPLE_HOLLOW, R = M.rows, data = window.MAPLE_HOLLOW_LAYOUT, W = M.width;
-    window.MapleHollowGarage = null;
+    window.MapleHollowGarage = null; window.MapleHollowStairs = null; window.MapleHollowGate = null;
     const items = [], bodies = [], all = [];
     let alive = true;
     const kit = await H.image(ROOT + "maple-hollow-tiles-props-v1.png"); if (!H.isAlive()) return null;
@@ -21,6 +21,8 @@ window.MapleHollow = (() => {
     try { intImg = await H.image(ROOT + "house-interior-v1.png"); intMap = await (await fetch(ROOT + "house-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { intImg = null; }
     let h2Img = null; const H2 = M.interior.h2 && window.HOUSE_V2 ? window.HOUSE_V2 : null; // the big house (Maple v2 step 2)
     if (H2) try { h2Img = await H.image(ROOT + H2.atlas); } catch (e) { h2Img = null; console.warn("big house art missing", e); }
+    let h2UpImg = null; const H2U = H2 && M.interior.h2.up && H2.floor2 ? H2.floor2 : null; // upstairs (step 2b)
+    if (H2U) try { h2UpImg = await H.image(ROOT + H2U.atlas); } catch (e) { h2UpImg = null; console.warn("upstairs art missing", e); }
     let garImg = null, garMap = null; // the garage (Nov 10)
     try { garImg = await H.image(ROOT + "garage-interior-v1.png"); garMap = await (await fetch(ROOT + "garage-interior-v1.json?v=" + (window.BUILD || 1))).json(); } catch (e) { garImg = null; }
     const G2 = M.ground2 && M.ground2.on ? M.ground2 : null, g2 = {}; // ground v2 plates (Nov 10)
@@ -56,13 +58,14 @@ window.MapleHollow = (() => {
     const streetKey = ground("mh_street", 512, 192, (x, y, r) => y === 96 ? T.dashed : (r() < 0.04 ? T.patched : T.asphalt));
     const keyFor = { mh_grass: grassKey, mh_sidewalk: walkKey, mh_street: streetKey };
     // big house: one texture per atlas frame (floors, walls, furniture), pixel-crisp
-    const h2Tex = k => {
-      const key = "mh2_" + k; if (scene.textures.exists(key)) return key; if (!h2Img || !H2.frames[k]) return null;
-      const [sx, sy, w, h] = H2.frames[k], c = document.createElement("canvas"); c.width = w; c.height = h;
-      c.getContext("2d").drawImage(h2Img, sx, sy, w, h, 0, 0, w, h);
+    const h2Tex = (k, D = H2, img = h2Img) => {
+      const key = "mh2_" + k; if (scene.textures.exists(key)) return key; if (!img || !D || !D.frames[k]) return null;
+      const [sx, sy, w, h] = D.frames[k], c = document.createElement("canvas"); c.width = w; c.height = h;
+      c.getContext("2d").drawImage(img, sx, sy, w, h, 0, 0, w, h);
       scene.textures.addCanvas(key, c); scene.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST); return key;
     };
     if (H2 && h2Img) Object.keys(H2.frames).filter(k => k.startsWith("floor_")).forEach(k => { keyFor["mh2_" + k] = h2Tex(k); });
+    if (H2U && h2UpImg) Object.keys(H2U.frames).filter(k => k.startsWith("f2_floor_")).forEach(k => { keyFor["mh2_" + k] = h2Tex(k, H2U, h2UpImg); });
     // inside floors, mixed from the interior kit's two variants per room
     if (intImg) {
       const I = M.interior;
@@ -223,45 +226,56 @@ window.MapleHollow = (() => {
       for (let k = 0; k < G2.detailsUpTop; k++) put(80 + r2() * (W - 160), 60 + r2() * 150);
     }
 
-    // ---- the big house (Maple v2 step 2, Nov 10): walls, furniture, stairs behind a baby gate, the garage ----
-    function buildHouse2() {
-      const I = M.interior, X = I.h2.x, Y = I.h2.y, C2 = M.house2;
-      const solidBlock = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
-      H2.walls.forEach(([x, y, w, h]) => {
-        const k = h2Tex(w >= h ? H2.wallTex.h : H2.wallTex.v); if (!k) return;
+    // ---- the big house (Maple v2 step 2, Nov 10): walls, furniture, stairs, the garage; upstairs to the right ----
+    const solidBlock = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
+    // one floor: walls, the stairs' art, furniture and decals at their drawn size. Returns the pieces by id.
+    function buildFloor(D, img, X, Y) {
+      const T = k => h2Tex(k, D, img), byId = {};
+      D.walls.forEach(([x, y, w, h]) => {
+        const k = T(w >= h ? D.wallTex.h : D.wallTex.v); if (!k) return;
         const t = scene.add.tileSprite(X + x + w / 2, Y + y + h, w, h, k).setOrigin(0.5, 1).setDepth(2.9);
         H.body(t, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(t); items.push(t);
       });
+      const sr = D.stairs.rect, sk = T(D.stairs.art), [, , sw, sh] = D.frames[D.stairs.art] || [0, 0, 0, 0];
+      if (sk) all.push(scene.add.image(X + sr[0], Y + sr[1], sk).setOrigin(0).setDepth(2.5));
+      D.pieces.forEach(pc => {
+        const k = T(pc.key); if (!k) return; const [w, h] = pc.size;
+        const o = scene.add.image(X + pc.at[0] + w / 2, Y + pc.at[1] + h, k).setOrigin(0.5, 1).setDepth(pc.layer === "decal" ? 2.6 : 3);
+        if (pc.solid) { H.body(o, { width: Math.max(8, pc.foot[2] - 4), back: Math.max(8, pc.foot[3]), front: 0 }, "prop_furniture"); bodies.push(o); }
+        items.push(o); byId[pc.id] = o;
+      });
+      return { byId, stairs: [X + sr[0], Y + sr[1], sw, sh] };
+    }
+    function buildHouse2() {
+      const I = M.interior, X = I.h2.x, Y = I.h2.y, C2 = M.house2;
+      const down = buildFloor(H2, h2Img, X, Y);
       // doors to the outside are closed (you leave by walking up to the front door; the patio and garage door stay shut)
       H2.doors.filter(d => d.id === "patio" || d.id === "front-entry" || d.id === "garage-front").forEach(d => solidBlock(X + d.rect[0], Y + d.rect[1], d.rect[2], d.rect[3]));
-      // the stairs, with a baby gate across them until upstairs exists
-      const sr = H2.stairs.rect, sk = h2Tex(H2.stairs.art);
-      if (sk) { const [, , sw, sh] = H2.frames[H2.stairs.art]; all.push(scene.add.image(X + sr[0], Y + sr[1], sk).setOrigin(0).setDepth(2.5));
-        solidBlock(X + sr[0], Y + sr[1], sw + 8, sh + 6);
-        const g = scene.add.graphics().setDepth(3.2); all.push(g); const gy = Y + sr[1] + sh + 2, gx = X + sr[0];
+      const [sx0, sy0, sw, sh] = down.stairs;
+      if (!(H2U && h2UpImg)) { // no upstairs yet: a baby gate across the stairs
+        solidBlock(sx0, sy0, sw + 8, sh + 6);
+        const g = scene.add.graphics().setDepth(3.2); all.push(g); const gy = sy0 + sh + 2, gx = sx0;
         g.fillStyle(0xFFF0CF, 1).fillRect(gx, gy - 4, sw + 8, 4).fillRect(gx, gy + 14, sw + 8, 4);
         for (let i = 0; i <= sw + 8; i += 8) g.fillRect(gx + i, gy - 4, 3, 22);
         g.lineStyle(1, 0x171C35, 1).strokeRect(gx, gy - 4, sw + 8, 22);
         all.push(scene.add.text(gx + (sw + 8) / 2, gy + 24, "UPSTAIRS · SOON", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 4, y: 2 } }).setOrigin(0.5, 0).setDepth(3.2));
         window.MapleHollowGate = { x: gx + (sw + 8) / 2, y: gy + 10, line: C2.gateLine };
+      } else { // upstairs (step 2b): walk onto either staircase to climb it (src/key-hunt.js plays the climb)
+        window.MapleHollowGate = null;
+        const up = buildFloor(H2U, h2UpImg, I.h2.up.x, I.h2.up.y), [ux, uy, uw, uh] = up.stairs;
+        const label = (x, y, t) => all.push(scene.add.text(x, y, t, { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 4, y: 2 } }).setOrigin(0.5, 1).setDepth(3.2).setAlpha(0.9));
+        label(sx0 + sw / 2, sy0 - 4, "UP"); label(ux + uw / 2, uy - 4, "DOWN");
+        window.MapleHollowStairs = { down: [sx0, sy0, sw, sh], up: [ux, uy, uw, uh],
+          arriveUp: [ux + uw + 46, uy + uh * 0.55], arriveDown: [sx0 + sw + 46, sy0 + sh * 0.8] };
       }
       // a doormat inside the front door: walk onto it to go back out
       { const [mx, my] = I.exitMat, g = scene.add.graphics().setDepth(2.55); all.push(g);
         g.fillStyle(0x874C3B, 1).fillRect(mx - 6, my - 50, 30, 60).lineStyle(2, 0x171C35, 1).strokeRect(mx - 6, my - 50, 30, 60);
         g.lineStyle(1, 0xF2D7A1, 0.6); for (let i = 0; i < 4; i++) g.lineBetween(mx - 2 + i * 7, my - 44, mx - 2 + i * 7, my + 4);
         all.push(scene.add.text(mx + 30, my - 20, "OUT", { fontFamily: "Silkscreen, monospace", fontSize: "11px", color: "#171C35", backgroundColor: "#F2D7A1", padding: { x: 3, y: 2 } }).setOrigin(0, 0.5).setDepth(3.2)); }
-      // furniture and decals, at their drawn size
-      let van = null;
-      H2.pieces.forEach(pc => {
-        const k = h2Tex(pc.key); if (!k) return; const [w, h] = pc.size;
-        const o = scene.add.image(X + pc.at[0] + w / 2, Y + pc.at[1] + h, k).setOrigin(0.5, 1).setDepth(pc.layer === "decal" ? 2.6 : 3);
-        if (pc.solid) { H.body(o, { width: Math.max(8, pc.foot[2] - 4), back: Math.max(8, pc.foot[3]), front: 0 }, "prop_furniture"); bodies.push(o); }
-        items.push(o);
-        if (pc.id === "magnet-fridge") window.MapleHollowFridge = { x: o.x, y: o.y + 10 };
-        if (pc.id === "minivan") van = o;
-      });
+      const fr = down.byId["magnet-fridge"]; if (fr) window.MapleHollowFridge = { x: fr.x, y: fr.y + 10 };
       // the garage: its doors on the front wall, and the V8 parked beside the minivan (src/garage.js wakes it up at 60)
-      const G = M.garage, gf = H2.doors.find(d => d.id === "garage-front").rect;
+      const van = down.byId.minivan, G = M.garage, gf = H2.doors.find(d => d.id === "garage-front").rect;
       const dk = garImg ? [gcut("garage-door-closed"), gcut("garage-door-open")] : [null, null];
       const doors = dk[0] ? [0.27, 0.73].map(f => { const o = scene.add.image(X + gf[0] + gf[2] * f, Y + gf[1] + 16, dk[0]).setOrigin(0.5, 1).setDepth(2.95); all.push(o); return o; }) : [];
       const park = van ? [van.x + C2.parkDx, van.y - 20] : [G.x + G.w * 0.7, G.y + G.h * 0.7];
