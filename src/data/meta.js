@@ -142,18 +142,18 @@ window.formatKeyCode = function(code) {
 };
 
 window.PAD_BUTTON_NAMES = {
-  0: "A / Cross (Btn 0)",
-  1: "B / Circle (Btn 1)",
-  2: "X / Square (Btn 2)",
-  3: "Y / Triangle (Btn 3)",
-  4: "LB / L1 (Btn 4)",
-  5: "RB / R1 (Btn 5)",
-  6: "LT / L2 (Btn 6)",
-  7: "RT / R2 (Btn 7)",
-  8: "Select / Share (Btn 8)",
-  9: "Start / Options (Btn 9)",
-  10: "L3 Stick (Btn 10)",
-  11: "R3 Stick (Btn 11)"
+  0: "A / Cross",
+  1: "B / Circle",
+  2: "X / Square",
+  3: "Y / Triangle",
+  4: "LB / L1",
+  5: "RB / R1",
+  6: "LT / L2",
+  7: "RT / R2",
+  8: "Select / Share",
+  9: "Start / Options",
+  10: "L3 Stick",
+  11: "R3 Stick"
 };
 
 window.formatPadButton = function(idx) {

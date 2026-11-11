@@ -255,7 +255,7 @@ window.Minimap = (() => {
     css();
     if (!big) {
       big = document.createElement("div"); big.id = "minimap-modal"; big.className = "hidden"; big.setAttribute("role", "dialog"); big.setAttribute("aria-label", "Office map");
-      big.innerHTML = `<div class="mmb"><div class="mmb-head"><span class="mmb-title">OFFICE MAP · YOU ARE HERE</span><button type="button" class="mmb-x nav-item" data-nav-idx="0">CLOSE [M]</button></div>
+      big.innerHTML = `<div class="mmb"><div class="mmb-head"><span class="mmb-title">OFFICE MAP · YOU ARE HERE</span><button type="button" class="mmb-x nav-item" data-nav-idx="0">CLOSE</button></div>
         <canvas width="1200" height="810"></canvas>
         <div class="mmb-legend"><span><i class="mm-ic" style="background-position:-0px 0"></i>You</span><span><i class="mm-ic" style="background-position:-24px 0"></i>Open door</span><span><i class="mm-ic" style="background-position:-48px 0"></i>Locked (opens at that age)</span><span><i class="mm-ic" style="background-position:-72px 0"></i>Chest</span><span><i class="mm-ic" style="background-position:-96px 0"></i>Lounge</span><span><i class="mm-ic" style="background-position:-120px 0"></i>Intern</span><span><i class="mm-ic" style="background-position:-144px 0"></i>Boss</span><span style="opacity:.8">Dark areas: not explored yet</span></div></div>`;
       document.body.appendChild(big);

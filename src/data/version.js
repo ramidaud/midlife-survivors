@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.27.6",
-  displayVersion: "V. 2.27.6",
+  version: "2.27.7",
+  displayVersion: "V. 2.27.7",
   lastUpdated: "Nov 10, 2026",
   codename: "Version Two",
-  build: 344,
+  build: 345,
   changelog: [
+    {
+      ver: "V. 2.27.7", date: "Nov 10, 2026", title: "Version Two",
+      teaser: "IT finally translated the controls screen.",
+      highlights: [
+        "The Controls screen talks like a person now: CONTROLS, one help line, and rows like \"Move up\" and \"Pause\". No more \"BTN 9\" or \"LOCALSTORAGE\".",
+        "Buttons say what they do and nothing else: DONE, RESET ALL, BACK, CLOSE. The key hints moved to the small legend underneath.",
+        "Old patch notes got the same cleanup."
+      ]
+    },
     {
       ver: "V. 2.27.6", date: "Nov 10, 2026", title: "Version Two",
       teaser: "The game and the devlog now share one paint can.",
@@ -286,7 +295,7 @@ const GAME_VERSION = {
       ver: "V. 2.18.2", date: "Nov 9, 2026", title: "Version Two",
       teaser: "Say cheese, for real.",
       highlights: [
-        "Screenshot button: press Y on a controller (or V on a keyboard) during a run to save what's on screen, stamped with your age. Phones and tablets open the share sheet. You can rebind it under Controls.",
+        "Screenshot button: press Y on a controller (or V on a keyboard) during a run to save what's on screen, stamped with your age. Phones and tablets open the share sheet. You can change it under Controls.",
         "The Spam Likely phone buzz is now two soft bass thumps, like a phone vibrating on a desk, so it sits with the rest of the sounds instead of on top of them."
       ]
     },
@@ -1244,7 +1253,7 @@ const GAME_VERSION = {
       ver: "V. 1.84.1", date: "Nov 4, 2026", title: "The Gold Watch",
       teaser: "Accounts setup: sign-in emails can be a link or a code.",
       highlights: [
-        "The sign-in email can now be a link or a 6-digit code. Supabase's free email sends a link until we connect our own email sender, so the game handles both."
+        "The sign-in email can now be a link or a 6-digit code. The free sign-in email sends a link for now, so the game handles both."
       ]
     },
     {
@@ -2630,7 +2639,7 @@ const GAME_VERSION = {
       title: "World Mythos, Subject Backstories & Scenario Lore Archive",
       highlights: [
         "Created the official Midlife Survivors Mythos ('Form W-40: The Great Compounding'), Subject Dossiers (The 9-to-5er, The Senior Photographer, The Grad Student at 45), and 5 Life Scenario Backstories in src/data/lore.js.",
-        "Added an interactive 4-tab Mythos & Lore Archive modal (#lore-modal) accessible from the Title Screen and Pause Menu.",
+        "Added the Lore archive, four tabs of office history, from the title screen and the pause menu.",
         "Added a live Subject Bio & Quote preview bar right under the Character Select cards on the Title Dossier."
       ]
     },
@@ -2640,7 +2649,7 @@ const GAME_VERSION = {
       title: "Version Tracking Stamp & Release Notes Dossier",
       highlights: [
         "Added live Version & Last Updated stamp ('V. 1.8.19 // Last updated on: Oct 30, 2026') on the Title Dossier, Pause Screen, and Lower-Third HUD.",
-        "Added interactive Release Notes & Version History modal (#changelog-modal) accessible right from the Title Screen version badge."
+        "Added these patch notes. Tap the version number on the title screen to open them."
       ]
     },
     {
@@ -2656,10 +2665,10 @@ const GAME_VERSION = {
     {
       ver: "V. 1.7.17",
       date: "Oct 30, 2026",
-      title: "Full 4-Device Input Mapping & Controls Configuration Screen",
+      title: "Play with anything",
       highlights: [
-        "Mapped all 4 input devices for gameplay and menus: Keyboard, Mouse (Hold-Click Steer, Cursor Auto-Follow, Click-Drag), Touch (4 stick modes), and Game Controller.",
-        "Built the Input & Controls Configuration Screen (#controls-modal) with live key/button listening and localStorage persistence."
+        "Play and use the menus with a keyboard, a mouse, touch (four stick styles) or a controller.",
+        "Added the Controls screen: pick a row, press a new key or button, and it's saved on this device."
       ]
     },
     {
@@ -2677,7 +2686,7 @@ const GAME_VERSION = {
       title: "Age 80-100 Senior Bonus Rounds, Save States & Spoken Dad Jokes",
       highlights: [
         "Extended campaign to Age 80 with 20 Senior Bonus Rounds (Age 80-100), Decade Checkpoints, and mid-run browser auto-save.",
-        "Added breakable Potted Plants (dropping Pizza, Coins, and Jackpots) and spoken Web Speech API Dad Jokes."
+        "Added breakable Potted Plants (dropping Pizza, Coins, and Jackpots) and Dad Jokes read out loud."
       ]
     }
   ]

@@ -1076,7 +1076,7 @@ const STAGE_NARRATIVES = {
     {
       badge: "📖 THE GROUP TAB",
       story: '"Someone ordered truffle tapas for the table and just suggested splitting the check evenly."',
-      help: "💡 TIP: Press [V] or scroll the Mouse Wheel anytime to switch live between 16-Bit Retro, Diablo 3/4, and AAA 3D!"
+      help: "💡 TIP: Press V during a run to save a screenshot of the chaos."
     }
   ],
   senior: [
@@ -1504,7 +1504,7 @@ function renderPauseModal(scene, keepRowIdx) {
   }).join("");
   modal.innerHTML = `
     <div class="modal-card pause-box pause-tiles">
-      <div class="modal-kicker">✓ AUTO-SAVED · ${verInfo.displayVersion}</div>
+      <div class="modal-kicker">SAVED · ${verInfo.displayVersion}</div>
       <h2 class="modal-title">ON BREAK</h2>
       <p class="modal-sub">The swarm will wait. It always does.</p>
       <div class="pause-actions ms-pause-actions">
@@ -1699,7 +1699,7 @@ function renderLoreModal(scene, tab, keepSelector) {
         <button class="lore-tab-btn ${currentLoreTab === "bosses" ? "active" : ""}" data-ltab="bosses">👹 4. BOSS REGISTRY</button>
       </div>
       <div class="lore-content">${contentHtml}</div>
-      <button class="cta-btn" id="lore-close-btn">✓ BACK TO MENU (Space / Enter / Esc / A)</button>
+      <button class="cta-btn" id="lore-close-btn">BACK</button>
       <div class="nav-hint-bar">
         <span><b>◀▶ / ▲▼</b> Arrow / D-Pad / Mouse: Switch Lore Tab</span>
         <span><b>Space / Enter / Esc / A / B</b>: Select or Close</span>
@@ -1747,7 +1747,7 @@ function renderChangelogModal(scene) {
       <h2 class="modal-title">📜 VERSION HISTORY & PATCH NOTES</h2>
       <p class="modal-sub">Current Version: <b>${verInfo.displayVersion}</b> &bull; Last updated on: <b>${verInfo.lastUpdated}</b> (Build #${verInfo.build})</p>
       <div class="changelog-list">${entriesHtml}</div>
-      <button class="cta-btn" id="changelog-close-btn">✓ BACK TO MENU (Space / Enter / Esc / A)</button>
+      <button class="cta-btn" id="changelog-close-btn">BACK</button>
       <div class="nav-hint-bar">
         <span><b>Space / Enter / Esc / Click / A / B</b>: Close Patch Notes</span>
       </div>
@@ -1766,35 +1766,35 @@ function renderChangelogModal(scene) {
 // INPUT & CONTROLS CONFIGURATION MODAL (Keyboard, Mouse, Touch, Controller)
 // ============================================================================
 const MOUSE_MOVE_MODES = [
-  { id: "holdFollow",   label: "🖱️ Hold Click to Steer" },
-  { id: "cursorFollow", label: "🎯 Cursor Auto-Follow" },
-  { id: "clickDrag",    label: "✋ Click & Drag Stick" },
-  { id: "off",          label: "🚫 UI Menus Only" }
+  { id: "holdFollow",   label: "Hold click to steer" },
+  { id: "cursorFollow", label: "Follow the cursor" },
+  { id: "clickDrag",    label: "Drag like a stick" },
+  { id: "off",          label: "Menus only" }
 ];
 
 const MOUSE_RCLICK_MODES = [
-  { id: "pause", label: "⏸ Pause / Options" },
-  { id: "move",  label: "🏃 Hold to Move" },
-  { id: "view",  label: "🎥 Switch View" }
+  { id: "pause", label: "Pause" },
+  { id: "move",  label: "Hold to move" },
+  { id: "view",  label: "Switch view" }
 ];
 
 const TOUCH_MODES = [
-  { id: "floating",    label: "🕹️ Floating Stick" },
-  { id: "fixedLeft",   label: "👈 Fixed Bottom-Left" },
-  { id: "fixedRight",  label: "👉 Fixed Bottom-Right" },
-  { id: "directTouch", label: "👆 Touch & Hold Follow" }
+  { id: "floating",    label: "Floating stick" },
+  { id: "fixedLeft",   label: "Fixed, bottom left" },
+  { id: "fixedRight",  label: "Fixed, bottom right" },
+  { id: "directTouch", label: "Touch and hold" }
 ];
 
 const TOUCH_SENS_MODES = [
-  { id: "normal", label: "👌 Normal (10px)" },
-  { id: "high",   label: "⚡ High (5px)" },
-  { id: "low",    label: "🛡️ Relaxed (18px)" }
+  { id: "normal", label: "Normal" },
+  { id: "high",   label: "Quick" },
+  { id: "low",    label: "Relaxed" }
 ];
 
 const PAD_DEADZONE_MODES = [
-  { val: 0.22, label: "22% Standard" },
-  { val: 0.15, label: "15% Sensitive" },
-  { val: 0.35, label: "35% Anti-Drift" }
+  { val: 0.22, label: "Standard" },
+  { val: 0.15, label: "Sensitive" },
+  { val: 0.35, label: "Stops stick drift" }
 ];
 
 // ============================================================================
@@ -1904,19 +1904,19 @@ function renderControlsModal(scene, keepSelector) {
   }
   const c = getControlsConfig();
   const fmtKey = window.formatKeyCode || (k => k);
-  const fmtPad = window.formatPadButton || (b => `Btn ${b}`);
+  const fmtPad = window.formatPadButton || (b => `Button ${b}`);
   const reb = window.rebindState;
 
   const keyBtnLabel = (field, fallback) => {
     if (reb && reb.type === "key" && reb.field === field) {
-      return "🔴 PRESS ANY KEY... (ESC)";
+      return "Press a key now";
     }
     return fmtKey(c[field] || fallback);
   };
 
   const padBtnLabel = (field, fallback) => {
     if (reb && reb.type === "pad" && reb.field === field) {
-      return "🔴 PRESS PAD BTN... (◀▶)";
+      return "Press a button now";
     }
     return `◀ ${fmtPad(c[field] !== undefined ? c[field] : fallback)} ▶`;
   };
@@ -1929,43 +1929,44 @@ function renderControlsModal(scene, keepSelector) {
 
   modal.innerHTML = `
     <div class="modal-card controls-box">
-      <div class="modal-kicker">ALL 4 INPUT DEVICES ACTIVE // AUTO-SAVED TO LOCALSTORAGE</div>
-      <h2 class="modal-title">🎮 INPUT & CONTROLS CONFIGURATION</h2>
+      <div class="ms-sheet-strip">IT · RE: <b>Your controls</b></div>
+      <h2 class="modal-title">CONTROLS</h2>
+      <p class="modal-sub ctrl-help">Pick a row, then press the new key or button. Changes save on this device.</p>
       <div class="device-status-bar">
-        <span class="device-pill ready">⌨️ KEYBOARD: READY</span>
-        <span class="device-pill ready">🖱️ MOUSE: READY</span>
-        <span class="device-pill ready">📱 TOUCH: READY</span>
-        <span class="device-pill ${gamepadConnectedFlag ? "ready" : ""}">🎮 CONTROLLER: ${gamepadConnectedFlag ? "CONNECTED" : "PLUG & PLAY"}</span>
+        <span class="device-pill ready">KEYBOARD</span>
+        <span class="device-pill ready">MOUSE</span>
+        <span class="device-pill ready">TOUCH</span>
+        <span class="device-pill ${gamepadConnectedFlag ? "ready" : ""}">${gamepadConnectedFlag ? "CONTROLLER" : "NO CONTROLLER YET"}</span>
       </div>
 
       <div class="controls-grid">
         <!-- SECTION 1: KEYBOARD MAPPING -->
         <div class="ctrl-section">
-          <div class="ctrl-sec-title">⌨️ KEYBOARD BINDINGS (CLICK TO REBIND)</div>
+          <div class="ctrl-sec-title">KEYBOARD</div>
           <div class="ctrl-rows">
             <button class="ctrl-btn ${reb && reb.field === "keyUp" ? "listening" : ""}" id="ctrl-keyUp">
-              <span>Move Up</span><span class="ctrl-val">${keyBtnLabel("keyUp", "KeyW")}</span>
+              <span>Move up</span><span class="ctrl-val">${keyBtnLabel("keyUp", "KeyW")}</span>
             </button>
             <button class="ctrl-btn ${reb && reb.field === "keyDown" ? "listening" : ""}" id="ctrl-keyDown">
-              <span>Move Down</span><span class="ctrl-val">${keyBtnLabel("keyDown", "KeyS")}</span>
+              <span>Move down</span><span class="ctrl-val">${keyBtnLabel("keyDown", "KeyS")}</span>
             </button>
             <button class="ctrl-btn ${reb && reb.field === "keyLeft" ? "listening" : ""}" id="ctrl-keyLeft">
-              <span>Move Left</span><span class="ctrl-val">${keyBtnLabel("keyLeft", "KeyA")}</span>
+              <span>Move left</span><span class="ctrl-val">${keyBtnLabel("keyLeft", "KeyA")}</span>
             </button>
             <button class="ctrl-btn ${reb && reb.field === "keyRight" ? "listening" : ""}" id="ctrl-keyRight">
-              <span>Move Right</span><span class="ctrl-val">${keyBtnLabel("keyRight", "KeyD")}</span>
+              <span>Move right</span><span class="ctrl-val">${keyBtnLabel("keyRight", "KeyD")}</span>
             </button>
             <button class="ctrl-btn" id="ctrl-arrowMove" data-opt-cycle="1">
-              <span>Arrow Keys Move</span><span class="ctrl-val">◀ ${c.arrowMove !== false ? "ON (WASD + ▲▼◀▶)" : "CUSTOM ONLY"} ▶</span>
+              <span>Arrow keys move too</span><span class="ctrl-val">◀ ${c.arrowMove !== false ? "ON" : "OFF"} ▶</span>
             </button>
             <button class="ctrl-btn ${reb && reb.field === "keyPause" ? "listening" : ""}" id="ctrl-keyPause">
-              <span>Pause / Options</span><span class="ctrl-val">${keyBtnLabel("keyPause", "Space")}</span>
+              <span>Pause</span><span class="ctrl-val">${keyBtnLabel("keyPause", "Space")}</span>
             </button>
             <button class="ctrl-btn ${reb && reb.field === "keyView" ? "listening" : ""}" id="ctrl-keyView">
-              <span>${window.ENABLE_3D_VIEWS ? "Switch View (2D/3D)" : "Screenshot (in a run)"}</span><span class="ctrl-val">${keyBtnLabel("keyView", "KeyV")}</span>
+              <span>${window.ENABLE_3D_VIEWS ? "Switch View (2D/3D)" : "Screenshot"}</span><span class="ctrl-val">${keyBtnLabel("keyView", "KeyV")}</span>
             </button>
             <button class="ctrl-btn ${reb && reb.field === "keyMute" ? "listening" : ""}" id="ctrl-keyMute">
-              <span>Mute Audio</span><span class="ctrl-val">${keyBtnLabel("keyMute", "KeyM")}</span>
+              <span>Mute</span><span class="ctrl-val">${keyBtnLabel("keyMute", "KeyM")}</span>
             </button>
           </div>
         </div>
@@ -1973,34 +1974,34 @@ function renderControlsModal(scene, keepSelector) {
         <!-- SECTION 2: GAME CONTROLLER + MOUSE + TOUCH -->
         <div style="display:flex;flex-direction:column;gap:10px;">
           <div class="ctrl-section">
-            <div class="ctrl-sec-title">🎮 VIDEO GAME CONTROLLER (PRESS OR ◀▶)</div>
+            <div class="ctrl-sec-title">CONTROLLER</div>
             <div class="ctrl-rows">
               <button class="ctrl-btn ${reb && reb.field === "padConfirmBtn" ? "listening" : ""}" id="ctrl-padConfirmBtn" data-opt-cycle="1">
-                <span>Confirm / Select</span><span class="ctrl-val">${padBtnLabel("padConfirmBtn", 0)}</span>
+                <span>Confirm</span><span class="ctrl-val">${padBtnLabel("padConfirmBtn", 0)}</span>
               </button>
               <button class="ctrl-btn ${reb && reb.field === "padPauseBtn" ? "listening" : ""}" id="ctrl-padPauseBtn" data-opt-cycle="1">
-                <span>Pause / Options</span><span class="ctrl-val">${padBtnLabel("padPauseBtn", 9)}</span>
+                <span>Pause</span><span class="ctrl-val">${padBtnLabel("padPauseBtn", 9)}</span>
               </button>
               <button class="ctrl-btn ${reb && reb.field === "padViewBtn" ? "listening" : ""}" id="ctrl-padViewBtn" data-opt-cycle="1">
-                <span>${window.ENABLE_3D_VIEWS ? "Switch 2D/3D View" : "Screenshot (in a run)"}</span><span class="ctrl-val">${padBtnLabel("padViewBtn", 3)}</span>
+                <span>${window.ENABLE_3D_VIEWS ? "Switch 2D/3D View" : "Screenshot"}</span><span class="ctrl-val">${padBtnLabel("padViewBtn", 3)}</span>
               </button><!-- 3D is parked, so its bindings stay hidden (Fable review) -->
               <button class="ctrl-btn ${reb && reb.field === "padMuteBtn" ? "listening" : ""}" id="ctrl-padMuteBtn" data-opt-cycle="1">
-                <span>Mute Audio</span><span class="ctrl-val">${padBtnLabel("padMuteBtn", 2)}</span>
+                <span>Mute</span><span class="ctrl-val">${padBtnLabel("padMuteBtn", 2)}</span>
               </button>
               <button class="ctrl-btn" id="ctrl-padDeadzone" data-opt-cycle="1">
-                <span>Stick Deadzone</span><span class="ctrl-val">◀ ${pDead.label} ▶</span>
+                <span>Stick dead zone</span><span class="ctrl-val">◀ ${pDead.label} ▶</span>
               </button>
             </div>
           </div>
 
           <div class="ctrl-section">
-            <div class="ctrl-sec-title" id="ctrl-touch-title">🖱️ MOUSE & 📱 TOUCH CONFIGURATION</div>
+            <div class="ctrl-sec-title" id="ctrl-touch-title">MOUSE AND TOUCH</div>
             <div class="ctrl-rows">
               <button class="ctrl-btn" id="ctrl-mouseMoveMode" data-opt-cycle="1">
-                <span>Mouse Movement</span><span class="ctrl-val">◀ ${mMode.label} ▶</span>
+                <span>Mouse movement</span><span class="ctrl-val">◀ ${mMode.label} ▶</span>
               </button>
               <button class="ctrl-btn" id="ctrl-mouseRightClick" data-opt-cycle="1">
-                <span>Mouse Right-Click</span><span class="ctrl-val">◀ ${rMode.label} ▶</span>
+                <span>Right-click</span><span class="ctrl-val">◀ ${rMode.label} ▶</span>
               </button>
 ${window.ENABLE_3D_VIEWS ? `
               <button class="ctrl-btn" id="ctrl-mouseWheelView" data-opt-cycle="1">
@@ -2008,10 +2009,10 @@ ${window.ENABLE_3D_VIEWS ? `
               </button>
 ` : ""}<!-- 3D is parked, so its bindings stay hidden (Fable review) -->
               <button class="ctrl-btn" id="ctrl-touchMode" data-opt-cycle="1">
-                <span>Touch Stick Mode</span><span class="ctrl-val">◀ ${tMode.label} ▶</span>
+                <span>Touch stick</span><span class="ctrl-val">◀ ${tMode.label} ▶</span>
               </button>
               <button class="ctrl-btn" id="ctrl-touchSensitivity" data-opt-cycle="1">
-                <span>Touch Sensitivity</span><span class="ctrl-val">◀ ${tSens.label} ▶</span>
+                <span>Touch sensitivity</span><span class="ctrl-val">◀ ${tSens.label} ▶</span>
               </button>
             </div>
           </div>
@@ -2019,13 +2020,13 @@ ${window.ENABLE_3D_VIEWS ? `
       </div>
 
       <div class="controls-actions">
-        <button class="cta-btn" id="ctrl-done-btn">✓ SAVE & RETURN (Esc / B)</button>
-        <button class="cta-btn secondary-btn" id="ctrl-reset-btn">🔄 RESET CONTROLS TO DEFAULTS</button>
+        <button class="cta-btn" id="ctrl-done-btn">DONE</button>
+        <button class="cta-btn secondary-btn" id="ctrl-reset-btn">RESET ALL</button>
       </div>
       <div class="nav-hint-bar">
-        <span><b>▲▼◀▶</b> Arrow / D-Pad / Mouse: Select</span>
-        <span><b>Enter / Space / Click / A</b>: Rebind or Cycle</span>
-        <span><b>Esc / B</b>: Save & Return</span>
+        <span><b>Arrows / D-pad</b> move</span>
+        <span><b>Enter / A</b> change</span>
+        <span><b>Esc / B</b> done</span>
       </div>
     </div>
   `;
