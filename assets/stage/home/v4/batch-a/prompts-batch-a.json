@@ -1,0 +1,72 @@
+{
+  "style": "Use case: stylized-concept. Paint final production Midlife Survivors pixel-art foliage matching the attached APPROVED red maple exactly in richness, chunky shaded leaf clusters, branch/root details and navy silhouette finish. Top-down three-quarter view; all trees upright, never rotated. Warm upper-left lighting, neutral white balance, no sepia, haze or film tint. At least three hue-shifted tones per material. Exact flat #FF00FF backdrop, no scenery, no text or labels, no gradients. Painted at 8x final logical resolution with intended 8x8 blocks, navy outline 8working pixels, will be reduced by block mode. Palette #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B. No black voids, no geometric placeholder foliage. Approved additional autumn gold #D8AD4A may be used for gold/yellow leaves only.",
+  "tool": "built-in imagegen",
+  "sources": [
+    {
+      "id": "orange",
+      "file": "sources/orange-generated.png",
+      "subjectPrompt": "One orange maple,144x176 final,1152x1408 requested8x; rounded irregular sculpted canopy, russet/orange/peach leaf tones, branching trunk/root flare."
+    },
+    {
+      "id": "gold",
+      "file": "sources/gold-generated.png",
+      "subjectPrompt": "One golden oak,160x192 final,1280x1536 requested8x; broad spreading oak crown, gold #D8AD4A midtone, cream highlight, russet shadows, stout brown trunk."
+    },
+    {
+      "id": "birch",
+      "file": "sources/birch-generated.png",
+      "subjectPrompt": "One yellow birch,128x160 final,1024x1280 requested8x; narrow layered gold crown, slender forked cream bark with dark lenticels, roots."
+    },
+    {
+      "id": "bare",
+      "file": "sources/bare-generated.png",
+      "subjectPrompt": "One bare oak,128x160 final,1024x1280 requested8x; asymmetrical fine branching, thick brown knotted trunk/root flare, few rust leaves."
+    },
+    {
+      "id": "half",
+      "file": "sources/half-generated.png",
+      "subjectPrompt": "One half-turned maple,144x176 final,1152x1408 requested8x; organic patches of sage/evergreen and rust/orange, no dividing line."
+    },
+    {
+      "id": "pines",
+      "file": "sources/pines-generated.png",
+      "subjectPrompt": "Three upright pines in one evenly spaced row;64x96,80x120,96x144 final. Layered shaggy evergreen needle boughs with sage highlights, brown bark and root flare. No triangle placeholders."
+    },
+    {
+      "id": "shrubs",
+      "file": "sources/shrubs-generated.png",
+      "subjectPrompt": "Eight isolated64x64 native shrubs in4x2grid. Horizontal hedge,vertical hedge,L-corner hedge,shaggy bush;flowering orange mums,foundation planting,round shrub,oval shrub. Dense shaded leaf clumps, warm branches, navy silhouette."
+    },
+    {
+      "id": "north",
+      "file": "sources/north-generated.png",
+      "subjectPrompt": "832x256 final,6656x2048 requested8x. North forestwall two rows deep, solid forest outertop, dense close upright trunks, irregular inward fringe toward playable area below; magenta below, no ground."
+    },
+    {
+      "id": "south",
+      "file": "sources/south-generated.png",
+      "subjectPrompt": "832x256 final,6656x2048 requested8x. South forestwall two rows deep, solid outerbottom, upright trees not flipped, canopy fringe into playable area above; magenta above, no ground."
+    },
+    {
+      "id": "west",
+      "file": "sources/west-generated.png",
+      "subjectPrompt": "256x832 final,2048x6656 requested8x. West vertical forestwall two rows deep, upright tree column, solid outerleft, fringe to playable right; repeat top/bottom."
+    },
+    {
+      "id": "east",
+      "file": "sources/east-generated.png",
+      "subjectPrompt": "256x832 final,2048x6656 requested8x. East vertical forestwall two rows deep, upright tree column, solid outerright, fringe to playable left; repeat top/bottom."
+    },
+    {
+      "id": "corners",
+      "file": "sources/corners-generated.png",
+      "subjectPrompt": "Four256x256 final corners in2x2grid. NWforesttop/left openingbottomright;NEtop/right openingbottomleft;SWbottom/left openingtopright;SEbottom/right openingtopleft. All trees upright, dense two-row L-shaped forest, no ground or black fill."
+    }
+  ],
+  "gold": {
+    "hex": "#D8AD4A",
+    "status": "Approved by Rami in this chat before use"
+  },
+  "scope": "Batch A only; do not start Batch B",
+  "sourceSizing": "Original imagegen rasters did not honor requested sizes. Proportional fitting/cover-crop onto exact8x working canvases followed by exact8x8 block-mode reduction. No v3 boundary input."
+}

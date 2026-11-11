@@ -1,0 +1,1285 @@
+{
+  "status": "Batch A only, awaiting Rami review",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "goldApproval": "Rami approved #D8AD4A in this chat before use",
+  "method": "New imagegen paintings, proportional fit/cover to exact 8x working rasters, exact mode of each8x8 RGBA block, material-family palette mapping; painted core gap cleanup and one-pixel seam alignment only",
+  "sourceSizeCaveat": "Imagegen does not honor exact requested raster sizes; unchanged original sizes and working transforms retained. Same normalization method as approved Step0.",
+  "notUsed": "No v3/boundary files used as inputs",
+  "pieces": [
+    {
+      "id": "tree-maple-red",
+      "file": "tree-maple-red-v4.png",
+      "size": [
+        160,
+        192
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        80,
+        187
+      ],
+      "footprints": [
+        [
+          65,
+          165,
+          30,
+          23
+        ]
+      ],
+      "source": "sources/approved-red-maple-generated.png",
+      "note": "Approved Step 0 native raster reused pixel-identically; no new reduction.",
+      "oldFile": "old/tree-maple-red-comparison.png"
+    },
+    {
+      "id": "tree-maple-orange",
+      "file": "tree-maple-orange-v4.png",
+      "size": [
+        144,
+        176
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        72,
+        171
+      ],
+      "footprints": [
+        [
+          60,
+          151,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/orange-generated.png",
+      "sourceSize": [
+        1070,
+        1470
+      ],
+      "sourceCell": null,
+      "working": "working-8x/tree-maple-orange-8x.png",
+      "crop": [
+        18,
+        88,
+        1051,
+        1350
+      ],
+      "fit": [
+        32,
+        47,
+        1088,
+        1329
+      ],
+      "oldFile": "old/tree-maple-orange-comparison.png"
+    },
+    {
+      "id": "tree-oak-gold",
+      "file": "tree-oak-gold-v4.png",
+      "size": [
+        160,
+        192
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        80,
+        187
+      ],
+      "footprints": [
+        [
+          68,
+          167,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/gold-generated.png",
+      "sourceSize": [
+        1024,
+        1536
+      ],
+      "sourceCell": null,
+      "working": "working-8x/tree-oak-gold-8x.png",
+      "crop": [
+        7,
+        137,
+        1016,
+        1393
+      ],
+      "fit": [
+        48,
+        32,
+        1183,
+        1472
+      ],
+      "oldFile": "old/tree-oak-gold-comparison.png",
+      "materialCleanup": "Lower central trunk gold mapped back to warm wood; leaf gold preserved."
+    },
+    {
+      "id": "tree-birch-yellow",
+      "file": "tree-birch-yellow-v4.png",
+      "size": [
+        128,
+        160
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        155
+      ],
+      "footprints": [
+        [
+          52,
+          135,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/birch-generated.png",
+      "sourceSize": [
+        1122,
+        1402
+      ],
+      "sourceCell": null,
+      "working": "working-8x/tree-birch-yellow-8x.png",
+      "crop": [
+        164,
+        20,
+        931,
+        1374
+      ],
+      "fit": [
+        167,
+        32,
+        689,
+        1216
+      ],
+      "oldFile": "old/tree-birch-yellow-comparison.png",
+      "materialCleanup": "Lower central trunk gold mapped back to warm wood; leaf gold preserved."
+    },
+    {
+      "id": "tree-oak-bare",
+      "file": "tree-oak-bare-v4.png",
+      "size": [
+        128,
+        160
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        155
+      ],
+      "footprints": [
+        [
+          52,
+          135,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/bare-generated.png",
+      "sourceSize": [
+        1122,
+        1402
+      ],
+      "sourceCell": null,
+      "working": "working-8x/tree-oak-bare-8x.png",
+      "crop": [
+        15,
+        33,
+        1107,
+        1358
+      ],
+      "fit": [
+        32,
+        83,
+        960,
+        1165
+      ],
+      "oldFile": "old/tree-oak-bare-comparison.png"
+    },
+    {
+      "id": "tree-maple-half-turned",
+      "file": "tree-maple-half-turned-v4.png",
+      "size": [
+        144,
+        176
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        72,
+        171
+      ],
+      "footprints": [
+        [
+          60,
+          151,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/half-generated.png",
+      "sourceSize": [
+        1070,
+        1470
+      ],
+      "sourceCell": null,
+      "working": "working-8x/tree-maple-half-turned-8x.png",
+      "crop": [
+        17,
+        76,
+        1054,
+        1393
+      ],
+      "fit": [
+        47,
+        32,
+        1058,
+        1344
+      ],
+      "oldFile": "old/tree-maple-half-turned-comparison.png"
+    },
+    {
+      "id": "pine-small",
+      "file": "pine-small-v4.png",
+      "size": [
+        64,
+        96
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        91
+      ],
+      "footprints": [
+        [
+          20,
+          71,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/pines-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        0,
+        0,
+        591,
+        887
+      ],
+      "working": "working-8x/pine-small-8x.png",
+      "crop": [
+        55,
+        309,
+        457,
+        833
+      ],
+      "fit": [
+        32,
+        152,
+        448,
+        584
+      ],
+      "oldFile": "old/pine-small-comparison.png"
+    },
+    {
+      "id": "pine-medium",
+      "file": "pine-medium-v4.png",
+      "size": [
+        80,
+        120
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        40,
+        115
+      ],
+      "footprints": [
+        [
+          28,
+          95,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/pines-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        591,
+        0,
+        1183,
+        887
+      ],
+      "working": "working-8x/pine-medium-8x.png",
+      "crop": [
+        0,
+        126,
+        458,
+        839
+      ],
+      "fit": [
+        32,
+        32,
+        576,
+        896
+      ],
+      "oldFile": "old/pine-medium-comparison.png"
+    },
+    {
+      "id": "pine-large",
+      "file": "pine-large-v4.png",
+      "size": [
+        96,
+        144
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        48,
+        139
+      ],
+      "footprints": [
+        [
+          36,
+          119,
+          24,
+          20
+        ]
+      ],
+      "source": "sources/pines-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        1183,
+        0,
+        1774,
+        887
+      ],
+      "working": "working-8x/pine-large-8x.png",
+      "crop": [
+        0,
+        14,
+        560,
+        847
+      ],
+      "fit": [
+        32,
+        73,
+        704,
+        1047
+      ],
+      "oldFile": "old/pine-large-comparison.png"
+    },
+    {
+      "id": "shrub-hedge-horizontal",
+      "file": "shrub-hedge-horizontal-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        63
+      ],
+      "footprints": [
+        [
+          0,
+          44,
+          64,
+          20
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "working": "working-8x/shrub-hedge-horizontal-8x.png",
+      "crop": [
+        10,
+        146,
+        444,
+        379
+      ],
+      "fit": [
+        0,
+        237,
+        512,
+        275
+      ],
+      "oldFile": "old/shrub-hedge-horizontal-comparison.png",
+      "atlasRect": [
+        0,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-hedge-vertical",
+      "file": "shrub-hedge-vertical-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        63
+      ],
+      "footprints": [
+        [
+          18,
+          0,
+          28,
+          64
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "working": "working-8x/shrub-hedge-vertical-8x.png",
+      "crop": [
+        0,
+        19,
+        334,
+        428
+      ],
+      "fit": [
+        47,
+        0,
+        418,
+        512
+      ],
+      "oldFile": "old/shrub-hedge-vertical-comparison.png",
+      "atlasRect": [
+        64,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-hedge-corner",
+      "file": "shrub-hedge-corner-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          0,
+          24,
+          64
+        ],
+        [
+          4,
+          44,
+          60,
+          20
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        887,
+        0,
+        1330,
+        444
+      ],
+      "working": "working-8x/shrub-hedge-corner-8x.png",
+      "crop": [
+        11,
+        34,
+        418,
+        407
+      ],
+      "fit": [
+        0,
+        43,
+        512,
+        469
+      ],
+      "oldFile": "old/shrub-hedge-corner-comparison.png",
+      "atlasRect": [
+        128,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-shaggy-bush",
+      "file": "shrub-shaggy-bush-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          42,
+          56,
+          18
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        1330,
+        0,
+        1774,
+        444
+      ],
+      "working": "working-8x/shrub-shaggy-bush-8x.png",
+      "crop": [
+        6,
+        34,
+        433,
+        405
+      ],
+      "fit": [
+        32,
+        91,
+        448,
+        389
+      ],
+      "oldFile": "old/shrub-shaggy-bush-comparison.png",
+      "atlasRect": [
+        192,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-mums",
+      "file": "shrub-mums-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          42,
+          56,
+          18
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "working": "working-8x/shrub-mums-8x.png",
+      "crop": [
+        20,
+        70,
+        425,
+        382
+      ],
+      "fit": [
+        32,
+        135,
+        448,
+        345
+      ],
+      "oldFile": "old/shrub-mums-comparison.png",
+      "atlasRect": [
+        256,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-foundation",
+      "file": "shrub-foundation-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          42,
+          56,
+          18
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "working": "working-8x/shrub-foundation-8x.png",
+      "crop": [
+        11,
+        92,
+        440,
+        367
+      ],
+      "fit": [
+        32,
+        193,
+        448,
+        287
+      ],
+      "oldFile": "old/shrub-foundation-comparison.png",
+      "atlasRect": [
+        320,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-round",
+      "file": "shrub-round-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          42,
+          56,
+          18
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        887,
+        444,
+        1330,
+        887
+      ],
+      "working": "working-8x/shrub-round-8x.png",
+      "crop": [
+        21,
+        38,
+        418,
+        395
+      ],
+      "fit": [
+        32,
+        77,
+        448,
+        403
+      ],
+      "oldFile": "old/shrub-round-comparison.png",
+      "atlasRect": [
+        384,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "shrub-oval",
+      "file": "shrub-oval-v4.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        32,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          42,
+          56,
+          18
+        ]
+      ],
+      "source": "sources/shrubs-generated.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCell": [
+        1330,
+        444,
+        1774,
+        887
+      ],
+      "working": "working-8x/shrub-oval-8x.png",
+      "crop": [
+        70,
+        8,
+        374,
+        409
+      ],
+      "fit": [
+        86,
+        32,
+        340,
+        448
+      ],
+      "oldFile": "old/shrub-oval-comparison.png",
+      "atlasRect": [
+        448,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "wall-north",
+      "file": "tree-wall-north-v4.png",
+      "size": [
+        832,
+        256
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        416,
+        191
+      ],
+      "footprints": [
+        [
+          0,
+          0,
+          832,
+          192
+        ]
+      ],
+      "source": "sources/north-generated.png",
+      "sourceSize": [
+        2020,
+        779
+      ],
+      "sourceCell": null,
+      "working": "working-8x/wall-north-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        519,
+        6656,
+        2048
+      ],
+      "inward": "south",
+      "coreGapPixelsPatchedFromPainting": 85,
+      "canopyFile": "tree-wall-north-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-north-comparison.png"
+    },
+    {
+      "id": "wall-south",
+      "file": "tree-wall-south-v4.png",
+      "size": [
+        832,
+        256
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        416,
+        64
+      ],
+      "footprints": [
+        [
+          0,
+          64,
+          832,
+          192
+        ]
+      ],
+      "source": "sources/south-generated.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCell": null,
+      "working": "working-8x/wall-south-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        0,
+        6656,
+        2048
+      ],
+      "inward": "north",
+      "coreGapPixelsPatchedFromPainting": 246,
+      "canopyFile": "tree-wall-south-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-south-comparison.png"
+    },
+    {
+      "id": "wall-west",
+      "file": "tree-wall-west-v4.png",
+      "size": [
+        256,
+        832
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        191,
+        416
+      ],
+      "footprints": [
+        [
+          0,
+          0,
+          192,
+          832
+        ]
+      ],
+      "source": "sources/west-generated.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCell": null,
+      "working": "working-8x/wall-west-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        171,
+        0,
+        2048,
+        6656
+      ],
+      "inward": "east",
+      "coreGapPixelsPatchedFromPainting": 5999,
+      "canopyFile": "tree-wall-west-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-west-comparison.png"
+    },
+    {
+      "id": "wall-east",
+      "file": "tree-wall-east-v4.png",
+      "size": [
+        256,
+        832
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        416
+      ],
+      "footprints": [
+        [
+          64,
+          0,
+          192,
+          832
+        ]
+      ],
+      "source": "sources/east-generated.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCell": null,
+      "working": "working-8x/wall-east-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        0,
+        2048,
+        6656
+      ],
+      "inward": "west",
+      "coreGapPixelsPatchedFromPainting": 5155,
+      "canopyFile": "tree-wall-east-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-east-comparison.png"
+    },
+    {
+      "id": "wall-north-west",
+      "file": "tree-wall-north-west-v4.png",
+      "size": [
+        256,
+        256
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        191,
+        191
+      ],
+      "footprints": [
+        [
+          0,
+          0,
+          256,
+          192
+        ],
+        [
+          0,
+          192,
+          192,
+          64
+        ]
+      ],
+      "source": "sources/corners-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCell": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "working": "working-8x/wall-north-west-8x.png",
+      "crop": [
+        7,
+        4,
+        345,
+        345
+      ],
+      "fit": [
+        9,
+        0,
+        2030,
+        2048
+      ],
+      "inward": "diagonal toward playable center",
+      "coreGapPixelsPatchedFromPainting": 4550,
+      "canopyFile": "tree-wall-north-west-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-north-west-comparison.png"
+    },
+    {
+      "id": "wall-north-east",
+      "file": "tree-wall-north-east-v4.png",
+      "size": [
+        256,
+        256
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        191
+      ],
+      "footprints": [
+        [
+          0,
+          0,
+          256,
+          192
+        ],
+        [
+          64,
+          192,
+          192,
+          64
+        ]
+      ],
+      "source": "sources/corners-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCell": [
+        627,
+        0,
+        1254,
+        627
+      ],
+      "working": "working-8x/wall-north-east-8x.png",
+      "crop": [
+        0,
+        3,
+        339,
+        345
+      ],
+      "fit": [
+        9,
+        0,
+        2030,
+        2048
+      ],
+      "inward": "diagonal toward playable center",
+      "coreGapPixelsPatchedFromPainting": 4989,
+      "canopyFile": "tree-wall-north-east-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-north-east-comparison.png"
+    },
+    {
+      "id": "wall-south-west",
+      "file": "tree-wall-south-west-v4.png",
+      "size": [
+        256,
+        256
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        191,
+        64
+      ],
+      "footprints": [
+        [
+          0,
+          64,
+          256,
+          192
+        ],
+        [
+          0,
+          0,
+          192,
+          64
+        ]
+      ],
+      "source": "sources/corners-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCell": [
+        0,
+        627,
+        627,
+        1254
+      ],
+      "working": "working-8x/wall-south-west-8x.png",
+      "crop": [
+        7,
+        0,
+        345,
+        337
+      ],
+      "fit": [
+        0,
+        6,
+        2048,
+        2042
+      ],
+      "inward": "diagonal toward playable center",
+      "coreGapPixelsPatchedFromPainting": 3227,
+      "canopyFile": "tree-wall-south-west-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-south-west-comparison.png"
+    },
+    {
+      "id": "wall-south-east",
+      "file": "tree-wall-south-east-v4.png",
+      "size": [
+        256,
+        256
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        64,
+        64
+      ],
+      "footprints": [
+        [
+          0,
+          64,
+          256,
+          192
+        ],
+        [
+          64,
+          0,
+          192,
+          64
+        ]
+      ],
+      "source": "sources/corners-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCell": [
+        627,
+        627,
+        1254,
+        1254
+      ],
+      "working": "working-8x/wall-south-east-8x.png",
+      "crop": [
+        0,
+        0,
+        339,
+        337
+      ],
+      "fit": [
+        0,
+        12,
+        2048,
+        2036
+      ],
+      "inward": "diagonal toward playable center",
+      "coreGapPixelsPatchedFromPainting": 3008,
+      "canopyFile": "tree-wall-south-east-v4-canopy.png",
+      "collisionNote": "Continuous forest core only; optional canopy fringe is non-solid. Runtime integration by Claude.",
+      "oldComparisonNote": "No equivalent approved side/corner plate existed. Decorative v3 strip shown only as context; never used as production input.",
+      "coreCleanupNote": "Fresh painted forest clusters repair transparent core gaps. Corner source uses outer 55% quadrant crop for required wall thickness.",
+      "oldFile": "old/wall-south-east-comparison.png"
+    }
+  ],
+  "joinPairs": [
+    [
+      "north",
+      "north",
+      "x"
+    ],
+    [
+      "south",
+      "south",
+      "x"
+    ],
+    [
+      "west",
+      "west",
+      "y"
+    ],
+    [
+      "east",
+      "east",
+      "y"
+    ],
+    [
+      "north-west",
+      "north",
+      "x"
+    ],
+    [
+      "north",
+      "north-east",
+      "x"
+    ],
+    [
+      "south-west",
+      "south",
+      "x"
+    ],
+    [
+      "south",
+      "south-east",
+      "x"
+    ],
+    [
+      "north-west",
+      "west",
+      "y"
+    ],
+    [
+      "west",
+      "south-west",
+      "y"
+    ],
+    [
+      "north-east",
+      "east",
+      "y"
+    ],
+    [
+      "east",
+      "south-east",
+      "y"
+    ]
+  ]
+}
