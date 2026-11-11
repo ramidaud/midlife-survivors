@@ -806,3 +806,6 @@ Upstairs isn't stacked on top of downstairs. It's a second floor plan sitting fa
 
 ## Flash budgets (Nov 11, flashing lights)
 Accessibility guidelines say a screen shouldn't flash more than 3 times a second. One white flash per kill is fine early on, but with 40 kills a second those flashes add up to a strobe. The fix is a budget: each third of a second, only the first 4 kills get the white pop, and everything after that pops without it. Same idea for the camera: one full-screen flash, then a 0.6 second cooldown. A budget keeps the feel of a hit without letting a crowd turn it into a strobe.
+
+## Whole-number scaling (Nov 11, the crisp pass)
+Pixel art is a grid of little squares. Show it at 2x and every square becomes a neat 2 by 2 block. Show it at 1.5x and the screen has to cheat: one square gets 1 screen pixel, the next gets 2, so outlines wobble and glasses go lopsided. Screens with extra-fine pixels (MacBooks, phones) add a second problem: the browser enlarges the whole picture and, unless told otherwise, smooths it like a photo. The fix is two rules: only zoom by whole numbers, and always enlarge with hard edges.

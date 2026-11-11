@@ -69,7 +69,7 @@ window.EnemyArt = (() => {
       ctx.save(); ctx.scale(1, 12 / 32);
       const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
       gradient.addColorStop(0, 'rgba(23,28,53,0.32)'); gradient.addColorStop(1, 'rgba(23,28,53,0)');
-      ctx.fillStyle = gradient; ctx.fillRect(0, 0, 32, 32); ctx.restore(); texture.refresh();
+      ctx.fillStyle = gradient; ctx.fillRect(0, 0, 32, 32); ctx.restore(); texture.refresh(); texture.setFilter(Phaser.Textures.FilterMode.LINEAR); // soft floor shadow
     }
     // Image elements also support opening index.html directly from the folder.
     if (window.USE_ENEMY_ART) for (const kind of Object.keys(specs)) {

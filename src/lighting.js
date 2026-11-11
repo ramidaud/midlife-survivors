@@ -42,6 +42,7 @@ window.Lighting = (() => {
     g.addColorStop(0, "rgba(255,255,255,1)"); g.addColorStop(0.35, "rgba(255,255,255,0.8)");
     g.addColorStop(0.7, "rgba(255,255,255,0.3)"); g.addColorStop(1, "rgba(255,255,255,0)");
     ctx.fillStyle = g; ctx.fillRect(0, 0, s, s); tex.refresh();
+    tex.setFilter(Phaser.Textures.FilterMode.LINEAR); // light is the one thing that stays soft (pixel rules, Nov 11)
   }
   function frozen() {
     return (typeof levelUpOpen !== "undefined" && levelUpOpen) || (typeof paused !== "undefined" && paused) ||
@@ -61,7 +62,7 @@ window.Lighting = (() => {
     });
     floors = (START_AREA_LAYOUT.floors || []).filter(f => f.district);
     mood = 1; nextSputter = 0; flashes = []; followed = new Map(); lastKey = "";
-    rt = sc.add.renderTexture(0, 0, 2, 2).setOrigin(0, 0).setDepth(49000); // over the whole world, under screen flashes (50000)
+    rt = sc.add.renderTexture(0, 0, 2, 2).setOrigin(0, 0).setDepth(49000); rt.texture.setFilter(Phaser.Textures.FilterMode.LINEAR); // over the whole world, under screen flashes (50000)
     sc.events.on("postupdate", update);
     sc.events.once("shutdown", destroy);
   }
@@ -159,7 +160,7 @@ window.Lighting = (() => {
     lastKey = key;
     scale = Math.max(0.25, Math.min(1, L.darkScale || 0.5));
     const w = Math.ceil((v.width + 2) * scale), h = Math.ceil((v.height + 2) * scale);
-    if (rt.width !== w || rt.height !== h) rt.resize(w, h);
+    if (rt.width !== w || rt.height !== h) { rt.resize(w, h); rt.texture.setFilter(Phaser.Textures.FilterMode.LINEAR); } // half-size darkness, enlarged smoothly
     rt.setScale(1 / scale);
     ox = v.x - 1; oy = v.y - 1;
     rt.setPosition(ox, oy);

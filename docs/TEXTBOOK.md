@@ -1985,3 +1985,22 @@ Changing what an enemy wants turns an old sprite into a new problem.
 | Data | src/data/start-area.js | src/data/maple-hollow.js |
 | Builder | src/start-area.js | src/maple-hollow.js |
 | Everything else | shared | shared |
+
+## Whole-number scaling (Nov 11, the crisp pass)
+
+```
+ art (4 px wide)      at 2x: even            at 1.5x: uneven
+ ┌─┬─┬─┬─┐            ┌──┬──┬──┬──┐          ┌─┬──┬─┬──┐
+ │A│B│C│D│    ──►     │AA│BB│CC│DD│          │A│BB│C│DD│
+ └─┴─┴─┴─┘            └──┴──┴──┴──┘          └─┴──┴─┴──┘
+                      every pixel same size   A and C lose half their width
+```
+
+| Screen | Zoom before | Zoom now |
+|---|---|---|
+| Laptop (720p) | 1 | 1 |
+| MacBook | 1.25, then blurred 2x | 1, then hard-edged 2x |
+| 1080p monitor | 1.5 | 2 (Close) or 1 (Wide) |
+| Phone | 0.95, then blurred 3x | 1, then hard-edged 3x |
+
+Light and soft shadows are the one exception: they stay smooth on purpose.

@@ -111,6 +111,7 @@ window.WorldArt = (() => {
           if(!alive||!area){if(area)area.destroy();reveal();return;}
           refs.props.forEach(p=>p.destroy());refs.props.splice(0,refs.props.length,...pendingProps);pendingProps.length=0;
           window.stagePlatforms.forEach(p=>p.destroy());window.stagePlatforms=[];
+          if(!scene.textures.exists('slice_void'))makeCanvasTex(scene,'slice_void',64,64,c=>{c.fillStyle='#171c35';c.fillRect(0,0,64,64);}); // Nov 11: Maple Hollow needs the dark edge tile too (it showed a green grid)
           refs.floor.setTexture('slice_void').clearTint().setDepth(-1000000000);
           state.startArea=area;state.active=true;scene.cameras.main.setRoundPixels(true);window.__officeBuiltOnce=true;reveal();return;
         } catch(error) {

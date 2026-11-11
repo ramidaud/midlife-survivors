@@ -2,12 +2,22 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.28.2",
-  displayVersion: "V. 2.28.2",
+  version: "2.29.0",
+  displayVersion: "V. 2.29.0",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 350,
+  build: 351,
   changelog: [
+    {
+      ver: "V. 2.29.0", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "Somebody finally cleaned their glasses.",
+      highlights: [
+        "The whole game is sharper. On MacBooks, iPads and phones the art used to be stretched with a blur. Now every pixel has hard edges.",
+        "The camera only zooms by whole numbers, so pixels are all the same size. No more wobbly glasses or uneven outlines.",
+        "New Camera setting (Settings, under Game) on big monitors: CLOSE for bigger art, WIDE to see more of the floor.",
+        "Fixed a green grid that showed past the edge of Maple Hollow."
+      ]
+    },
     {
       ver: "V. 2.28.2", date: "Nov 11, 2026", title: "Version Two",
       teaser: "Easier on the eyes when the whole department shows up.",

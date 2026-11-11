@@ -83,6 +83,14 @@ The game and the devlog are one product. The full spec is `docs/design/design-sy
 - **Social post images (Nov 6):** every memo gets a 1080x1350 (4:5) image in this style: cream "MEMO NN · RE:" strip, the cover art full width, a coffee-orange rule, the title in Silkscreen caps on navy, the teaser in Atkinson, and a footer with "READ IT + PLAY FREE" and the site address. `devlog/scripts/share_cards.py` (`make_social_post`) builds it automatically into `devlog/img/social/`.
 - **Social kit for every memo (Nov 7, Rami's OK):** when a memo is published, also make a 5-slide 4:5 carousel and a 15-20 second 9:16 Reel, then send Rami the files. The Reel moves: cut on the beat of one of the game's own tracks, moving key art, word-by-word headlines, real game footage or a live scene, and an ending ask with the site address. Text stays inside Instagram's safe area. Start from `devlog/scripts/memo13_social.py` (copy it to `memoNN_social.py`). Also draft the captions (Instagram Reel, Instagram carousel, Facebook, LinkedIn) in Rami's voice, built from his own lines in the memo, in `docs/social/NN-posts.md`.
 
+## Pixel rules for the world (Nov 11, Rami's OK)
+From the level art audit (`docs/design/level-art-audit-2026-11.md`). "One look" covers menus; these cover everything drawn in the world.
+- **Whole-number scale only.** The camera zoom and every sprite are shown at 1x, 2x or 3x. No 0.95, 1.25 or 1.5. Size and hitbox are separate numbers, so tune the hitbox, never the picture.
+- **Crisp edges everywhere.** `pixelArt: true` stays on in the game config, and the game canvas enlarges with hard edges. No smoothing on anything in the world.
+- **Colors by material.** When art is reduced to the palette, map each material on purpose (slacks to khaki, paper to cream). Never rely on nearest-color matching alone. Coffee orange stays with the hero's mug and weapons.
+- **Density target per room.** Every room has a target number of objects per screen and is compared side by side with its reference art before it ships.
+- **Art sized to its space.** Ask for art at the size of the space it fills. Don't stretch a room or scatter small props to cover a gap.
+
 ## Keep the docs readable
 - Rami has ADHD. Log entries stay short (3-5 bullets, plain words, no code-name lists). Don't paste file inventories into the docs.
 

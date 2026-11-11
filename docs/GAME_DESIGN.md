@@ -723,3 +723,9 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - Walking through the front door animates (shrink and fade into the doorway, screen fade, step through). Planned: the same for the stairs.
 - Mood for filling the bigger rooms (step 2c), from Rami's photos: patterned rugs under each sitting area, plants in corners, warm lamps, wall shelves. Photos stay reference only.
 - Layout: src/data/house-v2.js, built by tools/build_house_v2.py. Switch: MAPLE_HOLLOW.house2.on.
+
+### Camera and pixels (decided Nov 11, level art audit)
+- The camera zooms by whole numbers only. Laptops, MacBooks, iPads and phones use 1; 1440p uses 2; 4K uses 3.
+- A 1080p monitor sits between 1 and 2, so Settings has a Camera row there: CLOSE (2, the default for now) or WIDE (1). Rami picks the final default after trying both. `meta.cameraWide`, `viewZoomChoices` in `src/main.js`.
+- This replaces the 0.95 phone zoom from A8. The hero is 52 px tall on phones, still above the 48 px floor.
+- Pixel-art mode is on for the whole game. Lights and floor shadows stay soft.

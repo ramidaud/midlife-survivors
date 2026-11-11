@@ -2164,3 +2164,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - For everyone: one full-screen flash per 0.6 seconds at most, and only 4 enemies per third of a second get the white death pop. The rest still squash and pop. The Gold Watch and Holiday Party blinks slowed to about 2 a second.
 - Tested headless at phone and desktop sizes: the warning shows once, the switch saves, no errors. Not yet felt in a real late run.
 - Found along the way (already in V2.28.1): the Settings sheet draws behind the title tiles on desktop. Logged for later.
+
+## 2026-11-11 (12:45 AM): Level art audit and V2.29.0, the crisp pass
+- Rami asked why the levels don't look like ChatGPT's art. Audit found three leaks: the screen smears it, the shrink changes it, and the rooms are thin. File size isn't the cause. Report: docs/design/level-art-audit-2026-11.md.
+- Crisp pass shipped: hard edges on Retina screens and phones, whole-number camera zoom, pixel-art mode on for everything (lights stay soft), and the green grid past Maple Hollow's edge is gone.
+- New Camera setting on big monitors: CLOSE (default) or WIDE. Rami wasn't sure which, so he can try both and pick the default.
+- Rami said yes to "Pixel rules for the world" in CLAUDE.md.
+- Tested at laptop, 1080p, MacBook and phone sizes in both stages. Not yet seen on a real device.

@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-09 (V. 2.15.3, Boss bite: tougher New Boss, better boss defeats, hittable pings)
+**Last updated:** 2026-11-11 (V. 2.29.0, the crisp pass from the level art audit)
 
 ---
 
@@ -19,6 +19,18 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Reach 56 and meet the Party: is the slow fair? does the conga line read?
 - [x] The Reorg (V2.14.0)
 - [ ] Meet the Reorg at 56 (it's a coin flip with the Party): do the desks read? fair?
+
+**Level art pass (Nov 11, from the audit: `docs/design/level-art-audit-2026-11.md`)**
+- [x] Audit: why the levels don't look like the art (three leaks: display, translation, composition)
+- [x] Rami: yes to "Pixel rules for the world" in CLAUDE.md
+- [x] Sitting 1 (V2.29.0): crisp pass. Hard edges, whole-number zoom, Camera setting (Close/Wide), green grid fixed
+- [ ] Rami: look at V2.29.0 on your MacBook, phone and a 1080p screen. Sharper? Pick the default camera: Close or Wide
+- [ ] Rami: paste the Pixel rules block into the Project's custom instructions
+- [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged
+- [ ] Sitting 3: heroes and Bill. Colors by material (the khaki slacks), then a clean-up round on the Sprite Board
+- [ ] Sitting 4: fill the big house (same as Maple v2 step 2c), with art sized to the rooms
+- [ ] Sitting 5: Maple Hollow trees, bushes and greens (new ChatGPT brief), placed by hand
+- [ ] Sitting 6: office density (Lobby and Parking first) and a lighter darkness layer
 
 **UI/UX pass (Nov 10, design lead chat)**
 - [x] Audit: 60 surfaces at 4 device sizes (`docs/design/ui-audit-2026-11.md`)

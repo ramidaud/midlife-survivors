@@ -1827,6 +1827,8 @@ function renderSettingsModal(scene, keepId) {
       <span><span class="ms-row-title">${title}</span>${sub ? `<span class="ms-row-sub">${sub}</span>` : ""}</span><span class="ms-row-val ${cls || ""}">${val}</span></button>`;
   const pct = v => Math.round(v * 100) + "%";
   const session = typeof hasAudioSession === "function" && hasAudioSession();
+  // Camera (Nov 11): only shown where the two choices differ (a 1080p monitor, mostly)
+  const camChoice = (() => { try { const c = window.viewZoomChoices(scene.scale.width, scene.scale.height); return c.close !== c.wide; } catch (e) { return false; } })();
   m.innerHTML = `
     <div class="modal-card ms-sheet settings-sheet" role="dialog" aria-label="Settings">
       <div class="ms-sheet-strip">HR · RE: <b>Settings</b></div>
@@ -1845,6 +1847,7 @@ function renderSettingsModal(scene, keepId) {
       <div class="ms-rows">
         ${row("set-tips", "Game tips", "First-time hints during a run", window.tipsEnabled() ? "ON" : "OFF", window.tipsEnabled() ? "on" : "off", true)}
         ${row("set-flash", "Reduce flashing", "No screen flashes, softer hits and shakes", window.reduceFlashing() ? "ON" : "OFF", window.reduceFlashing() ? "on" : "off", true)}
+        ${camChoice ? row("set-camera", "Camera", meta.cameraWide ? "See more of the floor" : "Bigger art, less floor", meta.cameraWide ? "WIDE" : "CLOSE", "", true) : ""}
       </div>
       <div class="ms-section-head">Controls</div>
       <div class="ms-rows">
@@ -1870,8 +1873,9 @@ function renderSettingsModal(scene, keepId) {
   bind("set-voice", 5, () => { if (typeof toggleVoice === "function") toggleVoice(); sfx("pick"); again("set-voice"); });
   bind("set-tips", 6, () => { window.setTipsEnabled(!window.tipsEnabled()); sfx("pick"); again("set-tips"); });
   bind("set-flash", 7, () => { window.setReduceFlashing(!window.reduceFlashing()); sfx("pick"); again("set-flash"); });
-  bind("set-controls", 8, () => { sfx("pick"); openControlsModal(scene); });
-  bind("set-done", 9, () => { sfx("pick"); closeSettingsModal(scene); });
+  bind("set-camera", 8, () => { meta.cameraWide = !meta.cameraWide; saveMeta(meta); if (window.refitCamera) window.refitCamera(); sfx("pick"); again("set-camera"); });
+  bind("set-controls", 9, () => { sfx("pick"); openControlsModal(scene); });
+  bind("set-done", 10, () => { sfx("pick"); closeSettingsModal(scene); });
   window.menuNav.refresh();
 }
 window.openSettingsModal = openSettingsModal; window.closeSettingsModal = closeSettingsModal;

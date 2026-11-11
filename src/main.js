@@ -5,6 +5,7 @@ const WORLD_SIZE = 4000; // no longer a wall: the floor is endless now (kept for
 
 const config = {
   type: Phaser.AUTO,
+  pixelArt: true, // Pixel rules (Nov 11): every texture draws with hard edges unless it asks for smoothing (lights do)
   parent: "game",
   transparent: !!window.ENABLE_3D_VIEWS, // see-through only for the parked 3D overlay; an opaque canvas is cheaper to composite (Fable review #5)
   scale: { mode: Phaser.Scale.RESIZE, width: window.innerWidth, height: window.innerHeight },
@@ -194,16 +195,21 @@ window.addEventListener("touchstart", e => {
   for (const t of e.touches) if (!Array.from(e.changedTouches).some(c => c.identifier === t.identifier)) live.add(t.identifier);
   releaseStaleTouches(live);
 }, { capture: true, passive: true });
-// How far to zoom the camera: aim to show about VIEW.targetShortSide pixels of office across the short side of the
-// screen, in quarter steps. 720p laptop = 1x, 1080p = 1.5x, 1440p = 2.25x, 4K = 3.25x.
-// Phones may zoom out to minZoom so they see more of the office (Grok, Nov 3: phone runs ended ~10 years earlier;
-// at 1x a phone only showed about 390 px of floor). If things look too tiny, raise minZoom to 0.85.
-const VIEW = { targetShortSide: 640, maxZoom: 4, minZoom: 0.75, minHeroPx: 48, heroPx: 52 }; // A8: hero never under 48 px tall on screen
-function viewZoomFor(w, h) {
-  const z = Math.floor((Math.min(w, h) / VIEW.targetShortSide) * 4) / 4;
-  const heroFloor = VIEW.minHeroPx ? Math.ceil((VIEW.minHeroPx / VIEW.heroPx) * 20) / 20 : 0; // design system A8 (Nov 10): 0.95 today
-  return Math.max(VIEW.minZoom, heroFloor, Math.min(VIEW.maxZoom, z));
+// How far to zoom the camera. Pixel rules (Nov 11, level art audit): whole numbers only, because pixel art drawn at
+// 1.5x or 0.95x comes out with uneven pixels. We aim for about VIEW.targetShortSide pixels of floor across the short
+// side of the screen and snap to the nearest whole zoom. Laptops, MacBooks, iPads and phones land on 1; a 1440p
+// monitor on 2; 4K on 3. A 1080p monitor sits between 1 and 2, so the Camera setting picks: CLOSE (2, bigger art)
+// or WIDE (1, more floor). viewZoomChoices() says whether the setting matters on this screen.
+const VIEW = { targetShortSide: 640, maxZoom: 4 };
+function viewZoomChoices(w, h) {
+  const ratio = Math.min(w, h) / VIEW.targetShortSide, fit = z => Math.max(1, Math.min(VIEW.maxZoom, z));
+  return { close: fit(Math.round(ratio)), wide: fit(Math.floor(ratio)) };
 }
+function viewZoomFor(w, h) {
+  const c = viewZoomChoices(w, h), wide = typeof meta !== "undefined" && meta && meta.cameraWide;
+  return wide ? c.wide : c.close;
+}
+window.viewZoomChoices = viewZoomChoices;
 window.viewZoomFor = viewZoomFor;
 function resetInputState(scene) {
   releaseStaleTouches(null);
@@ -468,6 +474,7 @@ function create() {
   // Big screens zoom in so the office and sprites aren't tiny (Rami on a 4K monitor). Phones and laptops stay at 1x.
   // Zooming the browser shrinks the page, so this adjusts itself instead of doubling up.
   const fitZoom = () => this.cameras.main.setZoom(viewZoomFor(this.scale.width, this.scale.height));
+  window.refitCamera = fitZoom; // the Camera row in Settings calls this
   fitZoom();
   this.scale.on("resize", fitZoom);
   this.events.once("shutdown", () => this.scale.off("resize", fitZoom));
