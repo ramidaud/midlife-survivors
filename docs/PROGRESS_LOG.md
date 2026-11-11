@@ -2181,3 +2181,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami: "let's do it." Wrote docs/handoffs/codex-level-art-pass.md: three art jobs in order (heroes and Bill clean-up, big house fill, Maple Hollow trees and greens), each with sizes and a JSON request.
 - Sitting 2 (true sprite sizes) needs no new art, so Claude builds it while Codex draws.
 - Rami pasted the Pixel rules into the Project instructions.
+
+
+## 2026-11-11 (1:45 AM): the boundary, backyards and world rules
+- Rami: trees should contain the level, backyards are hard to get around, and we need rules for what's passable, breakable or a real barrier.
+- Found why the yards feel bad: gates are 64 px and the hedge steps 52 px for a 48 px wide hero, and all the yard furniture is painted into the ground, so you walk over it.
+- Tree boundary is decided and added to Codex's Job 3, along with yard furniture as separate sprites. The three-kinds rule (wall, breakable, walk-through) and 96 px gaps are proposed, waiting on Rami.
+- Looked at how other pixel art games handle scene and sprite; notes are in the chat and feed the rules.

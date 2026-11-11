@@ -729,3 +729,13 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - A 1080p monitor sits between 1 and 2, so Settings has a Camera row there: CLOSE (2, the default for now) or WIDE (1). Rami picks the final default after trying both. `meta.cameraWide`, `viewZoomChoices` in `src/main.js`.
 - This replaces the 0.95 phone zoom from A8. The hero is 52 px tall on phones, still above the 48 px floor.
 - Pixel-art mode is on for the whole game. Lights and floor shadows stay soft.
+
+
+### The boundary and world rules (Nov 11, Rami)
+- **Decided: trees contain the level.** A solid tree wall on all four sides of Maple Hollow is the ultimate boundary. The player never sees past it (no void, no hedge edge). Art is in Codex's Job 3.
+- **Proposed, waiting on Rami's yes:** three kinds of object, each with its own look.
+  - **Wall:** taller than the hero, full outline, heavy shadow. Never passable. You can walk behind the top part.
+  - **Breakable:** hero height or smaller, cream top highlight. Blocks until smashed, then drops loot.
+  - **Walk-through:** flat on the ground, no outline, no shadow. Never blocks.
+- **Proposed:** every gap the player is meant to use is at least 96 px wide (today the backyard gates are 64 px and the hedge steps are 52 px, against a 48 px wide hero). Every yard has two ways out.
+- **Found:** backyard furniture is painted into the ground picture, so you walk over it and can never pass behind it. Job 3 asks for it as separate sprites.

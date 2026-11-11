@@ -97,13 +97,15 @@ Layout data: `src/data/house-v2.js`. Reference for mood: Rami's photo brief (`ch
   "draw": [
     "fall trees: 6 kinds at 128x160 to 160x192 (maple red, maple orange, oak gold, birch yellow, a bare one, one half-turned), trunk base as the foot point, canopy overlaps what is behind it",
     "evergreens: 3 sizes, 64x96 to 96x144",
-    "a tree line plate 832x160 for the top edge of the map (repeats every 832 px like the street plates), so the world ends in woods instead of a hedge and a void",
+    "THE BOUNDARY (Rami, Nov 11): trees contain the level on all four sides. Tree wall plates two rows deep: top and bottom 832x256 (repeat every 832 px), left and right 256x832, plus four 256x256 corners. Dense trunks at the base so it reads as solid, canopy overlapping inward. The player never sees past it",
+    "backyard furniture as SEPARATE sprites, not painted into the yard picture (trampoline, swing set, pool, sandbox, raised beds, fire pit, chairs, grill, pond, lantern, wheelbarrow, pallet, cinder blocks, soccer goal). Each with a foot point and a small footprint so the hero can walk behind it. Plus the seven yards redrawn as plain ground plates (lawn, patio, paths only)",
     "shrubs and hedges: 8 pieces at 64 px modules, flowering and plain; foundation plantings to hide the hard edges of the house cells",
     "leaf drifts and scattered leaves as non-solid decals, 8 pieces, 32 to 96 px",
     "lawn plates redrawn with the approved greens: lawn-v3-a and lawn-v3-b at 512x512, seamless, mixed-variant seam check",
     "yard props redrawn at native 48x48 (the current 16 lawn props, 8 key-hunt spots and the toy-brick patches), same subjects, so the game can stop scaling them",
     "fences: picket and wood, 64 px modules with posts, gate open and closed"
   ],
+  "world_rules": "three kinds of object, and the art has to show which is which. WALL: taller than the hero, full dark outline, heavy contact shadow (trees, fences, hedges, cars, big furniture). BREAKABLE: hero height or smaller, with a 1 px cream top highlight so it reads as loose (bins, planters, gnome, mailbox). WALK-THROUGH: flat on the ground, no outline, no shadow (leaves, chalk, hoses, rugs, low flowers). Mark each piece's kind in the manifest. Gates and gaps are drawn 96 px wide",
   "placement_note": "Claude places these by hand, lot by lot, to match the style board. Include one suggested lot layout (416 px wide) as a picture."
 }
 ```
