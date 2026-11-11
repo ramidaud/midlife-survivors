@@ -37,7 +37,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Codex Batch A reviewed (PR #3): trees, pines, shrubs and the four wall sides approved. Corners go back (trees twice the size of the sides, hard seams)
 - [x] Tree wall live on all four sides of Maple Hollow, camera locked inside it (V2.29.5). Corners were plain side pieces until V2.29.6
 - [x] Codex corner redo approved and live (V2.29.6). Batch A is done
-- [ ] Rami: tell Codex to start Batch B (yard furniture as separate sprites, plain yards, props, fences, lawns)
+- [x] Codex Batch B reviewed (PR #4): furniture, yard props, key-hunt props, toy bricks, leaf decals, gates and straight fence runs pass
+- [ ] Codex Batch B fixes: lawns (two flat tones, visible cut lines), side-on fence pieces and corners (drawn at an angle, won't stack), one grass color on all seven yard plates, and the street end piece (missing)
+- [ ] Rami: pick the one grass color for Maple Hollow (sage teal like today, or the lighter green)
 - [x] Rami walked the edge (Nov 11): tight by the end houses, the street needs a dead end, the front door is confusing after the key hunt
 - [x] Breathing room (V2.29.7): a grass strip between the end houses and the forest, 96 px to walk in
 - [x] Front door (V2.29.8): swings open after you take the key-hunt bonus, then you walk straight in

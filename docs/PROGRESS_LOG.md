@@ -2261,3 +2261,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami never saw the door open. The swing started the moment the chest was picked up, so it played behind the bonus screen.
 - Now it waits for the bonus screen to close, pauses about half a second, then swings over 0.8 seconds (was 0.4).
 - Rami posted the Memo 14 social kit and loves the 3D viewer.
+
+## 2026-11-11 (2:45 PM): Batch B review
+- Codex's Batch B (PR #4, 79 pieces) is in. The props that failed last time (flamingo, gnome, mailbox, bins) are now painted and read well. All 21 furniture pieces pass.
+- Sent back: the two lawns (only two flat greens, camouflage look, a few straight cut lines), the side-on fence pieces and corners (painted at an angle, so they can't stack into a straight run).
+- The yard plates use two different grass colors. Rami needs to pick one.
+- The cul-de-sac piece wasn't in the batch.
+- Nothing wired into the game yet.
