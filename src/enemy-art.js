@@ -4,7 +4,7 @@ window.USE_ENEMY_ART = true;
 window.ENEMY_ART_VERSION = 2;
 window.EnemyArt = (() => {
   const specs = {
-    bill: ['bill', 48, 4, 180, 36],
+    bill: ['bill', 48, 4, 180, 36, 'enemy-bill-v4.png'], // Nov 11: painted third try (shaded paper, clear face)
     lateFee: ['late-fee', 32, 4, 100, 25],
     spamCall: ['spam-likely', 48, 4, 160, 36],
     snackAttack: ['late-night-donut', 48, 4, 150, 34],

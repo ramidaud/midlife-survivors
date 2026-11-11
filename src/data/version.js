@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.2",
-  displayVersion: "V. 2.29.2",
+  version: "2.29.3",
+  displayVersion: "V. 2.29.3",
   lastUpdated: "Nov 11, 2026",
   codename: "Version Two",
-  build: 353,
+  build: 354,
   changelog: [
+    {
+      ver: "V. 2.29.3", date: "Nov 11, 2026", title: "Version Two",
+      teaser: "Bill got his face back.",
+      highlights: [
+        "Bill was repainted by hand: shaded paper, a red stripe and a scowl you can read from across the room. He is the first piece of the new painted art to go live."
+      ]
+    },
     {
       ver: "V. 2.29.2", date: "Nov 11, 2026", title: "Version Two",
       teaser: "The 9-to-5er found his khakis.",

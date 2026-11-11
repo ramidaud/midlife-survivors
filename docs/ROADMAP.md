@@ -32,7 +32,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Codex Job 1: four hero sheets approved and live (V2.29.2). Bill goes back for a third try
 - [x] Codex Jobs 2 and 3 reviewed and rejected: built from code shapes, flat. PR #1 stays unmerged
 - [x] New rule in CLAUDE.md: world art is painted, then reduced by a whole number
-- [ ] Rami: send Codex `docs/handoffs/codex-level-art-redo.md` (a sample of eight first, then stop)
+- [x] Rami: send Codex `docs/handoffs/codex-level-art-redo.md` (a sample of eight first, then stop)
+- [x] Sample of eight approved (PR #2). The painted Bill is live (V2.29.3)
+- [ ] Rami: tell Codex to go ahead with Batch A (tree wall, trees, shrubs), then Batch B (yard furniture as separate sprites, props, fences, lawns)
 - [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions
 - [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged
 - [ ] Sitting 3: heroes and Bill. Colors by material (the khaki slacks), then a clean-up round on the Sprite Board

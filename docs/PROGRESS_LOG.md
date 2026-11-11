@@ -2201,3 +2201,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Kept: the four hero sheets (recolors of the existing sprites; khaki slacks are back). Live in V2.29.2, checked in the game for all four heroes.
 - Rejected: Bill's flat repaint (third try asked for), the house fill and the outdoor kit. PR #1 stays unmerged. The outdoor kit also skipped the tree wall and the separate yard furniture.
 - New rule (Rami's yes): world art is painted, then reduced by a whole number. New brief asks Codex for a sample of eight pieces first.
+
+## 2026-11-11 (10:00 AM): V2.29.3, painted Bill; sample approved
+- Codex's sample of eight (painted at 8x, reduced by 8) came back in PR #2. Rami approved it.
+- The new Bill from that sample is live. Same size, same hitbox, same eight walk frames, so nothing about how he plays changed.
+- Checked in the game at laptop and phone sizes with no errors.
+- Two notes for the next batch: the lawn shows a repeat grid when tiled, and Bill's mouth reads a little blocky (fine for now).
+- Next: Codex paints Batch A (tree wall and trees), then Batch B (yard furniture as its own sprites).
