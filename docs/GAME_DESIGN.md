@@ -739,3 +739,7 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
   - **Walk-through:** flat on the ground, no outline, no shadow. Never blocks.
 - **Approved:** every gap the player is meant to use is at least 96 px wide, and every yard has two ways out. Backyard gates and hedge steps widened to 96 px in V. 2.29.1 (were 64 and 52).
 - **Found:** backyard furniture is painted into the ground picture, so you walk over it and can never pass behind it. Job 3 asks for it as separate sprites.
+
+
+## Maple Hollow painted forest kit (Nov11,2026, Codex; pending review)
+Rami approved autumn gold #D8AD4A for oak/birch foliage. Batch A records continuous WALL cores separately from optional non-solid canopy fringes, while standalone trees use trunk/root footprints. Art is ready for review; runtime collision and camera behavior are unchanged.

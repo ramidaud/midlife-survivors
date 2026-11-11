@@ -812,3 +812,7 @@ Pixel art is a grid of little squares. Show it at 2x and every square becomes a 
 
 ## Painted vs. drawn with code (Nov 11, the art redo)
 There are two ways an AI can make a sprite. An image model paints it, the way a person would, and gets shading, texture and character for free, but it can't hit exact pixels, so the picture has to be reduced afterward. A coding agent can place every pixel exactly, but it only thinks in shapes: rectangles, lines, flat fills. Ask it for "exact pixels, no shrinking" and you get a flamingo made of an oval and four sticks. The good pipeline uses both: paint big at a whole-number multiple, reduce cleanly, then fix the few pixels that broke.
+
+
+## A canopy and a collider have different edges (Nov11,2026, Codex)
+The forest's visible leaf edge can be irregular while its blocking core remains continuous. Separate footprints and optional canopy layers let Claude keep the map enclosed and still place the hero correctly around overhanging branches. The art checks do not replace a later navigation playtest.

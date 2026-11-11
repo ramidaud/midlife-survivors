@@ -2225,3 +2225,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Tested on laptop and phone sizes: unlocks on the next run, Required Reading stays locked, no errors.
 - Memo 14 social kit for Rami's review: 5-slide carousel, a 20 s Reel on the game's title track (achievement card, the 212 photos, the Blender orbit of Abe, the dots, the ask), a 3-frame Story and captions (docs/social/14-posts.md). The Reel and Story videos are too big for the repo (51 MB and 38 MB); they live on Rami's Mac in the shoot's social folder. Publish waits on his OK.
 - **Memo 14 published** (Nov 11, Rami's OK). Share page, feed and one-post feed built; the handoff link uses the full address so it works on the share page too.
+
+
+## 2026-11-11: Painted forest Batch A (Codex)
+- Pulled main V2.29.4 and repainted the containing wall, fall trees, pines and shrubs using the approved sample method. The rejected morning boundary was not used.
+- Rami approved #D8AD4A autumn gold. Exported25 native pieces with footprints, canopy layers, source paintings and old/new comparisons.
+- Dimensions, palette, alpha, zero core gaps and12 exact wall joins pass. Static hero mockups at desktop/phone sizes and gallery loading checked; no gameplay claim.
+- Art/docs PR for review only. Batch B remains pending; lawns need irregular flowers/bare spots and two512px variants.

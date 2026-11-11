@@ -1,0 +1,367 @@
+{
+  "pieces": [
+    {
+      "id": "tree-maple-red",
+      "size": [
+        160,
+        192
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 14,
+      "magenta": 0
+    },
+    {
+      "id": "tree-maple-orange",
+      "size": [
+        144,
+        176
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 12,
+      "magenta": 0
+    },
+    {
+      "id": "tree-oak-gold",
+      "size": [
+        160,
+        192
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 13,
+      "magenta": 0
+    },
+    {
+      "id": "tree-birch-yellow",
+      "size": [
+        128,
+        160
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 15,
+      "magenta": 0
+    },
+    {
+      "id": "tree-oak-bare",
+      "size": [
+        128,
+        160
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 13,
+      "magenta": 0
+    },
+    {
+      "id": "tree-maple-half-turned",
+      "size": [
+        144,
+        176
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 17,
+      "magenta": 0
+    },
+    {
+      "id": "pine-small",
+      "size": [
+        64,
+        96
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0
+    },
+    {
+      "id": "pine-medium",
+      "size": [
+        80,
+        120
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0
+    },
+    {
+      "id": "pine-large",
+      "size": [
+        96,
+        144
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-hedge-horizontal",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 16,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-hedge-vertical",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 16,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-hedge-corner",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 16,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-shaggy-bush",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 17,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-mums",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 16,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-foundation",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 15,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-round",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 16,
+      "magenta": 0
+    },
+    {
+      "id": "shrub-oval",
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 16,
+      "magenta": 0
+    },
+    {
+      "id": "wall-north",
+      "size": [
+        832,
+        256
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-south",
+      "size": [
+        832,
+        256
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 20,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-west",
+      "size": [
+        256,
+        832
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 17,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-east",
+      "size": [
+        256,
+        832
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-north-west",
+      "size": [
+        256,
+        256
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 15,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-north-east",
+      "size": [
+        256,
+        256
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-south-west",
+      "size": [
+        256,
+        256
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 18,
+      "magenta": 0,
+      "coreHoles": 0
+    },
+    {
+      "id": "wall-south-east",
+      "size": [
+        256,
+        256
+      ],
+      "palette": true,
+      "partialAlpha": 0,
+      "colors": 17,
+      "magenta": 0,
+      "coreHoles": 0
+    }
+  ],
+  "wallSeams": [
+    {
+      "from": "north",
+      "to": "north",
+      "axis": "x",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "south",
+      "to": "south",
+      "axis": "x",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "west",
+      "to": "west",
+      "axis": "y",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "east",
+      "to": "east",
+      "axis": "y",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "north-west",
+      "to": "north",
+      "axis": "x",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "north",
+      "to": "north-east",
+      "axis": "x",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "south-west",
+      "to": "south",
+      "axis": "x",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "south",
+      "to": "south-east",
+      "axis": "x",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "north-west",
+      "to": "west",
+      "axis": "y",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "west",
+      "to": "south-west",
+      "axis": "y",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "north-east",
+      "to": "east",
+      "axis": "y",
+      "mismatchedPixels": 0
+    },
+    {
+      "from": "east",
+      "to": "south-east",
+      "axis": "y",
+      "mismatchedPixels": 0
+    }
+  ],
+  "hedgeHorizontalRepeat": true,
+  "hedgeVerticalRepeat": true,
+  "approvedRedMapleUnchanged": true,
+  "v3BoundaryUsedAsInput": false,
+  "runtimeChanged": false,
+  "previewNote": "Desktop/phone images are native-sized static art mockups, not game tests."
+}
