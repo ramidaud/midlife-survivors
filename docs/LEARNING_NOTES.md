@@ -812,3 +812,6 @@ Pixel art is a grid of little squares. Show it at 2x and every square becomes a 
 
 ## Painted vs. drawn with code (Nov 11, the art redo)
 There are two ways an AI can make a sprite. An image model paints it, the way a person would, and gets shading, texture and character for free, but it can't hit exact pixels, so the picture has to be reduced afterward. A coding agent can place every pixel exactly, but it only thinks in shapes: rectangles, lines, flat fills. Ask it for "exact pixels, no shrinking" and you get a flamingo made of an oval and four sticks. The good pipeline uses both: paint big at a whole-number multiple, reduce cleanly, then fix the few pixels that broke.
+
+## Camera bounds (Nov 11, the tree wall)
+The world is bigger than the screen, and the camera is a window that follows the hero. Camera bounds are a rectangle the window is not allowed to leave. The hero can walk right up to the edge of the map, but the window stops early, so you never see the empty space past the art. The tree wall is 192 px thick and the bounds sit at its outside edge. That is why the forest always fills the screen edge and never ends.

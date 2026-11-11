@@ -732,7 +732,7 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 
 
 ### The boundary and world rules (Nov 11, Rami)
-- **Decided: trees contain the level.** A solid tree wall on all four sides of Maple Hollow is the ultimate boundary. The player never sees past it (no void, no hedge edge). Art is in Codex's Job 3.
+- **Decided: trees contain the level.** A solid tree wall on all four sides of Maple Hollow is the ultimate boundary. The player never sees past it (no void, no hedge edge). Live in V2.29.5 with Codex's painted Batch A wall sides (corners pending a redo).
 - **Approved Nov 11 (now in CLAUDE.md, "World rules"):** three kinds of object, each with its own look.
   - **Wall:** taller than the hero, full outline, heavy shadow. Never passable. You can walk behind the top part.
   - **Breakable:** hero height or smaller, cream top highlight. Blocks until smashed, then drops loot.

@@ -2004,3 +2004,26 @@ Changing what an enemy wants turns an old sprite into a new problem.
 | Phone | 0.95, then blurred 3x | 1, then hard-edged 3x |
 
 Light and soft shadows are the one exception: they stay smooth on purpose.
+
+## Camera bounds (Nov 11, the tree wall)
+The camera is a window that follows the hero. Bounds are the rectangle the window has to stay inside.
+
+```
+ camera bounds (outside of the forest)
+ +--------------------------------------+
+ | TREES TREES TREES TREES TREES TREES  |  192 px of solid forest
+ | T  +----------------------------+  T |
+ | R  | the town (where you walk)  |  R |
+ | E  |        [ screen ]          |  E |
+ | E  |          hero              |  E |
+ | S  +----------------------------+  S |
+ | TREES TREES TREES TREES TREES TREES  |
+ +--------------------------------------+
+   past this line: nothing is drawn, and the screen can never get here
+```
+
+| Thing | Stops where |
+|---|---|
+| The hero | 40 px inside the town's edge |
+| The screen | the outside of the forest |
+| The art | the outside of the forest |

@@ -2225,3 +2225,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Tested on laptop and phone sizes: unlocks on the next run, Required Reading stays locked, no errors.
 - Memo 14 social kit for Rami's review: 5-slide carousel, a 20 s Reel on the game's title track (achievement card, the 212 photos, the Blender orbit of Abe, the dots, the ask), a 3-frame Story and captions (docs/social/14-posts.md). The Reel and Story videos are too big for the repo (51 MB and 38 MB); they live on Rami's Mac in the shoot's social folder. Publish waits on his OK.
 - **Memo 14 published** (Nov 11, Rami's OK). Share page, feed and one-post feed built; the handoff link uses the full address so it works on the share page too.
+
+## 2026-11-11 (12:30 PM): V2.29.5, the tree wall
+- Reviewed Codex's Batch A. Trees, pines, shrubs and the four wall sides are approved. The corners go back: their trees are twice the size of the sides and the joins are hard lines.
+- The forest now rings Maple Hollow on all four sides. The camera stops at the outside of the trees, so the dark gap below the town never shows.
+- The hero stops 40 px in from the edge so he doesn't vanish under the leaves. The corners use plain side pieces until the redo arrives.
+- Rami approved one new color in Codex's chat: autumn gold #D8AD4A.
+- Not done: the new single trees and shrubs. The yards' trees are painted into the yard pictures, so they wait for Batch B.

@@ -16,7 +16,7 @@ The old props (`assets/stage/home/maple-hollow-tiles-props-v1.png`, `key-hunt-v1
 4. **Hand-fix** only what broke: eyes, mouths, thin lines.
 5. **Compare at 1x and 4x beside the old sprite of the same subject.** If the old one has more charm, it isn't done. Put that side-by-side in the review page.
 
-Palette: the 17 game colors plus the approved greens `#9BAE73`, `#6D895B`, `#315B4B`. Neutral white balance, no sepia, golden haze or film tint. Transparent PNG out.
+Palette: the 17 game colors plus the approved greens `#9BAE73`, `#6D895B`, `#315B4B` and the autumn gold `#D8AD4A` (Rami's yes, Nov 11). Neutral white balance, no sepia, golden haze or film tint. Transparent PNG out.
 
 ## Step 0: a sample of eight, then stop
 Before any full kit, deliver **only these eight** with the old-vs-new comparison, and stop for Rami:
