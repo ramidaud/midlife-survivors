@@ -39,8 +39,8 @@ html.ms-calm .rt-confetti { display: none !important; }
 html.ms-calm .center-flash, html.ms-calm .reorg-edge i, html.ms-calm .vs-combo, html.ms-calm .ms-bar.low > .ms-fill,
 html.ms-calm #status-row .low .t, html.ms-calm .shop-badge.new { animation: none !important; }
 #comfort-modal .comfort-card { max-width: 520px; width: min(520px, calc(100vw - 32px)); text-align: left; }
-#comfort-modal .comfort-body { font: 16px/1.45 'Atkinson Hyperlegible', sans-serif; color: var(--ms-white); margin: 0 0 var(--ms-s3, 12px); }
-#comfort-modal .comfort-body b { color: var(--ms-cream); }`;
+#comfort-modal .comfort-body { font: var(--ms-body, 16px)/1.45 var(--ms-font-read); color: var(--ms-text); margin: 0 0 var(--ms-space-3, 12px); }
+#comfort-modal .comfort-body b { color: var(--ms-paper); }`;
   document.head.appendChild(css);
 
   // Patch Phaser's camera once, so every flash and shake in the game goes through the same rules.
