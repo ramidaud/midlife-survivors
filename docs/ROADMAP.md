@@ -131,7 +131,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **Merch (from the 3D chat)**
 - [ ] Run the Medical Bill turnaround prompt in ChatGPT (`art/merch/medical-bill-turnaround-prompt.md`, attach the sprite) and drop the result in `assets/characters/merch/`
 - [x] **Memo 14: Achievement Unlocked: Gaussian Splatting** published Nov 11, with the in-game achievement (V2.29.4) and the social kit (files on Rami's Mac)
-- [ ] Post the Memo 14 kit: Reel, carousel, Story, Facebook, LinkedIn (captions in docs/social/14-posts.md)
+- [x] Posted the Memo 14 kit (Nov 11): Reel, carousel, Story, Facebook, LinkedIn (captions in docs/social/14-posts.md)
 - [ ] Memo 15: answer the interview questions (`docs/devlog-plans/how-i-write-these-memos.md`)
 
 **Waiting on others**
