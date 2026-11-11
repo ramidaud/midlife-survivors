@@ -2250,3 +2250,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Now the door stays shut until you take the bonus chest, then swings open with a "COME IN" sign. Walk at it and you're in. Standing still on the steps won't pull you inside.
 - Found on the way: the open doorway was drawn underneath the house, so the door never looked open. Fixed.
 - Tested at laptop and phone sizes: stand still (stays out), take the chest, walk in (goes in).
+
+## 2026-11-11: Memo 14 gets a 3D Abe you can spin
+- Rami asked for the splat inside the article. Memo 14 now has an "Explore in 3D" card: tap it and drag to spin Abe around.
+- The scan was slimmed from 609k to 350k splats (about 5 MB) so it loads on a phone, and it only loads when you tap.
+- The link preview, cover and social image now show Abe facing the camera instead of his back.
+- Tested at laptop and phone sizes; live at midlifesurvivors.com.
