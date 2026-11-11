@@ -2243,3 +2243,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Batch B contains 79 pieces with separate furniture and plain yard grounds, plus two 512px lawns.
 - Review includes native old/new comparisons, hero scale, 96px gates and self/mixed lawn repeats.
 - Art and docs only, on a review branch. Claude integrates after Rami approves.
+
+## 2026-11-11: Street ends added to Batch B (Codex)
+- Painted both ends of the 512px street band and separated their barricades from the ground.
+- Native joined-street preview and manifest added to PR #4. No game changes; awaits Rami review.

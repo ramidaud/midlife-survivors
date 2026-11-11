@@ -494,3 +494,5 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ### Codex art review, Nov 11
 - [x] Paint Batch B backyard furniture, plain ground, props, gates and two 512px lawns; prepare comparisons.
 - [ ] Rami reviews Batch B PR before Claude integrates it.
+
+- [x] Add left/right 512px street ends to Batch B art PR, with separate barricades and assembled check.

@@ -23,3 +23,9 @@ Both 512px lawns were repainted after rejecting evenly spaced tufts. Uneven gras
 validation-batch-b.json verifies all 79 dimensions, approved palette and binary alpha, opaque grounds, exact 8x working dimensions, all eight A/B edge pairings and both 96px gate spans. Native assembled yards, gate joins and mixed lawn seams were inspected by eye.
 
 Desktop 1280x800 and phone 390x844 images are static native art mockups. No runtime navigation, spawning, performance, balance, game code or version changes are included. Rami reviews this PR before integration.
+
+## Added street ends, Nov 11
+
+Two 512x512 dead-end ground caps, street-end-left-v4.png and street-end-right-v4.png, plus two separately extracted transparent barricades. Total native export count is now 83. The 512px band retains its 64/32/320/32/64 cross-section. Matching painted connector strips come from the existing street-wide-v2-a.png; generated native art forms the curved ends. No solid barricade remains baked into the exported ground. Assembly positions and proposed solid footprints are in the manifest. Claude must close the outer curved map boundary during integration.
+
+Both cap connections match the existing band, and the full left-cap/street/right-cap preview was inspected visually. Sources, full prompts, exact 8x working images, native/4x comparisons and joined 1x/2x previews are included. New-subject comparisons show the existing band only as material and scale context.

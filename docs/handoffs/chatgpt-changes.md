@@ -605,3 +605,8 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 - **Files:** `assets/stage/home/v4/batch-b/`, including prompts, original paintings, exact 8x working rasters, manifest, old/new 1x and 4x boards, hero-scale checks and review page.
 - **For Claude:** Furniture is separate from ground; proposed foot points/footprints and object categories are in the manifest. Open gates have a 96px clear span. Review layouts retain two exits. No runtime or version changes.
 - **Checks/limits:** Native dimensions, palette, hard alpha, eight lawn edge pairings and gate spans pass. Assembled art and tiled lawns inspected visually. Desktop/phone checks are static artwork, not navigation/performance tests. Imagegen source sizes required proportional normalization before exact 8x block reduction, as in the approved sample. Await Rami review.
+
+## 2026-11-11: Batch B street ends added (Codex, PR #4)
+- **What/Files:** Two painted 512x512 left/right dead-end caps in `assets/stage/home/v4/batch-b/`, plus separate transparent barricades. Sources, prompts, native/4x comparisons, joined 1x/2x preview and manifest updated.
+- **For Claude:** Same 512px cross-section: 64 sidewalk, 32 parkway, 320 road, 32 parkway, 64 sidewalk. Place barricades at manifest assembly coordinates; ground stays non-solid. Close the curved outer map boundary in integration.
+- **Checks:** Palette, dimensions, binary alpha and both joins pass; assembled street inspected by eye. Total native pieces83. Art and docs only; PR #4 remains for Rami review.

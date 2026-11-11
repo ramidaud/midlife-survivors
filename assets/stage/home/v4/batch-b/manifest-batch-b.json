@@ -3937,6 +3937,158 @@
       "seamCleanup": "Shared painted edge strips joined by irregular minimum-error pixel cuts; no blur or procedural grass shapes. Common endpoint ring for all A/B pairs.",
       "oldNote": "Old painted lawn v2 versus new512px lawn.",
       "oldFile": "old/lawn-b-comparison.png"
+    },
+    {
+      "id": "street-end-left",
+      "file": "street-end-left-v4.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "source": "sources/street-end-left-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "working": "working-8x/street-end-left-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        0,
+        4096,
+        4096
+      ],
+      "connector": {
+        "side": "right",
+        "size": 64,
+        "reference": "assets/stage/home/v2/street-wide-v2-a.png",
+        "crossSection": [
+          64,
+          32,
+          320,
+          32,
+          64
+        ]
+      },
+      "assembly": {
+        "barricade": "street-end-left-barricade",
+        "at": [
+          53,
+          174
+        ]
+      },
+      "placementNote": "Ground only. Claude closes the street boundary at the curved end; separate painted barricade is solid.",
+      "oldNote": "New street-end subject; existing street band shown only as scale/material context."
+    },
+    {
+      "id": "street-end-left-barricade",
+      "file": "street-end-left-barricade-v4.png",
+      "size": [
+        59,
+        153
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        29,
+        152
+      ],
+      "footprints": [
+        [
+          0,
+          0,
+          59,
+          153
+        ]
+      ],
+      "source": "sources/street-end-left-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "cleanup": "Painted barricade extracted from normalized native painting; underlying asphalt repaired with adjacent painted asphalt.",
+      "oldNote": "New subject; no earlier standalone street end existed."
+    },
+    {
+      "id": "street-end-right",
+      "file": "street-end-right-v4.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "source": "sources/street-end-right-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "working": "working-8x/street-end-right-8x.png",
+      "fit": "proportional cover crop; inward edge preserved",
+      "cropAtWorking": [
+        0,
+        0,
+        4096,
+        4096
+      ],
+      "connector": {
+        "side": "left",
+        "size": 64,
+        "reference": "assets/stage/home/v2/street-wide-v2-a.png",
+        "crossSection": [
+          64,
+          32,
+          320,
+          32,
+          64
+        ]
+      },
+      "assembly": {
+        "barricade": "street-end-right-barricade",
+        "at": [
+          349,
+          172
+        ]
+      },
+      "placementNote": "Ground only. Claude closes the street boundary at the curved end; separate painted barricade is solid.",
+      "oldNote": "New street-end subject; existing street band shown only as scale/material context."
+    },
+    {
+      "id": "street-end-right-barricade",
+      "file": "street-end-right-barricade-v4.png",
+      "size": [
+        68,
+        172
+      ],
+      "kind": "WALL",
+      "footPoint": [
+        34,
+        171
+      ],
+      "footprints": [
+        [
+          0,
+          0,
+          68,
+          172
+        ]
+      ],
+      "source": "sources/street-end-right-generated.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "cleanup": "Painted barricade extracted from normalized native painting; underlying asphalt repaired with adjacent painted asphalt.",
+      "oldNote": "New subject; no earlier standalone street end existed."
     }
   ]
 }

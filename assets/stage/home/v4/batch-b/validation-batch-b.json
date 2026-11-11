@@ -868,6 +868,46 @@
       "binaryAlpha": true,
       "colorsUsed": 7,
       "opaque": true
+    },
+    {
+      "id": "street-end-left",
+      "size": [
+        512,
+        512
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "opaque": true
+    },
+    {
+      "id": "street-end-left-barricade",
+      "size": [
+        59,
+        153
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "opaque": false
+    },
+    {
+      "id": "street-end-right",
+      "size": [
+        512,
+        512
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "opaque": true
+    },
+    {
+      "id": "street-end-right-barricade",
+      "size": [
+        68,
+        172
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "opaque": false
     }
   ],
   "lawnSeams": [
@@ -922,5 +962,16 @@
   ],
   "gateClearSpan96": true,
   "runtimeChanged": false,
-  "visualChecks": "Native contacts, old/new1x4x, separate-prop assembled yards, self/mixed2x2 and mixed4x4 lawns. Static art mockups only."
+  "visualChecks": "Native contacts, old/new1x4x, separate-prop assembled yards, self/mixed2x2 and mixed4x4 lawns. Static art mockups only.",
+  "streetEndJoins": {
+    "left": true,
+    "right": true,
+    "nativeCap": [
+      512,
+      512
+    ],
+    "streetBandHeight": 512,
+    "roadWidth": 320,
+    "barricadesSeparate": true
+  }
 }
