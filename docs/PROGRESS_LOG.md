@@ -2176,3 +2176,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami: "I want every pixel in this game to be stunning and to play well with the sprites and on-screen effects and UI/UX."
 - Wrote a Codex brief that builds on the level art audit instead of repeating it: sprites in motion, weapons and effects, bosses, UI over art, stages, and a ready-to-send art request list with exact sizes.
 - Applied the V2.28.2 flashing patch from another session. A second session shipped V2.29.0 (the crisp pass) at the same time as this one built the same fix; this session's copy is kept on the branch backup/pixel-rules-dup. One session at a time from here.
+
+## 2026-11-11 (1:00 AM): Codex brief for the level art pass
+- Rami: "let's do it." Wrote docs/handoffs/codex-level-art-pass.md: three art jobs in order (heroes and Bill clean-up, big house fill, Maple Hollow trees and greens), each with sizes and a JSON request.
+- Sitting 2 (true sprite sizes) needs no new art, so Claude builds it while Codex draws.
+- Rami pasted the Pixel rules into the Project instructions.

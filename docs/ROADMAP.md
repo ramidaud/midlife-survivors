@@ -25,7 +25,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami: yes to "Pixel rules for the world" in CLAUDE.md
 - [x] Sitting 1 (V2.29.0): crisp pass. Hard edges, whole-number zoom, Camera setting (Close/Wide), green grid fixed
 - [ ] Rami: look at V2.29.0 on your MacBook, phone and a 1080p screen. Sharper? Pick the default camera: Close or Wide
-- [ ] Rami: paste the Pixel rules block into the Project's custom instructions
+- [x] Rami: pasted the Pixel rules block into the Project's custom instructions (Nov 11)
+- [ ] Rami: hand Codex `docs/handoffs/codex-level-art-pass.md` (Job 1 heroes and Bill, Job 2 house fill, Job 3 Maple Hollow trees and greens), one job at a time
 - [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged
 - [ ] Sitting 3: heroes and Bill. Colors by material (the khaki slacks), then a clean-up round on the Sprite Board
 - [ ] Sitting 4: fill the big house (same as Maple v2 step 2c), with art sized to the rooms
