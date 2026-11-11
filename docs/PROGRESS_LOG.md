@@ -2126,3 +2126,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The bonus chest, retire at 80, the account prompt, the We Moved note and the shift briefing now share one shell: solid scrim, one card style, the memo strip header, one orange button each.
 - Retire at 80 is a plain choice: KEEP GOING (20 bonus years) or RETIRE (claim the win at 80).
 - Every small header now follows one pattern: DEPARTMENT · RE: Subject.
+
+## 2026-11-10 (7:30 PM): V2.27.6 and V2.27.7, design system C1 and C2
+- Rami skipped ahead to Part C; B8 (achievements, leaderboard, credits, extras, lore) is still open.
+- C1: the devlog and the top bar now read their colors and fonts from the game's tokens file. A pixel diff of four devlog pages at phone and desktop showed only one change: the "MEMO · RE:" label on cream strips is navy instead of teal.
+- C2: the Controls screen was rewritten in plain words (no "BTN 9" or "LOCALSTORAGE"), buttons say DONE, RESET ALL, BACK and CLOSE, and old patch notes lost their developer talk. A scan of 14 menus at phone and desktop found none left.
+- GitHub's deploy hiccupped on C1 (it couldn't find its own upload); the C2 deploy carried both.

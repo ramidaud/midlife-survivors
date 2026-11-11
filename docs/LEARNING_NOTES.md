@@ -788,3 +788,6 @@ Show the few things everyone needs first, and tuck the details one tap away. Aft
 
 ## Shells (Nov 10, design system B7)
 A shell is the frame a screen sits in: the dark backdrop, the card, the header strip and where the buttons go. The content inside each pop-up stayed the same (the chest still has its art, the account prompt still signs you in), but they all sit in the same frame now. That's most of what makes an app feel like one product instead of five: the same frame, used every time, so your eye knows where the title and the buttons will be before you read anything.
+
+## Aliases and a pixel diff (Nov 10, design system C1)
+The devlog had its own color names (--navy, --cream, --teal). Instead of renaming them everywhere, each one now points at the game's token: `--navy: var(--ms-surface)`. That's an alias, a second name for the same thing, so old code keeps working while the real value lives in one file. To prove nothing changed, we screenshotted the old and new pages and compared them pixel by pixel. Only the strip label changed, which was the point. A pixel diff is the cheapest way to show a refactor (a change to how code is organized, not what it does) didn't break anything.
