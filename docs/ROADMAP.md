@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-11 (V. 2.29.2, repainted heroes; art redo brief out)
+**Last updated:** 2026-11-11 (Memo 14 follow-ups done; next: Maple Hollow lawns and street ends)
 
 ---
 
@@ -140,6 +140,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Run the Medical Bill turnaround prompt in ChatGPT (`art/merch/medical-bill-turnaround-prompt.md`, attach the sprite) and drop the result in `assets/characters/merch/`
 - [x] **Memo 14: Achievement Unlocked: Gaussian Splatting** published Nov 11, with the in-game achievement (V2.29.4) and the social kit (files on Rami's Mac)
 - [x] Posted the Memo 14 kit (Nov 11): Reel, carousel, Story, Facebook, LinkedIn (captions in docs/social/14-posts.md)
+- [x] Memo 14 follow-ups (Nov 11): interactive 3D viewer of Abe, front-facing preview, NYT and Corridor Crew resource links, Z9 icon on the Camera settings card
+- [ ] Decide: keep running several chats, or one building chat at a time with a docs/NOW.md status file (proposed Nov 11, waiting on Rami)
 - [ ] Memo 15: answer the interview questions (`docs/devlog-plans/how-i-write-these-memos.md`)
 
 **Waiting on others**
@@ -507,4 +509,4 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [ ] Review and wire the camera icon into Memo14. Pickup remains optional.
 
 - [x] Z9 v2 reduction: rim, solid body clusters, cream stripe and simpler lighter pickup, with navy comparisons.
-- [ ] Rami reviews Z9 v2 PR before integration.
+- [x] Z9 v2 approved and merged (PR #5). Icon is on Memo 14's Camera settings card in an inventory slot. Pickup saved for later.

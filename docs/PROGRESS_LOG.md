@@ -2291,3 +2291,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Added the upper-left rim, stronger cream stripe and lighter pickup; checked both navy backgrounds at1x and4x.
 - Art and docs only. Branch codex/z9-icon, stop for PR review.
 - Codex's Z9 icon v2 (PR #5, rim light, cleaner panels, cream stripe) is on Memo 14's Camera settings card. The 32 px pickup is saved for later. Side cards can now carry an icon (`icon` in posts.js). Rami: the icon now sits in an inventory slot beside the card title (his pick over the corner placement).
+
+## 2026-11-11 (9:30 PM): wrap up, and a note on chats
+- Memo 14 is done: 3D viewer, front-facing preview, resource links and the Z9 card are all live.
+- Rami: long chats slow down, and several chats at once collide. Proposed: one building chat per objective, a fresh chat for the next one, side chats only for non-code work, and a docs/NOW.md status file. Waiting on his yes before changing CLAUDE.md.
+- Next: Maple Hollow lawns and street ends (Batch B wiring), in a new chat.
