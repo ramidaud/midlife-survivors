@@ -24,6 +24,8 @@ window.DEVLOG_POSTS = [
     ],
     "sideCard": {
       "title": "Camera settings",
+      "icon": "img/14-z9/z9-icon-v2.png",
+      "iconAlt": "Pixel art of a Nikon Z9 camera, Midlife Survivors style",
       "rows": [
         [
           "Camera",

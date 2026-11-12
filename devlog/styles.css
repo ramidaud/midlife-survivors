@@ -1057,3 +1057,7 @@ article.post .prose .video-embed iframe { position: static; display: block; widt
 /* Instagram reel embed (Nov 11, Memo 14): a tall card, narrower than the 16:9 video card. */
 article.post .prose .video-embed.reel { max-width: 420px; }
 article.post .prose .video-embed.reel iframe { aspect-ratio: 9 / 16; }
+
+/* sideCard icon (Nov 11, Memo 14 Z9): pixel art at a whole-number scale, floated beside the title */
+.side-facts .side-icon { float: right; width: 64px; height: 64px; margin: 0 0 6px 12px; image-rendering: pixelated; }
+.side-facts::after { content: ""; display: block; clear: both; }
