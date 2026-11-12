@@ -874,7 +874,14 @@ window.persistActiveRun = () => {
     char: meta.selectedChar, // Nov 8: a saved run belongs to the hero who started it
     slotBoss: window.runSlotBoss || null, // Nov 9: which boss this run got at 56
     stage: window.STAGE_ID || "office",    // Nov 9: Office or Maple Hollow
-    stats
+    stats,
+    // Nov 12 (Ben: "I feel like I lost points" after a crash at 103): these feed the score but weren't saved,
+    // so a resumed run dropped Lounge spending, late-career taper coins, kills and Close Calls from its score.
+    runKills,
+    coinsSpent: window.runCoinsSpent || 0,
+    coinsTapered: window.runCoinsTapered || 0,
+    coinLedger: window.coinLedger || {},
+    nearMissScore: window.NearMiss ? window.NearMiss.score() : 0
   });
 };
 
@@ -1231,6 +1238,11 @@ function showTitleScreen(scene) {
     xp = saved.xp || 0;
     xpNeeded = saved.xpNeeded || LEVELING.firstLevelXp;
     runCoins = saved.runCoins || 0;
+    runKills = saved.runKills || 0;
+    window.runCoinsSpent = saved.coinsSpent || 0;
+    window.runCoinsTapered = saved.coinsTapered || 0;
+    window.coinLedger = saved.coinLedger || {};
+    if (window.NearMiss && NearMiss.restoreScore) NearMiss.restoreScore(saved.nearMissScore || 0);
     window.awaitFirstMove = false; // a resumed run picks up where it left off
     bossesSpawned = saved.bossesSpawned || {};
     retire80Prompted = !!saved.retire80Prompted;

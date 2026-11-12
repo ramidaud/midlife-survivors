@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.11",
-  displayVersion: "V. 2.29.11",
+  version: "2.29.12",
+  displayVersion: "V. 2.29.12",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 362,
+  build: 363,
   changelog: [
+    {
+      ver: "V. 2.29.12", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "Long lives make the leaderboard now, and a resumed run keeps its whole score.",
+      highlights: [
+        "Full Life runs that went past 101 were turned away by the leaderboard. They post now, and scores that bounced earlier get sent again the next time you open the game.",
+        "If the game crashed and you picked your run back up, your score quietly lost Lounge spending, late-career coins, kills and Close Calls. A resumed run keeps all of it now."
+      ]
+    },
     {
       ver: "V. 2.29.11", date: "Nov 12, 2026", title: "Version Two",
       teaser: "Both streets in Maple Hollow now end in a proper cul-de-sac.",

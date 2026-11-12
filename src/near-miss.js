@@ -178,6 +178,7 @@ window.NearMiss = (() => {
   // Speed multiplier for this frame (the move code takes the bigger of this and an Energy Drink).
   const speedMult = () => (runElapsedMs < burstUntil ? burstMult : 1);
   const score = () => scoreUnits;
+  const restoreScore = u => { scoreUnits = Math.max(0, +u || 0); }; // Nov 12: a resumed run keeps its Close Calls score
 
   // What the HUD meter shows (null = hidden).
   function hud() {
@@ -194,6 +195,6 @@ window.NearMiss = (() => {
     console.log("[Close Calls]", JSON.stringify(nmStats));
   }
 
-  return { reset, scan, onHurt, speedMult, score, hud, logSummary, getStats: () => nmStats,
+  return { reset, scan, onHurt, speedMult, score, restoreScore, hud, logSummary, getStats: () => nmStats,
     testCredit: (scene, player) => credit(scene, player, { kind: "bill" }, false) }; // for tests and the dev console
 })();

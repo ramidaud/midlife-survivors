@@ -101,6 +101,13 @@ async function lbRetryPending() {
       const t = window.RUN_MODES && RUN_MODES.midlife && RUN_MODES.midlife.table;
       if (t) lbAllLocal().filter(r => (r.mode || "midlife") === "midlife" && (r.score > 500000 || r.age > 81) && r.name && r.startAge != null).forEach(r => lbQueue(r, t));
     }
+    // v3 (Nov 12, Ben's 103): the Full Life board capped age at 101, but runs keep going past Father Time.
+    // Those scores bounced 3 times and were dropped. Re-queue Full Life scores past 101 once the cap is raised.
+    if (!localStorage.getItem("ms-lb-rescue-nov12")) {
+      localStorage.setItem("ms-lb-rescue-nov12", "1");
+      const t = window.RUN_MODES && RUN_MODES.full && RUN_MODES.full.table;
+      if (t) lbAllLocal().filter(r => r.mode === "full" && r.age > 101 && r.age <= 200 && r.name && r.startAge != null).forEach(r => lbQueue(r, t));
+    }
   } catch (e) {}
   const keep = [];
   for (const p of lbPending()) {
