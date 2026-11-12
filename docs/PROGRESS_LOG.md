@@ -2296,3 +2296,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Memo 14 is done: 3D viewer, front-facing preview, resource links and the Z9 card are all live.
 - Rami: long chats slow down, and several chats at once collide. Proposed: one building chat per objective, a fresh chat for the next one, side chats only for non-code work, and a docs/NOW.md status file. Waiting on his yes before changing CLAUDE.md.
 - Next: Maple Hollow lawns and street ends (Batch B wiring), in a new chat.
+
+## 2026-11-12 (12:45 PM): V2.29.11, street ends and one green
+- Both streets now curve into Codex's painted dead end, with a striped barricade that blocks you (tested both sides).
+- Only the curved part of each end is used, and the street's own art runs out to meet it. The grass strip at each end of town grew from 136 to 232 px to make room.
+- The lawns, the street's grass strips and the strips beside each house are now the lighter green. House siding painted the same old green was left alone.
+- Known nit: a 3 px jog in the curb where each curve starts (Codex's caps sit a few pixels off the street's rows). The five old backyards stay darker until they're rebuilt.
+

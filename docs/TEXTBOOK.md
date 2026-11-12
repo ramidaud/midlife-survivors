@@ -2060,3 +2060,23 @@ Things are drawn back to front. A bigger depth number goes on top.
 | Blocks you | no, or by an invisible box | at its base |
 | Walk behind it | no | yes |
 | Move or swap it | repaint the yard | change one line of data |
+
+## Palette swap with a mask (Nov 12, one grass color)
+
+```
+ house frame (416 px wide)
+ +--------------------------------+------+
+ |                                |      |
+ |   FACADE: masked off           | side |   <- swap allowed here
+ |   (siding keeps its green)     | strip|
+ |                                |      |
+ +--------------------------------+------+
+     x 8 to 344                     344 to 416
+```
+
+| Old color | New color | Where |
+|---|---|---|
+| #83A89A grass | #9BAE73 | lawns, street grass, side strips |
+| #3E7775 tuft | #6D895B | only when touching grass |
+| #83A89A siding | unchanged | inside the facade mask |
+

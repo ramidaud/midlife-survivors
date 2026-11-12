@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-11 (Memo 14 follow-ups done; next: Maple Hollow lawns and street ends)
+**Last updated:** 2026-11-12 (V2.29.11: street ends and one grass color; next: the other eleven yards)
 
 ---
 
@@ -44,12 +44,13 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Your backyard rebuilt (V2.29.10): plain ground plus separate goal, fire pit, chair and maple tree
 - [ ] Rami: walk your backyard. Easy to get around? Anything you bump into that looks walkable?
 - [ ] Rebuild the other eleven yards the same way (after Rami's OK on yours and Codex's fixes)
-- [ ] Wire in the two street ends
-- [ ] Move the lawns and street parkways to the lighter green (waits for Codex's lawn repaint)
+- [x] Wire in the two street ends (V2.29.11)
+- [x] Lawns, street parkways and the strips beside each house moved to the lighter green (V2.29.11). The five old backyards stay darker until they are rebuilt
 - [x] Rami walked the edge (Nov 11): tight by the end houses, the street needs a dead end, the front door is confusing after the key hunt
 - [x] Breathing room (V2.29.7): a grass strip between the end houses and the forest, 96 px to walk in
 - [x] Front door (V2.29.8): swings open after you take the key-hunt bonus, then you walk straight in
-- [ ] Street ends: a cul-de-sac or dead end where each street meets the forest (needs art from Codex, added to the Batch B ask)
+- [x] Street ends: a cul-de-sac with a barricade where each street meets the forest (V2.29.11)
+- [ ] Rami: walk to the end of both streets. Does the dead end read? Is the barricade where you expect it?
 - [ ] Place the new trees and shrubs as their own sprites (waits for Batch B's plain yards; today's trees are painted into the yard pictures)
 - [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions
 - [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged

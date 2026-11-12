@@ -57,7 +57,7 @@ window.MAPLE_HOLLOW = {
   ground2: {
     on: true,
     street: ["street-band-v2-a.png", "street-band-v2-b.png"], streetStep: 832, plateAprons: [280, 680], apronW: 64, curbRows: [36, 64],
-    lawn: ["lawn-v2-a.png", "lawn-v2-b.png"], driveway: "driveway-v2.png",
+    lawn: ["v4/ground/lawn-a-v4.png", "v4/ground/lawn-b-v4.png"], driveway: "driveway-v2.png",
     details: "lawn-details-v2.png", detailsPerYard: 1, detailsPerBackyard: 1, detailsUpTop: 6
   },
   // Maple Hollow v2 (Nov 10, step 1 of the rebuild: the outside). Art by ChatGPT/Codex in assets/stage/home/v2/.
@@ -75,7 +75,18 @@ window.MAPLE_HOLLOW = {
     // strip repeated along the edge: 192 px of solid forest outside the map and a 64 px leafy fringe that hangs over it.
     // The camera stops at the outside of the forest, so nothing past it ever shows. Corner pieces (corners: true) are Codex's
     // repaint; with corners: false the side strips cover the corners instead. Set on: false to go back to the open edge.
-    treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true, margin: 136 }, // margin: a strip of grass between the end houses and the forest (136 - 40 = 96 px to walk in, the World rules minimum) // edge: how far in from the map edge the hero is stopped
+    treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true, margin: 232 }, // margin: a strip of grass between the end houses and the forest, wide enough for the street ends (232 - 40 = 192 px to walk in; was 136 before V2.29.11) // edge: how far in from the map edge the hero is stopped
+    // One grass color (V2.29.11, Nov 12): the street band and the house frames repainted to Rami's lighter green #9BAE73
+    // by tools/maple_one_green.py (grass only; the house siding keeps its paint). Point these back at v2/ to undo.
+    art: { houses: "v4/ground/houses-v4.png", yours: "v4/ground/your-house-v4.png", street: ["v4/street/street-wide-v4-a.png", "v4/street/street-wide-v4-b.png"] },
+    // Street ends (V2.29.11): Codex's painted dead ends where each street meets the forest. Only the curved part of each
+    // 512 px cap is used (crop: [from x, to x]); the street's own art runs out to meet it. inset: how far in from the forest's
+    // outer edge the curve starts, so the leafy fringe doesn't hide it. The barricade is solid at its base: [file, x, y, solid width, solid depth].
+    streetEnds: {
+      on: true, dir: "v4/street/", inset: 56,
+      left: { file: "street-end-left-v4.png", crop: [0, 128], barricade: ["street-end-left-barricade-v4.png", 53, 174, 28, 124] },
+      right: { file: "street-end-right-v4.png", crop: [336, 512], barricade: ["street-end-right-barricade-v4.png", 349, 172, 28, 140] }
+    },
     // Rebuilt yards (Nov 11, World rules): a plain ground picture plus each thing as its own sprite, so what blocks you is
     // an object you can see and walk around or behind. Painted by Codex (Batch A trees, Batch B furniture).
     // Each piece: [file, x, y, solid width, solid depth]. x and y are the top-left corner inside the 416 x 448 yard.

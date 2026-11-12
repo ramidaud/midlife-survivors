@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.10",
-  displayVersion: "V. 2.29.10",
-  lastUpdated: "Nov 11, 2026",
+  version: "2.29.11",
+  displayVersion: "V. 2.29.11",
+  lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 361,
+  build: 362,
   changelog: [
+    {
+      ver: "V. 2.29.11", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "Both streets in Maple Hollow now end in a proper cul-de-sac.",
+      highlights: [
+        "Each street now curves into a dead end with a striped barricade before the forest, instead of running into the trees.",
+        "The lawns, street grass and the strips beside each house are now the same lighter green as your backyard.",
+        "A little more room to walk at both ends of town."
+      ]
+    },
     {
       ver: "V. 2.29.10", date: "Nov 11, 2026", title: "Version Two",
       teaser: "Your backyard got furniture you can actually walk around.",

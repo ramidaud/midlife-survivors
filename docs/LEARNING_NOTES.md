@@ -821,3 +821,7 @@ Everything on screen is drawn in a set order, back to front, like stacking paper
 
 ## Baked in vs. separate objects (Nov 11, your backyard)
 The old backyards were one picture each, with the swing set and the fire pit painted right into the grass. The game had no idea they were there, so you walked straight over them, or hit an invisible wall where nothing was drawn. The rebuilt yard is a plain ground picture plus separate objects. Each object knows where its base is, so it blocks you there and nowhere else, and it can be drawn in front of you or behind you depending on where you stand.
+
+## Palette swap with a mask (Nov 12, one grass color)
+Pixel art uses a small set of exact colors, so changing one is a find-and-replace: every pixel that is exactly the old grass green becomes the new one. The catch is that the same green was also used for some house siding, so a blind swap would have repainted houses. A mask fixes that: a rule that says where the swap is allowed (here, everywhere except the house fronts). It is the same idea as a layer mask in Lightroom or Photoshop: the adjustment only lands where the mask says.
+

@@ -31,7 +31,8 @@ window.MapleHollow = (() => {
     } catch (e) { g2.sa = null; }
     const MV = M.v2 && M.v2.on ? M.v2 : null, v3 = {}; // Maple Hollow v2 art (Nov 10): bigger houses, wide street, backyards
     if (MV) try {
-      [v3.houses, v3.yours, v3.sa, v3.sb, v3.yards, v3.yourYard] = await Promise.all(["houses-v2.png", "your-house-v2.png", "street-wide-v2-a.png", "street-wide-v2-b.png", "backyards-v2.png", "your-backyard-v2.png"].map(f => H.image(ROOT + "v2/" + f)));
+      const A = MV.art || {}, st = A.street || ["v2/street-wide-v2-a.png", "v2/street-wide-v2-b.png"]; // one grass color (V2.29.11): repainted houses and street
+      [v3.houses, v3.yours, v3.sa, v3.sb, v3.yards, v3.yourYard] = await Promise.all([A.houses || "v2/houses-v2.png", A.yours || "v2/your-house-v2.png", st[0], st[1], "v2/backyards-v2.png", "v2/your-backyard-v2.png"].map(f => H.image(ROOT + f)));
     } catch (e) { v3.houses = null; console.warn("Maple Hollow v2 art missing, using v1", e); }
     const NEW = !!(MV && v3.houses);
     const YD = NEW && MV.yards && MV.yards.you ? MV.yards : null, yd = {}; // your rebuilt backyard (Nov 11): plain ground + separate sprites
@@ -45,6 +46,10 @@ window.MapleHollow = (() => {
       [tw.north, tw.south, tw.west, tw.east, tw.southTop, tw.westTop, tw.eastTop] = await Promise.all(["north-v4", "south-v4", "west-v4", "east-v4", "south-v4-canopy", "west-v4-canopy", "east-v4-canopy"].map(f => H.image(ROOT + TW.dir + "tree-wall-" + f + ".png")));
       if (TW.corners) tw.corners = await Promise.all(["north-west", "north-east", "south-west", "south-east"].flatMap(c => [c + "-v4", c + "-v4-canopy"]).map(f => H.image(ROOT + TW.dir + "tree-wall-" + f + ".png")));
     } catch (e) { tw.north = null; console.warn("tree wall art missing", e); }
+    const SE = TW && tw.north && MV.streetEnds && MV.streetEnds.on ? MV.streetEnds : null, se = {}; // street ends (V2.29.11)
+    if (SE) try {
+      [se.left, se.right, se.leftBar, se.rightBar] = await Promise.all([SE.left.file, SE.right.file, SE.left.barricade[0], SE.right.barricade[0]].map(f => H.image(ROOT + SE.dir + f)));
+    } catch (e) { se.left = null; console.warn("street end art missing", e); }
     if (!H.isAlive()) return null;
     if (!H.isAlive()) return null;
     const piece = id => intMap && (intMap.pieces || []).find(p => p.id === id);
@@ -104,12 +109,27 @@ window.MapleHollow = (() => {
     if (garImg) keyFor.mh_garage = "mh_garage";
     const v2 = !!(G2 && g2.sa);
     if (NEW) { // one street-band picture, two 832 px plates side by side (lots are 416, so the curb cuts already line up)
+      // With street ends the band runs out past the town into the grass margin until it meets each curved end (V2.29.11).
+      const ends = SE && se.left ? SE : null, mg = ends ? TW.margin || 0 : 0;
+      const bx0 = ends ? -mg + ends.inset + (ends.left.crop[1] - ends.left.crop[0]) : 0, bx1 = ends ? W + mg - ends.inset - (ends.right.crop[1] - ends.right.crop[0]) : W;
       if (!scene.textures.exists("mh_band3")) {
-        const t = scene.textures.createCanvas("mh_band3", W, 512), c = t.getContext(); c.imageSmoothingEnabled = false;
-        for (let k = 0, x = 0; x < W; k++, x += 832) c.drawImage(k % 2 ? v3.sb : v3.sa, x, 0);
+        const t = scene.textures.createCanvas("mh_band3", bx1 - bx0, 512), c = t.getContext(); c.imageSmoothingEnabled = false;
+        for (let k = Math.floor(bx0 / 832), x = k * 832; x < bx1; k++, x += 832) c.drawImage(Math.abs(k) % 2 ? v3.sb : v3.sa, x - bx0, 0); // plates alternate A/B in both directions
         t.refresh(); t.setFilter(Phaser.Textures.FilterMode.NEAREST);
       }
-      [R.sidewalk1, R.sidewalk3].forEach(y => all.push(scene.add.image(0, y, "mh_band3").setOrigin(0).setDepth(-1000)));
+      [R.sidewalk1, R.sidewalk3].forEach(y => all.push(scene.add.image(bx0, y, "mh_band3").setOrigin(0).setDepth(ends ? -999.7 : -1000))); // with ends it must sit above the margin's grass
+      if (ends) { // the curved ends, and a barricade standing in each (solid at its base, sorted with the hero)
+        const capKey = (k, img, [a, b]) => { if (!scene.textures.exists(k)) { const c = document.createElement("canvas"); c.width = b - a; c.height = img.height; c.getContext("2d").drawImage(img, a, 0, b - a, img.height, 0, 0, b - a, img.height); scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } return k; };
+        [["left", -mg + ends.inset, se.left, se.leftBar], ["right", bx1, se.right, se.rightBar]].forEach(([side, x, img, bar]) => {
+          const E = ends[side], k = capKey("mh_end_" + side, img, E.crop), [, bxp, byp, bw, bd] = E.barricade;
+          if (!scene.textures.exists("mh_bar_" + side)) H.propTexture(scene, (() => { const c = document.createElement("canvas"); c.width = bar.width; c.height = bar.height; c.getContext("2d").drawImage(bar, 0, 0); return c; })(), "mh_bar_" + side, bar.width, bar.height);
+          [R.sidewalk1, R.sidewalk3].forEach(y => {
+            all.push(scene.add.image(x, y, k).setOrigin(0).setDepth(-999.5));
+            const o = scene.add.image(x + bxp - E.crop[0] + bar.width / 2, y + byp + bar.height, "mh_bar_" + side).setOrigin(0.5, 1).setDepth(3);
+            H.body(o, { width: bw, back: bd, front: 0 }, "prop_wall"); bodies.push(o); items.push(o);
+          });
+        });
+      }
     }
     if (v2 && !NEW) { // ---- ground v2: one street-band picture (both streets use it) and a two-variant lawn ----
       const drives = []; for (let i = 0; i < 6; i++) drives.push(M.firstLotX + i * M.lotWidth + 40);
