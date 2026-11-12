@@ -59,3 +59,8 @@ I can also see a place for this in my work as a science communicator. It could t
 Grab your camera, put it on burst mode, walk around your subject in three circles, and use the prompt I'm sharing to try it for yourself. You can even use an iPhone.
 
 The prompt is a handoff file: [gaussian-splat-handoff.md](https://midlifesurvivors.com/devlog/files/gaussian-splat-handoff.md). Give it to Claude or another AI assistant that can run code, and it will walk you through the same steps with your own photos.
+
+Two resources I found useful when I was starting out:
+
+- [A guide to Gaussian splatting](https://rd.nytimes.com/projects/gaussian-splatting-guide/), from The New York Times R&D team.
+- [THIS is the Biggest Thing Since CGI](https://www.youtube.com/watch?v=X8yRlA7jqEQ), Corridor Crew's video on what splats are, how they work and how to make one.

@@ -78,6 +78,11 @@ Ask what camera, computer and subject they have before starting, and adjust the 
 - COLMAP crashed on my Mac every time, so the solve ran in the cloud.
 - The first reel put the headline across the subject's face. Plan your text space before you design the moves.
 
+## Learn more (for the person)
+
+- A guide to Gaussian splatting, The New York Times R&D: https://rd.nytimes.com/projects/gaussian-splatting-guide/
+- THIS is the Biggest Thing Since CGI, Corridor Crew: https://www.youtube.com/watch?v=X8yRlA7jqEQ
+
 ---
 
 Made with Claude. Process by Rami Daud. Share it, change it, tell me what you make: midlifesurvivors.com/devlog
