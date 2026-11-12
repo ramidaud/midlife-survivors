@@ -8,7 +8,15 @@ window.BOSS_QUEUE = { maxWaitYears: 3, breatherMs: 8000 }; // breather: after a 
 // The end of a run (the punch clock at 65, Father Time at 100) waits for you to walk into it. Nov 9 (Kevin idled a run
 // to age 213): after waitYears it walks to you, speeding up each year, and after forceYears it just arrives.
 window.FINISH_LINE = { waitYears: 1, walkSpeed: 70, speedPerYear: 90, maxSpeed: 320, forceYears: 4,
-  line: "You kept him waiting. He's coming to you." };
+  line: "You kept him waiting. He's coming to you.",
+  // Nov 12 (Ben: "Then he teleported! Landed right on my head"): after forceYears he still jumps to you, but fairly.
+  // A warning first, then a ring on the ground where you are; he lands there markMs later. Move and he misses.
+  warnYears: 0.5,               // the heads-up comes this many years before the jumping starts
+  warnLine: "He's done walking. Soon he jumps to you. Watch the ground.",
+  markMs: 1300,                 // the ring shows this long before he lands (first jump)
+  markShrinkPerYear: 250,       // ...a little shorter each year after that
+  minMarkMs: 650,               // ...but never shorter than this (phones need time to react)
+  chaseMsBetween: 1600 };       // between jumps he chases at maxSpeed
 window.BOSS_ATTACK_TUNING = {
   // Charging into a wall (Nov 4): bounce back, wobble, then chase again.
   wallBonk: { bounceSpeed: 260, bounceMs: 320, dizzyMs: 850, crackMs: 3500, words: ["BONK!", "OOF!", "THUD!", "WHO PUT A WALL HERE?", "LOAD-BEARING!", "NOT IN THE BUDGET"] },

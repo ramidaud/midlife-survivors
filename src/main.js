@@ -1612,6 +1612,7 @@ function hurtPlayer(p, bill) {
   if (window.homeTransit) return; // nobody gets hit mid-doorway
   if (bill.clockOut) { // you reached the punch clock at 65: punch the golden card, confetti, then retirement
     if (!bill.punchAt) {
+      if (bill.jump && bill.jump.ring) { bill.jump.ring.destroy(); bill.jump.ring = null; } // Nov 12: no landing ring left on the ground
       bill.punchAt = runElapsedMs; window.clockingOut = true; p.setVelocity(0, 0);
       sfx("catch"); scene.cameras.main.flash(260, 255, 240, 207);
       [0, 180, 360].forEach(t => scene.time.delayedCall(t, () => burstConfetti(scene, bill.x + Phaser.Math.Between(-30, 30), bill.y - 40, 0xEF9347, 18)));
@@ -3076,7 +3077,12 @@ function update(time, delta) {
       if (late <= 0) bill.setVelocity(0, 0); // the punch clock waits for you
       else {
         if (!bill.comingSaid) { bill.comingSaid = true; if (window.showLowerThird) showLowerThird("alert", modeCfg().endBossLabel ? "CLOCK OUT" : "FATHER TIME", F.line || "You kept him waiting. He's coming to you.", 4000); if (bill.tag) bill.tag.setText(modeCfg().endBossLabel ? "COMING TO YOU ▼" : "HERE HE COMES ▼"); }
-        if (currentAge - modeEndAge() >= (F.forceYears || 4)) bill.body.reset(player.x, player.y);
+        const over = currentAge - modeEndAge(), force = F.forceYears || 4;
+        if (over >= force - (F.warnYears ?? 0.5) && !bill.jumpWarned) {
+          bill.jumpWarned = true;
+          if (window.showLowerThird) showLowerThird("alert", modeCfg().endBossLabel ? "CLOCK OUT" : "FATHER TIME", F.warnLine || "Soon he jumps to you. Watch the ground.", 5000);
+        }
+        if (over >= force) finishLineJump(this, bill, F, over - force, chase);
         else chase(bill, Math.min(F.maxSpeed || 320, (F.walkSpeed || 70) + late * (F.speedPerYear || 90)));
       }
     } else chase(bill, bill.speed || ENEMIES.bill.speed);
@@ -3102,6 +3108,36 @@ function update(time, delta) {
   // Render the active 3D / Diablo 3/4 view (or restore 2D sprites when in 2D 16-Bit mode)
   renderThreeView(this);
   restore2DSprites();
+}
+
+// Nov 12 (Ben, Full Life at 103: "He teleported! Landed right on my head"). Past FINISH_LINE.forceYears the finish line
+// used to snap onto you every frame with no warning. Now it marks the ground where you stand, waits, then lands there.
+// Standing still still ends the run (Kevin's idle-to-213 fix holds); moving makes him miss, and he chases until the next jump.
+function finishLineToken(name) { // design token color (assets/ui/ms-tokens.css) as a Phaser number
+  try { const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim(); if (/^#[0-9a-f]{6}$/i.test(v)) return parseInt(v.slice(1), 16); } catch (e) {}
+  return 0xffffff;
+}
+function finishLineJump(scene, bill, F, yearsIn, chase) {
+  const now = scene.time.now, J = bill.jump || (bill.jump = { state: "chase", until: 0 });
+  if (J.state === "chase") {
+    if (now < J.until) { chase(bill, F.maxSpeed || 320); return; }
+    const markMs = Math.max(F.minMarkMs || 650, (F.markMs || 1300) - yearsIn * (F.markShrinkPerYear || 250));
+    J.state = "mark"; J.x = player.x; J.y = player.y; J.start = now; J.until = now + markMs;
+    if (!J.ring) J.ring = scene.add.graphics().setDepth(3);
+    if (typeof sfx === "function") sfx("pick");
+  }
+  bill.setVelocity(0, 0);
+  const k = Math.min(1, (now - J.start) / Math.max(1, J.until - J.start)); // 0 -> 1 as the landing nears
+  const accent = finishLineToken("--ms-accent"), paper = finishLineToken("--ms-paper");
+  J.ring.clear();
+  J.ring.fillStyle(accent, 0.12 + 0.22 * k).fillCircle(J.x, J.y, 44);
+  J.ring.lineStyle(3, paper, 0.5 + 0.5 * (Math.floor(now / 120) % 2)).strokeCircle(J.x, J.y, 44);
+  J.ring.fillStyle(paper, 0.9).fillCircle(J.x, J.y, 44 * k); // the circle fills in as he gets closer
+  if (now >= J.until) {
+    J.ring.clear();
+    bill.body.reset(J.x, J.y);
+    J.state = "chase"; J.until = now + (F.chaseMsBetween || 1600);
+  }
 }
 
 // The shift briefing (Nov 4). Rami liked the hero card's tone but it covered the first wave (Gemini Argon's review),

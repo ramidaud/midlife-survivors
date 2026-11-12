@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.12",
-  displayVersion: "V. 2.29.12",
+  version: "2.29.13",
+  displayVersion: "V. 2.29.13",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 363,
+  build: 364,
   changelog: [
+    {
+      ver: "V. 2.29.13", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "Father Time warns you before he drops in.",
+      highlights: [
+        "Stay out past your time and Father Time (or the punch clock) used to appear right on top of you with no warning. Now a heads-up comes first, then a ring on the ground where you're standing. He lands there a beat later.",
+        "Move and he misses. Stand still and your run is over, same as before."
+      ]
+    },
     {
       ver: "V. 2.29.12", date: "Nov 12, 2026", title: "Version Two",
       teaser: "Long lives make the leaderboard now, and a resumed run keeps its whole score.",

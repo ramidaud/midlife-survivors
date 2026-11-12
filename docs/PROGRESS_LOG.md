@@ -2309,3 +2309,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Fix: age limit raised to 200 on both boards (Rami's OK, applied in Supabase; `docs/sql/SCORES_AGE_CAP_200.sql`), plus a one-time re-send of Full Life scores past 101 saved on each device.
 - Ben also lost points after resuming a crashed run at 95. The autosave didn't keep Lounge spending, taper coins, kills or the Close Calls score. It does now.
 - Full playtest notes: claude/PLAYTEST_BEN_2026-11-12.md in the Project.
+
+## 2026-11-12: V. 2.29.13, Father Time plays fair (Claude)
+- Ben: "He was chasing me all over and I was doing a fine time outrunning him. Then he teleported! Landed right on my head." Past FINISH_LINE.forceYears the finish line snapped onto the player every frame with no warning.
+- Now: a heads-up half a year before ("He's done walking. Soon he jumps to you."), then a ring on the ground where you stand. He lands there 1.3 s later (a little shorter each year, never under 0.65 s), chases for 1.6 s, then marks again. Numbers in `src/data/bosses.js` (FINISH_LINE).
+- Tested headless in Midlife at 69: warning fires, ring draws in token colors, a dodge makes him land 300 px away, standing still still clocks you out. No errors.

@@ -825,3 +825,6 @@ The old backyards were one picture each, with the swing set and the fire pit pai
 ## Palette swap with a mask (Nov 12, one grass color)
 Pixel art uses a small set of exact colors, so changing one is a find-and-replace: every pixel that is exactly the old grass green becomes the new one. The catch is that the same green was also used for some house siding, so a blind swap would have repainted houses. A mask fixes that: a rule that says where the swap is allowed (here, everywhere except the house fronts). It is the same idea as a layer mask in Lightroom or Photoshop: the adjustment only lands where the mask says.
 
+
+## Telegraphing (Nov 12)
+A telegraph is the warning before an attack: a wind-up, a glow, a mark on the ground. It turns "that was cheap" into "I should have moved." Father Time used to land on Ben with no warning, so it felt unfair even though the rule (the run ends after 104) was fine. Now a ring shows where he'll land, and Ben's death becomes his own fault, which players accept. Good telegraphs give phones enough time to react, so ours never go under 0.65 seconds.
