@@ -125,7 +125,7 @@ PAGE = """<!doctype html>
 <link rel="apple-touch-icon" href="../../apple-touch-icon.png?v=clock-1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="../../assets/ui/ms-nav.css?v=9">
-<link rel="stylesheet" href="../styles.css?v=47">
+<link rel="stylesheet" href="../styles.css?v=48">
 <script data-goatcounter="https://midlifesurvivors.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -248,8 +248,12 @@ def main():
         sc = p.get("sideCard") or {}
         if sc.get("rows"):
             lis = "".join(f"<li><b>{html.escape(r[0])}:</b> {html.escape(r[1])}</li>" for r in sc["rows"])
-            icon = (f'<img class="side-icon" src="../{html.escape(sc["icon"])}" alt="{html.escape(sc.get("iconAlt") or "")}" width="64" height="64" loading="lazy">' if sc.get("icon") else "")
-            side_card = f'<div class="changes-box side-facts">{icon}<h3>{html.escape(sc.get("title") or "Details")}</h3><ul>{lis}</ul></div>'
+            title_h = f'<h3>{html.escape(sc.get("title") or "Details")}</h3>'
+            if sc.get("icon"):
+                sub = f'<span class="sf-sub">{html.escape(sc["iconCaption"])}</span>' if sc.get("iconCaption") else ""
+                title_h = (f'<div class="sf-head"><span class="sf-tile"><img src="../{html.escape(sc["icon"])}" alt="{html.escape(sc.get("iconAlt") or "")}" '
+                           f'width="64" height="64" loading="lazy"></span><div>{title_h}{sub}</div></div>')
+            side_card = f'<div class="changes-box side-facts">{title_h}<ul>{lis}</ul></div>'
         next_up = ""
         if p.get("nextUp"):
             next_up = f'<div class="next-up"><strong>Next up</strong>{html.escape(p["nextUp"])}</div>'

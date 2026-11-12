@@ -26,6 +26,7 @@ window.DEVLOG_POSTS = [
       "title": "Camera settings",
       "icon": "img/14-z9/z9-icon-v2.png",
       "iconAlt": "Pixel art of a Nikon Z9 camera, Midlife Survivors style",
+      "iconCaption": "Test 1 · Nov 10, 2026",
       "rows": [
         [
           "Camera",

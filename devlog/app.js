@@ -379,7 +379,7 @@
     // posts.js: "sideCard": {"title": "Camera settings", "icon": "img/...png", "iconAlt": "...", "rows": [["Camera", "Nikon Z9"], ...]}
     const sc = post.sideCard;
     const sideCard = sc && Array.isArray(sc.rows) && sc.rows.length
-      ? `<div class="changes-box side-facts">${sc.icon ? `<img class="side-icon" src="${esc(sc.icon)}" alt="${esc(sc.iconAlt || "")}" width="64" height="64" loading="lazy">` : ""}<h3>${esc(sc.title || "Details")}</h3><ul>${sc.rows.map(r => `<li><b>${esc(r[0])}:</b> ${esc(r[1])}</li>`).join("")}</ul></div>`
+      ? `<div class="changes-box side-facts">${sc.icon ? `<div class="sf-head"><span class="sf-tile"><img src="${esc(sc.icon)}" alt="${esc(sc.iconAlt || "")}" width="64" height="64" loading="lazy"></span><div><h3>${esc(sc.title || "Details")}</h3>${sc.iconCaption ? `<span class="sf-sub">${esc(sc.iconCaption)}</span>` : ""}</div></div>` : `<h3>${esc(sc.title || "Details")}</h3>`}<ul>${sc.rows.map(r => `<li><b>${esc(r[0])}:</b> ${esc(r[1])}</li>`).join("")}</ul></div>`
       : "";
 
     const shareBtn = label => `<button class="btn btn-share" type="button" onclick="msShare(this)" data-slug="${esc(post.slug)}" data-url="https://midlifesurvivors.com/devlog/${esc(post.slug)}/" data-title="${esc(post.title)}" data-text="${esc("Midlife Survivors devlog, Memo " + two(memoNo(post)) + ": " + post.title)}">↗ <span class="share-label">${label}</span></button>`;
