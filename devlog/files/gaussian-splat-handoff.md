@@ -80,7 +80,7 @@ Ask what camera, computer and subject they have before starting, and adjust the 
 
 ## Learn more (for the person)
 
-- A guide to Gaussian splatting, The New York Times R&D: https://rd.nytimes.com/projects/gaussian-splatting-guide/
+- A Field Guide to Gaussian Splatting, The New York Times R&D (Spatial Journalism): https://rd.nytimes.com/projects/gaussian-splatting-guide/
 - THIS is the Biggest Thing Since CGI, Corridor Crew: https://www.youtube.com/watch?v=X8yRlA7jqEQ
 
 ---

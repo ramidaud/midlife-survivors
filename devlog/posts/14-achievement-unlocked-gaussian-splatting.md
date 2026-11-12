@@ -62,5 +62,5 @@ The prompt is a handoff file: [gaussian-splat-handoff.md](https://midlifesurvivo
 
 Two resources I found useful when I was starting out:
 
-- [A guide to Gaussian splatting](https://rd.nytimes.com/projects/gaussian-splatting-guide/), from The New York Times R&D team.
+- [A Field Guide to Gaussian Splatting](https://rd.nytimes.com/projects/gaussian-splatting-guide/), from The New York Times R&D team's [Spatial Journalism](https://rd.nytimes.com/research/spatial-journalism/) research.
 - [THIS is the Biggest Thing Since CGI](https://www.youtube.com/watch?v=X8yRlA7jqEQ), Corridor Crew's video on what splats are, how they work and how to make one.
