@@ -1,0 +1,162 @@
+{
+  "method": "Built-in imagegen paintings; proportional nearest-neighbor fit onto exact512/256 working canvases, exact8x8 RGBA block-mode, material-zone palette mapping; hand-fixed glint only.",
+  "sourceSizeCaveat": "Imagegen returned larger rasters than requested. Originals retained; normalized working rasters512x512 and256x256 are reduced by exactly8, with no smoothing.",
+  "palette": [
+    "#10142A",
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#FFF0CF",
+    "#F2D7A1",
+    "#B8C0D4"
+  ],
+  "icon": {
+    "file": "../../../devlog/img/14-z9/z9-icon-v1.png",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "working": "working-8x/z9-icon-512.png",
+    "sourceCrop": [
+      88,
+      80,
+      1149,
+      1160
+    ],
+    "normalizedFit": [
+      36,
+      32,
+      440,
+      448
+    ],
+    "materialCounts": {
+      "body": {
+        "#171C35": 523,
+        "#303750": 387,
+        "#10142A": 337
+      },
+      "lens": {
+        "#10142A": 226,
+        "#526078": 154,
+        "#171C35": 166,
+        "#303750": 211
+      },
+      "glass": {
+        "#3E7775": 18,
+        "#10142A": 112,
+        "#171C35": 130
+      },
+      "accent": {
+        "#FFF0CF": 41,
+        "#B8C0D4": 47,
+        "#F2D7A1": 1
+      }
+    }
+  },
+  "pickup": {
+    "file": "../../pickups/z9-pickup-v1.png",
+    "sourceSize": [
+      1774,
+      887
+    ],
+    "cell": [
+      32,
+      32
+    ],
+    "columns": 2,
+    "frames": [
+      "rest",
+      "glint"
+    ],
+    "previewTimingMs": [
+      650,
+      150
+    ],
+    "working": "working-8x/z9-pickup-rest-256.png",
+    "sourceCrop": [
+      89,
+      71,
+      813,
+      837
+    ],
+    "normalizedFit": [
+      29,
+      24,
+      197,
+      208
+    ],
+    "materialCounts": {
+      "body": {
+        "#171C35": 90,
+        "#303750": 91,
+        "#10142A": 81
+      },
+      "lens": {
+        "#171C35": 79,
+        "#526078": 26,
+        "#10142A": 7,
+        "#303750": 24
+      },
+      "glass": {
+        "#171C35": 45,
+        "#3E7775": 2,
+        "#10142A": 2
+      },
+      "accent": {
+        "#FFF0CF": 10,
+        "#B8C0D4": 15
+      }
+    },
+    "glintCenter": [
+      25,
+      17
+    ],
+    "changedPixels": 9
+  },
+  "validation": {
+    "icon": {
+      "size": [
+        64,
+        64
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "transparentPixels": 1743,
+      "colors": {
+        "#10142A": 675,
+        "#171C35": 819,
+        "#303750": 598,
+        "#3E7775": 18,
+        "#526078": 154,
+        "#B8C0D4": 47,
+        "#F2D7A1": 1,
+        "#FFF0CF": 41
+      }
+    },
+    "pickup": {
+      "size": [
+        64,
+        32
+      ],
+      "palette": true,
+      "binaryAlpha": true,
+      "transparentPixels": 1103,
+      "colors": {
+        "#10142A": 179,
+        "#171C35": 422,
+        "#303750": 230,
+        "#3E7775": 4,
+        "#526078": 51,
+        "#B8C0D4": 30,
+        "#FFF0CF": 29
+      }
+    }
+  },
+  "noOrange": true,
+  "runtimeChanged": false,
+  "comparisonReferences": [
+    "assets/items/field-items-v1.png: fannyPack",
+    "assets/items/field-items-v1.png: energyDrink"
+  ]
+}

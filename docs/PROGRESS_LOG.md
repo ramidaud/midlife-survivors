@@ -2281,3 +2281,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The side-on fences now stack into a straight line and meet the corners. They are thin (6 px), which is true to the view but reads light next to the front-on fence.
 - The two lawn tiles are close to identical, so a small flower repeats every 512 px. Minor.
 - All of Batch A and Batch B is approved. What's left is wiring: eleven yards, the street ends, and the green lawns.
+
+## 2026-11-11: Z9 camera art ready (Codex)
+- Painted64px icon and32px rest/glint pickup with transparent backgrounds and full prompts.
+- Native-size comparisons, material palette and hard-alpha checks pass. Art only, ready for review.

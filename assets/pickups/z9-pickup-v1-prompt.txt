@@ -1,0 +1,34 @@
+STYLE: Midlife Survivors style bible. 16-bit office-comedy pixel art, chunky clusters, visible shading, light from the upper left, 1 px-equivalent outline in #171C35 (8 px at 8x). Solid flat magenta background #FF00FF, no shadow or gradient on it. Hard pixel edges, no anti-aliasing, blur, gradients or glow. Neutral white balance, no sepia, golden haze or film tint. No text, letters, numbers or logos anywhere.
+{
+  "subject": "the SAME tall professional camera as the first reference, simplified for32x32 gameplay pickup. Second reference is game pixel scale/style only.",
+  "frames": [
+    "frame1 REST: same camera angle, tall built-in vertical grip and central raised hump visible, deep sculpted left grip, one ribbed lens ring and curved darkglass highlight, thin cream accent stripe.",
+    "frame2 GLINT: IDENTICAL camera pose, pixels and placement, plus a small four-point cream#FFF0CF sparkle at the upperRIGHT edge of the lens glass."
+  ],
+  "simplify": "Keep vertical grip, central hump, one ribbed lens ring, creamaccent stripe. Drop status screen and little buttons. No strap. Strong readable silhouette at1x.",
+  "layout": "Two256x256 cells side byside on one512x256 magenta canvas. Draw chunky native-pixel clusters with every intended32px pickup pixel corresponding to8px in each256px cell. At least24px magenta margin percell. Same position and scale in both.",
+  "palette": {
+    "body": [
+      "#303750 light",
+      "#171C35 mid",
+      "#10142A shadow"
+    ],
+    "lens": [
+      "#526078 light",
+      "#303750 mid",
+      "#171C35 shadow"
+    ],
+    "glass": [
+      "#3E7775 edge",
+      "#171C35 mid",
+      "#10142A deep"
+    ],
+    "accents": [
+      "#FFF0CF",
+      "#F2D7A1",
+      "#B8C0D4"
+    ]
+  },
+  "avoid": "No coffeeorange, red, logos, letters,numbers,text,labels, shadows onmagenta, photo look or people."
+}
+Export cleanup: rest painting is block-reduced; glint frame copies its native camera pixels exactly and adds only the four-point cream sparkle.

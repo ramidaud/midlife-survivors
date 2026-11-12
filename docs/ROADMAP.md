@@ -501,3 +501,7 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [x] Flow portrait batch 2, twenty clean PNGs and review page.
 - [x] Seven Performance Review intro layers, unchanged plate and four-second preview.
 - [ ] Rami reviews both art sets; Claude wires the intro playback.
+
+### Z9 art, Nov11 (Codex)
+- [x] Paint and validate64px Memo14 camera icon and32px pickup frames.
+- [ ] Review and wire the camera icon into Memo14. Pickup remains optional.
