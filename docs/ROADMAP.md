@@ -505,3 +505,6 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 ### Z9 art, Nov11 (Codex)
 - [x] Paint and validate64px Memo14 camera icon and32px pickup frames.
 - [ ] Review and wire the camera icon into Memo14. Pickup remains optional.
+
+- [x] Z9 v2 reduction: rim, solid body clusters, cream stripe and simpler lighter pickup, with navy comparisons.
+- [ ] Rami reviews Z9 v2 PR before integration.

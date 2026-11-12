@@ -603,3 +603,8 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 - **What:** Painted pro-camera icon64x64 and two-frame32x32 pickup with the tall vertical grip, raised hump, ribbed lens and cream stripe. Frame1 changes only nine glint pixels.
 - **Files:** `devlog/img/14-z9/z9-icon-v1.png`, `assets/pickups/z9-pickup-v1.png`, matching `-prompt.txt` files, and sources/working rasters/manifest/1x4x comparisons in `assets/art-direction/z9-v1/`.
 - **Notes for Claude or Rami:** Transparent hard-alpha RGBA, requested palette including three body tones, no orange/text/logo. Compared against the actual fanny pack and energy drink in `assets/items/field-items-v1.png`; no previous `assets/pickups/` art existed on this checkout. Imagegen source sizes required proportional normalization to exact512/256 working canvases before exact8x block reduction. No game code or Memo14 markup changed; ready for review/integration.
+
+## 2026-11-11: Z9 v2 native cleanup (Codex)
+- **What:** Reused approved paintings, cleaned body/grip pixel clusters, added1px top-left slate/light rim and restored a2px cream grip stripe. The32px pickup is simpler and one material tone lighter.
+- **Files:** `devlog/img/14-z9/z9-icon-v2.png`, `assets/pickups/z9-pickup-v2.png`, full prompt siblings and `assets/art-direction/z9-v2/` with manifest, GIF and v1/v2 at1x/4x on #10142A and #171C35.
+- **Notes for Claude or Rami:**64px icon; two32px pickup cells. Hard-alpha RGBA, three body tones, no orange. Glint changes only9 pixels. V1 and approved paintings untouched. Art/docs only on `codex/z9-icon`; PR waits for review.

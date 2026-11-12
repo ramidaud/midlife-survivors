@@ -1,0 +1,48 @@
+STYLE: Midlife Survivors style bible. 16-bit office-comedy pixel art, chunky clusters, visible shading, light from the upper left, 1 px-equivalent outline in #171C35 (8 px at 8x). Solid flat magenta background #FF00FF, no shadow or gradient on it. Hard pixel edges, no anti-aliasing, blur, gradients or glow. Neutral white balance, no sepia, golden haze or film tint. No text, letters, numbers or logos anywhere.
+{
+  "subject": "a professional full-frame mirrorless camera inspired by the Nikon Z9, drawn as a lovable, slightly chunky game item",
+  "view": "three-quarter front view from the upper left, lens pointing toward the viewer and slightly right",
+  "physical_description": {
+    "body": "tall boxy body with a built-in vertical grip on the bottom, so the camera is almost as tall as it is wide; deep sculpted hand grip on the left side; squared-off top with a pronounced pentaprism-style hump in the center",
+    "top_plate": "a small flat status screen on the right shoulder, a mode dial cluster on the left shoulder, a shutter button on top of the grip",
+    "front": "large round lens mount ring; a short standard zoom lens with two wide ribbed rubber rings (zoom and focus) and a slightly flared lens hood",
+    "lens_front": "dark glass with one clean curved highlight, no reflections of people or objects",
+    "details": "a single thin cream accent stripe on the grip where a brand color would be, two small buttons beside the mount, strap lugs on both shoulders",
+    "proportions": "about 15 percent chunkier and rounder than the real camera so it reads at64px and still reads at32px"
+  },
+  "materials_and_palette": {
+    "body (black magnesium and rubber)": [
+      "#303750 light",
+      "#171C35 mid",
+      "#10142A shadow"
+    ],
+    "lens rings and mount (metal and rubber)": [
+      "#526078 light",
+      "#303750 mid",
+      "#171C35 shadow"
+    ],
+    "glass": [
+      "#3E7775 highlight edge",
+      "#171C35 mid",
+      "#10142A deep"
+    ],
+    "small highlights and accent stripe": [
+      "#FFF0CF top highlight",
+      "#F2D7A1 accent stripe",
+      "#B8C0D4 soft edge highlight"
+    ],
+    "rule": "No coffee orange (#EF9347). In this game orange belongs to the hero's mug and weapons."
+  },
+  "must_not": [
+    "any brand name or wordmark",
+    "a strap hanging off the body",
+    "hands or a person",
+    "a drop shadow on the background",
+    "photoreal rendering"
+  ],
+  "output": "512x512 PNG, subject centered with about32px magenta margin on every side, ready to reduce by8 to64x64"
+}
+Reference attached is for game finish and pixel density only; do not include its items. Exactly ONE camera, full silhouette including the tall lower vertical grip, no labels or inset studies.
+
+V2 reduction: reuse approved8x painting; remove body/grip singleton pixels; retain three solid material tones; restore2px #F2D7A1 grip stripe; add1px top/left #526078 / #B8C0D4 silhouette rim.
+No new image generation in v2; approved painting preserved unchanged.

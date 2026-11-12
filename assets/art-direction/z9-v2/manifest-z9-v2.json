@@ -1,0 +1,326 @@
+{
+  "method": "Approved8x paintings unchanged. Exact8x8 RGBA block-mode reduction, material palette mapping, native discrete body-cluster cleanup,2px painted stripe restoration and1px upperleft rim. Pickup detail simplified and body lifted one tone.",
+  "palette": [
+    "#10142A",
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#FFF0CF",
+    "#F2D7A1",
+    "#B8C0D4"
+  ],
+  "icon": {
+    "file": "devlog/img/14-z9/z9-icon-v2.png",
+    "bodyClusterPixelsCleaned": 125,
+    "rimPixelCount": 105,
+    "stripePixels": [
+      [
+        8,
+        25
+      ],
+      [
+        8,
+        26
+      ],
+      [
+        9,
+        26
+      ],
+      [
+        9,
+        27
+      ],
+      [
+        10,
+        26
+      ],
+      [
+        10,
+        27
+      ],
+      [
+        11,
+        27
+      ],
+      [
+        11,
+        28
+      ],
+      [
+        12,
+        27
+      ],
+      [
+        12,
+        28
+      ],
+      [
+        13,
+        27
+      ],
+      [
+        13,
+        28
+      ],
+      [
+        14,
+        28
+      ],
+      [
+        14,
+        29
+      ],
+      [
+        15,
+        28
+      ],
+      [
+        15,
+        29
+      ],
+      [
+        16,
+        28
+      ],
+      [
+        16,
+        29
+      ],
+      [
+        17,
+        28
+      ],
+      [
+        17,
+        29
+      ],
+      [
+        18,
+        28
+      ],
+      [
+        18,
+        29
+      ],
+      [
+        19,
+        27
+      ],
+      [
+        19,
+        28
+      ],
+      [
+        20,
+        27
+      ],
+      [
+        20,
+        28
+      ],
+      [
+        21,
+        27
+      ],
+      [
+        21,
+        28
+      ]
+    ],
+    "stripeMinThickness": 2,
+    "bodyTones": [
+      "#10142A",
+      "#171C35",
+      "#303750"
+    ],
+    "sourceWorking": "assets/art-direction/z9-v1/working-8x/z9-icon-512.png"
+  },
+  "pickup": {
+    "file": "assets/pickups/z9-pickup-v2.png",
+    "cell": [
+      32,
+      32
+    ],
+    "grid": [
+      2,
+      1
+    ],
+    "frames": [
+      "rest",
+      "glint"
+    ],
+    "bodyClusterPixelsCleaned": 33,
+    "rimPixelCount": 43,
+    "stripePixels": [
+      [
+        4,
+        12
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        5,
+        14
+      ],
+      [
+        6,
+        13
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        7,
+        14
+      ],
+      [
+        7,
+        15
+      ],
+      [
+        8,
+        14
+      ],
+      [
+        8,
+        15
+      ],
+      [
+        9,
+        14
+      ],
+      [
+        9,
+        15
+      ],
+      [
+        10,
+        14
+      ],
+      [
+        10,
+        15
+      ],
+      [
+        11,
+        14
+      ],
+      [
+        11,
+        15
+      ]
+    ],
+    "stripeMinThickness": 2,
+    "bodyTones": [
+      "#171C35",
+      "#303750",
+      "#526078"
+    ],
+    "sourceWorking": "assets/art-direction/z9-v1/working-8x/z9-pickup-rest-256.png"
+  },
+  "validation": {
+    "icon": {
+      "size": [
+        64,
+        64
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "bodyToneCounts": {
+        "#10142A": 395,
+        "#171C35": 372,
+        "#303750": 371
+      },
+      "stripeColumns": 14,
+      "topLeftRim": true
+    },
+    "pickup": {
+      "size": [
+        32,
+        32
+      ],
+      "hardAlpha": true,
+      "palette": true,
+      "bodyToneCounts": {
+        "#171C35": 87,
+        "#303750": 57,
+        "#526078": 103
+      },
+      "stripeColumns": 8,
+      "topLeftRim": true
+    },
+    "glintChangedPixels": 9,
+    "noRuntimeChanges": true
+  },
+  "v1Unchanged": true,
+  "approvedV1HashChecks": [
+    {
+      "file": "assets/art-direction/z9-v1/README.md",
+      "sha256": "54570a21a2b014aa6c843ad71c483f49e8868f52f72c70ed799ae08fe2c43a9f"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/manifest-z9-v1.json",
+      "sha256": "b4f838e7b4eb5e14b3945feef0491acf46418390193128ec21248538e9ad3ec8"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/sources/z9-icon-generated.png",
+      "sha256": "047ff1f50afef3e14ad795f8ed7607cb9b6cd67e5fc75b09f7e592deaa6eac5b"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/sources/z9-pickup-generated.png",
+      "sha256": "41ece3786fbf5f358f2e4ef8bd27cf4238b6aa5b5ed326e7d68417526a98b5cd"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/working-8x/z9-icon-512.png",
+      "sha256": "43ba62054f156e61a0567044ddd04834617ce866a634469c114d66a9ac58d450"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/working-8x/z9-pickup-rest-256.png",
+      "sha256": "329dc2ce2208a00de48d3075744b1402ca506c0c9199b75a478d6be8a89990d3"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/z9-background-check-4x.png",
+      "sha256": "4ea309bfc77f3624b6bf49d474e70031093e0a59db0560a2aa9987dffa97631a"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/z9-check-1x.png",
+      "sha256": "52d39d0ed2b46b0355a344b8bb10a2e4d870914f519a2b5ee94de83d54f781f1"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/z9-check-4x.png",
+      "sha256": "ee9135073a25b86680ddebde2341e2cb285cefe4a77e368272dbbdeb95bed100"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/z9-icon-preview-4x.png",
+      "sha256": "5a3a844bf321537aee3d6e73b381469cec30c02b0380f039427f37a3a508464a"
+    },
+    {
+      "file": "assets/art-direction/z9-v1/z9-pickup-preview.gif",
+      "sha256": "5b30e6134994b6442b686889077132bf95645094c81c2d6881e1af0baa6a4d06"
+    },
+    {
+      "file": "assets/pickups/z9-pickup-v1-prompt.txt",
+      "sha256": "7507eb41b15689cb4a763663a3a3dc96c601ba2ed54c608f077c655b1ce89d50"
+    },
+    {
+      "file": "assets/pickups/z9-pickup-v1.png",
+      "sha256": "9a7eb3219971a2133664214e73351776d9cb0725b255d3c971710a6935f1724a"
+    },
+    {
+      "file": "devlog/img/14-z9/z9-icon-v1-prompt.txt",
+      "sha256": "6d7cb4cc4b1b6f6b00ca7547b1e862a29407c1a1d513410bafbba5e838b9a328"
+    },
+    {
+      "file": "devlog/img/14-z9/z9-icon-v1.png",
+      "sha256": "a718af79d2a3b4f2e6aa56970d7c810fe0d240ddb5762660c2033fae400ca58e"
+    }
+  ]
+}

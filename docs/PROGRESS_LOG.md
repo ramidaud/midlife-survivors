@@ -2285,3 +2285,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## 2026-11-11: Z9 camera art ready (Codex)
 - Painted64px icon and32px rest/glint pickup with transparent backgrounds and full prompts.
 - Native-size comparisons, material palette and hard-alpha checks pass. Art only, ready for review.
+
+## 2026-11-11: Z9 reduction cleanup (Codex)
+- Kept the approved paintings and cleaned native icon/pickup pixels for v2.
+- Added the upper-left rim, stronger cream stripe and lighter pickup; checked both navy backgrounds at1x and4x.
+- Art and docs only. Branch codex/z9-icon, stop for PR review.
