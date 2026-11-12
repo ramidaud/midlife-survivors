@@ -2290,4 +2290,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Kept the approved paintings and cleaned native icon/pickup pixels for v2.
 - Added the upper-left rim, stronger cream stripe and lighter pickup; checked both navy backgrounds at1x and4x.
 - Art and docs only. Branch codex/z9-icon, stop for PR review.
-- Codex's Z9 icon v2 (PR #5, rim light, cleaner panels, cream stripe) is on Memo 14's Camera settings card. The 32 px pickup is saved for later. Side cards can now carry an icon (`icon` in posts.js).
+- Codex's Z9 icon v2 (PR #5, rim light, cleaner panels, cream stripe) is on Memo 14's Camera settings card. The 32 px pickup is saved for later. Side cards can now carry an icon (`icon` in posts.js). Rami: the icon now sits in an inventory slot beside the card title (his pick over the corner placement).
