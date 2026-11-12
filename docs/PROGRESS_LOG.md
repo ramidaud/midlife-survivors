@@ -2303,3 +2303,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - The lawns, the street's grass strips and the strips beside each house are now the lighter green. House siding painted the same old green was left alone.
 - Known nit: a 3 px jog in the curb where each curve starts (Codex's caps sit a few pixels off the street's rows). The five old backyards stay darker until they're rebuilt.
 
+
+## 2026-11-12: V. 2.29.12, Ben's missing scores (Claude)
+- Ben's Full Life scores hadn't posted for two weeks. Cause: the Full Life board only accepted ages up to 101, and runs keep going past Father Time (Ben reached 103; one run in the stats reached 144). The game tried 3 times, then dropped them.
+- Fix: age limit raised to 200 on both boards (Rami's OK, applied in Supabase; `docs/sql/SCORES_AGE_CAP_200.sql`), plus a one-time re-send of Full Life scores past 101 saved on each device.
+- Ben also lost points after resuming a crashed run at 95. The autosave didn't keep Lounge spending, taper coins, kills or the Close Calls score. It does now.
+- Full playtest notes: claude/PLAYTEST_BEN_2026-11-12.md in the Project.
