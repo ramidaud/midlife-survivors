@@ -1,0 +1,173 @@
+{
+  "background" : "#FF00FF opaque",
+  "checks" : {
+    "allPassed" : true,
+    "exact8x8Blocks" : true,
+    "opaque" : true,
+    "paletteOnly" : true,
+    "threeNativePixelMargins" : true
+  },
+  "exportCell" : [
+    256,
+    256
+  ],
+  "file" : "clean-out-your-desk-icons-v1.png",
+  "grid" : [
+    4,
+    2
+  ],
+  "icons" : [
+    {
+      "exportRect" : [
+        0,
+        0,
+        256,
+        256
+      ],
+      "id" : "stapler",
+      "index" : 0,
+      "nativeRect" : [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        256,
+        0,
+        256,
+        256
+      ],
+      "id" : "mug",
+      "index" : 1,
+      "nativeRect" : [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        512,
+        0,
+        256,
+        256
+      ],
+      "id" : "family_photo",
+      "index" : 2,
+      "nativeRect" : [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        768,
+        0,
+        256,
+        256
+      ],
+      "id" : "granola_bar",
+      "index" : 3,
+      "nativeRect" : [
+        96,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        0,
+        256,
+        256,
+        256
+      ],
+      "id" : "cactus",
+      "index" : 4,
+      "nativeRect" : [
+        0,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        256,
+        256,
+        256,
+        256
+      ],
+      "id" : "good_pen",
+      "index" : 5,
+      "nativeRect" : [
+        32,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        512,
+        256,
+        256,
+        256
+      ],
+      "id" : "rubber_band_ball",
+      "index" : 6,
+      "nativeRect" : [
+        64,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "exportRect" : [
+        768,
+        256,
+        256,
+        256
+      ],
+      "id" : "old_coupon",
+      "index" : 7,
+      "nativeRect" : [
+        96,
+        32,
+        32,
+        32
+      ]
+    }
+  ],
+  "nativeCell" : [
+    32,
+    32
+  ],
+  "nativeSize" : [
+    128,
+    64
+  ],
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#3E8E8A",
+    "#8FA98A",
+    "#F2D7A1",
+    "#EF9347",
+    "#A4502F",
+    "#FFFFFF",
+    "#A8ADB5"
+  ],
+  "scale" : 8,
+  "size" : [
+    1024,
+    512
+  ]
+}

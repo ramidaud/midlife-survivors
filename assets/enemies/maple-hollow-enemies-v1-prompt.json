@@ -1,0 +1,9 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Production animation sprite study: FOUR rows, EIGHT evenly spaced frames per row, no grid lines or labels, all on exact opaque #FF00FF magenta. Match the attached Midlife Survivors enemy native scale and chunky finish. Each export cell 48x48, 384x192 total. Right-facing walk/hop loops, base line three pixels above cell bottom. Keep identity and bulk pixel-stable between frames; move only legs/base, active parts and small secondary particles. Each row contact/down/passing/up/opposite contact/down/passing/up. Row0 Leaf Pile: heap of russet and orange maple leaves, two angry eyes, tiny scuttling feet, a few leaf particles. Row1 Gutter Clog: sagging METAL RAIN GUTTER filled with wet leaves and one tennis ball, inchworm hop, tiny drips. Row2 Lawn Mower: small sage PUSH MOWER, grumpy grille face facing right, four wheels and tall handle behind it, rolling/bouncing, small cut-grass puffs. Row3 Property Tax Notice: envelope with cream rectangular address WINDOW and russet wax-seal mouth, blank no writing, its flap opens like a jaw as it waddles. Eight genuinely different motion phases per row, silhouettes isolated with safe padding. One-pixel navy outlines, 2-3 tone shading, top-left light, comic not scary. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Neutral white balance, no sepia/golden haze/film tint. No floor shadows, text, letters, numbers, brands or logos.",
+  "references": [
+    "assets/enemies/enemy-bargain-hunter-v1.png",
+    "assets/enemies/enemy-late-fee-v2.png"
+  ],
+  "nativeExport": "Proportional sampling, exact palette mapping, magenta cleanup. No runtime edits."
+}

@@ -1,0 +1,9 @@
+{
+  "prompt": "ONE nativepixel TILE AND SMALL PROP KIT for MapleHollow, EXACTsameartstyleasattachedboards. EXACT8COLUMNSx6ROWSof32x32cells, native256x192, preferred3x768x576. NOgrid/labels/text/numbers/logos. TOPTHREEROWSGROUNDTILES FILLWHOLECELL, bottom3rowsISOLATEDPROPSonEXACTOPAQUEMAGENTA#FF00FFwith2pixelinnermargin. Topdownslight3quartertilt. Crispchunky16bit,1pxnavyoutlineONPROPSONLY,2-3flattone,upperleftlight,neutralwhitebalance,nosepia/goldhaze/filmlook.12colorpaletteONLY#171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF.\nEXACTLEFTTORIGHTCONTENT:\nROW0 grassA,grassB,grasswithmapleleavesA,grasswithmapleleavesB,overgrownlawn,stripedmowedlawn,deadbrownpatch,flowerbedmulch. AllGREENSAGE/TALmutedbase,connectableedges,nooutline/frames.\nROW1 straightCREAMSIDEWALK,crackedsidewalk,leafysidewalk,sidewalkCORNER,curbHORIZONTAL,curbVERTICAL,curbCORNER,steppingstonesongrass. Groundsfillcells,noborders.\nROW2 SLATESTREETasphalt,streetDASHEDCENTERLINE,roundmanholecover,patchedasphalt,creamdrivewayconcrete,drivewayOILSTAIN,drivewayEDGE,stormDRAIN. Fullcellground.\nROW3 WHITEPICKETFENCEhorizontal,vertical,corner,gate;TRIMMEDHEDGEhorizontal,vertical,corner;OVERGROWNHEDGE.\nROW4 MAILBOXpost,GARDENGNOME,PLASTICFLAMINGO,TRASHBIN,RECYCLINGBIN,LAWNSPRINKLER,LEAFPILE,BLANKYARDSIGNstake.\nROW5 CARVEDPUMPKIN,HAYBALE,RAKEleaning,KIDDIEPOOL,GARDENHOSEcoil,BIRDBATH,FIREHYDRANT,smallMAPLESAPLING.\nTop24tilesquiettileabletexture, lower24propsindividuallyreadableandnotouchneighbours. No people, no extrascenes, nogloworcastshadow onmagenta. Allobjects32nativelogicalpixelstyle, notdetailedillustration.",
+  "references": [
+    "assets/art-direction/home-style-board-v1.png",
+    "assets/art-direction/home-neighbors-board-v1.png"
+  ],
+  "process": "Image generation study, sampled and palette-cleaned to native cells. Nearest-neighbor previews.",
+  "draft": true
+}

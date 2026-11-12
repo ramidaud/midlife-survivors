@@ -1,0 +1,15 @@
+{
+  "file": "houses-v2.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    2496,
+    384
+  ],
+  "job": {
+    "key": "houses",
+    "file": "houses-v2.png",
+    "prompt": "Production asset sheet of SIX LARGE suburban neighbor house fronts for Midlife Survivors, at about DOUBLE the detail and native size of reference. Crisp handmade 16-bit game pixel art, top-down three-quarter view matching reference houses exactly, clean broad flat fields, 2-3 hue-shifted tones, 1px navy silhouette outline at native scale. Peak fall. Neutral white balance, NO sepia, golden haze, film tint, no noise, no blur, no antialiasing. ONLY palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Absolutely NO text letters digits logos brands labels. No people. TRANSPARENT background, no floor shadow. Arrange study as 3 columns x2 rows equal cells, each conceptual416x384, houses all share baseline local y368 and samecamera/scale; will be extracted into one2496x384 horizontal sheet. Each full house artwork approximately336px wide x352px tall, not miniature icons. Reserve RIGHT64px of EVERY cell for a narrow grass/steppingstone side path running front-to-back alongside the house, with a short low fence and an OPEN gate giving access to the backyard. Entire roof, chimney, stoop and side gate inside cell; equal margins, no artwork crosses cells. Native hero56px high gives scale. House1 upperleft young family: slate blue two-story, bikes, chalk, basketball hoop. House2 uppermiddle retirees: cream tidy cottage, immaculate porch with rockingchairs and windchimes. House3 upperright grill-master: russet craftsman, porchstringlights and two cornholeboards alongside. House4 lowerleft overgrown sage fixer-upper: sagging gutter full ofleaves, roof tarp, crookedshutters. House5 lowermiddle HOA president: cream/neat teal colonial with precise symmetry, topiarypair, sharplyedged tinyfrontlawn. House6 lowerright earlyHalloween: lavender house, deflated orange inflatablecat, fakecobwebs and a clearly plastic toy skeleton sitting inporchchair. Distinct readable shapes, close-front-on threequarter roofdepth, no isometric45degree rotation. Do not paint connected panorama or extra background houses. No labels."
+  },
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay."
+}

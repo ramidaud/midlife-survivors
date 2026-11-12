@@ -1,0 +1,63 @@
+{
+  "anchor": [
+    96,
+    216
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    192,
+    224
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "maple-hollow-houses-v1.png",
+  "floorLine": 216,
+  "grid": [
+    6,
+    1
+  ],
+  "inkCounts": [
+    27084,
+    22083,
+    24560,
+    23593,
+    26269,
+    30078
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells": 6,
+  "size": [
+    1152,
+    224
+  ],
+  "source": "exec-fd8b9ded-2a20-4e61-a5d1-fb77e2efb864.png",
+  "ids": [
+    "hoa-colonial",
+    "clutter-ranch",
+    "fall-split-level",
+    "porch-craftsman",
+    "cat-cottage",
+    "renovation-modern"
+  ],
+  "frontEdgeY": 216,
+  "kind": "static house fronts",
+  "scaleCorrection": "Taller, narrower source revision used to improve door scale beside a 56px hero."
+}

@@ -733,3 +733,15 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - A 1080p monitor sits between 1 and 2, so Settings has a Camera row there: CLOSE (2, the default for now) or WIDE (1). Rami picks the final default after trying both. `meta.cameraWide`, `viewZoomChoices` in `src/main.js`.
 - This replaces the 0.95 phone zoom from A8. The hero is 52 px tall on phones, still above the 48 px floor.
 - Pixel-art mode is on for the whole game. Lights and floor shadows stay soft.
+
+### 2026-11-11: Job 1 art candidate (Codex, pending review)
+Native-size repaint candidates for four heroes and Bill are in `assets/art-direction/level-art-job-1/`. They preserve source silhouettes, frame layouts and timings. No gameplay or collision changes; Rami review is required before integration.
+
+### 2026-11-11: Larger house dressing candidate (Codex, pending review)
+The Job 2 kit groups native furniture with room-sized rugs and reusable wall modules. Suggested kitchen placement uses a peninsula to preserve the aisle; garage side shelving hugs the wall. Review and full collision testing precede integration. No gameplay change.
+
+### 2026-11-11: Outdoor palette proposal only (Codex)
+Three outdoor additions are proposed, not approved or applied: lawn light #9BAE73, lawn shadow #6D895B, evergreen #315B4B. The existing 17-color palette remains unchanged.
+
+### 2026-11-11: Outdoor greens approved (Codex)
+Rami approved #9BAE73 lawn light, #6D895B lawn shadow and #315B4B evergreen. They extend the outdoor art palette to 20 colors; the shared 17 colors and runtime palette remain unchanged. The Job 3 candidate kit uses trunk footprints with canopy overlap, interchangeable 512 px lawns, 64 px fences and native 48 px yard props. Integration awaits review.

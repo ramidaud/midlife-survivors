@@ -1,5 +1,41 @@
 # ChatGPT changes
 
+## 2026-11-11: Pose v2 three detail fixes (Codex)
+
+- Rami approved Pose v2 and asked for only three fixes: two upright teal pens with no red below, no patch under the nose, and a one-pixel outer mug handle.
+- Updated the same native PNG, 8x enlargement and review filenames in `assets/art-direction/office-worker-native-pose-v2/`; existing review page uses them. Preserved a before copy, prompt, reproducible exporter and exact diff report.
+- Verified exactly 18 native pixels changed, all within the three requested areas. Pens are two 1x3 columns of 3E7775; pocket has no red. Native remains 56x60, 13 palette colors and binary alpha; 8x copy matches every pixel. No other pose changes.
+- Art only. No runtime/version changes, animation, integration, commit, push or telemetry.
+
+## 2026-11-11: Pixel-safe pose review (Codex)
+
+- Rami noticed soft edges when the comparison shrinks. Independently checked the actual native PNG: 56x60, alpha only 0/255; the 8x PNG matches every native pixel exactly.
+- Added `assets/art-direction/office-worker-native-pose-v2/review.html`: native PNG at fixed 1x/2x/3x and an 8x inspection pane, CSS pixelated rendering, no shrink-to-fit. Uses existing UI tokens. Chat-viewer resampling remains a possible cause, not directly verified.
+- No art or runtime changes. Local-file browser automation is blocked by browser policy, so the review page has not been visually tested in a browser. Rami can open it directly at 100% browser zoom.
+
+## 2026-11-11: 9-to-5er glasses and palette cleanup (Codex, awaiting review)
+
+- Rami requested the next cleanup after the native-size test. Built-in imagegen revised the glasses and shading; exact-size export then assigned material families explicitly and removed intermediate alpha.
+- Files: `assets/art-direction/office-worker-native-pose-v2/`, including native PNG, 8x enlargement, 1x/2x/8x review, unchanged source, full prompt, reproducible export and checks.
+- Checks: 56x60, 13 approved RGB colors, zero off-palette colors, alpha only 0/255. Enlargements use nearest-neighbor. Earlier sources and samples retained.
+- Art remains a single pose for Rami's review. No walk cycle, runtime, hitbox, timing, version, commit, push or telemetry changes. Do not mistake palette checks for approval to integrate.
+
+## 2026-11-11: 9-to-5er exact-size pose test (Codex, review draft)
+
+- Rami approved the rebuilt design direction and requested the next step: a 56x60 pose before animation.
+- Built-in imagegen simplified the approved pose. Saved source, full prompt, exact 56x60 nearest-neighbor export, exact 8x enlargement and 1x/2x/8x comparison in `assets/art-direction/office-worker-native-pose-v1/`.
+- The native-size test retains the overall silhouette, mug, khaki and tie, but the glasses frames lose definition. This is a readability test, not a production-ready master.
+- Checks confirm 56x60 dimensions. Source still has gradients/edge alpha: export has 730 visible RGB colors and intermediate alpha values. It does not meet the production palette/hard-alpha rules; no automatic nearest-palette snapping was applied.
+- Next: strengthen the glasses and simplify material clusters at the native grid before any animation or integration. No runtime/version edits, commit, push or telemetry.
+
+## 2026-11-11: 9-to-5er rebuild, single-pose concept (Codex, awaiting review)
+
+- Rami rejected the Job 1 repaint as low quality. Do not integrate that pass on the basis of its technical checks.
+- Generated one rebuilt walking pose with built-in imagegen, focusing on readable glasses, face, clothing and silhouette. No animation or runtime changes.
+- Preview source: `/Users/ramidaud/.codex/generated_images/01a1cd9f-b892-7a81-a442-a8b8f9451747/exec-670aa46e-9ef4-4a9e-85e4-e4495989fb9d.png`. Prompt: `docs/handoffs/9-to-5er-rebuild-v1-prompt.txt`.
+- Concept only. The generated enlarged drawing and small inset are not validated as exact integer copies or a production-ready 56x60 sprite. Palette, alpha edges and native-size readability still need production validation after visual approval.
+- Next: Rami reviews the character design before native sprite preparation or animation. Prior art remains intact.
+
 Newest at the bottom. Rami pastes ChatGPT's change-log blocks here. Claude reads this at the start of each session and folds approved items into the game, then marks them **[done]**.
 
 ---
@@ -598,3 +634,33 @@ Both jobs: `assets/art-direction/review-math-garage-v1.html`; shared report `ass
 - **For the game:** Desk moved downstairs into the dining/window nook, reusing `rami-desk-v2.png` unchanged. White/oak galley kitchen, patterned runner, two cream sofas in an L, leather recliner, slatted media console, racing rig, two empty baby swings, mirrored tiled fireplace, orchids, photo ledges, balloons and entry bench/shoes. Upstairs front bedroom is Abe’s room with cars/music/gaming props and palette-limited red/blue floor wash; master has upholstered bed, wooden crib and double bassinet.
 - **Sizes/Checks:** Original v2 canvases, walls, door rectangles and stair regions unchanged. Bounds, door/wall, palette and hard-alpha checks pass. All16 photos confirmed gitignored and untracked; none copied into assets or linked by review. Family-frame inserts abstract, no faces/names/poster/logos/plate. Prop atlases192px cells with8px padding.
 - **Notes for Claude/Rami:** Photo-shaped furniture registered to supplied plan; full native floor render and its JSON agree. Ceiling fan/balloons/wall dressing non-solid. Actual navigation/collision needs a runtime test after Claude integrates. No runtime files, lighting code, version bump, commit or push. v2 art retained for comparison.
+
+## 2026-11-11: Job 1 native heroes and Bill repaint (Codex, awaiting review)
+
+- What: repainted the four hero sheets and Bill at native size with explicit material colors; reduced idle color flicker. Job 1 only.
+- Files: hero v4 sheets, Cowboy v5, Bill v3, adjacent manifests/prompts; `assets/art-direction/level-art-job-1/` contains the animated before/after review, 4× checks and validation.
+- For the game: art only, not integrated. Original layout, masks, foot positions and animation timings retained. No runtime/version edits.
+- Sizes: heroes 448×300, 56×60 cells; Bill 384×48, 48×48 cells. Zero foreground-mask mismatch across 168 frames, binary alpha, palette pass. Idle-row maxima: 124/129/93/168 changed pixels, all ≤5% of cell area; separate breathing/fidget wraparounds pass too.
+- Notes for Claude or Rami: review Cowboy’s held interior colors and floppy gesture. Contact footprints in manifests are visual extents, not new collision boxes. Latest main pulled to 62c6b89. Saved locally; waiting for Rami before integration or further jobs.
+
+## 2026-11-11: Job 2 house fill kit (Codex, awaiting review)
+
+- What: 50 native pieces for the larger house: sized rugs, kitchen/breakfast furniture, garage storage, wall depth, plants and small lived-in details. Job 2 only.
+- Files: `assets/stage/home/v2/house2-fill-v1.png`, manifest, saved prompt, suggested placement JSON, two-floor before/after previews, 4× hero checks and `review-house2-fill-v1.html`.
+- For the game: art and suggested data only. Existing furniture is reused at 1×; no runtime, room, door, navigation, spawn or version edits. Kitchen island is placed as a peninsula to retain the aisle. Photos stay private.
+- Sizes/checks: 2048×1024 transparent atlas, 17 colors, binary alpha. Door overlap and bounds checks pass; representative 96 px garage/hall lanes remain clear. Native desktop/phone review controls checked. Full collision/pathing still needs integration testing.
+- Notes for Claude or Rami: density report distinguishes decor from solid furniture: main garage view 19/14, living+dining 44/25. Review the denser wall dressing before adopting every placement. Saved locally, no commit or push; stop for Rami review before Job 3.
+
+## 2026-11-11: Outdoor green proposal (Codex, awaiting approval)
+
+- Job 3 step 1 only: lawn light #9BAE73, lawn shadow #6D895B, evergreen #315B4B. Existing 17 colors unchanged.
+- Files: `assets/stage/home/v3/outdoor-greens-proposal-v1.png`, JSON prompt/color record and README. Native house fronts copied at 1× for comparison.
+- No outdoor production kit, runtime, version, commit or push. Stop for Rami approval as required by the Job 3 brief.
+
+## 2026-11-11: Job 3 outdoor kit (Codex, awaiting art review)
+
+- What: after Rami approved the three greens, completed 69 native pieces in 18 PNGs: trees, pines, tree line, shrubs, leaves, lawns, fences and 48 px yard/key/toy props.
+- Files: `assets/stage/home/v3/`, including `manifest-outdoors-v3.json`, saved prompts, `review-outdoors-v3.html`, all 69 hero comparison checks and a suggested 416 px lot.
+- For the game: local art only. Existing house fronts and hero are reused at 1× in reviews; source assets, navigation, spawning and runtime/version files are unchanged. Claude still wires placement, canopy occlusion and trunk collisions.
+- Checks: 20-color outdoor palette (17 existing + 3 approved), hard alpha, no magenta; four A/B lawn pairings on both axes pass, as does the 832 px tree-line horizontal seam. Native frames/manifest bounds and all check files verified; review family/scale/backdrop controls checked.
+- Notes for Claude or Rami: gate-open entries include both post footprints. Lawn plates are opaque; isolated art is transparent. Stop for art review; nothing committed, pushed or integrated.

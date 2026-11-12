@@ -1,0 +1,40 @@
+{
+  "all_passed" : true,
+  "background" : "#FF00FF opaque",
+  "cell" : [
+    56,
+    60
+  ],
+  "footLine" : 56,
+  "grid" : [
+    6,
+    1
+  ],
+  "idleSource" : "office-worker-walk-56x60-v3.png row 4 frame 0; mapped to requested twelve colors",
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "poseOrder" : [
+    "idle A",
+    "idle B",
+    "knee crack",
+    "back twinge",
+    "couch groan",
+    "sigh"
+  ],
+  "size" : [
+    336,
+    60
+  ]
+}

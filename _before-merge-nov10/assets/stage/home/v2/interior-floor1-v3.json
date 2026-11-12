@@ -1,0 +1,1076 @@
+{
+  "file": "interior-floor1-v3.png",
+  "size": [
+    416,
+    1392
+  ],
+  "floorBase": [
+    [
+      16,
+      16,
+      384,
+      858
+    ],
+    [
+      138,
+      890,
+      262,
+      480
+    ]
+  ],
+  "rooms": [
+    {
+      "id": "living",
+      "rect": [
+        16,
+        16,
+        384,
+        230
+      ],
+      "material": "carpet",
+      "feet": [
+        16,
+        "9ft7in"
+      ]
+    },
+    {
+      "id": "dining",
+      "rect": [
+        96,
+        246,
+        206,
+        212
+      ],
+      "material": "oak",
+      "feet": [
+        "8ft7in",
+        "8ft10in"
+      ]
+    },
+    {
+      "id": "stairs",
+      "rect": [
+        16,
+        246,
+        72,
+        212
+      ],
+      "material": "stairs",
+      "feet": null
+    },
+    {
+      "id": "half-bath",
+      "rect": [
+        16,
+        474,
+        80,
+        176
+      ],
+      "material": "tile",
+      "feet": null
+    },
+    {
+      "id": "kitchen",
+      "rect": [
+        192,
+        474,
+        208,
+        216
+      ],
+      "material": "oak",
+      "feet": null
+    },
+    {
+      "id": "entry-closet",
+      "rect": [
+        16,
+        666,
+        80,
+        80
+      ],
+      "material": "oak",
+      "feet": null
+    },
+    {
+      "id": "entry",
+      "rect": [
+        16,
+        762,
+        96,
+        112
+      ],
+      "material": "oak",
+      "feet": null
+    },
+    {
+      "id": "breakfast-nook",
+      "rect": [
+        112,
+        706,
+        224,
+        168
+      ],
+      "material": "oak",
+      "feet": null
+    },
+    {
+      "id": "laundry-closet",
+      "rect": [
+        352,
+        706,
+        48,
+        96
+      ],
+      "material": "tile",
+      "feet": null
+    },
+    {
+      "id": "circulation",
+      "rect": [
+        112,
+        458,
+        64,
+        416
+      ],
+      "material": "oak",
+      "feet": null
+    },
+    {
+      "id": "garage",
+      "rect": [
+        138,
+        890,
+        262,
+        480
+      ],
+      "material": "concrete",
+      "feet": [
+        "10ft11in",
+        20
+      ]
+    }
+  ],
+  "walls": [
+    {
+      "id": "wall-0",
+      "rect": [
+        0,
+        0,
+        48,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-1",
+      "rect": [
+        112,
+        0,
+        304,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-2",
+      "rect": [
+        0,
+        16,
+        16,
+        746
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-3",
+      "rect": [
+        0,
+        842,
+        16,
+        48
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-4",
+      "rect": [
+        400,
+        16,
+        16,
+        1354
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-5",
+      "rect": [
+        16,
+        874,
+        224,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-6",
+      "rect": [
+        304,
+        874,
+        96,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-7",
+      "rect": [
+        122,
+        890,
+        16,
+        480
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-8",
+      "rect": [
+        122,
+        1370,
+        27,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-9",
+      "rect": [
+        389,
+        1370,
+        27,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-10",
+      "rect": [
+        16,
+        458,
+        96,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-11",
+      "rect": [
+        96,
+        474,
+        16,
+        62
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-12",
+      "rect": [
+        96,
+        600,
+        16,
+        50
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-13",
+      "rect": [
+        16,
+        650,
+        96,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-14",
+      "rect": [
+        96,
+        666,
+        16,
+        24
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-15",
+      "rect": [
+        96,
+        730,
+        16,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-16",
+      "rect": [
+        336,
+        690,
+        64,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-17",
+      "rect": [
+        336,
+        802,
+        64,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-18",
+      "rect": [
+        336,
+        706,
+        16,
+        16
+      ],
+      "solid": true
+    },
+    {
+      "id": "wall-19",
+      "rect": [
+        336,
+        786,
+        16,
+        16
+      ],
+      "solid": true
+    }
+  ],
+  "doors": [
+    {
+      "id": "patio",
+      "rect": [
+        48,
+        0,
+        64,
+        16
+      ],
+      "to": "backyard",
+      "solid": false
+    },
+    {
+      "id": "front-entry",
+      "rect": [
+        0,
+        762,
+        16,
+        80
+      ],
+      "to": "front-step",
+      "solid": false
+    },
+    {
+      "id": "half-bath",
+      "rect": [
+        96,
+        536,
+        16,
+        64
+      ],
+      "to": "half-bath",
+      "solid": false
+    },
+    {
+      "id": "entry-closet",
+      "rect": [
+        96,
+        690,
+        16,
+        40
+      ],
+      "to": "entry-closet",
+      "solid": false
+    },
+    {
+      "id": "laundry",
+      "rect": [
+        336,
+        722,
+        16,
+        64
+      ],
+      "to": "laundry-closet",
+      "solid": false
+    },
+    {
+      "id": "garage-inner",
+      "rect": [
+        240,
+        874,
+        64,
+        16
+      ],
+      "to": "garage",
+      "solid": false
+    },
+    {
+      "id": "garage-front",
+      "rect": [
+        149,
+        1370,
+        240,
+        16
+      ],
+      "to": "driveway",
+      "solid": false
+    }
+  ],
+  "furniture": [
+    {
+      "id": "toilet",
+      "source": "new-toilet",
+      "rect": [
+        24,
+        482,
+        56,
+        64
+      ],
+      "footprint": [
+        24,
+        482,
+        56,
+        64
+      ],
+      "solid": true
+    },
+    {
+      "id": "bath-sink",
+      "source": "new-sink",
+      "rect": [
+        24,
+        594,
+        56,
+        48
+      ],
+      "footprint": [
+        24,
+        594,
+        56,
+        48
+      ],
+      "solid": true
+    },
+    {
+      "id": "washer-dryer",
+      "source": "new-laundry",
+      "rect": [
+        352,
+        710,
+        48,
+        88
+      ],
+      "footprint": [
+        352,
+        710,
+        48,
+        88
+      ],
+      "solid": true
+    },
+    {
+      "id": "minivan",
+      "source": "family-minivan",
+      "rect": [
+        206,
+        1008,
+        120,
+        288
+      ],
+      "footprint": [
+        212,
+        1020,
+        108,
+        264
+      ],
+      "solid": true
+    },
+    {
+      "id": "garage-workbench",
+      "source": "workbench",
+      "rect": [
+        144,
+        900,
+        96,
+        48
+      ],
+      "footprint": [
+        144,
+        900,
+        96,
+        48
+      ],
+      "solid": true
+    },
+    {
+      "id": "garage-storage",
+      "source": "holiday-bins",
+      "rect": [
+        334,
+        900,
+        64,
+        64
+      ],
+      "footprint": [
+        334,
+        900,
+        64,
+        64
+      ],
+      "solid": true
+    },
+    {
+      "id": "cream-sofa-back",
+      "source": "cream-sofa",
+      "rect": [
+        32,
+        158,
+        176,
+        80
+      ],
+      "footprint": [
+        32,
+        208,
+        176,
+        30
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "cream-sofa-side",
+      "source": "cream-sofa-side",
+      "rect": [
+        16,
+        68,
+        64,
+        112
+      ],
+      "footprint": [
+        16,
+        80,
+        64,
+        100
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "silver-mirror-fireplace",
+      "source": "mirror-fireplace",
+      "rect": [
+        144,
+        16,
+        80,
+        80
+      ],
+      "footprint": [
+        144,
+        72,
+        80,
+        24
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "leather-recliner",
+      "source": "leather-recliner",
+      "rect": [
+        328,
+        112,
+        64,
+        80
+      ],
+      "footprint": [
+        332,
+        150,
+        56,
+        40
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "slatted-media-console",
+      "source": "tv-console",
+      "rect": [
+        256,
+        24,
+        136,
+        80
+      ],
+      "footprint": [
+        256,
+        80,
+        136,
+        24
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "racing-sim-rig",
+      "source": "racing-sim",
+      "rect": [
+        240,
+        128,
+        80,
+        96
+      ],
+      "footprint": [
+        240,
+        144,
+        80,
+        80
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "baby-swing-left",
+      "source": "baby-swing",
+      "rect": [
+        144,
+        80,
+        36,
+        40
+      ],
+      "footprint": [
+        144,
+        88,
+        36,
+        32
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "baby-swing-right",
+      "source": "baby-swing",
+      "rect": [
+        188,
+        80,
+        36,
+        40
+      ],
+      "footprint": [
+        188,
+        88,
+        36,
+        32
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "orchid-coffee-table",
+      "source": "orchid-table",
+      "rect": [
+        96,
+        120,
+        112,
+        48
+      ],
+      "footprint": [
+        96,
+        144,
+        112,
+        24
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "drum-floor-lamp",
+      "source": "drum-lamp",
+      "rect": [
+        16,
+        18,
+        32,
+        64
+      ],
+      "footprint": [
+        24,
+        68,
+        16,
+        12
+      ],
+      "solid": true,
+      "room": "living"
+    },
+    {
+      "id": "desk-by-dining-window",
+      "source": "rami-desk",
+      "rect": [
+        160,
+        252,
+        240,
+        116
+      ],
+      "footprint": [
+        160,
+        320,
+        240,
+        48
+      ],
+      "solid": true,
+      "room": "dining"
+    },
+    {
+      "id": "mesh-desk-chair",
+      "source": "mesh-chair",
+      "rect": [
+        280,
+        366,
+        48,
+        56
+      ],
+      "footprint": [
+        284,
+        392,
+        40,
+        30
+      ],
+      "solid": true,
+      "room": "dining"
+    },
+    {
+      "id": "dining-table-cream-chairs",
+      "source": "round-dining",
+      "rect": [
+        128,
+        370,
+        120,
+        88
+      ],
+      "footprint": [
+        128,
+        382,
+        120,
+        76
+      ],
+      "solid": true,
+      "room": "dining"
+    },
+    {
+      "id": "woven-basket-monstera",
+      "source": "basket-monstera",
+      "rect": [
+        112,
+        250,
+        48,
+        72
+      ],
+      "footprint": [
+        124,
+        296,
+        24,
+        26
+      ],
+      "solid": true,
+      "room": "dining"
+    },
+    {
+      "id": "white-double-sink",
+      "source": "white-sink",
+      "rect": [
+        192,
+        474,
+        56,
+        72
+      ],
+      "footprint": [
+        192,
+        508,
+        56,
+        38
+      ],
+      "solid": true,
+      "room": "kitchen"
+    },
+    {
+      "id": "white-stove-microwave",
+      "source": "white-stove",
+      "rect": [
+        192,
+        554,
+        56,
+        88
+      ],
+      "footprint": [
+        192,
+        602,
+        56,
+        40
+      ],
+      "solid": true,
+      "room": "kitchen"
+    },
+    {
+      "id": "oak-trim-worktop",
+      "source": "white-counter",
+      "rect": [
+        192,
+        642,
+        56,
+        48
+      ],
+      "footprint": [
+        192,
+        642,
+        56,
+        48
+      ],
+      "solid": true,
+      "room": "kitchen"
+    },
+    {
+      "id": "magnet-fridge",
+      "source": "magnet-fridge",
+      "rect": [
+        344,
+        474,
+        56,
+        96
+      ],
+      "footprint": [
+        344,
+        522,
+        56,
+        48
+      ],
+      "solid": true,
+      "room": "kitchen"
+    },
+    {
+      "id": "galley-right-worktop",
+      "source": "white-counter",
+      "rect": [
+        344,
+        586,
+        56,
+        104
+      ],
+      "footprint": [
+        344,
+        586,
+        56,
+        104
+      ],
+      "solid": true,
+      "room": "kitchen"
+    },
+    {
+      "id": "entry-basketball-bench",
+      "source": "entry-bench",
+      "rect": [
+        16,
+        810,
+        80,
+        64
+      ],
+      "footprint": [
+        16,
+        850,
+        80,
+        24
+      ],
+      "solid": true,
+      "room": "entry"
+    }
+  ],
+  "decals": [
+    {
+      "id": "abstract-photo-ledges",
+      "source": "photo-ledges",
+      "rect": [
+        80,
+        64,
+        56,
+        40
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "wall"
+    },
+    {
+      "id": "baby-balloons",
+      "source": "baby-balloons",
+      "rect": [
+        72,
+        96,
+        32,
+        48
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "ceiling"
+    },
+    {
+      "id": "back-door-blinds",
+      "source": "blind-door",
+      "rect": [
+        48,
+        0,
+        64,
+        64
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "wall"
+    },
+    {
+      "id": "dining-window",
+      "source": "blind-window",
+      "rect": [
+        384,
+        248,
+        16,
+        112
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "wall"
+    },
+    {
+      "id": "desk-drawings",
+      "source": "desk-wall",
+      "rect": [
+        168,
+        246,
+        216,
+        48
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "wall"
+    },
+    {
+      "id": "ceiling-fan",
+      "source": "ceiling-fan",
+      "rect": [
+        112,
+        326,
+        48,
+        48
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "ceiling"
+    },
+    {
+      "id": "kitchen-runner",
+      "source": "pattern-runner",
+      "rect": [
+        268,
+        482,
+        56,
+        200
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "floor"
+    },
+    {
+      "id": "abstract-painting",
+      "source": "abstract-painting",
+      "rect": [
+        120,
+        482,
+        48,
+        80
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "wall"
+    },
+    {
+      "id": "entry-louvered-door",
+      "source": "louvered-door",
+      "rect": [
+        16,
+        666,
+        72,
+        80
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "wall"
+    },
+    {
+      "id": "rig-cables",
+      "source": "floor-cables",
+      "rect": [
+        224,
+        196,
+        80,
+        32
+      ],
+      "kind": "source",
+      "solid": false,
+      "layer": "floor"
+    }
+  ],
+  "scale": {
+    "floorPixelsPerFoot": 24,
+    "wallThickness": 16,
+    "heroRenderHeight": 56,
+    "note": "Foot conversion applies to plan distances. Hero art remains its established projected 56px height, not 144px tall."
+  },
+  "stairsTransition": {
+    "room": "stairs",
+    "toFloor": 2
+  },
+  "reference": "docs/handoffs/img/rami-house-floor-plan.png",
+  "measurementNotes": "Dimensioned rooms preserve the printed dimensions at24px/ft. Undimensioned hall, closets, bathroom and wall runs inferred from plan; rectangular approximation to diagonal door/closet walls. No runtime pathing certification.",
+  "garageDecision": "Rami approved actual plan:10ft11in by20ft, single-car, minivan only, no empty second bay.",
+  "photoReferencePolicy": "Private local photos used only for furniture/room identity. No photo pixels, faces, names, logos or printed content are copied into delivered art.",
+  "revision": "Photo-based v3. Canvas, walls, door openings, stairs and24px/ft layout unchanged fromv2.",
+  "zones": [
+    {
+      "id": "downstairs-desk-nook",
+      "rect": [
+        112,
+        246,
+        288,
+        212
+      ],
+      "note": "Desk and dining table occupy the open dining area and adjacent window strip. Printed dining measurement stays in rooms; no wall moved."
+    }
+  ],
+  "referenceNumbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9
+  ],
+  "checks": {
+    "sameCanvasAsV2": true,
+    "sameWallRectanglesAsV2": true,
+    "sameDoorRectanglesAsV2": true,
+    "sameStairsAsV2": true,
+    "allRectanglesInBounds": true,
+    "doorWallOverlap": false,
+    "runtimePathingTested": false
+  }
+}

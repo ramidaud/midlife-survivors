@@ -1,0 +1,188 @@
+[
+  {
+    "arrangements" : [
+      [
+        "upper_cabinets",
+        "microwave_counter"
+      ],
+      [
+        "mug_rack",
+        "snack_shelf",
+        "fridge_collage"
+      ],
+      [
+        "chore_wheel",
+        "low_bookshelf",
+        "recycling_pair",
+        "poster_rowers"
+      ]
+    ],
+    "room" : "breakroom"
+  },
+  {
+    "arrangements" : [
+      [
+        "sticky_whiteboard",
+        "team_calendar",
+        "thermostat_note"
+      ],
+      [
+        "kudos_wall",
+        "printer_nook",
+        "birthday_ledge"
+      ],
+      [
+        "sticky_whiteboard",
+        "filing_four_drawer",
+        "filing_two_drawer",
+        "light_switch"
+      ]
+    ],
+    "room" : "bullpen"
+  },
+  {
+    "arrangements" : [
+      [
+        "frozen_call_screen",
+        "dead_marker_tray",
+        "poster_eagle"
+      ],
+      [
+        "frosting_strip",
+        "quarterly_chart",
+        "light_switch"
+      ],
+      [
+        "kudos_wall",
+        "cork_flyers",
+        "employee_photo"
+      ]
+    ],
+    "room" : "conference"
+  },
+  {
+    "arrangements" : [
+      [
+        "poster_mountain",
+        "poster_rowers",
+        "poster_eagle",
+        "wall_clock",
+        "light_switch"
+      ],
+      [
+        "low_bookshelf",
+        "tall_bookshelf",
+        "filing_four_drawer",
+        "filing_two_drawer"
+      ],
+      [
+        "paper_toner_shelf",
+        "cork_flyers",
+        "recycling_pair"
+      ]
+    ],
+    "room" : "everywhere"
+  },
+  {
+    "arrangements" : [
+      [
+        "wood_paneling",
+        "diplomas_pair",
+        "light_switch"
+      ],
+      [
+        "golf_trophy_shelf",
+        "expensive_painting",
+        "sad_bonsai"
+      ],
+      [
+        "wood_paneling",
+        "low_bookshelf",
+        "sad_bonsai"
+      ]
+    ],
+    "room" : "executive"
+  },
+  {
+    "arrangements" : [
+      [
+        "campus_aerial",
+        "brochure_rack",
+        "visitor_podium"
+      ],
+      [
+        "milestone_photos",
+        "low_bookshelf",
+        "employee_photo"
+      ],
+      [
+        "cork_flyers",
+        "tall_bookshelf",
+        "poster_mountain"
+      ]
+    ],
+    "room" : "lobby"
+  },
+  {
+    "arrangements" : [
+      [
+        "parking_stripes",
+        "speed_bump_icon",
+        "security_camera"
+      ],
+      [
+        "bike_rack",
+        "ev_charger",
+        "fire_extinguisher",
+        "light_switch"
+      ],
+      [
+        "parking_stripes",
+        "ev_charger",
+        "recycling_pair"
+      ]
+    ],
+    "room" : "parking"
+  },
+  {
+    "arrangements" : [
+      [
+        "cable_tray",
+        "patch_panel",
+        "thermostat_note"
+      ],
+      [
+        "server_warning_stripe",
+        "fire_suppression",
+        "label_tabs"
+      ],
+      [
+        "paper_toner_shelf",
+        "tall_bookshelf",
+        "charger_outlet"
+      ]
+    ],
+    "room" : "server"
+  },
+  {
+    "arrangements" : [
+      [
+        "cloud_mural",
+        "meditation_gong",
+        "wave_print"
+      ],
+      [
+        "towel_rack",
+        "bottle_refill",
+        "hanging_plant",
+        "poster_mountain"
+      ],
+      [
+        "cloud_mural",
+        "wave_print",
+        "low_bookshelf"
+      ]
+    ],
+    "room" : "wellness"
+  }
+]

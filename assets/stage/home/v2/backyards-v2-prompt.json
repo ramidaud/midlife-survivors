@@ -1,0 +1,19 @@
+{
+  "file": "backyards-v2.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    2496,
+    448
+  ],
+  "job": {
+    "key": "backyards",
+    "transparent": false,
+    "refs": [
+      "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/lawn-v2-a.png",
+      "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/maple-hollow-houses-v1.png"
+    ],
+    "prompt": "Six square-ish overhead BACKYARD groundplates for a topdown3/4cozyofficegame, native416x448each, displayed3columns2rows equalcells,no labels. Crisp handmade 16-bit game pixel art, top-down three-quarter view matching reference houses exactly, clean broad flat fields, 2-3 hue-shifted tones, 1px navy silhouette outline at native scale. Peak fall. Neutral white balance, NO sepia, golden haze, film tint, no noise, no blur, no antialiasing. ONLY palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Absolutely NO text letters digits logos brands labels. No people. OPAQUE sagegrassfillsallcells, noemptybackground. Sameflat sageborderedgeprofile everyyard. Eachyardhaslowwoodenfenceatleftandrightboundary, buta largeOPEN passage64px high atmiddepth connectingneighbor yards. SAMEgatepositionineverycell: y224..287 alongthe416px leftandrightedges, open64pxgap. Noobjectsblockgatelines. Fencelinesthinlow,enoughtoseeplayersabove. Keepcentralwalkandfrontbackroutes64pxwide. Sixdifferentpersonalities: upperleftyoungfamilytrampoline,kiddiepoolandswingset;uppermiddleretireesraisedvegetablebeds,birdfeedersandgnomes;upperrightgrillmasterpatio,smoker,grill,tableandcornhole;lowerleftovergrownweedy fixerupper,rustywheelbarrowandbrokenlawnchair;lowermiddleHOA stripemownlawn,smallkoipondandpergola;lowerrightHalloween deflatedwhiteghostinflatables,fogmachineandhaybale. Broadcalmgroundreadability,no densegrittynoise,nohouses,noparkedcars,nogianttreescanopy. Topdownwithonlyslight3/4propdepth. DoNOTdrawcontinuouspanorama;exact6 equalindividualcells."
+  },
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay."
+}

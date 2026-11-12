@@ -1,0 +1,8 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Midlife Survivors suburban hazard and shop prop study. Source layout FOUR COLUMNS x TWO ROWS, equal square panels, no labels or grid, exact flat opaque #FF00FF behind all. First FIVE cells row-major are32px ground decals: 1 sparse scatter of generic studded toy bricks;2 medium scatter;3 dense scatter;4 very dense scatter;5 ONE extra-sharp-looking single brick for ouch. Plastic toy bricks colors coffee-orange, teal, lavender and cream. All unrelated background is magenta, no floor or background shadow. Sixth cell: OPEN children's lemonade stand on folding table, pitcher, paper cups, cash box, plain pink cardboard sign with NO words, little striped umbrella. Seventh cell: SAME lemonade stand CLOSED, cloth draped over the table/cups/cashbox, closed shop appearance, same scale, no people. Eighth cell completely empty magenta. Stands have tall compact silhouette to fit native64x128 each, full umbrella/base visible. Final atlas384x128: five32px decals across top-left, open/closed stands occupying right128x128 block. Chunky native16-bit pixels,1px navy outline,2-3tones, upper-left light, matches reference tile kit. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Neutral white balance, no sepia/golden haze/film tint. No readable text, letters, numbers, logos, brands or characters.",
+  "references": [
+    "assets/stage/home/maple-hollow-tiles-props-v1.png"
+  ],
+  "nativeProcess": "Proportional native sampling, exact twelve-color palette mapping, grid packing and validation. House states share all pixels outside doorway. Floor edges cleaned for compatible tiling."
+}

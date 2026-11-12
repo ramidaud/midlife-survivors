@@ -1,0 +1,114 @@
+{
+  "all_passed" : true,
+  "entries" : [
+    {
+      "cell" : [
+        56,
+        60
+      ],
+      "file" : "grandkid-1-v1.png",
+      "footLine" : 56,
+      "grid" : [
+        8,
+        4
+      ],
+      "kid" : 1,
+      "opaqueMagenta" : true,
+      "palette" : [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF",
+        "#E6BE58"
+      ],
+      "size" : [
+        448,
+        240
+      ],
+      "targetInkHeight" : 37
+    },
+    {
+      "cell" : [
+        56,
+        60
+      ],
+      "file" : "grandkid-2-v1.png",
+      "footLine" : 56,
+      "grid" : [
+        8,
+        4
+      ],
+      "kid" : 2,
+      "opaqueMagenta" : true,
+      "palette" : [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "size" : [
+        448,
+        240
+      ],
+      "targetInkHeight" : 38
+    },
+    {
+      "cell" : [
+        56,
+        60
+      ],
+      "file" : "grandkid-3-v1.png",
+      "footLine" : 56,
+      "grid" : [
+        8,
+        4
+      ],
+      "kid" : 3,
+      "opaqueMagenta" : true,
+      "palette" : [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "size" : [
+        448,
+        240
+      ],
+      "targetInkHeight" : 36
+    }
+  ],
+  "noIdleRow" : true,
+  "previewMs" : 95,
+  "rows" : [
+    "down",
+    "up",
+    "left",
+    "right"
+  ],
+  "styleReference" : "intern-tj-v2.png"
+}

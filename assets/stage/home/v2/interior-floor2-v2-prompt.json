@@ -1,0 +1,17 @@
+{
+  "file": "interior-floor2-v2.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    416,
+    928
+  ],
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay.",
+  "constructionBrief": {
+    "file": "assets/stage/home/v2/interior-floor2-v2.png (+ .json)",
+    "what": "Rami's SECOND FLOOR exactly as the plan, same scale: master bedroom 16' x 11'1 (bed, nightstands, dresser), walk-in closet, full bath (tub, toilet, sink), linen closet, utility room (water heater), stairs down, and the second bedroom 12'7 x 11'2 as RAMI'S HOME OFFICE with the desk below. About 400 x 880, plus the same JSON."
+  },
+  "style": "Crisp handmade 16-bit pixel art, top-down three-quarter view, matching the attached houses and ground v2: big flat color areas, 2-3 tone shading, crisp 1px navy outlines on objects, small readable details, little dithering, no noise texture. Game palette only: cream #F2D7A1, navy #171C35, slate #303750, muted blue #526078, teal #3E7775, sage #83A89A, khaki #D3B78D, coffee orange #EF9347, warm white #FFF0CF, tie red #C45C4B, lavender #BFA8CF, donut pink #F1B5BF. Peak fall. Neutral white balance: no sepia, no golden haze, no film-look tint. No text, letters, numbers, logos or brands anywhere (no car badges, no console or computer logos).",
+  "geometryMap": "interior-floor2-v2.json",
+  "method": "Measured native floor and wall geometry; assemble generated furniture studies and existing modular kit props. This floor is assembled art, not a single generated image."
+}

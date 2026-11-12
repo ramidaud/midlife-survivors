@@ -1,0 +1,141 @@
+{
+  "anchor": [
+    16,
+    29
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    32,
+    32
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "key-hunt-v1.png",
+  "floorLine": 29,
+  "grid": [
+    8,
+    2
+  ],
+  "inkCounts": [
+    338,
+    438,
+    393,
+    317,
+    395,
+    312,
+    247,
+    447
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells": 8,
+  "size": [
+    256,
+    64
+  ],
+  "source": "exec-da330dd5-2d26-4643-8edc-ab54762d0f8a.png",
+  "ids": [
+    "fake-rock",
+    "fake-rock-open",
+    "lifted-mat",
+    "tipped-pot",
+    "mirror-key",
+    "neighbor-mailbox",
+    "house-key",
+    "blank-note"
+  ],
+  "populatedRow": 0,
+  "emptyLowerHalf": true,
+  "marginPx": 2,
+  "pieces": [
+    {
+      "id": "fake-rock",
+      "rect": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "fake-rock-open",
+      "rect": [
+        32,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "lifted-mat",
+      "rect": [
+        64,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "tipped-pot",
+      "rect": [
+        96,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "mirror-key",
+      "rect": [
+        128,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "neighbor-mailbox",
+      "rect": [
+        160,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "house-key",
+      "rect": [
+        192,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "blank-note",
+      "rect": [
+        224,
+        0,
+        32,
+        32
+      ]
+    }
+  ]
+}

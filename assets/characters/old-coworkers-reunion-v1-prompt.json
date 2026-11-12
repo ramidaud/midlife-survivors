@@ -1,0 +1,9 @@
+{
+  "prompt": "ONE pixelart friendly OLD COWORKER NPC SPRITE SHEET for Midlife Survivors reunion. Attachedgrandkidsheet STYLE/PIXELDENSITYreference, notchildproportions. FourDIFFERENTelderlyadultswithbigfriendlyheadsandadultbodies, nativesilhouetteheight~40pixels in48cell,1pxnavyoutline,2-3tones,upperleftlight. Exactly10COLUMNSx4ROWS, each48x48; logical480x192. Eachrowoneperson. EVERYframefacesRIGHT exceptwavecanquarterturntowardviewer. COLS0-7 relaxed8framewalk: nearcontact,down,passing,up,FARcontact,down,oppositepassing,up; realalternatinglegs/arms. COL8handraisedbigwavehappyface, COL9handwavingotheranglehappyface. Sameoutfit/headsizeeachrow, feetliney44(3pxclearbottom). ExactOPAQUE#FF00FFoutsideart,no floor/shadow. Simplecleancells,2pxmargins,nolabels/grid.\nROW0ACCOUNTANT70: roundbaldheadwithGRAYHORSESHOEHAIR,bigglasses,TEALCARDIGAN,creamSLACKS,holdingplatewithcakeslice inonehand, freehandwaves.\nROW1MANAGER68: TALL, SILVERBOB, RUSSETBLAZER andLAVENDERSCARF,creamTROUSERS, readingglassesonbeadedchain, littleCLUTCHPURSE.\nROW2ITGUY65: GRAYPONYTAILandBEARD, NAVYFLEECEoverplainSAGETSHIRT,cargoshorts,socks/sandals,cableTANGLEoveroneshoulder.\nROW3RECEPTIONIST72: shortCURLYWHITEHAIR,PINKCARDIGAN,ORANGEFLORALDRESS(simplecreamflowerdots),totebagfullofphotoalbums,bigwarmsmile.\nExactlysamepersonineachrow's10cells, eachrowdistinct, imaginarynotrealpeople. PALETTEONLY #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Neutralwhitebalance,NOsepia/goldhaze/filmlook, hardpixels,noAA/blur/gradients. NOtext/letters/numbers/logos/brands/watermarks.",
+  "references": [
+    "assets/characters/grandkid-1-v1.png",
+    "assets/characters/intern-tj-v2.png"
+  ],
+  "process": "Image generation study, sampled and palette-cleaned to native cells. Nearest-neighbor previews.",
+  "draft": true
+}

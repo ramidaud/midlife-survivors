@@ -1,0 +1,18 @@
+{
+  "file": "street-wide-v2-a.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    832,
+    512
+  ],
+  "job": {
+    "key": "street-a",
+    "prompt": "One exact topdown game GROUND PLATE,832x512native conceptual canvas, entireimage opaque edge-to-edge. Crisp handmade 16-bit game pixel art, top-down three-quarter view matching reference houses exactly, clean broad flat fields, 2-3 hue-shifted tones, 1px navy silhouette outline at native scale. Peak fall. Neutral white balance, NO sepia, golden haze, film tint, no noise, no blur, no antialiasing. ONLY palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Absolutely NO text letters digits logos brands labels. No people. Matchreferencecleanroad/sidewalk, but REBUILD MUCH WIDER. Crosssection exact rows: y0-63cream sidewalks; y64-95sage grassparkway; y96-415slate320px ROAD; y416-447sageparkway;y448-511cream sidewalk. Road containsparkinglanes atbothcurbsandtwoopen travellanes, centercream32dash32gap y256. Topdriveway cuts MUSTbe64wideat x288-351 and704-767, continuingallthewaythroughtopsidewalk ANDparkway y0-95. Theseinterruptcurbandgrassclearly. Noothercuts. A smallmapletrunkbaseinparkwayat x144and560, stumpbaseonlynotcanopy. TWO parkedcars: tealcompact attopparkinglaneleftx75..215,y103..161; russetstationwagon bottomparkinglane x430..600,y351..409. Cars topdown3/4tinyunbrandedNOpeople, fourwheelseach. Plentyofopenroad. Drainatcurb,manhole,smallpatchedpothole, chalksunwithoutwords,leafdriftsin gutters,acorns,lostpinkmitten. Horizontallyseamless, bothleftandrightedgecolumns EXACTsame crosssectionprofile, clearlast16px marginsnoobjects. Flat mattebroadcolors, notnoisy. PerspectiveORTHOGRAPHICground,nohorizon,nonumberedparking,nofacades,notisometricdiagonal.",
+    "refs": [
+      "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/street-band-v2-a.png",
+      "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/maple-hollow-houses-v1.png"
+    ]
+  },
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay."
+}

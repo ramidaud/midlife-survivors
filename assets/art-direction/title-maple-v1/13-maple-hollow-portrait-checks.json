@@ -1,0 +1,43 @@
+{
+  "checks" : {
+    "dimensions" : true,
+    "exact3pxBlocks" : true,
+    "masterPalette" : true,
+    "opaque" : true
+  },
+  "file" : "13-maple-hollow-portrait.jpg",
+  "geometry" : "Recomposed portrait source; all source\/core scaling isotropic. No squeezing. Background uniformly center-cropped; outpainted composition exported without patch overlays.",
+  "guideCheck" : "assets\/art-direction\/title-maple-v1\/13-maple-hollow-portrait-guide-check.png",
+  "integerScale" : 3,
+  "jpgQuality" : 88,
+  "master" : "assets\/art-direction\/title-maple-v1\/13-maple-hollow-portrait-master.png",
+  "nativeGrid" : [
+    360,
+    640
+  ],
+  "paletteMaster" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "size" : [
+    1080,
+    1920
+  ],
+  "sourceCoreSamples" : 0,
+  "zone" : [
+    40,
+    600,
+    1000,
+    280
+  ]
+}

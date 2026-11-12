@@ -1,0 +1,38 @@
+{
+  "all_passed" : true,
+  "background" : "#FF00FF opaque",
+  "cell" : [
+    144,
+    152
+  ],
+  "file" : "boss-knockdown-new-office-v1.png",
+  "footPoint" : [
+    72,
+    148
+  ],
+  "framesPopulated" : 3,
+  "grid" : [
+    3,
+    1
+  ],
+  "lastGroundPixel" : 147,
+  "mode" : "knockdown",
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "size" : [
+    432,
+    152
+  ]
+}

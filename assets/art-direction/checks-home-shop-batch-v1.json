@@ -1,0 +1,178 @@
+{
+  "allPassed" : true,
+  "artOnly" : true,
+  "gifs" : [
+    {
+      "encodedDelayMs" : 100,
+      "file" : "assets\/enemies\/maple-hollow-enemies-v1-row-0-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 100
+    },
+    {
+      "encodedDelayMs" : 100,
+      "file" : "assets\/enemies\/maple-hollow-enemies-v1-row-1-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 100
+    },
+    {
+      "encodedDelayMs" : 100,
+      "file" : "assets\/enemies\/maple-hollow-enemies-v1-row-2-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 100
+    },
+    {
+      "encodedDelayMs" : 100,
+      "file" : "assets\/enemies\/maple-hollow-enemies-v1-row-3-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 100
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/photographer-retro3d-walk-56x60-v1-row-0-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/photographer-retro3d-walk-56x60-v1-row-1-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/photographer-retro3d-walk-56x60-v1-row-2-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/photographer-retro3d-walk-56x60-v1-row-3-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/photographer-retro3d-walk-56x60-v1-row-4-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/gradStudent-retro3d-walk-56x60-v1-row-0-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/gradStudent-retro3d-walk-56x60-v1-row-1-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/gradStudent-retro3d-walk-56x60-v1-row-2-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/gradStudent-retro3d-walk-56x60-v1-row-3-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    },
+    {
+      "encodedDelayMs" : 80,
+      "file" : "assets\/characters\/gradStudent-retro3d-walk-56x60-v1-row-4-preview.gif",
+      "frames" : 8,
+      "targetDelayMs" : 75
+    }
+  ],
+  "note" : "GIF stores centiseconds, so requested 75 ms may encode as 70 ms. Native PNG frame maps retain the 75 ms target.",
+  "sheets" : [
+    {
+      "cell" : [
+        192,
+        224
+      ],
+      "dimensions" : true,
+      "file" : "assets\/stage\/home\/maple-hollow-houses-v1.png",
+      "grid" : true,
+      "opaqueMagenta" : true,
+      "palette" : true,
+      "paletteColorsExcludingMagenta" : 12,
+      "populatedCells" : 6,
+      "size" : [
+        1152,
+        224
+      ]
+    },
+    {
+      "cell" : [
+        48,
+        48
+      ],
+      "dimensions" : true,
+      "file" : "assets\/enemies\/maple-hollow-enemies-v1.png",
+      "grid" : true,
+      "opaqueMagenta" : true,
+      "palette" : true,
+      "paletteColorsExcludingMagenta" : 12,
+      "populatedCells" : 32,
+      "size" : [
+        384,
+        192
+      ]
+    },
+    {
+      "cell" : [
+        56,
+        60
+      ],
+      "dimensions" : true,
+      "file" : "assets\/characters\/photographer-retro3d-walk-56x60-v1.png",
+      "grid" : true,
+      "opaqueMagenta" : true,
+      "palette" : true,
+      "paletteColorsExcludingMagenta" : 18,
+      "populatedCells" : 40,
+      "size" : [
+        448,
+        300
+      ]
+    },
+    {
+      "cell" : [
+        56,
+        60
+      ],
+      "dimensions" : true,
+      "file" : "assets\/characters\/gradStudent-retro3d-walk-56x60-v1.png",
+      "grid" : true,
+      "opaqueMagenta" : true,
+      "palette" : true,
+      "paletteColorsExcludingMagenta" : 17,
+      "populatedCells" : 40,
+      "size" : [
+        448,
+        300
+      ]
+    },
+    {
+      "cell" : [
+        32,
+        32
+      ],
+      "dimensions" : true,
+      "file" : "assets\/ui\/overtime-ui-kit-v1.png",
+      "grid" : true,
+      "opaqueMagenta" : true,
+      "palette" : true,
+      "paletteColorsExcludingMagenta" : 12,
+      "populatedCells" : 8,
+      "size" : [
+        256,
+        64
+      ]
+    }
+  ]
+}

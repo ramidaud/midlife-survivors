@@ -1,0 +1,8 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Eight separate inventory/UI icons for Midlife Survivors matching the attached keepsake atlas exactly in chunky native32px finish, 1px navy outline, 2-3 tone top-left shading. Source study layout FOUR COLUMNS x TWO ROWS, eight equal square cells with ample magenta padding. Final icons will be repacked into eight32x32 cells across the TOP HALF of a256x64 sheet; no need to draw final blank half here. Every object centered with minimum2nativepx padding. Exact flat opaque #FF00FF background, no shadows touching background. Row-major order: 1 Employee-of-month wall PLAQUE, russet wooden frame, cream plate, tiny gold star, completely BLANK portrait oval no face or words. 2 OPEN moving cardboard box flaps up, cactus tip and slate desk stapler visibly peeking out. 3 SEALED moving box with packing tape and orange upward arrow fragile symbol, no letters. 4 lavender insurance CARD teal stripe tiny heart-pulse zigzag, NO text. 5 pink HEART with simple crayon scribbled smile, hand-drawn kid charm. 6 cream reunion NAMETAG sticker, orange border and blank single line, no name. 7 sage CHECKMARK in a clipboard checkbox. 8 paper BONUS ENVELOPE orange seal, few gold coins spilling out. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. No new colors. Neutral white balance, no sepia, golden haze or film tint. No text, letters, numbers, logos or brands. No labels outside icons.",
+  "references": [
+    "assets/ui/clean-out-your-desk-icons-v1.png"
+  ],
+  "nativeExport": "Proportional sampling, exact palette mapping, magenta cleanup. No runtime edits."
+}

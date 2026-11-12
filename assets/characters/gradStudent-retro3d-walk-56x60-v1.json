@@ -1,0 +1,112 @@
+{
+  "anchor": [
+    28,
+    54
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    56,
+    60
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "gradStudent-retro3d-walk-56x60-v1.png",
+  "floorLine": 54,
+  "frameDelayMs": 75,
+  "grid": [
+    8,
+    5
+  ],
+  "inkCounts": [
+    914,
+    913,
+    930,
+    893,
+    931,
+    880,
+    917,
+    922,
+    901,
+    845,
+    875,
+    861,
+    846,
+    868,
+    853,
+    866,
+    946,
+    923,
+    902,
+    927,
+    956,
+    931,
+    926,
+    939,
+    984,
+    948,
+    958,
+    966,
+    978,
+    937,
+    971,
+    972,
+    926,
+    902,
+    919,
+    926,
+    909,
+    875,
+    904,
+    913
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF",
+    "#26304A",
+    "#697789",
+    "#B5956C",
+    "#D87849",
+    "#F7E4BB",
+    "#6A463A"
+  ],
+  "populatedCells": 40,
+  "size": [
+    448,
+    300
+  ],
+  "source": "exec-5e2d62ce-2880-40a6-99a9-bfe4e5538d71.png",
+  "rowNames": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "idle"
+  ],
+  "idle": {
+    "breatheBlink": [
+      0,
+      3
+    ],
+    "fidget": [
+      4,
+      7
+    ],
+    "action": "check notebook"
+  },
+  "soleLine": 54
+}

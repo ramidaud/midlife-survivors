@@ -1,0 +1,97 @@
+{
+  "anchor" : [
+    24,
+    45
+  ],
+  "background" : "#FF00FF opaque",
+  "checks" : {
+    "allFramesPopulated" : true,
+    "allPassed" : true,
+    "baselineClear" : true,
+    "opaque" : true,
+    "paletteOnly" : true
+  },
+  "direction" : "right; mirror for left",
+  "file" : "enemy-bargain-hunter-v1.png",
+  "frame" : [
+    48,
+    48
+  ],
+  "frameChecks" : [
+    {
+      "fitHeight" : 41,
+      "fitWidth" : 30,
+      "footLine" : 44,
+      "frame" : 0,
+      "inkPixels" : 797
+    },
+    {
+      "fitHeight" : 40,
+      "fitWidth" : 30,
+      "footLine" : 44,
+      "frame" : 1,
+      "inkPixels" : 765
+    },
+    {
+      "fitHeight" : 41,
+      "fitWidth" : 28,
+      "footLine" : 44,
+      "frame" : 2,
+      "inkPixels" : 694
+    },
+    {
+      "fitHeight" : 41,
+      "fitWidth" : 29,
+      "footLine" : 44,
+      "frame" : 3,
+      "inkPixels" : 690
+    },
+    {
+      "fitHeight" : 40,
+      "fitWidth" : 29,
+      "footLine" : 44,
+      "frame" : 4,
+      "inkPixels" : 743
+    },
+    {
+      "fitHeight" : 39,
+      "fitWidth" : 29,
+      "footLine" : 44,
+      "frame" : 5,
+      "inkPixels" : 716
+    },
+    {
+      "fitHeight" : 40,
+      "fitWidth" : 28,
+      "footLine" : 44,
+      "frame" : 6,
+      "inkPixels" : 695
+    },
+    {
+      "fitHeight" : 41,
+      "fitWidth" : 30,
+      "footLine" : 44,
+      "frame" : 7,
+      "inkPixels" : 737
+    }
+  ],
+  "frames" : 8,
+  "id" : "bargainHunter",
+  "lastGroundPixel" : 44,
+  "name" : "Bargain Hunter",
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#3E8E8A",
+    "#8FA98A",
+    "#F2D7A1",
+    "#EF9347",
+    "#A4502F"
+  ],
+  "preview" : "enemy-bargain-hunter-preview-v1.gif",
+  "previewMs" : 100,
+  "sheet" : [
+    384,
+    48
+  ]
+}

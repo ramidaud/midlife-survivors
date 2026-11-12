@@ -1,0 +1,61 @@
+{
+  "anchor" : [
+    96,
+    216
+  ],
+  "background" : "exact opaque #FF00FF",
+  "cell" : [
+    192,
+    224
+  ],
+  "changedPixels" : 649,
+  "checks" : {
+    "allCellsPopulated" : true,
+    "completeSourceColumns" : true,
+    "nativeDimensions" : true,
+    "opaque" : true,
+    "palette" : true
+  },
+  "doorChangeRect" : [
+    67,
+    143,
+    22,
+    45
+  ],
+  "file" : "your-house-v1.png",
+  "floorLine" : 222,
+  "frontEdgeY" : 216,
+  "grid" : [
+    2,
+    1
+  ],
+  "inkCounts" : [
+    26549,
+    26512
+  ],
+  "outsideDoorPixelIdentical" : true,
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells" : 2,
+  "size" : [
+    384,
+    224
+  ],
+  "source" : "exec-6f9e2790-b219-4ac8-a121-aac0109177ff.png",
+  "states" : [
+    "closed",
+    "open"
+  ]
+}

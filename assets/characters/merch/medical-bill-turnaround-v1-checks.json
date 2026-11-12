@@ -1,0 +1,91 @@
+{
+  "logicalSize": [
+    480,
+    112
+  ],
+  "enlargedSize": [
+    1920,
+    448
+  ],
+  "palette": [
+    "#ff00ff",
+    "#f2d7a1",
+    "#d9b97e",
+    "#171c35",
+    "#f1b5bf",
+    "#d98fa0",
+    "#c45c4b"
+  ],
+  "frames": [
+    {
+      "view": "front",
+      "sourceBounds": [
+        51,
+        132,
+        416,
+        583
+      ],
+      "width": 81,
+      "height": 100,
+      "top": 6,
+      "baseBottom": 105
+    },
+    {
+      "view": "left side",
+      "sourceBounds": [
+        516,
+        132,
+        808,
+        583
+      ],
+      "width": 65,
+      "height": 100,
+      "top": 6,
+      "baseBottom": 105
+    },
+    {
+      "view": "back",
+      "sourceBounds": [
+        898,
+        145,
+        1270,
+        583
+      ],
+      "width": 85,
+      "height": 100,
+      "top": 6,
+      "baseBottom": 105
+    },
+    {
+      "view": "right side",
+      "sourceBounds": [
+        1364,
+        132,
+        1656,
+        583
+      ],
+      "width": 65,
+      "height": 100,
+      "top": 6,
+      "baseBottom": 105
+    },
+    {
+      "view": "three-quarter front",
+      "sourceBounds": [
+        1745,
+        132,
+        2080,
+        583
+      ],
+      "width": 74,
+      "height": 100,
+      "top": 6,
+      "baseBottom": 105
+    }
+  ],
+  "notes": [
+    "Palette snapped to requested colors.",
+    "Each view fitted to 100 pixel height with baseline row 105.",
+    "Illustrated reference only; mesh printability and anatomical consistency require modeler review."
+  ]
+}

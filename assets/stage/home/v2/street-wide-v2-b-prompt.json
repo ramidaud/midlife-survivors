@@ -1,0 +1,18 @@
+{
+  "file": "street-wide-v2-b.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    832,
+    512
+  ],
+  "job": {
+    "key": "street-b",
+    "transparent": false,
+    "refs": [
+      "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-f52140c8-77d5-4333-84fd-1001b9bec1a4.png"
+    ],
+    "prompt": "EDIT reference into VARIANT B, keep EVERY structural alignment, samecamera,crosssection832x512 andtwo64pxdrivewaycuts x288..351/704..767, sameedgeprofiles. Crisp handmade 16-bit game pixel art, top-down three-quarter view matching reference houses exactly, clean broad flat fields, 2-3 hue-shifted tones, 1px navy silhouette outline at native scale. Peak fall. Neutral white balance, NO sepia, golden haze, film tint, no noise, no blur, no antialiasing. ONLY palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Absolutely NO text letters digits logos brands labels. No people. Change only bakeddecorandparkedcars: topcarbecomeslavendersmallhatchback,insteadbottomrustwagonaslatebluefamilyvan. Samepositions andsizes. Replacetopchalksunwithchalkflower, bottomflowerwithno-numberhopscotch. Manholeclosertoleftofcenter, differentpotholeandskidmarks. Newleafdriftshapes. Keepallleft/rightedgecolumnsquietflatmatchingreference. Keepgrassparkways,sidetreesBASES,curbsandopenlanesexact. Noextraaprons,notext. Opaquefullgroundplate."
+  },
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay."
+}

@@ -1,0 +1,8 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Eight individual small key-hunt props in the native32px chunky Midlife Survivors Maple Hollow tile-kit style. Source study FOUR COLUMNS x TWO ROWS, eight equal square cells, row-major order, no grid/labels. Later repacked as eight32x32 cells in the top half of a256x64 atlas. Flat exact opaque #FF00FF background. Each object centered with minimum2nativepx padding, 1px navy silhouette outline, top-left light, 2-3 tone shading. 1 round shiny FAKE GARDEN ROCK, slightly suspiciously perfect. 2 same fake rock HINGED OPEN with a tiny brass house key inside. 3 BLANK welcome mat one corner lifted. 4 flower pot TIPPED ON ITS SIDE. 5 ONLY a minivan SIDE MIRROR with a small key TAPED TO IT, no car around it. 6 neighbor mailbox on post, flag UP. 7 a BRASS HOUSE KEY with coffee-orange plain tag, small sparkle. 8 BLANK paper note pinned by pushpin. No marks resembling writing. No floor shadows touching background. Palette only #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF; neutral white balance, no sepia/golden haze/film tint. No text, letters, numbers, logos or brands.",
+  "references": [
+    "assets/stage/home/maple-hollow-tiles-props-v1.png"
+  ],
+  "nativeProcess": "Proportional native sampling, exact twelve-color palette mapping, grid packing and validation. House states share all pixels outside doorway. Floor edges cleaned for compatible tiling."
+}

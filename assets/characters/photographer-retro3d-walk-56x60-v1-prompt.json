@@ -1,0 +1,9 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Cosmetic retro rendered alternate skin for Midlife Survivors. FIRST reference is the EXACT identity/outfit/pose layout to preserve: Soccer Dad (internal id photographer), middle-aged friendly man, navy cap, teal polo, khaki shorts, socks/sneakers, whistle, soccer ball tucked at side and orange coffee mug. SECOND reference gives the exact late-1990s pre-rendered low-poly pixel-sprite style to match. Render FIVE ROWS x EIGHT COLUMNS, equal56x60 cells, total448x300 logical pixels. Row0 walk DOWN, row1 UP back view, row2 LEFT, row3 RIGHT. Row4 frames0-3 breathing with blink; frames4-7 rubbing the back of his neck just like normal sheet. True alternating leg stride/opposing free arm swing, one-pixel down bob. Keep torso/head scale and identity consistent, do not redesign. Same sole line y56 and footprint as normal reference. Magenta opaque #FF00FF background everywhere outside sprite, NO floor shadow. Late90s rendered look: gradient shade steps, plastic hair/shoe sheen, soft LEFT rim light, visible low-poly facets on shoulder and head. NO conventional continuous navy outline, just darker material edges; crisp native pixels no blur/AA halo. Game palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF plus only these same six intermediate shades as second reference: #26304A #697789 #B5956C #D87849 #F7E4BB #6A463A. Neutral white balance, no sepia/golden haze/film tint. No text, letters, numbers, logos, brands, watermarks or real people. Whole figures fully visible with safe magenta separation.",
+  "references": [
+    "assets/characters/soccer-dad-walk-56x60-v2.png",
+    "assets/characters/office-worker-retro3d-walk-56x60-v1.png"
+  ],
+  "nativeExport": "Proportional sampling, exact palette mapping, magenta cleanup. No runtime edits."
+}

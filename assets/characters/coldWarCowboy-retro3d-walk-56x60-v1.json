@@ -1,0 +1,113 @@
+{
+  "anchor": [
+    28,
+    56
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    56,
+    60
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "coldWarCowboy-retro3d-walk-56x60-v1.png",
+  "floorLine": 56,
+  "frameDelayMs": 75,
+  "grid": [
+    8,
+    5
+  ],
+  "inkCounts": [
+    990,
+    982,
+    996,
+    1000,
+    994,
+    1030,
+    1014,
+    973,
+    1012,
+    1001,
+    1045,
+    1043,
+    1021,
+    983,
+    1006,
+    1030,
+    1072,
+    1007,
+    980,
+    992,
+    1014,
+    958,
+    989,
+    1005,
+    1166,
+    1087,
+    1023,
+    1046,
+    1132,
+    1055,
+    1034,
+    1080,
+    1161,
+    1145,
+    1103,
+    1124,
+    1152,
+    1157,
+    1132,
+    1148
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF",
+    "#26304A",
+    "#697789",
+    "#B5956C",
+    "#D87849",
+    "#F7E4BB",
+    "#6A463A"
+  ],
+  "populatedCells": 40,
+  "size": [
+    448,
+    300
+  ],
+  "source": "exec-f2a4126f-b24f-47ed-be63-747661401644.png",
+  "rowNames": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "idle"
+  ],
+  "soleLine": 56,
+  "idle": {
+    "breatheBlink": [
+      0,
+      3
+    ],
+    "fidget": [
+      4,
+      7
+    ],
+    "action": "Raise floppy disk, blow off dust, lower it"
+  },
+  "referenceSheet": "cold-war-cowboy-walk-56x60-v4.png"
+}

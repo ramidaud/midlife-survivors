@@ -1,0 +1,78 @@
+{
+  "anchor": [
+    16,
+    29
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    32,
+    32
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "overtime-ui-kit-v1.png",
+  "floorLine": 29,
+  "grid": [
+    8,
+    2
+  ],
+  "inkCounts": [
+    492,
+    486,
+    508,
+    440,
+    361,
+    409,
+    506,
+    488
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells": 8,
+  "size": [
+    256,
+    64
+  ],
+  "source": "exec-cf950e74-8939-416c-96e7-bf38ad7da665.png",
+  "ids": [
+    "employee-plaque",
+    "open-keepsake-box",
+    "sealed-moving-box",
+    "insurance-card",
+    "kid-heart",
+    "reunion-nametag",
+    "checked-off",
+    "bonus-envelope"
+  ],
+  "populatedRow": 0,
+  "emptyCells": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "emptyLowerHalf": true,
+  "marginPx": 2,
+  "export4x": "overtime-ui-kit-v1-4x.png"
+}

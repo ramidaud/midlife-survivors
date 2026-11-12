@@ -1,0 +1,220 @@
+{
+  "cell": [
+    48,
+    48
+  ],
+  "changedPixels": {},
+  "frames": [
+    {
+      "bounds": [
+        6,
+        5,
+        36,
+        41
+      ],
+      "floorFootprint": [
+        29,
+        42,
+        8,
+        4
+      ],
+      "footPoint": [
+        23,
+        45
+      ],
+      "index": 0,
+      "occupied": 831
+    },
+    {
+      "bounds": [
+        8,
+        5,
+        33,
+        41
+      ],
+      "floorFootprint": [
+        18,
+        42,
+        15,
+        4
+      ],
+      "footPoint": [
+        24,
+        45
+      ],
+      "index": 1,
+      "occupied": 847
+    },
+    {
+      "bounds": [
+        8,
+        4,
+        32,
+        42
+      ],
+      "floorFootprint": [
+        18,
+        42,
+        7,
+        4
+      ],
+      "footPoint": [
+        23,
+        45
+      ],
+      "index": 2,
+      "occupied": 794
+    },
+    {
+      "bounds": [
+        8,
+        6,
+        33,
+        40
+      ],
+      "floorFootprint": [
+        16,
+        42,
+        14,
+        4
+      ],
+      "footPoint": [
+        24,
+        45
+      ],
+      "index": 3,
+      "occupied": 785
+    },
+    {
+      "bounds": [
+        6,
+        5,
+        36,
+        41
+      ],
+      "floorFootprint": [
+        12,
+        42,
+        21,
+        4
+      ],
+      "footPoint": [
+        23,
+        45
+      ],
+      "index": 4,
+      "occupied": 824
+    },
+    {
+      "bounds": [
+        7,
+        6,
+        35,
+        40
+      ],
+      "floorFootprint": [
+        17,
+        42,
+        15,
+        4
+      ],
+      "footPoint": [
+        24,
+        45
+      ],
+      "index": 5,
+      "occupied": 830
+    },
+    {
+      "bounds": [
+        7,
+        5,
+        34,
+        41
+      ],
+      "floorFootprint": [
+        19,
+        42,
+        8,
+        4
+      ],
+      "footPoint": [
+        23,
+        45
+      ],
+      "index": 6,
+      "occupied": 788
+    },
+    {
+      "bounds": [
+        7,
+        5,
+        35,
+        41
+      ],
+      "floorFootprint": [
+        19,
+        42,
+        18,
+        4
+      ],
+      "footPoint": [
+        24,
+        45
+      ],
+      "index": 7,
+      "occupied": 809
+    }
+  ],
+  "grid": [
+    8,
+    1
+  ],
+  "nonBinaryAlphaPixels": 0,
+  "offPaletteColors": [],
+  "output": "assets/enemies/enemy-bill-v3.png",
+  "silhouetteMismatchPixels": 0,
+  "size": [
+    384,
+    48
+  ],
+  "source": "assets/enemies/enemy-bill-v2.png",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F"
+  ],
+  "animations": [
+    {
+      "name": "walk",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "ms": 90.0
+    }
+  ],
+  "alpha": "RGBA, binary 0/255, no magenta",
+  "footprintNote": "floorFootprint is visible lower-four-row contact extent, not a replacement gameplay hitbox. Source silhouette and foot placement unchanged.",
+  "review": "assets/art-direction/level-art-job-1/check-4-4x.png"
+}

@@ -1,0 +1,112 @@
+{
+  "anchor": [
+    28,
+    56
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    56,
+    60
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "photographer-retro3d-walk-56x60-v1.png",
+  "floorLine": 56,
+  "frameDelayMs": 75,
+  "grid": [
+    8,
+    5
+  ],
+  "inkCounts": [
+    1061,
+    1048,
+    1033,
+    1046,
+    1052,
+    1068,
+    1042,
+    1062,
+    1032,
+    992,
+    1011,
+    1014,
+    1026,
+    1001,
+    1029,
+    1040,
+    1124,
+    1066,
+    1006,
+    1072,
+    1075,
+    1039,
+    1023,
+    1090,
+    1082,
+    1092,
+    1018,
+    1066,
+    1087,
+    1058,
+    1049,
+    1054,
+    1078,
+    1085,
+    1077,
+    1072,
+    1098,
+    1010,
+    1017,
+    1053
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF",
+    "#26304A",
+    "#697789",
+    "#B5956C",
+    "#D87849",
+    "#F7E4BB",
+    "#6A463A"
+  ],
+  "populatedCells": 40,
+  "size": [
+    448,
+    300
+  ],
+  "source": "exec-1ec454c7-e2e0-4e04-9cca-b9bb2a411e96.png",
+  "rowNames": [
+    "down",
+    "up",
+    "left",
+    "right",
+    "idle"
+  ],
+  "idle": {
+    "breatheBlink": [
+      0,
+      3
+    ],
+    "fidget": [
+      4,
+      7
+    ],
+    "action": "rub neck"
+  },
+  "soleLine": 56
+}

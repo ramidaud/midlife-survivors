@@ -1,0 +1,11 @@
+{
+  "prompt": "ONE pixel-art BOSS KNOCKDOWN SHEET for Midlife Survivors matching FIRST attached existingknockdownsheet EXACTLY in scale/camera/finish. Otherthree references supply identities. ExactlyTHREEequalcells144x152inONEhorizontalrow, logical432x152, preferred3x1296x456. Fourpixelclearinnermargin, eachposeonfloorline148center72. OpaqueFLAT#FF00FF outsideart, NO floor/castshadow/glow, NO grid/text/labels. Hard16bitclusters,1pxnavyoutline,3steppedtones,upperleftlight,neutralwhitebalance,nosepia/haze. EXACT12colors #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Comicexhaustion, noinjury/blood.\nLEFTCELL YOURNEWBOSS26: youthfulswoopyrussethair/earbuds/sagevest/slatehoodie/tanjoggers/whiteorangesneakers/lanyard. FlatONBACKSTARFISH, two tinySPIRALEYES, earbudsout, lavender/orangecanrolledawaydribbling, phoneFACE-DOWNonchest, onethumbweaklyUP.\nMIDDLE HOLIDAYPARTY: short roundwoman,curlyrussethair,tealstripedpaperhat, ugly sage/russetsweater, orangetinsel,pinkcreamsocks. SLUMPEDSITTING onfloor,legsstraightout,hatCRUSHEDoveroneeye,punchcuptippedbesideher,tinseldroops,mistletoewilted,tinyexhaustedsmile.\nRIGHT REORG: lankyconsultant,slickdarkhair/cowlick,rectangularglasses,slatesuit/tealtie/russetloafers. FACE-DOWNsprawledACROSShisFALLENrollingwhiteboard,glassespushedaskewontopofhead,orangemarkerclutchedinoutstretchedhand,blankstickynotesscattered,ONELEGstickingUP. Boardshowsunlabelledboxes/arrowsONLY. Samebossesnotredesigns. No letters/numbers/logos/brands/realpeople. Allthreeposesfulluncropped, same scale asfirstreference.",
+  "references": [
+    "assets/bosses/boss-knockdown-v1.png",
+    "assets/bosses/boss-new-boss-v1.png",
+    "assets/bosses/boss-holiday-party-v1.png",
+    "assets/bosses/boss-reorg-v1.png"
+  ],
+  "process": "Image generation study, sampled and palette-cleaned to native cells. Nearest-neighbor previews.",
+  "draft": true
+}

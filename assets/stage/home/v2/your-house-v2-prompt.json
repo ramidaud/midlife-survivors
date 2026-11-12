@@ -1,0 +1,20 @@
+{
+  "file": "your-house-v2.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    400,
+    400
+  ],
+  "job": {
+    "key": "townhouse-corrected",
+    "transparent": true,
+    "refs": [
+      "/tmp/townhouse-400-geometry.png",
+      "/Users/ramidaud/.codex/generated_images/01a19480-9eee-76b1-beaf-6583e4d453d7/exec-c5c973be-f214-4e22-bfde-fa099b796f40.png"
+    ],
+    "prompt": "Create finalpixelarttownhouseasset. FIRSTREFERENCE is strict400x400 GEOMETRYGUIDE, SECONDreferenceisstyle/detailonly. Crisp handmade 16-bit game pixel art, top-down three-quarter view matching reference houses exactly, clean broad flat fields, 2-3 hue-shifted tones, 1px navy silhouette outline at native scale. Peak fall. Neutral white balance, NO sepia, golden haze, film tint, no noise, no blur, no antialiasing. ONLY palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Absolutely NO text letters digits logos brands labels. No people. Keepfirstguideshapeproportions, make thehouse WIDE ENOUGH tofill400x400canvas, NOTa skinnytallfacade. Orangehousewallrectangle16..384x112..368. ONEgarage dooronRIGHTx144..384,y222..368, exactly240nativepxwide,60percentofcanvaswidth; NOTtwodoors. EntryonLEFTx40..104,y240..344. Upstairswindowstreet-facingx64..336,y136..200. Rooftriangleslopefromx8..392aty112toridge200,8;navyslatetiles,chinmeyleft. Use secondreferencewarmorange/navy/creamstyletextures anddetail. Smallstoopunderleftentry,leafwreath,twopumpkins,crookedmat,fatgrayrock. Noextra room/porch attached, noillustrateddimensions. Transparentoutside, nofloor/castshadow. Oneentirehouse, compositionandboundsexactfirstimage."
+  },
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay.",
+  "finalCorrection": "400px canvas contains336px facade and64px clear side-route band. Left entry panel and right240px garage bay registered independently below y222 to keep the footprint contract."
+}

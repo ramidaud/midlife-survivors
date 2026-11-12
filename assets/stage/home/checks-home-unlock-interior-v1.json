@@ -1,0 +1,46 @@
+{
+  "allPassed": true,
+  "sheets": [
+    {
+      "file": "your-house-v1.png",
+      "size": [
+        384,
+        224
+      ],
+      "dimensionsPassed": true
+    },
+    {
+      "file": "key-hunt-v1.png",
+      "size": [
+        256,
+        64
+      ],
+      "dimensionsPassed": true
+    },
+    {
+      "file": "house-interior-v1.png",
+      "size": [
+        512,
+        384
+      ],
+      "dimensionsPassed": true
+    },
+    {
+      "file": "home-hazards-v1.png",
+      "size": [
+        384,
+        128
+      ],
+      "dimensionsPassed": true
+    }
+  ],
+  "interiorPieces": 30,
+  "furniturePieces": 18,
+  "rectanglesInBounds": true,
+  "noRectangleOverlap": true,
+  "outsideDoorPixelIdentical": true,
+  "doorChangedPixels": 649,
+  "nativePaletteAndOpacity": "Validated on all pixels during Swift export",
+  "terrainSeams": "Matched oak, lavender and runner families; native periodic checker pattern with interior-only wear variant",
+  "runtimeChanged": false
+}

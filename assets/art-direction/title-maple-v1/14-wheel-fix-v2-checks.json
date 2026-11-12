@@ -1,0 +1,17 @@
+{
+  "base" : "assets\/art-direction\/title-maple-v1\/14-not-the-minivan-desktop-master.png",
+  "changedPixels" : 7182,
+  "changedPixelsOutsideRegion" : 0,
+  "changedRegion" : [
+    1656,
+    312,
+    105,
+    105
+  ],
+  "note" : "Only near-wheel and extra-tire repair patch composited. All pixels outside patch identical to source PNG master. Far rear wheel naturally occluded.",
+  "output" : "assets\/title-screen\/slides\/14-not-the-minivan-desktop-wheel-fix-v2.png",
+  "size" : [
+    1920,
+    1080
+  ]
+}

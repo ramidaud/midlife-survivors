@@ -1,0 +1,39 @@
+{
+  "all_passed" : true,
+  "aspect_preserved" : true,
+  "bottom_flat_floor_rows" : [
+    176,
+    319
+  ],
+  "exact_block_size" : [
+    6,
+    6
+  ],
+  "native" : [
+    180,
+    320
+  ],
+  "opaque" : true,
+  "output" : [
+    1080,
+    1920
+  ],
+  "palette" : [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "top_plain_wall_rows" : [
+    0,
+    53
+  ]
+}

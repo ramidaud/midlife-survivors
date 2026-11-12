@@ -1,0 +1,88 @@
+{
+  "anchor": [
+    24,
+    44
+  ],
+  "background": "exact opaque #FF00FF",
+  "cell": [
+    48,
+    48
+  ],
+  "checks": {
+    "allCellsPopulated": true,
+    "completeSourceColumns": true,
+    "nativeDimensions": true,
+    "opaque": true,
+    "palette": true
+  },
+  "file": "maple-hollow-enemies-v1.png",
+  "floorLine": 44,
+  "frameDelayMs": 100,
+  "grid": [
+    8,
+    4
+  ],
+  "inkCounts": [
+    911,
+    880,
+    879,
+    906,
+    916,
+    894,
+    877,
+    876,
+    963,
+    912,
+    919,
+    902,
+    931,
+    944,
+    926,
+    888,
+    812,
+    732,
+    757,
+    724,
+    769,
+    745,
+    755,
+    727,
+    1154,
+    1126,
+    1061,
+    1069,
+    1140,
+    1098,
+    1039,
+    1034
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#EF9347",
+    "#C45C4B",
+    "#BFA8CF",
+    "#F1B5BF"
+  ],
+  "populatedCells": 32,
+  "size": [
+    384,
+    192
+  ],
+  "source": "exec-84e70d3e-2c57-4b2e-a400-dea487137f44.png",
+  "rowNames": [
+    "Leaf Pile",
+    "Gutter Clog",
+    "Lawn Mower",
+    "Property Tax Notice"
+  ],
+  "facing": "right; mirror for left",
+  "soleLine": 44,
+  "clearPixelsBelow": 3
+}

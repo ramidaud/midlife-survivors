@@ -1,0 +1,103 @@
+{
+  "assets": [
+    {
+      "colorsUsed": 12,
+      "file": "interior-floor1-v3.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        416,
+        1392
+      ],
+      "transparentPixels": 69154
+    },
+    {
+      "colorsUsed": 12,
+      "file": "interior-floor2-v3.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        416,
+        928
+      ],
+      "transparentPixels": 0
+    },
+    {
+      "colorsUsed": 12,
+      "file": "living-photo-props-v3.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        768,
+        576
+      ],
+      "transparentPixels": 245639
+    },
+    {
+      "colorsUsed": 12,
+      "file": "abe-photo-props-v3.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        768,
+        576
+      ],
+      "transparentPixels": 212158
+    },
+    {
+      "colorsUsed": 12,
+      "file": "house-photo-support-v3.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        768,
+        576
+      ],
+      "transparentPixels": 204034
+    },
+    {
+      "colorsUsed": 11,
+      "file": "home-detail-props-v3.png",
+      "hardAlpha": true,
+      "palette": true,
+      "size": [
+        576,
+        384
+      ],
+      "transparentPixels": 119607
+    }
+  ],
+  "desk": "rami-desk-v2.png reused unchanged downstairs",
+  "privatePhotoPixelsIncluded": false,
+  "runtimeChanged": false,
+  "geometry": [
+    {
+      "floor": 1,
+      "sameCanvasAsV2": true,
+      "sameWallRectanglesAsV2": true,
+      "sameDoorRectanglesAsV2": true,
+      "sameStairsAsV2": true,
+      "allRectanglesInBounds": true,
+      "doorWallOverlap": false,
+      "runtimePathingTested": false
+    },
+    {
+      "floor": 2,
+      "sameCanvasAsV2": true,
+      "sameWallRectanglesAsV2": true,
+      "sameDoorRectanglesAsV2": true,
+      "sameStairsAsV2": true,
+      "allRectanglesInBounds": true,
+      "doorWallOverlap": false,
+      "runtimePathingTested": false
+    }
+  ],
+  "privacy": {
+    "referencePhotosRemainGitignored": true,
+    "referenceImagesInReview": false,
+    "privatePhotoFilesCopiedToAssets": false,
+    "familyFrames": "Abstract solid-color inserts only, visually checked.",
+    "facesNamesBrands": "No real faces, personal names, licence plate or brand lettering in the art."
+  },
+  "review": "review-interior-v3.html"
+}

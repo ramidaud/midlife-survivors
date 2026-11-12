@@ -1,0 +1,8 @@
+{
+  "prompt": "ONE COSMETIC ALTERNATE HERO SHEET for Midlife Survivors. Attached9-to-5er sheet isEXACTIDENTITY/OUTFIT/SCALE/GRIDreference. Keep SAME middleagedman, messybrownspikyhair/graytemples, rectangularblackglasses,creamshortsleevebuttonshirt,looserussettie,tanorangetrousers,brownshoes,orangecoffeemug. SAMEHEIGHTandfootprint. Butrenderhim likea LATE1990s LOWPOLYGON3Dcharacter PRE-RENDEREDINTO56x60SPRITES: slightlyplasticHAIR/SHOESshine, smoothsmallGRADIENTTONEsteps,facetedshoulders/head,softleftRIMLIGHT. NO conventionalnavycartoonoutline, only1pxDARKERMATERIALEDGE. Afterrendercrisphardnativepixelgrid, noAAHALOagainstmagenta/noblur. Neutralwhitebalance,no sepia/goldenfog/filmlook.\nEXACT8COLUMNSx5ROWSof56x60=448x300PNG. No cellgaps/gridlabels. FULLFRAMEOPAQUEEXACT#FF00FFoutsideart,NOshadow/floor.\nROWS0DOWNwalk,1UPwalk,2LEFTwalk,3RIGHTwalk.8framegaitineach: nearcontact/down/passing/up/FARcontact/down/passing/up; alternatinglegs,armsopposite,1pxbob. Sameface/head/outfitbetweenframes, mugretained. Feetlocaly56allcells,headsameheightasreference.\nROW4IDLE: cells0-3breathingwithblink;cells4-7FREEHANDpushesglassesslowlyupbridgeofnose,releases,coffeeinotherhand. Allviewfrontthreequarter.\nPALETTEgamebase#171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF PLUS ONLY6gradientshades#26304A #697789 #B5956C #D87849 #F7E4BB #6A463A. Samepersonnotnewcharacter. No text/letters/numbers/logos/brands/watermarks/realpeople. Clearlyreadsasprerendered3Dratherthanflatpixelcartoon.",
+  "references": [
+    "assets/characters/office-worker-walk-56x60-v3.png"
+  ],
+  "process": "Image generation study, sampled and palette-cleaned to native cells. Nearest-neighbor previews.",
+  "draft": true
+}

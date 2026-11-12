@@ -812,3 +812,12 @@ Accessibility guidelines say a screen shouldn't flash more than 3 times a second
 
 ## Whole-number scaling (Nov 11, the crisp pass)
 Pixel art is a grid of little squares. Show it at 2x and every square becomes a neat 2 by 2 block. Show it at 1.5x and the screen has to cheat: one square gets 1 screen pixel, the next gets 2, so outlines wobble and glasses go lopsided. Screens with extra-fine pixels (MacBooks, phones) add a second problem: the browser enlarges the whole picture and, unless told otherwise, smooths it like a photo. The fix is two rules: only zoom by whole numbers, and always enlarge with hard edges.
+
+### 2026-11-11: Stable colors reduce animation flicker (Codex)
+Holding the head and clothing colors steady reduces distracting changes between idle frames. The source silhouette can remain untouched while material colors are repainted at native size. Job 1 records both the original and new changed-pixel counts, including loop wraparounds.
+
+### 2026-11-11: Fill spaces with groups, not stretched props (Codex)
+A rug sized to a seating area connects furniture without blocking walking. Wall-mounted art has no floor collision; storage footprints cover the base rather than the whole tall drawing. The new house kit keeps those layers and footprints separate for integration.
+
+### 2026-11-11: Variant seams need cross-checks (Codex)
+Two lawn images can each tile with themselves yet clash when mixed. The outdoor kit compares every A/B edge pairing on both axes and includes a mixed 2×2 image, so the join can be inspected before placement.

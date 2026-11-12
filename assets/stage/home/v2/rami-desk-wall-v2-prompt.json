@@ -1,0 +1,19 @@
+{
+  "file": "rami-desk-wall-v2.png",
+  "brief": "docs/handoffs/chatgpt-maple-hollow-v2-scale.md",
+  "size": [
+    240,
+    96
+  ],
+  "job": {
+    "key": "desk-wall",
+    "transparent": true,
+    "refs": [
+      "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/docs/handoffs/img/rami-desk-setup.jpg",
+      "/Users/ramidaud/Desktop/03 Ai/Midlife Survivors/assets/stage/home/house-interior-v1.png"
+    ],
+    "prompt": "One separatewall-dressingsprite240x96native, widehorizontalstripforRami'shomeoffice, matchesdeskphoto. Crisp handmade 16-bit game pixel art, top-down three-quarter view matching reference houses exactly, clean broad flat fields, 2-3 hue-shifted tones, 1px navy silhouette outline at native scale. Peak fall. Neutral white balance, NO sepia, golden haze, film tint, no noise, no blur, no antialiasing. ONLY palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF. Absolutely NO text letters digits logos brands labels. No people. Transparentoutsidefullrectangularcreamwallstripwithnavy thinoutline,24pxabove? Fill240x96, cleanlowdetailcreamwall. Twochildren'scrayondrawingspinnedonpaper: leftRAINBOWumbrella/jellyfishshapedoodle, rightcoffeerange/orange racecar withtwowheels. Drawingabstractcoloredstrokes, noletters. Smallwarmamberlampaccentatrightedge, restrainedflatcolorhaloINSIDEwallonly. Nomonitors,desk,people,words,logos. Orthographicfrontalwallfacedetailsmatchinggamewallkit,pixelclustersonly."
+  },
+  "nativeExport": "Register studies to cell dimensions; quantize to12 colors; binary alpha. Floors assembled from measured rectangles, generated furniture and existing modular home/garage pieces.",
+  "approvedGarage": "Single-car garage10ft11in by20ft with the minivan. No second bay."
+}

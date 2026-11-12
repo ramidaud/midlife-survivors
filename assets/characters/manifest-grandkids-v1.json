@@ -1,0 +1,189 @@
+{
+  "cell": [
+    56,
+    60
+  ],
+  "sheetSize": [
+    448,
+    240
+  ],
+  "grid": [
+    8,
+    4
+  ],
+  "rows": {
+    "down": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "up": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "left": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "right": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ]
+  },
+  "footPoint": [
+    28,
+    56
+  ],
+  "format": "opaque RGBA PNG",
+  "background": "#FF00FF",
+  "idleRow": false,
+  "previewMs": 95,
+  "characters": [
+    {
+      "cell": [
+        56,
+        60
+      ],
+      "file": "grandkid-1-v1.png",
+      "footLine": 56,
+      "grid": [
+        8,
+        4
+      ],
+      "kid": 1,
+      "opaqueMagenta": true,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF",
+        "#E6BE58"
+      ],
+      "size": [
+        448,
+        240
+      ],
+      "targetInkHeight": 37,
+      "name": "Pink rain jacket, pigtails and gold boots",
+      "preview": [
+        "grandkid-1-down-preview-v1.gif",
+        "grandkid-1-up-preview-v1.gif",
+        "grandkid-1-left-preview-v1.gif",
+        "grandkid-1-right-preview-v1.gif"
+      ]
+    },
+    {
+      "cell": [
+        56,
+        60
+      ],
+      "file": "grandkid-2-v1.png",
+      "footLine": 56,
+      "grid": [
+        8,
+        4
+      ],
+      "kid": 2,
+      "opaqueMagenta": true,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "size": [
+        448,
+        240
+      ],
+      "targetInkHeight": 38,
+      "name": "Lavender hood, light-up soles and paper airplane",
+      "preview": [
+        "grandkid-2-down-preview-v1.gif",
+        "grandkid-2-up-preview-v1.gif",
+        "grandkid-2-left-preview-v1.gif",
+        "grandkid-2-right-preview-v1.gif"
+      ]
+    },
+    {
+      "cell": [
+        56,
+        60
+      ],
+      "file": "grandkid-3-v1.png",
+      "footLine": 56,
+      "grid": [
+        8,
+        4
+      ],
+      "kid": 3,
+      "opaqueMagenta": true,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#3E7775",
+        "#83A89A",
+        "#D3B78D",
+        "#F2D7A1",
+        "#FFF0CF",
+        "#EF9347",
+        "#C45C4B",
+        "#BFA8CF",
+        "#F1B5BF"
+      ],
+      "size": [
+        448,
+        240
+      ],
+      "targetInkHeight": 36,
+      "name": "Sage overalls, striped shirt and tiny backpack",
+      "preview": [
+        "grandkid-3-down-preview-v1.gif",
+        "grandkid-3-up-preview-v1.gif",
+        "grandkid-3-left-preview-v1.gif",
+        "grandkid-3-right-preview-v1.gif"
+      ]
+    }
+  ],
+  "check": "check-grandkids-final-v1.png",
+  "status": "Local review draft, art only, Claude owns runtime integration"
+}

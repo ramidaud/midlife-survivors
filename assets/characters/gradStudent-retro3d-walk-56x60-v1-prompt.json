@@ -1,0 +1,9 @@
+{
+  "tool": "Built-in imagegen",
+  "prompt": "Cosmetic retro rendered alternate skin for Midlife Survivors. FIRST reference is the EXACT identity/outfit/layout to preserve: Grad Student at45, friendly middle-aged woman, brown hair in a messy bun with a few gray strands, dark rectangular glasses, lavender hoodie, cream sleeves, dark trousers, tan shoes, notebook and orange mug. Match her face, proportions and all outfit details directly from first sheet. SECOND reference gives the exact late-1990s pre-rendered low-poly pixel-sprite style. FIVE ROWS x EIGHT COLUMNS, equal56x60 cells, total448x300 logical pixels. Row0 walk DOWN, row1 UP back view, row2 LEFT, row3 RIGHT. Row4 frames0-3 breathing with blink; frames4-7 checking/opening her notebook as normal sheet, not glasses adjustment. Alternating leg stride and opposing free-arm swing, one-pixel down bob. Keep torso/head identity and scale stable between frames. Same native footprint and sole line y54 as normal sheet. Exact opaque #FF00FF magenta everywhere outside sprites, NO floor shadow. Late90s rendered look: gradient shade steps, plastic hair/shoe sheen, soft LEFT rim light, visible low-poly facets on shoulder and head. NO continuous traditional navy outline, only darker material edges, crisp native pixels with no blur/AA halo. Palette #171C35 #303750 #526078 #3E7775 #83A89A #D3B78D #F2D7A1 #FFF0CF #EF9347 #C45C4B #BFA8CF #F1B5BF plus exactly these allowed intermediate shades: #26304A #697789 #B5956C #D87849 #F7E4BB #6A463A. Neutral white balance, no sepia/golden haze/film tint. No text, letters, numbers, logos, brands, watermarks or real people. Whole figures fully visible with safe magenta separation.",
+  "references": [
+    "assets/characters/grad-student-walk-56x60-v2.png",
+    "assets/characters/office-worker-retro3d-walk-56x60-v1.png"
+  ],
+  "nativeExport": "Proportional sampling, exact palette mapping, magenta cleanup. No runtime edits."
+}
