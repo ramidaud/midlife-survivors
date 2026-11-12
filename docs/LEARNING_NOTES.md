@@ -1,5 +1,8 @@
 # Midlife Survivors: Learning Notes
 
+## 2026-11-12: Review the actual pixels (Codex)
+A large art preview can hide details that disappear at game size. Check the native 56x60 sprite first, then enlarge it by whole numbers with smoothing off. A pixel-by-pixel comparison confirmed that the three approved detail fixes changed only 18 pixels and preserved everything else.
+
 Game-dev ideas you've picked up along the way. One short entry per concept.
 
 ## An environment is a stack of layers (Nov 1, 2026, Codex)

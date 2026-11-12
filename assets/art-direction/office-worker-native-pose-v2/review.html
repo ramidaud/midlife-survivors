@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>9-to-5er pixel review</title>
+<link rel="stylesheet" href="../../ui/ms-tokens.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: var(--ms-space-5); background: var(--ms-bg); color: var(--ms-text); font: var(--ms-body)/1.5 var(--ms-font-read); }
+h1,h2 { font: var(--ms-title)/1.3 var(--ms-font-label); }
+main { display: grid; gap: var(--ms-space-5); }
+section { padding: var(--ms-space-4); border: var(--ms-border-w) solid var(--ms-border); border-radius: var(--ms-radius-m); }
+.tray { display: flex; flex-wrap: wrap; gap: var(--ms-space-7); align-items: end; padding: var(--ms-space-5); background: var(--ms-raised); }
+figure { margin: 0; display: grid; gap: var(--ms-space-3); justify-items: start; }
+img { display: block; max-width: none; flex: none; image-rendering: crisp-edges; image-rendering: pixelated; }
+.scroll { overflow: auto; background: var(--ms-raised); padding: var(--ms-space-5); }
+a { color: var(--ms-text); }
+p { margin-block: var(--ms-space-3); }
+</style>
+<main>
+<header><h1>9-TO-5ER PIXEL REVIEW</h1><p>The native PNG shown at whole-number sizes, with smoothing disabled. Keep browser zoom at 100%.</p><p>The large comparison image in chat may be resized by the chat viewer. Use this page to judge pixel edges.</p></header>
+<section><h2>GAME SIZES</h2><div class="tray">
+<figure><img src="office-worker-native-pose-v2.png" width="56" height="60" alt="9-to-5er at native size"><figcaption>1× · 56 × 60</figcaption></figure>
+<figure><img src="office-worker-native-pose-v2.png" width="112" height="120" alt="9-to-5er at twice native size"><figcaption>2× · 112 × 120</figcaption></figure>
+<figure><img src="office-worker-native-pose-v2.png" width="168" height="180" alt="9-to-5er at three times native size"><figcaption>3× · 168 × 180</figcaption></figure>
+</div></section>
+<section><h2>PIXEL INSPECTION</h2><p>Scroll sideways on a narrow screen. This view never shrinks to fit.</p><div class="scroll"><img src="office-worker-native-pose-v2.png" width="448" height="480" alt="Exact eight times enlargement with pixelated rendering"></div></section>
+<footer><p>Single pose for art review. No animation or gameplay changes.</p><a href="office-worker-native-pose-v2.png" download>Download native PNG</a></footer>
+</main>
+</html>

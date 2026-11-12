@@ -1,0 +1,28 @@
+{
+  "width": 56,
+  "height": 60,
+  "sourceWidth": 1212,
+  "sourceHeight": 1298,
+  "export": "nearest neighbor; explicit spatial/color material families, then nearest shade within each family; alpha threshold 128",
+  "visibleColors": 13,
+  "alphaValues": [
+    0,
+    255
+  ],
+  "occupiedPixels": 1218,
+  "offPalette": [],
+  "materials": {
+    "outline-or-grey": 420,
+    "hair": 237,
+    "skin": 137,
+    "shirt-or-lens": 132,
+    "shirt": 6,
+    "tie": 74,
+    "mug": 34,
+    "pens": 4,
+    "belt": 1,
+    "slacks": 94,
+    "loafers": 72
+  },
+  "status": "single review pose, not integrated"
+}

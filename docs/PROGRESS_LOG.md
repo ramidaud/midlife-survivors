@@ -1,5 +1,10 @@
 # Midlife Survivors: Progress Log
 
+## 2026-11-12: 9-to-5er pose approved (Codex)
+- Rami approved Pose v2 as-is and requested an art-and-docs-only branch, `codex/office-worker-pose`.
+- The final pose is 56x60 with 13 approved colors and hard alpha. Its three detail fixes changed exactly 18 pixels.
+- Included the native PNG, previews, pixel-safe review, prompts, export helper and validation records. No gameplay integration or animation.
+
 Newest entries at the bottom. Each work session and weekly check-in adds one entry.
 
 ---

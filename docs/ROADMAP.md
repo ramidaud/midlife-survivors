@@ -1,5 +1,10 @@
 # Midlife Survivors: Roadmap
 
+## 2026-11-12: Approved 9-to-5er pose (Codex)
+- [x] Rami approved native Pose v2 as-is, including the pocket, face and mug fixes.
+- [x] Package the approved art and supporting docs on `codex/office-worker-pose`.
+- Animation and game integration remain separate future steps.
+
 Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with something playable.
 Weekly check-in: Sundays, evening (automatic).
 

@@ -1,5 +1,9 @@
 # Midlife Survivors: Game Design (living draft v0.1)
 
+## 2026-11-12: Approved 9-to-5er pose (Codex)
+- Rami approved native Pose v2 as-is: khaki slacks, clear glasses, two upright teal pocket pens without red marks, clean skin under the nose and a one-pixel outer mug handle.
+- This single pose is the approved reference for future animation. It is an art delivery, not a runtime replacement.
+
 **Pitch:** You're 40. The emails, bills, back twinges and group chats are coming for you, and they will not stop. Survive four decades to **Retirement at Age 80**, plus **20 Bonus Senior Life Rounds (Age 80 to 100)**, armed only with coffee, dad jokes and the word "No."
 
 Status: brainstorm. Everything here is a starting point for Rami to cut, rename and rewrite.
