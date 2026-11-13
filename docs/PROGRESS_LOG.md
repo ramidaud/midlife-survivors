@@ -2437,3 +2437,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami approved Codex's repaint (PR #10, "not perfect, ok for now"): bassinets in the corner, upright sim rig, detailed kitchen.
 - Still off for Rami: the scale of the two couches, the leather chair (the old one looked better), the coffee table disappearing, the two lamp tables not lining up, and a squeezed basket (move it between the couch and the coffee table).
 - The House Layout Editor now loads the repaint as round 2, with those notes pinned on the pieces. Round 1 layouts are kept.
+
+## 2026-11-13: living room made walkable (Claude)
+- Codex repainted the TV, love seat, lamp tables, recliner, sim rig, coffee table and basket at Rami's sizes. The art reads, but the furniture blocked every 96 px route from the north door to the south opening.
+- Fixed by nudging four things, no new art: sim rig 44 px up (cables with it), toy bin to the east wall, one plant and the coffee table 8 px each. Route check passes.
