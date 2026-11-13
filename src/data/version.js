@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.34.0",
-  displayVersion: "V. 2.34.0",
+  version: "2.35.0",
+  displayVersion: "V. 2.35.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 373,
+  build: 374,
   changelog: [
+    {
+      ver: "V. 2.35.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Maple Park opens at 62. The pavilion's reserved.",
+      highlights: [
+        "Maple Park opens at 62, at the top of town: a pavilion by a koi pond, picnic grills and cornhole, and a bird-watching corner with garden beds and gnomes.",
+        "At 63.5 the Gold Watch comes out at the pavilion, or at the edge of the park nearest you."
+      ]
+    },
     {
       ver: "V. 2.34.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Maple Hollow Elementary is built. Book fair Monday, lice check Tuesday.",

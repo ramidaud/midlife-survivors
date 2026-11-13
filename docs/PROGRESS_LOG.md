@@ -2387,3 +2387,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Elementary re-laid out around the school: pickup line off the road above, chalk on the left, playground (the Math Homework arena) on the right, soccer field below.
 - Signs say "MAPLE HOLLOW ELEM." and "BOOK FAIR MON / LICE CHECK TUE" (game text on Codex's blank plates).
 - Only the final pieces were copied in; PR #7 can be closed (its working files stay on the branch).
+
+## 2026-11-13: V. 2.35.0, Maple Park opens at 62 (Claude)
+- Third area, built from the yard themes' pieces on an open lawn: the HOA set is the pavilion and koi pond, the grill master's set the picnic area, the retirees' set a bird-watching corner.
+- The Gold Watch (63.5) comes out at the pavilion.
+- Areas open now: Elementary (44), Birch Circle (47), Maple Park (62). Waiting on Codex: Strip Mall, Town Square, Community Center. Still to build from the kit: the Parkway (59).

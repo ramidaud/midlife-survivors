@@ -568,10 +568,10 @@ window.MapleHollow = (() => {
           H.body(o, { width: fw - 16, back: fh - 12, front: 0 }, "prop_house"); bodies.push(o); items.push(o);
           return;
         }
-        if (kind === "yard" && MY && !my.failed) { // a backyard plate plus its theme's pieces and the shared frame (fence posts, shrubs)
-          const th = MY.themes[e[3]]; if (!th) return;
-          extra(scene.add.image(X, Y, keyed("mh4_yard_" + th.ground, my[th.ground], 0, 0, my[th.ground].width, my[th.ground].height)).setOrigin(0).setDepth(-999));
-          MY.frame.concat(th.pieces).forEach(q => {
+        if ((kind === "yard" || kind === "vignette") && MY && !my.failed) { // yard: a backyard plate plus its theme's pieces and the shared frame
+          const th = MY.themes[e[3]]; if (!th) return;                                         // vignette: just the theme's pieces, out on the open lawn
+          if (kind === "yard") extra(scene.add.image(X, Y, keyed("mh4_yard_" + th.ground, my[th.ground], 0, 0, my[th.ground].width, my[th.ground].height)).setOrigin(0).setDepth(-999));
+          (kind === "yard" ? MY.frame.concat(th.pieces) : th.pieces).forEach(q => {
             const img = my[q.f]; if (!img) return;
             const k = keyed("mh4_piece_" + q.f, img, 0, 0, img.width, img.height, q.k !== "flat");
             if (q.k === "flat") { extra(scene.add.image(X + q.x, Y + q.y, k).setOrigin(0).setDepth(-998)); return; }

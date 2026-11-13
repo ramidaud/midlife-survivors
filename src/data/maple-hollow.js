@@ -120,9 +120,10 @@ window.MAPLE_HOLLOW = {
         ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
       ],
       // Areas that are built open at their age: the woods clear and the area's pieces appear. The rest stay woods.
-      built: ["elementary", "birch"],
+      built: ["elementary", "birch", "park"],
       openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."],
-                   birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."] },
+                   birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."],
+                   park: ["MAPLE PARK", "Maple Park is open. Somebody reserved the pavilion for a retirement party."] },
       // Pieces reused from the yard kit (assets/stage/home/v4/yard/): size, feet line (dy) and solid footprint, relative to
       // the picture's top-left corner. flat = walked over.
       pieces: {
@@ -163,6 +164,21 @@ window.MAPLE_HOLLOW = {
           ["tree-maple-orange", 40, 1700], ["tree-maple-orange", 700, 1850], ["tree-maple-orange", 1500, 1860], ["tree-maple-orange", 2330, 1840],
           ["autumn-shrub-a", 660, 1380], ["autumn-shrub-b", 1480, 1380], ["autumn-shrub-c", 2300, 1380]
         ],
+        // Maple Park v1 (Nov 13): the yard themes' pieces out on an open lawn. The HOA set is the pavilion (pergola, koi pond,
+        // lanterns, hedges), the grill master's set the picnic area, the retirees' set a bird-watching corner. Gold Watch (63.5) at the pavilion.
+        // [vignette, x, y, theme]: a theme's pieces without its yard plate or fence posts. Each vignette is 416 x 448.
+        park: [
+          ["vignette", 1040, 620, "hoa-president"], ["vignette", 260, 260, "grill-master"], ["vignette", 1880, 300, "retirees"],
+          ["vignette", 360, 1280, "retirees"], ["vignette", 1760, 1260, "grill-master"],
+          ["tree-maple-orange", 120, 160], ["tree-maple-orange", 800, 120], ["tree-maple-orange", 1500, 160], ["tree-maple-orange", 2300, 120],
+          ["tree-maple-orange", 900, 760], ["tree-maple-orange", 1600, 760], ["tree-maple-orange", 60, 900], ["tree-maple-orange", 2360, 900],
+          ["tree-maple-orange", 1000, 1500], ["tree-maple-orange", 1480, 1520], ["tree-maple-orange", 200, 1820], ["tree-maple-orange", 2280, 1800],
+          ["autumn-shrub-a", 700, 600], ["autumn-shrub-b", 1760, 620], ["autumn-shrub-c", 1100, 1260], ["autumn-shrub-a", 1500, 1240],
+          ["autumn-shrub-b", 800, 1820], ["autumn-shrub-c", 1700, 1840], ["autumn-shrub-a", 40, 520], ["autumn-shrub-b", 2420, 560],
+          ["decal-leaf-drift", 600, 1000], ["decal-scattered-maple", 1200, 520], ["decal-leaf-drift", 1900, 1000], ["decal-scattered-maple", 400, 1700],
+          ["decal-leaf-drift", 1300, 1800], ["decal-scattered-maple", 2100, 1700], ["decal-leaf-drift", 700, 300], ["decal-scattered-maple", 2000, 200],
+          ["beach-ball", 1150, 1650]
+        ],
         elementary: [
           // the school, its sign and flag, the bike rack and the lost-and-found bin by the door
           ["school-front", 100, 100], ["flagpole", 1200, 400], ["school-sign", 420, 700], ["bike-rack", 120, 700], ["lost-and-found", 760, 600],
@@ -187,7 +203,7 @@ window.MAPLE_HOLLOW = {
           ["decal-leaf-drift", 300, 2000], ["decal-scattered-maple", 2050, 2250], ["decal-scattered-maple", 2750, 600]
         ]
       },
-      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090] } // where each boss comes out, if its area is open
+      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090], goldWatch: ["park", 1290, 1060] } // where each boss comes out, if its area is open
     },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
