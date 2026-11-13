@@ -286,12 +286,19 @@ window.MapleHollow = (() => {
         const t = scene.add.tileSprite(X + x + w / 2, Y + y + h, w, h, k).setOrigin(0.5, 1).setDepth(2.9);
         H.body(t, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(t); items.push(t);
       });
+      // tall wall faces (ground floor v4, Nov 13): drawn behind everything, solid, with the wall art hung on them
+      (D.faces || []).forEach(([x, y, w, h]) => {
+        const k = D.wallTex.face && T(D.wallTex.face); if (k) all.push(scene.add.tileSprite(X + x + w / 2, Y + y + h, w, h, k).setOrigin(0.5, 1).setDepth(2.5));
+        solidBlock(X + x, Y + y, w, h);
+      });
       const sr = D.stairs.rect, sk = T(D.stairs.art), [, , sw, sh] = D.frames[D.stairs.art] || [0, 0, 0, 0];
       if (sk) all.push(scene.add.image(X + sr[0], Y + sr[1], sk).setOrigin(0).setDepth(2.5));
       D.pieces.forEach(pc => {
         const k = T(pc.key); if (!k) return; const [w, h] = pc.size;
-        const o = scene.add.image(X + pc.at[0] + w / 2, Y + pc.at[1] + h, k).setOrigin(0.5, 1).setDepth(pc.layer === "decal" ? 2.6 : 3);
-        if (pc.solid) { H.body(o, { width: Math.max(8, pc.foot[2] - 4), back: Math.max(8, pc.foot[3]), front: 0 }, "prop_furniture"); bodies.push(o); }
+        const o = scene.add.image(X + pc.at[0] + w / 2, Y + pc.at[1] + h, k).setOrigin(0.5, 1).setDepth({ decal: 2.6, wall: 2.7, over: 9e8 }[pc.layer] || 3);
+        if (pc.solid && pc.fp) { // v4 pieces: Codex's exact footprint, anywhere in the picture
+          H.body(o, { width: pc.fp[2], back: pc.fp[3], front: 0 }, "prop_furniture"); o.body.setSize(pc.fp[2], pc.fp[3]).setOffset(pc.fp[0], pc.fp[1]); bodies.push(o);
+        } else if (pc.solid) { H.body(o, { width: Math.max(8, pc.foot[2] - 4), back: Math.max(8, pc.foot[3]), front: 0 }, "prop_furniture"); bodies.push(o); }
         items.push(o); byId[pc.id] = o;
       });
       return { byId, stairs: [X + sr[0], Y + sr[1], sw, sh] };

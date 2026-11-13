@@ -2466,3 +2466,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Living mock-up uses Rami’s round-two furniture coordinates. TV replaces the editor transform; basket follows the written between-sofa-and-table instruction. Both exceptions are recorded.
 - Fixed living layout fails the 96 px door-route check. Kept positions and flagged the failure for review rather than moving furniture. Other rooms and 49 untouched assets retain their approved exports exactly.
 - Native hero comparisons and 3x room/footprint previews included. All 56 assets, three clearance test cases and the export audit pass; desktop/phone browser checks load 61 images with no failures or page overflow. Living-route failure stays explicit. No game placement or version change.
+
+## 2026-11-13: the ground floor is in the game, V2.41.0 (Claude)
+- PR #10 merged. The approved repaint is placed: Rami's living room, Codex's dining, kitchen, entry and laundry layouts.
+- Rami picked real walls: three 128 px wall faces (top, living/dining, dining/kitchen) carry the wall art. The house is 368 px taller.
+- Rami picked option 1: the desk and shelves moved to the left of the dining wall so the doorway lines up with the living room's open corner. Moon print over the stairs; the west window dropped (no wall there).
+- A 96 px square reaches every main room from the front door. Tested in the game at laptop and phone size.

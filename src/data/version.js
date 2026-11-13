@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.40.0",
-  displayVersion: "V. 2.40.0",
+  version: "2.41.0",
+  displayVersion: "V. 2.41.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 379,
+  build: 380,
   changelog: [
+    {
+      ver: "V. 2.41.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Home has real walls now. And a recliner with opinions.",
+      highlights: [
+        "The ground floor of your house is repainted from the real one: the living room around the big rug, the twins' bassinets in the corner, the sim rig facing the TV, the dining table, the standing desk and a full kitchen.",
+        "Real walls with art on them: curtained windows, the fireplace mirror, the photo shelves, the moon print over the stairs and a wall of kitchen cabinets.",
+        "A wide doorway from the living room to the dining room, and room to dodge everywhere (every main room passes the 96 px route check)."
+      ]
+    },
     {
       ver: "V. 2.40.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "The Parkway gets a golf course. Fore.",
