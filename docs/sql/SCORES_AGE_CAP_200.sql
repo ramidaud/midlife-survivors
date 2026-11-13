@@ -18,3 +18,5 @@ values ('Coldwar Cowboy', 750126, 104.0, 40, 'coldWarCowboy', '2.29.11 T1');
 -- still there until Rami says to remove it.
 insert into public.scores_midlife (name, score, age, start_age, character, version)
 values ('Derek', 579444, 80.1, 40, 'gradStudent', '1.76.0 T2');
+-- Nov 12, 10:25 PM (Rami: yes): the misplaced Full Life copy removed.
+delete from public.scores where name = 'Derek' and score = 579444 and age = 80.10;

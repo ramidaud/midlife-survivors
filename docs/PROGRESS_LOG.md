@@ -2348,3 +2348,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - All eleven neighbor yards now draw a plain ground plate plus separate pieces, laid out per theme in `tools/maple_yards.py` (it refuses any solid piece in the gate lane or the path back to the house). Fence posts and autumn shrubs frame every yard, yours too.
 - Standing pieces sort by their feet with the hero; roofs, lights and bunting draw above you.
 - Tested: all six themes in game, ghost in front of and behind the hero, and both gate lanes walk end to end. No errors.
+
+## 2026-11-12: wrap-up (Claude)
+- Leaderboard fixes by hand (Rami's OK): Ben's 104 Full Life run added; Derek's 579,444 Midlife run moved from the Full Life board to the Midlife board.
+- Rami's Mac copy now lives on the Extreme Pro drive and is up to date; Codex's Batch C branch has main merged in.
+- Next session: Rami walks Maple Hollow, then trees and shrubs as their own sprites, then the starting weapon on each character card.
