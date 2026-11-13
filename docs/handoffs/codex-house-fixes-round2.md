@@ -11,3 +11,6 @@ PR #10 is approved. Rami did a second layout pass; his living room is in `docs/p
 7. **Blanket basket** between the west sofa and the coffee table, with a light blanket so it stands out from the rug.
 
 Deliver: the repainted pieces, the updated living mock-up at 3x with the hero, footprint and 96 px route checks. Nothing placed in the game. Neutral white balance, no people, names or readable personal text.
+
+## Round 3 (one item, Rami Nov 13)
+8. **Coffee table color.** The round-two table reads as a white surfboard on the rug. Repaint the top in warm light oak (three tones), keep the props, same size and footprint.

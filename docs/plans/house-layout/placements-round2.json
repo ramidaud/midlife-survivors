@@ -1,5 +1,5 @@
 {
- "note": "Round 2 living room, made walkable by Claude (Nov 13): sim rig up 44 px with its cables, toy bin to the east wall, second bird of paradise 8 px east, coffee table 8 px south. Codex's TV and basket positions kept. Passes the 96 px route check from the north door to the south opening.",
+ "note": "Round 2 living room, made walkable by Claude (Nov 13): sim rig up 44 px with its cables, toy bin to the east wall, second bird of paradise 8 px east, coffee table 8 px south. Codex's TV and basket positions kept. Passes the 96 px route check from the north door to the south opening. Drum lamp moved to the back (northeast) corner, Rami Nov 13.",
  "rooms": {
   "living": {
    "rect": [
@@ -107,8 +107,8 @@
     },
     {
      "id": "drum-floor-lamp",
-     "x": 692,
-     "y": -60,
+     "x": 724,
+     "y": -44,
      "scale": 100,
      "rot": 0,
      "flip": false
