@@ -1,0 +1,1516 @@
+{
+  "coordinateSpace": "Existing HOUSE_V2 native world pixels. Per-room views are authoritative, independently composited to avoid adjacent-room north-wall overhang. Full-floor overview is a coordinate/context study. North-wall overhang above floor edge is intentional.",
+  "views": [
+    {
+      "id": "whole-ground-floor",
+      "rect": [
+        0,
+        0,
+        800,
+        2069
+      ],
+      "file": "mockups/whole-ground-floor-1x.png",
+      "overlay": "mockups/whole-ground-floor-footprints-1x.png",
+      "note": "Full ground floor in existing HOUSE_V2 coordinates. New pieces in the named rooms; legacy ancillary rooms retained for context. No runtime integration."
+    },
+    {
+      "id": "living",
+      "rect": [
+        16,
+        16,
+        768,
+        345
+      ],
+      "file": "mockups/living-1x.png",
+      "overlay": "mockups/living-footprints-1x.png",
+      "note": "New living-room pieces. The central 224px route stays clear."
+    },
+    {
+      "id": "dining-desk-shared",
+      "rect": [
+        184,
+        361,
+        600,
+        322
+      ],
+      "file": "mockups/dining-desk-shared-1x.png",
+      "overlay": "mockups/dining-desk-shared-footprints-1x.png",
+      "note": "Shared space. Dining and desk rects overlap in the live layout."
+    },
+    {
+      "id": "dining",
+      "rect": [
+        184,
+        361,
+        404,
+        322
+      ],
+      "file": "mockups/dining-1x.png",
+      "overlay": "mockups/dining-footprints-1x.png",
+      "note": "Dining crop of the shared room."
+    },
+    {
+      "id": "downstairs-desk-nook",
+      "rect": [
+        200,
+        361,
+        584,
+        322
+      ],
+      "file": "mockups/downstairs-desk-nook-1x.png",
+      "overlay": "mockups/downstairs-desk-nook-footprints-1x.png",
+      "note": "Desk-nook crop of the same shared room."
+    },
+    {
+      "id": "kitchen",
+      "rect": [
+        368,
+        699,
+        416,
+        332
+      ],
+      "file": "mockups/kitchen-1x.png",
+      "overlay": "mockups/kitchen-footprints-1x.png",
+      "note": "North appliances face camera; east/west worktops show their tops and narrow front edges."
+    },
+    {
+      "id": "entry",
+      "rect": [
+        16,
+        1135,
+        184,
+        172
+      ],
+      "file": "mockups/entry-1x.png",
+      "overlay": "mockups/entry-footprints-1x.png",
+      "note": "West bench leaves a 112px route. Basketball and shoes have no names or branding."
+    },
+    {
+      "id": "entry-closet",
+      "rect": [
+        16,
+        987,
+        168,
+        120
+      ],
+      "file": "mockups/entry-closet-1x.png",
+      "overlay": "mockups/entry-closet-footprints-1x.png",
+      "note": "Louvered door uses the thin side-wall version at the actual east-wall opening."
+    },
+    {
+      "id": "circulation",
+      "rect": [
+        200,
+        683,
+        136,
+        624
+      ],
+      "file": "mockups/circulation-1x.png",
+      "overlay": "mockups/circulation-footprints-1x.png",
+      "note": "The complete136px hall stays clear. A224px target cannot fit this rect."
+    },
+    {
+      "id": "half-bath",
+      "rect": [
+        16,
+        699,
+        168,
+        272
+      ],
+      "file": "mockups/half-bath-1x.png",
+      "overlay": "mockups/half-bath-footprints-1x.png",
+      "note": "Existing game fixtures shown for context. Not repainted by this room brief."
+    },
+    {
+      "id": "breakfast-nook",
+      "rect": [
+        200,
+        1055,
+        464,
+        252
+      ],
+      "file": "mockups/breakfast-nook-1x.png",
+      "overlay": "mockups/breakfast-nook-footprints-1x.png",
+      "note": "Existing extra area shown for context; no photo-directed furnishing assigned by the brief."
+    },
+    {
+      "id": "laundry-closet",
+      "rect": [
+        680,
+        1055,
+        104,
+        136
+      ],
+      "file": "mockups/laundry-closet-1x.png",
+      "overlay": "mockups/laundry-closet-footprints-1x.png",
+      "note": "Existing laundry appliance retained for context."
+    },
+    {
+      "id": "stairs",
+      "rect": [
+        16,
+        361,
+        144,
+        322
+      ],
+      "file": "mockups/stairs-1x.png",
+      "overlay": "mockups/stairs-footprints-1x.png",
+      "note": "Existing stair art retained for context."
+    },
+    {
+      "id": "garage",
+      "rect": [
+        252,
+        1323,
+        532,
+        724
+      ],
+      "file": "mockups/garage-1x.png",
+      "overlay": "mockups/garage-footprints-1x.png",
+      "note": "Existing garage pieces retained for context, plus new oak double-door study at the actual inner opening."
+    }
+  ],
+  "placements": [
+    {
+      "viewRoom": "living",
+      "id": "side-table-lamp",
+      "at": [
+        46,
+        97
+      ],
+      "anchor": [
+        70,
+        154
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          53,
+          130,
+          34,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "twins-toy-bin",
+      "at": [
+        264,
+        313
+      ],
+      "anchor": [
+        292,
+        350
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          271,
+          326,
+          42,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "houseplant-cluster",
+      "at": [
+        168,
+        293
+      ],
+      "anchor": [
+        200,
+        350
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          175,
+          326,
+          50,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "houseplant-cluster",
+      "at": [
+        188,
+        613
+      ],
+      "anchor": [
+        220,
+        670
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          195,
+          646,
+          50,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "shoe-rack",
+      "at": [
+        348,
+        637
+      ],
+      "anchor": [
+        384,
+        674
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          355,
+          650,
+          58,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "laundry-basket",
+      "at": [
+        430,
+        633
+      ],
+      "anchor": [
+        450,
+        670
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          437,
+          646,
+          26,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "photo-ledges",
+      "at": [
+        24,
+        -79
+      ],
+      "anchor": [
+        128,
+        2
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "living",
+      "id": "tile-fireplace",
+      "at": [
+        240,
+        -21
+      ],
+      "anchor": [
+        296,
+        52
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          247,
+          28,
+          98,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "ornate-silver-mirror",
+      "at": [
+        248,
+        -71
+      ],
+      "anchor": [
+        296,
+        -14
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "living",
+      "id": "window-olive-curtains",
+      "at": [
+        400,
+        -93
+      ],
+      "anchor": [
+        444,
+        12
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "living",
+      "id": "galaxy-wall-tv",
+      "at": [
+        608,
+        -77
+      ],
+      "anchor": [
+        688,
+        4
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "living",
+      "id": "fluted-media-console",
+      "at": [
+        608,
+        -5
+      ],
+      "anchor": [
+        688,
+        52
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          615,
+          28,
+          146,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "cream-sofa",
+      "at": [
+        24,
+        145
+      ],
+      "anchor": [
+        60,
+        330
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          33,
+          160,
+          54,
+          166
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "leather-recliner",
+      "at": [
+        692,
+        143
+      ],
+      "anchor": [
+        728,
+        240
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          703,
+          190,
+          50,
+          50
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "round-coffee-table",
+      "at": [
+        196,
+        255
+      ],
+      "anchor": [
+        248,
+        312
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          207,
+          276,
+          82,
+          36
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "persian-living-rug",
+      "at": [
+        44,
+        164
+      ],
+      "anchor": [
+        44,
+        164
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "ground",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "living",
+      "id": "potted-pothos",
+      "at": [
+        24,
+        39
+      ],
+      "anchor": [
+        44,
+        96
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          34,
+          82,
+          20,
+          14
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "bird-of-paradise",
+      "at": [
+        192,
+        -41
+      ],
+      "anchor": [
+        220,
+        64
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          210,
+          50,
+          20,
+          14
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "drum-floor-lamp",
+      "at": [
+        24,
+        -25
+      ],
+      "anchor": [
+        40,
+        64
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          34,
+          56,
+          12,
+          8
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "arched-floor-lamp",
+      "at": [
+        714,
+        31
+      ],
+      "anchor": [
+        752,
+        136
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          746,
+          128,
+          12,
+          8
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "racing-sim-rig",
+      "at": [
+        604,
+        223
+      ],
+      "anchor": [
+        644,
+        328
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          613,
+          256,
+          62,
+          72
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "sim-cables",
+      "at": [
+        596,
+        156
+      ],
+      "anchor": [
+        596,
+        156
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "ground",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "living",
+      "id": "baby-swing-pink",
+      "at": [
+        254,
+        71
+      ],
+      "anchor": [
+        276,
+        120
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          261,
+          96,
+          30,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "baby-swing-grey",
+      "at": [
+        306,
+        71
+      ],
+      "anchor": [
+        328,
+        120
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          313,
+          96,
+          30,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "blanket-basket",
+      "at": [
+        724,
+        285
+      ],
+      "anchor": [
+        744,
+        318
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          731,
+          294,
+          26,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "snack-bag",
+      "at": [
+        240,
+        316
+      ],
+      "anchor": [
+        240,
+        316
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "ground",
+      "room": "living",
+      "footprints": []
+    },
+    {
+      "viewRoom": "dining",
+      "id": "round-dining-table",
+      "at": [
+        276,
+        499
+      ],
+      "anchor": [
+        344,
+        580
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          287,
+          544,
+          114,
+          36
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "dining-chair-north",
+      "at": [
+        326,
+        461
+      ],
+      "anchor": [
+        344,
+        500
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          333,
+          476,
+          22,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "dining-chair-south",
+      "at": [
+        326,
+        595
+      ],
+      "anchor": [
+        344,
+        634
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          333,
+          610,
+          22,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "dining-chair-east",
+      "at": [
+        420,
+        535
+      ],
+      "anchor": [
+        438,
+        574
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          427,
+          550,
+          22,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "dining-chair-west",
+      "at": [
+        232,
+        535
+      ],
+      "anchor": [
+        250,
+        574
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          239,
+          550,
+          22,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "dining-rug",
+      "at": [
+        240,
+        472
+      ],
+      "anchor": [
+        240,
+        472
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "ground",
+      "room": "dining",
+      "footprints": []
+    },
+    {
+      "viewRoom": "desk",
+      "id": "corner-computer-desk",
+      "at": [
+        532,
+        347
+      ],
+      "anchor": [
+        652,
+        468
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "desk",
+      "footprints": [
+        [
+          541,
+          434,
+          222,
+          34
+        ],
+        [
+          727,
+          378,
+          36,
+          88
+        ]
+      ]
+    },
+    {
+      "viewRoom": "desk",
+      "id": "camera-book-shelves",
+      "at": [
+        512,
+        270
+      ],
+      "anchor": [
+        600,
+        351
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "desk",
+      "footprints": []
+    },
+    {
+      "viewRoom": "desk",
+      "id": "window-blinds-east",
+      "at": [
+        768,
+        365
+      ],
+      "anchor": [
+        768,
+        365
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "desk",
+      "footprints": []
+    },
+    {
+      "viewRoom": "desk",
+      "id": "mesh-office-chair",
+      "at": [
+        624,
+        441
+      ],
+      "anchor": [
+        644,
+        490
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "desk",
+      "footprints": [
+        [
+          631,
+          466,
+          26,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "desk",
+      "id": "moon-print",
+      "at": [
+        456,
+        298
+      ],
+      "anchor": [
+        480,
+        355
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "desk",
+      "footprints": []
+    },
+    {
+      "viewRoom": "desk",
+      "id": "kids-drawings",
+      "at": [
+        712,
+        322
+      ],
+      "anchor": [
+        744,
+        355
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "desk",
+      "footprints": []
+    },
+    {
+      "viewRoom": "desk",
+      "id": "electric-console-east",
+      "at": [
+        724,
+        507
+      ],
+      "anchor": [
+        752,
+        628
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "desk",
+      "footprints": [
+        [
+          731,
+          518,
+          42,
+          106
+        ]
+      ]
+    },
+    {
+      "viewRoom": "desk",
+      "id": "abstract-wall-painting",
+      "at": [
+        344,
+        282
+      ],
+      "anchor": [
+        392,
+        355
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "desk",
+      "footprints": []
+    },
+    {
+      "viewRoom": "dining",
+      "id": "potted-orchid",
+      "at": [
+        188,
+        395
+      ],
+      "anchor": [
+        204,
+        444
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          194,
+          430,
+          20,
+          14
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "ceiling-fan",
+      "at": [
+        456,
+        483
+      ],
+      "anchor": [
+        488,
+        540
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "over-everything",
+      "room": "dining",
+      "footprints": []
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "white-oak-sink-counter",
+      "at": [
+        408,
+        670
+      ],
+      "anchor": [
+        480,
+        743
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "kitchen",
+      "footprints": [
+        [
+          415,
+          719,
+          130,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "white-oak-upper-cabinets",
+      "at": [
+        384,
+        602
+      ],
+      "anchor": [
+        464,
+        659
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "kitchen",
+      "footprints": []
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "stove-microwave",
+      "at": [
+        576,
+        643
+      ],
+      "anchor": [
+        608,
+        748
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "kitchen",
+      "footprints": [
+        [
+          584,
+          714,
+          48,
+          34
+        ]
+      ]
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "magnet-fridge",
+      "at": [
+        712,
+        659
+      ],
+      "anchor": [
+        744,
+        764
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "kitchen",
+      "footprints": [
+        [
+          720,
+          730,
+          48,
+          34
+        ]
+      ]
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "kitchen-counter-west",
+      "at": [
+        372,
+        807
+      ],
+      "anchor": [
+        400,
+        928
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "kitchen",
+      "footprints": [
+        [
+          379,
+          818,
+          42,
+          106
+        ]
+      ]
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "kitchen-counter-east",
+      "at": [
+        724,
+        811
+      ],
+      "anchor": [
+        752,
+        932
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "kitchen",
+      "footprints": [
+        [
+          731,
+          822,
+          42,
+          106
+        ]
+      ]
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "leaning-abstract-painting",
+      "at": [
+        668,
+        686
+      ],
+      "anchor": [
+        692,
+        743
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "kitchen",
+      "footprints": [
+        [
+          677,
+          738,
+          30,
+          5
+        ]
+      ]
+    },
+    {
+      "viewRoom": "kitchen",
+      "id": "kitchen-runner",
+      "at": [
+        544,
+        792
+      ],
+      "anchor": [
+        544,
+        792
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "ground",
+      "room": "kitchen",
+      "footprints": []
+    },
+    {
+      "viewRoom": "entry",
+      "id": "storage-bench-west",
+      "at": [
+        24,
+        1155
+      ],
+      "anchor": [
+        52,
+        1260
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "entry",
+      "footprints": [
+        [
+          31,
+          1166,
+          42,
+          90
+        ]
+      ]
+    },
+    {
+      "viewRoom": "entry",
+      "id": "shoe-pairs",
+      "at": [
+        44,
+        1274
+      ],
+      "anchor": [
+        44,
+        1274
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "ground",
+      "room": "entry",
+      "footprints": []
+    },
+    {
+      "viewRoom": "entry",
+      "id": "coat-hooks-jacket",
+      "at": [
+        112,
+        1070
+      ],
+      "anchor": [
+        132,
+        1135
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "entry",
+      "footprints": []
+    },
+    {
+      "viewRoom": "circulation",
+      "id": "light-switch",
+      "at": [
+        318,
+        687
+      ],
+      "anchor": [
+        324,
+        700
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "entry",
+      "footprints": []
+    },
+    {
+      "viewRoom": "circulation",
+      "id": "ceiling-vent",
+      "at": [
+        250,
+        723
+      ],
+      "anchor": [
+        266,
+        740
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "over-everything",
+      "room": "entry",
+      "footprints": []
+    },
+    {
+      "viewRoom": "garage",
+      "id": "oak-door-north",
+      "at": [
+        464,
+        1218
+      ],
+      "anchor": [
+        496,
+        1323
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "shell",
+      "footprints": []
+    },
+    {
+      "viewRoom": "garage",
+      "id": "oak-door-north",
+      "at": [
+        528,
+        1218
+      ],
+      "anchor": [
+        560,
+        1323
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "shell",
+      "footprints": []
+    },
+    {
+      "viewRoom": "entry",
+      "id": "oak-door-side",
+      "at": [
+        0,
+        1139
+      ],
+      "anchor": [
+        0,
+        1139
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "shell",
+      "footprints": []
+    },
+    {
+      "viewRoom": "entry-closet",
+      "id": "louvered-closet-door-side",
+      "at": [
+        184,
+        995
+      ],
+      "anchor": [
+        184,
+        995
+      ],
+      "kind": "WALK-THROUGH",
+      "layer": "wall-mounted",
+      "room": "entry",
+      "footprints": []
+    }
+  ],
+  "legacyContext": [
+    {
+      "id": "toilet",
+      "at": [
+        60,
+        731
+      ],
+      "room": "half-bath",
+      "note": "Existing game art retained for context, not repainted in this brief."
+    },
+    {
+      "id": "bath-sink",
+      "at": [
+        60,
+        895
+      ],
+      "room": "half-bath",
+      "note": "Existing game art retained for context, not repainted in this brief."
+    },
+    {
+      "id": "washer-dryer",
+      "at": [
+        680,
+        1059
+      ],
+      "room": "laundry-closet",
+      "note": "Existing game art retained for context, not repainted in this brief."
+    },
+    {
+      "id": "minivan",
+      "at": [
+        456,
+        1576
+      ],
+      "room": "garage",
+      "note": "Existing game art retained for context, not repainted in this brief."
+    },
+    {
+      "id": "garage-workbench",
+      "at": [
+        258,
+        1354
+      ],
+      "room": "garage",
+      "note": "Existing game art retained for context, not repainted in this brief."
+    },
+    {
+      "id": "garage-storage",
+      "at": [
+        718,
+        1358
+      ],
+      "room": "garage",
+      "note": "Existing game art retained for context, not repainted in this brief."
+    },
+    {
+      "id": "stairs",
+      "at": [
+        52,
+        400
+      ],
+      "room": "stairs",
+      "note": "Existing game art."
+    }
+  ],
+  "paths": [
+    {
+      "room": "living-patio-connector",
+      "rect": [
+        92,
+        16,
+        96,
+        164
+      ],
+      "width": 96,
+      "note": "Clear connector from actual 120px patio opening."
+    },
+    {
+      "room": "living-main-connector",
+      "rect": [
+        140,
+        132,
+        340,
+        96
+      ],
+      "width": 96,
+      "note": "Joins patio connector to central 224px route."
+    },
+    {
+      "room": "living",
+      "rect": [
+        368,
+        16,
+        224,
+        345
+      ],
+      "width": 224,
+      "note": "Main clear route inside living room."
+    },
+    {
+      "room": "dining-desk-shared",
+      "rect": [
+        480,
+        488,
+        104,
+        195
+      ],
+      "width": 104,
+      "note": "Route between dining table and desk."
+    },
+    {
+      "room": "kitchen",
+      "rect": [
+        440,
+        784,
+        224,
+        247
+      ],
+      "width": 224,
+      "note": "Central kitchen aisle, narrows at north work area."
+    },
+    {
+      "room": "circulation",
+      "rect": [
+        200,
+        683,
+        136,
+        624
+      ],
+      "width": 136,
+      "note": "Entire existing hall kept clear.224px would need a layout change."
+    },
+    {
+      "room": "entry",
+      "rect": [
+        88,
+        1135,
+        112,
+        172
+      ],
+      "width": 112,
+      "note": "Clear of west storage bench."
+    }
+  ],
+  "pathIntersections": [],
+  "unplacedPieces": []
+}

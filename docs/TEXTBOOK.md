@@ -2143,3 +2143,20 @@ Things are drawn back to front. A bigger depth number goes on top.
        +----------------------------------------------------
 ```
 Rami's editor layout made almost every piece 130-150% bigger. Measured against the hero, the house art was about 1.4x too small, so the rooms read as empty floor.
+
+## 2026-11-13: connected clearance (Codex)
+
+    door -> [96px square] -> clear floor -> [96px square] -> door
+                     95px gap: stop
+
+Footprint checks use the part touching the floor. A continuous path must fit the whole square, including at the doorway. The house repaint records its tiny laundry closet separately because an appliance leaves too little standing room inside.
+
+## 2026-11-13: making an object read on a busy rug (Codex)
+
+    pale table top + dark base
+              over
+    dark patterned rug
+              =
+    a visible edge and visible props
+
+Material contrast makes a prop readable without adding another heavy outline. Keep one source painting per selected asset and link the review export back to it.

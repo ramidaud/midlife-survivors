@@ -2427,6 +2427,12 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New Codex brief `docs/handoffs/codex-house-interior.md`: every room repainted from the photos, wall decor face-on on north walls, neutral light with glowing neons, density targets, room mock-ups for approval. Ground floor first, then upstairs.
 - Photos stay out of the repo (it's public and they show family). Rami attaches them to Codex directly. No real names, usernames or plates in the art.
 
+
+## 2026-11-13: house mock-up review revisions (Codex)
+- Repainted chairs to 40px visible height and floor to fine laminate.
+- Removed rug backing, moved office chair to desk, restored concrete garage.
+- Added five household pieces, with plant clusters in both living and dining.
+- All 61 assets validate; reserved routes stay clear. Awaiting approval before placement. No runtime or version change.
 ## 2026-11-13: Rami lays out the house (Claude)
 - Built the House Layout Editor (a claude.ai page): drag, size, turn and leave notes on Codex's pieces; it saves where Claude can read it. Fixed two bugs along the way (saved rooms couldn't be edited; rugs covered furniture).
 - Rami laid out the living room, dining and desk, kitchen and entry, and approved the PR #10 art.
@@ -2441,3 +2447,22 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## 2026-11-13: living room made walkable (Claude)
 - Codex repainted the TV, love seat, lamp tables, recliner, sim rig, coffee table and basket at Rami's sizes. The art reads, but the furniture blocked every 96 px route from the north door to the south opening.
 - Fixed by nudging four things, no new art: sim rig 44 px up (cables with it), toy bin to the east wall, one plant and the coffee table 8 px each. Route check passes.
+## 2026-11-13: house-scale repaint from Rami's layouts (Codex)
+- Continued PR #10, merged the latest main, and kept both sets of documentation entries.
+- Added a separate 56-piece repaint review using Rami's room positions, corrected perspectives, standing desk, bassinets, love seat and matched kitchen.
+- Four main rooms have connected 96px routes at their existing openings. The tiny laundry closet keeps its appliance and records a clearance exception.
+- Entry bench is compact to clear the door; bassinets move beside the sofa to clear the patio. Both fit adjustments are noted for approval.
+- Native and exact 3x previews, hero comparisons and footprint checks included. Art approval only; no game placement or version change.
+
+## 2026-11-13: PR #10 room-detail corrections (Codex)
+- Rami fixed the bassinets in the northwest corner. Repainted two compact sleeping bassinets there; sofa moves south and shelves rise, preserving the 96px patio route.
+- Upright sim faces the TV with connected floor cables. Coffee table has a light top and props; office chair tucks at desk, plant clears the painting, and drawings sit on the wall.
+- Repainted the kitchen as one detailed set: fridge magnets/handles, paneled doors/drawers and counter props, with only the north double sink. Middle stays open.
+- Deleted duplicate deliver/sources and changed export/manifest paths to retain one source set. Rebuild audit checks that it stays deleted.
+- All 56 assets and four main-room doorway routes pass. Exact 3x previews and native image QA complete; laundry-closet exception remains. No runtime placement or version change; awaiting approval.
+
+## 2026-11-13: PR #10 small round-two corrections (Codex)
+- Repainted the TV, rear-view love seat, matched lamp tables, tufted recliner, east-facing sim, pale coffee table and light blanket basket at their final native sizes, with proportional source fits and exact 3x reductions.
+- Living mock-up uses Rami’s round-two furniture coordinates. TV replaces the editor transform; basket follows the written between-sofa-and-table instruction. Both exceptions are recorded.
+- Fixed living layout fails the 96 px door-route check. Kept positions and flagged the failure for review rather than moving furniture. Other rooms and 49 untouched assets retain their approved exports exactly.
+- Native hero comparisons and 3x room/footprint previews included. All 56 assets, three clearance test cases and the export audit pass; desktop/phone browser checks load 61 images with no failures or page overflow. Living-route failure stays explicit. No game placement or version change.

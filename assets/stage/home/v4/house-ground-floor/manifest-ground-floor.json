@@ -1,0 +1,3506 @@
+{
+  "status": "Ground floor art review, awaiting approval. No runtime placement. Upstairs deferred.",
+  "privacy": "Private attached house photos are reference-only and excluded from this package, including all comparisons and mockups. New paintings contain no people or identifying text; framed pictures are nonfigurative art/landscapes.",
+  "method": "Built-in imagegen paintings normalized to exact 2x/3x working canvases, exact RGBA block mode, then material-family palette mapping. Generator dimensions vary; originals, source fit and exact working files retained. No code-built world shapes.",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "heroReference": "Complete unscaled 56x60 live office-worker v4 frame including transparent margins.",
+  "layoutSource": "src/data/house-v2.js at750b81a; art-only placement proposals, not runtime changes.",
+  "coordinates": "Native pixels: feetLine y; footPoint[x,y]; footprints[x,y,width,height]. Proposed anchors and collision rectangles, not runtime-tested. Wall decorations and overhead pieces have empty collision footprints.",
+  "layoutNotes": [
+    "Dining and downstairs desk nook overlap in current HOUSE_V2 and are staged as one shared room with individual crops.",
+    "Circulation is only 136px wide. It remains fully clear; the 224px target would require a separately approved layout change.",
+    "North-wall art may overhang north of the floor rect; floor footprints remain inside. Side cabinets show top and narrow front edge. South walls are cut away."
+  ],
+  "pieces": [
+    {
+      "id": "photo-ledges",
+      "file": "photo-ledges-v1.png",
+      "room": "living",
+      "size": [
+        208,
+        88
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 81,
+      "footPoint": [
+        104,
+        81
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        205,
+        85
+      ],
+      "source": "sources/photo-ledges.png",
+      "sourceSize": [
+        1928,
+        815
+      ],
+      "sourceCrop": [
+        21,
+        17,
+        1896,
+        810
+      ],
+      "sourceFit": [
+        9,
+        9,
+        606,
+        246
+      ],
+      "working": "working/photo-ledges-3x.png",
+      "workingSize": [
+        624,
+        264
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_abstract-photo-ledges.png",
+      "comparison1x": "checks/photo-ledges-hero-reference-1x.png",
+      "footprintPreview": "checks/photo-ledges-footprint-1x.png"
+    },
+    {
+      "id": "tile-fireplace",
+      "file": "tile-fireplace-v1.png",
+      "room": "living",
+      "size": [
+        112,
+        80
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 73,
+      "footPoint": [
+        56,
+        73
+      ],
+      "footprints": [
+        [
+          7,
+          49,
+          98,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        109,
+        77
+      ],
+      "source": "sources/tile-fireplace.png",
+      "sourceSize": [
+        1484,
+        1060
+      ],
+      "sourceCrop": [
+        194,
+        33,
+        1293,
+        1029
+      ],
+      "sourceFit": [
+        9,
+        9,
+        318,
+        222
+      ],
+      "working": "working/tile-fireplace-3x.png",
+      "workingSize": [
+        336,
+        240
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_silver-mirror-fireplace.png",
+      "comparison1x": "checks/tile-fireplace-hero-reference-1x.png",
+      "footprintPreview": "checks/tile-fireplace-footprint-1x.png"
+    },
+    {
+      "id": "ornate-silver-mirror",
+      "file": "ornate-silver-mirror-v1.png",
+      "room": "living",
+      "size": [
+        96,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 57,
+      "footPoint": [
+        48,
+        57
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        93,
+        61
+      ],
+      "source": "sources/ornate-silver-mirror.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceCrop": [
+        118,
+        37,
+        1417,
+        981
+      ],
+      "sourceFit": [
+        9,
+        9,
+        270,
+        174
+      ],
+      "working": "working/ornate-silver-mirror-3x.png",
+      "workingSize": [
+        288,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_silver-mirror-fireplace.png",
+      "comparison1x": "checks/ornate-silver-mirror-hero-reference-1x.png",
+      "footprintPreview": "checks/ornate-silver-mirror-footprint-1x.png"
+    },
+    {
+      "id": "window-olive-curtains",
+      "file": "window-olive-curtains-v1.png",
+      "room": "living",
+      "size": [
+        88,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 105,
+      "footPoint": [
+        44,
+        105
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        85,
+        109
+      ],
+      "source": "sources/window-olive-curtains.png",
+      "sourceSize": [
+        1199,
+        1312
+      ],
+      "sourceCrop": [
+        40,
+        95,
+        1158,
+        1210
+      ],
+      "sourceFit": [
+        9,
+        9,
+        246,
+        318
+      ],
+      "working": "working/window-olive-curtains-3x.png",
+      "workingSize": [
+        264,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_back-door-blinds.png",
+      "comparison1x": "checks/window-olive-curtains-hero-reference-1x.png",
+      "footprintPreview": "checks/window-olive-curtains-footprint-1x.png"
+    },
+    {
+      "id": "galaxy-wall-tv",
+      "file": "galaxy-wall-tv-v1.png",
+      "room": "living",
+      "size": [
+        160,
+        88
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 81,
+      "footPoint": [
+        80,
+        81
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        157,
+        85
+      ],
+      "source": "sources/galaxy-wall-tv.png",
+      "sourceSize": [
+        1690,
+        931
+      ],
+      "sourceCrop": [
+        90,
+        101,
+        1601,
+        830
+      ],
+      "sourceFit": [
+        9,
+        9,
+        462,
+        246
+      ],
+      "working": "working/galaxy-wall-tv-3x.png",
+      "workingSize": [
+        480,
+        264
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_slatted-media-console.png",
+      "comparison1x": "checks/galaxy-wall-tv-hero-reference-1x.png",
+      "footprintPreview": "checks/galaxy-wall-tv-footprint-1x.png"
+    },
+    {
+      "id": "fluted-media-console",
+      "file": "fluted-media-console-v1.png",
+      "room": "living",
+      "size": [
+        160,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        80,
+        57
+      ],
+      "footprints": [
+        [
+          7,
+          33,
+          146,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        157,
+        61
+      ],
+      "source": "sources/fluted-media-console.png",
+      "sourceSize": [
+        1983,
+        793
+      ],
+      "sourceCrop": [
+        24,
+        24,
+        1959,
+        766
+      ],
+      "sourceFit": [
+        9,
+        9,
+        462,
+        174
+      ],
+      "working": "working/fluted-media-console-3x.png",
+      "workingSize": [
+        480,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_slatted-media-console.png",
+      "comparison1x": "checks/fluted-media-console-hero-reference-1x.png",
+      "footprintPreview": "checks/fluted-media-console-footprint-1x.png"
+    },
+    {
+      "id": "cream-sofa",
+      "file": "cream-sofa-v1.png",
+      "room": "living",
+      "size": [
+        72,
+        192
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 185,
+      "footPoint": [
+        36,
+        185
+      ],
+      "footprints": [
+        [
+          9,
+          15,
+          54,
+          166
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        69,
+        189
+      ],
+      "source": "sources/cream-sofa.png",
+      "sourceSize": [
+        768,
+        2048
+      ],
+      "sourceCrop": [
+        11,
+        122,
+        688,
+        1956
+      ],
+      "sourceFit": [
+        9,
+        9,
+        198,
+        558
+      ],
+      "working": "working/cream-sofa-3x.png",
+      "workingSize": [
+        216,
+        576
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_cream-sofa-back.png",
+      "comparison1x": "checks/cream-sofa-hero-reference-1x.png",
+      "footprintPreview": "checks/cream-sofa-footprint-1x.png",
+      "fitNote": "Repainted for west wall: three-seat length192px along north-south axis,72px across. Seats face east toward TV. See revision-prompts.json."
+    },
+    {
+      "id": "leather-recliner",
+      "file": "leather-recliner-v1.png",
+      "room": "living",
+      "size": [
+        72,
+        104
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 97,
+      "footPoint": [
+        36,
+        97
+      ],
+      "footprints": [
+        [
+          11,
+          47,
+          50,
+          50
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        69,
+        101
+      ],
+      "source": "sources/leather-recliner.png",
+      "sourceSize": [
+        718,
+        2188
+      ],
+      "sourceCrop": [
+        8,
+        653,
+        709,
+        1532
+      ],
+      "sourceFit": [
+        9,
+        9,
+        198,
+        294
+      ],
+      "working": "working/leather-recliner-3x.png",
+      "workingSize": [
+        216,
+        312
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_leather-recliner.png",
+      "comparison1x": "checks/leather-recliner-hero-reference-1x.png",
+      "footprintPreview": "checks/leather-recliner-footprint-1x.png"
+    },
+    {
+      "id": "round-coffee-table",
+      "file": "round-coffee-table-v1.png",
+      "room": "living",
+      "size": [
+        104,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        52,
+        57
+      ],
+      "footprints": [
+        [
+          11,
+          21,
+          82,
+          36
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        101,
+        61
+      ],
+      "source": "sources/round-coffee-table.png",
+      "sourceSize": [
+        1599,
+        984
+      ],
+      "sourceCrop": [
+        263,
+        14,
+        1316,
+        969
+      ],
+      "sourceFit": [
+        9,
+        9,
+        294,
+        174
+      ],
+      "working": "working/round-coffee-table-3x.png",
+      "workingSize": [
+        312,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_orchid-coffee-table.png",
+      "comparison1x": "checks/round-coffee-table-hero-reference-1x.png",
+      "footprintPreview": "checks/round-coffee-table-footprint-1x.png"
+    },
+    {
+      "id": "persian-living-rug",
+      "file": "persian-living-rug-v1.png",
+      "room": "living",
+      "size": [
+        304,
+        176
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 169,
+      "footPoint": [
+        152,
+        169
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        4,
+        301,
+        173
+      ],
+      "source": "sources/persian-living-rug.png",
+      "sourceSize": [
+        1647,
+        955
+      ],
+      "sourceCrop": [
+        23,
+        12,
+        1627,
+        912
+      ],
+      "sourceFit": [
+        9,
+        9,
+        894,
+        510
+      ],
+      "working": "working/persian-living-rug-3x.png",
+      "workingSize": [
+        912,
+        528
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_cream-sofa-back.png",
+      "comparison1x": "checks/persian-living-rug-hero-reference-1x.png",
+      "footprintPreview": "checks/persian-living-rug-footprint-1x.png"
+    },
+    {
+      "id": "potted-pothos",
+      "file": "potted-pothos-v1.png",
+      "room": "living",
+      "size": [
+        40,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        20,
+        57
+      ],
+      "footprints": [
+        [
+          10,
+          43,
+          20,
+          14
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        37,
+        61
+      ],
+      "source": "sources/potted-pothos.png",
+      "sourceSize": [
+        916,
+        1717
+      ],
+      "sourceCrop": [
+        16,
+        83,
+        889,
+        1497
+      ],
+      "sourceFit": [
+        9,
+        9,
+        102,
+        174
+      ],
+      "working": "working/potted-pothos-3x.png",
+      "workingSize": [
+        120,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_woven-basket-monstera.png",
+      "comparison1x": "checks/potted-pothos-hero-reference-1x.png",
+      "footprintPreview": "checks/potted-pothos-footprint-1x.png"
+    },
+    {
+      "id": "bird-of-paradise",
+      "file": "bird-of-paradise-v1.png",
+      "room": "living",
+      "size": [
+        56,
+        112
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        28,
+        105
+      ],
+      "footprints": [
+        [
+          18,
+          91,
+          20,
+          14
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        109
+      ],
+      "source": "sources/bird-of-paradise.png",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sourceCrop": [
+        0,
+        12,
+        882,
+        1755
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        318
+      ],
+      "working": "working/bird-of-paradise-3x.png",
+      "workingSize": [
+        168,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_woven-basket-monstera.png",
+      "comparison1x": "checks/bird-of-paradise-hero-reference-1x.png",
+      "footprintPreview": "checks/bird-of-paradise-footprint-1x.png"
+    },
+    {
+      "id": "drum-floor-lamp",
+      "file": "drum-floor-lamp-v1.png",
+      "room": "living",
+      "size": [
+        32,
+        96
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 89,
+      "footPoint": [
+        16,
+        89
+      ],
+      "footprints": [
+        [
+          10,
+          81,
+          12,
+          8
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        29,
+        93
+      ],
+      "source": "sources/drum-floor-lamp.png",
+      "sourceSize": [
+        748,
+        2103
+      ],
+      "sourceCrop": [
+        96,
+        44,
+        650,
+        2063
+      ],
+      "sourceFit": [
+        9,
+        9,
+        78,
+        270
+      ],
+      "working": "working/drum-floor-lamp-3x.png",
+      "workingSize": [
+        96,
+        288
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_drum-floor-lamp.png",
+      "comparison1x": "checks/drum-floor-lamp-hero-reference-1x.png",
+      "footprintPreview": "checks/drum-floor-lamp-footprint-1x.png"
+    },
+    {
+      "id": "arched-floor-lamp",
+      "file": "arched-floor-lamp-v1.png",
+      "room": "living",
+      "size": [
+        56,
+        112
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        38,
+        105
+      ],
+      "footprints": [
+        [
+          32,
+          97,
+          12,
+          8
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        109
+      ],
+      "source": "sources/arched-floor-lamp.png",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sourceCrop": [
+        53,
+        102,
+        825,
+        1691
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        318
+      ],
+      "working": "working/arched-floor-lamp-3x.png",
+      "workingSize": [
+        168,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_drum-floor-lamp.png",
+      "comparison1x": "checks/arched-floor-lamp-hero-reference-1x.png",
+      "footprintPreview": "checks/arched-floor-lamp-footprint-1x.png"
+    },
+    {
+      "id": "racing-sim-rig",
+      "file": "racing-sim-rig-v1.png",
+      "room": "living",
+      "size": [
+        80,
+        112
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        40,
+        105
+      ],
+      "footprints": [
+        [
+          9,
+          33,
+          62,
+          72
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        77,
+        109
+      ],
+      "source": "sources/racing-sim-rig.png",
+      "sourceSize": [
+        1095,
+        1437
+      ],
+      "sourceCrop": [
+        148,
+        41,
+        923,
+        1396
+      ],
+      "sourceFit": [
+        9,
+        9,
+        222,
+        318
+      ],
+      "working": "working/racing-sim-rig-3x.png",
+      "workingSize": [
+        240,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached twins room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_racing-sim-rig.png",
+      "comparison1x": "checks/racing-sim-rig-hero-reference-1x.png",
+      "footprintPreview": "checks/racing-sim-rig-footprint-1x.png"
+    },
+    {
+      "id": "sim-cables",
+      "file": "sim-cables-v1.png",
+      "room": "living",
+      "size": [
+        96,
+        32
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 25,
+      "footPoint": [
+        48,
+        25
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        93,
+        29
+      ],
+      "source": "sources/sim-cables.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        68,
+        23,
+        2136,
+        707
+      ],
+      "sourceFit": [
+        9,
+        9,
+        270,
+        78
+      ],
+      "working": "working/sim-cables-3x.png",
+      "workingSize": [
+        288,
+        96
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "Isolated asset repaint without image reference; see revision-prompts.json"
+      ],
+      "oldReference": "reference/p_rig-cables.png",
+      "comparison1x": "checks/sim-cables-hero-reference-1x.png",
+      "footprintPreview": "checks/sim-cables-footprint-1x.png"
+    },
+    {
+      "id": "baby-swing-pink",
+      "file": "baby-swing-pink-v1.png",
+      "room": "living",
+      "size": [
+        44,
+        56
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 49,
+      "footPoint": [
+        22,
+        49
+      ],
+      "footprints": [
+        [
+          7,
+          25,
+          30,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        41,
+        53
+      ],
+      "source": "sources/baby-swing-pink.png",
+      "sourceSize": [
+        979,
+        1607
+      ],
+      "sourceCrop": [
+        40,
+        121,
+        947,
+        1558
+      ],
+      "sourceFit": [
+        9,
+        9,
+        114,
+        150
+      ],
+      "working": "working/baby-swing-pink-3x.png",
+      "workingSize": [
+        132,
+        168
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached twins room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_baby-swing-left.png",
+      "comparison1x": "checks/baby-swing-pink-hero-reference-1x.png",
+      "footprintPreview": "checks/baby-swing-pink-footprint-1x.png"
+    },
+    {
+      "id": "baby-swing-grey",
+      "file": "baby-swing-grey-v1.png",
+      "room": "living",
+      "size": [
+        44,
+        56
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 49,
+      "footPoint": [
+        22,
+        49
+      ],
+      "footprints": [
+        [
+          7,
+          25,
+          30,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        41,
+        53
+      ],
+      "source": "sources/baby-swing-grey.png",
+      "sourceSize": [
+        1095,
+        1437
+      ],
+      "sourceCrop": [
+        65,
+        41,
+        1038,
+        1410
+      ],
+      "sourceFit": [
+        9,
+        9,
+        114,
+        150
+      ],
+      "working": "working/baby-swing-grey-3x.png",
+      "workingSize": [
+        132,
+        168
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached twins room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_baby-swing-right.png",
+      "comparison1x": "checks/baby-swing-grey-hero-reference-1x.png",
+      "footprintPreview": "checks/baby-swing-grey-footprint-1x.png"
+    },
+    {
+      "id": "blanket-basket",
+      "file": "blanket-basket-v1.png",
+      "room": "living",
+      "size": [
+        40,
+        40
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 33,
+      "footPoint": [
+        20,
+        33
+      ],
+      "footprints": [
+        [
+          7,
+          9,
+          26,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        37,
+        37
+      ],
+      "source": "sources/blanket-basket.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        102,
+        57,
+        1135,
+        1221
+      ],
+      "sourceFit": [
+        9,
+        9,
+        102,
+        102
+      ],
+      "working": "working/blanket-basket-3x.png",
+      "workingSize": [
+        120,
+        120
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached living room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_cream-sofa-back.png",
+      "comparison1x": "checks/blanket-basket-hero-reference-1x.png",
+      "footprintPreview": "checks/blanket-basket-footprint-1x.png"
+    },
+    {
+      "id": "snack-bag",
+      "file": "snack-bag-v1.png",
+      "room": "living",
+      "size": [
+        24,
+        24
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 16,
+      "footPoint": [
+        11,
+        16
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        4,
+        20,
+        20
+      ],
+      "source": "sources/snack-bag.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        211,
+        402,
+        1030,
+        936
+      ],
+      "sourceFit": [
+        9,
+        9,
+        54,
+        54
+      ],
+      "working": "working/snack-bag-3x.png",
+      "workingSize": [
+        72,
+        72
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached twins room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_cream-sofa-back.png",
+      "comparison1x": "checks/snack-bag-hero-reference-1x.png",
+      "footprintPreview": "checks/snack-bag-footprint-1x.png"
+    },
+    {
+      "id": "round-dining-table",
+      "file": "round-dining-table-v1.png",
+      "room": "dining",
+      "size": [
+        136,
+        88
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 81,
+      "footPoint": [
+        68,
+        81
+      ],
+      "footprints": [
+        [
+          11,
+          45,
+          114,
+          36
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        133,
+        85
+      ],
+      "source": "sources/round-dining-table.png",
+      "sourceSize": [
+        1559,
+        1009
+      ],
+      "sourceCrop": [
+        242,
+        10,
+        1288,
+        994
+      ],
+      "sourceFit": [
+        9,
+        9,
+        390,
+        246
+      ],
+      "working": "working/round-dining-table-3x.png",
+      "workingSize": [
+        408,
+        264
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_dining-table-cream-chairs.png",
+      "comparison1x": "checks/round-dining-table-hero-reference-1x.png",
+      "footprintPreview": "checks/round-dining-table-footprint-1x.png"
+    },
+    {
+      "id": "dining-chair-north",
+      "file": "dining-chair-north-v1.png",
+      "room": "dining",
+      "size": [
+        36,
+        46
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 39,
+      "footPoint": [
+        18,
+        39
+      ],
+      "footprints": [
+        [
+          7,
+          15,
+          22,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        33,
+        43
+      ],
+      "source": "sources/dining-chair-north.png",
+      "sourceSize": [
+        1108,
+        1419
+      ],
+      "sourceCrop": [
+        245,
+        120,
+        825,
+        1200
+      ],
+      "sourceFit": [
+        9,
+        9,
+        90,
+        120
+      ],
+      "working": "working/dining-chair-north-3x.png",
+      "workingSize": [
+        108,
+        138
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_dining-table-cream-chairs.png",
+      "comparison1x": "checks/dining-chair-north-hero-reference-1x.png",
+      "footprintPreview": "checks/dining-chair-north-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
+    },
+    {
+      "id": "dining-chair-south",
+      "file": "dining-chair-south-v1.png",
+      "room": "dining",
+      "size": [
+        36,
+        46
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 39,
+      "footPoint": [
+        18,
+        39
+      ],
+      "footprints": [
+        [
+          7,
+          15,
+          22,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        33,
+        43
+      ],
+      "source": "sources/dining-chair-south.png",
+      "sourceSize": [
+        1109,
+        1419
+      ],
+      "sourceCrop": [
+        297,
+        268,
+        789,
+        1104
+      ],
+      "sourceFit": [
+        9,
+        9,
+        90,
+        120
+      ],
+      "working": "working/dining-chair-south-3x.png",
+      "workingSize": [
+        108,
+        138
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_dining-table-cream-chairs.png",
+      "comparison1x": "checks/dining-chair-south-hero-reference-1x.png",
+      "footprintPreview": "checks/dining-chair-south-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
+    },
+    {
+      "id": "dining-chair-east",
+      "file": "dining-chair-east-v1.png",
+      "room": "dining",
+      "size": [
+        36,
+        46
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 39,
+      "footPoint": [
+        18,
+        39
+      ],
+      "footprints": [
+        [
+          7,
+          15,
+          22,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        33,
+        43
+      ],
+      "source": "sources/dining-chair-east.png",
+      "sourceSize": [
+        1111,
+        1416
+      ],
+      "sourceCrop": [
+        129,
+        152,
+        909,
+        1260
+      ],
+      "sourceFit": [
+        9,
+        9,
+        90,
+        120
+      ],
+      "working": "working/dining-chair-east-3x.png",
+      "workingSize": [
+        108,
+        138
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_dining-table-cream-chairs.png",
+      "comparison1x": "checks/dining-chair-east-hero-reference-1x.png",
+      "footprintPreview": "checks/dining-chair-east-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
+    },
+    {
+      "id": "dining-chair-west",
+      "file": "dining-chair-west-v1.png",
+      "room": "dining",
+      "size": [
+        36,
+        46
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 39,
+      "footPoint": [
+        18,
+        39
+      ],
+      "footprints": [
+        [
+          7,
+          15,
+          22,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        33,
+        43
+      ],
+      "source": "sources/dining-chair-west.png",
+      "sourceSize": [
+        1106,
+        1422
+      ],
+      "sourceCrop": [
+        145,
+        109,
+        989,
+        1275
+      ],
+      "sourceFit": [
+        9,
+        9,
+        90,
+        120
+      ],
+      "working": "working/dining-chair-west-3x.png",
+      "workingSize": [
+        108,
+        138
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_dining-table-cream-chairs.png",
+      "comparison1x": "checks/dining-chair-west-hero-reference-1x.png",
+      "footprintPreview": "checks/dining-chair-west-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
+    },
+    {
+      "id": "dining-rug",
+      "file": "dining-rug-v1.png",
+      "room": "dining",
+      "size": [
+        208,
+        176
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 169,
+      "footPoint": [
+        104,
+        169
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        205,
+        173
+      ],
+      "source": "sources/dining-rug.png",
+      "sourceSize": [
+        1367,
+        1151
+      ],
+      "sourceCrop": [
+        12,
+        11,
+        1353,
+        1137
+      ],
+      "sourceFit": [
+        9,
+        9,
+        606,
+        510
+      ],
+      "working": "working/dining-rug-3x.png",
+      "workingSize": [
+        624,
+        528
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "Isolated asset repaint without image reference; see revision-prompts.json"
+      ],
+      "oldReference": "reference/p_dining-table-cream-chairs.png",
+      "comparison1x": "checks/dining-rug-hero-reference-1x.png",
+      "footprintPreview": "checks/dining-rug-footprint-1x.png"
+    },
+    {
+      "id": "corner-computer-desk",
+      "file": "corner-computer-desk-v1.png",
+      "room": "desk",
+      "size": [
+        240,
+        128
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 121,
+      "footPoint": [
+        120,
+        121
+      ],
+      "footprints": [
+        [
+          9,
+          87,
+          222,
+          34
+        ],
+        [
+          195,
+          31,
+          36,
+          88
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        237,
+        125
+      ],
+      "source": "sources/corner-computer-desk.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceCrop": [
+        111,
+        14,
+        1550,
+        928
+      ],
+      "sourceFit": [
+        9,
+        9,
+        702,
+        366
+      ],
+      "working": "working/corner-computer-desk-3x.png",
+      "workingSize": [
+        720,
+        384
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_desk-by-dining-window.png",
+      "comparison1x": "checks/corner-computer-desk-hero-reference-1x.png",
+      "footprintPreview": "checks/corner-computer-desk-footprint-1x.png",
+      "fitNote": "Final native fit enlarged from initial200x112 request to240x128 to suit the existing584px desk nook; untouched painting retained."
+    },
+    {
+      "id": "camera-book-shelves",
+      "file": "camera-book-shelves-v1.png",
+      "room": "desk",
+      "size": [
+        176,
+        88
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 81,
+      "footPoint": [
+        88,
+        81
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        173,
+        85
+      ],
+      "source": "sources/camera-book-shelves.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCrop": [
+        81,
+        8,
+        1691,
+        887
+      ],
+      "sourceFit": [
+        9,
+        9,
+        510,
+        246
+      ],
+      "working": "working/camera-book-shelves-3x.png",
+      "workingSize": [
+        528,
+        264
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_desk-by-dining-window.png",
+      "comparison1x": "checks/camera-book-shelves-hero-reference-1x.png",
+      "footprintPreview": "checks/camera-book-shelves-footprint-1x.png"
+    },
+    {
+      "id": "mesh-office-chair",
+      "file": "mesh-office-chair-v1.png",
+      "room": "desk",
+      "size": [
+        40,
+        56
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 49,
+      "footPoint": [
+        20,
+        49
+      ],
+      "footprints": [
+        [
+          7,
+          25,
+          26,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        37,
+        53
+      ],
+      "source": "sources/mesh-office-chair.png",
+      "sourceSize": [
+        979,
+        1606
+      ],
+      "sourceCrop": [
+        6,
+        246,
+        972,
+        1588
+      ],
+      "sourceFit": [
+        9,
+        9,
+        102,
+        150
+      ],
+      "working": "working/mesh-office-chair-3x.png",
+      "workingSize": [
+        120,
+        168
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "Isolated asset repaint without image reference; see revision-prompts.json"
+      ],
+      "oldReference": "reference/p_mesh-desk-chair.png",
+      "comparison1x": "checks/mesh-office-chair-hero-reference-1x.png",
+      "footprintPreview": "checks/mesh-office-chair-footprint-1x.png"
+    },
+    {
+      "id": "moon-print",
+      "file": "moon-print-v1.png",
+      "room": "desk",
+      "size": [
+        48,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 57,
+      "footPoint": [
+        24,
+        57
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        45,
+        61
+      ],
+      "source": "sources/moon-print.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        49,
+        119,
+        1038,
+        1351
+      ],
+      "sourceFit": [
+        9,
+        9,
+        126,
+        174
+      ],
+      "working": "working/moon-print-3x.png",
+      "workingSize": [
+        144,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_abstract-painting.png",
+      "comparison1x": "checks/moon-print-hero-reference-1x.png",
+      "footprintPreview": "checks/moon-print-footprint-1x.png"
+    },
+    {
+      "id": "kids-drawings",
+      "file": "kids-drawings-v1.png",
+      "room": "desk",
+      "size": [
+        64,
+        40
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 33,
+      "footPoint": [
+        32,
+        33
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        37
+      ],
+      "source": "sources/kids-drawings.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceCrop": [
+        46,
+        157,
+        1488,
+        864
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        102
+      ],
+      "working": "working/kids-drawings-3x.png",
+      "workingSize": [
+        192,
+        120
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_desk-by-dining-window.png",
+      "comparison1x": "checks/kids-drawings-hero-reference-1x.png",
+      "footprintPreview": "checks/kids-drawings-footprint-1x.png"
+    },
+    {
+      "id": "electric-console-east",
+      "file": "electric-console-east-v1.png",
+      "room": "desk",
+      "size": [
+        56,
+        128
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 121,
+      "footPoint": [
+        28,
+        121
+      ],
+      "footprints": [
+        [
+          7,
+          11,
+          42,
+          106
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        125
+      ],
+      "source": "sources/electric-console-east.png",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sourceCrop": [
+        201,
+        41,
+        732,
+        1725
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        366
+      ],
+      "working": "working/electric-console-east-3x.png",
+      "workingSize": [
+        168,
+        384
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_slatted-media-console.png",
+      "comparison1x": "checks/electric-console-east-hero-reference-1x.png",
+      "footprintPreview": "checks/electric-console-east-footprint-1x.png"
+    },
+    {
+      "id": "abstract-wall-painting",
+      "file": "abstract-wall-painting-v1.png",
+      "room": "desk",
+      "size": [
+        96,
+        80
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 73,
+      "footPoint": [
+        48,
+        73
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        93,
+        77
+      ],
+      "source": "sources/abstract-wall-painting.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceCrop": [
+        328,
+        15,
+        1123,
+        1072
+      ],
+      "sourceFit": [
+        9,
+        9,
+        270,
+        222
+      ],
+      "working": "working/abstract-wall-painting-3x.png",
+      "workingSize": [
+        288,
+        240
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_abstract-painting.png",
+      "comparison1x": "checks/abstract-wall-painting-hero-reference-1x.png",
+      "footprintPreview": "checks/abstract-wall-painting-footprint-1x.png"
+    },
+    {
+      "id": "potted-orchid",
+      "file": "potted-orchid-v1.png",
+      "room": "dining",
+      "size": [
+        32,
+        56
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 49,
+      "footPoint": [
+        16,
+        49
+      ],
+      "footprints": [
+        [
+          6,
+          35,
+          20,
+          14
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        29,
+        53
+      ],
+      "source": "sources/potted-orchid.png",
+      "sourceSize": [
+        979,
+        1606
+      ],
+      "sourceCrop": [
+        78,
+        27,
+        895,
+        1539
+      ],
+      "sourceFit": [
+        9,
+        9,
+        78,
+        150
+      ],
+      "working": "working/potted-orchid-3x.png",
+      "workingSize": [
+        96,
+        168
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_orchid-coffee-table.png",
+      "comparison1x": "checks/potted-orchid-hero-reference-1x.png",
+      "footprintPreview": "checks/potted-orchid-footprint-1x.png"
+    },
+    {
+      "id": "ceiling-fan",
+      "file": "ceiling-fan-v1.png",
+      "room": "dining",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "over-everything",
+      "feetLine": 57,
+      "footPoint": [
+        32,
+        57
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "source": "sources/ceiling-fan.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        84,
+        86,
+        1161,
+        1165
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        174
+      ],
+      "working": "working/ceiling-fan-3x.png",
+      "workingSize": [
+        192,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached dining room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_ceiling-fan.png",
+      "comparison1x": "checks/ceiling-fan-hero-reference-1x.png",
+      "footprintPreview": "checks/ceiling-fan-footprint-1x.png"
+    },
+    {
+      "id": "white-oak-sink-counter",
+      "file": "white-oak-sink-counter-v1.png",
+      "room": "kitchen",
+      "size": [
+        144,
+        80
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 73,
+      "footPoint": [
+        72,
+        73
+      ],
+      "footprints": [
+        [
+          7,
+          49,
+          130,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        141,
+        77
+      ],
+      "source": "sources/white-oak-sink-counter.png",
+      "sourceSize": [
+        1683,
+        935
+      ],
+      "sourceCrop": [
+        163,
+        11,
+        1520,
+        922
+      ],
+      "sourceFit": [
+        9,
+        9,
+        414,
+        222
+      ],
+      "working": "working/white-oak-sink-counter-3x.png",
+      "workingSize": [
+        432,
+        240
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_white-double-sink.png",
+      "comparison1x": "checks/white-oak-sink-counter-hero-reference-1x.png",
+      "footprintPreview": "checks/white-oak-sink-counter-footprint-1x.png"
+    },
+    {
+      "id": "white-oak-upper-cabinets",
+      "file": "white-oak-upper-cabinets-v1.png",
+      "room": "kitchen",
+      "size": [
+        160,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 57,
+      "footPoint": [
+        80,
+        57
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        157,
+        61
+      ],
+      "source": "sources/white-oak-upper-cabinets.png",
+      "sourceSize": [
+        1983,
+        793
+      ],
+      "sourceCrop": [
+        73,
+        87,
+        1910,
+        704
+      ],
+      "sourceFit": [
+        9,
+        9,
+        462,
+        174
+      ],
+      "working": "working/white-oak-upper-cabinets-3x.png",
+      "workingSize": [
+        480,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_oak-trim-worktop.png",
+      "comparison1x": "checks/white-oak-upper-cabinets-hero-reference-1x.png",
+      "footprintPreview": "checks/white-oak-upper-cabinets-footprint-1x.png"
+    },
+    {
+      "id": "stove-microwave",
+      "file": "stove-microwave-v1.png",
+      "room": "kitchen",
+      "size": [
+        64,
+        112
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        32,
+        105
+      ],
+      "footprints": [
+        [
+          8,
+          71,
+          48,
+          34
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        109
+      ],
+      "source": "sources/stove-microwave.png",
+      "sourceSize": [
+        894,
+        1760
+      ],
+      "sourceCrop": [
+        24,
+        31,
+        846,
+        1744
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        318
+      ],
+      "working": "working/stove-microwave-3x.png",
+      "workingSize": [
+        192,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_white-stove-microwave.png",
+      "comparison1x": "checks/stove-microwave-hero-reference-1x.png",
+      "footprintPreview": "checks/stove-microwave-footprint-1x.png"
+    },
+    {
+      "id": "magnet-fridge",
+      "file": "magnet-fridge-v1.png",
+      "room": "kitchen",
+      "size": [
+        64,
+        112
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        32,
+        105
+      ],
+      "footprints": [
+        [
+          8,
+          71,
+          48,
+          34
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        109
+      ],
+      "source": "sources/magnet-fridge.png",
+      "sourceSize": [
+        977,
+        1609
+      ],
+      "sourceCrop": [
+        90,
+        31,
+        871,
+        1580
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        318
+      ],
+      "working": "working/magnet-fridge-3x.png",
+      "workingSize": [
+        192,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_magnet-fridge.png",
+      "comparison1x": "checks/magnet-fridge-hero-reference-1x.png",
+      "footprintPreview": "checks/magnet-fridge-footprint-1x.png"
+    },
+    {
+      "id": "kitchen-counter-west",
+      "file": "kitchen-counter-west-v1.png",
+      "room": "kitchen",
+      "size": [
+        56,
+        128
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 121,
+      "footPoint": [
+        28,
+        121
+      ],
+      "footprints": [
+        [
+          7,
+          11,
+          42,
+          106
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        125
+      ],
+      "source": "sources/kitchen-counter-west.png",
+      "sourceSize": [
+        829,
+        1898
+      ],
+      "sourceCrop": [
+        92,
+        16,
+        691,
+        1884
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        366
+      ],
+      "working": "working/kitchen-counter-west-3x.png",
+      "workingSize": [
+        168,
+        384
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_oak-trim-worktop.png",
+      "comparison1x": "checks/kitchen-counter-west-hero-reference-1x.png",
+      "footprintPreview": "checks/kitchen-counter-west-footprint-1x.png"
+    },
+    {
+      "id": "kitchen-counter-east",
+      "file": "kitchen-counter-east-v1.png",
+      "room": "kitchen",
+      "size": [
+        56,
+        128
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 121,
+      "footPoint": [
+        28,
+        121
+      ],
+      "footprints": [
+        [
+          7,
+          11,
+          42,
+          106
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        125
+      ],
+      "source": "sources/kitchen-counter-east.png",
+      "sourceSize": [
+        1237,
+        1272
+      ],
+      "sourceCrop": [
+        437,
+        29,
+        779,
+        1252
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        366
+      ],
+      "working": "working/kitchen-counter-east-3x.png",
+      "workingSize": [
+        168,
+        384
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_galley-right-worktop.png",
+      "comparison1x": "checks/kitchen-counter-east-hero-reference-1x.png",
+      "footprintPreview": "checks/kitchen-counter-east-footprint-1x.png"
+    },
+    {
+      "id": "leaning-abstract-painting",
+      "file": "leaning-abstract-painting-v1.png",
+      "room": "kitchen",
+      "size": [
+        48,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        24,
+        57
+      ],
+      "footprints": [
+        [
+          9,
+          52,
+          30,
+          5
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        45,
+        61
+      ],
+      "source": "sources/leaning-abstract-painting.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        91,
+        71,
+        978,
+        1384
+      ],
+      "sourceFit": [
+        9,
+        9,
+        126,
+        174
+      ],
+      "working": "working/leaning-abstract-painting-3x.png",
+      "workingSize": [
+        144,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_abstract-painting.png",
+      "comparison1x": "checks/leaning-abstract-painting-hero-reference-1x.png",
+      "footprintPreview": "checks/leaning-abstract-painting-footprint-1x.png"
+    },
+    {
+      "id": "kitchen-runner",
+      "file": "kitchen-runner-v1.png",
+      "room": "kitchen",
+      "size": [
+        72,
+        184
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 177,
+      "footPoint": [
+        36,
+        177
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        69,
+        181
+      ],
+      "source": "sources/kitchen-runner.png",
+      "sourceSize": [
+        1208,
+        1302
+      ],
+      "sourceCrop": [
+        398,
+        19,
+        809,
+        1281
+      ],
+      "sourceFit": [
+        9,
+        9,
+        198,
+        534
+      ],
+      "working": "working/kitchen-runner-3x.png",
+      "workingSize": [
+        216,
+        552
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_kitchen-runner.png",
+      "comparison1x": "checks/kitchen-runner-hero-reference-1x.png",
+      "footprintPreview": "checks/kitchen-runner-footprint-1x.png"
+    },
+    {
+      "id": "storage-bench-west",
+      "file": "storage-bench-west-v1.png",
+      "room": "entry",
+      "size": [
+        56,
+        112
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        28,
+        105
+      ],
+      "footprints": [
+        [
+          7,
+          11,
+          42,
+          90
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        109
+      ],
+      "source": "sources/storage-bench-west.png",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sourceCrop": [
+        35,
+        40,
+        841,
+        1738
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        318
+      ],
+      "working": "working/storage-bench-west-3x.png",
+      "workingSize": [
+        168,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/storage-bench-west-hero-reference-1x.png",
+      "footprintPreview": "checks/storage-bench-west-footprint-1x.png"
+    },
+    {
+      "id": "shoe-pairs",
+      "file": "shoe-pairs-v1.png",
+      "room": "entry",
+      "size": [
+        32,
+        24
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 17,
+      "footPoint": [
+        16,
+        17
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        29,
+        21
+      ],
+      "source": "sources/shoe-pairs.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceCrop": [
+        235,
+        330,
+        1197,
+        875
+      ],
+      "sourceFit": [
+        9,
+        9,
+        78,
+        54
+      ],
+      "working": "working/shoe-pairs-3x.png",
+      "workingSize": [
+        96,
+        72
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/shoe-pairs-hero-reference-1x.png",
+      "footprintPreview": "checks/shoe-pairs-footprint-1x.png"
+    },
+    {
+      "id": "coat-hooks-jacket",
+      "file": "coat-hooks-jacket-v1.png",
+      "room": "entry",
+      "size": [
+        40,
+        72
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 65,
+      "footPoint": [
+        20,
+        65
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        37,
+        69
+      ],
+      "source": "sources/coat-hooks-jacket.png",
+      "sourceSize": [
+        864,
+        1821
+      ],
+      "sourceCrop": [
+        24,
+        255,
+        837,
+        1563
+      ],
+      "sourceFit": [
+        9,
+        9,
+        102,
+        198
+      ],
+      "working": "working/coat-hooks-jacket-3x.png",
+      "workingSize": [
+        120,
+        216
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/coat-hooks-jacket-hero-reference-1x.png",
+      "footprintPreview": "checks/coat-hooks-jacket-footprint-1x.png"
+    },
+    {
+      "id": "light-switch",
+      "file": "light-switch-v1.png",
+      "room": "entry",
+      "size": [
+        12,
+        20
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 13,
+      "footPoint": [
+        6,
+        13
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        9,
+        17
+      ],
+      "source": "sources/light-switch.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        210,
+        291,
+        867,
+        1163
+      ],
+      "sourceFit": [
+        9,
+        9,
+        18,
+        42
+      ],
+      "working": "working/light-switch-3x.png",
+      "workingSize": [
+        36,
+        60
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/light-switch-hero-reference-1x.png",
+      "footprintPreview": "checks/light-switch-footprint-1x.png"
+    },
+    {
+      "id": "ceiling-vent",
+      "file": "ceiling-vent-v1.png",
+      "room": "entry",
+      "size": [
+        32,
+        24
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "over-everything",
+      "feetLine": 17,
+      "footPoint": [
+        16,
+        17
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        29,
+        21
+      ],
+      "source": "sources/ceiling-vent.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceCrop": [
+        133,
+        181,
+        1316,
+        917
+      ],
+      "sourceFit": [
+        9,
+        9,
+        78,
+        54
+      ],
+      "working": "working/ceiling-vent-3x.png",
+      "workingSize": [
+        96,
+        72
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/ceiling-vent-hero-reference-1x.png",
+      "footprintPreview": "checks/ceiling-vent-footprint-1x.png"
+    },
+    {
+      "id": "oak-door-north",
+      "file": "oak-door-north-v1.png",
+      "room": "shell",
+      "size": [
+        64,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 105,
+      "footPoint": [
+        32,
+        105
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        109
+      ],
+      "source": "sources/oak-door-north.png",
+      "sourceSize": [
+        948,
+        1659
+      ],
+      "sourceCrop": [
+        77,
+        61,
+        867,
+        1609
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        318
+      ],
+      "working": "working/oak-door-north-3x.png",
+      "workingSize": [
+        192,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/oak-door-north-hero-reference-1x.png",
+      "footprintPreview": "checks/oak-door-north-footprint-1x.png"
+    },
+    {
+      "id": "oak-door-side",
+      "file": "oak-door-side-v1.png",
+      "room": "shell",
+      "size": [
+        16,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 105,
+      "footPoint": [
+        8,
+        105
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        13,
+        109
+      ],
+      "source": "sources/oak-door-side.png",
+      "sourceSize": [
+        1199,
+        1312
+      ],
+      "sourceCrop": [
+        525,
+        30,
+        655,
+        1289
+      ],
+      "sourceFit": [
+        9,
+        9,
+        30,
+        318
+      ],
+      "working": "working/oak-door-side-3x.png",
+      "workingSize": [
+        48,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-basketball-bench.png",
+      "comparison1x": "checks/oak-door-side-hero-reference-1x.png",
+      "footprintPreview": "checks/oak-door-side-footprint-1x.png"
+    },
+    {
+      "id": "north-wall-strip",
+      "file": "north-wall-strip-v1.png",
+      "room": "shell",
+      "size": [
+        256,
+        96
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 92,
+      "footPoint": [
+        128,
+        92
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        256,
+        96
+      ],
+      "source": "sources/north-wall-strip.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        2172,
+        724
+      ],
+      "sourceFit": [
+        0,
+        0,
+        512,
+        192
+      ],
+      "working": "working/north-wall-strip-2x.png",
+      "workingSize": [
+        512,
+        192
+      ],
+      "reductionFactor": 2,
+      "referenceRoles": [
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/wall_h.png",
+      "comparison1x": "checks/north-wall-strip-hero-reference-1x.png",
+      "footprintPreview": "checks/north-wall-strip-footprint-1x.png"
+    },
+    {
+      "id": "side-wall-strip",
+      "file": "side-wall-strip-v1.png",
+      "room": "shell",
+      "size": [
+        16,
+        256
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 252,
+      "footPoint": [
+        8,
+        252
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        16,
+        256
+      ],
+      "source": "sources/side-wall-strip.png",
+      "sourceSize": [
+        793,
+        1983
+      ],
+      "sourceCrop": [
+        316,
+        198,
+        475,
+        1784
+      ],
+      "sourceFit": [
+        0,
+        0,
+        32,
+        512
+      ],
+      "working": "working/side-wall-strip-2x.png",
+      "workingSize": [
+        32,
+        512
+      ],
+      "reductionFactor": 2,
+      "referenceRoles": [
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/wall_v.png",
+      "comparison1x": "checks/side-wall-strip-hero-reference-1x.png",
+      "footprintPreview": "checks/side-wall-strip-footprint-1x.png"
+    },
+    {
+      "id": "dark-wood-floor",
+      "file": "dark-wood-floor-v1.png",
+      "room": "shell",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source": "sources/dark-wood-floor.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/dark-wood-floor-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "referenceRoles": [
+        "Bare texture repaint with no image reference; see revision-prompts.json"
+      ],
+      "oldReference": "reference/floor_circulation.png",
+      "comparison1x": "checks/dark-wood-floor-hero-reference-1x.png",
+      "footprintPreview": "checks/dark-wood-floor-footprint-1x.png"
+    },
+    {
+      "id": "beige-carpet",
+      "file": "beige-carpet-v1.png",
+      "room": "shell",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source": "sources/beige-carpet.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/beige-carpet-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "referenceRoles": [
+        "Bare texture repaint with no image reference; see revision-prompts.json"
+      ],
+      "oldReference": "reference/floor_circulation.png",
+      "comparison1x": "checks/beige-carpet-hero-reference-1x.png",
+      "footprintPreview": "checks/beige-carpet-footprint-1x.png"
+    },
+    {
+      "id": "louvered-closet-door-side",
+      "file": "louvered-closet-door-side-v1.png",
+      "room": "entry",
+      "size": [
+        16,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 105,
+      "footPoint": [
+        8,
+        105
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        13,
+        109
+      ],
+      "source": "sources/louvered-closet-door-side.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        258,
+        19,
+        453,
+        2157
+      ],
+      "sourceFit": [
+        9,
+        9,
+        30,
+        318
+      ],
+      "working": "working/louvered-closet-door-side-3x.png",
+      "workingSize": [
+        48,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "private attached hall room photo, art reference only, excluded from repository",
+        "v4 painted chair, style and palette"
+      ],
+      "oldReference": "reference/p_entry-louvered-door.png",
+      "comparison1x": "checks/louvered-closet-door-side-hero-reference-1x.png",
+      "footprintPreview": "checks/louvered-closet-door-side-footprint-1x.png"
+    },
+    {
+      "id": "window-blinds-east",
+      "file": "window-blinds-east-v1.png",
+      "room": "desk",
+      "size": [
+        16,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 105,
+      "footPoint": [
+        8,
+        105
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        3,
+        13,
+        109
+      ],
+      "source": "sources/window-blinds-east.png",
+      "sourceSize": [
+        848,
+        1855
+      ],
+      "sourceCrop": [
+        301,
+        35,
+        538,
+        1822
+      ],
+      "sourceFit": [
+        9,
+        9,
+        30,
+        318
+      ],
+      "working": "working/window-blinds-east-3x.png",
+      "workingSize": [
+        48,
+        336
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "Existing generated olive-curtain window, repainted in side-wall perspective"
+      ],
+      "oldReference": "reference/p_dining-window.png",
+      "comparison1x": "checks/window-blinds-east-hero-reference-1x.png",
+      "footprintPreview": "checks/window-blinds-east-footprint-1x.png"
+    },
+    {
+      "id": "side-table-lamp",
+      "file": "side-table-lamp-v1.png",
+      "room": "living",
+      "size": [
+        48,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        24,
+        57
+      ],
+      "footprints": [
+        [
+          7,
+          33,
+          34,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        45,
+        61
+      ],
+      "source": "sources/side-table-lamp.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        200,
+        125,
+        877,
+        1336
+      ],
+      "sourceFit": [
+        9,
+        9,
+        126,
+        174
+      ],
+      "working": "working/side-table-lamp-3x.png",
+      "workingSize": [
+        144,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/side-table-lamp-hero-reference-1x.png",
+      "footprintPreview": "checks/side-table-lamp-footprint-1x.png"
+    },
+    {
+      "id": "twins-toy-bin",
+      "file": "twins-toy-bin-v1.png",
+      "room": "living",
+      "size": [
+        56,
+        44
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        28,
+        37
+      ],
+      "footprints": [
+        [
+          7,
+          13,
+          42,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        41
+      ],
+      "source": "sources/twins-toy-bin.png",
+      "sourceSize": [
+        1415,
+        1112
+      ],
+      "sourceCrop": [
+        188,
+        147,
+        1199,
+        999
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        114
+      ],
+      "working": "working/twins-toy-bin-3x.png",
+      "workingSize": [
+        168,
+        132
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/twins-toy-bin-hero-reference-1x.png",
+      "footprintPreview": "checks/twins-toy-bin-footprint-1x.png"
+    },
+    {
+      "id": "houseplant-cluster",
+      "file": "houseplant-cluster-v1.png",
+      "room": "living",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        32,
+        57
+      ],
+      "footprints": [
+        [
+          7,
+          33,
+          50,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "source": "sources/houseplant-cluster.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        205,
+        105,
+        1003,
+        1133
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        174
+      ],
+      "working": "working/houseplant-cluster-3x.png",
+      "workingSize": [
+        192,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/houseplant-cluster-hero-reference-1x.png",
+      "footprintPreview": "checks/houseplant-cluster-footprint-1x.png"
+    },
+    {
+      "id": "shoe-rack",
+      "file": "shoe-rack-v1.png",
+      "room": "dining",
+      "size": [
+        72,
+        44
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        36,
+        37
+      ],
+      "footprints": [
+        [
+          7,
+          13,
+          58,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        69,
+        41
+      ],
+      "source": "sources/shoe-rack.png",
+      "sourceSize": [
+        1605,
+        980
+      ],
+      "sourceCrop": [
+        287,
+        140,
+        1317,
+        863
+      ],
+      "sourceFit": [
+        9,
+        9,
+        198,
+        114
+      ],
+      "working": "working/shoe-rack-3x.png",
+      "workingSize": [
+        216,
+        132
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/shoe-rack-hero-reference-1x.png",
+      "footprintPreview": "checks/shoe-rack-footprint-1x.png"
+    },
+    {
+      "id": "laundry-basket",
+      "file": "laundry-basket-v1.png",
+      "room": "dining",
+      "size": [
+        40,
+        44
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        20,
+        37
+      ],
+      "footprints": [
+        [
+          7,
+          13,
+          26,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        37,
+        41
+      ],
+      "source": "sources/laundry-basket.png",
+      "sourceSize": [
+        1196,
+        1315
+      ],
+      "sourceCrop": [
+        126,
+        195,
+        1066,
+        1144
+      ],
+      "sourceFit": [
+        9,
+        9,
+        102,
+        114
+      ],
+      "working": "working/laundry-basket-3x.png",
+      "workingSize": [
+        120,
+        132
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/laundry-basket-hero-reference-1x.png",
+      "footprintPreview": "checks/laundry-basket-footprint-1x.png"
+    }
+  ]
+}

@@ -850,5 +850,17 @@ The town is about 7 by 11 screens, but you only ever see one. "Culling" means th
 ## Spawn points (Nov 13, Elementary)
 A spawn point is where something enters the world. Most enemies spawn just off screen around you, wherever you are. Bosses can have their own spawn point, so a fight happens in a place that means something: Math Homework comes out of the school playground. If you're across town, it comes out of the school's edge nearest you instead, so you're never left waiting.
 
+
+## 2026-11-13: native scale in art review (Codex)
+A sprite canvas includes clear margins. Compare the visible object as well as the canvas: the revised dining chairs occupy 40px of a 46px canvas, beside the full 56x60 hero. Room mock-ups use these native pixels so scale can be approved before placement.
 ## Reference object: sizing by the hero (Nov 13, the house)
 Pixel art has no real inches, so every size is measured against one thing everybody knows: the hero. Rami's layout showed the furniture was about 1.4x too small next to him, which is why the rooms felt empty. The rule now: things you sit at stay shorter than the hero, low things stay under half his height, and only tall things (doors, fridge, lamps, shelves) rise above him.
+
+## 2026-11-13: a gap must connect to the door (Codex)
+An empty patch is not enough to prove the hero can get through a room. Slide a 96px square through the proposed furniture footprints and check that the same connected space reaches both real openings. A 95px gap fails this test even if it looks close. Small storage closets may only be reachable from outside, which should be recorded rather than counted as a through room.
+
+## 2026-11-13: contrast and a single source set (Codex)
+A prop can disappear when its top has the same dark colors as the rug below it. A lighter coffee-table top makes its shape and small objects easier to see at native size. Source paintings now live in one folder; exported manifests link to that folder rather than making a duplicate. The rebuild audit checks both the art and those links.
+
+## 2026-11-13: native size and route checks (Codex)
+A bigger furniture request becomes a newly painted native canvas, then an exact 3x working image is reduced to it. Proportional fitting preserves the painting’s shape. A clear patch of floor does not prove a route works: a whole 96 px square must connect the door openings. The fixed round-two living layout has clear pockets but fails that connection.

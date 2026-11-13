@@ -1,0 +1,51 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-11-13",
+  "jobs": [
+    {
+      "id": "dining-chair-south",
+      "request": "Repaint this cream upholstered dining chair facing south toward camera. Adult chair, fuller seat and back, four dark legs. Native canvas 36x46, visible chair about 40px tall next to 56x60 hero. Paint at 108x138 then reduction later.",
+      "references": [
+        "dining-chair-south-v1.png"
+      ]
+    },
+    {
+      "id": "dark-wood-floor",
+      "request": "Repaint bare seamless laminate flooring tile, same dark brown color. Flat orthographic top down. Tile represents 512x512 native pixels, 24 narrow straight vertical planks each 16-24 pixels wide, staggered end joints. VERY subtle fine straight grain, no swirls no knots no broad boards. Fill image completely, opaque.",
+      "references": [
+        "dark-wood-floor-v1.png"
+      ]
+    },
+    {
+      "id": "side-table-lamp",
+      "request": "ONE small dark wood side table with cream drum-shade lamp, book and mug. Native 48x64.",
+      "references": []
+    },
+    {
+      "id": "twins-toy-bin",
+      "request": "ONE low sage cloth storage bin full of colorful wooden toddler toys and two plush animals. Native 56x44.",
+      "references": []
+    },
+    {
+      "id": "shoe-rack",
+      "request": "ONE two-tier dark wooden shoe rack with several mismatched shoes. Native 72x44.",
+      "references": []
+    },
+    {
+      "id": "houseplant-cluster",
+      "request": "ONE cluster of three houseplants of different heights in cream terracotta and wicker pots. Native 64x64.",
+      "references": []
+    },
+    {
+      "id": "laundry-basket",
+      "request": "ONE woven wicker laundry basket overflowing with cream and blue laundry. Native 40x44.",
+      "references": []
+    }
+  ],
+  "chairDirections": [
+    "north",
+    "east",
+    "west"
+  ],
+  "common": "Painted pixel game art, three-quarter overhead camera facing north, three tones per material, dark navy outline, compact standing-object shadow. Neutral white balance, no sepia or golden haze, no text, logos, people or room. Transparent outside isolated sprites; opaque floor."
+}

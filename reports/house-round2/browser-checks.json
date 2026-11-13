@@ -1,0 +1,16 @@
+[
+  {
+    "name": "desktop",
+    "images": 61,
+    "broken": [],
+    "overflow": false,
+    "clearanceWarning": true
+  },
+  {
+    "name": "phone",
+    "images": 61,
+    "broken": [],
+    "overflow": false,
+    "clearanceWarning": true
+  }
+]

@@ -1,0 +1,239 @@
+{
+ "note": "Rami's round 2 (Nov 13), tidied by Claude: lamp tables level and snug to the love seat, love seat nudged inside the room. Other rooms: use Codex's approved room-layout.json unchanged.",
+ "rooms": {
+  "living": {
+   "rect": [
+    16,
+    16,
+    768,
+    345
+   ],
+   "items": [
+    {
+     "id": "photo-ledges",
+     "x": 8,
+     "y": -112,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "tile-fireplace",
+     "x": 232,
+     "y": -44,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "ornate-silver-mirror",
+     "x": 240,
+     "y": -128,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "window-olive-curtains",
+     "x": 128,
+     "y": -124,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "galaxy-wall-tv",
+     "x": 732,
+     "y": -164,
+     "scale": 200,
+     "rot": 180,
+     "flip": true
+    },
+    {
+     "id": "fluted-media-console",
+     "x": 704,
+     "y": 56,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "cream-sofa",
+     "x": -4,
+     "y": 60,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "leather-recliner",
+     "x": 408,
+     "y": -20,
+     "scale": 150,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "round-coffee-table",
+     "x": 176,
+     "y": 156,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "persian-living-rug",
+     "x": 92,
+     "y": 60,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "potted-pothos",
+     "x": 156,
+     "y": -136,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "bird-of-paradise",
+     "x": 544,
+     "y": -40,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "drum-floor-lamp",
+     "x": 692,
+     "y": -60,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "arched-floor-lamp",
+     "x": 560,
+     "y": -64,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "racing-sim-rig",
+     "x": 480,
+     "y": 132,
+     "scale": 150,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "sim-cables",
+     "x": 568,
+     "y": 204,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "baby-swing-pink",
+     "x": 244,
+     "y": 8,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "baby-swing-grey",
+     "x": 308,
+     "y": 8,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "blanket-basket",
+     "x": 284,
+     "y": 216,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "snack-bag",
+     "x": 224,
+     "y": 304,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "south-love-seat",
+     "x": 180,
+     "y": 252,
+     "scale": 150,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "bird-of-paradise",
+     "x": 148,
+     "y": -76,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "window-olive-curtains",
+     "x": 408,
+     "y": -120,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "potted-pothos",
+     "x": 436,
+     "y": -132,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "twin-bassinets",
+     "x": 0,
+     "y": 0,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "side-table-lamp",
+     "x": 96,
+     "y": 234,
+     "scale": 150,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "side-table-lamp",
+     "x": 456,
+     "y": 234,
+     "scale": 150,
+     "rot": 0,
+     "flip": false
+    },
+    {
+     "id": "twins-toy-bin",
+     "x": 616,
+     "y": 296,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,81 @@
+[
+  {
+    "id": "south-love-seat",
+    "generatedFile": "exec-f8fe1772-91dd-4923-8a10-1229d237e41d.png",
+    "nativeSize": [
+      276,
+      90
+    ],
+    "workingFactor": 3,
+    "direction": "Cream fabric and seat depth match west sofa; seen from behind.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping.",
+    "refinement": "Repaint the back wider and lower, strict wide native 276x90 canvas, shorter upholstered back and squat arms, no stretching."
+  },
+  {
+    "id": "galaxy-wall-tv",
+    "generatedFile": "exec-80a38069-3a7d-43a3-bc0c-02acbd42c1e1.png",
+    "nativeSize": [
+      92,
+      120
+    ],
+    "workingFactor": 3,
+    "direction": "East-wall slanted visible galaxy screen, thin black frame; no tan backing.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping."
+  },
+  {
+    "id": "side-table-lamp",
+    "generatedFile": "exec-60dd4d7c-f8b7-4e48-8474-ee1d52843f4a.png",
+    "nativeSize": [
+      84,
+      108
+    ],
+    "workingFactor": 3,
+    "direction": "One identical lamp/table reused twice at final size.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping."
+  },
+  {
+    "id": "leather-recliner",
+    "generatedFile": "exec-32f2092e-8631-4b34-8c3e-6de7ddf3f995.png",
+    "nativeSize": [
+      120,
+      90
+    ],
+    "workingFactor": 3,
+    "direction": "Earlier rounded leather silhouette and button tufting.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping."
+  },
+  {
+    "id": "racing-sim-rig",
+    "generatedFile": "exec-b5dce273-36a9-435a-a8e9-edea3f20bc75.png",
+    "nativeSize": [
+      180,
+      132
+    ],
+    "workingFactor": 3,
+    "direction": "Upright seat at left, steering and pedals to east.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping."
+  },
+  {
+    "id": "round-coffee-table",
+    "generatedFile": "exec-b7a013a3-61cc-4bcc-a178-32491522fbbb.png",
+    "nativeSize": [
+      186,
+      42
+    ],
+    "workingFactor": 3,
+    "direction": "Pale stone top, two mugs, book and remote.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping.",
+    "refinement": "Repaint table wider and lower, strict visible 5:1 target, small mugs/book/remote on broad pale top; no stretching."
+  },
+  {
+    "id": "blanket-basket",
+    "generatedFile": "exec-5d6fb0d6-000b-4ecc-ae4b-ddaf632b1fa7.png",
+    "nativeSize": [
+      56,
+      28
+    ],
+    "workingFactor": 3,
+    "direction": "Pale cream blanket contrasts against dark rug.",
+    "method": "Built-in imagegen reference edit; proportional fit, exact 3x working canvas, block-mode reduction and material palette mapping."
+  }
+]

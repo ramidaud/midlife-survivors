@@ -765,3 +765,16 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - Idea, not decided: in Full Life, stages connect (office, Maple Hollow, hospital, later others) with growing swarms and giant bosses. Claude suggests stages joined by roads rather than one seamless map, and a closed road out of town on Maple Hollow's edge for now. Confirmed: Midlife stays 40 to 65 (about 19 min); Full Life should last at least 30 min (it runs about an hour now).
 
 - Built (V2.39.0, Nov 13): the Community Center opens at 55 (hall, block party street). The Holiday Party comes out of the hall. Every Midlife area is now built (with V2.37.0 Strip Mall and V2.38.0 Town Square from PR #8).
+
+
+## 2026-11-13: ground-floor art revision, awaiting approval (Codex)
+Dining chairs have 40px visible height. Laminate uses finer straight planks with subtle grain; the living rug has no backing rectangle. The mesh chair sits at the desk, the garage retains concrete, and household props fill the wall edges while keeping reserved routes clear. These are mock-up proposals only; runtime placement awaits Rami.
+
+## 2026-11-13: house repaint review from saved layouts (Codex)
+Rami's placements replace the earlier room arrangements. A separate review package repaints the selected pieces against the unchanged hero, with real side/rear views, a standing desk, two empty bassinets, south love seat and matched kitchen. Window/shelf spacing and furniture are tidied on an 8px grid. The entry bench is compact to fit below its door; bassinets sit beside the sofa below the patio approach. These fit decisions await visual approval. The laundry closet retains its appliance and is an explicitly constrained storage alcove, not a 96px through route. No runtime placement.
+
+## 2026-11-13: Rami's northwest-bassinet decision and room corrections (Codex)
+Supersedes the earlier basinets-beside-sofa fit proposal: the two sleeping bassinets stay in the northwest corner at [0,0], between raised shelves and the south-shifted sofa. The 96px patio connection remains clear. Sim sits upright facing the east TV, with connected floor cables. Coffee table has a light top; dining art stays on walls and the chair tucks at the desk. Kitchen shows fridge magnets/handles and detailed cabinet fronts with props on worktops; only the north sink run has a sink. All are mock-up proposals pending approval, with no runtime placement.
+
+### House round-two art review (2026-11-13, Codex)
+Seven living-room pieces repainted to the requested native sizes. Furniture keeps Rami’s round-two positions; TV and basket exceptions are documented. The fixed living layout does not connect its checked doors with a 96 px square route, so it needs a layout correction before integration. Other rooms remain approved and unchanged. No runtime placement.

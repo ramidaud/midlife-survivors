@@ -1,0 +1,94 @@
+{
+  "method": "Built-in image_gen",
+  "jobs": [
+    [
+      "twin-bassinets",
+      [
+        80,
+        60
+      ],
+      "Two EMPTY baby bassinets side by side, compact grey rectangular fabric sleeping baskets on short metal legs, cream mattresses and muslin blankets. NOT car seats or baby swings, no harness, no babies. Reference palette only. Both visible in an 80px wide northwest corner grouping."
+    ],
+    [
+      "racing-sim-rig",
+      [
+        120,
+        88
+      ],
+      "An UPRIGHT black racing simulator seat facing EAST/right toward a separate wall TV. Tall clearly VERTICAL bucket-seat back/headrest on left, raised seat on supports, wheel pedestal on right with wheel elevated at chest level, pedals below right. Show front/side volume from a three-quarter overhead camera looking north. No monitor on this rig. Do not flatten or rotate a top-down rig picture. Silhouette taller and substantial, upright chair distinguishable from horizontal floor frame."
+    ],
+    [
+      "sim-cables",
+      [
+        144,
+        32
+      ],
+      "ONE connected pair of thin dark cables lying FLAT on the floor, running from LEFT edge to RIGHT edge with a gentle right-angle bend near the right end. Tiny connectors at ends only. No branching power strips, no floating cables, no outlines or shadows, transparent decal. Reference only for cable material. Whole cable spans almost full canvas width, for rig on left to TV on right."
+    ],
+    [
+      "round-coffee-table",
+      [
+        124,
+        28
+      ],
+      "Same low round fluted-wood coffee table, but a distinctly LIGHT pale oak/cream tabletop with a dark wood rim. Visible props: small dark remote, two stacked magazines without text, cream mug and a small bowl. High contrast against dark ornate rug. Keep dark wooden fluted base, overhead elliptical top. No additional plant. Low table silhouette fills wide short canvas."
+    ],
+    [
+      "kids-drawings",
+      [
+        88,
+        24
+      ],
+      "Three small cream sheets taped side by side to a NORTH WALL, FACE ON: crayon sun, house, rainbow and flowers. Single shallow horizontal row, no people or text. No floor shadow. Native row only24px tall, papers spread across88px width."
+    ],
+    [
+      "white-oak-sink-counter",
+      [
+        184,
+        60
+      ],
+      "Repaint detailed matched cream/oak kitchen NORTH sink run: one DOUBLE sink, tall metal faucet, dish soap, sponge caddy, dish rack with plates, integrated dishwasher and paneled doors/drawers with handles. Countertops with subtle stone detail. Props visible at native size. This is the ONLY sink in the kitchen."
+    ],
+    [
+      "white-oak-upper-cabinets",
+      [
+        192,
+        80
+      ],
+      "Detailed matched cream/oak NORTH upper cabinet row face-on: four paneled doors, oak frame, dark hardware, subtle varied door shading, one glass-front door with visible stacked dishes and jars. No sink/counter below, no extra room or wall."
+    ],
+    [
+      "stove-microwave",
+      [
+        80,
+        100
+      ],
+      "Detailed matched cream/oak kitchen white stove with microwave above, visible burner grates, metal knobs, oven handle, tea towel on oven handle, stainless kettle and small cooking pot on burners, utensil crock beside stove integrated in small side ledge. Microwave buttons abstract marks, no text. Same viewpoint and density as painted living-room furniture."
+    ],
+    [
+      "magnet-fridge",
+      [
+        88,
+        100
+      ],
+      "Detailed cream refrigerator in southeast corner facing diagonally into the room toward NORTHWEST. Show the FRONT with TWO prominent dark handles, colorful small magnets and two pinned notes with abstract marks (no readable words), freezer seam, hinge details, slight side and top visible. NOT a blank rear view. No walls or trim outside the fridge."
+    ],
+    [
+      "kitchen-counter-west",
+      [
+        160,
+        60
+      ],
+      "Full-detail long cream/oak bottom-left counter. Show broad stone top and visible paneled cabinet DOORS AND DRAWERS with dark handles facing camera, slight top-down angle. Top props: chopping board with bread, bowl of fruit, paper-towel roll, small toaster, folded cloth and two canisters. No sink or faucet. Match density of living-room painted furniture, not a plain slab."
+    ],
+    [
+      "kitchen-counter-east",
+      [
+        112,
+        60
+      ],
+      "Full-detail matching cream/oak northeast corner counter, L corner worktop with cabinet doors/drawers and handles. Top props coffee maker, kettle, cups on tray, fruit bowl, little spice jars. NO SINK and NO FAUCET anywhere. Stone top, three-tone cabinet panels, carved oak edges, same viewpoint/finish as rest of kitchen."
+    ]
+  ],
+  "common": "Object reference repaint. Painted pixel game art, neutral white balance, no sepia or golden haze. Three tones per material, detailed navy outlines for furniture, transparent outside. Camera faces north from above. Exact 3x target requested, 3 native pixel margin. No room, people, readable personal text or walls."
+}
