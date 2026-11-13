@@ -1,0 +1,10 @@
+{
+  "hopscotch": {
+    "tool": "built-in imagegen edit",
+    "prompt": "Use case: precise-object-edit. Edit the supplied hopscotch painting ONLY to make all painted lines and numerals absolutely FLAT ground paint. Preserve this EXACT correct sequence and layout: bottom1, double2/3, single4, double5/6, single7, double8/9, top cap10. Preserve transparent interiors and true transparent background. Remove the green edge rims, beveled emboss, drop shadows and any suggestion of raised tube/rope. Use thin worn cream painted strokes with mottled three tones #D3B78D #F2D7A1 #FFF0CF, subtle sage pigment flecks INSIDE strokes only, never an outside rim. Direct overhead2D. Final96x320, paint3x288x960 for later blockmode. Neutral white balance, no sepia/haze/tint. No new objects, background or words."
+  },
+  "four-square": {
+    "tool": "built-in imagegen edit",
+    "prompt": "Use case: precise-object-edit. Edit the supplied four-square court painting ONLY to look like absolutely FLAT worn ground PAINT, not raised beams or beveled tubing. Keep one square boundary and one centered vertical and horizontal cross making four equal quadrants. Preserve true transparent interiors and outside. Thin irregular cream painted strokes, three mottled paint tones #D3B78D #F2D7A1 #FFF0CF distributed INSIDE the strokes, no directional shadow, no side faces, no exterior outline/rim. Direct overhead flat2D. Final256x256, paint3x768x768 for later blockmode. Neutral white balance, no sepia/haze/film tint. No numbers, scenery, asphalt background or new elements."
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "school-front": {
+    "finalSize": [
+      1100,
+      560
+    ],
+    "requestedWorkingSize": [
+      2200,
+      1120
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One-story American neighborhood elementary school FRONT, wide single-story rusty brick facade, dark blue-gray shallow pitched roof seen from above, symmetrical main entrance centered, cream masonry door surround and double glass doors. A large EMPTY cream rectangular sign plate above the doors, with no letters or marks. One round analog clock mounted in central gable, showing hands and simple hour ticks, no words. Eight large classroom windows in two banks with little orange paper leaves and cream/rust paper turkey cutouts taped INSIDE the windows. Roof, brickwork, frames each at least three tones. Building fills almost full 1100x560 final canvas; doorway about100px tall so hero56x60 scale makes sense. NO trees, bushes, benches, signs on poles, flagpoles, people, cars or separate standing props baked in. Only school building, entrance steps and its heavy base shadow. Final canvas 1100x560px; paint at exact 2x working size 2200x1120px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "flagpole": {
+    "finalSize": [
+      48,
+      256
+    ],
+    "requestedWorkingSize": [
+      144,
+      768
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One tall slim silver school flagpole with small base and finial. Small folded US-style red/cream striped flag and navy canton near the upper right, contained within48px final width. Pole stands almost full256px height. Upper-left light, full dark outline and heavy small shadow ONLY at base, no lawn. Final canvas 48x256px; paint at exact 3x working size 144x768px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "school-sign": {
+    "finalSize": [
+      256,
+      128
+    ],
+    "requestedWorkingSize": [
+      768,
+      384
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One freestanding elementary school sign: broad dark slate EMPTY letter board in a cream frame on a low red-brown brick plinth. Entire board completely BLANK, no letters, numbers, logo or decoration. Low brick base, not long support legs. Three tones each for brick, cream frame and slate board. Centered wide frontal overhead view. Full dark outline, heavy shadow at brick base. Final canvas 256x128px; paint at exact 3x working size 768x384px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "pickup-lane": {
+    "finalSize": [
+      512,
+      1024
+    ],
+    "requestedWorkingSize": [
+      1024,
+      2048
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "prompt": "Paint this ONE subject: A straight rectangular school pickup/drop-off asphalt lane,512px wide and1024px long, viewed directly overhead. Full canvas asphalt matching the attached reference street #526078 (mid-slate), with small dark asphalt grain/cracks in #303750 and #171C35, NOT black asphalt. One cream zebra crosswalk horizontally across near the upper quarter; two large painted white/cream directional arrows pointing UP, spaced along lane; simple dashed cream lane divider. All paint flat, worn edges and three cream paint tones. No words, curbs, cars, people, cones, posts, objects, grass or floor shadows. Do not put solid things into ground. Asphalt is painted, not a code texture. Rectangular flat ground plate with only a two-pixel transparent outer border. Final canvas 512x1024px; paint at exact 2x working size 1024x2048px for later block reduction. Kind WALK-THROUGH. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "minivan-a": {
+    "finalSize": [
+      80,
+      144
+    ],
+    "requestedWorkingSize": [
+      240,
+      432
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One teal family MINIVAN idling in the pickup line, long axis exactly north-south, front bumper at the TOP, top-down overhead like the parked cars in street reference. Teal body, cream interior hints, broad roof, distinct sliding side doors, tinted slate windshield and rear glass, two mirrors. No people or exhaust. Entire vehicle, tires and modest lower-right shadow inside80x144 final canvas, fill most of it. Full dark outline, heavy contact shadow. Final canvas 80x144px; paint at exact 3x working size 240x432px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "minivan-b": {
+    "finalSize": [
+      80,
+      144
+    ],
+    "requestedWorkingSize": [
+      240,
+      432
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One cream/off-white family MINIVAN, a visibly different boxier model from the teal van. Long axis exactly north-south, front bumper at TOP, overhead parked-car camera. Cream body panels in three cream/tan tones, dark roof rails, navy tinted windshield, rear glass, two mirrors, small rusty bumper scuff. No logos, people, exhaust or ground. Full dark outline and heavy contact shadow. Fill80x144 final canvas. Final canvas 80x144px; paint at exact 3x working size 240x432px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "pickup-suv": {
+    "finalSize": [
+      80,
+      144
+    ],
+    "requestedWorkingSize": [
+      240,
+      432
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One rusty-red family SUV idling, long axis north-south, FRONT at TOP. Overhead parked-car camera, short chunky hood, roof rails and square hatch, larger tires, tinted slate windows and cream rim highlights. Distinct from minivans, no people, text, exhaust or ground. Full dark outline, heavy contact shadow. Fill80x144 final canvas. Final canvas 80x144px; paint at exact 3x working size 240x432px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "playground-slide": {
+    "finalSize": [
+      192,
+      160
+    ],
+    "requestedWorkingSize": [
+      576,
+      480
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One elementary-school metal playground slide with teal/slate frame, cream polished slide chute curving down toward lower-left, rusty-orange ladder at rear-right and small raised platform with guardrails. Three-quarter overhead camera matching v4 swing set. Show full ladder and all feet, strong structure, no kids or ground. Full dark outlines and heavy lower-right contact shadow, three tones per material, fill192x160 final canvas. Final canvas 192x160px; paint at exact 3x working size 576x480px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "monkey-bars": {
+    "finalSize": [
+      224,
+      128
+    ],
+    "requestedWorkingSize": [
+      672,
+      384
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One freestanding rectangular elementary-school MONKEY BAR climbing frame, long horizontal row of overhead hand rungs, four chunky teal/russet metal support legs. Overhead three-quarter game camera matching swing set. Open spaces between every rung and legs are truly transparent, no roof, no floor or people. Full dark outlines, at least three metal paint tones, heavy shadows only at bases. Frame fills224x128 final canvas. Final canvas 224x128px; paint at exact 3x working size 672x384px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "merry-go-round": {
+    "finalSize": [
+      160,
+      128
+    ],
+    "requestedWorkingSize": [
+      480,
+      384
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One classic school playground merry-go-round: circular low rotating platform shown as overhead three-quarter ellipse, alternating faded teal/russet painted deck sectors, cream metal grab handles arranged radially and a dark central axle. No people, no ground. Full dark outline, heavy contact shadow under circular base. Three tones per material, fill160x128 final canvas. Final canvas 160x128px; paint at exact 3x working size 480x384px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "four-square": {
+    "finalSize": [
+      256,
+      256
+    ],
+    "requestedWorkingSize": [
+      768,
+      768
+    ],
+    "factor": 3,
+    "kind": "WALK-THROUGH",
+    "prompt": "Paint this ONE subject: One flat painted FOUR-SQUARE playground court DECAL. Square outer cream painted boundary and one vertical plus one horizontal cream dividing line form four exactly equal squares. Thin worn chalk/paint strokes with three shades cream/tan; transparent interiors and background, absolutely NO asphalt rectangle or filled court. Direct overhead, no perspective, NO black outline, cast shadow, 3D objects or text. Court fills256x256 with6px margin. Final canvas 256x256px; paint at exact 3x working size 768x768px for later block reduction. Kind WALK-THROUGH. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "hopscotch": {
+    "finalSize": [
+      96,
+      320
+    ],
+    "requestedWorkingSize": [
+      288,
+      960
+    ],
+    "factor": 3,
+    "kind": "WALK-THROUGH",
+    "prompt": "Paint this ONE subject: One flat painted HOPSCOTCH playground decal oriented vertically, bottom to top. Correct sequence: single square1 at bottom, double row2 and3, single4, double5 and6, single7, double8 and9, top cap10. Cream chalk/paint lines and hand-painted numerals1 through10 exactly once in their squares. Muted sage and cream dusty chalk accents, at least3 paint tones. Direct overhead, no 3D perspective. ONLY painted lines and numerals on true transparent background; interiors transparent, no asphalt, no outline around entire sprite, no shadows. Fill96x320 final canvas with4px margin. Final canvas 96x320px; paint at exact 3x working size 288x960px for later block reduction. Kind WALK-THROUGH. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "usa-map": {
+    "finalSize": [
+      320,
+      224
+    ],
+    "requestedWorkingSize": [
+      960,
+      672
+    ],
+    "factor": 3,
+    "kind": "WALK-THROUGH",
+    "prompt": "Paint this ONE subject: One flat hand-painted playground map of the UNITED STATES OF AMERICA. Recognizable contiguous USA silhouette including Maine, Florida peninsula, Texas and Great Lakes, simplified recognizable state boundaries, small Alaska and Hawaii insets below left. Direct overhead chalk/asphalt paint DECAL, no asphalt/background rectangle, no enclosing dark outline or shadow. State regions muted sage #9BAE73 #6D895B #83A89A, cream #FFF0CF #F2D7A1 #D3B78D, dusty pink #F1B5BF #E5A995 and lavender #BFA8CF, with fine cream internal state lines, three paint tones per main color. No labels, letters or words. Fill320x224 final canvas, weathered classroom playground paint. Final canvas 320x224px; paint at exact 3x working size 960x672px for later block reduction. Kind WALK-THROUGH. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "bike-rack": {
+    "finalSize": [
+      160,
+      80
+    ],
+    "requestedWorkingSize": [
+      480,
+      240
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "prompt": "Paint this ONE subject: One school metal bike rack with exactly TWO small bicycles parked against it, one rusty-red bike and one cream/teal bike. Recognizable wheels, frames, handlebars, seats and rack loops. Three-quarter overhead camera matching yard furniture, complete object within160x80 final canvas, fill most. No people, no ground. Full dark outline and heavy contact shadows at wheel/rack bases; at least3 tones for painted metal. Final canvas 160x80px; paint at exact 3x working size 480x240px for later block reduction. Kind WALL. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  },
+  "lost-and-found": {
+    "finalSize": [
+      64,
+      64
+    ],
+    "requestedWorkingSize": [
+      192,
+      192
+    ],
+    "factor": 3,
+    "kind": "BREAKABLE",
+    "prompt": "Paint this ONE subject: One small teal school lost-and-found plastic bin with a single SAD rumpled cream sweater slumped over the front rim, one limp dangling sleeve and a small dusty-pink knit patch. No actual face, no labels or text, no other clothes or props. Overhead three-quarter game view, hero-height or smaller, fill64x64 final canvas. Clear cream highlight across top rim, three tones for teal plastic and cream fabric, modest contact shadow. Final canvas 64x64px; paint at exact 3x working size 192x192px for later block reduction. Kind BREAKABLE. Use case: stylized-concept. Asset type: isolated Maple Hollow Elementary game art. Match the hand-painted chunky pixel-painting v4 yard kit references, peak fall, overhead 2D game perspective (NOT an isometric diamond). Light from upper LEFT, shadows toward lower RIGHT. Palette by material, EXACT approved21 colors: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal/metal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/timber), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/russet/wood), #EF9347 #D8AD4A (fall paper/leaves), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (green). Keep at least3 distinct tones per material, crisp small painted details, no vector/code-shape look. Neutral white balance, NO sepia, golden haze, film tint, vignette or watermark. Transparent background, no scenery or labels unless explicitly asked. Keep source subject large with no unnecessary padding."
+  }
+}

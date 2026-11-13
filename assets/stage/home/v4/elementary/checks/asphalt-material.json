@@ -1,0 +1,53 @@
+{
+  "existingStreet": {
+    "dominantRGB": [
+      82,
+      96,
+      120
+    ],
+    "topColors": [
+      [
+        [
+          82,
+          96,
+          120
+        ],
+        18000
+      ]
+    ]
+  },
+  "newLane": {
+    "dominantRGB": [
+      82,
+      96,
+      120
+    ],
+    "topColors": [
+      [
+        [
+          82,
+          96,
+          120
+        ],
+        17946
+      ],
+      [
+        [
+          48,
+          55,
+          80
+        ],
+        51
+      ],
+      [
+        [
+          23,
+          28,
+          53
+        ],
+        3
+      ]
+    ]
+  },
+  "sameDominantAsphalt": true
+}
