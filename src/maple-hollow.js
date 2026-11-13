@@ -40,6 +40,14 @@ window.MapleHollow = (() => {
       yd.ground = await H.image(ROOT + YD.dir + YD.you.ground);
       yd.pieces = await Promise.all(YD.you.pieces.map(q => H.image(ROOT + YD.dir + q[0])));
     } catch (e) { yd.ground = null; console.warn("yard art missing", e); }
+    // Nov 12: every yard rebuilt from a plain ground plate plus separate pieces (src/data/maple-yards.js)
+    const MY = NEW && window.MAPLE_YARDS && YD ? window.MAPLE_YARDS : null, my = {};
+    if (MY) try {
+      const files = new Set(MY.frame.map(q => q.f));
+      Object.values(MY.themes).forEach(t => { files.add(t.ground); t.pieces.forEach(q => files.add(q.f)); });
+      const list = [...files], imgs = await Promise.all(list.map(f => H.image(ROOT + YD.dir + f)));
+      list.forEach((f, i) => { my[f] = imgs[i]; });
+    } catch (e) { my.failed = true; console.warn("yard pieces missing, keeping the painted yards", e); }
     if (!H.isAlive()) return null;
     const TW = NEW && MV.treeWall && MV.treeWall.on ? MV.treeWall : null, tw = {}; // the tree wall around the town (Nov 11)
     if (TW) try {
@@ -411,7 +419,9 @@ window.MapleHollow = (() => {
           const L = lotLeft(i), mine = yh.row === row && yh.lot === i;
           // the backyard behind the house
           const rebuilt = mine && YD && yd.ground;
-          const yk = rebuilt ? crop("mh4_yard_you", yd.ground, 0, 0, YW, YH) : mine ? crop("mh3_yard_you", v3.yourYard, 0, 0, YW, YH) : crop("mh3_yard_" + f, v3.yards, (MV.yardOrder[f] || 0) * YW, 0, YW, YH);
+          const theme = MY && !my.failed && !mine ? MY.themes[MY.cellTheme[MV.yardOrder[f] || 0]] : null; // Nov 12: a neighbor's rebuilt yard
+          const yk = rebuilt ? crop("mh4_yard_you", yd.ground, 0, 0, YW, YH) : theme ? crop("mh4_yard_" + theme.ground, my[theme.ground], 0, 0, YW, YH)
+            : mine ? crop("mh3_yard_you", v3.yourYard, 0, 0, YW, YH) : crop("mh3_yard_" + f, v3.yards, (MV.yardOrder[f] || 0) * YW, 0, YW, YH);
           all.push(scene.add.image(L, yardTop, yk).setOrigin(0).setDepth(-999));
           if (rebuilt) YD.you.pieces.forEach(([file, x, y, bw, bd], n) => {
             const img = yd.pieces[n], w = img.width, h = img.height, solid = bw > 0;
@@ -419,6 +429,17 @@ window.MapleHollow = (() => {
             if (!solid) { all.push(scene.add.image(L + x, yardTop + y, k).setOrigin(0).setDepth(-998)); return; } // flat: you walk over it
             const o = scene.add.image(L + x + w / 2, yardTop + y + h, k).setOrigin(0.5, 1).setDepth(3); // stands up: sorted with the hero, blocks at its base
             H.body(o, { width: bw, back: bd, front: 0 }, "prop_wall"); bodies.push(o); items.push(o);
+          });
+          // Nov 12: the yard's own pieces, plus the shared frame (fence posts and autumn shrubs) on every rebuilt yard
+          if (MY && !my.failed && (theme || rebuilt)) (theme ? MY.frame.concat(theme.pieces) : MY.frame).forEach(q => {
+            const img = my[q.f]; if (!img) return;
+            const w = img.width, h = img.height, k = crop("mh4_piece_" + q.f, img, 0, 0, w, h, q.k !== "flat");
+            if (q.k === "flat") { all.push(scene.add.image(L + q.x, yardTop + q.y, k).setOrigin(0).setDepth(-998)); return; } // walked over
+            // stands up: drawn by its feet (q.d), so the hero passes in front or behind; "over" pieces (roof, lights, bunting) sort below their posts' feet
+            const o = scene.add.image(L + q.x, yardTop + q.d, k).setOrigin(0, (q.d - q.y) / h).setDepth(3);
+            o.sliceDepth = yardTop + q.d; items.push(o); all.push(o);
+            H.body(o, { width: 1, back: 1, front: 0 }, "prop_decor"); o.body.enable = false; // joins the props sorted by feet each frame; the solid part is the blocks below
+            (q.fp || []).forEach(([bx, by, bw, bh]) => block(L + bx, yardTop + by, bw, bh)); // solid only at its base
           });
           // fences on both sides with a gate gap in the middle; the hedge along the top has steps (south row only: the north row's top is the edge of the map)
           [L, L + YW - F.w].forEach(x => { block(x, yardTop + F.top, F.w, F.gate[0] - F.top); block(x, yardTop + F.gate[1], F.w, YH - F.gate[1]); });

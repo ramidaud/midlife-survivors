@@ -112,7 +112,7 @@ window.MAPLE_HOLLOW = {
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
     yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png
     lemonade: [620, 930],                            // one house over from yours, on the parkway
-    lego: [[600, 250, 1], [700, 180, 2], [1300, 300, 0], [1150, 1560, 1], [1900, 1650, 0]],
+    lego: [[600, 250, 1], [700, 262, 2], [1300, 300, 0], [1150, 1560, 1], [1900, 1650, 0]],
     keyHuntSpots: [["north", 2, -130, 22, "rock"], ["north", 1, 0, 30, "mat"], ["north", 3, 90, 30, "pot"], ["north", 0, -100, 32, "mailbox"],
                    ["north", 4, -40, 30, "mat"], ["south", 2, -60, 30, "pot"], ["south", 1, 40, 30, "rock"], ["south", 3, -30, 30, "mailbox"]]
   },

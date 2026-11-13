@@ -1,7 +1,7 @@
 // Loads the game's code files in order, all tagged with the same BUILD number.
 // index.html fetches this file fresh on every visit, so the browser can't mix an old page with new code
 // (that mismatch broke controls until a second reload). Bump BUILD after every change; it replaces the old ?v= tags.
-window.BUILD = 367;
+window.BUILD = 368;
 // GitHub Pages lets browsers and its CDN keep index.html for up to 10 minutes, but this file always arrives fresh.
 // If the page is older than this file, reload once with ?b=BUILD: a brand-new address, so nothing cached can answer it.
 (function () {
@@ -90,6 +90,7 @@ window.GAME_FILES = [
   "src/screenshot.js",
   "src/data/house-v2.js",
   "src/data/maple-hollow.js",
+  "src/data/maple-yards.js",
   "src/maple-hollow.js",
   "src/key-hunt.js",
   "src/garage.js",

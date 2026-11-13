@@ -2342,3 +2342,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Codex delivered 30 painted pieces. String lights and the cabbage bed pass; the Batch B wicker chair is reused for the retirees.
 - Most other pieces came out at 30 to 60% of the size of the same subject in today's yards (my brief's sizes were too small). Sent back to re-fit at today's sizes; the tarp pile gets repainted as leaning pallets with a tarp.
 - Revision brief: `docs/handoffs/codex-yard-character-pieces-revision.md`. Yard rebuild still waits.
+
+## 2026-11-12: V. 2.30.0, every yard rebuilt (Claude)
+- Batch C approved (ghosts whitened and fog turned lavender by remapping their own colors). Batch B and C pieces copied into `assets/stage/home/v4/yard/`.
+- All eleven neighbor yards now draw a plain ground plate plus separate pieces, laid out per theme in `tools/maple_yards.py` (it refuses any solid piece in the gate lane or the path back to the house). Fence posts and autumn shrubs frame every yard, yours too.
+- Standing pieces sort by their feet with the hero; roofs, lights and bunting draw above you.
+- Tested: all six themes in game, ghost in front of and behind the hero, and both gate lanes walk end to end. No errors.

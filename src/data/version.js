@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.16",
-  displayVersion: "V. 2.29.16",
+  version: "2.30.0",
+  displayVersion: "V. 2.30.0",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 367,
+  build: 368,
   changelog: [
+    {
+      ver: "V. 2.30.0", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "Every backyard in Maple Hollow, rebuilt piece by piece.",
+      highlights: [
+        "All eleven neighbor yards are rebuilt from fresh painted art, and each kept its personality: the young family's trampoline and swings, the gardeners' beds and gnomes, the grill master's string lights, the fixer-upper's tarp pile, the HOA pergola and koi pond, and the Halloween house's ghosts and fog.",
+        "Fences and autumn shrubs frame every yard, yours included. What looks solid is solid, and you can walk behind the tall things.",
+        "The ghosts are whiter and the fog is back to purple."
+      ]
+    },
     {
       ver: "V. 2.29.16", date: "Nov 12, 2026", title: "Version Two",
       teaser: "Maple Hollow hits a little softer and feeds you more.",

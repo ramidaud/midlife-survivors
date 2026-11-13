@@ -834,3 +834,6 @@ Every pop-up in the game had the same layer number (z-index 30). When two things
 
 ## Balance lives in more than one number (Nov 12, Maple Hollow)
 Nobody changed the healing numbers, yet Ben healed less. A new level can shift balance without touching any shared setting: Maple Hollow swapped in tougher enemies and quietly left out the office's healing sources (interns, errands, smashable plants). Difficulty is the sum of what hurts you and what helps you, so a new stage needs both sides checked. Recording which stage each run happens on lets us compare them with real numbers next time.
+
+## Sorting by feet, and things overhead (Nov 12, the yards)
+In a top-down game, whoever's feet are lower on the screen is drawn in front. Each yard piece gets a "feet line" (the d number in the yard data): stand above it and the ghost covers you, step below it and you cover the ghost. Overhead things like the pergola roof and the string lights use a trick: their feet line is set just below the posts' feet, so anyone standing under them is drawn underneath. One picture, two answers, depending only on where you stand.
