@@ -259,44 +259,44 @@
       "file": "galaxy-wall-tv-v1.png",
       "room": "living",
       "size": [
-        48,
-        168
+        92,
+        120
       ],
       "kind": "WALK-THROUGH",
       "renderLayer": "wall-mounted",
-      "feetLine": 161,
+      "feetLine": 113,
       "footPoint": [
-        24,
-        161
+        46,
+        113
       ],
       "footprints": [],
       "visibleBounds": [
+        9,
         3,
-        3,
-        45,
-        165
+        83,
+        117
       ],
       "source": "../sources/galaxy-wall-tv.png",
       "sourceSize": [
-        730,
-        2155
+        1097,
+        1434
       ],
       "sourceCrop": [
-        179,
-        109,
-        582,
-        2078
+        133,
+        73,
+        966,
+        1353
       ],
       "sourceFit": [
+        26,
         9,
-        9,
-        126,
-        486
+        223,
+        342
       ],
       "working": "working/galaxy-wall-tv-3x.png",
       "workingSize": [
-        144,
-        504
+        276,
+        360
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -433,29 +433,29 @@
       "file": "leather-recliner-v1.png",
       "room": "living",
       "size": [
-        80,
-        60
+        120,
+        90
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 53,
+      "feetLine": 83,
       "footPoint": [
-        40,
-        53
+        60,
+        83
       ],
       "footprints": [
         [
-          11,
-          3,
-          58,
+          26,
+          33,
+          68,
           50
         ]
       ],
       "visibleBounds": [
+        18,
         3,
-        3,
-        77,
-        57
+        102,
+        87
       ],
       "source": "../sources/leather-recliner.png",
       "sourceSize": [
@@ -463,21 +463,21 @@
         1086
       ],
       "sourceCrop": [
-        245,
-        95,
-        1208,
-        982
+        204,
+        24,
+        1243,
+        1046
       ],
       "sourceFit": [
+        52,
         9,
-        9,
-        222,
-        162
+        256,
+        252
       ],
       "working": "working/leather-recliner-3x.png",
       "workingSize": [
-        240,
-        180
+        360,
+        270
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -493,29 +493,29 @@
       "file": "round-coffee-table-v1.png",
       "room": "living",
       "size": [
-        124,
-        28
+        186,
+        42
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 21,
+      "feetLine": 35,
       "footPoint": [
-        62,
-        21
+        93,
+        35
       ],
       "footprints": [
         [
           11,
           0,
-          102,
-          28
+          164,
+          36
         ]
       ],
       "visibleBounds": [
         3,
-        3,
-        121,
-        25
+        18,
+        183,
+        39
       ],
       "source": "../sources/round-coffee-table.png",
       "sourceSize": [
@@ -523,21 +523,21 @@
         724
       ],
       "sourceCrop": [
-        244,
         6,
-        1928,
-        724
+        247,
+        2167,
+        509
       ],
       "sourceFit": [
         9,
-        9,
-        354,
-        66
+        52,
+        540,
+        65
       ],
       "working": "working/round-coffee-table-3x.png",
       "workingSize": [
-        372,
-        84
+        558,
+        126
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -839,29 +839,29 @@
       "file": "racing-sim-rig-v1.png",
       "room": "living",
       "size": [
-        120,
-        88
+        180,
+        132
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 81,
+      "feetLine": 125,
       "footPoint": [
-        60,
-        81
+        90,
+        125
       ],
       "footprints": [
         [
-          9,
+          12,
           33,
-          102,
-          48
+          156,
+          92
         ]
       ],
       "visibleBounds": [
+        6,
         3,
-        3,
-        117,
-        85
+        174,
+        129
       ],
       "source": "../sources/racing-sim-rig.png",
       "sourceSize": [
@@ -869,21 +869,21 @@
         1074
       ],
       "sourceCrop": [
-        199,
-        5,
-        1292,
-        1056
+        43,
+        21,
+        1422,
+        1054
       ],
       "sourceFit": [
+        17,
         9,
-        9,
-        342,
-        246
+        505,
+        378
       ],
       "working": "working/racing-sim-rig-3x.png",
       "workingSize": [
-        360,
-        264
+        540,
+        396
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -1083,16 +1083,16 @@
       ],
       "footprints": [
         [
-          7,
+          12,
           0,
-          42,
+          32,
           24
         ]
       ],
       "visibleBounds": [
+        8,
         3,
-        3,
-        53,
+        48,
         25
       ],
       "source": "../sources/blanket-basket.png",
@@ -1101,15 +1101,15 @@
         887
       ],
       "sourceCrop": [
-        543,
-        79,
-        1220,
-        778
+        146,
+        47,
+        1623,
+        859
       ],
       "sourceFit": [
+        24,
         9,
-        9,
-        150,
+        120,
         66
       ],
       "working": "working/blanket-basket-3x.png",
@@ -2727,51 +2727,51 @@
       "file": "side-table-lamp-v1.png",
       "room": "living",
       "size": [
-        56,
-        72
+        84,
+        108
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 65,
+      "feetLine": 101,
       "footPoint": [
-        28,
-        65
+        42,
+        101
       ],
       "footprints": [
         [
-          7,
-          41,
-          42,
+          13,
+          77,
+          58,
           24
         ]
       ],
       "visibleBounds": [
+        9,
         3,
-        3,
-        53,
-        69
+        75,
+        105
       ],
       "source": "../sources/side-table-lamp.png",
       "sourceSize": [
-        864,
-        1821
+        1106,
+        1422
       ],
       "sourceCrop": [
-        13,
-        156,
-        850,
-        1668
+        163,
+        74,
+        942,
+        1276
       ],
       "sourceFit": [
+        27,
         9,
-        9,
-        150,
-        198
+        198,
+        306
       ],
       "working": "working/side-table-lamp-3x.png",
       "workingSize": [
-        168,
-        216
+        252,
+        324
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -3022,51 +3022,51 @@
       "file": "south-love-seat-v1.png",
       "room": "living",
       "size": [
-        184,
-        60
+        276,
+        90
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 53,
+      "feetLine": 83,
       "footPoint": [
-        92,
-        53
+        138,
+        83
       ],
       "footprints": [
         [
           7,
-          29,
-          170,
+          59,
+          262,
           24
         ]
       ],
       "visibleBounds": [
         3,
-        3,
-        181,
-        57
+        27,
+        273,
+        87
       ],
       "source": "../sources/south-love-seat.png",
       "sourceSize": [
-        2169,
-        725
+        2171,
+        724
       ],
       "sourceCrop": [
-        68,
-        28,
-        2074,
-        705
+        9,
+        154,
+        2162,
+        639
       ],
       "sourceFit": [
         9,
-        9,
-        534,
-        162
+        79,
+        810,
+        182
       ],
       "working": "working/south-love-seat-3x.png",
       "workingSize": [
-        552,
-        180
+        828,
+        270
       ],
       "reductionFactor": 3,
       "referenceRoles": [

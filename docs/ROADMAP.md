@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (PR #10 house-scale repaint ready for review; latest room corrections ready: northwest bassinets, upright sim, mounted drawings and detailed kitchen; approve mock-ups before Claude places the ground floor. Roads-and-woods brief still waiting on Codex.)
+**Last updated:** 2026-11-13 (PR #10 house-scale repaint ready for review; round-two living repaints ready; fixed living layout needs a 96px route correction before integration; approve mock-ups before Claude places the ground floor. Roads-and-woods brief still waiting on Codex.)
 
 ---
 

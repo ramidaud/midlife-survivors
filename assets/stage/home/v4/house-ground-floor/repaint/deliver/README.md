@@ -1,29 +1,15 @@
-# House-scale repaint review
+# Round-two living-room corrections
 
-Ready for art review, pending Rami's approval. This package follows docs/handoffs/codex-house-repaint.md and Rami's saved room layouts. Earlier PR #10 artwork remains intact one folder above. No runtime placement.
+Seven repaints follow docs/handoffs/codex-house-fixes-round2.md. Earlier art is approved; these corrections are ready for review. No game integration or version change.
 
-Rebuild using Python with Pillow and NumPy:
+Final native canvases: TV 92x120, love seat 276x90, matched lamp tables 84x108 each, tufted recliner 120x90, east-facing rig 180x132, pale coffee table 186x42 and cream-blanket basket 56x28. Original paintings are proportionally contained without stretching on exact 3x working canvases, then block-reduced and mapped by material. round2-prompts.json records the selected paintings.
 
-    python build_repaint.py
+The living view uses placements-round2.json at 1x with no rotations. The repainted TV replaces the editor’s old scale/rotate/flip workaround and anchors at [676,-124] above the east console. The basket follows the written brief at [112,168], between the west sofa and coffee table, rather than the saved editor coordinate. All other living coordinates are preserved. Other rooms and 49 unchanged assets retain their approved exports exactly.
 
-The build creates deliver/ with native painted reductions, comparisons against the full unchanged 56x60 hero, room views at 3x nearest-neighbor, and footprint overlays. selected-prompts.json records the imagegen requests and cleanup edits. repaint-plan.json records final native dimensions and viewpoint instructions. placements.json preserves Rami's room-relative layout intent. room_mockups.py records grid snapping and spacing adjustments explicitly.
+**96 px route check FAILS for the fixed living layout.** There are clear pockets, but no connected 96x96 square route between checked door openings. The review records this result instead of moving furniture to claim clearance. Do not integrate until the layout is resolved. The existing laundry-closet exception also remains explicit; the other three rooms retain their passing checks.
 
-Scale is measured against the hero. Native furniture dimensions aim for the approved 1.4x house scale, bounded by the kind of object: sitting and work surfaces at or below hero height, low objects under 30px, tall objects around 100px. A long north-south footprint, flat rug, or wall print can occupy more screen depth without representing a tall physical object. Coffee table is 1.2x in width and low in height. Paintings are normalized to exact 3x canvases before reproducible whole-number reduction, with no runtime stretch or rotation.
+Open deliver/review.html for native hero comparisons, the exact 3x living view, footprints and route-checks.json. deliver/mockups/living-footprints-3x.png is also available. Browser verification and screenshots are in reports/house-round2 at repository root. Nothing launches the game or sends telemetry.
 
-Route checks flood-fill positions where an entire 96x96 square fits between proposed footprints. Reaching two room boundaries demonstrates local clearance only; actual door connectivity and depth sorting still need runtime testing after art approval. Green dots in overlays show clear square centers, not a painted game path.
+The builder retains unchanged assets and rooms from the committed deliver package. It rebuilds the seven selected pieces and living view. Rebuild with Python, Pillow and NumPy: python build_repaint.py; then run test_routes.py and audit_review.py. Audit success validates the artifacts and truthful failure reporting; it does not mean the living route passes.
 
-Only sources/ beside this README contains selected source paintings. The exporter points its manifest to ../sources/ and does not create deliver/sources. Source photos are not included. Paintings use the existing public v4 style reference, neutral white balance, no people, names or personal text. Superseded paintings are excluded from the review.
-
-## Review limits and fit decisions
-
-- The four main room mock-ups have connected 96px square routes at their existing door/open boundaries. The entry bench is a compact 56x48 repaint, fitted below the door rather than across its opening.
-- Rami's latest direction fixes the bassinets in the northwest corner at [0,0], between the raised photo shelves and the sofa shifted south to [0,64]. They are repainted as two compact sleeping bassinets, not car seats. The patio approach stays connected at 96px.
-- Four dining chairs face the table; their asset names indicate facing direction rather than their side of the table. Rugs are ground decals with no backing or collision.
-- The 104x136 laundry closet retains its washer/dryer. A full 96px square cannot fit inside with that appliance. Its basket is accessed from outside; this is an explicit existing-space exception, not a passing through-room route.
-- Native room PNGs are visually inspected. Browser file-URL preview is unavailable in this environment, so responsive browser layout was not rerun. The art review does not launch the game or send telemetry.
-
-Run test_routes.py for the 95px/96px/dead-end tests, then audit_review.py after rebuilding to audit the exports. No runtime integration or version change. Claude places approved art later.
-
-## Latest review corrections
-
-Upright rig faces the east-wall TV; one connected floor cable pair runs from its right edge to the media console. Coffee table has a pale top and visible props. Dining chair tucks at the standing desk, the plant sits left of the abstract painting, and kids' drawings form a wall-mounted row beneath it. The kitchen is repainted as one detailed set: visible fridge magnets/handles, cabinet doors/drawers, and props on worktops, with only the north double sink. The central aisle remains open. Exact requests are in review-fixes-prompts.json.
+Only repaint/sources contains the selected source paintings. The exporter does not duplicate it under deliver. Private photos are excluded. Paintings use neutral white balance with no people, names or readable personal text.

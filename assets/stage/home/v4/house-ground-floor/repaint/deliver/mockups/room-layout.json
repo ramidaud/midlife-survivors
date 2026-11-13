@@ -10,7 +10,7 @@
         768,
         345
       ],
-      "note": "Rami layout intent, grid-snapped and tidied; 3x nearest-neighbor. Green centers mark verified 96px clearance. No runtime placement."
+      "note": "Round-two furniture coordinates at native scale; exact 3x nearest-neighbor. WARNING: no connected 96px route between checked door openings. TV and basket exceptions are recorded in route-checks.json. Nothing placed in game."
     },
     {
       "id": "dining-desk-shared",
@@ -72,7 +72,7 @@
       "layer": "wall-mounted",
       "sourcePosition": [
         8,
-        -96
+        -112
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -81,21 +81,21 @@
     {
       "id": "tile-fireplace",
       "at": [
-        240,
-        -40
+        232,
+        -44
       ],
       "footprints": [
         [
-          247,
-          -11,
+          239,
+          -15,
           138,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        224,
-        -37
+        232,
+        -44
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -104,14 +104,14 @@
     {
       "id": "ornate-silver-mirror",
       "at": [
-        248,
-        -104
+        240,
+        -128
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        232,
-        -104
+        240,
+        -128
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -120,14 +120,14 @@
     {
       "id": "window-olive-curtains",
       "at": [
-        112,
-        -128
+        128,
+        -124
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        360,
-        -120
+        128,
+        -124
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -136,14 +136,14 @@
     {
       "id": "galaxy-wall-tv",
       "at": [
-        720,
-        96
+        676,
+        -124
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        580,
-        112
+        732,
+        -164
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -152,21 +152,21 @@
     {
       "id": "fluted-media-console",
       "at": [
-        648,
-        128
+        704,
+        56
       ],
       "footprints": [
         [
-          655,
-          135,
+          711,
+          63,
           50,
           170
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        476,
-        128
+        704,
+        56
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -175,13 +175,13 @@
     {
       "id": "cream-sofa",
       "at": [
-        0,
-        64
+        -4,
+        60
       ],
       "footprints": [
         [
-          9,
-          79,
+          5,
+          75,
           78,
           238
         ]
@@ -189,7 +189,7 @@
       "layer": "furniture",
       "sourcePosition": [
         -4,
-        48
+        60
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -198,21 +198,21 @@
     {
       "id": "leather-recliner",
       "at": [
-        440,
-        0
+        408,
+        -20
       ],
       "footprints": [
         [
-          451,
-          3,
-          58,
+          434,
+          13,
+          68,
           50
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        344,
-        -24
+        408,
+        -20
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -221,21 +221,21 @@
     {
       "id": "round-coffee-table",
       "at": [
-        160,
-        176
+        176,
+        156
       ],
       "footprints": [
         [
-          171,
-          176,
-          102,
-          28
+          187,
+          156,
+          164,
+          36
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        156,
-        100
+        176,
+        156
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -244,14 +244,14 @@
     {
       "id": "persian-living-rug",
       "at": [
-        24,
-        48
+        92,
+        60
       ],
       "footprints": [],
       "layer": "ground",
       "sourcePosition": [
-        24,
-        48
+        92,
+        60
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -260,14 +260,14 @@
     {
       "id": "potted-pothos",
       "at": [
-        144,
-        -96
+        156,
+        -136
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        384,
-        -92
+        156,
+        -136
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -289,8 +289,8 @@
       ],
       "layer": "furniture",
       "sourcePosition": [
-        312,
-        -76
+        544,
+        -40
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -299,21 +299,21 @@
     {
       "id": "drum-floor-lamp",
       "at": [
-        672,
-        8
+        692,
+        -60
       ],
       "footprints": [
         [
-          688,
-          93,
+          708,
+          25,
           12,
           8
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        120,
-        72
+        692,
+        -60
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -335,8 +335,8 @@
       ],
       "layer": "furniture",
       "sourcePosition": [
-        408,
-        -68
+        560,
+        -64
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -345,21 +345,21 @@
     {
       "id": "racing-sim-rig",
       "at": [
-        400,
-        160
+        480,
+        132
       ],
       "footprints": [
         [
-          409,
-          193,
-          102,
-          48
+          492,
+          165,
+          156,
+          92
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        424,
-        116
+        480,
+        132
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -368,14 +368,14 @@
     {
       "id": "sim-cables",
       "at": [
-        512,
-        224
+        568,
+        204
       ],
       "footprints": [],
       "layer": "ground",
       "sourcePosition": [
-        460,
-        92
+        568,
+        204
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -384,21 +384,21 @@
     {
       "id": "baby-swing-pink",
       "at": [
-        232,
-        16
+        244,
+        8
       ],
       "footprints": [
         [
-          239,
-          45,
+          251,
+          37,
           46,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        232,
-        16
+        244,
+        8
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -407,21 +407,21 @@
     {
       "id": "baby-swing-grey",
       "at": [
-        280,
-        16
+        308,
+        8
       ],
       "footprints": [
         [
-          287,
-          45,
+          315,
+          37,
           46,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        280,
-        20
+        308,
+        8
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -430,21 +430,21 @@
     {
       "id": "blanket-basket",
       "at": [
-        296,
-        208
+        112,
+        168
       ],
       "footprints": [
         [
-          303,
-          208,
-          42,
+          124,
+          168,
+          32,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        288,
-        188
+        284,
+        216
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -460,7 +460,7 @@
       "layer": "ground",
       "sourcePosition": [
         224,
-        300
+        304
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -469,21 +469,21 @@
     {
       "id": "south-love-seat",
       "at": [
-        192,
-        264
+        180,
+        252
       ],
       "footprints": [
         [
-          199,
-          293,
-          170,
+          187,
+          311,
+          262,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        188,
-        188
+        180,
+        252
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -492,21 +492,21 @@
     {
       "id": "bird-of-paradise",
       "at": [
-        176,
-        -40
+        148,
+        -76
       ],
       "footprints": [
         [
-          206,
-          39,
+          178,
+          3,
           20,
           14
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        184,
-        -68
+        148,
+        -76
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -515,14 +515,14 @@
     {
       "id": "window-olive-curtains",
       "at": [
-        400,
-        -128
+        408,
+        -120
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        124,
-        -124
+        408,
+        -120
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -531,14 +531,14 @@
     {
       "id": "potted-pothos",
       "at": [
-        432,
-        -96
+        436,
+        -132
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        148,
-        -96
+        436,
+        -132
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -570,21 +570,21 @@
     {
       "id": "side-table-lamp",
       "at": [
-        128,
-        264
+        96,
+        234
       ],
       "footprints": [
         [
-          135,
-          305,
-          42,
+          109,
+          311,
+          58,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        128,
-        264
+        96,
+        234
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -593,21 +593,21 @@
     {
       "id": "side-table-lamp",
       "at": [
-        384,
-        224
+        456,
+        234
       ],
       "footprints": [
         [
-          391,
-          265,
-          42,
+          469,
+          311,
+          58,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        384,
-        224
+        456,
+        234
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -616,21 +616,21 @@
     {
       "id": "twins-toy-bin",
       "at": [
-        680,
-        304
+        616,
+        296
       ],
       "footprints": [
         [
-          687,
-          304,
+          623,
+          296,
           58,
           24
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        680,
-        304
+        616,
+        296
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -1287,406 +1287,35 @@
   "routeChecks": {
     "living": {
       "clearance": 96,
-      "passed": true,
+      "passed": false,
       "components": [
         {
-          "positions": 26056,
-          "edges": [
-            "north",
-            "south"
-          ],
+          "positions": 3320,
+          "edges": [],
           "previewCenters": [
             [
-              144,
-              128
-            ],
-            [
-              160,
-              128
-            ],
-            [
-              176,
-              128
+              192,
+              96
             ],
             [
               192,
-              128
-            ],
-            [
-              208,
-              128
-            ],
-            [
-              224,
-              128
-            ],
-            [
-              240,
-              128
-            ],
-            [
-              256,
-              128
-            ],
-            [
-              272,
-              128
-            ],
-            [
-              288,
-              128
-            ],
-            [
-              304,
-              128
-            ],
-            [
-              320,
-              128
-            ],
-            [
-              592,
-              288
-            ],
-            [
-              592,
-              272
-            ],
-            [
-              592,
-              256
-            ],
-            [
-              592,
-              240
-            ],
-            [
-              592,
-              224
-            ],
-            [
-              592,
-              208
-            ],
-            [
-              592,
-              192
-            ],
-            [
-              592,
-              176
-            ],
-            [
-              592,
-              160
-            ],
-            [
-              592,
-              144
-            ],
-            [
-              592,
-              128
-            ],
-            [
-              592,
-              112
-            ],
-            [
-              576,
-              288
-            ],
-            [
-              576,
-              272
-            ],
-            [
-              576,
-              256
-            ],
-            [
-              576,
-              240
-            ],
-            [
-              576,
-              224
-            ],
-            [
-              576,
-              208
-            ],
-            [
-              576,
-              192
-            ],
-            [
-              576,
-              176
-            ],
-            [
-              576,
-              160
-            ],
-            [
-              576,
-              144
-            ],
-            [
-              576,
-              128
-            ],
-            [
-              576,
-              112
-            ],
-            [
-              560,
-              112
-            ],
-            [
-              560,
-              128
-            ],
-            [
-              560,
-              144
-            ],
-            [
-              560,
-              288
-            ],
-            [
-              560,
-              272
-            ],
-            [
-              560,
-              256
-            ],
-            [
-              560,
-              240
-            ],
-            [
-              560,
-              224
-            ],
-            [
-              560,
-              208
-            ],
-            [
-              560,
-              192
-            ],
-            [
-              560,
-              176
-            ],
-            [
-              560,
-              160
-            ],
-            [
-              544,
-              112
-            ],
-            [
-              544,
-              128
-            ],
-            [
-              544,
-              144
-            ],
-            [
-              528,
-              112
-            ],
-            [
-              528,
-              128
-            ],
-            [
-              528,
-              144
-            ],
-            [
-              512,
-              112
-            ],
-            [
-              512,
-              128
-            ],
-            [
-              512,
-              144
-            ],
-            [
-              496,
-              112
-            ],
-            [
-              496,
-              128
-            ],
-            [
-              496,
-              144
-            ],
-            [
-              480,
-              112
-            ],
-            [
-              480,
-              128
-            ],
-            [
-              480,
-              144
-            ],
-            [
-              464,
-              112
-            ],
-            [
-              464,
-              128
-            ],
-            [
-              464,
-              144
-            ],
-            [
-              448,
-              112
-            ],
-            [
-              448,
-              128
-            ],
-            [
-              448,
-              144
-            ],
-            [
-              432,
-              112
-            ],
-            [
-              432,
-              128
-            ],
-            [
-              432,
-              144
-            ],
-            [
-              416,
-              112
-            ],
-            [
-              416,
-              128
-            ],
-            [
-              416,
-              144
-            ],
-            [
-              400,
-              64
-            ],
-            [
-              400,
               80
-            ],
-            [
-              400,
-              96
-            ],
-            [
-              400,
-              112
-            ],
-            [
-              400,
-              128
-            ],
-            [
-              400,
-              144
-            ],
-            [
-              384,
-              64
-            ],
-            [
-              384,
-              80
-            ],
-            [
-              384,
-              96
-            ],
-            [
-              384,
-              112
-            ],
-            [
-              384,
-              128
-            ],
-            [
-              384,
-              144
-            ],
-            [
-              368,
-              128
-            ],
-            [
-              368,
-              144
-            ],
-            [
-              352,
-              128
-            ],
-            [
-              352,
-              144
-            ],
-            [
-              352,
-              160
-            ],
-            [
-              336,
-              128
-            ],
-            [
-              336,
-              144
-            ],
-            [
-              336,
-              160
             ],
             [
               176,
-              112
+              96
+            ],
+            [
+              176,
+              80
             ],
             [
               160,
-              112
+              96
             ],
             [
-              144,
-              112
+              160,
+              80
             ],
             [
               144,
@@ -1695,778 +1324,322 @@
             [
               144,
               80
-            ],
-            [
-              144,
-              64
-            ],
-            [
-              144,
-              48
             ]
           ],
-          "boundarySquares": [
+          "boundarySquares": []
+        },
+        {
+          "positions": 16659,
+          "edges": [],
+          "previewCenters": [
             [
-              87,
-              0,
-              "north"
+              656,
+              112
             ],
             [
-              89,
-              0,
-              "north"
+              656,
+              96
             ],
             [
-              90,
-              0,
-              "north"
+              656,
+              80
             ],
             [
-              91,
-              0,
-              "north"
+              640,
+              112
             ],
             [
-              93,
-              0,
-              "north"
+              624,
+              112
             ],
             [
-              94,
-              0,
-              "north"
+              608,
+              112
             ],
             [
-              95,
-              0,
-              "north"
+              592,
+              112
             ],
             [
-              97,
-              0,
-              "north"
+              576,
+              112
             ],
             [
-              98,
-              0,
-              "north"
-            ],
-            [
-              99,
-              0,
-              "north"
-            ],
-            [
-              101,
-              0,
-              "north"
-            ],
-            [
-              102,
-              0,
-              "north"
-            ],
-            [
-              103,
-              0,
-              "north"
-            ],
-            [
-              105,
-              0,
-              "north"
-            ],
-            [
-              106,
-              0,
-              "north"
-            ],
-            [
-              107,
-              0,
-              "north"
-            ],
-            [
-              109,
-              0,
-              "north"
-            ],
-            [
-              110,
-              0,
-              "north"
-            ],
-            [
-              511,
-              249,
-              "south"
-            ],
-            [
-              512,
-              249,
-              "south"
-            ],
-            [
-              513,
-              249,
-              "south"
-            ],
-            [
-              515,
-              249,
-              "south"
-            ],
-            [
-              516,
-              249,
-              "south"
-            ],
-            [
-              517,
-              249,
-              "south"
-            ],
-            [
-              519,
-              249,
-              "south"
-            ],
-            [
-              520,
-              249,
-              "south"
-            ],
-            [
-              521,
-              249,
-              "south"
-            ],
-            [
-              523,
-              249,
-              "south"
-            ],
-            [
-              524,
-              249,
-              "south"
-            ],
-            [
-              525,
-              249,
-              "south"
-            ],
-            [
-              527,
-              249,
-              "south"
-            ],
-            [
-              528,
-              249,
-              "south"
-            ],
-            [
-              529,
-              249,
-              "south"
-            ],
-            [
-              531,
-              249,
-              "south"
-            ],
-            [
-              532,
-              249,
-              "south"
-            ],
-            [
-              533,
-              249,
-              "south"
-            ],
-            [
-              535,
-              249,
-              "south"
-            ],
-            [
-              536,
-              249,
-              "south"
-            ],
-            [
-              537,
-              249,
-              "south"
-            ],
-            [
-              539,
-              249,
-              "south"
-            ],
-            [
-              540,
-              249,
-              "south"
-            ],
-            [
-              541,
-              249,
-              "south"
-            ],
-            [
-              543,
-              249,
-              "south"
+              560,
+              112
             ],
             [
               544,
-              249,
-              "south"
+              112
             ],
             [
-              545,
-              249,
-              "south"
+              528,
+              112
             ],
             [
-              547,
-              249,
-              "south"
-            ],
-            [
-              548,
-              249,
-              "south"
-            ],
-            [
-              549,
-              249,
-              "south"
-            ],
-            [
-              551,
-              249,
-              "south"
-            ],
-            [
-              552,
-              249,
-              "south"
-            ],
-            [
-              553,
-              249,
-              "south"
-            ],
-            [
-              555,
-              249,
-              "south"
-            ],
-            [
-              556,
-              249,
-              "south"
-            ],
-            [
-              557,
-              249,
-              "south"
-            ],
-            [
-              559,
-              249,
-              "south"
-            ],
-            [
-              558,
-              249,
-              "south"
-            ],
-            [
-              554,
-              249,
-              "south"
-            ],
-            [
-              550,
-              249,
-              "south"
-            ],
-            [
-              546,
-              249,
-              "south"
-            ],
-            [
-              542,
-              249,
-              "south"
-            ],
-            [
-              538,
-              249,
-              "south"
-            ],
-            [
-              534,
-              249,
-              "south"
-            ],
-            [
-              530,
-              249,
-              "south"
-            ],
-            [
-              526,
-              249,
-              "south"
-            ],
-            [
-              522,
-              249,
-              "south"
-            ],
-            [
-              518,
-              249,
-              "south"
-            ],
-            [
-              514,
-              249,
-              "south"
-            ],
-            [
-              510,
-              249,
-              "south"
-            ],
-            [
-              509,
-              249,
-              "south"
-            ],
-            [
-              507,
-              249,
-              "south"
-            ],
-            [
-              506,
-              249,
-              "south"
-            ],
-            [
-              505,
-              249,
-              "south"
-            ],
-            [
-              503,
-              249,
-              "south"
-            ],
-            [
-              502,
-              249,
-              "south"
-            ],
-            [
-              501,
-              249,
-              "south"
-            ],
-            [
-              499,
-              249,
-              "south"
-            ],
-            [
-              498,
-              249,
-              "south"
-            ],
-            [
-              497,
-              249,
-              "south"
-            ],
-            [
-              495,
-              249,
-              "south"
-            ],
-            [
-              494,
-              249,
-              "south"
-            ],
-            [
-              493,
-              249,
-              "south"
-            ],
-            [
-              491,
-              249,
-              "south"
-            ],
-            [
-              490,
-              249,
-              "south"
-            ],
-            [
-              489,
-              249,
-              "south"
-            ],
-            [
-              487,
-              249,
-              "south"
-            ],
-            [
-              486,
-              249,
-              "south"
-            ],
-            [
-              485,
-              249,
-              "south"
-            ],
-            [
-              483,
-              249,
-              "south"
-            ],
-            [
-              482,
-              249,
-              "south"
-            ],
-            [
-              481,
-              249,
-              "south"
-            ],
-            [
-              479,
-              249,
-              "south"
-            ],
-            [
-              478,
-              249,
-              "south"
-            ],
-            [
-              477,
-              249,
-              "south"
-            ],
-            [
-              475,
-              249,
-              "south"
-            ],
-            [
-              474,
-              249,
-              "south"
-            ],
-            [
-              473,
-              249,
-              "south"
-            ],
-            [
-              471,
-              249,
-              "south"
-            ],
-            [
-              470,
-              249,
-              "south"
-            ],
-            [
-              469,
-              249,
-              "south"
-            ],
-            [
-              467,
-              249,
-              "south"
-            ],
-            [
-              466,
-              249,
-              "south"
-            ],
-            [
-              465,
-              249,
-              "south"
-            ],
-            [
-              463,
-              249,
-              "south"
-            ],
-            [
-              462,
-              249,
-              "south"
-            ],
-            [
-              461,
-              249,
-              "south"
-            ],
-            [
-              459,
-              249,
-              "south"
-            ],
-            [
-              458,
-              249,
-              "south"
-            ],
-            [
-              457,
-              249,
-              "south"
-            ],
-            [
-              455,
-              249,
-              "south"
-            ],
-            [
-              454,
-              249,
-              "south"
-            ],
-            [
-              453,
-              249,
-              "south"
-            ],
-            [
-              451,
-              249,
-              "south"
-            ],
-            [
-              450,
-              249,
-              "south"
-            ],
-            [
-              449,
-              249,
-              "south"
-            ],
-            [
-              447,
-              249,
-              "south"
-            ],
-            [
-              446,
-              249,
-              "south"
-            ],
-            [
-              445,
-              249,
-              "south"
-            ],
-            [
-              443,
-              249,
-              "south"
-            ],
-            [
-              442,
-              249,
-              "south"
-            ],
-            [
-              441,
-              249,
-              "south"
-            ],
-            [
-              439,
-              249,
-              "south"
-            ],
-            [
-              438,
-              249,
-              "south"
-            ],
-            [
-              437,
-              249,
-              "south"
-            ],
-            [
-              435,
-              249,
-              "south"
-            ],
-            [
-              434,
-              249,
-              "south"
-            ],
-            [
-              433,
-              249,
-              "south"
-            ],
-            [
-              436,
-              249,
-              "south"
-            ],
-            [
-              440,
-              249,
-              "south"
-            ],
-            [
-              444,
-              249,
-              "south"
-            ],
-            [
-              448,
-              249,
-              "south"
-            ],
-            [
-              452,
-              249,
-              "south"
-            ],
-            [
-              456,
-              249,
-              "south"
-            ],
-            [
-              460,
-              249,
-              "south"
-            ],
-            [
-              464,
-              249,
-              "south"
-            ],
-            [
-              468,
-              249,
-              "south"
-            ],
-            [
-              472,
-              249,
-              "south"
-            ],
-            [
-              476,
-              249,
-              "south"
-            ],
-            [
-              480,
-              249,
-              "south"
-            ],
-            [
-              484,
-              249,
-              "south"
-            ],
-            [
-              488,
-              249,
-              "south"
-            ],
-            [
-              492,
-              249,
-              "south"
+              512,
+              112
             ],
             [
               496,
-              249,
-              "south"
+              112
             ],
             [
-              500,
-              249,
-              "south"
+              480,
+              112
             ],
             [
-              504,
-              249,
-              "south"
+              464,
+              112
             ],
             [
-              508,
-              249,
-              "south"
+              448,
+              112
             ],
             [
-              108,
-              0,
-              "north"
+              432,
+              112
             ],
             [
-              104,
-              0,
-              "north"
+              432,
+              128
             ],
             [
-              100,
-              0,
-              "north"
+              432,
+              144
             ],
             [
-              96,
-              0,
-              "north"
+              432,
+              160
             ],
             [
-              92,
-              0,
-              "north"
+              432,
+              176
             ],
             [
-              88,
-              0,
-              "north"
-            ]
-          ]
-        },
-        {
-          "positions": 102,
-          "edges": [],
-          "previewCenters": [
+              432,
+              192
+            ],
+            [
+              432,
+              208
+            ],
+            [
+              432,
+              224
+            ],
+            [
+              432,
+              240
+            ],
+            [
+              432,
+              256
+            ],
+            [
+              416,
+              112
+            ],
+            [
+              416,
+              128
+            ],
+            [
+              416,
+              144
+            ],
+            [
+              416,
+              160
+            ],
+            [
+              416,
+              176
+            ],
+            [
+              416,
+              192
+            ],
+            [
+              416,
+              208
+            ],
+            [
+              416,
+              224
+            ],
+            [
+              416,
+              240
+            ],
+            [
+              416,
+              256
+            ],
+            [
+              400,
+              112
+            ],
+            [
+              400,
+              128
+            ],
+            [
+              400,
+              144
+            ],
+            [
+              400,
+              160
+            ],
+            [
+              400,
+              176
+            ],
+            [
+              400,
+              192
+            ],
+            [
+              400,
+              208
+            ],
+            [
+              400,
+              224
+            ],
+            [
+              400,
+              240
+            ],
+            [
+              400,
+              256
+            ],
+            [
+              384,
+              240
+            ],
+            [
+              384,
+              256
+            ],
+            [
+              368,
+              240
+            ],
+            [
+              368,
+              256
+            ],
+            [
+              352,
+              240
+            ],
+            [
+              352,
+              256
+            ],
+            [
+              336,
+              240
+            ],
+            [
+              336,
+              256
+            ],
+            [
+              320,
+              240
+            ],
+            [
+              320,
+              256
+            ],
+            [
+              304,
+              240
+            ],
+            [
+              304,
+              256
+            ],
+            [
+              288,
+              240
+            ],
+            [
+              288,
+              256
+            ],
+            [
+              272,
+              240
+            ],
+            [
+              272,
+              256
+            ],
+            [
+              256,
+              240
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              240,
+              240
+            ],
+            [
+              240,
+              256
+            ],
+            [
+              224,
+              240
+            ],
+            [
+              224,
+              256
+            ],
+            [
+              208,
+              240
+            ],
+            [
+              208,
+              256
+            ],
+            [
+              192,
+              240
+            ],
+            [
+              192,
+              256
+            ],
+            [
+              176,
+              240
+            ],
+            [
+              176,
+              256
+            ],
+            [
+              160,
+              240
+            ],
+            [
+              160,
+              256
+            ],
+            [
+              144,
+              240
+            ],
             [
               144,
               256
@@ -2477,14 +1650,11 @@
       ],
       "note": "96px square flood-fill over proposed footprints; boundary reach is a room-local clearance study. Runtime door connectivity is not tested.",
       "usableDoorEdgesPerComponent": [
-        [
-          "north",
-          "south"
-        ],
+        [],
         []
       ],
       "requiredExitCount": 2,
-      "doorClearancePassed": true,
+      "doorClearancePassed": false,
       "openingsChecked": {
         "north": [
           [
@@ -2498,6 +1668,12 @@
             768
           ]
         ]
+      },
+      "layoutSource": "../placements-round2.json",
+      "reviewConstraint": "Round-two fixed furniture positions do not provide a connected 96px square route between the checked door openings. Art-only review; do not integrate without resolving clearance.",
+      "placementExceptions": {
+        "galaxy-wall-tv": "Native 92x120 repaint anchored at [676,-124] above east console; replaces editor scale 200/rotation 180/flip workaround.",
+        "blanket-basket": "At [112,168] between west sofa and coffee table, following explicit written brief instead of editor [284,216]."
       }
     },
     "dining-desk-shared": {

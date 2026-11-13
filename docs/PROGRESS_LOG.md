@@ -2452,3 +2452,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Repainted the kitchen as one detailed set: fridge magnets/handles, paneled doors/drawers and counter props, with only the north double sink. Middle stays open.
 - Deleted duplicate deliver/sources and changed export/manifest paths to retain one source set. Rebuild audit checks that it stays deleted.
 - All 56 assets and four main-room doorway routes pass. Exact 3x previews and native image QA complete; laundry-closet exception remains. No runtime placement or version change; awaiting approval.
+
+## 2026-11-13: PR #10 small round-two corrections (Codex)
+- Repainted the TV, rear-view love seat, matched lamp tables, tufted recliner, east-facing sim, pale coffee table and light blanket basket at their final native sizes, with proportional source fits and exact 3x reductions.
+- Living mock-up uses Rami’s round-two furniture coordinates. TV replaces the editor transform; basket follows the written between-sofa-and-table instruction. Both exceptions are recorded.
+- Fixed living layout fails the 96 px door-route check. Kept positions and flagged the failure for review rather than moving furniture. Other rooms and 49 untouched assets retain their approved exports exactly.
+- Native hero comparisons and 3x room/footprint previews included. All 56 assets, three clearance test cases and the export audit pass; desktop/phone browser checks load 61 images with no failures or page overflow. Living-route failure stays explicit. No game placement or version change.

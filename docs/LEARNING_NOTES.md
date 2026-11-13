@@ -861,3 +861,6 @@ An empty patch is not enough to prove the hero can get through a room. Slide a 9
 
 ## 2026-11-13: contrast and a single source set (Codex)
 A prop can disappear when its top has the same dark colors as the rug below it. A lighter coffee-table top makes its shape and small objects easier to see at native size. Source paintings now live in one folder; exported manifests link to that folder rather than making a duplicate. The rebuild audit checks both the art and those links.
+
+## 2026-11-13: native size and route checks (Codex)
+A bigger furniture request becomes a newly painted native canvas, then an exact 3x working image is reduced to it. Proportional fitting preserves the painting’s shape. A clear patch of floor does not prove a route works: a whole 96 px square must connect the door openings. The fixed round-two living layout has clear pockets but fails that connection.

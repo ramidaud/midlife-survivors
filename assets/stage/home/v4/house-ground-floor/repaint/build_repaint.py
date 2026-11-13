@@ -18,6 +18,19 @@ def bounded_feet(p,art):
 base.COPY_SOURCES=False
 base.SOURCE_PREFIX="../sources/"
 base.foot_data=bounded_feet
+original_normalize=base.normalize_source
+def proportional_normalize(p,im):
+ if p.get('fitMode')!='contain':return original_normalize(p,im)
+ from PIL import Image
+ w,h=p['size'];f=p['factor'];margin=3*f
+ box=list(im.getchannel('A').point(lambda v:255 if v>=128 else 0).getbbox())
+ cut=im.crop(box);cut.thumbnail((w*f-2*margin,h*f-2*margin),Image.Resampling.LANCZOS)
+ work=Image.new('RGBA',(w*f,h*f));x=(work.width-cut.width)//2;y=work.height-margin-cut.height
+ work.paste(cut,(x,y))
+ return work,box,[x,y,cut.width,cut.height]
+base.normalize_source=proportional_normalize
+selected={p['id'] for p in base.PLAN if p.get('fitMode')=='contain'}
+base.RETAINED_PIECES=[p for p in json.loads((base.OUT/'manifest-ground-floor.json').read_text())['pieces'] if p['id'] not in selected]
 base.build()
 # Keep review links and token stylesheet valid at this deeper review location.
 shutil.copy2(ROOT/'repaint-plan.json',base.OUT/'generation-plan.json')
@@ -30,3 +43,4 @@ shutil.copy2(ROOT/"README.md",base.OUT/"README.md")
 review.write_text(review.read_text().replace('<h2>Rooms in place</h2>','<p><a href="../selected-prompts.json">Selected imagegen prompts</a></p><h2>Rooms in place</h2>'))
 
 review.write_text(review.read_text().replace('<h2>Rooms in place</h2>','<p><a href="../review-fixes-prompts.json">Latest review repaint prompts</a></p><h2>Rooms in place</h2>'))
+review.write_text(review.read_text().replace('<h1>House-scale repaint</h1>','<h1>House round-two review</h1><p><strong>Clearance needs review:</strong> the fixed living-room layout has no connected 96 px route between checked doors. Nothing placed in the game.</p><p><a href="../round2-prompts.json">Round-two repaint notes</a> · <a href="../placements-round2.json">Rami’s round-two layout</a> · <a href="route-checks.json">Route checks</a></p>'))

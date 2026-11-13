@@ -84,7 +84,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "60fc8e874df2f508706e14859d446bf828cfc669a1664b9b9d90c6b0e0cc56fb",
+      "sha256": "720a8e607844ad1bcbbf24a04804a750bc31ac641274467478ea3bfc9d76a9ac",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -138,7 +138,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "a0fb69933799c8f426e9c7ebadb532bcf58de5304fefa719b95fc85342ec1bac",
+      "sha256": "4f1c0ae1b7f8adf120d921fc267690d7148fdc7623a68b2320196bb6dccbf002",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -154,7 +154,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "dad9121001890d41cdc099ef3f1b911874e872998f5aa39fc1028d0730bac461",
+      "sha256": "8257dcc3f35a24d237d39251c3a3f177dd077b1ff14fee4891c267e30615a42c",
       "materialToneCounts": {
         "wood": 5
       },
@@ -256,7 +256,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "91d52b6a74d148da857a3124993f8e5c165727e05258cc884f1909af7b96798a",
+      "sha256": "56318379e0b965570f77b229898962dee3fc8836857353c65fe22dc2d6a5104a",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -320,7 +320,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "5589a9c006e796ba7c4b93fb755a7fa73b3407bb4dd2168567374ab0a49f4da3",
+      "sha256": "8dbf0073d2c3c728cf79061103d1582a4e793f17adfe41961324ba62098eeb28",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -803,7 +803,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "fcdf30afd1c5795607df2cc6761533f37284c293d0fc9455c3138931d330ef98",
+      "sha256": "d3bfb1da20f1b912baef1e380a6a331cb8e14bf8c0e1068937ae47e24554aa13",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -883,7 +883,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "9080b928751f7e569e24f776b1d2f23d207ad98d7b514c919a7c367d4d191369",
+      "sha256": "75df4f7eb3a7be2684b2807868e5f24b1f155d94bf234d31ce94f9b4b9e4fdce",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },

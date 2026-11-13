@@ -33,12 +33,18 @@ def routes(size,placements):
  return {'clearance':96,'passed':bool(good),'components':components,'note':'96px square flood-fill over proposed footprints; boundary reach is a room-local clearance study. Runtime door connectivity is not tested.'}
 def build(root,out,pieces,hero):
  base=root.parent;layout=json.loads((root/'placements.json').read_text())
+ layout['rooms']['living']=json.loads((root/'placements-round2.json').read_text())['rooms']['living']
  lookup={p['id']:p for p in pieces};views=[];allplaced=[];reports={}
+ approved=json.loads((out/'mockups/room-layout.json').read_text())
  fixes={'living':{'cream-sofa':(0,64),'photo-ledges':(8,-112),'sim-cables':(512,224),'galaxy-wall-tv':(720,96),'fluted-media-console':(648,128),'racing-sim-rig':(400,160),'round-coffee-table':(156,176),'drum-floor-lamp':(672,8),'blanket-basket':(296,208),'leather-recliner':(440,0),'arched-floor-lamp':(560,-68),'tile-fireplace':(240,-40),'ornate-silver-mirror':(248,-104)},'dining-desk-shared':{'houseplant-cluster':(40,0),'mesh-office-chair':(440,-8),'kids-drawings':(160,-24),'dining-chair-north':(136,136),'dining-chair-south':(136,24),'dining-chair-east':(24,80),'dining-chair-west':(248,80),'window-blinds-east':None,'corner-computer-desk':(352,-48),'abstract-wall-painting':(136,-128),'moon-print':(280,-104)},'kitchen':{'white-oak-sink-counter':(0,-24),'white-oak-upper-cabinets':(0,-112),'stove-microwave':(192,-64),'kitchen-counter-east':(280,-24),'kitchen-counter-west':(0,224),'magnet-fridge':(320,216),'kitchen-runner':(184,64)},'entry':{'storage-bench-west':(0,120),'shoe-rack':(96,0)},'laundry-closet':{'laundry-basket':(48,104)}}
  for name,room in layout['rooms'].items():
+  if name!='living':
+   views.extend(v for v in approved['views'] if v['id']==name)
+   allplaced.extend(p for p in approved['placements'] if p['room']==name)
+   reports[name]=approved['routeChecks'][name]
+   continue
   _,_,w,h=room['rect'];pad=160;canvas=Image.new('RGBA',(w+32,h+pad+16),'#171C35');floor=Image.open(base/'dark-wood-floor-v1.png').convert('RGBA');tile(canvas,floor,(16,pad,w,h));wall=Image.open(base/'north-wall-strip-v1.png').convert('RGBA');tile(canvas,wall,(16,pad-128,w,128));trim=Image.open((out/'side-wall-strip-v1.png') if (out/'side-wall-strip-v1.png').exists() else base/'side-wall-strip-v1.png').convert('RGBA');tile(canvas,trim,(0,pad,16,h));tile(canvas,trim,(w+16,pad,16,h));placed=[];counts={}
   items=list(room['items'])
-  if name=='living':items += [dict(id='twin-bassinets',x=0,y=0),dict(id='side-table-lamp',x=128,y=264),dict(id='side-table-lamp',x=384,y=224),dict(id='twins-toy-bin',x=680,y=304)]
   if name=='dining-desk-shared':items += [dict(id='window-blinds-north',x=8,y=-112),dict(id='window-blinds-west',x=-8,y=24)]
   for item in items:
    id=item['id'];counts[id]=counts.get(id,0)+1
@@ -57,6 +63,11 @@ def build(root,out,pieces,hero):
    if name=='living' and id=='bird-of-paradise':x,y=(544 if counts[id]==1 else 176),-40
    # Keep furniture within side/south boundaries; north-wall overhang remains intentional.
    x=max(0,min(x,w-p['size'][0]));y=min(y,h-p['size'][1])
+   if name=='living':
+    # Round-two coordinates are authoritative, not the old grid/fit fixes.
+    # Repainted TV replaces the editor's scale/rotate/flip workaround.
+    # Basket follows the explicit round-two brief: between west sofa and table.
+    x,y={'galaxy-wall-tv':(676,-124),'blanket-basket':(112,168)}.get(id,(item['x'],item['y']))
    fp=[[x+fx,y+fy,fw,fh] for fx,fy,fw,fh in p['footprints']]
    placed.append({'id':id,'at':[x,y],'footprints':fp,'layer':p['renderLayer'],'sourcePosition':[item['x'],item['y']],'rotationApplied':0,'scaleApplied':1})
   def key(p):return (0 if p['layer']=='ground' else 1 if p['layer']=='wall-mounted' else 2,p['at'][1]+lookup[p['id']]['footPoint'][1])
@@ -81,11 +92,16 @@ def build(root,out,pieces,hero):
   report['requiredExitCount']=1 if name=='laundry-closet' else 2
   report['doorClearancePassed']=any(len(x)>=report['requiredExitCount'] for x in matched)
   report['openingsChecked']=openings
+  if name=='living':
+   report['layoutSource']='../placements-round2.json'
+   report['reviewConstraint']='Round-two fixed furniture positions do not provide a connected 96px square route between the checked door openings. Art-only review; do not integrate without resolving clearance.'
+   report['placementExceptions']={'galaxy-wall-tv':'Native 92x120 repaint anchored at [676,-124] above east console; replaces editor scale 200/rotation 180/flip workaround.','blanket-basket':'At [112,168] between west sofa and coffee table, following explicit written brief instead of editor [284,216].'}
   if name=='laundry-closet':report['existingConstraint']='Existing 104x136 laundry closet holds a washer/dryer and has one opening. A full 96px square cannot fit inside with the appliance. Basket is accessed from outside; no game layout change is proposed.'
   reports[name]=report
   # Put hero in a verified clear square, at native size, away from labels.
   candidates=[c for c,exits in zip(report['components'],matched) if len(exits)>=report['requiredExitCount']]
-  center=(candidates[0]['previewCenters'][len(candidates[0]['previewCenters'])//2] if candidates and candidates[0]['previewCenters'] else [w//2,h//2]);
+  hero_regions=candidates or sorted(report['components'],key=lambda c:c['positions'],reverse=True)
+  center=(hero_regions[0]['previewCenters'][len(hero_regions[0]['previewCenters'])//2] if hero_regions and hero_regions[0]['previewCenters'] else [w//2,h//2]);
   if name!='laundry-closet':canvas.alpha_composite(hero,(center[0]-28+16,center[1]-30+pad))
   if name=='laundry-closet':
    reference=Image.new('RGBA',(max(240,canvas.width),canvas.height+76),'#171C35');reference.alpha_composite(canvas,(0,0));reference.alpha_composite(hero,(16,canvas.height+8));ImageDraw.Draw(reference).text((84,canvas.height+28),'HERO 56x60',font=FONT,fill='#FFF0CF');canvas=reference
@@ -95,6 +111,6 @@ def build(root,out,pieces,hero):
    for x,y,fw,fh in p['footprints']:d.rectangle((x+16,y+pad,x+fw+15,y+fh+pad-1),outline='#C45C4B',width=1)
   for c in candidates:
    for x,y in c['previewCenters']:d.point((x+16,y+pad),fill='#83A89A')
-  check=f'mockups/{name}-footprints-1x.png';overlay.save(out/check);views.append({'id':name,'file':large,'overlay':check,'rect':room['rect'],'note':'Rami layout intent, grid-snapped and tidied; 3x nearest-neighbor. Green centers mark verified 96px clearance. No runtime placement.'});allplaced.extend(dict(p,room=name) for p in placed)
+  check=f'mockups/{name}-footprints-1x.png';overlay.save(out/check);overlay.resize((overlay.width*3,overlay.height*3),Image.Resampling.NEAREST).save(out/f'mockups/{name}-footprints-3x.png');views.append({'id':name,'file':large,'overlay':check,'rect':room['rect'],'note':'Round-two furniture coordinates at native scale; exact 3x nearest-neighbor. WARNING: no connected 96px route between checked door openings. TV and basket exceptions are recorded in route-checks.json. Nothing placed in game.'});allplaced.extend(dict(p,room=name) for p in placed)
  (out/'mockups/room-layout.json').write_text(json.dumps({'views':views,'placements':allplaced,'routeChecks':reports,'status':'Awaiting approval. No game placement.'},indent=2)+'\n')
  (out/'route-checks.json').write_text(json.dumps(reports,indent=2)+'\n')

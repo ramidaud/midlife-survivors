@@ -26,3 +26,11 @@
 - Repainted the kitchen as one detailed set: fridge magnets/handles, paneled doors/drawers and counter props, with only the north double sink. Middle stays open.
 - Deleted duplicate deliver/sources and changed export/manifest paths to retain one source set. Rebuild audit checks that it stays deleted.
 - All 56 assets and four main-room doorway routes pass. Exact 3x previews and native image QA complete; laundry-closet exception remains. No runtime placement or version change; awaiting approval.
+
+## 2026-11-13: PR #10 small round-two corrections (Codex)
+- Repainted the TV, rear-view love seat, matched lamp tables, tufted recliner, east-facing sim, pale coffee table and light blanket basket at their final native sizes, with proportional source fits and exact 3x reductions.
+- Living mock-up uses Rami’s round-two furniture coordinates. TV replaces the editor transform; basket follows the written between-sofa-and-table instruction. Both exceptions are recorded.
+- Fixed living layout fails the 96 px door-route check. Kept positions and flagged the failure for review rather than moving furniture. Other rooms and 49 untouched assets retain their approved exports exactly.
+- Native hero comparisons, 3x room/footprint previews and checks included. No game placement or version change.
+
+Review: assets/stage/home/v4/house-ground-floor/repaint/deliver/review.html. Exact living preview: deliver/mockups/living-3x.png; footprint preview: deliver/mockups/living-footprints-3x.png. Route failure is explicit in deliver/route-checks.json. Do not integrate the living layout until clearance is resolved.

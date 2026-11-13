@@ -775,3 +775,6 @@ Rami's placements replace the earlier room arrangements. A separate review packa
 
 ## 2026-11-13: Rami's northwest-bassinet decision and room corrections (Codex)
 Supersedes the earlier basinets-beside-sofa fit proposal: the two sleeping bassinets stay in the northwest corner at [0,0], between raised shelves and the south-shifted sofa. The 96px patio connection remains clear. Sim sits upright facing the east TV, with connected floor cables. Coffee table has a light top; dining art stays on walls and the chair tucks at the desk. Kitchen shows fridge magnets/handles and detailed cabinet fronts with props on worktops; only the north sink run has a sink. All are mock-up proposals pending approval, with no runtime placement.
+
+### House round-two art review (2026-11-13, Codex)
+Seven living-room pieces repainted to the requested native sizes. Furniture keeps Rami’s round-two positions; TV and basket exceptions are documented. The fixed living layout does not connect its checked doors with a 96 px square route, so it needs a layout correction before integration. Other rooms remain approved and unchanged. No runtime placement.

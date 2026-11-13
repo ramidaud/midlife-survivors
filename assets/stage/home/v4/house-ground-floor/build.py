@@ -111,7 +111,10 @@ def build():
  for source in (ROOT/'reference').iterdir():
   if source.is_file() and not source.name.endswith('-3x.png'):shutil.copy2(source,OUT/'reference'/source.name)
  hero=Image.open(ROOT/'reference/hero-56x60.png').convert('RGBA');pieces=[]
+ retained={p['id']:p for p in globals().get('RETAINED_PIECES',[])}
  for p in PLAN:
+  if p['id'] in retained:
+   pieces.append(retained[p['id']]);continue
   source=ROOT/'sources'/f"{p['id']}.png"
   if not source.exists():continue
   im=Image.open(source).convert('RGBA');work,box,fit=normalize_source(p,im);w,h=p['size'];f=p['factor'];working=f"working/{p['id']}-{f}x.png";work.save(OUT/working)

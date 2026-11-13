@@ -83,8 +83,8 @@
   {
     "id": "galaxy-wall-tv",
     "size": [
-      48,
-      168
+      92,
+      120
     ],
     "kind": "WALL-DECOR",
     "room": "living",
@@ -95,10 +95,11 @@
       "private attached living room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 160x88, paint at EXACT 480x264 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Large slim black wall television, broad visible screen with abstract spiral galaxy in slate/cream/lavender/russet, no text or logos. Very localized screen light only.",
-    "revision": "TV mounted ON EAST WALL facing WEST. Narrow side-wall perspective: VERTICAL north-south footprint with visible thin side edge and foreshortened screen plane facing left. Screen galaxy. Do NOT rotate a frontal TV image.",
+    "prompt": "East-wall slanted visible galaxy screen, thin black frame; no tan backing. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "East-wall slanted visible galaxy screen, thin black frame; no tan backing.",
     "sourceReference": "../galaxy-wall-tv-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "fluted-media-console",
@@ -148,8 +149,8 @@
   {
     "id": "leather-recliner",
     "size": [
-      80,
-      60
+      120,
+      90
     ],
     "kind": "WALL",
     "room": "living",
@@ -160,16 +161,17 @@
       "private attached living room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 72x104, paint at EXACT 216x312 working pixels (3x), subject fills canvas with 3px native clear margin. Brown leather power recliner, sits on floor facing SOUTH toward camera, three-quarter overhead view. Three leather tones with articulated cushion creases, cup detail, green knit throw draped one arm. Full outline/shadow.",
-    "revision": "Retain the subject and material details of the existing artwork. Repaint at this final native size, do not enlarge existing pixels.",
+    "prompt": "Earlier rounded leather silhouette and button tufting. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "Earlier rounded leather silhouette and button tufting.",
     "sourceReference": "../leather-recliner-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "round-coffee-table",
     "size": [
-      124,
-      28
+      186,
+      42
     ],
     "kind": "WALL",
     "room": "living",
@@ -180,10 +182,11 @@
       "private attached living room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 104x64, paint at EXACT 312x192 working pixels (3x), subject fills canvas with 3px native clear margin. Round fluted wood coffee table seen from overhead three-quarter north-facing camera, oval round tabletop perspective. Three wood tones, candles, small dark tray, ONE remote and small decorative bowl on top, rim and fluted pedestal visible.",
-    "revision": "Retain the subject and material details of the existing artwork. Repaint at this final native size, do not enlarge existing pixels.",
+    "prompt": "Pale stone top, two mugs, book and remote. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "Pale stone top, two mugs, book and remote.",
     "sourceReference": "../round-coffee-table-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "persian-living-rug",
@@ -288,8 +291,8 @@
   {
     "id": "racing-sim-rig",
     "size": [
-      120,
-      88
+      180,
+      132
     ],
     "kind": "WALL",
     "room": "living",
@@ -300,10 +303,11 @@
       "private attached twins room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 80x112, paint at EXACT 240x336 working pixels (3x), subject fills canvas with 3px native clear margin. One racing simulator cockpit, black tubular frame with red-accented bucket seat, mounted steering wheel, pedals and shifter. View from above, long axis vertical, steering wheel toward NORTH, seat toward SOUTH so visible seat back lower edge and interiortop. No driver. No room floor/cables outside; compactshadow.",
-    "revision": "Racing simulator facing EAST toward TV, viewed from overhead camera facing north: seat on LEFT, pedals steering wheel on RIGHT. Paint this perspective, no rotated image.",
+    "prompt": "Upright seat at left, steering and pedals to east. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "Upright seat at left, steering and pedals to east.",
     "sourceReference": "../racing-sim-rig-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "sim-cables",
@@ -379,10 +383,11 @@
       "private attached living room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 40x40, paint at EXACT 120x120 working pixels (3x), subject fills canvas with 3px native clear margin. Round woven basket holding folded cream and olive knit blankets, visible weave and rolled blanket folds, overheadthree-quarter,three brown/cloth tones, fulloutline/shadow.",
-    "revision": "Wicker blanket basket with dark navy trim and pale cream folded blankets. Strong contrast against ornate rug.",
+    "prompt": "Pale cream blanket contrasts against dark rug. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "Pale cream blanket contrasts against dark rug.",
     "sourceReference": "../blanket-basket-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "snack-bag",
@@ -952,8 +957,8 @@
   {
     "id": "side-table-lamp",
     "size": [
-      56,
-      72
+      84,
+      108
     ],
     "room": "living",
     "kind": "WALL",
@@ -963,10 +968,11 @@
     "referenceRoles": [
       "existing v4 painted art, style and palette"
     ],
-    "prompt": "See review-revision-prompts.json for exact repaint prompt.",
-    "revision": "Retain the subject and material details of the existing artwork. Repaint at this final native size, do not enlarge existing pixels.",
+    "prompt": "One identical lamp/table reused twice at final size. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "One identical lamp/table reused twice at final size.",
     "sourceReference": "../side-table-lamp-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "twins-toy-bin",
@@ -1047,8 +1053,8 @@
   {
     "id": "south-love-seat",
     "size": [
-      184,
-      60
+      276,
+      90
     ],
     "room": "living",
     "kind": "WALL",
@@ -1058,10 +1064,11 @@
     "referenceRoles": [
       "existing painted v4 style"
     ],
-    "prompt": "",
-    "revision": "Cream two-seat love seat on SOUTH side, seen from BEHIND facing NORTH. Full upholstered back toward camera, olive/rust cushions barely visible above. Not a front-facing sofa.",
+    "prompt": "Cream fabric and seat depth match west sofa; seen from behind. Neutral white balance, no people, names or readable personal text. Painted using built-in imagegen with approved sprite references; see round2-prompts.json.",
+    "revision": "Cream fabric and seat depth match west sofa; seen from behind.",
     "sourceReference": "../cream-sofa-v1.png",
-    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
+    "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text.",
+    "fitMode": "contain"
   },
   {
     "id": "twin-bassinets",
