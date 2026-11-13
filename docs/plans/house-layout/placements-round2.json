@@ -1,5 +1,5 @@
 {
- "note": "Rami's round 2 (Nov 13), tidied by Claude: lamp tables level and snug to the love seat, love seat nudged inside the room. Other rooms: use Codex's approved room-layout.json unchanged.",
+ "note": "Round 2 living room, made walkable by Claude (Nov 13): sim rig up 44 px with its cables, toy bin to the east wall, second bird of paradise 8 px east, coffee table 8 px south. Codex's TV and basket positions kept. Passes the 96 px route check from the north door to the south opening.",
  "rooms": {
   "living": {
    "rect": [
@@ -43,11 +43,11 @@
     },
     {
      "id": "galaxy-wall-tv",
-     "x": 732,
-     "y": -164,
-     "scale": 200,
-     "rot": 180,
-     "flip": true
+     "x": 676,
+     "y": -124,
+     "scale": 100,
+     "rot": 0,
+     "flip": false
     },
     {
      "id": "fluted-media-console",
@@ -76,7 +76,7 @@
     {
      "id": "round-coffee-table",
      "x": 176,
-     "y": 156,
+     "y": 164,
      "scale": 100,
      "rot": 0,
      "flip": false
@@ -124,15 +124,15 @@
     {
      "id": "racing-sim-rig",
      "x": 480,
-     "y": 132,
-     "scale": 150,
+     "y": 88,
+     "scale": 100,
      "rot": 0,
      "flip": false
     },
     {
      "id": "sim-cables",
      "x": 568,
-     "y": 204,
+     "y": 160,
      "scale": 100,
      "rot": 0,
      "flip": false
@@ -155,8 +155,8 @@
     },
     {
      "id": "blanket-basket",
-     "x": 284,
-     "y": 216,
+     "x": 112,
+     "y": 168,
      "scale": 100,
      "rot": 0,
      "flip": false
@@ -179,8 +179,8 @@
     },
     {
      "id": "bird-of-paradise",
-     "x": 148,
-     "y": -76,
+     "x": 156,
+     "y": -40,
      "scale": 100,
      "rot": 0,
      "flip": false
@@ -227,7 +227,7 @@
     },
     {
      "id": "twins-toy-bin",
-     "x": 616,
+     "x": 700,
      "y": 296,
      "scale": 100,
      "rot": 0,
