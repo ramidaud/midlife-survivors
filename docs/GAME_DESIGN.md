@@ -745,3 +745,12 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 
 ## Maple Hollow balance (decided Nov 12, Rami)
 - Home enemies Gutter Clog and Lawn Mower hit for 1 (was 2). Home gets its own heals: leftover pizza from beaten enemies (2%, 20 s cooldown) and a fridge that restocks every 5 years. Numbers live in `src/data/maple-hollow.js`.
+
+## Maple Hollow full map (decided Nov 12, Rami)
+- Areas open by age, using the office's rules for now. Rethink unlocks for the whole game later.
+- Each boss gets an arena in its own area: Math Homework at the elementary school (45), HOA President in the Birch Circle cul-de-sac (48), Mortgage at the strip mall bank (52), Holiday Party at the community center (56), V8 on the parkway (60), Gold Watch at the park (63.5).
+- A loop road around your block links the areas and gives the swarm a lap to run.
+- New area: a busy town square with an arcade, a skate park and a few shops.
+- The map should feel BIG.
+- The run ends back home on your porch.
+- Idea, not decided: in Full Life, stages connect (office, Maple Hollow, hospital, later others) with growing swarms and giant bosses. Claude suggests stages joined by roads rather than one seamless map, and a closed road out of town on Maple Hollow's edge for now. Open: does a single-stage run end at 65 (locked) or 80?
