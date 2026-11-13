@@ -24,12 +24,12 @@
 <rect x="614.4" y="144.0" width="240.0" height="195.2" rx="8" fill="#2F4A3A" opacity="0.92" stroke="#3E7775" stroke-width="2"/>
 <text x="621.6" y="158.2" font-family="Silkscreen, 'Courier New', monospace" font-size="16" fill="#F2D7A1" text-anchor="start" font-weight="700">THE WOODS</text>
 <text x="621.6" y="172.2" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="12" fill="#FFF0CF" text-anchor="start" font-weight="400">Full Life only, past 65</text>
-<rect x="64.0" y="374.4" width="240.0" height="265.6" rx="8" fill="#6F6A55" opacity="0.92" stroke="#EF9347" stroke-width="2" stroke-dasharray="8 5"/>
-<text x="71.2" y="388.6" font-family="Silkscreen, 'Courier New', monospace" font-size="16" fill="#F2D7A1" text-anchor="start" font-weight="700">44 · ELEMENTARY</text>
-<text x="71.2" y="402.6" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="12" fill="#FFF0CF" text-anchor="start" font-weight="400">Math Homework on the playground (45)</text>
-<rect x="614.4" y="374.4" width="240.0" height="265.6" rx="8" fill="#4A5068" opacity="0.92" stroke="#EF9347" stroke-width="2" stroke-dasharray="8 5"/>
-<text x="621.6" y="388.6" font-family="Silkscreen, 'Courier New', monospace" font-size="16" fill="#F2D7A1" text-anchor="start" font-weight="700">50 · STRIP MALL</text>
-<text x="621.6" y="402.6" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="12" fill="#FFF0CF" text-anchor="start" font-weight="400">Mortgage at the bank (52)</text>
+<rect x="614.4" y="374.4" width="240.0" height="265.6" rx="8" fill="#6F6A55" opacity="0.92" stroke="#EF9347" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="621.6" y="388.6" font-family="Silkscreen, 'Courier New', monospace" font-size="16" fill="#F2D7A1" text-anchor="start" font-weight="700">44 · ELEMENTARY</text>
+<text x="621.6" y="402.6" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="12" fill="#FFF0CF" text-anchor="start" font-weight="400">Math Homework on the playground (45)</text>
+<rect x="64.0" y="374.4" width="240.0" height="265.6" rx="8" fill="#4A5068" opacity="0.92" stroke="#EF9347" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="71.2" y="388.6" font-family="Silkscreen, 'Courier New', monospace" font-size="16" fill="#F2D7A1" text-anchor="start" font-weight="700">50 · STRIP MALL</text>
+<text x="71.2" y="402.6" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="12" fill="#FFF0CF" text-anchor="start" font-weight="400">Mortgage at the bank (52)</text>
 <rect x="64.0" y="675.2" width="240.0" height="265.6" rx="8" fill="#6A5368" opacity="0.92" stroke="#EF9347" stroke-width="2" stroke-dasharray="8 5"/>
 <text x="71.2" y="689.4" font-family="Silkscreen, 'Courier New', monospace" font-size="16" fill="#F2D7A1" text-anchor="start" font-weight="700">55 · COMMUNITY CTR</text>
 <text x="71.2" y="703.4" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="12" fill="#FFF0CF" text-anchor="start" font-weight="400">Holiday Party in the hall (56)</text>
@@ -129,22 +129,22 @@
 <circle cx="724.6" cy="254.2" r="6.0" fill="#9AA3B5" stroke="#171C35" stroke-width="1"/>
 <circle cx="741.6" cy="254.2" r="6.0" fill="#9AA3B5" stroke="#171C35" stroke-width="1"/>
 <text x="733.1" y="271.2" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#F2D7A1" text-anchor="middle" font-weight="400">TWIN STONES</text>
-<rect x="84.2" y="414.6" width="150.0" height="70.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="159.2" y="453.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">SCHOOL BUILDING</text>
-<rect x="84.2" y="504.6" width="150.0" height="30.0" rx="4" fill="#2B3150" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="159.2" y="523.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PICKUP LINE</text>
-<rect x="84.2" y="554.6" width="190.0" height="60.0" rx="4" fill="#8FA56A" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="179.2" y="588.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PLAYGROUND ARENA</text>
-<rect x="634.6" y="414.6" width="47.0" height="52.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="658.1" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">FOOD</text>
-<rect x="686.6" y="414.6" width="47.0" height="52.0" rx="4" fill="#EF9347" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="710.1" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">BANK</text>
-<rect x="738.6" y="414.6" width="47.0" height="52.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="762.1" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PIZZA</text>
-<rect x="790.6" y="414.6" width="47.0" height="52.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="814.1" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">RX</text>
-<rect x="634.6" y="489.6" width="200.0" height="130.0" rx="4" fill="#2B3150" opacity="1" stroke="#171C35" stroke-width="0.8"/>
-<text x="734.6" y="558.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PARKING LOT: runaway carts</text>
+<rect x="634.6" y="414.6" width="150.0" height="70.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="709.6" y="453.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">SCHOOL BUILDING</text>
+<rect x="634.6" y="504.6" width="150.0" height="30.0" rx="4" fill="#2B3150" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="709.6" y="523.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PICKUP LINE</text>
+<rect x="634.6" y="554.6" width="190.0" height="60.0" rx="4" fill="#8FA56A" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="729.6" y="588.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PLAYGROUND ARENA</text>
+<rect x="84.2" y="414.6" width="47.0" height="52.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="107.7" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">FOOD</text>
+<rect x="136.2" y="414.6" width="47.0" height="52.0" rx="4" fill="#EF9347" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="159.7" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">BANK</text>
+<rect x="188.2" y="414.6" width="47.0" height="52.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="211.7" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PIZZA</text>
+<rect x="240.2" y="414.6" width="47.0" height="52.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="263.7" y="444.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">RX</text>
+<rect x="84.2" y="489.6" width="200.0" height="130.0" rx="4" fill="#2B3150" opacity="1" stroke="#171C35" stroke-width="0.8"/>
+<text x="184.2" y="558.6" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">PARKING LOT: runaway carts</text>
 <rect x="89.2" y="715.4" width="150.0" height="80.0" rx="4" fill="#B8A27F" opacity="1" stroke="#171C35" stroke-width="0.8"/>
 <text x="164.2" y="759.4" font-family="Silkscreen, 'Courier New', monospace" font-size="9" fill="#FFF0CF" text-anchor="middle" font-weight="400">THE HALL</text>
 <rect x="89.2" y="815.4" width="190.0" height="35.0" rx="4" fill="#2B3150" opacity="1" stroke="#171C35" stroke-width="0.8"/>
