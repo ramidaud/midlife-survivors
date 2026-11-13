@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.33.0: Elementary (44) and Birch Circle (47) open. Start here next session: send Codex docs/handoffs/codex-town-buildings.md, then build Maple Park (62) or the Parkway (59) from the yard kit) and Birch Circle (47) are open. Start here next session: the Strip Mall (opens at 50, Mortgage at the bank at 52))), the first area)
+**Last updated:** 2026-11-13 (V2.33.0: the whole Maple Hollow town is laid out; Elementary (44) and Birch Circle (47) are open. Start here next session: send Codex docs/handoffs/codex-town-buildings.md, then build Maple Park (62) or the Parkway (59) from the yard kit)
 
 ---
 
