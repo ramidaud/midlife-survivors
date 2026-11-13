@@ -2337,3 +2337,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Side-by-side check: Batch B's plain grounds and props cover young family and retirees well, but the grill master (string lights, cooler, cornhole), fixer-upper (tarp pile, weeds), HOA (pergola, hedges) and Halloween (ghosts, lamp posts, bunting, fog) would lose their signature pieces, and every yard would lose its orange autumn shrubs.
 - Wrote the Codex Batch C brief for just those pieces (`docs/handoffs/codex-yard-character-pieces.md`). The rebuild waits for it.
 - Balance stays as V2.29.16 for now; Rami will retune once the map is laid out.
+
+## 2026-11-12: Batch C review (PR #6) (Claude)
+- Codex delivered 30 painted pieces. String lights and the cabbage bed pass; the Batch B wicker chair is reused for the retirees.
+- Most other pieces came out at 30 to 60% of the size of the same subject in today's yards (my brief's sizes were too small). Sent back to re-fit at today's sizes; the tarp pile gets repainted as leaning pallets with a tarp.
+- Revision brief: `docs/handoffs/codex-yard-character-pieces-revision.md`. Yard rebuild still waits.
