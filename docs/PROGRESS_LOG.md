@@ -2397,3 +2397,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Fourth area: a through road lined with maples, joining the roads on both sides, and the road out of town running south into the trees with a "Opens in Full Life" sign.
 - The V8 (60) keeps bursting out of your garage, which sits right next to the Parkway.
 - Tried the HOA's striped lawn as golf fairways; it read as blue rectangles, so it's out. Golf course and a north-south barricade added to the Codex town buildings brief.
+
+## 2026-11-13: V. 2.37.0, the Strip Mall opens at 50 (Claude)
+- Codex's town buildings (PR #8, 37 pieces) reviewed and approved: they match Maple Hollow. All final pieces copied in for the Strip Mall, Town Square and Community Center.
+- Strip Mall: five shops with names on their blank plates (Fresh Market, Maple Savings & Loan, Tony's Pizza, Pharmacy, Pressed for Time), a covered walkway, and a parking lot.
+- The Mortgage (52) comes out of the bank.

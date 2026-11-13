@@ -612,9 +612,10 @@ window.MapleHollow = (() => {
         const img = tp[f], P = TNd.pieces[f]; if (!img || !P) return;
         const k = "mh4_piece_" + f + "-v4.png";
         if (!scene.textures.exists(k)) { const c = document.createElement("canvas"); c.width = img.width; c.height = img.height; c.getContext("2d").drawImage(img, 0, 0);
-          if (P.flat) { scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } else H.propTexture(scene, c, k, img.width, img.height); }
+          if (P.flat || P.over) { scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } else H.propTexture(scene, c, k, img.width, img.height); }
         let o;
         if (P.flat) o = scene.add.image(X, Y, k).setOrigin(0).setDepth(-998);
+        else if (P.over) o = scene.add.image(X, Y, k).setOrigin(0).setDepth(29999); // overhead, like the string lights
         else { // stands up: sorted by its feet with the hero, solid only at its base (the yards' rule)
           o = scene.add.image(X, Y + P.dy, k).setOrigin(0, P.dy / img.height).setDepth(3); o.sliceDepth = Y + P.dy; items.push(o);
           H.body(o, { width: 1, back: 1, front: 0 }, "prop_decor"); o.body.enable = false;

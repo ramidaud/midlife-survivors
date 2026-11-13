@@ -120,9 +120,10 @@ window.MAPLE_HOLLOW = {
         ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
       ],
       // Areas that are built open at their age: the woods clear and the area's pieces appear. The rest stay woods.
-      built: ["elementary", "birch", "park", "parkway"],
+      built: ["elementary", "birch", "mall", "park", "parkway"],
       openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."],
                    birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."],
+                   mall: ["STRIP MALL", "The strip mall is open. The bank would like to talk about your mortgage."],
                    parkway: ["THE PARKWAY", "The Parkway is open. Nice long road. Somebody's about to buy a sports car."],
                    park: ["MAPLE PARK", "Maple Park is open. Somebody reserved the pavilion for a retirement party."] },
       // Pieces reused from the yard kit (assets/stage/home/v4/yard/): size, feet line (dy) and solid footprint, relative to
@@ -145,6 +146,44 @@ window.MAPLE_HOLLOW = {
         "lost-and-found": { src: "v4/elementary/lost-and-found-v1.png", dy: 52, fp: [[7, 44, 50, 8]] },
         "pickup-lane": { src: "v4/elementary/pickup-lane-v1.png", flat: true }, "four-square": { src: "v4/elementary/four-square-v1.png", flat: true },
         "hopscotch": { src: "v4/elementary/hopscotch-v1.png", flat: true }, "usa-map": { src: "v4/elementary/usa-map-v1.png", flat: true },
+        // Maple Hollow town buildings (Codex, PR #8, approved Nov 13): strip mall, Town Square, community center
+        "mall-grocery-front": { src: "v4/town/mall-grocery-front-v1.png", dy: 377, fp: [[13,  333,  390,  44]] },
+        "mall-bank-front": { src: "v4/town/mall-bank-front-v1.png", dy: 377, fp: [[13,  329,  390,  48]] },
+        "mall-pizza-front": { src: "v4/town/mall-pizza-front-v1.png", dy: 377, fp: [[13,  330,  390,  47]] },
+        "mall-pharmacy-front": { src: "v4/town/mall-pharmacy-front-v1.png", dy: 377, fp: [[13,  335,  390,  42]] },
+        "mall-dry-cleaner-front": { src: "v4/town/mall-dry-cleaner-front-v1.png", dy: 377, fp: [[13,  329,  390,  48]] },
+        "mall-walkway-ground": { src: "v4/town/mall-walkway-ground-v1.png", flat: true },
+        "mall-walkway-canopy": { src: "v4/town/mall-walkway-canopy-v1.png", dy: 96 }, // overhead: no footprint, fades when you walk under it
+        "mall-parking-stalls": { src: "v4/town/mall-parking-stalls-v1.png", flat: true },
+        "mall-drive-aisle": { src: "v4/town/mall-drive-aisle-v1.png", flat: true },
+        "mall-car-teal": { src: "v4/town/mall-car-teal-v1.png", dy: 137, fp: [[9,  14,  61,  118]] },
+        "mall-car-cream": { src: "v4/town/mall-car-cream-v1.png", dy: 137, fp: [[8,  14,  63,  118]] },
+        "mall-car-russet": { src: "v4/town/mall-car-russet-v1.png", dy: 137, fp: [[14,  14,  52,  118]] },
+        "mall-car-sage": { src: "v4/town/mall-car-sage-v1.png", dy: 137, fp: [[10,  14,  59,  118]] },
+        "mall-cart-corral": { src: "v4/town/mall-cart-corral-v1.png", dy: 121, fp: [[53,  77,  150,  44]] },
+        "mall-runaway-cart": { src: "v4/town/mall-runaway-cart-v1.png", dy: 49, fp: [[16,  39,  32,  10]] },
+        "mall-light-pole": { src: "v4/town/mall-light-pole-v1.png", dy: 260, fp: [[24,  250,  16,  10]] },
+        "mall-curb-island": { src: "v4/town/mall-curb-island-v1.png", dy: 213, fp: [[34,  171,  157,  42]] },
+        "mall-trash-can": { src: "v4/town/mall-trash-can-v1.png", dy: 49, fp: [[11,  39,  26,  10]] },
+        "square-arcade-front": { src: "v4/town/square-arcade-front-v1.png", dy: 441, fp: [[13,  383,  806,  58]] },
+        "square-coffee-front": { src: "v4/town/square-coffee-front-v1.png", dy: 377, fp: [[14,  324,  388,  53]] },
+        "square-hardware-front": { src: "v4/town/square-hardware-front-v1.png", dy: 377, fp: [[13,  327,  390,  50]] },
+        "square-fountain": { src: "v4/town/square-fountain-v1.png", dy: 313, fp: [[47,  203,  290,  110]] },
+        "square-brick-plaza": { src: "v4/town/square-brick-plaza-v1.png", flat: true },
+        "square-quarter-pipe": { src: "v4/town/square-quarter-pipe-v1.png", dy: 153, fp: [[17,  122,  190,  31]] },
+        "square-grind-rail": { src: "v4/town/square-grind-rail-v1.png", dy: 57, fp: [[11,  43,  170,  14]] },
+        "square-concrete-pad": { src: "v4/town/square-concrete-pad-v1.png", flat: true },
+        "square-food-truck-teal": { src: "v4/town/square-food-truck-teal-v1.png", dy: 281, fp: [[20,  17,  120,  256]] },
+        "square-food-truck-russet": { src: "v4/town/square-food-truck-russet-v1.png", dy: 281, fp: [[24,  17,  112,  256]] },
+        "square-bench": { src: "v4/town/square-bench-v1.png", dy: 73, fp: [[28,  58,  72,  15]] },
+        "square-planter": { src: "v4/town/square-planter-v1.png", dy: 73, fp: [[11,  58,  50,  15]] },
+        "community-hall": { src: "v4/town/community-hall-v1.png", dy: 553, fp: [[17,  465,  1066,  88]] },
+        "community-potluck-table": { src: "v4/town/community-potluck-table-v1.png", dy: 89, fp: [[25,  71,  142,  18]] },
+        "community-bounce-house": { src: "v4/town/community-bounce-house-v1.png", dy: 217, fp: [[24,  141,  208,  76]] },
+        "community-barricade": { src: "v4/town/community-barricade-v1.png", dy: 73, fp: [[15,  58,  97,  15]] },
+        "community-light-posts": { src: "v4/town/community-light-posts-v1.png", dy: 59, fp: [[4,  52,  8,  7],  [146,  52,  8,  7]] },
+        "community-light-strand": { src: "v4/town/community-light-strand-v1.png", over: true },
+        "community-cooler": { src: "v4/town/community-cooler-v1.png", dy: 52, fp: [[8,  40,  49,  12]] },
         "toy-car": { flat: true }, "beach-ball": { flat: true }, "decal-leaf-drift": { flat: true }, "decal-scattered-maple": { flat: true }
       },
       // Elementary (Nov 13): Codex's school, pickup line, playground and chalk (PR #7) with yard-kit trees and swings.
@@ -168,6 +207,27 @@ window.MAPLE_HOLLOW = {
         // Maple Park v1 (Nov 13): the yard themes' pieces out on an open lawn. The HOA set is the pavilion (pergola, koi pond,
         // lanterns, hedges), the grill master's set the picnic area, the retirees' set a bird-watching corner. Gold Watch (63.5) at the pavilion.
         // [vignette, x, y, theme]: a theme's pieces without its yard plate or fence posts. Each vignette is 416 x 448.
+        // The Strip Mall (Nov 13, Codex's art): five shops along the top with a covered walkway, the parking lot below.
+        // The Mortgage (52) comes out of the bank.
+        mall: [
+          ["mall-grocery-front", 160, 100], ["mall-bank-front", 576, 100], ["mall-pizza-front", 992, 100], ["mall-pharmacy-front", 1408, 100], ["mall-dry-cleaner-front", 1824, 100],
+          ["text", 257, 222, 221, 29, "FRESH MARKET", "#171C35"], ["text", 676, 241, 218, 27, "MAPLE SAVINGS & LOAN", "#171C35"],
+          ["text", 1075, 202, 248, 37, "TONY'S PIZZA", "#171C35"], ["text", 1508, 186, 200, 40, "PHARMACY", "#171C35"], ["text", 1896, 193, 271, 34, "PRESSED FOR TIME", "#171C35"],
+          ["mall-walkway-ground", 0, 484], ["mall-walkway-canopy", 0, 484], ["mall-trash-can", 540, 470], ["mall-trash-can", 1790, 470],
+          // the lot: stall rows and drive aisles
+          ["mall-parking-stalls", 0, 640], ["mall-drive-aisle", 512, 640], ["mall-parking-stalls", 1024, 640], ["mall-drive-aisle", 1536, 640], ["mall-parking-stalls", 1984, 640],
+          ["mall-parking-stalls", 0, 1152], ["mall-drive-aisle", 512, 1152], ["mall-parking-stalls", 1024, 1152], ["mall-drive-aisle", 1536, 1152], ["mall-parking-stalls", 1984, 1152],
+          ["mall-parking-stalls", 0, 1664], ["mall-drive-aisle", 512, 1664], ["mall-parking-stalls", 1024, 1664], ["mall-drive-aisle", 1536, 1664], ["mall-parking-stalls", 1984, 1664],
+          ["mall-parking-stalls", 0, 2176], ["mall-drive-aisle", 512, 2176], ["mall-parking-stalls", 1024, 2176], ["mall-drive-aisle", 1536, 2176], ["mall-parking-stalls", 1984, 2176],
+          ["mall-car-teal", 40, 660], ["mall-car-cream", 260, 660], ["mall-car-russet", 1170, 660], ["mall-car-sage", 1394, 660], ["mall-car-cream", 2024, 660],
+          ["mall-car-sage", 150, 1172], ["mall-car-teal", 1064, 1172], ["mall-car-russet", 2134, 1172], ["mall-car-cream", 2354, 1172],
+          ["mall-car-russet", 40, 1684], ["mall-car-teal", 370, 1684], ["mall-car-sage", 1280, 1684], ["mall-car-cream", 2244, 1684],
+          ["mall-car-cream", 150, 2196], ["mall-car-teal", 1174, 2196], ["mall-car-russet", 1394, 2196], ["mall-car-sage", 2024, 2196],
+          ["mall-cart-corral", 640, 1000], ["mall-cart-corral", 1660, 1990], ["mall-runaway-cart", 900, 1300], ["mall-runaway-cart", 1720, 880], ["mall-runaway-cart", 420, 2000],
+          ["mall-light-pole", 480, 1080], ["mall-light-pole", 1504, 1080], ["mall-light-pole", 480, 2104], ["mall-light-pole", 1504, 2104],
+          ["mall-curb-island", 1200, 1450], ["mall-curb-island", 140, 1450], ["mall-curb-island", 2200, 1960],
+          ["tree-maple-orange", 2300, 120], ["tree-maple-orange", 20, 220], ["autumn-shrub-a", 2320, 400], ["autumn-shrub-b", 40, 480]
+        ],
         // The Parkway v1 (Nov 13): a through road lined with maples, open lawn (golf course art to come), and the road out of
         // town running south into the trees (closed until Full Life). The V8 (60) still bursts out of your garage next door.
         // More entries: ["vstreet", x, y, length] a north-south street, ["plate", x, y, theme] a yard's ground picture alone,
@@ -228,7 +288,7 @@ window.MAPLE_HOLLOW = {
           ["decal-leaf-drift", 300, 2000], ["decal-scattered-maple", 2050, 2250], ["decal-scattered-maple", 2750, 600]
         ]
       },
-      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090], goldWatch: ["park", 1290, 1060] } // where each boss comes out, if its area is open
+      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090], goldWatch: ["park", 1290, 1060], mortgageRefinance: ["mall", 784, 560] } // where each boss comes out, if its area is open
     },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood

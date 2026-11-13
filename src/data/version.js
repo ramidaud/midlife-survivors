@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.36.0",
-  displayVersion: "V. 2.36.0",
+  version: "2.37.0",
+  displayVersion: "V. 2.37.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 375,
+  build: 376,
   changelog: [
+    {
+      ver: "V. 2.37.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "The strip mall opens at 50. The bank has some paperwork for you.",
+      highlights: [
+        "The strip mall opens at 50: Fresh Market, Maple Savings & Loan, Tony's Pizza, the pharmacy and Pressed for Time, all along a covered walkway.",
+        "A big parking lot out front, with cars in the stalls, cart corrals and the occasional runaway cart.",
+        "At 52 the Mortgage comes out of the bank."
+      ]
+    },
     {
       ver: "V. 2.36.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "The Parkway opens at 59. Nice long road.",

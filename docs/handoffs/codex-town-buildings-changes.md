@@ -1,0 +1,7 @@
+# Town Buildings art (Codex, November 13, 2026)
+
+- Prepared 37 pieces in `assets/stage/home/v4/town/`, in brief order: Strip Mall, Town Square, Community Center. 34 new paintings; approved yard cooler and two light layers reused unchanged. Art approval is pending.
+- Blank storefront/hall/arcade/truck sign plates, four car colors, bank columns/deposit slot, arcade cabinets and the hall bulletin board are present. Tables, barricades, bench and planter are instanced props for the plural pieces in the brief.
+- Full unscaled 56x60 hero comparisons, footprint overlays, native rows and tile repeats are in `review.html`. All 37 size/palette/alpha/foot-data checks, exact 2x/3x reduction checks, ground-edge joins, breakable cream highlights and reuse hashes pass. Desktop1280px and phone390px review loads all40 images without broken images or horizontal page overflow.
+- Long walkway: six painted 416px modules form separate 2496x96 pavement and overhead-canopy layers. Ground plates are opaque; props/overlays retain transparency. Concrete was corrected to cool slate; brick cropping follows its painted bond period. Originals, prompts, working rasters and processing tools are retained.
+- Claude places after approval and checks real depth sorting, roof visibility, route widths and exits. Five mall fronts total2080px, leaving416px of the2496px width for a side exit. No game code, version or runtime placement changes.
