@@ -120,8 +120,9 @@ window.MAPLE_HOLLOW = {
         ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
       ],
       // Areas that are built open at their age: the woods clear and the area's pieces appear. The rest stay woods.
-      built: ["elementary"],
-      openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."] },
+      built: ["elementary", "birch"],
+      openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."],
+                   birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."] },
       // Pieces reused from the yard kit (assets/stage/home/v4/yard/): size, feet line (dy) and solid footprint, relative to
       // the picture's top-left corner. flat = walked over.
       pieces: {
@@ -133,7 +134,21 @@ window.MAPLE_HOLLOW = {
       // Elementary v1 (Nov 13): the school grounds from the yard kit. The school building and the pickup line wait for
       // Codex's art (docs/handoffs/codex-elementary.md); their spot is the open lawn at the top left.
       // [piece, x, y] inside the area (2960 x 2752), top-left corner of the picture.
+      // Besides pieces, a layout can hold: ["house", x, y, frame] a neighbor's house (solid front), ["yard", x, y, theme] a
+      // backyard plate with its theme's pieces (src/data/maple-yards.js), ["street", x, y, length, "capLeft"] a street band
+      // ending in the rounded dead end, ["asphalt", x, y, w, h] plain road where streets meet (may reach outside the area).
       layouts: {
+        // Birch Circle v1 (Nov 13): six houses on a street that ends in the cul-de-sac, HOA-perfect backyards behind them,
+        // and the HOA common below the street, where the HOA President fights you (48).
+        birch: [
+          ["yard", 0, 0, "hoa-president"], ["yard", 416, 0, "retirees"], ["yard", 832, 0, "hoa-president"],
+          ["yard", 1248, 0, "young-family"], ["yard", 1664, 0, "hoa-president"], ["yard", 2080, 0, "retirees"],
+          ["house", 0, 448, 3], ["house", 416, 448, 1], ["house", 832, 448, 4], ["house", 1248, 448, 0], ["house", 1664, 448, 5], ["house", 2080, 448, 2],
+          ["street", 128, 832, 2368, "capLeft"], ["asphalt", 2496, 928, 416, 320],
+          ["yard", 220, 1440, "hoa-president"], ["yard", 1040, 1440, "hoa-president"], ["yard", 1860, 1440, "hoa-president"],
+          ["tree-maple-orange", 40, 1700], ["tree-maple-orange", 700, 1850], ["tree-maple-orange", 1500, 1860], ["tree-maple-orange", 2330, 1840],
+          ["autumn-shrub-a", 660, 1380], ["autumn-shrub-b", 1480, 1380], ["autumn-shrub-c", 2300, 1380]
+        ],
         elementary: [
           // the playground, where the Math Homework fight happens
           ["swing-set", 1500, 820], ["swing-set", 1760, 820], ["swing-set", 2020, 820], ["sandbox", 1560, 1380], ["sandbox", 2260, 1420],
@@ -158,7 +173,7 @@ window.MAPLE_HOLLOW = {
           ["decal-leaf-drift", 300, 2000], ["decal-scattered-maple", 2050, 2250], ["decal-leaf-drift", 1250, 1300], ["decal-scattered-maple", 2750, 600]
         ]
       },
-      bossSpots: { mathHomework: ["elementary", 1880, 1250] } // where each boss comes out, if its area is open
+      bossSpots: { mathHomework: ["elementary", 1880, 1250], hoaPresident: ["birch", 640, 1090] } // where each boss comes out, if its area is open
     },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood

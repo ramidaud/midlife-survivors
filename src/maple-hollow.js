@@ -551,9 +551,47 @@ window.MapleHollow = (() => {
       if (a.body) { const i = bodies.indexOf(a.body); if (i >= 0) bodies.splice(i, 1); a.body.destroy(); a.body = null; }
       data.floors.push({ x: x0, y: y0, width: w, height: h, material: "mh_grass", district: "home" });
       const g = scene.add.tileSprite(x0, y0, w, h, keyFor.mh_grass || grassKey).setOrigin(0).setDepth(-1000); all.push(g); townObjs.push(g);
-      if (!tp.failed) ((TNd.layouts || {})[a.id] || []).forEach(([f, x, y]) => {
+      const solid = (x, y, w, h) => { const r = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(r, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(r); items.push(r); };
+      const keyed = (k, img, sx, sy, w, h, keyOut) => { // a crop of a sheet as its own texture (keyOut: magenta becomes see-through)
+        if (scene.textures.exists(k)) return k;
+        const c = document.createElement("canvas"); c.width = w; c.height = h; c.getContext("2d").drawImage(img, sx, sy, w, h, 0, 0, w, h);
+        if (keyOut) H.propTexture(scene, c, k, w, h); else { scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); }
+        return k;
+      };
+      const extra = (o) => { all.push(o); townObjs.push(o); return o; };
+      ((TNd.layouts || {})[a.id] || []).forEach(e => {
+        const [kind, ex, ey] = e, X = x0 + ex, Y = y0 + ey;
+        if (kind === "house" && v3.houses) { // a neighbor's house: the cell under everyone, the front solid and sorted with the hero
+          const f = e[3], [CW, CH] = MV.houseCell, [fx, fy, fw, fh] = MV.facade;
+          extra(scene.add.image(X, Y, keyed("mh3_house_" + f, v3.houses, f * CW, 0, CW, CH, true)).setOrigin(0).setDepth(2.45));
+          const o = extra(scene.add.image(X + fx + fw / 2, Y + fy + fh, keyed("mh3_front_" + f, v3.houses, f * CW + fx, fy, fw, fh, true)).setOrigin(0.5, 1).setDepth(3));
+          H.body(o, { width: fw - 16, back: fh - 12, front: 0 }, "prop_house"); bodies.push(o); items.push(o);
+          return;
+        }
+        if (kind === "yard" && MY && !my.failed) { // a backyard plate plus its theme's pieces and the shared frame (fence posts, shrubs)
+          const th = MY.themes[e[3]]; if (!th) return;
+          extra(scene.add.image(X, Y, keyed("mh4_yard_" + th.ground, my[th.ground], 0, 0, my[th.ground].width, my[th.ground].height)).setOrigin(0).setDepth(-999));
+          MY.frame.concat(th.pieces).forEach(q => {
+            const img = my[q.f]; if (!img) return;
+            const k = keyed("mh4_piece_" + q.f, img, 0, 0, img.width, img.height, q.k !== "flat");
+            if (q.k === "flat") { extra(scene.add.image(X + q.x, Y + q.y, k).setOrigin(0).setDepth(-998)); return; }
+            const o = extra(scene.add.image(X + q.x, Y + q.d, k).setOrigin(0, (q.d - q.y) / img.height).setDepth(3));
+            o.sliceDepth = Y + q.d; items.push(o); H.body(o, { width: 1, back: 1, front: 0 }, "prop_decor"); o.body.enable = false;
+            (q.fp || []).forEach(([bx, by, bw, bh]) => solid(X + bx, Y + by, bw, bh));
+          });
+          return;
+        }
+        if (kind === "street") { // street plates, with the rounded dead end on the left
+          const len = e[3];
+          for (let k2 = 0, xx = X; xx < X + len; k2++, xx += 832) { const o = extra(scene.add.image(xx, Y, k2 % 2 ? "mh_plate_b" : "mh_plate_a").setOrigin(0).setDepth(-999.7)); o.setCrop(0, 0, Math.min(832, X + len - xx), 512); }
+          if (e[4] === "capLeft" && se.left && SE) { const [ca, cb] = SE.left.crop; extra(scene.add.image(X - (cb - ca), Y, keyed("mh_end_left", se.left, ca, 0, cb - ca, se.left.height)).setOrigin(0).setDepth(-999.7)); }
+          return;
+        }
+        if (kind === "asphalt") { extra(scene.add.tileSprite(X, Y, e[3], e[4], streetKey).setOrigin(0).setDepth(-999.6)); return; }
+        if (tp.failed) return;
+        const f = kind, x = ex, y = ey;
         const img = tp[f], P = TNd.pieces[f]; if (!img || !P) return;
-        const k = "mh4_piece_" + f + "-v4.png", X = x0 + x, Y = y0 + y;
+        const k = "mh4_piece_" + f + "-v4.png";
         if (!scene.textures.exists(k)) { const c = document.createElement("canvas"); c.width = img.width; c.height = img.height; c.getContext("2d").drawImage(img, 0, 0);
           if (P.flat) { scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } else H.propTexture(scene, c, k, img.width, img.height); }
         let o;

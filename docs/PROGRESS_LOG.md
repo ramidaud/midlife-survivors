@@ -2371,3 +2371,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Math Homework (45) comes out of the playground, or at the school's edge nearest you if you're far away.
 - The opening code works for every area: the others open the same way once they're built.
 - Codex brief for the school building, pickup line and playground pieces: `docs/handoffs/codex-elementary.md`.
+
+## 2026-11-13: V. 2.33.0, Birch Circle opens at 47 (Claude)
+- Second area. Six neighbor houses on a street ending in the rounded cul-de-sac, HOA-style backyards behind them, and an HOA common below (koi ponds, pergolas, hedges).
+- The HOA President (48) comes out in the cul-de-sac.
+- All existing art: house fronts, yard themes, street plates and the street-end curve. Area layouts can now hold houses, yards, streets and road patches, not just single pieces.

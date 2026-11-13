@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.32.0: Elementary opens at 44 with the Math Homework fight on its playground. Start here next session: send Codex the school brief, then Birch Circle (opens at 47, HOA in the cul-de-sac)), the first area)
+**Last updated:** 2026-11-13 (V2.33.0: Elementary (44) and Birch Circle (47) are open. Start here next session: the Strip Mall (opens at 50, Mortgage at the bank at 52))), the first area)
 
 ---
 

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.32.0",
-  displayVersion: "V. 2.32.0",
+  version: "2.33.0",
+  displayVersion: "V. 2.33.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 371,
+  build: 372,
   changelog: [
+    {
+      ver: "V. 2.33.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Birch Circle opens at 47. The HOA has notes.",
+      highlights: [
+        "Birch Circle opens at 47, in the far corner of town: six houses on a street that ends in a cul-de-sac, with perfectly mowed HOA backyards behind them.",
+        "Below the street is the HOA common: koi ponds, pergolas, stone lanterns and boxwood hedges trimmed with a ruler.",
+        "At 48 the HOA President comes out in the cul-de-sac, or at the edge of Birch Circle nearest you."
+      ]
+    },
     {
       ver: "V. 2.32.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "School's open at 44. Bring a pencil.",
