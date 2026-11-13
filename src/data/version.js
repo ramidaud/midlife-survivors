@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.37.0",
-  displayVersion: "V. 2.37.0",
+  version: "2.38.0",
+  displayVersion: "V. 2.38.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 376,
+  build: 377,
   changelog: [
+    {
+      ver: "V. 2.38.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Town Square opens at 53, right in the middle of town.",
+      highlights: [
+        "Town Square opens at 53: the Game Over Arcade, Bean There coffee and Dad's Hardware, a fountain on a brick plaza, benches and planters.",
+        "A skate park with quarter pipes and a grind rail, and two food trucks (tacos and barbecue)."
+      ]
+    },
     {
       ver: "V. 2.37.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "The strip mall opens at 50. The bank has some paperwork for you.",

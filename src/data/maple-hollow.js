@@ -120,10 +120,11 @@ window.MAPLE_HOLLOW = {
         ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
       ],
       // Areas that are built open at their age: the woods clear and the area's pieces appear. The rest stay woods.
-      built: ["elementary", "birch", "mall", "park", "parkway"],
+      built: ["elementary", "birch", "mall", "square", "park", "parkway"],
       openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."],
                    birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."],
                    mall: ["STRIP MALL", "The strip mall is open. The bank would like to talk about your mortgage."],
+                   square: ["TOWN SQUARE", "Town Square is open. Everybody's here. Somebody brought a guitar."],
                    parkway: ["THE PARKWAY", "The Parkway is open. Nice long road. Somebody's about to buy a sports car."],
                    park: ["MAPLE PARK", "Maple Park is open. Somebody reserved the pavilion for a retirement party."] },
       // Pieces reused from the yard kit (assets/stage/home/v4/yard/): size, feet line (dy) and solid footprint, relative to
@@ -227,6 +228,28 @@ window.MAPLE_HOLLOW = {
           ["mall-light-pole", 480, 1080], ["mall-light-pole", 1504, 1080], ["mall-light-pole", 480, 2104], ["mall-light-pole", 1504, 2104],
           ["mall-curb-island", 1200, 1450], ["mall-curb-island", 140, 1450], ["mall-curb-island", 2200, 1960],
           ["tree-maple-orange", 2300, 120], ["tree-maple-orange", 20, 220], ["autumn-shrub-a", 2320, 400], ["autumn-shrub-b", 40, 480]
+        ],
+        // Town Square (Nov 13, Codex's art): the middle of the map. Shop fronts along the top, a brick plaza with the fountain,
+        // the skate park and the food trucks below. No boss: it's where the game comes together.
+        square: [
+          // the brick plaza around the fountain (four tiles: the brick reads large, so less is more until a finer brick comes)
+          ["square-brick-plaza", 736, 856], ["square-brick-plaza", 1248, 856], ["square-brick-plaza", 736, 1368], ["square-brick-plaza", 1248, 1368],
+          ["square-arcade-front", 300, 100], ["square-coffee-front", 1250, 164], ["square-hardware-front", 1700, 164],
+          ["text", 570, 153, 290, 107, "GAME OVER\nARCADE", "#F2D7A1"], ["text", 1378, 256, 161, 31, "BEAN THERE", "#171C35"], ["text", 1780, 246, 256, 40, "DAD'S HARDWARE", "#171C35"],
+          ["square-fountain", 1056, 1210],
+          ["square-bench", 860, 1060], ["square-bench", 1510, 1060], ["square-bench", 860, 1660], ["square-bench", 1510, 1660],
+          ["square-planter", 740, 860], ["square-planter", 1684, 860], ["square-planter", 740, 1800], ["square-planter", 1684, 1800],
+          ["square-planter", 1200, 900], ["square-planter", 1230, 1880],
+          // the skate park, bottom left
+          ["square-concrete-pad", 120, 2200], ["square-concrete-pad", 632, 2200],
+          ["square-quarter-pipe", 160, 2240], ["square-quarter-pipe", 840, 2240], ["square-grind-rail", 470, 2470],
+          // the food trucks, bottom right
+          ["square-food-truck-teal", 1720, 2240], ["square-food-truck-russet", 1980, 2240],
+          ["text", 1749, 2322, 73, 138, "TACOS", "#171C35"], ["text", 2014, 2313, 72, 145, "BBQ", "#171C35"],
+          ["square-bench", 1700, 2580], ["square-bench", 2000, 2580], ["mall-trash-can", 2200, 2400],
+          ["tree-maple-orange", 60, 300], ["tree-maple-orange", 2300, 260], ["tree-maple-orange", 80, 1300], ["tree-maple-orange", 2340, 1300],
+          ["tree-maple-orange", 1300, 2500], ["autumn-shrub-a", 2200, 700], ["autumn-shrub-b", 200, 800], ["autumn-shrub-c", 2300, 1900],
+          ["decal-leaf-drift", 300, 1700], ["decal-scattered-maple", 2150, 1500], ["decal-leaf-drift", 1100, 2450]
         ],
         // The Parkway v1 (Nov 13): a through road lined with maples, open lawn (golf course art to come), and the road out of
         // town running south into the trees (closed until Full Life). The V8 (60) still bursts out of your garage next door.

@@ -2402,3 +2402,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Codex's town buildings (PR #8, 37 pieces) reviewed and approved: they match Maple Hollow. All final pieces copied in for the Strip Mall, Town Square and Community Center.
 - Strip Mall: five shops with names on their blank plates (Fresh Market, Maple Savings & Loan, Tony's Pizza, Pharmacy, Pressed for Time), a covered walkway, and a parking lot.
 - The Mortgage (52) comes out of the bank.
+
+## 2026-11-13: V. 2.38.0, Town Square opens at 53 (Claude)
+- The middle of the map: Game Over Arcade, Bean There, Dad's Hardware, the fountain on a brick plaza, the skate park and two food trucks.
+- The brick plaza reads large and loud, so it's four tiles around the fountain for now; finer brick added to the Codex notes.

@@ -39,3 +39,6 @@ Strip Mall first (its boss comes earliest after the square opens), then Town Squ
 - **Golf course edge** (walk-through ground): a fairway tile with mower stripes, 512 x 512, and a putting green with a flag (the flag is a wall, about 32 x 160).
 - **Sand trap** (walk-through), about 256 x 160, and a **golf cart** (wall), about 144 x 96.
 - **A barricade for a north-south road** (wall), about 320 x 96: sawhorses across the road, seen from the front. The current barricades only fit east-west streets.
+
+## Notes from placing PR #8 (Nov 13)
+- **Brick plaza:** the herringbone bricks read about the size of the hero, so a big plaza looks loud, and faint seams show where tiles meet. A finer, seamless brick (bricks about a third the size) would let Town Square use more plaza.
