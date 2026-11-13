@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.40.0: every Midlife area of Maple Hollow is open, all Codex art placed. Start here next session: Rami plays a full Maple Hollow run and reacts; close PRs #7, #8 and #9; then balance Maple Hollow (it felt too easy))
+**Last updated:** 2026-11-13 (V2.40.0: every Midlife area of Maple Hollow is open. Start here next session: send Codex docs/handoffs/codex-roads-and-woods.md; meanwhile, fill the big house (needs Rami's room photos) or design one thing to do in each backyard)
 
 ---
 
@@ -54,7 +54,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Front door (V2.29.8): swings open after you take the key-hunt bonus, then you walk straight in
 - [x] Street ends: a cul-de-sac with a barricade where each street meets the forest (V2.29.11)
 - [ ] Rami: walk to the end of both streets. Does the dead end read? Is the barricade where you expect it?
-- [ ] Place the new trees and shrubs as their own sprites (waits for Batch B's plain yards; today's trees are painted into the yard pictures)
+- [x] Place the new trees and shrubs as their own sprites (done with the V2.30.0 yard rebuild; checked Nov 13)
 - [ ] Rami: paste the two new CLAUDE.md lines into the Project's custom instructions
 - [ ] Sitting 2: true sizes. Enemies, pickups and yard props at 1x or 2x, hitboxes unchanged
 - [ ] Sitting 3: heroes and Bill. Colors by material (the khaki slacks), then a clean-up round on the Sprite Board

@@ -2416,3 +2416,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Codex's PR #9 approved and placed: fairways, putting greens with flags, sand traps and golf carts along the road out of town, plus a north-south barricade across that road.
 - Fairway green matches the lawn this time (no blue rectangles).
 - Every Codex brief for Maple Hollow is now delivered and placed. Close PRs #7, #8 and #9.
+
+## 2026-11-13: finishing the stage, plan (Claude)
+- Rami: finish the stage before balancing. PRs #7, #8, #9 closed (art already in the game).
+- Trees and shrubs as their own sprites: already done by the V2.30.0 yard rebuild, ticked.
+- New Codex brief `docs/handoffs/codex-roads-and-woods.md`: proper north-south roads, crossings and top-down parked cars, then the Woods (Twin Stones, trail, logs, rocks, pines).
