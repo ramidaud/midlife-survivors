@@ -2160,3 +2160,18 @@ Footprint checks use the part touching the floor. A continuous path must fit the
     a visible edge and visible props
 
 Material contrast makes a prop readable without adding another heavy outline. Keep one source painting per selected asset and link the review export back to it.
+
+## Chapter: Wall faces
+
+```
+ FLOOR PLAN (seen straight down)        TOP-DOWN GAME (seen from the front, a bit above)
+ +----------------------------+         +----------------------------+
+ | living                     |         |  [window] [fireplace] [TV] |  <- wall face, 128 px: art hangs here
+ |                            |         |----------------------------|
+ +----------------------------+         | living floor               |
+ | dining                     |         |                            |
+ |                            |         |######## wall face ####|door|  <- the next room's wall, with a doorway
+ +----------------------------+         | dining floor               |
+                                        +----------------------------+
+```
+The rooms didn't get bigger. The house got taller, by one wall face per row of rooms (368 px in all), and the doorways go where the 96 px routes need them.

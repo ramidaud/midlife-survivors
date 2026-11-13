@@ -864,3 +864,6 @@ A prop can disappear when its top has the same dark colors as the rug below it. 
 
 ## 2026-11-13: native size and route checks (Codex)
 A bigger furniture request becomes a newly painted native canvas, then an exact 3x working image is reduced to it. Proportional fitting preserves the painting’s shape. A clear patch of floor does not prove a route works: a whole 96 px square must connect the door openings. The fixed round-two living layout has clear pockets but fails that connection.
+
+## Wall faces: why the house got taller (Nov 13, the house)
+In a top-down game you see the north wall of every room from the front, so a wall isn't a thin line, it's a tall strip of picture where paintings and cabinets hang. On the old floor plan the rooms just touched, so there was nowhere to hang anything. Adding real walls meant pushing every row of rooms down to make space for a 128 px wall face, then cutting doorways through the faces where you need to walk.
