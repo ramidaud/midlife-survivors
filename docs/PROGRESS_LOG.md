@@ -2426,3 +2426,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami sent 13 photos of the real house (living room, dining and desk, kitchen and entry, main bedroom, the twins' corner, Abe's room) and asked for the same detail as the town, with correct placement and perspective.
 - New Codex brief `docs/handoffs/codex-house-interior.md`: every room repainted from the photos, wall decor face-on on north walls, neutral light with glowing neons, density targets, room mock-ups for approval. Ground floor first, then upstairs.
 - Photos stay out of the repo (it's public and they show family). Rami attaches them to Codex directly. No real names, usernames or plates in the art.
+
+
+## 2026-11-13: house mock-up review revisions (Codex)
+- Repainted chairs to 40px visible height and floor to fine laminate.
+- Removed rug backing, moved office chair to desk, restored concrete garage.
+- Added five household pieces, with plant clusters in both living and dining.
+- All 61 assets validate; reserved routes stay clear. Awaiting approval before placement. No runtime or version change.

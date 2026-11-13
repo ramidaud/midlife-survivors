@@ -1,6 +1,6 @@
 {
-  "expectedPieces": 56,
-  "actualPieces": 56,
+  "expectedPieces": 61,
+  "actualPieces": 61,
   "passed": true,
   "checks": [
     {
@@ -370,7 +370,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "959156bb75172515677040fcc76da207b5f4350373f235134c4d0e60f0f07993",
+      "sha256": "2031d6f4fd892050bb50f96d26f1e4bf990379cf3860308efde2aa01c8488f29",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -386,7 +386,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "da88d25613dd24c122ec6a61ce30aa2df551f55e17c9ce830a97163efd858e3b",
+      "sha256": "6a7aaa0071c9d1e7dd4fa3d199a7ebbeb7b0ea5bcf58e5dc9abd361b22f822a8",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -402,7 +402,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "f0478a5412d1f2cbd6678e1583062b79582c5234468da9e72d79e119143dd927",
+      "sha256": "001e487be10ee1c5a6f51a0e09e91dcad6be70d5ed8691463d8ed791292e9ae8",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -418,7 +418,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "6251ee6287d8c5ad8a224c4e6a7ae9a975bacc2c506461105a1404045d2204f5",
+      "sha256": "aa9365a69234500a0b064c63d70f55946b5a74f504c5dc9b6154f1a78bce6825",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -883,7 +883,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "be0e1f76eb872d2c707fc2aa2e47d5be62b6981b22c8e894b03a47fb1acd7151",
+      "sha256": "ec66a1140d41af7fbd8b912b2ccefc62a0000e7b4e2188cb996910e89edf588b",
       "opaqueGround": true,
       "materialToneCounts": {
         "wood": 3
@@ -938,6 +938,86 @@
       "kindFootprints": true,
       "exactReduction": true,
       "sha256": "7b3a8e65a9f83810886ba78d627d782c4cb0a5e96a881ea4c23edc403a34a1cd",
+      "materialToneCounts": {},
+      "majorMaterialsThreeTones": true
+    },
+    {
+      "id": "side-table-lamp",
+      "size": true,
+      "exactWorking": true,
+      "integerFactor": true,
+      "palette": true,
+      "threeColors": true,
+      "binaryAlpha": true,
+      "boundedFeet": true,
+      "boundedFootprints": true,
+      "kindFootprints": true,
+      "exactReduction": true,
+      "sha256": "b127c40938b7a95a353a8422f74fbbae99e35fbfce93b741f1fa2ce3fc2044f0",
+      "materialToneCounts": {},
+      "majorMaterialsThreeTones": true
+    },
+    {
+      "id": "twins-toy-bin",
+      "size": true,
+      "exactWorking": true,
+      "integerFactor": true,
+      "palette": true,
+      "threeColors": true,
+      "binaryAlpha": true,
+      "boundedFeet": true,
+      "boundedFootprints": true,
+      "kindFootprints": true,
+      "exactReduction": true,
+      "sha256": "602d9d8465053361800dd87c3d460c8ae04c5b03549d0c18c29a95ca4530c1d2",
+      "materialToneCounts": {},
+      "majorMaterialsThreeTones": true
+    },
+    {
+      "id": "houseplant-cluster",
+      "size": true,
+      "exactWorking": true,
+      "integerFactor": true,
+      "palette": true,
+      "threeColors": true,
+      "binaryAlpha": true,
+      "boundedFeet": true,
+      "boundedFootprints": true,
+      "kindFootprints": true,
+      "exactReduction": true,
+      "sha256": "a82ddd06f5417bd286cc5213dcaf079dbb15ac3fadc35de72db92f2641c188b1",
+      "materialToneCounts": {},
+      "majorMaterialsThreeTones": true
+    },
+    {
+      "id": "shoe-rack",
+      "size": true,
+      "exactWorking": true,
+      "integerFactor": true,
+      "palette": true,
+      "threeColors": true,
+      "binaryAlpha": true,
+      "boundedFeet": true,
+      "boundedFootprints": true,
+      "kindFootprints": true,
+      "exactReduction": true,
+      "sha256": "49f31e2d728568274a489b52e4350b385358c3ba8cd8630782355857cd945734",
+      "materialToneCounts": {},
+      "majorMaterialsThreeTones": true
+    },
+    {
+      "id": "laundry-basket",
+      "size": true,
+      "exactWorking": true,
+      "integerFactor": true,
+      "palette": true,
+      "threeColors": true,
+      "binaryAlpha": true,
+      "boundedFeet": true,
+      "boundedFootprints": true,
+      "kindFootprints": true,
+      "exactReduction": true,
+      "sha256": "ea5d7f1bf90779f40de6bb8e70a270e13983c4b0f2717b4d8c42622a3593d67c",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     }

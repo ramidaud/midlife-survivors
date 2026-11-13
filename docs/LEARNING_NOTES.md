@@ -849,3 +849,7 @@ The town is about 7 by 11 screens, but you only ever see one. "Culling" means th
 
 ## Spawn points (Nov 13, Elementary)
 A spawn point is where something enters the world. Most enemies spawn just off screen around you, wherever you are. Bosses can have their own spawn point, so a fight happens in a place that means something: Math Homework comes out of the school playground. If you're across town, it comes out of the school's edge nearest you instead, so you're never left waiting.
+
+
+## 2026-11-13: native scale in art review (Codex)
+A sprite canvas includes clear margins. Compare the visible object as well as the canvas: the revised dining chairs occupy 40px of a 46px canvas, beside the full 56x60 hero. Room mock-ups use these native pixels so scale can be approved before placement.

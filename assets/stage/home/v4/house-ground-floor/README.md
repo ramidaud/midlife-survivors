@@ -27,3 +27,12 @@ White cloth/cabinet materials use cream tones, wood uses brown tones, foliage us
 The public generation-plan.json records initial selected prompts and descriptive reference roles without private photo paths. revision-prompts.json records the sofa perspective, side window, bare-floor and side-counter corrections. Rejected studies stay outside the package. build.py and room_mockups.py reproduce working rasters, reductions, comparisons and composition from the public package using Python, Pillow and NumPy; output goes into deliver/.
 
 Validation covers exact sizes, approved colors, retained tonal variation, alpha, reproducible reduction, bounded metadata, complete placements and reserved route intersections. Browser review checks use local files only; the game and telemetry are not run.
+
+## Claude review revision, November 13 (Codex)
+
+- Four dining chairs repainted and fitted to 36x46 canvases with exactly 40px visible height beside the unchanged 56x60 hero.
+- Laminate repainted with fine straight planks, targeting 16-24px widths; grain highlights reduced further during material mapping to preserve subtlety and the original brown family.
+- Living rug now sits directly on laminate. Mesh chair moved up to the desk. Garage uses its original concrete ground tile, never laminate.
+- Five new painted pieces: lamp table by the sofa, twins' toy bin, shoe rack, plant cluster (used in both rooms), laundry basket. Living and shared dining/desk exceed one placed piece per 128x128 of room area; central reserved routes stay clear.
+- All 61 assets pass reproducible size, palette, alpha and metadata checks; no footprint intersects reserved routes. Native room PNGs inspected directly. Browser preview was blocked by its local-file URL policy; browser layout checks were not rerun.
+- Built-in imagegen prompts are in review-revision-prompts.json. Approval pending. No runtime placement, version bump or upstairs work.

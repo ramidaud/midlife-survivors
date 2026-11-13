@@ -20,7 +20,7 @@ def palette_map(a,p):
  if p['id'] in ['dark-wood-floor','beige-carpet']:
   lum=a[:,:,0]*.2126+a[:,:,1]*.7152+a[:,:,2]*.0722;result=np.zeros_like(a);result[:,:,3]=255
   if p['id']=='dark-wood-floor':
-   low,high=np.quantile(lum,[.70,.95]);result[:,:,:3]=RGB[16];result[lum>=low,:3]=RGB[9];result[lum>=high,:3]=RGB[15]
+   low,high=np.quantile(lum,[.85,.997]);result[:,:,:3]=RGB[16];result[lum>=low,:3]=RGB[9];result[lum>=high,:3]=RGB[15]
   else:
    low,high=np.quantile(lum,[.10,.95]);result[:,:,:3]=RGB[6];result[lum<low,:3]=RGB[5];result[lum>=high,:3]=RGB[7]
   return Image.fromarray(result)

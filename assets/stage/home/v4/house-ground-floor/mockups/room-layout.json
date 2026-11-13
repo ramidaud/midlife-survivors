@@ -173,6 +173,144 @@
   "placements": [
     {
       "viewRoom": "living",
+      "id": "side-table-lamp",
+      "at": [
+        46,
+        97
+      ],
+      "anchor": [
+        70,
+        154
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          53,
+          130,
+          34,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "twins-toy-bin",
+      "at": [
+        264,
+        313
+      ],
+      "anchor": [
+        292,
+        350
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          271,
+          326,
+          42,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
+      "id": "houseplant-cluster",
+      "at": [
+        168,
+        293
+      ],
+      "anchor": [
+        200,
+        350
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          175,
+          326,
+          50,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "houseplant-cluster",
+      "at": [
+        188,
+        613
+      ],
+      "anchor": [
+        220,
+        670
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "living",
+      "footprints": [
+        [
+          195,
+          646,
+          50,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "shoe-rack",
+      "at": [
+        348,
+        637
+      ],
+      "anchor": [
+        384,
+        674
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          355,
+          650,
+          58,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "dining",
+      "id": "laundry-basket",
+      "at": [
+        430,
+        633
+      ],
+      "anchor": [
+        450,
+        670
+      ],
+      "kind": "WALL",
+      "layer": "furniture",
+      "room": "dining",
+      "footprints": [
+        [
+          437,
+          646,
+          26,
+          24
+        ]
+      ]
+    },
+    {
+      "viewRoom": "living",
       "id": "photo-ledges",
       "at": [
         24,
@@ -609,8 +747,8 @@
       "viewRoom": "dining",
       "id": "dining-chair-north",
       "at": [
-        328,
-        467
+        326,
+        461
       ],
       "anchor": [
         344,
@@ -621,9 +759,9 @@
       "room": "dining",
       "footprints": [
         [
-          335,
+          333,
           476,
-          18,
+          22,
           24
         ]
       ]
@@ -632,8 +770,8 @@
       "viewRoom": "dining",
       "id": "dining-chair-south",
       "at": [
-        328,
-        601
+        326,
+        595
       ],
       "anchor": [
         344,
@@ -644,9 +782,9 @@
       "room": "dining",
       "footprints": [
         [
-          335,
+          333,
           610,
-          18,
+          22,
           24
         ]
       ]
@@ -655,8 +793,8 @@
       "viewRoom": "dining",
       "id": "dining-chair-east",
       "at": [
-        422,
-        541
+        420,
+        535
       ],
       "anchor": [
         438,
@@ -667,9 +805,9 @@
       "room": "dining",
       "footprints": [
         [
-          429,
+          427,
           550,
-          18,
+          22,
           24
         ]
       ]
@@ -678,8 +816,8 @@
       "viewRoom": "dining",
       "id": "dining-chair-west",
       "at": [
-        234,
-        541
+        232,
+        535
       ],
       "anchor": [
         250,
@@ -690,9 +828,9 @@
       "room": "dining",
       "footprints": [
         [
-          241,
+          239,
           550,
-          18,
+          22,
           24
         ]
       ]
@@ -779,11 +917,11 @@
       "id": "mesh-office-chair",
       "at": [
         624,
-        491
+        441
       ],
       "anchor": [
         644,
-        540
+        490
       ],
       "kind": "WALL",
       "layer": "furniture",
@@ -791,7 +929,7 @@
       "footprints": [
         [
           631,
-          516,
+          466,
           26,
           24
         ]

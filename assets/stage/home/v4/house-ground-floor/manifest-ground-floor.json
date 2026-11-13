@@ -1250,51 +1250,51 @@
       "file": "dining-chair-north-v1.png",
       "room": "dining",
       "size": [
-        32,
-        40
+        36,
+        46
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 33,
+      "feetLine": 39,
       "footPoint": [
-        16,
-        33
+        18,
+        39
       ],
       "footprints": [
         [
           7,
-          9,
-          18,
+          15,
+          22,
           24
         ]
       ],
       "visibleBounds": [
         3,
         3,
-        29,
-        37
+        33,
+        43
       ],
       "source": "sources/dining-chair-north.png",
       "sourceSize": [
-        1159,
-        1358
+        1108,
+        1419
       ],
       "sourceCrop": [
-        117,
-        69,
-        1010,
-        1308
+        245,
+        120,
+        825,
+        1200
       ],
       "sourceFit": [
         9,
         9,
-        78,
-        102
+        90,
+        120
       ],
       "working": "working/dining-chair-north-3x.png",
       "workingSize": [
-        96,
-        120
+        108,
+        138
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -1303,58 +1303,59 @@
       ],
       "oldReference": "reference/p_dining-table-cream-chairs.png",
       "comparison1x": "checks/dining-chair-north-hero-reference-1x.png",
-      "footprintPreview": "checks/dining-chair-north-footprint-1x.png"
+      "footprintPreview": "checks/dining-chair-north-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
     },
     {
       "id": "dining-chair-south",
       "file": "dining-chair-south-v1.png",
       "room": "dining",
       "size": [
-        32,
-        40
+        36,
+        46
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 33,
+      "feetLine": 39,
       "footPoint": [
-        16,
-        33
+        18,
+        39
       ],
       "footprints": [
         [
           7,
-          9,
-          18,
+          15,
+          22,
           24
         ]
       ],
       "visibleBounds": [
         3,
         3,
-        29,
-        37
+        33,
+        43
       ],
       "source": "sources/dining-chair-south.png",
       "sourceSize": [
-        1122,
-        1402
+        1109,
+        1419
       ],
       "sourceCrop": [
-        174,
-        21,
-        933,
-        1370
+        297,
+        268,
+        789,
+        1104
       ],
       "sourceFit": [
         9,
         9,
-        78,
-        102
+        90,
+        120
       ],
       "working": "working/dining-chair-south-3x.png",
       "workingSize": [
-        96,
-        120
+        108,
+        138
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -1363,58 +1364,59 @@
       ],
       "oldReference": "reference/p_dining-table-cream-chairs.png",
       "comparison1x": "checks/dining-chair-south-hero-reference-1x.png",
-      "footprintPreview": "checks/dining-chair-south-footprint-1x.png"
+      "footprintPreview": "checks/dining-chair-south-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
     },
     {
       "id": "dining-chair-east",
       "file": "dining-chair-east-v1.png",
       "room": "dining",
       "size": [
-        32,
-        40
+        36,
+        46
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 33,
+      "feetLine": 39,
       "footPoint": [
-        16,
-        33
+        18,
+        39
       ],
       "footprints": [
         [
           7,
-          9,
-          18,
+          15,
+          22,
           24
         ]
       ],
       "visibleBounds": [
         3,
         3,
-        29,
-        37
+        33,
+        43
       ],
       "source": "sources/dining-chair-east.png",
       "sourceSize": [
-        1122,
-        1402
+        1111,
+        1416
       ],
       "sourceCrop": [
-        139,
-        22,
-        918,
-        1371
+        129,
+        152,
+        909,
+        1260
       ],
       "sourceFit": [
         9,
         9,
-        78,
-        102
+        90,
+        120
       ],
       "working": "working/dining-chair-east-3x.png",
       "workingSize": [
-        96,
-        120
+        108,
+        138
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -1423,58 +1425,59 @@
       ],
       "oldReference": "reference/p_dining-table-cream-chairs.png",
       "comparison1x": "checks/dining-chair-east-hero-reference-1x.png",
-      "footprintPreview": "checks/dining-chair-east-footprint-1x.png"
+      "footprintPreview": "checks/dining-chair-east-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
     },
     {
       "id": "dining-chair-west",
       "file": "dining-chair-west-v1.png",
       "room": "dining",
       "size": [
-        32,
-        40
+        36,
+        46
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 33,
+      "feetLine": 39,
       "footPoint": [
-        16,
-        33
+        18,
+        39
       ],
       "footprints": [
         [
           7,
-          9,
-          18,
+          15,
+          22,
           24
         ]
       ],
       "visibleBounds": [
         3,
         3,
-        29,
-        37
+        33,
+        43
       ],
       "source": "sources/dining-chair-west.png",
       "sourceSize": [
-        1122,
-        1402
+        1106,
+        1422
       ],
       "sourceCrop": [
-        155,
-        56,
-        984,
-        1354
+        145,
+        109,
+        989,
+        1275
       ],
       "sourceFit": [
         9,
         9,
-        78,
-        102
+        90,
+        120
       ],
       "working": "working/dining-chair-west-3x.png",
       "workingSize": [
-        96,
-        120
+        108,
+        138
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -1483,7 +1486,8 @@
       ],
       "oldReference": "reference/p_dining-table-cream-chairs.png",
       "comparison1x": "checks/dining-chair-west-hero-reference-1x.png",
-      "footprintPreview": "checks/dining-chair-west-footprint-1x.png"
+      "footprintPreview": "checks/dining-chair-west-footprint-1x.png",
+      "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
     },
     {
       "id": "dining-rug",
@@ -1602,7 +1606,7 @@
       "oldReference": "reference/p_desk-by-dining-window.png",
       "comparison1x": "checks/corner-computer-desk-hero-reference-1x.png",
       "footprintPreview": "checks/corner-computer-desk-footprint-1x.png",
-      "fitNote": "Final native fit enlarged from initial 200x112 request to240x128 to suit the existing584px desk nook; untouched painting retained."
+      "fitNote": "Final native fit enlarged from initial200x112 request to240x128 to suit the existing584px desk nook; untouched painting retained."
     },
     {
       "id": "camera-book-shelves",
@@ -3202,6 +3206,301 @@
       "oldReference": "reference/p_dining-window.png",
       "comparison1x": "checks/window-blinds-east-hero-reference-1x.png",
       "footprintPreview": "checks/window-blinds-east-footprint-1x.png"
+    },
+    {
+      "id": "side-table-lamp",
+      "file": "side-table-lamp-v1.png",
+      "room": "living",
+      "size": [
+        48,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        24,
+        57
+      ],
+      "footprints": [
+        [
+          7,
+          33,
+          34,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        45,
+        61
+      ],
+      "source": "sources/side-table-lamp.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        200,
+        125,
+        877,
+        1336
+      ],
+      "sourceFit": [
+        9,
+        9,
+        126,
+        174
+      ],
+      "working": "working/side-table-lamp-3x.png",
+      "workingSize": [
+        144,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/side-table-lamp-hero-reference-1x.png",
+      "footprintPreview": "checks/side-table-lamp-footprint-1x.png"
+    },
+    {
+      "id": "twins-toy-bin",
+      "file": "twins-toy-bin-v1.png",
+      "room": "living",
+      "size": [
+        56,
+        44
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        28,
+        37
+      ],
+      "footprints": [
+        [
+          7,
+          13,
+          42,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        53,
+        41
+      ],
+      "source": "sources/twins-toy-bin.png",
+      "sourceSize": [
+        1415,
+        1112
+      ],
+      "sourceCrop": [
+        188,
+        147,
+        1199,
+        999
+      ],
+      "sourceFit": [
+        9,
+        9,
+        150,
+        114
+      ],
+      "working": "working/twins-toy-bin-3x.png",
+      "workingSize": [
+        168,
+        132
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/twins-toy-bin-hero-reference-1x.png",
+      "footprintPreview": "checks/twins-toy-bin-footprint-1x.png"
+    },
+    {
+      "id": "houseplant-cluster",
+      "file": "houseplant-cluster-v1.png",
+      "room": "living",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        32,
+        57
+      ],
+      "footprints": [
+        [
+          7,
+          33,
+          50,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "source": "sources/houseplant-cluster.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        205,
+        105,
+        1003,
+        1133
+      ],
+      "sourceFit": [
+        9,
+        9,
+        174,
+        174
+      ],
+      "working": "working/houseplant-cluster-3x.png",
+      "workingSize": [
+        192,
+        192
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/houseplant-cluster-hero-reference-1x.png",
+      "footprintPreview": "checks/houseplant-cluster-footprint-1x.png"
+    },
+    {
+      "id": "shoe-rack",
+      "file": "shoe-rack-v1.png",
+      "room": "dining",
+      "size": [
+        72,
+        44
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        36,
+        37
+      ],
+      "footprints": [
+        [
+          7,
+          13,
+          58,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        69,
+        41
+      ],
+      "source": "sources/shoe-rack.png",
+      "sourceSize": [
+        1605,
+        980
+      ],
+      "sourceCrop": [
+        287,
+        140,
+        1317,
+        863
+      ],
+      "sourceFit": [
+        9,
+        9,
+        198,
+        114
+      ],
+      "working": "working/shoe-rack-3x.png",
+      "workingSize": [
+        216,
+        132
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/shoe-rack-hero-reference-1x.png",
+      "footprintPreview": "checks/shoe-rack-footprint-1x.png"
+    },
+    {
+      "id": "laundry-basket",
+      "file": "laundry-basket-v1.png",
+      "room": "dining",
+      "size": [
+        40,
+        44
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        20,
+        37
+      ],
+      "footprints": [
+        [
+          7,
+          13,
+          26,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        37,
+        41
+      ],
+      "source": "sources/laundry-basket.png",
+      "sourceSize": [
+        1196,
+        1315
+      ],
+      "sourceCrop": [
+        126,
+        195,
+        1066,
+        1144
+      ],
+      "sourceFit": [
+        9,
+        9,
+        102,
+        114
+      ],
+      "working": "working/laundry-basket-3x.png",
+      "workingSize": [
+        120,
+        132
+      ],
+      "reductionFactor": 3,
+      "referenceRoles": [
+        "existing v4 painted art, style and palette"
+      ],
+      "oldReference": "reference/v4-painted-chair.png",
+      "comparison1x": "checks/laundry-basket-hero-reference-1x.png",
+      "footprintPreview": "checks/laundry-basket-footprint-1x.png"
     }
   ]
 }

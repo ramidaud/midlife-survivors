@@ -5,8 +5,8 @@ FONT=ImageFont.load_default(size=14)
 # Coordinates are existing HOUSE_V2 world pixels. Each anchor is a feet point,
 # except top-left placements for floor decals and an explicit side-door strip.
 RECIPE=[
-('photo-ledges',[128,2]),('tile-fireplace',[296,52]),('ornate-silver-mirror',[296,-14]),('window-olive-curtains',[444,12]),('galaxy-wall-tv',[688,4]),('fluted-media-console',[688,52]),('cream-sofa',[60,330]),('leather-recliner',[728,240]),('round-coffee-table',[248,312]),('persian-living-rug',[44,164],'top-left'),('potted-pothos',[44,96]),('bird-of-paradise',[220,64]),('drum-floor-lamp',[40,64]),('arched-floor-lamp',[752,136]),('racing-sim-rig',[644,328]),('sim-cables',[596,156],'top-left'),('baby-swing-pink',[276,120]),('baby-swing-grey',[328,120]),('blanket-basket',[744,318]),('snack-bag',[240,316],'top-left'),
-('round-dining-table',[344,580]),('dining-chair-north',[344,500]),('dining-chair-south',[344,634]),('dining-chair-east',[438,574]),('dining-chair-west',[250,574]),('dining-rug',[240,472],'top-left'),('corner-computer-desk',[652,468]),('camera-book-shelves',[600,351]),('window-blinds-east',[768,365],'top-left'),('mesh-office-chair',[644,540]),('moon-print',[480,355]),('kids-drawings',[744,355]),('electric-console-east',[752,628]),('abstract-wall-painting',[392,355]),('potted-orchid',[204,444]),('ceiling-fan',[488,540]),
+('side-table-lamp',[70,154]),('twins-toy-bin',[292,350]),('houseplant-cluster',[200,350]),('houseplant-cluster',[220,670]),('shoe-rack',[384,674]),('laundry-basket',[450,670]),('photo-ledges',[128,2]),('tile-fireplace',[296,52]),('ornate-silver-mirror',[296,-14]),('window-olive-curtains',[444,12]),('galaxy-wall-tv',[688,4]),('fluted-media-console',[688,52]),('cream-sofa',[60,330]),('leather-recliner',[728,240]),('round-coffee-table',[248,312]),('persian-living-rug',[44,164],'top-left'),('potted-pothos',[44,96]),('bird-of-paradise',[220,64]),('drum-floor-lamp',[40,64]),('arched-floor-lamp',[752,136]),('racing-sim-rig',[644,328]),('sim-cables',[596,156],'top-left'),('baby-swing-pink',[276,120]),('baby-swing-grey',[328,120]),('blanket-basket',[744,318]),('snack-bag',[240,316],'top-left'),
+('round-dining-table',[344,580]),('dining-chair-north',[344,500]),('dining-chair-south',[344,634]),('dining-chair-east',[438,574]),('dining-chair-west',[250,574]),('dining-rug',[240,472],'top-left'),('corner-computer-desk',[652,468]),('camera-book-shelves',[600,351]),('window-blinds-east',[768,365],'top-left'),('mesh-office-chair',[644,490]),('moon-print',[480,355]),('kids-drawings',[744,355]),('electric-console-east',[752,628]),('abstract-wall-painting',[392,355]),('potted-orchid',[204,444]),('ceiling-fan',[488,540]),
 ('white-oak-sink-counter',[480,743]),('white-oak-upper-cabinets',[464,659]),('stove-microwave',[608,748]),('magnet-fridge',[744,764]),('kitchen-counter-west',[400,928]),('kitchen-counter-east',[752,932]),('leaning-abstract-painting',[692,743]),('kitchen-runner',[544,792],'top-left'),
 ('storage-bench-west',[52,1260]),('shoe-pairs',[44,1274],'top-left'),('coat-hooks-jacket',[132,1135]),('light-switch',[324,700]),('ceiling-vent',[266,740]),('oak-door-north',[496,1323]),('oak-door-north',[560,1323]),('oak-door-side',[0,1139],'top-left'),('louvered-closet-door-side',[184,995],'top-left')]
 PATHS=[{'room':'living-patio-connector','rect':[92,16,96,164],'width':96,'note':'Clear connector from actual 120px patio opening.'},{'room':'living-main-connector','rect':[140,132,340,96],'width':96,'note':'Joins patio connector to central 224px route.'},{'room':'living','rect':[368,16,224,345],'width':224,'note':'Main clear route inside living room.'},{'room':'dining-desk-shared','rect':[480,488,104,195],'width':104,'note':'Route between dining table and desk.'},{'room':'kitchen','rect':[440,784,224,247],'width':224,'note':'Central kitchen aisle, narrows at north work area.'},{'room':'circulation','rect':[200,683,136,624],'width':136,'note':'Entire existing hall kept clear.224px would need a layout change.'},{'room':'entry','rect':[88,1135,112,172],'width':112,'note':'Clear of west storage bench.'}]
@@ -22,8 +22,13 @@ def build(root,out,pieces,hero):
  def art(id):return Image.open(out/lookup[id]['file']).convert('RGBA') if id in lookup else None
  wood=art('dark-wood-floor');carpet=art('beige-carpet')
  if wood:
-  for b in layout['base']:x,y,w,h=b['rect'];tile(canvas,wood,(x,y+pad,w,h))
- if carpet:tile(canvas,carpet,(32,140+pad,320,205))
+  for b in layout['base']:
+   x,y,w,h=b['rect']
+   if b['floor']=='floor_garage':
+    atlas=Image.open(root/'reference/existing-floor1-atlas.png').convert('RGBA');ax,ay,aw,ah=layout['frames']['floor_garage'];texture=atlas.crop((ax,ay,ax+aw,ay+ah))
+   else:texture=wood
+   tile(canvas,texture,(x,y+pad,w,h))
+ # Living rug lies directly on laminate, with no beige backing.
  floor_base=canvas.copy();wall=art('north-wall-strip');side=art('side-wall-strip')
  # Shared dining/desk room has one common north wall, not duplicate overlapping walls.
  north_runs=[(16,16,768)]
@@ -46,7 +51,7 @@ def build(root,out,pieces,hero):
   id,anchor=item[:2];p=lookup.get(id)
   if not p:continue
   top_left=item[2]=='top-left' if len(item)>2 else False;at=anchor if top_left else [anchor[0]-p['footPoint'][0],anchor[1]-p['footPoint'][1]]
-  view_room=('garage' if id=='oak-door-north' else 'entry' if id=='oak-door-side' else 'entry-closet' if id=='louvered-closet-door-side' else 'circulation' if id in ['light-switch','ceiling-vent'] else p['room'])
+  view_room=('garage' if id=='oak-door-north' else 'entry' if id=='oak-door-side' else 'entry-closet' if id=='louvered-closet-door-side' else 'circulation' if id in ['light-switch','ceiling-vent'] else 'dining' if id=='houseplant-cluster' and anchor[1]>361 else p['room'])
   placed.append({'viewRoom':view_room,'id':id,'at':at,'anchor':anchor,'kind':p['kind'],'layer':p['renderLayer'],'room':p['room'],'footprints':[[at[0]+x,at[1]+y,w,h] for x,y,w,h in p['footprints']]})
  def order(item):
   if item['layer']=='ground':return (0,item['at'][1])

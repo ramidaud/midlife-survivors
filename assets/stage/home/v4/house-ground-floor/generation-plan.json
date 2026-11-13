@@ -363,8 +363,8 @@
   {
     "id": "dining-chair-north",
     "size": [
-      32,
-      40
+      36,
+      46
     ],
     "kind": "WALL",
     "room": "dining",
@@ -375,13 +375,14 @@
       "private attached dining room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing NORTH, viewed from overhead three-quarter north-facing camera. Back of chair faces camera, show upholstered rear and topofback. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing NORTH, viewed from overhead three-quarter north-facing camera. Back of chair faces camera, show upholstered rear and topofback. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow.",
+    "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
   },
   {
     "id": "dining-chair-south",
     "size": [
-      32,
-      40
+      36,
+      46
     ],
     "kind": "WALL",
     "room": "dining",
@@ -392,13 +393,14 @@
       "private attached dining room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing SOUTH, viewed from overhead three-quarter north-facing camera. Front faces camera, show seat and back cushion. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing SOUTH, viewed from overhead three-quarter north-facing camera. Front faces camera, show seat and back cushion. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow.",
+    "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
   },
   {
     "id": "dining-chair-east",
     "size": [
-      32,
-      40
+      36,
+      46
     ],
     "kind": "WALL",
     "room": "dining",
@@ -409,13 +411,14 @@
       "private attached dining room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing EAST, viewed from overhead three-quarter north-facing camera. Show sideedge, top of seat and narrowprofileofback, never fullfrontal. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing EAST, viewed from overhead three-quarter north-facing camera. Show sideedge, top of seat and narrowprofileofback, never fullfrontal. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow.",
+    "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
   },
   {
     "id": "dining-chair-west",
     "size": [
-      32,
-      40
+      36,
+      46
     ],
     "kind": "WALL",
     "room": "dining",
@@ -426,7 +429,8 @@
       "private attached dining room photo, art reference only, excluded from repository",
       "v4 painted chair, style and palette"
     ],
-    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing WEST, viewed from overhead three-quarter north-facing camera. Show sideedge, top of seat and narrowprofileofback, never fullfrontal. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing WEST, viewed from overhead three-quarter north-facing camera. Show sideedge, top of seat and narrowprofileofback, never fullfrontal. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow.",
+    "fitNote": "Repainted adult dining chair, approximately 40px visible height beside the 56x60 hero."
   },
   {
     "id": "dining-rug",
@@ -950,5 +954,85 @@
       "Existing generated olive-curtain window, repainted in side-wall perspective"
     ],
     "prompt": "Repaint the SAME olive-curtain and white vertical-blind window for an EAST wall viewed nearly EDGE ON. Camera looks down three-quarters facing NORTH. Native16x112, working48x336at3x. Window is a thin vertical strip showing narrowslatends, a thin creamtrim edge and narrow olivecurtain folds. No wide face-on window, no roombackground orfloor, no perspectivevanishingpoint. Not a rotatedflatpicture; new edge-onview, transparentoutside. Atleastthree tones percream/olive material, v4 darknavylinework, upperleftlight. Neutraldaylight, no sepia,goldenhaze orcoloredcast. No people, faces, names, letters, numbers, logos or text."
+  },
+  {
+    "id": "side-table-lamp",
+    "size": [
+      48,
+      64
+    ],
+    "room": "living",
+    "kind": "WALL",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "v4-painted-chair",
+    "referenceRoles": [
+      "existing v4 painted art, style and palette"
+    ],
+    "prompt": "See review-revision-prompts.json for exact repaint prompt."
+  },
+  {
+    "id": "twins-toy-bin",
+    "size": [
+      56,
+      44
+    ],
+    "room": "living",
+    "kind": "WALL",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "v4-painted-chair",
+    "referenceRoles": [
+      "existing v4 painted art, style and palette"
+    ],
+    "prompt": "See review-revision-prompts.json for exact repaint prompt."
+  },
+  {
+    "id": "houseplant-cluster",
+    "size": [
+      64,
+      64
+    ],
+    "room": "living",
+    "kind": "WALL",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "v4-painted-chair",
+    "referenceRoles": [
+      "existing v4 painted art, style and palette"
+    ],
+    "prompt": "See review-revision-prompts.json for exact repaint prompt."
+  },
+  {
+    "id": "shoe-rack",
+    "size": [
+      72,
+      44
+    ],
+    "room": "dining",
+    "kind": "WALL",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "v4-painted-chair",
+    "referenceRoles": [
+      "existing v4 painted art, style and palette"
+    ],
+    "prompt": "See review-revision-prompts.json for exact repaint prompt."
+  },
+  {
+    "id": "laundry-basket",
+    "size": [
+      40,
+      44
+    ],
+    "room": "dining",
+    "kind": "WALL",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "v4-painted-chair",
+    "referenceRoles": [
+      "existing v4 painted art, style and palette"
+    ],
+    "prompt": "See review-revision-prompts.json for exact repaint prompt."
   }
 ]
