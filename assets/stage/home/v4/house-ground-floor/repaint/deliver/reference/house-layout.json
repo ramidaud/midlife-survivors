@@ -1,0 +1,1342 @@
+{
+  "note": "Built by tools/build_house_v2.py from interior-floor1-v3 (Codex). Rooms x2 wide, x1.5 tall; furniture keeps its drawn size.",
+  "size": [
+    800,
+    2069
+  ],
+  "atlas": "v2/house2-floor1-pieces.png",
+  "frames": {
+    "p_minivan": [
+      0,
+      0,
+      120,
+      288
+    ],
+    "stairs": [
+      122,
+      0,
+      72,
+      212
+    ],
+    "p_kitchen-runner": [
+      196,
+      0,
+      56,
+      200
+    ],
+    "p_desk-by-dining-window": [
+      254,
+      0,
+      240,
+      116
+    ],
+    "p_cream-sofa-side": [
+      496,
+      0,
+      64,
+      112
+    ],
+    "p_dining-window": [
+      562,
+      0,
+      16,
+      112
+    ],
+    "p_galley-right-worktop": [
+      580,
+      0,
+      56,
+      104
+    ],
+    "p_racing-sim-rig": [
+      638,
+      0,
+      80,
+      96
+    ],
+    "p_magnet-fridge": [
+      720,
+      0,
+      56,
+      96
+    ],
+    "p_washer-dryer": [
+      778,
+      0,
+      48,
+      88
+    ],
+    "p_dining-table-cream-chairs": [
+      828,
+      0,
+      120,
+      88
+    ],
+    "p_white-stove-microwave": [
+      950,
+      0,
+      56,
+      88
+    ],
+    "p_cream-sofa-back": [
+      0,
+      290,
+      176,
+      80
+    ],
+    "p_silver-mirror-fireplace": [
+      178,
+      290,
+      80,
+      80
+    ],
+    "p_leather-recliner": [
+      260,
+      290,
+      64,
+      80
+    ],
+    "p_slatted-media-console": [
+      326,
+      290,
+      136,
+      80
+    ],
+    "p_abstract-painting": [
+      464,
+      290,
+      48,
+      80
+    ],
+    "p_entry-louvered-door": [
+      514,
+      290,
+      72,
+      80
+    ],
+    "p_woven-basket-monstera": [
+      588,
+      290,
+      48,
+      72
+    ],
+    "p_white-double-sink": [
+      638,
+      290,
+      56,
+      72
+    ],
+    "p_toilet": [
+      696,
+      290,
+      56,
+      64
+    ],
+    "p_garage-storage": [
+      754,
+      290,
+      64,
+      64
+    ],
+    "p_drum-floor-lamp": [
+      820,
+      290,
+      32,
+      64
+    ],
+    "p_entry-basketball-bench": [
+      854,
+      290,
+      80,
+      64
+    ],
+    "p_back-door-blinds": [
+      936,
+      290,
+      64,
+      64
+    ],
+    "p_mesh-desk-chair": [
+      0,
+      372,
+      48,
+      56
+    ],
+    "p_bath-sink": [
+      50,
+      372,
+      56,
+      48
+    ],
+    "p_garage-workbench": [
+      108,
+      372,
+      96,
+      48
+    ],
+    "p_orchid-coffee-table": [
+      206,
+      372,
+      112,
+      48
+    ],
+    "p_oak-trim-worktop": [
+      320,
+      372,
+      56,
+      48
+    ],
+    "p_baby-balloons": [
+      378,
+      372,
+      32,
+      48
+    ],
+    "p_ceiling-fan": [
+      412,
+      372,
+      48,
+      48
+    ],
+    "p_baby-swing-left": [
+      462,
+      372,
+      36,
+      40
+    ],
+    "p_baby-swing-right": [
+      500,
+      372,
+      36,
+      40
+    ],
+    "p_abstract-photo-ledges": [
+      538,
+      372,
+      56,
+      40
+    ],
+    "floor_circulation": [
+      596,
+      372,
+      32,
+      32
+    ],
+    "floor_half-bath": [
+      630,
+      372,
+      32,
+      32
+    ],
+    "floor_garage": [
+      664,
+      372,
+      32,
+      32
+    ],
+    "p_rig-cables": [
+      698,
+      372,
+      80,
+      32
+    ],
+    "wall_v": [
+      780,
+      372,
+      16,
+      32
+    ],
+    "wall_h": [
+      798,
+      372,
+      32,
+      16
+    ]
+  },
+  "base": [
+    {
+      "rect": [
+        16,
+        16,
+        768,
+        1291
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "rect": [
+        252,
+        1323,
+        532,
+        724
+      ],
+      "floor": "floor_garage"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "living",
+      "rect": [
+        16,
+        16,
+        768,
+        345
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "dining",
+      "rect": [
+        184,
+        361,
+        404,
+        322
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "stairs",
+      "rect": [
+        16,
+        361,
+        144,
+        322
+      ],
+      "floor": null
+    },
+    {
+      "id": "half-bath",
+      "rect": [
+        16,
+        699,
+        168,
+        272
+      ],
+      "floor": "floor_half-bath"
+    },
+    {
+      "id": "kitchen",
+      "rect": [
+        368,
+        699,
+        416,
+        332
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "entry-closet",
+      "rect": [
+        16,
+        987,
+        168,
+        120
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "entry",
+      "rect": [
+        16,
+        1135,
+        184,
+        172
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "breakfast-nook",
+      "rect": [
+        200,
+        1055,
+        464,
+        252
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "laundry-closet",
+      "rect": [
+        680,
+        1055,
+        104,
+        136
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "circulation",
+      "rect": [
+        200,
+        683,
+        136,
+        624
+      ],
+      "floor": "floor_circulation"
+    },
+    {
+      "id": "garage",
+      "rect": [
+        252,
+        1323,
+        532,
+        724
+      ],
+      "floor": "floor_garage"
+    },
+    {
+      "id": "downstairs-desk-nook",
+      "rect": [
+        200,
+        361,
+        584,
+        322
+      ],
+      "floor": "floor_circulation"
+    }
+  ],
+  "walls": [
+    [
+      0,
+      0,
+      80,
+      16
+    ],
+    [
+      200,
+      0,
+      600,
+      16
+    ],
+    [
+      0,
+      16,
+      16,
+      1119
+    ],
+    [
+      0,
+      1255,
+      16,
+      68
+    ],
+    [
+      784,
+      16,
+      16,
+      2031
+    ],
+    [
+      16,
+      1307,
+      448,
+      16
+    ],
+    [
+      592,
+      1307,
+      192,
+      16
+    ],
+    [
+      236,
+      1323,
+      16,
+      724
+    ],
+    [
+      236,
+      2047,
+      46,
+      16
+    ],
+    [
+      762,
+      2047,
+      38,
+      16
+    ],
+    [
+      16,
+      683,
+      184,
+      16
+    ],
+    [
+      184,
+      699,
+      16,
+      97
+    ],
+    [
+      184,
+      892,
+      16,
+      79
+    ],
+    [
+      16,
+      971,
+      184,
+      16
+    ],
+    [
+      184,
+      987,
+      16,
+      44
+    ],
+    [
+      184,
+      1091,
+      16,
+      16
+    ],
+    [
+      664,
+      1031,
+      120,
+      16
+    ],
+    [
+      664,
+      1191,
+      120,
+      16
+    ],
+    [
+      664,
+      1055,
+      16,
+      16
+    ],
+    [
+      664,
+      1175,
+      16,
+      16
+    ]
+  ],
+  "doors": [
+    {
+      "id": "patio",
+      "to": "backyard",
+      "rect": [
+        80,
+        0,
+        120,
+        16
+      ]
+    },
+    {
+      "id": "front-entry",
+      "to": "front-step",
+      "rect": [
+        0,
+        1135,
+        16,
+        120
+      ]
+    },
+    {
+      "id": "half-bath",
+      "to": "half-bath",
+      "rect": [
+        184,
+        796,
+        16,
+        96
+      ]
+    },
+    {
+      "id": "entry-closet",
+      "to": "entry-closet",
+      "rect": [
+        184,
+        1031,
+        16,
+        60
+      ]
+    },
+    {
+      "id": "laundry",
+      "to": "laundry-closet",
+      "rect": [
+        664,
+        1071,
+        16,
+        104
+      ]
+    },
+    {
+      "id": "garage-inner",
+      "to": "garage",
+      "rect": [
+        464,
+        1307,
+        128,
+        16
+      ]
+    },
+    {
+      "id": "garage-front",
+      "to": "driveway",
+      "rect": [
+        282,
+        2047,
+        480,
+        16
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "id": "toilet",
+      "key": "p_toilet",
+      "at": [
+        60,
+        731
+      ],
+      "size": [
+        56,
+        64
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        64
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "half-bath"
+    },
+    {
+      "id": "bath-sink",
+      "key": "p_bath-sink",
+      "at": [
+        60,
+        895
+      ],
+      "size": [
+        56,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "half-bath"
+    },
+    {
+      "id": "washer-dryer",
+      "key": "p_washer-dryer",
+      "at": [
+        680,
+        1059
+      ],
+      "size": [
+        48,
+        88
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        88
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "laundry-closet"
+    },
+    {
+      "id": "minivan",
+      "key": "p_minivan",
+      "at": [
+        456,
+        1576
+      ],
+      "size": [
+        120,
+        288
+      ],
+      "foot": [
+        6,
+        12,
+        108,
+        264
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "garage"
+    },
+    {
+      "id": "garage-workbench",
+      "key": "p_garage-workbench",
+      "at": [
+        258,
+        1354
+      ],
+      "size": [
+        96,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        96,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "garage"
+    },
+    {
+      "id": "garage-storage",
+      "key": "p_garage-storage",
+      "at": [
+        718,
+        1358
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "foot": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "garage"
+    },
+    {
+      "id": "cream-sofa-back",
+      "key": "p_cream-sofa-back",
+      "at": [
+        32,
+        226
+      ],
+      "size": [
+        176,
+        80
+      ],
+      "foot": [
+        0,
+        50,
+        176,
+        30
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "cream-sofa-side",
+      "key": "p_cream-sofa-side",
+      "at": [
+        16,
+        136
+      ],
+      "size": [
+        64,
+        112
+      ],
+      "foot": [
+        0,
+        12,
+        64,
+        100
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "silver-mirror-fireplace",
+      "key": "p_silver-mirror-fireplace",
+      "at": [
+        312,
+        16
+      ],
+      "size": [
+        80,
+        80
+      ],
+      "foot": [
+        0,
+        56,
+        80,
+        24
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "leather-recliner",
+      "key": "p_leather-recliner",
+      "at": [
+        672,
+        180
+      ],
+      "size": [
+        64,
+        80
+      ],
+      "foot": [
+        4,
+        38,
+        56,
+        40
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "slatted-media-console",
+      "key": "p_slatted-media-console",
+      "at": [
+        564,
+        48
+      ],
+      "size": [
+        136,
+        80
+      ],
+      "foot": [
+        0,
+        56,
+        136,
+        24
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "racing-sim-rig",
+      "key": "p_racing-sim-rig",
+      "at": [
+        504,
+        208
+      ],
+      "size": [
+        80,
+        96
+      ],
+      "foot": [
+        0,
+        16,
+        80,
+        80
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "baby-swing-left",
+      "key": "p_baby-swing-left",
+      "at": [
+        312,
+        80
+      ],
+      "size": [
+        36,
+        40
+      ],
+      "foot": [
+        0,
+        8,
+        36,
+        32
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "baby-swing-right",
+      "key": "p_baby-swing-right",
+      "at": [
+        356,
+        80
+      ],
+      "size": [
+        36,
+        40
+      ],
+      "foot": [
+        0,
+        8,
+        36,
+        32
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "orchid-coffee-table",
+      "key": "p_orchid-coffee-table",
+      "at": [
+        232,
+        184
+      ],
+      "size": [
+        112,
+        48
+      ],
+      "foot": [
+        0,
+        24,
+        112,
+        24
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "drum-floor-lamp",
+      "key": "p_drum-floor-lamp",
+      "at": [
+        16,
+        18
+      ],
+      "size": [
+        32,
+        64
+      ],
+      "foot": [
+        8,
+        50,
+        16,
+        12
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "living"
+    },
+    {
+      "id": "desk-by-dining-window",
+      "key": "p_desk-by-dining-window",
+      "at": [
+        544,
+        367
+      ],
+      "size": [
+        240,
+        116
+      ],
+      "foot": [
+        0,
+        68,
+        240,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "downstairs-desk-nook"
+    },
+    {
+      "id": "mesh-desk-chair",
+      "key": "p_mesh-desk-chair",
+      "at": [
+        664,
+        481
+      ],
+      "size": [
+        48,
+        56
+      ],
+      "foot": [
+        4,
+        26,
+        40,
+        30
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "downstairs-desk-nook"
+    },
+    {
+      "id": "dining-table-cream-chairs",
+      "key": "p_dining-table-cream-chairs",
+      "at": [
+        300,
+        595
+      ],
+      "size": [
+        120,
+        88
+      ],
+      "foot": [
+        0,
+        12,
+        120,
+        76
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "dining"
+    },
+    {
+      "id": "woven-basket-monstera",
+      "key": "p_woven-basket-monstera",
+      "at": [
+        232,
+        365
+      ],
+      "size": [
+        48,
+        72
+      ],
+      "foot": [
+        12,
+        46,
+        24,
+        26
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "dining"
+    },
+    {
+      "id": "white-double-sink",
+      "key": "p_white-double-sink",
+      "at": [
+        368,
+        699
+      ],
+      "size": [
+        56,
+        72
+      ],
+      "foot": [
+        0,
+        34,
+        56,
+        38
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "kitchen"
+    },
+    {
+      "id": "white-stove-microwave",
+      "key": "p_white-stove-microwave",
+      "at": [
+        368,
+        779
+      ],
+      "size": [
+        56,
+        88
+      ],
+      "foot": [
+        0,
+        48,
+        56,
+        40
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "kitchen"
+    },
+    {
+      "id": "oak-trim-worktop",
+      "key": "p_oak-trim-worktop",
+      "at": [
+        368,
+        867
+      ],
+      "size": [
+        56,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "kitchen"
+    },
+    {
+      "id": "magnet-fridge",
+      "key": "p_magnet-fridge",
+      "at": [
+        728,
+        699
+      ],
+      "size": [
+        56,
+        96
+      ],
+      "foot": [
+        0,
+        48,
+        56,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "kitchen"
+    },
+    {
+      "id": "galley-right-worktop",
+      "key": "p_galley-right-worktop",
+      "at": [
+        728,
+        811
+      ],
+      "size": [
+        56,
+        104
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        104
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "kitchen"
+    },
+    {
+      "id": "entry-basketball-bench",
+      "key": "p_entry-basketball-bench",
+      "at": [
+        16,
+        1243
+      ],
+      "size": [
+        80,
+        64
+      ],
+      "foot": [
+        0,
+        40,
+        80,
+        24
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "entry"
+    },
+    {
+      "id": "abstract-photo-ledges",
+      "key": "p_abstract-photo-ledges",
+      "at": [
+        80,
+        132
+      ],
+      "size": [
+        56,
+        40
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        40
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "living"
+    },
+    {
+      "id": "baby-balloons",
+      "key": "p_baby-balloons",
+      "at": [
+        72,
+        164
+      ],
+      "size": [
+        32,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        32,
+        48
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "living"
+    },
+    {
+      "id": "back-door-blinds",
+      "key": "p_back-door-blinds",
+      "at": [
+        112,
+        0
+      ],
+      "size": [
+        64,
+        64
+      ],
+      "foot": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "living"
+    },
+    {
+      "id": "dining-window",
+      "key": "p_dining-window",
+      "at": [
+        768,
+        363
+      ],
+      "size": [
+        16,
+        112
+      ],
+      "foot": [
+        0,
+        0,
+        16,
+        112
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "downstairs-desk-nook"
+    },
+    {
+      "id": "ceiling-fan",
+      "key": "p_ceiling-fan",
+      "at": [
+        496,
+        441
+      ],
+      "size": [
+        48,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "downstairs-desk-nook"
+    },
+    {
+      "id": "kitchen-runner",
+      "key": "p_kitchen-runner",
+      "at": [
+        548,
+        765
+      ],
+      "size": [
+        56,
+        200
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        200
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "kitchen"
+    },
+    {
+      "id": "abstract-painting",
+      "key": "p_abstract-painting",
+      "at": [
+        248,
+        735
+      ],
+      "size": [
+        48,
+        80
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        80
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "circulation"
+    },
+    {
+      "id": "entry-louvered-door",
+      "key": "p_entry-louvered-door",
+      "at": [
+        16,
+        987
+      ],
+      "size": [
+        72,
+        80
+      ],
+      "foot": [
+        0,
+        0,
+        72,
+        80
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "entry-closet"
+    },
+    {
+      "id": "rig-cables",
+      "key": "p_rig-cables",
+      "at": [
+        488,
+        276
+      ],
+      "size": [
+        80,
+        32
+      ],
+      "foot": [
+        0,
+        0,
+        80,
+        32
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "living"
+    }
+  ],
+  "stairs": {
+    "rect": [
+      16,
+      361,
+      144,
+      322
+    ],
+    "art": "stairs"
+  },
+  "wallTex": {
+    "h": "wall_h",
+    "v": "wall_v"
+  }
+}

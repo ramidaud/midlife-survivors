@@ -769,3 +769,6 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 
 ## 2026-11-13: ground-floor art revision, awaiting approval (Codex)
 Dining chairs have 40px visible height. Laminate uses finer straight planks with subtle grain; the living rug has no backing rectangle. The mesh chair sits at the desk, the garage retains concrete, and household props fill the wall edges while keeping reserved routes clear. These are mock-up proposals only; runtime placement awaits Rami.
+
+## 2026-11-13: house repaint review from saved layouts (Codex)
+Rami's placements replace the earlier room arrangements. A separate review package repaints the selected pieces against the unchanged hero, with real side/rear views, a standing desk, two empty bassinets, south love seat and matched kitchen. Window/shelf spacing and furniture are tidied on an 8px grid. The entry bench is compact to fit below its door; bassinets sit beside the sofa below the patio approach. These fit decisions await visual approval. The laundry closet retains its appliance and is an explicitly constrained storage alcove, not a 96px through route. No runtime placement.

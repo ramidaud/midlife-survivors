@@ -2438,3 +2438,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami laid out the living room, dining and desk, kitchen and entry, and approved the PR #10 art.
 - Decided: all house furniture about 1.4x bigger against the hero, but nothing you sit at taller than him. Shoe rack to the entry, laundry basket to the laundry closet, kitchen repainted as one set.
 - New Codex brief docs/handoffs/codex-house-repaint.md, with Rami's layouts as the placement map.
+
+## 2026-11-13: house-scale repaint from Rami's layouts (Codex)
+- Continued PR #10, merged the latest main, and kept both sets of documentation entries.
+- Added a separate 56-piece repaint review using Rami's room positions, corrected perspectives, standing desk, bassinets, love seat and matched kitchen.
+- Four main rooms have connected 96px routes at their existing openings. The tiny laundry closet keeps its appliance and records a clearance exception.
+- Entry bench is compact to clear the door; bassinets move beside the sofa to clear the patio. Both fit adjustments are noted for approval.
+- Native and exact 3x previews, hero comparisons and footprint checks included. Art approval only; no game placement or version change.

@@ -855,3 +855,6 @@ A spawn point is where something enters the world. Most enemies spawn just off s
 A sprite canvas includes clear margins. Compare the visible object as well as the canvas: the revised dining chairs occupy 40px of a 46px canvas, beside the full 56x60 hero. Room mock-ups use these native pixels so scale can be approved before placement.
 ## Reference object: sizing by the hero (Nov 13, the house)
 Pixel art has no real inches, so every size is measured against one thing everybody knows: the hero. Rami's layout showed the furniture was about 1.4x too small next to him, which is why the rooms felt empty. The rule now: things you sit at stay shorter than the hero, low things stay under half his height, and only tall things (doors, fridge, lamps, shelves) rise above him.
+
+## 2026-11-13: a gap must connect to the door (Codex)
+An empty patch is not enough to prove the hero can get through a room. Slide a 96px square through the proposed furniture footprints and check that the same connected space reaches both real openings. A 95px gap fails this test even if it looks close. Small storage closets may only be reachable from outside, which should be recorded rather than counted as a through room.

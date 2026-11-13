@@ -12,3 +12,10 @@
 - Added a sofa lamp table, twins' toy bin, shoe rack, plant clusters and laundry basket. All 61 assets validate and reserved routes have no footprint intersections.
 - Rebuilt every mock-up and native hero comparison. Direct image QA completed; local-file browser preview was blocked, so responsive browser checks were not rerun.
 - Stop for Rami's approval. No game placement or version bump. Claude places approved art afterward.
+
+## 2026-11-13: house-scale repaint from Rami's layouts (Codex)
+- Continued PR #10, merged the latest main, and kept both sets of documentation entries.
+- Added a separate 56-piece repaint review using Rami's room positions, corrected perspectives, standing desk, bassinets, love seat and matched kitchen.
+- Four main rooms have connected 96px routes at their existing openings. The tiny laundry closet keeps its appliance and records a clearance exception.
+- Entry bench is compact to clear the door; bassinets move beside the sofa to clear the patio. Both fit adjustments are noted for approval.
+- Native and exact 3x previews, hero comparisons and footprint checks included. Art approval only; no game placement or version change.
