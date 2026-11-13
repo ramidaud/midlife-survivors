@@ -742,3 +742,6 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
   - **Walk-through:** flat on the ground, no outline, no shadow. Never blocks.
 - **Approved:** every gap the player is meant to use is at least 96 px wide, and every yard has two ways out. Backyard gates and hedge steps widened to 96 px in V. 2.29.1 (were 64 and 52).
 - **Found:** backyard furniture is painted into the ground picture, so you walk over it and can never pass behind it. Job 3 asks for it as separate sprites.
+
+## Maple Hollow balance (decided Nov 12, Rami)
+- Home enemies Gutter Clog and Lawn Mower hit for 1 (was 2). Home gets its own heals: leftover pizza from beaten enemies (2%, 20 s cooldown) and a fridge that restocks every 5 years. Numbers live in `src/data/maple-hollow.js`.

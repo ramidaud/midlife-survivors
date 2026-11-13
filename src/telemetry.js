@@ -89,6 +89,7 @@ window.Telemetry = (() => {
       // Coin balance (Nov 5): what the run banked and what it spent in the Lounge.
       coins_earned: typeof runCoins !== "undefined" ? Math.round(runCoins + (window.runCoinsSpent || 0)) : null,
       coins_spent: Math.round(window.runCoinsSpent || 0),
+      stage: window.STAGE_ID || "office", // Nov 12: office or home (Maple Hollow)
       // Build (Nov 7, Rami's OK): what you were holding. "coffee*,remote|vitamins" (* = evolved).
       build: (() => { try { const h = window.LOADOUT.held(stats); return (h.weapons.map(w => w.id + (w.evo && w.evo(stats) ? "*" : "")).join(",") + "|" + h.passives.map(p => p.id).join(",")).slice(0, 300); } catch (e) { return null; } })()
     };
@@ -118,7 +119,7 @@ window.Telemetry = (() => {
     });
     try {
       // If the database doesn't have the newer columns yet, send the run again without them so the stats aren't lost.
-      post(row).then(res => { if (res && res.status === 400) { const r2 = Object.assign({}, row); delete r2.coins_earned; delete r2.coins_spent; delete r2.build; return post(r2); } }).catch(() => {});
+      post(row).then(res => { if (res && res.status === 400) { const r2 = Object.assign({}, row); delete r2.coins_earned; delete r2.coins_spent; delete r2.build; delete r2.stage; return post(r2); } }).catch(() => {});
     } catch (e) {}
   }
 

@@ -246,10 +246,14 @@ window.KeyHunt = (() => {
     const BG = window.MapleHollowGate; // the baby gate on the stairs (until upstairs opens)
     if (BG && Math.hypot(px - BG.x, py - BG.y) < 70 && runElapsedMs - (st.gateSaid || -1e9) > 20000) { st.gateSaid = runElapsedMs; pop(scene, BG.x, BG.y - 60, BG.line, "#F2D7A1"); }
     const F = window.MapleHollowFridge;
+    // Nov 12: the fridge restocks every few years instead of once per run
+    if (F && st.fridgeUsed && I.fridgeRestockYears && typeof currentAge !== "undefined" && currentAge - (st.fridgeAge || 0) >= I.fridgeRestockYears) {
+      st.fridgeUsed = false; st.fridgeRestocked = true;
+    }
     if (F && !st.fridgeUsed && Math.hypot(px - F.x, py - F.y) < 60) {
-      st.fridgeUsed = true;
+      st.fridgeUsed = true; st.fridgeAge = typeof currentAge !== "undefined" ? currentAge : 0;
       if (typeof hp !== "undefined" && stats) { hp = Math.min(stats.maxHp, hp + (typeof healAmt === "function" ? healAmt(I.fridgeHeal || 4) : (I.fridgeHeal || 4))); if (typeof drawHpBar === "function") drawHpBar(); }
-      pop(scene, F.x, F.y - 40, "+HP · " + (I.fridgeLine || "Leftovers."), "#83A89A");
+      pop(scene, F.x, F.y - 40, "+HP · " + ((st.fridgeRestocked && I.fridgeRestockLine) || I.fridgeLine || "Leftovers."), "#83A89A");
       if (typeof sfx === "function") sfx("pick", 0);
     }
   }

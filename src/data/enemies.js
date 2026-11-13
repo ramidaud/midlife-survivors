@@ -185,8 +185,9 @@ window.ENEMIES = {
   // Nov 9: Maple Hollow's own crowd (step 4). They replace some office enemies when you play at home
   // (MAPLE_HOLLOW.enemySwap). Art: ChatGPT's assets/enemies/maple-hollow-enemies-v1.png, cut into one sheet each.
   leafPile: { name: "Leaf Pile", label: "LEAVES", speed: 92, hp: 2, damage: 1, size: 26, color: 0xC45C4B },
-  gutterClog: { name: "Gutter Clog", label: "GUTTER", speed: 58, hp: 7, damage: 2, size: 30, color: 0x526078 },
-  lawnMower: { name: "The Neighbor's Lawn Mower", label: "MOWER", speed: 150, hp: 4, damage: 2, size: 30, color: 0x83A89A },
+  // Nov 12 (Ben: "I get hit harder and heal less" in Maple Hollow): Gutter Clog and Lawn Mower hit for 1, not 2. Still tough.
+  gutterClog: { name: "Gutter Clog", label: "GUTTER", speed: 58, hp: 7, damage: 1, size: 30, color: 0x526078 },
+  lawnMower: { name: "The Neighbor's Lawn Mower", label: "MOWER", speed: 150, hp: 4, damage: 1, size: 30, color: 0x83A89A },
   taxNotice: { name: "Property Tax Notice", label: "TAX", speed: 86, hp: 3, damage: 1, size: 26, color: 0xF2D7A1 },
   // a stray toy brick on the floor (Maple Hollow's LEGO hazard, src/home-hazards.js). Not a walking enemy.
   lego: { name: "A Toy Brick, In Socks", label: "", speed: 0, hp: 1, damage: 1, size: 12, color: 0xEF9347 },

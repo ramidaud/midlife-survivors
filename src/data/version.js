@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.15",
-  displayVersion: "V. 2.29.15",
+  version: "2.29.16",
+  displayVersion: "V. 2.29.16",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 366,
+  build: 367,
   changelog: [
+    {
+      ver: "V. 2.29.16", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "Maple Hollow hits a little softer and feeds you more.",
+      highlights: [
+        "Gutter Clogs and the neighbor's Lawn Mower now hit for 1 instead of 2. They're still tough to knock down.",
+        "Beaten enemies in the neighborhood sometimes leave a slice of leftover pizza, and your fridge restocks every 5 years instead of once a run."
+      ]
+    },
     {
       ver: "V. 2.29.15", date: "Nov 12, 2026", title: "Version Two",
       teaser: "Settings closes from the title screen again.",

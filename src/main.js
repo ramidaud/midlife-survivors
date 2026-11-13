@@ -357,7 +357,7 @@ function create() {
   if (window.KeyHunt) KeyHunt.reset();
   if (window.Garage) Garage.reset();
   if (window.HomeHazards) HomeHazards.reset();     // errands: one TO-DO per run (src/errands.js)
-  runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; window.runCoinsTapered = 0; window.lastPaycheck = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
+  window.homeSnackReadyAt = 0; runCoins = 0; window.runCoinsSpent = 0; window.coinLedger = {}; window.runCoinsTapered = 0; window.lastPaycheck = 0; runKills = 0; runHits = 0; runDamageTaken = 0; lastJokeToldAt = 0;
   buffs = { speedUntil: 0, speedMult: 1, damageUntil: 0, damageMult: 1, vacuumUntil: 0, xpUntil: 0, xpMult: 1 };
   shield = { hits: 0, until: 0, flashAt: -1e9, ring: null };
   runAch = { bills: 0, kinds: {}, newly: [], lastAge: 40 };
@@ -1890,6 +1890,13 @@ function damageBill(bill, amount) {
     else if (window.Juice) Juice.death(sc, bill); // flash, squash and pop
     if (window.Remains && !bill.clockOut) Remains.add(sc, bill.x, bill.y, E.color, bill.isBoss, bill.kind); // a little pile of scraps that fades (src/remains.js)
     burstConfetti(sc, bill.x, bill.y, E.color, bill.isBoss ? 16 : 8);
+    { // Nov 12: Maple Hollow's snack drops (MAPLE_HOLLOW.snackDrop), since home has no interns, errands or office plants
+      const SD = window.STAGE_ID === "home" && !bill.isBoss && window.MAPLE_HOLLOW && MAPLE_HOLLOW.snackDrop;
+      if (SD && window.pizzas && runElapsedMs >= (window.homeSnackReadyAt || 0) && Math.random() < SD.chance) {
+        window.homeSnackReadyAt = runElapsedMs + (SD.cooldownMs || 20000);
+        const pz = window.pizzas.create(bill.x, bill.y - 6, "pizza").setDepth(3); pz.dieAt = runElapsedMs + (SD.lifeMs || 45000);
+      }
+    }
     if (bill.elite) { // the jackpot
       const EL = INTENSITY.elites;
       sc.cameras.main.shake(90, 0.004);

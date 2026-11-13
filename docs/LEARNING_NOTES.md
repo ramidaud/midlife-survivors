@@ -831,3 +831,6 @@ A telegraph is the warning before an attack: a wind-up, a glow, a mark on the gr
 
 ## Layers that tie (Nov 12, Settings behind the title)
 Every pop-up in the game had the same layer number (z-index 30). When two things tie, the browser draws whichever comes later in the page on top, and the title screen comes after Settings. So Settings opened underneath the title, and its DONE button was buried. The fix was to give Settings its proper layer from the design system (the Sheet layer). The lesson: when two things share a layer number, the order in the code quietly decides the winner.
+
+## Balance lives in more than one number (Nov 12, Maple Hollow)
+Nobody changed the healing numbers, yet Ben healed less. A new level can shift balance without touching any shared setting: Maple Hollow swapped in tougher enemies and quietly left out the office's healing sources (interns, errands, smashable plants). Difficulty is the sum of what hurts you and what helps you, so a new stage needs both sides checked. Recording which stage each run happens on lets us compare them with real numbers next time.

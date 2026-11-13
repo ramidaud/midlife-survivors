@@ -2325,3 +2325,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Fix: Settings and Controls use the Sheet layer token (--ms-z-sheet), and Settings now comes before Controls in the page so Controls (opened from Settings) lands on top.
 - Tested DONE, Controls and Esc at 1280x800, 1920x1080, 1024x768, 768x1024 and 390x844. No errors.
 - Follow-up: BUILD in `src/loader.js` and PAGE_BUILD in `index.html` were still 362 after V. 2.29.12 to 2.29.15, so some browsers could keep old cached code. Both are now 366, so every player gets today's fixes.
+
+## 2026-11-12: V. 2.29.16, Maple Hollow evened out (Claude)
+- Ben: "I get hit harder and heal less." Cause: Maple Hollow swaps in Gutter Clogs and Lawn Mowers (2 damage each) and has no interns, errands or office plants, so it had about half the office's heals.
+- Rami chose all of it: both home enemies now hit for 1, beaten enemies at home sometimes drop leftover pizza (2%, at most one per 20 s), and the fridge restocks every 5 years.
+- Play stats now record the stage (new `stage` column in `runs`, Rami's OK), so office vs. home can be compared with numbers.
+- Tested at home: damage values, a forced snack drop and its cooldown, no errors.

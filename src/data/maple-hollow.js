@@ -24,7 +24,9 @@ window.MAPLE_HOLLOW = {
       { id: "kids",    floor: ["lavender-carpet-a", "lavender-carpet-b"], name: "KID'S ROOM",
         furniture: [["dinosaur-bed", 70, 82, 1], ["homework-desk", 186, 56, 1], ["bookshelf", 322, 52, 1], ["beanbag", 70, 270, 0], ["toy-chest", 196, 266, 1], ["ceiling-stars", 300, 170, 0]] }
     ],
-    fridgeHeal: 4,         // the fridge has leftovers: heal this much, once per run
+    fridgeHeal: 4,         // the fridge has leftovers: heal this much...
+    fridgeRestockYears: 5, // ...and it restocks every 5 years (Nov 12; was once per run)
+    fridgeRestockLine: "Somebody went grocery shopping.",
     fridgeLine: "Leftover lasagna. Cold, perfect, and gone.",
     enterLine: "Home. It smells like coffee and someone else's laundry.",
     exitPx: 40
@@ -132,6 +134,9 @@ window.MAPLE_HOLLOW = {
   yardProps: [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47],
   // Step 4 (Nov 9): the neighborhood's own crowd. When the office would spawn one of these, it sometimes sends the
   // home version instead: [office kind]: [home kind, chance].
+  // Nov 12: Maple Hollow has no interns, errands or office plants, so it had half the ways to heal. Now and then a beaten
+  // enemy at home leaves a slice of leftover pizza (same +HP as the office's). A cooldown keeps it from raining pizza.
+  snackDrop: { chance: 0.02, cooldownMs: 20000, lifeMs: 45000 },
   enemySwap: { bill: ["taxNotice", 0.5], snackAttack: ["leafPile", 0.7], backTwinge: ["gutterClog", 0.6], calendarInvite: ["lawnMower", 0.6], spamCall: ["leafPile", 0.25] },
   // The toy-brick floor (step 4): step on one and you'll know. [x, y, density 0-3] in world px; "kids" spots are
   // inside the kid's room (relative to its top-left). One hit per patch every few seconds, plus a short limp.
