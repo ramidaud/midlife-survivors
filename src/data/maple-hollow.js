@@ -186,6 +186,12 @@ window.MAPLE_HOLLOW = {
         "community-light-posts": { src: "v4/town/community-light-posts-v1.png", dy: 59, fp: [[4,  52,  8,  7],  [146,  52,  8,  7]] },
         "community-light-strand": { src: "v4/town/community-light-strand-v1.png", over: true },
         "community-cooler": { src: "v4/town/community-cooler-v1.png", dy: 52, fp: [[8,  40,  49,  12]] },
+        // The Parkway's golf course and road-out-of-town barricade (Codex, PR #9, approved Nov 13)
+        "fairway": { src: "v4/parkway/fairway-v1.png", flat: true }, "putting-green": { src: "v4/parkway/putting-green-v1.png", flat: true },
+        "sand-trap": { src: "v4/parkway/sand-trap-v1.png", flat: true },
+        "golf-flag": { src: "v4/parkway/golf-flag-v1.png", dy: 144, fp: [[4, 140, 6, 5]] },
+        "golf-cart": { src: "v4/parkway/golf-cart-v1.png", dy: 89, fp: [[13, 63, 118, 26]] },
+        "barricade-ns": { src: "v4/parkway/barricade-north-south-v1.png", dy: 89, fp: [[5, 71, 310, 18]] },
         "toy-car": { flat: true }, "beach-ball": { flat: true }, "decal-leaf-drift": { flat: true }, "decal-scattered-maple": { flat: true }
       },
       // Elementary (Nov 13): Codex's school, pickup line, playground and chalk (PR #7) with yard-kit trees and swings.
@@ -268,14 +274,14 @@ window.MAPLE_HOLLOW = {
           ["autumn-shrub-a", 560, 640], ["autumn-shrub-b", 1860, 640], ["autumn-shrub-c", 900, 2100], ["autumn-shrub-a", 2000, 2500],
           ["decal-leaf-drift", 600, 1900], ["decal-scattered-maple", 1700, 2300], ["decal-leaf-drift", 2300, 1500], ["decal-scattered-maple", 400, 2600]
         ],
-        // The Parkway v1 (Nov 13): a through road lined with maples, open lawn (golf course art to come), and the road out of
+        // The Parkway v1 (Nov 13): a through road lined with maples, a golf course edge, and the road out of
         // town running south into the trees (closed until Full Life). The V8 (60) still bursts out of your garage next door.
         // More entries: ["vstreet", x, y, length] a north-south street, ["plate", x, y, theme] a yard's ground picture alone,
         // ["label", x, y, words] a standing sign.
         parkway: [
           ["street", 0, 1120, 2496], ["asphalt", -416, 1216, 416, 320], ["asphalt", 2496, 1216, 416, 320],
           ["vstreet", 992, 1632, 1120], ["asphalt", 1088, 1536, 320, 192],
-          ["label", 1248, 2380, "ROAD OUT OF TOWN\nOPENS IN FULL LIFE"],
+          ["label", 1248, 2300, "ROAD OUT OF TOWN\nOPENS IN FULL LIFE"], ["barricade-ns", 1088, 2400],
           ["autumn-shrub-a", 1010, 2620], ["autumn-shrub-b", 1120, 2640], ["autumn-shrub-c", 1240, 2620], ["autumn-shrub-a", 1350, 2640],
           ["tree-maple-orange", 1020, 2520], ["tree-maple-orange", 1330, 2510],
           // maples along both sides of the through road, with gaps to cross
@@ -283,9 +289,10 @@ window.MAPLE_HOLLOW = {
           ["tree-maple-orange", 1740, 920], ["tree-maple-orange", 2080, 920], ["tree-maple-orange", 2360, 920],
           ["tree-maple-orange", 80, 1660], ["tree-maple-orange", 420, 1660], ["tree-maple-orange", 760, 1660],
           ["tree-maple-orange", 1580, 1660], ["tree-maple-orange", 1920, 1660], ["tree-maple-orange", 2260, 1660],
-          // open lawn on both sides of the road out of town; the golf course edge waits for Codex's art (fairway, green, sand trap, cart)
-          ["tree-maple-orange", 300, 2150], ["tree-maple-orange", 700, 2420], ["tree-maple-orange", 1700, 2200], ["tree-maple-orange", 2150, 2450],
-          ["autumn-shrub-b", 520, 2000], ["autumn-shrub-c", 1900, 2050], ["decal-leaf-drift", 300, 2500], ["decal-scattered-maple", 2000, 2300],
+          // the golf course edge on both sides of the road out of town (Codex, PR #9)
+          ["fairway", 0, 1860], ["putting-green", 440, 2200], ["golf-flag", 676, 2400], ["sand-trap", 560, 1940],
+          ["fairway", 1560, 1860], ["fairway", 1984, 2200], ["putting-green", 1984, 1820], ["golf-flag", 2220, 2010],
+          ["sand-trap", 1620, 2420], ["golf-cart", 1760, 2160], ["golf-cart", 260, 2520],
           // a meadow up top
           ["tree-maple-orange", 300, 200], ["tree-maple-orange", 900, 380], ["tree-maple-orange", 1500, 160], ["tree-maple-orange", 2100, 420],
           ["autumn-shrub-c", 600, 600], ["autumn-shrub-a", 1200, 640], ["autumn-shrub-b", 1800, 560], ["autumn-shrub-c", 2300, 200],

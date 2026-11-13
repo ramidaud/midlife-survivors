@@ -1,0 +1,390 @@
+{
+  "status": "Parkway art review; awaiting approval, not placed",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "grassBase": "#9BAE73",
+  "method": "Built-in imagegen paintings normalized to exact 2x/3x working rasters, exact RGBA block mode, material-family palette mapping. Native tiles use copied painted edge blocks for repeat joins.",
+  "sourceSizeCaveat": "Generated dimensions vary despite requested dimensions; untouched originals and exact normalization crop/fit/working rasters are retained.",
+  "heroReference": "Full unscaled 56x60 live office-worker v4 frame, including transparent margins.",
+  "coordinates": "Local native pixels: feetLine y; footPoint[x,y]; footprints[x,y,width,height]. Proposed integration metadata, not tested physics.",
+  "puttingGreenSizeChoice": "512x512, chosen to match the requested fairway tile; flag is separate.",
+  "reviewAssemblies": {
+    "green-with-flag": {
+      "green": "putting-green",
+      "flag": "golf-flag",
+      "position": [
+        335,
+        163
+      ],
+      "cupPoint": [
+        342,
+        307
+      ],
+      "note": "Flag PNG stays independent; only its tiny ground base collides."
+    },
+    "north-south-road": {
+      "barricadePosition": [
+        96,
+        260
+      ],
+      "roadAsphaltBounds": [
+        96,
+        0,
+        320,
+        640
+      ],
+      "note": "Review-only assembly of existing painted street. Barrier spans road left-to-right; this does not place it in the game."
+    }
+  },
+  "pieces": [
+    {
+      "id": "fairway",
+      "file": "fairway-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source": "sources/fairway.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": "rectangular painted-ground fit",
+      "fit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/fairway-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "alphaPolicy": "opaque repeating ground tile",
+      "palettePolicy": "Warm grass families only on grass; darkest blade marks under 1%. Sand uses three pale tones. Prop materials selected by HSV family before tone.",
+      "comparison1x": "checks/fairway-hero-1x.png",
+      "comparison2x": "checks/fairway-hero-2x.png",
+      "footprintPreview": "checks/fairway-footprint-1x.png"
+    },
+    {
+      "id": "putting-green",
+      "file": "putting-green-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "source": "sources/putting-green.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": "rectangular painted-ground fit",
+      "fit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/putting-green-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "alphaPolicy": "opaque repeating ground tile",
+      "palettePolicy": "Warm grass families only on grass; darkest blade marks under 1%. Sand uses three pale tones. Prop materials selected by HSV family before tone.",
+      "cupPoint": [
+        342,
+        307
+      ],
+      "flagBakedIn": false,
+      "comparison1x": "checks/putting-green-hero-1x.png",
+      "comparison2x": "checks/putting-green-hero-2x.png",
+      "footprintPreview": "checks/putting-green-footprint-1x.png"
+    },
+    {
+      "id": "golf-flag",
+      "file": "golf-flag-v1.png",
+      "size": [
+        32,
+        160
+      ],
+      "kind": "WALL",
+      "feetLine": 144,
+      "footPoint": [
+        7,
+        144
+      ],
+      "footprints": [
+        [
+          4,
+          140,
+          6,
+          5
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        12,
+        29,
+        148
+      ],
+      "source": "sources/golf-flag.png",
+      "sourceSize": [
+        1003,
+        1568
+      ],
+      "sourceCrop": [
+        387,
+        28,
+        674,
+        1539
+      ],
+      "sourceFit": "proportional fit",
+      "fit": [
+        9,
+        34,
+        78,
+        411
+      ],
+      "working": "working/golf-flag-3x.png",
+      "workingSize": [
+        96,
+        480
+      ],
+      "reductionFactor": 3,
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "palettePolicy": "Warm grass families only on grass; darkest blade marks under 1%. Sand uses three pale tones. Prop materials selected by HSV family before tone.",
+      "comparison1x": "checks/golf-flag-hero-1x.png",
+      "comparison2x": "checks/golf-flag-hero-2x.png",
+      "footprintPreview": "checks/golf-flag-footprint-1x.png"
+    },
+    {
+      "id": "sand-trap",
+      "file": "sand-trap-v1.png",
+      "size": [
+        256,
+        160
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 139,
+      "footPoint": [
+        128,
+        139
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        17,
+        253,
+        143
+      ],
+      "source": "sources/sand-trap.png",
+      "sourceSize": [
+        1586,
+        992
+      ],
+      "sourceCrop": [
+        57,
+        116,
+        1533,
+        860
+      ],
+      "sourceFit": "proportional fit",
+      "fit": [
+        9,
+        51,
+        750,
+        378
+      ],
+      "working": "working/sand-trap-3x.png",
+      "workingSize": [
+        768,
+        480
+      ],
+      "reductionFactor": 3,
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "palettePolicy": "Warm grass families only on grass; darkest blade marks under 1%. Sand uses three pale tones. Prop materials selected by HSV family before tone.",
+      "comparison1x": "checks/sand-trap-hero-1x.png",
+      "comparison2x": "checks/sand-trap-hero-2x.png",
+      "footprintPreview": "checks/sand-trap-footprint-1x.png"
+    },
+    {
+      "id": "golf-cart",
+      "file": "golf-cart-v1.png",
+      "size": [
+        144,
+        96
+      ],
+      "kind": "WALL",
+      "feetLine": 89,
+      "footPoint": [
+        72,
+        89
+      ],
+      "footprints": [
+        [
+          13,
+          63,
+          118,
+          26
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        141,
+        93
+      ],
+      "source": "sources/golf-cart.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceCrop": [
+        248,
+        6,
+        1283,
+        1024
+      ],
+      "sourceFit": "requested canvas proportion fit",
+      "fit": [
+        9,
+        9,
+        414,
+        270
+      ],
+      "working": "working/golf-cart-3x.png",
+      "workingSize": [
+        432,
+        288
+      ],
+      "reductionFactor": 3,
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "palettePolicy": "Warm grass families only on grass; darkest blade marks under 1%. Sand uses three pale tones. Prop materials selected by HSV family before tone.",
+      "comparison1x": "checks/golf-cart-hero-1x.png",
+      "comparison2x": "checks/golf-cart-hero-2x.png",
+      "footprintPreview": "checks/golf-cart-footprint-1x.png"
+    },
+    {
+      "id": "barricade-north-south",
+      "file": "barricade-north-south-v1.png",
+      "size": [
+        320,
+        96
+      ],
+      "kind": "WALL",
+      "feetLine": 89,
+      "footPoint": [
+        160,
+        89
+      ],
+      "footprints": [
+        [
+          5,
+          71,
+          310,
+          18
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        317,
+        93
+      ],
+      "source": "sources/barricade-north-south.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        60,
+        41,
+        2154,
+        690
+      ],
+      "sourceFit": "requested canvas proportion fit",
+      "fit": [
+        9,
+        9,
+        942,
+        270
+      ],
+      "working": "working/barricade-north-south-3x.png",
+      "workingSize": [
+        960,
+        288
+      ],
+      "reductionFactor": 3,
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "palettePolicy": "Warm grass families only on grass; darkest blade marks under 1%. Sand uses three pale tones. Prop materials selected by HSV family before tone.",
+      "orientation": "Front-facing horizontal span across vertical north-south road",
+      "roadWidth": 320,
+      "comparison1x": "checks/barricade-north-south-hero-1x.png",
+      "comparison2x": "checks/barricade-north-south-hero-2x.png",
+      "footprintPreview": "checks/barricade-north-south-footprint-1x.png"
+    }
+  ]
+}

@@ -2411,3 +2411,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Last Midlife area, from Codex's town art (PR #8): the hall, and a block party street with potluck tables, coolers, string lights, a bounce house and barricades.
 - The Holiday Party (56) comes out of the hall.
 - Every Midlife area now opens on its birthday. Left: the Woods (Full Life), the road out of town, and Codex's golf course and north-south barricade for the Parkway.
+
+## 2026-11-13: V. 2.40.0, the Parkway's golf course (Claude)
+- Codex's PR #9 approved and placed: fairways, putting greens with flags, sand traps and golf carts along the road out of town, plus a north-south barricade across that road.
+- Fairway green matches the lawn this time (no blue rectangles).
+- Every Codex brief for Maple Hollow is now delivered and placed. Close PRs #7, #8 and #9.

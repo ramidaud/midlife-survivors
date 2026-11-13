@@ -1,0 +1,68 @@
+[
+  {
+    "id": "fairway",
+    "size": [
+      512,
+      512
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "ground": true,
+    "prompt": "ONE seamless golf FAIRWAY ground tile,512x512 final, paint2x1024x1024. Direct overhead, uniform lighting. Eight broad north-south mower stripes alternating the existing WARM YELLOW-GREEN grass base #9BAE73 and warmer olive shade #6D895B; bright stripes slightly wider, so #9BAE73 dominates at least60% overall. Rich small hand-painted clipped-blade clusters give3 tones; #315B4B may appear ONLY as tiny sparse deepest blade marks under1%, NEVER a broad stripe. Match the provided lawn sample so a neighboring lawn does NOT reveal a separate blue-green rectangle. NO #83A89A over broad areas, no cyan, teal, blue, emerald or dark forest-green stripes. No frame, border, bevel, cast shadow, perspective, objects, paths, sand, flag, cup, trees, flowers, leaves, text or logos. All4 corners stay near #9BAE73 and repeated edges join naturally. Flat painted grass fills the entire square. Use case: stylized-concept. Match the v4 Maple Hollow yard/street hand-painted pixel-painting: crisp clustered details, not vector or code shapes. At least3 tones per main material. Neutral white balance, NO sepia, golden haze, film tint or vignette. Upper-left light, lower-right shadows only on WALL props; WALK-THROUGH ground has no outline or shadow. Existing21-color palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. For grass specifically use the WARM greens named above, never broad blue-green or teal areas. Transparent outside subject; rectangular ground itself is opaque."
+  },
+  {
+    "id": "putting-green",
+    "size": [
+      512,
+      512
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "ground": true,
+    "prompt": "ONE golf PUTTING GREEN ground tile,512x512 final, paint2x1024x1024. Direct overhead, all flat and walk-through. Organic soft bean/oval putting surface in WARM OLIVE #6D895B, with smooth finely clipped grass, occupying middle50% of tile, surrounded by the existing WARM YELLOW-GREEN lawn base #9BAE73 and small painted grass-blade clusters. A small dark flat golf cup near x320,y300 of the FINAL512px canvas (6px diameter). Cup is a flat dark hole only. NO FLAG OR POLE anywhere: flag is a completely separate sprite. At least3 grass tones: #9BAE73 main outer lawn, #6D895B green/shaded blades, #315B4B ONLY tiny deepest marks under1%. No broad blue-green, #83A89A, cyan, teal, blue, forest-green rectangle, tan border, outline, raised lip, floor shadow, objects, paths, sand, words or logos. Outer edges match #9BAE73 lawn and repeat naturally; no global lighting gradient. Paint grass across entire square. Use case: stylized-concept. Match the v4 Maple Hollow yard/street hand-painted pixel-painting: crisp clustered details, not vector or code shapes. At least3 tones per main material. Neutral white balance, NO sepia, golden haze, film tint or vignette. Upper-left light, lower-right shadows only on WALL props; WALK-THROUGH ground has no outline or shadow. Existing21-color palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. For grass specifically use the WARM greens named above, never broad blue-green or teal areas. Transparent outside subject; rectangular ground itself is opaque."
+  },
+  {
+    "id": "golf-flag",
+    "size": [
+      32,
+      160
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "ground": false,
+    "prompt": "ONE separate small golf FLAG AND POLE,32x160 final, paint3x96x480. Slender cream/slate metal pole standing nearly full160px tall, small plain rust-red triangular flag at upper right. Flag is completely blank, NO numbers, letters, logo or emblem. Three tones each for cloth and metal. Small foot at ground and heavy small contact shadow toward lower-right, full dark outline. Upper-left illumination matching yard kit. Full pole fits canvas with narrow transparent margins; no cup baked into background, NO green, lawn, sand or ground plate. Three-quarter overhead FRONT game camera, vertically upright. Use case: stylized-concept. Match the v4 Maple Hollow yard/street hand-painted pixel-painting: crisp clustered details, not vector or code shapes. At least3 tones per main material. Neutral white balance, NO sepia, golden haze, film tint or vignette. Upper-left light, lower-right shadows only on WALL props; WALK-THROUGH ground has no outline or shadow. Existing21-color palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. For grass specifically use the WARM greens named above, never broad blue-green or teal areas. Transparent outside subject; rectangular ground itself is opaque."
+  },
+  {
+    "id": "sand-trap",
+    "size": [
+      256,
+      160
+    ],
+    "factor": 3,
+    "kind": "WALK-THROUGH",
+    "ground": false,
+    "prompt": "ONE flat golf SAND TRAP ground decal,256x160 final, paint3x768x480. Shallow irregular kidney/bean-shaped patch of pale cream sand with subtle rake-grain, tiny three-tone sand texture #D3B78D #F2D7A1 #FFF0CF. A few tiny warm grass blades #9BAE73/#6D895B at irregular fringe only. Flat sand level with surrounding grass, no height, wall, dark outline, raised rim, bevel, pit shadow or cast shadow. Direct overhead, no perspective. True transparent outside irregular edge, no surrounding rectangular lawn plate. NO flag, pole, golf balls, people, footprints, objects, text or logos. Neutral white balance, sand must not acquire a global sepia/golden haze filter. Use case: stylized-concept. Match the v4 Maple Hollow yard/street hand-painted pixel-painting: crisp clustered details, not vector or code shapes. At least3 tones per main material. Neutral white balance, NO sepia, golden haze, film tint or vignette. Upper-left light, lower-right shadows only on WALL props; WALK-THROUGH ground has no outline or shadow. Existing21-color palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. For grass specifically use the WARM greens named above, never broad blue-green or teal areas. Transparent outside subject; rectangular ground itself is opaque."
+  },
+  {
+    "id": "golf-cart",
+    "size": [
+      144,
+      96
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "ground": false,
+    "prompt": "ONE small GOLF CART vehicle,144x96 final, paint3x432x288. Three-quarter overhead FRONT view matching v4 yard furniture and parked cars, front slightly toward lower-left, whole cart clearly readable. Cream canopy roof, teal/slate body, two cream bench seats, steering wheel, four small dark tires, simple metal frame. At least3 tones per roof/cloth/body/rubber, complete dark outline and heavy lower-right contact shadow. True transparent outside silhouette. No driver, passengers, clubs, people, ground, golf course, labels, letters, logos or brand symbols. Fill most of144x96 canvas. Use case: stylized-concept. Match the v4 Maple Hollow yard/street hand-painted pixel-painting: crisp clustered details, not vector or code shapes. At least3 tones per main material. Neutral white balance, NO sepia, golden haze, film tint or vignette. Upper-left light, lower-right shadows only on WALL props; WALK-THROUGH ground has no outline or shadow. Existing21-color palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. For grass specifically use the WARM greens named above, never broad blue-green or teal areas. Transparent outside subject; rectangular ground itself is opaque."
+  },
+  {
+    "id": "barricade-north-south",
+    "size": [
+      320,
+      96
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "ground": false,
+    "prompt": "ONE road-closing SAWHORSE BARRICADE for a NORTH-SOUTH road,320x96 final, paint3x960x288. CRITICAL ORIENTATION: road runs straight UP/DOWN; this barrier spans LEFT-TO-RIGHT ACROSS its320px asphalt width. View the broad FRONT FACE of the barricade from bottom of image, not a side profile and not diagonally isometric. Two or three connected sawhorse trestles, two continuous horizontal cream timber rails with muted russet/orange diagonal safety stripes, A-frame feet visible below at both ends and middle. Wide horizontal silhouette fills about310px width; small heavy shadows at the bases toward lower-right; full dark outline. Three tones per timber/paint/metal. No road or grass baked into sprite, no people, cones, lettering, symbols, logos or scenery. This is a fresh front-facing painting, NOT a rotation of a narrow east-west street-end barricade. Use case: stylized-concept. Match the v4 Maple Hollow yard/street hand-painted pixel-painting: crisp clustered details, not vector or code shapes. At least3 tones per main material. Neutral white balance, NO sepia, golden haze, film tint or vignette. Upper-left light, lower-right shadows only on WALL props; WALK-THROUGH ground has no outline or shadow. Existing21-color palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. For grass specifically use the WARM greens named above, never broad blue-green or teal areas. Transparent outside subject; rectangular ground itself is opaque."
+  }
+]

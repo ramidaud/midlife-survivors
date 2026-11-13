@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.39.0",
-  displayVersion: "V. 2.39.0",
+  version: "2.40.0",
+  displayVersion: "V. 2.40.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 378,
+  build: 379,
   changelog: [
+    {
+      ver: "V. 2.40.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "The Parkway gets a golf course. Fore.",
+      highlights: [
+        "The Parkway's south side is a golf course now: striped fairways, putting greens with flags, sand traps and parked golf carts.",
+        "The road out of town has a proper barricade across it. It opens in Full Life."
+      ]
+    },
     {
       ver: "V. 2.39.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "The community center opens at 55. You're down for napkins.",

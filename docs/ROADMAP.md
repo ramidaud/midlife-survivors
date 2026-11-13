@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.39.0: every Midlife area of Maple Hollow is open on its birthday. Start here next session: Rami plays a full Maple Hollow run and reacts; close PRs #7 and #8; then balance Maple Hollow (it felt too easy))
+**Last updated:** 2026-11-13 (V2.40.0: every Midlife area of Maple Hollow is open, all Codex art placed. Start here next session: Rami plays a full Maple Hollow run and reacts; close PRs #7, #8 and #9; then balance Maple Hollow (it felt too easy))
 
 ---
 
