@@ -1,7 +1,7 @@
 # Maple Hollow full map v3, to scale: 1 svg px = 10 game px
 S=0.1
 NAVY="#171C35"; SLATE="#303750"; TEAL="#3E7775"; SAGE="#83A89A"; CREAM="#F2D7A1"; COFFEE="#EF9347"; RUSSET="#C45C4B"; GRASS="#9BAE73"; ROAD="#2B3150"; TREE="#2F4A3A"; PAPER="#FFF0CF"; LAV="#BFA8CF"
-WALL=192; COLW=2496; ROAD_W=256; R1=2048; R2=2752; R3=2048
+WALL=192; COLW=2496; ROAD_W=256; R1=2048; R2=2752; R3=2752
 xs=[WALL, WALL+COLW+ROAD_W, WALL+2*(COLW+ROAD_W)]
 ys=[WALL, WALL+R1+ROAD_W, WALL+R1+ROAD_W+R2+ROAD_W]
 hs=[R1,R2,R3]
@@ -21,8 +21,8 @@ SW=W*S+80; SH=H*S+120+250
 out.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{SW:.0f}" height="{SH:.0f}" viewBox="0 0 {SW:.0f} {SH:.0f}">')
 out.append(f'<rect width="100%" height="100%" fill="{NAVY}"/>')
 out.append(f'<text x="40" y="52" font-family="Silkscreen, \'Courier New\', monospace" font-size="20" fill="{CREAM}" font-weight="700">MAPLE HOLLOW · FULL MAP DRAFT V3 (TO SCALE)</text>')
-out.append(f'<text x="40" y="80" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="14" fill="#B8C0D4">1 px here = 10 px in the game. Whole map 8,384 x 7,744 px, about 6.5 x 9.7 laptop screens. Big orange numbers = the age an area opens.</text>')
-out.append(f'<text x="40" y="100" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="14" fill="#B8C0D4">Your block (teal outline) is already built. Everything else is a plan. Nov 12, 2026.</text>')
+out.append(f'<text x="40" y="80" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="14" fill="#B8C0D4">1 px here = 10 px in the game. Whole map 8,384 x 8,448 px, about 6.5 x 10.5 laptop screens. Big orange numbers = the age an area opens.</text>')
+out.append(f'<text x="40" y="100" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="14" fill="#B8C0D4">Your block (teal outline, bottom right) is already built. Everything else is a plan. Nov 12, 2026 (v3b).</text>')
 # tree wall + base
 r(0,0,W,H,TREE)
 r(WALL,WALL,W-2*WALL,H-2*WALL,GRASS)
@@ -37,7 +37,7 @@ for y in (ys[0]+R1+ROAD_W/2, ys[1]+R2+ROAD_W/2):
 # loop road highlight around center block
 lx,ly=xs[1]-ROAD_W,ys[1]-ROAD_W
 out.append(f'<rect x="{OX+lx*S:.1f}" y="{OY+ly*S:.1f}" width="{(COLW+2*ROAD_W)*S:.1f}" height="{(R2+2*ROAD_W)*S:.1f}" fill="none" stroke="{COFFEE}" stroke-width="3" stroke-dasharray="10 6" opacity=".9"/>')
-t(xs[1]+COLW/2, ly-60, "THE LOOP (Maple Lane ring road)", 11, COFFEE, "middle")
+t(xs[1]+COLW/2, ly+100, "THE LOOP", 10, COFFEE, "middle")
 # road names
 # districts: (col,row,name,age,line,color)
 D={}
@@ -54,9 +54,9 @@ district(0,1,"ELEMENTARY","44","Math Homework on the playground (45)","#6F6A55")
 district(2,1,"STRIP MALL","50","Mortgage at the bank (52)","#4A5068")
 district(0,2,"COMMUNITY CTR","55","Holiday Party in the hall (56)","#6A5368")
 district(1,2,"THE PARKWAY","59","The V8 chases you around the loop (60)","#4A5068")
-district(2,2,"TOWN SQUARE","53*","Arcade, skate park, shops","#6A5A48")
-# center (built)
-x,y=xs[1],ys[1]
+district(1,1,"TOWN SQUARE","53","Where it all comes together","#6A5A48")
+# your block (built), bottom right
+x,y=xs[2],ys[2]
 r(x,y,COLW,R2,"#7F9466",TEAL,3,6)
 # rows of houses
 for row_top in (448,1792):
@@ -109,10 +109,11 @@ r(rx0,H-WALL,256,WALL,ROAD)
 r(rx0-30,H-WALL-60,316,60,RUSSET,NAVY,1)
 t(xs[1]+COLW/2,H+260,"ROAD OUT OF TOWN (closed; opens in Full Life)",11,RUSSET,"middle")
 # town square
-feat(2,2,250,450,900,600,"ARCADE",LAV)
-feat(2,2,1300,450,950,600,"SHOPS","#B8A27F")
-X,Y,_,_=D[(2,2)]; c(X+1750,Y+1550,300,"#C9B98F",NAVY,1); t(X+1750,Y+1580,"FOUNTAIN",9,NAVY,"middle")
-feat(2,2,250,1300,650,600,"SKATE PARK","#9AA3B5")
+feat(1,1,250,450,900,650,"ARCADE",LAV)
+feat(1,1,1350,450,900,650,"SHOPS","#B8A27F")
+X,Y,_,_=D[(1,1)]; c(X+1248,Y+1500,380,"#C9B98F",NAVY,1); t(X+1248,Y+1530,"FOUNTAIN",9,NAVY,"middle")
+feat(1,1,250,2000,900,550,"SKATE PARK","#9AA3B5")
+feat(1,1,1350,2000,900,550,"FOOD TRUCKS","#B8A27F")
 # screen scale
 # legend
 LY=OY+H*S+60
@@ -126,10 +127,11 @@ out.append(f'<text x="{700+64}" y="{LY+46}" font-family="Atkinson Hyperlegible, 
 LY+=40
 notes=["Every area has its boss arena and at least two entrances off the roads (96 px gaps, 224 px main routes).",
        "Run rhythm: an area opens about a year before its boss, you explore, the swarm builds, boss, chest, calm.",
-       "* Town Square at 53 is a suggestion: a shopping breather between the Mortgage (52) and the Party (56).",
+       "Town Square sits in the middle, inside the loop, and opens at 53: you circle it for years, then the center of town opens up.",
        "The Woods and the road out of town are for Full Life, which will connect to the office and later the hospital."]
 for i,n in enumerate(notes):
     out.append(f'<text x="40" y="{LY+52+i*22}" font-family="Atkinson Hyperlegible, Arial, sans-serif" font-size="14" fill="#B8C0D4">{n}</text>')
 out.append('</svg>')
-open("home-map-v3.svg","w").write("\n".join(out))
+import sys
+open(sys.argv[1] if len(sys.argv)>1 else "home-map-v3.svg","w").write("\n".join(out))
 print(SW,SH)
