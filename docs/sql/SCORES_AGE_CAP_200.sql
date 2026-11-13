@@ -12,3 +12,9 @@ alter table public.scores_midlife add constraint scores_midlife_age_check check 
 -- (Nov 12 20:10 UTC, Coldwar Cowboy, age 104.0, 750,126, Tax 1). Added by hand so he doesn't have to reopen the game.
 insert into public.scores (name, score, age, start_age, character, version)
 values ('Coldwar Cowboy', 750126, 104.0, 40, 'coldWarCowboy', '2.29.11 T1');
+
+-- Nov 12, 10:14 PM (Rami: "add Derek's too"): Derek's 579,444 Midlife run was added by hand on Nov 4 to the Full Life
+-- table (public.scores), so it never showed on the Midlife board. Copied to the Midlife board. The Full Life copy is
+-- still there until Rami says to remove it.
+insert into public.scores_midlife (name, score, age, start_age, character, version)
+values ('Derek', 579444, 80.1, 40, 'gradStudent', '1.76.0 T2');
