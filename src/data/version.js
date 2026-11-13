@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.33.0",
-  displayVersion: "V. 2.33.0",
+  version: "2.34.0",
+  displayVersion: "V. 2.34.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 372,
+  build: 373,
   changelog: [
+    {
+      ver: "V. 2.34.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Maple Hollow Elementary is built. Book fair Monday, lice check Tuesday.",
+      highlights: [
+        "The school is up: a brick schoolhouse with paper turkeys in the windows, a flagpole, and a sign out front with this week's news.",
+        "A pickup line with minivans idling in it, a slide, monkey bars and a merry-go-round on the playground, and four-square, hopscotch and a map of the USA in chalk.",
+        "Math Homework still comes out of the playground at 45, now in the middle of the real one."
+      ]
+    },
     {
       ver: "V. 2.33.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Birch Circle opens at 47. The HOA has notes.",

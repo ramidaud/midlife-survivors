@@ -1,0 +1,901 @@
+{
+  "status": "Elementary art review, not integrated",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "method": "Built-in imagegen paintings normalized to exact 2x or 3x working canvases, exact factor-by-factor RGBA block mode, then deliberate material-family palette mapping. Proportional sprite fits; pickup-lane ground rectangle fits its width and height independently.",
+  "sourceSizeCaveat": "Generator source dimensions vary despite requested 2x/3x dimensions. Untouched generated rasters and normalization fit are retained; every final pixel comes from one exact working-raster block.",
+  "coordinates": "Native local pixels: feetLine is y, footPoint is [x,y], footprints are [x,y,width,height]. Proposed art metadata, not tested physics.",
+  "heroReference": "Full unscaled 56x60 live office-worker v4 frame, including transparent cell margins.",
+  "placementNote": "Requested 512x1024 pickup lane is taller than the approximate y150..950 reservation. Keep native size and extend placement into available ground; Claude places after art approval.",
+  "pieces": [
+    {
+      "id": "school-front",
+      "file": "school-front-v1.png",
+      "size": [
+        1100,
+        560
+      ],
+      "kind": "WALL",
+      "feetLine": 534,
+      "footPoint": [
+        550,
+        534
+      ],
+      "footprints": [
+        [
+          17,
+          446,
+          1066,
+          88
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        22,
+        1097,
+        538
+      ],
+      "source": "sources/school-front.png",
+      "sourceSize": [
+        1756,
+        896
+      ],
+      "sourceCrop": [
+        4,
+        30,
+        1750,
+        855
+      ],
+      "working": "working/school-front-2x.png",
+      "workingSize": [
+        2200,
+        1120
+      ],
+      "reductionFactor": 2,
+      "fit": [
+        6,
+        43,
+        2188,
+        1034
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/school-front-hero-1x.png",
+      "comparison2x": "checks/school-front-hero-2x.png",
+      "integrationNote": "Solid only at the lower facade base; upper roof/facade sort behind the hero. Sign plate is blank for game text.",
+      "blankTextArea": [
+        430,
+        241,
+        240,
+        32
+      ],
+      "footprintPreview": "checks/school-front-footprint-1x.png"
+    },
+    {
+      "id": "flagpole",
+      "file": "flagpole-v1.png",
+      "size": [
+        48,
+        256
+      ],
+      "kind": "WALL",
+      "feetLine": 249,
+      "footPoint": [
+        24,
+        249
+      ],
+      "footprints": [
+        [
+          18,
+          241,
+          12,
+          8
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        3,
+        39,
+        253
+      ],
+      "source": "sources/flagpole.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        263,
+        32,
+        523,
+        2133
+      ],
+      "working": "working/flagpole-3x.png",
+      "workingSize": [
+        144,
+        768
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        25,
+        9,
+        93,
+        750
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/flagpole-hero-1x.png",
+      "comparison2x": "checks/flagpole-hero-2x.png",
+      "footprintPreview": "checks/flagpole-footprint-1x.png"
+    },
+    {
+      "id": "school-sign",
+      "file": "school-sign-v1.png",
+      "size": [
+        256,
+        128
+      ],
+      "kind": "WALL",
+      "feetLine": 121,
+      "footPoint": [
+        128,
+        121
+      ],
+      "footprints": [
+        [
+          37,
+          100,
+          182,
+          21
+        ]
+      ],
+      "visibleBounds": [
+        25,
+        3,
+        231,
+        125
+      ],
+      "source": "sources/school-sign.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCrop": [
+        186,
+        19,
+        1608,
+        856
+      ],
+      "working": "working/school-sign-3x.png",
+      "workingSize": [
+        768,
+        384
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        73,
+        9,
+        622,
+        366
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/school-sign-hero-1x.png",
+      "comparison2x": "checks/school-sign-hero-2x.png",
+      "blankTextArea": [
+        44,
+        26,
+        168,
+        51
+      ],
+      "footprintPreview": "checks/school-sign-footprint-1x.png"
+    },
+    {
+      "id": "pickup-lane",
+      "file": "pickup-lane-v1.png",
+      "size": [
+        512,
+        1024
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 1018,
+      "footPoint": [
+        256,
+        1018
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        2,
+        510,
+        1022
+      ],
+      "source": "sources/pickup-lane.png",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sourceCrop": [
+        28,
+        13,
+        859,
+        1761
+      ],
+      "working": "working/pickup-lane-2x.png",
+      "workingSize": [
+        1024,
+        2048
+      ],
+      "reductionFactor": 2,
+      "fit": [
+        4,
+        4,
+        1016,
+        2040
+      ],
+      "sourceFit": "exact rectangular ground-plate fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/pickup-lane-hero-1x.png",
+      "comparison2x": "checks/pickup-lane-hero-2x.png",
+      "integrationNote": "Painted ground only; vehicles are separate. No collision. Asphalt base uses the street material palette.",
+      "footprintPreview": "checks/pickup-lane-footprint-1x.png"
+    },
+    {
+      "id": "minivan-a",
+      "file": "minivan-a-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          12,
+          15,
+          56,
+          116
+        ]
+      ],
+      "visibleBounds": [
+        6,
+        3,
+        74,
+        141
+      ],
+      "source": "sources/minivan-a.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        52,
+        27,
+        870,
+        1658
+      ],
+      "working": "working/minivan-a-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        16,
+        9,
+        208,
+        414
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/minivan-a-hero-1x.png",
+      "comparison2x": "checks/minivan-a-hero-2x.png",
+      "integrationNote": "Top-down vehicle: footprint follows the car ground projection, not just its rear bumper.",
+      "footprintPreview": "checks/minivan-a-footprint-1x.png"
+    },
+    {
+      "id": "minivan-b",
+      "file": "minivan-b-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          11,
+          15,
+          58,
+          116
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        3,
+        75,
+        141
+      ],
+      "source": "sources/minivan-b.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        78,
+        93,
+        856,
+        1620
+      ],
+      "working": "working/minivan-b-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        14,
+        9,
+        211,
+        414
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/minivan-b-hero-1x.png",
+      "comparison2x": "checks/minivan-b-hero-2x.png",
+      "integrationNote": "Top-down vehicle: footprint follows the car ground projection, not just its rear bumper.",
+      "footprintPreview": "checks/minivan-b-footprint-1x.png"
+    },
+    {
+      "id": "pickup-suv",
+      "file": "pickup-suv-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          11,
+          15,
+          58,
+          116
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        3,
+        75,
+        141
+      ],
+      "source": "sources/pickup-suv.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        107,
+        147,
+        835,
+        1556
+      ],
+      "working": "working/pickup-suv-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        13,
+        9,
+        214,
+        414
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/pickup-suv-hero-1x.png",
+      "comparison2x": "checks/pickup-suv-hero-2x.png",
+      "integrationNote": "Top-down vehicle: footprint follows the car ground projection, not just its rear bumper.",
+      "footprintPreview": "checks/pickup-suv-footprint-1x.png"
+    },
+    {
+      "id": "playground-slide",
+      "file": "playground-slide-v1.png",
+      "size": [
+        192,
+        160
+      ],
+      "kind": "WALL",
+      "feetLine": 153,
+      "footPoint": [
+        96,
+        153
+      ],
+      "footprints": [
+        [
+          20,
+          127,
+          152,
+          26
+        ]
+      ],
+      "visibleBounds": [
+        10,
+        3,
+        182,
+        157
+      ],
+      "source": "sources/playground-slide.png",
+      "sourceSize": [
+        1374,
+        1145
+      ],
+      "sourceCrop": [
+        57,
+        9,
+        1325,
+        1143
+      ],
+      "working": "working/playground-slide-3x.png",
+      "workingSize": [
+        576,
+        480
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        29,
+        9,
+        517,
+        462
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/playground-slide-hero-1x.png",
+      "comparison2x": "checks/playground-slide-hero-2x.png",
+      "footprintPreview": "checks/playground-slide-footprint-1x.png"
+    },
+    {
+      "id": "monkey-bars",
+      "file": "monkey-bars-v1.png",
+      "size": [
+        224,
+        128
+      ],
+      "kind": "WALL",
+      "feetLine": 121,
+      "footPoint": [
+        112,
+        121
+      ],
+      "footprints": [
+        [
+          13,
+          77,
+          197,
+          44
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        3,
+        218,
+        125
+      ],
+      "source": "sources/monkey-bars.png",
+      "sourceSize": [
+        1659,
+        948
+      ],
+      "sourceCrop": [
+        7,
+        3,
+        1656,
+        944
+      ],
+      "working": "working/monkey-bars-3x.png",
+      "workingSize": [
+        672,
+        384
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        15,
+        9,
+        641,
+        366
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/monkey-bars-hero-1x.png",
+      "comparison2x": "checks/monkey-bars-hero-2x.png",
+      "footprintPreview": "checks/monkey-bars-footprint-1x.png"
+    },
+    {
+      "id": "merry-go-round",
+      "file": "merry-go-round-v1.png",
+      "size": [
+        160,
+        128
+      ],
+      "kind": "WALL",
+      "feetLine": 119,
+      "footPoint": [
+        80,
+        119
+      ],
+      "footprints": [
+        [
+          21,
+          79,
+          118,
+          40
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        5,
+        157,
+        123
+      ],
+      "source": "sources/merry-go-round.png",
+      "sourceSize": [
+        1402,
+        1122
+      ],
+      "sourceCrop": [
+        69,
+        91,
+        1342,
+        1074
+      ],
+      "working": "working/merry-go-round-3x.png",
+      "workingSize": [
+        480,
+        384
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        9,
+        13,
+        462,
+        357
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/merry-go-round-hero-1x.png",
+      "comparison2x": "checks/merry-go-round-hero-2x.png",
+      "footprintPreview": "checks/merry-go-round-footprint-1x.png"
+    },
+    {
+      "id": "four-square",
+      "file": "four-square-v1.png",
+      "size": [
+        256,
+        256
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 249,
+      "footPoint": [
+        128,
+        249
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        3,
+        254,
+        253
+      ],
+      "source": "sources/four-square.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        49,
+        54,
+        1204,
+        1202
+      ],
+      "working": "working/four-square-3x.png",
+      "workingSize": [
+        768,
+        768
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        6,
+        8,
+        756,
+        751
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/four-square-hero-1x.png",
+      "comparison2x": "checks/four-square-hero-2x.png",
+      "footprintPreview": "checks/four-square-footprint-1x.png"
+    },
+    {
+      "id": "hopscotch",
+      "file": "hopscotch-v1.png",
+      "size": [
+        96,
+        320
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 304,
+      "footPoint": [
+        48,
+        304
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        11,
+        94,
+        308
+      ],
+      "source": "sources/hopscotch.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        38,
+        62,
+        683,
+        2148
+      ],
+      "working": "working/hopscotch-3x.png",
+      "workingSize": [
+        288,
+        960
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        6,
+        33,
+        276,
+        893
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/hopscotch-hero-1x.png",
+      "comparison2x": "checks/hopscotch-hero-2x.png",
+      "footprintPreview": "checks/hopscotch-footprint-1x.png"
+    },
+    {
+      "id": "usa-map",
+      "file": "usa-map-v1.png",
+      "size": [
+        320,
+        224
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 215,
+      "footPoint": [
+        160,
+        215
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        4,
+        318,
+        219
+      ],
+      "source": "sources/usa-map.png",
+      "sourceSize": [
+        1499,
+        1049
+      ],
+      "sourceCrop": [
+        14,
+        30,
+        1487,
+        1036
+      ],
+      "working": "working/usa-map-3x.png",
+      "workingSize": [
+        960,
+        672
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        6,
+        12,
+        948,
+        647
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/usa-map-hero-1x.png",
+      "comparison2x": "checks/usa-map-hero-2x.png",
+      "footprintPreview": "checks/usa-map-footprint-1x.png"
+    },
+    {
+      "id": "bike-rack",
+      "file": "bike-rack-v1.png",
+      "size": [
+        160,
+        80
+      ],
+      "kind": "WALL",
+      "feetLine": 73,
+      "footPoint": [
+        80,
+        73
+      ],
+      "footprints": [
+        [
+          13,
+          60,
+          134,
+          13
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        3,
+        156,
+        77
+      ],
+      "source": "sources/bike-rack.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCrop": [
+        44,
+        36,
+        1741,
+        863
+      ],
+      "working": "working/bike-rack-3x.png",
+      "workingSize": [
+        480,
+        240
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        12,
+        9,
+        456,
+        222
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/bike-rack-hero-1x.png",
+      "comparison2x": "checks/bike-rack-hero-2x.png",
+      "footprintPreview": "checks/bike-rack-footprint-1x.png"
+    },
+    {
+      "id": "lost-and-found",
+      "file": "lost-and-found-v1.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "BREAKABLE",
+      "feetLine": 52,
+      "footPoint": [
+        32,
+        52
+      ],
+      "footprints": [
+        [
+          7,
+          44,
+          50,
+          8
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        7,
+        61,
+        56
+      ],
+      "source": "sources/lost-and-found.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        107,
+        183,
+        1138,
+        1068
+      ],
+      "working": "working/lost-and-found-3x.png",
+      "workingSize": [
+        192,
+        192
+      ],
+      "reductionFactor": 3,
+      "fit": [
+        9,
+        21,
+        174,
+        149
+      ],
+      "sourceFit": "proportional fit",
+      "palettePolicy": "Named HSV material masks; nearest tone only inside the selected material family.",
+      "comparison1x": "checks/lost-and-found-hero-1x.png",
+      "comparison2x": "checks/lost-and-found-hero-2x.png",
+      "footprintPreview": "checks/lost-and-found-footprint-1x.png"
+    }
+  ],
+  "reviewAssemblies": {
+    "pickup-queue": {
+      "size": [
+        512,
+        1024
+      ],
+      "layers": [
+        {
+          "id": "pickup-lane",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "minivan-a",
+          "position": [
+            304,
+            330
+          ]
+        },
+        {
+          "id": "minivan-b",
+          "position": [
+            304,
+            550
+          ]
+        },
+        {
+          "id": "pickup-suv",
+          "position": [
+            304,
+            770
+          ]
+        }
+      ],
+      "note": "Native-size review only. Cars stay independent; the left side remains wider than the 224px route target. This is not a runtime placement recipe."
+    }
+  }
+}

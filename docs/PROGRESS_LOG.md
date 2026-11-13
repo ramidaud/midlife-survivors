@@ -2381,3 +2381,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Tonight: playtest fixes (V2.30.1), the full map drawn and decided, the whole town laid out (V2.31.0), Elementary (V2.32.0) and Birch Circle (V2.33.0).
 - Strip Mall paused: it needs storefront and bank art, and the office parking-lot props don't match Maple Hollow's look. One Codex brief for the Strip Mall, Community Center and Town Square: `docs/handoffs/codex-town-buildings.md`.
 - Next session: send Codex the town buildings brief, then build Maple Park (62) or the Parkway (59) from the yard kit while the art is made.
+
+## 2026-11-13: V. 2.34.0, Elementary gets its school (Claude)
+- Codex's Elementary art (PR #7) reviewed and approved: school front, flagpole, sign, pickup lane with three cars, slide, monkey bars, merry-go-round, chalk decals, bike rack, lost-and-found bin. Matches the yard kit.
+- Elementary re-laid out around the school: pickup line off the road above, chalk on the left, playground (the Math Homework arena) on the right, soccer field below.
+- Signs say "MAPLE HOLLOW ELEM." and "BOOK FAIR MON / LICE CHECK TUE" (game text on Codex's blank plates).
+- Only the final pieces were copied in; PR #7 can be closed (its working files stay on the branch).

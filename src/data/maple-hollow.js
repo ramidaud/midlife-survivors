@@ -129,14 +129,28 @@ window.MAPLE_HOLLOW = {
         "swing-set": { dy: 156, fp: [[3, 137, 154, 20]] }, "sandbox": { dy: 76, fp: [[6, 26, 84, 48]] },
         "soccer-goal": { dy: 112, fp: [[3, 77, 154, 35]] }, "tree-maple-orange": { dy: 176, fp: [[60, 151, 24, 25]] },
         "autumn-shrub-a": { dy: 58 }, "autumn-shrub-b": { dy: 58 }, "autumn-shrub-c": { dy: 58 },
+        // Maple Hollow Elementary (Codex, PR #7, approved Nov 13): src is the file under assets/stage/home/
+        "school-front": { src: "v4/elementary/school-front-v1.png", dy: 534, fp: [[17, 446, 1066, 88]] },
+        "flagpole": { src: "v4/elementary/flagpole-v1.png", dy: 249, fp: [[18, 241, 12, 8]] },
+        "school-sign": { src: "v4/elementary/school-sign-v1.png", dy: 121, fp: [[37, 100, 182, 21]] },
+        "minivan-a": { src: "v4/elementary/minivan-a-v1.png", dy: 137, fp: [[12, 15, 56, 116]] },
+        "minivan-b": { src: "v4/elementary/minivan-b-v1.png", dy: 137, fp: [[11, 15, 58, 116]] },
+        "pickup-suv": { src: "v4/elementary/pickup-suv-v1.png", dy: 137, fp: [[11, 15, 58, 116]] },
+        "playground-slide": { src: "v4/elementary/playground-slide-v1.png", dy: 153, fp: [[20, 127, 152, 26]] },
+        "monkey-bars": { src: "v4/elementary/monkey-bars-v1.png", dy: 121, fp: [[13, 77, 197, 44]] },
+        "merry-go-round": { src: "v4/elementary/merry-go-round-v1.png", dy: 119, fp: [[21, 79, 118, 40]] },
+        "bike-rack": { src: "v4/elementary/bike-rack-v1.png", dy: 73, fp: [[13, 60, 134, 13]] },
+        "lost-and-found": { src: "v4/elementary/lost-and-found-v1.png", dy: 52, fp: [[7, 44, 50, 8]] },
+        "pickup-lane": { src: "v4/elementary/pickup-lane-v1.png", flat: true }, "four-square": { src: "v4/elementary/four-square-v1.png", flat: true },
+        "hopscotch": { src: "v4/elementary/hopscotch-v1.png", flat: true }, "usa-map": { src: "v4/elementary/usa-map-v1.png", flat: true },
         "toy-car": { flat: true }, "beach-ball": { flat: true }, "decal-leaf-drift": { flat: true }, "decal-scattered-maple": { flat: true }
       },
-      // Elementary v1 (Nov 13): the school grounds from the yard kit. The school building and the pickup line wait for
-      // Codex's art (docs/handoffs/codex-elementary.md); their spot is the open lawn at the top left.
+      // Elementary (Nov 13): Codex's school, pickup line, playground and chalk (PR #7) with yard-kit trees and swings.
       // [piece, x, y] inside the area (2960 x 2752), top-left corner of the picture.
       // Besides pieces, a layout can hold: ["house", x, y, frame] a neighbor's house (solid front), ["yard", x, y, theme] a
       // backyard plate with its theme's pieces (src/data/maple-yards.js), ["street", x, y, length, "capLeft"] a street band
-      // ending in the rounded dead end, ["asphalt", x, y, w, h] plain road where streets meet (may reach outside the area).
+      // ending in the rounded dead end, ["asphalt", x, y, w, h] plain road where streets meet (may reach outside the area),
+      // ["text", x, y, w, h, words, color] words painted on a blank sign (centered in that box).
       layouts: {
         // Birch Circle v1 (Nov 13): six houses on a street that ends in the cul-de-sac, HOA-perfect backyards behind them,
         // and the HOA common below the street, where the HOA President fights you (48).
@@ -150,30 +164,30 @@ window.MAPLE_HOLLOW = {
           ["autumn-shrub-a", 660, 1380], ["autumn-shrub-b", 1480, 1380], ["autumn-shrub-c", 2300, 1380]
         ],
         elementary: [
+          // the school, its sign and flag, the bike rack and the lost-and-found bin by the door
+          ["school-front", 100, 100], ["flagpole", 1200, 400], ["school-sign", 420, 700], ["bike-rack", 120, 700], ["lost-and-found", 760, 600],
+          ["text", 530, 341, 240, 32, "MAPLE HOLLOW ELEM.", "#171C35"], ["text", 464, 726, 168, 51, "BOOK FAIR MON\nLICE CHECK TUE", "#F2D7A1"],
+          // the pickup line, cars idling in it
+          ["pickup-lane", 1300, 0], ["minivan-a", 1360, 150], ["pickup-suv", 1360, 340], ["minivan-b", 1580, 540],
+          // chalk on the blacktop
+          ["four-square", 140, 980], ["hopscotch", 480, 920], ["usa-map", 700, 1000],
           // the playground, where the Math Homework fight happens
-          ["swing-set", 1500, 820], ["swing-set", 1760, 820], ["swing-set", 2020, 820], ["sandbox", 1560, 1380], ["sandbox", 2260, 1420],
-          ["toy-car", 1820, 1300], ["beach-ball", 1700, 1560], ["beach-ball", 2140, 1250], ["decal-scattered-maple", 1980, 1700],
+          ["swing-set", 1980, 760], ["swing-set", 2240, 760], ["playground-slide", 2500, 770], ["monkey-bars", 2000, 1080],
+          ["merry-go-round", 2330, 1120], ["sandbox", 2620, 1160], ["toy-car", 2200, 1400], ["beach-ball", 2100, 1300], ["beach-ball", 2560, 1420],
           // the soccer field, one goal at each end
-          ["soccer-goal", 520, 1180], ["soccer-goal", 520, 2260], ["beach-ball", 600, 1700], ["decal-leaf-drift", 760, 1500],
+          ["soccer-goal", 520, 1480], ["soccer-goal", 520, 2380], ["beach-ball", 600, 1900], ["decal-leaf-drift", 760, 1700],
           // trees and shrubs around the edges, with wide gaps to walk in from every road
-          ["tree-maple-orange", 120, 240], ["tree-maple-orange", 1180, 200], ["tree-maple-orange", 2600, 260], ["tree-maple-orange", 2620, 1150],
-          ["tree-maple-orange", 2600, 2250], ["tree-maple-orange", 1250, 2380], ["tree-maple-orange", 140, 1650],
-          ["autumn-shrub-a", 1400, 2200], ["autumn-shrub-b", 2400, 600], ["autumn-shrub-c", 300, 900], ["autumn-shrub-a", 2200, 2100],
-          ["decal-leaf-drift", 1300, 600], ["decal-scattered-maple", 400, 2500], ["decal-leaf-drift", 2300, 1900],
-          // groves in the corners, shrubs around the playground, a broken row of trees along the bottom (gaps to walk in)
-          ["tree-maple-orange", 2380, 120], ["tree-maple-orange", 2560, 90], ["tree-maple-orange", 2720, 330], ["tree-maple-orange", 2450, 420],
-          ["tree-maple-orange", 300, 2540], ["tree-maple-orange", 640, 2560], ["tree-maple-orange", 1720, 2560], ["tree-maple-orange", 2080, 2540],
+          ["tree-maple-orange", 2600, 160], ["tree-maple-orange", 2780, 380], ["tree-maple-orange", 2620, 2250], ["tree-maple-orange", 1250, 2380],
+          ["tree-maple-orange", 140, 1650], ["tree-maple-orange", 300, 2540], ["tree-maple-orange", 1720, 2560], ["tree-maple-orange", 2080, 2540],
           ["tree-maple-orange", 60, 2200], ["tree-maple-orange", 2720, 1700], ["tree-maple-orange", 1480, 1980], ["tree-maple-orange", 2300, 2000],
-          ["autumn-shrub-a", 1400, 780], ["autumn-shrub-b", 2280, 800], ["autumn-shrub-c", 1440, 1640], ["autumn-shrub-a", 2380, 1660],
-          ["autumn-shrub-b", 60, 1100], ["autumn-shrub-c", 60, 1350], ["autumn-shrub-a", 1000, 2620], ["autumn-shrub-b", 2700, 900],
-          ["autumn-shrub-c", 1300, 120], ["autumn-shrub-a", 1650, 140], ["autumn-shrub-b", 2000, 120],
-          ["toy-car", 2160, 1030], ["beach-ball", 1620, 1120], ["beach-ball", 400, 1500],
-          ["decal-leaf-drift", 180, 600], ["decal-scattered-maple", 900, 1100], ["decal-leaf-drift", 1100, 1900], ["decal-scattered-maple", 1600, 2300],
-          ["decal-leaf-drift", 2500, 1300], ["decal-scattered-maple", 2600, 2450], ["decal-leaf-drift", 1900, 450], ["decal-scattered-maple", 700, 300],
-          ["decal-leaf-drift", 300, 2000], ["decal-scattered-maple", 2050, 2250], ["decal-leaf-drift", 1250, 1300], ["decal-scattered-maple", 2750, 600]
+          ["autumn-shrub-a", 1940, 700], ["autumn-shrub-b", 2700, 700], ["autumn-shrub-c", 1940, 1500], ["autumn-shrub-a", 2700, 1560],
+          ["autumn-shrub-b", 60, 1300], ["autumn-shrub-c", 1000, 2620], ["autumn-shrub-a", 2200, 2100], ["autumn-shrub-b", 1950, 120],
+          ["decal-leaf-drift", 1900, 450], ["decal-scattered-maple", 400, 2500], ["decal-leaf-drift", 2300, 1900], ["decal-scattered-maple", 900, 1400],
+          ["decal-leaf-drift", 1100, 1900], ["decal-scattered-maple", 1600, 2300], ["decal-leaf-drift", 2500, 1300], ["decal-scattered-maple", 2600, 2450],
+          ["decal-leaf-drift", 300, 2000], ["decal-scattered-maple", 2050, 2250], ["decal-scattered-maple", 2750, 600]
         ]
       },
-      bossSpots: { mathHomework: ["elementary", 1880, 1250], hoaPresident: ["birch", 640, 1090] } // where each boss comes out, if its area is open
+      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090] } // where each boss comes out, if its area is open
     },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood

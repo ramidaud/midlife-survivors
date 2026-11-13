@@ -51,7 +51,7 @@ window.MapleHollow = (() => {
     // Nov 13: the yard-kit pieces the town's areas reuse (MAPLE_HOLLOW.v2.town.pieces)
     const TNd = NEW && data.town && MV.town ? MV.town : null, tp = {};
     if (TNd) try {
-      const files = Object.keys(TNd.pieces || {}), imgs = await Promise.all(files.map(f => H.image(ROOT + "v4/yard/" + f + "-v4.png")));
+      const files = Object.keys(TNd.pieces || {}), imgs = await Promise.all(files.map(f => H.image(ROOT + (TNd.pieces[f].src || "v4/yard/" + f + "-v4.png"))));
       files.forEach((f, i) => { tp[f] = imgs[i]; });
     } catch (e) { tp.failed = true; console.warn("town pieces missing", e); }
     if (!H.isAlive()) return null;
@@ -585,6 +585,11 @@ window.MapleHollow = (() => {
           const len = e[3];
           for (let k2 = 0, xx = X; xx < X + len; k2++, xx += 832) { const o = extra(scene.add.image(xx, Y, k2 % 2 ? "mh_plate_b" : "mh_plate_a").setOrigin(0).setDepth(-999.7)); o.setCrop(0, 0, Math.min(832, X + len - xx), 512); }
           if (e[4] === "capLeft" && se.left && SE) { const [ca, cb] = SE.left.crop; extra(scene.add.image(X - (cb - ca), Y, keyed("mh_end_left", se.left, ca, 0, cb - ca, se.left.height)).setOrigin(0).setDepth(-999.7)); }
+          return;
+        }
+        if (kind === "text") { // words on a blank sign, above the sign itself
+          const [, , , w, h, words, col] = e;
+          extra(scene.add.text(X + w / 2, Y + h / 2, words, { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: col || "#171C35", align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(Y + h + 20000));
           return;
         }
         if (kind === "asphalt") { extra(scene.add.tileSprite(X, Y, e[3], e[4], streetKey).setOrigin(0).setDepth(-999.6)); return; }
