@@ -1,0 +1,2047 @@
+{
+  "status": "Art review only. Nothing placed in game.",
+  "method": "Built-in imagegen, proportionally fitted to exact 3x working canvases, whole-number block-mode reduction, material-family palette mapping. No procedural world artwork.",
+  "privacy": "Written brief and public game art only; private reference photos were not attached to this chat. No people, faces, license plates or identifying text. ABE tiles are explicitly permitted.",
+  "layoutSource": "src/data/house-v2.js floor2, existing room sizes and openings unchanged.",
+  "coordinates": "Native room-local pixels; wall art y is -128 to 0. Footprints [x,y,w,h], feetLine y, footPoint [x,y]. Depth uses the foot point, ground first, wall-mounted decor separately.",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "pieces": [
+    {
+      "id": "king-bed",
+      "file": "king-bed-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        184,
+        240
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 237,
+      "footPoint": [
+        92,
+        237
+      ],
+      "footprints": [
+        [
+          12,
+          48,
+          160,
+          184
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        2,
+        175,
+        238
+      ],
+      "source": "../sources/king-bed.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        61,
+        53,
+        1017,
+        1400
+      ],
+      "sourceFit": [
+        25,
+        6,
+        502,
+        708
+      ],
+      "working": "working/king-bed-3x.png",
+      "workingSize": [
+        552,
+        720
+      ],
+      "reductionFactor": 3,
+      "description": "King bed, tall upholstered cream nailhead headboard with curved wood top at NORTH, bed runs south toward camera. White messy sheets, rust orange pillows and rumpled duvet, grey throw. No people.",
+      "comparison1x": "checks/king-bed-hero-1x.png"
+    },
+    {
+      "id": "nightstand-left",
+      "file": "nightstand-left-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        76,
+        96
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 93,
+      "footPoint": [
+        38,
+        93
+      ],
+      "footprints": [
+        [
+          16,
+          64,
+          44,
+          26
+        ]
+      ],
+      "visibleBounds": [
+        13,
+        2,
+        63,
+        94
+      ],
+      "source": "../sources/nightstand-left.png",
+      "sourceSize": [
+        1116,
+        1409
+      ],
+      "sourceCrop": [
+        216,
+        126,
+        863,
+        1310
+      ],
+      "sourceFit": [
+        38,
+        6,
+        151,
+        276
+      ],
+      "working": "working/nightstand-left-3x.png",
+      "workingSize": [
+        228,
+        288
+      ],
+      "reductionFactor": 3,
+      "description": "Dark wood nightstand, small turned cream lamp rising at back, little sleep machine and baby bottle on lighter oak top. Table surface is only 36 pixels high; lamp rises to 90 pixels.",
+      "comparison1x": "checks/nightstand-left-hero-1x.png"
+    },
+    {
+      "id": "nightstand-right",
+      "file": "nightstand-right-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        76,
+        96
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 93,
+      "footPoint": [
+        38,
+        93
+      ],
+      "footprints": [
+        [
+          12,
+          64,
+          52,
+          26
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        2,
+        67,
+        94
+      ],
+      "source": "../sources/nightstand-right.png",
+      "sourceSize": [
+        1115,
+        1411
+      ],
+      "sourceCrop": [
+        137,
+        74,
+        942,
+        1348
+      ],
+      "sourceFit": [
+        27,
+        6,
+        174,
+        276
+      ],
+      "working": "working/nightstand-right-3x.png",
+      "workingSize": [
+        228,
+        288
+      ],
+      "reductionFactor": 3,
+      "description": "Dark wood nightstand, small turned cream lamp, red night light, diaper caddy and water bottle. Table surface only 36 pixels high; lamp 90 pixels.",
+      "comparison1x": "checks/nightstand-right-hero-1x.png"
+    },
+    {
+      "id": "wooden-crib",
+      "file": "wooden-crib-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        108,
+        148
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 145,
+      "footPoint": [
+        54,
+        145
+      ],
+      "footprints": [
+        [
+          10,
+          34,
+          88,
+          108
+        ]
+      ],
+      "visibleBounds": [
+        8,
+        2,
+        100,
+        146
+      ],
+      "source": "../sources/wooden-crib.png",
+      "sourceSize": [
+        1043,
+        1508
+      ],
+      "sourceCrop": [
+        110,
+        111,
+        933,
+        1395
+      ],
+      "sourceFit": [
+        23,
+        6,
+        277,
+        432
+      ],
+      "working": "working/wooden-crib-3x.png",
+      "workingSize": [
+        324,
+        444
+      ],
+      "reductionFactor": 3,
+      "description": "Wooden crib, long axis north-south, white mattress and muslin blanket, open oak rails. Viewed from above, subtly from south. Rail height about 52 pixels, footprint 96x108.",
+      "comparison1x": "checks/wooden-crib-hero-1x.png"
+    },
+    {
+      "id": "double-bassinet",
+      "file": "double-bassinet-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        172,
+        92
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 89,
+      "footPoint": [
+        86,
+        89
+      ],
+      "footprints": [
+        [
+          6,
+          30,
+          160,
+          56
+        ]
+      ],
+      "visibleBounds": [
+        6,
+        2,
+        166,
+        90
+      ],
+      "source": "../sources/double-bassinet.png",
+      "sourceSize": [
+        1717,
+        916
+      ],
+      "sourceCrop": [
+        122,
+        74,
+        1586,
+        873
+      ],
+      "sourceFit": [
+        16,
+        6,
+        484,
+        264
+      ],
+      "working": "working/double-bassinet-3x.png",
+      "workingSize": [
+        516,
+        276
+      ],
+      "reductionFactor": 3,
+      "description": "Two sleeping bassinets in ONE dark grey frame, white muslin and baby socks, cream mattress interiors, sound machine attached. Low horizontal double bassinet seen from above, no babies, no seats.",
+      "comparison1x": "checks/double-bassinet-hero-1x.png"
+    },
+    {
+      "id": "cream-daybed-west",
+      "file": "cream-daybed-west-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        72,
+        164
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 161,
+      "footPoint": [
+        36,
+        161
+      ],
+      "footprints": [
+        [
+          10,
+          20,
+          52,
+          138
+        ]
+      ],
+      "visibleBounds": [
+        8,
+        2,
+        64,
+        162
+      ],
+      "source": "../sources/cream-daybed-west.png",
+      "sourceSize": [
+        830,
+        1894
+      ],
+      "sourceCrop": [
+        98,
+        62,
+        707,
+        1769
+      ],
+      "sourceFit": [
+        22,
+        6,
+        171,
+        480
+      ],
+      "working": "working/cream-daybed-west-3x.png",
+      "workingSize": [
+        216,
+        492
+      ],
+      "reductionFactor": 3,
+      "description": "Cream covered narrow daybed against west wall facing EAST, long axis north-south. Show the top of pillows, knit cream cover and short exposed wood feet, little muslin cloth. Low furniture.",
+      "comparison1x": "checks/cream-daybed-west-hero-1x.png"
+    },
+    {
+      "id": "master-dresser-east",
+      "file": "master-dresser-east-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        60,
+        148
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 145,
+      "footPoint": [
+        30,
+        145
+      ],
+      "footprints": [
+        [
+          6,
+          12,
+          48,
+          130
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        6,
+        58,
+        146
+      ],
+      "source": "../sources/master-dresser-east.png",
+      "sourceSize": [
+        799,
+        1969
+      ],
+      "sourceCrop": [
+        169,
+        462,
+        591,
+        1522
+      ],
+      "sourceFit": [
+        6,
+        16,
+        168,
+        422
+      ],
+      "working": "working/master-dresser-east-3x.png",
+      "workingSize": [
+        180,
+        444
+      ],
+      "reductionFactor": 3,
+      "description": "Dark wood low dresser against EAST wall facing WEST: overhead tabletop, narrow visible WEST drawer edge on LEFT, long north-south. Water jug, folded cloth on light wood top. Furniture surface under 48 pixels tall.",
+      "comparison1x": "checks/master-dresser-east-hero-1x.png"
+    },
+    {
+      "id": "baby-supplies",
+      "file": "baby-supplies-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        56,
+        36
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 33,
+      "footPoint": [
+        28,
+        33
+      ],
+      "footprints": [
+        [
+          4,
+          12,
+          48,
+          20
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        2,
+        52,
+        34
+      ],
+      "source": "../sources/baby-supplies.png",
+      "sourceSize": [
+        1564,
+        1006
+      ],
+      "sourceCrop": [
+        207,
+        162,
+        1303,
+        874
+      ],
+      "sourceFit": [
+        10,
+        6,
+        148,
+        96
+      ],
+      "working": "working/baby-supplies-3x.png",
+      "workingSize": [
+        168,
+        108
+      ],
+      "reductionFactor": 3,
+      "description": "Soft open bag of baby supplies, diapers, rolled muslin cloth, baby socks tucked inside. Warm cream fabric, sage details, ground-level low bag.",
+      "comparison1x": "checks/baby-supplies-hero-1x.png"
+    },
+    {
+      "id": "socks-decal",
+      "file": "socks-decal-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        48,
+        28
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 25,
+      "footPoint": [
+        24,
+        25
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        4,
+        2,
+        44,
+        26
+      ],
+      "source": "../sources/socks-decal.png",
+      "sourceSize": [
+        1642,
+        958
+      ],
+      "sourceCrop": [
+        81,
+        47,
+        1557,
+        909
+      ],
+      "sourceFit": [
+        10,
+        6,
+        123,
+        72
+      ],
+      "working": "working/socks-decal-3x.png",
+      "workingSize": [
+        144,
+        84
+      ],
+      "reductionFactor": 3,
+      "description": "Three mismatched loose socks and one baby sock, flat on floor, no outline and no shadow, no carpet backing.",
+      "comparison1x": "checks/socks-decal-hero-1x.png"
+    },
+    {
+      "id": "bedroom-window",
+      "file": "bedroom-window-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        140,
+        124
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 121,
+      "footPoint": [
+        70,
+        121
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        7,
+        138,
+        122
+      ],
+      "source": "../sources/bedroom-window.png",
+      "sourceSize": [
+        1334,
+        1179
+      ],
+      "sourceCrop": [
+        77,
+        89,
+        1257,
+        1090
+      ],
+      "sourceFit": [
+        6,
+        20,
+        408,
+        346
+      ],
+      "working": "working/bedroom-window-3x.png",
+      "workingSize": [
+        420,
+        372
+      ],
+      "reductionFactor": 3,
+      "description": "Face-on NORTH-wall window, white vertical blinds, oak frame, cream valance. Architectural wall-mounted object, not a freestanding window, transparent outside frame.",
+      "comparison1x": "checks/bedroom-window-hero-1x.png"
+    },
+    {
+      "id": "sleigh-bed",
+      "file": "sleigh-bed-v1.png",
+      "room": "abe-room",
+      "size": [
+        156,
+        228
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 225,
+      "footPoint": [
+        78,
+        225
+      ],
+      "footprints": [
+        [
+          8,
+          44,
+          140,
+          176
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        8,
+        154,
+        226
+      ],
+      "source": "../sources/sleigh-bed.png",
+      "sourceSize": [
+        1037,
+        1517
+      ],
+      "sourceCrop": [
+        109,
+        211,
+        918,
+        1374
+      ],
+      "sourceFit": [
+        6,
+        22,
+        456,
+        656
+      ],
+      "working": "working/sleigh-bed-3x.png",
+      "workingSize": [
+        468,
+        684
+      ],
+      "reductionFactor": 3,
+      "description": "Dark wood sleigh bed, headboard at NORTH, footboard to south camera, navy duvet with lighter slate folds and cream grey striped blanket. Small blue LED under-bed glow confined to feet, neutral daylight elsewhere.",
+      "comparison1x": "checks/sleigh-bed-hero-1x.png"
+    },
+    {
+      "id": "music-desk",
+      "file": "music-desk-v1.png",
+      "room": "abe-room",
+      "size": [
+        204,
+        92
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 89,
+      "footPoint": [
+        102,
+        89
+      ],
+      "footprints": [
+        [
+          8,
+          56,
+          188,
+          30
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        26,
+        202,
+        90
+      ],
+      "source": "../sources/music-desk.png",
+      "sourceSize": [
+        1890,
+        832
+      ],
+      "sourceCrop": [
+        53,
+        170,
+        1836,
+        746
+      ],
+      "sourceFit": [
+        6,
+        76,
+        600,
+        194
+      ],
+      "working": "working/music-desk-3x.png",
+      "workingSize": [
+        612,
+        276
+      ],
+      "reductionFactor": 3,
+      "description": "Black music desk facing NORTH wall, tabletop at only 44px height. Laptop, mechanical keyboard, mouse, little MIDI keyboard, mic boom, two studio speakers, leaning whiteboard behind showing only abstract blank doodles, no words. Lighter slate tabletop catches daylight.",
+      "comparison1x": "checks/music-desk-hero-1x.png"
+    },
+    {
+      "id": "gaming-chair",
+      "file": "gaming-chair-v1.png",
+      "room": "abe-room",
+      "size": [
+        56,
+        60
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        28,
+        57
+      ],
+      "footprints": [
+        [
+          14,
+          30,
+          28,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        11,
+        2,
+        45,
+        58
+      ],
+      "source": "../sources/gaming-chair.png",
+      "sourceSize": [
+        1212,
+        1298
+      ],
+      "sourceCrop": [
+        246,
+        92,
+        964,
+        1240
+      ],
+      "sourceFit": [
+        31,
+        6,
+        105,
+        168
+      ],
+      "working": "working/gaming-chair-3x.png",
+      "workingSize": [
+        168,
+        180
+      ],
+      "reductionFactor": 3,
+      "description": "Black mesh gaming chair, rear view, facing NORTH toward desk, top-down seat and mesh back, five casters. Slate highlights make dark chair readable.",
+      "comparison1x": "checks/gaming-chair-hero-1x.png"
+    },
+    {
+      "id": "tv-cube-shelf-east",
+      "file": "tv-cube-shelf-east-v1.png",
+      "room": "abe-room",
+      "size": [
+        64,
+        144
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 141,
+      "footPoint": [
+        32,
+        141
+      ],
+      "footprints": [
+        [
+          12,
+          36,
+          40,
+          102
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        2,
+        55,
+        142
+      ],
+      "source": "../sources/tv-cube-shelf-east.png",
+      "sourceSize": [
+        836,
+        1881
+      ],
+      "sourceCrop": [
+        135,
+        144,
+        693,
+        1791
+      ],
+      "sourceFit": [
+        25,
+        6,
+        142,
+        420
+      ],
+      "working": "working/tv-cube-shelf-east-3x.png",
+      "workingSize": [
+        192,
+        432
+      ],
+      "reductionFactor": 3,
+      "description": "Black low cube shelf against EAST wall facing WEST. Viewed overhead and from west: long north-south footprint, narrow west-facing front edge at LEFT, TV panel along right/east edge seen obliquely facing left. Astronomy book with abstract star cover no title, game cases, Pac-Man-like generic ghost lamp, light-colored props. No front-facing north TV.",
+      "comparison1x": "checks/tv-cube-shelf-east-hero-1x.png"
+    },
+    {
+      "id": "record-dresser-south",
+      "file": "record-dresser-south-v1.png",
+      "room": "abe-room",
+      "size": [
+        204,
+        76
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 73,
+      "footPoint": [
+        102,
+        73
+      ],
+      "footprints": [
+        [
+          6,
+          38,
+          192,
+          32
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        18,
+        202,
+        74
+      ],
+      "source": "../sources/record-dresser-south.png",
+      "sourceSize": [
+        2059,
+        764
+      ],
+      "sourceCrop": [
+        32,
+        113,
+        2027,
+        675
+      ],
+      "sourceFit": [
+        6,
+        53,
+        600,
+        169
+      ],
+      "working": "working/record-dresser-south-3x.png",
+      "workingSize": [
+        612,
+        228
+      ],
+      "reductionFactor": 3,
+      "description": "Navy fluted low dresser against SOUTH wall, viewed FROM BEHIND and above: do not show drawer fronts. Broad light navy top with vintage turntable orange record and raised dust cover on silver stereo receiver, red quatrefoil-shade small lamp, little white radio. Top surface below hero height. Thin dark rear panels nearest viewer.",
+      "comparison1x": "checks/record-dresser-south-hero-1x.png"
+    },
+    {
+      "id": "collectibles-shelf",
+      "file": "collectibles-shelf-v1.png",
+      "room": "abe-room",
+      "size": [
+        100,
+        104
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 101,
+      "footPoint": [
+        50,
+        101
+      ],
+      "footprints": [
+        [
+          16,
+          76,
+          68,
+          22
+        ]
+      ],
+      "visibleBounds": [
+        14,
+        2,
+        85,
+        102
+      ],
+      "source": "../sources/collectibles-shelf.png",
+      "sourceSize": [
+        1230,
+        1279
+      ],
+      "sourceCrop": [
+        194,
+        66,
+        1023,
+        1223
+      ],
+      "sourceFit": [
+        42,
+        6,
+        215,
+        300
+      ],
+      "working": "working/collectibles-shelf-3x.png",
+      "workingSize": [
+        300,
+        312
+      ],
+      "reductionFactor": 3,
+      "description": "Tall black cube shelf facing SOUTH from north wall, 3 columns and 3 rows, slate edge highlights. Vintage cameras, baseball in clear case, bobbleheads, toy car, picture book. TWO tiny generic green alien figures wearing robes ON TOP, NOT licensed characters, no faces on photos. Beside figures a small slatted wood LED lamp glowing TEAL locally.",
+      "comparison1x": "checks/collectibles-shelf-hero-1x.png"
+    },
+    {
+      "id": "hamper",
+      "file": "hamper-v1.png",
+      "room": "abe-room",
+      "size": [
+        48,
+        52
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 49,
+      "footPoint": [
+        24,
+        49
+      ],
+      "footprints": [
+        [
+          6,
+          22,
+          36,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        2,
+        43,
+        50
+      ],
+      "source": "../sources/hamper.png",
+      "sourceSize": [
+        1205,
+        1305
+      ],
+      "sourceCrop": [
+        204,
+        171,
+        991,
+        1156
+      ],
+      "sourceFit": [
+        14,
+        6,
+        115,
+        144
+      ],
+      "working": "working/hamper-3x.png",
+      "workingSize": [
+        144,
+        156
+      ],
+      "reductionFactor": 3,
+      "description": "Striped cream and navy laundry hamper overflowing slightly with pale cloth, high top-down view, no room backing.",
+      "comparison1x": "checks/hamper-hero-1x.png"
+    },
+    {
+      "id": "robot-figure",
+      "file": "robot-figure-v1.png",
+      "room": "abe-room",
+      "size": [
+        28,
+        32
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 29,
+      "footPoint": [
+        14,
+        29
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        16,
+        26,
+        30
+      ],
+      "source": "../sources/robot-figure.png",
+      "sourceSize": [
+        1173,
+        1341
+      ],
+      "sourceCrop": [
+        90,
+        416,
+        1052,
+        977
+      ],
+      "sourceFit": [
+        6,
+        48,
+        72,
+        42
+      ],
+      "working": "working/robot-figure-3x.png",
+      "workingSize": [
+        84,
+        96
+      ],
+      "reductionFactor": 3,
+      "description": "Small generic silver and teal robot toy lying flat on its back, viewed straight down. No dark outer outline or cast shadow. Walk-through floor detail.",
+      "comparison1x": "checks/robot-figure-hero-1x.png"
+    },
+    {
+      "id": "space-wall",
+      "file": "space-wall-v1.png",
+      "room": "abe-room",
+      "size": [
+        100,
+        108
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 105,
+      "footPoint": [
+        50,
+        105
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        5,
+        2,
+        95,
+        106
+      ],
+      "source": "../sources/space-wall.png",
+      "sourceSize": [
+        1207,
+        1303
+      ],
+      "sourceCrop": [
+        72,
+        21,
+        1140,
+        1256
+      ],
+      "sourceFit": [
+        15,
+        6,
+        270,
+        312
+      ],
+      "working": "working/space-wall-3x.png",
+      "workingSize": [
+        300,
+        324
+      ],
+      "reductionFactor": 3,
+      "description": "Compact face-on wall display: NASA 60th anniversary space poster at top left with orbit and stars and readable NASA 60, smaller retro MARS travel poster at right; bottom wooden individual tiles spelling exactly ABE. Transparent BETWEEN the separate frames and tiles. No license plates, no faces.",
+      "comparison1x": "checks/space-wall-hero-1x.png"
+    },
+    {
+      "id": "controller-guitar-wall",
+      "file": "controller-guitar-wall-v1.png",
+      "room": "abe-room",
+      "size": [
+        112,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 109,
+      "footPoint": [
+        56,
+        109
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        7,
+        2,
+        105,
+        110
+      ],
+      "source": "../sources/controller-guitar-wall.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        120,
+        63,
+        1163,
+        1201
+      ],
+      "sourceFit": [
+        19,
+        6,
+        297,
+        324
+      ],
+      "working": "working/controller-guitar-wall-3x.png",
+      "workingSize": [
+        336,
+        336
+      ],
+      "reductionFactor": 3,
+      "description": "Face-on NORTH-wall decor cluster: square canvas showing WHITE game controller over red and black splatter on left; sunburst acoustic guitar on wall hook on right, entire guitar visible. Transparent between two objects, no wall backing.",
+      "comparison1x": "checks/controller-guitar-wall-hero-1x.png"
+    },
+    {
+      "id": "neon-wall",
+      "file": "neon-wall-v1.png",
+      "room": "abe-room",
+      "size": [
+        156,
+        56
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 53,
+      "footPoint": [
+        78,
+        53
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        18,
+        154,
+        54
+      ],
+      "source": "../sources/neon-wall.png",
+      "sourceSize": [
+        2095,
+        751
+      ],
+      "sourceCrop": [
+        108,
+        143,
+        1986,
+        595
+      ],
+      "sourceFit": [
+        6,
+        52,
+        456,
+        110
+      ],
+      "working": "working/neon-wall-3x.png",
+      "workingSize": [
+        468,
+        168
+      ],
+      "reductionFactor": 3,
+      "description": "Two separate face-on north wall neon signs, left exactly LIVE MUSIC in red tubing with a music note; right triangle circle X square glowing cyan and pink. Glow confined to tubing, transparent between signs, no wall panel.",
+      "comparison1x": "checks/neon-wall-hero-1x.png"
+    },
+    {
+      "id": "pennant-car-wall",
+      "file": "pennant-car-wall-v1.png",
+      "room": "abe-room",
+      "size": [
+        156,
+        60
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 57,
+      "footPoint": [
+        78,
+        57
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        11,
+        2,
+        145,
+        58
+      ],
+      "source": "../sources/pennant-car-wall.png",
+      "sourceSize": [
+        2022,
+        778
+      ],
+      "sourceCrop": [
+        107,
+        12,
+        1916,
+        766
+      ],
+      "sourceFit": [
+        32,
+        6,
+        403,
+        168
+      ],
+      "working": "working/pennant-car-wall-3x.png",
+      "workingSize": [
+        468,
+        180
+      ],
+      "reductionFactor": 3,
+      "description": "Face-on north wall decor: top narrow navy and cream triangular pennant reading TIRE & RUBBER, NO real logo; beneath it two small framed supercar posters with no license plates or branding. Tiny abstract landscape frame between. Transparent gaps, no wall backing.",
+      "comparison1x": "checks/pennant-car-wall-hero-1x.png"
+    },
+    {
+      "id": "hoop-closet",
+      "file": "hoop-closet-v1.png",
+      "room": "abe-closet",
+      "size": [
+        132,
+        124
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 121,
+      "footPoint": [
+        66,
+        121
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        21,
+        2,
+        111,
+        122
+      ],
+      "source": "../sources/hoop-closet.png",
+      "sourceSize": [
+        1295,
+        1215
+      ],
+      "sourceCrop": [
+        210,
+        33,
+        1084,
+        1181
+      ],
+      "sourceFit": [
+        61,
+        6,
+        274,
+        360
+      ],
+      "working": "working/hoop-closet-3x.png",
+      "workingSize": [
+        396,
+        372
+      ],
+      "reductionFactor": 3,
+      "description": "Face-on oak bifold closet doors hanging on north wall, with miniature over-door basketball hoop, generic scoreboard without words, white net, race medals ribbons hanging from door knob. No names or faces. Bottom at floor line.",
+      "comparison1x": "checks/hoop-closet-hero-1x.png"
+    },
+    {
+      "id": "traffic-light",
+      "file": "traffic-light-v1.png",
+      "room": "abe-room",
+      "size": [
+        28,
+        68
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 65,
+      "footPoint": [
+        14,
+        65
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        13,
+        26,
+        66
+      ],
+      "source": "../sources/traffic-light.png",
+      "sourceSize": [
+        805,
+        1954
+      ],
+      "sourceCrop": [
+        45,
+        262,
+        689,
+        1702
+      ],
+      "sourceFit": [
+        6,
+        37,
+        72,
+        161
+      ],
+      "working": "working/traffic-light-3x.png",
+      "workingSize": [
+        84,
+        204
+      ],
+      "reductionFactor": 3,
+      "description": "Small face-on yellow traffic-light wall lamp, three round lenses red amber green in vertical yellow casing. Local lens glow, no room tint.",
+      "comparison1x": "checks/traffic-light-hero-1x.png"
+    },
+    {
+      "id": "tub-east",
+      "file": "tub-east-v1.png",
+      "room": "bathroom",
+      "size": [
+        72,
+        180
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 177,
+      "footPoint": [
+        36,
+        177
+      ],
+      "footprints": [
+        [
+          4,
+          10,
+          64,
+          164
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        2,
+        69,
+        178
+      ],
+      "source": "../sources/tub-east.png",
+      "sourceSize": [
+        793,
+        1983
+      ],
+      "sourceCrop": [
+        67,
+        110,
+        718,
+        1829
+      ],
+      "sourceFit": [
+        8,
+        6,
+        200,
+        528
+      ],
+      "working": "working/tub-east-3x.png",
+      "workingSize": [
+        216,
+        540
+      ],
+      "reductionFactor": 3,
+      "description": "White bathtub against EAST wall, long north-south, seen overhead from southwest, polished rim, silver tap at north, row of shampoo bottles along east rim. Cream white enamel, slate shadows.",
+      "comparison1x": "checks/tub-east-hero-1x.png"
+    },
+    {
+      "id": "bath-vanity",
+      "file": "bath-vanity-v1.png",
+      "room": "bathroom",
+      "size": [
+        100,
+        60
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 57,
+      "footPoint": [
+        50,
+        57
+      ],
+      "footprints": [
+        [
+          6,
+          26,
+          88,
+          28
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        13,
+        98,
+        58
+      ],
+      "source": "../sources/bath-vanity.png",
+      "sourceSize": [
+        1642,
+        958
+      ],
+      "sourceCrop": [
+        28,
+        142,
+        1613,
+        896
+      ],
+      "sourceFit": [
+        6,
+        37,
+        288,
+        137
+      ],
+      "working": "working/bath-vanity-3x.png",
+      "workingSize": [
+        300,
+        180
+      ],
+      "reductionFactor": 3,
+      "description": "Small bathroom vanity against NORTH wall, cream sink and oak cabinet, overhead sink basin, tall silver faucet, soap cup and toothbrush cup. Counter under hero height.",
+      "comparison1x": "checks/bath-vanity-hero-1x.png"
+    },
+    {
+      "id": "toilet-plant",
+      "file": "toilet-plant-v1.png",
+      "room": "bathroom",
+      "size": [
+        56,
+        68
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 65,
+      "footPoint": [
+        28,
+        65
+      ],
+      "footprints": [
+        [
+          18,
+          24,
+          20,
+          38
+        ]
+      ],
+      "visibleBounds": [
+        15,
+        2,
+        41,
+        66
+      ],
+      "source": "../sources/toilet-plant.png",
+      "sourceSize": [
+        1138,
+        1382
+      ],
+      "sourceCrop": [
+        308,
+        77,
+        838,
+        1331
+      ],
+      "sourceFit": [
+        43,
+        6,
+        81,
+        192
+      ],
+      "working": "working/toilet-plant-3x.png",
+      "workingSize": [
+        168,
+        204
+      ],
+      "reductionFactor": 3,
+      "description": "White toilet facing south with small sage plant on tank, viewed from above, cream highlights, slate shadows. Detached object.",
+      "comparison1x": "checks/toilet-plant-hero-1x.png"
+    },
+    {
+      "id": "towel-bar",
+      "file": "towel-bar-v1.png",
+      "room": "bathroom",
+      "size": [
+        100,
+        56
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 53,
+      "footPoint": [
+        50,
+        53
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        20,
+        2,
+        79,
+        54
+      ],
+      "source": "../sources/towel-bar.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceCrop": [
+        345,
+        42,
+        1326,
+        895
+      ],
+      "sourceFit": [
+        60,
+        6,
+        179,
+        156
+      ],
+      "working": "working/towel-bar-3x.png",
+      "workingSize": [
+        300,
+        168
+      ],
+      "reductionFactor": 3,
+      "description": "Face-on north wall oak towel bar with three folded hanging towels cream sage and slate, small neutral framed botanical print above. No wall background.",
+      "comparison1x": "checks/towel-bar-hero-1x.png"
+    },
+    {
+      "id": "bath-mat",
+      "file": "bath-mat-v1.png",
+      "room": "bathroom",
+      "size": [
+        80,
+        48
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 45,
+      "footPoint": [
+        40,
+        45
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        14,
+        78,
+        46
+      ],
+      "source": "../sources/bath-mat.png",
+      "sourceSize": [
+        1619,
+        972
+      ],
+      "sourceCrop": [
+        209,
+        237,
+        1402,
+        750
+      ],
+      "sourceFit": [
+        6,
+        40,
+        228,
+        98
+      ],
+      "working": "working/bath-mat-3x.png",
+      "workingSize": [
+        240,
+        144
+      ],
+      "reductionFactor": 3,
+      "description": "Flat sage woven bathroom mat with cream narrow stripe, overhead orthographic, no outline, no shadow, no backing outside rug.",
+      "comparison1x": "checks/bath-mat-hero-1x.png"
+    },
+    {
+      "id": "clothes-rack",
+      "file": "clothes-rack-v1.png",
+      "room": "walk-in-closet",
+      "size": [
+        204,
+        96
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 93,
+      "footPoint": [
+        102,
+        93
+      ],
+      "footprints": [
+        [
+          6,
+          68,
+          192,
+          22
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        15,
+        202,
+        94
+      ],
+      "source": "../sources/clothes-rack.png",
+      "sourceSize": [
+        1847,
+        851
+      ],
+      "sourceCrop": [
+        14,
+        85,
+        1833,
+        803
+      ],
+      "sourceFit": [
+        6,
+        45,
+        600,
+        237
+      ],
+      "working": "working/clothes-rack-3x.png",
+      "workingSize": [
+        612,
+        288
+      ],
+      "reductionFactor": 3,
+      "description": "North wall open oak clothes rack, hanging jackets and shirts in cream slate navy rust and sage, top shelf with three shoe boxes, shoes below, overhead rack top, frontal hanging clothes, no names.",
+      "comparison1x": "checks/clothes-rack-hero-1x.png"
+    },
+    {
+      "id": "linen-shelf",
+      "file": "linen-shelf-v1.png",
+      "room": "linen",
+      "size": [
+        64,
+        100
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 97,
+      "footPoint": [
+        32,
+        97
+      ],
+      "footprints": [
+        [
+          12,
+          72,
+          40,
+          22
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        2,
+        55,
+        98
+      ],
+      "source": "../sources/linen-shelf.png",
+      "sourceSize": [
+        1003,
+        1568
+      ],
+      "sourceCrop": [
+        177,
+        161,
+        826,
+        1473
+      ],
+      "sourceFit": [
+        25,
+        6,
+        142,
+        288
+      ],
+      "working": "working/linen-shelf-3x.png",
+      "workingSize": [
+        192,
+        300
+      ],
+      "reductionFactor": 3,
+      "description": "Narrow tall oak linen shelf facing SOUTH with neatly folded cream sage towels, spare white bedding and two wicker baskets, visible overhead top and front shelves.",
+      "comparison1x": "checks/linen-shelf-hero-1x.png"
+    },
+    {
+      "id": "shoe-boxes",
+      "file": "shoe-boxes-v1.png",
+      "room": "walk-in-closet",
+      "size": [
+        80,
+        36
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 33,
+      "footPoint": [
+        40,
+        33
+      ],
+      "footprints": [
+        [
+          18,
+          10,
+          44,
+          22
+        ]
+      ],
+      "visibleBounds": [
+        16,
+        2,
+        64,
+        34
+      ],
+      "source": "../sources/shoe-boxes.png",
+      "sourceSize": [
+        1870,
+        841
+      ],
+      "sourceCrop": [
+        403,
+        119,
+        1445,
+        800
+      ],
+      "sourceFit": [
+        46,
+        6,
+        147,
+        96
+      ],
+      "working": "working/shoe-boxes-3x.png",
+      "workingSize": [
+        240,
+        108
+      ],
+      "reductionFactor": 3,
+      "description": "Three stacked shoe boxes with pair of casual shoes beside, low floor stack, cream grey muted rust boxes, blank labels. Overhead.",
+      "comparison1x": "checks/shoe-boxes-hero-1x.png"
+    },
+    {
+      "id": "utility-heater",
+      "file": "utility-heater-v1.png",
+      "room": "utility",
+      "size": [
+        64,
+        104
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 101,
+      "footPoint": [
+        32,
+        101
+      ],
+      "footprints": [
+        [
+          16,
+          68,
+          32,
+          30
+        ]
+      ],
+      "visibleBounds": [
+        13,
+        2,
+        51,
+        102
+      ],
+      "source": "../sources/utility-heater.png",
+      "sourceSize": [
+        1016,
+        1548
+      ],
+      "sourceCrop": [
+        256,
+        107,
+        795,
+        1474
+      ],
+      "sourceFit": [
+        37,
+        6,
+        118,
+        300
+      ],
+      "working": "working/utility-heater-3x.png",
+      "workingSize": [
+        192,
+        312
+      ],
+      "reductionFactor": 3,
+      "description": "Tall white cylindrical water heater with copper pipes emerging from top, small neutral grey service panel no readable text. Viewed from above and south, separate object.",
+      "comparison1x": "checks/utility-heater-hero-1x.png"
+    },
+    {
+      "id": "hall-wall",
+      "file": "hall-wall-v1.png",
+      "room": "hall",
+      "size": [
+        96,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 61,
+      "footPoint": [
+        48,
+        61
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        8,
+        94,
+        62
+      ],
+      "source": "../sources/hall-wall.png",
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "sourceCrop": [
+        391,
+        286,
+        1152,
+        732
+      ],
+      "sourceFit": [
+        6,
+        24,
+        276,
+        162
+      ],
+      "working": "working/hall-wall-3x.png",
+      "workingSize": [
+        288,
+        192
+      ],
+      "reductionFactor": 3,
+      "description": "Face-on north-wall small abstract geometric landscape in oak frame, tiny light switch beside, no people no faces no words. Transparent background between objects.",
+      "comparison1x": "checks/hall-wall-hero-1x.png"
+    },
+    {
+      "id": "stairs-flight",
+      "file": "stairs-flight-v1.png",
+      "room": "stairs",
+      "size": [
+        168,
+        296
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 293,
+      "footPoint": [
+        84,
+        293
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        3,
+        2,
+        165,
+        294
+      ],
+      "source": "../sources/stairs-flight.png",
+      "sourceSize": [
+        947,
+        1661
+      ],
+      "sourceCrop": [
+        21,
+        21,
+        927,
+        1648
+      ],
+      "sourceFit": [
+        8,
+        6,
+        488,
+        876
+      ],
+      "working": "working/stairs-flight-3x.png",
+      "workingSize": [
+        504,
+        888
+      ],
+      "reductionFactor": 3,
+      "description": "Full overhead north-south staircase, flight 112px wide in a 168px landing, soft beige carpet on individual treads, oak handrails along both sides, small landing at south. Painted pixel-art stair run for a real home, no solid objects on the walkable treads, no wall background.",
+      "comparison1x": "checks/stairs-flight-hero-1x.png"
+    },
+    {
+      "id": "hall-decor-east",
+      "file": "hall-decor-east-v1.png",
+      "room": "hall",
+      "size": [
+        12,
+        88
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 85,
+      "footPoint": [
+        6,
+        85
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        4,
+        2,
+        8,
+        86
+      ],
+      "source": "../sources/hall-decor-east.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        307,
+        58,
+        401,
+        2103
+      ],
+      "sourceFit": [
+        12,
+        6,
+        12,
+        252
+      ],
+      "working": "working/hall-decor-east-3x.png",
+      "workingSize": [
+        36,
+        264
+      ],
+      "reductionFactor": 3,
+      "description": "Extremely narrow EAST wall decoration viewed EDGE-ON from above and WEST: thin oak frame projecting just 8px into hall, only the side of framed picture visible, little cream light-switch edge below. Long vertical strip, not frontal wall art. No people, faces or text.",
+      "comparison1x": "checks/hall-decor-east-hero-1x.png"
+    },
+    {
+      "id": "hall-decor-west",
+      "file": "hall-decor-west-v1.png",
+      "room": "hall",
+      "size": [
+        12,
+        88
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 83,
+      "footPoint": [
+        6,
+        83
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        4,
+        2,
+        8,
+        84
+      ],
+      "source": "../sources/hall-decor-west.png",
+      "sourceSize": [
+        781,
+        2014
+      ],
+      "sourceCrop": [
+        335,
+        15,
+        455,
+        1993
+      ],
+      "sourceFit": [
+        10,
+        6,
+        15,
+        252
+      ],
+      "working": "working/hall-decor-west-3x.png",
+      "workingSize": [
+        36,
+        264
+      ],
+      "reductionFactor": 3,
+      "description": "Extremely narrow WEST wall decoration viewed EDGE-ON from above and EAST: thin oak frame projecting just 8px into hall, only side of framed picture visible, tiny coat hook edge below. Long vertical strip, not frontal wall art. No people, faces or text.",
+      "comparison1x": "checks/hall-decor-west-hero-1x.png"
+    }
+  ],
+  "reusedPieces": [
+    {
+      "id": "bedroom-carpet",
+      "file": "../../house-ground-floor/beige-carpet-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "reused": true
+    },
+    {
+      "id": "north-wall",
+      "file": "../../house-ground-floor/north-wall-strip-v1.png",
+      "size": [
+        256,
+        96
+      ],
+      "footPoint": [
+        128,
+        95
+      ],
+      "footprints": [],
+      "renderLayer": "wall-mounted",
+      "reused": true
+    },
+    {
+      "id": "side-wall",
+      "file": "../../house-ground-floor/side-wall-strip-v1.png",
+      "size": [
+        16,
+        256
+      ],
+      "footPoint": [
+        8,
+        255
+      ],
+      "footprints": [],
+      "renderLayer": "wall-mounted",
+      "reused": true
+    },
+    {
+      "id": "laundry-basket",
+      "file": "../../house-ground-floor/repaint/deliver/laundry-basket-v1.png",
+      "size": [
+        56,
+        28
+      ],
+      "footPoint": [
+        28,
+        27
+      ],
+      "footprints": [
+        [
+          14,
+          8,
+          28,
+          16
+        ]
+      ],
+      "renderLayer": "furniture",
+      "reused": true
+    },
+    {
+      "id": "window-east",
+      "file": "../../house-ground-floor/repaint/deliver/window-blinds-east-v1.png",
+      "size": [
+        24,
+        100
+      ],
+      "footPoint": [
+        12,
+        99
+      ],
+      "footprints": [],
+      "renderLayer": "wall-mounted",
+      "reused": true
+    }
+  ],
+  "coffeeTableFix": "coffee-table-manifest.json"
+}

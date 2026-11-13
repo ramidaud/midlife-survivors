@@ -2478,3 +2478,11 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Cause: chests trusted a "menu is open" flag. When that flag got stuck, every chest waited forever, and the door waited on the key chest.
 - Fix: chests and the door now wait only for a menu that's actually on screen. A stuck flag gets cleared and noted in the browser (`ms-chest-err`) so we can find who leaves it set. The stuck-pause watchdog checks the screen the same way.
 - Tested at laptop and phone size: office boss chests and the house, with the stuck flag forced on, both recover; normal play unchanged.
+
+
+## 2026-11-13: upstairs art and oak coffee table ready for review (Codex)
+- New branch for house job 2: 37 painted pieces and nine room mock-ups, including the twins by the main-bedroom window and Abe's music and space decor.
+- Every room passes its actual-door 96px route check; Abe's room connects both exits and keeps a 224px open square. The existing 144px hall stays clear.
+- Repainted the desk, dresser, clothes rack and vanity wider after native-size QA. Footprints fit the visible furniture; north-wall art clears doorways.
+- Coffee-table top is three-tone warm light oak. Its exact size, silhouette, base, footprint and prop pixels are preserved.
+- Sources appear once; manifests, editor layout, native/3x previews and checks included. Written brief used because private photos were not attached. Local browser access was blocked; image QA completed. No runtime placement or version change. Await Rami's review.

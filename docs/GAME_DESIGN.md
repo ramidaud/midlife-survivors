@@ -779,3 +779,7 @@ Supersedes the earlier basinets-beside-sofa fit proposal: the two sleeping bassi
 
 ### House round-two art review (2026-11-13, Codex)
 Seven living-room pieces repainted to the requested native sizes. Furniture keeps Rami’s round-two positions; TV and basket exceptions are documented. The fixed living layout does not connect its checked doors with a 96 px square route, so it needs a layout correction before integration. Other rooms remain approved and unchanged. No runtime placement.
+
+
+## 2026-11-13: upstairs art proposal, awaiting review (Codex)
+House job 2 puts the twins' sleeping corner by the main-bedroom window. Abe's north-wall displays clear his hall doorway; his TV faces west from the east wall, and the south dresser is painted from behind. Two exits connect through his room around a 224px open square. Bathroom, storage rooms, hall and stairs have their own mock-ups. The existing hall is 144px wide and remains clear; no new exits or room sizes are proposed. No people, faces or plates appear; ABE tiles are explicitly allowed. The coffee-table top changes to warm light oak while its size, footprint and props stay fixed. Art review only, with no game placement.

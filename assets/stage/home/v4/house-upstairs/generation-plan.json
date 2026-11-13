@@ -1,0 +1,634 @@
+[
+  {
+    "id": "king-bed",
+    "size": [
+      184,
+      240
+    ],
+    "room": "master-bedroom",
+    "description": "King bed, tall upholstered cream nailhead headboard with curved wood top at NORTH, bed runs south toward camera. White messy sheets, rust orange pillows and rumpled duvet, grey throw. No people.",
+    "footprints": [
+      [
+        12,
+        48,
+        160,
+        184
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "upholstered-master-bed",
+    "factor": 3
+  },
+  {
+    "id": "nightstand-left",
+    "size": [
+      76,
+      96
+    ],
+    "room": "master-bedroom",
+    "description": "Dark wood nightstand, small turned cream lamp rising at back, little sleep machine and baby bottle on lighter oak top. Table surface is only 36 pixels high; lamp rises to 90 pixels.",
+    "footprints": [
+      [
+        16,
+        64,
+        44,
+        26
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "nightstand-left",
+    "factor": 3
+  },
+  {
+    "id": "nightstand-right",
+    "size": [
+      76,
+      96
+    ],
+    "room": "master-bedroom",
+    "description": "Dark wood nightstand, small turned cream lamp, red night light, diaper caddy and water bottle. Table surface only 36 pixels high; lamp 90 pixels.",
+    "footprints": [
+      [
+        12,
+        64,
+        52,
+        26
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "nightstand-right",
+    "factor": 3
+  },
+  {
+    "id": "wooden-crib",
+    "size": [
+      108,
+      148
+    ],
+    "room": "master-bedroom",
+    "description": "Wooden crib, long axis north-south, white mattress and muslin blanket, open oak rails. Viewed from above, subtly from south. Rail height about 52 pixels, footprint 96x108.",
+    "footprints": [
+      [
+        10,
+        34,
+        88,
+        108
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "wood-crib",
+    "factor": 3
+  },
+  {
+    "id": "double-bassinet",
+    "size": [
+      172,
+      92
+    ],
+    "room": "master-bedroom",
+    "description": "Two sleeping bassinets in ONE dark grey frame, white muslin and baby socks, cream mattress interiors, sound machine attached. Low horizontal double bassinet seen from above, no babies, no seats.",
+    "footprints": [
+      [
+        6,
+        30,
+        160,
+        56
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "twin-bassinet-by-window",
+    "factor": 3
+  },
+  {
+    "id": "cream-daybed-west",
+    "size": [
+      72,
+      164
+    ],
+    "room": "master-bedroom",
+    "description": "Cream covered narrow daybed against west wall facing EAST, long axis north-south. Show the top of pillows, knit cream cover and short exposed wood feet, little muslin cloth. Low furniture.",
+    "footprints": [
+      [
+        10,
+        20,
+        52,
+        138
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "master-dresser-east",
+    "size": [
+      60,
+      148
+    ],
+    "room": "master-bedroom",
+    "description": "Dark wood low dresser against EAST wall facing WEST: overhead tabletop, narrow visible WEST drawer edge on LEFT, long north-south. Water jug, folded cloth on light wood top. Furniture surface under 48 pixels tall.",
+    "footprints": [
+      [
+        6,
+        12,
+        48,
+        130
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "master-dresser",
+    "factor": 3
+  },
+  {
+    "id": "baby-supplies",
+    "size": [
+      56,
+      36
+    ],
+    "room": "master-bedroom",
+    "description": "Soft open bag of baby supplies, diapers, rolled muslin cloth, baby socks tucked inside. Warm cream fabric, sage details, ground-level low bag.",
+    "footprints": [
+      [
+        4,
+        12,
+        48,
+        20
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "socks-decal",
+    "size": [
+      48,
+      28
+    ],
+    "room": "master-bedroom",
+    "description": "Three mismatched loose socks and one baby sock, flat on floor, no outline and no shadow, no carpet backing.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bedroom-window",
+    "size": [
+      140,
+      124
+    ],
+    "room": "master-bedroom",
+    "description": "Face-on NORTH-wall window, white vertical blinds, oak frame, cream valance. Architectural wall-mounted object, not a freestanding window, transparent outside frame.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "bassinet-window-blinds",
+    "factor": 3
+  },
+  {
+    "id": "sleigh-bed",
+    "size": [
+      156,
+      228
+    ],
+    "room": "abe-room",
+    "description": "Dark wood sleigh bed, headboard at NORTH, footboard to south camera, navy duvet with lighter slate folds and cream grey striped blanket. Small blue LED under-bed glow confined to feet, neutral daylight elsewhere.",
+    "footprints": [
+      [
+        8,
+        44,
+        140,
+        176
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "abe-dark-sleigh-bed",
+    "factor": 3
+  },
+  {
+    "id": "music-desk",
+    "size": [
+      204,
+      92
+    ],
+    "room": "abe-room",
+    "description": "Black music desk facing NORTH wall, tabletop at only 44px height. Laptop, mechanical keyboard, mouse, little MIDI keyboard, mic boom, two studio speakers, leaning whiteboard behind showing only abstract blank doodles, no words. Lighter slate tabletop catches daylight.",
+    "footprints": [
+      [
+        8,
+        56,
+        188,
+        30
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "abe-music-desk",
+    "factor": 3
+  },
+  {
+    "id": "gaming-chair",
+    "size": [
+      56,
+      60
+    ],
+    "room": "abe-room",
+    "description": "Black mesh gaming chair, rear view, facing NORTH toward desk, top-down seat and mesh back, five casters. Slate highlights make dark chair readable.",
+    "footprints": [
+      [
+        14,
+        30,
+        28,
+        24
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "tv-cube-shelf-east",
+    "size": [
+      64,
+      144
+    ],
+    "room": "abe-room",
+    "description": "Black low cube shelf against EAST wall facing WEST. Viewed overhead and from west: long north-south footprint, narrow west-facing front edge at LEFT, TV panel along right/east edge seen obliquely facing left. Astronomy book with abstract star cover no title, game cases, Pac-Man-like generic ghost lamp, light-colored props. No front-facing north TV.",
+    "footprints": [
+      [
+        12,
+        36,
+        40,
+        102
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "abe-tv-cubes",
+    "factor": 3
+  },
+  {
+    "id": "record-dresser-south",
+    "size": [
+      204,
+      76
+    ],
+    "room": "abe-room",
+    "description": "Navy fluted low dresser against SOUTH wall, viewed FROM BEHIND and above: do not show drawer fronts. Broad light navy top with vintage turntable orange record and raised dust cover on silver stereo receiver, red quatrefoil-shade small lamp, little white radio. Top surface below hero height. Thin dark rear panels nearest viewer.",
+    "footprints": [
+      [
+        6,
+        38,
+        192,
+        32
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "abe-record-player-dresser",
+    "factor": 3
+  },
+  {
+    "id": "collectibles-shelf",
+    "size": [
+      100,
+      104
+    ],
+    "room": "abe-room",
+    "description": "Tall black cube shelf facing SOUTH from north wall, 3 columns and 3 rows, slate edge highlights. Vintage cameras, baseball in clear case, bobbleheads, toy car, picture book. TWO tiny generic green alien figures wearing robes ON TOP, NOT licensed characters, no faces on photos. Beside figures a small slatted wood LED lamp glowing TEAL locally.",
+    "footprints": [
+      [
+        16,
+        76,
+        68,
+        22
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "hamper",
+    "size": [
+      48,
+      52
+    ],
+    "room": "abe-room",
+    "description": "Striped cream and navy laundry hamper overflowing slightly with pale cloth, high top-down view, no room backing.",
+    "footprints": [
+      [
+        6,
+        22,
+        36,
+        24
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "robot-figure",
+    "size": [
+      28,
+      32
+    ],
+    "room": "abe-room",
+    "description": "Small generic silver and teal robot toy lying flat on its back, viewed straight down. No dark outer outline or cast shadow. Walk-through floor detail.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "space-wall",
+    "size": [
+      100,
+      108
+    ],
+    "room": "abe-room",
+    "description": "Compact face-on wall display: NASA 60th anniversary space poster at top left with orbit and stars and readable NASA 60, smaller retro MARS travel poster at right; bottom wooden individual tiles spelling exactly ABE. Transparent BETWEEN the separate frames and tiles. No license plates, no faces.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "abe-orbit-poster",
+    "factor": 3
+  },
+  {
+    "id": "controller-guitar-wall",
+    "size": [
+      112,
+      112
+    ],
+    "room": "abe-room",
+    "description": "Face-on NORTH-wall decor cluster: square canvas showing WHITE game controller over red and black splatter on left; sunburst acoustic guitar on wall hook on right, entire guitar visible. Transparent between two objects, no wall backing.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "abe-controller-canvas",
+    "factor": 3
+  },
+  {
+    "id": "neon-wall",
+    "size": [
+      156,
+      56
+    ],
+    "room": "abe-room",
+    "description": "Two separate face-on north wall neon signs, left exactly LIVE MUSIC in red tubing with a music note; right triangle circle X square glowing cyan and pink. Glow confined to tubing, transparent between signs, no wall panel.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "abe-music-note-neon",
+    "factor": 3
+  },
+  {
+    "id": "pennant-car-wall",
+    "size": [
+      156,
+      60
+    ],
+    "room": "abe-room",
+    "description": "Face-on north wall decor: top narrow navy and cream triangular pennant reading TIRE & RUBBER, NO real logo; beneath it two small framed supercar posters with no license plates or branding. Tiny abstract landscape frame between. Transparent gaps, no wall backing.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "abe-sports-car-posters",
+    "factor": 3
+  },
+  {
+    "id": "hoop-closet",
+    "size": [
+      132,
+      124
+    ],
+    "room": "abe-closet",
+    "description": "Face-on oak bifold closet doors hanging on north wall, with miniature over-door basketball hoop, generic scoreboard without words, white net, race medals ribbons hanging from door knob. No names or faces. Bottom at floor line.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "abe-hoop-closet",
+    "factor": 3
+  },
+  {
+    "id": "traffic-light",
+    "size": [
+      28,
+      68
+    ],
+    "room": "abe-room",
+    "description": "Small face-on yellow traffic-light wall lamp, three round lenses red amber green in vertical yellow casing. Local lens glow, no room tint.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": "abe-traffic-light",
+    "factor": 3
+  },
+  {
+    "id": "tub-east",
+    "size": [
+      72,
+      180
+    ],
+    "room": "bathroom",
+    "description": "White bathtub against EAST wall, long north-south, seen overhead from southwest, polished rim, silver tap at north, row of shampoo bottles along east rim. Cream white enamel, slate shadows.",
+    "footprints": [
+      [
+        4,
+        10,
+        64,
+        164
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "tub",
+    "factor": 3
+  },
+  {
+    "id": "bath-vanity",
+    "size": [
+      100,
+      60
+    ],
+    "room": "bathroom",
+    "description": "Small bathroom vanity against NORTH wall, cream sink and oak cabinet, overhead sink basin, tall silver faucet, soap cup and toothbrush cup. Counter under hero height.",
+    "footprints": [
+      [
+        6,
+        26,
+        88,
+        28
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "bath-sink",
+    "factor": 3
+  },
+  {
+    "id": "toilet-plant",
+    "size": [
+      56,
+      68
+    ],
+    "room": "bathroom",
+    "description": "White toilet facing south with small sage plant on tank, viewed from above, cream highlights, slate shadows. Detached object.",
+    "footprints": [
+      [
+        18,
+        24,
+        20,
+        38
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "toilet",
+    "factor": 3
+  },
+  {
+    "id": "towel-bar",
+    "size": [
+      100,
+      56
+    ],
+    "room": "bathroom",
+    "description": "Face-on north wall oak towel bar with three folded hanging towels cream sage and slate, small neutral framed botanical print above. No wall background.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bath-mat",
+    "size": [
+      80,
+      48
+    ],
+    "room": "bathroom",
+    "description": "Flat sage woven bathroom mat with cream narrow stripe, overhead orthographic, no outline, no shadow, no backing outside rug.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "clothes-rack",
+    "size": [
+      204,
+      96
+    ],
+    "room": "walk-in-closet",
+    "description": "North wall open oak clothes rack, hanging jackets and shirts in cream slate navy rust and sage, top shelf with three shoe boxes, shoes below, overhead rack top, frontal hanging clothes, no names.",
+    "footprints": [
+      [
+        6,
+        68,
+        192,
+        22
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "walk-in-rack",
+    "factor": 3
+  },
+  {
+    "id": "linen-shelf",
+    "size": [
+      64,
+      100
+    ],
+    "room": "linen",
+    "description": "Narrow tall oak linen shelf facing SOUTH with neatly folded cream sage towels, spare white bedding and two wicker baskets, visible overhead top and front shelves.",
+    "footprints": [
+      [
+        12,
+        72,
+        40,
+        22
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "linen-shelf",
+    "factor": 3
+  },
+  {
+    "id": "shoe-boxes",
+    "size": [
+      80,
+      36
+    ],
+    "room": "walk-in-closet",
+    "description": "Three stacked shoe boxes with pair of casual shoes beside, low floor stack, cream grey muted rust boxes, blank labels. Overhead.",
+    "footprints": [
+      [
+        18,
+        10,
+        44,
+        22
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "utility-heater",
+    "size": [
+      64,
+      104
+    ],
+    "room": "utility",
+    "description": "Tall white cylindrical water heater with copper pipes emerging from top, small neutral grey service panel no readable text. Viewed from above and south, separate object.",
+    "footprints": [
+      [
+        16,
+        68,
+        32,
+        30
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": "water-heater",
+    "factor": 3
+  },
+  {
+    "id": "hall-wall",
+    "size": [
+      96,
+      64
+    ],
+    "room": "hall",
+    "description": "Face-on north-wall small abstract geometric landscape in oak frame, tiny light switch beside, no people no faces no words. Transparent background between objects.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "stairs-flight",
+    "size": [
+      168,
+      296
+    ],
+    "room": "stairs",
+    "renderLayer": "ground",
+    "footprints": [],
+    "factor": 3,
+    "description": "Full overhead north-south staircase, flight 112px wide in a 168px landing, soft beige carpet on individual treads, oak handrails along both sides, small landing at south. Painted pixel-art stair run for a real home, no solid objects on the walkable treads, no wall background."
+  },
+  {
+    "id": "hall-decor-east",
+    "size": [
+      12,
+      88
+    ],
+    "room": "hall",
+    "renderLayer": "wall-mounted",
+    "footprints": [],
+    "factor": 3,
+    "description": "Extremely narrow EAST wall decoration viewed EDGE-ON from above and WEST: thin oak frame projecting just 8px into hall, only the side of framed picture visible, little cream light-switch edge below. Long vertical strip, not frontal wall art. No people, faces or text."
+  },
+  {
+    "id": "hall-decor-west",
+    "size": [
+      12,
+      88
+    ],
+    "room": "hall",
+    "renderLayer": "wall-mounted",
+    "footprints": [],
+    "factor": 3,
+    "description": "Extremely narrow WEST wall decoration viewed EDGE-ON from above and EAST: thin oak frame projecting just 8px into hall, only side of framed picture visible, tiny coat hook edge below. Long vertical strip, not frontal wall art. No people, faces or text."
+  }
+]

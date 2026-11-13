@@ -1,0 +1,30 @@
+{
+  "tool": "Built-in image_gen.imagegen",
+  "purpose": "Correct painted width at native scale; no stretched exports.",
+  "revisions": [
+    {
+      "id": "music-desk",
+      "prompt": "Use case: stylized-concept. Detached painted pixel-art sprite for Midlife Survivors. The reference sofa is STYLE ONLY. Palette cream, oak brown, navy/slate, three tones per material, crisp edges, neutral white balance, transparent background, no sepia. Paint at exactly THREE TIMES the native dimensions given, respecting the wide silhouette aspect ratio. Subject: A VERY WIDE, LOW black music production desk, native204x92. The entire painting silhouette must be 200px WIDE and only88px HIGH, width/height ratio2.27. Broad 196px horizontal desktop, very short 28px legs. Small laptop, MIDI keyboard, mouse, mic boom and speakers arranged across the width. The whiteboard behind is a SHORT LOW 96x24 board, not a tall square board. Table surface physically44px high. Overhead orthographic view from south facing north. No chair, no person."
+    },
+    {
+      "id": "record-dresser-south",
+      "prompt": "Use case: stylized-concept. Detached painted pixel-art sprite for Midlife Survivors. The reference sofa is STYLE ONLY. Palette cream, oak brown, navy/slate, three tones per material, crisp edges, neutral white balance, transparent background, no sepia. Paint at exactly THREE TIMES the native dimensions given, respecting the wide silhouette aspect ratio. Subject: An EXTRA WIDE LOW navy fluted dresser, 204x76 native canvas. Silhouette is200px WIDE and72px HIGH, ratio2.78. Viewed FROM BEHIND and from above against the south wall: visible broad blue-grey tabletop and plain navy rear panel nearest viewer, NO drawers/front handles. Turntable with orange record and silver receiver centered, tiny red quatrefoil lamp at far right, tiny white radio far left. Keep objects compact so overall silhouette is wide and low. Counter below60px hero. No wall or floor."
+    },
+    {
+      "id": "clothes-rack",
+      "prompt": "Use case: stylized-concept. Detached painted pixel-art sprite for Midlife Survivors. The reference sofa is STYLE ONLY. Palette cream, oak brown, navy/slate, three tones per material, crisp edges, neutral white balance, transparent background, no sepia. Paint at exactly THREE TIMES the native dimensions given, respecting the wide silhouette aspect ratio. Subject: A VERY WIDE LOW horizontal open oak clothes rack, native204x96. Entire silhouette200px WIDE and92px HIGH, ratio2.17. One long rail across the entire200px WIDTH carrying MANY jackets and shirts side by side across the full width, upper shelf with shoe boxes, shoes at base. View overhead and front from south, against NORTH wall. NO tall narrow wardrobe, NO square cabinet. The width must be more than DOUBLE its height."
+    },
+    {
+      "id": "bath-vanity",
+      "prompt": "Use case: stylized-concept. Detached painted pixel-art sprite for Midlife Survivors. The reference sofa is STYLE ONLY. Palette cream, oak brown, navy/slate, three tones per material, crisp edges, neutral white balance, transparent background, no sepia. Paint at exactly THREE TIMES the native dimensions given, respecting the wide silhouette aspect ratio. Subject: A VERY WIDE LOW bathroom vanity, native100x60. Silhouette96px WIDE and56px HIGH, ratio1.71. Broad oak vanity with one WIDE oval cream washbasin taking most of the tabletop width; compact silver faucet only8px tall, soap and toothbrush cup. Shallow26px cabinet visible at front, broad top in overhead view. No mirror, no wall, no floor. Do not make a narrow tall pedestal sink."
+    },
+    {
+      "id": "stairs-flight",
+      "prompt": "Edit this painted pixel-art staircase: REPAINT it MUCH WIDER, while keeping its full north-south length and same overhead view, cream carpet and oak rails. Final native object silhouette 164px wide by292px long on168x296 transparent canvas. The clear CARPETED TREADS BETWEEN THE RAILS must be at least112px WIDE at native size, almost twice the previous width. Each side rail only12px wide. Wider rectangular treads, NO stretched texture. Paint at3x (504x888 working canvas). Same neutral white balance, three tones per material, no room or floor beyond stair landing. Transparency. No text."
+    },
+    {
+      "id": "robot-figure",
+      "prompt": "Edit this tiny silver and teal robot TOY for a floor decal in a pixel-art game. Lay the toy FLAT ON ITS BACK and view straight down, no upright standing view. REMOVE the full dark outer outline and REMOVE all cast shadow. Soft silver, slate and teal material shading inside the shape, three tones each; unoutlined external edge. It must visually read as a flat walk-through floor detail. No floor backing, transparent background, neutral white balance. Preserve generic toy character, no logos. Native28x32, paint at3x."
+    }
+  ]
+}

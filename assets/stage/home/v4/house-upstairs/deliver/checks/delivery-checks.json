@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "newPaintings": 37,
+  "coffeeTableFix": true,
+  "sourcePaintings": 38,
+  "singleSourceFolder": true,
+  "rooms": 9,
+  "allDoorRoutesPassed": true,
+  "exactNativeAnd3xPreviews": true,
+  "coffeeCanvasSilhouetteBasePropsAndFootprintPreserved": true,
+  "reviewLinksExist": true,
+  "transformsApplied": false,
+  "telemetryLoaded": false,
+  "browserCheck": "Blocked local file URL; direct native image QA only."
+}

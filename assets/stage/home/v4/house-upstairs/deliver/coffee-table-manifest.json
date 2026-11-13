@@ -1,0 +1,50 @@
+{
+  "size": [
+    186,
+    42
+  ],
+  "kind": "WALL",
+  "renderLayer": "furniture",
+  "feetLine": 35,
+  "footPoint": [
+    93,
+    35
+  ],
+  "footprints": [
+    [
+      11,
+      0,
+      164,
+      36
+    ]
+  ],
+  "id": "coffee-table-oak",
+  "file": "coffee-table-oak-v1.png",
+  "source": "../sources/coffee-table-oak.png",
+  "sourceSize": [
+    2172,
+    724
+  ],
+  "sourceCrop": [
+    167,
+    268,
+    2006,
+    505
+  ],
+  "sourceFit": [
+    9,
+    50,
+    540,
+    70
+  ],
+  "working": "working/coffee-table-oak-painting-3x.png",
+  "comparison1x": "checks/coffee-table-oak-hero-1x.png",
+  "previousArt": "../../house-ground-floor/repaint/deliver/round-coffee-table-v1.png",
+  "method": "Built-in imagegen oak repaint, composited through the largest connected existing cream-material region. All other original pixels retained exactly.",
+  "sameSize": true,
+  "sameFootprints": true,
+  "sameAlpha": true,
+  "propsAndBaseUnchanged": true,
+  "threeOakTones": true,
+  "sha256": "97daef7073e2d367539bda068f96173bd36ff10975f6ec22df2850709bde8310"
+}
