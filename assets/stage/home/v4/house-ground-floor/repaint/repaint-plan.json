@@ -288,8 +288,8 @@
   {
     "id": "racing-sim-rig",
     "size": [
-      144,
-      60
+      120,
+      88
     ],
     "kind": "WALL",
     "room": "living",
@@ -308,8 +308,8 @@
   {
     "id": "sim-cables",
     "size": [
-      136,
-      44
+      144,
+      32
     ],
     "kind": "WALK-THROUGH",
     "room": "living",
@@ -615,7 +615,7 @@
     "id": "kids-drawings",
     "size": [
       88,
-      56
+      24
     ],
     "kind": "WALL-DECOR",
     "room": "desk",
@@ -767,7 +767,7 @@
       "v4 painted chair, style and palette"
     ],
     "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 64x112, paint at EXACT 192x336 working pixels (3x), subject fills canvas with 3px native clear margin. Tall white refrigerator, northwallfront facesSOUTHcamera; visible narrowtop and frontal double divideddoors, tiny colorful generic magnets and blanknotes, NO people, names, brands, usernames, readableletters or numbers. Threecreamtones and darkmetalhandles. Fulloutlineheavyfootshadow.",
-    "revision": "Southeast corner refrigerator facing NORTH into room. Viewed from rear/south with top and appropriate side visible; magnet-covered front faces away. No upside-down frontal image.",
+    "revision": "Follow review-fixes-prompts.json: visible handles/details and counter props; only north sink run has a sink.",
     "sourceReference": "../magnet-fridge-v1.png",
     "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
   },
@@ -775,7 +775,7 @@
     "id": "kitchen-counter-west",
     "size": [
       160,
-      56
+      60
     ],
     "kind": "WALL",
     "room": "kitchen",
@@ -787,7 +787,7 @@
       "v4 painted chair, style and palette"
     ],
     "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x128, paint at EXACT 168x384 working pixels (3x), subject fills canvas with 3px native clear margin. Long kitchen basecabinet/worktop against WEST sidewall. Longaxisverticalnorthsouth, mostly topview, show broad creamcountertop and thin EAST-facing cabinetedge with whitepanels and oaktrim. NOT a wide front-facing cabinet. Small blank toaster and electric kettle. Threecream/oak/steeltones, compactoutlineandshadow.",
-    "revision": "Long SOUTH counter viewed from BEHIND, top visible, rear cream panel and oak trim facing camera. No front-facing drawers.",
+    "revision": "Follow review-fixes-prompts.json: visible handles/details and counter props; only north sink run has a sink.",
     "sourceReference": "../kitchen-counter-west-v1.png",
     "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
   },
@@ -807,7 +807,7 @@
       "v4 painted chair, style and palette"
     ],
     "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x128, paint at EXACT 168x384 working pixels (3x), subject fills canvas with 3px native clear margin. Long kitchen basecabinet/worktop against EAST sidewall. Longaxisverticalnorthsouth, mostly topview, show broad creamcountertop and thin WEST-facing cabinetedge with whitepanels and oaktrim. NOT a wide front-facing cabinet. Small generic cleaning spraybottle, folded dishtowel and dryingtray. Threecream/oak/steeltones, compactoutlineandshadow.",
-    "revision": "NORTHEAST corner worktop, overhead north-facing camera, cream cabinetry oak trim, microwave-free small appliance and clear worktop. Matches sink set.",
+    "revision": "Follow review-fixes-prompts.json: visible handles/details and counter props; only north sink run has a sink.",
     "sourceReference": "../kitchen-counter-east-v1.png",
     "generationMethod": "Built-in image_gen, object reference edit, transparent outside isolated sprite. Preserve approved subject/materials; no added motifs. Exact native target painted at 3x, then normalized and block-mode reduced. Neutral white balance, no sepia or golden haze, no people or identifying text."
   },
@@ -1066,7 +1066,7 @@
   {
     "id": "twin-bassinets",
     "size": [
-      104,
+      80,
       60
     ],
     "room": "living",

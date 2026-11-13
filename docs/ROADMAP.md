@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (PR #10 house-scale repaint ready for review; approve the room mock-ups and fit exceptions before Claude places the ground floor. Roads-and-woods brief still waiting on Codex.)
+**Last updated:** 2026-11-13 (PR #10 house-scale repaint ready for review; latest room corrections ready: northwest bassinets, upright sim, mounted drawings and detailed kitchen; approve mock-ups before Claude places the ground floor. Roads-and-woods brief still waiting on Codex.)
 
 ---
 
@@ -517,4 +517,4 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 - [ ] PR #10 ground-floor revision ready for Rami: 40px chairs, fine laminate, rug backing removed, desk chair placed, concrete garage and lived-in props. Approval required before placement.
 
-- [ ] PR #10 house-scale repaint ready for review: 56 pieces, Rami's layout intent, four main-room door-clearance checks, and exact 3x room previews. Approve the compact entry bench and bassinets' patio-clear placement before Claude places art. Laundry closet clearance exception documented.
+- [ ] PR #10 house-scale repaint ready for review: 56 pieces, Rami's layout intent, four main-room door-clearance checks, and exact 3x room previews. Bassinets now fixed in the northwest corner, with the sofa/shelves moved for the patio route. Latest room corrections await approval before Claude places art. Laundry closet clearance exception documented.

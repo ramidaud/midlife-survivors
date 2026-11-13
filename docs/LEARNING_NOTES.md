@@ -858,3 +858,6 @@ Pixel art has no real inches, so every size is measured against one thing everyb
 
 ## 2026-11-13: a gap must connect to the door (Codex)
 An empty patch is not enough to prove the hero can get through a room. Slide a 96px square through the proposed furniture footprints and check that the same connected space reaches both real openings. A 95px gap fails this test even if it looks close. Small storage closets may only be reachable from outside, which should be recorded rather than counted as a through room.
+
+## 2026-11-13: contrast and a single source set (Codex)
+A prop can disappear when its top has the same dark colors as the rug below it. A lighter coffee-table top makes its shape and small objects easier to see at native size. Source paintings now live in one folder; exported manifests link to that folder rather than making a duplicate. The rebuild audit checks both the art and those links.

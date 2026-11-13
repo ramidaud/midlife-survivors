@@ -2150,3 +2150,13 @@ Rami's editor layout made almost every piece 130-150% bigger. Measured against t
                      95px gap: stop
 
 Footprint checks use the part touching the floor. A continuous path must fit the whole square, including at the doorway. The house repaint records its tiny laundry closet separately because an appliance leaves too little standing room inside.
+
+## 2026-11-13: making an object read on a busy rug (Codex)
+
+    pale table top + dark base
+              over
+    dark patterned rug
+              =
+    a visible edge and visible props
+
+Material contrast makes a prop readable without adding another heavy outline. Keep one source painting per selected asset and link the review export back to it.

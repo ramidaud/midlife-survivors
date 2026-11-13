@@ -15,6 +15,8 @@ def bounded_feet(p,art):
  for x,y,fw,fh in fps:
   x=max(0,min(x,w-1));y=max(0,min(y,h-1));adjusted.append([x,y,max(1,min(fw,w-x)),max(1,min(fh,h-y))])
  return line,point,adjusted
+base.COPY_SOURCES=False
+base.SOURCE_PREFIX="../sources/"
 base.foot_data=bounded_feet
 base.build()
 # Keep review links and token stylesheet valid at this deeper review location.
@@ -26,3 +28,5 @@ review.write_text(s)
 shutil.copy2(ROOT/"README.md",base.OUT/"README.md")
 
 review.write_text(review.read_text().replace('<h2>Rooms in place</h2>','<p><a href="../selected-prompts.json">Selected imagegen prompts</a></p><h2>Rooms in place</h2>'))
+
+review.write_text(review.read_text().replace('<h2>Rooms in place</h2>','<p><a href="../review-fixes-prompts.json">Latest review repaint prompts</a></p><h2>Rooms in place</h2>'))

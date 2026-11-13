@@ -2445,3 +2445,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Four main rooms have connected 96px routes at their existing openings. The tiny laundry closet keeps its appliance and records a clearance exception.
 - Entry bench is compact to clear the door; bassinets move beside the sofa to clear the patio. Both fit adjustments are noted for approval.
 - Native and exact 3x previews, hero comparisons and footprint checks included. Art approval only; no game placement or version change.
+
+## 2026-11-13: PR #10 room-detail corrections (Codex)
+- Rami fixed the bassinets in the northwest corner. Repainted two compact sleeping bassinets there; sofa moves south and shelves rise, preserving the 96px patio route.
+- Upright sim faces the TV with connected floor cables. Coffee table has a light top and props; office chair tucks at desk, plant clears the painting, and drawings sit on the wall.
+- Repainted the kitchen as one detailed set: fridge magnets/handles, paneled doors/drawers and counter props, with only the north double sink. Middle stays open.
+- Deleted duplicate deliver/sources and changed export/manifest paths to retain one source set. Rebuild audit checks that it stays deleted.
+- All 56 assets and four main-room doorway routes pass. Exact 3x previews and native image QA complete; laundry-closet exception remains. No runtime placement or version change; awaiting approval.

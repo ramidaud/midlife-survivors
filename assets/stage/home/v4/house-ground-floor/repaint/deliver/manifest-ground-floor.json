@@ -56,7 +56,7 @@
         101,
         97
       ],
-      "source": "sources/photo-ledges.png",
+      "source": "../sources/photo-ledges.png",
       "sourceSize": [
         1254,
         1254
@@ -117,7 +117,7 @@
         149,
         57
       ],
-      "source": "sources/tile-fireplace.png",
+      "source": "../sources/tile-fireplace.png",
       "sourceSize": [
         1941,
         810
@@ -170,7 +170,7 @@
         133,
         85
       ],
-      "source": "sources/ornate-silver-mirror.png",
+      "source": "../sources/ornate-silver-mirror.png",
       "sourceSize": [
         1536,
         1024
@@ -223,7 +223,7 @@
         109,
         97
       ],
-      "source": "sources/window-olive-curtains.png",
+      "source": "../sources/window-olive-curtains.png",
       "sourceSize": [
         1312,
         1199
@@ -276,7 +276,7 @@
         45,
         165
       ],
-      "source": "sources/galaxy-wall-tv.png",
+      "source": "../sources/galaxy-wall-tv.png",
       "sourceSize": [
         730,
         2155
@@ -336,7 +336,7 @@
         61,
         181
       ],
-      "source": "sources/fluted-media-console.png",
+      "source": "../sources/fluted-media-console.png",
       "sourceSize": [
         726,
         2167
@@ -396,7 +396,7 @@
         93,
         261
       ],
-      "source": "sources/cream-sofa.png",
+      "source": "../sources/cream-sofa.png",
       "sourceSize": [
         823,
         1910
@@ -457,7 +457,7 @@
         77,
         57
       ],
-      "source": "sources/leather-recliner.png",
+      "source": "../sources/leather-recliner.png",
       "sourceSize": [
         1448,
         1086
@@ -517,16 +517,16 @@
         121,
         25
       ],
-      "source": "sources/round-coffee-table.png",
+      "source": "../sources/round-coffee-table.png",
       "sourceSize": [
         2172,
         724
       ],
       "sourceCrop": [
-        580,
-        17,
-        1575,
-        693
+        244,
+        6,
+        1928,
+        724
       ],
       "sourceFit": [
         9,
@@ -570,7 +570,7 @@
         413,
         237
       ],
-      "source": "sources/persian-living-rug.png",
+      "source": "../sources/persian-living-rug.png",
       "sourceSize": [
         1648,
         954
@@ -623,7 +623,7 @@
         53,
         69
       ],
-      "source": "sources/potted-pothos.png",
+      "source": "../sources/potted-pothos.png",
       "sourceSize": [
         864,
         1821
@@ -683,7 +683,7 @@
         77,
         97
       ],
-      "source": "sources/bird-of-paradise.png",
+      "source": "../sources/bird-of-paradise.png",
       "sourceSize": [
         733,
         2146
@@ -743,7 +743,7 @@
         41,
         97
       ],
-      "source": "sources/drum-floor-lamp.png",
+      "source": "../sources/drum-floor-lamp.png",
       "sourceSize": [
         733,
         2146
@@ -803,7 +803,7 @@
         73,
         97
       ],
-      "source": "sources/arched-floor-lamp.png",
+      "source": "../sources/arched-floor-lamp.png",
       "sourceSize": [
         733,
         2146
@@ -839,51 +839,51 @@
       "file": "racing-sim-rig-v1.png",
       "room": "living",
       "size": [
-        144,
-        60
+        120,
+        88
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 53,
+      "feetLine": 81,
       "footPoint": [
-        72,
-        53
+        60,
+        81
       ],
       "footprints": [
         [
           9,
           33,
-          126,
-          20
+          102,
+          48
         ]
       ],
       "visibleBounds": [
         3,
         3,
-        141,
-        57
+        117,
+        85
       ],
-      "source": "sources/racing-sim-rig.png",
+      "source": "../sources/racing-sim-rig.png",
       "sourceSize": [
-        1939,
-        811
+        1464,
+        1074
       ],
       "sourceCrop": [
-        312,
-        54,
-        1679,
-        763
+        199,
+        5,
+        1292,
+        1056
       ],
       "sourceFit": [
         9,
         9,
-        414,
-        162
+        342,
+        246
       ],
       "working": "working/racing-sim-rig-3x.png",
       "workingSize": [
-        432,
-        180
+        360,
+        264
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -899,44 +899,44 @@
       "file": "sim-cables-v1.png",
       "room": "living",
       "size": [
-        136,
-        44
+        144,
+        32
       ],
       "kind": "WALK-THROUGH",
       "renderLayer": "ground",
-      "feetLine": 37,
+      "feetLine": 25,
       "footPoint": [
-        68,
-        37
+        72,
+        25
       ],
       "footprints": [],
       "visibleBounds": [
         3,
         3,
-        133,
-        41
+        141,
+        29
       ],
-      "source": "sources/sim-cables.png",
+      "source": "../sources/sim-cables.png",
       "sourceSize": [
         2172,
         724
       ],
       "sourceCrop": [
-        61,
-        55,
-        2085,
-        614
+        21,
+        271,
+        2153,
+        538
       ],
       "sourceFit": [
         9,
         9,
-        390,
-        114
+        414,
+        78
       ],
       "working": "working/sim-cables-3x.png",
       "workingSize": [
-        408,
-        132
+        432,
+        96
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -975,7 +975,7 @@
         57,
         57
       ],
-      "source": "sources/baby-swing-pink.png",
+      "source": "../sources/baby-swing-pink.png",
       "sourceSize": [
         1254,
         1254
@@ -1035,7 +1035,7 @@
         57,
         57
       ],
-      "source": "sources/baby-swing-grey.png",
+      "source": "../sources/baby-swing-grey.png",
       "sourceSize": [
         1254,
         1254
@@ -1095,7 +1095,7 @@
         53,
         25
       ],
-      "source": "sources/blanket-basket.png",
+      "source": "../sources/blanket-basket.png",
       "sourceSize": [
         1774,
         887
@@ -1148,7 +1148,7 @@
         29,
         21
       ],
-      "source": "sources/snack-bag.png",
+      "source": "../sources/snack-bag.png",
       "sourceSize": [
         1448,
         1086
@@ -1208,7 +1208,7 @@
         189,
         57
       ],
-      "source": "sources/round-dining-table.png",
+      "source": "../sources/round-dining-table.png",
       "sourceSize": [
         2172,
         724
@@ -1268,7 +1268,7 @@
         45,
         57
       ],
-      "source": "sources/dining-chair-north.png",
+      "source": "../sources/dining-chair-north.png",
       "sourceSize": [
         946,
         1663
@@ -1329,7 +1329,7 @@
         45,
         57
       ],
-      "source": "sources/dining-chair-south.png",
+      "source": "../sources/dining-chair-south.png",
       "sourceSize": [
         946,
         1663
@@ -1390,7 +1390,7 @@
         45,
         57
       ],
-      "source": "sources/dining-chair-east.png",
+      "source": "../sources/dining-chair-east.png",
       "sourceSize": [
         946,
         1663
@@ -1451,7 +1451,7 @@
         45,
         57
       ],
-      "source": "sources/dining-chair-west.png",
+      "source": "../sources/dining-chair-west.png",
       "sourceSize": [
         946,
         1663
@@ -1505,7 +1505,7 @@
         285,
         237
       ],
-      "source": "sources/dining-rug.png",
+      "source": "../sources/dining-rug.png",
       "sourceSize": [
         1374,
         1145
@@ -1570,7 +1570,7 @@
         237,
         57
       ],
-      "source": "sources/corner-computer-desk.png",
+      "source": "../sources/corner-computer-desk.png",
       "sourceSize": [
         2164,
         727
@@ -1624,7 +1624,7 @@
         213,
         97
       ],
-      "source": "sources/camera-book-shelves.png",
+      "source": "../sources/camera-book-shelves.png",
       "sourceSize": [
         1824,
         862
@@ -1684,7 +1684,7 @@
         53,
         57
       ],
-      "source": "sources/mesh-office-chair.png",
+      "source": "../sources/mesh-office-chair.png",
       "sourceSize": [
         1217,
         1292
@@ -1736,7 +1736,7 @@
         65,
         85
       ],
-      "source": "sources/moon-print.png",
+      "source": "../sources/moon-print.png",
       "sourceSize": [
         1105,
         1424
@@ -1773,43 +1773,43 @@
       "room": "desk",
       "size": [
         88,
-        56
+        24
       ],
       "kind": "WALK-THROUGH",
       "renderLayer": "wall-mounted",
-      "feetLine": 49,
+      "feetLine": 17,
       "footPoint": [
         44,
-        49
+        17
       ],
       "footprints": [],
       "visibleBounds": [
         3,
         3,
         85,
-        53
+        21
       ],
-      "source": "sources/kids-drawings.png",
+      "source": "../sources/kids-drawings.png",
       "sourceSize": [
-        1593,
-        987
+        2014,
+        781
       ],
       "sourceCrop": [
-        81,
-        90,
-        1516,
-        905
+        114,
+        61,
+        1899,
+        699
       ],
       "sourceFit": [
         9,
         9,
         246,
-        150
+        54
       ],
       "working": "working/kids-drawings-3x.png",
       "workingSize": [
         264,
-        168
+        72
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -1849,7 +1849,7 @@
         141,
         53
       ],
-      "source": "sources/electric-console-east.png",
+      "source": "../sources/electric-console-east.png",
       "sourceSize": [
         1988,
         791
@@ -1902,7 +1902,7 @@
         133,
         97
       ],
-      "source": "sources/abstract-wall-painting.png",
+      "source": "../sources/abstract-wall-painting.png",
       "sourceSize": [
         1445,
         1088
@@ -1962,7 +1962,7 @@
         41,
         57
       ],
-      "source": "sources/potted-orchid.png",
+      "source": "../sources/potted-orchid.png",
       "sourceSize": [
         944,
         1665
@@ -2022,16 +2022,16 @@
         181,
         57
       ],
-      "source": "sources/white-oak-sink-counter.png",
+      "source": "../sources/white-oak-sink-counter.png",
       "sourceSize": [
-        2175,
-        723
+        2172,
+        724
       ],
       "sourceCrop": [
-        199,
-        6,
-        1976,
-        709
+        201,
+        11,
+        1972,
+        706
       ],
       "sourceFit": [
         9,
@@ -2075,16 +2075,16 @@
         189,
         77
       ],
-      "source": "sources/white-oak-upper-cabinets.png",
+      "source": "../sources/white-oak-upper-cabinets.png",
       "sourceSize": [
-        1922,
-        818
+        1942,
+        809
       ],
       "sourceCrop": [
-        27,
-        43,
-        1895,
-        770
+        28,
+        42,
+        1914,
+        765
       ],
       "sourceFit": [
         9,
@@ -2135,16 +2135,16 @@
         77,
         97
       ],
-      "source": "sources/stove-microwave.png",
+      "source": "../sources/stove-microwave.png",
       "sourceSize": [
-        732,
-        2149
+        1122,
+        1402
       ],
       "sourceCrop": [
-        26,
-        541,
-        708,
-        1794
+        145,
+        9,
+        987,
+        1389
       ],
       "sourceFit": [
         9,
@@ -2195,16 +2195,16 @@
         85,
         97
       ],
-      "source": "sources/magnet-fridge.png",
+      "source": "../sources/magnet-fridge.png",
       "sourceSize": [
-        733,
-        2146
+        1176,
+        1337
       ],
       "sourceCrop": [
-        23,
-        566,
-        700,
-        2066
+        229,
+        15,
+        960,
+        1329
       ],
       "sourceFit": [
         9,
@@ -2232,50 +2232,50 @@
       "room": "kitchen",
       "size": [
         160,
-        56
+        60
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
-      "feetLine": 49,
+      "feetLine": 53,
       "footPoint": [
         80,
-        49
+        53
       ],
       "footprints": [
         [
           7,
           11,
           146,
-          34
+          38
         ]
       ],
       "visibleBounds": [
         3,
         3,
         157,
-        53
+        57
       ],
-      "source": "sources/kitchen-counter-west.png",
+      "source": "../sources/kitchen-counter-west.png",
       "sourceSize": [
-        2123,
-        741
+        2048,
+        768
       ],
       "sourceCrop": [
-        26,
-        13,
-        2083,
-        704
+        28,
+        20,
+        2004,
+        734
       ],
       "sourceFit": [
         9,
         9,
         462,
-        150
+        162
       ],
       "working": "working/kitchen-counter-west-3x.png",
       "workingSize": [
         480,
-        168
+        180
       ],
       "reductionFactor": 3,
       "referenceRoles": [
@@ -2315,16 +2315,16 @@
         109,
         57
       ],
-      "source": "sources/kitchen-counter-east.png",
+      "source": "../sources/kitchen-counter-east.png",
       "sourceSize": [
         1715,
         917
       ],
       "sourceCrop": [
-        190,
-        102,
-        1521,
-        879
+        186,
+        100,
+        1525,
+        877
       ],
       "sourceFit": [
         9,
@@ -2368,7 +2368,7 @@
         93,
         217
       ],
-      "source": "sources/kitchen-runner.png",
+      "source": "../sources/kitchen-runner.png",
       "sourceSize": [
         1105,
         1424
@@ -2428,7 +2428,7 @@
         53,
         45
       ],
-      "source": "sources/storage-bench-west.png",
+      "source": "../sources/storage-bench-west.png",
       "sourceSize": [
         1354,
         1161
@@ -2482,7 +2482,7 @@
         41,
         29
       ],
-      "source": "sources/shoe-pairs.png",
+      "source": "../sources/shoe-pairs.png",
       "sourceSize": [
         1427,
         1102
@@ -2535,7 +2535,7 @@
         53,
         97
       ],
-      "source": "sources/coat-hooks-jacket.png",
+      "source": "../sources/coat-hooks-jacket.png",
       "sourceSize": [
         733,
         2146
@@ -2588,7 +2588,7 @@
         21,
         97
       ],
-      "source": "sources/oak-door-side.png",
+      "source": "../sources/oak-door-side.png",
       "sourceSize": [
         733,
         2146
@@ -2640,7 +2640,7 @@
         16,
         256
       ],
-      "source": "sources/side-wall-strip.png",
+      "source": "../sources/side-wall-strip.png",
       "sourceSize": [
         1024,
         1536
@@ -2692,7 +2692,7 @@
         21,
         97
       ],
-      "source": "sources/window-blinds-east.png",
+      "source": "../sources/window-blinds-east.png",
       "sourceSize": [
         733,
         2146
@@ -2751,7 +2751,7 @@
         53,
         69
       ],
-      "source": "sources/side-table-lamp.png",
+      "source": "../sources/side-table-lamp.png",
       "sourceSize": [
         864,
         1821
@@ -2810,7 +2810,7 @@
         69,
         25
       ],
-      "source": "sources/twins-toy-bin.png",
+      "source": "../sources/twins-toy-bin.png",
       "sourceSize": [
         1961,
         802
@@ -2869,7 +2869,7 @@
         85,
         85
       ],
-      "source": "sources/houseplant-cluster.png",
+      "source": "../sources/houseplant-cluster.png",
       "sourceSize": [
         1254,
         1254
@@ -2928,7 +2928,7 @@
         85,
         25
       ],
-      "source": "sources/shoe-rack.png",
+      "source": "../sources/shoe-rack.png",
       "sourceSize": [
         2158,
         729
@@ -2987,7 +2987,7 @@
         53,
         25
       ],
-      "source": "sources/laundry-basket.png",
+      "source": "../sources/laundry-basket.png",
       "sourceSize": [
         1774,
         887
@@ -3046,7 +3046,7 @@
         181,
         57
       ],
-      "source": "sources/south-love-seat.png",
+      "source": "../sources/south-love-seat.png",
       "sourceSize": [
         2169,
         725
@@ -3081,50 +3081,50 @@
       "file": "twin-bassinets-v1.png",
       "room": "living",
       "size": [
-        104,
+        80,
         60
       ],
       "kind": "WALL",
       "renderLayer": "furniture",
       "feetLine": 53,
       "footPoint": [
-        52,
+        40,
         53
       ],
       "footprints": [
         [
           7,
           29,
-          90,
+          66,
           24
         ]
       ],
       "visibleBounds": [
         3,
         3,
-        101,
+        77,
         57
       ],
-      "source": "sources/twin-bassinets.png",
+      "source": "../sources/twin-bassinets.png",
       "sourceSize": [
-        1643,
-        957
+        1448,
+        1086
       ],
       "sourceCrop": [
-        240,
-        51,
-        1404,
-        909
+        12,
+        18,
+        740,
+        604
       ],
       "sourceFit": [
         9,
         9,
-        294,
+        222,
         162
       ],
       "working": "working/twin-bassinets-3x.png",
       "workingSize": [
-        312,
+        240,
         180
       ],
       "reductionFactor": 3,
@@ -3157,7 +3157,7 @@
         93,
         97
       ],
-      "source": "sources/window-blinds-north.png",
+      "source": "../sources/window-blinds-north.png",
       "sourceSize": [
         733,
         2146
@@ -3209,7 +3209,7 @@
         21,
         97
       ],
-      "source": "sources/window-blinds-west.png",
+      "source": "../sources/window-blinds-west.png",
       "sourceSize": [
         732,
         2146

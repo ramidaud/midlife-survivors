@@ -12,14 +12,18 @@ Scale is measured against the hero. Native furniture dimensions aim for the appr
 
 Route checks flood-fill positions where an entire 96x96 square fits between proposed footprints. Reaching two room boundaries demonstrates local clearance only; actual door connectivity and depth sorting still need runtime testing after art approval. Green dots in overlays show clear square centers, not a painted game path.
 
-Source photos are not included. Paintings use the existing public v4 style reference, neutral white balance, no people, names or personal text. Superseded paintings are excluded from the review.
+Only sources/ beside this README contains selected source paintings. The exporter points its manifest to ../sources/ and does not create deliver/sources. Source photos are not included. Paintings use the existing public v4 style reference, neutral white balance, no people, names or personal text. Superseded paintings are excluded from the review.
 
 ## Review limits and fit decisions
 
 - The four main room mock-ups have connected 96px square routes at their existing door/open boundaries. The entry bench is a compact 56x48 repaint, fitted below the door rather than across its opening.
-- The bassinets sit beside the west sofa, lower than the requested north corner, because that corner is the patio approach. The coffee table, rig and floor lamp are tidied to keep the approach connected. This placement adjustment needs Rami's visual approval.
+- Rami's latest direction fixes the bassinets in the northwest corner at [0,0], between the raised photo shelves and the sofa shifted south to [0,64]. They are repainted as two compact sleeping bassinets, not car seats. The patio approach stays connected at 96px.
 - Four dining chairs face the table; their asset names indicate facing direction rather than their side of the table. Rugs are ground decals with no backing or collision.
 - The 104x136 laundry closet retains its washer/dryer. A full 96px square cannot fit inside with that appliance. Its basket is accessed from outside; this is an explicit existing-space exception, not a passing through-room route.
 - Native room PNGs are visually inspected. Browser file-URL preview is unavailable in this environment, so responsive browser layout was not rerun. The art review does not launch the game or send telemetry.
 
 Run test_routes.py for the 95px/96px/dead-end tests, then audit_review.py after rebuilding to audit the exports. No runtime integration or version change. Claude places approved art later.
+
+## Latest review corrections
+
+Upright rig faces the east-wall TV; one connected floor cable pair runs from its right edge to the media console. Coffee table has a pale top and visible props. Dining chair tucks at the standing desk, the plant sits left of the abstract painting, and kids' drawings form a wall-mounted row beneath it. The kitchen is repainted as one detailed set: visible fridge magnets/handles, cabinet doors/drawers, and props on worktops, with only the north double sink. The central aisle remains open. Exact requests are in review-fixes-prompts.json.

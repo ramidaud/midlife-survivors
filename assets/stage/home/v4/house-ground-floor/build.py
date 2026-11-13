@@ -105,7 +105,8 @@ def comparison(p,art,hero):
  for im,xy in [(hero,(24,baseline-60)),(art,(128,baseline-h)),(old,(128+w+32,baseline-old.height))]:out.paste(im,xy,im)
  return out
 def build():
- for folder in ['sources','working','checks','reference','mockups']:(OUT/folder).mkdir(parents=True,exist_ok=True)
+ for folder in ['sources','working','checks','reference','mockups']:
+  if folder!='sources' or globals().get('COPY_SOURCES',True):(OUT/folder).mkdir(parents=True,exist_ok=True)
  # Only existing game art and public layout data are copied. Private photos never enter deliver/.
  for source in (ROOT/'reference').iterdir():
   if source.is_file() and not source.name.endswith('-3x.png'):shutil.copy2(source,OUT/'reference'/source.name)
@@ -114,9 +115,9 @@ def build():
   source=ROOT/'sources'/f"{p['id']}.png"
   if not source.exists():continue
   im=Image.open(source).convert('RGBA');work,box,fit=normalize_source(p,im);w,h=p['size'];f=p['factor'];working=f"working/{p['id']}-{f}x.png";work.save(OUT/working)
-  art=palette_map(mode_reduce(work,w,h,f),p);file=p['id']+'-v1.png';art.save(OUT/file);shutil.copy2(source,OUT/'sources'/source.name);line,point,fp=foot_data(p,art)
+  art=palette_map(mode_reduce(work,w,h,f),p);file=p['id']+'-v1.png';art.save(OUT/file);shutil.copy2(source,OUT/'sources'/source.name) if globals().get('COPY_SOURCES',True) else None;line,point,fp=foot_data(p,art)
   kind='WALL' if p['kind']=='WALL' else 'WALK-THROUGH';layer='wall-mounted' if p['kind']=='WALL-DECOR' else 'over-everything' if p['kind']=='OVER' else 'ground' if p['kind'] in ['GROUND','WALK-THROUGH'] else 'furniture'
-  record={'id':p['id'],'file':file,'room':p['room'],'size':[w,h],'kind':kind,'renderLayer':layer,'feetLine':line,'footPoint':point,'footprints':fp,'visibleBounds':list(art.getbbox()),'source':'sources/'+source.name,'sourceSize':list(im.size),'sourceCrop':box,'sourceFit':fit,'working':working,'workingSize':list(work.size),'reductionFactor':f,'referenceRoles':p['referenceRoles'],'oldReference':'reference/'+p['oldReference']+'.png','comparison1x':f"checks/{p['id']}-hero-reference-1x.png",'footprintPreview':f"checks/{p['id']}-footprint-1x.png"}
+  record={'id':p['id'],'file':file,'room':p['room'],'size':[w,h],'kind':kind,'renderLayer':layer,'feetLine':line,'footPoint':point,'footprints':fp,'visibleBounds':list(art.getbbox()),'source':globals().get('SOURCE_PREFIX','sources/')+source.name,'sourceSize':list(im.size),'sourceCrop':box,'sourceFit':fit,'working':working,'workingSize':list(work.size),'reductionFactor':f,'referenceRoles':p['referenceRoles'],'oldReference':'reference/'+p['oldReference']+'.png','comparison1x':f"checks/{p['id']}-hero-reference-1x.png",'footprintPreview':f"checks/{p['id']}-footprint-1x.png"}
   if 'fitNote' in p:record['fitNote']=p['fitNote']
   comparison(p,art,hero).save(OUT/record['comparison1x']);overlay=Image.new('RGB',(w,h),'#D3B78D');overlay.paste(art,(0,0),art);d=ImageDraw.Draw(overlay)
   for x,y,fw,fh in fp:d.rectangle((x,y,x+fw-1,y+fh-1),outline='#C45C4B',width=2)

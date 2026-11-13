@@ -154,7 +154,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "40e206d49a650064b0b23d2f2a57ebc948d3994d2463f3f007efc6b668928790",
+      "sha256": "dad9121001890d41cdc099ef3f1b911874e872998f5aa39fc1028d0730bac461",
       "materialToneCounts": {
         "wood": 5
       },
@@ -256,7 +256,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "47d15d0d1bbcf249a18f178c5e781c255035a96dbba01ab748bb77a22c1451fe",
+      "sha256": "91d52b6a74d148da857a3124993f8e5c165727e05258cc884f1909af7b96798a",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -272,7 +272,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "7326ded6150fabacd96cda4f274584a366c4b6cab4c0a8939a7f9ca154c3c237",
+      "sha256": "fecdd16ae09e60ab6373b445898731c4e2db0f086db71f71a5858840f1839eeb",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -518,7 +518,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "bafe1fa53da11bced79e3ba92bfd9d3c27afbd7a82a070931e266933a2159e4d",
+      "sha256": "35b6ae9ba9b4e8a57c67953d845bd64cb821f7ffed0d33d13c9a0d282481592a",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -582,7 +582,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "6ba73bba2211b8248859d9c3d8dcd131d3cec9f5dfcc4adbe01eece0901cf1b5",
+      "sha256": "9bfbe64361704e33e93de55a1124584df1086422cc9855ee21cfed55ec06fbf5",
       "materialToneCounts": {
         "white cabinetry": 4,
         "oak trim": 5
@@ -601,7 +601,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "8c7cd55c1b1d3a33bd11d7a5bd9a5200ad598b96bfad4e1cbd56f61287d289bd",
+      "sha256": "5c10e4059acc49bdd094858101988cedfceab3d846286ec8943b207f2bc32f79",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
@@ -617,7 +617,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "836713ab5e327f74623702c27ab9aa02c66199c835dc597b6a31647b06e3bd66",
+      "sha256": "4016230bbe32e7dac9466d8e785580935d20c8127da525bfce5173f0d2fe011c",
       "materialToneCounts": {
         "white enamel": 4
       },
@@ -635,7 +635,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "99b260a82a2d86386e6d5111cb359c8597378fad228da2ead4aadf0726573bf0",
+      "sha256": "a7b16ebb84102d7c253c5cdfff921ee175bc20a3089d4175569667b5b3913043",
       "materialToneCounts": {
         "white enamel": 4
       },
@@ -653,7 +653,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "786dae7f6f1d528f3f7396bf6c1f5b7859b005b38e2a4f566a0b168d4f07f89f",
+      "sha256": "cb16fb8a535c3306b240e55be6b0433ff3627a26624cfdca9962b94fd9625144",
       "materialToneCounts": {
         "white cabinetry": 4,
         "oak trim": 5
@@ -672,7 +672,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "91052442c62235ce602e6438b9a1942508b8ee98a178f42f4f1f0b596561221f",
+      "sha256": "c26fc314a0d81259557ac5c8383b9beee77d4a6855082587d2d059448c6f3dc4",
       "materialToneCounts": {
         "white cabinetry": 4,
         "oak trim": 5
@@ -899,7 +899,7 @@
       "boundedFootprints": true,
       "kindFootprints": true,
       "exactReduction": true,
-      "sha256": "5c94bf45bbf96b552733a0a4b5cc64dc7b70d0fc60cf74c2aacc7552ef51e9b3",
+      "sha256": "a9ca34028ce819fa430ab86bc0192fdcdfb3d5da1f2ee81f55b0138a078384e7",
       "materialToneCounts": {},
       "majorMaterialsThreeTones": true
     },
