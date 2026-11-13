@@ -1,0 +1,191 @@
+[
+  {
+    "id": "string-light-posts",
+    "file": "string-light-posts-v4.png",
+    "size": [
+      160,
+      64
+    ],
+    "kind": "WALL",
+    "footPoint": [
+      80,
+      59
+    ],
+    "visibleBounds": [
+      2,
+      3,
+      158,
+      61
+    ],
+    "footprints": [
+      [
+        4,
+        52,
+        8,
+        7
+      ],
+      [
+        146,
+        52,
+        8,
+        7
+      ]
+    ],
+    "drawLayer": "depth-sorted",
+    "blocks": true,
+    "source": "sources/string-light-posts.png",
+    "sourceSize": [
+      1983,
+      793
+    ],
+    "sourceCrop": [
+      75,
+      44,
+      1933,
+      748
+    ],
+    "working": "working-8x/string-light-posts-8x.png",
+    "workingSize": [
+      1280,
+      512
+    ],
+    "fit": [
+      16,
+      19,
+      1248,
+      473
+    ],
+    "sourceFit": "proportional fit",
+    "palettePolicy": "HSV material masks, nearest tone only within selected material family",
+    "oldFile": "old/string-light-posts.png",
+    "referenceYard": "Grill master",
+    "referenceCrop": [
+      878,
+      54,
+      1036,
+      160
+    ],
+    "comparison1x": "checks/string-light-posts-1x.png",
+    "comparison4x": "checks/string-light-posts-4x.png"
+  },
+  {
+    "id": "string-light-strand",
+    "file": "string-light-strand-v4.png",
+    "size": [
+      160,
+      64
+    ],
+    "kind": "WALK-THROUGH",
+    "footPoint": [
+      80,
+      44
+    ],
+    "visibleBounds": [
+      2,
+      18,
+      158,
+      46
+    ],
+    "footprints": [],
+    "drawLayer": "overhead",
+    "blocks": false,
+    "source": "sources/string-light-strand.png",
+    "sourceSize": [
+      1983,
+      793
+    ],
+    "sourceCrop": [
+      33,
+      112,
+      1950,
+      462
+    ],
+    "working": "working-8x/string-light-strand-8x.png",
+    "workingSize": [
+      1280,
+      512
+    ],
+    "fit": [
+      16,
+      142,
+      1248,
+      228
+    ],
+    "sourceFit": "proportional fit",
+    "palettePolicy": "HSV material masks, nearest tone only within selected material family",
+    "oldFile": "old/string-light-strand.png",
+    "referenceYard": "Grill master",
+    "referenceCrop": [
+      881,
+      56,
+      1033,
+      108
+    ],
+    "comparison1x": "checks/string-light-strand-1x.png",
+    "comparison4x": "checks/string-light-strand-4x.png",
+    "kindNote": "WALK-THROUGH denotes no floor collision; this is an overhead layer, not a ground decal."
+  },
+  {
+    "id": "cooler",
+    "file": "cooler-v4.png",
+    "size": [
+      64,
+      56
+    ],
+    "kind": "BREAKABLE",
+    "footPoint": [
+      32,
+      52
+    ],
+    "visibleBounds": [
+      3,
+      2,
+      61,
+      54
+    ],
+    "footprints": [
+      [
+        8,
+        40,
+        49,
+        12
+      ]
+    ],
+    "drawLayer": "depth-sorted",
+    "blocks": true,
+    "source": "sources/cooler.png",
+    "sourceSize": [
+      1374,
+      1145
+    ],
+    "sourceCrop": [
+      270,
+      231,
+      1087,
+      956
+    ],
+    "working": "working-8x/cooler-8x.png",
+    "workingSize": [
+      512,
+      448
+    ],
+    "fit": [
+      21,
+      16,
+      469,
+      416
+    ],
+    "sourceFit": "proportional fit",
+    "palettePolicy": "HSV material masks, nearest tone only within selected material family",
+    "oldFile": "old/cooler.png",
+    "referenceYard": "Grill master",
+    "referenceCrop": [
+      869,
+      290,
+      944,
+      356
+    ],
+    "comparison1x": "checks/cooler-1x.png",
+    "comparison4x": "checks/cooler-4x.png"
+  }
+]

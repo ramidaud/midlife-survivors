@@ -1,0 +1,7 @@
+{
+  "square-concrete-pad": {
+    "tool": "built-in imagegen edit",
+    "prompt": "Use case: precise-object-edit. Repaint the supplied concrete pad as a FLAT NEUTRAL COOL SLATE-GRAY skate-park concrete surface. The previous beige/tan cast and large upper-left-to-lower-right lighting gradient must be completely removed. This is a seamlessly repeating512x512 TOP-DOWN ground tile, working2x1024x1024. Uniform middle slate base #526078 across ALL four corners and edges; sparse small darker scuffs #303750 and pale gray-green #83A89A worn grains for at least3 material tones. Tiny cracks only, no large diagonal gradient or broad color islands, no orange, cream, tan, brown or yellow. No objects, border, outline, curb, 3D bevel, shadows, text, logos or perspective. Paint fills the entire square; same general small grain density everywhere, left/right and top/bottom edges join. Neutral white balance, no sepia/golden haze/film tint.",
+    "reason": "Remove beige cast and broad gradient from repeating concrete."
+  }
+}

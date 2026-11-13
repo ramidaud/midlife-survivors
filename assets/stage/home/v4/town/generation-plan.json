@@ -1,0 +1,450 @@
+[
+  {
+    "group": "strip-mall",
+    "id": "mall-grocery-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A complete single storefront FRONT, grocery store, cardinal front-on overhead like the attached house front, not diagonally isometric. One-story brick/stucco shop with broad glazed windows, green-and-cream small awning and a central glass entrance. Inside windows: shelves of generic groceries, stacked fruit and produce baskets, all INSIDE the shop. One completely EMPTY cream rectangular sign plate above door/windows. No words, letters, brand names or logos. No trees, carts, benches or props outside. Fill most of final416x384 with3px margins. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-bank-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A complete neighborhood BANK storefront FRONT, one-story stone/brick classical facade with four cream columns, central double glass doors, one clearly visible night-deposit slot inset beside the entrance, and a large completely EMPTY sign plate above the columns. Cardinal front-on slight overhead like house fronts, no isometric rotation. Red-brown brick, cream stone, slate glass; each3 tones. No words, currency symbols, logos or emblems. Only the bank and entrance steps, no exterior objects. Fill416x384. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-pizza-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A complete single pizza-place storefront FRONT, one story, rusty brick and cream trim, muted russet-and-cream striped awning, big windows with metal pizza pans and an oven visible INSIDE, central glass entrance. Broad completely BLANK cream sign plate. Cardinal front-on slight overhead like house front, no isometric rotation. No text, logos, pizza emblems on signs, chairs, tables, plants or standing objects outside. Fill416x384. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-pharmacy-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A complete one-story PHARMACY storefront FRONT, cream brick with teal/slate window frames, glass entry, display windows showing generic medicine bottles and boxes on indoor shelves. Large completely EMPTY sign plate. Front-on house-front camera, slight overhead, horizontal facade, no isometric rotation. No words, letters, Rx, crosses, brand marks or logos. No exterior furniture. Fill416x384. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-dry-cleaner-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A complete one-story DRY CLEANER storefront FRONT, sage-painted brick and cream trim, large glass windows showing a rail of hanging cream shirts and dusty-lavender garments INSIDE, simple glass door, broad completely EMPTY sign plate. Front-on house-front camera, slight overhead, no isometric rotation. No words, brand names, logos or exterior props. Fill416x384. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-walkway-ground",
+    "size": [
+      2496,
+      96
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "method": "repeat-six-painted-modules",
+    "moduleSize": [
+      416,
+      96
+    ],
+    "prompt": "Paint ONE subject: Paint ONE seamless416x96 module of a flat pedestrian concrete-slab walkway. It will repeat SIX times left-to-right to make2496x96. Direct overhead, thin cream/tan paving slabs in #A88B70 #D3B78D #F2D7A1 with three mottled surface tones, modest worn seams; continuous horizontal left/right edges that join cleanly. Surface fills the module, NO perspective, no curb, no raised edge, no exterior outline, no cast shadows, no roof, posts, benches, signs, objects, people, leaves or words. This is FLAT GROUND only; canopy is separate. Paint at exact2x final size of ONE416x96 repeat module, working832x192, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-walkway-canopy",
+    "size": [
+      2496,
+      96
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "method": "repeat-six-painted-modules",
+    "moduleSize": [
+      416,
+      96
+    ],
+    "prompt": "Paint ONE subject: Paint ONE416x96 overhead canopy module that repeats SIX times horizontally over the walkway. A shallow attached cantilevered storefront canopy, muted teal metal roof with cream fascia and narrow russet trim. Horizontal front/back edges, slight overhead FRONT orientation matching storefronts. Left/right repeat boundaries should line up. Roof only, transparent beyond its silhouette and through any gaps. NO support posts, floor, ground shadows, text or scenery. Underside material shading is fine. This is a NONBLOCKING OVERHEAD layer, not a flat floor decal; hero can pass underneath. At least3 roof/trim tones. Paint at exact2x final size of ONE416x96 repeat module, working832x192, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-parking-stalls",
+    "size": [
+      512,
+      512
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A seamless rectangular512x512 school/town PARKING LOT asphalt ground tile, overhead, same mid-slate asphalt #526078 as attached street, cracks/grain in #303750/#171C35. Cream painted stall lines form two neat banks of parking bays with an open middle lane. All marks flat worn paint with3 cream tones. NO cars, curbs, people, grass, posts, text, logos or cast shadows. No dark outline around tile. Asphalt fills entire canvas, only a2px transparent outside border. Opposite edges compatible for repeats. Paint at exact2x final size1024x1024, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-drive-aisle",
+    "size": [
+      512,
+      512
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A seamless rectangular512x512 DRIVE AISLE asphalt ground tile, overhead, same mid-slate #526078 as attached street with subtle two darker grain tones. One large worn cream arrow points UP and simple dashed cream lane marks stay aligned with vertical travel. Flat paint with3 cream tones, no outline or floor shadow. NO cars, curbs, people, objects, letters, logos or ground beyond tile. Fill whole rectangle except2px transparent outside border, compatible repeat edges. Paint at exact2x final size1024x1024, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-car-teal",
+    "size": [
+      80,
+      144
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One muted TEAL compact parked car, exact north-south long axis, FRONT bumper toward TOP, direct overhead with slight parked-car roof perspective matching street reference. Teal body panels in3 tones, slate windshield and rear glass, cream rim glints, two side mirrors, full tires. No people, exhaust, ground, logos, letters or emblems. Heavy contact shadow lower-right and complete dark outline. Fill80x144. Paint at exact3x final size240x432, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-car-cream",
+    "size": [
+      80,
+      144
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One CREAM/TAN compact parked hatchback, north-south long axis, FRONT at TOP, same overhead parked-car camera as street reference. Cream body with3 cream/tan tones, slate windshield/rear glass, small roof rail details, side mirrors and dark tires. No people, exhaust, ground, logos, letters or emblems. Full dark outline, heavy lower-right contact shadow. Fill80x144. Paint at exact3x final size240x432, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-car-russet",
+    "size": [
+      80,
+      144
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One RUSSET/brick-red compact parked sedan, north-south long axis, FRONT at TOP, same overhead parked-car camera as street reference. Rust red body in3 tones, slate windshield and rear glass, cream rim glints, two mirrors and dark tires. No people, exhaust, ground, letters, logos or emblems. Full dark outline, heavy lower-right contact shadow. Fill80x144. Paint at exact3x final size240x432, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-car-sage",
+    "size": [
+      80,
+      144
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One muted SAGE GREEN compact parked wagon, north-south long axis, FRONT at TOP, same overhead parked-car camera as street reference. Green body in3 tones #315B4B #6D895B #9BAE73, slate glass, small roof rails, cream highlights, two mirrors and tires. No people, exhaust, ground, letters, logos or emblems. Full dark outline, heavy lower-right contact shadow. Fill80x144. Paint at exact3x final size240x432, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-cart-corral",
+    "size": [
+      256,
+      128
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: A parking CART CORRAL containing THREE nested empty shopping carts, their wire baskets and wheels readable, surrounded by low slate/teal steel rails. Three-quarter overhead FRONT camera like yard furniture. Cream metal rim highlights with3 metal tones. Entire corral and carts fill256x128. Full dark outline and heavy lower-right shadows at ground bases. No people, ground tile, signs, letters or logos. Paint at exact3x final size768x384, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-runaway-cart",
+    "size": [
+      64,
+      56
+    ],
+    "factor": 3,
+    "kind": "BREAKABLE",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: ONE loose empty shopping cart, slightly angled as if rolling, wire basket, push handle and four little wheels, slate/teal metal with a bright CREAM TOP-RIM highlight. Compact body fills64x56, painted height at most50px beside56x60 hero. Three-quarter overhead FRONT camera. At least3 metal tones, modest contact shadow. No ground, people, letters, logos, speed lines or extra carts. Paint at exact3x final size192x168, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-light-pole",
+    "size": [
+      64,
+      288
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One tall parking-lot light pole with two small hooded lamp heads at top, dark slate metal shaft, tiny cream highlights and a broad bolted metal foot. Complete pole inside64x288, fill height,3 metal tones. Light comes upper-left; heavy little ground shadow under foot toward lower-right. Full dark outline, no lit beam or large pool of light, ground, people or text. Paint at exact3x final size192x864, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-curb-island",
+    "size": [
+      224,
+      224
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One low elongated concrete CURB ISLAND with a single small peak-fall ORANGE MAPLE TREE growing from its grassy middle. This is one wall prop: concrete curb base, little bounded grass/dirt inset and tree trunk/canopy. Three-quarter overhead front camera, dense orange maple foliage like yard reference,3 tones per material. Full dark silhouette outline and heavy lower-right shadow. Fill224x224. No unrelated ground, people, cars, signs, words or logos. Paint at exact3x final size672x672, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "strip-mall",
+    "id": "mall-trash-can",
+    "size": [
+      48,
+      56
+    ],
+    "factor": 3,
+    "kind": "BREAKABLE",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One small teal/slate parking-lot trash can, simple slightly domed lid with CREAM TOP-RIM highlight and subtle vertical ribs, painted height at most50px. Three-quarter overhead FRONT view,3 tones each main material, fill48x56. Modest contact shadow, no ground, people, letters, labels or logos. Paint at exact3x final size144x168, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-arcade-front",
+    "size": [
+      832,
+      448
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One wide one-story ARCADE building FRONT, two shop-bays wide. Rusty brick, slate/teal metal trim, broad glass windows, double glass entrance and one clearly recognizable generic arcade GAME CABINET visible INSIDE the window, no brands. Several large completely EMPTY dark sign plates edged with restrained neon-ish pale teal and pink light tubes; sign interiors blank, no symbols or letters. Front-on slight overhead house-front camera, horizontal facade, not isometric. No standing props outside or ground. Full dark outline and heavy lower-right base shadow. Fill832x448 with3 tones per material. Paint at exact2x final size1664x896, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-coffee-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One cozy one-story COFFEE SHOP FRONT, rusty brick/wood with cream trim and muted teal awning, glass entry and broad shop window showing an espresso machine and cream cups INSIDE on counter. Main cream sign plate COMPLETELY BLANK. Front-on slight overhead house-front camera, not isometric. No coffee-logo emblems, letters, words, patio chairs, tables, plants or other exterior objects. Full dark outline and heavy lower-right base shadow. Fill416x384,3 tones per material. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-hardware-front",
+    "size": [
+      416,
+      384
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One sturdy one-story HARDWARE STORE FRONT, cream/russet brick with slate/green trim, glass door and display windows showing pegboard hand tools, paint tins and hardware INSIDE. Main broad sign plate COMPLETELY BLANK. Front-on slight overhead house-front camera, no isometric angle. No brand marks, words, letters, logos, people or exterior standing objects. Full dark outline, heavy lower-right base shadow, fill416x384,3 tones per material. Paint at exact2x final size832x768, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-fountain",
+    "size": [
+      384,
+      320
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One round stone town FOUNTAIN, large elliptical basin in three-quarter overhead FRONT view, cream/tan stone rim and central tiered stone pedestal, pale teal water gently spilling between tiers with cream foam highlights. A few tiny orange fall leaves on rim only. At least3 tones per stone and water, full dark outline, heavy lower-right contact shadow. Fill384x320. No people, plaza ground, benches, extra standing objects, text or logos. Paint at exact2x final size768x640, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-brick-plaza",
+    "size": [
+      512,
+      512
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One seamless512x512 flat BRICK PLAZA ground tile viewed directly overhead. Muted russet/terracotta brick paving in a hand-painted herringbone pattern,3 brick tones #874C3B #C45C4B #E5A995 plus restrained dark grout. All paving flush and flat, no raised borders, exterior outlines, cast shadows or 3D bevels. No fountain, benches, objects, grass, letters, logos or scenery. Fill entire rectangle with2px transparent outer border; opposite edges should match for repeats. Paint at exact2x final size1024x1024, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-quarter-pipe",
+    "size": [
+      224,
+      160
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One small skate-park QUARTER PIPE ramp, cream/slate concrete curved riding surface flowing from low front lip up to a short rear deck with a narrow metal coping, visible solid side walls. Three-quarter overhead FRONT camera,3 concrete tones and3 metal tones, full dark outline and heavy lower-right contact shadow. Fill224x160. No skateboarders, boards, graffiti, logos, lettering, ground tile or other objects. Paint at exact3x final size672x480, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-grind-rail",
+    "size": [
+      192,
+      64
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One freestanding skate-park GRIND RAIL, long low horizontal dark slate metal bar on two sturdy vertical feet, three-quarter overhead FRONT view, complete object fills192x64, three metal tones with small cream wear glints. Full dark outline, heavy shadows at the two ground feet toward lower-right. No people, skateboards, ground, text or logos. Paint at exact3x final size576x192, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-concrete-pad",
+    "size": [
+      512,
+      512
+    ],
+    "factor": 2,
+    "kind": "WALK-THROUGH",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One seamless512x512 flat skate-park CONCRETE PAD tile viewed directly overhead. Light neutral slate/cream concrete with3 deliberately painted tones #526078 #83A89A #D3B78D, subtle worn wheel scuffs and fine irregular cracks. NOT beige sepia and no glossy film tint. No ramps, rails, boards, people, graffiti, letters, logos, grass, raised borders or floor shadows. Whole flat rectangle except2px transparent outside border. Opposite edges compatible for repeats. Paint at exact2x final size1024x1024, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-food-truck-teal",
+    "size": [
+      160,
+      288
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One large teal-and-cream FOOD TRUCK, exact north-south long axis with FRONT at TOP, overhead parked-car camera matching reference street. Broad boxy roof and truck cab, one raised side serving hatch/counter visible at RIGHT edge as part of truck, tiny generic cooking equipment inside hatch. Large EMPTY cream roof/sign rectangle, no letters or emblems. Teal panels in3 tones, cream trim, slate glass and heavy tires. Full dark outline, heavy lower-right contact shadow, entire truck/counter fills160x288. No people, ground or freestanding objects. Paint at exact3x final size480x864, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-food-truck-russet",
+    "size": [
+      160,
+      288
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One second, distinct boxier FOOD TRUCK in rusty-red and cream, exact north-south long axis, FRONT at TOP, overhead parked-car camera matching reference street. Box roof, compact cab, serving hatch and narrow attached foldout counter on RIGHT side with tiny generic food trays inside. Large completely EMPTY cream sign/roof rectangle. No text, words, logos, brand marks, people, ground or freestanding props. Rust panels in3 tones, cream trim and slate glass. Full dark outline/heavy lower-right contact shadow, fill160x288. Paint at exact3x final size480x864, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-bench",
+    "size": [
+      128,
+      80
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One small park BENCH, warm weathered wooden seat/back slats on dark teal iron arms and four short feet, three-quarter overhead FRONT view. Three wood and metal tones, full dark outline and heavy lower-right contact shadows at feet. Fill128x80. No people, ground, lettering, symbols or logos. Paint at exact3x final size384x240, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "town-square",
+    "id": "square-planter",
+    "size": [
+      72,
+      80
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One small square stone/terracotta town PLANTER holding a neatly trimmed low orange autumn shrub and a few cream flowers. Upright planter and foliage together taller than56x60 hero painted body, fill72x80. Three-quarter overhead FRONT camera,3 tones per planter and foliage, complete dark outline and heavy lower-right contact shadow. No people, unrelated ground, words or logos. Paint at exact3x final size216x240, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "community-center",
+    "id": "community-hall",
+    "size": [
+      1100,
+      560
+    ],
+    "factor": 2,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One complete one-story brick COMMUNITY HALL FRONT, broad symmetrical facade, shallow slate roof, central double glass doors with cream stone surround, broad completely EMPTY cream sign plate above entrance, and one large community BULLETIN BOARD mounted beside doors with small pinned blank cream paper notices. A bank of windows with a few simple orange paper fall leaves inside. Front-on slight overhead house-front camera, no isometric rotation. No words, letters, fake writing, names, logos, flags, people, benches, trees or other exterior objects. Full dark outline and heavy lower-right base shadow, fill1100x560,3 tones per material. Paint at exact2x final size2200x1120, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "community-center",
+    "id": "community-potluck-table",
+    "size": [
+      192,
+      96
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One folding block-party TABLE with a slightly wrinkled cream plastic tablecloth hanging over edges and one foil CASSEROLE dish on top, russet/orange baked food surface, teal/slate metal folding legs. Three-quarter overhead FRONT camera,3 tones for cloth, metal and food, full dark outline and heavy lower-right shadow under feet. Fill192x96. No chairs, people, ground, text, writing or logos. Paint at exact3x final size576x288, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "community-center",
+    "id": "community-bounce-house",
+    "size": [
+      256,
+      224
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One small inflatable BOUNCE HOUSE for the community block party, four soft corner towers, arch entry facing viewer, muted teal/lavender/russet panels with cream seams, visible mesh side walls. Three-quarter overhead FRONT camera, fully inflated rounded forms in3 tones per main material, complete dark outline and heavy lower-right base shadow. Fill256x224. No kids, people, ground, banners with words, letters, logos or extra props. Paint at exact3x final size768x672, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  },
+  {
+    "group": "community-center",
+    "id": "community-barricade",
+    "size": [
+      128,
+      80
+    ],
+    "factor": 3,
+    "kind": "WALL",
+    "method": "painting",
+    "moduleSize": null,
+    "prompt": "Paint ONE subject: One wooden SAWHORSE street barricade, two sturdy A-frame leg pairs, two cream horizontal boards with muted rusty-orange diagonal safety paint stripes, no lettering. Three-quarter overhead FRONT camera,3 timber and paint tones, complete dark outline and heavy lower-right shadows at feet. Fill128x80. No people, cones, ground, signs with writing, symbols or logos. Paint at exact3x final size384x240, for later block reduction.  Use case: stylized-concept. Match the attached Maple Hollow v4 painted house fronts and yard kit, peak fall, crisp clustered pixel-painting with small hand-painted texture, NOT vector/code-shape art. Light upper LEFT; shadows lower RIGHT. Neutral white balance, NO sepia, golden haze, film tint or vignette. Approved21-color palette by material: #171C35 #303750 #526078 (ink/roof/asphalt), #3E7775 #83A89A (teal), #A88B70 #D3B78D #F2D7A1 #FFF0CF (cream/wood/stone), #874C3B #C45C4B #E5A995 #B97A58 #70402F (brick/wood/russet), #EF9347 #D8AD4A (fall accents), #F1B5BF #BFA8CF (pink/lavender), #9BAE73 #6D895B #315B4B (foliage). At least3 tones per material. True transparent background beyond subject, no scenery or watermark. WALL has full dark outline/heavy base shadow; BREAKABLE has cream top highlight and is hero-height or smaller; flat WALK-THROUGH ground has no enclosing outline/cast shadow. Overhead canopy is explicitly nonblocking despite structural edge shading. Signs are blank plates, no text/branding/logos."
+  }
+]

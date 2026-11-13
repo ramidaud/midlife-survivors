@@ -1,0 +1,2390 @@
+{
+  "status": "Town Buildings art review; not integrated",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "order": [
+    "strip-mall",
+    "town-square",
+    "community-center"
+  ],
+  "method": "New paintings normalized to exact2x/3x working rasters, exact RGBA block mode and material-family palette mapping. Two walkway strips repeat six painted416px modules. Three approved native yard sprites reused unchanged.",
+  "sourceSizeCaveat": "Generator source dimensions vary despite requested2x/3x sizes. Original rasters, actual dimensions, crops, fits and working sizes are retained.",
+  "coordinates": "Local native pixels: feetLine is y; footPoint[x,y]; footprint[x,y,width,height]. Proposed art metadata, not tested runtime physics.",
+  "heroReference": "Full unscaled56x60 live office-worker v4 frame, including transparent cell margins.",
+  "groundAlphaNote": "Rectangular repeated ground plates intentionally cover their full footprint; isolated sprites/overhead art have transparent backgrounds.",
+  "reviewAssemblies": {
+    "mall-row": {
+      "size": [
+        2496,
+        560
+      ],
+      "layers": [
+        {
+          "id": "mall-grocery-front",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "mall-bank-front",
+          "position": [
+            416,
+            0
+          ]
+        },
+        {
+          "id": "mall-pizza-front",
+          "position": [
+            832,
+            0
+          ]
+        },
+        {
+          "id": "mall-pharmacy-front",
+          "position": [
+            1248,
+            0
+          ]
+        },
+        {
+          "id": "mall-dry-cleaner-front",
+          "position": [
+            1664,
+            0
+          ]
+        },
+        {
+          "id": "mall-walkway-ground",
+          "position": [
+            0,
+            384
+          ]
+        }
+      ],
+      "note": "Native art assembly only. Five shops occupy2080px; remaining416px is available for an exit/alley when Claude places the row. Canopy is separate overhead art and has no floor collision; alternate covered study uses offset[0,240]. Claude determines final roof placement/visibility."
+    },
+    "square-fronts": {
+      "size": [
+        1664,
+        448
+      ],
+      "layers": [
+        {
+          "id": "square-arcade-front",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "square-coffee-front",
+          "position": [
+            832,
+            64
+          ]
+        },
+        {
+          "id": "square-hardware-front",
+          "position": [
+            1248,
+            64
+          ]
+        }
+      ],
+      "note": "Native art assembly, not runtime placement."
+    }
+  },
+  "pieces": [
+    {
+      "id": "mall-grocery-front",
+      "group": "strip-mall",
+      "file": "mall-grocery-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          13,
+          333,
+          390,
+          44
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        65,
+        413,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-grocery-front.png",
+      "sourceSize": [
+        1305,
+        1205
+      ],
+      "sourceCrop": [
+        11,
+        129,
+        1294,
+        1120
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        129,
+        820,
+        633
+      ],
+      "working": "working/mall-grocery-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-grocery-front-hero-1x.png",
+      "comparison2x": "checks/mall-grocery-front-hero-2x.png",
+      "footprintPreview": "checks/mall-grocery-front-footprint-1x.png"
+    },
+    {
+      "id": "mall-bank-front",
+      "group": "strip-mall",
+      "file": "mall-bank-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          13,
+          329,
+          390,
+          48
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        41,
+        413,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-bank-front.png",
+      "sourceSize": [
+        1306,
+        1205
+      ],
+      "sourceCrop": [
+        21,
+        98,
+        1285,
+        1148
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        81,
+        820,
+        681
+      ],
+      "working": "working/mall-bank-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-bank-front-hero-1x.png",
+      "comparison2x": "checks/mall-bank-front-hero-2x.png",
+      "footprintPreview": "checks/mall-bank-front-footprint-1x.png"
+    },
+    {
+      "id": "mall-pizza-front",
+      "group": "strip-mall",
+      "file": "mall-pizza-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          13,
+          330,
+          390,
+          47
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        46,
+        413,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-pizza-front.png",
+      "sourceSize": [
+        1306,
+        1205
+      ],
+      "sourceCrop": [
+        57,
+        131,
+        1250,
+        1107
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        91,
+        820,
+        671
+      ],
+      "working": "working/mall-pizza-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-pizza-front-hero-1x.png",
+      "comparison2x": "checks/mall-pizza-front-hero-2x.png",
+      "footprintPreview": "checks/mall-pizza-front-footprint-1x.png"
+    },
+    {
+      "id": "mall-pharmacy-front",
+      "group": "strip-mall",
+      "file": "mall-pharmacy-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          13,
+          335,
+          390,
+          42
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        79,
+        413,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-pharmacy-front.png",
+      "sourceSize": [
+        1305,
+        1205
+      ],
+      "sourceCrop": [
+        13,
+        196,
+        1289,
+        1136
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        158,
+        820,
+        604
+      ],
+      "working": "working/mall-pharmacy-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-pharmacy-front-hero-1x.png",
+      "comparison2x": "checks/mall-pharmacy-front-hero-2x.png",
+      "footprintPreview": "checks/mall-pharmacy-front-footprint-1x.png"
+    },
+    {
+      "id": "mall-dry-cleaner-front",
+      "group": "strip-mall",
+      "file": "mall-dry-cleaner-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          13,
+          329,
+          390,
+          48
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        35,
+        413,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-dry-cleaner-front.png",
+      "sourceSize": [
+        1305,
+        1205
+      ],
+      "sourceCrop": [
+        19,
+        95,
+        1289,
+        1168
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        69,
+        820,
+        693
+      ],
+      "working": "working/mall-dry-cleaner-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-dry-cleaner-front-hero-1x.png",
+      "comparison2x": "checks/mall-dry-cleaner-front-hero-2x.png",
+      "footprintPreview": "checks/mall-dry-cleaner-front-footprint-1x.png"
+    },
+    {
+      "id": "mall-walkway-ground",
+      "group": "strip-mall",
+      "file": "mall-walkway-ground-v1.png",
+      "size": [
+        2496,
+        96
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 92,
+      "footPoint": [
+        1248,
+        92
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        2496,
+        96
+      ],
+      "renderLayer": "ground",
+      "alphaPolicy": "opaque ground rectangle",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-walkway-ground.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        76,
+        189,
+        2096,
+        534
+      ],
+      "sourceFit": "rectangular painted ground fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        0,
+        0,
+        832,
+        192
+      ],
+      "working": "working/mall-walkway-ground-2x.png",
+      "workingSize": [
+        4992,
+        192
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "repeatCount": 6,
+      "moduleSize": [
+        416,
+        96
+      ],
+      "moduleWorking": "working/mall-walkway-ground-module-2x.png",
+      "moduleWorkingSize": [
+        832,
+        192
+      ],
+      "joinMethod": "Repeat painted module; first painted pixel column copied to last before reduction.",
+      "comparison1x": "checks/mall-walkway-ground-hero-1x.png",
+      "comparison2x": "checks/mall-walkway-ground-hero-2x.png",
+      "footprintPreview": "checks/mall-walkway-ground-footprint-1x.png"
+    },
+    {
+      "id": "mall-walkway-canopy",
+      "group": "strip-mall",
+      "file": "mall-walkway-canopy-v1.png",
+      "size": [
+        2496,
+        96
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 90,
+      "footPoint": [
+        1248,
+        90
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        2,
+        2496,
+        94
+      ],
+      "renderLayer": "overhead",
+      "alphaPolicy": "transparent overhead strip with repeat ends",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-walkway-canopy.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        80,
+        220,
+        2092,
+        590
+      ],
+      "sourceFit": "painted repeat module fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        0,
+        4,
+        832,
+        184
+      ],
+      "working": "working/mall-walkway-canopy-2x.png",
+      "workingSize": [
+        4992,
+        192
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "repeatCount": 6,
+      "moduleSize": [
+        416,
+        96
+      ],
+      "moduleWorking": "working/mall-walkway-canopy-module-2x.png",
+      "moduleWorkingSize": [
+        832,
+        192
+      ],
+      "joinMethod": "Repeat painted module; first painted pixel column copied to last before reduction.",
+      "comparison1x": "checks/mall-walkway-canopy-hero-1x.png",
+      "comparison2x": "checks/mall-walkway-canopy-hero-2x.png",
+      "footprintPreview": "checks/mall-walkway-canopy-footprint-1x.png"
+    },
+    {
+      "id": "mall-parking-stalls",
+      "group": "strip-mall",
+      "file": "mall-parking-stalls-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "renderLayer": "ground",
+      "alphaPolicy": "opaque ground rectangle",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-parking-stalls.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        36,
+        36,
+        1218,
+        1218
+      ],
+      "sourceFit": "rectangular painted ground fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/mall-parking-stalls-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-parking-stalls-hero-1x.png",
+      "comparison2x": "checks/mall-parking-stalls-hero-2x.png",
+      "footprintPreview": "checks/mall-parking-stalls-footprint-1x.png"
+    },
+    {
+      "id": "mall-drive-aisle",
+      "group": "strip-mall",
+      "file": "mall-drive-aisle-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "renderLayer": "ground",
+      "alphaPolicy": "opaque ground rectangle",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-drive-aisle.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        36,
+        36,
+        1218,
+        1218
+      ],
+      "sourceFit": "rectangular painted ground fit",
+      "sourceAlphaCleanup": {
+        "pixels": 116,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/mall-drive-aisle-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-drive-aisle-hero-1x.png",
+      "comparison2x": "checks/mall-drive-aisle-hero-2x.png",
+      "footprintPreview": "checks/mall-drive-aisle-footprint-1x.png"
+    },
+    {
+      "id": "mall-car-teal",
+      "group": "strip-mall",
+      "file": "mall-car-teal-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          9,
+          14,
+          61,
+          118
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        3,
+        75,
+        141
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-car-teal.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        109,
+        154,
+        821,
+        1526
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        12,
+        9,
+        215,
+        414
+      ],
+      "working": "working/mall-car-teal-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-car-teal-hero-1x.png",
+      "comparison2x": "checks/mall-car-teal-hero-2x.png",
+      "footprintPreview": "checks/mall-car-teal-footprint-1x.png"
+    },
+    {
+      "id": "mall-car-cream",
+      "group": "strip-mall",
+      "file": "mall-car-cream-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          8,
+          14,
+          63,
+          118
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        76,
+        141
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-car-cream.png",
+      "sourceSize": [
+        934,
+        1685
+      ],
+      "sourceCrop": [
+        75,
+        103,
+        857,
+        1569
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        9,
+        9,
+        221,
+        414
+      ],
+      "working": "working/mall-car-cream-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-car-cream-hero-1x.png",
+      "comparison2x": "checks/mall-car-cream-hero-2x.png",
+      "footprintPreview": "checks/mall-car-cream-footprint-1x.png"
+    },
+    {
+      "id": "mall-car-russet",
+      "group": "strip-mall",
+      "file": "mall-car-russet-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          14,
+          14,
+          52,
+          118
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        3,
+        71,
+        141
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-car-russet.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        135,
+        117,
+        802,
+        1584
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        26,
+        9,
+        188,
+        414
+      ],
+      "working": "working/mall-car-russet-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-car-russet-hero-1x.png",
+      "comparison2x": "checks/mall-car-russet-hero-2x.png",
+      "footprintPreview": "checks/mall-car-russet-footprint-1x.png"
+    },
+    {
+      "id": "mall-car-sage",
+      "group": "strip-mall",
+      "file": "mall-car-sage-v1.png",
+      "size": [
+        80,
+        144
+      ],
+      "kind": "WALL",
+      "feetLine": 137,
+      "footPoint": [
+        40,
+        137
+      ],
+      "footprints": [
+        [
+          10,
+          14,
+          59,
+          118
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        3,
+        74,
+        141
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-car-sage.png",
+      "sourceSize": [
+        935,
+        1682
+      ],
+      "sourceCrop": [
+        102,
+        108,
+        837,
+        1563
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        15,
+        9,
+        209,
+        414
+      ],
+      "working": "working/mall-car-sage-3x.png",
+      "workingSize": [
+        240,
+        432
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-car-sage-hero-1x.png",
+      "comparison2x": "checks/mall-car-sage-hero-2x.png",
+      "footprintPreview": "checks/mall-car-sage-footprint-1x.png"
+    },
+    {
+      "id": "mall-cart-corral",
+      "group": "strip-mall",
+      "file": "mall-cart-corral-v1.png",
+      "size": [
+        256,
+        128
+      ],
+      "kind": "WALL",
+      "feetLine": 121,
+      "footPoint": [
+        128,
+        121
+      ],
+      "footprints": [
+        [
+          53,
+          77,
+          150,
+          44
+        ]
+      ],
+      "visibleBounds": [
+        45,
+        3,
+        211,
+        125
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-cart-corral.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCrop": [
+        291,
+        8,
+        1482,
+        878
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        133,
+        9,
+        501,
+        366
+      ],
+      "working": "working/mall-cart-corral-3x.png",
+      "workingSize": [
+        768,
+        384
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-cart-corral-hero-1x.png",
+      "comparison2x": "checks/mall-cart-corral-hero-2x.png",
+      "footprintPreview": "checks/mall-cart-corral-footprint-1x.png"
+    },
+    {
+      "id": "mall-runaway-cart",
+      "group": "strip-mall",
+      "file": "mall-runaway-cart-v1.png",
+      "size": [
+        64,
+        56
+      ],
+      "kind": "BREAKABLE",
+      "feetLine": 49,
+      "footPoint": [
+        32,
+        49
+      ],
+      "footprints": [
+        [
+          16,
+          39,
+          32,
+          10
+        ]
+      ],
+      "visibleBounds": [
+        12,
+        3,
+        52,
+        53
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-runaway-cart.png",
+      "sourceSize": [
+        1339,
+        1175
+      ],
+      "sourceCrop": [
+        251,
+        84,
+        1114,
+        1126
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        34,
+        9,
+        124,
+        150
+      ],
+      "working": "working/mall-runaway-cart-3x.png",
+      "workingSize": [
+        192,
+        168
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-runaway-cart-hero-1x.png",
+      "comparison2x": "checks/mall-runaway-cart-hero-2x.png",
+      "footprintPreview": "checks/mall-runaway-cart-footprint-1x.png"
+    },
+    {
+      "id": "mall-light-pole",
+      "group": "strip-mall",
+      "file": "mall-light-pole-v1.png",
+      "size": [
+        64,
+        288
+      ],
+      "kind": "WALL",
+      "feetLine": 260,
+      "footPoint": [
+        32,
+        260
+      ],
+      "footprints": [
+        [
+          24,
+          250,
+          16,
+          10
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        23,
+        61,
+        264
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-light-pole.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        107,
+        17,
+        616,
+        2138
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        9,
+        69,
+        174,
+        725
+      ],
+      "working": "working/mall-light-pole-3x.png",
+      "workingSize": [
+        192,
+        864
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-light-pole-hero-1x.png",
+      "comparison2x": "checks/mall-light-pole-hero-2x.png",
+      "footprintPreview": "checks/mall-light-pole-footprint-1x.png"
+    },
+    {
+      "id": "mall-curb-island",
+      "group": "strip-mall",
+      "file": "mall-curb-island-v1.png",
+      "size": [
+        224,
+        224
+      ],
+      "kind": "WALL",
+      "feetLine": 213,
+      "footPoint": [
+        112,
+        213
+      ],
+      "footprints": [
+        [
+          34,
+          171,
+          157,
+          42
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        7,
+        221,
+        217
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-curb-island.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        117,
+        127,
+        1155,
+        1134
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        9,
+        19,
+        654,
+        634
+      ],
+      "working": "working/mall-curb-island-3x.png",
+      "workingSize": [
+        672,
+        672
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-curb-island-hero-1x.png",
+      "comparison2x": "checks/mall-curb-island-hero-2x.png",
+      "footprintPreview": "checks/mall-curb-island-footprint-1x.png"
+    },
+    {
+      "id": "mall-trash-can",
+      "group": "strip-mall",
+      "file": "mall-trash-can-v1.png",
+      "size": [
+        48,
+        56
+      ],
+      "kind": "BREAKABLE",
+      "feetLine": 49,
+      "footPoint": [
+        24,
+        49
+      ],
+      "footprints": [
+        [
+          11,
+          39,
+          26,
+          10
+        ]
+      ],
+      "visibleBounds": [
+        7,
+        3,
+        41,
+        53
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/mall-trash-can.png",
+      "sourceSize": [
+        1161,
+        1354
+      ],
+      "sourceCrop": [
+        209,
+        168,
+        950,
+        1221
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        19,
+        9,
+        106,
+        150
+      ],
+      "working": "working/mall-trash-can-3x.png",
+      "workingSize": [
+        144,
+        168
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/mall-trash-can-hero-1x.png",
+      "comparison2x": "checks/mall-trash-can-hero-2x.png",
+      "footprintPreview": "checks/mall-trash-can-footprint-1x.png"
+    },
+    {
+      "id": "square-arcade-front",
+      "group": "town-square",
+      "file": "square-arcade-front-v1.png",
+      "size": [
+        832,
+        448
+      ],
+      "kind": "WALL",
+      "feetLine": 441,
+      "footPoint": [
+        416,
+        441
+      ],
+      "footprints": [
+        [
+          13,
+          383,
+          806,
+          58
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        28,
+        829,
+        445
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-arcade-front.png",
+      "sourceSize": [
+        1710,
+        920
+      ],
+      "sourceCrop": [
+        21,
+        45,
+        1693,
+        889
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        56,
+        1652,
+        834
+      ],
+      "working": "working/square-arcade-front-2x.png",
+      "workingSize": [
+        1664,
+        896
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-arcade-front-hero-1x.png",
+      "comparison2x": "checks/square-arcade-front-hero-2x.png",
+      "footprintPreview": "checks/square-arcade-front-footprint-1x.png"
+    },
+    {
+      "id": "square-coffee-front",
+      "group": "town-square",
+      "file": "square-coffee-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          14,
+          324,
+          388,
+          53
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        3,
+        412,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-coffee-front.png",
+      "sourceSize": [
+        1306,
+        1205
+      ],
+      "sourceCrop": [
+        36,
+        28,
+        1266,
+        1167
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        8,
+        6,
+        816,
+        756
+      ],
+      "working": "working/square-coffee-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-coffee-front-hero-1x.png",
+      "comparison2x": "checks/square-coffee-front-hero-2x.png",
+      "footprintPreview": "checks/square-coffee-front-footprint-1x.png"
+    },
+    {
+      "id": "square-hardware-front",
+      "group": "town-square",
+      "file": "square-hardware-front-v1.png",
+      "size": [
+        416,
+        384
+      ],
+      "kind": "WALL",
+      "feetLine": 377,
+      "footPoint": [
+        208,
+        377
+      ],
+      "footprints": [
+        [
+          13,
+          327,
+          390,
+          50
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        27,
+        413,
+        381
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-hardware-front.png",
+      "sourceSize": [
+        1305,
+        1205
+      ],
+      "sourceCrop": [
+        34,
+        87,
+        1274,
+        1159
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        53,
+        820,
+        709
+      ],
+      "working": "working/square-hardware-front-2x.png",
+      "workingSize": [
+        832,
+        768
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-hardware-front-hero-1x.png",
+      "comparison2x": "checks/square-hardware-front-hero-2x.png",
+      "footprintPreview": "checks/square-hardware-front-footprint-1x.png"
+    },
+    {
+      "id": "square-fountain",
+      "group": "town-square",
+      "file": "square-fountain-v1.png",
+      "size": [
+        384,
+        320
+      ],
+      "kind": "WALL",
+      "feetLine": 313,
+      "footPoint": [
+        192,
+        313
+      ],
+      "footprints": [
+        [
+          47,
+          203,
+          290,
+          110
+        ]
+      ],
+      "visibleBounds": [
+        11,
+        3,
+        373,
+        317
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-fountain.png",
+      "sourceSize": [
+        1374,
+        1145
+      ],
+      "sourceCrop": [
+        47,
+        13,
+        1332,
+        1125
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        21,
+        6,
+        726,
+        628
+      ],
+      "working": "working/square-fountain-2x.png",
+      "workingSize": [
+        768,
+        640
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-fountain-hero-1x.png",
+      "comparison2x": "checks/square-fountain-hero-2x.png",
+      "footprintPreview": "checks/square-fountain-footprint-1x.png"
+    },
+    {
+      "id": "square-brick-plaza",
+      "group": "town-square",
+      "file": "square-brick-plaza-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "renderLayer": "ground",
+      "alphaPolicy": "opaque ground rectangle",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-brick-plaza.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        58,
+        42,
+        1196,
+        1212
+      ],
+      "sourceFit": "rectangular painted ground fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/square-brick-plaza-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-brick-plaza-hero-1x.png",
+      "comparison2x": "checks/square-brick-plaza-hero-2x.png",
+      "footprintPreview": "checks/square-brick-plaza-footprint-1x.png"
+    },
+    {
+      "id": "square-quarter-pipe",
+      "group": "town-square",
+      "file": "square-quarter-pipe-v1.png",
+      "size": [
+        224,
+        160
+      ],
+      "kind": "WALL",
+      "feetLine": 153,
+      "footPoint": [
+        112,
+        153
+      ],
+      "footprints": [
+        [
+          17,
+          122,
+          190,
+          31
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        3,
+        220,
+        157
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-quarter-pipe.png",
+      "sourceSize": [
+        1484,
+        1060
+      ],
+      "sourceCrop": [
+        80,
+        68,
+        1437,
+        1035
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        12,
+        9,
+        648,
+        462
+      ],
+      "working": "working/square-quarter-pipe-3x.png",
+      "workingSize": [
+        672,
+        480
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-quarter-pipe-hero-1x.png",
+      "comparison2x": "checks/square-quarter-pipe-hero-2x.png",
+      "footprintPreview": "checks/square-quarter-pipe-footprint-1x.png"
+    },
+    {
+      "id": "square-grind-rail",
+      "group": "town-square",
+      "file": "square-grind-rail-v1.png",
+      "size": [
+        192,
+        64
+      ],
+      "kind": "WALL",
+      "feetLine": 57,
+      "footPoint": [
+        96,
+        57
+      ],
+      "footprints": [
+        [
+          11,
+          43,
+          170,
+          14
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        3,
+        189,
+        61
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-grind-rail.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        69,
+        200,
+        2101,
+        629
+      ],
+      "sourceFit": "rail silhouette refit in both axes",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        9,
+        9,
+        558,
+        174
+      ],
+      "working": "working/square-grind-rail-3x.png",
+      "workingSize": [
+        576,
+        192
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-grind-rail-hero-1x.png",
+      "comparison2x": "checks/square-grind-rail-hero-2x.png",
+      "footprintPreview": "checks/square-grind-rail-footprint-1x.png"
+    },
+    {
+      "id": "square-concrete-pad",
+      "group": "town-square",
+      "file": "square-concrete-pad-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 508,
+      "footPoint": [
+        256,
+        508
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "renderLayer": "ground",
+      "alphaPolicy": "opaque ground rectangle",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-concrete-pad.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        31,
+        31,
+        1223,
+        1223
+      ],
+      "sourceFit": "rectangular painted ground fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "working": "working/square-concrete-pad-2x.png",
+      "workingSize": [
+        1024,
+        1024
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Cool concrete family #303750/#526078/#83A89A; low/high4% painted luminance marks retained.",
+      "comparison1x": "checks/square-concrete-pad-hero-1x.png",
+      "comparison2x": "checks/square-concrete-pad-hero-2x.png",
+      "footprintPreview": "checks/square-concrete-pad-footprint-1x.png"
+    },
+    {
+      "id": "square-food-truck-teal",
+      "group": "town-square",
+      "file": "square-food-truck-teal-v1.png",
+      "size": [
+        160,
+        288
+      ],
+      "kind": "WALL",
+      "feetLine": 281,
+      "footPoint": [
+        80,
+        281
+      ],
+      "footprints": [
+        [
+          20,
+          17,
+          120,
+          256
+        ]
+      ],
+      "visibleBounds": [
+        13,
+        3,
+        147,
+        285
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-food-truck-teal.png",
+      "sourceSize": [
+        965,
+        1629
+      ],
+      "sourceCrop": [
+        154,
+        27,
+        893,
+        1583
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        39,
+        9,
+        402,
+        846
+      ],
+      "working": "working/square-food-truck-teal-3x.png",
+      "workingSize": [
+        480,
+        864
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-food-truck-teal-hero-1x.png",
+      "comparison2x": "checks/square-food-truck-teal-hero-2x.png",
+      "footprintPreview": "checks/square-food-truck-teal-footprint-1x.png"
+    },
+    {
+      "id": "square-food-truck-russet",
+      "group": "town-square",
+      "file": "square-food-truck-russet-v1.png",
+      "size": [
+        160,
+        288
+      ],
+      "kind": "WALL",
+      "feetLine": 281,
+      "footPoint": [
+        80,
+        281
+      ],
+      "footprints": [
+        [
+          24,
+          17,
+          112,
+          256
+        ]
+      ],
+      "visibleBounds": [
+        17,
+        3,
+        143,
+        285
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-food-truck-russet.png",
+      "sourceSize": [
+        936,
+        1681
+      ],
+      "sourceCrop": [
+        127,
+        65,
+        818,
+        1610
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        51,
+        9,
+        378,
+        846
+      ],
+      "working": "working/square-food-truck-russet-3x.png",
+      "workingSize": [
+        480,
+        864
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-food-truck-russet-hero-1x.png",
+      "comparison2x": "checks/square-food-truck-russet-hero-2x.png",
+      "footprintPreview": "checks/square-food-truck-russet-footprint-1x.png"
+    },
+    {
+      "id": "square-bench",
+      "group": "town-square",
+      "file": "square-bench-v1.png",
+      "size": [
+        128,
+        80
+      ],
+      "kind": "WALL",
+      "feetLine": 73,
+      "footPoint": [
+        64,
+        73
+      ],
+      "footprints": [
+        [
+          28,
+          58,
+          72,
+          15
+        ]
+      ],
+      "visibleBounds": [
+        23,
+        3,
+        105,
+        77
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-bench.png",
+      "sourceSize": [
+        1586,
+        992
+      ],
+      "sourceCrop": [
+        282,
+        49,
+        1290,
+        951
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        68,
+        9,
+        248,
+        222
+      ],
+      "working": "working/square-bench-3x.png",
+      "workingSize": [
+        384,
+        240
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-bench-hero-1x.png",
+      "comparison2x": "checks/square-bench-hero-2x.png",
+      "footprintPreview": "checks/square-bench-footprint-1x.png"
+    },
+    {
+      "id": "square-planter",
+      "group": "town-square",
+      "file": "square-planter-v1.png",
+      "size": [
+        72,
+        80
+      ],
+      "kind": "WALL",
+      "feetLine": 73,
+      "footPoint": [
+        36,
+        73
+      ],
+      "footprints": [
+        [
+          11,
+          58,
+          50,
+          15
+        ]
+      ],
+      "visibleBounds": [
+        7,
+        3,
+        65,
+        77
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/square-planter.png",
+      "sourceSize": [
+        1190,
+        1322
+      ],
+      "sourceCrop": [
+        140,
+        68,
+        1073,
+        1236
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        19,
+        9,
+        177,
+        222
+      ],
+      "working": "working/square-planter-3x.png",
+      "workingSize": [
+        216,
+        240
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/square-planter-hero-1x.png",
+      "comparison2x": "checks/square-planter-hero-2x.png",
+      "footprintPreview": "checks/square-planter-footprint-1x.png"
+    },
+    {
+      "id": "community-hall",
+      "group": "community-center",
+      "file": "community-hall-v1.png",
+      "size": [
+        1100,
+        560
+      ],
+      "kind": "WALL",
+      "feetLine": 553,
+      "footPoint": [
+        550,
+        553
+      ],
+      "footprints": [
+        [
+          17,
+          465,
+          1066,
+          88
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        98,
+        1097,
+        557
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/community-hall.png",
+      "sourceSize": [
+        1756,
+        895
+      ],
+      "sourceCrop": [
+        27,
+        112,
+        1730,
+        827
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        6,
+        195,
+        2188,
+        919
+      ],
+      "working": "working/community-hall-2x.png",
+      "workingSize": [
+        2200,
+        1120
+      ],
+      "reductionFactor": 2,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/community-hall-hero-1x.png",
+      "comparison2x": "checks/community-hall-hero-2x.png",
+      "footprintPreview": "checks/community-hall-footprint-1x.png"
+    },
+    {
+      "id": "community-potluck-table",
+      "group": "community-center",
+      "file": "community-potluck-table-v1.png",
+      "size": [
+        192,
+        96
+      ],
+      "kind": "WALL",
+      "feetLine": 89,
+      "footPoint": [
+        96,
+        89
+      ],
+      "footprints": [
+        [
+          25,
+          71,
+          142,
+          18
+        ]
+      ],
+      "visibleBounds": [
+        15,
+        3,
+        177,
+        93
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/community-potluck-table.png",
+      "sourceSize": [
+        1774,
+        887
+      ],
+      "sourceCrop": [
+        201,
+        90,
+        1543,
+        833
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        44,
+        9,
+        488,
+        270
+      ],
+      "working": "working/community-potluck-table-3x.png",
+      "workingSize": [
+        576,
+        288
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/community-potluck-table-hero-1x.png",
+      "comparison2x": "checks/community-potluck-table-hero-2x.png",
+      "footprintPreview": "checks/community-potluck-table-footprint-1x.png"
+    },
+    {
+      "id": "community-bounce-house",
+      "group": "community-center",
+      "file": "community-bounce-house-v1.png",
+      "size": [
+        256,
+        224
+      ],
+      "kind": "WALL",
+      "feetLine": 217,
+      "footPoint": [
+        128,
+        217
+      ],
+      "footprints": [
+        [
+          24,
+          141,
+          208,
+          76
+        ]
+      ],
+      "visibleBounds": [
+        12,
+        3,
+        244,
+        221
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/community-bounce-house.png",
+      "sourceSize": [
+        1341,
+        1173
+      ],
+      "sourceCrop": [
+        99,
+        31,
+        1300,
+        1158
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        35,
+        9,
+        697,
+        654
+      ],
+      "working": "working/community-bounce-house-3x.png",
+      "workingSize": [
+        768,
+        672
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/community-bounce-house-hero-1x.png",
+      "comparison2x": "checks/community-bounce-house-hero-2x.png",
+      "footprintPreview": "checks/community-bounce-house-footprint-1x.png"
+    },
+    {
+      "id": "community-barricade",
+      "group": "community-center",
+      "file": "community-barricade-v1.png",
+      "size": [
+        128,
+        80
+      ],
+      "kind": "WALL",
+      "feetLine": 73,
+      "footPoint": [
+        64,
+        73
+      ],
+      "footprints": [
+        [
+          15,
+          58,
+          97,
+          15
+        ]
+      ],
+      "visibleBounds": [
+        8,
+        3,
+        119,
+        77
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "binary-alpha transparent sprite",
+      "productionMethod": "painted then reduced",
+      "source": "sources/community-barricade.png",
+      "sourceSize": [
+        1586,
+        992
+      ],
+      "sourceCrop": [
+        202,
+        89,
+        1463,
+        924
+      ],
+      "sourceFit": "proportional fit",
+      "sourceAlphaCleanup": {
+        "pixels": 0,
+        "method": "Copy adjacent painted pixels into at most0.1% sparse alpha pinholes; normalize opaque ground coverage."
+      },
+      "fit": [
+        24,
+        9,
+        335,
+        222
+      ],
+      "working": "working/community-barricade-3x.png",
+      "workingSize": [
+        384,
+        240
+      ],
+      "reductionFactor": 3,
+      "palettePolicy": "Material family first; nearest tone only inside selected family.",
+      "comparison1x": "checks/community-barricade-hero-1x.png",
+      "comparison2x": "checks/community-barricade-hero-2x.png",
+      "footprintPreview": "checks/community-barricade-footprint-1x.png"
+    },
+    {
+      "id": "community-light-posts",
+      "group": "community-center",
+      "file": "community-light-posts-v1.png",
+      "size": [
+        160,
+        64
+      ],
+      "kind": "WALL",
+      "feetLine": 59,
+      "footPoint": [
+        80,
+        59
+      ],
+      "footprints": [
+        [
+          4,
+          52,
+          8,
+          7
+        ],
+        [
+          146,
+          52,
+          8,
+          7
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        3,
+        158,
+        61
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "approved native alpha retained",
+      "productionMethod": "approved-native-reuse",
+      "reductionFactor": null,
+      "reusedFrom": "assets/stage/home/v4/yard/string-light-posts-v4.png",
+      "approvedSha256": "cf596eb215dde10c3cbdbf98ad587866b45def4648d9e966adeaa3535287a0e7",
+      "comparison1x": "checks/community-light-posts-hero-1x.png",
+      "comparison2x": "checks/community-light-posts-hero-2x.png",
+      "footprintPreview": "checks/community-light-posts-footprint-1x.png"
+    },
+    {
+      "id": "community-light-strand",
+      "group": "community-center",
+      "file": "community-light-strand-v1.png",
+      "size": [
+        160,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 44,
+      "footPoint": [
+        80,
+        44
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        18,
+        158,
+        46
+      ],
+      "renderLayer": "overhead",
+      "alphaPolicy": "approved native alpha retained",
+      "productionMethod": "approved-native-reuse",
+      "reductionFactor": null,
+      "reusedFrom": "assets/stage/home/v4/yard/string-light-strand-v4.png",
+      "approvedSha256": "97c885b30be104eb42f540561623e35d23e9d5e7db46cd1aca29fafea49c0808",
+      "comparison1x": "checks/community-light-strand-hero-1x.png",
+      "comparison2x": "checks/community-light-strand-hero-2x.png",
+      "footprintPreview": "checks/community-light-strand-footprint-1x.png"
+    },
+    {
+      "id": "community-cooler",
+      "group": "community-center",
+      "file": "community-cooler-v1.png",
+      "size": [
+        64,
+        56
+      ],
+      "kind": "BREAKABLE",
+      "feetLine": 52,
+      "footPoint": [
+        32,
+        52
+      ],
+      "footprints": [
+        [
+          8,
+          40,
+          49,
+          12
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        2,
+        61,
+        54
+      ],
+      "renderLayer": "depth-sorted",
+      "alphaPolicy": "approved native alpha retained",
+      "productionMethod": "approved-native-reuse",
+      "reductionFactor": null,
+      "reusedFrom": "assets/stage/home/v4/yard/cooler-v4.png",
+      "approvedSha256": "f77c9d6dd5780e7ff47f64623ed20bb0f6cb28e06a3fca7b5547bcb156255140",
+      "comparison1x": "checks/community-cooler-hero-1x.png",
+      "comparison2x": "checks/community-cooler-hero-2x.png",
+      "footprintPreview": "checks/community-cooler-footprint-1x.png"
+    }
+  ]
+}
