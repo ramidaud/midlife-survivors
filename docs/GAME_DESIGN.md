@@ -723,6 +723,7 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - Walking through the front door animates (shrink and fade into the doorway, screen fade, step through). Planned: the same for the stairs.
 - Mood for filling the bigger rooms (step 2c), from Rami's photos: patterned rugs under each sitting area, plants in corners, warm lamps, wall shelves. Photos stay reference only.
 - Layout: src/data/house-v2.js, built by tools/build_house_v2.py. Switch: MAPLE_HOLLOW.house2.on.
+- **Decided Nov 13 (Rami):** the rooms are laid out by Rami in the House Layout Editor (docs/plans/house-layout/). All furniture is painted about 1.4x its first size against the hero, but nothing you sit at or lean on is taller than the hero, so he never feels tiny. Shoe rack lives in the entry, laundry basket in the laundry closet. The kitchen is repainted as one matched set.
 
 ### Camera and pixels (decided Nov 11, level art audit)
 - The camera zooms by whole numbers only. Laptops, MacBooks, iPads and phones use 1; 1440p uses 2; 4K uses 3.

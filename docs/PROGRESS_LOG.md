@@ -2433,3 +2433,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Removed rug backing, moved office chair to desk, restored concrete garage.
 - Added five household pieces, with plant clusters in both living and dining.
 - All 61 assets validate; reserved routes stay clear. Awaiting approval before placement. No runtime or version change.
+## 2026-11-13: Rami lays out the house (Claude)
+- Built the House Layout Editor (a claude.ai page): drag, size, turn and leave notes on Codex's pieces; it saves where Claude can read it. Fixed two bugs along the way (saved rooms couldn't be edited; rugs covered furniture).
+- Rami laid out the living room, dining and desk, kitchen and entry, and approved the PR #10 art.
+- Decided: all house furniture about 1.4x bigger against the hero, but nothing you sit at taller than him. Shoe rack to the entry, laundry basket to the laundry closet, kitchen repainted as one set.
+- New Codex brief docs/handoffs/codex-house-repaint.md, with Rami's layouts as the placement map.

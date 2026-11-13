@@ -2128,3 +2128,18 @@ Things are drawn back to front. A bigger depth number goes on top.
               |
            [ YOU ]
 ```
+
+## Chapter: Reference object
+
+```
+ hero = 60 px tall, the ruler for everything
+
+  1.7x |                    [ door ] [ fridge ] [ lamp ]
+       |
+  1.0x |   (o)  hero  ......................................  never above this line:
+       |   /|\          [sofa back] [chair] [counter] [desk]   things you sit at or lean on
+  0.5x |   / \   ..........................................
+       |               [coffee table] [basket] [toy bin]      low things
+       +----------------------------------------------------
+```
+Rami's editor layout made almost every piece 130-150% bigger. Measured against the hero, the house art was about 1.4x too small, so the rooms read as empty floor.

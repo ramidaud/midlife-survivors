@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.40.0: every Midlife area of Maple Hollow is open. Start here next session: send Codex docs/handoffs/codex-roads-and-woods.md; meanwhile, fill the big house (needs Rami's room photos) or design one thing to do in each backyard)
+**Last updated:** 2026-11-13 (Rami laid out the house in the editor; next: send Codex docs/handoffs/codex-house-repaint.md on the PR #10 branch, then place the approved ground floor. Roads-and-woods brief still waiting on Codex.)
 
 ---
 
