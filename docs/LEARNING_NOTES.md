@@ -843,3 +843,6 @@ Game physics treats the hero as a box. If the box hits the end of a fence even b
 
 ## A save has to hold everything that matters (Nov 12, the key hunt)
 A save file is a list of facts the game writes down so it can rebuild the moment later. Anything left off the list gets rebuilt from scratch. The key hunt wasn't on the list, so every resume started a brand-new hunt with a brand-new bonus chest. That turned a small omission into an exploit: quit, resume, collect, repeat.
+
+## Culling: only draw what's on screen (Nov 13, the whole town)
+The town is about 7 by 11 screens, but you only ever see one. "Culling" means the game skips drawing anything that isn't near the screen. Ours checks a few times a second and hides any town piece more than 400 px outside the view. Drawing less each frame keeps a big map smooth on phones.

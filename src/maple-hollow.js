@@ -12,7 +12,7 @@ window.MapleHollow = (() => {
   async function build(scene, refs, H) {
     const M = window.MAPLE_HOLLOW, R = M.rows, data = window.MAPLE_HOLLOW_LAYOUT, W = M.width;
     window.MapleHollowGarage = null; window.MapleHollowStairs = null; window.MapleHollowGate = null;
-    const items = [], bodies = [], all = [];
+    const items = [], bodies = [], all = [], townObjs = []; // townObjs: the whole-town pieces, hidden while off screen (Nov 13)
     let alive = true;
     const kit = await H.image(ROOT + "maple-hollow-tiles-props-v1.png"); if (!H.isAlive()) return null;
     const housesImg = await H.image(ROOT + "maple-hollow-houses-v1.png"); if (!H.isAlive()) return null;
@@ -118,8 +118,8 @@ window.MapleHollow = (() => {
     const v2 = !!(G2 && g2.sa);
     if (NEW) { // one street-band picture, two 832 px plates side by side (lots are 416, so the curb cuts already line up)
       // With street ends the band runs out past the town into the grass margin until it meets each curved end (V2.29.11).
-      const ends = SE && se.left ? SE : null, mg = ends ? TW.margin || 0 : 0;
-      const bx0 = ends ? -mg + ends.inset + (ends.left.crop[1] - ends.left.crop[0]) : 0, bx1 = ends ? W + mg - ends.inset - (ends.right.crop[1] - ends.right.crop[0]) : W;
+      const ends = SE && se.left ? SE : null, mg = ends ? TW.margin || 0 : 0, TN = data.town;
+      const bx0 = TN ? TN.blockX[0] : ends ? -mg + ends.inset + (ends.left.crop[1] - ends.left.crop[0]) : 0, bx1 = ends ? W + mg - ends.inset - (ends.right.crop[1] - ends.right.crop[0]) : W;
       if (!scene.textures.exists("mh_band3")) {
         const t = scene.textures.createCanvas("mh_band3", bx1 - bx0, 512), c = t.getContext(); c.imageSmoothingEnabled = false;
         for (let k = Math.floor(bx0 / 832), x = k * 832; x < bx1; k++, x += 832) c.drawImage(Math.abs(k) % 2 ? v3.sb : v3.sa, x - bx0, 0); // plates alternate A/B in both directions
@@ -128,7 +128,7 @@ window.MapleHollow = (() => {
       [R.sidewalk1, R.sidewalk3].forEach(y => all.push(scene.add.image(bx0, y, "mh_band3").setOrigin(0).setDepth(ends ? -999.7 : -1000))); // with ends it must sit above the margin's grass
       if (ends) { // the curved ends, and a barricade standing in each (solid at its base, sorted with the hero)
         const capKey = (k, img, [a, b]) => { if (!scene.textures.exists(k)) { const c = document.createElement("canvas"); c.width = b - a; c.height = img.height; c.getContext("2d").drawImage(img, a, 0, b - a, img.height, 0, 0, b - a, img.height); scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } return k; };
-        [["left", -mg + ends.inset, se.left, se.leftBar], ["right", bx1, se.right, se.rightBar]].forEach(([side, x, img, bar]) => {
+        [["left", -mg + ends.inset, se.left, se.leftBar], ["right", bx1, se.right, se.rightBar]].filter(([side]) => !(TN && side === "left")).forEach(([side, x, img, bar]) => {
           const E = ends[side], k = capKey("mh_end_" + side, img, E.crop), [, bxp, byp, bw, bd] = E.barricade;
           if (!scene.textures.exists("mh_bar_" + side)) H.propTexture(scene, (() => { const c = document.createElement("canvas"); c.width = bar.width; c.height = bar.height; c.getContext("2d").drawImage(bar, 0, 0); return c; })(), "mh_bar_" + side, bar.width, bar.height);
           [R.sidewalk1, R.sidewalk3].forEach(y => {
@@ -172,12 +172,14 @@ window.MapleHollow = (() => {
     }
     for (const f of data.floors) {
       if ((v2 || NEW) && (f.material === "mh_sidewalk" || f.material === "mh_street")) continue; // drawn by the street bands above
+      if (f.material === "mh_road") continue; // the town's roads (Nov 13): drawn by buildTown()
       const t = scene.add.tileSprite(f.x, f.y, f.width, f.height, keyFor[f.material] || grassKey).setOrigin(0).setDepth(-1000);
       all.push(t);
     }
     if (NEW && v2) { // v2 puts the inside of your house below the town: cover the gap so the office backdrop never shows
       const by = R.bottom, bh = (data.bounds ? data.bounds.y + data.bounds.height : M.interior.y + 1200) - by + 400;
-      all.push(scene.add.rectangle(-400, by, Math.max(M.width, data.bounds ? data.bounds.width : 0) + 800, bh, 0x303750).setOrigin(0).setDepth(-1001)); // wide enough for upstairs too
+      const bx = data.town ? data.town.x0 - 400 : -400;
+      all.push(scene.add.rectangle(bx, by, Math.max(M.width, data.bounds ? data.bounds.width : 0) + 800 + (-400 - bx), bh, 0x303750).setOrigin(0).setDepth(-1001)); // wide enough for upstairs too
     }
     // a manhole or two on each street (v1 only: the v2 plates have their own)
     if (!v2 && !NEW) [[620, R.street1 + 32], [1880, R.street1 + 128], [1240, R.street2 + 32]].forEach(([x, y]) => {
@@ -188,6 +190,7 @@ window.MapleHollow = (() => {
 
     let yourHouse = null;
     if (NEW) buildV2();
+    if (NEW && TW && tw.north && data.town) buildTown(data.town);
     const town = NEW && TW && tw.north ? buildTreeWall() : null; // the rectangle the camera stays inside while you're outdoors
     // ---- houses: six fronts, each on a lot with a driveway ----
     if (!NEW) for (let i = 0; i < 6; i++) {
@@ -474,6 +477,53 @@ window.MapleHollow = (() => {
       });
     }
 
+    // ---- the whole town (Nov 13, full map step 1): roads, crossings and the areas still to come ----
+    // Roads reuse the painted street plates (turned 90 degrees for the north-south ones). Each area not built yet is a
+    // closed lot of forest from the tree wall art, solid to you and the swarm, with a sign saying when it opens.
+    function buildTown(TN) {
+      const C = TW.core, Fr = TW.fringe, S = TW.step, RW = TN.roadW, OVER = 30000;
+      const tex = (k, img) => { if (!scene.textures.exists(k)) { scene.textures.addImage(k, img); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } return k; };
+      const turned = (k, img) => { // a street plate turned a quarter turn (pixels move whole, nothing is resampled)
+        if (scene.textures.exists(k)) return k;
+        const c = document.createElement("canvas"); c.width = img.height; c.height = img.width; const g = c.getContext("2d");
+        g.imageSmoothingEnabled = false; g.translate(img.height, 0); g.rotate(Math.PI / 2); g.drawImage(img, 0, 0);
+        scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); return k;
+      };
+      const ha = tex("mh_plate_a", v3.sa), hb = tex("mh_plate_b", v3.sb), va = turned("mh_plate_va", v3.sa), vb = turned("mh_plate_vb", v3.sb);
+      const put = (k, x, y, depth, cw, ch) => { const o = scene.add.image(x, y, k).setOrigin(0).setDepth(depth); if (cw || ch) o.setCrop(0, 0, cw || o.width, ch || o.height); all.push(o); townObjs.push(o); return o; };
+      TN.roadsH.forEach(([x, y, w]) => { for (let k = 0, xx = x; xx < x + w; k++, xx += 832) put(k % 2 ? hb : ha, xx, y, -999.8, Math.min(832, x + w - xx)); });
+      TN.roadsV.forEach(([x, y, , h]) => { for (let k = 0, yy = y; yy < y + h; k++, yy += 832) put(k % 2 ? vb : va, x, yy, -999.75, 0, Math.min(832, y + h - yy)); });
+      // where roads meet: plain asphalt (from the 32 px kit) so no curb runs across the road
+      const asphalt = (x, y, w, h) => { const o = scene.add.tileSprite(x, y, w, h, streetKey).setOrigin(0).setDepth(-999.6); all.push(o); townObjs.push(o); };
+      const lane = 96; // the sidewalk and parkway on each side of a 512 px band; the road is the middle 320 px
+      TN.roadsV.forEach(([vx]) => TN.roadsH.forEach(([, hy]) => asphalt(vx + lane, hy + lane, RW - 2 * lane, RW - 2 * lane)));
+      TN.roadsV.forEach(([vx, , , vh], i) => { // your block's two streets run into the road on its left
+        if (vx + RW !== TN.blockX[0]) return;
+        [R.street1, R.street2].forEach(sy => asphalt(vx + lane, sy, RW - lane, R.street1End - R.street1));
+      });
+      // the closed areas: rows of forest, leafy edges that hang over the roads, a solid block, and a sign
+      const kn = tex("mh_wall_n", tw.north), ks = tex("mh_wall_s", tw.south), kw = tex("mh_wall_w", tw.west), ke = tex("mh_wall_e", tw.east);
+      const kst = tex("mh_wall_s_top", tw.southTop), kwt = tex("mh_wall_w_top", tw.westTop), ket = tex("mh_wall_e_top", tw.eastTop);
+      const sq = TN.areas.find(a => a.id === "square"), cx = sq.rect[0] + sq.rect[2] / 2, cy = sq.rect[1] + sq.rect[3] / 2;
+      window.MapleHollowAreas = [];
+      TN.areas.forEach(a => {
+        const [x0, y0, w, h] = a.rect, x1 = x0 + w, y1 = y0 + h;
+        for (let y = y0; y < y1; y += C) { const yy = Math.min(y, y1 - C); for (let x = x0; x < x1; x += S) put(kn, x, yy, -998, Math.min(S, x1 - x)); if (yy === y1 - C) break; }
+        for (let x = x0; x < x1; x += S) { const cw = Math.min(S, x1 - x); put(ks, x, y0 - Fr, -997, cw); put(kst, x, y0 - Fr, OVER, cw); }
+        for (let y = y0; y < y1; y += S) { const ch = Math.min(S, y1 - y); put(ke, x0 - Fr, y, -997, 0, ch); put(ket, x0 - Fr, y, OVER, 0, ch); put(kw, x1 - C, y, -997, 0, ch); put(kwt, x1 - C, y, OVER, 0, ch); }
+        const o = scene.add.rectangle(x0 + w / 2, y1, w, h, 0x000000, 0).setOrigin(0.5, 1); // solid: nobody walks into the woods
+        H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o);
+        // the sign stands on the edge that faces the middle of town (Town Square's own sign faces down, toward your block)
+        const mx = x0 + w / 2, my = y0 + h / 2, dx = cx - mx, dy = cy - my;
+        let sx = mx, sy = y1 + 40;
+        if (a.id !== "square") { if (Math.abs(dx) > Math.abs(dy)) { sx = dx > 0 ? x1 + 40 : x0 - 40; sy = my; } else { sx = mx; sy = dy > 0 ? y1 + 40 : y0 - 40; } }
+        const line = a.age ? "OPENS AT " + a.age : "FULL LIFE ONLY";
+        const t = scene.add.text(sx, sy, a.name + "\n" + line, { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#171C35", backgroundColor: "#F2D7A1", align: "center", padding: { x: 8, y: 5 } }).setOrigin(0.5).setDepth(OVER + 1);
+        all.push(t); townObjs.push(t);
+        window.MapleHollowAreas.push({ id: a.id, name: a.name, age: a.age, rect: a.rect, sign: [sx, sy] });
+      });
+    }
+
     // ---- the tree wall (Nov 11): solid forest on all four sides of the town ----
     // Top and bottom strips run one piece past each end so they fill the corners; the side strips sit on top of them.
     // The leafy inside edge of the bottom and side strips is drawn again above everyone, so you walk under the leaves.
@@ -486,26 +536,27 @@ window.MapleHollow = (() => {
       // With corner pieces: each strip starts where a corner ends (Fr px in from the map edge), so that join is seamless.
       // Without them the top and bottom strips run one piece past each end and the side strips sit on top.
       // L and Rt are the left and right ends of the walkable ground: the town plus a grass margin on each side.
-      const mg = TW.margin || 0, L = -mg, Rt = W + mg;
+      const mg = TW.margin || 0, TN = data.town, L = TN ? TN.x0 : -mg, Rt = TN ? TN.x1 : W + mg, Tp = TN ? TN.y0 : 0; // Tp: the top edge (the whole town reaches above your block)
       const K = tw.corners ? Fr : 0, x0 = K ? L + K : L - S, x1 = K ? Rt - K : Rt + S;
       for (let x = x0; x < x1; x += S) {
         const w = Math.min(S, x1 - x);
-        put(kn, x, -C, -998, w);
+        put(kn, x, Tp - C, -998, w);
         put(ks, x, B - Fr, -998, w);
         if (x + w > L && x < Rt) put(kst, x, B - Fr, OVER, w);
       }
-      for (let y = K; y < B - K; y += S) {
+      for (let y = Tp + K; y < B - K; y += S) {
         const h = Math.min(S, B - K - y);
         put(kw, L - C, y, -997, 0, h); put(ke, Rt - Fr, y, -997, 0, h);
         put(kwt, L - C, y, OVER, 0, h); put(ket, Rt - Fr, y, OVER, 0, h);
       }
-      if (K) [[L - C, -C], [Rt - Fr, -C], [L - C, B - Fr], [Rt - Fr, B - Fr]].forEach(([x, y], i) => {
+      if (K) [[L - C, Tp - C], [Rt - Fr, Tp - C], [L - C, B - Fr], [Rt - Fr, B - Fr]].forEach(([x, y], i) => {
         put(tex("mh_wall_c" + i, tw.corners[i * 2]), x, y, -996); put(tex("mh_wall_c" + i + "_top", tw.corners[i * 2 + 1]), x, y, OVER);
       });
       // Solid edge: the hero stops a little inside the leaves instead of disappearing under them (the north side already has its hedge).
       const E = TW.edge, wall = (x, y, w, h) => { const o = scene.add.rectangle(x + w / 2, y + h, w, h, 0x000000, 0).setOrigin(0.5, 1); H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); };
-      if (E) { wall(L, 0, E, B); wall(Rt - E, 0, E, B); wall(L + E, B - E, Rt - L - 2 * E, E); if (mg) { wall(L + E, 0, mg - E, E); wall(W, 0, mg - E, E); } }
-      return { x: L - C, y: -C, width: Rt - L + 2 * C, height: B + 2 * C, bottom: B };
+      if (E) { wall(L, Tp, E, B - Tp); wall(Rt - E, Tp, E, B - Tp); wall(L + E, B - E, Rt - L - 2 * E, E);
+        if (TN) wall(L + E, Tp, Rt - L - 2 * E, E); else if (mg) { wall(L + E, 0, mg - E, E); wall(W, 0, mg - E, E); } }
+      return { x: L - C, y: Tp - C, width: Rt - L + 2 * C, height: B - Tp + 2 * C, bottom: B };
     }
 
     // ---- camera and the area object the rest of the game talks to ----
@@ -543,7 +594,13 @@ window.MapleHollow = (() => {
       if (!within(x, y)) { p.setPosition(lastValid[0], lastValid[1] - p.height / 2); p.setVelocity(0, 0); p.body.updateFromGameObject(); }
       else lastValid = [x, y];
       fitCam();
+      if (townObjs.length && ++cullTick % 10 === 0) { // draw only the town pieces near the screen (a big map is cheap this way)
+        const v = cam.worldView, m = 400;
+        townObjs.forEach(o => { const w = o.displayWidth || o.width, h = o.displayHeight || o.height, x = o.x - w * o.originX, y = o.y - h * o.originY;
+          o.setVisible(x < v.right + m && x + w > v.x - m && y < v.bottom + m && y + h > v.y - m); });
+      }
     }
+    let cullTick = 9;
     function destroy() { alive = false; all.forEach(o => o.destroy()); items.forEach(o => o.destroy()); }
     return { data, gates: [], items, bodies, active: true, visibleProps: 0, peakVisibleProps: 0, spawnPadding, repairedSpawns: 0,
       resolveSpawn, update, sync() {}, destroy, contains: within, stage: "home" };

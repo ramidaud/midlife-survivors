@@ -2359,3 +2359,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Key hunt is saved with the run, so resuming keeps the key, the checked spots and the opened door, and the bonus chest only comes once (closes the free-loadout exploit).
 - Chests: couldn't reproduce "no chest pays" locally (boss chests and the key chest pay in every yard here). Added a safety net: a chest that fails to open gives a level-up pick and saves the error in the browser (`ms-chest-err`) so we can read it. The front door no longer waits on a bonus screen that isn't showing.
 - Still open: the side paths are 64 px wide in the art, under our 96 px rule. Needs an art fix, Rami's call.
+
+## 2026-11-13: V. 2.31.0, the whole town laid out (Claude)
+- Full map step 1 (Rami's map v3b): the town grows up and to the left of your block. A road grid with the loop around Town Square; your two streets now run out to the new road.
+- Each area still to come is a block of woods with a sign saying when it opens. Solid to you and the swarm.
+- Reused art: street plates (turned for north-south roads) and the tree wall. Codex to paint proper north-south roads and crossings later (the crossing patches are a little lighter than the road).
+- Town pieces off screen aren't drawn, to keep phones smooth. Tested at laptop and phone size: walked from your street onto the new road and up past the loop.

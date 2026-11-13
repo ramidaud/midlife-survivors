@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-12 (V2.30.1: yards enterable, key hunt survives a resume, chest safety net. Start here next session: Rami walks the neighborhood, then trees and shrubs as sprites, then the starting weapon on each character card)
+**Last updated:** 2026-11-13 (V2.31.0: the whole Maple Hollow town laid out, roads and signed woods. Start here next session: build Elementary (opens at 44), the first area)
 
 ---
 

@@ -755,4 +755,5 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - The run ends back home on your porch.
 - To-scale draft v3b: `docs/plans/home-map-v3.png` (8,384 x 8,448 px, about 6.5 x 10.5 screens; Rami: feels right for 19 minutes).
 - Town Square is the center of the map, inside the loop, and opens at 53 (Rami: "where the game will really come together"). Your block moves to the bottom right corner, so the run starts and ends in a corner.
+- Built (V2.31.0, Nov 13): the road grid and the loop, with every area still to come as signed woods. Next: build the areas one per sitting, starting with Elementary (44).
 - Idea, not decided: in Full Life, stages connect (office, Maple Hollow, hospital, later others) with growing swarms and giant bosses. Claude suggests stages joined by roads rather than one seamless map, and a closed road out of town on Maple Hollow's edge for now. Confirmed: Midlife stays 40 to 65 (about 19 min); Full Life should last at least 30 min (it runs about an hour now).

@@ -108,6 +108,18 @@ window.MAPLE_HOLLOW = {
         ]
       }
     },
+    // The whole town (Nov 13, step 1 of the full map, docs/plans/home-map-v3.png). Your block stays put; the town grows up
+    // and to the left of it. Roads are 512 px street bands (the vertical ones are the same art turned 90 degrees until
+    // Codex paints proper ones). Each area is a closed lot of forest with a sign until its own step builds it.
+    // cols/rows count outward from your block: col 1 is the one left of it, row 1 the one above it. Sizes in px.
+    town: {
+      on: true, road: 512, colW: 2496, rowH: [2752, 2048],   // rowH: the row right above your block, then the top row
+      areas: [ // [id, name, opens at age (null = Full Life), col, row]
+        ["elementary", "ELEMENTARY", 44, 0, 1], ["birch", "BIRCH CIRCLE", 47, 2, 2], ["mall", "STRIP MALL", 50, 2, 1],
+        ["square", "TOWN SQUARE", 53, 1, 1], ["community", "COMMUNITY CENTER", 55, 2, 0], ["parkway", "THE PARKWAY", 59, 1, 0],
+        ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
+      ]
+    },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
     yourHouse: { doorDx: -111, garageDx: 56, signDy: -380, door: [37, 232, 42, 108] }, // door rect in your-house-v2.png
@@ -236,12 +248,29 @@ window.MAPLE_HOLLOW = {
   I.entry = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH / 2];   // where you appear inside (middle of the hallway)
   I.exitMat = [I.x + I.roomW * 1.5, I.y + I.roomH + I.hallH - 6]; // step on the front mat to go back out
   }
+  // ---- the whole town (Nov 13): roads and closed areas around your block (MAPLE_HOLLOW.v2.town) ----
+  const TN = V && V.on && V.town && V.town.on && TWm && !/[?&]notown=1/.test(location.search) ? V.town : null; let town = null;
+  if (TN) {
+    const RW = TN.road, bx0 = -TWm, bx1 = W + TWm;                       // your block's walkable edges (with the grass margins)
+    const colX = [bx0], rowY = [0];                                        // left edge of each column, top edge of each row, from your block outward
+    for (let c = 1; c <= 2; c++) colX.push(colX[c - 1] - RW - TN.colW);
+    for (let r = 1; r <= 2; r++) rowY.push(rowY[r - 1] - RW - TN.rowH[r - 1]);
+    const colW = c => c === 0 ? bx1 - bx0 : TN.colW, rowH = r => r === 0 ? R.bottom : TN.rowH[r - 1];
+    const x0 = colX[2], y0 = rowY[2], x1 = bx1, y1 = R.bottom;
+    const roadsV = [1, 2].map(c => [colX[c] + TN.colW, y0, RW, y1 - y0]);  // [x, y, w, h], the road just right of column c
+    const roadsH = [1, 2].map(r => [x0, rowY[r] + TN.rowH[r - 1], x1 - x0, RW]); // the road just below row r
+    [...roadsV, ...roadsH].forEach(([x, y, w, h]) => floors.push({ x, y, width: w, height: h, material: "mh_road", district: "home" }));
+    const areas = TN.areas.map(([id, name, age, c, r]) => ({ id, name, age, rect: [colX[c], rowY[r], colW(c), rowH(r)] }));
+    town = { x0, y0, x1, y1, roadW: RW, roadsV, roadsH, areas, blockX: [bx0, bx1] };
+  }
   const houseBottom = I.h2 ? I.h2.y + I.h2.h : I.y + I.roomH + I.hallH, houseRight = I.h2 ? (I.h2.up ? I.h2.up.x + I.h2.up.w : I.h2.x + I.h2.w) : M.garage.x + M.garage.w;
   window.MAPLE_HOLLOW_LAYOUT = {
     id: "maple-hollow", version: 1, stage: "home",
     spawn: [spawnX, spawnY],
-    bounds: { x: 0, y: 0, width: Math.max(W, houseRight + 60), height: houseBottom + 60 },
-    districts: [{ id: "home", name: "Maple Hollow", polygon: [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] },
+    bounds: town ? { x: town.x0, y: town.y0, width: Math.max(W, houseRight + 60) - town.x0, height: houseBottom + 60 - town.y0 }
+      : { x: 0, y: 0, width: Math.max(W, houseRight + 60), height: houseBottom + 60 },
+    town,
+    districts: [{ id: "home", name: "Maple Hollow", polygon: town ? [[town.x0, town.y0], [town.x1, town.y0], [town.x1, R.bottom], [town.x0, R.bottom]] : [[0, 0], [W, 0], [W, R.bottom], [0, R.bottom]] },
                 { id: "house", name: "Your House", polygon: [[I.x, I.y], [houseRight, I.y], [houseRight, houseBottom], [I.x, houseBottom]] }],
     floors, walls, gates: [], placements: [], workers: [], lights: [], floorDecor: [], structures: [], labels: [],
     promotions: { phases: [] }, clearSpaces: [], protectedRoutes: [], internalRoutes: []

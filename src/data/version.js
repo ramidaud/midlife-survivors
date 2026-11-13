@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.30.1",
-  displayVersion: "V. 2.30.1",
-  lastUpdated: "Nov 12, 2026",
+  version: "2.31.0",
+  displayVersion: "V. 2.31.0",
+  lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 369,
+  build: 370,
   changelog: [
+    {
+      ver: "V. 2.31.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Maple Hollow just got a whole town around it.",
+      highlights: [
+        "The town now spreads out around your block: a grid of roads, with a loop around the middle of town.",
+        "Both of your streets run out to the new road, so you can leave the block and run laps with the swarm behind you.",
+        "Every place still to come is woods for now, with a sign saying when it opens: the school at 44, Birch Circle at 47, the strip mall at 50, Town Square at 53, the community center at 55, the parkway at 59 and the park at 62."
+      ]
+    },
     {
       ver: "V. 2.30.1", date: "Nov 12, 2026", title: "Version Two",
       teaser: "You can get into the backyards, and the key hunt stays found.",

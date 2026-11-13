@@ -2096,3 +2096,21 @@ Things are drawn back to front. A bigger depth number goes on top.
 | Box hits the post, stops | Box hits the post, peeks sideways |
 | Player must line up exactly | Game lines you up for you |
 | Feels like a wall | Feels like a doorway |
+
+## Chapter: Culling
+
+```
++-----------------------------------------+
+|  woods     road     woods     road      |   the whole town: hundreds of pieces
+|        +-----------------+              |
+|  road  |   YOUR SCREEN   |  woods       |   drawn: only what's inside the box
+|        |   (+400 px)     |              |   (plus a 400 px border)
+|        +-----------------+              |
+|  woods     road     YOUR BLOCK          |   skipped: everything else
++-----------------------------------------+
+```
+
+| Without culling | With culling |
+|---|---|
+| Every piece drawn every frame | Only nearby pieces drawn |
+| Cost grows with the map | Cost stays about one screen's worth |
