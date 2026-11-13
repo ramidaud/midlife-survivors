@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.13",
-  displayVersion: "V. 2.29.13",
+  version: "2.29.14",
+  displayVersion: "V. 2.29.14",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 364,
+  build: 365,
   changelog: [
+    {
+      ver: "V. 2.29.14", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "The leaderboard tells you which board you're looking at.",
+      highlights: [
+        "Two tabs at the top switch between the Midlife board (ages 40 to 65) and the Full Life board (40 to 100), whichever mode you play.",
+        "Two more pick the years: this fiscal year or all-time. A line underneath says exactly what the list shows."
+      ]
+    },
     {
       ver: "V. 2.29.13", date: "Nov 12, 2026", title: "Version Two",
       teaser: "Father Time warns you before he drops in.",

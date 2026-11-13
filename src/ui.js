@@ -2595,7 +2595,7 @@ ${firstShift ? "" : `<button class="t-style-btn tp-settings-chip ${settingsOpen 
       ${(() => { // B8: every sub-screen opens the same way (strip, title, one help line); the logo lives on the title only
         const H = { shop: ["BENEFITS", "Your 401(k)", "401(K) SHOP", ""], extras: ["HR", "Extras", "EXTRAS", "Odds and ends from the file room."],
           achievements: ["HR", "Performance record", "ACHIEVEMENTS", (() => { const g = (meta.achievements && meta.achievements.unlocked) || {}, L = window.ACHIEVEMENTS || []; return `${L.filter(a => g[a.id]).length} of ${L.length} earned. Each one pays into your 401(k).`; })()],
-          leaders: ["HR", "Leaderboard", "LEADERBOARD", "The best runs this fiscal year."], credits: ["HR", "Credits", "CREDITS", "The people behind the game."] }[view] || ["HR", "Memo", "", ""];
+          leaders: ["HR", "Leaderboard", "LEADERBOARD", "Everyone's best run, on two boards."], credits: ["HR", "Credits", "CREDITS", "The people behind the game."] }[view] || ["HR", "Memo", "", ""];
         return `<div class="ms-sheet-strip">${H[0]} · RE: <b>${H[1]}</b></div>${H[2] ? `<h2 class="ms-sheet-title tp-sub-title">${H[2]}</h2>` : ""}${H[3] ? `<p class="ms-sheet-help tp-sub-help">${H[3]}</p>` : ""}`; })()}
       ${bodyHtml}
       <div class="title-version">${verInfo.displayVersion}</div>

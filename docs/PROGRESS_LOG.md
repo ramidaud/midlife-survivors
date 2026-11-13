@@ -2314,3 +2314,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Ben: "He was chasing me all over and I was doing a fine time outrunning him. Then he teleported! Landed right on my head." Past FINISH_LINE.forceYears the finish line snapped onto the player every frame with no warning.
 - Now: a heads-up half a year before ("He's done walking. Soon he jumps to you."), then a ring on the ground where you stand. He lands there 1.3 s later (a little shorter each year, never under 0.65 s), chases for 1.6 s, then marks again. Numbers in `src/data/bosses.js` (FINISH_LINE).
 - Tested headless in Midlife at 69: warning fires, ring draws in token colors, a dodge makes him land 300 px away, standing still still clocks you out. No errors.
+
+## 2026-11-12: V. 2.29.14, clear leaderboard tabs (Claude)
+- Ben read the Full Life board as "all time." The board only showed your current mode, with a small toggle.
+- Now: MIDLIFE / FULL LIFE tabs (with the age range) and FISCAL YEAR 2 / ALL-TIME tabs, plus one plain line ("Full Life runs (ages 40 to 100), every version since launch, each player's best run."). Viewing a board never changes where your scores post. After a run, the board opens on your run's mode.
+- Built from the Button part (selected = raised + paper border). Checked at 390x844 and 1280x800 with touch and keyboard; no errors.

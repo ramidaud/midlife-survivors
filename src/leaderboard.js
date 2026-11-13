@@ -13,6 +13,10 @@ function lbConfigured() {
 // Each mode has its own board (Midlife and Full Life scores aren't comparable).
 function lbMode() { return (window.getRunMode && window.getRunMode()) || "midlife"; }
 function lbTable() { const m = window.RUN_MODES && window.RUN_MODES[lbMode()]; return (m && m.table) || (window.LEADERBOARD || {}).table; }
+// Nov 12 (Ben read the Full Life board as "all time"): the board you LOOK at can differ from the mode you play.
+// Tabs on the board set window.lbBoardMode; scores you post still go to your run's own board (lbTable above).
+function lbView() { const v = window.lbBoardMode; return (v && window.RUN_MODES && RUN_MODES[v]) ? v : lbMode(); }
+function lbViewTable() { const m = window.RUN_MODES && window.RUN_MODES[lbView()]; return (m && m.table) || (window.LEADERBOARD || {}).table; }
 
 // isClear = reached the end of the mode (Retirement or Father Time) and gets that mode's clear bonus.
 function computeRunScore(ageReached, startAge, kills, coins, isClear) {
@@ -40,7 +44,7 @@ function lbShownName(name) { return lbNameOk(name) ? name : ((window.NAME_FILTER
 function lbSavedName() { try { return localStorage.getItem(LB_NAME_KEY) || ""; } catch (e) { return ""; } }
 function lbSaveName(n) { try { localStorage.setItem(LB_NAME_KEY, n); } catch (e) {} }
 
-function lbLocalScores() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]").filter(r => (r.mode || "full") === lbMode()); } catch (e) { return []; } }
+function lbLocalScores() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]").filter(r => (r.mode || "full") === lbView()); } catch (e) { return []; } }
 function lbAllLocal() { try { return JSON.parse(localStorage.getItem(LB_LOCAL_KEY) || "[]"); } catch (e) { return []; } }
 function lbAddLocal(entry) {
   const list = lbAllLocal().concat([Object.assign({ mode: lbMode() }, entry)]).sort((a, b) => b.score - a.score).slice(0, 50);
@@ -129,7 +133,7 @@ async function lbFetchTop() {
     // Nov 2: Rami twice saw "No scores yet" while the server held 70+ scores and logged full replies.
     // So: never use a cached reply, and if a reply comes back empty, ask once more before believing it.
     const season = window.SEASONS && window.lbScope !== "all" ? SEASONS.current() : null; // this fiscal year only, unless ALL-TIME
-    const url = `${L.supabaseUrl}/rest/v1/${lbTable()}?select=name,score,age,character,version,created_at&order=score.desc&limit=${n}${season ? `&created_at=gte.${season.start}` : ""}`;
+    const url = `${L.supabaseUrl}/rest/v1/${lbViewTable()}?select=name,score,age,character,version,created_at&order=score.desc&limit=${n}${season ? `&created_at=gte.${season.start}` : ""}`;
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
         const res = await fetch(url + (attempt ? `&_r=${Date.now()}` : ""), { headers: lbHeaders(), cache: "no-store" });
@@ -159,9 +163,28 @@ function lbEscape(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+// The board's header (Nov 12): which board (Midlife or Full Life) and which time span, as two pairs of tabs,
+// plus one plain sentence saying exactly what the list shows.
+function lbHeader() {
+  const M = window.RUN_MODES || {}, view = lbView(), all = window.lbScope === "all";
+  const ages = id => { const m = M[id] || {}; return `Ages ${m.startAge || 40} to ${m.endAge || (id === "full" ? 100 : 65)}`; };
+  const tab = (attr, val, label, sub, on) =>
+    `<button type="button" class="ms-btn lb-tab${on ? " on" : ""}" ${attr}="${val}" aria-pressed="${on}"><span class="ms-btn-label">${label}</span>${sub ? `<span class="ms-btn-sub">${sub}</span>` : ""}</button>`;
+  const season = window.SEASONS ? SEASONS.current() : null;
+  const boards = ["midlife", "full"].filter(id => M[id]).map(id => tab("data-lb-board", id, id === "full" ? "FULL LIFE" : "MIDLIFE", ages(id), id === view)).join("");
+  const scopes = season ? tab("data-lb-scope", "season", lbEscape(season.name.toUpperCase()), "", !all) + tab("data-lb-scope", "all", "ALL-TIME", "", all) : "";
+  const since = season ? new Date(season.start + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
+  const span = !season ? "" : all ? "every version since launch" : `${season.name} only (since ${since})`;
+  const what = `${view === "full" ? "Full Life" : "Midlife"} runs (${ages(view).toLowerCase()}), ${span ? span + ", " : ""}each player's best run.`;
+  return `<div class="lb-tabs" role="group" aria-label="Which board">${boards}</div>` +
+    (scopes ? `<div class="lb-tabs lb-tabs-scope" role="group" aria-label="Which years">${scopes}</div>` : "") +
+    `<p class="lb-what">${what}</p>`;
+}
+
 // Render the full board (personal bests) into an element. Highlights rows matching `mine` (name + score).
 async function lbRenderInto(el, mine) {
   if (!el) return;
+  if (mine) window.lbBoardMode = null; // after a run, open on the board your score went to
   el.innerHTML = `<div class="lb-status">Loading scores…</div>`;
   const { online, rows, empty } = await lbFetchTop();
   const charName = id => {
@@ -178,14 +201,21 @@ async function lbRenderInto(el, mine) {
     ? `<tr><td colspan="5" class="lb-empty">Couldn't load the scores just now. <button class="lb-retry" type="button">↻ RETRY</button></td></tr>`
     : `<tr><td colspan="5" class="lb-empty">No scores yet. Be the first.</td></tr>`);
   el.innerHTML = `
-    ${window.SEASONS ? `<div class="lb-season"><span>${window.lbScope === "all" ? "ALL-TIME" : lbEscape(SEASONS.current().name.toUpperCase())}</span><button type="button" class="lb-scope-btn">${window.lbScope === "all" ? "SHOW THIS FISCAL YEAR" : "SHOW ALL-TIME"}</button></div>` : ""}
-    <div class="lb-status">${lbMode() === "full" ? "FULL LIFE" : "MIDLIFE"} BOARD · ${online ? "🌐 Online leaderboard" : (lbConfigured() ? "📴 Offline: showing scores from this device" : "📱 Scores on this device (online board not set up yet)")}</div>
+    ${lbHeader()}
+    <div class="lb-status">${online ? "Online leaderboard" : (lbConfigured() ? "Offline: showing scores from this device" : "Scores on this device (online board not set up yet)")}</div>
     <div class="lb-wrap"><table class="lb-table">
       <thead><tr><th>#</th><th>NAME</th><th>SCORE</th><th>AGE</th><th>AS</th></tr></thead>
       <tbody>${body}</tbody>
     </table></div>${anyLegacy ? `<div class="lb-note"><span class="lb-legacy">LEGACY</span> Played before V. 2.0, when a Midlife run could go to age 80. Today it ends at 65.</div>` : ""}`;
-  const scopeBtn = el.querySelector(".lb-scope-btn");
-  if (scopeBtn) scopeBtn.addEventListener("click", () => { window.lbScope = window.lbScope === "all" ? "season" : "all"; lbRenderInto(el, mine); });
+  // Tabs work with mouse, touch, keyboard and controller (bindNavItem joins them to menu navigation).
+  const bind = (b, row, fn) => window.bindNavItem ? bindNavItem(b, row, fn) : b.addEventListener("click", fn);
+  el.querySelectorAll("[data-lb-board]").forEach(b => bind(b, 9.1, () => {
+    if (lbView() === b.dataset.lbBoard) return; window.lbBoardMode = b.dataset.lbBoard; lbRenderInto(el, null);
+  }));
+  el.querySelectorAll("[data-lb-scope]").forEach(b => bind(b, 9.2, () => {
+    const want = b.dataset.lbScope; if ((window.lbScope === "all" ? "all" : "season") === want) return;
+    window.lbScope = want; lbRenderInto(el, mine);
+  }));
   const retry = el.querySelector(".lb-retry");
   if (retry) retry.addEventListener("click", () => lbRenderInto(el, mine));
 }
