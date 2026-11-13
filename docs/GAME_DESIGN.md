@@ -762,3 +762,5 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - Built (V2.35.0, Nov 13): Maple Park opens at 62 (pavilion and koi pond, picnic grills, bird-watching corner). The Gold Watch comes out at the pavilion.
 - Built (V2.36.0, Nov 13): the Parkway opens at 59 (through road, road out of town closed until Full Life). The V8 stays in your garage next door. Golf course art added to the Codex brief.
 - Idea, not decided: in Full Life, stages connect (office, Maple Hollow, hospital, later others) with growing swarms and giant bosses. Claude suggests stages joined by roads rather than one seamless map, and a closed road out of town on Maple Hollow's edge for now. Confirmed: Midlife stays 40 to 65 (about 19 min); Full Life should last at least 30 min (it runs about an hour now).
+
+- Built (V2.39.0, Nov 13): the Community Center opens at 55 (hall, block party street). The Holiday Party comes out of the hall. Every Midlife area is now built (with V2.37.0 Strip Mall and V2.38.0 Town Square from PR #8).

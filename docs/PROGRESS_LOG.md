@@ -2406,3 +2406,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 ## 2026-11-13: V. 2.38.0, Town Square opens at 53 (Claude)
 - The middle of the map: Game Over Arcade, Bean There, Dad's Hardware, the fountain on a brick plaza, the skate park and two food trucks.
 - The brick plaza reads large and loud, so it's four tiles around the fountain for now; finer brick added to the Codex notes.
+
+## 2026-11-13: V. 2.39.0, the Community Center opens at 55 (Claude)
+- Last Midlife area, from Codex's town art (PR #8): the hall, and a block party street with potluck tables, coolers, string lights, a bounce house and barricades.
+- The Holiday Party (56) comes out of the hall.
+- Every Midlife area now opens on its birthday. Left: the Woods (Full Life), the road out of town, and Codex's golf course and north-south barricade for the Parkway.

@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.38.0",
-  displayVersion: "V. 2.38.0",
+  version: "2.39.0",
+  displayVersion: "V. 2.39.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 377,
+  build: 378,
   changelog: [
+    {
+      ver: "V. 2.39.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "The community center opens at 55. You're down for napkins.",
+      highlights: [
+        "The Community Center opens at 55: a brick hall with a bulletin board, and a block party in the street out front with potluck tables, coolers, string lights and a bounce house.",
+        "At 56 the Holiday Party comes out of the hall's front doors, or at the edge of the community center nearest you.",
+        "Every area in Midlife now opens on its birthday: Elementary 44, Birch Circle 47, the Strip Mall 50, Town Square 53, the Community Center 55, the Parkway 59 and Maple Park 62."
+      ]
+    },
     {
       ver: "V. 2.38.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Town Square opens at 53, right in the middle of town.",

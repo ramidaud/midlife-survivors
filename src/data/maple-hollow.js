@@ -120,11 +120,12 @@ window.MAPLE_HOLLOW = {
         ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
       ],
       // Areas that are built open at their age: the woods clear and the area's pieces appear. The rest stay woods.
-      built: ["elementary", "birch", "mall", "square", "park", "parkway"],
+      built: ["elementary", "birch", "mall", "square", "community", "park", "parkway"],
       openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."],
                    birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."],
                    mall: ["STRIP MALL", "The strip mall is open. The bank would like to talk about your mortgage."],
                    square: ["TOWN SQUARE", "Town Square is open. Everybody's here. Somebody brought a guitar."],
+                   community: ["COMMUNITY CENTER", "The community center is open. There's a sign-up sheet for the potluck. You're down for napkins."],
                    parkway: ["THE PARKWAY", "The Parkway is open. Nice long road. Somebody's about to buy a sports car."],
                    park: ["MAPLE PARK", "Maple Park is open. Somebody reserved the pavilion for a retirement party."] },
       // Pieces reused from the yard kit (assets/stage/home/v4/yard/): size, feet line (dy) and solid footprint, relative to
@@ -251,6 +252,22 @@ window.MAPLE_HOLLOW = {
           ["tree-maple-orange", 1300, 2500], ["autumn-shrub-a", 2200, 700], ["autumn-shrub-b", 200, 800], ["autumn-shrub-c", 2300, 1900],
           ["decal-leaf-drift", 300, 1700], ["decal-scattered-maple", 2150, 1500], ["decal-leaf-drift", 1100, 2450]
         ],
+        // The Community Center (Nov 13, Codex's art): the hall at the top, a block party on the street in front (barricaded
+        // where it meets the road), and a lawn below. The Holiday Party (56) comes out of the hall.
+        community: [
+          ["community-hall", 700, 120], ["text", 1104, 329, 290, 46, "COMMUNITY CENTER", "#171C35"],
+          ["street", 0, 880, 2496], ["asphalt", 2496, 976, 416, 320],
+          ["community-barricade", 2300, 980], ["community-barricade", 2300, 1240],
+          ["community-potluck-table", 500, 1040], ["community-potluck-table", 740, 1040], ["community-potluck-table", 980, 1040],
+          ["community-bounce-house", 1500, 1000], ["community-cooler", 1240, 1100], ["community-cooler", 420, 1150],
+          ["community-light-posts", 300, 930], ["community-light-strand", 300, 930], ["community-light-posts", 1000, 1260], ["community-light-strand", 1000, 1260],
+          ["community-light-posts", 1900, 930], ["community-light-strand", 1900, 930],
+          ["vignette", 300, 1560, "grill-master"], ["vignette", 1500, 1600, "retirees"],
+          ["tree-maple-orange", 120, 200], ["tree-maple-orange", 2200, 220], ["tree-maple-orange", 2350, 600], ["tree-maple-orange", 80, 640],
+          ["tree-maple-orange", 1100, 1700], ["tree-maple-orange", 1200, 2300], ["tree-maple-orange", 2200, 2200], ["tree-maple-orange", 200, 2400],
+          ["autumn-shrub-a", 560, 640], ["autumn-shrub-b", 1860, 640], ["autumn-shrub-c", 900, 2100], ["autumn-shrub-a", 2000, 2500],
+          ["decal-leaf-drift", 600, 1900], ["decal-scattered-maple", 1700, 2300], ["decal-leaf-drift", 2300, 1500], ["decal-scattered-maple", 400, 2600]
+        ],
         // The Parkway v1 (Nov 13): a through road lined with maples, open lawn (golf course art to come), and the road out of
         // town running south into the trees (closed until Full Life). The V8 (60) still bursts out of your garage next door.
         // More entries: ["vstreet", x, y, length] a north-south street, ["plate", x, y, theme] a yard's ground picture alone,
@@ -311,7 +328,7 @@ window.MAPLE_HOLLOW = {
           ["decal-leaf-drift", 300, 2000], ["decal-scattered-maple", 2050, 2250], ["decal-scattered-maple", 2750, 600]
         ]
       },
-      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090], goldWatch: ["park", 1290, 1060], mortgageRefinance: ["mall", 784, 560] } // where each boss comes out, if its area is open
+      bossSpots: { mathHomework: ["elementary", 2300, 1380], hoaPresident: ["birch", 640, 1090], goldWatch: ["park", 1290, 1060], mortgageRefinance: ["mall", 784, 560], holidayParty: ["community", 1250, 760] } // where each boss comes out, if its area is open
     },
     yardOrder: [0, 1, 2, 3, 4, 5],                    // which backyards-v2 cell goes behind each house frame
     interiorY: 3500,                                  // the inside of your house, far below the neighborhood
