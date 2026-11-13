@@ -2376,3 +2376,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Second area. Six neighbor houses on a street ending in the rounded cul-de-sac, HOA-style backyards behind them, and an HOA common below (koi ponds, pergolas, hedges).
 - The HOA President (48) comes out in the cul-de-sac.
 - All existing art: house fronts, yard themes, street plates and the street-end curve. Area layouts can now hold houses, yards, streets and road patches, not just single pieces.
+
+## 2026-11-13: wrap-up (Claude)
+- Tonight: playtest fixes (V2.30.1), the full map drawn and decided, the whole town laid out (V2.31.0), Elementary (V2.32.0) and Birch Circle (V2.33.0).
+- Strip Mall paused: it needs storefront and bank art, and the office parking-lot props don't match Maple Hollow's look. One Codex brief for the Strip Mall, Community Center and Town Square: `docs/handoffs/codex-town-buildings.md`.
+- Next session: send Codex the town buildings brief, then build Maple Park (62) or the Parkway (59) from the yard kit while the art is made.
