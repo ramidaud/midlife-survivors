@@ -1,0 +1,6 @@
+{
+  "id": "tarp-lumber",
+  "tool": "built-in imagegen",
+  "prompt": "Use case: stylized-concept. Paint ONE isolated Maple Hollow fixer-upper yard sprite: TWO weathered wooden shipping PALLETS leaning UPRIGHT at a slight angle against one another, with a loose GREEN TARP draped over the upper right pallet, and one small open METAL BUCKET at their foot on the right. Reference image: attached crop of today's exact yard subject. Match this subject, proportions and three-quarter overhead camera closely. Long visible vertical pallet planks and dark gaps MUST read as upright leaning pallets, NOT horizontal lumber or stacked firewood. Fill almost the entire 112x104 final canvas with 3px transparent margins, paint at 8x=896x832 then block-reduce later. Hand-painted detailed chunky pixel game style. WALL: complete dark ink outline and heavy ground shadow. Palette: pallet wood #70402F #A88B70 #D3B78D #F2D7A1, tarp #315B4B #6D895B #83A89A, bucket #303750 #526078 #BFA8CF #FFF0CF, outline #171C35. At least3 tones per material. True transparent background, no ground tile, grass, flowers, text or extra props. Neutral white balance, no sepia, golden haze or film tint.",
+  "reference": "reference/pallet-reference-4x.png"
+}
