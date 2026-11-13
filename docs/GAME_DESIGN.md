@@ -753,4 +753,5 @@ Home interior identity corrected from Rami’s photo brief: work desk in downsta
 - New area: a busy town square with an arcade, a skate park and a few shops.
 - The map should feel BIG.
 - The run ends back home on your porch.
+- To-scale draft: `docs/plans/home-map-v3.png` (8,384 x 7,744 px, about 6.5 x 9.7 screens). Town Square at 53 is a suggestion, not decided.
 - Idea, not decided: in Full Life, stages connect (office, Maple Hollow, hospital, later others) with growing swarms and giant bosses. Claude suggests stages joined by roads rather than one seamless map, and a closed road out of town on Maple Hollow's edge for now. Confirmed: Midlife stays 40 to 65 (about 19 min); Full Life should last at least 30 min (it runs about an hour now).
