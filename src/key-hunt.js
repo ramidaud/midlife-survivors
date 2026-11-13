@@ -37,6 +37,13 @@ window.KeyHunt = (() => {
     return key;
   }
 
+  // Nov 12 (Rami: "after returning from a saved state the house key mini game restarts"): the hunt is saved with the run.
+  let pending = null;
+  function save() {
+    if (!st) return null;
+    return { keyAt: st.keyAt, checked: st.spots.map(s => !!s.checked), hasKey: st.hasKey, open: st.open, entered: st.entered, fridgeUsed: st.fridgeUsed, fridgeAge: st.fridgeAge || 0 };
+  }
+  function restore(saved) { pending = saved && saved.keyAt != null ? saved : null; }
   function start(scene) {
     const C = K(), M = window.MAPLE_HOLLOW, R = M.rows, lotX = i => M.firstLotX + i * M.lotWidth;
     const front = row => row === "north" ? R.northHouseFront : R.southHouseFront;
@@ -47,6 +54,8 @@ window.KeyHunt = (() => {
     // the key is never in the spot closest to your door, so you have to look around a little
     const near = spots.reduce((b, s, i) => Math.hypot(s.x - door.x, s.y - door.y) < Math.hypot(spots[b].x - door.x, spots[b].y - door.y) ? i : b, 0);
     let keyAt = Math.floor(Math.random() * spots.length); if (keyAt === near) keyAt = (keyAt + 1) % spots.length;
+    const P = pending; pending = null;
+    if (P && P.keyAt < spots.length) keyAt = P.keyAt;
     st = { door, spots, keyAt, checked: 0, hasKey: false, open: false, objs: [], doorWarnAt: 0, inside: false, armed: true, fridgeUsed: false, entered: false };
     spots.forEach((s, i) => {
       const [tk, tf] = texF(scene, s.kind);
@@ -58,6 +67,13 @@ window.KeyHunt = (() => {
     st.doorMark = scene.add.ellipse(door.x, door.y, 60, 22).setStrokeStyle(3, 0xEF9347, 0.9).setFillStyle(0xEF9347, 0.15).setDepth(2.7);
     scene.tweens.add({ targets: st.doorMark, scaleX: 1.15, scaleY: 1.15, alpha: 0.6, duration: 700, yoyo: true, repeat: -1 });
     st.objs.push(st.doorMark);
+    if (P) { // a resumed run: put the hunt back the way you left it. The bonus chest only ever comes once.
+      st.spots.forEach((s, i) => { if ((P.checked || [])[i] || P.hasKey) { s.checked = i === keyAt || !!(P.checked || [])[i]; if (s.q && s.q.active) s.q.destroy(); if (s.checked && i !== keyAt) s.img.setAlpha(0.6); } });
+      st.checked = (P.checked || []).filter(Boolean).length; st.hasKey = !!P.hasKey; st.fridgeUsed = !!P.fridgeUsed; st.fridgeAge = P.fridgeAge || 0; st.entered = !!P.entered;
+      if (P.hasKey && st.spots[keyAt].kind === "rock" && scene.textures.exists("kh_sheet")) st.spots[keyAt].img.setTexture("kh_sheet", SHEET.rockOpen);
+      if (P.open) { st.open = true; st.armed = true; st.doorMark.setStrokeStyle(3, 0x83A89A, 0.9).setFillStyle(0x83A89A, 0.2); if (window.MapleHollowDoor) MapleHollowDoor(true); }
+      draw(); return;
+    }
     if (window.showLowerThird) showLowerThird("promo", "LOCKED OUT", C.doorLine || "The spare key is around here somewhere.", 6000);
     draw();
   }
@@ -214,7 +230,8 @@ window.KeyHunt = (() => {
     if (!st.inside) {
       const d = Math.hypot(px - st.door.x, py - st.door.y);
       // Wait for the bonus screen (and any level-up) to close, then a short beat, so you actually see the door open.
-      const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen) || (window.BonusChest && BonusChest.isOpen());
+      // only a menu that's actually on screen holds the door (Nov 12: a stuck flag kept it shut for good)
+      const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen && scene.physics.world.isPaused) || (window.BonusChest && BonusChest.isOpen() && BonusChest.visible());
       if (st.lootUntil && !busy && (!st.chest || !st.chest.active || runElapsedMs > st.lootUntil)) {
         if (!st.swingAt) st.swingAt = runElapsedMs + (K().doorBeatMs || 450);
         else if (runElapsedMs >= st.swingAt) swingDoor(scene);
@@ -259,7 +276,7 @@ window.KeyHunt = (() => {
   }
   function update(scene) {
     if (!home() || typeof player === "undefined" || !player || !player.active || !playing()) return;
-    if (!st) { if (typeof currentAge !== "undefined" && currentAge >= (K().startAge || 40.4)) start(scene); return; }
+    if (!st) { if (pending || (typeof currentAge !== "undefined" && currentAge >= (K().startAge || 40.4))) start(scene); return; }
     const C = K(), px = player.x, py = player.y + player.height / 2;
     if (st.open) return tickHouse(scene, px, py);
     if (!st.hasKey) st.spots.forEach((s, i) => { if (!s.checked && Math.hypot(px - s.x, py - s.y) < (C.checkPx || 40)) check(scene, i); });
@@ -269,6 +286,6 @@ window.KeyHunt = (() => {
       else if (runElapsedMs > st.doorWarnAt) { st.doorWarnAt = runElapsedMs + 4000; pop(scene, st.door.x, st.door.y, "LOCKED. Of course it is.", "#EF9347"); }
     }
   }
-  function reset() { if (st) st.objs.forEach(o => o && o.active && o.destroy()); st = null; if (chip) chip.className = "hidden"; }
-  return { update, reset, state: () => st && { inside: st.inside, floor: st.floor || 1, stairArmed: !!st.stairArmed, armed: st.armed, fridgeUsed: st.fridgeUsed, hasKey: st.hasKey, open: st.open, checked: st.checked, keyAt: st.spots[st.keyAt] && { x: st.spots[st.keyAt].x, y: st.spots[st.keyAt].y }, door: st.door } };
+  function reset() { if (st) st.objs.forEach(o => o && o.active && o.destroy()); st = null; pending = null; if (chip) chip.className = "hidden"; }
+  return { update, reset, save, restore, state: () => st && { inside: st.inside, floor: st.floor || 1, stairArmed: !!st.stairArmed, armed: st.armed, fridgeUsed: st.fridgeUsed, hasKey: st.hasKey, open: st.open, checked: st.checked, keyAt: st.spots[st.keyAt] && { x: st.spots[st.keyAt].x, y: st.spots[st.keyAt].y }, door: st.door } };
 })();

@@ -2080,3 +2080,19 @@ Things are drawn back to front. A bigger depth number goes on top.
 | #3E7775 tuft | #6D895B | only when touching grass |
 | #83A89A siding | unchanged | inside the facade mask |
 
+
+## Chapter: Corner sliding
+
+```
+ fence end            fence end
+    ||                    ||
+    ||  <- hero hits      ||    peek 28 px left: open!
+  [HERO] the post       [HERO]--> slide over, then walk up
+    path                  path
+```
+
+| Without corner sliding | With corner sliding |
+|---|---|
+| Box hits the post, stops | Box hits the post, peeks sideways |
+| Player must line up exactly | Game lines you up for you |
+| Feels like a wall | Feels like a doorway |

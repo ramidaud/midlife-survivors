@@ -2353,3 +2353,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Leaderboard fixes by hand (Rami's OK): Ben's 104 Full Life run added; Derek's 579,444 Midlife run moved from the Full Life board to the Midlife board.
 - Rami's Mac copy now lives on the Extreme Pro drive and is up to date; Codex's Batch C branch has main merged in.
 - Next session: Rami walks Maple Hollow, then trees and shrubs as their own sprites, then the starting weapon on each character card.
+
+## 2026-11-12: V. 2.30.1, Rami's Maple Hollow playtest fixes (Claude)
+- Yards: walking up the middle of a side path stopped dead at the fence post (the path narrows to 64 px there). Added corner sliding: push into a wall with a gap within 28 px to the side and you slide into it. Every side path now walks into its yard.
+- Key hunt is saved with the run, so resuming keeps the key, the checked spots and the opened door, and the bonus chest only comes once (closes the free-loadout exploit).
+- Chests: couldn't reproduce "no chest pays" locally (boss chests and the key chest pay in every yard here). Added a safety net: a chest that fails to open gives a level-up pick and saves the error in the browser (`ms-chest-err`) so we can read it. The front door no longer waits on a bonus screen that isn't showing.
+- Still open: the side paths are 64 px wide in the art, under our 96 px rule. Needs an art fix, Rami's call.

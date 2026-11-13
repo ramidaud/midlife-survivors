@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.30.0",
-  displayVersion: "V. 2.30.0",
+  version: "2.30.1",
+  displayVersion: "V. 2.30.1",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 368,
+  build: 369,
   changelog: [
+    {
+      ver: "V. 2.30.1", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "You can get into the backyards, and the key hunt stays found.",
+      highlights: [
+        "Walking up a side path into a backyard used to stop you dead at the fence post. Now you slide around corners into any gap close by, everywhere in the game.",
+        "The spare key hunt is saved with your run. Leave and come back, and the key is right where it was, and the bonus chest only ever comes once.",
+        "A bonus chest that touches you always pays out now. If something goes wrong opening it, you get a level-up pick instead, and your front door no longer waits on a bonus screen that isn't there."
+      ]
+    },
     {
       ver: "V. 2.30.0", date: "Nov 12, 2026", title: "Version Two",
       teaser: "Every backyard in Maple Hollow, rebuilt piece by piece.",

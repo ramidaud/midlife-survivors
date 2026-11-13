@@ -881,7 +881,8 @@ window.persistActiveRun = () => {
     coinsSpent: window.runCoinsSpent || 0,
     coinsTapered: window.runCoinsTapered || 0,
     coinLedger: window.coinLedger || {},
-    nearMissScore: window.NearMiss ? window.NearMiss.score() : 0
+    nearMissScore: window.NearMiss ? window.NearMiss.score() : 0,
+    keyHunt: window.KeyHunt && KeyHunt.save ? KeyHunt.save() : null // Nov 12 (Rami): resuming used to restart the key hunt (a free chest every time)
   });
 };
 
@@ -1243,6 +1244,7 @@ function showTitleScreen(scene) {
     window.runCoinsTapered = saved.coinsTapered || 0;
     window.coinLedger = saved.coinLedger || {};
     if (window.NearMiss && NearMiss.restoreScore) NearMiss.restoreScore(saved.nearMissScore || 0);
+    if (window.KeyHunt && KeyHunt.restore) KeyHunt.restore(saved.keyHunt || null);
     window.awaitFirstMove = false; // a resumed run picks up where it left off
     bossesSpawned = saved.bossesSpawned || {};
     retire80Prompted = !!saved.retire80Prompted;
@@ -1316,6 +1318,19 @@ function collectChest(p, chest) {
   if (!chest.active) return;
   if (chest.readyAt && runElapsedMs < chest.readyAt) return; // the boss is still going down
   if (levelUpOpen || (window.BonusChest && BonusChest.isOpen())) return; // another menu is up: the chest waits on the floor
+  // Nov 12 (Rami: "nothing that should give you a chest is giving chests"): a chest that touches you always pays.
+  // If anything below fails, you get a level-up pick instead and the error is kept (localStorage ms-chest-err) so we can fix it.
+  try { openChestNow(p, chest); } catch (e) {
+    console.error("[chest]", e);
+    try { localStorage.setItem("ms-chest-err", JSON.stringify({ at: new Date().toISOString(), v: (window.GAME_VERSION && GAME_VERSION.version) || "", kind: chest.bossKind, msg: String(e && e.message || e), stack: String(e && e.stack || "").slice(0, 600) })); } catch (_) {}
+    if (window.Telemetry && Telemetry.event) Telemetry.event("chest-error");
+    if (chest.active) { if (chest.tag) chest.tag.destroy(); chest.destroy(); }
+    if (window.BonusChest && BonusChest.isOpen()) BonusChest.abandon();
+    const sc = p.scene; levelUpOpen = false; sc.physics.resume(); sc.time.paused = false;
+    pendingLevels++; showLevelUp(sc, "BONUS CHEST", true);
+  }
+}
+function openChestNow(p, chest) {
   if (chest.tag) chest.tag.destroy();
   const scene = p.scene;
   const C = PICKUPS.bossChest;
@@ -1364,6 +1379,30 @@ setInterval(() => {
   sc.physics.resume();
   sc.time.paused = false;
 }, 1000);
+
+// Corner sliding (Nov 12). Walking straight into the end of a fence or wall used to stop you dead, even with an
+// opening a few steps to the side (Maple Hollow's side paths into the backyards). Now, if you push into something
+// and there's room within 28 px to one side, you slide over into it, the way most top-down games handle doorways.
+function cornerSlide(x, y) {
+  const g = window.propGroup, b = player && player.body; if (!g || !b) return [x, y];
+  const ax = Math.abs(x), ay = Math.abs(y), vert = ay > 0.8 && ax < 0.45, horiz = ax > 0.8 && ay < 0.45;
+  if (!vert && !horiz) return [x, y];
+  const R = 70, near = [];
+  g.getChildren().forEach(o => { const r = o.body; if (o.active && r && r.enable !== false && r.x < b.right + R && r.right > b.x - R && r.y < b.bottom + R && r.bottom > b.y - R) near.push(r); });
+  if (!near.length) return [x, y];
+  const free = (dx, dy) => near.every(r => !(b.x + dx < r.right && b.right + dx > r.x && b.y + dy < r.bottom && b.bottom + dy > r.y));
+  const fx = horiz ? Math.sign(x) * 6 : 0, fy = vert ? Math.sign(y) * 6 : 0;
+  if (free(fx, fy)) return [x, y];                  // nothing ahead: walk normally
+  const lean = vert ? Math.sign(x) : Math.sign(y);  // a slight diagonal says which way you'd rather go
+  for (const s of lean ? [lean, -lean] : [-1, 1]) {
+    for (let k = 4; k <= 28; k += 4) {
+      const px = vert ? s * k : 0, py = horiz ? s * k : 0;
+      if (!free(px, py)) break;                     // the side step itself is blocked
+      if (free(px + fx, py + fy)) return vert ? [s, y * 0.25] : [x * 0.25, s];
+    }
+  }
+  return [x, y];
+}
 
 // Pause the run for a menu the same way the level-up screen does.
 function pauseForMenu(scene) {
@@ -2762,6 +2801,7 @@ function update(time, delta) {
   const baseSpd = stats.speed * (window.modFx ? modFx("speedMult", 1) : 1) * (runSprint && window.SPRINT ? SPRINT.playerSpeedMult : 1); // Back Spasm slows the base, drinks still help
   const moveSpd = (runElapsedMs < slowUntil ? baseSpd * ENEMIES.snackAttack.slowFactor : baseSpd) * buffSpd * (window.HolidayParty ? HolidayParty.playerSpeedMult() : 1); // mistletoe slows you a moment
   if (window.homeTransit) { x = 0; y = 0; } // walking through a door (Maple v2): the animation moves you
+  if (x || y) [x, y] = cornerSlide(x, y); // Nov 12 (Rami: "some of the yards are impossible to enter"): slide around corners into gaps
   player.setVelocity(x * moveSpd, y * moveSpd);
   if (x !== 0) player.setFlipX(x < 0); // face left or right
   { // Energy Drink aura: bright while you're moving (shielded), faint when you stop.

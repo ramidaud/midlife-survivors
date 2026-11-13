@@ -837,3 +837,9 @@ Nobody changed the healing numbers, yet Ben healed less. A new level can shift b
 
 ## Sorting by feet, and things overhead (Nov 12, the yards)
 In a top-down game, whoever's feet are lower on the screen is drawn in front. Each yard piece gets a "feet line" (the d number in the yard data): stand above it and the ghost covers you, step below it and you cover the ghost. Overhead things like the pergola roof and the string lights use a trick: their feet line is set just below the posts' feet, so anyone standing under them is drawn underneath. One picture, two answers, depending only on where you stand.
+
+## Corner sliding (Nov 12, the backyards)
+Game physics treats the hero as a box. If the box hits the end of a fence even by a few pixels, it stops, and it doesn't care that the opening is right next to it. Most top-down games quietly fix this: when you push into a wall, they peek a few pixels to each side, and if there's room, they nudge you over. You never notice it, you just feel like the doorway "caught" you. Ours peeks up to 28 px each way.
+
+## A save has to hold everything that matters (Nov 12, the key hunt)
+A save file is a list of facts the game writes down so it can rebuild the moment later. Anything left off the list gets rebuilt from scratch. The key hunt wasn't on the list, so every resume started a brand-new hunt with a brand-new bonus chest. That turned a small omission into an exploit: quit, resume, collect, repeat.
