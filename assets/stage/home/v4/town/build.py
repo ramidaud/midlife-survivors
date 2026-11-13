@@ -66,7 +66,7 @@ def material_map(a,id):
     if id in ['mall-runaway-cart','mall-trash-can']:
         # Map existing upper metal glints to the cream breakable cue.
         visible=a[:,:,3]>=128;rows=np.where(visible)[0];top=int(rows.min());bottom=int(rows.max())+1
-        yy=np.indices(visible.shape)[0];lum=a[:,:,0]*.2126+a[:,:,1]*.7152+a[:,:,2]*.0722
+        yy=np.indices(visible.shape)[0];lum=(a[:,:,0]*.2126+a[:,:,1]*.7152+a[:,:,2]*.0722)/255  # 0-1 scale to match thresholds
         glint=visible&(yy<top+round((bottom-top)*.35))&(lum>.38)
         result[glint,:3]=RGB[6];result[glint&(lum>.48),:3]=RGB[7];result[glint&(lum>.65),:3]=RGB[8]
     if id in ASPHALT:

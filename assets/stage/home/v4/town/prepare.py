@@ -1,6 +1,7 @@
 """Prepare painted Town Buildings assets. No world artwork is drawn by code.
 Run: python prepare.py. Requires Pillow and NumPy. Outputs a fresh deliver/ folder.
 """
+import os
 from build import *
 
 def digest(path):return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -197,7 +198,10 @@ def review(pieces):
             body+='</p></article>'
         body+='</section>'
     body+='<p>Overlay annotations: red rectangles propose solid footprints, cream shows the feet line, orange marks the foot point. The marks are never added to the exported sprite. Ground plates are opaque; isolated objects and overhead layers retain transparency. Runtime routes and depth sorting await integration.</p>'
-    (OUT/'review.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Town Buildings art review</title><link rel="stylesheet" href="../../../../ui/ms-tokens.css"><style>'+css+'</style><main>'+body+'</main></html>')
+    (OUT/'review.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Town Buildings art review</title><link rel="stylesheet" href="'+TOKENS_HREF+'"><style>'+css+'</style><main>'+body+'</main></html>')
+
+# Token stylesheet path relative to wherever review.html is written (deliver/ adds a level).
+TOKENS_HREF=os.path.relpath(Path(__file__).resolve().parents[4]/'ui'/'ms-tokens.css',OUT.resolve())
 
 def main():
     for folder in ['sources','working','checks','reference']:(OUT/folder).mkdir(parents=True,exist_ok=True)
