@@ -150,3 +150,7 @@
 #ui-layer .ms-b8 .changelog-ver { background: transparent !important; padding: 0 !important; border: 0 !important; }
 #ui-layer .ms-b8 .ms-sheet-actions { justify-content: flex-end; }
 #ui-layer #title-modal .title-style-switcher .t-style-btn { font: var(--ms-label-s, 11px)/1.1 var(--ms-font-label) !important; min-height: var(--ms-touch, 44px); }
+/* Nov 12 (Ben: "I don't know how to close the settings window"): Settings opened from the title sat on the same
+   layer as the title screen, which comes later in the page, so the title's tiles and bottom bar covered the sheet
+   and its DONE button. Settings is a Sheet, so it takes the Sheet layer. */
+#ui-layer #settings-modal, #ui-layer #controls-modal { z-index: var(--ms-z-sheet); } /* Controls opens from Settings: it comes later in the page, so it lands on top */

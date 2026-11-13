@@ -828,3 +828,6 @@ Pixel art uses a small set of exact colors, so changing one is a find-and-replac
 
 ## Telegraphing (Nov 12)
 A telegraph is the warning before an attack: a wind-up, a glow, a mark on the ground. It turns "that was cheap" into "I should have moved." Father Time used to land on Ben with no warning, so it felt unfair even though the rule (the run ends after 104) was fine. Now a ring shows where he'll land, and Ben's death becomes his own fault, which players accept. Good telegraphs give phones enough time to react, so ours never go under 0.65 seconds.
+
+## Layers that tie (Nov 12, Settings behind the title)
+Every pop-up in the game had the same layer number (z-index 30). When two things tie, the browser draws whichever comes later in the page on top, and the title screen comes after Settings. So Settings opened underneath the title, and its DONE button was buried. The fix was to give Settings its proper layer from the design system (the Sheet layer). The lesson: when two things share a layer number, the order in the code quietly decides the winner.

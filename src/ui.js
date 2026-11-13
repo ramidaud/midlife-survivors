@@ -563,8 +563,8 @@ function initGameUI(scene) {
     <div class="ui-modal hidden" id="pause-modal"></div>
 
     <!-- MODAL 2B: INPUT & CONTROLS CONFIGURATION OVERLAY (Keyboard, Mouse, Touch, Controller) -->
-    <div class="ui-modal hidden" id="controls-modal"></div>
     <div class="ui-modal hidden ms-sheet-host" id="settings-modal"></div>
+    <div class="ui-modal hidden" id="controls-modal"></div>
 
     <!-- MODAL 2C: VERSION HISTORY & RELEASE NOTES OVERLAY -->
     <div class="ui-modal hidden ms-sheet-host" id="changelog-modal"></div>

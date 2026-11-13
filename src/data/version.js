@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.29.14",
-  displayVersion: "V. 2.29.14",
+  version: "2.29.15",
+  displayVersion: "V. 2.29.15",
   lastUpdated: "Nov 12, 2026",
   codename: "Version Two",
-  build: 365,
+  build: 366,
   changelog: [
+    {
+      ver: "V. 2.29.15", date: "Nov 12, 2026", title: "Version Two",
+      teaser: "Settings closes from the title screen again.",
+      highlights: [
+        "Opening Settings from the title on a computer or iPad tucked it behind the title screen, so the DONE button couldn't be clicked. Settings now sits on top, and Controls opens on top of Settings."
+      ]
+    },
     {
       ver: "V. 2.29.14", date: "Nov 12, 2026", title: "Version Two",
       teaser: "The leaderboard tells you which board you're looking at.",

@@ -2319,3 +2319,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Ben read the Full Life board as "all time." The board only showed your current mode, with a small toggle.
 - Now: MIDLIFE / FULL LIFE tabs (with the age range) and FISCAL YEAR 2 / ALL-TIME tabs, plus one plain line ("Full Life runs (ages 40 to 100), every version since launch, each player's best run."). Viewing a board never changes where your scores post. After a run, the board opens on your run's mode.
 - Built from the Button part (selected = raised + paper border). Checked at 390x844 and 1280x800 with touch and keyboard; no errors.
+
+## 2026-11-12: V. 2.29.15, Settings closes from the title (Claude)
+- Ben couldn't close Settings on the desktop browser. Cause: every pop-up shared one layer (z-index 30), and the title screen comes later in the page, so its tiles and bottom bar covered the Settings sheet and its DONE button. Only Esc worked.
+- Fix: Settings and Controls use the Sheet layer token (--ms-z-sheet), and Settings now comes before Controls in the page so Controls (opened from Settings) lands on top.
+- Tested DONE, Controls and Esc at 1280x800, 1920x1080, 1024x768, 768x1024 and 390x844. No errors.
