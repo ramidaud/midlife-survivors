@@ -3,3 +3,7 @@
 
 # Rami's personal reference photos: never pushed (the repo is public). Hand them to ChatGPT/Codex directly.
 private/
+
+# Mac hidden files from external drives (exFAT) and Finder (Nov 12)
+._*
+.DS_Store
