@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-12 (V2.29.11: street ends and one grass color; next: the other eleven yards)
+**Last updated:** 2026-11-12 (V2.29.16; next: Codex Batch C yard pieces, then the other eleven yards)
 
 ---
 
@@ -43,7 +43,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Street ends reviewed (PR #4): both painted dead ends and barricades pass. Not wired in yet
 - [x] Your backyard rebuilt (V2.29.10): plain ground plus separate goal, fire pit, chair and maple tree
 - [ ] Rami: walk your backyard. Easy to get around? Anything you bump into that looks walkable?
-- [ ] Rebuild the other eleven yards the same way (after Rami's OK on yours and Codex's fixes)
+- [x] Rami: backyard is fine (Nov 12)
+- [ ] Rami: send Codex `docs/handoffs/codex-yard-character-pieces.md` (Batch C: the signature pieces Batch B lacks, like Halloween ghosts, the pergola, string lights and the autumn shrubs)
+- [ ] Rebuild the other eleven yards the same way, once Batch C is approved. Each yard keeps its character (Rami, Nov 12)
 - [x] Wire in the two street ends (V2.29.11)
 - [x] Lawns, street parkways and the strips beside each house moved to the lighter green (V2.29.11). The five old backyards stay darker until they are rebuilt
 - [x] Rami walked the edge (Nov 11): tight by the end houses, the street needs a dead end, the front door is confusing after the key hunt

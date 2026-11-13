@@ -2331,3 +2331,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami chose all of it: both home enemies now hit for 1, beaten enemies at home sometimes drop leftover pizza (2%, at most one per 20 s), and the fridge restocks every 5 years.
 - Play stats now record the stage (new `stage` column in `runs`, Rami's OK), so office vs. home can be compared with numbers.
 - Tested at home: damage values, a forced snack drop and its cooldown, no errors.
+
+## 2026-11-12: yard rebuild planned, not started (Claude)
+- Rami: the backyard is fine, and every yard has to keep its character.
+- Side-by-side check: Batch B's plain grounds and props cover young family and retirees well, but the grill master (string lights, cooler, cornhole), fixer-upper (tarp pile, weeds), HOA (pergola, hedges) and Halloween (ghosts, lamp posts, bunting, fog) would lose their signature pieces, and every yard would lose its orange autumn shrubs.
+- Wrote the Codex Batch C brief for just those pieces (`docs/handoffs/codex-yard-character-pieces.md`). The rebuild waits for it.
+- Balance stays as V2.29.16 for now; Rami will retune once the map is laid out.
