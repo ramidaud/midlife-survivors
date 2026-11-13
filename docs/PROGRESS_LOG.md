@@ -2432,3 +2432,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami laid out the living room, dining and desk, kitchen and entry, and approved the PR #10 art.
 - Decided: all house furniture about 1.4x bigger against the hero, but nothing you sit at taller than him. Shoe rack to the entry, laundry basket to the laundry closet, kitchen repainted as one set.
 - New Codex brief docs/handoffs/codex-house-repaint.md, with Rami's layouts as the placement map.
+
+## 2026-11-13: house repaint approved, round 2 layout (Claude)
+- Rami approved Codex's repaint (PR #10, "not perfect, ok for now"): bassinets in the corner, upright sim rig, detailed kitchen.
+- Still off for Rami: the scale of the two couches, the leather chair (the old one looked better), the coffee table disappearing, the two lamp tables not lining up, and a squeezed basket (move it between the couch and the coffee table).
+- The House Layout Editor now loads the repaint as round 2, with those notes pinned on the pieces. Round 1 layouts are kept.
