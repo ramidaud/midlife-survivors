@@ -2426,3 +2426,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami sent 13 photos of the real house (living room, dining and desk, kitchen and entry, main bedroom, the twins' corner, Abe's room) and asked for the same detail as the town, with correct placement and perspective.
 - New Codex brief `docs/handoffs/codex-house-interior.md`: every room repainted from the photos, wall decor face-on on north walls, neutral light with glowing neons, density targets, room mock-ups for approval. Ground floor first, then upstairs.
 - Photos stay out of the repo (it's public and they show family). Rami attaches them to Codex directly. No real names, usernames or plates in the art.
+
+## 2026-11-13: Rami lays out the house (Claude)
+- Built the House Layout Editor (a claude.ai page): drag, size, turn and leave notes on Codex's pieces; it saves where Claude can read it. Fixed two bugs along the way (saved rooms couldn't be edited; rugs covered furniture).
+- Rami laid out the living room, dining and desk, kitchen and entry, and approved the PR #10 art.
+- Decided: all house furniture about 1.4x bigger against the hero, but nothing you sit at taller than him. Shoe rack to the entry, laundry basket to the laundry closet, kitchen repainted as one set.
+- New Codex brief docs/handoffs/codex-house-repaint.md, with Rami's layouts as the placement map.

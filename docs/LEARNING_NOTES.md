@@ -849,3 +849,6 @@ The town is about 7 by 11 screens, but you only ever see one. "Culling" means th
 
 ## Spawn points (Nov 13, Elementary)
 A spawn point is where something enters the world. Most enemies spawn just off screen around you, wherever you are. Bosses can have their own spawn point, so a fight happens in a place that means something: Math Homework comes out of the school playground. If you're across town, it comes out of the school's edge nearest you instead, so you're never left waiting.
+
+## Reference object: sizing by the hero (Nov 13, the house)
+Pixel art has no real inches, so every size is measured against one thing everybody knows: the hero. Rami's layout showed the furniture was about 1.4x too small next to him, which is why the rooms felt empty. The rule now: things you sit at stay shorter than the hero, low things stay under half his height, and only tall things (doors, fridge, lamps, shelves) rise above him.
