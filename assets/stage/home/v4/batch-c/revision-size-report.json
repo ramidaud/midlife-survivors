@@ -1,0 +1,768 @@
+[
+  {
+    "id": "autumn-shrub-a",
+    "beforeCanvas": [
+      64,
+      48
+    ],
+    "targetCanvas": [
+      80,
+      64
+    ],
+    "beforePaintedSize": [
+      56,
+      41
+    ],
+    "revisedPaintedSize": [
+      76,
+      56
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        9,
+        45,
+        62,
+        14
+      ]
+    ]
+  },
+  {
+    "id": "autumn-shrub-b",
+    "beforeCanvas": [
+      64,
+      48
+    ],
+    "targetCanvas": [
+      88,
+      56
+    ],
+    "beforePaintedSize": [
+      58,
+      30
+    ],
+    "revisedPaintedSize": [
+      84,
+      44
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        9,
+        38,
+        70,
+        10
+      ]
+    ]
+  },
+  {
+    "id": "autumn-shrub-c",
+    "beforeCanvas": [
+      64,
+      48
+    ],
+    "targetCanvas": [
+      80,
+      64
+    ],
+    "beforePaintedSize": [
+      58,
+      34
+    ],
+    "revisedPaintedSize": [
+      76,
+      45
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        9,
+        43,
+        63,
+        11
+      ]
+    ]
+  },
+  {
+    "id": "white-flowers-a",
+    "beforeCanvas": [
+      32,
+      32
+    ],
+    "targetCanvas": [
+      48,
+      48
+    ],
+    "beforePaintedSize": [
+      24,
+      21
+    ],
+    "revisedPaintedSize": [
+      44,
+      38
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "white-flowers-b",
+    "beforeCanvas": [
+      32,
+      32
+    ],
+    "targetCanvas": [
+      48,
+      48
+    ],
+    "beforePaintedSize": [
+      24,
+      22
+    ],
+    "revisedPaintedSize": [
+      44,
+      38
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "string-light-posts",
+    "beforeCanvas": [
+      160,
+      64
+    ],
+    "targetCanvas": [
+      160,
+      64
+    ],
+    "beforePaintedSize": [
+      156,
+      58
+    ],
+    "revisedPaintedSize": [
+      156,
+      58
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        4,
+        52,
+        8,
+        7
+      ],
+      [
+        146,
+        52,
+        8,
+        7
+      ]
+    ]
+  },
+  {
+    "id": "string-light-strand",
+    "beforeCanvas": [
+      160,
+      64
+    ],
+    "targetCanvas": [
+      160,
+      64
+    ],
+    "beforePaintedSize": [
+      156,
+      28
+    ],
+    "revisedPaintedSize": [
+      156,
+      28
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "cooler",
+    "beforeCanvas": [
+      48,
+      40
+    ],
+    "targetCanvas": [
+      64,
+      56
+    ],
+    "beforePaintedSize": [
+      38,
+      34
+    ],
+    "revisedPaintedSize": [
+      58,
+      52
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        8,
+        40,
+        49,
+        12
+      ]
+    ]
+  },
+  {
+    "id": "cornhole-board-a",
+    "beforeCanvas": [
+      48,
+      32
+    ],
+    "targetCanvas": [
+      64,
+      56
+    ],
+    "beforePaintedSize": [
+      32,
+      26
+    ],
+    "revisedPaintedSize": [
+      60,
+      46
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "cornhole-board-b",
+    "beforeCanvas": [
+      48,
+      32
+    ],
+    "targetCanvas": [
+      64,
+      56
+    ],
+    "beforePaintedSize": [
+      32,
+      26
+    ],
+    "revisedPaintedSize": [
+      60,
+      48
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "tarp-lumber",
+    "beforeCanvas": [
+      80,
+      64
+    ],
+    "targetCanvas": [
+      112,
+      104
+    ],
+    "beforePaintedSize": [
+      73,
+      48
+    ],
+    "revisedPaintedSize": [
+      106,
+      100
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        13,
+        75,
+        86,
+        25
+      ]
+    ]
+  },
+  {
+    "id": "worn-lawn-chair",
+    "beforeCanvas": [
+      56,
+      64
+    ],
+    "targetCanvas": [
+      72,
+      96
+    ],
+    "beforePaintedSize": [
+      44,
+      58
+    ],
+    "revisedPaintedSize": [
+      68,
+      88
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        8,
+        69,
+        56,
+        21
+      ]
+    ]
+  },
+  {
+    "id": "weeds-a",
+    "beforeCanvas": [
+      32,
+      40
+    ],
+    "targetCanvas": [
+      48,
+      64
+    ],
+    "beforePaintedSize": [
+      19,
+      26
+    ],
+    "revisedPaintedSize": [
+      44,
+      57
+    ],
+    "sourceFit": "silhouette refit in both axes",
+    "footprints": []
+  },
+  {
+    "id": "weeds-b",
+    "beforeCanvas": [
+      32,
+      40
+    ],
+    "targetCanvas": [
+      48,
+      64
+    ],
+    "beforePaintedSize": [
+      18,
+      24
+    ],
+    "revisedPaintedSize": [
+      43,
+      59
+    ],
+    "sourceFit": "silhouette refit in both axes",
+    "footprints": []
+  },
+  {
+    "id": "weeds-c",
+    "beforeCanvas": [
+      32,
+      40
+    ],
+    "targetCanvas": [
+      48,
+      64
+    ],
+    "beforePaintedSize": [
+      23,
+      24
+    ],
+    "revisedPaintedSize": [
+      44,
+      59
+    ],
+    "sourceFit": "silhouette refit in both axes",
+    "footprints": []
+  },
+  {
+    "id": "pergola-roof",
+    "beforeCanvas": [
+      128,
+      112
+    ],
+    "targetCanvas": [
+      160,
+      80
+    ],
+    "beforePaintedSize": [
+      122,
+      54
+    ],
+    "revisedPaintedSize": [
+      156,
+      69
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "pergola-posts",
+    "beforeCanvas": [
+      128,
+      112
+    ],
+    "targetCanvas": [
+      160,
+      136
+    ],
+    "beforePaintedSize": [
+      116,
+      99
+    ],
+    "revisedPaintedSize": [
+      144,
+      122
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        8,
+        60,
+        9,
+        7
+      ],
+      [
+        142,
+        60,
+        9,
+        7
+      ],
+      [
+        13,
+        122,
+        9,
+        8
+      ],
+      [
+        139,
+        122,
+        9,
+        8
+      ]
+    ]
+  },
+  {
+    "id": "pergola-chair",
+    "beforeCanvas": [
+      40,
+      48
+    ],
+    "targetCanvas": [
+      48,
+      64
+    ],
+    "beforePaintedSize": [
+      34,
+      40
+    ],
+    "revisedPaintedSize": [
+      44,
+      52
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        6,
+        44,
+        36,
+        13
+      ]
+    ]
+  },
+  {
+    "id": "pergola-table",
+    "beforeCanvas": [
+      24,
+      28
+    ],
+    "targetCanvas": [
+      32,
+      48
+    ],
+    "beforePaintedSize": [
+      14,
+      22
+    ],
+    "revisedPaintedSize": [
+      28,
+      42
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        6,
+        34,
+        20,
+        10
+      ]
+    ]
+  },
+  {
+    "id": "boxwood-hedge",
+    "beforeCanvas": [
+      64,
+      40
+    ],
+    "targetCanvas": [
+      88,
+      56
+    ],
+    "beforePaintedSize": [
+      58,
+      30
+    ],
+    "revisedPaintedSize": [
+      84,
+      44
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        9,
+        38,
+        70,
+        10
+      ]
+    ]
+  },
+  {
+    "id": "sheet-ghost-a",
+    "beforeCanvas": [
+      64,
+      64
+    ],
+    "targetCanvas": [
+      128,
+      80
+    ],
+    "beforePaintedSize": [
+      57,
+      44
+    ],
+    "revisedPaintedSize": [
+      124,
+      76
+    ],
+    "sourceFit": "silhouette refit in both axes",
+    "footprints": [
+      [
+        13,
+        57,
+        102,
+        19
+      ]
+    ]
+  },
+  {
+    "id": "sheet-ghost-b",
+    "beforeCanvas": [
+      64,
+      64
+    ],
+    "targetCanvas": [
+      128,
+      80
+    ],
+    "beforePaintedSize": [
+      58,
+      54
+    ],
+    "revisedPaintedSize": [
+      124,
+      76
+    ],
+    "sourceFit": "silhouette refit in both axes",
+    "footprints": [
+      [
+        13,
+        58,
+        103,
+        18
+      ]
+    ]
+  },
+  {
+    "id": "halloween-lamp",
+    "beforeCanvas": [
+      32,
+      96
+    ],
+    "targetCanvas": [
+      40,
+      120
+    ],
+    "beforePaintedSize": [
+      26,
+      82
+    ],
+    "revisedPaintedSize": [
+      36,
+      114
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        13,
+        104,
+        12,
+        10
+      ]
+    ]
+  },
+  {
+    "id": "halloween-bunting",
+    "beforeCanvas": [
+      160,
+      32
+    ],
+    "targetCanvas": [
+      208,
+      48
+    ],
+    "beforePaintedSize": [
+      150,
+      12
+    ],
+    "revisedPaintedSize": [
+      180,
+      44
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "fog-machine",
+    "beforeCanvas": [
+      40,
+      32
+    ],
+    "targetCanvas": [
+      56,
+      48
+    ],
+    "beforePaintedSize": [
+      32,
+      26
+    ],
+    "revisedPaintedSize": [
+      52,
+      40
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        7,
+        33,
+        42,
+        9
+      ]
+    ]
+  },
+  {
+    "id": "fog-puff-small",
+    "beforeCanvas": [
+      48,
+      24
+    ],
+    "targetCanvas": [
+      72,
+      32
+    ],
+    "beforePaintedSize": [
+      42,
+      12
+    ],
+    "revisedPaintedSize": [
+      68,
+      20
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "fog-puff-large",
+    "beforeCanvas": [
+      80,
+      32
+    ],
+    "targetCanvas": [
+      112,
+      56
+    ],
+    "beforePaintedSize": [
+      72,
+      18
+    ],
+    "revisedPaintedSize": [
+      108,
+      27
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "beach-ball",
+    "beforeCanvas": [
+      24,
+      24
+    ],
+    "targetCanvas": [
+      40,
+      40
+    ],
+    "beforePaintedSize": [
+      18,
+      18
+    ],
+    "revisedPaintedSize": [
+      35,
+      36
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": []
+  },
+  {
+    "id": "toy-car",
+    "beforeCanvas": [
+      32,
+      24
+    ],
+    "targetCanvas": [
+      56,
+      40
+    ],
+    "beforePaintedSize": [
+      18,
+      18
+    ],
+    "revisedPaintedSize": [
+      52,
+      36
+    ],
+    "sourceFit": "silhouette refit in both axes",
+    "footprints": []
+  },
+  {
+    "id": "cabbage-bed",
+    "beforeCanvas": [
+      128,
+      80
+    ],
+    "targetCanvas": [
+      128,
+      80
+    ],
+    "beforePaintedSize": [
+      113,
+      74
+    ],
+    "revisedPaintedSize": [
+      113,
+      74
+    ],
+    "sourceFit": "proportional fit",
+    "footprints": [
+      [
+        19,
+        58,
+        91,
+        18
+      ]
+    ]
+  }
+]

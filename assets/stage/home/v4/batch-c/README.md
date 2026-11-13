@@ -2,6 +2,8 @@
 
 November 12, 2026. Art-only PR for Rami’s review. Claude places approved pieces later.
 
+Size revision: see [REVISION.md](REVISION.md) and [the size report](revision-size-report.json). All revised target canvases are applied; approved exports are hash-checked unchanged.
+
 Open [review.html](review.html). Each of the 30 PNG sprites has an untouched 1x crop of the same subject from `backyards-v2.png`, the new sprite at 1x, and the live office-worker hero normalized to exactly 48px tall for this comparison only. The hero’s live painted bounds are 36x53; its comparison thumbnail uses nearest-neighbor reduction. Optional 4x detail links use whole-number nearest-neighbor enlargement.
 
 ## What is included
@@ -19,7 +21,7 @@ Retirees chair check: Batch B’s approved `wicker-chair-v4.png` already has pin
 
 Built-in imagegen painted each subject individually. Full prompts are in `generation-prompts.json`; the roof correction has a separate prompt and keeps the earlier study for provenance. Original images are untouched in `sources/`.
 
-The generator did not return exact requested dimensions. As documented in approved Batch B, each painting is proportionally normalized onto an exact 8x working canvas, then reduced by one exact 8x8 RGBA block-mode pass. Visible-alpha bounds avoid fitting near-invisible dust around the painting. Final palette mapping selects a material family first, then a tone within that family. This is not full-palette nearest-color matching. No sprite is built from code shapes.
+The generator did not return exact requested dimensions. As documented in approved Batch B, each painting is refitted onto an exact 8x working canvas (proportional except the explicitly recorded ghost, weed and toy-vehicle silhouette fits), then reduced by one exact 8x8 RGBA block-mode pass. Visible-alpha bounds avoid fitting near-invisible dust around the painting. Final palette mapping selects a material family first, then a tone within that family. This is not full-palette nearest-color matching. No sprite is built from code shapes.
 
 The four isolated pergola posts are cropped from the generated support painting and positioned to meet the repainted roof’s corners; those paint crops and placements are recorded in the manifest. Other sprites use a single proportional fit. The original support painting is retained.
 

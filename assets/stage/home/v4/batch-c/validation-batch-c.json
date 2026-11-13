@@ -2,6 +2,7 @@
   "expectedPieces": 30,
   "actualPieces": 30,
   "complete": true,
+  "approvedAssetsUnchanged": true,
   "checks": [
     {
       "id": "autumn-shrub-a",
@@ -13,8 +14,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 10,
-      "sha256": "776e49ec58f878cd0cfe40ad3e6501102137db8a114787f4216caa18062e21f3"
+      "sha256": "32b7fc84154fa79e3fbc11c08b1ce5cd724e31639d0dc6e30799fd91928f43ab"
     },
     {
       "id": "autumn-shrub-b",
@@ -26,8 +29,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 12,
-      "sha256": "74cf0f1aeceb5ab02b086d05e3f0d00ff75230e195cf5843d1132502ff5d8e40"
+      "sha256": "d3c8825e50442218f9775efb540ea4d0a7d85e634766eea554b4534b22ddb543"
     },
     {
       "id": "autumn-shrub-c",
@@ -39,8 +44,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 14,
-      "sha256": "460d4eee8c37592643e2eac45a78869bf96494484e0dca9d25a76d6609913ae9"
+      "sha256": "069fc3c19a01d36bf07e4dfe1a69a60f031bb425263dbbf121427d48992b29da"
     },
     {
       "id": "white-flowers-a",
@@ -52,8 +59,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 11,
-      "sha256": "bfd2c2d7bda4d600fd5ad8a4e74248c0235ba6e504bf7eeaf709080ec5ffe3ee"
+      "sha256": "856b83a7ade87328b94986cd7e710c646e0381810152a1daa34c11f81a921f9d"
     },
     {
       "id": "white-flowers-b",
@@ -65,8 +74,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 10,
-      "sha256": "9941a7dc5c232087b9a63334a351814a1e9fd169251530a97b8415720be753b0"
+      "sha256": "a50731526455cc3af024466afd62c6e86a65e7b098457b57745803beb025ddf2"
     },
     {
       "id": "string-light-posts",
@@ -78,6 +89,8 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 7,
       "sha256": "cf596eb215dde10c3cbdbf98ad587866b45def4648d9e966adeaa3535287a0e7"
     },
@@ -91,6 +104,8 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 11,
       "sha256": "97c885b30be104eb42f540561623e35d23e9d5e7db46cd1aca29fafea49c0808"
     },
@@ -104,8 +119,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 11,
-      "sha256": "58a7bc83dc3df7873cc1d29375e5efc1a5f48878d9b1869b05b25b946eecbedb"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 12,
+      "sha256": "f77c9d6dd5780e7ff47f64623ed20bb0f6cb28e06a3fca7b5547bcb156255140"
     },
     {
       "id": "cornhole-board-a",
@@ -117,8 +134,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 9,
-      "sha256": "19446d365f8d692341282681888c6f8eb55ca41bec47f58234c0231add824a74"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 11,
+      "sha256": "32d7b31a57b3dbbdc30a79684a00ea0be2dda4a5ded704c52670fc7d848259b6"
     },
     {
       "id": "cornhole-board-b",
@@ -130,8 +149,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 12,
-      "sha256": "a92c3eddafed3236ac39a64efbd425c792ca92128df15997cba3613dc80e6b7f"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 13,
+      "sha256": "1b8e95023e344becdd346dbb51e812c0e908496002a4d764f0875df4caa401d4"
     },
     {
       "id": "tarp-lumber",
@@ -143,8 +164,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 15,
-      "sha256": "aea3af29f5f69c11c4620b733b16aca101a08bb31920d85f73a9b652da1778ae"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 18,
+      "sha256": "86a59d577ec387b439c20075b20389912e8a3deeed5fdbda93c77baec3081a20"
     },
     {
       "id": "worn-lawn-chair",
@@ -156,8 +179,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 12,
-      "sha256": "7defe98e3cd010e62cf8be90e1d26d20053fba8f4be73d839aa0c5cb4bfa8d4b"
+      "sha256": "f4f786a6cdf2577b09d31bddb4c03a417ff3a3ad6149e8c6bc2208f0e5ae8516"
     },
     {
       "id": "weeds-a",
@@ -169,8 +194,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 9,
-      "sha256": "e15f209d9c5a1a49e55397e40a43dea07c608b04ea13443be9213a1f7158c3b4"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 10,
+      "sha256": "616539f8d8208eb24031c3a5afea8851ed9b3b1dd50ca0b5f5247aec1fcce1aa"
     },
     {
       "id": "weeds-b",
@@ -182,8 +209,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 6,
-      "sha256": "5053c7621b5919d8178442ebcd1ccdac3b85bb562d9adc2635a83ff2bb620087"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 12,
+      "sha256": "d4b5566ea0a706315e83fece3e908705ab8be1fe2325d714b059c08c67ac5f34"
     },
     {
       "id": "weeds-c",
@@ -195,8 +224,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 11,
-      "sha256": "3fcffeca880084d22b860c85f57502e6014b70a0c43b109a324e9b1ffb1af0bb"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 12,
+      "sha256": "d6973a6fd0f3bf05ccc7528bebbc424a630aaa614632a28b02aab792be02a2ee"
     },
     {
       "id": "pergola-roof",
@@ -208,8 +239,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 13,
-      "sha256": "50af072e704efb3068e6312b6b9fb67cf594dad6b9510af049a09aa128dd44e1"
+      "sha256": "7f47860ef1ea1ceef8bbb8c65ee328fbf1a150cb1f1fcf5b3b1baae972f52836"
     },
     {
       "id": "pergola-posts",
@@ -221,8 +254,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 10,
-      "sha256": "cc68c63062e5587e9389e8a1e6fc54be0bb2053f46e1f5bf41dcdef4b91f7953"
+      "sha256": "602d510ff1742d7950a19c2247103f94f4e63897e678730844e94f6519f9dd4d"
     },
     {
       "id": "pergola-chair",
@@ -234,8 +269,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 11,
-      "sha256": "d927d9279599a1c43347f07298b74a03bfa5c3e3153cfda701d06c4c528212ec"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 12,
+      "sha256": "34000759c2a02ba9424b9d9466f1b2574fe842a27c5d3039b38f181be9329cf1"
     },
     {
       "id": "pergola-table",
@@ -247,8 +284,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 14,
-      "sha256": "7a2fb8cb8f3969ed957a947079c54b44657251643b214bbf5fd5b4cffea6c2b2"
+      "sha256": "32606b1cfe7bc7e25993935e72bc730c2356444443506b304bfcce42c3b5762a"
     },
     {
       "id": "boxwood-hedge",
@@ -260,8 +299,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 7,
-      "sha256": "1aa3fbf2d6098ca12cf5609a3131b05b3973ed347c2d938a7b05b83d2516deae"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 9,
+      "sha256": "62d9c96d98464ff7d5eb5e31eb65effdc39691cb2542f10cfa50b2ec90c9095c"
     },
     {
       "id": "sheet-ghost-a",
@@ -273,8 +314,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 6,
-      "sha256": "ae59a7940967d2ee4e6057bc5d2f44b2440dc0ea87601858bb6238bb40fb453e"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 7,
+      "sha256": "8c8b4fc54270491879bddb97d62fce149376e3d15903383bccccb0f681b38793"
     },
     {
       "id": "sheet-ghost-b",
@@ -286,8 +329,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 7,
-      "sha256": "7a5b4469f777b98fbf17c934777671fcbdad4d4a79af952bdbeaf4326fd6f93b"
+      "sha256": "0c5a5e9e60cba5d29b7f2cf54394c6b6259d7e56c83a72b577196d731bcd44e5"
     },
     {
       "id": "halloween-lamp",
@@ -299,8 +344,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 11,
-      "sha256": "590f5618506251bdf47e69d0ee124002e1f4384bf2ce4ce55425a49b79c33043"
+      "sha256": "b3c4c8a1d2707c1d568f39d644453ecf258bc043fa726ce3d896f01eb273d896"
     },
     {
       "id": "halloween-bunting",
@@ -312,8 +359,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 13,
-      "sha256": "28a17b3b62e8aef87a09a2e736224dacbbe64bf696125849fa4e042c325723bc"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 14,
+      "sha256": "da7fd60b40147ec3f59618861fe14964cf08430ce20c5649f59293b32a8dc5fb"
     },
     {
       "id": "fog-machine",
@@ -325,8 +374,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 11,
-      "sha256": "6035b10c5375f56008ac8031e9db1b14ccf74b46a60eb9aea8bde937afe3d8d6"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 12,
+      "sha256": "85d877fd329e1776eb526c28c88210373bd313613ba26ef0060b7e3c396f4ece"
     },
     {
       "id": "fog-puff-small",
@@ -338,8 +389,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 3,
-      "sha256": "7c0dea8ab0b37f3d1795f07fa8dc7dd6bd1d1a3ea90a3eaaad68dccfb6411d04"
+      "sha256": "5741c40418063a64f7dd53e13c3531020f1239b46375995f3737d24d10e1ea21"
     },
     {
       "id": "fog-puff-large",
@@ -351,8 +404,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 3,
-      "sha256": "0c8f55b2806f0b19b8ee189ab882a6ba1c7d72fe7037f1e1bc7a38165f78a891"
+      "sha256": "904641c47b8902579b5789162c12c688ba67d0d2222dd7e08710aecc2349fa9f"
     },
     {
       "id": "beach-ball",
@@ -364,8 +419,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 9,
-      "sha256": "ccaf4a5edc4c626165e8e8da3ad16837170227b74296322ef6b4330762d86387"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 10,
+      "sha256": "df9d2e49b53190118821ce56a995bfe50361cf94560c999e061e0f24227e4759"
     },
     {
       "id": "toy-car",
@@ -377,8 +434,10 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
-      "visibleColors": 12,
-      "sha256": "a2cf32abef02fff0d316ce60593d2068d444b320fde0dbbbcb3eeff2c5f7f809"
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
+      "visibleColors": 11,
+      "sha256": "e5527b5565109d2be0b1476a147f056a72ba6395e4210bd8fe74d8043f708703"
     },
     {
       "id": "cabbage-bed",
@@ -390,6 +449,8 @@
       "footprintsInside": true,
       "nonblockingHasNoFootprints": true,
       "exactModeReproducible": true,
+      "approvedWorkingUnchanged": true,
+      "approvedUnchanged": true,
       "visibleColors": 15,
       "sha256": "f074dad632cda7e144d5840d375d0a01059d62316f3b10f5494e2ec34ba3cf56"
     }

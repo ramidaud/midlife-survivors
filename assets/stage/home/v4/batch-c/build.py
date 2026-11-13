@@ -9,39 +9,43 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).parent
 OUT = ROOT / 'deliver'
+APPROVED={'string-light-posts','string-light-strand','cabbage-bed'}
+BASELINE=json.loads((ROOT/'reference/first-review-manifest.json').read_text())
+BASE_PIECES={p['id']:p for p in BASELINE['pieces']}
+APPROVED_HASHES=json.loads((ROOT/'reference/approved-sha256.json').read_text())['files']
 PALETTE = json.loads((ROOT/'reference/palette-batch-b.json').read_text())['palette']
 RGB = np.array([tuple(bytes.fromhex(c[1:])) for c in PALETTE],dtype=np.uint8)
 # id, w, h, kind, yard cell, source rectangle in that 416x448 cell.
 SPECS = [
-('autumn-shrub-a',64,48,'WALL',0,[10,8,92,74]),
-('autumn-shrub-b',64,48,'WALL',2,[291,8,382,67]),
-('autumn-shrub-c',64,48,'WALL',5,[5,351,95,431]),
-('white-flowers-a',32,32,'WALK-THROUGH',0,[22,210,82,281]),
-('white-flowers-b',32,32,'WALK-THROUGH',4,[312,318,383,387]),
+('autumn-shrub-a',80,64,'WALL',0,[10,8,92,74]),
+('autumn-shrub-b',88,56,'WALL',2,[291,8,382,67]),
+('autumn-shrub-c',80,64,'WALL',5,[5,351,95,431]),
+('white-flowers-a',48,48,'WALK-THROUGH',0,[22,210,82,281]),
+('white-flowers-b',48,48,'WALK-THROUGH',4,[312,318,383,387]),
 ('string-light-posts',160,64,'WALL',2,[46,54,204,160]),
 ('string-light-strand',160,64,'WALK-THROUGH',2,[49,56,201,108]),
-('cooler',48,40,'BREAKABLE',2,[37,290,112,356]),
-('cornhole-board-a',48,32,'WALK-THROUGH',2,[232,270,306,333]),
-('cornhole-board-b',48,32,'WALK-THROUGH',2,[293,296,371,363]),
-('tarp-lumber',80,64,'WALL',3,[252,73,389,192]),
-('worn-lawn-chair',56,64,'WALL',3,[33,89,143,213]),
-('weeds-a',32,40,'WALK-THROUGH',3,[126,88,187,174]),
-('weeds-b',32,40,'WALK-THROUGH',3,[227,79,282,163]),
-('weeds-c',32,40,'WALK-THROUGH',3,[242,334,301,417]),
-('pergola-roof',128,112,'WALK-THROUGH',4,[222,14,389,100]),
-('pergola-posts',128,112,'WALL',4,[223,47,393,191]),
-('pergola-chair',40,48,'WALL',4,[241,95,286,160]),
-('pergola-table',24,28,'WALL',4,[283,104,314,164]),
-('boxwood-hedge',64,40,'WALL',4,[81,378,173,436]),
-('sheet-ghost-a',64,64,'BREAKABLE',5,[28,160,173,242]),
-('sheet-ghost-b',64,64,'BREAKABLE',5,[260,234,400,315]),
-('halloween-lamp',32,96,'WALL',5,[33,78,83,201]),
-('halloween-bunting',160,32,'WALK-THROUGH',5,[96,45,318,107]),
-('fog-machine',40,32,'BREAKABLE',5,[30,281,97,344]),
-('fog-puff-small',48,24,'WALK-THROUGH',5,[85,287,161,322]),
-('fog-puff-large',80,32,'WALK-THROUGH',5,[73,256,191,324]),
-('beach-ball',24,24,'WALK-THROUGH',0,[294,233,343,280]),
-('toy-car',32,24,'WALK-THROUGH',0,[87,337,151,386]),
+('cooler',64,56,'BREAKABLE',2,[37,290,112,356]),
+('cornhole-board-a',64,56,'WALK-THROUGH',2,[232,270,306,333]),
+('cornhole-board-b',64,56,'WALK-THROUGH',2,[293,296,371,363]),
+('tarp-lumber',112,104,'WALL',3,[252,73,389,192]),
+('worn-lawn-chair',72,96,'WALL',3,[33,89,143,213]),
+('weeds-a',48,64,'WALK-THROUGH',3,[126,88,187,174]),
+('weeds-b',48,64,'WALK-THROUGH',3,[227,79,282,163]),
+('weeds-c',48,64,'WALK-THROUGH',3,[242,334,301,417]),
+('pergola-roof',160,80,'WALK-THROUGH',4,[222,14,389,100]),
+('pergola-posts',160,136,'WALL',4,[223,47,393,191]),
+('pergola-chair',48,64,'WALL',4,[241,95,286,160]),
+('pergola-table',32,48,'WALL',4,[283,104,314,164]),
+('boxwood-hedge',88,56,'WALL',4,[81,378,173,436]),
+('sheet-ghost-a',128,80,'BREAKABLE',5,[28,160,173,242]),
+('sheet-ghost-b',128,80,'BREAKABLE',5,[260,234,400,315]),
+('halloween-lamp',40,120,'WALL',5,[33,78,83,201]),
+('halloween-bunting',208,48,'WALK-THROUGH',5,[96,45,318,107]),
+('fog-machine',56,48,'BREAKABLE',5,[30,281,97,344]),
+('fog-puff-small',72,32,'WALK-THROUGH',5,[85,287,161,322]),
+('fog-puff-large',112,56,'WALK-THROUGH',5,[73,256,191,324]),
+('beach-ball',40,40,'WALK-THROUGH',0,[294,233,343,280]),
+('toy-car',56,40,'WALK-THROUGH',0,[87,337,151,386]),
 ('cabbage-bed',128,80,'WALL',1,[58,240,174,361]),
 ]
 YARDS=['Young family','Retirees','Grill master','Fixer-upper','HOA president','Halloween']
@@ -95,10 +99,12 @@ def material_palette(a,id):
 def footprint(id,w,h,bounds):
     l,t,r,b=bounds
     if id=='string-light-posts': return [[l+2,b-9,8,7],[r-12,b-9,8,7]]
-    if id=='pergola-posts': return [[6,50,7,6],[114,50,7,6],[10,100,7,7],[113,100,7,7]]
-    if id=='halloween-lamp': return [[11,80,9,7]]
-    height=max(5,(b-t)//4);inset=max(2,(r-l)//10)
-    return [[l+inset,b-height-1,r-l-2*inset,height]]
+    if id=='pergola-posts': return [[8,60,9,7],[142,60,9,7],[13,122,9,8],[139,122,9,8]]
+    prior=BASE_PIECES[id]
+    bl,bt,br,bb=prior['visibleBounds']
+    sx=(r-l)/(br-bl);sy=(b-t)/(bb-bt)
+    return [[round(l+(x-bl)*sx),round(t+(y-bt)*sy),max(1,round(fw*sx)),max(1,round(fh*sy))]
+            for x,y,fw,fh in prior['footprints']]
 
 def panel(old,new,hero):
     width=max(390,old.width+new.width+hero.width+72)
@@ -135,10 +141,12 @@ def build(repo):
         threshold=8 if id.startswith('fog-puff') else 128
         bounds=im.getchannel('A').point(lambda v:255 if v>=threshold else 0).getbbox()
         cut=im.crop(bounds)
-        margin=3
-        if id in ['string-light-posts','string-light-strand','halloween-bunting']: margin=2
+        margin=3 if id in APPROVED else 2
+        if id in ['string-light-posts','string-light-strand']: margin=2
         scale=min((w-2*margin)*8/cut.width,(h-2*margin)*8/cut.height)
         fit=[round(cut.width*scale),round(cut.height*scale)]
+        if id in ['sheet-ghost-a','sheet-ghost-b','toy-car','weeds-a','weeds-b','weeds-c']:
+            fit=[(w-2*margin)*8,(h-2*margin)*8]
         fitted=cut.resize(fit,Image.Resampling.LANCZOS)
         working=Image.new('RGBA',(w*8,h*8))
         x=(w*8-fit[0])//2;y=(h*8-fit[1])//2
@@ -150,7 +158,7 @@ def build(repo):
             # canopy corners. This composes paint, it draws no geometric art.
             working=Image.new('RGBA',(w*8,h*8))
             crops=[[264,95,390,475],[971,95,1102,475],[80,401,264,1122],[1116,401,1298,1122]]
-            positions=[[6,8,8,48],[114,8,8,48],[9,48,10,59],[110,48,10,59]]
+            positions=[[8,8,10,59],[142,8,10,59],[12,62,12,68],[136,62,12,68]]
             for crop,position in zip(crops,positions):
                 px,py,pw,ph=position
                 component=im.crop(crop)
@@ -174,15 +182,15 @@ def build(repo):
            'drawLayer':'overhead' if is_overhead else 'depth-sorted','blocks':kind!='WALK-THROUGH',
            'source':f'sources/{id}.png','sourceSize':list(im.size),'sourceCrop':list(bounds),
            'working':f'working-8x/{id}-8x.png','workingSize':[w*8,h*8],
-           'fit':[x,y,*fit],'palettePolicy':'HSV material masks, nearest tone only within selected material family',
+           'fit':[x,y,*fit],'sourceFit':('silhouette refit in both axes' if id in ['sheet-ghost-a','sheet-ghost-b','toy-car','weeds-a','weeds-b','weeds-c'] else 'proportional fit'), 'palettePolicy':'HSV material masks, nearest tone only within selected material family',
            'oldFile':f'old/{id}.png','referenceYard':YARDS[cell],'referenceCrop':crop,
            'comparison1x':f'checks/{id}-1x.png','comparison4x':f'checks/{id}-4x.png'}
         if is_overhead: p['kindNote']='WALK-THROUGH denotes no floor collision; this is an overhead layer, not a ground decal.'
         if components: p['paintedComponents']=components
         if id.startswith('fog-puff'): p['alphaPolicy']='Generated coverage scaled to 60% opacity for soft mist; RGB mapped to three cream/lavender tones by coverage.'
         pieces.append(p)
-    manifest={'status':'Batch C art-only review; not approved or integrated','palette':PALETTE,
-       'method':'Built-in imagegen painting; proportional normalization onto exact 8x working canvas; exact 8x8 RGBA block mode; deliberate material-family palette mapping.',
+    manifest={'status':'Batch C size revision for PR #6; awaiting art approval; not integrated','palette':PALETTE,
+       'method':'Built-in imagegen paintings refitted onto exact 8x working canvases; exact 8x8 RGBA block mode; material-family palette mapping. Ghost cloth, weed silhouettes and toy vehicle refitted in both axes; pergola uses four painted support crops.',
        'sourceSizeCaveat':'Generator returns variable raster dimensions. Original paintings and fit rectangles are retained, following approved Batch B normalization.',
        'coordinates':'footPoint [x,y] and footprints [x,y,width,height] are local native pixels; proposed integration metadata, not tested collision bodies.',
        'heroReference':'Office worker live v4 frame, cropped and nearest-resized to exactly 48px tall solely for comparison; live source visible bounds are 36x53.',
@@ -190,21 +198,21 @@ def build(repo):
        'sourceBranch':'codex/level-art-redo-batch-b','sourceFile':'assets/stage/home/v4/batch-b/wicker-chair-v4.png','size':[64,72]},
        'pieces':pieces}
     manifest['assemblies']={
-       'pergola':{'size':[128,112],'layersBackToFront':[
+       'pergola':{'size':[160,136],'layersBackToFront':[
            {'id':'pergola-posts','position':[0,0]},
-           {'id':'pergola-chair','position':[17,42]},
-           {'id':'pergola-chair','position':[72,42]},
-           {'id':'pergola-table','position':[52,52]},
+           {'id':'pergola-chair','position':[20,55]},
+           {'id':'pergola-chair','position':[92,55]},
+           {'id':'pergola-table','position':[64,63]},
            {'id':'pergola-roof','position':[0,0]}],
            'note':'Two chair instances, one table. Keep all furniture footprints; roof has none. Rear/front supports need separate depth sorting at integration.'},
        'string-lights':{'size':[160,64],'layersBackToFront':[
            {'id':'string-light-posts','position':[0,0]},
            {'id':'string-light-strand','position':[0,-15]}],
            'note':'Wire endpoints meet post tops; only two small post bases collide.'},
-       'halloween-lamps':{'size':[192,112],'layersBackToFront':[
+       'halloween-lamps':{'size':[220,136],'layersBackToFront':[
            {'id':'halloween-lamp','position':[0,16]},
-           {'id':'halloween-lamp','position':[160,16]},
-           {'id':'halloween-bunting','position':[16,16]}],
+           {'id':'halloween-lamp','position':[180,16]},
+           {'id':'halloween-bunting','position':[6,16]}],
            'note':'Two lamp instances; bunting is nonblocking overhead decoration.'}}
     for name,assembly in manifest['assemblies'].items():
         canvas=Image.new('RGBA',tuple(assembly['size']))
@@ -213,7 +221,16 @@ def build(repo):
             if filename.exists(): canvas.alpha_composite(Image.open(filename).convert('RGBA'),tuple(layer['position']))
         canvas.save(OUT/'checks'/f'assembled-{name}-1x.png')
         canvas.resize((canvas.width*4,canvas.height*4),Image.Resampling.NEAREST).save(OUT/'checks'/f'assembled-{name}-4x.png')
+    manifest['revision']={'brief':'reference/revision-brief.md','approvedUnchanged':sorted(APPROVED),'repainted':['tarp-lumber'],'bunting':'Reuse the earlier painted larger-pennant study at revised size; not the thin-flag version.'}
+    shutil.copy2(ROOT/'reference/first-review-manifest.json',OUT/'reference/first-review-manifest.json')
+    shutil.copy2(ROOT/'reference/revision-brief.md',OUT/'reference/revision-brief.md')
     (OUT/'manifest-batch-c.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    shutil.copy2(ROOT/'reference/approved-sha256.json',OUT/'reference/approved-sha256.json')
+    report=[]
+    for piece in pieces:
+        prior=BASE_PIECES[piece['id']];b=piece['visibleBounds'];o=prior['visibleBounds']
+        report.append({'id':piece['id'],'beforeCanvas':prior['size'],'targetCanvas':piece['size'],'beforePaintedSize':[o[2]-o[0],o[3]-o[1]],'revisedPaintedSize':[b[2]-b[0],b[3]-b[1]],'sourceFit':piece['sourceFit'],'footprints':piece['footprints']})
+    (OUT/'revision-size-report.json').write_text(json.dumps(report,indent=2)+'\n')
     validate(manifest)
     review(manifest)
     print(f'Built {len(pieces)}/{len(SPECS)} pieces in {OUT}')
@@ -232,16 +249,18 @@ def validate(m):
            'footprintsInside':all(x>=0 and y>=0 and fw>0 and fh>0 and x+fw<=w and y+fh<=h for x,y,fw,fh in p['footprints']),
            'nonblockingHasNoFootprints':bool(p['footprints']) if p['blocks'] else not p['footprints'],
            'exactModeReproducible':np.array_equal(np.array(material_palette(reduce_mode(working,w,h),p['id'])),a),
+           'approvedWorkingUnchanged':(hashlib.sha256((OUT/p['working']).read_bytes()).hexdigest()==APPROVED_HASHES[p['working']]) if p['id'] in APPROVED else True,
+           'approvedUnchanged':(hashlib.sha256((OUT/p['file']).read_bytes()).hexdigest()==APPROVED_HASHES[p['file']]) if p['id'] in APPROVED else True,
            'visibleColors':len(set(map(tuple,a[:,:,:3][visible].tolist()))),
            'sha256':hashlib.sha256((OUT/p['file']).read_bytes()).hexdigest()}
         checks.append(c)
-    (OUT/'validation-batch-c.json').write_text(json.dumps({'expectedPieces':len(SPECS),'actualPieces':len(checks),'complete':len(checks)==len(SPECS),'checks':checks},indent=2)+'\n')
+    (OUT/'validation-batch-c.json').write_text(json.dumps({'expectedPieces':len(SPECS),'actualPieces':len(checks),'complete':len(checks)==len(SPECS),'approvedAssetsUnchanged':all(hashlib.sha256((OUT/f).read_bytes()).hexdigest()==sha for f,sha in APPROVED_HASHES.items()),'checks':checks},indent=2)+'\n')
 
 def review(m):
     cards=[]
     for p in m['pieces']:
         cards.append(f'''<article><h2>{p['id']}</h2><p>{p['kind']} · {p['size'][0]} × {p['size'][1]} · {p['referenceYard']}</p><img class="comparison" src="{p['comparison1x']}" alt="Painted yard subject, Batch C native sprite and 48px hero"><p><a href="{p['comparison4x']}">Inspect at 4x</a> · <a href="{p['file']}">Sprite PNG</a></p></article>''')
-    page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maple Hollow · Batch C review</title><link rel="stylesheet" href="../../../../ui/ms-tokens.css"><style>body{margin:0;background:var(--ms-navy,#171C35);color:var(--ms-cream,#FFF0CF);font:16px/1.5 system-ui}main{max-width:1100px;margin:auto;padding:24px}h1{font-size:28px}h2{font-size:20px}article{padding:16px 0;border-top:1px solid #526078}a{color:#FFF0CF;display:inline-block;padding:8px 0;min-height:28px}.comparison{display:block;max-width:none;image-rendering:pixelated}article{overflow-x:auto}button{font:inherit;padding:12px;background:#FFF0CF;color:#171C35;border:0}.zoom .comparison{width:auto;transform:none}figure{margin:0;overflow:auto}figure img{image-rendering:pixelated}small{font-size:14px}</style><main><h1>Maple Hollow yard character · Batch C</h1><p>Art for Rami to approve. Game placement comes afterward.</p><p>Every strip shows the original yard subject, the new sprite at native 1x, and the hero at 48px tall. The yard crop keeps its original scale and surroundings. Use the 4x links for details.</p><p>WALL: outline and shadow. BREAKABLE: cream top highlight. WALK-THROUGH: no floor collision. Wires, bunting and pergola roof are overhead layers.</p><p><a href="manifest-batch-c.json">Manifest</a> · <a href="validation-batch-c.json">Validation</a> · <a href="README.md">Method and placement notes</a></p><h2>Retirees: keep Batch B’s pink chair</h2><p>The approved wicker chair already has pink cushions. Reuse it; only the cabbage bed is new.</p><figure><img src="reference/batch-b-wicker-chair.png" alt="Approved pink cushioned wicker chair"></figure>'''+''.join(cards)+'''<p>Footprints are proposed art metadata. Navigation and draw order require Claude’s integration checks after approval.</p></main></html>'''
+    page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maple Hollow · Batch C review</title><link rel="stylesheet" href="../../../../ui/ms-tokens.css"><style>body{margin:0;background:var(--ms-navy,#171C35);color:var(--ms-cream,#FFF0CF);font:16px/1.5 system-ui}main{max-width:1100px;margin:auto;padding:24px}h1{font-size:28px}h2{font-size:20px}article{padding:16px 0;border-top:1px solid #526078}a{color:#FFF0CF;display:inline-block;padding:8px 0;min-height:28px}.comparison{display:block;max-width:none;image-rendering:pixelated}article{overflow-x:auto}button{font:inherit;padding:12px;background:#FFF0CF;color:#171C35;border:0}.zoom .comparison{width:auto;transform:none}figure{margin:0;overflow:auto}figure img{image-rendering:pixelated}small{font-size:14px}</style><main><h1>Maple Hollow yard character · Batch C</h1><p>Revised to match the sizes in today’s painted yards. Art approval comes before game placement.</p><p>Approved string lights and cabbage bed are unchanged. Upright pallets, a green tarp and a bucket replace the firewood pile.</p><p>Every strip shows the original yard subject, the new sprite at native 1x, and the hero at 48px tall. The yard crop keeps its original scale and surroundings. Use the 4x links for details.</p><p>WALL: outline and shadow. BREAKABLE: cream top highlight. WALK-THROUGH: no floor collision. Wires, bunting and pergola roof are overhead layers.</p><p><a href="manifest-batch-c.json">Manifest</a> · <a href="validation-batch-c.json">Validation</a> · <a href="README.md">Method and placement notes</a> · <a href="revision-size-report.json">Before and revised sizes</a></p><h2>Retirees: keep Batch B’s pink chair</h2><p>The approved wicker chair already has pink cushions. Reuse it; only the cabbage bed is new.</p><figure><img src="reference/batch-b-wicker-chair.png" alt="Approved pink cushioned wicker chair"></figure>'''+''.join(cards)+'''<p>Footprints are proposed art metadata. Navigation and draw order require Claude’s integration checks after approval.</p></main></html>'''
     style='''body{margin:0;background:var(--ms-bg);color:var(--ms-text);font:var(--ms-body)/1.5 var(--ms-font-read)}main{max-width:calc(var(--ms-space-7)*24);margin:auto;padding:var(--ms-space-5)}h1{font-size:var(--ms-headline)}h2{font-size:var(--ms-title)}article{padding:var(--ms-space-4) 0;border-top:var(--ms-border-w) solid var(--ms-line);overflow-x:auto}a{color:var(--ms-text);display:inline-flex;align-items:center;min-height:var(--ms-touch)}.comparison{display:block;max-width:none;image-rendering:pixelated}figure{margin:0;overflow:auto}img{image-rendering:pixelated}small{font-size:var(--ms-body-s)}'''
     start=page.index('<style>');end=page.index('</style>')
     page=page[:start]+'<style>'+style+'</style>'+page[end+8:]

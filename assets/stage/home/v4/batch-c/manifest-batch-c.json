@@ -1,5 +1,5 @@
 {
-  "status": "Batch C art-only review; not approved or integrated",
+  "status": "Batch C size revision for PR #6; awaiting art approval; not integrated",
   "palette": [
     "#171C35",
     "#303750",
@@ -23,7 +23,7 @@
     "#315B4B",
     "#D8AD4A"
   ],
-  "method": "Built-in imagegen painting; proportional normalization onto exact 8x working canvas; exact 8x8 RGBA block mode; deliberate material-family palette mapping.",
+  "method": "Built-in imagegen paintings refitted onto exact 8x working canvases; exact 8x8 RGBA block mode; material-family palette mapping. Ghost cloth, weed silhouettes and toy vehicle refitted in both axes; pergola uses four painted support crops.",
   "sourceSizeCaveat": "Generator returns variable raster dimensions. Original paintings and fit rectangles are retained, following approved Batch B normalization.",
   "coordinates": "footPoint [x,y] and footprints [x,y,width,height] are local native pixels; proposed integration metadata, not tested collision bodies.",
   "heroReference": "Office worker live v4 frame, cropped and nearest-resized to exactly 48px tall solely for comparison; live source visible bounds are 36x53.",
@@ -41,26 +41,26 @@
       "id": "autumn-shrub-a",
       "file": "autumn-shrub-a-v4.png",
       "size": [
-        64,
-        48
+        80,
+        64
       ],
       "kind": "WALL",
       "footPoint": [
-        32,
-        43
+        40,
+        58
       ],
       "visibleBounds": [
+        2,
         4,
-        4,
-        60,
-        45
+        78,
+        60
       ],
       "footprints": [
         [
           9,
-          34,
-          46,
-          10
+          45,
+          62,
+          14
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -78,15 +78,16 @@
       ],
       "working": "working-8x/autumn-shrub-a-8x.png",
       "workingSize": [
-        512,
-        384
+        640,
+        512
       ],
       "fit": [
-        29,
-        24,
-        454,
-        336
+        16,
+        31,
+        608,
+        450
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/autumn-shrub-a.png",
       "referenceYard": "Young family",
@@ -103,26 +104,26 @@
       "id": "autumn-shrub-b",
       "file": "autumn-shrub-b-v4.png",
       "size": [
-        64,
-        48
+        88,
+        56
       ],
       "kind": "WALL",
       "footPoint": [
-        32,
-        37
+        44,
+        48
       ],
       "visibleBounds": [
-        3,
-        9,
-        61,
-        39
+        2,
+        6,
+        86,
+        50
       ],
       "footprints": [
         [
-          8,
-          31,
-          48,
-          7
+          9,
+          38,
+          70,
+          10
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -140,15 +141,16 @@
       ],
       "working": "working-8x/autumn-shrub-b-8x.png",
       "workingSize": [
-        512,
-        384
+        704,
+        448
       ],
       "fit": [
-        24,
-        67,
-        464,
-        250
+        16,
+        43,
+        672,
+        361
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/autumn-shrub-b.png",
       "referenceYard": "Grill master",
@@ -165,26 +167,26 @@
       "id": "autumn-shrub-c",
       "file": "autumn-shrub-c-v4.png",
       "size": [
-        64,
-        48
+        80,
+        64
       ],
       "kind": "WALL",
       "footPoint": [
-        32,
-        39
+        40,
+        53
       ],
       "visibleBounds": [
-        3,
-        7,
-        61,
-        41
+        2,
+        10,
+        78,
+        55
       ],
       "footprints": [
         [
-          8,
-          32,
-          48,
-          8
+          9,
+          43,
+          63,
+          11
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -202,15 +204,16 @@
       ],
       "working": "working-8x/autumn-shrub-c-8x.png",
       "workingSize": [
-        512,
-        384
+        640,
+        512
       ],
       "fit": [
-        24,
-        52,
-        464,
-        279
+        16,
+        73,
+        608,
+        366
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/autumn-shrub-c.png",
       "referenceYard": "Halloween",
@@ -227,19 +230,19 @@
       "id": "white-flowers-a",
       "file": "white-flowers-a-v4.png",
       "size": [
-        32,
-        32
+        48,
+        48
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        16,
-        24
+        24,
+        41
       ],
       "visibleBounds": [
-        4,
+        2,
         5,
-        28,
-        26
+        46,
+        43
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -257,15 +260,16 @@
       ],
       "working": "working-8x/white-flowers-a-8x.png",
       "workingSize": [
-        256,
-        256
+        384,
+        384
       ],
       "fit": [
-        24,
+        16,
         36,
-        208,
-        184
+        352,
+        312
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/white-flowers-a.png",
       "referenceYard": "Young family",
@@ -282,19 +286,19 @@
       "id": "white-flowers-b",
       "file": "white-flowers-b-v4.png",
       "size": [
-        32,
-        32
+        48,
+        48
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        16,
-        25
+        24,
+        41
       ],
       "visibleBounds": [
-        4,
+        2,
         5,
-        28,
-        27
+        46,
+        43
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -312,15 +316,16 @@
       ],
       "working": "working-8x/white-flowers-b-8x.png",
       "workingSize": [
-        256,
-        256
+        384,
+        384
       ],
       "fit": [
-        24,
-        35,
-        208,
-        186
+        16,
+        34,
+        352,
+        315
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/white-flowers-b.png",
       "referenceYard": "HOA president",
@@ -389,6 +394,7 @@
         1248,
         473
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/string-light-posts.png",
       "referenceYard": "Grill master",
@@ -444,6 +450,7 @@
         1248,
         228
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/string-light-strand.png",
       "referenceYard": "Grill master",
@@ -461,26 +468,26 @@
       "id": "cooler",
       "file": "cooler-v4.png",
       "size": [
-        48,
-        40
+        64,
+        56
       ],
       "kind": "BREAKABLE",
       "footPoint": [
-        24,
-        35
+        32,
+        52
       ],
       "visibleBounds": [
-        5,
         3,
-        43,
-        37
+        2,
+        61,
+        54
       ],
       "footprints": [
         [
           8,
-          28,
-          32,
-          8
+          40,
+          49,
+          12
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -498,15 +505,16 @@
       ],
       "working": "working-8x/cooler-8x.png",
       "workingSize": [
-        384,
-        320
+        512,
+        448
       ],
       "fit": [
-        38,
-        24,
-        307,
-        272
+        21,
+        16,
+        469,
+        416
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/cooler.png",
       "referenceYard": "Grill master",
@@ -523,19 +531,19 @@
       "id": "cornhole-board-a",
       "file": "cornhole-board-a-v4.png",
       "size": [
-        48,
-        32
+        64,
+        56
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        24,
-        27
+        32,
+        49
       ],
       "visibleBounds": [
-        8,
-        3,
-        40,
-        29
+        2,
+        5,
+        62,
+        51
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -553,15 +561,16 @@
       ],
       "working": "working-8x/cornhole-board-a-8x.png",
       "workingSize": [
-        384,
-        256
+        512,
+        448
       ],
       "fit": [
-        60,
-        24,
-        264,
-        208
+        16,
+        35,
+        480,
+        378
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/cornhole-board-a.png",
       "referenceYard": "Grill master",
@@ -578,19 +587,19 @@
       "id": "cornhole-board-b",
       "file": "cornhole-board-b-v4.png",
       "size": [
-        48,
-        32
+        64,
+        56
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        24,
-        27
+        32,
+        50
       ],
       "visibleBounds": [
-        8,
-        3,
-        40,
-        29
+        2,
+        4,
+        62,
+        52
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -608,15 +617,16 @@
       ],
       "working": "working-8x/cornhole-board-b-8x.png",
       "workingSize": [
-        384,
-        256
+        512,
+        448
       ],
       "fit": [
-        64,
-        24,
-        256,
-        208
+        16,
+        29,
+        480,
+        389
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/cornhole-board-b.png",
       "referenceYard": "Grill master",
@@ -633,52 +643,53 @@
       "id": "tarp-lumber",
       "file": "tarp-lumber-v4.png",
       "size": [
-        80,
-        64
+        112,
+        104
       ],
       "kind": "WALL",
       "footPoint": [
-        40,
-        54
+        56,
+        100
       ],
       "visibleBounds": [
-        4,
-        8,
-        77,
-        56
+        3,
+        2,
+        109,
+        102
       ],
       "footprints": [
         [
-          11,
-          43,
-          59,
-          12
+          13,
+          75,
+          86,
+          25
         ]
       ],
       "drawLayer": "depth-sorted",
       "blocks": true,
       "source": "sources/tarp-lumber.png",
       "sourceSize": [
-        1402,
-        1122
+        1299,
+        1211
       ],
       "sourceCrop": [
-        114,
-        203,
-        1274,
-        972
+        49,
+        13,
+        1256,
+        1144
       ],
       "working": "working-8x/tarp-lumber-8x.png",
       "workingSize": [
-        640,
-        512
+        896,
+        832
       ],
       "fit": [
-        24,
-        60,
-        592,
-        392
+        21,
+        16,
+        854,
+        800
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/tarp-lumber.png",
       "referenceYard": "Fixer-upper",
@@ -695,26 +706,26 @@
       "id": "worn-lawn-chair",
       "file": "worn-lawn-chair-v4.png",
       "size": [
-        56,
-        64
+        72,
+        96
       ],
       "kind": "WALL",
       "footPoint": [
-        28,
-        59
+        36,
+        90
       ],
       "visibleBounds": [
-        6,
-        3,
-        50,
-        61
+        2,
+        4,
+        70,
+        92
       ],
       "footprints": [
         [
-          10,
-          46,
-          36,
-          14
+          8,
+          69,
+          56,
+          21
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -732,15 +743,16 @@
       ],
       "working": "working-8x/worn-lawn-chair-8x.png",
       "workingSize": [
-        448,
-        512
+        576,
+        768
       ],
       "fit": [
-        46,
-        24,
-        356,
-        464
+        16,
+        29,
+        544,
+        709
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/worn-lawn-chair.png",
       "referenceYard": "Fixer-upper",
@@ -757,19 +769,19 @@
       "id": "weeds-a",
       "file": "weeds-a-v4.png",
       "size": [
-        32,
-        40
+        48,
+        64
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        16,
-        31
+        24,
+        59
       ],
       "visibleBounds": [
-        5,
-        7,
-        24,
-        33
+        2,
+        4,
+        46,
+        61
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -787,15 +799,16 @@
       ],
       "working": "working-8x/weeds-a-8x.png",
       "workingSize": [
-        256,
-        320
+        384,
+        512
       ],
       "fit": [
-        24,
-        49,
-        208,
-        222
+        16,
+        16,
+        352,
+        480
       ],
+      "sourceFit": "silhouette refit in both axes",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/weeds-a.png",
       "referenceYard": "Fixer-upper",
@@ -812,19 +825,19 @@
       "id": "weeds-b",
       "file": "weeds-b-v4.png",
       "size": [
-        32,
-        40
+        48,
+        64
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        16,
-        32
+        24,
+        59
       ],
       "visibleBounds": [
-        7,
-        10,
-        25,
-        34
+        3,
+        2,
+        46,
+        61
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -842,15 +855,16 @@
       ],
       "working": "working-8x/weeds-b-8x.png",
       "workingSize": [
-        256,
-        320
+        384,
+        512
       ],
       "fit": [
-        24,
-        35,
-        208,
-        249
+        16,
+        16,
+        352,
+        480
       ],
+      "sourceFit": "silhouette refit in both axes",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/weeds-b.png",
       "referenceYard": "Fixer-upper",
@@ -867,19 +881,19 @@
       "id": "weeds-c",
       "file": "weeds-c-v4.png",
       "size": [
-        32,
-        40
+        48,
+        64
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        16,
-        30
+        24,
+        59
       ],
       "visibleBounds": [
-        5,
-        8,
-        28,
-        32
+        2,
+        2,
+        46,
+        61
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -897,15 +911,16 @@
       ],
       "working": "working-8x/weeds-c-8x.png",
       "workingSize": [
-        256,
-        320
+        384,
+        512
       ],
       "fit": [
-        24,
-        59,
-        208,
-        202
+        16,
+        16,
+        352,
+        480
       ],
+      "sourceFit": "silhouette refit in both axes",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/weeds-c.png",
       "referenceYard": "Fixer-upper",
@@ -922,19 +937,19 @@
       "id": "pergola-roof",
       "file": "pergola-roof-v4.png",
       "size": [
-        128,
-        112
+        160,
+        80
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        64,
-        55
+        80,
+        70
       ],
       "visibleBounds": [
+        2,
         3,
-        3,
-        125,
-        57
+        158,
+        72
       ],
       "footprints": [],
       "drawLayer": "overhead",
@@ -952,15 +967,16 @@
       ],
       "working": "working-8x/pergola-roof-8x.png",
       "workingSize": [
-        1024,
-        896
+        1280,
+        640
       ],
       "fit": [
+        16,
         24,
-        24,
-        976,
-        436
+        1248,
+        558
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/pergola-roof.png",
       "referenceYard": "HOA president",
@@ -978,44 +994,44 @@
       "id": "pergola-posts",
       "file": "pergola-posts-v4.png",
       "size": [
-        128,
-        112
+        160,
+        136
       ],
       "kind": "WALL",
       "footPoint": [
-        64,
-        105
+        80,
+        128
       ],
       "visibleBounds": [
-        6,
         8,
-        122,
-        107
+        8,
+        152,
+        130
       ],
       "footprints": [
         [
-          6,
-          50,
-          7,
-          6
-        ],
-        [
-          114,
-          50,
-          7,
-          6
-        ],
-        [
-          10,
-          100,
-          7,
+          8,
+          60,
+          9,
           7
         ],
         [
-          113,
-          100,
-          7,
+          142,
+          60,
+          9,
           7
+        ],
+        [
+          13,
+          122,
+          9,
+          8
+        ],
+        [
+          139,
+          122,
+          9,
+          8
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1033,15 +1049,16 @@
       ],
       "working": "working-8x/pergola-posts-8x.png",
       "workingSize": [
-        1024,
-        896
+        1280,
+        1088
       ],
       "fit": [
-        24,
-        38,
-        976,
-        820
+        16,
+        19,
+        1248,
+        1049
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/pergola-posts.png",
       "referenceYard": "HOA president",
@@ -1062,10 +1079,10 @@
             475
           ],
           "fitNative": [
-            6,
             8,
             8,
-            48
+            10,
+            59
           ]
         },
         {
@@ -1076,10 +1093,10 @@
             475
           ],
           "fitNative": [
-            114,
+            142,
             8,
-            8,
-            48
+            10,
+            59
           ]
         },
         {
@@ -1090,10 +1107,10 @@
             1122
           ],
           "fitNative": [
-            9,
-            48,
-            10,
-            59
+            12,
+            62,
+            12,
+            68
           ]
         },
         {
@@ -1104,10 +1121,10 @@
             1122
           ],
           "fitNative": [
-            110,
-            48,
-            10,
-            59
+            136,
+            62,
+            12,
+            68
           ]
         }
       ]
@@ -1116,26 +1133,26 @@
       "id": "pergola-chair",
       "file": "pergola-chair-v4.png",
       "size": [
-        40,
-        48
+        48,
+        64
       ],
       "kind": "WALL",
       "footPoint": [
-        20,
-        42
+        24,
+        56
       ],
       "visibleBounds": [
-        3,
-        4,
-        37,
-        44
+        2,
+        6,
+        46,
+        58
       ],
       "footprints": [
         [
           6,
-          33,
-          28,
-          10
+          44,
+          36,
+          13
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1153,15 +1170,16 @@
       ],
       "working": "working-8x/pergola-chair-8x.png",
       "workingSize": [
-        320,
-        384
+        384,
+        512
       ],
       "fit": [
-        24,
-        30,
-        272,
-        323
+        16,
+        47,
+        352,
+        418
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/pergola-chair.png",
       "referenceYard": "HOA president",
@@ -1178,26 +1196,26 @@
       "id": "pergola-table",
       "file": "pergola-table-v4.png",
       "size": [
-        24,
-        28
+        32,
+        48
       ],
       "kind": "WALL",
       "footPoint": [
-        12,
-        23
+        16,
+        43
       ],
       "visibleBounds": [
-        5,
+        2,
         3,
-        19,
-        25
+        30,
+        45
       ],
       "footprints": [
         [
-          7,
-          19,
-          10,
-          5
+          6,
+          34,
+          20,
+          10
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1215,15 +1233,16 @@
       ],
       "working": "working-8x/pergola-table-8x.png",
       "workingSize": [
-        192,
-        224
+        256,
+        384
       ],
       "fit": [
-        38,
-        24,
-        115,
-        176
+        16,
+        20,
+        224,
+        343
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/pergola-table.png",
       "referenceYard": "HOA president",
@@ -1240,26 +1259,26 @@
       "id": "boxwood-hedge",
       "file": "boxwood-hedge-v4.png",
       "size": [
-        64,
-        40
+        88,
+        56
       ],
       "kind": "WALL",
       "footPoint": [
-        32,
-        33
+        44,
+        48
       ],
       "visibleBounds": [
-        3,
-        5,
-        61,
-        35
+        2,
+        6,
+        86,
+        50
       ],
       "footprints": [
         [
-          8,
-          27,
-          48,
-          7
+          9,
+          38,
+          70,
+          10
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1277,15 +1296,16 @@
       ],
       "working": "working-8x/boxwood-hedge-8x.png",
       "workingSize": [
-        512,
-        320
+        704,
+        448
       ],
       "fit": [
-        24,
-        35,
-        464,
-        249
+        16,
+        44,
+        672,
+        360
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/boxwood-hedge.png",
       "referenceYard": "HOA president",
@@ -1302,26 +1322,26 @@
       "id": "sheet-ghost-a",
       "file": "sheet-ghost-a-v4.png",
       "size": [
-        64,
-        64
+        128,
+        80
       ],
       "kind": "BREAKABLE",
       "footPoint": [
-        32,
-        52
+        64,
+        76
       ],
       "visibleBounds": [
-        3,
-        10,
-        60,
-        54
+        2,
+        2,
+        126,
+        78
       ],
       "footprints": [
         [
-          8,
-          42,
-          47,
-          11
+          13,
+          57,
+          102,
+          19
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1339,15 +1359,16 @@
       ],
       "working": "working-8x/sheet-ghost-a-8x.png",
       "workingSize": [
-        512,
-        512
+        1024,
+        640
       ],
       "fit": [
-        24,
-        80,
-        464,
-        352
+        16,
+        16,
+        992,
+        608
       ],
+      "sourceFit": "silhouette refit in both axes",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/sheet-ghost-a.png",
       "referenceYard": "Halloween",
@@ -1364,26 +1385,26 @@
       "id": "sheet-ghost-b",
       "file": "sheet-ghost-b-v4.png",
       "size": [
-        64,
-        64
+        128,
+        80
       ],
       "kind": "BREAKABLE",
       "footPoint": [
-        32,
-        57
+        64,
+        76
       ],
       "visibleBounds": [
-        3,
-        5,
-        61,
-        59
+        2,
+        2,
+        126,
+        78
       ],
       "footprints": [
         [
-          8,
-          45,
-          48,
-          13
+          13,
+          58,
+          103,
+          18
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1401,15 +1422,16 @@
       ],
       "working": "working-8x/sheet-ghost-b-8x.png",
       "workingSize": [
-        512,
-        512
+        1024,
+        640
       ],
       "fit": [
-        24,
-        36,
-        464,
-        440
+        16,
+        16,
+        992,
+        608
       ],
+      "sourceFit": "silhouette refit in both axes",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/sheet-ghost-b.png",
       "referenceYard": "Halloween",
@@ -1426,26 +1448,26 @@
       "id": "halloween-lamp",
       "file": "halloween-lamp-v4.png",
       "size": [
-        32,
-        96
+        40,
+        120
       ],
       "kind": "WALL",
       "footPoint": [
-        16,
-        87
+        20,
+        115
       ],
       "visibleBounds": [
+        2,
         3,
-        7,
-        29,
-        89
+        38,
+        117
       ],
       "footprints": [
         [
-          11,
-          80,
-          9,
-          7
+          13,
+          104,
+          12,
+          10
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1463,15 +1485,16 @@
       ],
       "working": "working-8x/halloween-lamp-8x.png",
       "workingSize": [
-        256,
-        768
+        320,
+        960
       ],
       "fit": [
+        16,
         24,
-        55,
-        208,
-        658
+        288,
+        911
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/halloween-lamp.png",
       "referenceYard": "Halloween",
@@ -1488,19 +1511,19 @@
       "id": "halloween-bunting",
       "file": "halloween-bunting-v4.png",
       "size": [
-        160,
-        32
+        208,
+        48
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        80,
-        20
+        104,
+        44
       ],
       "visibleBounds": [
-        5,
-        10,
-        155,
-        22
+        14,
+        2,
+        194,
+        46
       ],
       "footprints": [],
       "drawLayer": "overhead",
@@ -1511,22 +1534,23 @@
         724
       ],
       "sourceCrop": [
-        23,
-        278,
-        2149,
-        455
+        60,
+        122,
+        2112,
+        622
       ],
       "working": "working-8x/halloween-bunting-8x.png",
       "workingSize": [
-        1280,
-        256
+        1664,
+        384
       ],
       "fit": [
+        109,
         16,
-        76,
-        1248,
-        104
+        1445,
+        352
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/halloween-bunting.png",
       "referenceYard": "Halloween",
@@ -1544,26 +1568,26 @@
       "id": "fog-machine",
       "file": "fog-machine-v4.png",
       "size": [
-        40,
-        32
+        56,
+        48
       ],
       "kind": "BREAKABLE",
       "footPoint": [
-        20,
-        27
+        28,
+        42
       ],
       "visibleBounds": [
+        2,
         4,
-        3,
-        36,
-        29
+        54,
+        44
       ],
       "footprints": [
         [
           7,
-          22,
-          26,
-          6
+          33,
+          42,
+          9
         ]
       ],
       "drawLayer": "depth-sorted",
@@ -1581,15 +1605,16 @@
       ],
       "working": "working-8x/fog-machine-8x.png",
       "workingSize": [
-        320,
-        256
+        448,
+        384
       ],
       "fit": [
-        25,
-        24,
-        270,
-        208
+        16,
+        32,
+        416,
+        320
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/fog-machine.png",
       "referenceYard": "Halloween",
@@ -1606,19 +1631,19 @@
       "id": "fog-puff-small",
       "file": "fog-puff-small-v4.png",
       "size": [
-        48,
-        24
+        72,
+        32
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        24,
-        16
+        36,
+        24
       ],
       "visibleBounds": [
-        3,
+        2,
         6,
-        45,
-        18
+        70,
+        26
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -1636,15 +1661,16 @@
       ],
       "working": "working-8x/fog-puff-small-8x.png",
       "workingSize": [
-        384,
-        192
+        576,
+        256
       ],
       "fit": [
-        24,
-        45,
-        336,
-        101
+        16,
+        46,
+        544,
+        163
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/fog-puff-small.png",
       "referenceYard": "Halloween",
@@ -1662,19 +1688,19 @@
       "id": "fog-puff-large",
       "file": "fog-puff-large-v4.png",
       "size": [
-        80,
-        32
+        112,
+        56
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        40,
-        23
+        56,
+        40
       ],
       "visibleBounds": [
-        5,
-        7,
-        77,
-        25
+        2,
+        15,
+        110,
+        42
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -1692,15 +1718,16 @@
       ],
       "working": "working-8x/fog-puff-large-8x.png",
       "workingSize": [
-        640,
-        256
+        896,
+        448
       ],
       "fit": [
-        24,
-        52,
-        592,
-        151
+        16,
+        114,
+        864,
+        220
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/fog-puff-large.png",
       "referenceYard": "Halloween",
@@ -1718,19 +1745,19 @@
       "id": "beach-ball",
       "file": "beach-ball-v4.png",
       "size": [
-        24,
-        24
+        40,
+        40
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        12,
-        19
+        20,
+        36
       ],
       "visibleBounds": [
-        3,
-        3,
-        21,
-        21
+        2,
+        2,
+        37,
+        38
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -1748,15 +1775,16 @@
       ],
       "working": "working-8x/beach-ball-8x.png",
       "workingSize": [
-        192,
-        192
+        320,
+        320
       ],
       "fit": [
-        24,
-        24,
-        144,
-        144
+        16,
+        16,
+        287,
+        288
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/beach-ball.png",
       "referenceYard": "Young family",
@@ -1773,19 +1801,19 @@
       "id": "toy-car",
       "file": "toy-car-v4.png",
       "size": [
-        32,
-        24
+        56,
+        40
       ],
       "kind": "WALK-THROUGH",
       "footPoint": [
-        16,
-        19
+        28,
+        36
       ],
       "visibleBounds": [
-        7,
-        3,
-        25,
-        21
+        2,
+        2,
+        54,
+        38
       ],
       "footprints": [],
       "drawLayer": "depth-sorted",
@@ -1803,15 +1831,16 @@
       ],
       "working": "working-8x/toy-car-8x.png",
       "workingSize": [
-        256,
-        192
+        448,
+        320
       ],
       "fit": [
-        52,
-        24,
-        152,
-        144
+        16,
+        16,
+        416,
+        288
       ],
+      "sourceFit": "silhouette refit in both axes",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/toy-car.png",
       "referenceYard": "Young family",
@@ -1874,6 +1903,7 @@
         910,
         592
       ],
+      "sourceFit": "proportional fit",
       "palettePolicy": "HSV material masks, nearest tone only within selected material family",
       "oldFile": "old/cabbage-bed.png",
       "referenceYard": "Retirees",
@@ -1890,8 +1920,8 @@
   "assemblies": {
     "pergola": {
       "size": [
-        128,
-        112
+        160,
+        136
       ],
       "layersBackToFront": [
         {
@@ -1904,22 +1934,22 @@
         {
           "id": "pergola-chair",
           "position": [
-            17,
-            42
+            20,
+            55
           ]
         },
         {
           "id": "pergola-chair",
           "position": [
-            72,
-            42
+            92,
+            55
           ]
         },
         {
           "id": "pergola-table",
           "position": [
-            52,
-            52
+            64,
+            63
           ]
         },
         {
@@ -1957,8 +1987,8 @@
     },
     "halloween-lamps": {
       "size": [
-        192,
-        112
+        220,
+        136
       ],
       "layersBackToFront": [
         {
@@ -1971,19 +2001,31 @@
         {
           "id": "halloween-lamp",
           "position": [
-            160,
+            180,
             16
           ]
         },
         {
           "id": "halloween-bunting",
           "position": [
-            16,
+            6,
             16
           ]
         }
       ],
       "note": "Two lamp instances; bunting is nonblocking overhead decoration."
     }
+  },
+  "revision": {
+    "brief": "reference/revision-brief.md",
+    "approvedUnchanged": [
+      "cabbage-bed",
+      "string-light-posts",
+      "string-light-strand"
+    ],
+    "repainted": [
+      "tarp-lumber"
+    ],
+    "bunting": "Reuse the earlier painted larger-pennant study at revised size; not the thin-flag version."
   }
 }
