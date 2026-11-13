@@ -867,3 +867,6 @@ A bigger furniture request becomes a newly painted native canvas, then an exact 
 
 ## Wall faces: why the house got taller (Nov 13, the house)
 In a top-down game you see the north wall of every room from the front, so a wall isn't a thin line, it's a tall strip of picture where paintings and cabinets hang. On the old floor plan the rooms just touched, so there was nowhere to hang anything. Adding real walls meant pushing every row of rooms down to make space for a 128 px wall face, then cutting doorways through the faces where you need to walk.
+
+## Stuck flags: check what's on screen (Nov 13, the chest fix)
+A flag is a yes/no the game keeps in memory, like "a menu is open". If one gets set and never cleared, the game keeps believing it, even when nothing is on screen. The chest asked "is a menu open?" and a stuck "yes" made every chest wait forever, and the front door waited on that chest. The fix is to check the thing itself (is that menu actually visible?) instead of trusting the note about it, and to clear the note when it's wrong.

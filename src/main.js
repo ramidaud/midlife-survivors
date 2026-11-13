@@ -1314,10 +1314,43 @@ function togglePause(scene) {
 
 // You walked over a gold Boss Chest: the Bonus Chest moment (src/bonus-chest.js).
 // The chest pays 1, 3 or 5 rewards depending on the boss, applied right away, plus a 401(k) payout.
+// Nov 13 (Rami: "breaks chest for the rest of the run, including from bosses", office and Maple Hollow): the chest used to
+// trust two flags ("a level-up is open", "a bonus screen is open"). When one got stuck while you kept playing, every chest
+// after it rode along on your hero and never opened. Now the chest only waits for a menu you can actually see.
+// A flag with nothing on screen behind it is cleared (and noted in ms-chest-err so we can find who left it set).
+const CHEST_WAIT_MENUS = ["levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "minimap-modal", "retire80-modal", "gameover-modal", "shift-briefing"];
+function menuOnScreen(id) {
+  const el = document.getElementById(id);
+  if (!el || el.classList.contains("hidden") || el.hidden) return false;
+  const cs = getComputedStyle(el);
+  if (cs.display === "none" || cs.visibility === "hidden" || Number(cs.opacity) === 0) return false;
+  const r = el.getBoundingClientRect();
+  return r.width > 0 && r.height > 0;
+}
+window.menuOnScreen = menuOnScreen;
+function noteStaleChestFlag(what) {
+  console.warn("[chest] cleared a stuck flag:", what);
+  try { localStorage.setItem("ms-chest-err", JSON.stringify({ at: new Date().toISOString(), v: (window.GAME_VERSION && GAME_VERSION.version) || "", stale: what, stage: window.STAGE_ID || "", inside: !!(window.KeyHunt && KeyHunt.state() && KeyHunt.state().inside), transit: !!window.homeTransit })); } catch (_) {}
+  if (window.Telemetry && Telemetry.event) Telemetry.event("chest-stale-" + what);
+}
+// true = a real menu is showing, so the chest waits. Clears stale flags as a side effect.
+function chestMustWait(scene) {
+  if (gameOver || titleOpen || paused || retire80Open) return true;
+  if (CHEST_WAIT_MENUS.some(menuOnScreen)) return true;
+  if (window.BonusChest && BonusChest.isOpen()) { noteStaleChestFlag("bonus"); BonusChest.abandon(); }
+  if (levelUpOpen) {
+    noteStaleChestFlag("levelup");
+    levelUpOpen = false;
+    if (scene && scene.physics && scene.physics.world.isPaused) { scene.physics.resume(); scene.time.paused = false; }
+  }
+  return false;
+}
+window.chestMustWait = chestMustWait;
+
 function collectChest(p, chest) {
   if (!chest.active) return;
   if (chest.readyAt && runElapsedMs < chest.readyAt) return; // the boss is still going down
-  if (levelUpOpen || (window.BonusChest && BonusChest.isOpen())) return; // another menu is up: the chest waits on the floor
+  if (chestMustWait(p.scene)) return; // another menu is up: the chest waits on the floor
   // Nov 12 (Rami: "nothing that should give you a chest is giving chests"): a chest that touches you always pays.
   // If anything below fails, you get a level-up pick instead and the error is kept (localStorage ms-chest-err) so we can fix it.
   try { openChestNow(p, chest); } catch (e) {
@@ -1359,21 +1392,25 @@ function openChestNow(p, chest) {
 // Stuck-pause watchdog (Nov 3, Derek: "game froze after getting the chest post HR boss").
 // If the run is paused but no menu is showing for 2 checks in a row, put the menu back or unpause.
 // It also records which flags were stuck (as an anonymous "stuck-..." play-stats event) so we can find the cause.
-const PAUSE_MENUS = ["shift-briefing", "minimap-modal", "levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal"];
+const PAUSE_MENUS = ["shift-briefing", "minimap-modal", "levelup-modal", "bonus-modal", "lounge-modal", "pause-modal", "retire80-modal", "gameover-modal", "title-modal", "controls-modal", "changelog-modal", "lore-modal", "comfort-modal", "account-modal", "settings-modal"];
 let stuckChecks = 0;
 setInterval(() => {
   const sc = window._activeGameScene;
   if (!sc || !sc.physics || !sc.physics.world || typeof player === "undefined" || !player || !player.scene) return;
   if (titleOpen || gameOver || paused || retire80Open || document.hidden) { stuckChecks = 0; return; }
   const frozen = sc.physics.world.isPaused || sc.time.paused || levelUpOpen;
-  const menuUp = PAUSE_MENUS.some(id => { const el = document.getElementById(id); return el && !el.classList.contains("hidden"); });
+  const menuUp = PAUSE_MENUS.some(id => window.menuOnScreen ? menuOnScreen(id) : (document.getElementById(id) && !document.getElementById(id).classList.contains("hidden"))); // Nov 13: what you can see, not just the class
   if (!frozen || menuUp) { stuckChecks = 0; return; }
   if (++stuckChecks < 2) return;
   stuckChecks = 0;
   const flags = [levelUpOpen && "lvl", sc.physics.world.isPaused && "phys", sc.time.paused && "time", window.BonusChest && BonusChest.isOpen() && "chest", pendingLevels > 0 && "pend"].filter(Boolean).join("-");
   if (window.Telemetry && Telemetry.event) Telemetry.event("stuck-" + (flags || "none"));
   console.warn("[watchdog] run was paused with no menu showing:", flags);
-  if (window.BonusChest && BonusChest.isOpen()) { const m = document.getElementById("bonus-modal"); if (m) { m.classList.remove("hidden"); return; } }
+  if (window.BonusChest && BonusChest.isOpen()) {
+    const m = document.getElementById("bonus-modal");
+    if (m && m.classList.contains("hidden")) { m.classList.remove("hidden"); return; } // put the bonus screen back
+    BonusChest.abandon(); // it says it's open but can't be shown: let it go so the next chest still works
+  }
   if (pendingLevels > 0) { levelUpOpen = false; showLevelUp(sc); return; }
   levelUpOpen = false;
   sc.physics.resume();
@@ -2896,14 +2933,12 @@ function update(time, delta) {
     if (ch.tag) ch.tag.setPosition(ch.x, ch.y);
     // Safety net (Nov 8): a ready chest that still hasn't reached you 12 seconds later opens wherever it is.
     const lateFor = ch.readyAt ? runElapsedMs - ch.readyAt : 0;
-    if (lateFor > 12000 && !levelUpOpen && !(window.BonusChest && BonusChest.isOpen())) {
+    if (lateFor > 12000 && !chestMustWait(this)) {
       if (window.Telemetry && Telemetry.event) Telemetry.event("chest-late-" + (ch.bossKind || "x"));
       collectChest(player, ch); return;
     }
     if (d < 56) {
-      // A chest screen that says it's open but isn't on screen while you're playing is stale: let it go.
-      if (!levelUpOpen && window.BonusChest && BonusChest.isOpen() && BonusChest.visible && !BonusChest.visible()) BonusChest.abandon();
-      const blocked = levelUpOpen || (window.BonusChest && BonusChest.isOpen());
+      const blocked = chestMustWait(this); // only a menu that's really on screen holds the chest (clears stuck flags)
       if (!blocked) collectChest(player, ch);
       else if (!ch.blockLogged && (ch.blockedSince = ch.blockedSince || runElapsedMs) && runElapsedMs - ch.blockedSince > 4000) {
         ch.blockLogged = true;

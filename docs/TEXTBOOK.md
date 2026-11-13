@@ -2175,3 +2175,17 @@ Material contrast makes a prop readable without adding another heavy outline. Ke
                                         +----------------------------+
 ```
 The rooms didn't get bigger. The house got taller, by one wall face per row of rooms (368 px in all), and the doorways go where the 96 px routes need them.
+
+## Chapter: Stuck flags
+
+```
+ BEFORE                                   AFTER
+ chest touches you                        chest touches you
+      |                                        |
+ flag says "menu open"? --yes--> wait     is a menu really on screen? --yes--> wait
+      |  (flag stuck = wait forever)           |no
+      no                                  flag still says "open"? --> clear it, note it
+      |                                        |
+   open chest                               open chest
+```
+A flag is a sticky note the game writes to itself. Sticky notes fall out of date. When a sticky note and the screen disagree, believe the screen.

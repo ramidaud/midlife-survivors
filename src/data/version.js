@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.41.0",
-  displayVersion: "V. 2.41.0",
+  version: "2.41.1",
+  displayVersion: "V. 2.41.1",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 380,
+  build: 381,
   changelog: [
+    {
+      ver: "V. 2.41.1", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Bonus chests open again. HR found the paperwork.",
+      highlights: [
+        "Fixed: a bonus chest could ride along on your hero and never open, and after that no chest opened for the rest of the run (office and Maple Hollow).",
+        "Fixed: your front door in Maple Hollow could stay shut after the key hunt, because it was waiting on that same chest."
+      ]
+    },
     {
       ver: "V. 2.41.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Home has real walls now. And a recliner with opinions.",

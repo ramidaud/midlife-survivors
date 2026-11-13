@@ -2472,3 +2472,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami picked real walls: three 128 px wall faces (top, living/dining, dining/kitchen) carry the wall art. The house is 368 px taller.
 - Rami picked option 1: the desk and shelves moved to the left of the dining wall so the doorway lines up with the living room's open corner. Moon print over the stairs; the west window dropped (no wall there).
 - A 96 px square reaches every main room from the front door. Tested in the game at laptop and phone size.
+
+## 2026-11-13: V. 2.41.1, chests that wouldn't open (Claude)
+- Rami: the Maple Hollow chest didn't work and the front door often stayed shut, and after that no chest opened all run. Same thing in the office (BONUS tag riding on the hero).
+- Cause: chests trusted a "menu is open" flag. When that flag got stuck, every chest waited forever, and the door waited on the key chest.
+- Fix: chests and the door now wait only for a menu that's actually on screen. A stuck flag gets cleared and noted in the browser (`ms-chest-err`) so we can find who leaves it set. The stuck-pause watchdog checks the screen the same way.
+- Tested at laptop and phone size: office boss chests and the house, with the stuck flag forced on, both recover; normal play unchanged.

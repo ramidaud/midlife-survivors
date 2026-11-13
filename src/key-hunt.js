@@ -231,7 +231,9 @@ window.KeyHunt = (() => {
       const d = Math.hypot(px - st.door.x, py - st.door.y);
       // Wait for the bonus screen (and any level-up) to close, then a short beat, so you actually see the door open.
       // only a menu that's actually on screen holds the door (Nov 12: a stuck flag kept it shut for good)
-      const busy = (typeof levelUpOpen !== "undefined" && levelUpOpen && scene.physics.world.isPaused) || (window.BonusChest && BonusChest.isOpen() && BonusChest.visible());
+      // Nov 13: "on screen" means really visible (window.menuOnScreen), so a stuck flag can't keep the door shut
+      const seen = id => window.menuOnScreen ? menuOnScreen(id) : false;
+      const busy = scene.physics.world.isPaused || seen("levelup-modal") || seen("bonus-modal");
       if (st.lootUntil && !busy && (!st.chest || !st.chest.active || runElapsedMs > st.lootUntil)) {
         if (!st.swingAt) st.swingAt = runElapsedMs + (K().doorBeatMs || 450);
         else if (runElapsedMs >= st.swingAt) swingDoor(scene);
