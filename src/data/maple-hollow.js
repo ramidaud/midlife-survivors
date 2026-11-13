@@ -120,9 +120,10 @@ window.MAPLE_HOLLOW = {
         ["park", "MAPLE PARK", 62, 1, 2], ["woods", "THE WOODS", null, 0, 2]
       ],
       // Areas that are built open at their age: the woods clear and the area's pieces appear. The rest stay woods.
-      built: ["elementary", "birch", "park"],
+      built: ["elementary", "birch", "park", "parkway"],
       openLines: { elementary: ["ELEMENTARY", "School's open. Somebody's math homework is due tomorrow."],
                    birch: ["BIRCH CIRCLE", "Birch Circle is open. The HOA would like a word about your lawn."],
+                   parkway: ["THE PARKWAY", "The Parkway is open. Nice long road. Somebody's about to buy a sports car."],
                    park: ["MAPLE PARK", "Maple Park is open. Somebody reserved the pavilion for a retirement party."] },
       // Pieces reused from the yard kit (assets/stage/home/v4/yard/): size, feet line (dy) and solid footprint, relative to
       // the picture's top-left corner. flat = walked over.
@@ -167,6 +168,30 @@ window.MAPLE_HOLLOW = {
         // Maple Park v1 (Nov 13): the yard themes' pieces out on an open lawn. The HOA set is the pavilion (pergola, koi pond,
         // lanterns, hedges), the grill master's set the picnic area, the retirees' set a bird-watching corner. Gold Watch (63.5) at the pavilion.
         // [vignette, x, y, theme]: a theme's pieces without its yard plate or fence posts. Each vignette is 416 x 448.
+        // The Parkway v1 (Nov 13): a through road lined with maples, open lawn (golf course art to come), and the road out of
+        // town running south into the trees (closed until Full Life). The V8 (60) still bursts out of your garage next door.
+        // More entries: ["vstreet", x, y, length] a north-south street, ["plate", x, y, theme] a yard's ground picture alone,
+        // ["label", x, y, words] a standing sign.
+        parkway: [
+          ["street", 0, 1120, 2496], ["asphalt", -416, 1216, 416, 320], ["asphalt", 2496, 1216, 416, 320],
+          ["vstreet", 992, 1632, 1120], ["asphalt", 1088, 1536, 320, 192],
+          ["label", 1248, 2380, "ROAD OUT OF TOWN\nOPENS IN FULL LIFE"],
+          ["autumn-shrub-a", 1010, 2620], ["autumn-shrub-b", 1120, 2640], ["autumn-shrub-c", 1240, 2620], ["autumn-shrub-a", 1350, 2640],
+          ["tree-maple-orange", 1020, 2520], ["tree-maple-orange", 1330, 2510],
+          // maples along both sides of the through road, with gaps to cross
+          ["tree-maple-orange", 80, 920], ["tree-maple-orange", 420, 920], ["tree-maple-orange", 760, 920], ["tree-maple-orange", 1400, 920],
+          ["tree-maple-orange", 1740, 920], ["tree-maple-orange", 2080, 920], ["tree-maple-orange", 2360, 920],
+          ["tree-maple-orange", 80, 1660], ["tree-maple-orange", 420, 1660], ["tree-maple-orange", 760, 1660],
+          ["tree-maple-orange", 1580, 1660], ["tree-maple-orange", 1920, 1660], ["tree-maple-orange", 2260, 1660],
+          // open lawn on both sides of the road out of town; the golf course edge waits for Codex's art (fairway, green, sand trap, cart)
+          ["tree-maple-orange", 300, 2150], ["tree-maple-orange", 700, 2420], ["tree-maple-orange", 1700, 2200], ["tree-maple-orange", 2150, 2450],
+          ["autumn-shrub-b", 520, 2000], ["autumn-shrub-c", 1900, 2050], ["decal-leaf-drift", 300, 2500], ["decal-scattered-maple", 2000, 2300],
+          // a meadow up top
+          ["tree-maple-orange", 300, 200], ["tree-maple-orange", 900, 380], ["tree-maple-orange", 1500, 160], ["tree-maple-orange", 2100, 420],
+          ["autumn-shrub-c", 600, 600], ["autumn-shrub-a", 1200, 640], ["autumn-shrub-b", 1800, 560], ["autumn-shrub-c", 2300, 200],
+          ["decal-leaf-drift", 200, 700], ["decal-scattered-maple", 700, 300], ["decal-leaf-drift", 1300, 400], ["decal-scattered-maple", 1900, 750],
+          ["decal-leaf-drift", 2300, 650], ["decal-scattered-maple", 500, 1850], ["decal-leaf-drift", 1700, 1850]
+        ],
         park: [
           ["vignette", 1040, 620, "hoa-president"], ["vignette", 260, 260, "grill-master"], ["vignette", 1880, 300, "retirees"],
           ["vignette", 360, 1280, "retirees"], ["vignette", 1760, 1260, "grill-master"],

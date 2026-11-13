@@ -587,6 +587,20 @@ window.MapleHollow = (() => {
           if (e[4] === "capLeft" && se.left && SE) { const [ca, cb] = SE.left.crop; extra(scene.add.image(X - (cb - ca), Y, keyed("mh_end_left", se.left, ca, 0, cb - ca, se.left.height)).setOrigin(0).setDepth(-999.7)); }
           return;
         }
+        if (kind === "vstreet") { // a north-south street: the plates turned a quarter turn (made by buildTown)
+          const len = e[3];
+          for (let k2 = 0, yy = Y; yy < Y + len; k2++, yy += 832) { const o = extra(scene.add.image(X, yy, k2 % 2 ? "mh_plate_vb" : "mh_plate_va").setOrigin(0).setDepth(-999.7)); o.setCrop(0, 0, 512, Math.min(832, Y + len - yy)); }
+          return;
+        }
+        if (kind === "plate" && MY && !my.failed) { // just a yard theme's ground picture (the HOA's striped lawn makes a fine fairway)
+          const th = MY.themes[e[3]]; if (!th) return;
+          extra(scene.add.image(X, Y, keyed("mh4_yard_" + th.ground, my[th.ground], 0, 0, my[th.ground].width, my[th.ground].height)).setOrigin(0).setDepth(-999));
+          return;
+        }
+        if (kind === "label") { // a standing sign, like the ones on the closed areas
+          extra(scene.add.text(X, Y, e[3], { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#171C35", backgroundColor: "#F2D7A1", align: "center", padding: { x: 8, y: 5 } }).setOrigin(0.5).setDepth(30001));
+          return;
+        }
         if (kind === "text") { // words on a blank sign, above the sign itself
           const [, , , w, h, words, col] = e;
           extra(scene.add.text(X + w / 2, Y + h / 2, words, { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: col || "#171C35", align: "center", lineSpacing: 2 }).setOrigin(0.5).setDepth(Y + h + 20000));

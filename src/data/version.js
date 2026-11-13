@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.35.0",
-  displayVersion: "V. 2.35.0",
+  version: "2.36.0",
+  displayVersion: "V. 2.36.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 374,
+  build: 375,
   changelog: [
+    {
+      ver: "V. 2.36.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "The Parkway opens at 59. Nice long road.",
+      highlights: [
+        "The Parkway opens at 59, right next to your block: a long road lined with maples, the perfect straightaway for running from a swarm.",
+        "The road out of town runs south into the trees. It's closed for now; it opens in Full Life.",
+        "At 60 the V8 still bursts out of your garage, and now it has somewhere to go."
+      ]
+    },
     {
       ver: "V. 2.35.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Maple Park opens at 62. The pavilion's reserved.",

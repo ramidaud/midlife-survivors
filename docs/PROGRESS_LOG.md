@@ -2392,3 +2392,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Third area, built from the yard themes' pieces on an open lawn: the HOA set is the pavilion and koi pond, the grill master's set the picnic area, the retirees' set a bird-watching corner.
 - The Gold Watch (63.5) comes out at the pavilion.
 - Areas open now: Elementary (44), Birch Circle (47), Maple Park (62). Waiting on Codex: Strip Mall, Town Square, Community Center. Still to build from the kit: the Parkway (59).
+
+## 2026-11-13: V. 2.36.0, the Parkway opens at 59 (Claude)
+- Fourth area: a through road lined with maples, joining the roads on both sides, and the road out of town running south into the trees with a "Opens in Full Life" sign.
+- The V8 (60) keeps bursting out of your garage, which sits right next to the Parkway.
+- Tried the HOA's striped lawn as golf fairways; it read as blue rectangles, so it's out. Golf course and a north-south barricade added to the Codex town buildings brief.
