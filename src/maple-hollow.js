@@ -11,8 +11,8 @@ window.MapleHollow = (() => {
 
   async function build(scene, refs, H) {
     const M = window.MAPLE_HOLLOW, R = M.rows, data = window.MAPLE_HOLLOW_LAYOUT, W = M.width;
-    window.MapleHollowGarage = null; window.MapleHollowStairs = null; window.MapleHollowGate = null;
-    const items = [], bodies = [], all = [], townObjs = []; // townObjs: the whole-town pieces, hidden while off screen (Nov 13)
+    window.MapleHollowGarage = null; window.MapleHollowStairs = null; window.MapleHollowGate = null; window.MapleHollowBossSpot = null;
+    const items = [], bodies = [], all = [], townObjs = []; let townAreas = null, openTick = 0; // townObjs: the whole-town pieces, hidden while off screen (Nov 13)
     let alive = true;
     const kit = await H.image(ROOT + "maple-hollow-tiles-props-v1.png"); if (!H.isAlive()) return null;
     const housesImg = await H.image(ROOT + "maple-hollow-houses-v1.png"); if (!H.isAlive()) return null;
@@ -48,6 +48,12 @@ window.MapleHollow = (() => {
       const list = [...files], imgs = await Promise.all(list.map(f => H.image(ROOT + YD.dir + f)));
       list.forEach((f, i) => { my[f] = imgs[i]; });
     } catch (e) { my.failed = true; console.warn("yard pieces missing, keeping the painted yards", e); }
+    // Nov 13: the yard-kit pieces the town's areas reuse (MAPLE_HOLLOW.v2.town.pieces)
+    const TNd = NEW && data.town && MV.town ? MV.town : null, tp = {};
+    if (TNd) try {
+      const files = Object.keys(TNd.pieces || {}), imgs = await Promise.all(files.map(f => H.image(ROOT + "v4/yard/" + f + "-v4.png")));
+      files.forEach((f, i) => { tp[f] = imgs[i]; });
+    } catch (e) { tp.failed = true; console.warn("town pieces missing", e); }
     if (!H.isAlive()) return null;
     const TW = NEW && MV.treeWall && MV.treeWall.on ? MV.treeWall : null, tw = {}; // the tree wall around the town (Nov 11)
     if (TW) try {
@@ -505,14 +511,17 @@ window.MapleHollow = (() => {
       const kn = tex("mh_wall_n", tw.north), ks = tex("mh_wall_s", tw.south), kw = tex("mh_wall_w", tw.west), ke = tex("mh_wall_e", tw.east);
       const kst = tex("mh_wall_s_top", tw.southTop), kwt = tex("mh_wall_w_top", tw.westTop), ket = tex("mh_wall_e_top", tw.eastTop);
       const sq = TN.areas.find(a => a.id === "square"), cx = sq.rect[0] + sq.rect[2] / 2, cy = sq.rect[1] + sq.rect[3] / 2;
-      window.MapleHollowAreas = [];
-      TN.areas.forEach(a => {
+      window.MapleHollowAreas = []; townAreas = [];
+      const built = (TNd && TNd.built) || [];
+      TN.areas.forEach(a0 => {
+        const a = Object.assign({}, a0, { objs: [], open: false, built: built.includes(a0.id) }); townAreas.push(a);
         const [x0, y0, w, h] = a.rect, x1 = x0 + w, y1 = y0 + h;
+        const n0 = all.length; // everything added from here to the sign belongs to this area's woods
         for (let y = y0; y < y1; y += C) { const yy = Math.min(y, y1 - C); for (let x = x0; x < x1; x += S) put(kn, x, yy, -998, Math.min(S, x1 - x)); if (yy === y1 - C) break; }
         for (let x = x0; x < x1; x += S) { const cw = Math.min(S, x1 - x); put(ks, x, y0 - Fr, -997, cw); put(kst, x, y0 - Fr, OVER, cw); }
         for (let y = y0; y < y1; y += S) { const ch = Math.min(S, y1 - y); put(ke, x0 - Fr, y, -997, 0, ch); put(ket, x0 - Fr, y, OVER, 0, ch); put(kw, x1 - C, y, -997, 0, ch); put(kwt, x1 - C, y, OVER, 0, ch); }
         const o = scene.add.rectangle(x0 + w / 2, y1, w, h, 0x000000, 0).setOrigin(0.5, 1); // solid: nobody walks into the woods
-        H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o);
+        H.body(o, { width: w, back: h, front: 0 }, "prop_wall"); bodies.push(o); items.push(o); a.body = o;
         // the sign stands on the edge that faces the middle of town (Town Square's own sign faces down, toward your block)
         const mx = x0 + w / 2, my = y0 + h / 2, dx = cx - mx, dy = cy - my;
         let sx = mx, sy = y1 + 40;
@@ -520,8 +529,49 @@ window.MapleHollow = (() => {
         const line = a.age ? "OPENS AT " + a.age : "FULL LIFE ONLY";
         const t = scene.add.text(sx, sy, a.name + "\n" + line, { fontFamily: "Silkscreen, monospace", fontSize: "14px", color: "#171C35", backgroundColor: "#F2D7A1", align: "center", padding: { x: 8, y: 5 } }).setOrigin(0.5).setDepth(OVER + 1);
         all.push(t); townObjs.push(t);
-        window.MapleHollowAreas.push({ id: a.id, name: a.name, age: a.age, rect: a.rect, sign: [sx, sy] });
+        a.objs = all.slice(n0);
+        window.MapleHollowAreas.push({ id: a.id, name: a.name, age: a.age, rect: a.rect, sign: [sx, sy], area: a });
       });
+      if (TNd && TNd.bossSpots) window.MapleHollowBossSpot = kind => { // a boss comes out of its own area, once that area is open
+        const sp = TNd.bossSpots[kind], a = sp && townAreas.find(z => z.id === sp[0]);
+        if (!a || !a.open) return null;
+        const [x0, y0, w, h] = a.rect; let x = x0 + sp[1], y = y0 + sp[2];
+        const px = p.x, py = p.y + p.height / 2;
+        if (Math.hypot(px - x, py - y) > 1700) { x = Math.max(x0 + 80, Math.min(x0 + w - 80, px)); y = Math.max(y0 + 80, Math.min(y0 + h - 80, py)); } // far away: the edge of its area nearest you
+        return resolveSpawn(x, y);
+      };
+    }
+
+    // An area opens at its age (Nov 13): its woods fade away, the lawn and its pieces appear, and you can walk in.
+    function openArea(a, quiet) {
+      if (a.open) return; a.open = true;
+      const [x0, y0, w, h] = a.rect;
+      a.objs.forEach(o => { const i = townObjs.indexOf(o); if (i >= 0) townObjs.splice(i, 1);
+        if (quiet) o.destroy(); else scene.tweens.add({ targets: o, alpha: 0, duration: 1400, onComplete: () => o.destroy() }); });
+      if (a.body) { const i = bodies.indexOf(a.body); if (i >= 0) bodies.splice(i, 1); a.body.destroy(); a.body = null; }
+      data.floors.push({ x: x0, y: y0, width: w, height: h, material: "mh_grass", district: "home" });
+      const g = scene.add.tileSprite(x0, y0, w, h, keyFor.mh_grass || grassKey).setOrigin(0).setDepth(-1000); all.push(g); townObjs.push(g);
+      if (!tp.failed) ((TNd.layouts || {})[a.id] || []).forEach(([f, x, y]) => {
+        const img = tp[f], P = TNd.pieces[f]; if (!img || !P) return;
+        const k = "mh4_piece_" + f + "-v4.png", X = x0 + x, Y = y0 + y;
+        if (!scene.textures.exists(k)) { const c = document.createElement("canvas"); c.width = img.width; c.height = img.height; c.getContext("2d").drawImage(img, 0, 0);
+          if (P.flat) { scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); } else H.propTexture(scene, c, k, img.width, img.height); }
+        let o;
+        if (P.flat) o = scene.add.image(X, Y, k).setOrigin(0).setDepth(-998);
+        else { // stands up: sorted by its feet with the hero, solid only at its base (the yards' rule)
+          o = scene.add.image(X, Y + P.dy, k).setOrigin(0, P.dy / img.height).setDepth(3); o.sliceDepth = Y + P.dy; items.push(o);
+          H.body(o, { width: 1, back: 1, front: 0 }, "prop_decor"); o.body.enable = false;
+          (P.fp || []).forEach(([bx, by, bw, bh]) => { const r = scene.add.rectangle(X + bx + bw / 2, Y + by + bh, bw, bh, 0x000000, 0).setOrigin(0.5, 1);
+            H.body(r, { width: bw, back: bh, front: 0 }, "prop_wall"); bodies.push(r); items.push(r); });
+        }
+        all.push(o); townObjs.push(o);
+      });
+      if (window.NAV && NAV.invalidate) NAV.invalidate();
+      if (!quiet) {
+        const L = (TNd.openLines || {})[a.id];
+        if (L && window.showLowerThird) showLowerThird("promo", L[0], L[1], 6000);
+        if (typeof sfx === "function") sfx("levelUp", 0);
+      }
     }
 
     // ---- the tree wall (Nov 11): solid forest on all four sides of the town ----
@@ -594,6 +644,10 @@ window.MapleHollow = (() => {
       if (!within(x, y)) { p.setPosition(lastValid[0], lastValid[1] - p.height / 2); p.setVelocity(0, 0); p.body.updateFromGameObject(); }
       else lastValid = [x, y];
       fitCam();
+      if (townAreas && ++openTick % 30 === 0 && typeof currentAge !== "undefined") townAreas.forEach(a => {
+        // a resumed run (or one that starts late) opens what's already due without the fanfare
+        if (!a.open && a.built && a.age && currentAge >= a.age) openArea(a, currentAge >= a.age + 0.4);
+      });
       if (townObjs.length && ++cullTick % 10 === 0) { // draw only the town pieces near the screen (a big map is cheap this way)
         const v = cam.worldView, m = 400;
         townObjs.forEach(o => { const w = o.displayWidth || o.width, h = o.displayHeight || o.height, x = o.x - w * o.originX, y = o.y - h * o.originY;

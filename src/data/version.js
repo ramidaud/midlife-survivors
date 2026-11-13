@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.31.0",
-  displayVersion: "V. 2.31.0",
+  version: "2.32.0",
+  displayVersion: "V. 2.32.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 370,
+  build: 371,
   changelog: [
+    {
+      ver: "V. 2.32.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "School's open at 44. Bring a pencil.",
+      highlights: [
+        "Maple Hollow Elementary opens at 44: the woods clear away and the school grounds appear, with a playground and a soccer field.",
+        "At 45 the Fifth-Grade Math Homework comes out of the playground. If you're far away, it comes out at the edge of the school grounds closest to you.",
+        "The school building itself is still being painted. It goes up in a later update."
+      ]
+    },
     {
       ver: "V. 2.31.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Maple Hollow just got a whole town around it.",

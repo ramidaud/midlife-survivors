@@ -2365,3 +2365,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Each area still to come is a block of woods with a sign saying when it opens. Solid to you and the swarm.
 - Reused art: street plates (turned for north-south roads) and the tree wall. Codex to paint proper north-south roads and crossings later (the crossing patches are a little lighter than the road).
 - Town pieces off screen aren't drawn, to keep phones smooth. Tested at laptop and phone size: walked from your street onto the new road and up past the loop.
+
+## 2026-11-13: V. 2.32.0, Elementary opens at 44 (Claude)
+- First area of the full map. At 44 its woods fade out and the school grounds appear: a playground (swings, sandboxes) and a soccer field, built from the yard kit.
+- Math Homework (45) comes out of the playground, or at the school's edge nearest you if you're far away.
+- The opening code works for every area: the others open the same way once they're built.
+- Codex brief for the school building, pickup line and playground pieces: `docs/handoffs/codex-elementary.md`.

@@ -2462,6 +2462,7 @@ function spawnBoss(scene, bossKind) {
     if (spot) [x, y] = spot;
   }
   { const g = window.Garage && Garage.bossSpot(bossKind); if (g) [x, y] = g; } // Maple Hollow: the V8 comes out of your garage
+  { const g = window.STAGE_ID === "home" && window.MapleHollowBossSpot && MapleHollowBossSpot(bossKind); if (g) [x, y] = g; } // Nov 13: a boss comes out of its own area (Math Homework from the school)
   const boss = bills.create(x, y, P.tex || bossKind).setDepth(4).setScale(P.scale || 1);
   { // big to look at, smaller to bump into (so a huge boss can still get between desks)
     const hb = (window.ENEMY_SCALE && ENEMY_SCALE.bossHitbox) || 1, fw = boss.frame.width, fh = boss.frame.height;

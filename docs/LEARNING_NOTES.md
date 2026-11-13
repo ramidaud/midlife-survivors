@@ -846,3 +846,6 @@ A save file is a list of facts the game writes down so it can rebuild the moment
 
 ## Culling: only draw what's on screen (Nov 13, the whole town)
 The town is about 7 by 11 screens, but you only ever see one. "Culling" means the game skips drawing anything that isn't near the screen. Ours checks a few times a second and hides any town piece more than 400 px outside the view. Drawing less each frame keeps a big map smooth on phones.
+
+## Spawn points (Nov 13, Elementary)
+A spawn point is where something enters the world. Most enemies spawn just off screen around you, wherever you are. Bosses can have their own spawn point, so a fight happens in a place that means something: Math Homework comes out of the school playground. If you're across town, it comes out of the school's edge nearest you instead, so you're never left waiting.

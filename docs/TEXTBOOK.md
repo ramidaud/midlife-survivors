@@ -2114,3 +2114,17 @@ Things are drawn back to front. A bigger depth number goes on top.
 |---|---|
 | Every piece drawn every frame | Only nearby pieces drawn |
 | Cost grows with the map | Cost stays about one screen's worth |
+
+## Chapter: Spawn points
+
+```
+   ELEMENTARY                      you're close:  boss comes out HERE (the playground)
+ +------------------------+
+ |   swings   [HERE]      |
+ |                        |        you're far:   boss comes out at the school's edge
+ +-----------[EDGE]-------+                       nearest you, then walks to you
+              |
+            road
+              |
+           [ YOU ]
+```
