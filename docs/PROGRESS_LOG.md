@@ -2421,3 +2421,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami: finish the stage before balancing. PRs #7, #8, #9 closed (art already in the game).
 - Trees and shrubs as their own sprites: already done by the V2.30.0 yard rebuild, ticked.
 - New Codex brief `docs/handoffs/codex-roads-and-woods.md`: proper north-south roads, crossings and top-down parked cars, then the Woods (Twin Stones, trail, logs, rocks, pines).
+
+## 2026-11-13: the house, inside (Claude)
+- Rami sent 13 photos of the real house (living room, dining and desk, kitchen and entry, main bedroom, the twins' corner, Abe's room) and asked for the same detail as the town, with correct placement and perspective.
+- New Codex brief `docs/handoffs/codex-house-interior.md`: every room repainted from the photos, wall decor face-on on north walls, neutral light with glowing neons, density targets, room mock-ups for approval. Ground floor first, then upstairs.
+- Photos stay out of the repo (it's public and they show family). Rami attaches them to Codex directly. No real names, usernames or plates in the art.
