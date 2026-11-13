@@ -1,0 +1,954 @@
+[
+  {
+    "id": "photo-ledges",
+    "size": [
+      208,
+      88
+    ],
+    "kind": "WALL-DECOR",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_abstract-photo-ledges",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 208x88, paint at EXACT 624x264 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Two floating dark wood photo ledges, one above other, many mismatched small black/wood frames containing ONLY abstract blocks or tiny landscapes with no figures, small books and a trailing pothos. Cream pin string lights underneath localized. Match shelves on left wall in photo."
+  },
+  {
+    "id": "tile-fireplace",
+    "size": [
+      112,
+      80
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_silver-mirror-fireplace",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 112x80, paint at EXACT 336x240 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall tile fireplace, face-on vertical front, a narrow visible tiled hearth top. Grey-beige square tiles, black firebox with small localized flame, cream tile highlights, three tile tones. No mirror included. Stands against north wall, dark outline and hearth shadow."
+  },
+  {
+    "id": "ornate-silver-mirror",
+    "size": [
+      96,
+      64
+    ],
+    "kind": "WALL-DECOR",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_silver-mirror-fireplace",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 96x64, paint at EXACT 288x192 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Ornate silver framed rectangular mirror with intricate carved scrolling border, slate/light sage/cream silver tones. Reflection only soft blank pale wall, no people or recognizable scene."
+  },
+  {
+    "id": "window-olive-curtains",
+    "size": [
+      88,
+      112
+    ],
+    "kind": "WALL-DECOR",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_back-door-blinds",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 88x112, paint at EXACT 264x336 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Window with cream vertical blinds and olive curtains framing left and right, thin white trim, small slate daylight gaps. No outdoor figures."
+  },
+  {
+    "id": "galaxy-wall-tv",
+    "size": [
+      160,
+      88
+    ],
+    "kind": "WALL-DECOR",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_slatted-media-console",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 160x88, paint at EXACT 480x264 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Large slim black wall television, broad visible screen with abstract spiral galaxy in slate/cream/lavender/russet, no text or logos. Very localized screen light only."
+  },
+  {
+    "id": "fluted-media-console",
+    "size": [
+      160,
+      64
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_slatted-media-console",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 160x64, paint at EXACT 480x192 working pixels (3x), subject fills canvas with 3px native clear margin. Low fluted dark wood media cabinet against NORTH wall, front drawers face camera and broad top visible from above. On top: blank black game console, soundbar, TWO small white VR controllers on charging stands. Subtle purple LED strip within cabinet only. Three brown wood tones."
+  },
+  {
+    "id": "cream-sofa",
+    "size": [
+      72,
+      192
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_cream-sofa-back",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 192x104, paint at EXACT 576x312 working pixels (3x), subject fills canvas with 3px native clear margin. Three-seat cream/light grey upholstered sofa against NORTH wall, facing camera south. From above see seat cushions and arm tops, low frontal upholstered apron. Three cream cloth tones, rust and olive pillows, rust knit throw draped one arm. Recognizable from photo, no person.",
+    "initialRequestedSize": [
+      192,
+      104
+    ],
+    "fitNote": "Repainted for west wall: three-seat length192px along north-south axis,72px across. Seats face east toward TV. See revision-prompts.json."
+  },
+  {
+    "id": "leather-recliner",
+    "size": [
+      72,
+      104
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_leather-recliner",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 72x104, paint at EXACT 216x312 working pixels (3x), subject fills canvas with 3px native clear margin. Brown leather power recliner, sits on floor facing SOUTH toward camera, three-quarter overhead view. Three leather tones with articulated cushion creases, cup detail, green knit throw draped one arm. Full outline/shadow."
+  },
+  {
+    "id": "round-coffee-table",
+    "size": [
+      104,
+      64
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_orchid-coffee-table",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 104x64, paint at EXACT 312x192 working pixels (3x), subject fills canvas with 3px native clear margin. Round fluted wood coffee table seen from overhead three-quarter north-facing camera, oval round tabletop perspective. Three wood tones, candles, small dark tray, ONE remote and small decorative bowl on top, rim and fluted pedestal visible."
+  },
+  {
+    "id": "persian-living-rug",
+    "size": [
+      304,
+      176
+    ],
+    "kind": "WALK-THROUGH",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_cream-sofa-back",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 304x176, paint at EXACT 912x528 working pixels (3x), subject fills canvas with 3px native clear margin. Flat WALK-THROUGH floor decal, seen from above and slightly north-facing camera, no dark silhouette outline, no cast shadow, transparent outside. Large rectangular Persian-style rug with intricate SMALL red/russet and navy floral medallion pattern, cream edge details and tiny fringe, viewed overhead. Three tones for red and cream cloth. Entire rug fitscanvas, pattern scale fine relative56x60 hero, no black outline."
+  },
+  {
+    "id": "potted-pothos",
+    "size": [
+      40,
+      64
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_woven-basket-monstera",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 40x64, paint at EXACT 120x192 working pixels (3x), subject fills canvas with 3px native clear margin. Pothos plant in small cream ceramic pot, three-tone green trailing heart-shaped leaves, visible pot lip and soil, three-quarter overhead view. Full dark outline and pot shadow."
+  },
+  {
+    "id": "bird-of-paradise",
+    "size": [
+      56,
+      112
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_woven-basket-monstera",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x112, paint at EXACT 168x336 working pixels (3x), subject fills canvas with 3px native clear margin. Tall bird-of-paradise indoor plant in a warm brown woven basket pot, broad upright three-tone green paddle leaves on tall stems, full outline and compact pot shadow. Three-quarter overhead north-facingcamera."
+  },
+  {
+    "id": "drum-floor-lamp",
+    "size": [
+      32,
+      96
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_drum-floor-lamp",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x96, paint at EXACT 96x288 working pixels (3x), subject fills canvas with 3px native clear margin. Slim floor lamp with cream fabric drum shade, brown/brass turned stem and round small foot. From above see oval shade top, shade side and verticalstem. Plain daylight neutral white balance, no overall glow."
+  },
+  {
+    "id": "arched-floor-lamp",
+    "size": [
+      56,
+      112
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_drum-floor-lamp",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x112, paint at EXACT 168x336 working pixels (3x), subject fills canvas with 3px native clear margin. Arched black metal floor lamp, curved stem carries dome shade over one side, heavy small round ground base under mainstem. Three slate metal tones and tiny cream reflection. From above three-quarter view, fulloutline."
+  },
+  {
+    "id": "racing-sim-rig",
+    "size": [
+      80,
+      112
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_racing-sim-rig",
+    "referenceRoles": [
+      "private attached twins room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 80x112, paint at EXACT 240x336 working pixels (3x), subject fills canvas with 3px native clear margin. One racing simulator cockpit, black tubular frame with red-accented bucket seat, mounted steering wheel, pedals and shifter. View from above, long axis vertical, steering wheel toward NORTH, seat toward SOUTH so visible seat back lower edge and interiortop. No driver. No room floor/cables outside; compactshadow."
+  },
+  {
+    "id": "sim-cables",
+    "size": [
+      96,
+      32
+    ],
+    "kind": "WALK-THROUGH",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_rig-cables",
+    "referenceRoles": [
+      "Isolated asset repaint without image reference; see revision-prompts.json"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 96x32, paint at EXACT 288x96 working pixels (3x), subject fills canvas with 3px native clear margin. Flat WALK-THROUGH floor decal, seen from above and slightly north-facing camera, no dark silhouette outline, no cast shadow, transparent outside. A few thin loose black/slate cables trailing from a racing rig to a TV console, small connector ends, irregular loops. Nothing else."
+  },
+  {
+    "id": "baby-swing-pink",
+    "size": [
+      44,
+      56
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_baby-swing-left",
+    "referenceRoles": [
+      "private attached twins room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 44x56, paint at EXACT 132x168 working pixels (3x), subject fills canvas with 3px native clear margin. An EMPTY baby bouncer swing chair, cream cushioned oval seat on dark curved support frame, overhead three-quarter view, one small pink elephant PLUSH TOY in seat, clearly nonhuman stuffedanimal with trunk. No baby, human figure or person. Three cream cloth tones, toy tonevariation, fulldarkoutline smallshadow."
+  },
+  {
+    "id": "baby-swing-grey",
+    "size": [
+      44,
+      56
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_baby-swing-right",
+    "referenceRoles": [
+      "private attached twins room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 44x56, paint at EXACT 132x168 working pixels (3x), subject fills canvas with 3px native clear margin. An EMPTY baby bouncer swing chair, cream cushioned oval seat on dark curved support frame, overhead three-quarter view, one small grey elephant PLUSH TOY in seat, clearly nonhuman stuffedanimal with trunk. No baby, human figure or person. Three cream cloth tones, toy tonevariation, fulldarkoutline smallshadow."
+  },
+  {
+    "id": "blanket-basket",
+    "size": [
+      40,
+      40
+    ],
+    "kind": "WALL",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_cream-sofa-back",
+    "referenceRoles": [
+      "private attached living room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 40x40, paint at EXACT 120x120 working pixels (3x), subject fills canvas with 3px native clear margin. Round woven basket holding folded cream and olive knit blankets, visible weave and rolled blanket folds, overheadthree-quarter,three brown/cloth tones, fulloutline/shadow."
+  },
+  {
+    "id": "snack-bag",
+    "size": [
+      24,
+      24
+    ],
+    "kind": "WALK-THROUGH",
+    "room": "living",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_cream-sofa-back",
+    "referenceRoles": [
+      "private attached twins room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 24x24, paint at EXACT 72x72 working pixels (3x), subject fills canvas with 3px native clear margin. Flat WALK-THROUGH floor decal, seen from above and slightly north-facing camera, no dark silhouette outline, no cast shadow, transparent outside. A crumpled small russet-and-cream generic snack bag lying on floor, no words, logo, mascot, person or brand. Three painted cloth/paper tones."
+  },
+  {
+    "id": "round-dining-table",
+    "size": [
+      136,
+      88
+    ],
+    "kind": "WALL",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-table-cream-chairs",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 136x88, paint at EXACT 408x264 working pixels (3x), subject fills canvas with 3px native clear margin. Round wood dining table without chairs, broad elliptical top in three-quarter overhead view, three woodtones, woven round placemat, darkvase of redberries, small cream domedtablelamp and littlebowl at center. No chairs included."
+  },
+  {
+    "id": "dining-chair-north",
+    "size": [
+      32,
+      40
+    ],
+    "kind": "WALL",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-table-cream-chairs",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing NORTH, viewed from overhead three-quarter north-facing camera. Back of chair faces camera, show upholstered rear and topofback. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+  },
+  {
+    "id": "dining-chair-south",
+    "size": [
+      32,
+      40
+    ],
+    "kind": "WALL",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-table-cream-chairs",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing SOUTH, viewed from overhead three-quarter north-facing camera. Front faces camera, show seat and back cushion. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+  },
+  {
+    "id": "dining-chair-east",
+    "size": [
+      32,
+      40
+    ],
+    "kind": "WALL",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-table-cream-chairs",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing EAST, viewed from overhead three-quarter north-facing camera. Show sideedge, top of seat and narrowprofileofback, never fullfrontal. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+  },
+  {
+    "id": "dining-chair-west",
+    "size": [
+      32,
+      40
+    ],
+    "kind": "WALL",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-table-cream-chairs",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x40, paint at EXACT 96x120 working pixels (3x), subject fills canvas with 3px native clear margin. One cream upholstered nailhead dining chair, facing WEST, viewed from overhead three-quarter north-facing camera. Show sideedge, top of seat and narrowprofileofback, never fullfrontal. Dark woodlegs,threecreamtones, tiny nailheads, fulloutline/compactshadow."
+  },
+  {
+    "id": "dining-rug",
+    "size": [
+      208,
+      176
+    ],
+    "kind": "WALK-THROUGH",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-table-cream-chairs",
+    "referenceRoles": [
+      "Isolated asset repaint without image reference; see revision-prompts.json"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 208x176, paint at EXACT 624x528 working pixels (3x), subject fills canvas with 3px native clear margin. Flat WALK-THROUGH floor decal, seen from above and slightly north-facing camera, no dark silhouette outline, no cast shadow, transparent outside. A muted Persian patterned rectangular rug under dining table, taupe/cream/russet/slate fine floral motif, three clothtones, subtle wornpattern, no furniture."
+  },
+  {
+    "id": "corner-computer-desk",
+    "size": [
+      240,
+      128
+    ],
+    "kind": "WALL",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_desk-by-dining-window",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 200x112, paint at EXACT 600x336 working pixels (3x), subject fills canvas with 3px native clear margin. Wood corner desk fitting north and east walls, L-shaped desktop visible from above; NORTH-facing front monitors seenface-on, EAST return seenfromtop andsideedge. Two black monitors show abstract editingtimeline withoutletters andgalaxy, laptoponstand, speakers, pen cup and headphonesonstand. Thin legs under desk, no chair/shelvesincluded. Three wood and slateglass tones.",
+    "initialRequestedSize": [
+      200,
+      112
+    ],
+    "fitNote": "Final native fit enlarged from initial200x112 request to240x128 to suit the existing584px desk nook; untouched painting retained."
+  },
+  {
+    "id": "camera-book-shelves",
+    "size": [
+      176,
+      88
+    ],
+    "kind": "WALL-DECOR",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_desk-by-dining-window",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 176x88, paint at EXACT 528x264 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Two floating wood shelves with vintage black cameras, small stacks of books, trailingpothos, a framed abstract mini landscape with no figure, and softly glowing cream globe lamp. No words on books/cameras. Shelvesfacecamera,threewoodtones."
+  },
+  {
+    "id": "mesh-office-chair",
+    "size": [
+      40,
+      56
+    ],
+    "kind": "WALL",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_mesh-desk-chair",
+    "referenceRoles": [
+      "Isolated asset repaint without image reference; see revision-prompts.json"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 40x56, paint at EXACT 120x168 working pixels (3x), subject fills canvas with 3px native clear margin. Black mesh ergonomic office chair facing NORTH toward desk, seenfromabove andslightrear so backmesh dominates, armresttops andwheeledbasevisible. Three slate tones, fine mesh detail, darkoutline/compactshadow."
+  },
+  {
+    "id": "moon-print",
+    "size": [
+      48,
+      64
+    ],
+    "kind": "WALL-DECOR",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_abstract-painting",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 48x64, paint at EXACT 144x192 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Framed large moon print, slate background with detailed neutral cream/slate moon circle, thin cream mat and black frame. No label, words, figures or names."
+  },
+  {
+    "id": "kids-drawings",
+    "size": [
+      64,
+      40
+    ],
+    "kind": "WALL-DECOR",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_desk-by-dining-window",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 64x40, paint at EXACT 192x120 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Three small children's drawings taped to wall, simple sun, colorful house, rainbow and flowers. NO stick figures, people, letters, signatures or names. Creampaper and tinycream tape."
+  },
+  {
+    "id": "electric-console-east",
+    "size": [
+      56,
+      128
+    ],
+    "kind": "WALL",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_slatted-media-console",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x128, paint at EXACT 168x384 working pixels (3x), subject fills canvas with 3px native clear margin. Dark wood electric fireplace console against EAST wall. Long axis VERTICAL north-south, seen mostly from ABOVE and slightly from WEST. Show long narrow cabinet TOP and only thin WEST-facing drawer/fireplace edge, NOT full widthfrontalcabinet. Small localized orange flame visible in westedge opening. On top: lantern, small cream lamp, pottedplant, darkmarblesphere. Cabinet56pxwide128longcanvas, strong overheadperspective, threewoodtones."
+  },
+  {
+    "id": "abstract-wall-painting",
+    "size": [
+      96,
+      80
+    ],
+    "kind": "WALL-DECOR",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_abstract-painting",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 96x80, paint at EXACT 288x240 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Large colorful abstract nonfigurative framedcanvas inspired by swirled multicolor textured paintinginphoto: navy,rust,cream,sage/lavender tangledgestural marks. Absolutely no faces, people, letters, symbols, realnames or signature."
+  },
+  {
+    "id": "potted-orchid",
+    "size": [
+      32,
+      56
+    ],
+    "kind": "WALL",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_orchid-coffee-table",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x56, paint at EXACT 96x168 working pixels (3x), subject fills canvas with 3px native clear margin. White orchid plant in smallneutralceramicpot, curveddarkstems with cream three-tone blossoms and broadgreen leaves, overheadthree-quarter view. Fulloutlinepotshadow."
+  },
+  {
+    "id": "ceiling-fan",
+    "size": [
+      64,
+      64
+    ],
+    "kind": "OVER",
+    "room": "dining",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_ceiling-fan",
+    "referenceRoles": [
+      "private attached dining room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 64x64, paint at EXACT 192x192 working pixels (3x), subject fills canvas with 3px native clear margin. One ceiling fan seen from DIRECTLY ABOVE, four brown wood blades around creamcentral light, threewoodtones, no ceiling, no castfloor shadow. Isolatedtransparent ambient overhead piece."
+  },
+  {
+    "id": "white-oak-sink-counter",
+    "size": [
+      144,
+      80
+    ],
+    "kind": "WALL",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_white-double-sink",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 144x80, paint at EXACT 432x240 working pixels (3x), subject fills canvas with 3px native clear margin. Kitchen lower base cabinet with WHITE doors and OAK trim, faces SOUTH under northwall, seenfromabove. Broad cream countertop with stainless DOUBLE sink, tall faucet, generic soapbottle and small dryingrack with plates. Threewhitecabinettones, threeoaktones, three slate steeltones. Nouppercabinetsincluded."
+  },
+  {
+    "id": "white-oak-upper-cabinets",
+    "size": [
+      160,
+      64
+    ],
+    "kind": "WALL-DECOR",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_oak-trim-worktop",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 160x64, paint at EXACT 480x192 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. North-wall UPPER kitchen cabinets, white rectangular cupboarddoors edgedin oak with small simple pulls,threecreamtones andthreeoaktones. Face-on, no countertop or lowercabinet. No text."
+  },
+  {
+    "id": "stove-microwave",
+    "size": [
+      64,
+      112
+    ],
+    "kind": "WALL",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_white-stove-microwave",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 64x112, paint at EXACT 192x336 working pixels (3x), subject fills canvas with 3px native clear margin. White freestanding stove with blackburnergrates onvisible TOP, knobs onfront,ovenwindow, and whitemicrowave above as oneverticalappliancestack againstNORTHwall. Threecreamtonesanddarkslateglass, no logos or labels. Overheadthree-quarterview."
+  },
+  {
+    "id": "magnet-fridge",
+    "size": [
+      64,
+      112
+    ],
+    "kind": "WALL",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_magnet-fridge",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 64x112, paint at EXACT 192x336 working pixels (3x), subject fills canvas with 3px native clear margin. Tall white refrigerator, northwallfront facesSOUTHcamera; visible narrowtop and frontal double divideddoors, tiny colorful generic magnets and blanknotes, NO people, names, brands, usernames, readableletters or numbers. Threecreamtones and darkmetalhandles. Fulloutlineheavyfootshadow."
+  },
+  {
+    "id": "kitchen-counter-west",
+    "size": [
+      56,
+      128
+    ],
+    "kind": "WALL",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_oak-trim-worktop",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x128, paint at EXACT 168x384 working pixels (3x), subject fills canvas with 3px native clear margin. Long kitchen basecabinet/worktop against WEST sidewall. Longaxisverticalnorthsouth, mostly topview, show broad creamcountertop and thin EAST-facing cabinetedge with whitepanels and oaktrim. NOT a wide front-facing cabinet. Small blank toaster and electric kettle. Threecream/oak/steeltones, compactoutlineandshadow."
+  },
+  {
+    "id": "kitchen-counter-east",
+    "size": [
+      56,
+      128
+    ],
+    "kind": "WALL",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_galley-right-worktop",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x128, paint at EXACT 168x384 working pixels (3x), subject fills canvas with 3px native clear margin. Long kitchen basecabinet/worktop against EAST sidewall. Longaxisverticalnorthsouth, mostly topview, show broad creamcountertop and thin WEST-facing cabinetedge with whitepanels and oaktrim. NOT a wide front-facing cabinet. Small generic cleaning spraybottle, folded dishtowel and dryingtray. Threecream/oak/steeltones, compactoutlineandshadow."
+  },
+  {
+    "id": "leaning-abstract-painting",
+    "size": [
+      48,
+      64
+    ],
+    "kind": "WALL",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_abstract-painting",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 48x64, paint at EXACT 144x192 working pixels (3x), subject fills canvas with 3px native clear margin. Small colorful nonfigurativeabstract canvas leaning againstNORTHwall withbottom resting on floor, front visible upright atslightlean,three-tone rust/navy/sage/cream texturedswirls. No people, signatures orwords. Tiny floorfootprint, dark outline and smallbaseshadow."
+  },
+  {
+    "id": "kitchen-runner",
+    "size": [
+      72,
+      184
+    ],
+    "kind": "WALK-THROUGH",
+    "room": "kitchen",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_kitchen-runner",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 72x184, paint at EXACT 216x552 working pixels (3x), subject fills canvas with 3px native clear margin. Flat WALK-THROUGH floor decal, seen from above and slightly north-facing camera, no dark silhouette outline, no cast shadow, transparent outside. Long narrow kitchen runner, fine cream/taupe/russet geometric wovenpattern with threeclothtones. Longaxisvertical, no objects."
+  },
+  {
+    "id": "storage-bench-west",
+    "size": [
+      56,
+      112
+    ],
+    "kind": "WALL",
+    "room": "entry",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 56x112, paint at EXACT 168x336 working pixels (3x), subject fills canvas with 3px native clear margin. Dark upholstered storage bench against WESTwall, longaxisverticalnorthsouth, mostly TOP visible and narrow EAST-facing side. Width56, length112native. A single orange/red basketball on top WITHOUTanybrand, name orletters. Threecharcoalupholsterytones, basketballthreetonesblackseams, neatcompactshadow. No shoesincluded."
+  },
+  {
+    "id": "shoe-pairs",
+    "size": [
+      32,
+      24
+    ],
+    "kind": "WALK-THROUGH",
+    "room": "entry",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x24, paint at EXACT 96x72 working pixels (3x), subject fills canvas with 3px native clear margin. Flat WALK-THROUGH floor decal, seen from above and slightly north-facing camera, no dark silhouette outline, no cast shadow, transparent outside. Two pairs of casual shoes, one brown pair, one slatepair, lyingneatlysidebyside, no brands or text. Small three-tonematerials."
+  },
+  {
+    "id": "coat-hooks-jacket",
+    "size": [
+      40,
+      72
+    ],
+    "kind": "WALL-DECOR",
+    "room": "entry",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 40x72, paint at EXACT 120x216 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Small oak coat hookrail with a puffy darkslatejacket hanging fromonehook, threefabrictones and baffles, no logos or person, emptygarment."
+  },
+  {
+    "id": "light-switch",
+    "size": [
+      12,
+      20
+    ],
+    "kind": "WALL-DECOR",
+    "room": "entry",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 12x20, paint at EXACT 36x60 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. One plain cream rectangular light switchplate with single toggle, threecream/slatetones, no text."
+  },
+  {
+    "id": "ceiling-vent",
+    "size": [
+      32,
+      24
+    ],
+    "kind": "OVER",
+    "room": "entry",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 32x24, paint at EXACT 96x72 working pixels (3x), subject fills canvas with 3px native clear margin. Small white rectangular ceiling vent grille seenfrombelow front/overhead projectedflat, threecream/slatetones, narrowventslots. No ceiling or castgroundshadow, isolatedtransparent."
+  },
+  {
+    "id": "oak-door-north",
+    "size": [
+      64,
+      112
+    ],
+    "kind": "WALL-DECOR",
+    "room": "shell",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 64x112, paint at EXACT 192x336 working pixels (3x), subject fills canvas with 3px native clear margin. North-wall decoration, painted FACE-ON, no top-down tilt. Transparent outside, no floor shadow, not a floor obstacle. Closed plain oak interior door in white/oakframe,64pxwide,112high, threewoodtones and brassroundknob, no numbers or names."
+  },
+  {
+    "id": "oak-door-side",
+    "size": [
+      16,
+      112
+    ],
+    "kind": "WALL-DECOR",
+    "room": "shell",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-basketball-bench",
+    "referenceRoles": [
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 16x112, paint at EXACT 48x336 working pixels (3x), subject fills canvas with 3px native clear margin. East/westwall door seen nearly EDGE ON from above andsouth, thin oak frame and narrow doorpanelstrip with tinyknobedge. Native16x112. Do not draw face-onwide door. Transparent outside. Threeoaktones."
+  },
+  {
+    "id": "north-wall-strip",
+    "size": [
+      256,
+      96
+    ],
+    "kind": "WALL-DECOR",
+    "room": "shell",
+    "factor": 2,
+    "ground": false,
+    "oldReference": "wall_h",
+    "referenceRoles": [
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 256x96, paint at EXACT 512x192 working pixels (2x), subject fills canvas with 3px native clear margin. Seamless horizontal strip of plain warm BEIGE interior wall under NEUTRAL daylight, face-on. Whitebaseboard alongbottom8pixels, tiny oakdoortrimedge detail absentso repeatcleanly. Threepainttones #D3B78D/#F2D7A1/#A88B70 subtle texture, baseboardcream3tones. No furniture,doors,pictures,objects or floor. Fillsfullrectangleopaque, no perspective or castgroundshadow."
+  },
+  {
+    "id": "side-wall-strip",
+    "size": [
+      16,
+      256
+    ],
+    "kind": "WALL-DECOR",
+    "room": "shell",
+    "factor": 2,
+    "ground": false,
+    "oldReference": "wall_v",
+    "referenceRoles": [
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 16x256, paint at EXACT 32x512 working pixels (2x), subject fills canvas with 3px native clear margin. Thin east/west cutaway wall edge viewednearly edge-on, northsouthverticalstrip16x256. Warmbeige thickness withwhitebaseboardthininneredge, threecream/beigetones, oaktrimhint. Fullrectangleopaque,repeatvertical, no furniture orpeople."
+  },
+  {
+    "id": "dark-wood-floor",
+    "size": [
+      512,
+      512
+    ],
+    "kind": "GROUND",
+    "room": "shell",
+    "factor": 2,
+    "ground": true,
+    "oldReference": "floor_circulation",
+    "referenceRoles": [
+      "Bare texture repaint with no image reference; see revision-prompts.json"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 512x512, paint at EXACT 1024x1024 working pixels (2x), subject fills canvas with 3px native clear margin. Fully OPAQUE seamless groundtexture, topdown. Dark wood laminate planks, medium narrowboards nativewidth12..18px,longboardlength80..160px, visible warm brown woodgrain THREEtones #70402F/#A88B70/#B97A58, not orange, not glossy. Boardsrunvertically, alternating seams, no massiveplanks. No furniture, objects,outline,shadow,border or vignette, fillsallcorners."
+  },
+  {
+    "id": "beige-carpet",
+    "size": [
+      512,
+      512
+    ],
+    "kind": "GROUND",
+    "room": "shell",
+    "factor": 2,
+    "ground": true,
+    "oldReference": "floor_circulation",
+    "referenceRoles": [
+      "Bare texture repaint with no image reference; see revision-prompts.json"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 512x512, paint at EXACT 1024x1024 working pixels (2x), subject fills canvas with 3px native clear margin. Fully OPAQUE seamless groundtexture, topdown. Soft beige low-pilecarpet with fine fleckedfibers, THREE neutralcream/taupetones #D3B78D/#F2D7A1/#A88B70, fine subtle texture, not patterned, no broadlightinggradient. No furniture, objects,outline,shadow,border or vignette, fillsallcorners."
+  },
+  {
+    "id": "louvered-closet-door-side",
+    "size": [
+      16,
+      112
+    ],
+    "kind": "WALL-DECOR",
+    "room": "entry",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_entry-louvered-door",
+    "referenceRoles": [
+      "private attached hall room photo, art reference only, excluded from repository",
+      "v4 painted chair, style and palette"
+    ],
+    "prompt": "Use case: stylized-concept. Paint ONE isolated game asset for Maple Hollow house interior. Reference photo is private: use furniture shape, materials and details ONLY. NEVER paint any person, human figure, face, portrait, likeness, reflection of a person, real name, username, license number, brand, logo or readable text. Pictures in frames must be nonfigurative abstract art or landscapes with no figures. Screens show abstract interface marks without text. Neutral daylight white balance, NO sepia, golden haze, film tint, warm lamp cast or colored LED cast on entire object. Local glows only on actual screens/lights. Match v4 kit: painted clustered details, dark navy outline and compact lower-right shadow on standing furniture, at least THREE tones per material, light upper-left. Camera looks DOWN at three-quarters and faces NORTH, no isometric room or vanishing-point perspective. No room background, floor or surrounding furniture. Colors by material in v4 palette: #171C35 #303750 #526078 #3E7775 #83A89A #A88B70 #D3B78D #F2D7A1 #FFF0CF #874C3B #C45C4B #EF9347 #E5A995 #F1B5BF #BFA8CF #B97A58 #70402F #9BAE73 #6D895B #315B4B #D8AD4A. Native canvas 16x112, paint at EXACT 48x336 working pixels (3x), subject fills canvas with 3px native clear margin. Side-wall door seen almost EDGE-ON, mostly thin top and side profile, never a wide frontal view. Transparent outside, no floor shadow, not a floor obstacle. Oak-framed white louvered closet door, thin edge view with narrow slat ends visible, simpleplainhandle,threecream/oaktones, no sign. Fits a16px-wide side-wall strip; long axis vertical."
+  },
+  {
+    "id": "window-blinds-east",
+    "size": [
+      16,
+      112
+    ],
+    "kind": "WALL-DECOR",
+    "room": "desk",
+    "factor": 3,
+    "ground": false,
+    "oldReference": "p_dining-window",
+    "referenceRoles": [
+      "Existing generated olive-curtain window, repainted in side-wall perspective"
+    ],
+    "prompt": "Repaint the SAME olive-curtain and white vertical-blind window for an EAST wall viewed nearly EDGE ON. Camera looks down three-quarters facing NORTH. Native16x112, working48x336at3x. Window is a thin vertical strip showing narrowslatends, a thin creamtrim edge and narrow olivecurtain folds. No wide face-on window, no roombackground orfloor, no perspectivevanishingpoint. Not a rotatedflatpicture; new edge-onview, transparentoutside. Atleastthree tones percream/olive material, v4 darknavylinework, upperleftlight. Neutraldaylight, no sepia,goldenhaze orcoloredcast. No people, faces, names, letters, numbers, logos or text."
+  }
+]

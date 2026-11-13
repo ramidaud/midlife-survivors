@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cream-sofa",
+    "prompt": "Edit this SAME cream three-seat sofa into the correct WEST-wall orientation for a topdown three-quarter game camera facing NORTH. NOT face-on. Long axis now vertical NORTH-SOUTH,192pxlong; nativecanvas72pxwide x192pxtall, working216x576 at3x. Sofa back along LEFT/WEST edge, seat fronts open to RIGHT/EAST. Show three seat cushion TOPS arranged vertically, back and arm tops from above, only a thin EAST-facing front apron edge, never wide frontalcushions. This is a new three-dimensional view, do not rotate the flat image90degrees. Preserve cream upholstery, olive/rust pillows and knit rust throw on southarm, three tones each, dark outline/compactlower-rightshadow, upper-leftlighting. Transparent outside. Neutral daylightWB, no sepia or goldenhaze. No people, portraits, realnames, usernames, letters or logos. Isolatedobjectonly. Must fill72x192native footprint at realistic3seatlength192relative56x60hero.",
+    "referenceRoles": [
+      "Initial generated sofa, turned into a new west-wall view"
+    ]
+  },
+  {
+    "id": "dark-wood-floor",
+    "prompt": "Paint a seamless square TOP-DOWN GAME FLOOR TEXTURE ONLY. EXACT1024x1024 workingcanvas for512x512 after2x blockreduction. Dark brown laminate floorboards running vertically, nativeboardwidth12to18px andboardlength80to160px, smallstaggeredjoints, detailed fine paintedwoodgrain. Atleast THREE woodtones #70402F dark,#B97A58 medium,#A88B70 highlight. Mostlydarkbrown neutraldaylight, NO orange overallcast, NO sepia goldenhaze or film tint. Pixel-cluster painted v4 game style, NOTphotoreal. Fills allfour cornerswithfloorpaint, perfectlyrepeatable oppositeedges, no gradient,border,vignette. NO CHAIR OR ANY FURNITURE, props, persons, shadows, wall, signs, letters, floorplan or UI. Entire image is bare, emptyfloor texture. Opaque.",
+    "referenceRoles": [
+      "No reference image; bare texture repaint"
+    ]
+  },
+  {
+    "id": "beige-carpet",
+    "prompt": "Paint a seamless square TOP-DOWN GAME FLOOR TEXTURE ONLY. EXACT1024x1024 workingcanvas for512x512 after2x blockreduction. Soft beige low-pile carpet with fine subdued fibers/flecktexture, at least THREE neutral tones #D3B78D base,#F2D7A1 pale,#A88B70 smalldarkflecks, neutraldaylightwhitebalance. Paintedclustered pixel-game texture matching MapleHollowv4, NOTphotoreal. Fine enough that56x60hero ismuchlargerthanfiberpattern. Fills allfourcorners opaque carpet, repeatableedges,no lightinggradient or borders. NO CHAIR, furniture,props,person,wall,shadow,rooms,words,UI,objects orsampletileframes. No sepia,goldenhaze orfilmlook. Bareemptycarpet texture only.",
+    "referenceRoles": [
+      "No reference image; bare texture repaint"
+    ]
+  },
+  {
+    "id": "kitchen-counter-west",
+    "prompt": "Edit ONLY the worktop contents in this SAME side-view kitchen cabinet. REMOVE EVERY SINK BASIN and ALL FAUCETS from the entire piece. Replace allbasins andfaucetareas with continuous solid cream countertop matchingexistingpaintedcountertop and grain. There mustbe NO sink, tub, hole, basin, drain or faucet anywhere. Keep only the toaster and kettle on otherwise clear countertop. Preserve exact cabinet shape, WHITE doors with OAKtrim, overhead view with longaxisvertical and thin sidefront, same lightupperleft, same three-tonematerials, darkoutlineandsmallshadow. Native56x128, working168x384at3x. Neutral daylightWB no sepia,goldenhaze orcoloredcast. Transparentoutside. No people, text, names, letters or logos.",
+    "referenceRoles": [
+      "Initial generated side counter, extra sink removed"
+    ]
+  },
+  {
+    "id": "kitchen-counter-east",
+    "prompt": "Edit ONLY the worktop contents in this SAME side-view kitchen cabinet. REMOVE EVERY SINK BASIN and ALL FAUCETS from the entire piece. Replace allbasins andfaucetareas with continuous solid cream countertop matchingexistingpaintedcountertop and grain. There mustbe NO sink, tub, hole, basin, drain or faucet anywhere. Keep only the spraybottle, foldedtowel and dryingrack on otherwise clear countertop. Preserve exact cabinet shape, WHITE doors with OAKtrim, overhead view with longaxisvertical and thin sidefront, same lightupperleft, same three-tonematerials, darkoutlineandsmallshadow. Native56x128, working168x384at3x. Neutral daylightWB no sepia,goldenhaze orcoloredcast. Transparentoutside. No people, text, names, letters or logos.",
+    "referenceRoles": [
+      "Initial generated side counter, extra sink removed"
+    ]
+  },
+  {
+    "id": "window-blinds-east",
+    "prompt": "Repaint the SAME olive-curtain and white vertical-blind window for an EAST wall viewed nearly EDGE ON. Camera looks down three-quarters facing NORTH. Native16x112, working48x336at3x. Window is a thin vertical strip showing narrowslatends, a thin creamtrim edge and narrow olivecurtain folds. No wide face-on window, no roombackground orfloor, no perspectivevanishingpoint. Not a rotatedflatpicture; new edge-onview, transparentoutside. Atleastthree tones percream/olive material, v4 darknavylinework, upperleftlight. Neutraldaylight, no sepia,goldenhaze orcoloredcast. No people, faces, names, letters, numbers, logos or text.",
+    "referenceRoles": [
+      "Generated front-facing window, repainted in east-wall view"
+    ]
+  },
+  {
+    "id": "dining-rug",
+    "prompt": "Paint ONE flat rectangular rug ONLY, no reference image. Native208x176 at exact3x working624x528. Overhead topdown Persian-style dining room rug, fine muted taupe/cream/russet/slate floralwovenpattern, not loud or giantmedallion. Atleast THREE tones per clothmaterial, v4 paintedpixel-clusters, crisp fiber/fringe edges. Transparent outside, NO dark silhouetteoutline orcastshadow. Entire rectanglefitswith3pxnativeclearborder. NO ROOM, TABLE, CHAIRS, WALLS, DOORS, WINDOWS, FLOOR, PLANTS, FURNITURE, SCENE OR ANYOBJECTS on top. Bare rug surface with flat wovenpattern ONLY. No people,faces,letters,names,numbers,logos,text. Neutral daylightWB, nosepia,goldenhazeorfilmtint.",
+    "referenceRoles": [
+      "No image reference, bare rug repaint"
+    ]
+  },
+  {
+    "id": "mesh-office-chair",
+    "prompt": "Paint ONE BLACK MESH ERGONOMIC OFFICE CHAIR ONLY, isolated transparent game sprite. Native40x56, exact3xworking120x168. Viewed from ABOVE and slightly from SOUTH, facing NORTH toward an imaginary desk that is NOT in image. Show rear black mesh back, armresttops, visible seattop, wheeledfive-starbase. THREE slate blackmaterialtones #171C35/#303750/#526078, tinycreamupperleftreflection. Full darkoutlinecompactlower-rightshadow. Paintedpixelcluster MapleHollowv4 game art. NO DESK, COMPUTER, SCREEN, SHELF, PLANT, ROOM, FLOOR, WALL, otherfurniture orscene. Chairfillsframewith3pxclear margin. No person,faces,names,letters,logos,numbers,branding. Neutraldaylightwhitebalance,no sepia,goldenhazeorfilmtint.",
+    "referenceRoles": [
+      "No image reference, isolated object repaint"
+    ]
+  },
+  {
+    "id": "sim-cables",
+    "prompt": "Paint ONLY a few LOOSE ELECTRICAL CABLES lying flat, isolated transparentgame decal, native96x32 at exact3xworking288x96. Three thin black/slate cords in irregular loops from left to right, small connector ends. THREE tones navy #171C35/slate #303750/highlight #526078 within thecables. Flat topdown, no silhouetteoutline or castgroundshadow. NO TV, COMPUTER, RACINGRIG, CHAIR, BABYSWING, FIREPLACE, ROOM, FLOOR, WALL, furniture oranyotherobject. ONLY cordsandconnectors, spreadacrosswidecanvaswith3pxmargin. Paintedpixelclusters. No people,faces,words,names,numbers,logos. NeutralWB no sepia,goldenhazeorcoloredcast.",
+    "referenceRoles": [
+      "No image reference, isolated object repaint"
+    ]
+  }
+]
