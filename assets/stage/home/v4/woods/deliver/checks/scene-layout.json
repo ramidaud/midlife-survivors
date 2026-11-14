@@ -1,0 +1,85 @@
+{
+  "purpose": "Isolated art review, not runtime placement",
+  "size": [
+    1024,
+    768
+  ],
+  "mainRoute": [
+    144,
+    0,
+    224,
+    768
+  ],
+  "exits": [
+    "north",
+    "south"
+  ],
+  "solidCount": 12,
+  "placements": [
+    {
+      "id": "tree-evergreen",
+      "x": 12,
+      "y": 16
+    },
+    {
+      "id": "tree-maple-red",
+      "x": 440,
+      "y": 8
+    },
+    {
+      "id": "tree-birch-yellow",
+      "x": 832,
+      "y": 16
+    },
+    {
+      "id": "tree-evergreen",
+      "x": 16,
+      "y": 272
+    },
+    {
+      "id": "tree-birch-yellow",
+      "x": 416,
+      "y": 304
+    },
+    {
+      "id": "tree-maple-red",
+      "x": 848,
+      "y": 320
+    },
+    {
+      "id": "tree-evergreen",
+      "x": 440,
+      "y": 560
+    },
+    {
+      "id": "tree-maple-red",
+      "x": 832,
+      "y": 560
+    },
+    {
+      "id": "twin-stone-i",
+      "x": 600,
+      "y": 280
+    },
+    {
+      "id": "twin-stone-ii",
+      "x": 792,
+      "y": 280
+    },
+    {
+      "id": "fallen-log",
+      "x": 584,
+      "y": 552
+    },
+    {
+      "id": "mossy-rock-cluster",
+      "x": 616,
+      "y": 48
+    },
+    {
+      "id": "mushroom-ring",
+      "x": 656,
+      "y": 464
+    }
+  ]
+}

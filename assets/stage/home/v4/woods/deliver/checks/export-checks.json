@@ -1,0 +1,172 @@
+{
+  "assetChecksPass": true,
+  "pieces": [
+    {
+      "id": "twin-stone-i",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#303750",
+        "#526078",
+        "#83A89A"
+      ],
+      "sha256": "136bc4fb35344ac269f760c0fcad15071a0fe183cf4beef2c9b0ac6458362145"
+    },
+    {
+      "id": "twin-stone-ii",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#303750",
+        "#526078",
+        "#83A89A"
+      ],
+      "sha256": "7e67a18eaf9e253622f0ca7000f2f58d145a5d964a09e29ab8d9e560582a6da6"
+    },
+    {
+      "id": "forest-floor",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#9BAE73",
+        "#6D895B",
+        "#315B4B"
+      ],
+      "sha256": "61d9cf2d5c1633887cc64c383c740b6f71167821cdddfe9950b840b40e230d5a"
+    },
+    {
+      "id": "forest-trail-straight",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#B97A58",
+        "#A88B70",
+        "#D3B78D"
+      ],
+      "sha256": "1fed3237395547adc30519f184111225cbb703887b9e4a876a285288c618d235"
+    },
+    {
+      "id": "forest-trail-curve",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#B97A58",
+        "#A88B70",
+        "#D3B78D"
+      ],
+      "sha256": "507048a7c9748a9c07bf5df1c16bd7cb07f628a4a973293beaf75e86ddeb1565"
+    },
+    {
+      "id": "fallen-log",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [],
+      "sha256": "a3878dd8ee15719c45ef7bbbaafdd1256581ed67d9c67eb4e132b28afcc95209"
+    },
+    {
+      "id": "mossy-rock-cluster",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#303750",
+        "#526078",
+        "#83A89A"
+      ],
+      "sha256": "e79ba21b7f29043bfd723d64be0519916a768e240a4d9d1d16578343ea40a551"
+    },
+    {
+      "id": "mushroom-ring",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [],
+      "sha256": "1273d665d6b82214e6a2090a760f7c6a5af0b9785d3786674180f6a786a7173d"
+    },
+    {
+      "id": "fireflies-loop",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [],
+      "sha256": "e9456ef9e318cdd175e3393bb5ea097e29ad2ce01034b2bff32694660daf9118"
+    },
+    {
+      "id": "tree-evergreen",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#315B4B",
+        "#3E7775",
+        "#83A89A"
+      ],
+      "sha256": "9f8886fea61dedaac6b9cd956911844cff4c07bc4957d2c8712816cd73b18ede"
+    },
+    {
+      "id": "tree-maple-red",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [],
+      "sha256": "1f8d6729dd4a644646d1d3b925ac668dd58f383b32628223044a0a0203a1d768"
+    },
+    {
+      "id": "tree-birch-yellow",
+      "sizePass": true,
+      "alphaPass": true,
+      "footprintPass": true,
+      "palettePass": true,
+      "materialFamilyColors": [
+        "#D8AD4A",
+        "#F2D7A1",
+        "#FFF0CF"
+      ],
+      "sha256": "3df40c18638cd6a68f3d77e1fd34f9e2fdfee5f8cf19d98ca69e7aeef8927e95"
+    }
+  ],
+  "fireflies": {
+    "frames": 4,
+    "uniqueFrames": 4,
+    "frameSize": [
+      32,
+      32
+    ],
+    "frameDurationMs": 200,
+    "loopPass": true
+  },
+  "scene": {
+    "size": [
+      1024,
+      768
+    ],
+    "solidCount": 12,
+    "targetSolidCount": 12,
+    "mainRouteWidth": 224,
+    "routeClear": true,
+    "exits": [
+      "north",
+      "south"
+    ]
+  },
+  "privacy": "All source paintings generated with built-in imagegen. No real photos added.",
+  "runtimePlacement": false,
+  "browser": "Local file preview blocked by URL policy; native PNG QA completed, browser/device layout unverified."
+}

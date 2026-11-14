@@ -1,0 +1,92 @@
+[
+  {
+    "id": "street-ns-a",
+    "prompt": "Opaque north-south plate, 512x832, 320px asphalt,64px sidewalks32px parkways, upper-left light.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-29ec259c-0b61-4ecd-bf47-98cd165d0468.png"
+  },
+  {
+    "id": "street-ns-b",
+    "prompt": "Production painted pixel-art game ground tile, matching reference street palette and linework exactly. North-south street plate variant B. Paint at 1024x1664 for final 512x832. Left to right final pixels: sidewalk x0-64, sage parkway64-96,320px road96-416,parkway416-448,sidewalk448-512. Vertical cream dashed centerline x256. Sparse different autumn leaf clusters and a small patched crack. No cars. Asphalt #526078, grass #9BAE73, cream sidewalk, thin navy outlines. Three tones each material, peak fall, upper-left light and lower-right shadows. Neutral white balance no sepia golden haze film tint. Full bleed OPAQUE rectangle, absolutely no transparency or holes. No labels text characters buildings. Flat overhead view. Keep road widths exact and edge connections centered.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-e4ada0ae-25dc-4ac2-80c5-ef81fe65b48b.png"
+  },
+  {
+    "id": "crossing-four-way",
+    "prompt": "Widen both roads to62.5%, four small96px corners, preserve palette and upper-left lighting.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-1f8d27c6-1701-40c4-b6d8-31bd399907d0.png"
+  },
+  {
+    "id": "junction-t-north",
+    "prompt": "Production painted pixel-art game ground tile, matching reference street palette and linework exactly. T junction ground plate. Paint at1024x1024 for final512x512. Exactly THREE asphalt arms each320px wide. The road ending into the crossbar comes from NORTH; the opposite side is CLOSED by continuous sidewalk/parkway. Other two arms connect through. Four corners of band use same cream sidewalk and sage parkway as reference, rounded curbs, cream crosswalks across THREE arms. No fourth arm no cars. Asphalt #526078, grass #9BAE73, cream sidewalk, thin navy outlines. Three tones each material, peak fall, upper-left light and lower-right shadows. Neutral white balance no sepia golden haze film tint. Full bleed OPAQUE rectangle, absolutely no transparency or holes. No labels text characters buildings. Flat overhead view. Keep road widths exact and edge connections centered.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-9865f3f3-1e99-45e7-b008-1cbfc17681d1.png"
+  },
+  {
+    "id": "junction-t-south",
+    "prompt": "Production painted pixel-art game ground tile, matching reference street palette and linework exactly. T junction ground plate. Paint at1024x1024 for final512x512. Exactly THREE asphalt arms each320px wide. The road ending into the crossbar comes from SOUTH; the opposite side is CLOSED by continuous sidewalk/parkway. Other two arms connect through. Four corners of band use same cream sidewalk and sage parkway as reference, rounded curbs, cream crosswalks across THREE arms. No fourth arm no cars. Asphalt #526078, grass #9BAE73, cream sidewalk, thin navy outlines. Three tones each material, peak fall, upper-left light and lower-right shadows. Neutral white balance no sepia golden haze film tint. Full bleed OPAQUE rectangle, absolutely no transparency or holes. No labels text characters buildings. Flat overhead view. Keep road widths exact and edge connections centered.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-dbb88f62-1dc4-4e95-b118-eb175e44f009.png"
+  },
+  {
+    "id": "junction-t-east",
+    "prompt": "Production painted pixel-art game ground tile, matching reference street palette and linework exactly. T junction ground plate. Paint at1024x1024 for final512x512. Exactly THREE asphalt arms each320px wide. The road ending into the crossbar comes from EAST; the opposite side is CLOSED by continuous sidewalk/parkway. Other two arms connect through. Four corners of band use same cream sidewalk and sage parkway as reference, rounded curbs, cream crosswalks across THREE arms. No fourth arm no cars. Asphalt #526078, grass #9BAE73, cream sidewalk, thin navy outlines. Three tones each material, peak fall, upper-left light and lower-right shadows. Neutral white balance no sepia golden haze film tint. Full bleed OPAQUE rectangle, absolutely no transparency or holes. No labels text characters buildings. Flat overhead view. Keep road widths exact and edge connections centered.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-27fa5afd-514d-44a8-9d60-cec4a9e00251.png"
+  },
+  {
+    "id": "junction-t-west",
+    "prompt": "Production painted pixel-art game ground tile, matching reference street palette and linework exactly. T junction ground plate. Paint at1024x1024 for final512x512. Exactly THREE asphalt arms each320px wide. The road ending into the crossbar comes from WEST; the opposite side is CLOSED by continuous sidewalk/parkway. Other two arms connect through. Four corners of band use same cream sidewalk and sage parkway as reference, rounded curbs, cream crosswalks across THREE arms. No fourth arm no cars. Asphalt #526078, grass #9BAE73, cream sidewalk, thin navy outlines. Three tones each material, peak fall, upper-left light and lower-right shadows. Neutral white balance no sepia golden haze film tint. Full bleed OPAQUE rectangle, absolutely no transparency or holes. No labels text characters buildings. Flat overhead view. Keep road widths exact and edge connections centered.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-8ccfc67b-4540-4618-a145-54a4841773b4.png"
+  },
+  {
+    "id": "car-sage-up",
+    "prompt": "Production game asset on truly transparent background. One parked compact station wagon, muted sage green, facing NORTH toward TOP of canvas. Overhead view matching reference cars but long axis VERTICAL, wheels sit left/right, hood at top. Final canvas80x144 with car inside x8..70 y8..132; paint at4x size320x576. No ground. Full dark navy outline, heavy compact cast shadow lower right, windshield, roof and hood clearly readable. Solid wall object. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-4a83f9d2-d0bc-4671-b7c1-051bb674f713.png"
+  },
+  {
+    "id": "car-sage-down",
+    "prompt": "Production game asset on truly transparent background. One parked compact station wagon, muted sage green, facing SOUTH toward BOTTOM of canvas. Overhead view matching reference cars but long axis VERTICAL, wheels sit left/right, hood at bottom. Final canvas80x144 with car inside x8..70 y8..132; paint at4x size320x576. No ground. Full dark navy outline, heavy compact cast shadow lower right, windshield, roof and hood clearly readable. Solid wall object. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-1e202fa0-50d3-4f2b-ae5b-711cf4d4a124.png"
+  },
+  {
+    "id": "car-russet-up",
+    "prompt": "Production game asset on truly transparent background. One parked compact station wagon, muted russet red, facing NORTH toward TOP of canvas. Overhead view matching reference cars but long axis VERTICAL, wheels sit left/right, hood at top. Final canvas80x144 with car inside x8..70 y8..132; paint at4x size320x576. No ground. Full dark navy outline, heavy compact cast shadow lower right, windshield, roof and hood clearly readable. Solid wall object. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-c296663b-a2de-4fe4-ba31-14f3a724e9ef.png"
+  },
+  {
+    "id": "car-russet-down",
+    "prompt": "Production game asset on truly transparent background. One parked compact station wagon, muted russet red, facing SOUTH toward BOTTOM of canvas. Overhead view matching reference cars but long axis VERTICAL, wheels sit left/right, hood at bottom. Final canvas80x144 with car inside x8..70 y8..132; paint at4x size320x576. No ground. Full dark navy outline, heavy compact cast shadow lower right, windshield, roof and hood clearly readable. Solid wall object. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-f7bee04e-87b9-4735-b7d3-ae2fd478eac3.png"
+  },
+  {
+    "id": "car-slate-up",
+    "prompt": "Production game asset on truly transparent background. One parked compact station wagon, slate blue, facing NORTH toward TOP of canvas. Overhead view matching reference cars but long axis VERTICAL, wheels sit left/right, hood at top. Final canvas80x144 with car inside x8..70 y8..132; paint at4x size320x576. No ground. Full dark navy outline, heavy compact cast shadow lower right, windshield, roof and hood clearly readable. Solid wall object. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-e07b2a89-66b7-4fc0-a7df-9fcaba3138ad.png"
+  },
+  {
+    "id": "car-slate-down",
+    "prompt": "Production game asset on truly transparent background. One parked compact station wagon, slate blue, facing SOUTH toward BOTTOM of canvas. Overhead view matching reference cars but long axis VERTICAL, wheels sit left/right, hood at bottom. Final canvas80x144 with car inside x8..70 y8..132; paint at4x size320x576. No ground. Full dark navy outline, heavy compact cast shadow lower right, windshield, roof and hood clearly readable. Solid wall object. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-7e4edaf2-7ae7-4a83-84fe-e81b346458c8.png"
+  },
+  {
+    "id": "manhole",
+    "prompt": "Production game asset on truly transparent background. One circular flat iron manhole cover seen directly overhead. Native48x48, paint192x192. Sage gray metal and navy grid. Thin edge no raised outline no cast shadow, walk-through ground decal, transparent outside circular lid. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-036b166a-a130-4f28-b102-1b25569198aa.png"
+  },
+  {
+    "id": "storm-drain",
+    "prompt": "Production game asset on truly transparent background. One flat rectangular iron storm drain with dark parallel slots, overhead view. Native64x24, paint256x96. Cream rim, slate gray iron, thin edge no raised outline no cast shadow, walk-through ground decal, transparent outside rectangular grate. Match reference painted pixel art materials, three tones minimum, crisp edges after whole-number reduction. Upper-left lighting lower-right shadows for cars only. Neutral white balance no sepia golden haze film tint. No text labels no scene no additional objects. Reference image for style only.",
+    "tool": "built-in imagegen",
+    "source": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-a1be337f-88ce-4984-85ad-c80c5eb482cd.png"
+  }
+]

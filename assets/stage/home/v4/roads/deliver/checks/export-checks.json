@@ -1,0 +1,338 @@
+{
+  "regressionsPass": true,
+  "exportChecksPass": true,
+  "connectionStatus": "PASS: every open connection has a 320px asphalt span through its full 16px collar; closed sides stay closed.",
+  "openConnectionCount": 24,
+  "pieces": [
+    {
+      "id": "street-ns-a",
+      "exportPass": true,
+      "paintedOpenings": {
+        "north": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "south": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "street-ns-b",
+      "exportPass": true,
+      "paintedOpenings": {
+        "north": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "south": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "street-ew-a",
+      "exportPass": true,
+      "paintedOpenings": {
+        "west": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "east": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "street-ew-b",
+      "exportPass": true,
+      "paintedOpenings": {
+        "west": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "east": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "crossing-four-way",
+      "exportPass": true,
+      "paintedOpenings": {
+        "north": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "south": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "west": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "east": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "junction-t-north",
+      "exportPass": true,
+      "paintedOpenings": {
+        "north": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "west": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "east": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "junction-t-south",
+      "exportPass": true,
+      "paintedOpenings": {
+        "south": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "west": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "east": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "junction-t-east",
+      "exportPass": true,
+      "paintedOpenings": {
+        "north": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "south": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "east": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "junction-t-west",
+      "exportPass": true,
+      "paintedOpenings": {
+        "north": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "south": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        },
+        "west": {
+          "range": [
+            96,
+            416
+          ],
+          "span": 320,
+          "collarDepth": 16,
+          "rowsChecked": 16
+        }
+      },
+      "exact320pxConnections": true,
+      "asphaltTones": 3,
+      "centerLinesAligned": true
+    },
+    {
+      "id": "car-sage-up",
+      "exportPass": true
+    },
+    {
+      "id": "car-sage-down",
+      "exportPass": true
+    },
+    {
+      "id": "car-russet-up",
+      "exportPass": true
+    },
+    {
+      "id": "car-russet-down",
+      "exportPass": true
+    },
+    {
+      "id": "car-slate-up",
+      "exportPass": true
+    },
+    {
+      "id": "car-slate-down",
+      "exportPass": true
+    },
+    {
+      "id": "manhole",
+      "exportPass": true
+    },
+    {
+      "id": "storm-drain",
+      "exportPass": true
+    }
+  ],
+  "browser": "Local file navigation blocked by browser URL policy. No alternate browser route attempted. Native image inspection performed; device browser layout unverified."
+}

@@ -1,0 +1,582 @@
+{
+  "status": "Complete art kit for approval; no runtime placement.",
+  "method": "Built-in imagegen paintings, normalized 4x working canvases, exact 4x block-mode reduction and explicit material-family mapping. Original source sizes vary and are retained once.",
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ],
+  "coordinates": "Native pixels. feetLine y; footPoint [x,y]; footprints [x,y,w,h]. Tree and stone pictures extend above footprints for walk-behind depth.",
+  "stageReferenceSize": [
+    2960,
+    2048
+  ],
+  "densityTarget": "12 solid props per 1024x768 review screen; actual stage layout remains separate.",
+  "pieces": [
+    {
+      "id": "twin-stone-i",
+      "file": "twin-stone-i-v1.png",
+      "size": [
+        96,
+        160
+      ],
+      "kind": "WALL",
+      "feetLine": 151,
+      "footPoint": [
+        48,
+        151
+      ],
+      "footprints": [
+        [
+          12,
+          121,
+          72,
+          28
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/twin-stone-i.png",
+      "sourceSize": [
+        1003,
+        1568
+      ],
+      "sourceCrop": [
+        69,
+        107,
+        920,
+        1433
+      ],
+      "sourceFit": [
+        16,
+        76,
+        352,
+        548
+      ],
+      "working": "working/twin-stone-i-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/twin-stone-i-hero-1x.png"
+    },
+    {
+      "id": "twin-stone-ii",
+      "file": "twin-stone-ii-v1.png",
+      "size": [
+        96,
+        160
+      ],
+      "kind": "WALL",
+      "feetLine": 151,
+      "footPoint": [
+        48,
+        151
+      ],
+      "footprints": [
+        [
+          13,
+          121,
+          71,
+          28
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/twin-stone-ii.png",
+      "sourceSize": [
+        1003,
+        1568
+      ],
+      "sourceCrop": [
+        63,
+        105,
+        933,
+        1445
+      ],
+      "sourceFit": [
+        16,
+        82,
+        352,
+        542
+      ],
+      "working": "working/twin-stone-ii-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/twin-stone-ii-hero-1x.png"
+    },
+    {
+      "id": "forest-floor",
+      "file": "forest-floor-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 507,
+      "footPoint": [
+        256,
+        507
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/forest-floor.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": [
+        0,
+        0,
+        2048,
+        2048
+      ],
+      "working": "working/forest-floor-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/forest-floor-hero-1x.png"
+    },
+    {
+      "id": "forest-trail-straight",
+      "file": "forest-trail-straight-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 507,
+      "footPoint": [
+        256,
+        507
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/forest-trail-straight.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": [
+        0,
+        0,
+        2048,
+        2048
+      ],
+      "working": "working/forest-trail-straight-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/forest-trail-straight-hero-1x.png"
+    },
+    {
+      "id": "forest-trail-curve",
+      "file": "forest-trail-curve-v1.png",
+      "size": [
+        512,
+        512
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 507,
+      "footPoint": [
+        256,
+        507
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/forest-trail-curve.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": [
+        0,
+        0,
+        2048,
+        2048
+      ],
+      "working": "working/forest-trail-curve-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/forest-trail-curve-hero-1x.png"
+    },
+    {
+      "id": "fallen-log",
+      "file": "fallen-log-v1.png",
+      "size": [
+        256,
+        96
+      ],
+      "kind": "WALL",
+      "feetLine": 87,
+      "footPoint": [
+        128,
+        87
+      ],
+      "footprints": [
+        [
+          10,
+          40,
+          236,
+          42
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/fallen-log.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        113,
+        94,
+        2050,
+        629
+      ],
+      "sourceFit": [
+        16,
+        94,
+        992,
+        274
+      ],
+      "working": "working/fallen-log-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/fallen-log-hero-1x.png"
+    },
+    {
+      "id": "mossy-rock-cluster",
+      "file": "mossy-rock-cluster-v1.png",
+      "size": [
+        160,
+        112
+      ],
+      "kind": "WALL",
+      "feetLine": 103,
+      "footPoint": [
+        80,
+        103
+      ],
+      "footprints": [
+        [
+          21,
+          34,
+          117,
+          66
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/mossy-rock-cluster.png",
+      "sourceSize": [
+        1499,
+        1049
+      ],
+      "sourceCrop": [
+        152,
+        81,
+        1348,
+        959
+      ],
+      "sourceFit": [
+        36,
+        16,
+        567,
+        416
+      ],
+      "working": "working/mossy-rock-cluster-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/mossy-rock-cluster-hero-1x.png"
+    },
+    {
+      "id": "mushroom-ring",
+      "file": "mushroom-ring-v1.png",
+      "size": [
+        128,
+        96
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 87,
+      "footPoint": [
+        64,
+        87
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/mushroom-ring.png",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "sourceCrop": [
+        190,
+        107,
+        1218,
+        980
+      ],
+      "sourceFit": [
+        49,
+        16,
+        414,
+        352
+      ],
+      "working": "working/mushroom-ring-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/mushroom-ring-hero-1x.png"
+    },
+    {
+      "id": "fireflies-loop",
+      "file": "fireflies-loop-v1.png",
+      "size": [
+        64,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "feetLine": 31,
+      "footPoint": [
+        16,
+        31
+      ],
+      "footprints": [],
+      "renderLayer": "overhead",
+      "source": "../sources/fireflies-loop.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "sourceFit": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "working": "working/fireflies-loop-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "frameSize": [
+        32,
+        32
+      ],
+      "frameFiles": [
+        "frames/fireflies-0.png",
+        "frames/fireflies-1.png",
+        "frames/fireflies-2.png",
+        "frames/fireflies-3.png"
+      ],
+      "frameOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "frameDurationMs": 200,
+      "loop": true,
+      "comparison1x": "checks/fireflies-loop-hero-1x.png"
+    },
+    {
+      "id": "tree-evergreen",
+      "file": "tree-evergreen-v1.png",
+      "size": [
+        144,
+        192
+      ],
+      "kind": "WALL",
+      "feetLine": 183,
+      "footPoint": [
+        72,
+        183
+      ],
+      "footprints": [
+        [
+          54,
+          159,
+          36,
+          22
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/tree-evergreen.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        93,
+        23,
+        973,
+        1408
+      ],
+      "sourceFit": [
+        54,
+        16,
+        468,
+        736
+      ],
+      "working": "working/tree-evergreen-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/tree-evergreen-hero-1x.png"
+    },
+    {
+      "id": "tree-maple-red",
+      "file": "tree-maple-red-v1.png",
+      "size": [
+        144,
+        192
+      ],
+      "kind": "WALL",
+      "feetLine": 183,
+      "footPoint": [
+        72,
+        183
+      ],
+      "footprints": [
+        [
+          54,
+          159,
+          36,
+          22
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/tree-maple-red.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        12,
+        53,
+        1073,
+        1403
+      ],
+      "sourceFit": [
+        16,
+        60,
+        544,
+        692
+      ],
+      "working": "working/tree-maple-red-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/tree-maple-red-hero-1x.png"
+    },
+    {
+      "id": "tree-birch-yellow",
+      "file": "tree-birch-yellow-v1.png",
+      "size": [
+        144,
+        192
+      ],
+      "kind": "WALL",
+      "feetLine": 183,
+      "footPoint": [
+        72,
+        183
+      ],
+      "footprints": [
+        [
+          54,
+          159,
+          36,
+          22
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/tree-birch-yellow.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        0,
+        33,
+        1061,
+        1374
+      ],
+      "sourceFit": [
+        16,
+        64,
+        544,
+        688
+      ],
+      "working": "working/tree-birch-yellow-4x.png",
+      "reductionFactor": 4,
+      "availability": {
+        "mode": "Full Life",
+        "ageGreaterThan": 65
+      },
+      "comparison1x": "checks/tree-birch-yellow-hero-1x.png"
+    }
+  ]
+}

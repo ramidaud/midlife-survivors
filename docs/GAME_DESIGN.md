@@ -791,3 +791,9 @@ Rami requests generic branding: 60 YEARS IN SPACE replaces the agency poster, an
 
 ## 2026-11-13: house round-three repaint review (Codex)
 The saved Nov 13 editor pass requests ten native-size repaints: larger galaxy TV, dining electric console, rear-view freestanding island with south stools, smaller plant and camera shelves, then Abe's larger TV shelf/dresser/hamper, smaller east-facing amp and north-south rug. New variants are separate from the live V2.42.0 house. Four art-only mock-ups retain the saved coordinates without runtime route nudges. Living/dining door clearance fails; kitchen is clear; Abe's doors connect but isolated floor pockets and a hamper/dresser overlap remain. Layout correction is required before integrating the affected variants. No new runtime behavior is proposed.
+
+## Roads art review, 2026-11-13 (Codex)
+North-south street and junction proposals are staged under `assets/stage/home/v4/roads/`, pending art approval and exact connection alignment. Cars become separate wall sprites, with three colors and both north/south orientations; manholes and storm drains are walk-through decals. No runtime placement yet. The Woods remains the next art job after road review, exclusive to Full Life past 65.
+
+## Roads and Woods art set, 2026-11-14 (Codex)
+Both kits are complete for art approval in draft PR #13, with no runtime placement. Road connections share exact 320px asphalt and aligned center lines. Two compatible car-free east-west variants keep the existing live plates untouched. The Woods kit records Full Life past 65, uses separate wall sprites for stones/log/rocks/trees and walk-through ground, trails and mushrooms; four-frame fireflies render overhead. The review sample targets 12 solid props per 1024x768 screen with a clear 224px route and two exits. Full Woods stage composition follows art approval during integration.

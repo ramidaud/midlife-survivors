@@ -1,0 +1,827 @@
+{
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A",
+    "#46536B",
+    "#65748B"
+  ],
+  "status": "Art proposals, awaiting approval. No runtime placement.",
+  "method": "Built-in imagegen paintings fitted to exact 2x ground or 4x object working rasters, whole-number block-mode reduction, material-family palette mapping and painted-strip registration to exact 320px connection collars. Original painting dimensions vary and are recorded.",
+  "coordinates": "Native pixels. Feet line y, foot point [x,y], footprints [x,y,width,height]. Proposed car footprints require runtime review.",
+  "pieces": [
+    {
+      "id": "street-ns-a",
+      "size": [
+        512,
+        832
+      ],
+      "file": "street-ns-a-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 831,
+      "footPoint": [
+        256,
+        831
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/street-ns-a.png",
+      "sourceSize": [
+        984,
+        1599
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        984,
+        1599
+      ],
+      "reductionFactor": 2,
+      "working": "working/street-ns-a-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/street-ns-a-hero-1x.png"
+    },
+    {
+      "id": "street-ns-b",
+      "size": [
+        512,
+        832
+      ],
+      "file": "street-ns-b-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 831,
+      "footPoint": [
+        256,
+        831
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/street-ns-b.png",
+      "sourceSize": [
+        984,
+        1599
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        984,
+        1599
+      ],
+      "reductionFactor": 2,
+      "working": "working/street-ns-b-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/street-ns-b-hero-1x.png"
+    },
+    {
+      "id": "street-ew-a",
+      "size": [
+        832,
+        512
+      ],
+      "file": "street-ew-a-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        416,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/street-ew-a.png",
+      "sourceSize": [
+        1599,
+        984
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1599,
+        984
+      ],
+      "reductionFactor": 2,
+      "working": "working/street-ew-a-2x.png",
+      "connections": {
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/street-ew-a-hero-1x.png"
+    },
+    {
+      "id": "street-ew-b",
+      "size": [
+        832,
+        512
+      ],
+      "file": "street-ew-b-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        416,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/street-ew-b.png",
+      "sourceSize": [
+        1599,
+        984
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1599,
+        984
+      ],
+      "reductionFactor": 2,
+      "working": "working/street-ew-b-2x.png",
+      "connections": {
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/street-ew-b-hero-1x.png"
+    },
+    {
+      "id": "crossing-four-way",
+      "size": [
+        512,
+        512
+      ],
+      "file": "crossing-four-way-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/crossing-four-way.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "reductionFactor": 2,
+      "working": "working/crossing-four-way-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/crossing-four-way-hero-1x.png"
+    },
+    {
+      "id": "junction-t-north",
+      "size": [
+        512,
+        512
+      ],
+      "file": "junction-t-north-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/junction-t-north.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "reductionFactor": 2,
+      "working": "working/junction-t-north-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/junction-t-north-hero-1x.png"
+    },
+    {
+      "id": "junction-t-south",
+      "size": [
+        512,
+        512
+      ],
+      "file": "junction-t-south-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/junction-t-south.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "reductionFactor": 2,
+      "working": "working/junction-t-south-2x.png",
+      "connections": {
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/junction-t-south-hero-1x.png"
+    },
+    {
+      "id": "junction-t-east",
+      "size": [
+        512,
+        512
+      ],
+      "file": "junction-t-east-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/junction-t-east.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "reductionFactor": 2,
+      "working": "working/junction-t-east-2x.png",
+      "connections": {
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/junction-t-east-hero-1x.png"
+    },
+    {
+      "id": "junction-t-west",
+      "size": [
+        512,
+        512
+      ],
+      "file": "junction-t-west-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        256,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/junction-t-west.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "reductionFactor": 2,
+      "working": "working/junction-t-west-2x.png",
+      "connections": {
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/junction-t-west-hero-1x.png"
+    },
+    {
+      "id": "car-sage-up",
+      "size": [
+        80,
+        144
+      ],
+      "file": "car-sage-up-v1.png",
+      "kind": "WALL",
+      "feetLine": 139,
+      "footPoint": [
+        40,
+        139
+      ],
+      "footprints": [
+        [
+          8,
+          10,
+          64,
+          124
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/car-sage-up.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        162,
+        213,
+        791,
+        1534
+      ],
+      "reductionFactor": 4,
+      "working": "working/car-sage-up-4x.png",
+      "comparison1x": "checks/car-sage-up-hero-1x.png"
+    },
+    {
+      "id": "car-sage-down",
+      "size": [
+        80,
+        144
+      ],
+      "file": "car-sage-down-v1.png",
+      "kind": "WALL",
+      "feetLine": 139,
+      "footPoint": [
+        40,
+        139
+      ],
+      "footprints": [
+        [
+          8,
+          10,
+          64,
+          124
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/car-sage-down.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        114,
+        152,
+        823,
+        1554
+      ],
+      "reductionFactor": 4,
+      "working": "working/car-sage-down-4x.png",
+      "comparison1x": "checks/car-sage-down-hero-1x.png"
+    },
+    {
+      "id": "car-russet-up",
+      "size": [
+        80,
+        144
+      ],
+      "file": "car-russet-up-v1.png",
+      "kind": "WALL",
+      "feetLine": 139,
+      "footPoint": [
+        40,
+        139
+      ],
+      "footprints": [
+        [
+          8,
+          10,
+          64,
+          124
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/car-russet-up.png",
+      "sourceSize": [
+        934,
+        1683
+      ],
+      "sourceCrop": [
+        117,
+        115,
+        827,
+        1590
+      ],
+      "reductionFactor": 4,
+      "working": "working/car-russet-up-4x.png",
+      "comparison1x": "checks/car-russet-up-hero-1x.png"
+    },
+    {
+      "id": "car-russet-down",
+      "size": [
+        80,
+        144
+      ],
+      "file": "car-russet-down-v1.png",
+      "kind": "WALL",
+      "feetLine": 139,
+      "footPoint": [
+        40,
+        139
+      ],
+      "footprints": [
+        [
+          8,
+          10,
+          64,
+          124
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/car-russet-down.png",
+      "sourceSize": [
+        936,
+        1681
+      ],
+      "sourceCrop": [
+        126,
+        123,
+        808,
+        1542
+      ],
+      "reductionFactor": 4,
+      "working": "working/car-russet-down-4x.png",
+      "comparison1x": "checks/car-russet-down-hero-1x.png"
+    },
+    {
+      "id": "car-slate-up",
+      "size": [
+        80,
+        144
+      ],
+      "file": "car-slate-up-v1.png",
+      "kind": "WALL",
+      "feetLine": 139,
+      "footPoint": [
+        40,
+        139
+      ],
+      "footprints": [
+        [
+          8,
+          10,
+          64,
+          124
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/car-slate-up.png",
+      "sourceSize": [
+        935,
+        1682
+      ],
+      "sourceCrop": [
+        141,
+        149,
+        804,
+        1541
+      ],
+      "reductionFactor": 4,
+      "working": "working/car-slate-up-4x.png",
+      "comparison1x": "checks/car-slate-up-hero-1x.png"
+    },
+    {
+      "id": "car-slate-down",
+      "size": [
+        80,
+        144
+      ],
+      "file": "car-slate-down-v1.png",
+      "kind": "WALL",
+      "feetLine": 139,
+      "footPoint": [
+        40,
+        139
+      ],
+      "footprints": [
+        [
+          8,
+          10,
+          64,
+          124
+        ]
+      ],
+      "renderLayer": "object",
+      "source": "../sources/car-slate-down.png",
+      "sourceSize": [
+        935,
+        1683
+      ],
+      "sourceCrop": [
+        131,
+        165,
+        818,
+        1544
+      ],
+      "reductionFactor": 4,
+      "working": "working/car-slate-down-4x.png",
+      "comparison1x": "checks/car-slate-down-hero-1x.png"
+    },
+    {
+      "id": "manhole",
+      "size": [
+        48,
+        48
+      ],
+      "file": "manhole-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 43,
+      "footPoint": [
+        24,
+        43
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/manhole.png",
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceCrop": [
+        147,
+        164,
+        1100,
+        1136
+      ],
+      "reductionFactor": 4,
+      "working": "working/manhole-4x.png",
+      "comparison1x": "checks/manhole-hero-1x.png"
+    },
+    {
+      "id": "storm-drain",
+      "size": [
+        64,
+        24
+      ],
+      "file": "storm-drain-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 19,
+      "footPoint": [
+        32,
+        19
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/storm-drain.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        407,
+        138,
+        1765,
+        585
+      ],
+      "reductionFactor": 4,
+      "working": "working/storm-drain-4x.png",
+      "comparison1x": "checks/storm-drain-hero-1x.png"
+    }
+  ]
+}

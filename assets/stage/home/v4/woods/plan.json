@@ -1,0 +1,124 @@
+[
+  {
+    "id": "twin-stone-i",
+    "size": [
+      96,
+      160
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One mossy upright standing stone marker with deeply carved Roman numeral I. Broad irregular gray stone face, chipped corners, base anchored by small moss clumps. Carving is part of stone, not a sign. Taller-than-hero wall silhouette, full dark navy outline and heavy small lower-right foot shadow. No second stone. Final native canvas 96x160, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-5fdf108e-ff27-40bd-9bee-7f78b96eab0f.png"
+  },
+  {
+    "id": "twin-stone-ii",
+    "size": [
+      96,
+      160
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One mossy upright standing stone marker with deeply carved Roman numeral II. Broad irregular gray stone face, chipped corners, base anchored by small moss clumps. Carving is part of stone, not a sign. Taller-than-hero wall silhouette, full dark navy outline and heavy small lower-right foot shadow. No second stone. Final native canvas 96x160, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-30b8d454-a988-49fb-bcd6-8e6bf531bbc4.png"
+  },
+  {
+    "id": "forest-floor",
+    "size": [
+      512,
+      512
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. Full-bleed walk-through forest floor square tile, lawn base #9BAE73 on all four edges, sparse autumn leaf litter and moss clusters over grass. No stones logs trees bushes mushrooms or solid props painted into floor. Flat on ground no outlines no shadows. Tile seams should be quiet, edge grass exact lawn green, interior natural texture with three grass/moss tones. Opaque full square. Final native canvas 512x512, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Opaque rectangle. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-8d1a35f2-7d4d-477b-923d-5d18f8744065.png"
+  },
+  {
+    "id": "forest-trail-straight",
+    "size": [
+      512,
+      512
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. Full-bleed square walk-through trail ground tile. A 224px-wide packed dirt trail runs straight north-south centered x256, exits north and south edges. Small flat exposed roots within dirt. Rest lawn base#9BAE73 with sparse leaf litter and moss, green at west/east tile edges. No solid objects. Flat ground no outlines no cast shadows. Opaque square. Final native canvas 512x512, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Opaque rectangle. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-581f75b7-6622-41e3-8775-372c1e04188b.png"
+  },
+  {
+    "id": "forest-trail-curve",
+    "size": [
+      512,
+      512
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. Full-bleed square walk-through trail ground tile. A 224px-wide packed dirt path enters centered on SOUTH edge x256 and turns smoothly90 degrees to exit centered on EAST edge y256. Dirt and flat roots, no objects. Rest lawn base#9BAE73, moss and sparse leaf litter. Flat ground no outlines no shadows. Opaque square. Final native canvas 512x512, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Opaque rectangle. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-223d2da1-aeec-450b-a847-7dd46e381bc3.png"
+  },
+  {
+    "id": "fallen-log",
+    "size": [
+      256,
+      96
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One large fallen mossy hardwood log lying horizontally, rough bark and visible round rings on right end, broken left end. Wall object full navy outline heavy lower-right ground shadow. No leaves spread far, no surrounding ground. Final native canvas 256x96, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-da9f48c1-cabf-45bb-a311-f57018f08389.png"
+  },
+  {
+    "id": "mossy-rock-cluster",
+    "size": [
+      160,
+      112
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One cluster of three large irregular gray boulders with moss over tops and crevices. Wall object dark navy outline and strong compact lower-right foot shadow, clearly raised above ground. No surrounding ground. Final native canvas 160x112, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-c49feafc-e6b9-407a-baa1-62586bbd23bd.png"
+  },
+  {
+    "id": "mushroom-ring",
+    "size": [
+      128,
+      96
+    ],
+    "prompt": "Edit this mushroom fairy ring into a flat WALK-THROUGH pixel-art ground decal. Keep the circular arrangement, small red and cream mushrooms, three tones on caps and stems, and upper-left lighting. Remove ALL rocks, flowers, grass patches, gray haze, ground disks, glows, cast shadows and dark outlines. ONLY small mushrooms remain, separated by actual transparent gaps. Red cap edges are red shading, never navy/black outlines. Low and delicate, not raised wall props. Empty center and everything outside mushrooms must be genuinely alpha-transparent. Native canvas128x96, paint at4x for later integer reduction. Neutral white balance no sepia golden haze film tint. Match painted Maple Hollow pixel detail; no labels no text. No opaque background or soft halo.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-884db414-9fa6-4e41-92a5-c32acac9b090.png",
+    "initialPrompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One loose circular fairy ring of small red and cream forest mushrooms seen overhead. Walk-through low ground decoration, no outer dark outline and NO cast shadow. Empty transparent center and outside, no grass disk. Delicate low sprouts, warm red caps and cream spots, no glow. Final native canvas 128x96, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "revisionNote": "Remove extra pebbles, vegetation, haze, cast shadows and dark outlines from the walk-through decal."
+  },
+  {
+    "id": "fireflies-loop",
+    "size": [
+      64,
+      64
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. A four-frame sprite sheet, exactly2 columns2 rows of equal32x32 final cells. In every cell exactly the same three tiny pale sage/cream fireflies, softly luminous but crisp pixel clusters and transparent outside glow. Frame1 top-left dim, frame2 top-right brighter and1px higher, frame3 bottom-left brightest with1px horizontal drift, frame4 bottom-right dimmer and returns. No lines no grid no labels no background. Drawn over everything, not solid. Final sheet64x64; each frame32x32. Final native canvas 64x64, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-f83e8015-6ec2-4e41-8d0e-41d86c23afb0.png"
+  },
+  {
+    "id": "tree-evergreen",
+    "size": [
+      144,
+      192
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One tall dense pine evergreen, triangular layered blue-green needle boughs, visible brown trunk and roots. Match maple reference density, crisp painterly pixel clusters and three tones per material, wall object full dark navy silhouette outline, heavy compact lower-right foot shadow. Peak fall setting, pine remains evergreen. No ground disk. Final native canvas 144x192, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-58d4c271-69a3-45f1-8e8d-9448a9076999.png"
+  },
+  {
+    "id": "tree-maple-red",
+    "size": [
+      144,
+      192
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One mature red maple variant of the orange maple reference. Preserve same visual scale, spreading asymmetric canopy and visible branching trunk, dense painted clusters. Peak-fall russet and red foliage with cream light flecks, not orange canopy. Wall object full navy outline and compact heavy lower-right foot shadow. No ground disk. Final native canvas 144x192, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-a3e64aec-3986-41b3-bfd5-8d4ab48aec0b.png"
+  },
+  {
+    "id": "tree-birch-yellow",
+    "size": [
+      144,
+      192
+    ],
+    "prompt": "Use case: stylized-concept. Production pixel game asset for Maple Hollow Woods. One mature yellow birch tree, like orange maple reference in visual scale and painted canopy density. Yellow autumn leaf clusters, distinctive white bark with dark horizontal marks and branching trunks. Wall object full dark navy outline compact heavy lower-right foot shadow. No ground disk. Final native canvas 144x192, paint at exactly4x final size then whole-number reduction later. Match input1 forest mood/materials, input2 existing maple pixel technique. Neutral white balance NO sepia golden haze film tint. Light from upper left, shadows lower right unless flat ground/no-shadow decal. At least three distinct tones per material. Grass #9BAE73, dark navy outlines, slate-gray stones, warm brown bark, cream highlights. Do not copy any UI labels signs hero or words from reference. Only requested Roman numeral allowed for stones. Actually transparent background, isolated one asset with margins. No real photos.",
+    "tool": "built-in imagegen",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-f3d4ef85-7789-4bf0-be0a-666d484997e2.png"
+  }
+]

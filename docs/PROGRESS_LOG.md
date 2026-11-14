@@ -2523,3 +2523,16 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - PR #12 merged (Rami's OK): the kitchen island, the bigger dining console, the smaller desk shelves and bird of paradise, and Abe's record dresser, cube shelf, hamper, amp and rug at Rami's sizes.
 - The living room TV is cut (Rami: "just lose the tv"). Abe's hamper moved left of the wider dresser. Every room passes the route check.
 - Rami is done with the house for now.
+
+## 2026-11-13: roads art proposals (Codex)
+- Prepared two north-south plates, a crossing, four T junctions, cars in three colors facing both ways, and two ground decals.
+- Painted sources reduced by whole numbers; native hero comparisons, proposed car footprints and a review page included.
+- Export sizes and alpha pass. Exact 320px road connections remain unresolved and are flagged separately for review.
+- Local browser access was blocked; native PNGs inspected. No game stats or scores sent. Art approval pending; Woods follows afterward.
+
+## 2026-11-14: roads and Woods ready for art approval (Codex)
+- Verified the initial commit contains no real street, house or neighbor photos; pushed the approved branch and opened draft PR #13.
+- Exact road connections now pass. Added compatible east-west variants so the new set joins without changing live plates.
+- Woods kit includes both carved stones, forest ground and trails, log, rocks, mushrooms, three trees and four firefly frames.
+- Native hero comparisons, footprints and review pages included. Road checks pass; the Woods sample keeps a clear 224px route and two exits.
+- Nothing placed in the game, no version/build change and no stats sent. Art approval pending; browser preview remains unverified after the local-file policy block.

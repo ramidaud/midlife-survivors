@@ -882,3 +882,15 @@ A rug can fill a large empty patch without adding a collision footprint. Shallow
 
 ## 2026-11-13: reaching the door is not reaching the whole room (Codex)
 Two doors can share one clear route while furniture traps another patch of floor. A route report should separate door connectivity from disconnected clear pockets and overlapping footprints. Round-three mock-ups preserve Rami's saved positions and report each result, so an art export pass cannot hide a layout problem. Hanging pieces above the floor are clipped out before the floor test, rather than accidentally blocking it through negative coordinates.
+
+## 2026-11-13: matching edges (Codex)
+A tile is a picture that joins another picture at an edge. Two streets can share the same asphalt color and still show a step if their curbs land at different pixels. Export checks confirm the file size and transparency; a connection check compares where the road actually meets the edge. The roads review keeps those checks separate.
+
+`street [curb | asphalt | curb] -> junction [curb | asphalt | curb]`
+
+Both curb positions must agree before placement.
+
+## 2026-11-14: a picture needs an exact connection (Codex)
+A painted road can look right while its edge lands a few pixels away from the next tile. For this kit, the painted strips are fitted to one shared connection: 96px of sidewalk/parkway, 320px of asphalt, then another 96px of sidewalk/parkway. A checker reads the exported pixels and confirms that width through a 16px joining strip. It also checks the center line, so the dashes continue in the same place.
+
+`96px side | 320px asphalt | 96px side = 512px band`

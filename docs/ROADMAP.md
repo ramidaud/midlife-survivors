@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.42.1: the house is finished for now, both floors in Rami's layout. Next: roads and woods (docs/handoffs/codex-roads-and-woods.md), then idle animations.)
+**Last updated:** 2026-11-14 (V2.42.1 house remains live. Roads and Woods art set complete in draft PR #13, ready for art approval. Nothing newly placed in game.)
 
 ---
 
@@ -523,3 +523,9 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 - [ ] PR #10 ground-floor revision ready for Rami: 40px chairs, fine laminate, rug backing removed, desk chair placed, concrete garage and lived-in props. Approval required before placement.
 
 - [ ] PR #10 house-scale repaint ready for review: 56 pieces, Rami's layout intent, four main-room door-clearance checks, and exact 3x room previews. Bassinets now fixed in the northwest corner, with the sofa/shelves moved for the patio route. Latest room corrections await approval before Claude places art. Laundry closet clearance exception documented.
+
+### Roads art review, Nov 13 (Codex)
+- [x] Prepare 15 painted road/car/decal proposals with native hero comparisons and manifests
+- [x] Resolve exact 320px road connections; all 24 open connections pass (Nov 14)
+- [x] Woods art completed in the same PR at Rami’s request (Nov 14)
+- [ ] Rami: approve roads and Woods art in draft PR #13 before placement
