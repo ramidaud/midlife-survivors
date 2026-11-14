@@ -2494,3 +2494,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Main bedroom gains north-wall art, a second window, mirrors, dresser, large rug, laundry basket, plant and armchair. Smaller rooms gain edge storage, coats, runners and distinct pictures.
 - All nine actual-door 96px routes pass; Abe keeps a 224px open square. Six revised rooms have no measured empty wall run over 160px. Native image QA, source/footprint checks and exact 3x exports pass.
 - Editor layout and single source set updated on PR #11. Coffee-table fix preserved. No game placement or version change; awaiting Rami's review.
+
+## 2026-11-13: upstairs art approved (Claude)
+- PR #11 merged (Rami's OK): nine upstairs rooms painted by Codex, with generic space and game-pad art instead of real logos.
+- The crib stays next to the twin bassinet (Rami).
+- The House Layout Editor now has the upstairs (nine rooms, under "Upstairs" in the room list) for Rami's layout pass before placement.
