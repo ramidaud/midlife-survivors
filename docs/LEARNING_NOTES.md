@@ -903,3 +903,6 @@ You can't tell a player "go there" in a game with one input, but you can make st
 
 ## A map is the level, shrunk (Nov 14, Maple Hollow map)
 The map isn't a separate picture someone painted. It reads the same list of rectangles the game uses for streets, lawns and areas, and draws each one smaller: every world position is multiplied by one scale number. That's why it can't drift out of date when the town changes. Text is the exception: it gets sized for the screen, not the world, or it shrinks to nothing on a phone.
+
+## Read the death, not just the killer (Nov 14, balance pass)
+The stats said leaf piles and late fees killed people at 52-56, which pointed at the swarm. The useful column was a different one: which boss was still alive when you died. All three times it was the Mortgage, because it spawns across town and takes two minutes to walk over. The swarm wasn't too strong; the boss fight was just stretched over three game years. Fixing the walk fixed the overlap.

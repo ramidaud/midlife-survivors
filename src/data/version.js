@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.45.0",
-  displayVersion: "V. 2.45.0",
+  version: "2.45.1",
+  displayVersion: "V. 2.45.1",
   lastUpdated: "Nov 14, 2026",
   codename: "Version Two",
-  build: 387,
+  build: 388,
   changelog: [
+    {
+      ver: "V. 2.45.1", date: "Nov 14, 2026", title: "Version Two",
+      teaser: "The 30-Year Mortgage no longer takes the scenic route.",
+      highlights: [
+        "Maple Hollow bosses come out of their own part of town. They used to take up to two minutes to walk to you while the swarm piled up. Now they hurry while they're far away and slow down for the fight."
+      ]
+    },
     {
       ver: "V. 2.45.0", date: "Nov 14, 2026", title: "Version Two",
       teaser: "You can finally see the whole neighborhood. It's mostly woods you're not allowed in yet.",

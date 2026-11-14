@@ -384,7 +384,8 @@ window.MAPLE_HOLLOW = {
     midlife: ["mathHomework", "hoaPresident", "mortgageRefinance", "holidayParty", "midlifeCrisis", "goldWatch"],
     full:    ["mathHomework", "hoaPresident", "mortgageRefinance", "holidayParty", "midlifeCrisis", "retirementBoss", "pickleballChamp"],
     ages: { mathHomework: 45, hoaPresident: 48, holidayParty: 56 },   // spawn ages that differ from the office
-    hpMult: { hoaPresident: 0.35 },   // the HOA was built for 70; at 48 he's closer to Your New Boss
+    hpMult: { hoaPresident: 0.35 },
+    travel: { farPx: 1400, speedMult: 5 }, // Nov 14 balance pass: far from you, a boss walks 5x faster (the Mortgage took 2 minutes to reach your house)   // the HOA was built for 70; at 48 he's closer to Your New Boss
     fallback: { mathHomework: "performanceReview" }
   },
   // Locked out (Nov 9, step 3a): you can't get into your own house. The spare key is hidden at one of these spots

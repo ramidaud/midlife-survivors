@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-14 (V2.45.0: Maple Hollow map. Before that, V2.44.0: push waves and edge arrows. Next: the balance pass from play stats.)
+**Last updated:** 2026-11-14 (V2.45.1: Maple Hollow bosses hurry over instead of taking 2 minutes. Next: idle animations from PR #15.)
 
 ---
 

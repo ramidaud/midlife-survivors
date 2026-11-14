@@ -2307,3 +2307,18 @@ a 2,496 px block  ── × 0.08 ──▶       a 200 px square
 | Labels | screen size | at least 14 px on screen |
 
 The one rule that isn't "multiply by scale": text. A 26 px label on a 1,000 px canvas shown 330 px wide on a phone is 9 px, too small. So label size is worked out from how big the canvas actually shows.
+
+## Chapter: Read the death, not just the killer (2026-11-14)
+```
+age 52 ── Mortgage spawns at the mall (7,400 px away)
+          │  walking at 64 px/s ... 2 minutes ...      swarm keeps growing
+age 55 ── finally arrives            ← most deaths happened in here
+```
+
+| Column in the play stats | What it said | What it meant |
+|---|---|---|
+| killer | leaf pile, late fee, lawn mower | the swarm landed the last hit |
+| boss alive at death | Mortgage, 3 of 3 | the fight never ended |
+| age reached | 52 to 56 | the boss's long walk |
+
+Fix: far bosses hurry (5x), close bosses fight normally. The 2-minute walk is now about 30 seconds.

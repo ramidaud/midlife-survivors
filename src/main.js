@@ -2991,6 +2991,16 @@ function update(time, delta) {
       }
     }
 
+    // Maple Hollow (Nov 14 balance pass): bosses come out of their own area, up to 8,700 px from your house. While a boss
+    // is far off screen it hurries and holds its attacks, so it shows up in about 25 s instead of 2 minutes.
+    { const TR = bill.isBoss && !bill.clockOut && bill.kind !== "goldWatch" && window.STAGE_ID === "home" && window.MAPLE_HOLLOW && MAPLE_HOLLOW.bosses && MAPLE_HOLLOW.bosses.travel;
+      if (TR) {
+        if (bill.baseSpeed === undefined) bill.baseSpeed = bill.speed;
+        const far = Phaser.Math.Distance.Between(bill.x, bill.y, player.x, player.y) > TR.farPx;
+        bill.speed = bill.baseSpeed * (far ? TR.speedMult : 1);
+        if (far) { chase(bill, bill.speed); if (bill.tag) bill.tag.setPosition(bill.x, bill.y - ((ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24) / 2 - 8); return; }
+      }
+    }
     // Bosses with a special attack (src/boss-attacks.js) steer themselves while warning or attacking.
     if (bill.isBoss && window.BossAttacks && window.BossAttacks.update(this, bill, player, now)) {
       if (bill.tag) bill.tag.setPosition(bill.x, bill.y - ((ENEMIES[bill.kind] && ENEMIES[bill.kind].size) || 24) / 2 - 8);

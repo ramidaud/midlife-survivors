@@ -2559,3 +2559,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Closed areas show the age they open; a just-opened area has an orange outline until you visit (same timing as the edge arrow). HOME marks your house; inside, the map shows the house.
 - Drawn from the town's own layout data, so it always matches the real streets. The office map is unchanged.
 - Fixed in testing: labels were unreadable on phones, so their size now follows how big the map shows on screen (at least 14 px).
+
+## 2026-11-14: Maple Hollow balance pass, V2.45.1 (Claude)
+- Play stats (8 Maple Hollow runs, read only): every run that got past 50 died at 52-56 with the 30-Year Mortgage still alive, killed by the swarm.
+- Cause: the Mortgage comes out of the strip mall, about 7,400 px from your house, and walked over at 64 px/s (about 2 minutes, 2.5 game years).
+- Fix: a boss far from you (over 1,400 px) moves 5x faster and holds its attacks; close up it fights at normal speed. Tested: 5,000 px in 30 s (was about 80 s). The Gold Watch is left alone.
+- Still thin data. Next look: early phone deaths at 43-44 (2 runs, before interns came to Maple Hollow).
