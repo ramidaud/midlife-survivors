@@ -55,5 +55,6 @@ window.Pointers = (() => {
     }
     hideFrom(i);
   }
-  return { update, areaOpened, reset };
+  const fresh = () => newAreas.map(n => n.area.id); // the map outlines these in orange (src/minimap.js)
+  return { update, areaOpened, reset, fresh };
 })();

@@ -12,7 +12,10 @@ window.MINIMAP = {
   miniWorldWidth: 2600,          // how much of the office the small map shows across
   perRun: true,                  // Nov 8 (Rami): find the map again every run (false = find it once, keep it forever)
   colors: { floor: "#5E6F92", floorDim: "#303750", unknown: "#3E4A66", wall: "#171C35", you: "#FFF0CF", doorOpen: "#83A89A", doorLocked: "#C45C4B",
-    chest: "#EF9347", lounge: "#F2D7A1", intern: "#83A89A", boss: "#C45C4B", frame: "#3E7775", bg: "#171C35" }
+    chest: "#EF9347", lounge: "#F2D7A1", intern: "#83A89A", boss: "#C45C4B", frame: "#3E7775", bg: "#171C35" },
+  // Nov 14 (Rami: "we need a map"): Maple Hollow. It's your own neighborhood, so the map is yours from the start.
+  town: { worldWidth: 5200, woods: "#3E7775", ground: "#83A89A", sidewalk: "#B8C0D4", street: "#303750", line: "#F2D7A1",
+    houseFloor: "#5E6F92", closedLine: "#F2D7A1", newLine: "#EF9347" }
 };
 
 window.Minimap = (() => {
@@ -20,7 +23,8 @@ window.Minimap = (() => {
   let base = null, baseScale = 0, fog = null, fogCtx = null, cols = 0, rows = 0, B = null;
   let poster = null, posterScene = null, nextReveal = 0, nextDraw = 0, bigOpen = false, el = null, big = null, lastAngle = -Math.PI / 2;
   let runFound = false; // found in this run (MINIMAP.perRun)
-  const has = () => MINIMAP.perRun ? runFound : !!(typeof meta !== "undefined" && meta && meta.mapFound);
+  const townLay = () => (typeof isOffice === "function" && !isOffice() && window.MAPLE_HOLLOW_LAYOUT && MAPLE_HOLLOW_LAYOUT.town) ? MAPLE_HOLLOW_LAYOUT : null;
+  const has = () => !!townLay() || (MINIMAP.perRun ? runFound : !!(typeof meta !== "undefined" && meta && meta.mapFound));
   // ChatGPT's art (Nov 4): 9-slice frame, expand/close buttons, 12 px markers, and the YOU ARE HERE sign
   const ART = { frame: "assets/ui/minimap-frame-v1.png", buttons: "assets/ui/minimap-buttons-v1.png", icons: "assets/ui/minimap-icons-v1.png", sign: "assets/stage/props/evac-map-v1.png" };
   const ICON = { you: 0, doorOpen: 1, doorLocked: 2, chest: 3, lounge: 4, intern: 5, boss: 6, map: 7 };
@@ -178,17 +182,69 @@ window.Minimap = (() => {
     el.classList.toggle("mm-min", !!meta.minimapSmall);
   }
 
+  // ---------- Maple Hollow ----------
+  const liveAreas = () => (window.MapleHollowAreas || []).map(m => m.area || m);
+  const inRect = (x, y, r) => x >= r[0] && x < r[0] + r[2] && y >= r[1] && y < r[1] + r[3];
+  function townPlace(x, y) { // the name on the tab under the small map
+    const lay = townLay(); if (!lay) return "";
+    const T = lay.town; if (y >= T.y1) return "YOUR HOUSE";
+    const a = liveAreas().find(a => inRect(x, y, a.rect)); if (a) return a.name;
+    if (x >= T.blockX[0] && x < T.blockX[1] && y >= 0) return "YOUR STREET";
+    return "MAPLE HOLLOW";
+  }
+  function townBox(whole) { // what the big map frames: the town, or the house when you're inside
+    const lay = townLay(), T = lay.town;
+    if (typeof player !== "undefined" && player && player.y >= T.y1) {
+      let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+      for (const f of lay.floors) if (f.district === "house") { x0 = Math.min(x0, f.x); y0 = Math.min(y0, f.y); x1 = Math.max(x1, f.x + f.width); y1 = Math.max(y1, f.y + f.height); }
+      return { x0: x0 - 200, y0: y0 - 200, x1: x1 + 200, y1: y1 + 200 };
+    }
+    return { x0: T.x0, y0: T.y0, x1: T.x1, y1: T.y1 };
+  }
+  function drawTown(ctx, X, Y, s, whole) {
+    const lay = townLay(), T = lay.town, Z = MINIMAP.town, R = Math.round, age = typeof currentAge !== "undefined" ? currentAge : 40;
+    const rect = (x, y, w, h, col) => { ctx.fillStyle = col; ctx.fillRect(R(X(x)), R(Y(y)), Math.max(1, R(w * s)), Math.max(1, R(h * s))); };
+    rect(T.x0, T.y0, T.x1 - T.x0, T.y1 - T.y0, Z.woods);                       // the woods everything sits in
+    const mat = f => /road|street/.test(f.material) ? Z.street : /sidewalk/.test(f.material) ? Z.sidewalk : f.district === "house" ? Z.houseFloor : Z.ground;
+    const inside = typeof player !== "undefined" && player && player.y >= T.y1;
+    for (const f of lay.floors) if (!/road/.test(f.material) && (inside || f.district !== "house")) rect(f.x, f.y, f.width, f.height, mat(f)); // lawns, your block, open areas, the house
+    const areas = liveAreas(), fresh = window.Pointers && Pointers.fresh ? Pointers.fresh() : [];
+    for (const a of areas) { // closed areas: woods, a dashed outline and the age they open
+      const [x, y, w, h] = a.rect, cx = X(x + w / 2), cy = Y(y + h / 2);
+      if (!a.open) {
+        ctx.setLineDash([6, 6]); ctx.strokeStyle = Z.closedLine; ctx.globalAlpha = 0.55; ctx.lineWidth = whole ? 2 : 1.5;
+        ctx.strokeRect(R(X(x)) + 6, R(Y(y)) + 6, R(w * s) - 12, R(h * s) - 12); ctx.setLineDash([]); ctx.globalAlpha = 1;
+      }
+      const label = a.open ? (whole ? a.name : "") : (a.age ? "AGE " + a.age : (whole ? "FULL LIFE" : ""));
+      if (fresh.includes(a.id)) { ctx.strokeStyle = Z.newLine; ctx.lineWidth = whole ? 4 : 3; ctx.strokeRect(R(X(x)) + 3, R(Y(y)) + 3, R(w * s) - 6, R(h * s) - 6); }
+      if (label) { const shown = ctx.canvas.clientWidth ? ctx.canvas.clientWidth / ctx.canvas.width : 0.5, fs = Math.round(Math.max(whole ? 26 : 20, 14 / shown)); // at least 14 px on screen
+        ctx.font = `${fs}px Silkscreen, monospace`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; // big enough to read once the canvas is shrunk to fit
+        const tw = ctx.measureText(label).width; ctx.fillStyle = "rgba(23,28,53,.8)"; ctx.fillRect(R(cx - tw / 2 - 6), R(cy - fs * 0.7), R(tw + 12), R(fs * 1.4));
+        ctx.fillStyle = a.open ? "#F2D7A1" : "#FFF0CF"; ctx.fillText(label, R(cx), R(cy) + 1); }
+    }
+    for (const [x, y, w, h] of [...T.roadsV, ...T.roadsH]) rect(x, y, w, h, Z.street); // the town roads, with a center line on the big map
+    if (whole) { ctx.fillStyle = Z.line; ctx.globalAlpha = 0.5;
+      for (const [x, y, w, h] of T.roadsV) for (let yy = y; yy < y + h; yy += 160) ctx.fillRect(R(X(x + w / 2) - 1), R(Y(yy)), 2, Math.max(2, R(80 * s)));
+      for (const [x, y, w, h] of T.roadsH) for (let xx = x; xx < x + w; xx += 160) ctx.fillRect(R(X(xx)), R(Y(y + h / 2) - 1), Math.max(2, R(80 * s)), 2);
+      ctx.globalAlpha = 1; }
+    const sp = lay.spawn; if (sp && whole) { // your house
+      const shown = ctx.canvas.clientWidth ? ctx.canvas.clientWidth / ctx.canvas.width : 0.5, fs = Math.round(Math.max(24, 14 / shown));
+      ctx.font = fs + "px Silkscreen, monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; const t = "HOME", tw = ctx.measureText(t).width;
+      ctx.fillStyle = "#EF9347"; ctx.fillRect(R(X(sp[0]) - tw / 2 - 6), R(Y(sp[1]) - 20 - fs * 1.4), R(tw + 12), R(fs * 1.4)); ctx.fillStyle = "#171C35"; ctx.fillText(t, R(X(sp[0])), R(Y(sp[1]) - 20 - fs * 0.7)); }
+  }
+
   // ---------- drawing ----------
   function draw(cv, cx, cy, worldW, whole) {
     const ctx = cv.getContext("2d"), W = cv.width, H = cv.height;
     ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
-    if (!base) return;
+    const town = townLay();
+    if (!base && !town) return;
     // which part of the office: the whole floor, or a window around you
     let vx, vy, vw, vh;
     if (whole) { // the big map frames the part you've explored (plus a margin), so it isn't a speck on a huge canvas
-      const box = exploredBox(); const pad = 700;
+      const box = town ? townBox(true) : exploredBox(); const pad = town ? 0 : 700;
       let x0 = box ? box.x0 - pad : B.x, y0 = box ? box.y0 - pad : B.y, x1 = box ? box.x1 + pad : B.x + B.width, y1 = box ? box.y1 + pad : B.y + B.height;
-      vw = Math.max(x1 - x0, 3000); vh = Math.max(y1 - y0, 2000); const k = Math.max(vw / W, vh / H); const cxw = (x0 + x1) / 2, cyw = (y0 + y1) / 2;
+      vw = Math.max(x1 - x0, town ? 1500 : 3000); vh = Math.max(y1 - y0, 2000); const k = Math.max(vw / W, vh / H); const cxw = (x0 + x1) / 2, cyw = (y0 + y1) / 2;
       vw = W * k; vh = H * k; vx = cxw - vw / 2; vy = cyw - vh / 2;
     }
     else { vw = worldW; vh = worldW * H / W; vx = cx - vw / 2; vy = cy - vh / 2; }
@@ -198,6 +254,8 @@ window.Minimap = (() => {
     ctx.imageSmoothingEnabled = false;
     const R = v => Math.round(v);
     const age = typeof currentAge !== "undefined" ? currentAge : 40;
+    if (town) drawTown(ctx, X, Y, s, whole);
+    else {
     for (const r of rooms) {
       if (seenRoom.has(r.id)) continue;
       ctx.beginPath(); r.poly.forEach(([x, y], i) => i ? ctx.lineTo(R(X(x)), R(Y(y))) : ctx.moveTo(R(X(x)), R(Y(y)))); ctx.closePath();
@@ -219,19 +277,20 @@ window.Minimap = (() => {
       ctx.font = "15px Silkscreen, monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
       for (const r of rooms) if (seenRoom.has(r.id)) { const t = r.name.toUpperCase(), tw = ctx.measureText(t).width; ctx.fillStyle = "rgba(23,28,53,.75)"; ctx.fillRect(R(X(r.cx) - tw / 2 - 6), R(Y(r.cy) - 11), R(tw + 12), 22); ctx.fillStyle = "#F2D7A1"; ctx.fillText(t, R(X(r.cx)), R(Y(r.cy)) + 1); }
     }
-    const seen = (x, y) => floors.some(f => seenFloor.has(f.i) && x >= f.x - 80 && x <= f.x + f.w + 80 && y >= f.y - 80 && y <= f.y + f.h + 80);
+    }
+    const seen = town ? () => true : (x, y) => floors.some(f => seenFloor.has(f.i) && x >= f.x - 80 && x <= f.x + f.w + 80 && y >= f.y - 80 && y <= f.y + f.h + 80);
     const icon = (i, x, y, size) => { ctx.imageSmoothingEnabled = false; const s2 = Math.round(size); ctx.drawImage(icons, i * 12, 0, 12, 12, Math.round(X(x) - s2 / 2), Math.round(Y(y) - s2 / 2), s2, s2); };
     const isz = whole ? 26 : 22; // 12 px art at about 2x on the canvas
     const dot = (x, y, r, col, ic) => { if (iconsOk && ic !== undefined) return icon(ic, x, y, isz); ctx.fillStyle = "#171C35"; ctx.beginPath(); ctx.arc(X(x), Y(y), r + 1.5, 0, 7); ctx.fill(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(X(x), Y(y), r, 0, 7); ctx.fill(); };
     const k = whole ? 1.6 : 1;
     // doors: green once your promotion opened them, red while locked (shown once you've seen them)
-    for (const g of window.START_AREA_GATES || []) {
+    for (const g of town ? [] : window.START_AREA_GATES || []) {
       const gx = g.x + (g.width || 128) / 2, gy = g.y + (g.height || 224) / 2; if (!seen(gx, gy)) continue;
       if (iconsOk) icon(g.opened ? ICON.doorOpen : ICON.doorLocked, gx, gy, isz);
       else { ctx.fillStyle = "#171C35"; ctx.fillRect(X(gx) - 4 * k, Y(gy) - 4 * k, 8 * k, 8 * k); ctx.fillStyle = g.opened ? C.doorOpen : C.doorLocked; ctx.fillRect(X(gx) - 3 * k, Y(gy) - 3 * k, 6 * k, 6 * k); }
       if (whole && !g.opened) { ctx.font = "13px Silkscreen, monospace"; ctx.fillStyle = "#F2D7A1"; ctx.textAlign = "center"; ctx.fillText("AGE " + g.age, X(gx), Y(gy) - 16); }
     }
-    if (window.Lounge && Lounge.spot && Lounge.isOpen && Lounge.isOpen()) { const p = Lounge.spot(); if (p && seen(p.x, p.y)) dot(p.x, p.y, 3.5 * k, C.lounge, ICON.lounge); }
+    if (!town && window.Lounge && Lounge.spot && Lounge.isOpen && Lounge.isOpen()) { const p = Lounge.spot(); if (p && seen(p.x, p.y)) dot(p.x, p.y, 3.5 * k, C.lounge, ICON.lounge); }
     if (typeof chests !== "undefined" && chests && chests.getChildren) chests.getChildren().forEach(o => { if (o.active) dot(o.x, o.y, 3 * k, C.chest, ICON.chest); });
     const em = window.Errands && Errands.mark && Errands.mark(); if (em) dot(em.x, em.y, 4.5 * k, "#EF9347", ICON.map); // the TO-DO errand, always shown
     const it = window.Interns && Interns.active && Interns.active(); if (it && it.o && it.o.active) dot(it.o.x, it.o.y, 3 * k, C.intern, ICON.intern);
@@ -253,11 +312,13 @@ window.Minimap = (() => {
     if (typeof levelUpOpen !== "undefined" && levelUpOpen) return;
     if (typeof paused !== "undefined" && paused) return;
     css();
+    const T = !!townLay();
+    if (big && big.dataset.town !== String(T)) { big.remove(); big = null; } // the office and the town have different titles and keys
     if (!big) {
-      big = document.createElement("div"); big.id = "minimap-modal"; big.className = "hidden"; big.setAttribute("role", "dialog"); big.setAttribute("aria-label", "Office map");
-      big.innerHTML = `<div class="mmb"><div class="mmb-head"><span class="mmb-title">OFFICE MAP · YOU ARE HERE</span><button type="button" class="mmb-x nav-item" data-nav-idx="0">CLOSE</button></div>
-        <canvas width="1200" height="810"></canvas>
-        <div class="mmb-legend"><span><i class="mm-ic" style="background-position:-0px 0"></i>You</span><span><i class="mm-ic" style="background-position:-24px 0"></i>Open door</span><span><i class="mm-ic" style="background-position:-48px 0"></i>Locked (opens at that age)</span><span><i class="mm-ic" style="background-position:-72px 0"></i>Chest</span><span><i class="mm-ic" style="background-position:-96px 0"></i>Lounge</span><span><i class="mm-ic" style="background-position:-120px 0"></i>Intern</span><span><i class="mm-ic" style="background-position:-144px 0"></i>Boss</span><span style="opacity:.8">Dark areas: not explored yet</span></div></div>`;
+      big = document.createElement("div"); big.id = "minimap-modal"; big.className = "hidden"; big.dataset.town = String(T); big.setAttribute("role", "dialog"); big.setAttribute("aria-label", T ? "Maple Hollow map" : "Office map");
+      big.innerHTML = `<div class="mmb"><div class="mmb-head"><span class="mmb-title">${T ? "MAPLE HOLLOW" : "OFFICE MAP"} · YOU ARE HERE</span><button type="button" class="mmb-x nav-item" data-nav-idx="0">CLOSE</button></div>
+        <canvas width="${T ? 1000 : 1200}" height="${T ? 1180 : 810}"></canvas>
+        <div class="mmb-legend">${T ? `<span><i class="mm-ic" style="background-position:-0px 0"></i>You</span><span><i class="mm-ic" style="background-position:-72px 0"></i>Chest</span><span><i class="mm-ic" style="background-position:-120px 0"></i>Intern</span><span><i class="mm-ic" style="background-position:-144px 0"></i>Boss</span><span>Dashed woods: opens at that age</span><span>Orange outline: just opened</span>` : `<span><i class="mm-ic" style="background-position:-0px 0"></i>You</span><span><i class="mm-ic" style="background-position:-24px 0"></i>Open door</span><span><i class="mm-ic" style="background-position:-48px 0"></i>Locked (opens at that age)</span><span><i class="mm-ic" style="background-position:-72px 0"></i>Chest</span><span><i class="mm-ic" style="background-position:-96px 0"></i>Lounge</span><span><i class="mm-ic" style="background-position:-120px 0"></i>Intern</span><span><i class="mm-ic" style="background-position:-144px 0"></i>Boss</span><span style="opacity:.8">Dark areas: not explored yet</span>`}</div></div>`;
       document.body.appendChild(big);
       big.addEventListener("pointerdown", e => { if (e.target === big || e.target.classList.contains("mmb-x")) { e.preventDefault(); closeBig(); } });
       big.querySelector(".mmb-x").addEventListener("nav-activate", closeBig);
@@ -265,6 +326,7 @@ window.Minimap = (() => {
     bigOpen = true; window.minimapOpen = true;
     sc.physics.pause(); sc.time.paused = true;
     big.classList.remove("hidden");
+    if (T) { const bx = townBox(true), cv = big.querySelector("canvas"); cv.width = 1000; cv.height = Math.round(1000 * (bx.y1 - bx.y0) / (bx.x1 - bx.x0)); } // the canvas takes the town's shape
     draw(big.querySelector("canvas"), 0, 0, 0, true);
     if (window.menuNav && menuNav.refresh) try { menuNav.refresh(".mmb-x"); } catch (e) {}
     if (typeof sfx === "function") sfx("pick");
@@ -286,8 +348,19 @@ window.Minimap = (() => {
     if (!base) buildBase(); resetFog();
   }
   function update(scene, now) {
-    if (!base && !buildBase()) return;
     if (typeof player === "undefined" || !player || !player.active) return;
+    if (townLay()) { // Maple Hollow: no poster, no fog
+      if (!el) mountMini();
+      if (now >= nextDraw) {
+        nextDraw = now + 120; syncMini();
+        if (!el.classList.contains("mm-min") && !el.classList.contains("hidden")) {
+          draw(el.querySelector("canvas"), player.x, player.y, MINIMAP.town.worldWidth, false);
+          const tab = el.querySelector(".mm-room"), name = townPlace(player.x, player.y); if (tab && tab.textContent !== name) tab.textContent = name;
+        }
+      }
+      return;
+    }
+    if (!base && !buildBase()) return;
     if (!has()) {
       if (!signAsked && window.ArtSheets) { signAsked = true; signWaitUntil = now + 3000; ArtSheets.load(scene, "evac_map", ART.sign, 48, 64); }
       const signReady = scene.textures.exists("evac_map") || now > signWaitUntil; // wait a moment for the real sign, then fall back

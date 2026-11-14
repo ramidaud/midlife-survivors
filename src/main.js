@@ -2955,7 +2955,7 @@ function update(time, delta) {
   if (window.Breakables) Breakables.scan(this, now);     // tag newly built props that can be smashed
   const office = isOffice(); // Maple Hollow has no promotions, office map, errands, interns, Lounge or office easter eggs (yet)
   if (window.Promotions && office) Promotions.update(this, now);   // open promotion doors as you age
-  if (window.Minimap && office) Minimap.update(this, now);         // find the office map, then it fills in as you explore
+  if (window.Minimap) Minimap.update(this, now);                   // office: find the map, then it fills in. Maple Hollow: yours from the start
   if (window.Workload) Workload.update(this);            // Overtime Workload past 65 (src/workload.js)
   if (window.OvertimeBeats) OvertimeBeats.update(this);  // Overtime events like Open Enrollment (src/overtime-beats.js)
   if (window.PerfBonus) PerfBonus.update(this);          // free picks when late-game XP dries up (src/perf-bonus.js)

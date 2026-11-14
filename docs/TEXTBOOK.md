@@ -2289,3 +2289,21 @@ The game never takes control of the hero. It just makes one direction the comfor
 | Arc width | 2.4 radians (about 140°) | wraps you without closing the gap |
 
 Tune it in `src/area-push.js` (`AREA_PUSH`).
+
+## Chapter: A map is the level, shrunk (2026-11-14)
+```
+world (pixels in the game)            map (pixels on the canvas)
+x = -5,600  ──── × scale ────▶        x = 40
+a 2,496 px block  ── × 0.08 ──▶       a 200 px square
+```
+
+| Thing | Comes from | Drawn as |
+|---|---|---|
+| Woods | the town's outer edge | teal |
+| Your street, lawns, open areas | the floor list | sage and slate |
+| Roads | the town's road list | navy, dashed center line |
+| Closed areas | area list + current age | dashed outline, "AGE 47" |
+| Just opened | the edge-arrow list | orange outline |
+| Labels | screen size | at least 14 px on screen |
+
+The one rule that isn't "multiply by scale": text. A 26 px label on a 1,000 px canvas shown 330 px wide on a phone is 9 px, too small. So label size is worked out from how big the canvas actually shows.

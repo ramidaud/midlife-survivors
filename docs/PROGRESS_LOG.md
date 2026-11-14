@@ -2553,3 +2553,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Edge arrows point to bosses (russet, "BOSS") and to a newly opened area (sage, its name) until you walk in or 90 s pass.
 - TJ and Derek now help in every stage, Maple Hollow included. Replacements later (Rami OK'd keeping them for now).
 - Checked at laptop and phone sizes: 37 of 37 spawned, no errors.
+
+## 2026-11-14: Maple Hollow map, V2.45.0 (Claude)
+- The corner map now works in Maple Hollow, from the start (no poster to find: it's your neighborhood). Tap it or press M for the whole town.
+- Closed areas show the age they open; a just-opened area has an orange outline until you visit (same timing as the edge arrow). HOME marks your house; inside, the map shows the house.
+- Drawn from the town's own layout data, so it always matches the real streets. The office map is unchanged.
+- Fixed in testing: labels were unreadable on phones, so their size now follows how big the map shows on screen (at least 14 px).

@@ -900,3 +900,6 @@ Every road piece is cut so its road is exactly 320 px wide and sits in the same 
 
 ## Steering without walls: pressure (Nov 14, push waves)
 You can't tell a player "go there" in a game with one input, but you can make staying put uncomfortable. The push wave drops a big arc of weak enemies on the side away from the new area, so the easy way out is toward it. The arc leaves the far side open: that gap is the suggestion. Weak enemies make it feel like a stampede, not a death sentence, and two tough ones keep it from being free XP.
+
+## A map is the level, shrunk (Nov 14, Maple Hollow map)
+The map isn't a separate picture someone painted. It reads the same list of rectangles the game uses for streets, lawns and areas, and draws each one smaller: every world position is multiplied by one scale number. That's why it can't drift out of date when the town changes. Text is the exception: it gets sized for the screen, not the world, or it shrinks to nothing on a phone.

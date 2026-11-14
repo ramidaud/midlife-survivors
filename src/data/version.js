@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.44.0",
-  displayVersion: "V. 2.44.0",
+  version: "2.45.0",
+  displayVersion: "V. 2.45.0",
   lastUpdated: "Nov 14, 2026",
   codename: "Version Two",
-  build: 386,
+  build: 387,
   changelog: [
+    {
+      ver: "V. 2.45.0", date: "Nov 14, 2026", title: "Version Two",
+      teaser: "You can finally see the whole neighborhood. It's mostly woods you're not allowed in yet.",
+      highlights: [
+        "Maple Hollow has a map. It's in the corner from the start (you know your own neighborhood). Tap it or press M for the whole town.",
+        "Areas that haven't opened show the age they open at. A newly opened area gets an orange outline until you visit.",
+        "Inside the house, the corner map shows the house."
+      ]
+    },
     {
       ver: "V. 2.44.0", date: "Nov 14, 2026", title: "Version Two",
       teaser: "Something just opened. Everyone in town wants you to go look.",
