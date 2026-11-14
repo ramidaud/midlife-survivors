@@ -2541,3 +2541,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - PR #13 merged (Rami's OK): streets, T-junctions and the four-way crossing (all joins checked), six parked cars with no plates, and the woods kit (three trees, log, rocks, mushroom ring, trail tiles, fireflies).
 - Rami keeps the two standing stones (I and II) as a landmark in the woods; what they do is still open.
 - Next session: place the roads and woods in Maple Hollow, with 224 px main routes and the tree wall at the edges.
+
+## 2026-11-14: roads and woods in the game, V2.43.0 (Claude)
+- Every street uses Codex's road kit (PR #13): north-south streets have their own painted pieces, and crossings and T-junctions replace the plain asphalt patches.
+- Parked cars along the north-south roads leave a 240 px lane (main routes need 224). Never inside a crossing.
+- The closed areas are a real forest now: Codex's forest floor, three kinds of trees in loose rows, a log, rocks and a mushroom ring. The two standing stones stand by the Town Square sign.
+- Fixed in testing: the bottom and right rows of trees spilled onto the sidewalk.

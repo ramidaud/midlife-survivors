@@ -894,3 +894,6 @@ Both curb positions must agree before placement.
 A painted road can look right while its edge lands a few pixels away from the next tile. For this kit, the painted strips are fitted to one shared connection: 96px of sidewalk/parkway, 320px of asphalt, then another 96px of sidewalk/parkway. A checker reads the exported pixels and confirms that width through a 16px joining strip. It also checks the center line, so the dashes continue in the same place.
 
 `96px side | 320px asphalt | 96px side = 512px band`
+
+## Tiles that connect: why the junctions match (Nov 14, roads)
+Every road piece is cut so its road is exactly 320 px wide and sits in the same spot on every edge (96 px of sidewalk on each side). That rule is what lets any street piece sit next to any crossing or T-junction with no seam. When roads meet, the game looks at which sides have road (north, south, east, west) and picks the piece with openings on exactly those sides.

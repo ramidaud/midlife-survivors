@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.42.1",
-  displayVersion: "V. 2.42.1",
+  version: "2.43.0",
+  displayVersion: "V. 2.43.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 384,
+  build: 385,
   changelog: [
+    {
+      ver: "V. 2.43.0", date: "Nov 14, 2026", title: "Version Two",
+      teaser: "New roads, real crosswalks, and a forest that is mostly trees now.",
+      highlights: [
+        "Every street in Maple Hollow is repainted, with crosswalks and T-junctions where the roads meet, chalk drawings, lost mittens and puddles.",
+        "Cars park along the north-south roads. They leave you a full lane, but don't count on them moving.",
+        "The woods around the closed areas are a real forest now: birch, maple and evergreen trees, a fallen log, mossy rocks and a mushroom ring. Two old standing stones wait outside Town Square."
+      ]
+    },
     {
       ver: "V. 2.42.1", date: "Nov 13, 2026", title: "Version Two",
       teaser: "The kitchen has an island now. The TV is gone. Nobody knows where.",

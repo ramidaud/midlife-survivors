@@ -2254,3 +2254,17 @@ Matching color hides a color seam. Matching the exact curb positions hides a sha
 ```
 
 Painting supplies the texture, light and character. Fitting painted strips to shared coordinates supplies the exact connection. The checker measures the final picture, including the joining strip and center line, rather than trusting the manifest's stated width.
+
+## Chapter: Tiles that connect
+
+```
+  every edge is the same:  | 96 walk | 320 road | 96 walk |   (512 px band)
+
+  which sides have road?        piece
+  N S E W                       crossing (four-way)
+  N   E W  (no south)           T opening north
+    S E W  (no north)           T opening south
+  N S E    (no west)            T opening east
+  N S   W  (no east)            T opening west
+```
+Because every edge is cut the same way, any piece fits next to any other piece.
