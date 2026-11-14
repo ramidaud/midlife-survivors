@@ -45,28 +45,26 @@ faces = [[0, 0, 800, FACE],
 
 # ---------- pieces ----------
 man = {p["id"]: p for p in json.load(open(DEL + "manifest-ground-floor.json"))["pieces"]}
+man["round-coffee-table"] = dict(man["round-coffee-table"], file="../../../house-upstairs/deliver/coffee-table-oak-v1.png")  # Codex's oak top (PR #11), same size and footprint
 layout = json.load(open(DEL + "mockups/room-layout.json"))
 living = json.load(open(ROOT + "/docs/plans/house-layout/placements-round2.json"))["rooms"]["living"]["items"]
 REPLACED = {"living", "dining", "downstairs-desk-nook", "kitchen", "entry"}
 keep = [p for p in H2["pieces"] if p["room"] not in REPLACED and p["id"] != "abstract-painting"]  # the old hallway painting: Codex repainted it for the dining wall
 
-# Rami's living room (round 2), with the route nudges; the toy bin moves off the doorway's approach
-LIVING_FIX = {"twins-toy-bin": (520, 20)}
-# the dining wall swap (option 1): desk + shelves to the left, painting to the right, the moon print over the stairs
-DINING_FIX = {"corner-computer-desk": (112, -48), "camera-book-shelves": (124, -144), "mesh-office-chair": (200, -8),
-              "abstract-wall-painting": (352, -128), "kids-drawings": (376, -24), "moon-print": (-128, -104)}
+# Rami's own layout from the House Layout Editor (scale and rotation are repaint requests, never applied here)
+import sys
+RAMI = json.load(open(ROOT + "/docs/plans/house-layout/" + (sys.argv[1] if len(sys.argv) > 1 else "rami-layout-nov13.json")))["rooms"]
+FIX = {("living", "racing-sim-rig"): (540, 96), ("living", "sim-cables"): (568, 160),   # route nudges, if the room needs them
+       # the dining wall swap (Rami's option 1): desk + shelves left, painting right, so the living-room doorway fits at the right end
+       ("dining-desk-shared", "corner-computer-desk"): (112, -48), ("dining-desk-shared", "camera-book-shelves"): (124, -144),
+       ("dining-desk-shared", "mesh-office-chair"): (200, -8), ("dining-desk-shared", "abstract-wall-painting"): (352, -128),
+       ("dining-desk-shared", "kids-drawings"): (376, -24), ("dining-desk-shared", "moon-print"): (-128, -104)}
 placements = []   # (view room id, piece id, x, y) room-relative, in the room's own (old-rect) frame
-seen = {}
-for it in living:
-    x, y = LIVING_FIX.get(it["id"], (it["x"], it["y"]))
-    placements.append(("living", it["id"], x, y))
-for p in layout["placements"]:
-    if p["room"] == "living" or p["id"].startswith("existing-"): continue
-    if p["id"] == "window-blinds-west": continue   # the dining room's west side is open to the stairs: no wall to hang it on
-    x, y = p["at"]
-    if p["room"] == "dining-desk-shared": x, y = DINING_FIX.get(p["id"], (x, y))
-    if p["room"] in ("entry", "laundry-closet") and man[p["id"]]["renderLayer"] == "wall-mounted": y = max(y, -28)  # no tall face here
-    placements.append((p["room"], p["id"], x, y))
+for room in ("living", "dining-desk-shared", "kitchen", "entry", "laundry-closet"):
+    for pid, x, y, sc, rot in RAMI[room]:
+        x, y = FIX.get((room, pid), (x, y))
+        if room in ("entry", "laundry-closet") and man[pid]["renderLayer"] == "wall-mounted": y = max(y, -28)  # no tall face here
+        placements.append((room, pid, x, y))
 VIEW = {v["id"]: v["rect"] for v in layout["views"]}
 
 atlas_items = []      # (key, image)
@@ -159,7 +157,7 @@ ok = True
 for rid in ("entry", "circulation", "breakfast-nook", "kitchen", "dining", "downstairs-desk-nook", "living", "garage"):
     x, y, w, h = rooms[rid]["rect"]
     reach = seen[max(0, y):max(0, y + h - n + 1), max(0, x):max(0, x + w - n + 1)].any() if w >= n and h >= n else None
-    if reach is False: ok = False
+    if reach is not None and not reach: ok = False
     # pockets: free squares in the room that the walk never reaches
     fr = free[max(0, y):max(0, y + h - n + 1), max(0, x):max(0, x + w - n + 1)]
     sn = seen[max(0, y):max(0, y + h - n + 1), max(0, x):max(0, x + w - n + 1)]

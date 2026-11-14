@@ -2499,3 +2499,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - PR #11 merged (Rami's OK): nine upstairs rooms painted by Codex, with generic space and game-pad art instead of real logos.
 - The crib stays next to the twin bassinet (Rami).
 - The House Layout Editor now has the upstairs (nine rooms, under "Upstairs" in the room list) for Rami's layout pass before placement.
+
+## 2026-11-13: Rami's downstairs round 3 in the game, V2.41.2 (Claude)
+- Rami's editor pass is saved in docs/plans/house-layout/rami-layout-nov13.json, and the build now reads it directly: a kitchen island, the dining chairs tucked around the table, the lamps and toy bin moved, and the oak coffee table.
+- His pass put the desk back on the right of the dining wall, which closed the doorway. I kept it on the left (his earlier pick) and nudged the sim rig up so the route check passes again.
+- Fixed a bug in my route check that printed PASS when a room was cut off.

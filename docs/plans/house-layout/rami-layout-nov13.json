@@ -1,0 +1,43 @@
+{
+ "note": "Rami's House Layout Editor pass, Nov 13 evening (downstairs round 3 + upstairs round 1). Room-relative px, y<0 is the 128 px wall face. scale/rot are requests for repaints, never applied in the game.",
+ "rooms": {
+  "living": [
+   ["photo-ledges",8,-112,100,0],["tile-fireplace",232,-44,100,0],["ornate-silver-mirror",240,-128,100,0],["window-olive-curtains",128,-124,100,0],
+   ["galaxy-wall-tv",724,-100,200,0],["fluted-media-console",704,56,100,0],["cream-sofa",-4,60,100,0],["leather-recliner",408,-28,150,0],
+   ["round-coffee-table",236,152,100,0],["persian-living-rug",88,60,100,0],["potted-pothos",156,-136,100,0],["bird-of-paradise",544,-40,80,0],
+   ["drum-floor-lamp",100,-84,100,0],["arched-floor-lamp",480,-72,100,0],["racing-sim-rig",540,140,100,0],["sim-cables",568,204,100,0],
+   ["baby-swing-pink",244,8,100,0],["baby-swing-grey",308,8,100,0],["blanket-basket",160,28,100,0],["snack-bag",224,304,100,0],
+   ["south-love-seat",180,268,150,0],["bird-of-paradise",148,-76,100,0],["window-olive-curtains",408,-120,100,0],["potted-pothos",436,-132,100,0],
+   ["twin-bassinets",0,0,100,0],["side-table-lamp",104,248,150,0],["side-table-lamp",448,252,150,0],["twins-toy-bin",76,0,100,0]
+  ],
+  "dining-desk-shared": [
+   ["houseplant-cluster",8,-44,100,0],["round-dining-table",64,80,100,0],["dining-chair-north",136,120,100,0],["dining-chair-south",136,52,100,0],
+   ["dining-chair-east",44,80,100,0],["dining-chair-west",228,80,100,0],["dining-rug",16,8,100,0],["corner-computer-desk",352,-48,100,0],
+   ["camera-book-shelves",376,-132,90,0],["mesh-office-chair",444,-12,100,0],["moon-print",280,-104,100,0],["kids-drawings",276,-128,100,0],
+   ["electric-console-east",360,88,150,0],["abstract-wall-painting",136,-128,100,0],["potted-orchid",192,64,100,0],["window-blinds-north",8,-112,100,0]
+  ],
+  "kitchen": [
+   ["white-oak-sink-counter",0,-24,100,0],["white-oak-upper-cabinets",0,-112,100,0],["stove-microwave",192,-64,100,0],["magnet-fridge",320,232,100,0],
+   ["kitchen-counter-west",164,88,150,0],["kitchen-counter-east",280,-24,100,0],["kitchen-runner",44,68,100,0],["white-oak-upper-cabinets",208,-112,100,0]
+  ],
+  "entry": [
+   ["storage-bench-west",0,132,100,0],["shoe-pairs",132,-4,100,0],["coat-hooks-jacket",108,-116,100,0],["oak-door-side",0,-4,100,0],["shoe-rack",92,-12,100,0]
+  ],
+  "laundry-closet": [["laundry-basket",48,104,100,0]],
+  "up-master-bedroom": [
+   ["moon-print",48,-124,100,0],["bedroom-window",168,-124,100,0],["bedroom-window",540,-124,100,0],["bed-wall-art",320,-124,100,0],
+   ["bed-wall-mirror",688,-120,100,0],["dresser-with-mirror",0,-24,100,0],["king-bed",288,-24,100,0],["nightstand-left",204,-8,100,0],
+   ["nightstand-right",480,-8,100,0],["wooden-crib",600,248,100,0],["double-bassinet",568,0,100,0],["master-dresser-east",708,220,100,0],
+   ["baby-supplies",632,108,100,0],["socks-decal",416,272,100,0],["bedroom-rug",240,216,100,0],["bedroom-armchair",8,296,100,0],
+   ["bedroom-plant",680,96,100,0],["laundry-basket",560,360,100,0]
+  ],
+  "up-abe-room": [
+   ["north-doorway",20,-128,100,0],["space-wall",168,-124,100,0],["controller-guitar-wall",276,-124,100,0],["neon-wall",400,-124,100,0],
+   ["pennant-car-wall",400,-60,100,0],["window-east",592,240,100,0],["music-desk",192,-48,100,0],["gaming-chair",268,20,100,0],
+   ["collectibles-shelf",468,-16,100,0],["tv-cube-shelf-east",516,40,150,0],["sleigh-bed",216,96,100,0],["record-dresser-south",148,292,150,0],
+   ["hamper",120,292,150,0],["robot-figure",156,56,100,0],["traffic-light",572,-124,100,0],["beanbag",400,132,100,0],
+   ["guitar-amp",408,8,75,90],["abe-rug",120,92,100,270],["clothes-floor",40,340,100,0]
+  ],
+  "up-hall": [["hall-picture",108,-112,100,0],["hall-coat-console-east",112,180,100,0],["hall-runner",20,32,100,0]]
+ }
+}

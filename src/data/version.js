@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.41.1",
-  displayVersion: "V. 2.41.1",
+  version: "2.41.2",
+  displayVersion: "V. 2.41.2",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 381,
+  build: 382,
   changelog: [
+    {
+      ver: "V. 2.41.2", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Someone rearranged the furniture. It was Dad.",
+      highlights: [
+        "The downstairs follows Rami's latest layout: a kitchen island, the dining chairs tucked around the table, the electric console moved in from the wall, and the lamps and toy bin where they live.",
+        "The coffee table has a warm oak top now, so it stops disappearing into the rug."
+      ]
+    },
     {
       ver: "V. 2.41.1", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Bonus chests open again. HR found the paperwork.",
