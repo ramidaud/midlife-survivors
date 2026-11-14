@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.42.0 house remains live. Ten round-three painted variants and four saved-layout mock-ups are ready for review; living/dining routes and Abe clearance constraints are flagged. Nothing newly placed in game. Roads and woods follow.)
+**Last updated:** 2026-11-13 (V2.42.1: the house is finished for now, both floors in Rami's layout. Next: roads and woods (docs/handoffs/codex-roads-and-woods.md), then idle animations.)
 
 ---
 

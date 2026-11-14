@@ -2518,3 +2518,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Four room mock-ups preserve every saved editor position. Living/dining fail door clearance; kitchen passes. Abe's doors connect, but clear pockets are cut off and the larger hamper overlaps the dresser.
 - Native hero comparisons, exact 3x room/footprint views, updated manifests and one source set included. Asset checks pass; fixed layout constraints remain explicit for review.
 - No game placement, runtime rebuild or version change. Claude places approved variants after the layout constraints are resolved.
+
+## 2026-11-13: house round 3, V2.42.1 (Claude)
+- PR #12 merged (Rami's OK): the kitchen island, the bigger dining console, the smaller desk shelves and bird of paradise, and Abe's record dresser, cube shelf, hamper, amp and rug at Rami's sizes.
+- The living room TV is cut (Rami: "just lose the tv"). Abe's hamper moved left of the wider dresser. Every room passes the route check.
+- Rami is done with the house for now.
