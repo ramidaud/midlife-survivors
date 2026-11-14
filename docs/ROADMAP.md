@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-14 (V2.45.1: Maple Hollow bosses hurry over instead of taking 2 minutes. PR #15 idles approved. Next: place them in the game.)
+**Last updated:** 2026-11-14 (V2.46.0: hero idle animations are in. Before that, V2.45.1: Maple Hollow bosses hurry over. Next: watch the next Maple Hollow runs; TJ and Derek replacements later.)
 
 ---
 

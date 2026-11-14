@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.45.1",
-  displayVersion: "V. 2.45.1",
+  version: "2.46.0",
+  displayVersion: "V. 2.46.0",
   lastUpdated: "Nov 14, 2026",
   codename: "Version Two",
-  build: 388,
+  build: 389,
   changelog: [
+    {
+      ver: "V. 2.46.0", date: "Nov 14, 2026", title: "Version Two",
+      teaser: "Stand still long enough and your hero gets on with their day.",
+      highlights: [
+        "New idle animations for all four heroes: Soccer Dad sips his coffee, the 9-to-5er pushes up his glasses, the Grad Student checks her notebook, and the Cold War Cowboy checks his floppy disk.",
+        "Standing still, your hero breathes. Every few seconds they blink and do their thing."
+      ]
+    },
     {
       ver: "V. 2.45.1", date: "Nov 14, 2026", title: "Version Two",
       teaser: "The 30-Year Mortgage no longer takes the scenic route.",

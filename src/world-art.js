@@ -2,7 +2,8 @@
 window.USE_HERO_ART = true;
 // Nov 2: 8-frame hero sheets with an idle row (ChatGPT). Set to 1 and reload for the 4-frame v1 walk.
 window.HERO_ART_VERSION = 2;
-window.HERO_ANIM = { walkFrameMs: 95, stepPx: 8.5, breathMs: 320, fidgetEveryMs: 7000, fidgetFrameMs: 170 };
+window.HERO_ANIM = { walkFrameMs: 95, stepPx: 8.5, breathMs: 600, fidgetEveryMs: 7000, fidgetFrameMs: 170,
+  idleFrameMs: [400, 200, 160, 400, 160, 240, 180, 400] }; // Nov 14 (PR #15): standing still breathes on idle frames 1-2; every fidgetEveryMs the whole 8-frame idle plays at Codex's timing (blink, then the sip, glasses push, notebook or floppy check)
 window.USE_OFFICE_ART = true;
 window.WorldArt = (() => {
   const palette = '171c35 303750 526078 3e7775 83a89a a88b70 d3b78d f2d7a1 fff0cf 874c3b c45c4b ef9347 e5a995 f1b5bf bfa8cf b97a58 70402f'.split(' ').map(hex => [0,2,4].map(i => parseInt(hex.slice(i,i+2),16)));
@@ -58,7 +59,7 @@ window.WorldArt = (() => {
       if(window.HERO_ART_VERSION===2) loadHeroV2('coldWarCowboy'); // Ben has v2 art only (Nov 3)
     }
     // v2: 448x300 sheet, 8 columns x 5 rows of 56x60 (rows: down, up, left, right walks, then idle). Exact magenta = clear.
-    const HERO_FILES={officeWorker:'office-worker-walk-56x60-v4',photographer:'soccer-dad-walk-56x60-v4',gradStudent:'grad-student-walk-56x60-v4',coldWarCowboy:'cold-war-cowboy-walk-56x60-v5'};
+    const HERO_FILES={officeWorker:'office-worker-walk-56x60-v5',photographer:'soccer-dad-walk-56x60-v5',gradStudent:'grad-student-walk-56x60-v5',coldWarCowboy:'cold-war-cowboy-walk-56x60-v6'}; // Nov 14: row 5 is Codex's idle (PR #15)
     function loadHeroV2(id) {
       const img=new Image();
       img.onload=()=>{
@@ -94,8 +95,11 @@ window.WorldArt = (() => {
       // movement speed. walkFrameMs per frame; the cycle starts on frame 0 each time you start moving.
       if(moving){if(now-stillSince>150)walkFrom=now;stillSince=now;nextFidget=now+H.fidgetEveryMs;return dirs.indexOf(facing)*8+Math.floor((now-walkFrom)/H.walkFrameMs)%8;}
       if(facing!=='down'&&now-stillSince<600) return dirs.indexOf(facing)*8; // brief stand in the direction you stopped
-      if(now>=nextFidget){const k=Math.floor((now-nextFidget)/H.fidgetFrameMs);if(k<4)return 32+4+k;nextFidget=now+H.fidgetEveryMs;}
-      return 32+Math.floor(now/H.breathMs)%4; // breathing / coffee-sip loop
+      if(now>=nextFidget){ // the idle action, frame by frame at its own timing
+        let t=now-nextFidget;for(let k=0;k<H.idleFrameMs.length;k++){if(t<H.idleFrameMs[k])return 32+k;t-=H.idleFrameMs[k];}
+        nextFidget=now+H.fidgetEveryMs;
+      }
+      return 32+Math.floor(now/H.breathMs)%2; // breathing
     }
     async function loadOffice() {
       const homeStage=window.STAGE_ID==='home'&&window.MapleHollow; // Nov 9: Maple Hollow builds instead of the office

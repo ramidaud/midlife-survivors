@@ -909,3 +909,6 @@ The stats said leaf piles and late fees killed people at 52-56, which pointed at
 
 ## 2026-11-14: an idle that fits its walk (Codex)
 Matching the 56x60 canvas is not enough: the visible figure inside it also needs the same width, height and shoe-contact line. These studies measure each hero’s current walk frame 1, then fit eight idle poses to those bounds. Holding the legs steady prevents foot jitter; using only the walk sheet’s existing colors prevents new palette colors between states.
+
+## Frame timing: not every frame lasts the same (Nov 14, hero idles)
+A walk cycle can tick at one steady speed, but an action reads better with its own rhythm. The idle holds the "ready" pose for 400 ms, blinks fast (160 ms), then lingers on the sip (400 ms). The game keeps that list of durations and walks through it, so the timing Codex drew is the timing you see.

@@ -2571,3 +2571,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Eight 56x60 cells each. Every frame matches that hero’s current walk frame 1 in visible width, height and y56 sole line, with planted feet and only existing walk-sheet colors.
 - Native strips, 4x animated GIFs, side-by-side walk comparisons, original paintings and reproducible checks are in assets/characters/idle-studies/.
 - All 32 cells and four GIFs pass. Desktop and phone review checks load all 12 images without page overflow. Art-only branch; no walk-sheet, game, version or build changes.
+
+## 2026-11-14: hero idles in the game, V2.46.0 (Claude)
+- PR #15 merged (Rami's OK). Codex's idle strips replace the old idle row in each hero sheet (new sheet files; the walk frames are untouched).
+- Standing still: a slow breathe on the first two idle frames. Every 7 seconds the whole 8-frame action plays at Codex's timing (about 2 seconds), then back to breathing.
+- Tested by reading the hero's frame number in the game at laptop and phone sizes: stop, breathe, action, breathe. No errors.

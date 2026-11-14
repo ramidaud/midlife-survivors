@@ -2322,3 +2322,17 @@ age 55 ── finally arrives            ← most deaths happened in here
 | age reached | 52 to 56 | the boss's long walk |
 
 Fix: far bosses hurry (5x), close bosses fight normally. The 2-minute walk is now about 30 seconds.
+
+## Chapter: Frame timing (2026-11-14)
+```
+idle frame:  1     2    3    4     5    6     7    8
+ms on screen 400   200  160  400   160  240   180  400   (about 2.1 s)
+             stand      blink      lift  sip  lower  settle
+```
+
+| When | What plays |
+|---|---|
+| Walking | 8 walk frames, 95 ms each (steady) |
+| Just stopped | the direction you were facing, 0.6 s |
+| Standing | frames 1 and 2 alternating, 600 ms each (breathing) |
+| Every 7 s standing | all 8 idle frames at the timing above |
