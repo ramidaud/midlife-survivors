@@ -2565,3 +2565,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Cause: the Mortgage comes out of the strip mall, about 7,400 px from your house, and walked over at 64 px/s (about 2 minutes, 2.5 game years).
 - Fix: a boss far from you (over 1,400 px) moves 5x faster and holds its attacks; close up it fights at normal speed. Tested: 5,000 px in 30 s (was about 80 s). The Gold Watch is left alone.
 - Still thin data. Next look: early phone deaths at 43-44 (2 runs, before interns came to Maple Hollow).
+
+## 2026-11-14: four hero idle scale studies (Codex)
+- Repainted the 9-to-5er glasses push, Soccer Dad coffee sip and Grad Student notebook check; added a Coldwar Cowboy floppy-disk check.
+- Eight 56x60 cells each. Every frame matches that hero’s current walk frame 1 in visible width, height and y56 sole line, with planted feet and only existing walk-sheet colors.
+- Native strips, 4x animated GIFs, side-by-side walk comparisons, original paintings and reproducible checks are in assets/characters/idle-studies/.
+- All 32 cells and four GIFs pass. Desktop and phone review checks load all 12 images without page overflow. Art-only branch; no walk-sheet, game, version or build changes.

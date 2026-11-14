@@ -1,0 +1,845 @@
+{
+  "passed": true,
+  "heroes": [
+    {
+      "id": "office-worker",
+      "action": "glasses push",
+      "file": "office-worker-idle-56x60-study.png",
+      "cell": [
+        56,
+        60
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "frames": 8,
+      "reference": "../office-worker-walk-56x60-v4.png",
+      "referenceSha256": "f8a06602c574b89c3f0d2119b144b4ece5bc878403c5327b0e72d1f26e6f35a7",
+      "targetBounds": [
+        8,
+        4,
+        44,
+        57
+      ],
+      "targetWidth": 36,
+      "targetHeight": 53,
+      "soleLine": 56,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#3E7775",
+        "#526078",
+        "#70402F",
+        "#83A89A",
+        "#874C3B",
+        "#A88B70",
+        "#B97A58",
+        "#BFA8CF",
+        "#C45C4B",
+        "#D3B78D",
+        "#E5A995",
+        "#EF9347",
+        "#F2D7A1",
+        "#FFF0CF"
+      ],
+      "sourceCrops": [
+        [
+          90,
+          32,
+          316,
+          417
+        ],
+        [
+          89,
+          32,
+          316,
+          417
+        ],
+        [
+          90,
+          32,
+          316,
+          417
+        ],
+        [
+          91,
+          32,
+          317,
+          417
+        ],
+        [
+          90,
+          32,
+          322,
+          416
+        ],
+        [
+          89,
+          32,
+          314,
+          416
+        ],
+        [
+          90,
+          32,
+          316,
+          416
+        ],
+        [
+          90,
+          32,
+          317,
+          416
+        ]
+      ],
+      "durationsMs": [
+        400,
+        200,
+        160,
+        400,
+        160,
+        240,
+        180,
+        400
+      ],
+      "frameChecks": [
+        {
+          "frame": 1,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 6,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 7,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 8,
+          "bounds": [
+            8,
+            4,
+            44,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "soccer-dad",
+      "action": "coffee sip",
+      "file": "soccer-dad-idle-56x60-study.png",
+      "cell": [
+        56,
+        60
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "frames": 8,
+      "reference": "../soccer-dad-walk-56x60-v4.png",
+      "referenceSha256": "033e9f6e369cd7d94d89a5c67c22c6a405234f352c036390b44324944fc4b0ec",
+      "targetBounds": [
+        9,
+        2,
+        47,
+        57
+      ],
+      "targetWidth": 38,
+      "targetHeight": 55,
+      "soleLine": 56,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#3E7775",
+        "#526078",
+        "#70402F",
+        "#83A89A",
+        "#874C3B",
+        "#A88B70",
+        "#B97A58",
+        "#BFA8CF",
+        "#C45C4B",
+        "#D3B78D",
+        "#E5A995",
+        "#EF9347",
+        "#F2D7A1",
+        "#FFF0CF"
+      ],
+      "sourceCrops": [
+        [
+          104,
+          26,
+          348,
+          405
+        ],
+        [
+          104,
+          26,
+          347,
+          405
+        ],
+        [
+          104,
+          26,
+          348,
+          405
+        ],
+        [
+          104,
+          26,
+          348,
+          405
+        ],
+        [
+          112,
+          26,
+          348,
+          405
+        ],
+        [
+          120,
+          27,
+          347,
+          405
+        ],
+        [
+          112,
+          26,
+          348,
+          405
+        ],
+        [
+          104,
+          27,
+          348,
+          405
+        ]
+      ],
+      "durationsMs": [
+        400,
+        200,
+        160,
+        400,
+        160,
+        240,
+        180,
+        400
+      ],
+      "frameChecks": [
+        {
+          "frame": 1,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 6,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 7,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 8,
+          "bounds": [
+            9,
+            2,
+            47,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "grad-student",
+      "action": "notebook check",
+      "file": "grad-student-idle-56x60-study.png",
+      "cell": [
+        56,
+        60
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "frames": 8,
+      "reference": "../grad-student-walk-56x60-v4.png",
+      "referenceSha256": "791bb84b8fc6ee2891d6cdac0259bb88c44432775664198d411e7f67f8ba4978",
+      "targetBounds": [
+        13,
+        4,
+        43,
+        57
+      ],
+      "targetWidth": 30,
+      "targetHeight": 53,
+      "soleLine": 56,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#526078",
+        "#70402F",
+        "#83A89A",
+        "#874C3B",
+        "#A88B70",
+        "#B97A58",
+        "#BFA8CF",
+        "#C45C4B",
+        "#D3B78D",
+        "#E5A995",
+        "#EF9347",
+        "#F2D7A1",
+        "#FFF0CF"
+      ],
+      "sourceCrops": [
+        [
+          120,
+          24,
+          334,
+          413
+        ],
+        [
+          119,
+          24,
+          333,
+          413
+        ],
+        [
+          120,
+          24,
+          334,
+          413
+        ],
+        [
+          121,
+          24,
+          334,
+          413
+        ],
+        [
+          120,
+          25,
+          334,
+          412
+        ],
+        [
+          119,
+          25,
+          333,
+          412
+        ],
+        [
+          120,
+          25,
+          334,
+          412
+        ],
+        [
+          120,
+          25,
+          334,
+          412
+        ]
+      ],
+      "durationsMs": [
+        400,
+        200,
+        160,
+        400,
+        160,
+        240,
+        180,
+        400
+      ],
+      "frameChecks": [
+        {
+          "frame": 1,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 6,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 7,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 8,
+          "bounds": [
+            13,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "cold-war-cowboy",
+      "action": "floppy disk check",
+      "file": "cold-war-cowboy-idle-56x60-study.png",
+      "cell": [
+        56,
+        60
+      ],
+      "grid": [
+        8,
+        1
+      ],
+      "frames": 8,
+      "reference": "../cold-war-cowboy-walk-56x60-v4.png",
+      "referenceSha256": "70abd8dc4cc049783991f0713eb877c4381073a76893ad8f6aab309553aba59b",
+      "targetBounds": [
+        12,
+        4,
+        43,
+        57
+      ],
+      "targetWidth": 31,
+      "targetHeight": 53,
+      "soleLine": 56,
+      "palette": [
+        "#171C35",
+        "#303750",
+        "#3E7775",
+        "#526078",
+        "#70402F",
+        "#83A89A",
+        "#874C3B",
+        "#A88B70",
+        "#B97A58",
+        "#BFA8CF",
+        "#C45C4B",
+        "#D3B78D",
+        "#E5A995",
+        "#EF9347",
+        "#F1B5BF",
+        "#F2D7A1",
+        "#FFF0CF"
+      ],
+      "sourceCrops": [
+        [
+          144,
+          20,
+          342,
+          422
+        ],
+        [
+          144,
+          20,
+          341,
+          422
+        ],
+        [
+          144,
+          20,
+          342,
+          422
+        ],
+        [
+          145,
+          20,
+          342,
+          422
+        ],
+        [
+          144,
+          20,
+          342,
+          422
+        ],
+        [
+          144,
+          20,
+          341,
+          422
+        ],
+        [
+          144,
+          20,
+          342,
+          422
+        ],
+        [
+          145,
+          20,
+          342,
+          422
+        ]
+      ],
+      "durationsMs": [
+        400,
+        200,
+        160,
+        400,
+        160,
+        240,
+        180,
+        400
+      ],
+      "frameChecks": [
+        {
+          "frame": 1,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 6,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 7,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        },
+        {
+          "frame": 8,
+          "bounds": [
+            12,
+            4,
+            43,
+            57
+          ],
+          "matchesWalkBounds": true,
+          "offPalette": 0,
+          "binaryAlpha": true,
+          "plantedFeet": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

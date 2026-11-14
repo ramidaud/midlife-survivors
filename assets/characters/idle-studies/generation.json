@@ -1,0 +1,110 @@
+[
+  {
+    "id": "office-worker",
+    "action": "glasses push",
+    "reference": "../office-worker-walk-56x60-v4.png",
+    "source": "sources/office-worker.png",
+    "generatedFile": "exec-7e353fe6-7f8d-4c94-9818-1ab25e4b8b1f.png",
+    "sourceGrid": [
+      4,
+      2
+    ],
+    "frames": 8,
+    "cell": [
+      56,
+      60
+    ],
+    "durationsMs": [
+      400,
+      200,
+      160,
+      400,
+      160,
+      240,
+      180,
+      400
+    ],
+    "direction": "Current walk frame 1 controls height, width, foot line and original material colors. Eight poses: rest, inhale, blink, rest, action begins, action peak, action releases, rest. Neutral white balance, no sepia, golden haze, palette drift, text or logos. Feet planted; no walking or body squash."
+  },
+  {
+    "id": "soccer-dad",
+    "action": "coffee sip",
+    "reference": "../soccer-dad-walk-56x60-v4.png",
+    "source": "sources/soccer-dad.png",
+    "generatedFile": "exec-1879c737-8c07-4e00-8fff-b2fb335ad605.png",
+    "sourceGrid": [
+      4,
+      2
+    ],
+    "frames": 8,
+    "cell": [
+      56,
+      60
+    ],
+    "durationsMs": [
+      400,
+      200,
+      160,
+      400,
+      160,
+      240,
+      180,
+      400
+    ],
+    "direction": "Current walk frame 1 controls height, width, foot line and original material colors. Eight poses: rest, inhale, blink, rest, action begins, action peak, action releases, rest. Neutral white balance, no sepia, golden haze, palette drift, text or logos. Feet planted; no walking or body squash."
+  },
+  {
+    "id": "grad-student",
+    "action": "notebook check",
+    "reference": "../grad-student-walk-56x60-v4.png",
+    "source": "sources/grad-student.png",
+    "generatedFile": "exec-e9601ecb-0822-4b5c-bf02-23a2b17c316a.png",
+    "sourceGrid": [
+      4,
+      2
+    ],
+    "frames": 8,
+    "cell": [
+      56,
+      60
+    ],
+    "durationsMs": [
+      400,
+      200,
+      160,
+      400,
+      160,
+      240,
+      180,
+      400
+    ],
+    "direction": "Current walk frame 1 controls height, width, foot line and original material colors. Eight poses: rest, inhale, blink, rest, action begins, action peak, action releases, rest. Neutral white balance, no sepia, golden haze, palette drift, text or logos. Feet planted; no walking or body squash."
+  },
+  {
+    "id": "cold-war-cowboy",
+    "action": "floppy disk check",
+    "reference": "../cold-war-cowboy-walk-56x60-v4.png",
+    "source": "sources/cold-war-cowboy.png",
+    "generatedFile": "exec-e14328c1-deb4-4099-a2ff-d66c258a716d.png",
+    "sourceGrid": [
+      4,
+      2
+    ],
+    "frames": 8,
+    "cell": [
+      56,
+      60
+    ],
+    "durationsMs": [
+      400,
+      200,
+      160,
+      400,
+      160,
+      240,
+      180,
+      400
+    ],
+    "direction": "Current walk frame 1 controls height, width, foot line and original material colors. Eight poses: rest, inhale, blink, rest, action begins, action peak, action releases, rest. Neutral white balance, no sepia, golden haze, palette drift, text or logos. Feet planted; no walking or body squash."
+  }
+]

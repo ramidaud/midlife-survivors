@@ -906,3 +906,6 @@ The map isn't a separate picture someone painted. It reads the same list of rect
 
 ## Read the death, not just the killer (Nov 14, balance pass)
 The stats said leaf piles and late fees killed people at 52-56, which pointed at the swarm. The useful column was a different one: which boss was still alive when you died. All three times it was the Mortgage, because it spawns across town and takes two minutes to walk over. The swarm wasn't too strong; the boss fight was just stretched over three game years. Fixing the walk fixed the overlap.
+
+## 2026-11-14: an idle that fits its walk (Codex)
+Matching the 56x60 canvas is not enough: the visible figure inside it also needs the same width, height and shoe-contact line. These studies measure each hero’s current walk frame 1, then fit eight idle poses to those bounds. Holding the legs steady prevents foot jitter; using only the walk sheet’s existing colors prevents new palette colors between states.
