@@ -597,6 +597,7 @@ window.MapleHollow = (() => {
     // An area opens at its age (Nov 13): its woods fade away, the lawn and its pieces appear, and you can walk in.
     function openArea(a, quiet) {
       if (a.open) return; a.open = true;
+      if (!quiet) { if (window.Pointers) Pointers.areaOpened(a); if (window.AreaPush) AreaPush.opened(scene, a); } // Nov 14: point at it, then push you toward it
       const [x0, y0, w, h] = a.rect;
       a.objs.forEach(o => { const i = townObjs.indexOf(o); if (i >= 0) townObjs.splice(i, 1);
         if (quiet) o.destroy(); else scene.tweens.add({ targets: o, alpha: 0, duration: 1400, onComplete: () => o.destroy() }); });

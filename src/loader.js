@@ -1,7 +1,7 @@
 // Loads the game's code files in order, all tagged with the same BUILD number.
 // index.html fetches this file fresh on every visit, so the browser can't mix an old page with new code
 // (that mismatch broke controls until a second reload). Bump BUILD after every change; it replaces the old ?v= tags.
-window.BUILD = 385;
+window.BUILD = 386;
 // GitHub Pages lets browsers and its CDN keep index.html for up to 10 minutes, but this file always arrives fresh.
 // If the page is older than this file, reload once with ?b=BUILD: a brand-new address, so nothing cached can answer it.
 (function () {
@@ -100,6 +100,8 @@ window.GAME_FILES = [
   "src/status-row.js",
   "src/world-text.js",
   "src/interns.js",
+  "src/pointers.js",   // Nov 14: edge arrows for bosses and newly opened areas
+  "src/area-push.js",  // Nov 14: push waves toward a newly opened area
   "src/lounge.js",
   "src/gold-watch.js",
   "src/boss-attacks.js",

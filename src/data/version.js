@@ -2,12 +2,21 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.43.0",
-  displayVersion: "V. 2.43.0",
-  lastUpdated: "Nov 13, 2026",
+  version: "2.44.0",
+  displayVersion: "V. 2.44.0",
+  lastUpdated: "Nov 14, 2026",
   codename: "Version Two",
-  build: 385,
+  build: 386,
   changelog: [
+    {
+      ver: "V. 2.44.0", date: "Nov 14, 2026", title: "Version Two",
+      teaser: "Something just opened. Everyone in town wants you to go look.",
+      highlights: [
+        "When a new part of Maple Hollow opens, a big wave of easy enemies (plus a couple of tough ones) rolls in from the other side and herds you toward it.",
+        "Arrows at the edge of the screen point to bosses and to newly opened areas, until you get there.",
+        "TJ and Derek now show up in Maple Hollow too, with their bonuses."
+      ]
+    },
     {
       ver: "V. 2.43.0", date: "Nov 14, 2026", title: "Version Two",
       teaser: "New roads, real crosswalks, and a forest that is mostly trees now.",

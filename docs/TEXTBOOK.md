@@ -2268,3 +2268,24 @@ Painting supplies the texture, light and character. Fitting painted strips to sh
   N S   W  (no east)            T opening west
 ```
 Because every edge is cut the same way, any piece fits next to any other piece.
+
+## Chapter: Steering with pressure (2026-11-14)
+The game never takes control of the hero. It just makes one direction the comfortable one.
+
+```
+              [ NEW AREA ]  <- arrow at screen edge points here
+                   ^
+                   |   open side: the way out
+                 (you)
+          e  e  e  e  e  e  e      <- arc of easy enemies (x0.6 health)
+             T           T         <- two tough ones mixed in
+```
+
+| Piece | Number | Why |
+|---|---|---|
+| Delay after opening | 2.5 s | time to read the banner |
+| Easy enemies | 34 + 0.8 per year of age | big enough to feel like a stampede |
+| Tough enemies | 2 | a reason not to just stand and farm |
+| Arc width | 2.4 radians (about 140°) | wraps you without closing the gap |
+
+Tune it in `src/area-push.js` (`AREA_PUSH`).

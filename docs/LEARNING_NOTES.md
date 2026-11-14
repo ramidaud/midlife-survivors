@@ -897,3 +897,6 @@ A painted road can look right while its edge lands a few pixels away from the ne
 
 ## Tiles that connect: why the junctions match (Nov 14, roads)
 Every road piece is cut so its road is exactly 320 px wide and sits in the same spot on every edge (96 px of sidewalk on each side). That rule is what lets any street piece sit next to any crossing or T-junction with no seam. When roads meet, the game looks at which sides have road (north, south, east, west) and picks the piece with openings on exactly those sides.
+
+## Steering without walls: pressure (Nov 14, push waves)
+You can't tell a player "go there" in a game with one input, but you can make staying put uncomfortable. The push wave drops a big arc of weak enemies on the side away from the new area, so the easy way out is toward it. The arc leaves the far side open: that gap is the suggestion. Weak enemies make it feel like a stampede, not a death sentence, and two tough ones keep it from being free XP.

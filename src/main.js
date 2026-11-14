@@ -326,6 +326,7 @@ function create() {
   runElapsedMs = 0; window.lastBossDownMs = null; if (window.BonusChest && BonusChest.abandon) BonusChest.abandon(); if (window.Remains) Remains.reset(); if (window.BossDown) BossDown.reset(); if (this.physics && this.physics.world) this.physics.world.timeScale = 1; lastAutoSave = 0; retire80Open = false; retire80Prompted = false;
   saladDry = 0; // elites since the last Desk Salad (pity counter)
   if (window.Interns) Interns.reset(); // interns start fresh each run
+  if (window.Pointers) Pointers.reset(); // edge arrows (src/pointers.js)
   if (window.CatchMoment) CatchMoment.clear(); // no GOTCHA card (or slow motion) carried into a new run
   if (window.Lounge) Lounge.reset();
   if (window.Hustle) Hustle.reset();   // Hustle Bonus and Burning the Candle (src/hustle.js)   // the Break Room counter (src/lounge.js)
@@ -2962,7 +2963,8 @@ function update(time, delta) {
   if (window.Garage && !office) Garage.update(this); // the V8 in your garage (src/garage.js)
   if (window.HomeHazards && !office) HomeHazards.update(this);     // toy bricks on the floor (src/home-hazards.js)             // Maple Hollow: locked out, find the spare key (src/key-hunt.js)
   if (window.Errands && office) Errands.update(this);              // the TO-DO errand (src/errands.js)
-  if (window.Interns && office) Interns.update(this, now);         // TJ and Derek bring you things (src/interns.js)
+  if (window.Interns) Interns.update(this, now);                   // TJ and Derek bring you things (src/interns.js); Maple Hollow too since Nov 14
+  if (window.Pointers) Pointers.update(this);                      // arrows to bosses and newly opened areas (src/pointers.js)
   if (window.Lounge) Lounge.update(this, now);           // the Lounge counter opens after promotions (at home: the Lemonade Stand)
   if (window.Modifiers) Modifiers.update(this, now);     // age 50+ "life happens" modifiers
   if (window.YellowNote && office) { YellowNote.update(this); YellowNote.sync(); } // don't unplug the rack with the yellow note

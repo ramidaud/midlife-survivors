@@ -2547,3 +2547,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Parked cars along the north-south roads leave a 240 px lane (main routes need 224). Never inside a crossing.
 - The closed areas are a real forest now: Codex's forest floor, three kinds of trees in loose rows, a log, rocks and a mushroom ring. The two standing stones stand by the Town Square sign.
 - Fixed in testing: the bottom and right rows of trees spilled onto the sidewalk.
+
+## 2026-11-14: push waves, edge arrows, interns in Maple Hollow, V2.44.0 (Claude)
+- When an area opens, a "Moving Day" wave arrives 2.5 s later: about 35 easy enemies (weaker than usual) plus 2 tough ones, in an arc on the far side, so the swarm herds you toward the new area. Skipped during boss fights.
+- Edge arrows point to bosses (russet, "BOSS") and to a newly opened area (sage, its name) until you walk in or 90 s pass.
+- TJ and Derek now help in every stage, Maple Hollow included. Replacements later (Rami OK'd keeping them for now).
+- Checked at laptop and phone sizes: 37 of 37 spawned, no errors.
