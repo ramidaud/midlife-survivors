@@ -165,3 +165,118 @@ for rid in ("entry", "circulation", "breakfast-nook", "kitchen", "dining", "down
     print("  %-22s reached=%s  unreachable 96px spots=%d" % (rid, reach, pocket))
 print("ROUTES", "PASS" if ok else "FAIL")
 np.save("/tmp/house4_seen.npy", seen); np.save("/tmp/house4_mask.npy", mask)
+
+
+# =====================================================================================================
+# UPSTAIRS (Nov 13 evening): Codex's approved upstairs (PR #11) in Rami's layout, with the same wall faces.
+# =====================================================================================================
+F2 = H2["floor2"]
+UP = ART.replace("house-ground-floor/", "house-upstairs/deliver/")
+U_CUTS = [(16, FACE - 16), (443, FACE), (951, FACE)]   # top; linen / hall / walk-in row; Abe's room row
+def UY(y): return y + sum(d for c, d in U_CUTS if y >= c)
+def UR(r):
+    x, y, w, h = r; y1 = UY(y + h - 1) + 1; return [x, UY(y), w, y1 - UY(y)]
+u_rooms = {r["id"]: dict(r, rect=UR(r["rect"])) for r in F2["rooms"]}
+u_walls = [UR(w) for w in F2["walls"] if not (w[1] == 0 and w[3] == 16)]
+u_doors = [dict(d, rect=UR(d["rect"])) for d in F2["doors"]]
+B0, D0 = UY(443) - FACE, UY(951) - FACE
+u_faces = [[0, 0, 800, FACE],
+           [16, B0, 184, FACE], [304, B0, 480, FACE],            # linen | doorway from the main bedroom (200-304) | hall stub + walk-in closet
+           [16, UY(947), 184, UY(951) - UY(947)],                # the utility room (its top sits 4 px above the cut)
+           [344, D0, 440, FACE]]                                 # Abe's room; 200-344 is his doorway from the hall
+u_man = {p["id"]: dict(p, file=UP + p["file"]) for p in json.load(open(UP + "manifest-upstairs.json"))["pieces"]}
+for r in json.load(open(UP + "manifest-upstairs.json"))["reusedPieces"]:
+    u_man[r["id"]] = dict(r, file=os.path.normpath(UP + r["file"]))
+u_layout = json.load(open(UP + "mockups/room-layout.json"))
+U_VIEW = {v["id"]: v["rect"] for v in u_layout["views"]}
+U_FIX = {("abe-room", "gaming-chair"): (268, -10),   # tucked under the desk: opens the lane above the bed
+         ("abe-room", "beanbag"): (470, 160),      # slid toward the TV: opens the east side of the room
+         ("abe-room", "guitar-amp"): (532, 330)}   # into the southeast corner: it blocked the lane above the bed
+u_place = []
+for room in ("master-bedroom", "abe-room", "hall"):
+    for pid, x, y, sc, rot in RAMI["up-" + room]:
+        x, y = U_FIX.get((room, pid), (x, y)); u_place.append((room, pid, x, y))
+for p in u_layout["placements"]:
+    if p["room"] in ("master-bedroom", "abe-room", "hall") or p["id"] == "stairs-flight": continue
+    u_place.append((p["room"], p["id"], p["at"][0], p["at"][1]))
+
+def on_face(ax, aw, ay):
+    """is this stretch of wall (abs x, width, the room's top y in the new frame) covered by a tall face?"""
+    return any(fx <= ax and ax + aw <= fx + fw and fy + fh <= ay <= fy + fh + 16 for fx, fy, fw, fh in u_faces)  # a room may start a 16 px wall below its face
+u_items = [("v4_wallface", face), ("f2_floor_v4carpet", Image.open(ART + "beige-carpet-v1.png").convert("RGBA")),
+           ("v4u_stairs", Image.open(UP + "stairs-flight-v1.png").convert("RGBA"))]
+for k, (x, y, w, h) in F2["frames"].items():
+    if k.startswith("f2_floor_bathroom"): u_items.append((k, Image.open(ROOT + "/assets/stage/home/" + F2["atlas"]).convert("RGBA").crop((x, y, x + w, y + h))))
+u_used, u_pieces = set(), []
+for room, pid, x, y in u_place:
+    m = u_man[pid]; key = "v4u_" + pid
+    if key not in u_used: u_items.append((key, Image.open(m["file"]).convert("RGBA"))); u_used.add(key)
+    vx, vy = U_VIEW[room][0], UY(U_VIEW[room][1])
+    w, h = m["size"]
+    layer = {"ground": "decal", "wall-mounted": "wall", "over-everything": "over"}.get(m["renderLayer"], "furniture")
+    if pid == "north-doorway": y = -h                                                 # Abe's door frame stands in the doorway gap, bottom on his floor line
+    elif layer == "wall" and y < -16 and not on_face(vx + x, w, vy): y = -16        # no tall face here: hang it on the thin wall
+    fps = m.get("footprints") or []
+    fp = None
+    if fps:
+        x0 = min(f[0] for f in fps); y0 = min(f[1] for f in fps)
+        fp = [x0, y0, max(f[0] + f[2] for f in fps) - x0, max(f[1] + f[3] for f in fps) - y0]
+    u_pieces.append({"id": pid, "key": key, "at": [vx + x, vy + y], "size": [w, h], "fp": fp,
+                     "solid": layer == "furniture" and fp is not None, "layer": layer, "room": room})
+
+items = sorted(u_items, key=lambda kv: -kv[1].size[1])
+xo, yo, shelf, u_frames = 0, 0, 0, {}
+for k, im in items:
+    w, h = im.size
+    if xo + w > AW: xo, yo, shelf = 0, yo + shelf + 2, 0
+    u_frames[k] = [xo, yo, w, h]; xo += w + 2; shelf = max(shelf, h)
+u_atlas = Image.new("RGBA", (AW, yo + shelf))
+for k, im in items: u_atlas.paste(im, tuple(u_frames[k][:2]))
+U_ATLAS = "v4/house-upstairs/house4-floor2-pieces.png"
+u_atlas.save(ROOT + "/assets/stage/home/" + U_ATLAS)
+for r in u_rooms.values():
+    if r.get("floor"): r["floor"] = "f2_floor_bathroom" if r["id"] == "bathroom" else "f2_floor_v4carpet"
+u_size = [F2["size"][0], UY(F2["size"][1])]
+floor2 = dict(F2, size=u_size, atlas=U_ATLAS, frames=u_frames,
+              base=[dict(b, rect=UR(b["rect"]), floor="f2_floor_v4carpet") for b in F2["base"]],
+              rooms=[{"id": r["id"], "rect": r["rect"], "floor": r.get("floor")} for r in u_rooms.values()],
+              walls=u_walls, doors=u_doors, pieces=u_pieces, faces=u_faces,
+              stairs={"rect": UR(F2["stairs"]["rect"]), "art": "v4u_stairs"},
+              wallTex=dict(F2["wallTex"], face="v4_wallface"))
+js = open(ROOT + "/src/data/house-v4.js").read()
+js += "window.HOUSE_V2.floor2 = " + json.dumps(floor2, separators=(",", ":")) + ";\n"
+open(ROOT + "/src/data/house-v4.js", "w").write(js)
+print("upstairs", u_size, "| pieces", len(u_pieces), "| atlas", u_atlas.size)
+
+# route check upstairs: from the top of the stairs (the hall side) to every room
+W, Hh = u_size
+mask = np.zeros((Hh, W), dtype=np.int32)
+def ublock(x, y, w, h): mask[max(0, y):max(0, y + h), max(0, x):max(0, x + w)] = 1
+for w in u_walls: ublock(*w)
+for f in u_faces: ublock(*f)
+for p in u_pieces:
+    if p["solid"]: ublock(p["at"][0] + p["fp"][0], p["at"][1] + p["fp"][1], p["fp"][2], p["fp"][3])
+def flood(n):
+    S = np.pad(mask, ((1, 0), (1, 0))).cumsum(0).cumsum(1)
+    free = (S[n:, n:] - S[:-n, n:] - S[n:, :-n] + S[:-n, :-n]) == 0
+    hx, hy, hw, hh = u_rooms["hall"]["rect"]
+    start = next(((x, y) for y in range(hy + hh // 2, hy + hh) for x in range(hx, hx + hw - n) if free[y, x]), None)
+    seen = np.zeros_like(free); st = [start] if start else []
+    if start: seen[start[1], start[0]] = True
+    while st:
+        x, y = st.pop()
+        for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if 0 <= ny < free.shape[0] and 0 <= nx < free.shape[1] and free[ny, nx] and not seen[ny, nx]:
+                seen[ny, nx] = True; st.append((nx, ny))
+    return free, seen
+uok = True
+for rid in ("hall", "master-bedroom", "walk-in-closet", "bathroom", "abe-room", "stairs", "linen", "utility", "abe-closet"):
+    x, y, w, h = u_rooms[rid]["rect"]
+    n = 96 if rid in ("hall", "master-bedroom", "walk-in-closet", "bathroom", "abe-room", "stairs") else 56   # small rooms: the hero (48 px) must fit
+    free, seen = flood(n)
+    r = seen[y:y + h - n + 1, x:x + w - n + 1]; f = free[y:y + h - n + 1, x:x + w - n + 1]
+    reach = bool(r.any()); pocket = int((f & ~r).sum())
+    if not reach: uok = False
+    print("  up %-16s gap=%d reached=%s unreachable spots=%d" % (rid, n, reach, pocket))
+print("UPSTAIRS ROUTES", "PASS" if uok else "FAIL")
+np.save("/tmp/house4u_mask.npy", mask)

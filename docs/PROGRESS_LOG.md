@@ -2504,3 +2504,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami's editor pass is saved in docs/plans/house-layout/rami-layout-nov13.json, and the build now reads it directly: a kitchen island, the dining chairs tucked around the table, the lamps and toy bin moved, and the oak coffee table.
 - His pass put the desk back on the right of the dining wall, which closed the doorway. I kept it on the left (his earlier pick) and nudged the sim rig up so the route check passes again.
 - Fixed a bug in my route check that printed PASS when a room was cut off.
+
+## 2026-11-13: the upstairs is in the game, V2.42.0 (Claude)
+- Codex's upstairs (PR #11) placed from Rami's layout for the main bedroom, Abe's room and the hall; the other rooms use Codex's layout.
+- Three wall faces upstairs (top, linen/walk-in row, Abe's room and utility) with doorways where the hall connects. The bathroom, closets and stairs keep their art on the thin walls.
+- Route fixes in Abe's room: the gaming chair tucked under the desk, the beanbag slid toward the TV, the guitar amp moved to the southeast corner. Every upstairs room passes the route check.
+- Bug caught in testing: the upstairs carpet name was skipped by the game, so a teal carpet showed; renamed.

@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.41.2",
-  displayVersion: "V. 2.41.2",
+  version: "2.42.0",
+  displayVersion: "V. 2.42.0",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 382,
+  build: 383,
   changelog: [
+    {
+      ver: "V. 2.42.0", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "Upstairs is finished. Nobody is allowed in Abe's room.",
+      highlights: [
+        "The upstairs is repainted: the main bedroom with the twin bassinet, the crib and a big rug, Abe's room with his guitar, the LIVE MUSIC sign, the ABE letter tiles and the sleigh bed, plus the bathroom, the walk-in closet, the linen and utility rooms and the hall.",
+        "Real walls upstairs too, with doorways from the hall, and room to dodge in every room."
+      ]
+    },
     {
       ver: "V. 2.41.2", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Someone rearranged the furniture. It was Dad.",
