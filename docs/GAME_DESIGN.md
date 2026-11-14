@@ -797,3 +797,5 @@ North-south street and junction proposals are staged under `assets/stage/home/v4
 
 ## Roads and Woods art set, 2026-11-14 (Codex)
 Both kits are complete for art approval in draft PR #13, with no runtime placement. Road connections share exact 320px asphalt and aligned center lines. Two compatible car-free east-west variants keep the existing live plates untouched. The Woods kit records Full Life past 65, uses separate wall sprites for stones/log/rocks/trees and walk-through ground, trails and mushrooms; four-frame fireflies render overhead. The review sample targets 12 solid props per 1024x768 screen with a clear 224px route and two exits. Full Woods stage composition follows art approval during integration.
+
+- **Woods landmark (Nov 14, Rami):** keep the two standing stones marked I and II from the roads-and-woods kit. Their purpose is open (a secret, a boss marker or just scenery).

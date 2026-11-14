@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-14 (V2.42.1 house remains live. Roads and Woods art set complete in draft PR #13, ready for art approval. Nothing newly placed in game.)
+**Last updated:** 2026-11-14 (Roads and woods art approved, PR #13. Next session: place them in Maple Hollow. Then idle animations.)
 
 ---
 

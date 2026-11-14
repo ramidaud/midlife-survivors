@@ -2536,3 +2536,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Woods kit includes both carved stones, forest ground and trails, log, rocks, mushrooms, three trees and four firefly frames.
 - Native hero comparisons, footprints and review pages included. Road checks pass; the Woods sample keeps a clear 224px route and two exits.
 - Nothing placed in the game, no version/build change and no stats sent. Art approval pending; browser preview remains unverified after the local-file policy block.
+
+## 2026-11-14: roads and woods art approved (Claude)
+- PR #13 merged (Rami's OK): streets, T-junctions and the four-way crossing (all joins checked), six parked cars with no plates, and the woods kit (three trees, log, rocks, mushroom ring, trail tiles, fireflies).
+- Rami keeps the two standing stones (I and II) as a landmark in the woods; what they do is still open.
+- Next session: place the roads and woods in Maple Hollow, with 224 px main routes and the tree wall at the edges.
