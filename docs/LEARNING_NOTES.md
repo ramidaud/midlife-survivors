@@ -870,3 +870,11 @@ In a top-down game you see the north wall of every room from the front, so a wal
 
 ## Stuck flags: check what's on screen (Nov 13, the chest fix)
 A flag is a yes/no the game keeps in memory, like "a menu is open". If one gets set and never cleared, the game keeps believing it, even when nothing is on screen. The chest asked "is a menu open?" and a stuck "yes" made every chest wait forever, and the front door waited on that chest. The fix is to check the thing itself (is that menu actually visible?) instead of trusting the note about it, and to clear the note when it's wrong.
+
+
+## 2026-11-13: footprints follow the painted object (Codex)
+The canvas includes empty margins, so its width is not the furniture's width. A narrow painting inside a wide canvas needs a wider repaint, not a stretched export. Its footprint must fit the visible base or the hero can bump into empty space. Upstairs now checks both the visible bounds and the connected 96px route to the real doors.
+
+
+## 2026-11-13: visual fullness without closing the route (Codex)
+A rug can fill a large empty patch without adding a collision footprint. Shallow storage and coats use the room edges, where their footprints can leave a connected 96px path to each door. Measuring the longest unfilled wall run against the visible paintings catches empty stretches that a simple object count misses. Upstairs checks both visual coverage and movement clearance, because one cannot prove the other.

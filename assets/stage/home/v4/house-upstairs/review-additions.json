@@ -1,0 +1,351 @@
+[
+  {
+    "id": "beanbag",
+    "size": [
+      104,
+      88
+    ],
+    "room": "abe-room",
+    "description": "Large soft sage beanbag seat, roughly round, slumped lived-in cushions, cream seams, overhead three-quarter view, a paperback on its seat with no title. Entire silhouette100px wide and84px high.",
+    "footprints": [
+      [
+        8,
+        32,
+        88,
+        50
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "guitar-amp",
+    "size": [
+      80,
+      64
+    ],
+    "room": "abe-room",
+    "description": "Small black guitar amplifier against WEST wall facing EAST, top-down with east-facing narrow speaker grille visible at RIGHT, cream control knobs, a coiled cable lying on its top. Native silhouette76x60. No branding.",
+    "footprints": [
+      [
+        8,
+        34,
+        64,
+        24
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "abe-rug",
+    "size": [
+      320,
+      224
+    ],
+    "room": "abe-room",
+    "description": "Large rectangular flat woven rug, slate navy and muted sage with cream geometric bands. Entire silhouette316px wide by220px high, almost fills canvas. Seen directly from above, straight horizontal and vertical edges, no diamond/isometric skew, no outline or cast shadow, no backing outside rug.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "clothes-floor",
+    "size": [
+      96,
+      56
+    ],
+    "room": "abe-room",
+    "description": "A few clothes lying FLAT on floor, rumpled cream T-shirt, muted blue jeans, two socks. Top-down, spread horizontally across92x52 native silhouette, no navy outer outline, no cast shadow, no room/floor backing, no people.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bed-wall-art",
+    "size": [
+      160,
+      64
+    ],
+    "room": "master-bedroom",
+    "description": "Wide horizontal framed abstract painting over bed, cream ground, slate navy sweeping shapes and muted rust/sage accents, oak frame. Face-on NORTH wall. Wide silhouette156x60; no people, faces, letters or brands.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bed-wall-mirror",
+    "size": [
+      72,
+      104
+    ],
+    "room": "master-bedroom",
+    "description": "Tall slim oval silver mirror, face-on NORTH wall, blue-grey reflective glass with only cream light streaks, no face, no person, no reflected room or text. Native silhouette68x100.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "dresser-with-mirror",
+    "size": [
+      176,
+      108
+    ],
+    "room": "master-bedroom",
+    "description": "A VERY WIDE LOW dark wood bedroom dresser with lighter oak top, THREE broad drawer bays across width, standing oval mirror on top, folded cream linen and a water bottle. Faces SOUTH against NORTH wall, viewed slightly from above. Broad dresser body172px wide and36px tall at bottom, compact mirror64px tall above it. Entire silhouette172px WIDE by104px HIGH, aspect1.65. Counter below60px standing hero. No branding or personal text.",
+    "footprints": [
+      [
+        8,
+        80,
+        160,
+        22
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bedroom-rug",
+    "size": [
+      320,
+      168
+    ],
+    "room": "master-bedroom",
+    "description": "Large flat rectangular cream rug with muted russet and sage geometric botanical weave. Entire silhouette316px wide and164px high. Direct overhead, horizontal/vertical edges, no isometric diamond skew, no outer dark outline, no shadow, no backing beyond rug.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bedroom-armchair",
+    "size": [
+      96,
+      88
+    ],
+    "room": "master-bedroom",
+    "description": "Cream upholstered armchair against WEST wall facing EAST, read from above and slightly from south: WEST back at left, open seat faces right, rust cushion, oak feet, low rounded arms. Entire silhouette92x84. Not a front-on chair. Seat height under30px and back under60px hero.",
+    "footprints": [
+      [
+        12,
+        40,
+        72,
+        42
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "bedroom-plant",
+    "size": [
+      72,
+      96
+    ],
+    "room": "master-bedroom",
+    "description": "Freestanding leafy floor plant, bird-of-paradise leaves in a cream ceramic POT on floor. No ropes, no hanging basket. Sage olive leaves, rich three-tone green, visible overhead pot rim, entire silhouette68x92.",
+    "footprints": [
+      [
+        24,
+        72,
+        24,
+        20
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "closet-shelf-east",
+    "size": [
+      48,
+      128
+    ],
+    "room": "walk-in-closet",
+    "description": "Tall NARROW oak shoe-box shelf against EAST wall facing WEST, seen overhead and from west: show tabletop and very NARROW front shelf edges at LEFT, cabinet long north-south. Shoe boxes, rolled cloth and shoes. Side-on sprite, not a wide front-facing bookshelf. Entire silhouette44px WIDE by124px HIGH.",
+    "footprints": [
+      [
+        8,
+        44,
+        32,
+        78
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "storage-boxes-south",
+    "size": [
+      160,
+      40
+    ],
+    "room": "walk-in-closet",
+    "description": "Long shallow low storage box bench against SOUTH wall, seen FROM BEHIND and above. Light oak lid with three cream and navy shoe boxes and a pair of folded socks. Plain rear panels nearest camera, no visible front drawers. VERY WIDE LOW silhouette156px WIDE and36px HIGH. Low enough to stay under half standing hero.",
+    "footprints": [
+      [
+        8,
+        20,
+        144,
+        16
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "low-storage-tray",
+    "size": [
+      104,
+      28
+    ],
+    "room": "utility",
+    "description": "Very low long oak storage tray on floor, folded cream towels and a blank cardboard box with rolled cloth peeking out. Overhead view, shallow silhouette100px WIDE by24px HIGH, no cleaning-brand labels or text. Generic household supplies usable in linen and utility rooms.",
+    "footprints": [
+      [
+        6,
+        12,
+        92,
+        12
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "closet-picture",
+    "size": [
+      96,
+      64
+    ],
+    "room": "walk-in-closet",
+    "description": "Unique small face-on framed still life of a rust sunhat beside a sage scarf and cream folded fabric, broad oak frame, no landscape, no faces or words. Entire silhouette92x60.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "linen-picture",
+    "size": [
+      96,
+      56
+    ],
+    "room": "linen",
+    "description": "Unique small face-on framed textile artwork: simple stitched cream and sage fern motif on muted russet cloth, light oak frame. No landscape, no faces or words. Entire silhouette92x52.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "utility-picture",
+    "size": [
+      76,
+      64
+    ],
+    "room": "utility",
+    "description": "Unique small face-on framed vintage technical illustration of a simple abstract sunburst and water pipes, navy line drawing on cream paper, slate frame. No labels, no words, no landscape or faces. Entire silhouette72x60.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "utility-wall-shelf",
+    "size": [
+      96,
+      56
+    ],
+    "room": "utility",
+    "description": "Two compact floating oak shelves seen face-on against NORTH wall, folded pale towels, blank detergent bottles, tissue roll and little storage bin. Transparent gap between shelves, no wall background. Entire wide silhouette92x52. No brands or readable labels.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "hall-picture",
+    "size": [
+      32,
+      56
+    ],
+    "room": "hall",
+    "description": "Unique very small TALL face-on NORTH-wall framed abstract picture, stacked sage and rust circles on navy, slim cream frame. Entire silhouette28px WIDE by52px HIGH. No landscape, no face, no words.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "hall-coat-console-east",
+    "size": [
+      44,
+      132
+    ],
+    "room": "hall",
+    "description": "Extremely narrow EAST-wall coat rack and shallow shoe console facing WEST, painted EDGE-ON from above and west. Rust puffy jacket and cream coat hang along wall above low oak shoe rack, glimpse of two shoes. Entire silhouette40px WIDE and128px HIGH, elongated north-south with narrow front at LEFT. Not a frontal wide coat rack. No picture or wall backing.",
+    "footprints": [
+      [
+        8,
+        76,
+        28,
+        50
+      ]
+    ],
+    "renderLayer": "furniture",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "hall-runner",
+    "size": [
+      104,
+      448
+    ],
+    "room": "hall",
+    "description": "Long narrow flat woven hallway RUNNER rug, sage center with cream and muted russet border weave. Entire silhouette100px WIDE by444px LONG, strict overhead rectangle, no skew, no fringe extending outside canvas, no outer dark outline or cast shadow. No floor backing.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "linen-runner",
+    "size": [
+      64,
+      112
+    ],
+    "room": "linen",
+    "description": "Small flat rectangular cream woven RUNNER with sage bands and russet end stitching, full silhouette60px WIDE by108px LONG, overhead rectangle, no outer dark outline, no shadow, no room backing.",
+    "footprints": [],
+    "renderLayer": "ground",
+    "oldReference": null,
+    "factor": 3
+  },
+  {
+    "id": "north-doorway",
+    "size": [
+      144,
+      128
+    ],
+    "room": "abe-room",
+    "description": "Wide face-on OPEN DOUBLE DOORWAY in oak frame, one narrow oak leaf swung open at each side, dark slate shadow inside opening, NO CARPET or floor stripe. Central visible opening at least96px wide at native size. Overall silhouette140px WIDE and124px HIGH. No separate surrounding wall, transparency outside oak frame. Faces camera flat against NORTH wall, no isometric perspective. No text. Architectural doorway is open and passable.",
+    "footprints": [],
+    "renderLayer": "wall-mounted",
+    "oldReference": null,
+    "factor": 3
+  }
+]

@@ -1,0 +1,1045 @@
+{
+  "note": "Built by tools/build_house_v2.py from interior-floor2-v3 (Codex). Rooms x2 wide, x1.5 tall; furniture keeps its drawn size.",
+  "size": [
+    800,
+    1376
+  ],
+  "atlas": "v2/house2-floor2-pieces.png",
+  "frames": {
+    "f2_stairs": [
+      0,
+      0,
+      80,
+      192
+    ],
+    "f2_p_upholstered-master-bed": [
+      82,
+      0,
+      128,
+      184
+    ],
+    "f2_p_abe-dark-sleigh-bed": [
+      212,
+      0,
+      112,
+      176
+    ],
+    "f2_p_tub": [
+      326,
+      0,
+      56,
+      120
+    ],
+    "f2_p_wood-crib": [
+      384,
+      0,
+      80,
+      112
+    ],
+    "f2_p_bassinet-window-blinds": [
+      466,
+      0,
+      16,
+      112
+    ],
+    "f2_p_abe-hoop-closet": [
+      484,
+      0,
+      80,
+      112
+    ],
+    "f2_p_linen-shelf": [
+      566,
+      0,
+      64,
+      88
+    ],
+    "f2_p_twin-bassinet-by-window": [
+      632,
+      0,
+      112,
+      88
+    ],
+    "f2_p_abe-tv-cubes": [
+      746,
+      0,
+      88,
+      88
+    ],
+    "f2_p_water-heater": [
+      836,
+      0,
+      64,
+      72
+    ],
+    "f2_p_abe-music-desk": [
+      0,
+      194,
+      136,
+      72
+    ],
+    "f2_p_walk-in-rack": [
+      138,
+      194,
+      176,
+      64
+    ],
+    "f2_p_toilet": [
+      316,
+      194,
+      48,
+      64
+    ],
+    "f2_p_abe-record-player-dresser": [
+      366,
+      194,
+      152,
+      56
+    ],
+    "f2_p_abe-guitar": [
+      520,
+      194,
+      24,
+      56
+    ],
+    "f2_p_nightstand-left": [
+      546,
+      194,
+      48,
+      48
+    ],
+    "f2_p_nightstand-right": [
+      596,
+      194,
+      48,
+      48
+    ],
+    "f2_p_bath-sink": [
+      646,
+      194,
+      64,
+      48
+    ],
+    "f2_p_master-dresser": [
+      712,
+      194,
+      112,
+      48
+    ],
+    "f2_p_abe-slatted-lamp": [
+      826,
+      194,
+      24,
+      48
+    ],
+    "f2_p_abe-controller-canvas": [
+      852,
+      194,
+      48,
+      40
+    ],
+    "f2_p_abe-orbit-poster": [
+      902,
+      194,
+      40,
+      40
+    ],
+    "f2_p_abe-traffic-light": [
+      944,
+      194,
+      16,
+      40
+    ],
+    "f2_floor_master-bedroom": [
+      962,
+      194,
+      32,
+      32
+    ],
+    "f2_floor_bathroom": [
+      0,
+      268,
+      32,
+      32
+    ],
+    "f2_floor_abe-room": [
+      34,
+      268,
+      32,
+      32
+    ],
+    "f2_wall_v": [
+      68,
+      268,
+      16,
+      32
+    ],
+    "f2_p_abe-music-note-neon": [
+      86,
+      268,
+      40,
+      24
+    ],
+    "f2_p_abe-sports-car-posters": [
+      128,
+      268,
+      152,
+      24
+    ],
+    "f2_wall_h": [
+      282,
+      268,
+      32,
+      16
+    ]
+  },
+  "base": [
+    {
+      "rect": [
+        16,
+        16,
+        768,
+        1344
+      ],
+      "floor": "f2_floor_master-bedroom"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "master-bedroom",
+      "rect": [
+        16,
+        16,
+        768,
+        403
+      ],
+      "floor": "f2_floor_master-bedroom"
+    },
+    {
+      "id": "linen",
+      "rect": [
+        16,
+        443,
+        168,
+        168
+      ],
+      "floor": "f2_floor_master-bedroom"
+    },
+    {
+      "id": "stairs",
+      "rect": [
+        16,
+        627,
+        168,
+        296
+      ],
+      "floor": null
+    },
+    {
+      "id": "utility",
+      "rect": [
+        16,
+        947,
+        168,
+        144
+      ],
+      "floor": "f2_floor_master-bedroom"
+    },
+    {
+      "id": "walk-in-closet",
+      "rect": [
+        360,
+        459,
+        424,
+        248
+      ],
+      "floor": "f2_floor_master-bedroom"
+    },
+    {
+      "id": "bathroom",
+      "rect": [
+        360,
+        723,
+        424,
+        212
+      ],
+      "floor": "f2_floor_bathroom"
+    },
+    {
+      "id": "hall",
+      "rect": [
+        200,
+        443,
+        144,
+        508
+      ],
+      "floor": "f2_floor_master-bedroom"
+    },
+    {
+      "id": "abe-closet",
+      "rect": [
+        16,
+        1107,
+        168,
+        253
+      ],
+      "floor": "f2_floor_master-bedroom"
+    },
+    {
+      "id": "abe-room",
+      "rect": [
+        180,
+        951,
+        604,
+        406
+      ],
+      "floor": "f2_floor_abe-room"
+    }
+  ],
+  "walls": [
+    [
+      0,
+      0,
+      800,
+      16
+    ],
+    [
+      0,
+      16,
+      16,
+      1344
+    ],
+    [
+      784,
+      16,
+      16,
+      1344
+    ],
+    [
+      0,
+      1360,
+      800,
+      16
+    ],
+    [
+      16,
+      419,
+      168,
+      16
+    ],
+    [
+      304,
+      419,
+      480,
+      16
+    ],
+    [
+      16,
+      611,
+      184,
+      16
+    ],
+    [
+      184,
+      443,
+      16,
+      32
+    ],
+    [
+      184,
+      571,
+      16,
+      40
+    ],
+    [
+      360,
+      443,
+      424,
+      16
+    ],
+    [
+      344,
+      459,
+      16,
+      52
+    ],
+    [
+      344,
+      611,
+      16,
+      96
+    ],
+    [
+      360,
+      707,
+      424,
+      16
+    ],
+    [
+      344,
+      723,
+      16,
+      52
+    ],
+    [
+      344,
+      871,
+      16,
+      64
+    ],
+    [
+      360,
+      935,
+      424,
+      16
+    ],
+    [
+      16,
+      923,
+      184,
+      16
+    ],
+    [
+      184,
+      947,
+      16,
+      16
+    ],
+    [
+      184,
+      1067,
+      16,
+      16
+    ],
+    [
+      16,
+      1091,
+      184,
+      16
+    ],
+    [
+      184,
+      1107,
+      16,
+      40
+    ],
+    [
+      184,
+      1243,
+      16,
+      117
+    ]
+  ],
+  "doors": [
+    {
+      "id": "master",
+      "to": "master-bedroom",
+      "rect": [
+        184,
+        419,
+        120,
+        16
+      ]
+    },
+    {
+      "id": "linen",
+      "to": "linen",
+      "rect": [
+        184,
+        475,
+        16,
+        96
+      ]
+    },
+    {
+      "id": "walk-in",
+      "to": "walk-in-closet",
+      "rect": [
+        344,
+        511,
+        16,
+        100
+      ]
+    },
+    {
+      "id": "bath",
+      "to": "bathroom",
+      "rect": [
+        344,
+        775,
+        16,
+        96
+      ]
+    },
+    {
+      "id": "utility",
+      "to": "utility",
+      "rect": [
+        184,
+        963,
+        16,
+        104
+      ]
+    },
+    {
+      "id": "abe-entry",
+      "to": "abe-room",
+      "rect": [
+        200,
+        935,
+        144,
+        16
+      ]
+    },
+    {
+      "id": "abe-closet",
+      "to": "abe-closet",
+      "rect": [
+        184,
+        1147,
+        16,
+        96
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "id": "nightstand-left",
+      "key": "f2_p_nightstand-left",
+      "at": [
+        272,
+        102
+      ],
+      "size": [
+        48,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "nightstand-right",
+      "key": "f2_p_nightstand-right",
+      "at": [
+        480,
+        102
+      ],
+      "size": [
+        48,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "walk-in-rack",
+      "key": "f2_p_walk-in-rack",
+      "at": [
+        488,
+        465
+      ],
+      "size": [
+        176,
+        64
+      ],
+      "foot": [
+        0,
+        0,
+        176,
+        64
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "tub",
+      "key": "f2_p_tub",
+      "at": [
+        684,
+        729
+      ],
+      "size": [
+        56,
+        120
+      ],
+      "foot": [
+        0,
+        0,
+        56,
+        120
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "bathroom"
+    },
+    {
+      "id": "toilet",
+      "key": "f2_p_toilet",
+      "at": [
+        552,
+        824
+      ],
+      "size": [
+        48,
+        64
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        64
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "bathroom"
+    },
+    {
+      "id": "bath-sink",
+      "key": "f2_p_bath-sink",
+      "at": [
+        416,
+        856
+      ],
+      "size": [
+        64,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        64,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "bathroom"
+    },
+    {
+      "id": "linen-shelf",
+      "key": "f2_p_linen-shelf",
+      "at": [
+        64,
+        449
+      ],
+      "size": [
+        64,
+        88
+      ],
+      "foot": [
+        0,
+        0,
+        64,
+        88
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "linen"
+    },
+    {
+      "id": "water-heater",
+      "key": "f2_p_water-heater",
+      "at": [
+        64,
+        976
+      ],
+      "size": [
+        64,
+        72
+      ],
+      "foot": [
+        0,
+        0,
+        64,
+        72
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "utility"
+    },
+    {
+      "id": "upholstered-master-bed",
+      "key": "f2_p_upholstered-master-bed",
+      "at": [
+        320,
+        86
+      ],
+      "size": [
+        128,
+        184
+      ],
+      "foot": [
+        0,
+        0,
+        128,
+        184
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "wood-crib",
+      "key": "f2_p_wood-crib",
+      "at": [
+        72,
+        224
+      ],
+      "size": [
+        80,
+        112
+      ],
+      "foot": [
+        0,
+        0,
+        80,
+        112
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "twin-bassinet-by-window",
+      "key": "f2_p_twin-bassinet-by-window",
+      "at": [
+        584,
+        182
+      ],
+      "size": [
+        112,
+        88
+      ],
+      "foot": [
+        0,
+        16,
+        112,
+        72
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "master-dresser",
+      "key": "f2_p_master-dresser",
+      "at": [
+        584,
+        331
+      ],
+      "size": [
+        112,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        112,
+        48
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "abe-dark-sleigh-bed",
+      "key": "f2_p_abe-dark-sleigh-bed",
+      "at": [
+        264,
+        1092
+      ],
+      "size": [
+        112,
+        176
+      ],
+      "foot": [
+        0,
+        0,
+        112,
+        176
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-music-desk",
+      "key": "f2_p_abe-music-desk",
+      "at": [
+        564,
+        985
+      ],
+      "size": [
+        136,
+        72
+      ],
+      "foot": [
+        0,
+        40,
+        136,
+        32
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-tv-cubes",
+      "key": "f2_p_abe-tv-cubes",
+      "at": [
+        636,
+        1118
+      ],
+      "size": [
+        88,
+        88
+      ],
+      "foot": [
+        0,
+        46,
+        88,
+        42
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-record-player-dresser",
+      "key": "f2_p_abe-record-player-dresser",
+      "at": [
+        540,
+        1299
+      ],
+      "size": [
+        152,
+        56
+      ],
+      "foot": [
+        0,
+        0,
+        152,
+        56
+      ],
+      "solid": true,
+      "layer": "furniture",
+      "room": "abe-room"
+    },
+    {
+      "id": "bassinet-window-blinds",
+      "key": "f2_p_bassinet-window-blinds",
+      "at": [
+        696,
+        170
+      ],
+      "size": [
+        16,
+        112
+      ],
+      "foot": [
+        0,
+        0,
+        16,
+        112
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "master-bedroom"
+    },
+    {
+      "id": "abe-guitar",
+      "key": "f2_p_abe-guitar",
+      "at": [
+        264,
+        1034
+      ],
+      "size": [
+        24,
+        56
+      ],
+      "foot": [
+        0,
+        0,
+        24,
+        56
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-controller-canvas",
+      "key": "f2_p_abe-controller-canvas",
+      "at": [
+        296,
+        957
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "foot": [
+        0,
+        0,
+        48,
+        40
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-orbit-poster",
+      "key": "f2_p_abe-orbit-poster",
+      "at": [
+        404,
+        957
+      ],
+      "size": [
+        40,
+        40
+      ],
+      "foot": [
+        0,
+        0,
+        40,
+        40
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-music-note-neon",
+      "key": "f2_p_abe-music-note-neon",
+      "at": [
+        564,
+        977
+      ],
+      "size": [
+        40,
+        24
+      ],
+      "foot": [
+        0,
+        0,
+        40,
+        24
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-sports-car-posters",
+      "key": "f2_p_abe-sports-car-posters",
+      "at": [
+        572,
+        1208
+      ],
+      "size": [
+        152,
+        24
+      ],
+      "foot": [
+        0,
+        0,
+        152,
+        24
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-slatted-lamp",
+      "key": "f2_p_abe-slatted-lamp",
+      "at": [
+        596,
+        1051
+      ],
+      "size": [
+        24,
+        48
+      ],
+      "foot": [
+        0,
+        0,
+        24,
+        48
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-traffic-light",
+      "key": "f2_p_abe-traffic-light",
+      "at": [
+        248,
+        1222
+      ],
+      "size": [
+        16,
+        40
+      ],
+      "foot": [
+        0,
+        0,
+        16,
+        40
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-hoop-closet",
+      "key": "f2_p_abe-hoop-closet",
+      "at": [
+        16,
+        1107
+      ],
+      "size": [
+        80,
+        112
+      ],
+      "foot": [
+        0,
+        0,
+        80,
+        112
+      ],
+      "solid": false,
+      "layer": "decal",
+      "room": "abe-closet"
+    }
+  ],
+  "stairs": {
+    "rect": [
+      16,
+      627,
+      168,
+      296
+    ],
+    "art": "f2_stairs"
+  },
+  "wallTex": {
+    "h": "f2_wall_h",
+    "v": "f2_wall_v"
+  }
+}

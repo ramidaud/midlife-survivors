@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "newPaintings": 59,
+  "coffeeTableFix": true,
+  "sourcePaintings": 60,
+  "singleSourceFolder": true,
+  "rooms": 9,
+  "allDoorRoutesPassed": true,
+  "wallRunsWithin160px": true,
+  "distinctRoomPictures": true,
+  "abeNorthFaceHasNoCarpetCutout": true,
+  "exactNativeAnd3xPreviews": true,
+  "coffeeCanvasSilhouetteBasePropsAndFootprintPreserved": true,
+  "reviewLinksExist": true,
+  "transformsApplied": false,
+  "telemetryLoaded": false,
+  "browserCheck": "Local file browser access was previously blocked; direct native image QA."
+}

@@ -1,0 +1,975 @@
+{
+  "master-bedroom": {
+    "passed": true,
+    "limit": 160,
+    "edgeBand": 48,
+    "method": "Project actual painted bounds of pieces within 48px of an edge. Flat rugs count as furnishing, not collision. Actual door openings are excluded from wall runs.",
+    "walls": {
+      "north": {
+        "length": 768,
+        "occupiedRuns": [
+          [
+            2,
+            174,
+            "dresser-with-mirror"
+          ],
+          [
+            48,
+            116,
+            "moon-print"
+          ],
+          [
+            170,
+            306,
+            "bedroom-window"
+          ],
+          [
+            217,
+            267,
+            "nightstand-left"
+          ],
+          [
+            297,
+            463,
+            "king-bed"
+          ],
+          [
+            322,
+            478,
+            "bed-wall-art"
+          ],
+          [
+            489,
+            547,
+            "nightstand-right"
+          ],
+          [
+            542,
+            678,
+            "bedroom-window"
+          ],
+          [
+            574,
+            734,
+            "double-bassinet"
+          ],
+          [
+            708,
+            740,
+            "bed-wall-mirror"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            2
+          ],
+          [
+            478,
+            489
+          ],
+          [
+            740,
+            768
+          ]
+        ],
+        "longestUnfilledRun": 28,
+        "passed": true
+      },
+      "east": {
+        "length": 403,
+        "occupiedRuns": [
+          [
+            2,
+            90,
+            "double-bassinet"
+          ],
+          [
+            98,
+            190,
+            "bedroom-plant"
+          ],
+          [
+            226,
+            366,
+            "master-dresser-east"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            2
+          ],
+          [
+            90,
+            98
+          ],
+          [
+            190,
+            226
+          ],
+          [
+            366,
+            403
+          ]
+        ],
+        "longestUnfilledRun": 37,
+        "passed": true
+      },
+      "south": {
+        "length": 768,
+        "occupiedRuns": [
+          [
+            8,
+            64,
+            "cream-daybed-west"
+          ],
+          [
+            95,
+            161,
+            "bedroom-armchair"
+          ],
+          [
+            168,
+            288,
+            "door:master"
+          ],
+          [
+            242,
+            558,
+            "bedroom-rug"
+          ],
+          [
+            560,
+            616,
+            "laundry-basket"
+          ],
+          [
+            608,
+            700,
+            "wooden-crib"
+          ],
+          [
+            710,
+            766,
+            "master-dresser-east"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            8
+          ],
+          [
+            64,
+            95
+          ],
+          [
+            161,
+            168
+          ],
+          [
+            558,
+            560
+          ],
+          [
+            700,
+            710
+          ],
+          [
+            766,
+            768
+          ]
+        ],
+        "longestUnfilledRun": 31,
+        "passed": true
+      },
+      "west": {
+        "length": 403,
+        "occupiedRuns": [
+          [
+            0,
+            82,
+            "dresser-with-mirror"
+          ],
+          [
+            226,
+            386,
+            "cream-daybed-west"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            82,
+            226
+          ],
+          [
+            386,
+            403
+          ]
+        ],
+        "longestUnfilledRun": 144,
+        "passed": true
+      }
+    }
+  },
+  "linen": {
+    "passed": true,
+    "limit": 160,
+    "edgeBand": 48,
+    "method": "Project actual painted bounds of pieces within 48px of an edge. Flat rugs count as furnishing, not collision. Actual door openings are excluded from wall runs.",
+    "walls": {
+      "north": {
+        "length": 168,
+        "occupiedRuns": [
+          [
+            9,
+            55,
+            "linen-shelf"
+          ],
+          [
+            79,
+            153,
+            "linen-picture"
+          ],
+          [
+            97,
+            143,
+            "linen-runner"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            9
+          ],
+          [
+            55,
+            79
+          ],
+          [
+            153,
+            168
+          ]
+        ],
+        "longestUnfilledRun": 24,
+        "passed": true
+      },
+      "east": {
+        "length": 168,
+        "occupiedRuns": [
+          [
+            32,
+            128,
+            "door:linen"
+          ],
+          [
+            34,
+            142,
+            "linen-runner"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            32
+          ],
+          [
+            142,
+            168
+          ]
+        ],
+        "longestUnfilledRun": 32,
+        "passed": true
+      },
+      "south": {
+        "length": 168,
+        "occupiedRuns": [
+          [
+            9,
+            95,
+            "low-storage-tray"
+          ],
+          [
+            97,
+            143,
+            "linen-runner"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            9
+          ],
+          [
+            95,
+            97
+          ],
+          [
+            143,
+            168
+          ]
+        ],
+        "longestUnfilledRun": 25,
+        "passed": true
+      },
+      "west": {
+        "length": 168,
+        "occupiedRuns": [
+          [
+            0,
+            68,
+            "linen-shelf"
+          ],
+          [
+            142,
+            166,
+            "low-storage-tray"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            68,
+            142
+          ],
+          [
+            166,
+            168
+          ]
+        ],
+        "longestUnfilledRun": 74,
+        "passed": true
+      }
+    }
+  },
+  "walk-in-closet": {
+    "passed": true,
+    "limit": 160,
+    "edgeBand": 48,
+    "method": "Project actual painted bounds of pieces within 48px of an edge. Flat rugs count as furnishing, not collision. Actual door openings are excluded from wall runs.",
+    "walls": {
+      "north": {
+        "length": 424,
+        "occupiedRuns": [
+          [
+            10,
+            102,
+            "closet-picture"
+          ],
+          [
+            114,
+            314,
+            "clothes-rack"
+          ],
+          [
+            355,
+            421,
+            "bedroom-plant"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            10
+          ],
+          [
+            102,
+            114
+          ],
+          [
+            314,
+            355
+          ],
+          [
+            421,
+            424
+          ]
+        ],
+        "longestUnfilledRun": 41,
+        "passed": true
+      },
+      "east": {
+        "length": 248,
+        "occupiedRuns": [
+          [
+            2,
+            94,
+            "bedroom-plant"
+          ],
+          [
+            98,
+            222,
+            "closet-shelf-east"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            2
+          ],
+          [
+            94,
+            98
+          ],
+          [
+            222,
+            248
+          ]
+        ],
+        "longestUnfilledRun": 26,
+        "passed": true
+      },
+      "south": {
+        "length": 424,
+        "occupiedRuns": [
+          [
+            8,
+            64,
+            "laundry-basket"
+          ],
+          [
+            120,
+            232,
+            "storage-boxes-south"
+          ],
+          [
+            276,
+            324,
+            "shoe-boxes"
+          ],
+          [
+            388,
+            412,
+            "closet-shelf-east"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            8
+          ],
+          [
+            64,
+            120
+          ],
+          [
+            232,
+            276
+          ],
+          [
+            324,
+            388
+          ],
+          [
+            412,
+            424
+          ]
+        ],
+        "longestUnfilledRun": 64,
+        "passed": true
+      },
+      "west": {
+        "length": 248,
+        "occupiedRuns": [
+          [
+            52,
+            152,
+            "door:walk-in"
+          ],
+          [
+            212,
+            240,
+            "laundry-basket"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            52
+          ],
+          [
+            152,
+            212
+          ],
+          [
+            240,
+            248
+          ]
+        ],
+        "longestUnfilledRun": 60,
+        "passed": true
+      }
+    }
+  },
+  "hall": {
+    "passed": true,
+    "limit": 160,
+    "edgeBand": 48,
+    "method": "Project actual painted bounds of pieces within 48px of an edge. Flat rugs count as furnishing, not collision. Actual door openings are excluded from wall runs.",
+    "walls": {
+      "north": {
+        "length": 144,
+        "occupiedRuns": [
+          [
+            0,
+            104,
+            "door:master"
+          ],
+          [
+            114,
+            134,
+            "hall-picture"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            104,
+            114
+          ],
+          [
+            134,
+            144
+          ]
+        ],
+        "longestUnfilledRun": 10,
+        "passed": true
+      },
+      "east": {
+        "length": 508,
+        "occupiedRuns": [
+          [
+            68,
+            168,
+            "door:walk-in"
+          ],
+          [
+            71,
+            478,
+            "hall-runner"
+          ],
+          [
+            182,
+            310,
+            "hall-coat-console-east"
+          ],
+          [
+            332,
+            428,
+            "door:bath"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            68
+          ],
+          [
+            478,
+            508
+          ]
+        ],
+        "longestUnfilledRun": 68,
+        "passed": true
+      },
+      "south": {
+        "length": 144,
+        "occupiedRuns": [
+          [
+            0,
+            144,
+            "door:abe"
+          ],
+          [
+            22,
+            122,
+            "hall-runner"
+          ]
+        ],
+        "unfilledRuns": [],
+        "longestUnfilledRun": 0,
+        "passed": true
+      },
+      "west": {
+        "length": 508,
+        "occupiedRuns": [
+          [
+            32,
+            128,
+            "door:linen"
+          ],
+          [
+            71,
+            478,
+            "hall-runner"
+          ],
+          [
+            184,
+            480,
+            "door:stairs"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            32
+          ],
+          [
+            480,
+            508
+          ]
+        ],
+        "longestUnfilledRun": 32,
+        "passed": true
+      }
+    }
+  },
+  "utility": {
+    "passed": true,
+    "limit": 160,
+    "edgeBand": 48,
+    "method": "Project actual painted bounds of pieces within 48px of an edge. Flat rugs count as furnishing, not collision. Actual door openings are excluded from wall runs.",
+    "walls": {
+      "north": {
+        "length": 168,
+        "occupiedRuns": [
+          [
+            13,
+            51,
+            "utility-heater"
+          ],
+          [
+            70,
+            162,
+            "utility-wall-shelf"
+          ],
+          [
+            88,
+            156,
+            "utility-picture"
+          ],
+          [
+            97,
+            143,
+            "linen-runner"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            13
+          ],
+          [
+            51,
+            70
+          ],
+          [
+            162,
+            168
+          ]
+        ],
+        "longestUnfilledRun": 19,
+        "passed": true
+      },
+      "east": {
+        "length": 144,
+        "occupiedRuns": [
+          [
+            16,
+            120,
+            "door:utility"
+          ],
+          [
+            18,
+            126,
+            "linen-runner"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            16
+          ],
+          [
+            126,
+            144
+          ]
+        ],
+        "longestUnfilledRun": 18,
+        "passed": true
+      },
+      "south": {
+        "length": 168,
+        "occupiedRuns": [
+          [
+            9,
+            95,
+            "low-storage-tray"
+          ],
+          [
+            97,
+            143,
+            "linen-runner"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            9
+          ],
+          [
+            95,
+            97
+          ],
+          [
+            143,
+            168
+          ]
+        ],
+        "longestUnfilledRun": 25,
+        "passed": true
+      },
+      "west": {
+        "length": 144,
+        "occupiedRuns": [
+          [
+            0,
+            90,
+            "utility-heater"
+          ],
+          [
+            118,
+            142,
+            "low-storage-tray"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            90,
+            118
+          ],
+          [
+            142,
+            144
+          ]
+        ],
+        "longestUnfilledRun": 28,
+        "passed": true
+      }
+    }
+  },
+  "abe-room": {
+    "passed": true,
+    "limit": 160,
+    "edgeBand": 48,
+    "method": "Project actual painted bounds of pieces within 48px of an edge. Flat rugs count as furnishing, not collision. Actual door openings are excluded from wall runs.",
+    "walls": {
+      "north": {
+        "length": 604,
+        "occupiedRuns": [
+          [
+            20,
+            164,
+            "door:abe-entry"
+          ],
+          [
+            22,
+            162,
+            "north-doorway"
+          ],
+          [
+            173,
+            262,
+            "space-wall"
+          ],
+          [
+            194,
+            394,
+            "music-desk"
+          ],
+          [
+            279,
+            313,
+            "gaming-chair"
+          ],
+          [
+            283,
+            381,
+            "controller-guitar-wall"
+          ],
+          [
+            402,
+            554,
+            "neon-wall"
+          ],
+          [
+            411,
+            545,
+            "pennant-car-wall"
+          ],
+          [
+            506,
+            577,
+            "collectibles-shelf"
+          ],
+          [
+            574,
+            598,
+            "traffic-light"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            20
+          ],
+          [
+            164,
+            173
+          ],
+          [
+            394,
+            402
+          ],
+          [
+            598,
+            604
+          ]
+        ],
+        "longestUnfilledRun": 20,
+        "passed": true
+      },
+      "east": {
+        "length": 406,
+        "occupiedRuns": [
+          [
+            2,
+            102,
+            "collectibles-shelf"
+          ],
+          [
+            110,
+            250,
+            "tv-cube-shelf-east"
+          ],
+          [
+            240,
+            340,
+            "window-east"
+          ],
+          [
+            276,
+            290,
+            "robot-figure"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            2
+          ],
+          [
+            102,
+            110
+          ],
+          [
+            340,
+            406
+          ]
+        ],
+        "longestUnfilledRun": 66,
+        "passed": true
+      },
+      "south": {
+        "length": 604,
+        "occupiedRuns": [
+          [
+            5,
+            43,
+            "hamper"
+          ],
+          [
+            74,
+            390,
+            "abe-rug"
+          ],
+          [
+            90,
+            182,
+            "clothes-floor"
+          ],
+          [
+            190,
+            390,
+            "record-dresser-south"
+          ],
+          [
+            390,
+            542,
+            "sleigh-bed"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            5
+          ],
+          [
+            43,
+            74
+          ],
+          [
+            542,
+            604
+          ]
+        ],
+        "longestUnfilledRun": 62,
+        "passed": true
+      },
+      "west": {
+        "length": 406,
+        "occupiedRuns": [
+          [
+            97,
+            178,
+            "beanbag"
+          ],
+          [
+            196,
+            292,
+            "door:abe-closet"
+          ],
+          [
+            294,
+            354,
+            "guitar-amp"
+          ],
+          [
+            340,
+            388,
+            "hamper"
+          ]
+        ],
+        "unfilledRuns": [
+          [
+            0,
+            97
+          ],
+          [
+            178,
+            196
+          ],
+          [
+            292,
+            294
+          ],
+          [
+            388,
+            406
+          ]
+        ],
+        "longestUnfilledRun": 97,
+        "passed": true
+      }
+    }
+  }
+}
