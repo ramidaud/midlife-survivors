@@ -30,6 +30,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] World rules approved (wall, breakable, walk-through; 96 px gaps; two exits; trees contain the level), in CLAUDE.md
 - [x] Backyard quick fix (V2.29.1): gates and hedge steps 96 px wide
 - [x] Codex Job 1: four hero sheets approved and live (V2.29.2). Bill goes back for a third try
+- [ ] Review Codex hero idle v3: glasses push, coffee sip, notebook check and Cowboy hat tip at v4 walk scale; art only, no game placement (Nov 14)
 - [x] Codex Jobs 2 and 3 reviewed and rejected: built from code shapes, flat. PR #1 stays unmerged
 - [x] New rule in CLAUDE.md: world art is painted, then reduced by a whole number
 - [x] Rami: send Codex `docs/handoffs/codex-level-art-redo.md` (a sample of eight first, then stop)

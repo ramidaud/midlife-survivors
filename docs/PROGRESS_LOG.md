@@ -2547,3 +2547,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Parked cars along the north-south roads leave a 240 px lane (main routes need 224). Never inside a crossing.
 - The closed areas are a real forest now: Codex's forest floor, three kinds of trees in loose rows, a log, rocks and a mushroom ring. The two standing stones stand by the Town Square sign.
 - Fixed in testing: the bottom and right rows of trees spilled onto the sidewalk.
+
+
+## 2026-11-14: hero idle studies at walk scale (Codex)
+- Redid the glasses push, coffee sip and notebook check, and added the Cowboy's hat tip as eight-frame studies.
+- Each hero matches their v4 walk frame 1 width, height and sole line y56. All 32 native cells pass size and exact reference-palette checks.
+- Four GIFs, native/3x comparisons, source paintings, prompts and export checks are ready for review.
+- Isolated study files only; no game placement, runtime or version change. Rami reviews before integration.
