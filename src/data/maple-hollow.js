@@ -80,7 +80,8 @@ window.MAPLE_HOLLOW = {
     treeWall: { on: true, dir: "v4/wall/", step: 832, core: 192, fringe: 64, edge: 40, corners: true, margin: 232 }, // margin: a strip of grass between the end houses and the forest, wide enough for the street ends (232 - 40 = 192 px to walk in; was 136 before V2.29.11) // edge: how far in from the map edge the hero is stopped
     // One grass color (V2.29.11, Nov 12): the street band and the house frames repainted to Rami's lighter green #9BAE73
     // by tools/maple_one_green.py (grass only; the house siding keeps its paint). Point these back at v2/ to undo.
-    art: { houses: "v4/ground/houses-v4.png", yours: "v4/ground/your-house-v4.png", street: ["v4/street/street-wide-v4-a.png", "v4/street/street-wide-v4-b.png"] },
+    art: { houses: "v4/ground/houses-v4.png", yours: "v4/ground/your-house-v4.png", street: ["v4/roads/deliver/street-ew-a-v1.png", "v4/roads/deliver/street-ew-b-v1.png"] }, // Nov 14: Codex's roads kit (PR #13)
+    roadKit: { dir: "v4/roads/deliver/", woods: "v4/woods/deliver/" },
     // Street ends (V2.29.11): Codex's painted dead ends where each street meets the forest. Only the curved part of each
     // 512 px cap is used (crop: [from x, to x]); the street's own art runs out to meet it. inset: how far in from the forest's
     // outer edge the curve starts, so the leafy fringe doesn't hide it. The barricade is solid at its base: [file, x, y, solid width, solid depth].

@@ -35,6 +35,15 @@ window.MapleHollow = (() => {
       [v3.houses, v3.yours, v3.sa, v3.sb, v3.yards, v3.yourYard] = await Promise.all([A.houses || "v2/houses-v2.png", A.yours || "v2/your-house-v2.png", st[0], st[1], "v2/backyards-v2.png", "v2/your-backyard-v2.png"].map(f => H.image(ROOT + f)));
     } catch (e) { v3.houses = null; console.warn("Maple Hollow v2 art missing, using v1", e); }
     const NEW = !!(MV && v3.houses);
+    const RK = {}; // roads and woods kit (Nov 14, PR #13): north-south streets, junctions, parked cars, the woods
+    if (NEW && MV.roadKit) try {
+      const d = ROOT + MV.roadKit.dir, w = ROOT + MV.roadKit.woods;
+      const names = ["street-ns-a", "street-ns-b", "crossing-four-way", "junction-t-north", "junction-t-south", "junction-t-east", "junction-t-west",
+        "car-sage-up", "car-sage-down", "car-russet-up", "car-russet-down", "car-slate-up", "car-slate-down", "manhole", "storm-drain"];
+      const wn = ["forest-floor", "tree-evergreen", "tree-maple-red", "tree-birch-yellow", "fallen-log", "mossy-rock-cluster", "mushroom-ring", "twin-stone-i", "twin-stone-ii", "fireflies-loop"];
+      const imgs = await Promise.all(names.map(n => H.image(d + n + "-v1.png")).concat(wn.map(n => H.image(w + n + "-v1.png"))));
+      names.concat(wn).forEach((n, i) => { RK[n] = imgs[i]; });
+    } catch (e) { console.warn("roads kit missing", e); }
     const YD = NEW && MV.yards && MV.yards.you ? MV.yards : null, yd = {}; // your rebuilt backyard (Nov 11): plain ground + separate sprites
     if (YD) try {
       yd.ground = await H.image(ROOT + YD.dir + YD.you.ground);
@@ -502,18 +511,41 @@ window.MapleHollow = (() => {
         g.imageSmoothingEnabled = false; g.translate(img.height, 0); g.rotate(Math.PI / 2); g.drawImage(img, 0, 0);
         scene.textures.addCanvas(k, c); scene.textures.get(k).setFilter(Phaser.Textures.FilterMode.NEAREST); return k;
       };
-      const ha = tex("mh_plate_a", v3.sa), hb = tex("mh_plate_b", v3.sb), va = turned("mh_plate_va", v3.sa), vb = turned("mh_plate_vb", v3.sb);
+      const ha = tex("mh_plate_a", v3.sa), hb = tex("mh_plate_b", v3.sb);
+      const va = RK["street-ns-a"] ? tex("mh_plate_va", RK["street-ns-a"]) : turned("mh_plate_va", v3.sa), vb = RK["street-ns-b"] ? tex("mh_plate_vb", RK["street-ns-b"]) : turned("mh_plate_vb", v3.sb);
       const put = (k, x, y, depth, cw, ch) => { const o = scene.add.image(x, y, k).setOrigin(0).setDepth(depth); if (cw || ch) o.setCrop(0, 0, cw || o.width, ch || o.height); all.push(o); townObjs.push(o); return o; };
       TN.roadsH.forEach(([x, y, w]) => { for (let k = 0, xx = x; xx < x + w; k++, xx += 832) put(k % 2 ? hb : ha, xx, y, -999.8, Math.min(832, x + w - xx)); });
       TN.roadsV.forEach(([x, y, , h]) => { for (let k = 0, yy = y; yy < y + h; k++, yy += 832) put(k % 2 ? vb : va, x, yy, -999.75, 0, Math.min(832, y + h - yy)); });
       // where roads meet: plain asphalt (from the 32 px kit) so no curb runs across the road
       const asphalt = (x, y, w, h) => { const o = scene.add.tileSprite(x, y, w, h, streetKey).setOrigin(0).setDepth(-999.6); all.push(o); townObjs.push(o); };
       const lane = 96; // the sidewalk and parkway on each side of a 512 px band; the road is the middle 320 px
-      TN.roadsV.forEach(([vx]) => TN.roadsH.forEach(([, hy]) => asphalt(vx + lane, hy + lane, RW - 2 * lane, RW - 2 * lane)));
-      TN.roadsV.forEach(([vx, , , vh], i) => { // your block's two streets run into the road on its left
+      // Nov 14: painted crossings and T-junctions (PR #13) where they fit; plain asphalt for corners
+      const junction = (x, y, n, s, w, e) => {
+        const k = n + s + w + e === 4 ? "crossing-four-way" : n + s + w + e === 3 ? "junction-t-" + (!s ? "north" : !n ? "south" : !w ? "east" : "west") : null;
+        if (k && RK[k]) { put(tex("mh_" + k, RK[k]), x, y, -999.55); return true; }
+        return false;
+      };
+      TN.roadsV.forEach(([vx, vy, , vh]) => TN.roadsH.forEach(([hx, hy, hw]) => {
+        if (hy < vy - 1 || hy + RW > vy + vh + 1 || vx < hx - 1 || vx + RW > hx + hw + 1) return;
+        const n = hy > vy + 1, s = hy + RW < vy + vh - 1, w = vx > hx + 1, e = vx + RW < hx + hw - 1;
+        if (!junction(vx, hy, n, s, w, e)) asphalt(vx + lane, hy + lane, RW - 2 * lane, RW - 2 * lane);
+      }));
+      TN.roadsV.forEach(([vx, vy, , vh], i) => { // your block's two streets run into the road on its left: a T opening east
         if (vx + RW !== TN.blockX[0]) return;
-        [R.street1, R.street2].forEach(sy => asphalt(vx + lane, sy, RW - lane, R.street1End - R.street1));
+        [R.street1, R.street2].forEach(sy => { if (!junction(vx, sy - lane, sy - lane > vy + 1, sy - lane + RW < vy + vh - 1, false, true)) asphalt(vx + lane, sy, RW - lane, R.street1End - R.street1); });
       });
+      // parked cars along the north-south roads, nose to tail at the curb, leaving a 240 px lane (main routes need 224)
+      if (RK["car-sage-up"]) {
+        const cars = ["car-sage-up", "car-russet-down", "car-slate-up", "car-sage-down", "car-russet-up", "car-slate-down"]; let ci = 0;
+        TN.roadsV.forEach(([vx, vy, , vh], i) => {
+          for (let y = vy + 700 + (i % 3) * 230; y < vy + vh - 700; y += 1450) {
+            if (TN.roadsH.some(([, hy]) => y + 144 > hy - 80 && y < hy + RW + 80)) continue;   // never in a crossing
+            const k = cars[ci++ % cars.length], left = ci % 2 === 0, cx = left ? vx + lane + 8 + 40 : vx + RW - lane - 8 - 40;
+            const o = scene.add.image(cx, y + 144, tex("mh_" + k, RK[k])).setOrigin(0.5, 1).setDepth(3);
+            H.body(o, { width: 64, back: 124, front: 0 }, "prop_wall"); o.body.setSize(64, 124).setOffset(8, 10); bodies.push(o); items.push(o); all.push(o); townObjs.push(o);
+          }
+        });
+      }
       // the closed areas: rows of forest, leafy edges that hang over the roads, a solid block, and a sign
       const kn = tex("mh_wall_n", tw.north), ks = tex("mh_wall_s", tw.south), kw = tex("mh_wall_w", tw.west), ke = tex("mh_wall_e", tw.east);
       const kst = tex("mh_wall_s_top", tw.southTop), kwt = tex("mh_wall_w_top", tw.westTop), ket = tex("mh_wall_e_top", tw.eastTop);
@@ -524,6 +556,19 @@ window.MapleHollow = (() => {
         const a = Object.assign({}, a0, { objs: [], open: false, built: built.includes(a0.id) }); townAreas.push(a);
         const [x0, y0, w, h] = a.rect, x1 = x0 + w, y1 = y0 + h;
         const n0 = all.length; // everything added from here to the sign belongs to this area's woods
+        if (RK["forest-floor"]) { // Nov 14: Codex's woods (PR #13): forest floor, trees in loose rows, a few props, fireflies
+          const ff = tex("mh_forest_floor", RK["forest-floor"]), g = scene.add.tileSprite(x0, y0, w, h, ff).setOrigin(0).setDepth(-998); all.push(g); townObjs.push(g);
+          const trees = ["tree-evergreen", "tree-maple-red", "tree-birch-yellow"].map(k => tex("mh_" + k, RK[k]));
+          let s = (a0.id.length * 7919) % 1000; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+          for (let y = y0 + 40, row = 0; y + 212 <= y1; y += 96, row++) for (let x = x0 + 30 + (row % 2) * 60; x + 174 <= x1; x += 120) { // whole trees stay inside the woods
+            const o = scene.add.image(x + rnd() * 30, y + 192 + rnd() * 20, trees[Math.floor(rnd() * 3)]).setOrigin(0, 1).setDepth(-996 + (y - y0) / 1e5);
+            all.push(o); townObjs.push(o);
+          }
+          [["fallen-log", 0.3, 0.55], ["mossy-rock-cluster", 0.7, 0.35], ["mushroom-ring", 0.5, 0.75]].forEach(([k, fx, fy]) => {
+            const o = scene.add.image(x0 + w * fx, y0 + h * fy, tex("mh_" + k, RK[k])).setOrigin(0.5).setDepth(-995.9); all.push(o); townObjs.push(o); });
+          if (a0.id === "square" && RK["twin-stone-i"]) // the two standing stones (Rami kept them, Nov 14): side by side on the edge of the Town Square woods
+            ["twin-stone-i", "twin-stone-ii"].forEach((k, j) => { const o = scene.add.image(x0 + w / 2 + (j ? 70 : -70), y1 - 12, tex("mh_" + k, RK[k])).setOrigin(0.5, 1).setDepth(-995.8); all.push(o); townObjs.push(o); });
+        } else
         for (let y = y0; y < y1; y += C) { const yy = Math.min(y, y1 - C); for (let x = x0; x < x1; x += S) put(kn, x, yy, -998, Math.min(S, x1 - x)); if (yy === y1 - C) break; }
         for (let x = x0; x < x1; x += S) { const cw = Math.min(S, x1 - x); put(ks, x, y0 - Fr, -997, cw); put(kst, x, y0 - Fr, OVER, cw); }
         for (let y = y0; y < y1; y += S) { const ch = Math.min(S, y1 - y); put(ke, x0 - Fr, y, -997, 0, ch); put(ket, x0 - Fr, y, OVER, 0, ch); put(kw, x1 - C, y, -997, 0, ch); put(kwt, x1 - C, y, OVER, 0, ch); }
