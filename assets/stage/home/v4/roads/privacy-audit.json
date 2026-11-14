@@ -3,6 +3,7 @@
   "scope": "PR #13 roads and Woods additions only",
   "generatedSourcesVerified": 29,
   "realPhotosAdded": 0,
+  "runtimeFilesChanged": 0,
   "method": "SHA-256 equality with saved built-in imagegen output files; derived exports/review PNGs are built from those paintings and the existing generated pixel-art hero. No reference photos copied.",
   "sources": [
     {
@@ -122,8 +123,8 @@
     },
     {
       "file": "woods/sources/mushroom-ring.png",
-      "sha256": "fdd7cb643eb13368b5675b190de65c800510aec25a80c6761ca9c306a480df6d",
-      "generatedOutput": "exec-3251ef3e-00ca-4c0d-8cdb-cfa066313d83.png"
+      "sha256": "902629a498ca3b8acd4d0d1732af37b018d4edc7072e08f19a5d7bbd70b2965f",
+      "generatedOutput": "exec-884db414-9fa6-4e41-92a5-c32acac9b090.png"
     },
     {
       "file": "woods/sources/tree-birch-yellow.png",
