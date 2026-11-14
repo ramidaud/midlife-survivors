@@ -82,7 +82,7 @@ def build():
   record['comparison1x']='checks/'+p['id']+'-hero-1x.png';comparison.save(OUT/record['comparison1x']);pieces.append(record)
  # Existing kit pieces are referenced, never recopied along with duplicate source folders.
  reuse={'bedroom-carpet':(BASE/'beige-carpet-v1.png','ground'), 'north-wall':(BASE/'north-wall-strip-v1.png','wall-mounted'), 'side-wall':(BASE/'side-wall-strip-v1.png','wall-mounted'),
-        'laundry-basket':(REPAINT/'laundry-basket-v1.png','furniture'), 'window-east':(REPAINT/'window-blinds-east-v1.png','wall-mounted')}
+        'laundry-basket':(REPAINT/'laundry-basket-v1.png','furniture'), 'window-east':(REPAINT/'window-blinds-east-v1.png','wall-mounted'), 'moon-print':(REPAINT/'moon-print-v1.png','wall-mounted')}
  lookup={p['id']:p for p in pieces}
  for id,(path,layer) in reuse.items():
   art=Image.open(path).convert('RGBA');w,h=art.size
@@ -90,9 +90,10 @@ def build():
   lookup[id]=dict(id=id,file=__import__('os').path.relpath(path,OUT),size=[w,h],footPoint=[w//2,h-1],footprints=fp,renderLayer=layer,reused=True)
  manifest=dict(status='Art review only. Nothing placed in game.',method='Built-in imagegen, proportionally fitted to exact 3x working canvases, whole-number block-mode reduction, material-family palette mapping. No procedural world artwork.',privacy='Written brief and public game art only; private reference photos were not attached to this chat. No people, faces, license plates or identifying text. ABE tiles are explicitly permitted.',layoutSource='src/data/house-v2.js floor2, existing room sizes and openings unchanged.',coordinates='Native room-local pixels; wall art y is -128 to 0. Footprints [x,y,w,h], feetLine y, footPoint [x,y]. Depth uses the foot point, ground first, wall-mounted decor separately.',palette=PALETTE,pieces=pieces,reusedPieces=[v for v in lookup.values() if v.get('reused')])
  manifest['coffeeTableFix']='coffee-table-manifest.json'
+ manifest['reviewRevision']='Generic space poster/game-pad neon; denser room edges and unique pictures; full Abe north wall with painted open doorway. Current prompts are in ../review-revision-prompts.json.'
  savejson(OUT/'manifest-upstairs.json',manifest)
  rooms=room_recipes()
- views=[];placements=[];reports={}
+ views=[];placements=[];reports={};coverage={}
  for name,r in rooms.items():
   _,_,w,h=r['rect'];pad=160;canvas=Image.new('RGBA',(w+32,h+pad+40),PALETTE[0])
   carpet=Image.open(BASE/'beige-carpet-v1.png').convert('RGBA')
@@ -106,13 +107,16 @@ def build():
   # Cut actual openings out of the painted wall strips using the room's own
   # ground texture. Assembly of existing paintings adds no procedural world art.
   for _,side,lo,hi in r['doors']:
+   if side=='north' and r.get('continuousNorthFace'):continue
    opening={'north':(16+lo,pad-128,hi-lo,128),'south':(16+lo,pad+h,hi-lo,16),'west':(0,pad+lo,16,hi-lo),'east':(16+w,pad+lo,16,hi-lo)}[side]
    tile(canvas,carpet,opening)
   placed=[]
   for id,x,y in r['items']:
    p=lookup[id];fp=[[x+fx,y+fy,fw,fh] for fx,fy,fw,fh in p['footprints']]
    assert all(0<=fx and 0<=fy and fx+fw<=w and fy+fh<=h for fx,fy,fw,fh in fp),(name,id,'footprint outside floor')
-   if p['renderLayer']=='wall-mounted' and id not in ('hall-decor-east','hall-decor-west','window-east'):
+   if id=='north-doorway':
+    assert y==-128 and any(side=='north' and x==lo and x+p['size'][0]==hi for _,side,lo,hi in r['doors'])
+   elif p['renderLayer']=='wall-mounted' and id not in ('hall-decor-east','hall-decor-west','window-east'):
     assert -128<=y and y+p['size'][1]<=0,(name,id,'north decor outside wall face')
     assert all(x+p['size'][0]<=lo or x>=hi for _,side,lo,hi in r['doors'] if side=='north'),(name,id,'decor over north doorway')
    placed.append(dict(id=id,at=[x,y],footprints=fp,layer=p['renderLayer'],sourcePosition=[x,y],rotationApplied=0,scaleApplied=1,room=name))
@@ -124,6 +128,11 @@ def build():
      for rx,ry,rw,rh in right['footprints']:
       assert x+fw<=rx or rx+rw<=x or y+fh<=ry or ry+rh<=y,(name,left['id'],right['id'],'overlapping footprints')
   report,good=route_check((w,h),placed,r['doors'],[d[0] for d in r['doors']]);reports[name]=report
+  if name in ('master-bedroom','abe-room','walk-in-closet','hall','linen','utility'):
+   from edge_coverage import check
+   coverage[name]=check(r,placed,lookup)
+  if r.get('continuousNorthFace'):
+   report['northWallFace']={'height':128,'continuous':True,'doorStyle':'painted-open-oak-frame','carpetCutout':False}
   if name=='abe-room':
    square=[164,136,224,224]
    report['mainOpenSquare']=square
@@ -149,6 +158,7 @@ def build():
   views.append(dict(id=name,file=large,overlay=overlayfile,rect=r['rect'],note=r.get('note','Existing plan, native assets, 128px north wall, exact 3x nearest-neighbor. No runtime placement.')));placements+=placed
  savejson(OUT/'mockups/room-layout.json',dict(views=views,placements=placements,routeChecks=reports,status='Awaiting Rami approval. No game placement.'))
  savejson(OUT/'route-checks.json',reports)
+ savejson(OUT/'edge-coverage.json',coverage)
  import coffee_table
  coffee_table.build(ROOT,OUT,BASE)
  validate(plan,pieces,views,reports)
@@ -156,17 +166,7 @@ def build():
  print('Built',len(pieces),'new paintings;',len(views),'rooms;',sum(r['passed'] for r in reports.values()),'route passes')
 
 def room_recipes():
- return {
- 'master-bedroom':dict(rect=[16,16,768,403],doors=[['master','south',168,288]],items=[['bedroom-window',540,-124],['king-bed',288,-24],['nightstand-left',204,-8],['nightstand-right',480,-8],['wooden-crib',8,8],['double-bassinet',568,0],['cream-daybed-west',0,224],['master-dresser-east',708,220],['baby-supplies',632,108],['socks-decal',416,272]],note='The twins corner is by the north window in this room. Existing floor plan has one door. Bedside lamps rise above low nightstands; king-bed native canvas is 184x240.'),
- 'linen':dict(rect=[16,443,168,168],doors=[['linen','east',32,128]],items=[['linen-shelf',0,-30],['towel-bar',68,-80]],note='One existing door; narrow shelf keeps the whole doorway reachable.'),
- 'walk-in-closet':dict(rect=[360,459,424,248],doors=[['walk-in','west',52,152]],items=[['clothes-rack',112,-36],['shoe-boxes',328,184],['laundry-basket',244,160],['hall-wall',8,-96]],note='One existing door; 96px approach reaches open floor in front of hanging clothes.'),
- 'bathroom':dict(rect=[360,723,424,212],doors=[['bath','west',52,148]],items=[['bath-vanity',112,-14],['toilet-plant',248,-8],['tub-east',348,8],['towel-bar',220,-96],['bath-mat',192,100]],note='The tub shampoo row and tank plant are painted with their fixtures. Existing bathroom has one door.'),
- 'hall':dict(rect=[200,443,144,508],doors=[['master','north',0,104],['linen','west',32,128],['stairs','west',184,480],['walk-in','east',68,168],['bath','east',332,428],['abe','south',0,144]],items=[['hall-decor-east',140,216]],note='Existing hall is 144px wide, so it cannot meet the 224px main-route target. Kept entirely clear for every actual opening. North master opening overlaps hall by 104px, leaving too little north wall for a frame; the painted edge-on frame hangs on the solid east-wall stretch.'),
- 'stairs':dict(rect=[16,627,168,296],doors=[['hall','east',0,296]],items=[['stairs-flight',0,0],['hall-wall',32,-96]],note='Painted carpeted stair flight and landings. Stair treads are walkable ground art; the east landing opens onto the hall.'),
- 'utility':dict(rect=[16,947,168,144],doors=[['utility','east',16,120]],items=[['utility-heater',0,-12],['hall-wall',68,-96]],note='One existing door. Heater footprint stays west, 96px access square fits east.'),
- 'abe-closet':dict(rect=[16,1107,168,253],doors=[['abe-closet','east',40,136]],items=[['hoop-closet',16,-124],['shoe-boxes',0,208],['laundry-basket',112,188]],note='Hoop, net and medals hang on north bifold doors. One existing door opens on the east side.'),
- 'abe-room':dict(rect=[180,951,604,406],doors=[['abe-entry','north',20,164],['abe-closet','west',196,292]],items=[['space-wall',168,-124],['controller-guitar-wall',276,-124],['neon-wall',400,-124],['pennant-car-wall',400,-60],['window-east',592,240],['music-desk',192,-8],['gaming-chair',268,76],['collectibles-shelf',492,0],['tv-cube-shelf-east',540,108],['sleigh-bed',388,176],['record-dresser-south',188,330],['hamper',0,338],['robot-figure',536,260],['traffic-light',572,-124]],note='Two connected exits: north hall and west closet. North wall displays stay to the right of the hall doorway. East TV and rear-view south dresser are painted for those angles. No plate: the newer upstairs privacy rule supersedes MIDLIFE plate request. No real faces.'),
- }
+ return json.loads((ROOT/'placements-review.json').read_text())
 
 def validate(plan,pieces,views,reports):
  checks=[];palette=set(tuple(bytes.fromhex(c[1:])) for c in PALETTE)
@@ -185,7 +185,7 @@ def validate(plan,pieces,views,reports):
 
 def review(pieces,views,reports):
  style='body{background:var(--ms-bg);color:var(--ms-text);font:var(--ms-body)/1.5 var(--ms-font-read);margin:0}main{padding:var(--ms-space-5)}a{color:var(--ms-text);display:inline-flex;min-height:var(--ms-touch);align-items:center}figure{margin:0;overflow:auto}img{image-rendering:pixelated;max-width:none}article{border-top:var(--ms-border-w) solid var(--ms-line);padding-block:var(--ms-space-4)}h1{font-size:var(--ms-headline)}h2{font-size:var(--ms-title)}'
- body='<h1>Upstairs art review</h1><p>Nothing placed in the game. Painted from the written brief; private photos were not attached. ABE tiles are permitted. No people, faces or license plates.</p><p><a href="manifest-upstairs.json">Manifest</a> · <a href="mockups/room-layout.json">Layout editor data</a> · <a href="route-checks.json">Door routes</a> · <a href="validation.json">Validation</a> · <a href="../generation-plan.json">Painting prompts</a> · <a href="../README.md">Notes</a></p><p>Every preview is exact 3x nearest-neighbor. Scroll sideways at small sizes to inspect real pixels. Red outlines are footprints; sage points are centers of clear 96px squares; cream marks actual door openings. The main bedroom has the twins corner. The 144px hall is narrower than the 224px target in the existing floor plan.</p>'
+ body='<h1>Upstairs art review</h1><p>PR #11 room revisions: generic space and game-pad art, fuller room edges, distinct pictures, and Abe’s full north wall with a painted open doorway. Nothing placed in the game. Painted from the written brief; private photos were not attached. ABE tiles are permitted. No people, faces, real trademarks or license plates.</p><p><a href="manifest-upstairs.json">Manifest</a> · <a href="mockups/room-layout.json">Layout editor data</a> · <a href="route-checks.json">Door routes</a> · <a href="edge-coverage.json">Wall coverage</a> · <a href="validation.json">Validation</a> · <a href="../review-revision-prompts.json">Current painting prompts</a> · <a href="../generation-plan.json">Piece specifications</a> · <a href="../README.md">Notes</a></p><p>Every preview is exact 3x nearest-neighbor. Scroll sideways at small sizes to inspect real pixels. Red outlines are footprints; sage points are centers of clear 96px squares; cream marks actual door openings. Rugs and runners are flat and do not block movement. The main bedroom has the twins corner. The 144px hall is narrower than the 224px target in the existing floor plan.</p>'
  for v in views:
   body+=f'<article><h2>{v["id"]}: 96px route {"PASS" if reports[v["id"]]["passed"] else "FAIL"}</h2><p>{v["note"]}</p><figure><img alt="{v["id"]} room at 3x with hero" src="{v["file"]}"></figure><details><summary>Footprints and route</summary><figure><img alt="{v["id"]} collision footprints and route centers" src="{v["overlay"]}"></figure></details></article>'
  body+='<h2>Coffee table: warm light oak</h2><p>Same native size, alpha silhouette, footprint and prop pixels. Only the connected light tabletop material is repainted with three oak tones.</p><p><a href="coffee-table-manifest.json">Coffee-table checks</a></p><figure><img alt="Hero and coffee table before and after oak repaint at 1x" src="checks/coffee-table-oak-hero-1x.png"></figure><h2>Pieces against the hero at 1x</h2>'

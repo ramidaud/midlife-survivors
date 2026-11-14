@@ -764,10 +764,10 @@
         1881
       ],
       "sourceCrop": [
-        135,
-        144,
-        693,
-        1791
+        132,
+        142,
+        692,
+        1793
       ],
       "sourceFit": [
         25,
@@ -781,7 +781,7 @@
         432
       ],
       "reductionFactor": 3,
-      "description": "Black low cube shelf against EAST wall facing WEST. Viewed overhead and from west: long north-south footprint, narrow west-facing front edge at LEFT, TV panel along right/east edge seen obliquely facing left. Astronomy book with abstract star cover no title, game cases, Pac-Man-like generic ghost lamp, light-colored props. No front-facing north TV.",
+      "description": "West-facing TV on east-wall cube shelf, astronomy book, plant, simple cream globe lamp and ornaments. No licensed character lamp.",
       "comparison1x": "checks/tv-cube-shelf-east-hero-1x.png"
     },
     {
@@ -1016,7 +1016,7 @@
       "visibleBounds": [
         5,
         2,
-        95,
+        94,
         106
       ],
       "source": "../sources/space-wall.png",
@@ -1026,14 +1026,14 @@
       ],
       "sourceCrop": [
         72,
-        21,
+        19,
         1140,
-        1256
+        1258
       ],
       "sourceFit": [
         15,
         6,
-        270,
+        269,
         312
       ],
       "working": "working/space-wall-3x.png",
@@ -1042,7 +1042,7 @@
         324
       ],
       "reductionFactor": 3,
-      "description": "Compact face-on wall display: NASA 60th anniversary space poster at top left with orbit and stars and readable NASA 60, smaller retro MARS travel poster at right; bottom wooden individual tiles spelling exactly ABE. Transparent BETWEEN the separate frames and tiles. No license plates, no faces.",
+      "description": "Generic 60 YEARS IN SPACE orbital poster, Mars travel art and wooden ABE tiles, face-on. No real space-agency logo or swoosh.",
       "comparison1x": "checks/space-wall-hero-1x.png"
     },
     {
@@ -1111,26 +1111,26 @@
       "footprints": [],
       "visibleBounds": [
         2,
-        18,
+        17,
         154,
         54
       ],
       "source": "../sources/neon-wall.png",
       "sourceSize": [
-        2095,
+        2094,
         751
       ],
       "sourceCrop": [
-        108,
-        143,
-        1986,
-        595
+        109,
+        139,
+        1963,
+        593
       ],
       "sourceFit": [
         6,
-        52,
+        50,
         456,
-        110
+        112
       ],
       "working": "working/neon-wall-3x.png",
       "workingSize": [
@@ -1138,7 +1138,7 @@
         168
       ],
       "reductionFactor": 3,
-      "description": "Two separate face-on north wall neon signs, left exactly LIVE MUSIC in red tubing with a music note; right triangle circle X square glowing cyan and pink. Glow confined to tubing, transparent between signs, no wall panel.",
+      "description": "Red LIVE MUSIC neon with music note and generic cyan/pink game-pad outline, plus D-pad and identical round buttons. No branded shape neon.",
       "comparison1x": "checks/neon-wall-hero-1x.png"
     },
     {
@@ -1957,6 +1957,1125 @@
       "reductionFactor": 3,
       "description": "Extremely narrow WEST wall decoration viewed EDGE-ON from above and EAST: thin oak frame projecting just 8px into hall, only side of framed picture visible, tiny coat hook edge below. Long vertical strip, not frontal wall art. No people, faces or text.",
       "comparison1x": "checks/hall-decor-west-hero-1x.png"
+    },
+    {
+      "id": "beanbag",
+      "file": "beanbag-v1.png",
+      "room": "abe-room",
+      "size": [
+        104,
+        88
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 85,
+      "footPoint": [
+        52,
+        85
+      ],
+      "footprints": [
+        [
+          8,
+          32,
+          88,
+          50
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        5,
+        102,
+        86
+      ],
+      "source": "../sources/beanbag.png",
+      "sourceSize": [
+        1368,
+        1149
+      ],
+      "sourceCrop": [
+        44,
+        78,
+        1321,
+        1119
+      ],
+      "sourceFit": [
+        6,
+        13,
+        300,
+        245
+      ],
+      "working": "working/beanbag-3x.png",
+      "workingSize": [
+        312,
+        264
+      ],
+      "reductionFactor": 3,
+      "description": "Large soft sage beanbag seat, roughly round, slumped lived-in cushions, cream seams, overhead three-quarter view, a paperback on its seat with no title. Entire silhouette100px wide and84px high.",
+      "comparison1x": "checks/beanbag-hero-1x.png"
+    },
+    {
+      "id": "guitar-amp",
+      "file": "guitar-amp-v1.png",
+      "room": "abe-room",
+      "size": [
+        80,
+        64
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 61,
+      "footPoint": [
+        40,
+        61
+      ],
+      "footprints": [
+        [
+          8,
+          34,
+          64,
+          24
+        ]
+      ],
+      "visibleBounds": [
+        7,
+        2,
+        73,
+        62
+      ],
+      "source": "../sources/guitar-amp.png",
+      "sourceSize": [
+        1374,
+        1145
+      ],
+      "sourceCrop": [
+        143,
+        101,
+        1230,
+        1081
+      ],
+      "sourceFit": [
+        20,
+        6,
+        200,
+        180
+      ],
+      "working": "working/guitar-amp-3x.png",
+      "workingSize": [
+        240,
+        192
+      ],
+      "reductionFactor": 3,
+      "description": "Small black guitar amplifier against WEST wall facing EAST, top-down with east-facing narrow speaker grille visible at RIGHT, cream control knobs, a coiled cable lying on its top. Native silhouette76x60. No branding.",
+      "comparison1x": "checks/guitar-amp-hero-1x.png"
+    },
+    {
+      "id": "abe-rug",
+      "file": "abe-rug-v1.png",
+      "room": "abe-room",
+      "size": [
+        320,
+        224
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 221,
+      "footPoint": [
+        160,
+        221
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        27,
+        318,
+        222
+      ],
+      "source": "../sources/abe-rug.png",
+      "sourceSize": [
+        1501,
+        1048
+      ],
+      "sourceCrop": [
+        30,
+        78,
+        1470,
+        969
+      ],
+      "sourceFit": [
+        6,
+        79,
+        948,
+        587
+      ],
+      "working": "working/abe-rug-3x.png",
+      "workingSize": [
+        960,
+        672
+      ],
+      "reductionFactor": 3,
+      "description": "Large rectangular flat woven rug, slate navy and muted sage with cream geometric bands. Entire silhouette316px wide by220px high, almost fills canvas. Seen directly from above, straight horizontal and vertical edges, no diamond/isometric skew, no outline or cast shadow, no backing outside rug.",
+      "comparison1x": "checks/abe-rug-hero-1x.png"
+    },
+    {
+      "id": "clothes-floor",
+      "file": "clothes-floor-v1.png",
+      "room": "abe-room",
+      "size": [
+        96,
+        56
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 53,
+      "footPoint": [
+        48,
+        53
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        8,
+        94,
+        54
+      ],
+      "source": "../sources/clothes-floor.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceCrop": [
+        48,
+        106,
+        1610,
+        895
+      ],
+      "sourceFit": [
+        6,
+        23,
+        276,
+        139
+      ],
+      "working": "working/clothes-floor-3x.png",
+      "workingSize": [
+        288,
+        168
+      ],
+      "reductionFactor": 3,
+      "description": "A few clothes lying FLAT on floor, rumpled cream T-shirt, muted blue jeans, two socks. Top-down, spread horizontally across92x52 native silhouette, no navy outer outline, no cast shadow, no room/floor backing, no people.",
+      "comparison1x": "checks/clothes-floor-hero-1x.png"
+    },
+    {
+      "id": "bed-wall-art",
+      "file": "bed-wall-art-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        160,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 61,
+      "footPoint": [
+        80,
+        61
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        11,
+        158,
+        62
+      ],
+      "source": "../sources/bed-wall-art.png",
+      "sourceSize": [
+        2022,
+        778
+      ],
+      "sourceCrop": [
+        39,
+        67,
+        1984,
+        703
+      ],
+      "sourceFit": [
+        6,
+        33,
+        468,
+        153
+      ],
+      "working": "working/bed-wall-art-3x.png",
+      "workingSize": [
+        480,
+        192
+      ],
+      "reductionFactor": 3,
+      "description": "Wide horizontal framed abstract painting over bed, cream ground, slate navy sweeping shapes and muted rust/sage accents, oak frame. Face-on NORTH wall. Wide silhouette156x60; no people, faces, letters or brands.",
+      "comparison1x": "checks/bed-wall-art-hero-1x.png"
+    },
+    {
+      "id": "bed-wall-mirror",
+      "file": "bed-wall-mirror-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        72,
+        104
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 101,
+      "footPoint": [
+        36,
+        101
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        20,
+        2,
+        52,
+        102
+      ],
+      "source": "../sources/bed-wall-mirror.png",
+      "sourceSize": [
+        718,
+        2188
+      ],
+      "sourceCrop": [
+        16,
+        44,
+        700,
+        2113
+      ],
+      "sourceFit": [
+        58,
+        6,
+        99,
+        300
+      ],
+      "working": "working/bed-wall-mirror-3x.png",
+      "workingSize": [
+        216,
+        312
+      ],
+      "reductionFactor": 3,
+      "description": "Tall slim oval silver mirror, face-on NORTH wall, blue-grey reflective glass with only cream light streaks, no face, no person, no reflected room or text. Native silhouette68x100.",
+      "comparison1x": "checks/bed-wall-mirror-hero-1x.png"
+    },
+    {
+      "id": "dresser-with-mirror",
+      "file": "dresser-with-mirror-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        176,
+        108
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 105,
+      "footPoint": [
+        88,
+        105
+      ],
+      "footprints": [
+        [
+          8,
+          80,
+          160,
+          22
+        ]
+      ],
+      "visibleBounds": [
+        2,
+        8,
+        174,
+        106
+      ],
+      "source": "../sources/dresser-with-mirror.png",
+      "sourceSize": [
+        1610,
+        977
+      ],
+      "sourceCrop": [
+        22,
+        52,
+        1588,
+        947
+      ],
+      "sourceFit": [
+        6,
+        23,
+        516,
+        295
+      ],
+      "working": "working/dresser-with-mirror-3x.png",
+      "workingSize": [
+        528,
+        324
+      ],
+      "reductionFactor": 3,
+      "description": "A VERY WIDE LOW dark wood bedroom dresser with lighter oak top, THREE broad drawer bays across width, standing oval mirror on top, folded cream linen and a water bottle. Faces SOUTH against NORTH wall, viewed slightly from above. Broad dresser body172px wide and36px tall at bottom, compact mirror64px tall above it. Entire silhouette172px WIDE by104px HIGH, aspect1.65. Counter below60px standing hero. No branding or personal text.",
+      "comparison1x": "checks/dresser-with-mirror-hero-1x.png"
+    },
+    {
+      "id": "bedroom-rug",
+      "file": "bedroom-rug-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        320,
+        168
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 165,
+      "footPoint": [
+        160,
+        165
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        16,
+        318,
+        166
+      ],
+      "source": "../sources/bedroom-rug.png",
+      "sourceSize": [
+        1742,
+        903
+      ],
+      "sourceCrop": [
+        64,
+        67,
+        1678,
+        836
+      ],
+      "sourceFit": [
+        6,
+        46,
+        948,
+        452
+      ],
+      "working": "working/bedroom-rug-3x.png",
+      "workingSize": [
+        960,
+        504
+      ],
+      "reductionFactor": 3,
+      "description": "Large flat rectangular cream rug with muted russet and sage geometric botanical weave. Entire silhouette316px wide and164px high. Direct overhead, horizontal/vertical edges, no isometric diamond skew, no outer dark outline, no shadow, no backing beyond rug.",
+      "comparison1x": "checks/bedroom-rug-hero-1x.png"
+    },
+    {
+      "id": "bedroom-armchair",
+      "file": "bedroom-armchair-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        96,
+        88
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 85,
+      "footPoint": [
+        48,
+        85
+      ],
+      "footprints": [
+        [
+          18,
+          40,
+          60,
+          42
+        ]
+      ],
+      "visibleBounds": [
+        15,
+        2,
+        81,
+        86
+      ],
+      "source": "../sources/bedroom-armchair.png",
+      "sourceSize": [
+        1312,
+        1199
+      ],
+      "sourceCrop": [
+        173,
+        59,
+        1028,
+        1129
+      ],
+      "sourceFit": [
+        43,
+        6,
+        201,
+        252
+      ],
+      "working": "working/bedroom-armchair-3x.png",
+      "workingSize": [
+        288,
+        264
+      ],
+      "reductionFactor": 3,
+      "description": "Cream upholstered armchair against WEST wall facing EAST, read from above and slightly from south: WEST back at left, open seat faces right, rust cushion, oak feet, low rounded arms. Entire silhouette92x84. Not a front-on chair. Seat height under30px and back under60px hero.",
+      "comparison1x": "checks/bedroom-armchair-hero-1x.png"
+    },
+    {
+      "id": "bedroom-plant",
+      "file": "bedroom-plant-v1.png",
+      "room": "master-bedroom",
+      "size": [
+        72,
+        96
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 93,
+      "footPoint": [
+        36,
+        93
+      ],
+      "footprints": [
+        [
+          24,
+          72,
+          24,
+          20
+        ]
+      ],
+      "visibleBounds": [
+        3,
+        2,
+        69,
+        94
+      ],
+      "source": "../sources/bedroom-plant.png",
+      "sourceSize": [
+        1080,
+        1457
+      ],
+      "sourceCrop": [
+        24,
+        24,
+        1056,
+        1440
+      ],
+      "sourceFit": [
+        7,
+        6,
+        201,
+        276
+      ],
+      "working": "working/bedroom-plant-3x.png",
+      "workingSize": [
+        216,
+        288
+      ],
+      "reductionFactor": 3,
+      "description": "Freestanding leafy floor plant, bird-of-paradise leaves in a cream ceramic POT on floor. No ropes, no hanging basket. Sage olive leaves, rich three-tone green, visible overhead pot rim, entire silhouette68x92.",
+      "comparison1x": "checks/bedroom-plant-hero-1x.png"
+    },
+    {
+      "id": "closet-shelf-east",
+      "file": "closet-shelf-east-v1.png",
+      "room": "walk-in-closet",
+      "size": [
+        48,
+        128
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 125,
+      "footPoint": [
+        24,
+        125
+      ],
+      "footprints": [
+        [
+          14,
+          44,
+          20,
+          78
+        ]
+      ],
+      "visibleBounds": [
+        12,
+        2,
+        36,
+        126
+      ],
+      "source": "../sources/closet-shelf-east.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        153,
+        93,
+        551,
+        2093
+      ],
+      "sourceFit": [
+        35,
+        6,
+        74,
+        372
+      ],
+      "working": "working/closet-shelf-east-3x.png",
+      "workingSize": [
+        144,
+        384
+      ],
+      "reductionFactor": 3,
+      "description": "Tall NARROW oak shoe-box shelf against EAST wall facing WEST, seen overhead and from west: show tabletop and very NARROW front shelf edges at LEFT, cabinet long north-south. Shoe boxes, rolled cloth and shoes. Side-on sprite, not a wide front-facing bookshelf. Entire silhouette44px WIDE by124px HIGH.",
+      "comparison1x": "checks/closet-shelf-east-hero-1x.png"
+    },
+    {
+      "id": "storage-boxes-south",
+      "file": "storage-boxes-south-v1.png",
+      "room": "walk-in-closet",
+      "size": [
+        160,
+        40
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 37,
+      "footPoint": [
+        80,
+        37
+      ],
+      "footprints": [
+        [
+          26,
+          20,
+          108,
+          16
+        ]
+      ],
+      "visibleBounds": [
+        24,
+        2,
+        136,
+        38
+      ],
+      "source": "../sources/storage-boxes-south.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        63,
+        32,
+        2110,
+        686
+      ],
+      "sourceFit": [
+        71,
+        6,
+        338,
+        108
+      ],
+      "working": "working/storage-boxes-south-3x.png",
+      "workingSize": [
+        480,
+        120
+      ],
+      "reductionFactor": 3,
+      "description": "Long shallow low storage box bench against SOUTH wall, seen FROM BEHIND and above. Light oak lid with three cream and navy shoe boxes and a pair of folded socks. Plain rear panels nearest camera, no visible front drawers. VERY WIDE LOW silhouette156px WIDE and36px HIGH. Low enough to stay under half standing hero.",
+      "comparison1x": "checks/storage-boxes-south-hero-1x.png"
+    },
+    {
+      "id": "low-storage-tray",
+      "file": "low-storage-tray-v1.png",
+      "room": "utility",
+      "size": [
+        104,
+        28
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 25,
+      "footPoint": [
+        52,
+        25
+      ],
+      "footprints": [
+        [
+          12,
+          12,
+          80,
+          12
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        2,
+        95,
+        26
+      ],
+      "source": "../sources/low-storage-tray.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        173,
+        133,
+        1999,
+        635
+      ],
+      "sourceFit": [
+        25,
+        6,
+        262,
+        72
+      ],
+      "working": "working/low-storage-tray-3x.png",
+      "workingSize": [
+        312,
+        84
+      ],
+      "reductionFactor": 3,
+      "description": "Very low long oak storage tray on floor, folded cream towels and a blank cardboard box with rolled cloth peeking out. Overhead view, shallow silhouette100px WIDE by24px HIGH, no cleaning-brand labels or text. Generic household supplies usable in linen and utility rooms.",
+      "comparison1x": "checks/low-storage-tray-hero-1x.png"
+    },
+    {
+      "id": "closet-picture",
+      "file": "closet-picture-v1.png",
+      "room": "walk-in-closet",
+      "size": [
+        96,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 61,
+      "footPoint": [
+        48,
+        61
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        5,
+        94,
+        62
+      ],
+      "source": "../sources/closet-picture.png",
+      "sourceSize": [
+        1552,
+        1013
+      ],
+      "sourceCrop": [
+        34,
+        48,
+        1520,
+        975
+      ],
+      "sourceFit": [
+        6,
+        14,
+        276,
+        172
+      ],
+      "working": "working/closet-picture-3x.png",
+      "workingSize": [
+        288,
+        192
+      ],
+      "reductionFactor": 3,
+      "description": "Unique small face-on framed still life of a rust sunhat beside a sage scarf and cream folded fabric, broad oak frame, no landscape, no faces or words. Entire silhouette92x60.",
+      "comparison1x": "checks/closet-picture-hero-1x.png"
+    },
+    {
+      "id": "linen-picture",
+      "file": "linen-picture-v1.png",
+      "room": "linen",
+      "size": [
+        96,
+        56
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 53,
+      "footPoint": [
+        48,
+        53
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        11,
+        2,
+        85,
+        54
+      ],
+      "source": "../sources/linen-picture.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "sourceCrop": [
+        182,
+        11,
+        1490,
+        921
+      ],
+      "sourceFit": [
+        32,
+        6,
+        224,
+        156
+      ],
+      "working": "working/linen-picture-3x.png",
+      "workingSize": [
+        288,
+        168
+      ],
+      "reductionFactor": 3,
+      "description": "Unique small face-on framed textile artwork: simple stitched cream and sage fern motif on muted russet cloth, light oak frame. No landscape, no faces or words. Entire silhouette92x52.",
+      "comparison1x": "checks/linen-picture-hero-1x.png"
+    },
+    {
+      "id": "utility-picture",
+      "file": "utility-picture-v1.png",
+      "room": "utility",
+      "size": [
+        76,
+        64
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 61,
+      "footPoint": [
+        38,
+        61
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        4,
+        2,
+        72,
+        62
+      ],
+      "source": "../sources/utility-picture.png",
+      "sourceSize": [
+        1374,
+        1145
+      ],
+      "sourceCrop": [
+        92,
+        47,
+        1282,
+        1093
+      ],
+      "sourceFit": [
+        11,
+        6,
+        205,
+        180
+      ],
+      "working": "working/utility-picture-3x.png",
+      "workingSize": [
+        228,
+        192
+      ],
+      "reductionFactor": 3,
+      "description": "Unique small face-on framed vintage technical illustration of a simple abstract sunburst and water pipes, navy line drawing on cream paper, slate frame. No labels, no words, no landscape or faces. Entire silhouette72x60.",
+      "comparison1x": "checks/utility-picture-hero-1x.png"
+    },
+    {
+      "id": "utility-wall-shelf",
+      "file": "utility-wall-shelf-v1.png",
+      "room": "utility",
+      "size": [
+        96,
+        56
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 53,
+      "footPoint": [
+        48,
+        53
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        3,
+        94,
+        54
+      ],
+      "source": "../sources/utility-wall-shelf.png",
+      "sourceSize": [
+        1671,
+        941
+      ],
+      "sourceCrop": [
+        28,
+        25,
+        1643,
+        933
+      ],
+      "sourceFit": [
+        6,
+        7,
+        276,
+        155
+      ],
+      "working": "working/utility-wall-shelf-3x.png",
+      "workingSize": [
+        288,
+        168
+      ],
+      "reductionFactor": 3,
+      "description": "Two compact floating oak shelves seen face-on against NORTH wall, folded pale towels, blank detergent bottles, tissue roll and little storage bin. Transparent gap between shelves, no wall background. Entire wide silhouette92x52. No brands or readable labels.",
+      "comparison1x": "checks/utility-wall-shelf-hero-1x.png"
+    },
+    {
+      "id": "hall-picture",
+      "file": "hall-picture-v1.png",
+      "room": "hall",
+      "size": [
+        32,
+        56
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 53,
+      "footPoint": [
+        16,
+        53
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        6,
+        2,
+        26,
+        54
+      ],
+      "source": "../sources/hall-picture.png",
+      "sourceSize": [
+        979,
+        1606
+      ],
+      "sourceCrop": [
+        209,
+        100,
+        771,
+        1535
+      ],
+      "sourceFit": [
+        17,
+        6,
+        61,
+        156
+      ],
+      "working": "working/hall-picture-3x.png",
+      "workingSize": [
+        96,
+        168
+      ],
+      "reductionFactor": 3,
+      "description": "Unique very small TALL face-on NORTH-wall framed abstract picture, stacked sage and rust circles on navy, slim cream frame. Entire silhouette28px WIDE by52px HIGH. No landscape, no face, no words.",
+      "comparison1x": "checks/hall-picture-hero-1x.png"
+    },
+    {
+      "id": "hall-coat-console-east",
+      "file": "hall-coat-console-east-v1.png",
+      "room": "hall",
+      "size": [
+        44,
+        132
+      ],
+      "kind": "WALL",
+      "renderLayer": "furniture",
+      "feetLine": 129,
+      "footPoint": [
+        22,
+        129
+      ],
+      "footprints": [
+        [
+          13,
+          76,
+          18,
+          50
+        ]
+      ],
+      "visibleBounds": [
+        11,
+        2,
+        33,
+        130
+      ],
+      "source": "../sources/hall-coat-console-east.png",
+      "sourceSize": [
+        724,
+        2172
+      ],
+      "sourceCrop": [
+        158,
+        21,
+        531,
+        2150
+      ],
+      "sourceFit": [
+        32,
+        6,
+        67,
+        384
+      ],
+      "working": "working/hall-coat-console-east-3x.png",
+      "workingSize": [
+        132,
+        396
+      ],
+      "reductionFactor": 3,
+      "description": "Extremely narrow EAST-wall coat rack and shallow shoe console facing WEST, painted EDGE-ON from above and west. Rust puffy jacket and cream coat hang along wall above low oak shoe rack, glimpse of two shoes. Entire silhouette40px WIDE and128px HIGH, elongated north-south with narrow front at LEFT. Not a frontal wide coat rack. No picture or wall backing.",
+      "comparison1x": "checks/hall-coat-console-east-hero-1x.png"
+    },
+    {
+      "id": "hall-runner",
+      "file": "hall-runner-v1.png",
+      "room": "hall",
+      "size": [
+        104,
+        448
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 445,
+      "footPoint": [
+        52,
+        445
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        39,
+        102,
+        446
+      ],
+      "source": "../sources/hall-runner.png",
+      "sourceSize": [
+        1095,
+        1437
+      ],
+      "sourceCrop": [
+        374,
+        11,
+        721,
+        1425
+      ],
+      "sourceFit": [
+        6,
+        116,
+        300,
+        1222
+      ],
+      "working": "working/hall-runner-3x.png",
+      "workingSize": [
+        312,
+        1344
+      ],
+      "reductionFactor": 3,
+      "description": "Long narrow flat woven hallway RUNNER rug, sage center with cream and muted russet border weave. Entire silhouette100px WIDE by444px LONG, strict overhead rectangle, no skew, no fringe extending outside canvas, no outer dark outline or cast shadow. No floor backing.",
+      "comparison1x": "checks/hall-runner-hero-1x.png"
+    },
+    {
+      "id": "linen-runner",
+      "file": "linen-runner-v1.png",
+      "room": "linen",
+      "size": [
+        64,
+        112
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "ground",
+      "feetLine": 109,
+      "footPoint": [
+        32,
+        109
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        9,
+        2,
+        55,
+        110
+      ],
+      "source": "../sources/linen-runner.png",
+      "sourceSize": [
+        920,
+        1710
+      ],
+      "sourceCrop": [
+        118,
+        73,
+        803,
+        1637
+      ],
+      "sourceFit": [
+        25,
+        6,
+        142,
+        324
+      ],
+      "working": "working/linen-runner-3x.png",
+      "workingSize": [
+        192,
+        336
+      ],
+      "reductionFactor": 3,
+      "description": "Small flat rectangular cream woven RUNNER with sage bands and russet end stitching, full silhouette60px WIDE by108px LONG, overhead rectangle, no outer dark outline, no shadow, no room backing.",
+      "comparison1x": "checks/linen-runner-hero-1x.png"
+    },
+    {
+      "id": "north-doorway",
+      "file": "north-doorway-v1.png",
+      "room": "abe-room",
+      "size": [
+        144,
+        128
+      ],
+      "kind": "WALK-THROUGH",
+      "renderLayer": "wall-mounted",
+      "feetLine": 125,
+      "footPoint": [
+        72,
+        125
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        2,
+        10,
+        142,
+        126
+      ],
+      "source": "../sources/north-doorway.png",
+      "sourceSize": [
+        1332,
+        1181
+      ],
+      "sourceCrop": [
+        60,
+        83,
+        1272,
+        1087
+      ],
+      "sourceFit": [
+        6,
+        30,
+        420,
+        348
+      ],
+      "working": "working/north-doorway-3x.png",
+      "workingSize": [
+        432,
+        384
+      ],
+      "reductionFactor": 3,
+      "description": "Wide face-on OPEN DOUBLE DOORWAY in oak frame, one narrow oak leaf swung open at each side, dark slate shadow inside opening, NO CARPET or floor stripe. Central visible opening at least96px wide at native size. Overall silhouette140px WIDE and124px HIGH. No separate surrounding wall, transparency outside oak frame. Faces camera flat against NORTH wall, no isometric perspective. No text. Architectural doorway is open and passable.",
+      "comparison1x": "checks/north-doorway-hero-1x.png"
     }
   ],
   "reusedPieces": [
@@ -2041,7 +3160,23 @@
       "footprints": [],
       "renderLayer": "wall-mounted",
       "reused": true
+    },
+    {
+      "id": "moon-print",
+      "file": "../../house-ground-floor/repaint/deliver/moon-print-v1.png",
+      "size": [
+        68,
+        88
+      ],
+      "footPoint": [
+        34,
+        87
+      ],
+      "footprints": [],
+      "renderLayer": "wall-mounted",
+      "reused": true
     }
   ],
-  "coffeeTableFix": "coffee-table-manifest.json"
+  "coffeeTableFix": "coffee-table-manifest.json",
+  "reviewRevision": "Generic space poster/game-pad neon; denser room edges and unique pictures; full Abe north wall with painted open doorway. Current prompts are in ../review-revision-prompts.json."
 }

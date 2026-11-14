@@ -2486,3 +2486,11 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Repainted the desk, dresser, clothes rack and vanity wider after native-size QA. Footprints fit the visible furniture; north-wall art clears doorways.
 - Coffee-table top is three-tone warm light oak. Its exact size, silhouette, base, footprint and prop pixels are preserved.
 - Sources appear once; manifests, editor layout, native/3x previews and checks included. Written brief used because private photos were not attached. Local browser access was blocked; image QA completed. No runtime placement or version change. Await Rami's review.
+
+
+## 2026-11-13: PR #11 room-density and branding revisions (Codex)
+- Replaced the agency wordmark with 60 YEARS IN SPACE and the branded shape neon with a generic game-pad. The TV shelf now has a plain globe lamp.
+- Abe's full north wall has a painted doorway instead of carpet; the desk and chair tuck back. Added beanbag, amp, rug and loose clothes along the left edges.
+- Main bedroom gains north-wall art, a second window, mirrors, dresser, large rug, laundry basket, plant and armchair. Smaller rooms gain edge storage, coats, runners and distinct pictures.
+- All nine actual-door 96px routes pass; Abe keeps a 224px open square. Six revised rooms have no measured empty wall run over 160px. Native image QA, source/footprint checks and exact 3x exports pass.
+- Editor layout and single source set updated on PR #11. Coffee-table fix preserved. No game placement or version change; awaiting Rami's review.

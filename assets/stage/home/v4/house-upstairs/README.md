@@ -6,6 +6,18 @@ Open `deliver/review.html` locally. Each room has a native preview, an exact 3x 
 
 The main bedroom includes the twins' corner by the north window. Abe's room contains the music desk, collectibles, neons and wall displays. The latest privacy rule takes priority over the older plate request: there is no license plate. ABE is the only personal name allowed. No people or faces appear in the art.
 
+## PR #11 room revisions
+
+The current package has 59 upstairs paintings plus the unchanged coffee-table fix. The space poster reads **60 YEARS IN SPACE**, and the gaming neon is a generic game-pad. The shelf's former ghost lamp is a plain globe. Superseded branded paintings and their comparison exports have been replaced in the current tree.
+
+Abe's north wall now runs across the full width, with a painted open oak doorway instead of the carpet cutout. The actual door interval remains in the route check. His desk and chair sit back against the wall; a beanbag, guitar amplifier, large flat rug and clothes fill the left edges. The amplifier stands against the west wall facing east.
+
+The main bedroom has two north windows, art over the bed, a moon print, a silver wall mirror, a broad dresser with its own mirror, a large rug, laundry basket, plant and armchair. The crib moves to the southeast. The middle rug has no collision.
+
+The walk-in closet, hall, linen and utility have distinct pictures and shallow storage, coats, boxes, plants and runners fitted around their doors. `deliver/edge-coverage.json` projects actual painted bounds onto each wall and excludes actual door openings; none of the six revised rooms has an unfilled run over 160px. It explicitly counts flat rugs as furnishing, never as collision.
+
+`placements-review.json` is the current room recipe. `deliver/mockups/room-layout.json` retains the editor's views/placements/routeChecks format. `review-revision-prompts.json` records the new built-in imagegen calls; earlier prompt files are provenance and are superseded where the new requests overlap.
+
 Private house photos were not attached to this chat. Paintings follow the detailed written room descriptions and use the approved public ground-floor art for style. They are proposals for Rami to check, not claims of photo-matched placement.
 
 ## Build

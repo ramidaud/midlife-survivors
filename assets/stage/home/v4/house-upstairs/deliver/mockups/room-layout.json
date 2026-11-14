@@ -10,7 +10,7 @@
         768,
         403
       ],
-      "note": "The twins corner is by the north window in this room. Existing floor plan has one door. Bedside lamps rise above low nightstands; king-bed native canvas is 184x240."
+      "note": "Two north windows, abstract bed art, silver mirror, a broad mirrored dresser, plant, armchair, laundry basket and flat rug fill the edges. The crib moves to the southeast; the twins stay by the northeast window. The original south door retains 96px access; the rug leaves the middle walkable."
     },
     {
       "id": "linen",
@@ -22,7 +22,7 @@
         168,
         168
       ],
-      "note": "One existing door; narrow shelf keeps the whole doorway reachable."
+      "note": "Folded-linen shelf, low towel tray and flat runner furnish the north, west and south edges. Unique stitched fern picture. The existing east doorway remains reachable with a 96px square."
     },
     {
       "id": "walk-in-closet",
@@ -34,7 +34,7 @@
         424,
         248
       ],
-      "note": "One existing door; 96px approach reaches open floor in front of hanging clothes."
+      "note": "Clothes fill the north, a side-painted shoe shelf fills the east, and low boxes and hamper fill the south. Unique hat-and-scarf still life. The west opening and central 96px approach stay clear."
     },
     {
       "id": "bathroom",
@@ -58,7 +58,7 @@
         144,
         508
       ],
-      "note": "Existing hall is 144px wide, so it cannot meet the 224px main-route target. Kept entirely clear for every actual opening. North master opening overlaps hall by 104px, leaving too little north wall for a frame; the painted edge-on frame hangs on the solid east-wall stretch."
+      "note": "A shallow east-facing-west coat console, a flat long runner and a unique small geometric north-wall picture fill the remaining wall stretches. Coats are painted edge-on. The 144px hall still connects all six openings with 96px clearance."
     },
     {
       "id": "stairs",
@@ -82,7 +82,7 @@
         168,
         144
       ],
-      "note": "One existing door. Heater footprint stays west, 96px access square fits east."
+      "note": "Water heater, north supply shelves and low south storage furnish the edges. Unique technical sun-and-pipes print. The flat runner and east-side 96px access remain clear."
     },
     {
       "id": "abe-closet",
@@ -106,10 +106,42 @@
         604,
         406
       ],
-      "note": "Two connected exits: north hall and west closet. North wall displays stay to the right of the hall doorway. East TV and rear-view south dresser are painted for those angles. No plate: the newer upstairs privacy rule supersedes MIDLIFE plate request. No real faces."
+      "note": "Full 128px north wall with painted open oak doorway, not a carpet strip. Generic 60 YEARS IN SPACE poster and game-pad neon replace trademarks. Desk and chair tuck against the wall; beanbag, amp, rug and loose clothes fill the left edges. Both exits connect around a 224px open square."
     }
   ],
   "placements": [
+    {
+      "id": "moon-print",
+      "at": [
+        48,
+        -124
+      ],
+      "footprints": [],
+      "layer": "wall-mounted",
+      "sourcePosition": [
+        48,
+        -124
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "bedroom-window",
+      "at": [
+        168,
+        -124
+      ],
+      "footprints": [],
+      "layer": "wall-mounted",
+      "sourcePosition": [
+        168,
+        -124
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
     {
       "id": "bedroom-window",
       "at": [
@@ -121,6 +153,61 @@
       "sourcePosition": [
         540,
         -124
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "bed-wall-art",
+      "at": [
+        320,
+        -124
+      ],
+      "footprints": [],
+      "layer": "wall-mounted",
+      "sourcePosition": [
+        320,
+        -124
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "bed-wall-mirror",
+      "at": [
+        688,
+        -120
+      ],
+      "footprints": [],
+      "layer": "wall-mounted",
+      "sourcePosition": [
+        688,
+        -120
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "dresser-with-mirror",
+      "at": [
+        0,
+        -24
+      ],
+      "footprints": [
+        [
+          8,
+          56,
+          160,
+          22
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        0,
+        -24
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -198,21 +285,21 @@
     {
       "id": "wooden-crib",
       "at": [
-        8,
-        8
+        600,
+        248
       ],
       "footprints": [
         [
-          18,
-          42,
+          610,
+          282,
           88,
           108
         ]
       ],
       "layer": "furniture",
       "sourcePosition": [
-        8,
-        8
+        600,
+        248
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -327,6 +414,91 @@
       "room": "master-bedroom"
     },
     {
+      "id": "bedroom-rug",
+      "at": [
+        240,
+        216
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        240,
+        216
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "bedroom-armchair",
+      "at": [
+        80,
+        308
+      ],
+      "footprints": [
+        [
+          98,
+          348,
+          60,
+          42
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        80,
+        308
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "bedroom-plant",
+      "at": [
+        680,
+        96
+      ],
+      "footprints": [
+        [
+          704,
+          168,
+          24,
+          20
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        680,
+        96
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
+      "id": "laundry-basket",
+      "at": [
+        560,
+        360
+      ],
+      "footprints": [
+        [
+          574,
+          368,
+          28,
+          16
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        560,
+        360
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "master-bedroom"
+    },
+    {
       "id": "linen-shelf",
       "at": [
         0,
@@ -350,16 +522,55 @@
       "room": "linen"
     },
     {
-      "id": "towel-bar",
+      "id": "linen-picture",
       "at": [
         68,
-        -80
+        -112
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
         68,
-        -80
+        -112
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "linen"
+    },
+    {
+      "id": "low-storage-tray",
+      "at": [
+        0,
+        140
+      ],
+      "footprints": [
+        [
+          12,
+          152,
+          80,
+          12
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        0,
+        140
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "linen"
+    },
+    {
+      "id": "linen-runner",
+      "at": [
+        88,
+        32
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        88,
+        32
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -389,53 +600,7 @@
       "room": "walk-in-closet"
     },
     {
-      "id": "shoe-boxes",
-      "at": [
-        328,
-        184
-      ],
-      "footprints": [
-        [
-          346,
-          194,
-          44,
-          22
-        ]
-      ],
-      "layer": "furniture",
-      "sourcePosition": [
-        328,
-        184
-      ],
-      "rotationApplied": 0,
-      "scaleApplied": 1,
-      "room": "walk-in-closet"
-    },
-    {
-      "id": "laundry-basket",
-      "at": [
-        244,
-        160
-      ],
-      "footprints": [
-        [
-          258,
-          168,
-          28,
-          16
-        ]
-      ],
-      "layer": "furniture",
-      "sourcePosition": [
-        244,
-        160
-      ],
-      "rotationApplied": 0,
-      "scaleApplied": 1,
-      "room": "walk-in-closet"
-    },
-    {
-      "id": "hall-wall",
+      "id": "closet-picture",
       "at": [
         8,
         -96
@@ -445,6 +610,137 @@
       "sourcePosition": [
         8,
         -96
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "bedroom-plant",
+      "at": [
+        352,
+        0
+      ],
+      "footprints": [
+        [
+          376,
+          72,
+          24,
+          20
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        352,
+        0
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "closet-shelf-east",
+      "at": [
+        376,
+        96
+      ],
+      "footprints": [
+        [
+          390,
+          140,
+          20,
+          78
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        376,
+        96
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "storage-boxes-south",
+      "at": [
+        96,
+        208
+      ],
+      "footprints": [
+        [
+          122,
+          228,
+          108,
+          16
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        96,
+        208
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "shoe-boxes",
+      "at": [
+        260,
+        208
+      ],
+      "footprints": [
+        [
+          278,
+          218,
+          44,
+          22
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        260,
+        208
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "laundry-basket",
+      "at": [
+        8,
+        212
+      ],
+      "footprints": [
+        [
+          22,
+          220,
+          28,
+          16
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        8,
+        212
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "walk-in-closet"
+    },
+    {
+      "id": "linen-runner",
+      "at": [
+        168,
+        88
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        168,
+        88
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -552,16 +848,55 @@
       "room": "bathroom"
     },
     {
-      "id": "hall-decor-east",
+      "id": "hall-picture",
       "at": [
-        140,
-        216
+        108,
+        -112
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
-        140,
-        216
+        108,
+        -112
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "hall"
+    },
+    {
+      "id": "hall-coat-console-east",
+      "at": [
+        100,
+        180
+      ],
+      "footprints": [
+        [
+          113,
+          256,
+          18,
+          50
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        100,
+        180
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "hall"
+    },
+    {
+      "id": "hall-runner",
+      "at": [
+        20,
+        32
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        20,
+        32
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -623,16 +958,71 @@
       "room": "utility"
     },
     {
-      "id": "hall-wall",
+      "id": "utility-picture",
+      "at": [
+        84,
+        -120
+      ],
+      "footprints": [],
+      "layer": "wall-mounted",
+      "sourcePosition": [
+        84,
+        -120
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "utility"
+    },
+    {
+      "id": "utility-wall-shelf",
       "at": [
         68,
-        -96
+        -56
       ],
       "footprints": [],
       "layer": "wall-mounted",
       "sourcePosition": [
         68,
-        -96
+        -56
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "utility"
+    },
+    {
+      "id": "low-storage-tray",
+      "at": [
+        0,
+        116
+      ],
+      "footprints": [
+        [
+          12,
+          128,
+          80,
+          12
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        0,
+        116
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "utility"
+    },
+    {
+      "id": "linen-runner",
+      "at": [
+        88,
+        16
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        88,
+        16
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -699,6 +1089,22 @@
       "rotationApplied": 0,
       "scaleApplied": 1,
       "room": "abe-closet"
+    },
+    {
+      "id": "north-doorway",
+      "at": [
+        20,
+        -128
+      ],
+      "footprints": [],
+      "layer": "wall-mounted",
+      "sourcePosition": [
+        20,
+        -128
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "abe-room"
     },
     {
       "id": "space-wall",
@@ -784,12 +1190,12 @@
       "id": "music-desk",
       "at": [
         192,
-        -8
+        -48
       ],
       "footprints": [
         [
           200,
-          48,
+          8,
           188,
           30
         ]
@@ -797,7 +1203,7 @@
       "layer": "furniture",
       "sourcePosition": [
         192,
-        -8
+        -48
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -807,12 +1213,12 @@
       "id": "gaming-chair",
       "at": [
         268,
-        76
+        20
       ],
       "footprints": [
         [
           282,
-          106,
+          50,
           28,
           24
         ]
@@ -820,7 +1226,7 @@
       "layer": "furniture",
       "sourcePosition": [
         268,
-        76
+        20
       ],
       "rotationApplied": 0,
       "scaleApplied": 1,
@@ -972,6 +1378,84 @@
       "rotationApplied": 0,
       "scaleApplied": 1,
       "room": "abe-room"
+    },
+    {
+      "id": "beanbag",
+      "at": [
+        8,
+        92
+      ],
+      "footprints": [
+        [
+          16,
+          124,
+          88,
+          50
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        8,
+        92
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "abe-room"
+    },
+    {
+      "id": "guitar-amp",
+      "at": [
+        8,
+        292
+      ],
+      "footprints": [
+        [
+          16,
+          326,
+          64,
+          24
+        ]
+      ],
+      "layer": "furniture",
+      "sourcePosition": [
+        8,
+        292
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "abe-room"
+    },
+    {
+      "id": "abe-rug",
+      "at": [
+        72,
+        140
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        72,
+        140
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "abe-room"
+    },
+    {
+      "id": "clothes-floor",
+      "at": [
+        88,
+        336
+      ],
+      "footprints": [],
+      "layer": "ground",
+      "sourcePosition": [
+        88,
+        336
+      ],
+      "rotationApplied": 0,
+      "scaleApplied": 1,
+      "room": "abe-room"
     }
   ],
   "routeChecks": {
@@ -991,38 +1475,146 @@
       ],
       "components": [
         {
-          "positions": 87546,
+          "positions": 74040,
           "doors": [
             "master"
           ],
           "previewCenters": [
             [
-              160,
-              48
+              48,
+              128
             ],
             [
-              160,
-              64
+              64,
+              128
             ],
             [
-              160,
-              80
+              48,
+              144
             ],
             [
-              160,
-              96
+              80,
+              128
             ],
             [
-              160,
-              112
+              64,
+              144
+            ],
+            [
+              48,
+              160
+            ],
+            [
+              96,
+              128
+            ],
+            [
+              80,
+              144
+            ],
+            [
+              64,
+              160
+            ],
+            [
+              48,
+              176
+            ],
+            [
+              112,
+              128
+            ],
+            [
+              96,
+              144
+            ],
+            [
+              80,
+              160
+            ],
+            [
+              64,
+              176
+            ],
+            [
+              48,
+              192
+            ],
+            [
+              128,
+              128
+            ],
+            [
+              112,
+              144
+            ],
+            [
+              96,
+              160
+            ],
+            [
+              80,
+              176
+            ],
+            [
+              64,
+              192
+            ],
+            [
+              144,
+              128
+            ],
+            [
+              128,
+              144
+            ],
+            [
+              112,
+              160
+            ],
+            [
+              96,
+              176
+            ],
+            [
+              80,
+              192
             ],
             [
               160,
               128
             ],
             [
+              144,
+              144
+            ],
+            [
+              128,
+              160
+            ],
+            [
+              112,
+              176
+            ],
+            [
+              96,
+              192
+            ],
+            [
               160,
               144
+            ],
+            [
+              144,
+              160
+            ],
+            [
+              128,
+              176
+            ],
+            [
+              112,
+              192
             ],
             [
               176,
@@ -1031,6 +1623,18 @@
             [
               160,
               160
+            ],
+            [
+              144,
+              176
+            ],
+            [
+              128,
+              192
+            ],
+            [
+              112,
+              208
             ],
             [
               192,
@@ -1043,6 +1647,18 @@
             [
               160,
               176
+            ],
+            [
+              144,
+              192
+            ],
+            [
+              128,
+              208
+            ],
+            [
+              112,
+              224
             ],
             [
               208,
@@ -1061,6 +1677,18 @@
               192
             ],
             [
+              144,
+              208
+            ],
+            [
+              128,
+              224
+            ],
+            [
+              112,
+              240
+            ],
+            [
               224,
               144
             ],
@@ -1082,7 +1710,15 @@
             ],
             [
               144,
-              208
+              224
+            ],
+            [
+              128,
+              240
+            ],
+            [
+              112,
+              256
             ],
             [
               240,
@@ -1109,12 +1745,16 @@
               224
             ],
             [
-              128,
-              208
+              144,
+              240
             ],
             [
-              144,
-              224
+              128,
+              256
+            ],
+            [
+              112,
+              272
             ],
             [
               240,
@@ -1141,16 +1781,16 @@
               240
             ],
             [
-              112,
-              208
+              144,
+              256
             ],
             [
               128,
-              224
+              272
             ],
             [
-              144,
-              240
+              112,
+              288
             ],
             [
               240,
@@ -1177,16 +1817,12 @@
               256
             ],
             [
-              112,
-              224
+              144,
+              272
             ],
             [
               128,
-              240
-            ],
-            [
-              144,
-              256
+              288
             ],
             [
               240,
@@ -1213,16 +1849,8 @@
               272
             ],
             [
-              112,
-              240
-            ],
-            [
-              128,
-              256
-            ],
-            [
               144,
-              272
+              288
             ],
             [
               240,
@@ -1249,18 +1877,6 @@
               288
             ],
             [
-              112,
-              256
-            ],
-            [
-              128,
-              272
-            ],
-            [
-              144,
-              288
-            ],
-            [
               240,
               224
             ],
@@ -1281,22 +1897,6 @@
               288
             ],
             [
-              160,
-              304
-            ],
-            [
-              112,
-              272
-            ],
-            [
-              128,
-              288
-            ],
-            [
-              144,
-              304
-            ],
-            [
               240,
               240
             ],
@@ -1313,26 +1913,6 @@
               288
             ],
             [
-              176,
-              304
-            ],
-            [
-              160,
-              320
-            ],
-            [
-              112,
-              288
-            ],
-            [
-              128,
-              304
-            ],
-            [
-              144,
-              320
-            ],
-            [
               240,
               256
             ],
@@ -1343,30 +1923,6 @@
             [
               208,
               288
-            ],
-            [
-              192,
-              304
-            ],
-            [
-              176,
-              320
-            ],
-            [
-              160,
-              336
-            ],
-            [
-              112,
-              304
-            ],
-            [
-              128,
-              320
-            ],
-            [
-              144,
-              336
             ],
             [
               256,
@@ -1383,30 +1939,6 @@
             [
               208,
               304
-            ],
-            [
-              192,
-              320
-            ],
-            [
-              176,
-              336
-            ],
-            [
-              160,
-              352
-            ],
-            [
-              112,
-              320
-            ],
-            [
-              128,
-              336
-            ],
-            [
-              144,
-              352
             ],
             [
               272,
@@ -1427,22 +1959,6 @@
             [
               208,
               320
-            ],
-            [
-              192,
-              336
-            ],
-            [
-              176,
-              352
-            ],
-            [
-              112,
-              336
-            ],
-            [
-              128,
-              352
             ],
             [
               288,
@@ -1467,14 +1983,6 @@
             [
               208,
               336
-            ],
-            [
-              192,
-              352
-            ],
-            [
-              112,
-              352
             ],
             [
               304,
@@ -1977,10 +2485,6 @@
               352
             ],
             [
-              576,
-              256
-            ],
-            [
               560,
               240
             ],
@@ -2021,18 +2525,6 @@
               352
             ],
             [
-              592,
-              256
-            ],
-            [
-              576,
-              240
-            ],
-            [
-              576,
-              272
-            ],
-            [
               560,
               224
             ],
@@ -2069,24 +2561,8 @@
               352
             ],
             [
-              608,
-              256
-            ],
-            [
-              592,
-              240
-            ],
-            [
-              592,
-              272
-            ],
-            [
               576,
               224
-            ],
-            [
-              576,
-              288
             ],
             [
               560,
@@ -2107,10 +2583,6 @@
             [
               528,
               176
-            ],
-            [
-              528,
-              336
             ],
             [
               512,
@@ -2121,32 +2593,12 @@
               352
             ],
             [
-              624,
-              256
-            ],
-            [
-              608,
-              240
-            ],
-            [
-              608,
-              272
-            ],
-            [
               592,
               224
             ],
             [
-              592,
-              288
-            ],
-            [
               576,
               208
-            ],
-            [
-              576,
-              304
             ],
             [
               560,
@@ -2161,176 +2613,76 @@
               176
             ],
             [
-              544,
-              336
-            ],
-            [
               528,
               160
-            ],
-            [
-              528,
-              352
             ],
             [
               512,
               144
             ],
             [
-              640,
-              256
-            ],
-            [
-              624,
-              240
-            ],
-            [
-              624,
-              272
-            ],
-            [
               608,
               224
-            ],
-            [
-              608,
-              288
             ],
             [
               592,
               208
             ],
             [
-              592,
-              304
-            ],
-            [
               576,
               192
-            ],
-            [
-              576,
-              320
             ],
             [
               560,
               176
             ],
             [
-              560,
-              336
-            ],
-            [
               544,
               160
-            ],
-            [
-              544,
-              352
             ],
             [
               528,
               144
             ],
             [
-              656,
-              256
-            ],
-            [
-              640,
-              240
-            ],
-            [
-              640,
-              272
-            ],
-            [
               624,
               224
-            ],
-            [
-              624,
-              288
             ],
             [
               608,
               208
             ],
             [
-              608,
-              304
-            ],
-            [
               592,
               192
-            ],
-            [
-              592,
-              320
             ],
             [
               576,
               176
             ],
             [
-              576,
-              336
-            ],
-            [
               560,
               160
-            ],
-            [
-              560,
-              352
             ],
             [
               544,
               144
             ],
             [
-              656,
-              240
-            ],
-            [
-              656,
-              272
-            ],
-            [
               640,
               224
-            ],
-            [
-              640,
-              288
             ],
             [
               624,
               208
             ],
             [
-              624,
-              304
-            ],
-            [
               608,
               192
             ],
             [
-              608,
-              320
-            ],
-            [
-              592,
-              336
-            ],
-            [
               576,
               160
-            ],
-            [
-              576,
-              352
             ],
             [
               560,
@@ -2341,32 +2693,12 @@
               224
             ],
             [
-              656,
-              288
-            ],
-            [
               640,
               208
             ],
             [
-              640,
-              304
-            ],
-            [
               624,
               192
-            ],
-            [
-              624,
-              320
-            ],
-            [
-              608,
-              336
-            ],
-            [
-              592,
-              352
             ],
             [
               576,
@@ -2377,58 +2709,18 @@
               208
             ],
             [
-              656,
-              304
-            ],
-            [
               640,
               192
             ],
             [
-              640,
-              320
-            ],
-            [
-              624,
-              336
-            ],
-            [
-              608,
-              352
-            ],
-            [
               656,
               192
-            ],
-            [
-              656,
-              320
-            ],
-            [
-              640,
-              336
-            ],
-            [
-              624,
-              352
-            ],
-            [
-              656,
-              336
-            ],
-            [
-              640,
-              352
-            ],
-            [
-              656,
-              352
             ]
           ]
         }
       ],
       "note": "Exact 96x96 square clearance against proposed footprints at actual floor-plan openings. One exit where the existing plan has one; no new runtime openings proposed.",
-      "planConstraint": "The twins corner is by the north window in this room. Existing floor plan has one door. Bedside lamps rise above low nightstands; king-bed native canvas is 184x240."
+      "planConstraint": "Two north windows, abstract bed art, silver mirror, a broad mirrored dresser, plant, armchair, laundry basket and flat rug fill the edges. The crib moves to the southeast; the twins stay by the northeast window. The original south door retains 96px access; the rug leaves the middle walkable."
     },
     "linen": {
       "clearance": 96,
@@ -2446,7 +2738,7 @@
       ],
       "components": [
         {
-          "positions": 2001,
+          "positions": 1197,
           "doors": [
             "linen"
           ],
@@ -2466,32 +2758,12 @@
             [
               112,
               96
-            ],
-            [
-              96,
-              112
-            ],
-            [
-              112,
-              112
-            ],
-            [
-              80,
-              112
-            ],
-            [
-              64,
-              112
-            ],
-            [
-              48,
-              112
             ]
           ]
         }
       ],
       "note": "Exact 96x96 square clearance against proposed footprints at actual floor-plan openings. One exit where the existing plan has one; no new runtime openings proposed.",
-      "planConstraint": "One existing door; narrow shelf keeps the whole doorway reachable."
+      "planConstraint": "Folded-linen shelf, low towel tray and flat runner furnish the north, west and south edges. Unique stitched fern picture. The existing east doorway remains reachable with a 96px square."
     },
     "walk-in-closet": {
       "clearance": 96,
@@ -2509,7 +2781,7 @@
       ],
       "components": [
         {
-          "positions": 22677,
+          "positions": 22495,
           "doors": [
             "walk-in"
           ],
@@ -2603,10 +2875,6 @@
               160
             ],
             [
-              48,
-              176
-            ],
-            [
               128,
               112
             ],
@@ -2621,14 +2889,6 @@
             [
               80,
               160
-            ],
-            [
-              64,
-              176
-            ],
-            [
-              48,
-              192
             ],
             [
               144,
@@ -2645,14 +2905,6 @@
             [
               96,
               160
-            ],
-            [
-              80,
-              176
-            ],
-            [
-              64,
-              192
             ],
             [
               160,
@@ -2669,14 +2921,6 @@
             [
               112,
               160
-            ],
-            [
-              96,
-              176
-            ],
-            [
-              80,
-              192
             ],
             [
               176,
@@ -2697,10 +2941,6 @@
             [
               112,
               176
-            ],
-            [
-              96,
-              192
             ],
             [
               192,
@@ -2721,10 +2961,6 @@
             [
               128,
               176
-            ],
-            [
-              112,
-              192
             ],
             [
               208,
@@ -2745,10 +2981,6 @@
             [
               144,
               176
-            ],
-            [
-              128,
-              192
             ],
             [
               224,
@@ -2771,12 +3003,12 @@
               176
             ],
             [
-              144,
-              192
-            ],
-            [
               240,
               112
+            ],
+            [
+              224,
+              128
             ],
             [
               208,
@@ -2789,16 +3021,20 @@
             [
               176,
               176
-            ],
-            [
-              160,
-              192
             ],
             [
               256,
               112
             ],
             [
+              240,
+              128
+            ],
+            [
+              224,
+              144
+            ],
+            [
               208,
               160
             ],
@@ -2807,94 +3043,114 @@
               176
             ],
             [
-              176,
-              192
-            ],
-            [
               272,
               112
+            ],
+            [
+              256,
+              128
+            ],
+            [
+              240,
+              144
+            ],
+            [
+              224,
+              160
             ],
             [
               208,
               176
             ],
             [
-              192,
-              192
-            ],
-            [
               288,
               112
             ],
             [
-              208,
-              192
+              272,
+              128
+            ],
+            [
+              256,
+              144
+            ],
+            [
+              240,
+              160
+            ],
+            [
+              224,
+              176
             ],
             [
               304,
               112
             ],
             [
+              288,
+              128
+            ],
+            [
+              272,
+              144
+            ],
+            [
+              256,
+              160
+            ],
+            [
               320,
               112
             ],
             [
-              336,
-              112
-            ],
-            [
-              352,
-              112
-            ],
-            [
-              336,
+              304,
               128
             ],
             [
-              368,
-              96
+              288,
+              144
             ],
             [
-              368,
-              112
+              272,
+              160
             ],
             [
-              352,
+              320,
               128
+            ],
+            [
+              304,
+              144
+            ],
+            [
+              288,
+              160
+            ],
+            [
+              320,
+              144
+            ],
+            [
+              304,
+              160
             ],
             [
               336,
               144
             ],
             [
-              368,
-              80
+              320,
+              160
             ],
             [
-              368,
-              128
-            ],
-            [
-              352,
-              144
-            ],
-            [
-              368,
-              64
-            ],
-            [
-              368,
-              144
-            ],
-            [
-              368,
-              48
+              336,
+              160
             ]
           ]
         }
       ],
       "note": "Exact 96x96 square clearance against proposed footprints at actual floor-plan openings. One exit where the existing plan has one; no new runtime openings proposed.",
-      "planConstraint": "One existing door; 96px approach reaches open floor in front of hanging clothes."
+      "planConstraint": "Clothes fill the north, a side-painted shoe shelf fills the east, and low boxes and hamper fill the south. Unique hat-and-scarf still life. The west opening and central 96px approach stay clear."
     },
     "bathroom": {
       "clearance": 96,
@@ -3314,7 +3570,7 @@
       ],
       "components": [
         {
-          "positions": 20237,
+          "positions": 15742,
           "doors": [
             "abe",
             "bath",
@@ -3513,24 +3769,12 @@
               208
             ],
             [
-              80,
-              224
-            ],
-            [
               64,
               240
             ],
             [
               48,
               256
-            ],
-            [
-              96,
-              224
-            ],
-            [
-              80,
-              240
             ],
             [
               64,
@@ -3539,14 +3783,6 @@
             [
               48,
               272
-            ],
-            [
-              96,
-              240
-            ],
-            [
-              80,
-              256
             ],
             [
               64,
@@ -3555,14 +3791,6 @@
             [
               48,
               288
-            ],
-            [
-              96,
-              256
-            ],
-            [
-              80,
-              272
             ],
             [
               64,
@@ -3571,14 +3799,6 @@
             [
               48,
               304
-            ],
-            [
-              96,
-              272
-            ],
-            [
-              80,
-              288
             ],
             [
               64,
@@ -3587,14 +3807,6 @@
             [
               48,
               320
-            ],
-            [
-              96,
-              288
-            ],
-            [
-              80,
-              304
             ],
             [
               64,
@@ -3603,14 +3815,6 @@
             [
               48,
               336
-            ],
-            [
-              96,
-              304
-            ],
-            [
-              80,
-              320
             ],
             [
               64,
@@ -3619,14 +3823,6 @@
             [
               48,
               352
-            ],
-            [
-              96,
-              320
-            ],
-            [
-              80,
-              336
             ],
             [
               64,
@@ -3635,14 +3831,6 @@
             [
               48,
               368
-            ],
-            [
-              96,
-              336
-            ],
-            [
-              80,
-              352
             ],
             [
               64,
@@ -3651,10 +3839,6 @@
             [
               48,
               384
-            ],
-            [
-              96,
-              352
             ],
             [
               80,
@@ -3744,7 +3928,7 @@
         }
       ],
       "note": "Exact 96x96 square clearance against proposed footprints at actual floor-plan openings. One exit where the existing plan has one; no new runtime openings proposed.",
-      "planConstraint": "Existing hall is 144px wide, so it cannot meet the 224px main-route target. Kept entirely clear for every actual opening. North master opening overlaps hall by 104px, leaving too little north wall for a frame; the painted edge-on frame hangs on the solid east-wall stretch."
+      "planConstraint": "A shallow east-facing-west coat console, a flat long runner and a unique small geometric north-wall picture fill the remaining wall stretches. Coats are painted edge-on. The 144px hall still connects all six openings with 96px clearance."
     },
     "stairs": {
       "clearance": 96,
@@ -4049,7 +4233,7 @@
       ],
       "components": [
         {
-          "positions": 1225,
+          "positions": 825,
           "doors": [
             "utility"
           ],
@@ -4077,20 +4261,12 @@
             [
               112,
               80
-            ],
-            [
-              96,
-              96
-            ],
-            [
-              112,
-              96
             ]
           ]
         }
       ],
       "note": "Exact 96x96 square clearance against proposed footprints at actual floor-plan openings. One exit where the existing plan has one; no new runtime openings proposed.",
-      "planConstraint": "One existing door. Heater footprint stays west, 96px access square fits east."
+      "planConstraint": "Water heater, north supply shelves and low south storage furnish the edges. Unique technical sun-and-pipes print. The flat runner and east-side 96px access remain clear."
     },
     "abe-closet": {
       "clearance": 96,
@@ -4290,7 +4466,7 @@
       ],
       "components": [
         {
-          "positions": 62787,
+          "positions": 64461,
           "doors": [
             "abe-closet",
             "abe-entry"
@@ -4317,24 +4493,12 @@
               64
             ],
             [
-              48,
-              80
-            ],
-            [
               96,
               48
             ],
             [
               80,
               64
-            ],
-            [
-              64,
-              80
-            ],
-            [
-              48,
-              96
             ],
             [
               112,
@@ -4345,40 +4509,12 @@
               64
             ],
             [
-              80,
-              80
-            ],
-            [
-              64,
-              96
-            ],
-            [
-              48,
-              112
-            ],
-            [
               128,
               48
             ],
             [
               112,
               64
-            ],
-            [
-              96,
-              80
-            ],
-            [
-              80,
-              96
-            ],
-            [
-              64,
-              112
-            ],
-            [
-              48,
-              128
             ],
             [
               144,
@@ -4389,198 +4525,42 @@
               64
             ],
             [
-              112,
-              80
-            ],
-            [
-              96,
-              96
-            ],
-            [
-              80,
-              112
-            ],
-            [
-              64,
-              128
-            ],
-            [
-              48,
-              144
-            ],
-            [
               144,
               64
             ],
             [
-              128,
-              80
-            ],
-            [
-              112,
+              160,
               96
             ],
             [
-              96,
-              112
-            ],
-            [
-              80,
-              128
-            ],
-            [
-              64,
-              144
-            ],
-            [
-              48,
-              160
-            ],
-            [
-              144,
-              80
-            ],
-            [
-              128,
+              176,
               96
             ],
             [
-              112,
+              160,
               112
             ],
             [
-              96,
-              128
-            ],
-            [
-              80,
-              144
-            ],
-            [
-              64,
-              160
-            ],
-            [
-              48,
-              176
-            ],
-            [
-              144,
+              192,
               96
             ],
             [
-              128,
+              176,
               112
             ],
             [
-              112,
+              160,
               128
             ],
             [
-              96,
-              144
+              208,
+              96
             ],
             [
-              80,
-              160
-            ],
-            [
-              64,
-              176
-            ],
-            [
-              48,
-              192
-            ],
-            [
-              144,
+              192,
               112
             ],
             [
-              128,
-              128
-            ],
-            [
-              112,
-              144
-            ],
-            [
-              96,
-              160
-            ],
-            [
-              80,
-              176
-            ],
-            [
-              64,
-              192
-            ],
-            [
-              48,
-              208
-            ],
-            [
-              144,
-              128
-            ],
-            [
-              128,
-              144
-            ],
-            [
-              112,
-              160
-            ],
-            [
-              96,
-              176
-            ],
-            [
-              80,
-              192
-            ],
-            [
-              64,
-              208
-            ],
-            [
-              48,
-              224
-            ],
-            [
-              160,
-              128
-            ],
-            [
-              144,
-              144
-            ],
-            [
-              128,
-              160
-            ],
-            [
-              112,
-              176
-            ],
-            [
-              96,
-              192
-            ],
-            [
-              80,
-              208
-            ],
-            [
-              64,
-              224
-            ],
-            [
-              48,
-              240
-            ],
-            [
               176,
               128
             ],
@@ -4589,32 +4569,12 @@
               144
             ],
             [
-              144,
-              160
+              224,
+              96
             ],
             [
-              128,
-              176
-            ],
-            [
-              112,
-              192
-            ],
-            [
-              96,
-              208
-            ],
-            [
-              80,
-              224
-            ],
-            [
-              64,
-              240
-            ],
-            [
-              48,
-              256
+              208,
+              112
             ],
             [
               192,
@@ -4629,32 +4589,8 @@
               160
             ],
             [
-              144,
-              176
-            ],
-            [
-              128,
-              192
-            ],
-            [
-              112,
-              208
-            ],
-            [
-              96,
-              224
-            ],
-            [
-              80,
-              240
-            ],
-            [
-              64,
-              256
-            ],
-            [
-              48,
-              272
+              224,
+              112
             ],
             [
               208,
@@ -4671,34 +4607,6 @@
             [
               160,
               176
-            ],
-            [
-              144,
-              192
-            ],
-            [
-              128,
-              208
-            ],
-            [
-              112,
-              224
-            ],
-            [
-              96,
-              240
-            ],
-            [
-              80,
-              256
-            ],
-            [
-              64,
-              272
-            ],
-            [
-              48,
-              288
             ],
             [
               224,
@@ -4721,32 +4629,8 @@
               192
             ],
             [
-              144,
-              208
-            ],
-            [
-              128,
-              224
-            ],
-            [
-              112,
-              240
-            ],
-            [
-              96,
-              256
-            ],
-            [
-              80,
-              272
-            ],
-            [
-              64,
-              288
-            ],
-            [
-              48,
-              304
+              240,
+              128
             ],
             [
               224,
@@ -4769,28 +4653,12 @@
               208
             ],
             [
-              144,
-              224
+              256,
+              128
             ],
             [
-              128,
-              240
-            ],
-            [
-              112,
-              256
-            ],
-            [
-              96,
-              272
-            ],
-            [
-              80,
-              288
-            ],
-            [
-              64,
-              304
+              240,
+              144
             ],
             [
               224,
@@ -4814,23 +4682,19 @@
             ],
             [
               144,
-              240
+              224
             ],
             [
-              128,
-              256
+              272,
+              128
             ],
             [
-              112,
-              272
+              256,
+              144
             ],
             [
-              96,
-              288
-            ],
-            [
-              80,
-              304
+              240,
+              160
             ],
             [
               224,
@@ -4853,20 +4717,28 @@
               240
             ],
             [
-              144,
-              256
-            ],
-            [
               128,
-              272
+              224
             ],
             [
-              112,
-              288
+              144,
+              240
             ],
             [
-              96,
-              304
+              288,
+              128
+            ],
+            [
+              272,
+              144
+            ],
+            [
+              256,
+              160
+            ],
+            [
+              240,
+              176
             ],
             [
               224,
@@ -4889,20 +4761,32 @@
               256
             ],
             [
-              144,
-              272
+              112,
+              224
             ],
             [
               128,
-              288
+              240
             ],
             [
-              112,
-              304
+              144,
+              256
             ],
             [
-              96,
-              320
+              304,
+              128
+            ],
+            [
+              288,
+              144
+            ],
+            [
+              272,
+              160
+            ],
+            [
+              256,
+              176
             ],
             [
               240,
@@ -4929,20 +4813,36 @@
               272
             ],
             [
-              144,
-              288
-            ],
-            [
-              128,
-              304
+              96,
+              224
             ],
             [
               112,
-              320
+              240
             ],
             [
-              96,
-              336
+              128,
+              256
+            ],
+            [
+              144,
+              272
+            ],
+            [
+              320,
+              128
+            ],
+            [
+              304,
+              144
+            ],
+            [
+              288,
+              160
+            ],
+            [
+              272,
+              176
             ],
             [
               256,
@@ -4973,20 +4873,40 @@
               288
             ],
             [
-              144,
-              304
-            ],
-            [
-              128,
-              320
-            ],
-            [
-              112,
-              336
+              80,
+              224
             ],
             [
               96,
-              352
+              240
+            ],
+            [
+              112,
+              256
+            ],
+            [
+              128,
+              272
+            ],
+            [
+              144,
+              288
+            ],
+            [
+              336,
+              128
+            ],
+            [
+              320,
+              144
+            ],
+            [
+              304,
+              160
+            ],
+            [
+              288,
+              176
             ],
             [
               272,
@@ -5021,16 +4941,44 @@
               304
             ],
             [
-              144,
-              320
+              64,
+              224
             ],
             [
-              128,
-              336
+              80,
+              240
+            ],
+            [
+              96,
+              256
             ],
             [
               112,
-              352
+              272
+            ],
+            [
+              128,
+              288
+            ],
+            [
+              144,
+              304
+            ],
+            [
+              352,
+              128
+            ],
+            [
+              336,
+              144
+            ],
+            [
+              320,
+              160
+            ],
+            [
+              304,
+              176
             ],
             [
               288,
@@ -5066,6 +5014,98 @@
             ],
             [
               160,
+              320
+            ],
+            [
+              48,
+              224
+            ],
+            [
+              64,
+              240
+            ],
+            [
+              80,
+              256
+            ],
+            [
+              96,
+              272
+            ],
+            [
+              128,
+              304
+            ],
+            [
+              144,
+              320
+            ],
+            [
+              368,
+              128
+            ],
+            [
+              352,
+              144
+            ],
+            [
+              336,
+              160
+            ],
+            [
+              320,
+              176
+            ],
+            [
+              304,
+              192
+            ],
+            [
+              288,
+              208
+            ],
+            [
+              272,
+              224
+            ],
+            [
+              256,
+              240
+            ],
+            [
+              240,
+              256
+            ],
+            [
+              224,
+              272
+            ],
+            [
+              208,
+              288
+            ],
+            [
+              192,
+              304
+            ],
+            [
+              176,
+              320
+            ],
+            [
+              48,
+              240
+            ],
+            [
+              64,
+              256
+            ],
+            [
+              80,
+              272
+            ],
+            [
+              128,
               320
             ],
             [
@@ -5073,379 +5113,403 @@
               336
             ],
             [
-              128,
-              352
-            ],
-            [
-              304,
-              192
-            ],
-            [
-              288,
-              208
-            ],
-            [
-              272,
-              224
-            ],
-            [
-              256,
-              240
-            ],
-            [
-              240,
-              256
-            ],
-            [
-              224,
-              272
-            ],
-            [
-              208,
-              288
-            ],
-            [
-              192,
-              304
-            ],
-            [
-              176,
-              320
-            ],
-            [
-              144,
-              352
-            ],
-            [
-              320,
-              192
-            ],
-            [
-              304,
-              208
-            ],
-            [
-              288,
-              224
-            ],
-            [
-              272,
-              240
-            ],
-            [
-              256,
-              256
-            ],
-            [
-              240,
-              272
-            ],
-            [
-              224,
-              288
-            ],
-            [
-              208,
-              304
-            ],
-            [
-              192,
-              320
-            ],
-            [
-              336,
-              192
-            ],
-            [
-              320,
-              208
-            ],
-            [
-              304,
-              224
-            ],
-            [
-              288,
-              240
-            ],
-            [
-              272,
-              256
-            ],
-            [
-              256,
-              272
-            ],
-            [
-              240,
-              288
-            ],
-            [
-              224,
-              304
-            ],
-            [
-              208,
-              320
-            ],
-            [
-              336,
-              208
-            ],
-            [
-              320,
-              224
-            ],
-            [
-              304,
-              240
-            ],
-            [
-              288,
-              256
-            ],
-            [
-              272,
-              272
-            ],
-            [
-              256,
-              288
-            ],
-            [
-              240,
-              304
-            ],
-            [
-              224,
-              320
-            ],
-            [
-              336,
-              224
-            ],
-            [
-              320,
-              240
-            ],
-            [
-              304,
-              256
-            ],
-            [
-              288,
-              272
-            ],
-            [
-              272,
-              288
-            ],
-            [
-              256,
-              304
-            ],
-            [
-              240,
-              320
-            ],
-            [
-              336,
-              240
-            ],
-            [
-              320,
-              256
-            ],
-            [
-              304,
-              272
-            ],
-            [
-              288,
-              288
-            ],
-            [
-              272,
-              304
-            ],
-            [
-              256,
-              320
-            ],
-            [
-              336,
-              256
-            ],
-            [
-              320,
-              272
-            ],
-            [
-              304,
-              288
-            ],
-            [
-              288,
-              304
-            ],
-            [
-              272,
-              320
-            ],
-            [
-              336,
-              272
-            ],
-            [
-              320,
-              288
-            ],
-            [
-              304,
-              304
-            ],
-            [
-              288,
-              320
-            ],
-            [
-              336,
-              288
-            ],
-            [
-              320,
-              304
-            ],
-            [
-              304,
-              320
-            ],
-            [
-              336,
-              304
-            ],
-            [
-              320,
-              320
-            ],
-            [
-              336,
-              320
-            ]
-          ]
-        },
-        {
-          "positions": 7979,
-          "doors": [],
-          "previewCenters": [
-            [
-              448,
-              48
-            ],
-            [
-              448,
-              64
-            ],
-            [
-              448,
-              80
-            ],
-            [
-              448,
-              96
-            ],
-            [
-              448,
+              368,
               112
-            ],
-            [
-              432,
-              128
-            ],
-            [
-              448,
-              128
-            ],
-            [
-              416,
-              128
-            ],
-            [
-              432,
-              144
-            ],
-            [
-              448,
-              144
-            ],
-            [
-              400,
-              128
-            ],
-            [
-              416,
-              144
-            ],
-            [
-              432,
-              160
-            ],
-            [
-              448,
-              160
             ],
             [
               384,
               128
             ],
             [
+              368,
+              144
+            ],
+            [
+              352,
+              160
+            ],
+            [
+              336,
+              176
+            ],
+            [
+              320,
+              192
+            ],
+            [
+              304,
+              208
+            ],
+            [
+              288,
+              224
+            ],
+            [
+              272,
+              240
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              240,
+              272
+            ],
+            [
+              224,
+              288
+            ],
+            [
+              208,
+              304
+            ],
+            [
+              192,
+              320
+            ],
+            [
+              48,
+              256
+            ],
+            [
+              64,
+              272
+            ],
+            [
+              128,
+              336
+            ],
+            [
+              144,
+              352
+            ],
+            [
+              384,
+              112
+            ],
+            [
+              368,
+              96
+            ],
+            [
               400,
+              128
+            ],
+            [
+              384,
+              144
+            ],
+            [
+              368,
+              160
+            ],
+            [
+              336,
+              192
+            ],
+            [
+              320,
+              208
+            ],
+            [
+              304,
+              224
+            ],
+            [
+              288,
+              240
+            ],
+            [
+              272,
+              256
+            ],
+            [
+              256,
+              272
+            ],
+            [
+              240,
+              288
+            ],
+            [
+              224,
+              304
+            ],
+            [
+              208,
+              320
+            ],
+            [
+              48,
+              272
+            ],
+            [
+              128,
+              352
+            ],
+            [
+              400,
+              112
+            ],
+            [
+              384,
+              96
+            ],
+            [
+              416,
+              128
+            ],
+            [
+              400,
+              144
+            ],
+            [
+              384,
+              160
+            ],
+            [
+              336,
+              208
+            ],
+            [
+              320,
+              224
+            ],
+            [
+              304,
+              240
+            ],
+            [
+              288,
+              256
+            ],
+            [
+              272,
+              272
+            ],
+            [
+              256,
+              288
+            ],
+            [
+              240,
+              304
+            ],
+            [
+              224,
+              320
+            ],
+            [
+              416,
+              112
+            ],
+            [
+              400,
+              96
+            ],
+            [
+              432,
+              128
+            ],
+            [
+              416,
+              144
+            ],
+            [
+              400,
+              160
+            ],
+            [
+              336,
+              224
+            ],
+            [
+              320,
+              240
+            ],
+            [
+              304,
+              256
+            ],
+            [
+              288,
+              272
+            ],
+            [
+              272,
+              288
+            ],
+            [
+              256,
+              304
+            ],
+            [
+              240,
+              320
+            ],
+            [
+              432,
+              112
+            ],
+            [
+              416,
+              96
+            ],
+            [
+              448,
+              128
+            ],
+            [
+              432,
               144
             ],
             [
               416,
               160
+            ],
+            [
+              336,
+              240
+            ],
+            [
+              320,
+              256
+            ],
+            [
+              304,
+              272
+            ],
+            [
+              288,
+              288
+            ],
+            [
+              272,
+              304
+            ],
+            [
+              256,
+              320
+            ],
+            [
+              448,
+              112
+            ],
+            [
+              432,
+              96
+            ],
+            [
+              448,
+              144
+            ],
+            [
+              432,
+              160
+            ],
+            [
+              336,
+              256
+            ],
+            [
+              320,
+              272
+            ],
+            [
+              304,
+              288
+            ],
+            [
+              288,
+              304
+            ],
+            [
+              272,
+              320
+            ],
+            [
+              448,
+              96
+            ],
+            [
+              448,
+              160
+            ],
+            [
+              336,
+              272
+            ],
+            [
+              320,
+              288
+            ],
+            [
+              304,
+              304
+            ],
+            [
+              288,
+              320
+            ],
+            [
+              448,
+              80
             ],
             [
               464,
               160
             ],
             [
-              368,
-              128
+              336,
+              288
             ],
             [
-              384,
-              144
+              320,
+              304
             ],
             [
-              400,
-              160
+              304,
+              320
+            ],
+            [
+              448,
+              64
             ],
             [
               480,
               160
             ],
             [
-              368,
-              144
+              336,
+              304
             ],
             [
-              384,
-              160
+              320,
+              320
+            ],
+            [
+              448,
+              48
             ],
             [
               496,
               160
             ],
             [
-              368,
-              160
+              336,
+              320
             ]
           ]
         }
       ],
       "note": "Exact 96x96 square clearance against proposed footprints at actual floor-plan openings. One exit where the existing plan has one; no new runtime openings proposed.",
+      "northWallFace": {
+        "height": 128,
+        "continuous": true,
+        "doorStyle": "painted-open-oak-frame",
+        "carpetCutout": false
+      },
       "mainOpenSquare": [
         164,
         136,
@@ -5453,7 +5517,7 @@
         224
       ],
       "mainOpenSquarePassed": true,
-      "planConstraint": "Two connected exits: north hall and west closet. North wall displays stay to the right of the hall doorway. East TV and rear-view south dresser are painted for those angles. No plate: the newer upstairs privacy rule supersedes MIDLIFE plate request. No real faces."
+      "planConstraint": "Full 128px north wall with painted open oak doorway, not a carpet strip. Generic 60 YEARS IN SPACE poster and game-pad neon replace trademarks. Desk and chair tuck against the wall; beanbag, amp, rug and loose clothes fill the left edges. Both exits connect around a 224px open square."
     }
   },
   "status": "Awaiting Rami approval. No game placement."

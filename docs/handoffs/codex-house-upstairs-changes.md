@@ -15,3 +15,11 @@ Private house photos were not attached to this chat. These proposals follow the 
 Validation covers exact reductions and previews, palette/alpha, footprint bounds, non-overlapping footprints, wall/door clearance, source uniqueness and review links. Native image QA completed for every room. The browser blocked the local `file:` review URL, so responsive browser checks were not completed. No game run or telemetry was used.
 
 Rami reviews the rooms and moves anything needed in the House Layout Editor. Claude places approved pieces afterward.
+
+
+## 2026-11-13: PR #11 requested room revisions (Codex)
+- Current package: 59 upstairs paintings plus the unchanged light-oak coffee-table fix; 60 source paintings in one folder. Current built-in imagegen calls are in `review-revision-prompts.json`.
+- Generic 60 YEARS IN SPACE poster, generic game-pad neon and a plain globe lamp replace the branded/character art. Superseded comparison images are rebuilt without the old poster/neon references.
+- Abe has a full north wall and painted open doorway, desk/chair tucked north, beanbag, amp, rug and loose clothes on the left. Main bedroom adds a second window, wall art/mirror, mirrored dresser, large rug, laundry basket, plant and armchair; crib moves southeast.
+- Closet, hall, linen and utility have separate pictures and more edge storage, coats, boxes, plants and runners. All nine actual-door 96px routes pass. Six revised rooms have no measured unfilled wall run over 160px; flat rugs count as furnishing, never collision. Abe retains his clear 224px square.
+- Rebuilt native/3x room views, footprint overlays, manifests and editor `room-layout.json`; all checks pass. Native QA covers the six changed rooms; browser access remains unverified after the prior local-file policy block. No game placement or version change.

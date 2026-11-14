@@ -1,7 +1,7 @@
 {
   "passed": true,
-  "expectedPieces": 37,
-  "actualPieces": 37,
+  "expectedPieces": 59,
+  "actualPieces": 59,
   "checks": [
     {
       "id": "king-bed",
@@ -169,7 +169,7 @@
       "threeTones": true,
       "binaryAlpha": true,
       "boundedFootprints": true,
-      "sha256": "ae79ffe4857a7a6e1ca81c2752b4869c2bb01a6d8bfd235033aa4127bd3ff36a"
+      "sha256": "e8659155643e2db5ab7c73b2c329bbe5eb989ae179ff3fdf7385582e4f3633b9"
     },
     {
       "id": "record-dresser-south",
@@ -229,7 +229,7 @@
       "threeTones": true,
       "binaryAlpha": true,
       "boundedFootprints": true,
-      "sha256": "df1c20a1376eb8a6ec10dacc243c7fe935298ad8baa99ed1bd2a546d07834e45"
+      "sha256": "e19c24bb618b79725bc62181dd36c1521a98c04dc07ebcebbefce758308a38b2"
     },
     {
       "id": "controller-guitar-wall",
@@ -253,7 +253,7 @@
       "threeTones": true,
       "binaryAlpha": true,
       "boundedFootprints": true,
-      "sha256": "54325fbe04732ef2142740e635c9b0874de8322b91f14252156a6785c5d11389"
+      "sha256": "abb9574c469d3d2030ee98359f512f44a679ca8ce1798546137f24387b835426"
     },
     {
       "id": "pennant-car-wall",
@@ -446,6 +446,270 @@
       "binaryAlpha": true,
       "boundedFootprints": true,
       "sha256": "a4f507634d1710913f07c3f07ed7f2a41e46d0add5061516b712a1493ce30436"
+    },
+    {
+      "id": "beanbag",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "47f37e4cc7e3b19950f47b62df3e42f38564a59020fc6393d961c46b7af8b1cd"
+    },
+    {
+      "id": "guitar-amp",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "6a92ad198ca11e69c6e29109155abad35dede8e25feeb9522fc0ff74086958ce"
+    },
+    {
+      "id": "abe-rug",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "ee4547d20986e6c0feebffca855a0f6d8799620320e59056b5573e323bc69e68"
+    },
+    {
+      "id": "clothes-floor",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "ceb430708b193c308cb87b07d18d757d4a3f197e5c920462f3b4dae04a392c2c"
+    },
+    {
+      "id": "bed-wall-art",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "f3a8cac91259e5fde7e617d79895db4a0fd6a5e578f31bf9a51263848c74d4a8"
+    },
+    {
+      "id": "bed-wall-mirror",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "ef8880d6ad689186e738e1593d1651f77b7c3e5f162856c40e6b62496b5d4ca1"
+    },
+    {
+      "id": "dresser-with-mirror",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "30b7eef232dcb3e6e585409627eacb1ea4f89896b2c9780f523a0454c781c5bf"
+    },
+    {
+      "id": "bedroom-rug",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "59d89d1a9611903151d8b666a698c87b31da5eec9c71b2a7d912dcd00f3b0258"
+    },
+    {
+      "id": "bedroom-armchair",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "b7e9d998bc3f9528490d6d0993b5fca2a75ce3a187807c52253b3b01890c43de"
+    },
+    {
+      "id": "bedroom-plant",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "a5d088097c2a1a180fdbe8fddca02a0ef3525b62ababd0a212c7690675d0dcbe"
+    },
+    {
+      "id": "closet-shelf-east",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "437887cde4098e0e8661b453dbb184c430b2ef59699af9e0254981a5bd520f64"
+    },
+    {
+      "id": "storage-boxes-south",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "847c487c312c43946b09a2366a111c96514226992ae8282caf08425d3a98482f"
+    },
+    {
+      "id": "low-storage-tray",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "3c7bb788769e18f8475b475d447365c2a96626eaa1c9c926fd9fb0f23a52b4c8"
+    },
+    {
+      "id": "closet-picture",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "03a3b13d8f11b7c36782b31db389a502e347a1b0cdfe7c248910fcca78e96642"
+    },
+    {
+      "id": "linen-picture",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "4d7f99132b78d47624c30b5f5002a83897a1c479552b4e5b5d5984c8d7b0bbd0"
+    },
+    {
+      "id": "utility-picture",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "d2a3856d36de3ca11d8e6ad4873a626e5fe036953aa02024835203722d861a4b"
+    },
+    {
+      "id": "utility-wall-shelf",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "2f5b7ebba1fd4b7a8ca42d3efb98827ab9ddad3cb5bbc2169898b3a82cb741d9"
+    },
+    {
+      "id": "hall-picture",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "a92f1e64bf2b395964436cfd013a6a33cd92d43b7c29cfd0927d410e75ceb40f"
+    },
+    {
+      "id": "hall-coat-console-east",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "d6c8bb5e5a9062796db3305c6ff14b345611bf42cfd65e2f9aa93d0b1fe4cccd"
+    },
+    {
+      "id": "hall-runner",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "3617c620d171d00dabc1af2834a06883fa296eb71c872a34c92f146921b6e8ea"
+    },
+    {
+      "id": "linen-runner",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "a152824e79b0742855c67a741e913c24f0ca5ff4db7795fddc5fce978dd9ebfc"
+    },
+    {
+      "id": "north-doorway",
+      "size": true,
+      "sourceExists": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "22e1bada2c2d80990546f3183eca454a8434e00a52b234b5f124670a63d04e6d"
     }
   ],
   "allDoorRoutesPassed": true,

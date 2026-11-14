@@ -2205,3 +2205,18 @@ A flag is a sticky note the game writes to itself. Sticky notes fall out of date
              96px clear route -> door
 ```
 The empty margins do not block movement. The footprint fits the cabinet's visible base. If the cabinet is meant to be wider, repaint it at that width, then check the route again. A larger invisible footprint cannot make the room feel furnished.
+
+
+## Chapter: A full room can still have a clear route (2026-11-13, Codex)
+
+```text
+north wall: [storage] [picture] [window]
++------------------------------------+
+| shelf      flat rug        plant   |
+|         +-------------+            |
+| door -->| 96px route  |            |
+|         +-------------+            |
+| boxes                     hamper   |
++------------------------------------+
+```
+The shelf, boxes and hamper have solid footprints at the edges. The rug adds detail but no collision, so the route can cross it. The wall-coverage check uses the visible paintings, while the doorway check uses footprints. Both need to pass before placement is approved.

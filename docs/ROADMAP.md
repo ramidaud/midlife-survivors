@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (Upstairs art and light-oak coffee table ready for review on codex/house-upstairs-art. Nine room mock-ups pass their 96px door-route checks. Nothing placed in the game. Roads-and-woods brief still waiting on Codex.)
+**Last updated:** 2026-11-13 (PR #11 revised: generic space/game-pad art, fuller upstairs room edges, distinct pictures and editor layout. All nine 96px door routes and six wall-coverage checks pass. Nothing placed in game. Roads-and-woods brief still waiting on Codex.)
 
 ---
 
@@ -60,6 +60,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Sitting 3: heroes and Bill. Colors by material (the khaki slacks), then a clean-up round on the Sprite Board
 - [ ] Sitting 4: fill the big house (same as Maple v2 step 2c), with art sized to the rooms
 - [x] Codex house job 2: upstairs art, nine room mock-ups, editor layout and light-oak coffee-table fix prepared for review (Nov 13). No game placement
+- [x] PR #11 room revisions: generic branding, fuller bedroom/storage edges, unique pictures and all 96px routes checked (Codex, Nov 13). Awaiting review
 - [ ] Rami: approve upstairs room mock-ups, then Claude places approved art. Existing 144px hall width is noted
 - [ ] Sitting 5: Maple Hollow trees, bushes and greens (new ChatGPT brief), placed by hand
 - [ ] Sitting 6: office density (Lobby and Parking first) and a lighter darkness layer
