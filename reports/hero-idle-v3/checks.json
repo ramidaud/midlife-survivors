@@ -1,0 +1,771 @@
+{
+  "office-worker": {
+    "action": "glasses push",
+    "reference": "assets/characters/office-worker-walk-56x60-v4.png",
+    "reference_sha256": "f8a06602c574b89c3f0d2119b144b4ece5bc878403c5327b0e72d1f26e6f35a7",
+    "reference_bounds": [
+      8,
+      4,
+      44,
+      57
+    ],
+    "width": 36,
+    "height": 53,
+    "sheet_size": [
+      448,
+      60
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 8,
+        "bounds": [
+          8,
+          4,
+          44,
+          57
+        ],
+        "sole_y": 56
+      }
+    ],
+    "palette": [
+      [
+        23,
+        28,
+        53
+      ],
+      [
+        48,
+        55,
+        80
+      ],
+      [
+        62,
+        119,
+        117
+      ],
+      [
+        82,
+        96,
+        120
+      ],
+      [
+        112,
+        64,
+        47
+      ],
+      [
+        131,
+        168,
+        154
+      ],
+      [
+        135,
+        76,
+        59
+      ],
+      [
+        168,
+        139,
+        112
+      ],
+      [
+        185,
+        122,
+        88
+      ],
+      [
+        196,
+        92,
+        75
+      ],
+      [
+        211,
+        183,
+        141
+      ],
+      [
+        229,
+        169,
+        149
+      ],
+      [
+        239,
+        147,
+        71
+      ],
+      [
+        242,
+        215,
+        161
+      ],
+      [
+        255,
+        240,
+        207
+      ]
+    ],
+    "new_colors": 0,
+    "binary_alpha": true,
+    "gif_frames": 8,
+    "gif_pixels_match_native_4x": true,
+    "frame_durations_ms": [
+      360,
+      220,
+      140,
+      300,
+      180,
+      220,
+      360,
+      220
+    ],
+    "distinct_frames": 8
+  },
+  "soccer-dad": {
+    "action": "coffee sip",
+    "reference": "assets/characters/soccer-dad-walk-56x60-v4.png",
+    "reference_sha256": "033e9f6e369cd7d94d89a5c67c22c6a405234f352c036390b44324944fc4b0ec",
+    "reference_bounds": [
+      9,
+      2,
+      47,
+      57
+    ],
+    "width": 38,
+    "height": 55,
+    "sheet_size": [
+      448,
+      60
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 8,
+        "bounds": [
+          9,
+          2,
+          47,
+          57
+        ],
+        "sole_y": 56
+      }
+    ],
+    "palette": [
+      [
+        23,
+        28,
+        53
+      ],
+      [
+        48,
+        55,
+        80
+      ],
+      [
+        62,
+        119,
+        117
+      ],
+      [
+        82,
+        96,
+        120
+      ],
+      [
+        112,
+        64,
+        47
+      ],
+      [
+        131,
+        168,
+        154
+      ],
+      [
+        135,
+        76,
+        59
+      ],
+      [
+        168,
+        139,
+        112
+      ],
+      [
+        185,
+        122,
+        88
+      ],
+      [
+        196,
+        92,
+        75
+      ],
+      [
+        211,
+        183,
+        141
+      ],
+      [
+        229,
+        169,
+        149
+      ],
+      [
+        239,
+        147,
+        71
+      ],
+      [
+        242,
+        215,
+        161
+      ],
+      [
+        255,
+        240,
+        207
+      ]
+    ],
+    "new_colors": 0,
+    "binary_alpha": true,
+    "gif_frames": 8,
+    "gif_pixels_match_native_4x": true,
+    "frame_durations_ms": [
+      360,
+      220,
+      140,
+      300,
+      180,
+      220,
+      360,
+      220
+    ],
+    "distinct_frames": 8
+  },
+  "grad-student": {
+    "action": "notebook check",
+    "reference": "assets/characters/grad-student-walk-56x60-v4.png",
+    "reference_sha256": "791bb84b8fc6ee2891d6cdac0259bb88c44432775664198d411e7f67f8ba4978",
+    "reference_bounds": [
+      13,
+      4,
+      43,
+      57
+    ],
+    "width": 30,
+    "height": 53,
+    "sheet_size": [
+      448,
+      60
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 8,
+        "bounds": [
+          13,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      }
+    ],
+    "palette": [
+      [
+        23,
+        28,
+        53
+      ],
+      [
+        48,
+        55,
+        80
+      ],
+      [
+        82,
+        96,
+        120
+      ],
+      [
+        112,
+        64,
+        47
+      ],
+      [
+        135,
+        76,
+        59
+      ],
+      [
+        168,
+        139,
+        112
+      ],
+      [
+        185,
+        122,
+        88
+      ],
+      [
+        191,
+        168,
+        207
+      ],
+      [
+        196,
+        92,
+        75
+      ],
+      [
+        211,
+        183,
+        141
+      ],
+      [
+        229,
+        169,
+        149
+      ],
+      [
+        239,
+        147,
+        71
+      ],
+      [
+        242,
+        215,
+        161
+      ],
+      [
+        255,
+        240,
+        207
+      ]
+    ],
+    "new_colors": 0,
+    "binary_alpha": true,
+    "gif_frames": 8,
+    "gif_pixels_match_native_4x": true,
+    "frame_durations_ms": [
+      360,
+      220,
+      140,
+      300,
+      180,
+      220,
+      360,
+      220
+    ],
+    "distinct_frames": 8
+  },
+  "cold-war-cowboy": {
+    "action": "hat tip",
+    "reference": "assets/characters/cold-war-cowboy-walk-56x60-v4.png",
+    "reference_sha256": "70abd8dc4cc049783991f0713eb877c4381073a76893ad8f6aab309553aba59b",
+    "reference_bounds": [
+      12,
+      4,
+      43,
+      57
+    ],
+    "width": 31,
+    "height": 53,
+    "sheet_size": [
+      448,
+      60
+    ],
+    "frames": [
+      {
+        "frame": 1,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      },
+      {
+        "frame": 8,
+        "bounds": [
+          12,
+          4,
+          43,
+          57
+        ],
+        "sole_y": 56
+      }
+    ],
+    "palette": [
+      [
+        23,
+        28,
+        53
+      ],
+      [
+        48,
+        55,
+        80
+      ],
+      [
+        62,
+        119,
+        117
+      ],
+      [
+        82,
+        96,
+        120
+      ],
+      [
+        112,
+        64,
+        47
+      ],
+      [
+        131,
+        168,
+        154
+      ],
+      [
+        135,
+        76,
+        59
+      ],
+      [
+        168,
+        139,
+        112
+      ],
+      [
+        185,
+        122,
+        88
+      ],
+      [
+        191,
+        168,
+        207
+      ],
+      [
+        196,
+        92,
+        75
+      ],
+      [
+        211,
+        183,
+        141
+      ],
+      [
+        229,
+        169,
+        149
+      ],
+      [
+        239,
+        147,
+        71
+      ],
+      [
+        241,
+        181,
+        191
+      ],
+      [
+        242,
+        215,
+        161
+      ],
+      [
+        255,
+        240,
+        207
+      ]
+    ],
+    "new_colors": 0,
+    "binary_alpha": true,
+    "gif_frames": 8,
+    "gif_pixels_match_native_4x": true,
+    "frame_durations_ms": [
+      360,
+      220,
+      140,
+      300,
+      180,
+      220,
+      360,
+      220
+    ],
+    "distinct_frames": 8
+  }
+}
