@@ -1,0 +1,154 @@
+{
+  "date": "2026-11-14",
+  "scope": "PR #13 roads and Woods additions only",
+  "generatedSourcesVerified": 29,
+  "realPhotosAdded": 0,
+  "method": "SHA-256 equality with saved built-in imagegen output files; derived exports/review PNGs are built from those paintings and the existing generated pixel-art hero. No reference photos copied.",
+  "sources": [
+    {
+      "file": "roads/sources/car-russet-down.png",
+      "sha256": "6b50a79bfbbe9ea68a7a1fcdcd3f500bf48912ab3add15fa8a6ea419193a08fd",
+      "generatedOutput": "exec-f7bee04e-87b9-4735-b7d3-ae2fd478eac3.png"
+    },
+    {
+      "file": "roads/sources/car-russet-up.png",
+      "sha256": "7d1259b3918a059fa72abe1e6fc0ea6d5dc33e61cd2d1cf012d728cc3ac94cd0",
+      "generatedOutput": "exec-c296663b-a2de-4fe4-ba31-14f3a724e9ef.png"
+    },
+    {
+      "file": "roads/sources/car-sage-down.png",
+      "sha256": "d3b24e34a14f0a1efeab5e37e67579af58d5c921d7be8b7513f799de4a7657b0",
+      "generatedOutput": "exec-1e202fa0-50d3-4f2b-ae5b-711cf4d4a124.png"
+    },
+    {
+      "file": "roads/sources/car-sage-up.png",
+      "sha256": "cf7179e6a40b39e197f2cd16f2e569fdbd018eaab97b4b65b7b15b1f6640a1a1",
+      "generatedOutput": "exec-4a83f9d2-d0bc-4671-b7c1-051bb674f713.png"
+    },
+    {
+      "file": "roads/sources/car-slate-down.png",
+      "sha256": "e12869866cacf463eaa483be809038e2a23d8a46e9a3e2d57d05c699f861cced",
+      "generatedOutput": "exec-7e4edaf2-7ae7-4a83-84fe-e81b346458c8.png"
+    },
+    {
+      "file": "roads/sources/car-slate-up.png",
+      "sha256": "fc4b7ab8719ed19c05be8dca20d2814907f085abcfefc9d5f3ada77aacea41a7",
+      "generatedOutput": "exec-e07b2a89-66b7-4fc0-a7df-9fcaba3138ad.png"
+    },
+    {
+      "file": "roads/sources/crossing-four-way.png",
+      "sha256": "682021da7e9ea37f05e051603b71b826cc13ac53935ae0029068d3bad38c9c25",
+      "generatedOutput": "exec-1f8d27c6-1701-40c4-b6d8-31bd399907d0.png"
+    },
+    {
+      "file": "roads/sources/junction-t-east.png",
+      "sha256": "f29e7f187201bff56311f3ad8bad7a632d1608a8c1b1a19be696edfd9d0bb6e5",
+      "generatedOutput": "exec-20c05240-8705-4678-b622-b18038897ec4.png"
+    },
+    {
+      "file": "roads/sources/junction-t-north.png",
+      "sha256": "ccea4b0df46e15acdd3630d0a851dc3169a27be323d17e925038a0fba05331d6",
+      "generatedOutput": "exec-743cf37a-a66b-4cfd-9f2c-7b94203c9e51.png"
+    },
+    {
+      "file": "roads/sources/junction-t-south.png",
+      "sha256": "df0582b982660db29e510244adc6984c6785ab4823100aa0ce25e2d2cdb82eaa",
+      "generatedOutput": "exec-e1db3bfb-a036-479f-999f-ac075692e09e.png"
+    },
+    {
+      "file": "roads/sources/junction-t-west.png",
+      "sha256": "fa825e2ce2d02001636cfd3b0466212f4e9ac544b8f57d41e6db6c1d0c0d0441",
+      "generatedOutput": "exec-fec829e1-891d-49ae-aa12-41e9a863b46c.png"
+    },
+    {
+      "file": "roads/sources/manhole.png",
+      "sha256": "d837421154f3c1f3354c6884821c23c25f84f9c5fd560e37bdff60253d5a83b1",
+      "generatedOutput": "exec-036b166a-a130-4f28-b102-1b25569198aa.png"
+    },
+    {
+      "file": "roads/sources/storm-drain.png",
+      "sha256": "1d5f831b32223ea27e240ac25ba5734524e3e0a8bc8aede78beda5caa3153d5f",
+      "generatedOutput": "exec-a1be337f-88ce-4984-85ad-c80c5eb482cd.png"
+    },
+    {
+      "file": "roads/sources/street-ew-a.png",
+      "sha256": "a981c2ff436d6ea1c24d9b5d58d2f463c6280a5d5f1cfe773dfaa63d84a77fbc",
+      "generatedOutput": "exec-2f1f8e85-1714-49e5-9ccf-9f47264b3c98.png"
+    },
+    {
+      "file": "roads/sources/street-ew-b.png",
+      "sha256": "c88d093f23205d91e30f5b7954faf7f61096663e530bda237cb57d21b8315f56",
+      "generatedOutput": "exec-5963c482-2765-4843-bab5-5846ee5e3b8e.png"
+    },
+    {
+      "file": "roads/sources/street-ns-a.png",
+      "sha256": "c1d44b68d1e3fcbed1dd99f5449fbc0ac4094b6d553f6d148e8d4cd8c5e7daf0",
+      "generatedOutput": "exec-29ec259c-0b61-4ecd-bf47-98cd165d0468.png"
+    },
+    {
+      "file": "roads/sources/street-ns-b.png",
+      "sha256": "eb1ef9f9b6d397f581b0838f93e5d317800f7c9992e1ba67630d06c3839b7a1c",
+      "generatedOutput": "exec-e4ada0ae-25dc-4ac2-80c5-ef81fe65b48b.png"
+    },
+    {
+      "file": "woods/sources/fallen-log.png",
+      "sha256": "47d8d12807bc8add27da6b4300659003fc906d0d56f90a99fbb6d658b118962b",
+      "generatedOutput": "exec-da9f48c1-cabf-45bb-a311-f57018f08389.png"
+    },
+    {
+      "file": "woods/sources/fireflies-loop.png",
+      "sha256": "d54ea1d2cd7c090581f52f7c1a73a80f580f029f44e880ac126a2b8ca35c1c6d",
+      "generatedOutput": "exec-f83e8015-6ec2-4e41-8d0e-41d86c23afb0.png"
+    },
+    {
+      "file": "woods/sources/forest-floor.png",
+      "sha256": "665f2429ccf29a4c32264548fcd6f0a060b3e31d43da818c77d1dee178950115",
+      "generatedOutput": "exec-8d1a35f2-7d4d-477b-923d-5d18f8744065.png"
+    },
+    {
+      "file": "woods/sources/forest-trail-curve.png",
+      "sha256": "a9f0564eef3b602cd835287169a4214d96cb53d1660b35dd7cbfd991f809fa62",
+      "generatedOutput": "exec-223d2da1-aeec-450b-a847-7dd46e381bc3.png"
+    },
+    {
+      "file": "woods/sources/forest-trail-straight.png",
+      "sha256": "968a2caf1ccb4695d9c5ef9bfef179cdee1330adb7f12152c5a44a80170d8c67",
+      "generatedOutput": "exec-581f75b7-6622-41e3-8775-372c1e04188b.png"
+    },
+    {
+      "file": "woods/sources/mossy-rock-cluster.png",
+      "sha256": "9265b1fc581c53acd1c75452d7130dcc30ab21e5fec49d9ce80727260a082ee7",
+      "generatedOutput": "exec-c49feafc-e6b9-407a-baa1-62586bbd23bd.png"
+    },
+    {
+      "file": "woods/sources/mushroom-ring.png",
+      "sha256": "fdd7cb643eb13368b5675b190de65c800510aec25a80c6761ca9c306a480df6d",
+      "generatedOutput": "exec-3251ef3e-00ca-4c0d-8cdb-cfa066313d83.png"
+    },
+    {
+      "file": "woods/sources/tree-birch-yellow.png",
+      "sha256": "60ccdfd6339d0f00e9330472adee685a8470e4f1f6be7d3c0b594f3f5c3c907c",
+      "generatedOutput": "exec-f3d4ef85-7789-4bf0-be0a-666d484997e2.png"
+    },
+    {
+      "file": "woods/sources/tree-evergreen.png",
+      "sha256": "6069ba2e2b6e5dd9e213fc43564c30b589914d17010beaf083d2c9d6901442eb",
+      "generatedOutput": "exec-58d4c271-69a3-45f1-8e8d-9448a9076999.png"
+    },
+    {
+      "file": "woods/sources/tree-maple-red.png",
+      "sha256": "589657b09284a79604dd69e55a82fb70c5bb16c41776d40c6624c87968f3ac6d",
+      "generatedOutput": "exec-a3e64aec-3986-41b3-bfd5-8d4ab48aec0b.png"
+    },
+    {
+      "file": "woods/sources/twin-stone-i.png",
+      "sha256": "f29c4d0dac2476c4a8d54082455b792bc3ffa2b05bcfbac70ccc8299a7b1a6af",
+      "generatedOutput": "exec-5fdf108e-ff27-40bd-9bee-7f78b96eab0f.png"
+    },
+    {
+      "file": "woods/sources/twin-stone-ii.png",
+      "sha256": "6e40fcf47919b2ea357bee7510e5cf108d1ceba78395215786c41a06250f82ac",
+      "generatedOutput": "exec-30b8d454-a988-49fb-bcd6-8e6bf531bbc4.png"
+    }
+  ]
+}

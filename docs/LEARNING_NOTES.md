@@ -885,3 +885,8 @@ A tile is a picture that joins another picture at an edge. Two streets can share
 `street [curb | asphalt | curb] -> junction [curb | asphalt | curb]`
 
 Both curb positions must agree before placement.
+
+## 2026-11-14: a picture needs an exact connection (Codex)
+A painted road can look right while its edge lands a few pixels away from the next tile. For this kit, the painted strips are fitted to one shared connection: 96px of sidewalk/parkway, 320px of asphalt, then another 96px of sidewalk/parkway. A checker reads the exported pixels and confirms that width through a 16px joining strip. It also checks the center line, so the dashes continue in the same place.
+
+`96px side | 320px asphalt | 96px side = 512px band`

@@ -1,6 +1,31 @@
 {
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A",
+    "#46536B",
+    "#65748B"
+  ],
   "status": "Art proposals, awaiting approval. No runtime placement.",
-  "method": "Built-in imagegen paintings fitted to exact 2x ground or 4x object working rasters, whole-number block-mode reduction, material-family palette mapping. Original painting dimensions vary and are recorded.",
+  "method": "Built-in imagegen paintings fitted to exact 2x ground or 4x object working rasters, whole-number block-mode reduction, material-family palette mapping and painted-strip registration to exact 320px connection collars. Original painting dimensions vary and are recorded.",
   "coordinates": "Native pixels. Feet line y, foot point [x,y], footprints [x,y,width,height]. Proposed car footprints require runtime review.",
   "pieces": [
     {
@@ -31,6 +56,27 @@
       ],
       "reductionFactor": 2,
       "working": "working/street-ns-a-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/street-ns-a-hero-1x.png"
     },
     {
@@ -61,7 +107,130 @@
       ],
       "reductionFactor": 2,
       "working": "working/street-ns-b-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/street-ns-b-hero-1x.png"
+    },
+    {
+      "id": "street-ew-a",
+      "size": [
+        832,
+        512
+      ],
+      "file": "street-ew-a-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        416,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/street-ew-a.png",
+      "sourceSize": [
+        1599,
+        984
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1599,
+        984
+      ],
+      "reductionFactor": 2,
+      "working": "working/street-ew-a-2x.png",
+      "connections": {
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/street-ew-a-hero-1x.png"
+    },
+    {
+      "id": "street-ew-b",
+      "size": [
+        832,
+        512
+      ],
+      "file": "street-ew-b-v1.png",
+      "kind": "WALK-THROUGH",
+      "feetLine": 511,
+      "footPoint": [
+        416,
+        511
+      ],
+      "footprints": [],
+      "renderLayer": "ground",
+      "source": "../sources/street-ew-b.png",
+      "sourceSize": [
+        1599,
+        984
+      ],
+      "sourceCrop": [
+        0,
+        0,
+        1599,
+        984
+      ],
+      "reductionFactor": 2,
+      "working": "working/street-ew-b-2x.png",
+      "connections": {
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
+      "comparison1x": "checks/street-ew-b-hero-1x.png"
     },
     {
       "id": "crossing-four-way",
@@ -91,6 +260,45 @@
       ],
       "reductionFactor": 2,
       "working": "working/crossing-four-way-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/crossing-four-way-hero-1x.png"
     },
     {
@@ -121,6 +329,36 @@
       ],
       "reductionFactor": 2,
       "working": "working/junction-t-north-2x.png",
+      "connections": {
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/junction-t-north-hero-1x.png"
     },
     {
@@ -151,6 +389,36 @@
       ],
       "reductionFactor": 2,
       "working": "working/junction-t-south-2x.png",
+      "connections": {
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/junction-t-south-hero-1x.png"
     },
     {
@@ -181,6 +449,36 @@
       ],
       "reductionFactor": 2,
       "working": "working/junction-t-east-2x.png",
+      "connections": {
+        "east": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/junction-t-east-hero-1x.png"
     },
     {
@@ -211,6 +509,36 @@
       ],
       "reductionFactor": 2,
       "working": "working/junction-t-west-2x.png",
+      "connections": {
+        "west": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "north": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        },
+        "south": {
+          "roadInterval": [
+            96,
+            416
+          ],
+          "roadWidth": 320,
+          "bandWidth": 512,
+          "collarDepth": 16
+        }
+      },
+      "registration": "Painted-source strip registration; shared upright connection collars, no rotated art.",
       "comparison1x": "checks/junction-t-west-hero-1x.png"
     },
     {

@@ -2231,3 +2231,15 @@ curb | asphalt | curb
 ```
 
 Matching color hides a color seam. Matching the exact curb positions hides a shape seam. A correct PNG size proves neither, so road connections need their own check before the game uses the art.
+
+## 2026-11-14: make the connection measurable (Codex)
+
+```text
+512px street band
+| 96px side |       320px asphalt       | 96px side |
+            ^96                       ^416
+            |       center 256        |
+            same positions on the next tile
+```
+
+Painting supplies the texture, light and character. Fitting painted strips to shared coordinates supplies the exact connection. The checker measures the final picture, including the joining strip and center line, rather than trusting the manifest's stated width.

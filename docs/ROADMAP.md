@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.42.0: both floors of the house are repainted, with real walls, in Rami's layout. Next: send Codex docs/handoffs/codex-house-fixes-round3.md; then roads and woods. Codex road art proposals prepared for review; exact connection geometry remains unresolved.)
+**Last updated:** 2026-11-13 (V2.42.0: both floors of the house are repainted, with real walls, in Rami's layout. Next: send Codex docs/handoffs/codex-house-fixes-round3.md; then roads and woods. Roads and Woods complete for art approval in draft PR #13; nothing placed in game.)
 
 ---
 
@@ -524,5 +524,6 @@ The game already runs in a phone browser, so this is a wrapper, not a rebuild. R
 
 ### Roads art review, Nov 13 (Codex)
 - [x] Prepare 15 painted road/car/decal proposals with native hero comparisons and manifests
-- [ ] Resolve exact 320px road connections, then approve road art before placement
-- [ ] Woods art after the roads review
+- [x] Resolve exact 320px road connections; all 24 open connections pass (Nov 14)
+- [x] Woods art completed in the same PR at Rami’s request (Nov 14)
+- [ ] Rami: approve roads and Woods art in draft PR #13 before placement

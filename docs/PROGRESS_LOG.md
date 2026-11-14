@@ -2516,3 +2516,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Painted sources reduced by whole numbers; native hero comparisons, proposed car footprints and a review page included.
 - Export sizes and alpha pass. Exact 320px road connections remain unresolved and are flagged separately for review.
 - Local browser access was blocked; native PNGs inspected. No game stats or scores sent. Art approval pending; Woods follows afterward.
+
+## 2026-11-14: roads and Woods ready for art approval (Codex)
+- Verified the initial commit contains no real street, house or neighbor photos; pushed the approved branch and opened draft PR #13.
+- Exact road connections now pass. Added compatible east-west variants so the new set joins without changing live plates.
+- Woods kit includes both carved stones, forest ground and trails, log, rocks, mushrooms, three trees and four firefly frames.
+- Native hero comparisons, footprints and review pages included. Road checks pass; the Woods sample keeps a clear 224px route and two exits.
+- Nothing placed in the game, no version/build change and no stats sent. Art approval pending; browser preview remains unverified after the local-file policy block.

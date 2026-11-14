@@ -1,0 +1,13 @@
+# The Woods: complete art kit
+
+Job 2 from `docs/handoffs/codex-roads-and-woods.md`, completed for art approval on Nov 14 in draft PR #13. Open `deliver/review.html` and `deliver/manifest-woods.json`. The planned area is 2960x2048, Full Life only, past age 65. Nothing is placed in the game.
+
+Twelve asset entries: two mossy 96x160 standing stones carved I and II; 512x512 forest floor, straight trail and curved trail; a 256x96 fallen log; 160x112 mossy rock cluster; 128x96 mushroom ring; a four-frame firefly loop with 32x32 frames; and 144x192 evergreen, red maple and yellow birch trees. The loop includes a 64x64 sheet, four separate PNG frames and a native GIF preview. Its frame duration is 200ms, repeating every 800ms, with an overhead render layer.
+
+All paintings come from built-in imagegen, guided by the approved illustrated Twin Stones reference and the generated orange maple. No real photos are included. Sources appear once, with exact prompts and output provenance in `plan.json`. Original dimensions vary; exports retain fitted exact 4x working canvases, whole-number block-mode reduction, source bounds and explicit material-family mapping. Stones use slate tones, birch foliage uses yellow/cream, pine needles use three green/teal tones, and dirt uses three earth tones. Forest-floor edge pixels match the #9BAE73 lawn on all four sides.
+
+Stones, log, rocks and trees are walls. Tree footprints cover the trunk/root area, with the canopy extending above for walk-behind depth. Floor, trails and mushrooms are walk-through. Fireflies have no footprint. The manifest records feet lines, foot points, footprints and availability for each piece. Native hero comparisons are included, and trees are compared with the existing orange maple at its original size.
+
+The isolated 1024x768 review scene has 12 solid props, the density target for this sample screen. It preserves a clear 224px route with north and south exits; footprint overlay and review-only coordinates are included. This sample is not a game-stage layout and does not place anything into the runtime. The final 2960x2048 stage composition remains a later integration task using approved assets.
+
+With Python, Pillow and NumPy: `python build.py`, then `python audit.py`. Checks cover sizes, alpha, palette/material tones, footprints, availability metadata, four unique animation frames, lawn-color edges, route clearance and local review links. Browser local-file navigation remains blocked by URL policy; native PNG QA is complete, device browser layout is unverified. No game stats or scores were sent. Runtime version/build is unchanged while art approval is pending.

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "street-ew-a",
+    "size": [
+      832,
+      512
+    ],
+    "prompt": "Edit this painted pixel street plate into a car-free EAST-WEST road plate. Preserve the existing upper-left lighting, dark navy linework, cream sidewalk style, sparse sidewalk chalk, peak fall leaves, asphalt base#526078 and grass#9BAE73. Remove BOTH cars entirely, replace with continuous asphalt; do not leave vehicle shadows or outlines. Remove raised stumps and painted manholes/drains so all props are separate sprites. Exact final canvas832x512. Bands top to bottom:64px sidewalk,32px grass parkway including curb on inner edge,320px asphalt road y96..416,32px parkway,64px sidewalk. Horizontal cream dashed centerline at y256. Road exits left and right. Paint at4x intended size before reduction. Asphalt must be genuinely320px wide, curbs lie outside asphalt. Opaque full-bleed rectangle, no transparent asphalt. At least three tones per material, neutral white balance no sepia golden haze film tint. Variant A, no labels no text no cars no solid objects.",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-2f1f8e85-1714-49e5-9ccf-9f47264b3c98.png",
+    "tool": "built-in imagegen"
+  },
+  {
+    "id": "street-ew-b",
+    "size": [
+      832,
+      512
+    ],
+    "prompt": "Edit this painted pixel street plate into a car-free EAST-WEST road plate. Preserve the existing upper-left lighting, dark navy linework, cream sidewalk style, sparse sidewalk chalk, peak fall leaves, asphalt base#526078 and grass#9BAE73. Remove BOTH cars entirely, replace with continuous asphalt; do not leave vehicle shadows or outlines. Remove raised stumps and painted manholes/drains so all props are separate sprites. Exact final canvas832x512. Bands top to bottom:64px sidewalk,32px grass parkway including curb on inner edge,320px asphalt road y96..416,32px parkway,64px sidewalk. Horizontal cream dashed centerline at y256. Road exits left and right. Paint at4x intended size before reduction. Asphalt must be genuinely320px wide, curbs lie outside asphalt. Opaque full-bleed rectangle, no transparent asphalt. At least three tones per material, neutral white balance no sepia golden haze film tint. Variant B, no labels no text no cars no solid objects.",
+    "sourceOutput": "/Users/ramidaud/.codex/generated_images/01a1d853-fd1c-70a0-9c6e-8f3b47dc2847/exec-5963c482-2765-4843-bab5-5846ee5e3b8e.png",
+    "tool": "built-in imagegen"
+  }
+]
