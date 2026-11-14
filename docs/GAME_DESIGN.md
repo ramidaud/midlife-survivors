@@ -787,3 +787,7 @@ House job 2 puts the twins' sleeping corner by the main-bedroom window. Abe's no
 
 ## 2026-11-13: PR #11 room-review direction (Codex)
 Rami requests generic branding: 60 YEARS IN SPACE replaces the agency poster, and a generic game-pad replaces the branded shape neon. Abe's north wall is visually continuous with a painted open doorway; the original north and west door intervals remain accessible. Desk and chair tuck north; beanbag, amplifier, rug and clothes furnish the left edges. Main bedroom adds a second window, art, mirrors, a mirrored dresser, rug, basket, plant and armchair, with the crib southeast and the middle walkable. Walk-in closet, hall, linen and utility use distinct pictures and shallow edge furnishings. Rugs and runners are walk-through. All changes remain art-review proposals on PR #11, with no runtime placement.
+
+
+## 2026-11-13: house round-three repaint review (Codex)
+The saved Nov 13 editor pass requests ten native-size repaints: larger galaxy TV, dining electric console, rear-view freestanding island with south stools, smaller plant and camera shelves, then Abe's larger TV shelf/dresser/hamper, smaller east-facing amp and north-south rug. New variants are separate from the live V2.42.0 house. Four art-only mock-ups retain the saved coordinates without runtime route nudges. Living/dining door clearance fails; kitchen is clear; Abe's doors connect but isolated floor pockets and a hamper/dresser overlap remain. Layout correction is required before integrating the affected variants. No new runtime behavior is proposed.

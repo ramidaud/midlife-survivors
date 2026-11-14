@@ -2220,3 +2220,14 @@ north wall: [storage] [picture] [window]
 +------------------------------------+
 ```
 The shelf, boxes and hamper have solid footprints at the edges. The rug adds detail but no collision, so the route can cross it. The wall-coverage check uses the visible paintings, while the doorway check uses footprints. Both need to pass before placement is approved.
+
+
+## Chapter: Connected doors can hide a trapped pocket (2026-11-13, Codex)
+
+```text
+door A --> clear route --> door B
+             | furniture blocks the way
+             X
+       [isolated clear floor]
+```
+The doors can pass a route check while the room still contains floor you cannot reach. Count disconnected clear positions separately, and check whether any solid footprints overlap. An art export can pass its pixel checks while its proposed layout still needs review.

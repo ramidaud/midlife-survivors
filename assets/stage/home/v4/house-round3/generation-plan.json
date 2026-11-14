@@ -1,0 +1,368 @@
+[
+  {
+    "id": "galaxy-wall-tv",
+    "size": [
+      184,
+      240
+    ],
+    "requestedFactor": 2,
+    "previousSize": [
+      92,
+      120
+    ],
+    "targetBounds": [
+      18,
+      6,
+      166,
+      234
+    ],
+    "room": "living",
+    "renderLayer": "wall-mounted",
+    "footprints": [],
+    "description": "Galaxy wall TV at twice the previous native size. Preserve the distinctive slanted EAST-wall panel facing WEST, with its right/back edge seen obliquely. Screen shows generic swirling galaxies. No logos, no text. The panel silhouette is172px wide by228px tall within184x240 canvas. Do not make a frontal horizontal north-wall TV.",
+    "previousArt": "../house-ground-floor/repaint/deliver/galaxy-wall-tv-v1.png",
+    "previousFootprints": [],
+    "reductionFactor": 3
+  },
+  {
+    "id": "electric-console-east",
+    "size": [
+      216,
+      84
+    ],
+    "requestedFactor": 1.5,
+    "previousSize": [
+      144,
+      56
+    ],
+    "targetBounds": [
+      4,
+      4,
+      212,
+      80
+    ],
+    "room": "desk",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        10,
+        16,
+        195,
+        51
+      ]
+    ],
+    "description": "Electric fireplace console for the dining room, one and a half times previous native size. Preserve the same low wide angle, broad lighter tabletop, blank dark fluted rear panel, visible side and glowing inset fireplace edge from reference. Lamp, lantern, plant and plain dark marble sphere on top. Overall silhouette is about207px wide by75px high, not a tall front-facing fireplace.",
+    "previousArt": "../house-ground-floor/repaint/deliver/electric-console-east-v1.png",
+    "previousFootprints": [
+      [
+        7,
+        11,
+        130,
+        34
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "kitchen-counter-west",
+    "size": [
+      240,
+      90
+    ],
+    "requestedFactor": 1.5,
+    "previousSize": [
+      160,
+      60
+    ],
+    "targetBounds": [
+      4,
+      4,
+      236,
+      86
+    ],
+    "room": "kitchen",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        8,
+        48,
+        224,
+        22
+      ],
+      [
+        46,
+        70,
+        26,
+        16
+      ],
+      [
+        108,
+        70,
+        26,
+        16
+      ],
+      [
+        170,
+        70,
+        26,
+        16
+      ]
+    ],
+    "description": "Repaint the counter as a FREESTANDING kitchen ISLAND seen FROM BEHIND and ABOVE. Broad light oak worktop with a bowl, plain small appliance, jars and folded cloth. Rear panel nearest camera is plain white with oak trim, NO front cabinet doors or handles. THREE low stools on SOUTH side nearest camera, all seen from behind and above. Cabinet footprint at native x8,y24,w224,h32; three stools along south x40,104,168, each36px wide at y58. Entire low wide silhouette232px wide and84px high on240x90 canvas. Top surface below the standing60px hero.",
+    "previousArt": "../house-ground-floor/repaint/deliver/kitchen-counter-west-v1.png",
+    "previousFootprints": [
+      [
+        7,
+        11,
+        146,
+        38
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "bird-of-paradise",
+    "size": [
+      64,
+      80
+    ],
+    "requestedFactor": 0.8,
+    "previousSize": [
+      80,
+      100
+    ],
+    "targetBounds": [
+      2,
+      2,
+      62,
+      78
+    ],
+    "room": "living",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        24,
+        63,
+        16,
+        11
+      ]
+    ],
+    "description": "One smaller floor-standing bird-of-paradise plant,80 percent of the reference native size, for beside the arched lamp. Same neutral green leaves, three distinct green tones, brown woven pot, visible overhead rim. No ropes or hanging basket. Silhouette60x76 on64x80 native canvas.",
+    "previousArt": "../house-ground-floor/repaint/deliver/bird-of-paradise-v1.png",
+    "previousFootprints": [
+      [
+        30,
+        79,
+        20,
+        14
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "camera-book-shelves",
+    "size": [
+      194,
+      90
+    ],
+    "requestedFactor": 0.9,
+    "previousSize": [
+      216,
+      100
+    ],
+    "targetBounds": [
+      3,
+      3,
+      192,
+      87
+    ],
+    "room": "desk",
+    "renderLayer": "wall-mounted",
+    "footprints": [],
+    "description": "Two floating oak camera-and-book shelves at90 percent previous native size. Same face-on NORTH-wall view, vintage unbranded cameras, books with blank spines, trailing pothos, abstract landscape frame with NO people, simple glowing globe. About191px wide by86px high on194x90 canvas. Transparent gap between shelves, no wall background.",
+    "previousArt": "../house-ground-floor/repaint/deliver/camera-book-shelves-v1.png",
+    "previousFootprints": [],
+    "reductionFactor": 3
+  },
+  {
+    "id": "tv-cube-shelf-east",
+    "size": [
+      96,
+      216
+    ],
+    "requestedFactor": 1.5,
+    "previousSize": [
+      64,
+      144
+    ],
+    "targetBounds": [
+      14,
+      3,
+      82,
+      213
+    ],
+    "room": "abe-room",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        18,
+        54,
+        60,
+        153
+      ]
+    ],
+    "description": "One and a half times larger TV on a black cube shelf against EAST wall facing WEST. Keep the strongly oblique panel, visible overhead top, narrow western shelf fronts, astronomy book without title, plain globe lamp, moon and orbital ornaments, green plant and game cases. NO ghost character, people, faces, logos or text. Silhouette69x210 on96x216 native canvas.",
+    "previousArt": "../house-upstairs/deliver/tv-cube-shelf-east-v1.png",
+    "previousFootprints": [
+      [
+        12,
+        36,
+        40,
+        102
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "record-dresser-south",
+    "size": [
+      306,
+      114
+    ],
+    "requestedFactor": 1.5,
+    "previousSize": [
+      204,
+      76
+    ],
+    "targetBounds": [
+      3,
+      27,
+      303,
+      111
+    ],
+    "room": "abe-room",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        9,
+        57,
+        288,
+        48
+      ]
+    ],
+    "description": "One and a half times larger VERY WIDE LOW navy dresser seen FROM BEHIND and ABOVE against SOUTH wall. Plain fluted back panel nearest viewer, NO drawer fronts/handles. Broad light blue-grey top, orange record in vintage turntable with dust cover, silver receiver, tiny red quatrefoil-shade lamp, small white radio. Keep lamp compact. Painted silhouette300px WIDE and84px HIGH on306x114 native canvas; preserve this wide ratio.",
+    "previousArt": "../house-upstairs/deliver/record-dresser-south-v1.png",
+    "previousFootprints": [
+      [
+        6,
+        38,
+        192,
+        32
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "hamper",
+    "size": [
+      72,
+      78
+    ],
+    "requestedFactor": 1.5,
+    "previousSize": [
+      48,
+      52
+    ],
+    "targetBounds": [
+      8,
+      3,
+      64,
+      75
+    ],
+    "room": "abe-room",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        10,
+        33,
+        50,
+        36
+      ]
+    ],
+    "description": "One and a half times larger striped cream/navy laundry hamper with pale cloth overflowing, same high top-down angle, light rim for contrast, no branding. Silhouette57x72 on72x78 native canvas.",
+    "previousArt": "../house-upstairs/deliver/hamper-v1.png",
+    "previousFootprints": [
+      [
+        6,
+        22,
+        36,
+        24
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "guitar-amp",
+    "size": [
+      60,
+      48
+    ],
+    "requestedFactor": 0.75,
+    "previousSize": [
+      80,
+      64
+    ],
+    "targetBounds": [
+      5,
+      2,
+      55,
+      46
+    ],
+    "room": "abe-room",
+    "renderLayer": "furniture",
+    "footprints": [
+      [
+        12,
+        26,
+        36,
+        18
+      ]
+    ],
+    "description": "A smaller75 percent guitar amplifier painted against WEST wall facing EAST. View from above and slightly south: dominant surface is black textured TOP with handle and coiled cable, speaker grille is the NARROW vertical RIGHT edge facing east, with cream knobs alongside it. Do not show a full front-facing speaker. No brand or text. Silhouette50x44 on60x48 native canvas.",
+    "previousArt": "../house-upstairs/deliver/guitar-amp-v1.png",
+    "previousFootprints": [
+      [
+        8,
+        34,
+        64,
+        24
+      ]
+    ],
+    "reductionFactor": 3
+  },
+  {
+    "id": "abe-rug",
+    "size": [
+      224,
+      320
+    ],
+    "requestedFactor": 1,
+    "previousSize": [
+      320,
+      224
+    ],
+    "targetBounds": [
+      2,
+      2,
+      222,
+      318
+    ],
+    "room": "abe-room",
+    "renderLayer": "ground",
+    "footprints": [],
+    "description": "Repaint this same flat woven navy, sage and cream geometric rug with its LONG AXIS NORTH-SOUTH, vertical rectangle. Same border style and interior motifs newly painted for the tall orientation, no code rotation, no shadow or outside dark outline, no floor backing. Native canvas224x320, silhouette220x316. Direct overhead rectangle, no perspective skew or isometric diamond.",
+    "previousArt": "../house-upstairs/deliver/abe-rug-v1.png",
+    "previousFootprints": [],
+    "reductionFactor": 3
+  }
+]

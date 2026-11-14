@@ -2510,3 +2510,11 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Three wall faces upstairs (top, linen/walk-in row, Abe's room and utility) with doorways where the hall connects. The bathroom, closets and stairs keep their art on the thin walls.
 - Route fixes in Abe's room: the gaming chair tucked under the desk, the beanbag slid toward the TV, the guitar amp moved to the southeast corner. Every upstairs room passes the route check.
 - Bug caught in testing: the upstairs carpet name was skipped by the game, so a teal carpet showed; renamed.
+
+
+## 2026-11-13: round-three house repaints, art review only (Codex)
+- Started a follow-up branch after PR #11 was approved and merged. Ten painted size/angle variants are isolated from the live house art.
+- Repainted the larger TV and electric console, rear-view kitchen island with stools, smaller plant/shelves, and Abe's larger TV shelf, dresser and hamper, smaller east-facing amp and vertical rug.
+- Four room mock-ups preserve every saved editor position. Living/dining fail door clearance; kitchen passes. Abe's doors connect, but clear pockets are cut off and the larger hamper overlaps the dresser.
+- Native hero comparisons, exact 3x room/footprint views, updated manifests and one source set included. Asset checks pass; fixed layout constraints remain explicit for review.
+- No game placement, runtime rebuild or version change. Claude places approved variants after the layout constraints are resolved.

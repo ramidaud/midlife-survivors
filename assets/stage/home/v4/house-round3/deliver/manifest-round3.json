@@ -1,0 +1,1910 @@
+{
+  "status": "Art review only. Nothing placed in game.",
+  "method": "Built-in imagegen repaints, proportional fits to exact 3x working canvases, whole-number reduction and material-family palette mapping. No stretched room pieces or procedural art.",
+  "privacy": "New paintings contain no people, faces, names or logos. Only public existing art is referenced.",
+  "layoutSource": "docs/plans/house-layout/rami-layout-nov13.json",
+  "pieces": [
+    {
+      "id": "galaxy-wall-tv",
+      "file": "galaxy-wall-tv-v3.png",
+      "room": "living",
+      "size": [
+        184,
+        240
+      ],
+      "previousSize": [
+        92,
+        120
+      ],
+      "requestedFactor": 2,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "feetLine": 233,
+      "footPoint": [
+        92,
+        233
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        18,
+        42,
+        166,
+        234
+      ],
+      "source": "../sources/galaxy-wall-tv.png",
+      "sourceSize": [
+        1086,
+        1448
+      ],
+      "sourceCrop": [
+        29,
+        51,
+        1058,
+        1386
+      ],
+      "sourceFit": [
+        54,
+        126,
+        444,
+        576
+      ],
+      "working": "working/galaxy-wall-tv-3x.png",
+      "workingSize": [
+        552,
+        720
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-ground-floor/repaint/deliver/galaxy-wall-tv-v1.png",
+      "description": "Galaxy wall TV at twice the previous native size. Preserve the distinctive slanted EAST-wall panel facing WEST, with its right/back edge seen obliquely. Screen shows generic swirling galaxies. No logos, no text. The panel silhouette is172px wide by228px tall within184x240 canvas. Do not make a frontal horizontal north-wall TV.",
+      "comparison1x": "checks/galaxy-wall-tv-hero-1x.png"
+    },
+    {
+      "id": "electric-console-east",
+      "file": "electric-console-east-v3.png",
+      "room": "desk",
+      "size": [
+        216,
+        84
+      ],
+      "previousSize": [
+        144,
+        56
+      ],
+      "requestedFactor": 1.5,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 79,
+      "footPoint": [
+        108,
+        79
+      ],
+      "footprints": [
+        [
+          10,
+          16,
+          195,
+          51
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        6,
+        212,
+        80
+      ],
+      "source": "../sources/electric-console-east.png",
+      "sourceSize": [
+        2081,
+        756
+      ],
+      "sourceCrop": [
+        27,
+        10,
+        2039,
+        731
+      ],
+      "sourceFit": [
+        12,
+        16,
+        624,
+        224
+      ],
+      "working": "working/electric-console-east-3x.png",
+      "workingSize": [
+        648,
+        252
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-ground-floor/repaint/deliver/electric-console-east-v1.png",
+      "description": "Electric fireplace console for the dining room, one and a half times previous native size. Preserve the same low wide angle, broad lighter tabletop, blank dark fluted rear panel, visible side and glowing inset fireplace edge from reference. Lamp, lantern, plant and plain dark marble sphere on top. Overall silhouette is about207px wide by75px high, not a tall front-facing fireplace.",
+      "comparison1x": "checks/electric-console-east-hero-1x.png"
+    },
+    {
+      "id": "kitchen-counter-west",
+      "file": "kitchen-counter-west-v3.png",
+      "room": "kitchen",
+      "size": [
+        240,
+        90
+      ],
+      "previousSize": [
+        160,
+        60
+      ],
+      "requestedFactor": 1.5,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 85,
+      "footPoint": [
+        120,
+        85
+      ],
+      "footprints": [
+        [
+          8,
+          48,
+          224,
+          22
+        ],
+        [
+          46,
+          70,
+          26,
+          16
+        ],
+        [
+          108,
+          70,
+          26,
+          16
+        ],
+        [
+          170,
+          70,
+          26,
+          16
+        ]
+      ],
+      "visibleBounds": [
+        4,
+        27,
+        236,
+        86
+      ],
+      "source": "../sources/kitchen-counter-west.png",
+      "sourceSize": [
+        2048,
+        768
+      ],
+      "sourceCrop": [
+        11,
+        143,
+        2037,
+        659
+      ],
+      "sourceFit": [
+        12,
+        81,
+        696,
+        177
+      ],
+      "working": "working/kitchen-counter-west-3x.png",
+      "workingSize": [
+        720,
+        270
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-ground-floor/repaint/deliver/kitchen-counter-west-v1.png",
+      "description": "Repaint the counter as a FREESTANDING kitchen ISLAND seen FROM BEHIND and ABOVE. Broad light oak worktop with a bowl, plain small appliance, jars and folded cloth. Rear panel nearest camera is plain white with oak trim, NO front cabinet doors or handles. THREE low stools on SOUTH side nearest camera, all seen from behind and above. Cabinet footprint at native x8,y24,w224,h32; three stools along south x40,104,168, each36px wide at y58. Entire low wide silhouette232px wide and84px high on240x90 canvas. Top surface below the standing60px hero.",
+      "comparison1x": "checks/kitchen-counter-west-hero-1x.png"
+    },
+    {
+      "id": "bird-of-paradise",
+      "file": "bird-of-paradise-v3.png",
+      "room": "living",
+      "size": [
+        64,
+        80
+      ],
+      "previousSize": [
+        80,
+        100
+      ],
+      "requestedFactor": 0.8,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 77,
+      "footPoint": [
+        32,
+        77
+      ],
+      "footprints": [
+        [
+          24,
+          63,
+          16,
+          11
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        2,
+        59,
+        78
+      ],
+      "source": "../sources/bird-of-paradise.png",
+      "sourceSize": [
+        1122,
+        1402
+      ],
+      "sourceCrop": [
+        206,
+        181,
+        911,
+        1161
+      ],
+      "sourceFit": [
+        14,
+        6,
+        164,
+        228
+      ],
+      "working": "working/bird-of-paradise-3x.png",
+      "workingSize": [
+        192,
+        240
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-ground-floor/repaint/deliver/bird-of-paradise-v1.png",
+      "description": "One smaller floor-standing bird-of-paradise plant,80 percent of the reference native size, for beside the arched lamp. Same neutral green leaves, three distinct green tones, brown woven pot, visible overhead rim. No ropes or hanging basket. Silhouette60x76 on64x80 native canvas.",
+      "comparison1x": "checks/bird-of-paradise-hero-1x.png"
+    },
+    {
+      "id": "camera-book-shelves",
+      "file": "camera-book-shelves-v3.png",
+      "room": "desk",
+      "size": [
+        194,
+        90
+      ],
+      "previousSize": [
+        216,
+        100
+      ],
+      "requestedFactor": 0.9,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "feetLine": 86,
+      "footPoint": [
+        97,
+        86
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        10,
+        3,
+        185,
+        87
+      ],
+      "source": "../sources/camera-book-shelves.png",
+      "sourceSize": [
+        1881,
+        836
+      ],
+      "sourceCrop": [
+        100,
+        31,
+        1767,
+        826
+      ],
+      "sourceFit": [
+        28,
+        9,
+        528,
+        252
+      ],
+      "working": "working/camera-book-shelves-3x.png",
+      "workingSize": [
+        582,
+        270
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-ground-floor/repaint/deliver/camera-book-shelves-v1.png",
+      "description": "Two floating oak camera-and-book shelves at90 percent previous native size. Same face-on NORTH-wall view, vintage unbranded cameras, books with blank spines, trailing pothos, abstract landscape frame with NO people, simple glowing globe. About191px wide by86px high on194x90 canvas. Transparent gap between shelves, no wall background.",
+      "comparison1x": "checks/camera-book-shelves-hero-1x.png"
+    },
+    {
+      "id": "tv-cube-shelf-east",
+      "file": "tv-cube-shelf-east-v3.png",
+      "room": "abe-room",
+      "size": [
+        96,
+        216
+      ],
+      "previousSize": [
+        64,
+        144
+      ],
+      "requestedFactor": 1.5,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 212,
+      "footPoint": [
+        48,
+        212
+      ],
+      "footprints": [
+        [
+          18,
+          54,
+          60,
+          153
+        ]
+      ],
+      "visibleBounds": [
+        18,
+        3,
+        78,
+        213
+      ],
+      "source": "../sources/tv-cube-shelf-east.png",
+      "sourceSize": [
+        864,
+        1821
+      ],
+      "sourceCrop": [
+        159,
+        9,
+        674,
+        1803
+      ],
+      "sourceFit": [
+        53,
+        9,
+        181,
+        630
+      ],
+      "working": "working/tv-cube-shelf-east-3x.png",
+      "workingSize": [
+        288,
+        648
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-upstairs/deliver/tv-cube-shelf-east-v1.png",
+      "description": "One and a half times larger TV on a black cube shelf against EAST wall facing WEST. Keep the strongly oblique panel, visible overhead top, narrow western shelf fronts, astronomy book without title, plain globe lamp, moon and orbital ornaments, green plant and game cases. NO ghost character, people, faces, logos or text. Silhouette69x210 on96x216 native canvas.",
+      "comparison1x": "checks/tv-cube-shelf-east-hero-1x.png"
+    },
+    {
+      "id": "record-dresser-south",
+      "file": "record-dresser-south-v3.png",
+      "room": "abe-room",
+      "size": [
+        306,
+        114
+      ],
+      "previousSize": [
+        204,
+        76
+      ],
+      "requestedFactor": 1.5,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 110,
+      "footPoint": [
+        153,
+        110
+      ],
+      "footprints": [
+        [
+          9,
+          57,
+          288,
+          48
+        ]
+      ],
+      "visibleBounds": [
+        5,
+        27,
+        300,
+        111
+      ],
+      "source": "../sources/record-dresser-south.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "sourceCrop": [
+        47,
+        76,
+        2127,
+        667
+      ],
+      "sourceFit": [
+        15,
+        81,
+        887,
+        252
+      ],
+      "working": "working/record-dresser-south-3x.png",
+      "workingSize": [
+        918,
+        342
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-upstairs/deliver/record-dresser-south-v1.png",
+      "description": "One and a half times larger VERY WIDE LOW navy dresser seen FROM BEHIND and ABOVE against SOUTH wall. Plain fluted back panel nearest viewer, NO drawer fronts/handles. Broad light blue-grey top, orange record in vintage turntable with dust cover, silver receiver, tiny red quatrefoil-shade lamp, small white radio. Keep lamp compact. Painted silhouette300px WIDE and84px HIGH on306x114 native canvas; preserve this wide ratio.",
+      "comparison1x": "checks/record-dresser-south-hero-1x.png"
+    },
+    {
+      "id": "hamper",
+      "file": "hamper-v3.png",
+      "room": "abe-room",
+      "size": [
+        72,
+        78
+      ],
+      "previousSize": [
+        48,
+        52
+      ],
+      "requestedFactor": 1.5,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 74,
+      "footPoint": [
+        36,
+        74
+      ],
+      "footprints": [
+        [
+          10,
+          33,
+          50,
+          36
+        ]
+      ],
+      "visibleBounds": [
+        9,
+        3,
+        62,
+        75
+      ],
+      "source": "../sources/hamper.png",
+      "sourceSize": [
+        1136,
+        1385
+      ],
+      "sourceCrop": [
+        96,
+        51,
+        1040,
+        1318
+      ],
+      "sourceFit": [
+        27,
+        9,
+        161,
+        216
+      ],
+      "working": "working/hamper-3x.png",
+      "workingSize": [
+        216,
+        234
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-upstairs/deliver/hamper-v1.png",
+      "description": "One and a half times larger striped cream/navy laundry hamper with pale cloth overflowing, same high top-down angle, light rim for contrast, no branding. Silhouette57x72 on72x78 native canvas.",
+      "comparison1x": "checks/hamper-hero-1x.png"
+    },
+    {
+      "id": "guitar-amp",
+      "file": "guitar-amp-v3.png",
+      "room": "abe-room",
+      "size": [
+        60,
+        48
+      ],
+      "previousSize": [
+        80,
+        64
+      ],
+      "requestedFactor": 0.75,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "feetLine": 45,
+      "footPoint": [
+        30,
+        45
+      ],
+      "footprints": [
+        [
+          12,
+          26,
+          36,
+          18
+        ]
+      ],
+      "visibleBounds": [
+        10,
+        2,
+        50,
+        46
+      ],
+      "source": "../sources/guitar-amp.png",
+      "sourceSize": [
+        1464,
+        1074
+      ],
+      "sourceCrop": [
+        380,
+        160,
+        1049,
+        896
+      ],
+      "sourceFit": [
+        30,
+        6,
+        120,
+        132
+      ],
+      "working": "working/guitar-amp-3x.png",
+      "workingSize": [
+        180,
+        144
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-upstairs/deliver/guitar-amp-v1.png",
+      "description": "A smaller75 percent guitar amplifier painted against WEST wall facing EAST. View from above and slightly south: dominant surface is black textured TOP with handle and coiled cable, speaker grille is the NARROW vertical RIGHT edge facing east, with cream knobs alongside it. Do not show a full front-facing speaker. No brand or text. Silhouette50x44 on60x48 native canvas.",
+      "comparison1x": "checks/guitar-amp-hero-1x.png"
+    },
+    {
+      "id": "abe-rug",
+      "file": "abe-rug-v3.png",
+      "room": "abe-room",
+      "size": [
+        224,
+        320
+      ],
+      "previousSize": [
+        320,
+        224
+      ],
+      "requestedFactor": 1,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "feetLine": 317,
+      "footPoint": [
+        112,
+        317
+      ],
+      "footprints": [],
+      "visibleBounds": [
+        13,
+        2,
+        211,
+        318
+      ],
+      "source": "../sources/abe-rug.png",
+      "sourceSize": [
+        1046,
+        1504
+      ],
+      "sourceCrop": [
+        63,
+        18,
+        984,
+        1483
+      ],
+      "sourceFit": [
+        38,
+        6,
+        596,
+        948
+      ],
+      "working": "working/abe-rug-3x.png",
+      "workingSize": [
+        672,
+        960
+      ],
+      "reductionFactor": 3,
+      "previousArt": "../../house-upstairs/deliver/abe-rug-v1.png",
+      "description": "Repaint this same flat woven navy, sage and cream geometric rug with its LONG AXIS NORTH-SOUTH, vertical rectangle. Same border style and interior motifs newly painted for the tall orientation, no code rotation, no shadow or outside dark outline, no floor backing. Native canvas224x320, silhouette220x316. Direct overhead rectangle, no perspective skew or isometric diamond.",
+      "comparison1x": "checks/abe-rug-hero-1x.png"
+    }
+  ],
+  "reusedPieces": [
+    {
+      "id": "photo-ledges",
+      "file": "../../house-ground-floor/repaint/deliver/photo-ledges-v1.png",
+      "size": [
+        104,
+        100
+      ],
+      "footprints": [],
+      "footPoint": [
+        52,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "tile-fireplace",
+      "file": "../../house-ground-floor/repaint/deliver/tile-fireplace-v1.png",
+      "size": [
+        152,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          138,
+          24
+        ]
+      ],
+      "footPoint": [
+        76,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "ornate-silver-mirror",
+      "file": "../../house-ground-floor/repaint/deliver/ornate-silver-mirror-v1.png",
+      "size": [
+        136,
+        88
+      ],
+      "footprints": [],
+      "footPoint": [
+        68,
+        81
+      ],
+      "feetLine": 81,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "window-olive-curtains",
+      "file": "../../house-ground-floor/repaint/deliver/window-olive-curtains-v1.png",
+      "size": [
+        112,
+        100
+      ],
+      "footprints": [],
+      "footPoint": [
+        56,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "fluted-media-console",
+      "file": "../../house-ground-floor/repaint/deliver/fluted-media-console-v1.png",
+      "size": [
+        64,
+        184
+      ],
+      "footprints": [
+        [
+          7,
+          7,
+          50,
+          170
+        ]
+      ],
+      "footPoint": [
+        32,
+        177
+      ],
+      "feetLine": 177,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "cream-sofa",
+      "file": "../../house-ground-floor/repaint/deliver/cream-sofa-v1.png",
+      "size": [
+        96,
+        264
+      ],
+      "footprints": [
+        [
+          9,
+          15,
+          78,
+          238
+        ]
+      ],
+      "footPoint": [
+        48,
+        257
+      ],
+      "feetLine": 257,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "leather-recliner",
+      "file": "../../house-ground-floor/repaint/deliver/leather-recliner-v1.png",
+      "size": [
+        120,
+        90
+      ],
+      "footprints": [
+        [
+          26,
+          33,
+          68,
+          50
+        ]
+      ],
+      "footPoint": [
+        60,
+        83
+      ],
+      "feetLine": 83,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "round-coffee-table",
+      "file": "../../house-upstairs/deliver/coffee-table-oak-v1.png",
+      "size": [
+        186,
+        42
+      ],
+      "footprints": [
+        [
+          11,
+          0,
+          164,
+          36
+        ]
+      ],
+      "footPoint": [
+        93,
+        35
+      ],
+      "feetLine": 35,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "persian-living-rug",
+      "file": "../../house-ground-floor/repaint/deliver/persian-living-rug-v1.png",
+      "size": [
+        416,
+        240
+      ],
+      "footprints": [],
+      "footPoint": [
+        208,
+        233
+      ],
+      "feetLine": 233,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "potted-pothos",
+      "file": "../../house-ground-floor/repaint/deliver/potted-pothos-v1.png",
+      "size": [
+        56,
+        72
+      ],
+      "footprints": [],
+      "footPoint": [
+        28,
+        65
+      ],
+      "feetLine": 65,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "drum-floor-lamp",
+      "file": "../../house-ground-floor/repaint/deliver/drum-floor-lamp-v1.png",
+      "size": [
+        44,
+        100
+      ],
+      "footprints": [
+        [
+          16,
+          85,
+          12,
+          8
+        ]
+      ],
+      "footPoint": [
+        22,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "arched-floor-lamp",
+      "file": "../../house-ground-floor/repaint/deliver/arched-floor-lamp-v1.png",
+      "size": [
+        76,
+        100
+      ],
+      "footprints": [
+        [
+          47,
+          85,
+          12,
+          8
+        ]
+      ],
+      "footPoint": [
+        53,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "racing-sim-rig",
+      "file": "../../house-ground-floor/repaint/deliver/racing-sim-rig-v1.png",
+      "size": [
+        180,
+        132
+      ],
+      "footprints": [
+        [
+          12,
+          33,
+          156,
+          92
+        ]
+      ],
+      "footPoint": [
+        90,
+        125
+      ],
+      "feetLine": 125,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "sim-cables",
+      "file": "../../house-ground-floor/repaint/deliver/sim-cables-v1.png",
+      "size": [
+        144,
+        32
+      ],
+      "footprints": [],
+      "footPoint": [
+        72,
+        25
+      ],
+      "feetLine": 25,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "baby-swing-pink",
+      "file": "../../house-ground-floor/repaint/deliver/baby-swing-pink-v1.png",
+      "size": [
+        60,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          46,
+          24
+        ]
+      ],
+      "footPoint": [
+        30,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "baby-swing-grey",
+      "file": "../../house-ground-floor/repaint/deliver/baby-swing-grey-v1.png",
+      "size": [
+        60,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          46,
+          24
+        ]
+      ],
+      "footPoint": [
+        30,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "blanket-basket",
+      "file": "../../house-ground-floor/repaint/deliver/blanket-basket-v1.png",
+      "size": [
+        56,
+        28
+      ],
+      "footprints": [
+        [
+          12,
+          0,
+          32,
+          24
+        ]
+      ],
+      "footPoint": [
+        28,
+        21
+      ],
+      "feetLine": 21,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "snack-bag",
+      "file": "../../house-ground-floor/repaint/deliver/snack-bag-v1.png",
+      "size": [
+        32,
+        24
+      ],
+      "footprints": [],
+      "footPoint": [
+        16,
+        17
+      ],
+      "feetLine": 17,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "south-love-seat",
+      "file": "../../house-ground-floor/repaint/deliver/south-love-seat-v1.png",
+      "size": [
+        276,
+        90
+      ],
+      "footprints": [
+        [
+          7,
+          59,
+          262,
+          24
+        ]
+      ],
+      "footPoint": [
+        138,
+        83
+      ],
+      "feetLine": 83,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "bird-of-paradise-original",
+      "file": "../../house-ground-floor/repaint/deliver/bird-of-paradise-v1.png",
+      "size": [
+        80,
+        100
+      ],
+      "footprints": [
+        [
+          30,
+          79,
+          20,
+          14
+        ]
+      ],
+      "footPoint": [
+        40,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "twin-bassinets",
+      "file": "../../house-ground-floor/repaint/deliver/twin-bassinets-v1.png",
+      "size": [
+        80,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          66,
+          24
+        ]
+      ],
+      "footPoint": [
+        40,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "side-table-lamp",
+      "file": "../../house-ground-floor/repaint/deliver/side-table-lamp-v1.png",
+      "size": [
+        84,
+        108
+      ],
+      "footprints": [
+        [
+          13,
+          77,
+          58,
+          24
+        ]
+      ],
+      "footPoint": [
+        42,
+        101
+      ],
+      "feetLine": 101,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "twins-toy-bin",
+      "file": "../../house-ground-floor/repaint/deliver/twins-toy-bin-v1.png",
+      "size": [
+        72,
+        28
+      ],
+      "footprints": [
+        [
+          7,
+          0,
+          58,
+          24
+        ]
+      ],
+      "footPoint": [
+        36,
+        21
+      ],
+      "feetLine": 21,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "houseplant-cluster",
+      "file": "../../house-ground-floor/repaint/deliver/houseplant-cluster-v1.png",
+      "size": [
+        88,
+        88
+      ],
+      "footprints": [
+        [
+          7,
+          57,
+          74,
+          24
+        ]
+      ],
+      "footPoint": [
+        44,
+        81
+      ],
+      "feetLine": 81,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "round-dining-table",
+      "file": "../../house-ground-floor/repaint/deliver/round-dining-table-v1.png",
+      "size": [
+        192,
+        60
+      ],
+      "footprints": [
+        [
+          11,
+          17,
+          170,
+          36
+        ]
+      ],
+      "footPoint": [
+        96,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "dining-chair-north",
+      "file": "../../house-ground-floor/repaint/deliver/dining-chair-north-v1.png",
+      "size": [
+        48,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          34,
+          24
+        ]
+      ],
+      "footPoint": [
+        24,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "dining-chair-south",
+      "file": "../../house-ground-floor/repaint/deliver/dining-chair-south-v1.png",
+      "size": [
+        48,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          34,
+          24
+        ]
+      ],
+      "footPoint": [
+        24,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "dining-chair-east",
+      "file": "../../house-ground-floor/repaint/deliver/dining-chair-east-v1.png",
+      "size": [
+        48,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          34,
+          24
+        ]
+      ],
+      "footPoint": [
+        24,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "dining-chair-west",
+      "file": "../../house-ground-floor/repaint/deliver/dining-chair-west-v1.png",
+      "size": [
+        48,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          34,
+          24
+        ]
+      ],
+      "footPoint": [
+        24,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "dining-rug",
+      "file": "../../house-ground-floor/repaint/deliver/dining-rug-v1.png",
+      "size": [
+        288,
+        240
+      ],
+      "footprints": [],
+      "footPoint": [
+        144,
+        233
+      ],
+      "feetLine": 233,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "corner-computer-desk",
+      "file": "../../house-ground-floor/repaint/deliver/corner-computer-desk-v1.png",
+      "size": [
+        240,
+        60
+      ],
+      "footprints": [
+        [
+          9,
+          19,
+          222,
+          34
+        ],
+        [
+          195,
+          31,
+          36,
+          20
+        ]
+      ],
+      "footPoint": [
+        120,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "mesh-office-chair",
+      "file": "../../house-ground-floor/repaint/deliver/mesh-office-chair-v1.png",
+      "size": [
+        56,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          42,
+          24
+        ]
+      ],
+      "footPoint": [
+        28,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "moon-print",
+      "file": "../../house-ground-floor/repaint/deliver/moon-print-v1.png",
+      "size": [
+        68,
+        88
+      ],
+      "footprints": [],
+      "footPoint": [
+        34,
+        81
+      ],
+      "feetLine": 81,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "kids-drawings",
+      "file": "../../house-ground-floor/repaint/deliver/kids-drawings-v1.png",
+      "size": [
+        88,
+        24
+      ],
+      "footprints": [],
+      "footPoint": [
+        44,
+        17
+      ],
+      "feetLine": 17,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "abstract-wall-painting",
+      "file": "../../house-ground-floor/repaint/deliver/abstract-wall-painting-v1.png",
+      "size": [
+        136,
+        100
+      ],
+      "footprints": [],
+      "footPoint": [
+        68,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "potted-orchid",
+      "file": "../../house-ground-floor/repaint/deliver/potted-orchid-v1.png",
+      "size": [
+        44,
+        60
+      ],
+      "footprints": [
+        [
+          12,
+          39,
+          20,
+          14
+        ]
+      ],
+      "footPoint": [
+        22,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "window-blinds-north",
+      "file": "../../house-ground-floor/repaint/deliver/window-blinds-north-v1.png",
+      "size": [
+        96,
+        100
+      ],
+      "footprints": [],
+      "footPoint": [
+        48,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "white-oak-sink-counter",
+      "file": "../../house-ground-floor/repaint/deliver/white-oak-sink-counter-v1.png",
+      "size": [
+        184,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          29,
+          170,
+          24
+        ]
+      ],
+      "footPoint": [
+        92,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "white-oak-upper-cabinets",
+      "file": "../../house-ground-floor/repaint/deliver/white-oak-upper-cabinets-v1.png",
+      "size": [
+        192,
+        80
+      ],
+      "footprints": [],
+      "footPoint": [
+        96,
+        73
+      ],
+      "feetLine": 73,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "stove-microwave",
+      "file": "../../house-ground-floor/repaint/deliver/stove-microwave-v1.png",
+      "size": [
+        80,
+        100
+      ],
+      "footprints": [
+        [
+          8,
+          59,
+          64,
+          34
+        ]
+      ],
+      "footPoint": [
+        40,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "magnet-fridge",
+      "file": "../../house-ground-floor/repaint/deliver/magnet-fridge-v1.png",
+      "size": [
+        88,
+        100
+      ],
+      "footprints": [
+        [
+          8,
+          59,
+          72,
+          34
+        ]
+      ],
+      "footPoint": [
+        44,
+        93
+      ],
+      "feetLine": 93,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "kitchen-counter-east",
+      "file": "../../house-ground-floor/repaint/deliver/kitchen-counter-east-v1.png",
+      "size": [
+        112,
+        60
+      ],
+      "footprints": [
+        [
+          7,
+          11,
+          98,
+          38
+        ]
+      ],
+      "footPoint": [
+        56,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "kitchen-runner",
+      "file": "../../house-ground-floor/repaint/deliver/kitchen-runner-v1.png",
+      "size": [
+        96,
+        220
+      ],
+      "footprints": [],
+      "footPoint": [
+        48,
+        213
+      ],
+      "feetLine": 213,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-ground-floor/repaint/deliver/manifest-ground-floor.json",
+      "reused": true
+    },
+    {
+      "id": "north-doorway",
+      "file": "../../house-upstairs/deliver/north-doorway-v1.png",
+      "size": [
+        144,
+        128
+      ],
+      "footprints": [],
+      "footPoint": [
+        72,
+        125
+      ],
+      "feetLine": 125,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "space-wall",
+      "file": "../../house-upstairs/deliver/space-wall-v1.png",
+      "size": [
+        100,
+        108
+      ],
+      "footprints": [],
+      "footPoint": [
+        50,
+        105
+      ],
+      "feetLine": 105,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "controller-guitar-wall",
+      "file": "../../house-upstairs/deliver/controller-guitar-wall-v1.png",
+      "size": [
+        112,
+        112
+      ],
+      "footprints": [],
+      "footPoint": [
+        56,
+        109
+      ],
+      "feetLine": 109,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "neon-wall",
+      "file": "../../house-upstairs/deliver/neon-wall-v1.png",
+      "size": [
+        156,
+        56
+      ],
+      "footprints": [],
+      "footPoint": [
+        78,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "pennant-car-wall",
+      "file": "../../house-upstairs/deliver/pennant-car-wall-v1.png",
+      "size": [
+        156,
+        60
+      ],
+      "footprints": [],
+      "footPoint": [
+        78,
+        57
+      ],
+      "feetLine": 57,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "window-east",
+      "file": "../../house-ground-floor/repaint/deliver/window-blinds-east-v1.png",
+      "size": [
+        24,
+        100
+      ],
+      "footprints": [],
+      "footPoint": [
+        12,
+        99
+      ],
+      "feetLine": 99,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "music-desk",
+      "file": "../../house-upstairs/deliver/music-desk-v1.png",
+      "size": [
+        204,
+        92
+      ],
+      "footprints": [
+        [
+          8,
+          56,
+          188,
+          30
+        ]
+      ],
+      "footPoint": [
+        102,
+        89
+      ],
+      "feetLine": 89,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "gaming-chair",
+      "file": "../../house-upstairs/deliver/gaming-chair-v1.png",
+      "size": [
+        56,
+        60
+      ],
+      "footprints": [
+        [
+          14,
+          30,
+          28,
+          24
+        ]
+      ],
+      "footPoint": [
+        28,
+        57
+      ],
+      "feetLine": 57,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "collectibles-shelf",
+      "file": "../../house-upstairs/deliver/collectibles-shelf-v1.png",
+      "size": [
+        100,
+        104
+      ],
+      "footprints": [
+        [
+          16,
+          76,
+          68,
+          22
+        ]
+      ],
+      "footPoint": [
+        50,
+        101
+      ],
+      "feetLine": 101,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "sleigh-bed",
+      "file": "../../house-upstairs/deliver/sleigh-bed-v1.png",
+      "size": [
+        156,
+        228
+      ],
+      "footprints": [
+        [
+          8,
+          44,
+          140,
+          176
+        ]
+      ],
+      "footPoint": [
+        78,
+        225
+      ],
+      "feetLine": 225,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "robot-figure",
+      "file": "../../house-upstairs/deliver/robot-figure-v1.png",
+      "size": [
+        28,
+        32
+      ],
+      "footprints": [],
+      "footPoint": [
+        14,
+        29
+      ],
+      "feetLine": 29,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "traffic-light",
+      "file": "../../house-upstairs/deliver/traffic-light-v1.png",
+      "size": [
+        28,
+        68
+      ],
+      "footprints": [],
+      "footPoint": [
+        14,
+        65
+      ],
+      "feetLine": 65,
+      "renderLayer": "wall-mounted",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "beanbag",
+      "file": "../../house-upstairs/deliver/beanbag-v1.png",
+      "size": [
+        104,
+        88
+      ],
+      "footprints": [
+        [
+          8,
+          32,
+          88,
+          50
+        ]
+      ],
+      "footPoint": [
+        52,
+        85
+      ],
+      "feetLine": 85,
+      "renderLayer": "furniture",
+      "kind": "WALL",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    },
+    {
+      "id": "clothes-floor",
+      "file": "../../house-upstairs/deliver/clothes-floor-v1.png",
+      "size": [
+        96,
+        56
+      ],
+      "footprints": [],
+      "footPoint": [
+        48,
+        53
+      ],
+      "feetLine": 53,
+      "renderLayer": "ground",
+      "kind": "WALK-THROUGH",
+      "previousManifest": "../../house-upstairs/deliver/manifest-upstairs.json",
+      "reused": true
+    }
+  ],
+  "palette": [
+    "#171C35",
+    "#303750",
+    "#526078",
+    "#3E7775",
+    "#83A89A",
+    "#A88B70",
+    "#D3B78D",
+    "#F2D7A1",
+    "#FFF0CF",
+    "#874C3B",
+    "#C45C4B",
+    "#EF9347",
+    "#E5A995",
+    "#F1B5BF",
+    "#BFA8CF",
+    "#B97A58",
+    "#70402F",
+    "#9BAE73",
+    "#6D895B",
+    "#315B4B",
+    "#D8AD4A"
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "expectedPieces": 10,
+  "actualPieces": 10,
+  "checks": [
+    {
+      "id": "galaxy-wall-tv",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "1f53018fa16c2abb545b347f5222182c120bdf3428baab63667ef9a1785f628e"
+    },
+    {
+      "id": "electric-console-east",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "d07f3cc64af4cdce61b987a71222cec2e366b3f751b6acc4fde770aada059fd7"
+    },
+    {
+      "id": "kitchen-counter-west",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "899dfd500390f361f0b57c8dbada074d8eae5cfb05b0c5122a38fe2e0056243d"
+    },
+    {
+      "id": "bird-of-paradise",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "1df08bb5ef0b8e21e5312055af864eaea626267f27c3158f6aeb27ae35615563"
+    },
+    {
+      "id": "camera-book-shelves",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "b83d66d5c410c021df87e130dff624c0cb7ac64acc62a68a2d72c58b07240e67"
+    },
+    {
+      "id": "tv-cube-shelf-east",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "06aa551cad1ca9c79ec73e14546ae9c2ea58d506d6e22e3b7bde9b6cccd264aa"
+    },
+    {
+      "id": "record-dresser-south",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "a53f030024d85fe8eaf7393c6315e8c9becbf7d08d2c2e570bbb38d490c8a413"
+    },
+    {
+      "id": "hamper",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "22c330441adf73a11545a2b53f67bfab5e8fb49a24fbeacbd61372959750f9ea"
+    },
+    {
+      "id": "guitar-amp",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "4b0997320120d97aed82ab65fc1d2985a2ad45b9234a4da848c965f542cb6abe"
+    },
+    {
+      "id": "abe-rug",
+      "size": true,
+      "exactWorking": true,
+      "exactReduction": true,
+      "palette": true,
+      "threeTones": true,
+      "binaryAlpha": true,
+      "boundedFootprints": true,
+      "sha256": "988c644e87d251f837b78192e7295384e4b97bde84bbbcaf09daf892868e3183"
+    }
+  ],
+  "exact3xPreviews": true
+}
