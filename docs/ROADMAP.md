@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (PR #11 revised: generic space/game-pad art, fuller upstairs room edges, distinct pictures and editor layout. All nine 96px door routes and six wall-coverage checks pass. Nothing placed in game. Roads-and-woods brief still waiting on Codex.)
+**Last updated:** 2026-11-13 (V2.41.2: Rami's downstairs layout is in the game; upstairs art approved and laid out by Rami. Next session: place the upstairs with wall faces. Then send Codex docs/handoffs/codex-house-fixes-round3.md. Roads-and-woods brief still waiting.)
 
 ---
 
