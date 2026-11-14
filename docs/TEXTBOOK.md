@@ -2220,3 +2220,14 @@ north wall: [storage] [picture] [window]
 +------------------------------------+
 ```
 The shelf, boxes and hamper have solid footprints at the edges. The rug adds detail but no collision, so the route can cross it. The wall-coverage check uses the visible paintings, while the doorway check uses footprints. Both need to pass before placement is approved.
+
+## 2026-11-13: why road edges must agree (Codex)
+
+```text
+STRAIGHT TILE       JUNCTION TILE
+curb | asphalt | curb
+     |         |    <- the curb positions must continue
+curb | asphalt | curb
+```
+
+Matching color hides a color seam. Matching the exact curb positions hides a shape seam. A correct PNG size proves neither, so road connections need their own check before the game uses the art.

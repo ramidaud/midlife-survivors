@@ -2510,3 +2510,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Three wall faces upstairs (top, linen/walk-in row, Abe's room and utility) with doorways where the hall connects. The bathroom, closets and stairs keep their art on the thin walls.
 - Route fixes in Abe's room: the gaming chair tucked under the desk, the beanbag slid toward the TV, the guitar amp moved to the southeast corner. Every upstairs room passes the route check.
 - Bug caught in testing: the upstairs carpet name was skipped by the game, so a teal carpet showed; renamed.
+
+## 2026-11-13: roads art proposals (Codex)
+- Prepared two north-south plates, a crossing, four T junctions, cars in three colors facing both ways, and two ground decals.
+- Painted sources reduced by whole numbers; native hero comparisons, proposed car footprints and a review page included.
+- Export sizes and alpha pass. Exact 320px road connections remain unresolved and are flagged separately for review.
+- Local browser access was blocked; native PNGs inspected. No game stats or scores sent. Art approval pending; Woods follows afterward.

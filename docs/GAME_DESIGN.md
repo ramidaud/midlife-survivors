@@ -787,3 +787,6 @@ House job 2 puts the twins' sleeping corner by the main-bedroom window. Abe's no
 
 ## 2026-11-13: PR #11 room-review direction (Codex)
 Rami requests generic branding: 60 YEARS IN SPACE replaces the agency poster, and a generic game-pad replaces the branded shape neon. Abe's north wall is visually continuous with a painted open doorway; the original north and west door intervals remain accessible. Desk and chair tuck north; beanbag, amplifier, rug and clothes furnish the left edges. Main bedroom adds a second window, art, mirrors, a mirrored dresser, rug, basket, plant and armchair, with the crib southeast and the middle walkable. Walk-in closet, hall, linen and utility use distinct pictures and shallow edge furnishings. Rugs and runners are walk-through. All changes remain art-review proposals on PR #11, with no runtime placement.
+
+## Roads art review, 2026-11-13 (Codex)
+North-south street and junction proposals are staged under `assets/stage/home/v4/roads/`, pending art approval and exact connection alignment. Cars become separate wall sprites, with three colors and both north/south orientations; manholes and storm drains are walk-through decals. No runtime placement yet. The Woods remains the next art job after road review, exclusive to Full Life past 65.

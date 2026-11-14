@@ -1,0 +1,107 @@
+[
+  {
+    "id": "street-ns-a",
+    "size": [
+      512,
+      832
+    ]
+  },
+  {
+    "id": "street-ns-b",
+    "size": [
+      512,
+      832
+    ]
+  },
+  {
+    "id": "crossing-four-way",
+    "size": [
+      512,
+      512
+    ]
+  },
+  {
+    "id": "junction-t-north",
+    "size": [
+      512,
+      512
+    ]
+  },
+  {
+    "id": "junction-t-south",
+    "size": [
+      512,
+      512
+    ]
+  },
+  {
+    "id": "junction-t-east",
+    "size": [
+      512,
+      512
+    ]
+  },
+  {
+    "id": "junction-t-west",
+    "size": [
+      512,
+      512
+    ]
+  },
+  {
+    "id": "car-sage-up",
+    "size": [
+      80,
+      144
+    ]
+  },
+  {
+    "id": "car-sage-down",
+    "size": [
+      80,
+      144
+    ]
+  },
+  {
+    "id": "car-russet-up",
+    "size": [
+      80,
+      144
+    ]
+  },
+  {
+    "id": "car-russet-down",
+    "size": [
+      80,
+      144
+    ]
+  },
+  {
+    "id": "car-slate-up",
+    "size": [
+      80,
+      144
+    ]
+  },
+  {
+    "id": "car-slate-down",
+    "size": [
+      80,
+      144
+    ]
+  },
+  {
+    "id": "manhole",
+    "size": [
+      48,
+      48
+    ]
+  },
+  {
+    "id": "storm-drain",
+    "size": [
+      64,
+      24
+    ]
+  }
+]
