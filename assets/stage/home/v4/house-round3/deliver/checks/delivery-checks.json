@@ -1,0 +1,25 @@
+{
+  "artPackagePassed": true,
+  "paintedVariants": 10,
+  "singleSourceFolder": true,
+  "savedEditorCoordinatesPreserved": true,
+  "exactNativeSizes": true,
+  "exact3xRoomAndFootprintPreviews": true,
+  "reviewLinksExist": true,
+  "aboveFloorFootprintRegressionPassed": true,
+  "solidBarrierRegressionPassed": true,
+  "layoutReadyForPlacement": false,
+  "doorRoutes": {
+    "living": false,
+    "dining-desk-shared": false,
+    "kitchen": true,
+    "abe-room": true
+  },
+  "roomsNeedingLayoutReview": [
+    "living",
+    "dining-desk-shared",
+    "abe-room"
+  ],
+  "runtimeTouched": false,
+  "telemetryLoaded": false
+}

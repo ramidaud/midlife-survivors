@@ -1,0 +1,4880 @@
+{
+  "views": [
+    {
+      "id": "living",
+      "rect": [
+        16,
+        16,
+        768,
+        345
+      ],
+      "file": "mockups/living-3x.png",
+      "overlay": "mockups/living-footprints-3x.png",
+      "canvasFloorOrigin": [
+        36,
+        168
+      ],
+      "note": "Exact saved editor coordinates. Native-size paintings, no piece transforms. Canvas extends to show overhanging art without cropping."
+    },
+    {
+      "id": "dining-desk-shared",
+      "rect": [
+        184,
+        361,
+        600,
+        322
+      ],
+      "file": "mockups/dining-desk-shared-3x.png",
+      "overlay": "mockups/dining-desk-shared-footprints-3x.png",
+      "canvasFloorOrigin": [
+        32,
+        164
+      ],
+      "note": "Exact saved editor coordinates. Native-size paintings, no piece transforms. Canvas extends to show overhanging art without cropping."
+    },
+    {
+      "id": "kitchen",
+      "rect": [
+        368,
+        699,
+        416,
+        332
+      ],
+      "file": "mockups/kitchen-3x.png",
+      "overlay": "mockups/kitchen-footprints-3x.png",
+      "canvasFloorOrigin": [
+        32,
+        160
+      ],
+      "note": "Exact saved editor coordinates. Native-size paintings, no piece transforms. Canvas extends to show overhanging art without cropping."
+    },
+    {
+      "id": "abe-room",
+      "rect": [
+        180,
+        951,
+        604,
+        406
+      ],
+      "file": "mockups/abe-room-3x.png",
+      "overlay": "mockups/abe-room-footprints-3x.png",
+      "canvasFloorOrigin": [
+        32,
+        160
+      ],
+      "note": "Exact saved editor coordinates. Native-size paintings, no piece transforms. Canvas extends to show overhanging art without cropping."
+    }
+  ],
+  "placements": [
+    {
+      "id": "photo-ledges",
+      "editorId": "photo-ledges",
+      "instance": 0,
+      "at": [
+        8,
+        -112
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        8,
+        -112
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "tile-fireplace",
+      "editorId": "tile-fireplace",
+      "instance": 1,
+      "at": [
+        232,
+        -44
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          239,
+          -15,
+          138,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        232,
+        -44
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "ornate-silver-mirror",
+      "editorId": "ornate-silver-mirror",
+      "instance": 2,
+      "at": [
+        240,
+        -128
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        240,
+        -128
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "window-olive-curtains",
+      "editorId": "window-olive-curtains",
+      "instance": 3,
+      "at": [
+        128,
+        -124
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        128,
+        -124
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "galaxy-wall-tv",
+      "editorId": "galaxy-wall-tv",
+      "instance": 4,
+      "at": [
+        724,
+        -100
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        724,
+        -100
+      ],
+      "editorRequestedScale": 200,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "fluted-media-console",
+      "editorId": "fluted-media-console",
+      "instance": 5,
+      "at": [
+        704,
+        56
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          711,
+          63,
+          50,
+          170
+        ]
+      ],
+      "sourcePosition": [
+        704,
+        56
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "cream-sofa",
+      "editorId": "cream-sofa",
+      "instance": 6,
+      "at": [
+        -4,
+        60
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          5,
+          75,
+          78,
+          238
+        ]
+      ],
+      "sourcePosition": [
+        -4,
+        60
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "leather-recliner",
+      "editorId": "leather-recliner",
+      "instance": 7,
+      "at": [
+        408,
+        -28
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          434,
+          5,
+          68,
+          50
+        ]
+      ],
+      "sourcePosition": [
+        408,
+        -28
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "round-coffee-table",
+      "editorId": "round-coffee-table",
+      "instance": 8,
+      "at": [
+        236,
+        152
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          247,
+          152,
+          164,
+          36
+        ]
+      ],
+      "sourcePosition": [
+        236,
+        152
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "persian-living-rug",
+      "editorId": "persian-living-rug",
+      "instance": 9,
+      "at": [
+        88,
+        60
+      ],
+      "room": "living",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        88,
+        60
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "potted-pothos",
+      "editorId": "potted-pothos",
+      "instance": 10,
+      "at": [
+        156,
+        -136
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        156,
+        -136
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "bird-of-paradise",
+      "editorId": "bird-of-paradise",
+      "instance": 11,
+      "at": [
+        544,
+        -40
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          568,
+          23,
+          16,
+          11
+        ]
+      ],
+      "sourcePosition": [
+        544,
+        -40
+      ],
+      "editorRequestedScale": 80,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "drum-floor-lamp",
+      "editorId": "drum-floor-lamp",
+      "instance": 12,
+      "at": [
+        100,
+        -84
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          116,
+          1,
+          12,
+          8
+        ]
+      ],
+      "sourcePosition": [
+        100,
+        -84
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "arched-floor-lamp",
+      "editorId": "arched-floor-lamp",
+      "instance": 13,
+      "at": [
+        480,
+        -72
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          527,
+          13,
+          12,
+          8
+        ]
+      ],
+      "sourcePosition": [
+        480,
+        -72
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "racing-sim-rig",
+      "editorId": "racing-sim-rig",
+      "instance": 14,
+      "at": [
+        540,
+        140
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          552,
+          173,
+          156,
+          92
+        ]
+      ],
+      "sourcePosition": [
+        540,
+        140
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "sim-cables",
+      "editorId": "sim-cables",
+      "instance": 15,
+      "at": [
+        568,
+        204
+      ],
+      "room": "living",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        568,
+        204
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "baby-swing-pink",
+      "editorId": "baby-swing-pink",
+      "instance": 16,
+      "at": [
+        244,
+        8
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          251,
+          37,
+          46,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        244,
+        8
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "baby-swing-grey",
+      "editorId": "baby-swing-grey",
+      "instance": 17,
+      "at": [
+        308,
+        8
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          315,
+          37,
+          46,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        308,
+        8
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "blanket-basket",
+      "editorId": "blanket-basket",
+      "instance": 18,
+      "at": [
+        160,
+        28
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          172,
+          28,
+          32,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        160,
+        28
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "snack-bag",
+      "editorId": "snack-bag",
+      "instance": 19,
+      "at": [
+        224,
+        304
+      ],
+      "room": "living",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        224,
+        304
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "south-love-seat",
+      "editorId": "south-love-seat",
+      "instance": 20,
+      "at": [
+        180,
+        268
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          187,
+          327,
+          262,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        180,
+        268
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "bird-of-paradise-original",
+      "editorId": "bird-of-paradise",
+      "instance": 21,
+      "at": [
+        148,
+        -76
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          178,
+          3,
+          20,
+          14
+        ]
+      ],
+      "sourcePosition": [
+        148,
+        -76
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "window-olive-curtains",
+      "editorId": "window-olive-curtains",
+      "instance": 22,
+      "at": [
+        408,
+        -120
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        408,
+        -120
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "potted-pothos",
+      "editorId": "potted-pothos",
+      "instance": 23,
+      "at": [
+        436,
+        -132
+      ],
+      "room": "living",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        436,
+        -132
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "twin-bassinets",
+      "editorId": "twin-bassinets",
+      "instance": 24,
+      "at": [
+        0,
+        0
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          7,
+          29,
+          66,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        0,
+        0
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "side-table-lamp",
+      "editorId": "side-table-lamp",
+      "instance": 25,
+      "at": [
+        104,
+        248
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          117,
+          325,
+          58,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        104,
+        248
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "side-table-lamp",
+      "editorId": "side-table-lamp",
+      "instance": 26,
+      "at": [
+        448,
+        252
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          461,
+          329,
+          58,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        448,
+        252
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "twins-toy-bin",
+      "editorId": "twins-toy-bin",
+      "instance": 27,
+      "at": [
+        76,
+        0
+      ],
+      "room": "living",
+      "layer": "furniture",
+      "footprints": [
+        [
+          83,
+          0,
+          58,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        76,
+        0
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "houseplant-cluster",
+      "editorId": "houseplant-cluster",
+      "instance": 0,
+      "at": [
+        8,
+        -44
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          15,
+          13,
+          74,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        8,
+        -44
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "round-dining-table",
+      "editorId": "round-dining-table",
+      "instance": 1,
+      "at": [
+        64,
+        80
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          75,
+          97,
+          170,
+          36
+        ]
+      ],
+      "sourcePosition": [
+        64,
+        80
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "dining-chair-north",
+      "editorId": "dining-chair-north",
+      "instance": 2,
+      "at": [
+        136,
+        120
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          143,
+          149,
+          34,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        136,
+        120
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "dining-chair-south",
+      "editorId": "dining-chair-south",
+      "instance": 3,
+      "at": [
+        136,
+        52
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          143,
+          81,
+          34,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        136,
+        52
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "dining-chair-east",
+      "editorId": "dining-chair-east",
+      "instance": 4,
+      "at": [
+        44,
+        80
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          51,
+          109,
+          34,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        44,
+        80
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "dining-chair-west",
+      "editorId": "dining-chair-west",
+      "instance": 5,
+      "at": [
+        228,
+        80
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          235,
+          109,
+          34,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        228,
+        80
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "dining-rug",
+      "editorId": "dining-rug",
+      "instance": 6,
+      "at": [
+        16,
+        8
+      ],
+      "room": "dining-desk-shared",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        16,
+        8
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "corner-computer-desk",
+      "editorId": "corner-computer-desk",
+      "instance": 7,
+      "at": [
+        352,
+        -48
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          361,
+          -29,
+          222,
+          34
+        ],
+        [
+          547,
+          -17,
+          36,
+          20
+        ]
+      ],
+      "sourcePosition": [
+        352,
+        -48
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "camera-book-shelves",
+      "editorId": "camera-book-shelves",
+      "instance": 8,
+      "at": [
+        376,
+        -132
+      ],
+      "room": "dining-desk-shared",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        376,
+        -132
+      ],
+      "editorRequestedScale": 90,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "mesh-office-chair",
+      "editorId": "mesh-office-chair",
+      "instance": 9,
+      "at": [
+        444,
+        -12
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          451,
+          17,
+          42,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        444,
+        -12
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "moon-print",
+      "editorId": "moon-print",
+      "instance": 10,
+      "at": [
+        280,
+        -104
+      ],
+      "room": "dining-desk-shared",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        280,
+        -104
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "kids-drawings",
+      "editorId": "kids-drawings",
+      "instance": 11,
+      "at": [
+        276,
+        -128
+      ],
+      "room": "dining-desk-shared",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        276,
+        -128
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "electric-console-east",
+      "editorId": "electric-console-east",
+      "instance": 12,
+      "at": [
+        360,
+        88
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          370,
+          104,
+          195,
+          51
+        ]
+      ],
+      "sourcePosition": [
+        360,
+        88
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "abstract-wall-painting",
+      "editorId": "abstract-wall-painting",
+      "instance": 13,
+      "at": [
+        136,
+        -128
+      ],
+      "room": "dining-desk-shared",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        136,
+        -128
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "potted-orchid",
+      "editorId": "potted-orchid",
+      "instance": 14,
+      "at": [
+        192,
+        64
+      ],
+      "room": "dining-desk-shared",
+      "layer": "furniture",
+      "footprints": [
+        [
+          204,
+          103,
+          20,
+          14
+        ]
+      ],
+      "sourcePosition": [
+        192,
+        64
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "window-blinds-north",
+      "editorId": "window-blinds-north",
+      "instance": 15,
+      "at": [
+        8,
+        -112
+      ],
+      "room": "dining-desk-shared",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        8,
+        -112
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "white-oak-sink-counter",
+      "editorId": "white-oak-sink-counter",
+      "instance": 0,
+      "at": [
+        0,
+        -24
+      ],
+      "room": "kitchen",
+      "layer": "furniture",
+      "footprints": [
+        [
+          7,
+          5,
+          170,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        0,
+        -24
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "white-oak-upper-cabinets",
+      "editorId": "white-oak-upper-cabinets",
+      "instance": 1,
+      "at": [
+        0,
+        -112
+      ],
+      "room": "kitchen",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        0,
+        -112
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "stove-microwave",
+      "editorId": "stove-microwave",
+      "instance": 2,
+      "at": [
+        192,
+        -64
+      ],
+      "room": "kitchen",
+      "layer": "furniture",
+      "footprints": [
+        [
+          200,
+          -5,
+          64,
+          34
+        ]
+      ],
+      "sourcePosition": [
+        192,
+        -64
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "magnet-fridge",
+      "editorId": "magnet-fridge",
+      "instance": 3,
+      "at": [
+        320,
+        232
+      ],
+      "room": "kitchen",
+      "layer": "furniture",
+      "footprints": [
+        [
+          328,
+          291,
+          72,
+          34
+        ]
+      ],
+      "sourcePosition": [
+        320,
+        232
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "kitchen-counter-west",
+      "editorId": "kitchen-counter-west",
+      "instance": 4,
+      "at": [
+        164,
+        88
+      ],
+      "room": "kitchen",
+      "layer": "furniture",
+      "footprints": [
+        [
+          172,
+          136,
+          224,
+          22
+        ],
+        [
+          210,
+          158,
+          26,
+          16
+        ],
+        [
+          272,
+          158,
+          26,
+          16
+        ],
+        [
+          334,
+          158,
+          26,
+          16
+        ]
+      ],
+      "sourcePosition": [
+        164,
+        88
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "kitchen-counter-east",
+      "editorId": "kitchen-counter-east",
+      "instance": 5,
+      "at": [
+        280,
+        -24
+      ],
+      "room": "kitchen",
+      "layer": "furniture",
+      "footprints": [
+        [
+          287,
+          -13,
+          98,
+          38
+        ]
+      ],
+      "sourcePosition": [
+        280,
+        -24
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "kitchen-runner",
+      "editorId": "kitchen-runner",
+      "instance": 6,
+      "at": [
+        44,
+        68
+      ],
+      "room": "kitchen",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        44,
+        68
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "white-oak-upper-cabinets",
+      "editorId": "white-oak-upper-cabinets",
+      "instance": 7,
+      "at": [
+        208,
+        -112
+      ],
+      "room": "kitchen",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        208,
+        -112
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "north-doorway",
+      "editorId": "north-doorway",
+      "instance": 0,
+      "at": [
+        20,
+        -128
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        20,
+        -128
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "space-wall",
+      "editorId": "space-wall",
+      "instance": 1,
+      "at": [
+        168,
+        -124
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        168,
+        -124
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "controller-guitar-wall",
+      "editorId": "controller-guitar-wall",
+      "instance": 2,
+      "at": [
+        276,
+        -124
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        276,
+        -124
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "neon-wall",
+      "editorId": "neon-wall",
+      "instance": 3,
+      "at": [
+        400,
+        -124
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        400,
+        -124
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "pennant-car-wall",
+      "editorId": "pennant-car-wall",
+      "instance": 4,
+      "at": [
+        400,
+        -60
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        400,
+        -60
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "window-east",
+      "editorId": "window-east",
+      "instance": 5,
+      "at": [
+        592,
+        240
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        592,
+        240
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "music-desk",
+      "editorId": "music-desk",
+      "instance": 6,
+      "at": [
+        192,
+        -48
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          200,
+          8,
+          188,
+          30
+        ]
+      ],
+      "sourcePosition": [
+        192,
+        -48
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "gaming-chair",
+      "editorId": "gaming-chair",
+      "instance": 7,
+      "at": [
+        268,
+        20
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          282,
+          50,
+          28,
+          24
+        ]
+      ],
+      "sourcePosition": [
+        268,
+        20
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "collectibles-shelf",
+      "editorId": "collectibles-shelf",
+      "instance": 8,
+      "at": [
+        468,
+        -16
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          484,
+          60,
+          68,
+          22
+        ]
+      ],
+      "sourcePosition": [
+        468,
+        -16
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "tv-cube-shelf-east",
+      "editorId": "tv-cube-shelf-east",
+      "instance": 9,
+      "at": [
+        516,
+        40
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          534,
+          94,
+          60,
+          153
+        ]
+      ],
+      "sourcePosition": [
+        516,
+        40
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "sleigh-bed",
+      "editorId": "sleigh-bed",
+      "instance": 10,
+      "at": [
+        216,
+        96
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          224,
+          140,
+          140,
+          176
+        ]
+      ],
+      "sourcePosition": [
+        216,
+        96
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "record-dresser-south",
+      "editorId": "record-dresser-south",
+      "instance": 11,
+      "at": [
+        148,
+        292
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          157,
+          349,
+          288,
+          48
+        ]
+      ],
+      "sourcePosition": [
+        148,
+        292
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "hamper",
+      "editorId": "hamper",
+      "instance": 12,
+      "at": [
+        120,
+        292
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          130,
+          325,
+          50,
+          36
+        ]
+      ],
+      "sourcePosition": [
+        120,
+        292
+      ],
+      "editorRequestedScale": 150,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "robot-figure",
+      "editorId": "robot-figure",
+      "instance": 13,
+      "at": [
+        156,
+        56
+      ],
+      "room": "abe-room",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        156,
+        56
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "traffic-light",
+      "editorId": "traffic-light",
+      "instance": 14,
+      "at": [
+        572,
+        -124
+      ],
+      "room": "abe-room",
+      "layer": "wall-mounted",
+      "footprints": [],
+      "sourcePosition": [
+        572,
+        -124
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "beanbag",
+      "editorId": "beanbag",
+      "instance": 15,
+      "at": [
+        400,
+        132
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          408,
+          164,
+          88,
+          50
+        ]
+      ],
+      "sourcePosition": [
+        400,
+        132
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    },
+    {
+      "id": "guitar-amp",
+      "editorId": "guitar-amp",
+      "instance": 16,
+      "at": [
+        408,
+        8
+      ],
+      "room": "abe-room",
+      "layer": "furniture",
+      "footprints": [
+        [
+          420,
+          34,
+          36,
+          18
+        ]
+      ],
+      "sourcePosition": [
+        408,
+        8
+      ],
+      "editorRequestedScale": 75,
+      "editorRequestedRotation": 90,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "abe-rug",
+      "editorId": "abe-rug",
+      "instance": 17,
+      "at": [
+        120,
+        92
+      ],
+      "room": "abe-room",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        120,
+        92
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 270,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": true
+    },
+    {
+      "id": "clothes-floor",
+      "editorId": "clothes-floor",
+      "instance": 18,
+      "at": [
+        40,
+        340
+      ],
+      "room": "abe-room",
+      "layer": "ground",
+      "footprints": [],
+      "sourcePosition": [
+        40,
+        340
+      ],
+      "editorRequestedScale": 100,
+      "editorRequestedRotation": 0,
+      "scaleApplied": 1,
+      "rotationApplied": 0,
+      "repainted": false
+    }
+  ],
+  "routeChecks": {
+    "living": {
+      "clearance": 96,
+      "passed": false,
+      "requiredDoors": [
+        "patio",
+        "dining"
+      ],
+      "openingsChecked": [
+        [
+          "patio",
+          "north",
+          64,
+          184
+        ],
+        [
+          "dining",
+          "south",
+          656,
+          768
+        ]
+      ],
+      "components": [
+        {
+          "positions": 39049,
+          "doors": [],
+          "previewCenters": [
+            [
+              640,
+              48
+            ],
+            [
+              656,
+              48
+            ],
+            [
+              640,
+              64
+            ],
+            [
+              656,
+              64
+            ],
+            [
+              640,
+              80
+            ],
+            [
+              656,
+              80
+            ],
+            [
+              640,
+              96
+            ],
+            [
+              624,
+              96
+            ],
+            [
+              656,
+              96
+            ],
+            [
+              640,
+              112
+            ],
+            [
+              608,
+              96
+            ],
+            [
+              624,
+              112
+            ],
+            [
+              656,
+              112
+            ],
+            [
+              592,
+              96
+            ],
+            [
+              608,
+              112
+            ],
+            [
+              576,
+              96
+            ],
+            [
+              592,
+              112
+            ],
+            [
+              560,
+              96
+            ],
+            [
+              576,
+              112
+            ],
+            [
+              560,
+              112
+            ],
+            [
+              544,
+              112
+            ],
+            [
+              528,
+              112
+            ],
+            [
+              512,
+              112
+            ],
+            [
+              496,
+              112
+            ],
+            [
+              480,
+              112
+            ],
+            [
+              496,
+              128
+            ],
+            [
+              464,
+              112
+            ],
+            [
+              480,
+              128
+            ],
+            [
+              496,
+              144
+            ],
+            [
+              464,
+              128
+            ],
+            [
+              480,
+              144
+            ],
+            [
+              496,
+              160
+            ],
+            [
+              464,
+              144
+            ],
+            [
+              480,
+              160
+            ],
+            [
+              496,
+              176
+            ],
+            [
+              464,
+              160
+            ],
+            [
+              480,
+              176
+            ],
+            [
+              496,
+              192
+            ],
+            [
+              464,
+              176
+            ],
+            [
+              480,
+              192
+            ],
+            [
+              496,
+              208
+            ],
+            [
+              464,
+              192
+            ],
+            [
+              480,
+              208
+            ],
+            [
+              496,
+              224
+            ],
+            [
+              464,
+              208
+            ],
+            [
+              480,
+              224
+            ],
+            [
+              496,
+              240
+            ],
+            [
+              464,
+              224
+            ],
+            [
+              480,
+              240
+            ],
+            [
+              496,
+              256
+            ],
+            [
+              464,
+              240
+            ],
+            [
+              480,
+              256
+            ],
+            [
+              496,
+              272
+            ],
+            [
+              448,
+              240
+            ],
+            [
+              464,
+              256
+            ],
+            [
+              480,
+              272
+            ],
+            [
+              432,
+              240
+            ],
+            [
+              448,
+              256
+            ],
+            [
+              464,
+              272
+            ],
+            [
+              416,
+              240
+            ],
+            [
+              432,
+              256
+            ],
+            [
+              448,
+              272
+            ],
+            [
+              400,
+              240
+            ],
+            [
+              416,
+              256
+            ],
+            [
+              432,
+              272
+            ],
+            [
+              384,
+              240
+            ],
+            [
+              400,
+              256
+            ],
+            [
+              416,
+              272
+            ],
+            [
+              368,
+              240
+            ],
+            [
+              384,
+              256
+            ],
+            [
+              400,
+              272
+            ],
+            [
+              352,
+              240
+            ],
+            [
+              368,
+              256
+            ],
+            [
+              384,
+              272
+            ],
+            [
+              336,
+              240
+            ],
+            [
+              352,
+              256
+            ],
+            [
+              368,
+              272
+            ],
+            [
+              320,
+              240
+            ],
+            [
+              336,
+              256
+            ],
+            [
+              352,
+              272
+            ],
+            [
+              304,
+              240
+            ],
+            [
+              320,
+              256
+            ],
+            [
+              336,
+              272
+            ],
+            [
+              288,
+              240
+            ],
+            [
+              304,
+              256
+            ],
+            [
+              320,
+              272
+            ],
+            [
+              272,
+              240
+            ],
+            [
+              288,
+              256
+            ],
+            [
+              304,
+              272
+            ],
+            [
+              256,
+              240
+            ],
+            [
+              272,
+              256
+            ],
+            [
+              288,
+              272
+            ],
+            [
+              240,
+              240
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              272,
+              272
+            ],
+            [
+              224,
+              240
+            ],
+            [
+              240,
+              256
+            ],
+            [
+              256,
+              272
+            ],
+            [
+              208,
+              240
+            ],
+            [
+              224,
+              256
+            ],
+            [
+              240,
+              272
+            ],
+            [
+              192,
+              240
+            ],
+            [
+              208,
+              256
+            ],
+            [
+              224,
+              272
+            ],
+            [
+              192,
+              224
+            ],
+            [
+              176,
+              240
+            ],
+            [
+              192,
+              256
+            ],
+            [
+              208,
+              272
+            ],
+            [
+              176,
+              224
+            ],
+            [
+              192,
+              208
+            ],
+            [
+              160,
+              240
+            ],
+            [
+              176,
+              256
+            ],
+            [
+              192,
+              272
+            ],
+            [
+              160,
+              224
+            ],
+            [
+              176,
+              208
+            ],
+            [
+              192,
+              192
+            ],
+            [
+              144,
+              240
+            ],
+            [
+              160,
+              256
+            ],
+            [
+              176,
+              272
+            ],
+            [
+              144,
+              224
+            ],
+            [
+              160,
+              208
+            ],
+            [
+              176,
+              192
+            ],
+            [
+              192,
+              176
+            ],
+            [
+              144,
+              256
+            ],
+            [
+              160,
+              272
+            ],
+            [
+              144,
+              208
+            ],
+            [
+              160,
+              192
+            ],
+            [
+              176,
+              176
+            ],
+            [
+              192,
+              160
+            ],
+            [
+              144,
+              272
+            ],
+            [
+              144,
+              192
+            ],
+            [
+              160,
+              176
+            ],
+            [
+              176,
+              160
+            ],
+            [
+              192,
+              144
+            ],
+            [
+              144,
+              176
+            ],
+            [
+              160,
+              160
+            ],
+            [
+              176,
+              144
+            ],
+            [
+              192,
+              128
+            ],
+            [
+              144,
+              160
+            ],
+            [
+              160,
+              144
+            ],
+            [
+              176,
+              128
+            ],
+            [
+              192,
+              112
+            ],
+            [
+              144,
+              144
+            ],
+            [
+              160,
+              128
+            ],
+            [
+              176,
+              112
+            ],
+            [
+              144,
+              128
+            ],
+            [
+              160,
+              112
+            ],
+            [
+              144,
+              112
+            ]
+          ]
+        }
+      ],
+      "note": "Saved editor positions are authoritative. No runtime nudges, scale or rotation applied. Route result concerns door connectivity; overlaps, clear pockets and overhangs are reported separately. New art is not integrated.",
+      "footprintOverlaps": [
+        {
+          "left": "drum-floor-lamp",
+          "right": "twins-toy-bin",
+          "rect": [
+            116,
+            1,
+            12,
+            8
+          ]
+        }
+      ],
+      "footprintsOutsideFloor": [
+        {
+          "id": "tile-fireplace",
+          "instance": 1,
+          "footprint": [
+            239,
+            -15,
+            138,
+            24
+          ],
+          "repainted": false
+        },
+        {
+          "id": "south-love-seat",
+          "instance": 20,
+          "footprint": [
+            187,
+            327,
+            262,
+            24
+          ],
+          "repainted": false
+        },
+        {
+          "id": "side-table-lamp",
+          "instance": 25,
+          "footprint": [
+            117,
+            325,
+            58,
+            24
+          ],
+          "repainted": false
+        },
+        {
+          "id": "side-table-lamp",
+          "instance": 26,
+          "footprint": [
+            461,
+            329,
+            58,
+            24
+          ],
+          "repainted": false
+        }
+      ],
+      "artOverhangs": [
+        {
+          "id": "galaxy-wall-tv",
+          "instance": 4,
+          "at": [
+            724,
+            -100
+          ],
+          "size": [
+            184,
+            240
+          ],
+          "repainted": true
+        },
+        {
+          "id": "cream-sofa",
+          "instance": 6,
+          "at": [
+            -4,
+            60
+          ],
+          "size": [
+            96,
+            264
+          ],
+          "repainted": false
+        },
+        {
+          "id": "potted-pothos",
+          "instance": 10,
+          "at": [
+            156,
+            -136
+          ],
+          "size": [
+            56,
+            72
+          ],
+          "repainted": false
+        },
+        {
+          "id": "south-love-seat",
+          "instance": 20,
+          "at": [
+            180,
+            268
+          ],
+          "size": [
+            276,
+            90
+          ],
+          "repainted": false
+        },
+        {
+          "id": "potted-pothos",
+          "instance": 23,
+          "at": [
+            436,
+            -132
+          ],
+          "size": [
+            56,
+            72
+          ],
+          "repainted": false
+        },
+        {
+          "id": "side-table-lamp",
+          "instance": 25,
+          "at": [
+            104,
+            248
+          ],
+          "size": [
+            84,
+            108
+          ],
+          "repainted": false
+        },
+        {
+          "id": "side-table-lamp",
+          "instance": 26,
+          "at": [
+            448,
+            252
+          ],
+          "size": [
+            84,
+            108
+          ],
+          "repainted": false
+        }
+      ],
+      "unreachableClearSquares": 39049,
+      "layoutSource": "docs/plans/house-layout/rami-layout-nov13.json",
+      "positionsPreserved": true,
+      "layoutNeedsReview": true
+    },
+    "dining-desk-shared": {
+      "clearance": 96,
+      "passed": false,
+      "requiredDoors": [
+        "living",
+        "hall"
+      ],
+      "openingsChecked": [
+        [
+          "living",
+          "north",
+          488,
+          600
+        ],
+        [
+          "hall",
+          "south",
+          16,
+          152
+        ]
+      ],
+      "components": [
+        {
+          "positions": 38799,
+          "doors": [
+            "hall"
+          ],
+          "previewCenters": [
+            [
+              240,
+              48
+            ],
+            [
+              256,
+              48
+            ],
+            [
+              272,
+              48
+            ],
+            [
+              288,
+              48
+            ],
+            [
+              304,
+              48
+            ],
+            [
+              320,
+              64
+            ],
+            [
+              320,
+              80
+            ],
+            [
+              320,
+              96
+            ],
+            [
+              320,
+              112
+            ],
+            [
+              320,
+              128
+            ],
+            [
+              320,
+              144
+            ],
+            [
+              320,
+              160
+            ],
+            [
+              320,
+              176
+            ],
+            [
+              320,
+              192
+            ],
+            [
+              304,
+              192
+            ],
+            [
+              320,
+              208
+            ],
+            [
+              288,
+              192
+            ],
+            [
+              304,
+              208
+            ],
+            [
+              336,
+              208
+            ],
+            [
+              320,
+              224
+            ],
+            [
+              272,
+              192
+            ],
+            [
+              288,
+              208
+            ],
+            [
+              304,
+              224
+            ],
+            [
+              352,
+              208
+            ],
+            [
+              336,
+              224
+            ],
+            [
+              320,
+              240
+            ],
+            [
+              256,
+              192
+            ],
+            [
+              272,
+              208
+            ],
+            [
+              288,
+              224
+            ],
+            [
+              304,
+              240
+            ],
+            [
+              368,
+              208
+            ],
+            [
+              352,
+              224
+            ],
+            [
+              336,
+              240
+            ],
+            [
+              320,
+              256
+            ],
+            [
+              240,
+              192
+            ],
+            [
+              256,
+              208
+            ],
+            [
+              272,
+              224
+            ],
+            [
+              288,
+              240
+            ],
+            [
+              304,
+              256
+            ],
+            [
+              384,
+              208
+            ],
+            [
+              368,
+              224
+            ],
+            [
+              352,
+              240
+            ],
+            [
+              336,
+              256
+            ],
+            [
+              320,
+              272
+            ],
+            [
+              240,
+              208
+            ],
+            [
+              256,
+              224
+            ],
+            [
+              272,
+              240
+            ],
+            [
+              288,
+              256
+            ],
+            [
+              304,
+              272
+            ],
+            [
+              400,
+              208
+            ],
+            [
+              384,
+              224
+            ],
+            [
+              368,
+              240
+            ],
+            [
+              352,
+              256
+            ],
+            [
+              336,
+              272
+            ],
+            [
+              240,
+              224
+            ],
+            [
+              256,
+              240
+            ],
+            [
+              272,
+              256
+            ],
+            [
+              288,
+              272
+            ],
+            [
+              416,
+              208
+            ],
+            [
+              400,
+              224
+            ],
+            [
+              384,
+              240
+            ],
+            [
+              368,
+              256
+            ],
+            [
+              352,
+              272
+            ],
+            [
+              224,
+              224
+            ],
+            [
+              240,
+              240
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              272,
+              272
+            ],
+            [
+              432,
+              208
+            ],
+            [
+              416,
+              224
+            ],
+            [
+              400,
+              240
+            ],
+            [
+              384,
+              256
+            ],
+            [
+              368,
+              272
+            ],
+            [
+              208,
+              224
+            ],
+            [
+              224,
+              240
+            ],
+            [
+              240,
+              256
+            ],
+            [
+              256,
+              272
+            ],
+            [
+              448,
+              208
+            ],
+            [
+              432,
+              224
+            ],
+            [
+              416,
+              240
+            ],
+            [
+              400,
+              256
+            ],
+            [
+              384,
+              272
+            ],
+            [
+              192,
+              224
+            ],
+            [
+              208,
+              240
+            ],
+            [
+              224,
+              256
+            ],
+            [
+              240,
+              272
+            ],
+            [
+              464,
+              208
+            ],
+            [
+              448,
+              224
+            ],
+            [
+              432,
+              240
+            ],
+            [
+              416,
+              256
+            ],
+            [
+              400,
+              272
+            ],
+            [
+              176,
+              224
+            ],
+            [
+              192,
+              240
+            ],
+            [
+              208,
+              256
+            ],
+            [
+              224,
+              272
+            ],
+            [
+              480,
+              208
+            ],
+            [
+              464,
+              224
+            ],
+            [
+              448,
+              240
+            ],
+            [
+              432,
+              256
+            ],
+            [
+              416,
+              272
+            ],
+            [
+              160,
+              224
+            ],
+            [
+              176,
+              240
+            ],
+            [
+              192,
+              256
+            ],
+            [
+              208,
+              272
+            ],
+            [
+              496,
+              208
+            ],
+            [
+              480,
+              224
+            ],
+            [
+              464,
+              240
+            ],
+            [
+              448,
+              256
+            ],
+            [
+              432,
+              272
+            ],
+            [
+              144,
+              224
+            ],
+            [
+              160,
+              240
+            ],
+            [
+              176,
+              256
+            ],
+            [
+              192,
+              272
+            ],
+            [
+              512,
+              208
+            ],
+            [
+              496,
+              224
+            ],
+            [
+              480,
+              240
+            ],
+            [
+              464,
+              256
+            ],
+            [
+              448,
+              272
+            ],
+            [
+              128,
+              224
+            ],
+            [
+              144,
+              240
+            ],
+            [
+              160,
+              256
+            ],
+            [
+              176,
+              272
+            ],
+            [
+              528,
+              208
+            ],
+            [
+              512,
+              224
+            ],
+            [
+              496,
+              240
+            ],
+            [
+              480,
+              256
+            ],
+            [
+              464,
+              272
+            ],
+            [
+              112,
+              224
+            ],
+            [
+              128,
+              240
+            ],
+            [
+              144,
+              256
+            ],
+            [
+              160,
+              272
+            ],
+            [
+              544,
+              208
+            ],
+            [
+              528,
+              224
+            ],
+            [
+              512,
+              240
+            ],
+            [
+              496,
+              256
+            ],
+            [
+              480,
+              272
+            ],
+            [
+              96,
+              224
+            ],
+            [
+              112,
+              240
+            ],
+            [
+              128,
+              256
+            ],
+            [
+              144,
+              272
+            ],
+            [
+              544,
+              224
+            ],
+            [
+              528,
+              240
+            ],
+            [
+              512,
+              256
+            ],
+            [
+              496,
+              272
+            ],
+            [
+              80,
+              224
+            ],
+            [
+              96,
+              240
+            ],
+            [
+              112,
+              256
+            ],
+            [
+              128,
+              272
+            ],
+            [
+              544,
+              240
+            ],
+            [
+              528,
+              256
+            ],
+            [
+              512,
+              272
+            ],
+            [
+              80,
+              208
+            ],
+            [
+              64,
+              224
+            ],
+            [
+              80,
+              240
+            ],
+            [
+              96,
+              256
+            ],
+            [
+              112,
+              272
+            ],
+            [
+              544,
+              256
+            ],
+            [
+              528,
+              272
+            ],
+            [
+              64,
+              208
+            ],
+            [
+              80,
+              192
+            ],
+            [
+              48,
+              224
+            ],
+            [
+              64,
+              240
+            ],
+            [
+              80,
+              256
+            ],
+            [
+              96,
+              272
+            ],
+            [
+              544,
+              272
+            ],
+            [
+              48,
+              208
+            ],
+            [
+              64,
+              192
+            ],
+            [
+              48,
+              240
+            ],
+            [
+              64,
+              256
+            ],
+            [
+              80,
+              272
+            ],
+            [
+              48,
+              192
+            ],
+            [
+              48,
+              256
+            ],
+            [
+              64,
+              272
+            ],
+            [
+              48,
+              272
+            ]
+          ]
+        },
+        {
+          "positions": 48,
+          "doors": [],
+          "previewCenters": []
+        }
+      ],
+      "note": "Saved editor positions are authoritative. No runtime nudges, scale or rotation applied. Route result concerns door connectivity; overlaps, clear pockets and overhangs are reported separately. New art is not integrated.",
+      "footprintOverlaps": [
+        {
+          "left": "round-dining-table",
+          "right": "dining-chair-south",
+          "rect": [
+            143,
+            97,
+            34,
+            8
+          ]
+        },
+        {
+          "left": "round-dining-table",
+          "right": "dining-chair-east",
+          "rect": [
+            75,
+            109,
+            10,
+            24
+          ]
+        },
+        {
+          "left": "round-dining-table",
+          "right": "dining-chair-west",
+          "rect": [
+            235,
+            109,
+            10,
+            24
+          ]
+        },
+        {
+          "left": "round-dining-table",
+          "right": "potted-orchid",
+          "rect": [
+            204,
+            103,
+            20,
+            14
+          ]
+        }
+      ],
+      "footprintsOutsideFloor": [
+        {
+          "id": "corner-computer-desk",
+          "instance": 7,
+          "footprint": [
+            361,
+            -29,
+            222,
+            34
+          ],
+          "repainted": false
+        },
+        {
+          "id": "corner-computer-desk",
+          "instance": 7,
+          "footprint": [
+            547,
+            -17,
+            36,
+            20
+          ],
+          "repainted": false
+        }
+      ],
+      "artOverhangs": [
+        {
+          "id": "camera-book-shelves",
+          "instance": 8,
+          "at": [
+            376,
+            -132
+          ],
+          "size": [
+            194,
+            90
+          ],
+          "repainted": true
+        }
+      ],
+      "unreachableClearSquares": 38847,
+      "layoutSource": "docs/plans/house-layout/rami-layout-nov13.json",
+      "positionsPreserved": true,
+      "layoutNeedsReview": true
+    },
+    "kitchen": {
+      "clearance": 96,
+      "passed": true,
+      "requiredDoors": [
+        "hall",
+        "breakfast-nook"
+      ],
+      "openingsChecked": [
+        [
+          "hall",
+          "west",
+          0,
+          332
+        ],
+        [
+          "breakfast-nook",
+          "south",
+          0,
+          296
+        ]
+      ],
+      "components": [
+        {
+          "positions": 31544,
+          "doors": [
+            "breakfast-nook",
+            "hall"
+          ],
+          "previewCenters": [
+            [
+              320,
+              80
+            ],
+            [
+              304,
+              80
+            ],
+            [
+              336,
+              80
+            ],
+            [
+              288,
+              80
+            ],
+            [
+              352,
+              80
+            ],
+            [
+              272,
+              80
+            ],
+            [
+              368,
+              80
+            ],
+            [
+              256,
+              80
+            ],
+            [
+              240,
+              80
+            ],
+            [
+              224,
+              80
+            ],
+            [
+              208,
+              80
+            ],
+            [
+              192,
+              80
+            ],
+            [
+              176,
+              80
+            ],
+            [
+              160,
+              80
+            ],
+            [
+              144,
+              80
+            ],
+            [
+              128,
+              80
+            ],
+            [
+              112,
+              80
+            ],
+            [
+              96,
+              80
+            ],
+            [
+              112,
+              96
+            ],
+            [
+              80,
+              80
+            ],
+            [
+              96,
+              96
+            ],
+            [
+              112,
+              112
+            ],
+            [
+              64,
+              80
+            ],
+            [
+              80,
+              96
+            ],
+            [
+              96,
+              112
+            ],
+            [
+              112,
+              128
+            ],
+            [
+              48,
+              80
+            ],
+            [
+              64,
+              96
+            ],
+            [
+              80,
+              112
+            ],
+            [
+              96,
+              128
+            ],
+            [
+              112,
+              144
+            ],
+            [
+              48,
+              96
+            ],
+            [
+              64,
+              112
+            ],
+            [
+              80,
+              128
+            ],
+            [
+              96,
+              144
+            ],
+            [
+              112,
+              160
+            ],
+            [
+              48,
+              112
+            ],
+            [
+              64,
+              128
+            ],
+            [
+              80,
+              144
+            ],
+            [
+              96,
+              160
+            ],
+            [
+              112,
+              176
+            ],
+            [
+              48,
+              128
+            ],
+            [
+              64,
+              144
+            ],
+            [
+              80,
+              160
+            ],
+            [
+              96,
+              176
+            ],
+            [
+              112,
+              192
+            ],
+            [
+              128,
+              208
+            ],
+            [
+              48,
+              144
+            ],
+            [
+              64,
+              160
+            ],
+            [
+              80,
+              176
+            ],
+            [
+              96,
+              192
+            ],
+            [
+              112,
+              208
+            ],
+            [
+              144,
+              208
+            ],
+            [
+              128,
+              224
+            ],
+            [
+              48,
+              160
+            ],
+            [
+              64,
+              176
+            ],
+            [
+              80,
+              192
+            ],
+            [
+              96,
+              208
+            ],
+            [
+              112,
+              224
+            ],
+            [
+              160,
+              208
+            ],
+            [
+              144,
+              224
+            ],
+            [
+              128,
+              240
+            ],
+            [
+              48,
+              176
+            ],
+            [
+              64,
+              192
+            ],
+            [
+              80,
+              208
+            ],
+            [
+              96,
+              224
+            ],
+            [
+              112,
+              240
+            ],
+            [
+              160,
+              224
+            ],
+            [
+              144,
+              240
+            ],
+            [
+              128,
+              256
+            ],
+            [
+              48,
+              192
+            ],
+            [
+              64,
+              208
+            ],
+            [
+              80,
+              224
+            ],
+            [
+              96,
+              240
+            ],
+            [
+              112,
+              256
+            ],
+            [
+              176,
+              224
+            ],
+            [
+              160,
+              240
+            ],
+            [
+              144,
+              256
+            ],
+            [
+              128,
+              272
+            ],
+            [
+              48,
+              208
+            ],
+            [
+              64,
+              224
+            ],
+            [
+              80,
+              240
+            ],
+            [
+              96,
+              256
+            ],
+            [
+              112,
+              272
+            ],
+            [
+              192,
+              224
+            ],
+            [
+              176,
+              240
+            ],
+            [
+              160,
+              256
+            ],
+            [
+              144,
+              272
+            ],
+            [
+              48,
+              224
+            ],
+            [
+              64,
+              240
+            ],
+            [
+              80,
+              256
+            ],
+            [
+              96,
+              272
+            ],
+            [
+              208,
+              224
+            ],
+            [
+              192,
+              240
+            ],
+            [
+              176,
+              256
+            ],
+            [
+              160,
+              272
+            ],
+            [
+              48,
+              240
+            ],
+            [
+              64,
+              256
+            ],
+            [
+              80,
+              272
+            ],
+            [
+              224,
+              224
+            ],
+            [
+              208,
+              240
+            ],
+            [
+              192,
+              256
+            ],
+            [
+              176,
+              272
+            ],
+            [
+              48,
+              256
+            ],
+            [
+              64,
+              272
+            ],
+            [
+              240,
+              224
+            ],
+            [
+              224,
+              240
+            ],
+            [
+              208,
+              256
+            ],
+            [
+              192,
+              272
+            ],
+            [
+              48,
+              272
+            ],
+            [
+              256,
+              224
+            ],
+            [
+              240,
+              240
+            ],
+            [
+              224,
+              256
+            ],
+            [
+              208,
+              272
+            ],
+            [
+              272,
+              224
+            ],
+            [
+              256,
+              240
+            ],
+            [
+              240,
+              256
+            ],
+            [
+              224,
+              272
+            ],
+            [
+              288,
+              224
+            ],
+            [
+              272,
+              240
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              240,
+              272
+            ],
+            [
+              304,
+              224
+            ],
+            [
+              288,
+              240
+            ],
+            [
+              272,
+              256
+            ],
+            [
+              256,
+              272
+            ],
+            [
+              320,
+              224
+            ],
+            [
+              304,
+              240
+            ],
+            [
+              272,
+              272
+            ],
+            [
+              336,
+              224
+            ],
+            [
+              320,
+              240
+            ],
+            [
+              352,
+              224
+            ],
+            [
+              336,
+              240
+            ],
+            [
+              368,
+              224
+            ],
+            [
+              352,
+              240
+            ],
+            [
+              368,
+              240
+            ]
+          ]
+        }
+      ],
+      "note": "Saved editor positions are authoritative. No runtime nudges, scale or rotation applied. Route result concerns door connectivity; overlaps, clear pockets and overhangs are reported separately. New art is not integrated.",
+      "footprintOverlaps": [],
+      "footprintsOutsideFloor": [
+        {
+          "id": "stove-microwave",
+          "instance": 2,
+          "footprint": [
+            200,
+            -5,
+            64,
+            34
+          ],
+          "repainted": false
+        },
+        {
+          "id": "kitchen-counter-east",
+          "instance": 5,
+          "footprint": [
+            287,
+            -13,
+            98,
+            38
+          ],
+          "repainted": false
+        }
+      ],
+      "artOverhangs": [],
+      "unreachableClearSquares": 0,
+      "layoutSource": "docs/plans/house-layout/rami-layout-nov13.json",
+      "positionsPreserved": true,
+      "layoutNeedsReview": false
+    },
+    "abe-room": {
+      "clearance": 96,
+      "passed": true,
+      "requiredDoors": [
+        "hall",
+        "closet"
+      ],
+      "openingsChecked": [
+        [
+          "hall",
+          "north",
+          20,
+          164
+        ],
+        [
+          "closet",
+          "west",
+          196,
+          292
+        ]
+      ],
+      "components": [
+        {
+          "positions": 31999,
+          "doors": [
+            "closet",
+            "hall"
+          ],
+          "previewCenters": [
+            [
+              48,
+              48
+            ],
+            [
+              64,
+              48
+            ],
+            [
+              48,
+              64
+            ],
+            [
+              80,
+              48
+            ],
+            [
+              64,
+              64
+            ],
+            [
+              48,
+              80
+            ],
+            [
+              96,
+              48
+            ],
+            [
+              80,
+              64
+            ],
+            [
+              64,
+              80
+            ],
+            [
+              48,
+              96
+            ],
+            [
+              112,
+              48
+            ],
+            [
+              96,
+              64
+            ],
+            [
+              80,
+              80
+            ],
+            [
+              64,
+              96
+            ],
+            [
+              48,
+              112
+            ],
+            [
+              128,
+              48
+            ],
+            [
+              112,
+              64
+            ],
+            [
+              96,
+              80
+            ],
+            [
+              80,
+              96
+            ],
+            [
+              64,
+              112
+            ],
+            [
+              48,
+              128
+            ],
+            [
+              144,
+              48
+            ],
+            [
+              128,
+              64
+            ],
+            [
+              112,
+              80
+            ],
+            [
+              96,
+              96
+            ],
+            [
+              80,
+              112
+            ],
+            [
+              64,
+              128
+            ],
+            [
+              48,
+              144
+            ],
+            [
+              144,
+              64
+            ],
+            [
+              128,
+              80
+            ],
+            [
+              112,
+              96
+            ],
+            [
+              96,
+              112
+            ],
+            [
+              80,
+              128
+            ],
+            [
+              64,
+              144
+            ],
+            [
+              48,
+              160
+            ],
+            [
+              144,
+              80
+            ],
+            [
+              128,
+              96
+            ],
+            [
+              112,
+              112
+            ],
+            [
+              96,
+              128
+            ],
+            [
+              80,
+              144
+            ],
+            [
+              64,
+              160
+            ],
+            [
+              48,
+              176
+            ],
+            [
+              144,
+              96
+            ],
+            [
+              128,
+              112
+            ],
+            [
+              112,
+              128
+            ],
+            [
+              96,
+              144
+            ],
+            [
+              80,
+              160
+            ],
+            [
+              64,
+              176
+            ],
+            [
+              48,
+              192
+            ],
+            [
+              160,
+              96
+            ],
+            [
+              144,
+              112
+            ],
+            [
+              128,
+              128
+            ],
+            [
+              112,
+              144
+            ],
+            [
+              96,
+              160
+            ],
+            [
+              80,
+              176
+            ],
+            [
+              64,
+              192
+            ],
+            [
+              48,
+              208
+            ],
+            [
+              176,
+              96
+            ],
+            [
+              160,
+              112
+            ],
+            [
+              144,
+              128
+            ],
+            [
+              128,
+              144
+            ],
+            [
+              112,
+              160
+            ],
+            [
+              96,
+              176
+            ],
+            [
+              80,
+              192
+            ],
+            [
+              64,
+              208
+            ],
+            [
+              48,
+              224
+            ],
+            [
+              176,
+              112
+            ],
+            [
+              160,
+              128
+            ],
+            [
+              144,
+              144
+            ],
+            [
+              128,
+              160
+            ],
+            [
+              112,
+              176
+            ],
+            [
+              96,
+              192
+            ],
+            [
+              80,
+              208
+            ],
+            [
+              64,
+              224
+            ],
+            [
+              48,
+              240
+            ],
+            [
+              176,
+              128
+            ],
+            [
+              160,
+              144
+            ],
+            [
+              144,
+              160
+            ],
+            [
+              128,
+              176
+            ],
+            [
+              112,
+              192
+            ],
+            [
+              96,
+              208
+            ],
+            [
+              80,
+              224
+            ],
+            [
+              64,
+              240
+            ],
+            [
+              48,
+              256
+            ],
+            [
+              176,
+              144
+            ],
+            [
+              160,
+              160
+            ],
+            [
+              144,
+              176
+            ],
+            [
+              128,
+              192
+            ],
+            [
+              112,
+              208
+            ],
+            [
+              96,
+              224
+            ],
+            [
+              80,
+              240
+            ],
+            [
+              64,
+              256
+            ],
+            [
+              48,
+              272
+            ],
+            [
+              176,
+              160
+            ],
+            [
+              160,
+              176
+            ],
+            [
+              144,
+              192
+            ],
+            [
+              128,
+              208
+            ],
+            [
+              112,
+              224
+            ],
+            [
+              96,
+              240
+            ],
+            [
+              80,
+              256
+            ],
+            [
+              64,
+              272
+            ],
+            [
+              48,
+              288
+            ],
+            [
+              176,
+              176
+            ],
+            [
+              160,
+              192
+            ],
+            [
+              144,
+              208
+            ],
+            [
+              128,
+              224
+            ],
+            [
+              112,
+              240
+            ],
+            [
+              96,
+              256
+            ],
+            [
+              80,
+              272
+            ],
+            [
+              64,
+              288
+            ],
+            [
+              48,
+              304
+            ],
+            [
+              176,
+              192
+            ],
+            [
+              160,
+              208
+            ],
+            [
+              144,
+              224
+            ],
+            [
+              128,
+              240
+            ],
+            [
+              112,
+              256
+            ],
+            [
+              96,
+              272
+            ],
+            [
+              80,
+              288
+            ],
+            [
+              64,
+              304
+            ],
+            [
+              48,
+              320
+            ],
+            [
+              176,
+              208
+            ],
+            [
+              160,
+              224
+            ],
+            [
+              144,
+              240
+            ],
+            [
+              128,
+              256
+            ],
+            [
+              112,
+              272
+            ],
+            [
+              80,
+              304
+            ],
+            [
+              64,
+              320
+            ],
+            [
+              48,
+              336
+            ],
+            [
+              176,
+              224
+            ],
+            [
+              160,
+              240
+            ],
+            [
+              144,
+              256
+            ],
+            [
+              128,
+              272
+            ],
+            [
+              80,
+              320
+            ],
+            [
+              64,
+              336
+            ],
+            [
+              48,
+              352
+            ],
+            [
+              176,
+              240
+            ],
+            [
+              160,
+              256
+            ],
+            [
+              144,
+              272
+            ],
+            [
+              80,
+              336
+            ],
+            [
+              64,
+              352
+            ],
+            [
+              176,
+              256
+            ],
+            [
+              160,
+              272
+            ],
+            [
+              80,
+              352
+            ],
+            [
+              176,
+              272
+            ]
+          ]
+        },
+        {
+          "positions": 105,
+          "doors": [],
+          "previewCenters": []
+        },
+        {
+          "positions": 425,
+          "doors": [],
+          "previewCenters": [
+            [
+              416,
+              112
+            ],
+            [
+              432,
+              112
+            ]
+          ]
+        },
+        {
+          "positions": 7138,
+          "doors": [],
+          "previewCenters": [
+            [
+              416,
+              272
+            ],
+            [
+              432,
+              272
+            ],
+            [
+              416,
+              288
+            ],
+            [
+              448,
+              272
+            ],
+            [
+              432,
+              288
+            ],
+            [
+              464,
+              272
+            ],
+            [
+              448,
+              288
+            ],
+            [
+              480,
+              272
+            ],
+            [
+              464,
+              288
+            ],
+            [
+              480,
+              288
+            ],
+            [
+              496,
+              304
+            ],
+            [
+              512,
+              304
+            ],
+            [
+              496,
+              320
+            ],
+            [
+              528,
+              304
+            ],
+            [
+              512,
+              320
+            ],
+            [
+              496,
+              336
+            ],
+            [
+              544,
+              304
+            ],
+            [
+              528,
+              320
+            ],
+            [
+              512,
+              336
+            ],
+            [
+              496,
+              352
+            ],
+            [
+              544,
+              320
+            ],
+            [
+              528,
+              336
+            ],
+            [
+              512,
+              352
+            ],
+            [
+              544,
+              336
+            ],
+            [
+              528,
+              352
+            ],
+            [
+              544,
+              352
+            ]
+          ]
+        }
+      ],
+      "note": "Saved editor positions are authoritative. No runtime nudges, scale or rotation applied. Route result concerns door connectivity; overlaps, clear pockets and overhangs are reported separately. New art is not integrated.",
+      "footprintOverlaps": [
+        {
+          "left": "record-dresser-south",
+          "right": "hamper",
+          "rect": [
+            157,
+            349,
+            23,
+            12
+          ]
+        }
+      ],
+      "footprintsOutsideFloor": [],
+      "artOverhangs": [
+        {
+          "id": "window-east",
+          "instance": 5,
+          "at": [
+            592,
+            240
+          ],
+          "size": [
+            24,
+            100
+          ],
+          "repainted": false
+        },
+        {
+          "id": "tv-cube-shelf-east",
+          "instance": 9,
+          "at": [
+            516,
+            40
+          ],
+          "size": [
+            96,
+            216
+          ],
+          "repainted": true
+        },
+        {
+          "id": "abe-rug",
+          "instance": 17,
+          "at": [
+            120,
+            92
+          ],
+          "size": [
+            224,
+            320
+          ],
+          "repainted": true
+        }
+      ],
+      "unreachableClearSquares": 7668,
+      "layoutSource": "docs/plans/house-layout/rami-layout-nov13.json",
+      "positionsPreserved": true,
+      "layoutNeedsReview": true
+    }
+  },
+  "status": "Art review only. Saved layout needs clearance review where flagged. Nothing placed in game."
+}

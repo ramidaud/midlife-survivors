@@ -879,6 +879,10 @@ The canvas includes empty margins, so its width is not the furniture's width. A 
 ## 2026-11-13: visual fullness without closing the route (Codex)
 A rug can fill a large empty patch without adding a collision footprint. Shallow storage and coats use the room edges, where their footprints can leave a connected 96px path to each door. Measuring the longest unfilled wall run against the visible paintings catches empty stretches that a simple object count misses. Upstairs checks both visual coverage and movement clearance, because one cannot prove the other.
 
+
+## 2026-11-13: reaching the door is not reaching the whole room (Codex)
+Two doors can share one clear route while furniture traps another patch of floor. A route report should separate door connectivity from disconnected clear pockets and overlapping footprints. Round-three mock-ups preserve Rami's saved positions and report each result, so an art export pass cannot hide a layout problem. Hanging pieces above the floor are clipped out before the floor test, rather than accidentally blocking it through negative coordinates.
+
 ## 2026-11-13: matching edges (Codex)
 A tile is a picture that joins another picture at an edge. Two streets can share the same asphalt color and still show a step if their curbs land at different pixels. Export checks confirm the file size and transparency; a connection check compares where the road actually meets the edge. The roads review keeps those checks separate.
 

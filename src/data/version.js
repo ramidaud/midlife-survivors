@@ -2,12 +2,20 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.42.0",
-  displayVersion: "V. 2.42.0",
+  version: "2.42.1",
+  displayVersion: "V. 2.42.1",
   lastUpdated: "Nov 13, 2026",
   codename: "Version Two",
-  build: 383,
+  build: 384,
   changelog: [
+    {
+      ver: "V. 2.42.1", date: "Nov 13, 2026", title: "Version Two",
+      teaser: "The kitchen has an island now. The TV is gone. Nobody knows where.",
+      highlights: [
+        "A kitchen island with stools, a bigger console in the dining room, and Abe's record dresser, cube shelf, hamper, amp and rug at their real sizes.",
+        "The living room TV is gone for now. The sim rig faces the wall and pretends."
+      ]
+    },
     {
       ver: "V. 2.42.0", date: "Nov 13, 2026", title: "Version Two",
       teaser: "Upstairs is finished. Nobody is allowed in Abe's room.",

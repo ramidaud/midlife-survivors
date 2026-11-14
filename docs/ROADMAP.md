@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-13 (V2.42.0: both floors of the house are repainted, with real walls, in Rami's layout. Next: send Codex docs/handoffs/codex-house-fixes-round3.md; then roads and woods. Roads and Woods complete for art approval in draft PR #13; nothing placed in game.)
+**Last updated:** 2026-11-14 (V2.42.1 house remains live. Roads and Woods art set complete in draft PR #13, ready for art approval. Nothing newly placed in game.)
 
 ---
 
@@ -61,6 +61,8 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Sitting 4: fill the big house (same as Maple v2 step 2c), with art sized to the rooms
 - [x] Codex house job 2: upstairs art, nine room mock-ups, editor layout and light-oak coffee-table fix prepared for review (Nov 13). No game placement
 - [x] PR #11 room revisions: generic branding, fuller bedroom/storage edges, unique pictures and all 96px routes checked (Codex, Nov 13). Awaiting review
+- [x] Codex round-three repaint brief: ten variants and four mock-ups in Rami’s saved layout, with clearance constraints flagged (Nov 13)
+- [ ] Review round-three art and resolve saved-layout clearance constraints before placement
 - [ ] Rami: approve upstairs room mock-ups, then Claude places approved art. Existing 144px hall width is noted
 - [ ] Sitting 5: Maple Hollow trees, bushes and greens (new ChatGPT brief), placed by hand
 - [ ] Sitting 6: office density (Lobby and Parking first) and a lighter darkness layer

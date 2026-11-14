@@ -46,6 +46,11 @@ faces = [[0, 0, 800, FACE],
 # ---------- pieces ----------
 man = {p["id"]: p for p in json.load(open(DEL + "manifest-ground-floor.json"))["pieces"]}
 man["round-coffee-table"] = dict(man["round-coffee-table"], file="../../../house-upstairs/deliver/coffee-table-oak-v1.png")  # Codex's oak top (PR #11), same size and footprint
+R3 = ART.replace("house-ground-floor/", "house-round3/deliver/")
+R3M = {p["id"]: p for p in json.load(open(R3 + "manifest-round3.json"))["pieces"]} if os.path.exists(R3 + "manifest-round3.json") else {}
+for pid in ("galaxy-wall-tv", "electric-console-east", "kitchen-counter-west", "camera-book-shelves"):
+    if pid in R3M: man[pid] = dict(R3M[pid], file="../../../house-round3/deliver/" + R3M[pid]["file"])
+if "bird-of-paradise" in R3M: man["bird-of-paradise-small"] = dict(R3M["bird-of-paradise"], file="../../../house-round3/deliver/" + R3M["bird-of-paradise"]["file"])
 layout = json.load(open(DEL + "mockups/room-layout.json"))
 living = json.load(open(ROOT + "/docs/plans/house-layout/placements-round2.json"))["rooms"]["living"]["items"]
 REPLACED = {"living", "dining", "downstairs-desk-nook", "kitchen", "entry"}
@@ -55,6 +60,7 @@ keep = [p for p in H2["pieces"] if p["room"] not in REPLACED and p["id"] != "abs
 import sys
 RAMI = json.load(open(ROOT + "/docs/plans/house-layout/" + (sys.argv[1] if len(sys.argv) > 1 else "rami-layout-nov13.json")))["rooms"]
 FIX = {("living", "racing-sim-rig"): (540, 96), ("living", "sim-cables"): (568, 160),   # route nudges, if the room needs them
+       ("living", "galaxy-wall-tv"): (584, -112),   # the 2x TV (PR #12) is 184 px wide: right edge on the east wall, above the console
        # the dining wall swap (Rami's option 1): desk + shelves left, painting right, so the living-room doorway fits at the right end
        ("dining-desk-shared", "corner-computer-desk"): (112, -48), ("dining-desk-shared", "camera-book-shelves"): (124, -144),
        ("dining-desk-shared", "mesh-office-chair"): (200, -8), ("dining-desk-shared", "abstract-wall-painting"): (352, -128),
@@ -62,6 +68,8 @@ FIX = {("living", "racing-sim-rig"): (540, 96), ("living", "sim-cables"): (568, 
 placements = []   # (view room id, piece id, x, y) room-relative, in the room's own (old-rect) frame
 for room in ("living", "dining-desk-shared", "kitchen", "entry", "laundry-closet"):
     for pid, x, y, sc, rot in RAMI[room]:
+        if pid == "galaxy-wall-tv": continue   # Rami, Nov 13: "just lose the tv"
+        if pid == "bird-of-paradise" and sc < 100 and "bird-of-paradise-small" in man: pid = "bird-of-paradise-small"
         x, y = FIX.get((room, pid), (x, y))
         if room in ("entry", "laundry-closet") and man[pid]["renderLayer"] == "wall-mounted": y = max(y, -28)  # no tall face here
         placements.append((room, pid, x, y))
@@ -187,11 +195,14 @@ u_faces = [[0, 0, 800, FACE],
 u_man = {p["id"]: dict(p, file=UP + p["file"]) for p in json.load(open(UP + "manifest-upstairs.json"))["pieces"]}
 for r in json.load(open(UP + "manifest-upstairs.json"))["reusedPieces"]:
     u_man[r["id"]] = dict(r, file=os.path.normpath(UP + r["file"]))
+for pid in ("tv-cube-shelf-east", "record-dresser-south", "hamper", "guitar-amp", "abe-rug"):
+    if pid in R3M: u_man[pid] = dict(R3M[pid], file=R3 + R3M[pid]["file"])
 u_layout = json.load(open(UP + "mockups/room-layout.json"))
 U_VIEW = {v["id"]: v["rect"] for v in u_layout["views"]}
 U_FIX = {("abe-room", "gaming-chair"): (268, -10),   # tucked under the desk: opens the lane above the bed
          ("abe-room", "beanbag"): (470, 160),      # slid toward the TV: opens the east side of the room
-         ("abe-room", "guitar-amp"): (532, 330)}   # into the southeast corner: it blocked the lane above the bed
+         ("abe-room", "guitar-amp"): (532, 330),   # into the southeast corner: it blocked the lane above the bed
+         ("abe-room", "hamper"): (64, 292)}         # left of the wider record dresser (they overlapped at 1.5x)
 u_place = []
 for room in ("master-bedroom", "abe-room", "hall"):
     for pid, x, y, sc, rot in RAMI["up-" + room]:
