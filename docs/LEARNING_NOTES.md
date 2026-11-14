@@ -897,3 +897,6 @@ A painted road can look right while its edge lands a few pixels away from the ne
 
 ## Tiles that connect: why the junctions match (Nov 14, roads)
 Every road piece is cut so its road is exactly 320 px wide and sits in the same spot on every edge (96 px of sidewalk on each side). That rule is what lets any street piece sit next to any crossing or T-junction with no seam. When roads meet, the game looks at which sides have road (north, south, east, west) and picks the piece with openings on exactly those sides.
+
+## 2026-11-14: an idle that fits its walk (Codex)
+Matching the 56x60 canvas is not enough: the visible figure inside it also needs the same width, height and shoe-contact line. These studies measure each hero’s current walk frame 1, then fit eight idle poses to those bounds. Holding the legs steady prevents foot jitter; using only the walk sheet’s existing colors prevents new palette colors between states.
