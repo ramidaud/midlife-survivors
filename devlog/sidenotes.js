@@ -22,8 +22,29 @@
     note.style.top = (br.bottom - pr.top + 10) + "px";
   }
 
+  // Keep the number on the same line as the word before it (Nov 16, Rami: a "1" wrapped onto its own line).
+  // A button is an inline box, so the browser may break the line right before it. We wrap the last word
+  // (or a short link) together with the number in a span that never breaks.
+  function glue(btn) {
+    if (btn.parentNode && btn.parentNode.classList && btn.parentNode.classList.contains("sn-glue")) return;
+    const prev = btn.previousSibling, span = document.createElement("span");
+    span.className = "sn-glue";
+    if (prev && prev.nodeType === 3) {
+      const m = prev.textContent.match(/(\S+)$/);
+      if (!m) return;
+      const tail = prev.splitText(prev.textContent.length - m[1].length);
+      btn.parentNode.insertBefore(span, tail);
+      span.appendChild(tail);
+    } else if (prev && prev.nodeType === 1 && (prev.textContent || "").length <= 30) {
+      btn.parentNode.insertBefore(span, prev);
+      span.appendChild(prev);
+    } else return;
+    span.appendChild(btn);
+  }
+
   window.initSidenotes = function (root) {
     root = root || document;
+    root.querySelectorAll(".sn-ref").forEach(glue);
     root.querySelectorAll(".sn-ref").forEach(btn => {
       const note = document.getElementById(btn.getAttribute("aria-controls"));
       if (!note || btn.dataset.snReady) return;
@@ -40,6 +61,10 @@
       if (x) x.addEventListener("click", () => { closeAll(); btn.focus({ preventScroll: true }); });
     });
   };
+
+  // Share pages have no app.js to call initSidenotes, so glue their numbers on load too.
+  const glueAll = () => document.querySelectorAll(".sn-ref").forEach(glue);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", glueAll); else glueAll();
 
   document.addEventListener("click", () => closeAll());
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeAll(); });

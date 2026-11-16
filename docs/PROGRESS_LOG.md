@@ -2622,4 +2622,5 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami: links to other sites should open in a new tab or window.
 - One rule in the shared nav script (`assets/ui/ms-nav.js`), so it covers every page that loads it: the game, the devlog, every memo and share page, About, the Art Room. Links added after the page loads (memo bodies, sidebars) are covered too. Links inside the site stay in the same tab.
 - Tested on Memos 15 and 16, the devlog home, a share page and About: every external link opens in a new tab, no internal link does. No errors.
+- Fix (Rami): a sidenote number could wrap onto its own line, so it didn't read as an inline citation. Now each number is glued to the word before it, on memo pages and share pages. Checked every note in Memos 12, 14, 15 and 16 at 114 screen widths: none split.
 
