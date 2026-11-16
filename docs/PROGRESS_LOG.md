@@ -2590,3 +2590,8 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New: in a player's first 5 runs, while Coffee is their only weapon, one level-up card is always a damage weapon, first in the row, marked GOOD FIRST PICK. The other two cards and SKIP are unchanged. Numbers and words: `FIRST_MINUTE.firstPicks`.
 - Tested at laptop and phone sizes: marked card first in 40 of 40 draws, gone after the second weapon, never shown to a veteran. No errors.
 - Honest limit: this rests on one player's two runs with build data. Watch whether new players' first runs get past 43.
+
+## 2026-11-16: good first pick for everyone, V2.46.2 (Claude)
+- Rami on V2.46.1: "I love it, great move."
+- His call: show it for everyone, every run, until they hold two weapons (it was a player's first 5 runs). `FIRST_MINUTE.firstPicks.runs` is now null, which means every run.
+- Tested at laptop and phone sizes, new and veteran saves: marked card first in 40 of 40 draws each, gone after the second weapon. No errors.

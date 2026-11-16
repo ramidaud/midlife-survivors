@@ -2,17 +2,24 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.46.1",
-  displayVersion: "V. 2.46.1",
+  version: "2.46.2",
+  displayVersion: "V. 2.46.2",
   lastUpdated: "Nov 16, 2026",
   codename: "Version Two",
-  build: 390,
+  build: 391,
   changelog: [
+    {
+      ver: "V. 2.46.2", date: "Nov 16, 2026", title: "Version Two",
+      teaser: "Good advice doesn't expire.",
+      highlights: [
+        "GOOD FIRST PICK now shows for everyone, every run, until you carry two weapons. Veterans who like a Coffee-only start can still pass on it."
+      ]
+    },
     {
       ver: "V. 2.46.1", date: "Nov 16, 2026", title: "Version Two",
       teaser: "New hires get one piece of advice: bring more than coffee.",
       highlights: [
-        "In your first few shifts, while Coffee is your only weapon, one level-up card is always a weapon that deals damage, marked GOOD FIRST PICK. The other two cards are the usual shuffle, and the choice is still yours."
+        "While Coffee is your only weapon, one level-up card is always a weapon that deals damage, marked GOOD FIRST PICK. The other two cards are the usual shuffle, and the choice is still yours."
       ]
     },
     {

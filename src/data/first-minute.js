@@ -8,11 +8,12 @@ window.FIRST_MINUTE = {
   firstKill: { pop: "PAID!", line: "Your coffee fires on its own. Your only job: keep moving." },
   firstHurt: { line: "Bills hurt on contact. Keep moving and let the coffee do the work." },
   // First picks (Nov 16). Play stats: a new player took three passives, still had only Coffee at level 5, and died at 42.6.
-  // One weapon means few kills, few kills means little Wisdom, and the swarm outgrows you. So in a player's first few runs,
-  // while they carry only Coffee, one of the three level-up cards is always a weapon that deals damage, marked as a good pick.
+  // One weapon means few kills, few kills means little Wisdom, and the swarm outgrows you. So while anyone carries only
+  // Coffee, one of the three level-up cards is always a weapon that deals damage, marked as a good pick.
   // It's still a choice: the other two cards are untouched, and SKIP works as usual.
+  // Nov 16 (Rami): for everyone, not just new players, until they hold two weapons.
   firstPicks: {
-    runs: 5,            // a player's first 5 runs
+    runs: null,         // null = every run. A number (like 5) limits it to a player's first runs.
     untilWeapons: 2,    // stops as soon as you carry 2 weapons
     starters: ["unlockJoke", "unlockRemote", "unlockSheet", "unlockPodcast", "unlockChair", "unlockReplyAll", "unlockSticky"],
     tag: "GOOD FIRST PICK",

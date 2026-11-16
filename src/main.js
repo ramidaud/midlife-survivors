@@ -1626,11 +1626,11 @@ function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   while (choices.length < 3 && boosts.length) choices.push(boosts.shift());
   if (choices.length === 3 && boosts.length && !choices.some(c => c.isConsumable) && currentAge >= 50 && Math.random() < 0.3) choices[2] = boosts.shift();
 
-  // First picks (Nov 16): in a new player's first runs, while they carry only Coffee, one card is always a damage weapon
+  // First picks (Nov 16): while a player carries only Coffee, one card is always a damage weapon
   // and it sits first with a "GOOD FIRST PICK" note. Settings: FIRST_MINUTE.firstPicks in src/data/first-minute.js.
   window.firstPickId = null;
   const FP = (window.FIRST_MINUTE || {}).firstPicks;
-  if (FP && !customTitle && !preferWeapons && window.LOADOUT && (meta.runsPlayed || 0) < FP.runs && LOADOUT.held(stats).weapons.length < FP.untilWeapons) {
+  if (FP && !customTitle && !preferWeapons && window.LOADOUT && (FP.runs == null || (meta.runsPlayed || 0) < FP.runs) && LOADOUT.held(stats).weapons.length < FP.untilWeapons) {
     let star = choices.find(c => FP.starters.includes(c.id));
     if (!star) {
       const cands = regular.filter(u => FP.starters.includes(u.id));
