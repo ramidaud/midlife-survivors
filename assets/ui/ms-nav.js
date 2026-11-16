@@ -121,3 +121,27 @@
     requestAnimationFrame(poll);
   }
 })();
+
+// External links open in a new tab (Nov 16, Rami). Any link to another site, on any page that loads this file,
+// including links added later (memo bodies, sidebars, menus). Links inside the site stay in the same tab.
+(function () {
+  const isExternal = a => {
+    if (!a || !a.href || a.hasAttribute("download")) return false;
+    let url; try { url = new URL(a.href, location.href); } catch (e) { return false; }
+    return /^https?:$/.test(url.protocol) && url.host !== location.host;
+  };
+  const mark = a => {
+    if (!isExternal(a)) return;
+    a.target = "_blank";
+    const rel = new Set((a.getAttribute("rel") || "").split(/\s+/).filter(Boolean)); rel.add("noopener"); rel.add("noreferrer");
+    a.setAttribute("rel", [...rel].join(" "));
+  };
+  const markAll = () => document.querySelectorAll("a[href]").forEach(mark);
+  // Right before a click: covers links drawn after the page loaded.
+  document.addEventListener("click", e => { const a = e.target && e.target.closest && e.target.closest("a[href]"); if (a) mark(a); }, true);
+  // On load and whenever the page adds links, so hover, middle-click and long-press menus agree.
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markAll); else markAll();
+  if (window.MutationObserver) new MutationObserver(muts => {
+    for (const m of muts) m.addedNodes.forEach(n => { if (n.nodeType !== 1) return; if (n.matches && n.matches("a[href]")) mark(n); if (n.querySelectorAll) n.querySelectorAll("a[href]").forEach(mark); });
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();

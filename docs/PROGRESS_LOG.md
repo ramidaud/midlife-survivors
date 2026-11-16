@@ -2617,3 +2617,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Card reel: a 28-second clip recorded in the game of the six Maple Hollow cards sliding in and typing their lines.
 - Swipe-through deck: a new devlog option (`deck:` in the image title) that reuses the "Then and now" box: age tabs, arrows, swipe on phones, a caption with the stamp. Tested at laptop and phone sizes, no errors.
 - Trading-card grid: four office bosses drawn from their game sprites with age and defeat stamp.
+
+## 2026-11-16: external links open in a new tab (Claude)
+- Rami: links to other sites should open in a new tab or window.
+- One rule in the shared nav script (`assets/ui/ms-nav.js`), so it covers every page that loads it: the game, the devlog, every memo and share page, About, the Art Room. Links added after the page loads (memo bodies, sidebars) are covered too. Links inside the site stay in the same tab.
+- Tested on Memos 15 and 16, the devlog home, a share page and About: every external link opens in a new tab, no internal link does. No errors.
+

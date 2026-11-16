@@ -139,7 +139,7 @@ PAGE = """<!doctype html>
       <a class="btn btn-primary" href="{play}">▶ Play this build</a>
     </div>
   </header>
-  <script src="../../assets/ui/ms-nav.js?v=5"></script>
+  <script src="../../assets/ui/ms-nav.js?v=6"></script>
   <div class="wrap">
     <a class="back" href="../">← All memos</a>
     <header class="memo-hero{hero_class}" style="--focus:{focus}">
