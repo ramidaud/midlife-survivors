@@ -854,6 +854,15 @@ article.post .prose .fig.book img { width: 100%; border-radius: 4px; box-shadow:
 .ba-tabs .bt-chip[aria-selected="true"] { color: var(--navy); background: var(--orange); }
 .ba-tabs .ba-post { margin: 0 0 6px; }
 .ba-tabs .ba-post[hidden] { display: none; }
+/* Nov 16: card decks. One card at a time in the "Then and now" box, arrows under it, swipe on phones. */
+.ba-tabs.deck .dk-card { margin: 0; }
+.ba-tabs.deck .dk-card[hidden] { display: none; }
+article.post .prose .ba-tabs.deck .dk-card img { width: 100%; max-height: none; margin: 0; display: block; border-radius: 4px; }
+.ba-tabs.deck .dk-card figcaption { font: 15px/1.45 var(--body); color: var(--cream); margin: 10px 2px 0; }
+.ba-tabs.deck .dk-nav { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 10px 0 6px; }
+.ba-tabs.deck .dk-nav button { width: 44px; height: 44px; font: 16px/1 var(--display); color: var(--cream); background: var(--slate); border: 0; border-radius: 4px; cursor: pointer; }
+.ba-tabs.deck .dk-nav button:hover, .ba-tabs.deck .dk-nav button:focus-visible { background: var(--orange); color: var(--navy); }
+.ba-tabs.deck .dk-count { font: 14px var(--display); color: var(--muted); min-width: 64px; text-align: center; }
 .img-zoom { position: fixed; inset: 0; z-index: 1000; background: rgba(10,12,24,.92); display: flex; align-items: center; justify-content: center; padding: 16px; cursor: zoom-out; }
 .img-zoom img { max-width: 100%; max-height: 100%; image-rendering: auto; border: 3px solid var(--navy); box-shadow: 0 0 0 2px var(--teal); }
 .img-zoom button { position: absolute; top: 12px; right: 14px; font: 22px/1 var(--display); color: var(--cream); background: var(--slate); border: 0; border-radius: 4px; width: 40px; height: 40px; cursor: pointer; }

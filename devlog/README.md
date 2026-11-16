@@ -44,6 +44,11 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - Click (or tap) the number and the note pops in as a card under that line, like hankgreen.com. X, Escape or a click elsewhere closes it.
 - Notes are plain text: a link inside `^[...]` breaks the note (the closing bracket ends it early). Put links in the sentence instead.
 
+## Card decks (Nov 16)
+- Pictures that sit together with a title starting `deck:` become one card at a time in the "Then and now" box: tabs on top, arrows below, swipe on phones.
+  `![alt text](img/card.jpg "deck: 45 | Caption under the card.")` The part before `|` is the tab label, the part after is the caption.
+- RSS, Substack and share pages show the plain stack instead.
+
 ## Code snippets
 - Write a fenced block with the language and the file it came from:
   ````

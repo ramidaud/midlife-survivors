@@ -1,20 +1,22 @@
 The bosses really kind of started as trying to find the little jokes in work and life and turning them into anthropomorphized characters.
 
-There are a lot of them now. Here's the Maple Hollow lineup, in the order they show up, with the stamp that slams down when you beat each one.
+There are a lot of them now. Here's what it looks like when the Maple Hollow bosses show up: each one gets its own card, slides in, and says its line.
 
-![Fifth-Grade Math Homework. Age 45. Beat it and the stamp reads A+ · SEE ME.](img/16-card-mathHomework.jpg)
+<video src="img/16-boss-card-reel.mp4" poster="img/16-boss-card-reel.jpg" autoplay muted loop playsinline controls></video>
 
-![The HOA President. Age 48. Beat it and the stamp reads VARIANCE APPROVED.](img/16-card-hoaPresident.jpg)
+Flip through them in order, with the age each one arrives and the stamp that slams down when you beat it.
 
-![The 30-Year Mortgage. Age 52. Beat it and the stamp reads PAID IN FULL.](img/16-card-mortgageRefinance.jpg)
+![Fifth-Grade Math Homework's card: "Show your work. No, the new way. Not how YOU learned it."](img/16-card-mathHomework.jpg "deck: 45 | Fifth-Grade Math Homework, on the school playground. Beat it and the stamp reads A+ · SEE ME.")
 
-![The Holiday Party. Age 56. Beat it and the stamp reads PARTY'S OVER.](img/16-card-holidayParty.jpg)
+![The HOA President's card: "Your mailbox is two inches too festive. We need to talk."](img/16-card-hoaPresident.jpg "deck: 48 | The HOA President, out of the cul-de-sac. Beat her and the stamp reads VARIANCE APPROVED.")
 
-![The Midlife Crisis V8. Age 60. Beat it and the stamp reads CRISIS AVERTED.](img/16-card-midlifeCrisis.jpg)
+![The 30-Year Mortgage's card: "Initial here, here, and on all forty-two pages below."](img/16-card-mortgageRefinance.jpg "deck: 52 | The 30-Year Mortgage, out of the bank at the strip mall. Beat it and the stamp reads PAID IN FULL.")
 
-![The Gold Watch. Age 63.5. Beat it and the stamp reads OFF THE CLOCK.](img/16-card-goldWatch.jpg)
+![The Holiday Party's card: "Put on your light-up sweater and join the conga line!"](img/16-card-holidayParty.jpg "deck: 56 | The Holiday Party, at the community center. Beat her and the stamp reads PARTY'S OVER.")
 
-These are the real cards from the game. When a boss shows up, its card slides in with its one-liner and a tip for beating it.
+![The Midlife Crisis V8's card: "Forget the minivan, we are buying t-tops and leather!"](img/16-card-midlifeCrisis.jpg "deck: 60 | The Midlife Crisis V8, bursting out of your own garage. Beat it and the stamp reads CRISIS AVERTED.")
+
+![The Gold Watch's card: "Forty years of watching the clock, now it watches you."](img/16-card-goldWatch.jpg "deck: 63.5 | The Gold Watch. You can't stop it, only slow it down. Beat it and the stamp reads OFF THE CLOCK.")
 
 ## I really liked Fifth-Grade Math Homework
 
@@ -40,13 +42,15 @@ I work up the visual concept and then I think about what their attack will be. W
 
 The attack always comes with a warning first: dotted lines, a raised yardstick, a clipboard that flashes. Game designers call that a telegraph. Mike Stout's [Enemy Attacks and Telegraphing](https://gamedeveloper.com/design/enemy-attacks-and-telegraphing) on Game Developer explains why it matters: you can't dodge something you didn't know was coming, so a fair hit is one you had a clear chance to see.
 
-The office has its own lineup: the Performance Review, Your New Boss (age 26), the Holiday Party or the Reorg (they take turns at 56), and the Quarterly All-Hands.
+The office has its own lineup: the Performance Review, Your New Boss (age 26), the Holiday Party or the Reorg (they take turns at 56), and the Quarterly All-Hands at 60.
 
-![The Performance Review. Beat it and the stamp reads EXCEEDS EXPECTATIONS.](img/16-card-performanceReview.jpg)
+![Performance Review trading card: age 45, defeat stamp EXCEEDS EXPECTATIONS.](img/16-tcard-performanceReview.jpg "gallery: Performance Review")
 
-![Your New Boss (26). Beat it and the stamp reads MEETING ADJOURNED.](img/16-card-newBoss.jpg)
+![Your New Boss (26) trading card: age 48, defeat stamp MEETING ADJOURNED.](img/16-tcard-newBoss.jpg "gallery: Your New Boss")
 
-![The Reorg. Beat it and the stamp reads POSITION ELIMINATED.](img/16-card-theReorg.jpg)
+![The Holiday Party trading card: age 56, defeat stamp PARTY'S OVER.](img/16-tcard-holidayParty.jpg "gallery: The Holiday Party")
+
+![The Reorg trading card: age 56, defeat stamp POSITION ELIMINATED.](img/16-tcard-theReorg.jpg "gallery: The Reorg")
 
 ## When life gets so full
 

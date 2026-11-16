@@ -353,6 +353,17 @@
     html = html.replace(/(?:<p>\s*<img [^>]*title="gallery:[^"]*">\s*<\/p>\s*){2,}/g, block =>
       `<div class="shot-grid">` + block.replace(/<p>\s*(<img [^>]*?) title="gallery:\s*([^"]*)">\s*<\/p>\s*/g,
         (m, img, label) => `<figure class="shot"><div class="shot-frame">${img}></div><figcaption>${label}</figcaption></figure>`) + `</div>`);
+    // Card decks (Nov 16, Rami: "having them stacked like that feels a little lazy"). Pictures marked
+    // "deck: Tab | caption" that sit together become one card at a time: tabs on top, arrows below, swipe on phones.
+    // Same box as "Then and now". RSS and share pages keep the plain stack.
+    let deckSet = 0;
+    html = html.replace(/(?:<p>\s*<img [^>]*title="deck:[^"]*">\s*<\/p>\s*){2,}/g, block => {
+      const items = [...block.matchAll(/<p>\s*(<img [^>]*?) title="deck:\s*([^"|]*?)\s*(?:\|\s*([^"]*?)\s*)?">\s*<\/p>/g)], id = "dk" + (deckSet++);
+      const chips = items.map((m, i) => `<button type="button" role="tab" class="bt-chip" aria-selected="${i === 0}" aria-controls="${id}-${i}">${m[2]}</button>`).join("");
+      const cards = items.map((m, i) => `<figure class="dk-card" role="tabpanel" id="${id}-${i}"${i ? " hidden" : ""}>${m[1]}>${m[3] ? `<figcaption>${m[3]}</figcaption>` : ""}</figure>`).join("");
+      return `<div class="ba-tabs deck"><div class="bt-head"><span class="bt-title">FLIP THROUGH</span><div class="bt-chips" role="tablist">${chips}</div></div>${cards}` +
+        `<div class="dk-nav"><button type="button" class="dk-prev" aria-label="Previous card">◀</button><span class="dk-count" aria-live="polite">1 / ${items.length}</span><button type="button" class="dk-next" aria-label="Next card">▶</button></div></div>`;
+    });
     // Image size hints in the markdown title: "side" sits beside the text on wide screens, "small" stays modest.
     html = html.replace(/<p>\s*(<img [^>]*?) title="(side|small|book)">\s*<\/p>/g, (m, img, kind) => `<figure class="fig ${kind}">${img}></figure>`);
 
@@ -422,10 +433,22 @@
       document.querySelectorAll(".memo-hero video, .prose video").forEach(v => { v.removeAttribute("autoplay"); v.pause(); });
     }
     postMain.querySelectorAll(".ba-tabs").forEach(box => {
-      const chips = [...box.querySelectorAll(".bt-chip")], panels = [...box.querySelectorAll(".ba-post")];
-      chips.forEach((c, i) => c.addEventListener("click", () => {
-        chips.forEach((x, j) => x.setAttribute("aria-selected", String(j === i))); panels.forEach((p, j) => { p.hidden = j !== i; });
-      }));
+      const chips = [...box.querySelectorAll(".bt-chip")], panels = [...box.querySelectorAll(".ba-post, .dk-card")];
+      const count = box.querySelector(".dk-count");
+      let cur = 0;
+      const go = i => {
+        cur = (i + panels.length) % panels.length;
+        chips.forEach((x, j) => x.setAttribute("aria-selected", String(j === cur))); panels.forEach((p, j) => { p.hidden = j !== cur; });
+        if (count) count.textContent = `${cur + 1} / ${panels.length}`;
+      };
+      chips.forEach((c, i) => c.addEventListener("click", () => go(i)));
+      if (box.classList.contains("deck")) { // arrows and a sideways swipe (Nov 16)
+        box.querySelector(".dk-prev").addEventListener("click", () => go(cur - 1));
+        box.querySelector(".dk-next").addEventListener("click", () => go(cur + 1));
+        let x0 = null;
+        box.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+        box.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1)); });
+      }
     });
     // Tap a picture to see it full size.
     postMain.querySelectorAll(".prose img:not(.ba img)").forEach(im => {

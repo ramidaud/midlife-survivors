@@ -2611,3 +2611,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Waiting on Rami: the cover (prompt in docs/devlog-plans/16-cover-prompt.md, boss reference sheet attached) and his read. The cover is a placeholder lineup for now.
 - Later Nov 16: Memo 16 cover from Rami's ChatGPT, three rounds: lineup raised so the title sits on the floor, a two-row portrait for Instagram, and Rami's face matched to his About-page portrait (rounder face, neat beard, warm smile). Checked on the laptop layout.
 - Later Nov 16: Rami picked new titles: Memo 15 "A little slice of home." and Memo 16 "Little jokes with legs." Slugs renamed to match (both still drafts).
+
+## 2026-11-16: Memo 16 boss cards, three ways (Claude)
+- Rami: the stacked boss cards "feel a little lazy." He picked a card reel, a swipe-through deck and a trading-card grid.
+- Card reel: a 28-second clip recorded in the game of the six Maple Hollow cards sliding in and typing their lines.
+- Swipe-through deck: a new devlog option (`deck:` in the image title) that reuses the "Then and now" box: age tabs, arrows, swipe on phones, a caption with the stamp. Tested at laptop and phone sizes, no errors.
+- Trading-card grid: four office bosses drawn from their game sprites with age and defeat stamp.

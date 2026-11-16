@@ -315,7 +315,7 @@ def main():
         fmd = re.sub(r"\^\[([^\]]+)\]", lambda m: f" *({m.group(1)})*", fmd)
         fmd = re.sub(r"^!audio\[([^\]]+)\]\(([^)\s]+)\)[ \t]*$", lambda m: f"[▶ Listen: {m.group(1)}]({m.group(2).replace('../', 'https://ramidaud.github.io/midlife-survivors/', 1)})", fmd, flags=re.M)
         fbody = md_to_html(fmd)
-        fbody = re.sub(r' title="(?:compare:[^"]*|side|small|book|gallery:[^"]*)"', "", fbody)
+        fbody = re.sub(r' title="(?:compare:[^"]*|side|small|book|gallery:[^"]*|deck:[^"]*)"', "", fbody)
         fbody = re.sub(r"<p>FEEDCODE(\d+)</p>", lambda m: f"<pre><code>{html.escape(fcode[int(m.group(1))], quote=False)}</code></pre>", fbody)
         fbody = re.sub(r'(src|href)="(?!https?:|mailto:|#)(?:\.\./)?', lambda m: f'{m.group(1)}="{site}/', fbody)
         flead = ""
