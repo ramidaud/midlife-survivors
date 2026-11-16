@@ -4,6 +4,27 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "15-i-wanted-it-to-feel-like-home",
+    "date": "2026-11-16",
+    "title": "I wanted it to feel like home.",
+    "version": "V. 2.29.4 to 2.46.2",
+    "draft": true,
+    "cover": "img/15-street.jpg",
+    "leadAlt": "Maple Hollow in peak fall: three pixel-art houses on one street, ours in the middle with the orange siding and the garage, and the hero on the sidewalk out front.",
+    "blurb": "Our real house is in the game now, both floors, Abe's room included. It's not where I want it yet.",
+    "teaser": "Our real house is in Maple Hollow now, Abe's room included. Plus why I don't think it's there yet.",
+    "changes": [
+      "Our house in Maple Hollow, both floors, laid out by me",
+      "The town opens as you age, from the school at 44 to Maple Park at 62",
+      "A Maple Hollow map, edge arrows, and waves that push you toward new areas",
+      "Bosses hurry over instead of taking the scenic route",
+      "Idle animations for all four heroes",
+      "A GOOD FIRST PICK card so new players grab a second weapon"
+    ],
+    "nextUp": "Bosses.",
+    "playUrl": "https://midlifesurvivors.com/"
+  },
+  {
     "slug": "14-achievement-unlocked-gaussian-splatting",
     "date": "2026-11-11",
     "title": "Achievement Unlocked: Gaussian Splatting.",

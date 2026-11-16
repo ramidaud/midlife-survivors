@@ -2595,3 +2595,10 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Rami on V2.46.1: "I love it, great move."
 - His call: show it for everyone, every run, until they hold two weapons (it was a player's first 5 runs). `FIRST_MINUTE.firstPicks.runs` is now null, which means every run.
 - Tested at laptop and phone sizes, new and veteran saves: marked card first in 40 of 40 draws each, gone after the second weapon. No errors.
+
+## 2026-11-16: Memo 15 drafted, "I wanted it to feel like home." (Claude)
+- Rami: Home is Memo 15 (Bosses 16, Finding your way 17; How I write these memos moves later). Hero idles: "pretty good but could use some more work," after the memos.
+- Drafted Memo 15 from Rami's Nov 14 interview lines, as a hidden draft on the devlog. Headers are his phrases. Preview: midlifesurvivors.com/devlog/?post=15-i-wanted-it-to-feel-like-home&drafts=1
+- New game screenshots: our street, Abe's room, the town map, and a living room before and after slider (Nov 11 vs now).
+- Three links from pages actually opened: Slynyrd's Pixelblog on top-down interiors, Ohio Magazine's Best Hometowns 2022 on Kent, Kitfox's Designing for Coziness.
+- Waiting on Rami: the cover (ChatGPT prompt in docs/devlog-plans/15-cover-prompt.md, needs Abe's description), Abe picks his room shot, and a read.

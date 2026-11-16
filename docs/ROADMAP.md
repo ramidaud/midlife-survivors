@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-16 (V2.46.2: GOOD FIRST PICK shows for everyone until they hold two weapons. Rami loves it. Next: the memos, then watch whether first runs get past 43.)
+**Last updated:** 2026-11-16 (Memo 15 "I wanted it to feel like home." drafted and waiting on Rami: cover, Abe's room shot, read. V2.46.2 GOOD FIRST PICK is live. Next: Memo 16 Bosses, then hero idle polish.)
 
 ---
 
@@ -14,11 +14,17 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 **Nov 16 check-in**
 - [x] Rami: fight the Mortgage past 52 (Nov 16: "felt good, challenging")
 - [x] Stats check after V2.45.1: two Maple Hollow runs, 58.7 and 84.9, neither with the Mortgage alive (one player, thin data)
-- [ ] Rami: stand still with each hero and watch the idles (V2.46.0)
 - [x] Early deaths: it's new players, not phones. Built GOOD FIRST PICK (V2.46.1): a damage weapon card while you only have Coffee
 - [x] Rami on GOOD FIRST PICK: "I love it, great move." Show it for everyone until they hold two weapons (V2.46.2)
 - [ ] Watch the stats: do new players' first runs get past 43 now?
-- [ ] Rami: review the five memo drafts from Nov 14 (Home, Bosses, Finding your way, How I write these memos, Rock and Stone, Solo)
+- [x] Memo order (Rami, Nov 16): 15 Home, 16 Bosses, 17 Finding your way, then How I write these memos and Rock and Stone, Solo
+- [x] Memo 15 "I wanted it to feel like home." drafted (hidden; preview with ?drafts=1)
+- [ ] Rami: run the Memo 15 cover prompt in ChatGPT (docs/devlog-plans/15-cover-prompt.md; fill in Abe's description first)
+- [ ] Rami: Abe picks the screenshot of his room
+- [ ] Rami: read Memo 15 and mark it up; then publish + social kit
+- [ ] Memo 16: Bosses (then 17, then the other two)
+- [x] Rami: stood still with each hero (Nov 16): idles are "pretty good but could use some more work"
+- [ ] After the memos: hero idle polish round
 
 **From the Nov 14 drive (Rami by voice)**
 - [ ] "Talk about it" button on each memo, linking to Substack comments and Discord (no on-page comments yet)
@@ -168,7 +174,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Posted the Memo 14 kit (Nov 11): Reel, carousel, Story, Facebook, LinkedIn (captions in docs/social/14-posts.md)
 - [x] Memo 14 follow-ups (Nov 11): interactive 3D viewer of Abe, front-facing preview, NYT and Corridor Crew resource links, Z9 icon on the Camera settings card
 - [ ] Decide: keep running several chats, or one building chat at a time with a docs/NOW.md status file (proposed Nov 11, waiting on Rami)
-- [ ] Memo 15: answer the interview questions (`docs/devlog-plans/how-i-write-these-memos.md`)
+- [x] How I write these memos: interviewed Nov 14 (now after Memo 17)
 
 **Waiting on others**
 - ChatGPT: redraw the Performance Review frame with the loose shoe (handoff after the beats are picked)
