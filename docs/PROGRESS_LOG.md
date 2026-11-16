@@ -2576,3 +2576,11 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - PR #15 merged (Rami's OK). Codex's idle strips replace the old idle row in each hero sheet (new sheet files; the walk frames are untouched).
 - Standing still: a slow breathe on the first two idle frames. Every 7 seconds the whole 8-frame action plays at Codex's timing (about 2 seconds), then back to breathing.
 - Tested by reading the hero's frame number in the game at laptop and phone sizes: stop, breathe, action, breathe. No errors.
+
+## 2026-11-16: Mortgage feedback, play stats check, docs caught up (Claude)
+- Rami played the 30-Year Mortgage after V2.45.1: "felt good, challenging." No change needed.
+- Play stats since the fix (read only, Rami's devices left out): two full Maple Hollow runs on V2.46.0, both from one desktop player. One went all the way to 84.9. The other died at 58.7 with no boss alive. Before the fix every late run died at 52-56 with the Mortgage alive. Thin data, but the wall at 52-56 is gone in both.
+- Early phone deaths are still there. Since Nov 13, 4 of the 6 phone deaths in full runs came before 45: one iPhone player in Maple Hollow (43.4 and 43.8, V2.40.0, before interns came to Maple Hollow) and a new iPhone player in the office on V2.46.0 (42.6 twice, at levels 4 and 5, then 45.2 to the Performance Review). No desktop player died before 45 in the same days. Frame rate was fine (60 fps), so it isn't lag.
+- Docs: the Project copies of ROADMAP and PROGRESS_LOG were stuck at V2.35.0 and Nov 13. Copied the current docs across and refreshed the roadmap page. Added the to-dos Rami gave by voice on Nov 14.
+- Next: a first-two-minutes pass for phones (why does a new phone player sit at level 4 at 42.6?).
+

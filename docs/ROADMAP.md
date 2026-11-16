@@ -4,12 +4,27 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-14 (V2.46.0: hero idle animations are in. Before that, V2.45.1: Maple Hollow bosses hurry over. Next: watch the next Maple Hollow runs; TJ and Derek replacements later.)
+**Last updated:** 2026-11-16 (V2.46.0 is live. Rami: the Mortgage fight feels good and challenging. Stats: Maple Hollow runs now get past 56; new phone players still die at 42-44. Next: a first-two-minutes pass for phones.)
 
 ---
 
-## Rami's to-do list (kept current by Claude; updated Nov 7)
+## Rami's to-do list (kept current by Claude; updated Nov 16)
 Things only Rami can do. Claude adds items as they come up and checks them off when they're done.
+
+**Nov 16 check-in**
+- [x] Rami: fight the Mortgage past 52 (Nov 16: "felt good, challenging")
+- [x] Stats check after V2.45.1: two Maple Hollow runs, 58.7 and 84.9, neither with the Mortgage alive (one player, thin data)
+- [ ] Rami: stand still with each hero and watch the idles (V2.46.0)
+- [ ] Early phone deaths: a new iPhone player died at 42.6 twice at levels 4-5 (office, V2.46.0). Next build: a first-two-minutes pass for phones
+- [ ] Rami: review the five memo drafts from Nov 14 (Home, Bosses, Finding your way, How I write these memos, Rock and Stone, Solo)
+
+**From the Nov 14 drive (Rami by voice)**
+- [ ] "Talk about it" button on each memo, linking to Substack comments and Discord (no on-page comments yet)
+- [ ] Rami as an unlockable hero, found through his hidden camera in the Maple Hollow house
+- [ ] 3D mockup, three ways: an AI image, Meshy models in Blender, and a playable browser test of the living room
+- [ ] Neighborhood enemies: a jogging club, a cyclist yelling "on your left"
+- [ ] Let players cut through Maple Hollow's woods
+- [ ] Later: replacements for TJ and Derek; what the two standing stones do
 
 **Next session (Rami said yes, Nov 8)**
 - [x] Sync the Desktop folder with GitHub (Nov 9: it was already Codex's git copy; now up to date)
