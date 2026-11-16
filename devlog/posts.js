@@ -4,6 +4,25 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "16-i-kind-of-want-one",
+    "date": "2026-11-16",
+    "title": "Not because I have one. Because I kind of want one.",
+    "version": "V. 2.12.0 to 2.46.2",
+    "draft": true,
+    "cover": "img/16-lineup-placeholder.jpg",
+    "leadAlt": "Six bosses in a row, straight from the game's sprites: Fifth-Grade Math Homework, the 30-Year Mortgage, Your New Boss, the HOA President, the Midlife Crisis V8 and Father Time.",
+    "blurb": "Where the bosses come from: my son's math homework, the house I'm still saving for, and the little jokes in work and life.",
+    "teaser": "Fifth-Grade Math Homework, the 30-Year Mortgage, and the boss I'd add next.",
+    "changes": [
+      "Fifth-Grade Math Homework, the HOA President and the V8 out of your garage in Maple Hollow",
+      "Your New Boss, the Holiday Party, the Reorg and the Quarterly All-Hands in the office",
+      "A defeat stamp for every boss, like PAID IN FULL",
+      "Far-away bosses hurry over instead of walking for two minutes"
+    ],
+    "nextUp": "Finding your way.",
+    "playUrl": "https://midlifesurvivors.com/"
+  },
+  {
     "slug": "15-i-wanted-it-to-feel-like-home",
     "date": "2026-11-16",
     "title": "I wanted it to feel like home.",

@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-16 (Memo 15 "I wanted it to feel like home." drafted and waiting on Rami: cover, Abe's room shot, read. V2.46.2 GOOD FIRST PICK is live. Next: Memo 16 Bosses, then hero idle polish.)
+**Last updated:** 2026-11-16 (Memos 15 and 16 drafted and held for Rami. Next: Memo 17 Finding your way, then hero idle polish.)
 
 ---
 
@@ -22,7 +22,10 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami: Memo 15 cover from ChatGPT, landscape and portrait (Nov 16)
 - [ ] Rami: Abe picks the screenshot of his room
 - [ ] Rami: read Memo 15 and mark it up; then publish + social kit
-- [ ] Memo 16: Bosses (then 17, then the other two)
+- [x] Memo 16 "Not because I have one. Because I kind of want one." drafted (hidden)
+- [ ] Rami: Memo 16 cover from ChatGPT (docs/devlog-plans/16-cover-prompt.md + devlog/img/16-boss-reference.jpg)
+- [ ] Rami: read Memo 16 and mark it up
+- [ ] Memo 17: Finding your way (then the other two)
 - [x] Rami: stood still with each hero (Nov 16): idles are "pretty good but could use some more work"
 - [ ] After the memos: hero idle polish round
 

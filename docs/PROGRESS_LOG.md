@@ -2603,3 +2603,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Three links from pages actually opened: Slynyrd's Pixelblog on top-down interiors, Ohio Magazine's Best Hometowns 2022 on Kent, Kitfox's Designing for Coziness.
 - Waiting on Rami: the cover (ChatGPT prompt in docs/devlog-plans/15-cover-prompt.md, needs Abe's description), Abe picks his room shot, and a read.
 - Later Nov 16: Rami pushed the ChatGPT covers (landscape + portrait, Abe included). Landscape is now the Memo 15 cover; portrait kept for the social kit. Checked at laptop and phone sizes.
+
+## 2026-11-16: Memo 16 drafted, "Not because I have one. Because I kind of want one." (Claude)
+- Rami: hold Memo 15 as a draft and move on. Drafted Memo 16 (Bosses) from his Nov 14 interview, hidden. Headers are his phrases.
+- Used the real in-game spotlight cards as the boss cards (nine bosses), plus a 15-second clip of Math Homework's paper-airplane attack recorded in the game.
+- Two links from pages opened: Mike Stout on telegraphing (Game Developer) and Bob Cunningham on why kids' math feels unfamiliar to parents (Understood.org).
+- Waiting on Rami: the cover (prompt in docs/devlog-plans/16-cover-prompt.md, boss reference sheet attached) and his read. The cover is a placeholder lineup for now.
