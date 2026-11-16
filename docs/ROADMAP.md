@@ -18,11 +18,11 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami on GOOD FIRST PICK: "I love it, great move." Show it for everyone until they hold two weapons (V2.46.2)
 - [ ] Watch the stats: do new players' first runs get past 43 now?
 - [x] Memo order (Rami, Nov 16): 15 Home, 16 Bosses, 17 Finding your way, then How I write these memos and Rock and Stone, Solo
-- [x] Memo 15 "I wanted it to feel like home." drafted (hidden; preview with ?drafts=1)
+- [x] Memo 15 "A little slice of home." drafted (hidden; preview with ?drafts=1)
 - [x] Rami: Memo 15 cover from ChatGPT, landscape and portrait (Nov 16)
 - [ ] Rami: Abe picks the screenshot of his room
 - [ ] Rami: read Memo 15 and mark it up; then publish + social kit
-- [x] Memo 16 "Not because I have one. Because I kind of want one." drafted (hidden)
+- [x] Memo 16 "Little jokes with legs." drafted (hidden)
 - [x] Rami: Memo 16 cover from ChatGPT, landscape and portrait (Nov 16)
 - [ ] Rami: read Memo 16 and mark it up
 - [ ] Memo 17: Finding your way (then the other two)

@@ -2598,7 +2598,7 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 
 ## 2026-11-16: Memo 15 drafted, "I wanted it to feel like home." (Claude)
 - Rami: Home is Memo 15 (Bosses 16, Finding your way 17; How I write these memos moves later). Hero idles: "pretty good but could use some more work," after the memos.
-- Drafted Memo 15 from Rami's Nov 14 interview lines, as a hidden draft on the devlog. Headers are his phrases. Preview: midlifesurvivors.com/devlog/?post=15-i-wanted-it-to-feel-like-home&drafts=1
+- Drafted Memo 15 from Rami's Nov 14 interview lines, as a hidden draft on the devlog. Headers are his phrases. Preview: midlifesurvivors.com/devlog/?post=15-a-little-slice-of-home&drafts=1
 - New game screenshots: our street, Abe's room, the town map, and a living room before and after slider (Nov 11 vs now).
 - Three links from pages actually opened: Slynyrd's Pixelblog on top-down interiors, Ohio Magazine's Best Hometowns 2022 on Kent, Kitfox's Designing for Coziness.
 - Waiting on Rami: the cover (ChatGPT prompt in docs/devlog-plans/15-cover-prompt.md, needs Abe's description), Abe picks his room shot, and a read.
@@ -2610,3 +2610,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Two links from pages opened: Mike Stout on telegraphing (Game Developer) and Bob Cunningham on why kids' math feels unfamiliar to parents (Understood.org).
 - Waiting on Rami: the cover (prompt in docs/devlog-plans/16-cover-prompt.md, boss reference sheet attached) and his read. The cover is a placeholder lineup for now.
 - Later Nov 16: Memo 16 cover from Rami's ChatGPT, three rounds: lineup raised so the title sits on the floor, a two-row portrait for Instagram, and Rami's face matched to his About-page portrait (rounder face, neat beard, warm smile). Checked on the laptop layout.
+- Later Nov 16: Rami picked new titles: Memo 15 "A little slice of home." and Memo 16 "Little jokes with legs." Slugs renamed to match (both still drafts).

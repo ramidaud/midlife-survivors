@@ -4,9 +4,9 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
-    "slug": "16-i-kind-of-want-one",
+    "slug": "16-little-jokes-with-legs",
     "date": "2026-11-16",
-    "title": "Not because I have one. Because I kind of want one.",
+    "title": "Little jokes with legs.",
     "version": "V. 2.12.0 to 2.46.2",
     "draft": true,
     "cover": "img/16-key-art.jpg",
@@ -23,9 +23,9 @@ window.DEVLOG_POSTS = [
     "playUrl": "https://midlifesurvivors.com/"
   },
   {
-    "slug": "15-i-wanted-it-to-feel-like-home",
+    "slug": "15-a-little-slice-of-home",
     "date": "2026-11-16",
-    "title": "I wanted it to feel like home.",
+    "title": "A little slice of home.",
     "version": "V. 2.29.4 to 2.46.2",
     "draft": true,
     "cover": "img/15-key-art.jpg",
