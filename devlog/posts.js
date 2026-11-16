@@ -9,8 +9,8 @@ window.DEVLOG_POSTS = [
     "title": "I wanted it to feel like home.",
     "version": "V. 2.29.4 to 2.46.2",
     "draft": true,
-    "cover": "img/15-street.jpg",
-    "leadAlt": "Maple Hollow in peak fall: three pixel-art houses on one street, ours in the middle with the orange siding and the garage, and the hero on the sidewalk out front.",
+    "cover": "img/15-key-art.jpg",
+    "leadAlt": "Pixel art of our orange house in Maple Hollow in peak fall. I'm at the front door with a coffee, Abe waves from his upstairs window next to his guitar, the spare key peeks out from under a fake rock, and the swarm of bills, phones and ghosts comes up the street.",
     "blurb": "Our real house is in the game now, both floors, Abe's room included. It's not where I want it yet.",
     "teaser": "Our real house is in Maple Hollow now, Abe's room included. Plus why I don't think it's there yet.",
     "changes": [

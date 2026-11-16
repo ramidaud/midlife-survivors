@@ -19,7 +19,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Watch the stats: do new players' first runs get past 43 now?
 - [x] Memo order (Rami, Nov 16): 15 Home, 16 Bosses, 17 Finding your way, then How I write these memos and Rock and Stone, Solo
 - [x] Memo 15 "I wanted it to feel like home." drafted (hidden; preview with ?drafts=1)
-- [ ] Rami: run the Memo 15 cover prompt in ChatGPT (docs/devlog-plans/15-cover-prompt.md; fill in Abe's description first)
+- [x] Rami: Memo 15 cover from ChatGPT, landscape and portrait (Nov 16)
 - [ ] Rami: Abe picks the screenshot of his room
 - [ ] Rami: read Memo 15 and mark it up; then publish + social kit
 - [ ] Memo 16: Bosses (then 17, then the other two)

@@ -2602,3 +2602,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - New game screenshots: our street, Abe's room, the town map, and a living room before and after slider (Nov 11 vs now).
 - Three links from pages actually opened: Slynyrd's Pixelblog on top-down interiors, Ohio Magazine's Best Hometowns 2022 on Kent, Kitfox's Designing for Coziness.
 - Waiting on Rami: the cover (ChatGPT prompt in docs/devlog-plans/15-cover-prompt.md, needs Abe's description), Abe picks his room shot, and a read.
+- Later Nov 16: Rami pushed the ChatGPT covers (landscape + portrait, Abe included). Landscape is now the Memo 15 cover; portrait kept for the social kit. Checked at laptop and phone sizes.
