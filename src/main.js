@@ -1626,6 +1626,24 @@ function showLevelUp(scene, customTitle, preferWeapons, avoidIds) {
   while (choices.length < 3 && boosts.length) choices.push(boosts.shift());
   if (choices.length === 3 && boosts.length && !choices.some(c => c.isConsumable) && currentAge >= 50 && Math.random() < 0.3) choices[2] = boosts.shift();
 
+  // First picks (Nov 16): in a new player's first runs, while they carry only Coffee, one card is always a damage weapon
+  // and it sits first with a "GOOD FIRST PICK" note. Settings: FIRST_MINUTE.firstPicks in src/data/first-minute.js.
+  window.firstPickId = null;
+  const FP = (window.FIRST_MINUTE || {}).firstPicks;
+  if (FP && !customTitle && !preferWeapons && window.LOADOUT && (meta.runsPlayed || 0) < FP.runs && LOADOUT.held(stats).weapons.length < FP.untilWeapons) {
+    let star = choices.find(c => FP.starters.includes(c.id));
+    if (!star) {
+      const cands = regular.filter(u => FP.starters.includes(u.id));
+      const fresh = cands.filter(u => !(avoidIds || []).includes(u.id));
+      star = (fresh.length || cands.length) ? Phaser.Utils.Array.GetRandom(fresh.length ? fresh : cands) : null;
+      if (star) { // takes the place of the last card that isn't an evolution
+        let at = -1; for (let i = choices.length - 1; i >= 0; i--) if (!choices[i].isEvolution) { at = i; break; }
+        if (choices.length < 3) choices.push(star); else if (at >= 0) choices[at] = star; else star = null;
+      }
+    }
+    if (star) { choices = [star].concat(choices.filter(c => c !== star)); window.firstPickId = star.id; }
+  }
+
   // Nov 9 (Kevin, age 275): a fully maxed build had zero cards left, so "YOU'VE EARNED A PERK!" opened empty and the
   // game froze. Now an empty pick turns into a Seniority perk on the spot, with a banner, and play goes on.
   if (!choices.length) {

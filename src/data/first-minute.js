@@ -6,5 +6,16 @@ window.FIRST_MINUTE = {
   gentleMax: 2,
   hint: { touch: "DRAG ANYWHERE TO MOVE", keys: "WASD OR ARROWS TO MOVE", pad: "LEFT STICK TO MOVE", sub: "The clock starts when you do." },
   firstKill: { pop: "PAID!", line: "Your coffee fires on its own. Your only job: keep moving." },
-  firstHurt: { line: "Bills hurt on contact. Keep moving and let the coffee do the work." }
+  firstHurt: { line: "Bills hurt on contact. Keep moving and let the coffee do the work." },
+  // First picks (Nov 16). Play stats: a new player took three passives, still had only Coffee at level 5, and died at 42.6.
+  // One weapon means few kills, few kills means little Wisdom, and the swarm outgrows you. So in a player's first few runs,
+  // while they carry only Coffee, one of the three level-up cards is always a weapon that deals damage, marked as a good pick.
+  // It's still a choice: the other two cards are untouched, and SKIP works as usual.
+  firstPicks: {
+    runs: 5,            // a player's first 5 runs
+    untilWeapons: 2,    // stops as soon as you carry 2 weapons
+    starters: ["unlockJoke", "unlockRemote", "unlockSheet", "unlockPodcast", "unlockChair", "unlockReplyAll", "unlockSticky"],
+    tag: "GOOD FIRST PICK",
+    line: "A second weapon clears the room faster."
+  }
 };

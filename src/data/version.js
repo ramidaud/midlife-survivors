@@ -2,12 +2,19 @@
 // Update `version`, `displayVersion`, `lastUpdated`, `build`, and prepend a `changelog` entry after each finished step!
 
 const GAME_VERSION = {
-  version: "2.46.0",
-  displayVersion: "V. 2.46.0",
-  lastUpdated: "Nov 14, 2026",
+  version: "2.46.1",
+  displayVersion: "V. 2.46.1",
+  lastUpdated: "Nov 16, 2026",
   codename: "Version Two",
-  build: 389,
+  build: 390,
   changelog: [
+    {
+      ver: "V. 2.46.1", date: "Nov 16, 2026", title: "Version Two",
+      teaser: "New hires get one piece of advice: bring more than coffee.",
+      highlights: [
+        "In your first few shifts, while Coffee is your only weapon, one level-up card is always a weapon that deals damage, marked GOOD FIRST PICK. The other two cards are the usual shuffle, and the choice is still yours."
+      ]
+    },
     {
       ver: "V. 2.46.0", date: "Nov 14, 2026", title: "Version Two",
       teaser: "Stand still long enough and your hero gets on with their day.",

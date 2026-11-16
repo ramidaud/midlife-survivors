@@ -2584,3 +2584,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Docs: the Project copies of ROADMAP and PROGRESS_LOG were stuck at V2.35.0 and Nov 13. Copied the current docs across and refreshed the roadmap page. Added the to-dos Rami gave by voice on Nov 14.
 - Next: a first-two-minutes pass for phones (why does a new phone player sit at level 4 at 42.6?).
 
+## 2026-11-16: good first pick, V2.46.1 (Claude)
+- Dug into the early deaths. It isn't phones: a desktop newcomer on Nov 7 died the same way (41.6 to 42.3 at levels 2 to 4). It's first-run players, and most of them arrive on phones.
+- The Nov 15 player picked passives and still had only Coffee at level 5. About 0.8 kills a second, against about 1.8 for players who reach 44. Few kills, little Wisdom, and the swarm outgrows you.
+- New: in a player's first 5 runs, while Coffee is their only weapon, one level-up card is always a damage weapon, first in the row, marked GOOD FIRST PICK. The other two cards and SKIP are unchanged. Numbers and words: `FIRST_MINUTE.firstPicks`.
+- Tested at laptop and phone sizes: marked card first in 40 of 40 draws, gone after the second weapon, never shown to a veteran. No errors.
+- Honest limit: this rests on one player's two runs with build data. Watch whether new players' first runs get past 43.

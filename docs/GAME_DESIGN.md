@@ -802,3 +802,8 @@ Both kits are complete for art approval in draft PR #13, with no runtime placeme
 
 ### Hero idle studies (2026-11-14, Codex)
 Art proposals retain the glasses push, coffee sip and notebook check, plus a floppy-disk check for Coldwar Cowboy. Each eight-frame 56x60 strip matches its current v4 walk frame 1 bounds and y56 sole line, with existing hero colors only. Review: assets/characters/idle-studies/deliver/review.html. Nothing integrated; existing walk sheets and runtime animation timing remain unchanged.
+
+### Good first pick (decided and built Nov 16, V2.46.1)
+- In a player's first 5 runs, while they carry only Coffee, one of the three level-up cards is always a weapon that deals damage (Dad Joke, TV Remote, Spreadsheet, Podcast, Office Chair, Reply-All, Sticky Notes). It sits first and carries a GOOD FIRST PICK note.
+- It's a nudge, not a rule: the other two cards are the normal shuffle and SKIP still works. It stops at two weapons. Chests and Performance Bonus picks are untouched.
+- Numbers and words: `FIRST_MINUTE.firstPicks` in `src/data/first-minute.js`.

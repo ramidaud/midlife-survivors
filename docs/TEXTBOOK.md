@@ -2336,3 +2336,17 @@ ms on screen 400   200  160  400   160  240   180  400   (about 2.1 s)
 | Just stopped | the direction you were facing, 0.6 s |
 | Standing | frames 1 and 2 alternating, 600 ms each (breathing) |
 | Every 7 s standing | all 8 idle frames at the timing above |
+
+## Chapter: The snowball (2026-11-16)
+```
+more weapons ──> more kills ──> more Wisdom ──> more level-ups
+      ^                                              │
+      └──────────────── more cards to pick ──────────┘
+```
+
+| At about age 42.6 | Kills per second | Level | What happened |
+|---|---|---|---|
+| Coffee + 3 passives (new player, Nov 15) | 0.8 | 4 to 5 | died |
+| 3 or 4 weapons (players who reach 44+) | about 1.8 | 7 | still going |
+
+Fix: in your first 5 runs, while Coffee is your only weapon, one of the three cards is always a damage weapon marked GOOD FIRST PICK.

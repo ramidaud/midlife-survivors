@@ -912,3 +912,6 @@ Matching the 56x60 canvas is not enough: the visible figure inside it also needs
 
 ## Frame timing: not every frame lasts the same (Nov 14, hero idles)
 A walk cycle can tick at one steady speed, but an action reads better with its own rhythm. The idle holds the "ready" pose for 400 ms, blinks fast (160 ms), then lingers on the sip (400 ms). The game keeps that list of durations and walks through it, so the timing Codex drew is the timing you see.
+
+## The snowball: kills feed levels, levels feed kills (Nov 16, good first pick)
+In a survivors game, enemies are also your XP. One weapon kills slowly, so you level slowly, so the swarm grows faster than you do. That loop is called a snowball, and it can roll either way. A second weapon early roughly doubles your kills, which speeds up every level after it. That's why the game now points new players at a weapon first: passives make a good build better, but they can't start the snowball on their own.

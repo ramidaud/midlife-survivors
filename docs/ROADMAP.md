@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-16 (V2.46.0 is live. Rami: the Mortgage fight feels good and challenging. Stats: Maple Hollow runs now get past 56; new phone players still die at 42-44. Next: a first-two-minutes pass for phones.)
+**Last updated:** 2026-11-16 (V2.46.1: new players get a GOOD FIRST PICK weapon card while Coffee is their only weapon. Earlier today: Rami says the Mortgage fight feels good; Maple Hollow runs now get past 56. Next: watch whether first runs get past 43.)
 
 ---
 
@@ -15,7 +15,9 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Rami: fight the Mortgage past 52 (Nov 16: "felt good, challenging")
 - [x] Stats check after V2.45.1: two Maple Hollow runs, 58.7 and 84.9, neither with the Mortgage alive (one player, thin data)
 - [ ] Rami: stand still with each hero and watch the idles (V2.46.0)
-- [ ] Early phone deaths: a new iPhone player died at 42.6 twice at levels 4-5 (office, V2.46.0). Next build: a first-two-minutes pass for phones
+- [x] Early deaths: it's new players, not phones. Built GOOD FIRST PICK (V2.46.1): a damage weapon card in the first 5 runs while you only have Coffee
+- [ ] Rami: play one run in a private window, where the game treats you as a new player. Does the GOOD FIRST PICK note read as a tip or as nagging?
+- [ ] Watch the stats: do new players' first runs get past 43 now?
 - [ ] Rami: review the five memo drafts from Nov 14 (Home, Bosses, Finding your way, How I write these memos, Rock and Stone, Solo)
 
 **From the Nov 14 drive (Rami by voice)**

@@ -2227,6 +2227,9 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
       ? `${plain} · LEVEL ${curRank + 1} OF ${up.maxRank}`
       : plain;
     const evoNext = evoNextNote(up);
+    // First picks (Nov 16): the one card a new player is nudged toward. Words: FIRST_MINUTE.firstPicks.
+    const FPk = (window.FIRST_MINUTE || {}).firstPicks, firstPick = FPk && up.id && up.id === window.firstPickId
+      ? `<span class="perk-evo perk-first">${FPk.tag}<b>${FPk.line}</b></span>` : "";
     const card = document.createElement("div");
     card.className = `perk-card rarity-${info.rarity}${evoNext && !evoNext.soon ? " evo-next" : ""}`;
     const sty = cat && LO.cats[cat];
@@ -2236,7 +2239,7 @@ function renderLevelUpModal(choices, customTitle, onPick, skip, reroll) {
       <div class="perk-ribbon">${rankLabel}</div>
       <div class="perk-icon">${pixelIcon("card", up.name, info.icon, 64)}</div>
       <div class="perk-name">${heroWord(up.name)}</div>
-      <div class="perk-desc">${evoNext ? `<span class="perk-evo${evoNext.soon ? " soon" : ""}">${evoNext.soon ? "1 MORE PICK TO EVOLVE" : "✨ UNLOCKS AN EVOLUTION"}<b>${heroWord(evoNext.name)}</b></span>` : ""}${heroWord(up.text)}${!evoNext && evoPairNote(up) ? `<span class="perk-pair">${heroWord(evoPairNote(up))}</span>` : ""}</div>
+      <div class="perk-desc">${firstPick}${evoNext ? `<span class="perk-evo${evoNext.soon ? " soon" : ""}">${evoNext.soon ? "1 MORE PICK TO EVOLVE" : "✨ UNLOCKS AN EVOLUTION"}<b>${heroWord(evoNext.name)}</b></span>` : ""}${heroWord(up.text)}${!evoNext && evoPairNote(up) ? `<span class="perk-pair">${heroWord(evoPairNote(up))}</span>` : ""}</div>
       <div class="perk-key">${isTouchUI ? "TAP TO SELECT" : `${i + 1}`}</div>
     `;
     bindNavItem(card, 0, e => {
