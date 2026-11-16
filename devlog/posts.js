@@ -9,8 +9,8 @@ window.DEVLOG_POSTS = [
     "title": "Not because I have one. Because I kind of want one.",
     "version": "V. 2.12.0 to 2.46.2",
     "draft": true,
-    "cover": "img/16-lineup-placeholder.jpg",
-    "leadAlt": "Six bosses in a row, straight from the game's sprites: Fifth-Grade Math Homework, the 30-Year Mortgage, Your New Boss, the HOA President, the Midlife Crisis V8 and Father Time.",
+    "cover": "img/16-key-art.jpg",
+    "leadAlt": "Pixel art of a police lineup against a height chart: Fifth-Grade Math Homework, the 30-Year Mortgage with a tiny picket fence, Your New Boss, the HOA President, the Midlife Crisis V8 over its own tire marks, and a smiling Father Time. I stand off to the right with a coffee, trying to pick one out.",
     "blurb": "Where the bosses come from: my son's math homework, the house I'm still saving for, and the little jokes in work and life.",
     "teaser": "Fifth-Grade Math Homework, the 30-Year Mortgage, and the boss I'd add next.",
     "changes": [
