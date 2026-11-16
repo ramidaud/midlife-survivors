@@ -23,7 +23,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Rami: Abe picks the screenshot of his room
 - [ ] Rami: read Memo 15 and mark it up; then publish + social kit
 - [x] Memo 16 "Not because I have one. Because I kind of want one." drafted (hidden)
-- [ ] Rami: Memo 16 cover from ChatGPT (docs/devlog-plans/16-cover-prompt.md + devlog/img/16-boss-reference.jpg)
+- [x] Rami: Memo 16 cover from ChatGPT, landscape and portrait (Nov 16)
 - [ ] Rami: read Memo 16 and mark it up
 - [ ] Memo 17: Finding your way (then the other two)
 - [x] Rami: stood still with each hero (Nov 16): idles are "pretty good but could use some more work"

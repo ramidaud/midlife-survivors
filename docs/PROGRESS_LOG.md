@@ -2609,3 +2609,4 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Used the real in-game spotlight cards as the boss cards (nine bosses), plus a 15-second clip of Math Homework's paper-airplane attack recorded in the game.
 - Two links from pages opened: Mike Stout on telegraphing (Game Developer) and Bob Cunningham on why kids' math feels unfamiliar to parents (Understood.org).
 - Waiting on Rami: the cover (prompt in docs/devlog-plans/16-cover-prompt.md, boss reference sheet attached) and his read. The cover is a placeholder lineup for now.
+- Later Nov 16: Memo 16 cover from Rami's ChatGPT, three rounds: lineup raised so the title sits on the floor, a two-row portrait for Instagram, and Rami's face matched to his About-page portrait (rounder face, neat beard, warm smile). Checked on the laptop layout.
