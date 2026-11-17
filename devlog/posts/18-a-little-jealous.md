@@ -6,6 +6,8 @@ Here's a bit of my run from tonight: the countdown to get to the drop pod at the
 
 *My run, Nov 16. [Deep Rock Galactic: Survivor](https://store.steampowered.com/app/2321470/Deep_Rock_Galactic_Survivor/) is made by [Funday Games](https://www.fundaygames.dk/deep-rock-galactic-survivor) and published by Ghost Ship Publishing.*
 
+**Get it:** [Steam](https://store.steampowered.com/app/2321470/Deep_Rock_Galactic_Survivor/) · [Xbox](https://www.xbox.com/en-us/games/store/-/9phgqprbbsxk) · [PlayStation 5](https://store.playstation.com/concept/10019431/) · [Nintendo Switch](https://www.nintendo.com/us/store/products/deep-rock-galactic-survivor-switch/) · [iPhone and iPad](https://apps.apple.com/us/app/6742194903) · [Android](https://play.google.com/store/apps/details?id=com.ghostshippublishing.deeprockgalacticsurvivor). The phone versions are free to try.
+
 ## It was just a lot of fun to play in a group
 
 The original Deep Rock Galactic is what my little gaming group plays. Other than the fact that it's always a good social interaction, the game just stood out as different visually and mechanics-wise. And it was just a lot of fun to play in a group.
@@ -36,4 +38,4 @@ I want to take it to that next level, but I don't want to undersell the pixel ar
 
 One thing I want to try in Midlife now: maybe in Maple Hollow you can cut through the forests. Right now the trees around the town are a solid wall. Deep Rock lets you carve your own way out of a bad spot, and Maple Hollow could use something that only happens there.
 
-Would you play Midlife with friends? Tell me on [Substack](https://ramidaud.substack.com) or in the [Discord](https://discord.gg/E6N9j5tZe).
+If you want to try Deep Rock Survivor yourself, the store links are at the top. And would you play Midlife with friends? Tell me on [Substack](https://ramidaud.substack.com) or in the [Discord](https://discord.gg/E6N9j5tZe).
