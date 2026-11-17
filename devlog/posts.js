@@ -9,8 +9,8 @@ window.DEVLOG_POSTS = [
     "title": "Lost in the chaos.",
     "version": "V. 2.44.0 to 2.45.1",
     "draft": true,
-    "cover": "img/17-cover-placeholder.jpg",
-    "leadAlt": "Maple Hollow from the game: the hero walks up between the houses toward the newly opened part of town while a crowd of bills follows from the street.",
+    "cover": "img/17-key-art.jpg",
+    "leadAlt": "Pixel art of me standing lost in the middle of a crosswalk with a coffee balanced on my cap, squinting at a town map, next to a signpost whose four arrows all say THIS WAY. Behind me the new strip mall glows with an orange outline, and a wave of bills, phones and ghosts rounds the corner.",
     "blurb": "I kept missing the boss fights in my own game. So the town got a map, arrows, and a crowd that pushes you the right way.",
     "teaser": "A map, edge arrows, and a wave of bills that herds you toward the new part of town.",
     "changes": [

@@ -2631,3 +2631,5 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Drew a chart of the Mortgage's walk: about 2 minutes before the fix, about 30 seconds after.
 - Two links from pages opened: Unity on guiding players without telling them, and PC Gamer on how developers use play data. Ends with Rami's ask for neighborhood enemy ideas on Substack or Discord.
 - Waiting on Rami: the cover (docs/devlog-plans/17-cover-prompt.md) and his read.
+- Memo 17 cover: Rami's first ChatGPT cover read as "chased," not "lost." Version 2 (Rami picked it): lost at an intersection with the map, four THIS WAY arrows, the glowing strip mall behind him. Now the cover.
+

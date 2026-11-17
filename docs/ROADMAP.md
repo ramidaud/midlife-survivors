@@ -27,7 +27,7 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [ ] Rami: read Memo 16 and mark it up
 - [x] Rami: Memos 15 and 16 read fine (Nov 16)
 - [x] Memo 17 "Lost in the chaos." drafted (hidden)
-- [ ] Rami: Memo 17 cover from ChatGPT (docs/devlog-plans/17-cover-prompt.md)
+- [x] Rami: Memo 17 cover from ChatGPT, version 2 (Nov 16)
 - [ ] Rami: read Memo 17
 - [ ] Publish 15, 16 and 17 with their social kits (Rami says when)
 - [ ] Then: How I write these memos, and Rock and Stone, Solo
