@@ -219,7 +219,7 @@ def main():
             inner = mdlib.markdown(m.group(1))[3:-4] if mdlib else html.escape(m.group(1))
             return (f'<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-{n}" aria-label="Note {n}">{n}</button>'
                     f'<span class="sn" id="sn-{n}" role="note"><span class="sn-head"><b>{n}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">{inner}</span></span>')
-        body_md = re.sub(r"\^\[([^\]]+)\]", _sn, body_md)
+        body_md = re.sub(r"\^\[((?:[^\[\]]|\[[^\]]*\])+)\]", _sn, body_md)
         body = md_to_html(body_md)
         body = re.sub(r'<p>([A-Za-z])', r'<p><span class="dropcap" aria-hidden="true">\1</span><span class="sr-only">\1</span>', body, count=1)
         body = re.sub(r"<p>CODECARD(\d+)</p>", lambda m: cards[int(m.group(1))], body)
@@ -312,7 +312,7 @@ def main():
             fcode.append(m.group(3))
             return f"\n\nFEEDCODE{len(fcode) - 1}\n\n"
         fmd = re.sub(r"^```(\w+)[ \t]*([^\n]*)\n([\s\S]*?)^```[ \t]*$", _fcode, raw_md, flags=re.M)
-        fmd = re.sub(r"\^\[([^\]]+)\]", lambda m: f" *({m.group(1)})*", fmd)
+        fmd = re.sub(r"\^\[((?:[^\[\]]|\[[^\]]*\])+)\]", lambda m: f" *({m.group(1)})*", fmd)
         fmd = re.sub(r"^!audio\[([^\]]+)\]\(([^)\s]+)\)[ \t]*$", lambda m: f"[▶ Listen: {m.group(1)}]({m.group(2).replace('../', 'https://ramidaud.github.io/midlife-survivors/', 1)})", fmd, flags=re.M)
         fbody = md_to_html(fmd)
         fbody = re.sub(r' title="(?:compare:[^"]*|side|small|book|gallery:[^"]*|deck:[^"]*)"', "", fbody)

@@ -320,7 +320,7 @@
     // Sidenotes: write ^[a note] in the markdown. It becomes a small orange number;
     // the note sits in the margin on wide screens and opens under the line when tapped on phones.
     let snCount = 0;
-    md = md.replace(/\^\[([^\]]+)\]/g, (m, note) => {
+    md = md.replace(/\^\[((?:[^\[\]]|\[[^\]]*\])+)\]/g, (m, note) => {
       snCount++;
       const inner = window.marked ? marked.parseInline(note) : esc(note);
       return `<button class="sn-ref" type="button" aria-expanded="false" aria-controls="sn-${snCount}" aria-label="Note ${snCount}">${snCount}</button><span class="sn" id="sn-${snCount}" role="note"><span class="sn-head"><b>${snCount}</b><button class="sn-close" type="button" aria-label="Close note">×</button></span><span class="sn-body">${inner}</span></span>`;
