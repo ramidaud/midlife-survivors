@@ -9,8 +9,8 @@ window.DEVLOG_POSTS = [
     "title": "A little jealous.",
     "version": "V. 2.46.2",
     "draft": true,
-    "cover": "img/18-drg-drop-pod.jpg",
-    "leadAlt": "A frame from my Deep Rock Galactic: Survivor run: a dwarf in a dark lava cave fighting a swarm, with a countdown that says GET TO THE DROP POD.",
+    "cover": "img/18-key-art.jpg",
+    "leadAlt": "Pixel art of me on the couch at midnight, looking up at a big TV playing a cave game, with our own pixel game on a laptop beside me.",
     "blurb": "I played Deep Rock Galactic: Survivor. It's the 3D version of the kind of game I'm making, and it's very good.",
     "teaser": "Deep Rock Galactic: Survivor, my gaming group, and the 3D Midlife in my head.",
     "changes": [
