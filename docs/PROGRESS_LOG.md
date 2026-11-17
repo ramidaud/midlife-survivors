@@ -2632,4 +2632,5 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Two links from pages opened: Unity on guiding players without telling them, and PC Gamer on how developers use play data. Ends with Rami's ask for neighborhood enemy ideas on Substack or Discord.
 - Waiting on Rami: the cover (docs/devlog-plans/17-cover-prompt.md) and his read.
 - Memo 17 cover: Rami's first ChatGPT cover read as "chased," not "lost." Version 2 (Rami picked it): lost at an intersection with the map, four THIS WAY arrows, the glowing strip mall behind him. Now the cover.
+- Memo 17 cover touch-up (Rami): four arrows now point four ways, the top tip is whole, and the squirrel is a black Kent squirrel. Face and layout unchanged.
 
