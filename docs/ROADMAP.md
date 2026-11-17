@@ -4,7 +4,7 @@ Pace: about 3-5 hours a week, 45-90 minute sessions. Every session ends with som
 Weekly check-in: Sundays, evening (automatic).
 
 **Current phase:** Next up: healing, interns and the Lounge (feature freeze lifted Nov 3)
-**Last updated:** 2026-11-16 (Memos 15 and 16 drafted and held for Rami. Next: Memo 17 Finding your way, then hero idle polish.)
+**Last updated:** 2026-11-16 (Memos 15, 16 and 17 drafted; Rami says 15 and 16 read fine. Next: Memo 17 cover, then publish the three with social kits.)
 
 ---
 
@@ -25,7 +25,12 @@ Things only Rami can do. Claude adds items as they come up and checks them off w
 - [x] Memo 16 "Little jokes with legs." drafted (hidden)
 - [x] Rami: Memo 16 cover from ChatGPT, landscape and portrait (Nov 16)
 - [ ] Rami: read Memo 16 and mark it up
-- [ ] Memo 17: Finding your way (then the other two)
+- [x] Rami: Memos 15 and 16 read fine (Nov 16)
+- [x] Memo 17 "Lost in the chaos." drafted (hidden)
+- [ ] Rami: Memo 17 cover from ChatGPT (docs/devlog-plans/17-cover-prompt.md)
+- [ ] Rami: read Memo 17
+- [ ] Publish 15, 16 and 17 with their social kits (Rami says when)
+- [ ] Then: How I write these memos, and Rock and Stone, Solo
 - [x] Rami: stood still with each hero (Nov 16): idles are "pretty good but could use some more work"
 - [ ] After the memos: hero idle polish round
 

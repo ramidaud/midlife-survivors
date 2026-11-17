@@ -4,6 +4,27 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "17-lost-in-the-chaos",
+    "date": "2026-11-16",
+    "title": "Lost in the chaos.",
+    "version": "V. 2.44.0 to 2.45.1",
+    "draft": true,
+    "cover": "img/17-cover-placeholder.jpg",
+    "leadAlt": "Maple Hollow from the game: the hero walks up between the houses toward the newly opened part of town while a crowd of bills follows from the street.",
+    "blurb": "I kept missing the boss fights in my own game. So the town got a map, arrows, and a crowd that pushes you the right way.",
+    "teaser": "A map, edge arrows, and a wave of bills that herds you toward the new part of town.",
+    "changes": [
+      "Maple Hollow map: in the corner from the start, M or tap for the whole town",
+      "Closed areas show the age they open; new areas get an orange outline",
+      "Edge arrows for bosses and newly opened areas",
+      "Moving Day waves push you toward a new area",
+      "Far-away bosses hurry over (the Mortgage took two minutes)",
+      "TJ and Derek help out in Maple Hollow too"
+    ],
+    "nextUp": "How I write these memos.",
+    "playUrl": "https://midlifesurvivors.com/"
+  },
+  {
     "slug": "16-little-jokes-with-legs",
     "date": "2026-11-16",
     "title": "Little jokes with legs.",

@@ -15,7 +15,7 @@ The build diary at `/devlog/`, styled as HR memos over the office key art.
 - **Memo 14: Achievement Unlocked: Gaussian Splatting** (Gaussian splatting, published Nov 11).
 - **Memo 15: A little slice of home.** (drafted Nov 16, waiting on the cover and Rami's read).
 - **Memo 16: Little jokes with legs.** (Bosses; drafted Nov 16, waiting on the cover and Rami's read).
-- **Memo 17: Finding your way** (interviewed Nov 14).
+- **Memo 17: Lost in the chaos.** (Finding your way; drafted Nov 16, waiting on the cover).
 - **How I write these memos** and **Rock and Stone, Solo** (interviewed Nov 14, after 17).
 
 ## Add a post

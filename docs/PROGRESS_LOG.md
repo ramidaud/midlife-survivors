@@ -2625,3 +2625,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Fix (Rami): a sidenote number could wrap onto its own line, so it didn't read as an inline citation. Now each number is glued to the word before it, on memo pages and share pages. Checked every note in Memos 12, 14, 15 and 16 at 114 screen widths: none split.
 - Memo 15 cover, window fix (Rami, via ChatGPT): four matching window units like the game's house, Abe fully inside the second one. Checked both versions.
 
+## 2026-11-16: Memo 17 drafted, "Lost in the chaos." (Claude)
+- Rami: Memos 15 and 16 "read fine." Drafted Memo 17 (Finding your way) from his Nov 14 interview, hidden. Title and headers are his phrases.
+- Recorded in the game: the Maple Hollow map before and after the elementary opens at 44 (a slider), and a 13-second clip of a Moving Day wave herding the hero.
+- Drew a chart of the Mortgage's walk: about 2 minutes before the fix, about 30 seconds after.
+- Two links from pages opened: Unity on guiding players without telling them, and PC Gamer on how developers use play data. Ends with Rami's ask for neighborhood enemy ideas on Substack or Discord.
+- Waiting on Rami: the cover (docs/devlog-plans/17-cover-prompt.md) and his read.
