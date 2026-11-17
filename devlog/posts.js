@@ -4,6 +4,24 @@
 // Optional fields: cover, teaser, blurb (one or two short sentences for the title screen's memo note), changes[], nextUp, playUrl.
 window.DEVLOG_POSTS = [
   {
+    "slug": "18-a-little-jealous",
+    "date": "2026-11-16",
+    "title": "A little jealous.",
+    "version": "V. 2.46.2",
+    "draft": true,
+    "cover": "img/18-drg-drop-pod.jpg",
+    "leadAlt": "A frame from my Deep Rock Galactic: Survivor run: a dwarf in a dark lava cave fighting a swarm, with a countdown that says GET TO THE DROP POD.",
+    "blurb": "I played Deep Rock Galactic: Survivor. It's the 3D version of the kind of game I'm making, and it's very good.",
+    "teaser": "Deep Rock Galactic: Survivor, my gaming group, and the 3D Midlife in my head.",
+    "changes": [
+      "No new build in this one: it's about another game",
+      "An idea to try: cutting through Maple Hollow's woods",
+      "Thinking about multiplayer, someday"
+    ],
+    "nextUp": "How I write these memos.",
+    "playUrl": "https://midlifesurvivors.com/"
+  },
+  {
     "slug": "17-lost-in-the-chaos",
     "date": "2026-11-16",
     "title": "Lost in the chaos.",
@@ -21,7 +39,7 @@ window.DEVLOG_POSTS = [
       "Far-away bosses hurry over (the Mortgage took two minutes)",
       "TJ and Derek help out in Maple Hollow too"
     ],
-    "nextUp": "How I write these memos.",
+    "nextUp": "Deep Rock, and a little jealousy.",
     "playUrl": "https://midlifesurvivors.com/"
   },
   {

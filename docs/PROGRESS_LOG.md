@@ -2634,3 +2634,9 @@ Saved the registered 11:58 PM title plate, eighteen animation frames and contact
 - Memo 17 cover: Rami's first ChatGPT cover read as "chased," not "lost." Version 2 (Rami picked it): lost at an intersection with the map, four THIS WAY arrows, the glowing strip mall behind him. Now the cover.
 - Memo 17 cover touch-up (Rami): four arrows now point four ways, the top tip is whole, and the squirrel is a black Kent squirrel. Face and layout unchanged.
 
+
+## 2026-11-16 (late): Memo 18 draft, "A little jealous."
+- Drafted the Deep Rock Galactic: Survivor memo from Rami's Nov 14 voice interview, as a hidden draft.
+- Cut a 16-second clip and two stills (level-up cards, shop) from Rami's own run tonight, credited to Funday Games.
+- Wrote the cover prompt (`docs/devlog-plans/18-cover-prompt.md`): Rami on the couch at midnight, a generic cave game on the TV, our pixel game on a laptop.
+- Publishing plan: one memo a day, starting with 15.
