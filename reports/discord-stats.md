@@ -1,26 +1,24 @@
-# Play stats: Nov 22 morning (last 24 hours)
-**6 runs from 2 players, and one of them lived to 104.6 in Full Life.** That's the best score of the week, but 3 quick deaths on one very laggy browser pulled the median way down.
+# Play stats: Nov 23 morning (last 24 hours)
+**A quiet day: no runs in the last 24 hours.** The last run came in early Sunday morning (UTC), so this is a rest day, not a broken game.
 
 **Who played**
-- 6 runs from 2 players: both returning, 0 new (week before: 32 runs from 10 players, 4 new)
+- 0 runs in the last 24 hours (the 7 days before: 34 runs from 10 players, 4 new)
 - All-time: 557 runs from 96 players, 39 retirements, 8 runs past 100
 
 **How far they got**
-- Median run 1.4 min, average 7.0 min, median age 42.5 (week before: 3.6 min, 8.4 min, age 45.0)
-- Reached 45: 33%, 50: 33%, 55: 33%, 60: 17%, 65: 17% (week before: 45: 50%, 50: 34%, 65: 25%)
-- 1 retirement: a Full Life run that reached 104.6 in 30 minutes (week before: 8 retirements)
-- Best score 1,914,270, highest age 104.6 (all-time best 2,831,870, highest age 144.1)
+- The 7 days before: median run 3.8 min, average 9.1 min, median age 45.6
+- Reached 45: 53%, 50: 38%, 55: 32%, 60: 26%, 65: 26%
+- 9 retirements, 1 Full Life run past 100 (best score 1,914,270, highest age 104.6)
+- All-time best 2,831,870, highest age 144.1
 
 **Top killers**
-- Bill: all 4 deaths today, average age 45.6
-- Week before: Bill took 11 of 17 deaths (average age 43.8), then one each for Late Fee, Spam Call, Snack Attack, 3 AM Thought, Leaf Pile and Office Gossip
+- None today
+- The 7 days before: Bill took 11 of 17 deaths (average age 45.6), then one each for Late Fee, Spam Call, Snack Attack, 3 AM Thought, Leaf Pile and Office Gossip
 
 **Difficulty**
-- 4 of 6 runs ended in a death, 3 of them before 42 (all at age 40, all on the laggy browser below)
-- Median per run: 15 hits and 15 damage taken (week before: 23.5 hits and 37.5 damage)
-- Week before: 4 of 17 deaths before 42, most deaths at age 40 to 42
+- No runs to judge today
+- The 7 days before: 3 of 17 deaths before 42, median 23.5 hits and 44.5 damage taken per run
 
 **Lag**
-- Desktop (Linux Chrome): 14 fps average, 99% slow frames over 3 runs. Lag flagged
-- Desktop (Windows Chrome): 60 fps average, 0% slow frames
-- Week before: everything at 59 fps or better (macOS, iPhone Safari, Linux, Windows)
+- No runs today
+- The 7 days before: macOS 90 fps, Windows and iPhone 60 fps. One Linux Chrome browser averaged 14 fps with 99% slow frames over 3 runs. Lag flagged
