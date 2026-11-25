@@ -1,78 +1,27 @@
 {
- "updated": "2026-11-24T12:29:29Z",
+ "updated": "2026-11-25T12:29:10Z",
  "since": "2026-11-02",
  "note": "All-time play stats for ramidaud.com, Rami's own devices left out (docs/stats-exclude.md). Totals only, no player IDs. Rewritten each morning by the stats task.",
- "runs": 558,
+ "runs": 566,
  "players": 96,
- "retired": 39,
- "deaths": 371,
+ "retired": 42,
+ "deaths": 372,
  "median_min": 3.6,
- "median_age": 45.0,
- "reach": {
-  "45": 50,
-  "50": 33,
-  "55": 20,
-  "60": 16,
-  "65": 8
- },
+ "median_age": 45.1,
+ "reach": {"45": 51, "50": 33, "55": 20, "60": 17, "65": 8},
  "killers": [
-  {
-   "name": "Bill",
-   "n": 129,
-   "age": 45.1
-  },
-  {
-   "name": "Snack Attack",
-   "n": 53,
-   "age": 47.9
-  },
-  {
-   "name": "Late Fee",
-   "n": 51,
-   "age": 43.9
-  },
-  {
-   "name": "Group Chat",
-   "n": 37,
-   "age": 58.1
-  },
-  {
-   "name": "Spam Call",
-   "n": 27,
-   "age": 47.9
-  }
+  {"name": "Bill", "n": 129, "age": 45.1},
+  {"name": "Snack Attack", "n": 53, "age": 47.9},
+  {"name": "Late Fee", "n": 51, "age": 43.9},
+  {"name": "Group Chat", "n": 37, "age": 58.1},
+  {"name": "Spam Call", "n": 27, "age": 47.9}
  ],
  "lag": [
-  {
-   "dev": "macOS",
-   "n": 182,
-   "fps": 84,
-   "slow": 1
-  },
-  {
-   "dev": "iOS",
-   "n": 139,
-   "fps": 59,
-   "slow": 3
-  },
-  {
-   "dev": "Windows",
-   "n": 98,
-   "fps": 68,
-   "slow": 1
-  },
-  {
-   "dev": "Android",
-   "n": 56,
-   "fps": 62,
-   "slow": 8
-  },
-  {
-   "dev": "iPadOS",
-   "n": 47,
-   "fps": 64,
-   "slow": 0
-  }
+  {"dev": "macOS", "n": 184, "fps": 84, "slow": 1},
+  {"dev": "iOS", "n": 139, "fps": 59, "slow": 3},
+  {"dev": "Windows", "n": 104, "fps": 67, "slow": 1},
+  {"dev": "Android", "n": 56, "fps": 62, "slow": 8},
+  {"dev": "iPadOS", "n": 47, "fps": 64, "slow": 0}
  ],
  "best": 2831870,
  "best_age": 144.1

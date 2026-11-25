@@ -1,25 +1,25 @@
-# Play stats: Nov 24 morning (last 24 hours)
-**One run overnight: a returning player made it to 53 in Full Life before a 3 AM Thought got them.**
+# Play stats: Nov 25 morning (last 24 hours)
+**Big night for Full Life: 8 runs from 2 returning players, and 3 of them retired past 100.**
 
 **Who played**
-- 1 run from 1 returning player in the last 24 hours (the 7 days before: 28 runs from 9 players, 3 new)
-- All-time: 558 runs from 96 players, 39 retirements, 8 runs past 100
+- 8 runs from 2 returning players in the last 24 hours (the 7 days before: 23 runs from 7 players, 3 new)
+- All-time: 566 runs from 96 players, 42 retirements, 11 runs past 100
 
 **How far they got**
-- Last 24 hours: one Full Life run, 6.5 min, reached age 53.1 (score 81,790)
-- The 7 days before: median run 4.1 min, average 9.3 min, median age 46.5
-- Reached 45: 54%, 50: 39%, 55: 32%, 60: 29%, 65: 29%
-- 8 retirements, 1 Full Life run past 100 (best score 1,914,270, highest age 104.6)
+- Last 24 hours: all Full Life. Median run 7.1 min, average 14.0 min, median age 53.9
+- Reached 45: 75%, 50: 50%, 55: 50%, 60: 50%, 65: 38%
+- 3 retirements past 100, each about 31 minutes (best score 1,911,797, highest age 103.9)
+- The 7 days before: median run 4.5 min, median age 47.0, 5 retirements
 - All-time best 2,831,870, highest age 144.1
 
 **Top killers**
-- Last 24 hours: 3 AM Thought (age 53.1)
-- The 7 days before: Bill took 10 of 13 deaths (average age 45.6), then one each for 3 AM Thought, Snack Attack and Leaf Pile
+- Last 24 hours: one death, Midlife Crisis at 60.7
+- The 7 days before: Bill took 10 of 14 deaths (average age 45.6), then 3 AM Thought (2), Snack Attack and Leaf Pile
 
 **Difficulty**
-- Last 24 hours: 23 hits and 129 damage taken, no early death
-- The 7 days before: 3 of 13 deaths before 42, median 23.5 hits and 44.5 damage taken per run
+- Last 24 hours: no deaths before 42, median 14.5 hits and 80.5 damage taken per run
+- The 7 days before: 3 of 14 deaths before 42 (all at age 40), median 25 hits and 50 damage taken
 
 **Lag**
-- Last 24 hours: Windows Chrome at 60 fps, no slow frames
-- The 7 days before: macOS 91 fps, Windows and iPhone about 60 fps. One Linux Chrome browser averaged 14 fps with 99% slow frames over 3 runs. Lag flagged
+- Last 24 hours: Windows Chrome 60 fps, macOS Chrome 100 fps, no slow frames
+- All-time: macOS 84 fps, Windows 67, iPadOS 64, Android 62, iOS 59. Linux Chrome averages 28 fps with 66% slow frames over 12 runs. Lag flagged
