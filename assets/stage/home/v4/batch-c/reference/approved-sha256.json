@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "402ba0d56e065d766a26068444ec9ba60f32ebbe",
+  "files": {
+    "reference/batch-b-wicker-chair.png": "f1059c496acb6c08c32a758f9a16be718746db9a1edc74b60880f2b829e0abf4",
+    "string-light-posts-v4.png": "cf596eb215dde10c3cbdbf98ad587866b45def4648d9e966adeaa3535287a0e7",
+    "working-8x/string-light-posts-8x.png": "80e5aa60ca9843fbf17ab494634831947c10c5ede7eb232b18c4998c0f664926",
+    "string-light-strand-v4.png": "97c885b30be104eb42f540561623e35d23e9d5e7db46cd1aca29fafea49c0808",
+    "working-8x/string-light-strand-8x.png": "61bdd84e14322ca830c0fb8870c823c4aec332561c608273359112a800ae44a2",
+    "cabbage-bed-v4.png": "f074dad632cda7e144d5840d375d0a01059d62316f3b10f5494e2ec34ba3cf56",
+    "working-8x/cabbage-bed-8x.png": "db91b04adb6764891810f2c41b9bcf0f951bc1588d4d0cc13fb149082fa5bbb5"
+  }
+}
