@@ -1,26 +1,24 @@
-# Play stats: Nov 27 morning (last 24 hours)
-**A quiet Thanksgiving night: 7 runs, every one ended in a death, and Late Fee did the most damage early.**
+# Play stats: Nov 28 morning (last 24 hours)
+**A quiet day after Thanksgiving: no runs from players in the last 24 hours.**
 
 **Who played**
-- 7 runs from 4 players in the last 24 hours, 3 of them new (the 7 days before: 37 runs from 12 players, 8 new)
+- 0 runs in the last 24 hours (the 7 days before: 37 runs from 13 players, 10 new)
 - All-time: 584 runs from 105 players, 42 retirements, 11 runs past 100
 
 **How far they got**
-- Last 24 hours: 5 core Midlife runs (office) and 2 Full Life runs (home). Median run 1.8 min, average 2.6 min, median age 43.0
-- Reached 45: 14%, reached 50: 14%, nobody past 55. Best age 54.2, best score 87,325
-- 7 of 7 runs were deaths, no quits, no retirements
-- The 7 days before: median run 3.2 min, median age 44.4, 19% reached 65, 7 retirements (4 past 100)
+- Last 24 hours: no runs to measure
+- The 7 days before: median run 2.2 min, average 7.6 min, median age 44.0
+- The 7 days before: reached 45: 38%, 50: 32%, 55: 24%, 60: 22%, 65: 19%. 7 retirements (4 past 100), best age 104.6, best score 1,914,270
 - All-time best 2,831,870, highest age 144.1
 
 **Top killers**
-- Last 24 hours: Late Fee (3, average age 42.2), Bill (2, average age 42.9), Spam Call (1, age 43.6), Mortgage Refinance (1, age 54.2)
-- The 7 days before: Bill took 11 of 19 deaths (average age 44.9), then Late Fee (3), 3 AM Thought (2), Leaf Pile, Midlife Crisis and Snack Attack
+- The 7 days before: Bill (8, average age 44.4), Late Fee (6, average age 42.9), 3 AM Thought (2, age 52.7), Midlife Crisis (1), Mortgage Refinance (1)
+- All-time: Bill (133), Late Fee (57), Snack Attack (53), Group Chat (37), Spam Call (28)
 
 **Difficulty**
-- Last 24 hours: 2 of 7 deaths before 42 (both at 41), most deaths at 43, median 19 hits and 29 damage taken per run
-- The 7 days before: 3 of 19 deaths before 42 (all at age 40), most deaths at 44, median 19 hits and 22 damage taken
+- The 7 days before: 5 of 19 deaths before 42, most deaths at 43, median 19 hits and 22 damage taken per run
 
 **Lag**
-- Last 24 hours: iPadOS Safari 107 fps over 5 runs, Windows Chrome 60, iOS Safari 60. No lag
-- The 7 days before: Linux Chrome 14 fps with 99% slow frames and iOS Safari 38 fps with 67% slow frames (3 runs each). Lag flagged
+- Last 24 hours: no runs to check
+- The 7 days before: Linux Chrome 14 fps with 99% slow frames and iOS Safari 39 fps with 66% slow frames (3 runs each). Lag flagged
 - All-time: macOS 84 fps, Windows 68, iPadOS 68, Android 62, iOS 58. Linux averages 28 fps with 66% slow frames over 12 runs. Lag flagged
