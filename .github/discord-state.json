@@ -16,7 +16,7 @@
     "13-side-characters",
     "14-achievement-unlocked-gaussian-splatting"
   ],
-  "statsHash": "237ec3e46ef82cc9f93ad752acad3446e925d7e0a8492f6a58fc438654fe1747",
+  "statsHash": "3feeb3ddc7f7e0624a15f26cb5e128191556dc7b6747ce4f5b73408e917ad106",
   "backfill": {
     "changelogDone": [
       "Oct 30, 2026#1",
@@ -37,6 +37,6 @@
     "bosses-v1",
     "props-v1"
   ],
-  "statsTitle": "Play stats: Nov 27 morning (last 24 hours)",
-  "statsMessageId": "1575851201805680671"
+  "statsTitle": "Play stats: Nov 28 morning (last 24 hours)",
+  "statsMessageId": "1576213609606938666"
 }
